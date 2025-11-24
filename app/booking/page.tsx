@@ -1,4 +1,5 @@
 import BookingForm from '@/components/BookingForm';
+import { Suspense } from 'react';
 
 export default function BookingPage() {
     return (
@@ -11,7 +12,9 @@ export default function BookingPage() {
                     </p>
                 </div>
 
-                <BookingForm />
+                <Suspense fallback={<div className="text-white text-center">Loading booking form...</div>}>
+                    <BookingForm />
+                </Suspense>
             </div>
         </div>
     );

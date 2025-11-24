@@ -7,20 +7,24 @@ interface ServiceCardProps {
     icon: LucideIcon;
 }
 
+import Link from 'next/link';
+
 export default function ServiceCard({ title, description, icon: Icon }: ServiceCardProps) {
     return (
-        <Card className="bg-zinc-900 border-zinc-800 hover:border-primary/50 transition-colors group">
-            <CardHeader>
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <Icon className="w-6 h-6 text-primary" />
-                </div>
-                <CardTitle className="text-white text-xl">{title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-                <CardDescription className="text-gray-400 text-base">
-                    {description}
-                </CardDescription>
-            </CardContent>
-        </Card>
+        <Link href={`/booking?service=${encodeURIComponent(title)}`} className="block h-full">
+            <Card className="bg-zinc-900 border-zinc-800 hover:border-primary/50 transition-colors group h-full cursor-pointer">
+                <CardHeader>
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                        <Icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <CardTitle className="text-white text-xl">{title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <CardDescription className="text-gray-400 text-base">
+                        {description}
+                    </CardDescription>
+                </CardContent>
+            </Card>
+        </Link>
     );
 }

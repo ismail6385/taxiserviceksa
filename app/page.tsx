@@ -9,6 +9,7 @@ import HowItWorks from '@/components/HowItWorks';
 import SEOContent from '@/components/SEOContent';
 import BlogPreview from '@/components/BlogPreview';
 import VideoTour from '@/components/VideoTour';
+import ServiceKeywords from '@/components/ServiceKeywords';
 import { Plane, MapPin, Building2, Clock, Shield, Star, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -67,6 +68,10 @@ export default function Home() {
       {
         "@type": "City",
         "name": "Riyadh"
+      },
+      {
+        "@type": "City",
+        "name": "Taif"
       }
     ],
     "hasOfferCatalog": {
@@ -78,7 +83,7 @@ export default function Home() {
           "itemOffered": {
             "@type": "Service",
             "name": "Airport Transfer Service",
-            "description": "Professional airport transfers in Saudi Arabia"
+            "description": "Professional airport transfers in Saudi Arabia including Jeddah, Madinah, and Riyadh airports."
           }
         },
         {
@@ -86,7 +91,7 @@ export default function Home() {
           "itemOffered": {
             "@type": "Service",
             "name": "Umrah Taxi Service",
-            "description": "Dedicated Umrah transportation between Makkah and Madinah"
+            "description": "Dedicated Umrah transportation between Makkah and Madinah with experienced drivers."
           }
         },
         {
@@ -94,7 +99,15 @@ export default function Home() {
           "itemOffered": {
             "@type": "Service",
             "name": "Intercity Chauffeur",
-            "description": "Luxury intercity travel across Saudi Arabia"
+            "description": "Luxury intercity travel across Saudi Arabia including Makkah to Madinah and Jeddah to Makkah."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Ziyarat Tours",
+            "description": "Guided tours to holy sites in Makkah and Madinah."
           }
         }
       ]
@@ -120,25 +133,25 @@ export default function Home() {
 
   const fleet = [
     {
-      name: "Lexus ES 250",
-      image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop",
-      passengers: 3,
+      name: "Toyota Camry",
+      image: "https://images.unsplash.com/photo-1621007947382-bb3c3968e3bb?q=80&w=2070&auto=format&fit=crop",
+      passengers: 4,
       luggage: 2,
-      features: ["Leather Seats", "Free Wi-Fi", "Bottled Water"]
+      features: ["Comfortable Seating", "AC", "Economic Choice"]
     },
     {
-      name: "GMC Yukon XL",
+      name: "GMC Yukon",
       image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1974&auto=format&fit=crop",
       passengers: 7,
       luggage: 5,
-      features: ["Extra Legroom", "Privacy Glass", "Premium Sound"]
+      features: ["Luxury Interior", "Extra Legroom", "VIP Experience"]
     },
     {
-      name: "Mercedes S Class",
-      image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=2070&auto=format&fit=crop",
-      passengers: 3,
-      luggage: 2,
-      features: ["First Class Comfort", "Massage Seats", "Executive Service"]
+      name: "Hyundai Staria",
+      image: "https://images.unsplash.com/photo-1632245889029-e406faaa34cd?q=80&w=1974&auto=format&fit=crop",
+      passengers: 7,
+      luggage: 4,
+      features: ["Modern Design", "Spacious", "Family Travel"]
     }
   ];
 
@@ -305,6 +318,8 @@ export default function Home() {
 
       <SEOContent />
 
+      <ServiceKeywords />
+
       {/* CTA Section */}
       <section className="py-16 sm:py-20 md:py-24 bg-primary text-black text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
@@ -335,3 +350,4 @@ export default function Home() {
     </div>
   );
 }
+

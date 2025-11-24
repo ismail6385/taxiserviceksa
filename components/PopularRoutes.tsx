@@ -29,11 +29,27 @@ const routes = [
   },
   {
     from: "Riyadh Airport",
-    to: "City Center",
-    description: "Professional airport transfer for business travelers. Skip the taxi queues and arrive at your meeting or hotel in style and on time.",
-    time: "45 Mins",
-    distance: "40 KM",
+    to: "Makkah",
+    description: "Long-distance luxury transfer from Riyadh to Makkah. Ideal for those who prefer a private car over flying.",
+    time: "8 Hours 30 Mins",
+    distance: "870 KM",
     image: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
+    from: "Taif",
+    to: "Makkah",
+    description: "Scenic drive from the cool mountains of Taif to the Holy City of Makkah. Enjoy the beautiful landscapes in comfort.",
+    time: "1 Hour 10 Mins",
+    distance: "90 KM",
+    image: "https://images.unsplash.com/photo-1627834377411-8da5f4f09de8?q=80&w=2070&auto=format&fit=crop"
+  },
+  {
+    from: "Madinah Airport",
+    to: "Madinah City",
+    description: "Quick and reliable transfer from Prince Mohammad Bin Abdulaziz Airport to your hotel in Madinah.",
+    time: "25 Mins",
+    distance: "20 KM",
+    image: "https://images.unsplash.com/photo-1565657829323-57f9b97771b6?q=80&w=2070&auto=format&fit=crop"
   }
 ];
 
@@ -78,7 +94,7 @@ export default function PopularRoutes() {
                 <p className="text-gray-400 mb-6 leading-relaxed text-sm flex-1">
                   {route.description}
                 </p>
-                <Link href="/booking" className="w-full">
+                <Link href={`/booking?service=${encodeURIComponent(`${route.from} to ${route.to}`)}`} className="w-full">
                   <Button className="w-full bg-white text-black hover:bg-primary hover:text-black font-bold transition-all hover:scale-105 active:scale-95">
                     Book This Route
                   </Button>
