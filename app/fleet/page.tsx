@@ -3,44 +3,44 @@ import FleetCard from '@/components/FleetCard';
 export default function FleetPage() {
     const fleet = [
         {
-            name: "Lexus ES 250",
+            name: "Toyota Camry",
             image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070&auto=format&fit=crop",
-            passengers: 3,
+            passengers: 4,
             luggage: 2,
             features: ["Leather Seats", "Free Wi-Fi", "Bottled Water", "Climate Control"]
         },
         {
-            name: "Toyota Camry 2024",
+            name: "Hyundai Staria",
             image: "https://images.unsplash.com/photo-1621007947382-bb3c3968e3bb?q=80&w=2070&auto=format&fit=crop",
-            passengers: 3,
-            luggage: 2,
+            passengers: 7,
+            luggage: 4,
             features: ["Comfortable Seating", "AC", "USB Charging", "Economic Choice"]
         },
         {
-            name: "Mercedes S Class",
+            name: "Hyundai Starex",
             image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=2070&auto=format&fit=crop",
-            passengers: 3,
-            luggage: 2,
+            passengers: 7,
+            luggage: 4,
             features: ["First Class Comfort", "Massage Seats", "Executive Service", "Privacy Shades"]
         },
         {
-            name: "BMW 7 Series",
+            name: "GMC Yukon",
             image: "https://images.unsplash.com/photo-1555215695-3004980adade?q=80&w=2070&auto=format&fit=crop",
-            passengers: 3,
+            passengers: 7,
             luggage: 2,
             features: ["Luxury Interior", "Advanced Tech", "Smooth Ride", "Premium Sound"]
         },
         {
-            name: "GMC Yukon XL",
+            name: "Toyota Hiace",
             image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1974&auto=format&fit=crop",
-            passengers: 7,
+            passengers: 11,
             luggage: 5,
             features: ["Extra Legroom", "Privacy Glass", "Premium Sound", "Perfect for Families"]
         },
         {
-            name: "Hyundai Staria / H1",
+            name: "Toyota Coaster",
             image: "https://images.unsplash.com/photo-1626859235084-5f53229b439c?q=80&w=1974&auto=format&fit=crop",
-            passengers: 7,
+            passengers: 17,
             luggage: 6,
             features: ["Spacious Interior", "Group Travel", "AC Vents for All", "Sliding Doors"]
         },
