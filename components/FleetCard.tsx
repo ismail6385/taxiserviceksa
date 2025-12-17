@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Users, Briefcase } from 'lucide-react';
+import { Users, Briefcase, CheckCircle2, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 interface FleetCardProps {
@@ -10,47 +9,70 @@ interface FleetCardProps {
     passengers: number;
     luggage: number;
     features: string[];
+    href: string;
 }
 
-export default function FleetCard({ name, image, passengers, luggage, features }: FleetCardProps) {
+export default function FleetCard({ name, image, passengers, luggage, features, href }: FleetCardProps) {
     return (
-        <Card className="bg-zinc-900 border-zinc-800 overflow-hidden flex flex-col h-full">
-            <div className="relative h-48 w-full bg-zinc-800">
-                {/* Placeholder for image - in real app would use next/image */}
-                <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-                    <img src={image} alt={name} className="w-full h-full object-cover" />
+        <Link href={href} className="block group h-full">
+            <div className="h-full bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col">
+
+                {/* Image */}
+                <div className="relative h-56 w-full bg-gray-100 overflow-hidden">
+                    <Image
+                        src={image}
+                        alt={name}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    {/* Overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6 flex-grow flex flex-col">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-gray-900 transition-colors">
+                        {name}
+                    </h3>
+
+                    {/* Capacity Info */}
+                    <div className="flex gap-6 mb-6 pb-6 border-b border-gray-100">
+                        <div className="flex items-center text-gray-600">
+                            <div className="bg-gray-100 p-2 rounded-lg mr-3">
+                                <Users className="w-5 h-5 text-gray-700" />
+                            </div>
+                            <div>
+                                <div className="text-xs text-gray-500">Passengers</div>
+                                <div className="font-bold text-gray-900">{passengers}</div>
+                            </div>
+                        </div>
+                        <div className="flex items-center text-gray-600">
+                            <div className="bg-gray-100 p-2 rounded-lg mr-3">
+                                <Briefcase className="w-5 h-5 text-gray-700" />
+                            </div>
+                            <div>
+                                <div className="text-xs text-gray-500">Luggage</div>
+                                <div className="font-bold text-gray-900">{luggage}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Features */}
+                    <ul className="space-y-2.5 mb-6 flex-grow">
+                        {features.map((feature, index) => (
+                            <li key={index} className="text-gray-600 text-sm flex items-center">
+                                <CheckCircle2 className="w-4 h-4 text-gray-400 mr-2 flex-shrink-0" />
+                                {feature}
+                            </li>
+                        ))}
+                    </ul>
+
+                    {/* CTA Button */}
+                    <Button className="w-full bg-primary hover:bg-primary/90 text-black font-bold group-hover:shadow-lg transition-all">
+                        Book This Vehicle <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
                 </div>
             </div>
-            <CardHeader>
-                <CardTitle className="text-white text-xl">{name}</CardTitle>
-            </CardHeader>
-            <CardContent className="flex-grow">
-                <div className="flex space-x-4 mb-4 text-gray-400 text-sm">
-                    <div className="flex items-center">
-                        <Users className="w-4 h-4 mr-2 text-primary" />
-                        {passengers} Passengers
-                    </div>
-                    <div className="flex items-center">
-                        <Briefcase className="w-4 h-4 mr-2 text-primary" />
-                        {luggage} Luggage
-                    </div>
-                </div>
-                <ul className="space-y-2">
-                    {features.map((feature, index) => (
-                        <li key={index} className="text-gray-400 text-sm flex items-center">
-                            <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2" />
-                            {feature}
-                        </li>
-                    ))}
-                </ul>
-            </CardContent>
-            <CardFooter>
-                <Link href="/booking" className="w-full">
-                    <Button className="w-full bg-primary text-black hover:bg-primary/90 font-bold">
-                        Book This Vehicle
-                    </Button>
-                </Link>
-            </CardFooter>
-        </Card>
+        </Link>
     );
 }

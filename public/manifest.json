@@ -1,0 +1,24 @@
+{
+    "name": "Taxi Service KSA",
+    "short_name": "TaxiKSA",
+    "description": "Premium chauffeur and taxi services across Saudi Arabia. Airport transfers, Umrah taxi, and luxury intercity travel.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0A0E27",
+    "theme_color": "#FFBF00",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "48x48",
+            "type": "image/x-icon"
+        }
+    ],
+    "categories": [
+        "travel",
+        "transportation",
+        "business"
+    ],
+    "lang": "en-US",
+    "dir": "ltr"
+}

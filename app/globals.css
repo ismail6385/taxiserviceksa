@@ -4,48 +4,84 @@
 
 @layer base {
   :root {
+    /* InDrive-Inspired Theme - Bright Lime Green & Dark */
     --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    /* Pure White */
+    --foreground: 0 0% 9%;
+    /* Almost Black Text */
+
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card-foreground: 0 0% 9%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 45 93% 47%; /* Gold color */
+    --popover-foreground: 0 0% 9%;
+
+    /* Primary: Bright Lime Green - InDrive Style */
+    --primary: 75 100% 57%;
+    /* Lime Green #C6FF00 */
     --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 45 93% 47%;
+    /* Dark text on lime */
+
+    /* Secondary: Dark Gray/Black - Modern */
+    --secondary: 0 0% 15%;
+    /* Dark Gray #262626 */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    /* Accent: Bright Lime - Highlights */
+    --accent: 75 100% 57%;
     --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 45 93% 47%;
-    --radius: 0.5rem;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 75 100% 57%;
+    --radius: 0.75rem;
+
+    /* Custom Brand Colors - InDrive Style */
+    --lime: 75 100% 57%;
+    /* Main Lime #C6FF00 */
+    --lime-light: 75 100% 65%;
+    /* Lighter Lime */
+    --lime-dark: 75 100% 50%;
+    /* Darker Lime */
+
+    --dark: 0 0% 15%;
+    /* Dark Gray */
+    --dark-light: 0 0% 20%;
+    --dark-dark: 0 0% 9%;
+    /* Almost Black */
+
+    --gray-bg: 0 0% 98%;
+    /* Light Gray Background */
+    --gray-light: 0 0% 96%;
+    --gray-medium: 0 0% 85%;
   }
 
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 45 93% 47%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 75 100% 57%;
     --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 45 93% 47%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 75 100% 57%;
     --accent-foreground: 0 0% 9%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 45 93% 47%;
+    --destructive: 0 62% 31%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 75 100% 57%;
   }
 }
 
@@ -53,6 +89,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -62,38 +99,50 @@
   .animate-slow-zoom {
     animation: slow-zoom 20s linear infinite alternate;
   }
+
   .animate-fade-in-up {
     animation: fade-in-up 0.8s ease-out forwards;
     opacity: 0;
   }
+
   .animate-fade-in-left {
     animation: fade-in-left 0.8s ease-out forwards;
     opacity: 0;
   }
+
   .animate-gradient {
     animation: gradient 8s linear infinite;
     background-size: 200% auto;
   }
+
   .delay-100 {
     animation-delay: 100ms;
   }
+
   .delay-200 {
     animation-delay: 200ms;
   }
+
   .delay-300 {
     animation-delay: 300ms;
   }
-  
+
   @keyframes slow-zoom {
-    from { transform: scale(1); }
-    to { transform: scale(1.1); }
+    from {
+      transform: scale(1);
+    }
+
+    to {
+      transform: scale(1.1);
+    }
   }
-  
+
   @keyframes fade-in-up {
     from {
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -105,6 +154,7 @@
       opacity: 0;
       transform: translateX(20px);
     }
+
     to {
       opacity: 1;
       transform: translateX(0);
@@ -112,8 +162,16 @@
   }
 
   @keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
   }
 }

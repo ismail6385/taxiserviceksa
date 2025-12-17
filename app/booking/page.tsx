@@ -3,16 +3,17 @@ import { Suspense } from 'react';
 
 export default function BookingPage() {
     return (
-        <div className="bg-black min-h-screen pt-20 pb-20">
-            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gray-50 min-h-screen pt-24 pb-24">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Book Your Ride</h1>
-                    <p className="text-xl text-gray-400">
-                        Fill out the form below to reserve your luxury vehicle. We will confirm your booking shortly.
+                    <span className="bg-primary text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block">Secure Your Ride</span>
+                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">Book Your Ride</h1>
+                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                        Fill out the form below to reserve your luxury vehicle. Our team will verify your details and confirm your booking shortly.
                     </p>
                 </div>
 
-                <Suspense fallback={<div className="text-white text-center">Loading booking form...</div>}>
+                <Suspense fallback={<div className="text-center py-12"><div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div><p className="mt-4 text-gray-600">Loading booking form...</p></div>}>
                     <BookingForm />
                 </Suspense>
             </div>

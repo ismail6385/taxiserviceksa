@@ -66,7 +66,7 @@ export default function PopularRoutes() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {routes.map((route, index) => (
-            <div key={index} className="bg-black border border-zinc-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all group flex flex-col">
+            <div key={index} className="bg-white border border-zinc-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all group flex flex-col">
               <div className="h-48 overflow-hidden relative">
                 <img
                   src={route.image}
@@ -75,10 +75,10 @@ export default function PopularRoutes() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
-                  <div className="bg-black/60 backdrop-blur-sm px-3 py-1 rounded-lg border border-white/10">
+                  <div className="bg-white/60 backdrop-blur-sm px-3 py-1 rounded-lg border border-white/10">
                     <p className="text-primary font-bold text-sm">{route.distance}</p>
                   </div>
-                  <div className="bg-black/60 backdrop-blur-sm px-3 py-1 rounded-lg border border-white/10">
+                  <div className="bg-white/60 backdrop-blur-sm px-3 py-1 rounded-lg border border-white/10">
                     <p className="text-white text-sm">{route.time}</p>
                   </div>
                 </div>

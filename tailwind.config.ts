@@ -60,6 +60,22 @@ const config: Config = {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
+        // Midnight Blue & Amber Brand Colors
+        amber: {
+          DEFAULT: 'hsl(var(--amber))',
+          light: 'hsl(var(--amber-light))',
+          dark: 'hsl(var(--amber-dark))',
+        },
+        midnight: {
+          DEFAULT: 'hsl(var(--midnight))',
+          light: 'hsl(var(--midnight-light))',
+          dark: 'hsl(var(--midnight-dark))',
+        },
+        'night-sky': {
+          DEFAULT: 'hsl(var(--night-sky))',
+          light: 'hsl(var(--night-sky-light))',
+          dark: 'hsl(var(--night-sky-dark))',
+        },
       },
       keyframes: {
         'accordion-down': {

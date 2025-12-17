@@ -1,0 +1,202 @@
+import { Metadata } from 'next';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { Users, Briefcase, CheckCircle2, Star, Shield, Clock, Car } from 'lucide-react';
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from '@/components/ui/accordion';
+import JsonLdFAQ from '@/components/JsonLdFAQ';
+
+
+export const metadata: Metadata = {
+    title: 'GMC Yukon - Luxury VIP Transport | Taxi Service KSA',
+    description: 'Book our premium GMC Yukon for VIP transport in Saudi Arabia. Luxury interior, spacious seating for 7 passengers, perfect for executive travel and family trips.',
+    keywords: ['GMC Yukon rental Saudi Arabia', 'luxury SUV KSA', 'VIP transport', 'executive chauffeur'],
+};
+
+export default function GMCYukonPage() {
+    const features = [
+        'Luxury leather interior',
+        'Extra legroom & comfort',
+        'Premium sound system',
+        'Climate control',
+        'Privacy tinted windows',
+        'Professional chauffeur',
+        'Complimentary WiFi',
+        'Phone charging ports',
+    ];
+
+    const specifications = [
+        { label: 'Passengers', value: '7' },
+        { label: 'Luggage', value: '5 Large Bags' },
+        { label: 'Type', value: 'Luxury SUV' },
+        { label: 'Transmission', value: 'Automatic' },
+    ];
+
+    const idealFor = [
+        'VIP Airport Transfers',
+        'Executive Business Travel',
+        'Family Umrah Trips',
+        'Corporate Events',
+        'Long Distance Travel',
+        'Special Occasions',
+    ];
+
+    const faqs = [
+        {
+            question: "Does the GMC Yukon come with a professional driver?",
+            answer: "Yes, all our GMC Yukon rentals include a professional, well-trained chauffeur. We do not offer self-drive options."
+        },
+        {
+            question: "How many passengers can the GMC Yukon accommodate comfortably?",
+            answer: "The GMC Yukon is designed to carry 7 passengers with 5 large luggage pieces comfortably, ensuring a relaxing journey."
+        },
+        {
+            question: "Is fuel and toll charges included in the booking?",
+            answer: "Yes, our pricing is all-inclusive. Fuel, road tolls, and parking fees at airports are covered specially for point-to-point transfers."
+        },
+        {
+            question: "Can I book the GMC Yukon for a trip from Jeddah to Makkah?",
+            answer: "Absolutely. The GMC Yukon is an excellent choice for the Jeddah-Makkah route, providing a smooth and safe ride for Umrah pilgrims."
+        }
+    ];
+
+
+
+    return (
+        <div className="bg-gray-50 min-h-screen pt-24 pb-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <JsonLdFAQ faqs={faqs} />
+
+                {/* Hero Section */}
+                <div className="bg-white rounded-2xl overflow-hidden shadow-lg mb-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        {/* Image */}
+                        <div className="relative h-96 lg:h-auto">
+                            <Image
+                                src="/gmc-yukon.jpg"
+                                alt="GMC Yukon"
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+
+                        {/* Content */}
+                        <div className="p-8 lg:p-12 flex flex-col justify-center">
+                            <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block w-fit mb-4">
+                                Luxury VIP
+                            </span>
+                            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                                GMC Yukon
+                            </h1>
+                            <p className="text-xl text-gray-600 mb-6">
+                                Experience ultimate luxury and comfort with our premium GMC Yukon. Perfect for VIP transport and executive travel across Saudi Arabia.
+                            </p>
+
+                            {/* Specifications */}
+                            <div className="grid grid-cols-2 gap-4 mb-6">
+                                {specifications.map((spec, index) => (
+                                    <div key={index} className="bg-gray-50 p-4 rounded-lg">
+                                        <div className="text-sm text-gray-500">{spec.label}</div>
+                                        <div className="text-lg font-bold text-gray-900">{spec.value}</div>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <Link href="/booking?vehicle=GMC%20Yukon">
+                                <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold">
+                                    Book GMC Yukon Now
+                                </Button>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Features Section */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
+                    <div className="bg-white p-8 rounded-2xl shadow-sm">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6">Premium Features</h2>
+                        <ul className="space-y-3">
+                            {features.map((feature, index) => (
+                                <li key={index} className="flex items-center text-gray-700">
+                                    <CheckCircle2 className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
+                                    {feature}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div className="bg-white p-8 rounded-2xl shadow-sm">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6">Ideal For</h2>
+                        <ul className="space-y-3">
+                            {idealFor.map((use, index) => (
+                                <li key={index} className="flex items-center text-gray-700">
+                                    <Car className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
+                                    {use}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
+                {/* Stats */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                    <div className="bg-white p-6 rounded-2xl text-center shadow-sm">
+                        <Star className="w-8 h-8 text-gray-700 mx-auto mb-3" />
+                        <div className="text-3xl font-bold text-gray-900 mb-1">5.0</div>
+                        <div className="text-sm text-gray-600">Rating</div>
+                    </div>
+                    <div className="bg-white p-6 rounded-2xl text-center shadow-sm">
+                        <Users className="w-8 h-8 text-gray-700 mx-auto mb-3" />
+                        <div className="text-3xl font-bold text-gray-900 mb-1">7</div>
+                        <div className="text-sm text-gray-600">Passengers</div>
+                    </div>
+                    <div className="bg-white p-6 rounded-2xl text-center shadow-sm">
+                        <Briefcase className="w-8 h-8 text-gray-700 mx-auto mb-3" />
+                        <div className="text-3xl font-bold text-gray-900 mb-1">5</div>
+                        <div className="text-sm text-gray-600">Large Bags</div>
+                    </div>
+                    <div className="bg-white p-6 rounded-2xl text-center shadow-sm">
+                        <Shield className="w-8 h-8 text-gray-700 mx-auto mb-3" />
+                        <div className="text-3xl font-bold text-gray-900 mb-1">100%</div>
+                        <div className="text-sm text-gray-600">Safe</div>
+                    </div>
+                </div>
+
+                {/* FAQ Section */}
+                <div className="max-w-4xl mx-auto mb-12">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+                    <Accordion type="single" collapsible className="space-y-4">
+                        {faqs.map((faq, index) => (
+                            <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-xl border border-gray-200 px-6 shadow-sm">
+                                <AccordionTrigger className="text-left font-bold text-gray-900 hover:no-underline">{faq.question}</AccordionTrigger>
+                                <AccordionContent className="text-gray-600 pt-2">{faq.answer}</AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
+                </div>
+
+
+
+                {/* CTA */}
+                <div className="bg-black rounded-2xl p-8 md:p-12 text-center">
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                        Ready to Experience Luxury?
+                    </h2>
+                    <p className="text-lg text-gray-300 mb-6">
+                        Book our GMC Yukon now for your next VIP journey
+                    </p>
+                    <Link href="/booking?vehicle=GMC%20Yukon">
+                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6">
+                            Book Now
+                        </Button>
+                    </Link>
+                </div>
+            </div>
+        </div>
+    );
+}

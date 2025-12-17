@@ -144,37 +144,44 @@ const serviceCategories = [
 
 export default function ServiceKeywords() {
     return (
-        <section className="py-16 bg-zinc-950 border-t border-zinc-900">
+        <section className="py-20 bg-white border-t border-gray-200">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-12">
-                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Comprehensive Transport Services</h2>
-                    <p className="text-gray-400">Explore our wide range of taxi and chauffeur services across Saudi Arabia</p>
+                <div className="text-center mb-16">
+                    <span className="bg-primary text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block">Explore All Services</span>
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4 mb-4">Comprehensive Transport Services</h2>
+                    <p className="text-gray-600 max-w-2xl mx-auto">Browse our complete range of taxi and chauffeur services across Saudi Arabia. Click any service to book instantly.</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {serviceCategories.map((category, index) => (
-                        <div key={index} className="bg-zinc-900/30 p-6 rounded-xl border border-zinc-800 hover:border-primary/30 transition-colors">
-                            <div className="flex items-center mb-4">
-                                <category.icon className="w-6 h-6 text-primary mr-3" />
+                        <div key={index} className="bg-gray-50 p-6 rounded-2xl border border-gray-200 hover:border-primary/50 hover:shadow-lg transition-all duration-300">
+                            <div className="flex items-center mb-6">
+                                <category.icon className="w-6 h-6 text-gray-700 mr-3" />
                                 {category.title === "Airport Transfers" ? (
-                                    <Link href="/services/airport-transfers" className="hover:text-primary transition-colors">
-                                        <h3 className="text-xl font-bold text-white">{category.title}</h3>
+                                    <Link href="/services/airport-transfers" className="hover:text-black transition-colors">
+                                        <h3 className="text-xl font-bold text-gray-900">{category.title}</h3>
                                     </Link>
                                 ) : (
-                                    <h3 className="text-xl font-bold text-white">{category.title}</h3>
+                                    <h3 className="text-xl font-bold text-gray-900">{category.title}</h3>
                                 )}
                             </div>
-                            <ul className="space-y-2">
+                            <ul className="space-y-2.5">
                                 {category.services.map((service, idx) => {
                                     const isJeddahMakkah = service === "Jeddah Airport to Makkah Taxi";
-                                    const href = isJeddahMakkah
-                                        ? "/services/jeddah-airport-to-makkah-taxi"
-                                        : `/booking?service=${encodeURIComponent(service)}`;
+                                    const isJeddahPickup = service === "Jeddah Airport Pickup";
+
+                                    let href = `/booking?service=${encodeURIComponent(service)}`;
+
+                                    if (isJeddahMakkah) {
+                                        href = "/services/jeddah-airport-to-makkah-taxi";
+                                    } else if (isJeddahPickup) {
+                                        href = "/services/jeddah-airport-pickup";
+                                    }
 
                                     return (
                                         <li key={idx}>
-                                            <Link href={href} className="text-gray-400 hover:text-primary text-sm transition-colors flex items-center">
-                                                <span className="w-1.5 h-1.5 bg-primary/50 rounded-full mr-2"></span>
+                                            <Link href={href} className="text-gray-600 hover:text-black text-sm transition-colors flex items-center group">
+                                                <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mr-2 group-hover:bg-black"></span>
                                                 {service}
                                             </Link>
                                         </li>

@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  // Removed 'output: export' because API routes need dynamic rendering
+  // If you need static export, you'll need to use a different email solution
+  // (like serverless functions or external API)
   eslint: {
     ignoreDuringBuilds: true,
   },

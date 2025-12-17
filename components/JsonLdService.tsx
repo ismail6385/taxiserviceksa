@@ -1,0 +1,53 @@
+import Script from 'next/script';
+
+export default function JsonLdService() {
+    const serviceSchema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "TaxiService",
+                "name": "Airport Transfer Service",
+                "description": "Reliable airport transfers from King Abdulaziz International Airport (Jeddah) and King Khalid International Airport (Riyadh).",
+                "provider": {
+                    "@type": "LocalBusiness",
+                    "name": "Taxi Service KSA"
+                },
+                "areaServed": "Saudi Arabia",
+                "serviceType": "Airport Transfer",
+                "url": "https://taxiserviceksa.com/locations/jeddah"
+            },
+            {
+                "@type": "TaxiService",
+                "name": "Umrah Transport Service",
+                "description": "Dedicated transport for Umrah pilgrims between Makkah, Madinah, and Jeddah.",
+                "provider": {
+                    "@type": "LocalBusiness",
+                    "name": "Taxi Service KSA"
+                },
+                "areaServed": ["Makkah", "Madinah"],
+                "serviceType": "Religious Travel",
+                "url": "https://taxiserviceksa.com/locations/makkah"
+            },
+            {
+                "@type": "TaxiService",
+                "name": "Luxury Chauffeur Service",
+                "description": "VIP and corporate chauffeur services with luxury vehicles like GMC Yukon and BMW.",
+                "provider": {
+                    "@type": "LocalBusiness",
+                    "name": "Taxi Service KSA"
+                },
+                "areaServed": "Saudi Arabia",
+                "serviceType": "VIP Transport",
+                "url": "https://taxiserviceksa.com/fleet"
+            }
+        ]
+    };
+
+    return (
+        <Script
+            id="service-schema"
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+    );
+}

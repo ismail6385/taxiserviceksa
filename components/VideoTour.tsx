@@ -15,7 +15,7 @@ export default function VideoTour() {
                     alt="Luxury Interior"
                     className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-black/60"></div>
+                <div className="absolute inset-0 bg-white/60"></div>
             </div>
 
             <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -42,11 +42,11 @@ export default function VideoTour() {
 
             {/* Video Modal (Placeholder) */}
             {isPlaying && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 animate-in fade-in duration-300">
-                    <div className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/95 backdrop-blur-sm p-4 animate-in fade-in duration-300">
+                    <div className="relative w-full max-w-5xl aspect-video bg-white rounded-2xl overflow-hidden shadow-2xl border border-white/10">
                         <button
                             onClick={() => setIsPlaying(false)}
-                            className="absolute top-4 right-4 text-white hover:text-primary z-10 bg-black/50 p-2 rounded-full"
+                            className="absolute top-4 right-4 text-white hover:text-primary z-10 bg-white/50 p-2 rounded-full"
                         >
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

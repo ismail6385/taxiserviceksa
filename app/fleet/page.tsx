@@ -1,58 +1,72 @@
 import FleetCard from '@/components/FleetCard';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Our Fleet - Premium Luxury Vehicles | Taxi Service KSA',
+    description: 'Explore our diverse fleet of luxury vehicles including GMC Yukon, Toyota Camry, Hyundai Staria, Toyota Hiace, and Toyota Coaster. Perfect for airport transfers, Umrah travel, and group transportation across Saudi Arabia.',
+    keywords: ['luxury vehicles KSA', 'GMC Yukon rental', 'Toyota Hiace Saudi Arabia', 'premium fleet', 'VIP transport vehicles'],
+};
 
 export default function FleetPage() {
     const fleet = [
         {
+            name: "GMC Yukon",
+            image: "/gmc-yukon.jpg",
+            passengers: 7,
+            luggage: 5,
+            features: ["Luxury Interior", "Extra Legroom", "VIP Experience", "Premium Sound System"],
+            href: "/fleet/gmc-yukon"
+        },
+        {
             name: "Toyota Camry",
-            image: "https://images.unsplash.com/photo-1621007947382-bb3c3968e3bb?q=80&w=2070&auto=format&fit=crop",
+            image: "/toyota-camry.jpg",
             passengers: 4,
             luggage: 2,
-            features: ["Comfortable Seating", "AC", "Economic Choice", "City Travel"]
+            features: ["Comfortable Seating", "AC", "Economic Choice", "City Travel"],
+            href: "/fleet/toyota-camry"
         },
         {
             name: "Hyundai Staria",
-            image: "https://images.unsplash.com/photo-1632245889029-e406faaa34cd?q=80&w=1974&auto=format&fit=crop",
+            image: "/hyundai-staria.jpg",
             passengers: 7,
             luggage: 4,
-            features: ["Modern Design", "Spacious Interior", "USB Charging", "Family Travel"]
-        },
-        {
-            name: "Hyundai Starex",
-            image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=2070&auto=format&fit=crop",
-            passengers: 7,
-            luggage: 4,
-            features: ["Reliable", "AC", "Group Travel", "Airport Transfer"]
-        },
-        {
-            name: "GMC Yukon",
-            image: "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1974&auto=format&fit=crop",
-            passengers: 7,
-            luggage: 5,
-            features: ["Luxury Interior", "Extra Legroom", "Premium Sound", "VIP Experience"]
+            features: ["Modern Design", "Spacious", "Family Travel", "USB Charging"],
+            href: "/fleet/hyundai-staria"
         },
         {
             name: "Toyota Hiace",
-            image: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2071&auto=format&fit=crop",
+            image: "/toyota-hiace.jpg",
             passengers: 11,
-            luggage: 6,
-            features: ["High Capacity", "Group Transport", "Umrah Groups", "Reliable"]
+            luggage: 16,
+            features: ["Group Travel", "Spacious Interior", "Umrah Groups", "Reliable"],
+            href: "/fleet/toyota-hiace"
         },
         {
             name: "Toyota Coaster",
-            image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069&auto=format&fit=crop",
-            passengers: 20,
+            image: "/toyota-coaster.jpg",
+            passengers: 17,
+            luggage: 20,
+            features: ["Large Groups", "Tour Bus", "Corporate Events", "Long Distance"],
+            href: "/fleet/toyota-coaster"
+        },
+        {
+            name: "Hyundai Starex",
+            image: "/hyundai-starex.jpg",
+            passengers: 7,
             luggage: 10,
-            features: ["Large Group Transport", "Comfortable Seats", "AC", "Long Distance"]
+            features: ["Family Friendly", "Comfortable", "Reliable", "Airport Transfer"],
+            href: "/fleet/hyundai-starex"
         }
     ];
 
     return (
-        <div className="bg-black min-h-screen pt-20 pb-20">
+        <div className="bg-gray-50 min-h-screen pt-24 pb-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Premium Fleet</h1>
-                    <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                        Experience the journey in style with our diverse collection of luxury vehicles, meticulously maintained for your comfort and safety.
+                    <span className="bg-primary text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block">Our Fleet</span>
+                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">Premium Luxury Vehicles</h1>
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Experience the journey in style with our diverse collection of luxury vehicles, meticulously maintained for your comfort and safety across Saudi Arabia.
                     </p>
                 </div>
 
