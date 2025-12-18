@@ -14,6 +14,7 @@ import {
 import { Calendar, MapPin, Phone, User, Clock, Car, Mail, ArrowRight, ArrowLeft, Check, Users, Briefcase, Wallet } from 'lucide-react';
 import { supabase, vehicles, type BookingData } from '@/lib/supabase';
 import { getPrice } from '@/lib/pricing';
+import { countryCodes } from '@/data/countryCodes';
 
 const POPULAR_ROUTES = [
     { id: 'custom', label: 'Custom Location (Enter below)' },
@@ -22,7 +23,7 @@ const POPULAR_ROUTES = [
     { id: 'makkah-madinah-hotel', from: 'Makkah Hotel', to: 'Madinah Hotel', label: 'Makkah → Madinah Hotel' },
     { id: 'makkah-madinah-badr-ziyarat', from: 'Makkah', to: 'Madinah (via Badr Ziyarat)', label: 'Makkah → Madinah (via Baddar Ziyarat)' },
     { id: 'makkah-ziyarat-tour', from: 'Makkah Hotel', to: 'Makkah Ziyarat Tour', label: 'Makkah Ziyarat Tour' },
-    { id: 'madinah-hotel-airport', from: 'Madinah Hotel', to: 'Madinah Airport', label: 'Madinah Hotel → Madinah Airport' },
+    { id: 'madinah-hotel-airport', from: 'Madinah Hotel', to: 'Madinah Airport', label: 'Madinah Hotel → Jeddah Airport' },
     { id: 'madinah-ziyarat-tour', from: 'Madinah Hotel', to: 'Madinah Ziyarat Tour', label: 'Madinah Ziyarat Tour' },
     { id: 'madinah-hotel-train', from: 'Madinah Hotel', to: 'Madinah Train Station', label: 'Madinah Hotel → Train Station' },
     { id: 'madinah-hotel-jeddah-airport', from: 'Madinah Hotel', to: 'Jeddah Airport', label: 'Madinah Hotel → Jeddah Airport' },
@@ -35,6 +36,7 @@ export default function BookingForm() {
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
     const [calculatedPrice, setCalculatedPrice] = useState<number | null>(null);
+    const [countryCode, setCountryCode] = useState('+966');
 
     const [formData, setFormData] = useState<BookingData>({
         customer_name: '',
@@ -116,9 +118,13 @@ export default function BookingForm() {
         setLoading(true);
 
         try {
+            // Combine country code and phone number
+            const fullPhoneNumber = `${countryCode}${formData.customer_phone}`;
+
             // Include price in special requests if calculated, so it's saved in DB
             const finalFormData = {
                 ...formData,
+                customer_phone: fullPhoneNumber,
                 special_requests: calculatedPrice
                     ? `${formData.special_requests ? formData.special_requests + '. ' : ''}Quoted Price: SAR ${calculatedPrice}`
                     : formData.special_requests
@@ -249,17 +255,34 @@ export default function BookingForm() {
                             />
                         </div>
 
-                        <div className="relative group/input">
-                            <Phone className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors" />
-                            <Input
-                                name="customer_phone"
-                                type="tel"
-                                placeholder="Phone Number (WhatsApp) *"
-                                required
-                                value={formData.customer_phone}
-                                className="pl-10 h-12 bg-gray-50 border-gray-300 text-gray-900 focus:border-primary focus:bg-white transition-all rounded-xl"
-                                onChange={handleChange}
-                            />
+                        <div className="flex gap-2">
+                            <div className="w-[140px] flex-shrink-0">
+                                <Select value={countryCode} onValueChange={setCountryCode}>
+                                    <SelectTrigger className="h-12 bg-gray-50 border-gray-300 text-gray-900 focus:border-primary focus:ring-0 rounded-xl">
+                                        <SelectValue placeholder="Code" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        {countryCodes.map((c) => (
+                                            <SelectItem key={c.country} value={c.code}>
+                                                <span className="mr-2">{c.flag}</span>
+                                                {c.code}
+                                            </SelectItem>
+                                        ))}
+                                    </SelectContent>
+                                </Select>
+                            </div>
+                            <div className="relative group/input flex-1">
+                                <Phone className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors" />
+                                <Input
+                                    name="customer_phone"
+                                    type="tel"
+                                    placeholder="Number (WhatsApp) *"
+                                    required
+                                    value={formData.customer_phone}
+                                    className="pl-10 h-12 bg-gray-50 border-gray-300 text-gray-900 focus:border-primary focus:bg-white transition-all rounded-xl"
+                                    onChange={handleChange}
+                                />
+                            </div>
                         </div>
 
                         <Button
@@ -447,7 +470,7 @@ export default function BookingForm() {
                                 </div>
                                 <div className="flex justify-between">
                                     <span className="text-gray-600">Phone:</span>
-                                    <span className="font-semibold text-gray-900">{formData.customer_phone}</span>
+                                    <span className="font-semibold text-gray-900" dir="ltr">{countryCode} {formData.customer_phone}</span>
                                 </div>
                                 <div className="border-t border-gray-200 my-3"></div>
                                 <div className="flex justify-between">
@@ -522,6 +545,7 @@ export default function BookingForm() {
                                 setStep(1);
                                 setSuccess(false);
                                 setCalculatedPrice(null);
+                                setCountryCode('+966');
                                 setFormData({
                                     customer_name: '',
                                     customer_email: '',
