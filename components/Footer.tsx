@@ -21,36 +21,36 @@ export default function Footer() {
                             Premium chauffeur services in Saudi Arabia. Experience luxury, comfort, and reliability for all your travel needs.
                         </p>
                         <div className="flex flex-wrap gap-3">
-                            <a 
-                                href="https://www.facebook.com/people/Taxi-Service-KSA/61573850597962/" 
-                                target="_blank" 
+                            <a
+                                href="https://www.facebook.com/people/Taxi-Service-KSA/61573850597962/"
+                                target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary text-gray-400 hover:text-neutral-900 transition-all duration-300 hover:scale-110 border border-white/5 hover:border-primary"
                                 aria-label="Facebook"
                             >
                                 <Facebook className="w-5 h-5" />
                             </a>
-                            <a 
-                                href="https://www.linkedin.com/company/taxi-service-ksa/" 
-                                target="_blank" 
+                            <a
+                                href="https://www.linkedin.com/company/taxi-service-ksa/"
+                                target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary text-gray-400 hover:text-neutral-900 transition-all duration-300 hover:scale-110 border border-white/5 hover:border-primary"
                                 aria-label="LinkedIn"
                             >
                                 <Linkedin className="w-5 h-5" />
                             </a>
-                            <a 
-                                href="https://www.youtube.com/channel/UCeP44oxBUKUG5X-UhYmPMNw" 
-                                target="_blank" 
+                            <a
+                                href="https://www.youtube.com/channel/UCeP44oxBUKUG5X-UhYmPMNw"
+                                target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary text-gray-400 hover:text-neutral-900 transition-all duration-300 hover:scale-110 border border-white/5 hover:border-primary"
                                 aria-label="YouTube"
                             >
                                 <Youtube className="w-5 h-5" />
                             </a>
-                            <a 
-                                href="https://www.pinterest.com/taxiserviceksa/" 
-                                target="_blank" 
+                            <a
+                                href="https://www.pinterest.com/taxiserviceksa/"
+                                target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary text-gray-400 hover:text-neutral-900 transition-all duration-300 hover:scale-110 border border-white/5 hover:border-primary"
                                 aria-label="Pinterest"
@@ -100,6 +100,34 @@ export default function Footer() {
                         </ul>
                     </div>
 
+                    {/* Useful Links (External) */}
+                    <div>
+                        <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                            Useful Links
+                            <span className="h-1 w-8 bg-primary rounded-full"></span>
+                        </h4>
+                        <ul className="space-y-3">
+                            <li>
+                                <a href="https://www.visitsaudi.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
+                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
+                                    Visit Saudi
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://visa.visitsaudi.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
+                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
+                                    Saudi eVisa
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.haj.gov.sa" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
+                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
+                                    Ministry of Hajj
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
                     {/* Locations */}
                     <div>
                         <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
@@ -107,6 +135,12 @@ export default function Footer() {
                             <span className="h-1 w-8 bg-primary rounded-full"></span>
                         </h4>
                         <ul className="space-y-3">
+                            <li>
+                                <Link href="/locations" className="text-primary hover:text-primary/80 transition-colors flex items-center group text-sm font-semibold">
+                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 group-hover:w-2 group-hover:h-2 transition-all duration-300"></span>
+                                    View All Locations
+                                </Link>
+                            </li>
                             <li>
                                 <Link href="/locations/jeddah" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>

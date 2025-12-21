@@ -69,14 +69,15 @@ export default function Navbar() {
                         {navLinks.map((link) => (
                             <div key={link.name} className="relative group">
                                 {link.children ? (
-                                    <button
+                                    <Link
+                                        href={link.href}
                                         className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-all ${pathname.startsWith(link.href) ? 'bg-primary text-black' : 'text-gray-700 hover:bg-primary/10 hover:text-black'}
                                             }`}
                                     >
                                         <link.icon className="w-4 h-4 mr-2" />
                                         {link.name}
                                         <ChevronDown className="ml-1 w-4 h-4 group-hover:rotate-180 transition-transform" />
-                                    </button>
+                                    </Link>
                                 ) : (
                                     <Link
                                         href={link.href}

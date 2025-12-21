@@ -249,7 +249,10 @@ export default function Home() {
       <JsonLdFAQ faqs={faqs} />
 
       {/* Hero Section with New HD Images */}
-      <Hero images={heroImages} />
+      <Hero
+        images={heroImages}
+        h1Text="Premium Taxi Service KSA | Airport Transfer & Chauffeur in Saudi Arabia"
+      />
 
       {/* Services Section - RDF Optimized */}
       <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
@@ -304,7 +307,7 @@ export default function Home() {
 
           {/* View All Services Button */}
           <div className="text-center mt-8 sm:mt-10 md:mt-12">
-            <Link href="/locations/makkah">
+            <Link href="/locations">
               <Button size="lg" className="bg-black text-white hover:bg-gray-900 font-bold px-6 sm:px-8 md:px-10 py-4 sm:py-5 md:py-6 text-base sm:text-lg shadow-lg hover:shadow-xl transition-all">
                 View All Destinations
               </Button>
@@ -485,23 +488,27 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {fleet.map((vehicle, index) => (
-              <Link key={index} href={vehicle.link} className="block group h-full">
-                <div className="bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full border border-gray-200 group-hover:border-primary/50 group-hover:scale-[1.02]">
-                  <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
-                    <Image
-                      src={vehicle.image}
-                      alt={`${vehicle.name} - Luxury vehicle for ${vehicle.passengers} passengers with ${vehicle.luggage} luggage capacity`}
-                      fill
-                      className="object-cover transform group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
-                  </div>
-                  <div className="p-4 sm:p-5 md:p-6">
-                    <div className="flex justify-between items-center mb-3 sm:mb-4">
-                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{vehicle.name}</h3>
-                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-primary transition-colors transform group-hover:translate-x-1" />
+              <div key={index} className="block group h-full">
+                <div className="bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full border border-gray-200 group-hover:border-primary/50 flex flex-col">
+                  <Link href={vehicle.link} className="block">
+                    <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
+                      <Image
+                        src={vehicle.image}
+                        alt={`${vehicle.name} - Luxury vehicle for ${vehicle.passengers} passengers with ${vehicle.luggage} luggage capacity`}
+                        fill
+                        className="object-cover transform group-hover:scale-105 transition-transform duration-500"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      />
+                      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
                     </div>
+                  </Link>
+                  <div className="p-4 sm:p-5 md:p-6 flex-1 flex flex-col">
+                    <Link href={vehicle.link}>
+                      <div className="flex justify-between items-center mb-3 sm:mb-4">
+                        <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{vehicle.name}</h3>
+                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-primary transition-colors transform group-hover:translate-x-1" />
+                      </div>
+                    </Link>
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 md:gap-6 mb-3 sm:mb-4 text-gray-600 text-sm sm:text-base">
                       <div className="flex items-center gap-2">
                         <Users className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -512,7 +519,7 @@ export default function Home() {
                         <span>{vehicle.luggage} Luggage</span>
                       </div>
                     </div>
-                    <div className="space-y-1.5 sm:space-y-2">
+                    <div className="space-y-1.5 sm:space-y-2 mb-4 flex-1">
                       {vehicle.features.map((feature, idx) => (
                         <div key={idx} className="flex items-center gap-2 text-gray-600 text-sm sm:text-base">
                           <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
@@ -520,9 +527,14 @@ export default function Home() {
                         </div>
                       ))}
                     </div>
+                    <Link href={`/booking?vehicle=${encodeURIComponent(vehicle.name)}`} className="w-full">
+                      <Button className="w-full bg-primary text-black hover:bg-primary/90 font-bold transition-all">
+                        Book {vehicle.name}
+                      </Button>
+                    </Link>
                   </div>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
@@ -677,6 +689,55 @@ export default function Home() {
               </Button>
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* SEO Content Section - Rich Text for Search Engines */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-4xl mx-auto prose prose-lg">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Professional Taxi Service in Saudi Arabia</h2>
+
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Welcome to Taxi Service KSA, your trusted partner for premium chauffeur and airport transfer services across Saudi Arabia. We specialize in providing comfortable, reliable, and professional transportation solutions for travelers, pilgrims, and business executives throughout the Kingdom.
+          </p>
+
+          <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Comprehensive Transportation Services</h3>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Our extensive range of services covers all major cities and holy sites in Saudi Arabia. Whether you need an airport transfer from King Abdulaziz International Airport in Jeddah, transportation for Umrah pilgrimage between Makkah and Madinah, or a luxury chauffeur for business meetings in Riyadh, we have you covered. We operate 24/7 to ensure you always have access to reliable transportation when you need it.
+          </p>
+
+          <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Umrah and Hajj Transportation</h3>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            We understand the spiritual significance of your journey to the holy cities of Makkah and Madinah. Our experienced drivers are familiar with all major hotels, the Haram in Makkah, and Masjid Nabawi in Madinah. We provide dedicated Umrah taxi services, Ziyarat tours to historical Islamic sites, and comfortable transportation between the two holy cities. Our vehicles are spacious enough to accommodate your luggage and ensure a peaceful journey during your pilgrimage.
+          </p>
+
+          <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Airport Transfer Services</h3>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Arriving at King Abdulaziz International Airport in Jeddah, Prince Mohammad Bin Abdulaziz International Airport in Madinah, or any other airport in Saudi Arabia? Our professional drivers will be waiting to greet you and ensure a smooth transfer to your destination. We monitor flight schedules to adjust for any delays and provide meet-and-greet services to make your arrival stress-free.
+          </p>
+
+          <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Luxury Fleet and Professional Drivers</h3>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Our fleet includes premium vehicles such as the GMC Yukon for VIP experiences, Toyota Camry for comfortable city travel, Hyundai Staria and Toyota Hiace for group transportation, and Toyota Coaster for large groups and corporate events. All our vehicles are regularly maintained, air-conditioned, and equipped with modern amenities to ensure your comfort throughout the journey.
+          </p>
+
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Our drivers are professionally trained, licensed, and have extensive knowledge of Saudi Arabia's roads and destinations. They speak multiple languages including English, Arabic, and Urdu, making communication easy for international travelers. Safety is our top priority, and all our drivers undergo regular training and background checks.
+          </p>
+
+          <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Service Coverage Areas</h3>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            We provide taxi and chauffeur services in all major cities and tourist destinations across Saudi Arabia, including Jeddah, Makkah, Madinah, Riyadh, Taif, AlUla, and Khayber Fort. Whether you're visiting for religious purposes, tourism, or business, we ensure reliable transportation wherever you go in the Kingdom.
+          </p>
+
+          <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Easy Booking and Transparent Pricing</h3>
+          <p className="text-gray-700 leading-relaxed mb-4">
+            Booking with Taxi Service KSA is simple and convenient. You can book online through our website, call our 24/7 customer service, or use WhatsApp for instant booking confirmation. We offer transparent, fixed pricing with no hidden charges, so you know exactly what you're paying before your journey begins. Payment options include cash, credit cards, and digital payments for your convenience.
+          </p>
+
+          <p className="text-gray-700 leading-relaxed">
+            Join thousands of satisfied customers who trust Taxi Service KSA for their transportation needs in Saudi Arabia. Book your ride today and experience the difference of professional, reliable, and comfortable chauffeur service.
+          </p>
         </div>
       </section>
     </div>

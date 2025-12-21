@@ -1,5 +1,24 @@
 import BookingForm from '@/components/BookingForm';
 import { Suspense } from 'react';
+import type { Metadata } from 'next';
+
+type Props = {
+    searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+    const vehicle = searchParams.vehicle;
+    const vehicleName = typeof vehicle === 'string' ? vehicle : null;
+
+    return {
+        title: vehicleName
+            ? `Book ${vehicleName} Online | Taxi Service KSA`
+            : 'Taxi Booking KSA | Secure Online Reservation',
+        description: vehicleName
+            ? `Instant online booking for ${vehicleName} in Saudi Arabia. Best rates, professional drivers & 24/7 service. Reserve your ride now.`
+            : 'Book your taxi in Saudi Arabia online. Secure reservations for airport transfers, Umrah & intercity travel. 24/7 professional service.',
+    };
+}
 
 export default function BookingPage() {
     return (

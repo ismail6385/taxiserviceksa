@@ -6,7 +6,7 @@ import { MapPin, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
     title: 'Service Locations | Taxi Service KSA',
-    description: 'We provide premium taxi and chauffeur services in Jeddah, Makkah, Madinah, AlUla, Taif, and more.',
+    description: 'Premium taxi service across Saudi Arabia. Professional chauffeurs for airport transfers & tours in Jeddah, Makkah, Madinah, Riyadh, AlUla & Taif. Book 24/7.',
 };
 
 const locations = [

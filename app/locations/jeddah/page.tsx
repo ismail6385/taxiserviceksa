@@ -80,6 +80,23 @@ export default function JeddahPage() {
                 location="To Makkah & Madinah"
             />
 
+            {/* Breadcrumb Navigation */}
+            <section className="bg-white border-b border-gray-200">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                    <nav className="flex items-center space-x-2 text-sm">
+                        <Link href="/" className="text-gray-500 hover:text-gray-900 transition-colors">
+                            Home
+                        </Link>
+                        <span className="text-gray-400">/</span>
+                        <Link href="/locations" className="text-gray-500 hover:text-gray-900 transition-colors">
+                            Locations
+                        </Link>
+                        <span className="text-gray-400">/</span>
+                        <span className="text-gray-900 font-semibold">Jeddah</span>
+                    </nav>
+                </div>
+            </section>
+
             <section className="py-20 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
@@ -150,6 +167,35 @@ export default function JeddahPage() {
                                 <div className="text-sm text-gray-600">Safe</div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Plan Your Visit Section */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 border-y border-gray-200">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Useful Resources</span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Plan Your Visit to Jeddah</h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto">Essential information for travelers arriving in Jeddah</p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <a href="https://www.jed-airport.com" target="_blank" rel="noopener noreferrer" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-black hover:shadow-lg transition-all group">
+                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">Jeddah Airport (KAIA)</h3>
+                            <p className="text-sm text-gray-600">Flight schedules and terminal info</p>
+                        </a>
+                        <a href="https://www.visitsaudi.com/en/see-do/destinations/jeddah" target="_blank" rel="noopener noreferrer" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-black hover:shadow-lg transition-all group">
+                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">Visit Saudi - Jeddah</h3>
+                            <p className="text-sm text-gray-600">Tourism and attractions guide</p>
+                        </a>
+                        <a href="https://visa.visitsaudi.com" target="_blank" rel="noopener noreferrer" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-black hover:shadow-lg transition-all group">
+                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">Saudi eVisa Portal</h3>
+                            <p className="text-sm text-gray-600">Apply for tourist visa online</p>
+                        </a>
+                        <a href="https://www.haj.gov.sa" target="_blank" rel="noopener noreferrer" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-black hover:shadow-lg transition-all group">
+                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">Ministry of Hajj</h3>
+                            <p className="text-sm text-gray-600">Umrah visa information</p>
+                        </a>
                     </div>
                 </div>
             </section>

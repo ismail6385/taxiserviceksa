@@ -78,6 +78,23 @@ export default function AlUlaPage() {
                 location="Hegra & Ancient Sites"
             />
 
+            {/* Breadcrumb Navigation */}
+            <section className="bg-white border-b border-gray-200">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                    <nav className="flex items-center space-x-2 text-sm">
+                        <Link href="/" className="text-gray-500 hover:text-gray-900 transition-colors">
+                            Home
+                        </Link>
+                        <span className="text-gray-400">/</span>
+                        <Link href="/locations" className="text-gray-500 hover:text-gray-900 transition-colors">
+                            Locations
+                        </Link>
+                        <span className="text-gray-400">/</span>
+                        <span className="text-gray-900 font-semibold">AlUla</span>
+                    </nav>
+                </div>
+            </section>
+
             <section className="py-20 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
@@ -144,6 +161,35 @@ export default function AlUlaPage() {
                                 <div className="text-sm text-gray-600">Safe</div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Plan Your Visit Section */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 border-y border-gray-200">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Useful Resources</span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Plan Your Visit to AlUla</h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto">Essential information for exploring this UNESCO World Heritage Site</p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <a href="https://www.experiencealula.com" target="_blank" rel="noopener noreferrer" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-black hover:shadow-lg transition-all group">
+                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">Experience AlUla</h3>
+                            <p className="text-sm text-gray-600">Official tourism website</p>
+                        </a>
+                        <a href="https://whc.unesco.org/en/list/1293" target="_blank" rel="noopener noreferrer" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-black hover:shadow-lg transition-all group">
+                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">UNESCO - Hegra</h3>
+                            <p className="text-sm text-gray-600">World Heritage Site information</p>
+                        </a>
+                        <a href="https://www.visitsaudi.com/en/see-do/destinations/alula" target="_blank" rel="noopener noreferrer" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-black hover:shadow-lg transition-all group">
+                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">Visit Saudi - AlUla</h3>
+                            <p className="text-sm text-gray-600">Travel guide and tips</p>
+                        </a>
+                        <a href="https://visa.visitsaudi.com" target="_blank" rel="noopener noreferrer" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-black hover:shadow-lg transition-all group">
+                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">Saudi eVisa</h3>
+                            <p className="text-sm text-gray-600">Apply for tourist visa</p>
+                        </a>
                     </div>
                 </div>
             </section>

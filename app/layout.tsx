@@ -16,8 +16,8 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://taxiserviceksa.com'),
-  title: 'Taxi Service KSA | #1 Premium Chauffeur & Airport Transfer in Saudi Arabia',
-  description: 'Book premium chauffeur services in Saudi Arabia. Professional airport transfers in Jeddah, Madinah, Riyadh. Umrah taxi, luxury intercity travel, 24/7 service. Trusted by 10,000+ customers. Instant booking available.',
+  title: 'Taxi Service KSA | Premium Chauffeur & Airport Taxi',
+  description: 'Book premium chauffeur services & airport transfers in Saudi Arabia (Jeddah, Madinah, Riyadh). 24/7 Umrah taxi & luxury travel. Trusted by 10k+ clients.',
   icons: {
     icon: '/favicon.svg',
     apple: '/logo.svg',
@@ -73,7 +73,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Taxi Service KSA | #1 Premium Chauffeur & Airport Transfer in Saudi Arabia',
     description: 'Experience luxury and reliability with our top-tier chauffeur services in Saudi Arabia. Professional drivers, premium vehicles, 24/7 availability. Book your ride today and travel in comfort.',
-    url: 'https://taxiserviceksa.com',
     siteName: 'Taxi Service KSA',
     locale: 'en_US',
     type: 'website',
@@ -119,7 +118,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
+      <body className={inter.className} suppressHydrationWarning>
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-14M4JL9R6T"
@@ -133,8 +132,6 @@ export default function RootLayout({
             gtag('config', 'G-14M4JL9R6T');
           `}
         </Script>
-      </head>
-      <body className={inter.className} suppressHydrationWarning>
         <Navbar />
         <JsonLdBreadcrumb />
         <JsonLdOrganization />

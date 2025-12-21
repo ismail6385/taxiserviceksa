@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Our Fleet - Premium Luxury Vehicles | Taxi Service KSA',
-    description: 'Explore our diverse fleet of luxury vehicles including GMC Yukon, Toyota Camry, Hyundai Staria, Toyota Hiace, and Toyota Coaster. Perfect for airport transfers, Umrah travel, and group transportation across Saudi Arabia.',
+    description: 'Explore our luxury fleet: GMC Yukon, Camry, Staria & Hiace. Premium vehicles for airport transfers, Umrah & group travel in Saudi Arabia.',
     keywords: ['luxury vehicles KSA', 'GMC Yukon rental', 'Toyota Hiace Saudi Arabia', 'premium fleet', 'VIP transport vehicles'],
 };
 

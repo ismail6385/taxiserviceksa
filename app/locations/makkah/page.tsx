@@ -12,7 +12,7 @@ import {
 
 export const metadata: Metadata = {
     title: 'Taxi Service in Makkah | Umrah Transport & Airport Transfers',
-    description: 'Professional taxi service in Makkah helping pilgrims with Umrah transportation, Jeddah airport transfers, Ziyarat tours, and hotel to Haram rides. Available 24/7 with experienced drivers.',
+    description: 'Top-rated taxi service in Makkah for Umrah, Ziyarat & Jeddah airport transfers. 24/7 reliable rides from Hotel to Haram. Expert drivers.',
     keywords: ['Makkah taxi', 'Umrah taxi Makkah', 'Makkah to Madinah taxi', 'Jeddah airport to Makkah', 'Ziyarat taxi', 'Hotel to Haram taxi'],
 };
 
@@ -79,6 +79,23 @@ export default function MakkahPage() {
                 subtitle="Umrah Transportation"
                 location="24/7 Available"
             />
+
+            {/* Breadcrumb Navigation */}
+            <section className="bg-white border-b border-gray-200">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                    <nav className="flex items-center space-x-2 text-sm">
+                        <Link href="/" className="text-gray-500 hover:text-gray-900 transition-colors">
+                            Home
+                        </Link>
+                        <span className="text-gray-400">/</span>
+                        <Link href="/locations" className="text-gray-500 hover:text-gray-900 transition-colors">
+                            Locations
+                        </Link>
+                        <span className="text-gray-400">/</span>
+                        <span className="text-gray-900 font-semibold">Makkah</span>
+                    </nav>
+                </div>
+            </section>
 
             {/* Services Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8">
@@ -148,6 +165,35 @@ export default function MakkahPage() {
                                 <div className="text-sm text-gray-600">Safe</div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Plan Your Visit Section */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white border-y border-gray-200">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Useful Resources</span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Plan Your Visit to Makkah</h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto">Essential information and official resources for your journey</p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <a href="https://www.haj.gov.sa" target="_blank" rel="noopener noreferrer" className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-black hover:shadow-lg transition-all group">
+                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">Ministry of Hajj & Umrah</h3>
+                            <p className="text-sm text-gray-600">Official Umrah visa and regulations</p>
+                        </a>
+                        <a href="https://www.visitsaudi.com/en/see-do/destinations/makkah" target="_blank" rel="noopener noreferrer" className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-black hover:shadow-lg transition-all group">
+                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">Visit Saudi - Makkah</h3>
+                            <p className="text-sm text-gray-600">Tourism and travel information</p>
+                        </a>
+                        <a href="https://www.jed-airport.com" target="_blank" rel="noopener noreferrer" className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-black hover:shadow-lg transition-all group">
+                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">Jeddah Airport</h3>
+                            <p className="text-sm text-gray-600">Flight information and services</p>
+                        </a>
+                        <a href="https://visa.visitsaudi.com" target="_blank" rel="noopener noreferrer" className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:border-black hover:shadow-lg transition-all group">
+                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">Saudi eVisa</h3>
+                            <p className="text-sm text-gray-600">Apply for tourist or Umrah visa</p>
+                        </a>
                     </div>
                 </div>
             </section>

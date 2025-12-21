@@ -78,6 +78,23 @@ export default function MadinahPage() {
                 location="Prophet's Mosque"
             />
 
+            {/* Breadcrumb Navigation */}
+            <section className="bg-white border-b border-gray-200">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                    <nav className="flex items-center space-x-2 text-sm">
+                        <Link href="/" className="text-gray-500 hover:text-gray-900 transition-colors">
+                            Home
+                        </Link>
+                        <span className="text-gray-400">/</span>
+                        <Link href="/locations" className="text-gray-500 hover:text-gray-900 transition-colors">
+                            Locations
+                        </Link>
+                        <span className="text-gray-400">/</span>
+                        <span className="text-gray-900 font-semibold">Madinah</span>
+                    </nav>
+                </div>
+            </section>
+
             <section className="py-20 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">

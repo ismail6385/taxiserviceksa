@@ -1,11 +1,17 @@
 import BookingForm from '@/components/BookingForm';
 import { Clock, Send, MapPin } from 'lucide-react';
+import type { Metadata } from 'next';
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
 } from '@/components/ui/accordion';
+
+export const metadata: Metadata = {
+    title: 'Contact Taxi Service KSA | 24/7 Custormer Support',
+    description: 'Contact Taxi Service KSA for premium chauffeur inquiries. 24/7 support for airport transfers, Umrah taxi & luxury travel booking in Saudi Arabia.',
+};
 
 export default function ContactPage() {
     const faqs = [
@@ -78,6 +84,37 @@ export default function ContactPage() {
                                         <h3 className="font-bold text-gray-900">Nationwide Coverage</h3>
                                         <p className="text-sm text-gray-600">Service in Jeddah, Makkah, Madinah, Riyadh.</p>
                                     </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* Helpful Resources */}
+                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                            <h2 className="text-2xl font-bold text-gray-900 mb-6">Helpful Resources</h2>
+                            <ul className="space-y-3">
+                                <li>
+                                    <a href="https://www.visitsaudi.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black transition-colors flex items-center group text-sm">
+                                        <span className="w-1.5 h-1.5 bg-black rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-all"></span>
+                                        Visit Saudi - Official Tourism Website
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://visa.visitsaudi.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black transition-colors flex items-center group text-sm">
+                                        <span className="w-1.5 h-1.5 bg-black rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-all"></span>
+                                        Saudi eVisa Portal
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.jed-airport.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black transition-colors flex items-center group text-sm">
+                                        <span className="w-1.5 h-1.5 bg-black rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-all"></span>
+                                        King Abdulaziz International Airport
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.haj.gov.sa" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black transition-colors flex items-center group text-sm">
+                                        <span className="w-1.5 h-1.5 bg-black rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-all"></span>
+                                        Ministry of Hajj and Umrah
+                                    </a>
                                 </li>
                             </ul>
                         </div>

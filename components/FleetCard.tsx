@@ -14,26 +14,30 @@ interface FleetCardProps {
 
 export default function FleetCard({ name, image, passengers, luggage, features, href }: FleetCardProps) {
     return (
-        <Link href={href} className="block group h-full">
+        <div className="block group h-full">
             <div className="h-full bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col">
 
                 {/* Image */}
-                <div className="relative h-56 w-full bg-gray-100 overflow-hidden">
-                    <Image
-                        src={image}
-                        alt={name}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    {/* Overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
+                <Link href={href} className="block">
+                    <div className="relative h-56 w-full bg-gray-100 overflow-hidden">
+                        <Image
+                            src={image}
+                            alt={name}
+                            fill
+                            className="object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        {/* Overlay on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                </Link>
 
                 {/* Content */}
                 <div className="p-6 flex-grow flex flex-col">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-gray-900 transition-colors">
-                        {name}
-                    </h3>
+                    <Link href={href}>
+                        <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-gray-900 transition-colors">
+                            {name}
+                        </h3>
+                    </Link>
 
                     {/* Capacity Info */}
                     <div className="flex gap-6 mb-6 pb-6 border-b border-gray-100">
@@ -67,12 +71,21 @@ export default function FleetCard({ name, image, passengers, luggage, features, 
                         ))}
                     </ul>
 
-                    {/* CTA Button */}
-                    <Button className="w-full bg-primary hover:bg-primary/90 text-black font-bold group-hover:shadow-lg transition-all">
-                        Book This Vehicle <ArrowRight className="w-4 h-4 ml-2" />
-                    </Button>
+                    {/* CTA Buttons */}
+                    <div className="space-y-2">
+                        <Link href={`/booking?vehicle=${encodeURIComponent(name)}`} className="block">
+                            <Button className="w-full bg-primary hover:bg-primary/90 text-black font-bold group-hover:shadow-lg transition-all">
+                                Book {name} <ArrowRight className="w-4 h-4 ml-2" />
+                            </Button>
+                        </Link>
+                        <Link href={href} className="block">
+                            <Button variant="outline" className="w-full border-gray-300 hover:bg-gray-50 text-gray-700 font-semibold">
+                                View Details
+                            </Button>
+                        </Link>
+                    </div>
                 </div>
             </div>
-        </Link>
+        </div>
     );
 }
