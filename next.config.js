@@ -8,23 +8,7 @@ const nextConfig = {
   },
   images: { unoptimized: true },
 
-  // Redirect www to non-www
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'www.taxiserviceksa.com',
-          },
-        ],
-        destination: 'https://taxiserviceksa.com/:path*',
-        permanent: true,
-        statusCode: 308,
-      },
-    ];
-  },
+
 };
 
 module.exports = nextConfig;
