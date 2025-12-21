@@ -1,12 +1,4 @@
 {
-    "redirects": [
-        {
-            "source": "https://www.taxiserviceksa.com/:path*",
-            "destination": "https://taxiserviceksa.com/:path*",
-            "permanent": true,
-            "statusCode": 308
-        }
-    ],
     "headers": [
         {
             "source": "/(.*)",
