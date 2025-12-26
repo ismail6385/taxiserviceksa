@@ -173,7 +173,7 @@ export default function LocationPage({ params }: Props) {
                         <div className="mb-12">
                             <h2 className="text-3xl font-bold text-gray-900 mb-6">{h2Variations[0]}</h2>
                             <p className="lead text-xl text-gray-600 mb-6">{city.description}</p>
-                            <div dangerouslySetInnerHTML={{ __html: city.seoContent.overview.replace(/\*\*(.*?)\*\*/g, '<span class="bg-primary text-white hover:text-black px-1 rounded font-medium">$1</span>') }} />
+                            <p>{city.seoContent.overview}</p>
                         </div>
 
                         {/* Dynamic Service Section */}
@@ -183,13 +183,13 @@ export default function LocationPage({ params }: Props) {
                                 Our taxi fleet is specifically equipped to serve {city.primaryAudience}.
                                 Whether you are visiting <strong>{city.landmarks[0]}</strong> or need a ride to <strong>{city.landmarks[1]}</strong>, we have you covered.
                             </p>
-                            <div dangerouslySetInnerHTML={{ __html: city.seoContent.services.replace(/\*\*(.*?)\*\*/g, '<span class="bg-primary text-white hover:text-black px-1 rounded font-medium">$1</span>') }} />
+                            <p>{city.seoContent.services}</p>
                         </div>
 
                         {/* Why Choose Us */}
                         <div className="mb-12">
                             <h2 className="text-2xl font-bold text-gray-900 mb-6">{h2Variations[3]}</h2>
-                            <div dangerouslySetInnerHTML={{ __html: city.seoContent.whyChoose.replace(/\*\*(.*?)\*\*/g, '<span class="bg-primary text-white hover:text-black px-1 rounded font-medium">$1</span>') }} />
+                            <p>{city.seoContent.whyChoose}</p>
                             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 not-prose">
                                 <li className="flex items-center gap-3">
                                     <CheckCircle2 className="text-primary w-5 h-5" /> 24/7 Availability
@@ -336,7 +336,9 @@ export default function LocationPage({ params }: Props) {
                                 <AccordionTrigger className="text-left font-bold text-gray-900 hover:no-underline">
                                     {item.question}
                                 </AccordionTrigger>
-                                <AccordionContent className="text-gray-600 pt-2" dangerouslySetInnerHTML={{ __html: item.answer }} />
+                                <AccordionContent className="text-gray-600 pt-2">
+                                    {item.answer}
+                                </AccordionContent>
                             </AccordionItem>
                         ))}
                     </Accordion>

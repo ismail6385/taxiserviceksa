@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { cities } from '@/data/cities'
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://taxiserviceksa.com'
@@ -28,17 +29,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
 
     // Location Pages
-    const locationPages = [
-        '/locations/jeddah',
-        '/locations/makkah',
-        '/locations/madinah',
-        '/locations/riyadh',
-        '/locations/taif',
-        '/locations/alula',
-        '/locations/yanbu',
-        '/locations/khayber-fort',
-    ].map((route) => ({
-        url: `${baseUrl}${route}`,
+    const locationPages = Object.keys(cities).map((citySlug) => ({
+        url: `${baseUrl}/locations/${citySlug}`,
         lastModified: new Date(),
         changeFrequency: 'weekly' as const,
         priority: 0.9,

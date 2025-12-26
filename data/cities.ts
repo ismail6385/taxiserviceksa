@@ -132,8 +132,8 @@ export const cities: Record<string, CityData> = {
             ]
         },
         seoContent: {
-            overview: "As the commercial capital of Saudi Arabia, Jeddah demands efficient transportation. Our <strong>taxi service in Jeddah</strong> caters to <a href='/locations/jeddah' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>airport arrivals</a>, business executives, and families enjoying the Red Sea coast. We offer a fleet ranging from standard sedans to <a href='/fleet/gmc-yukon' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>luxury SUVs like GMC Yukon</a>.",
-            services: "Whether you need a <strong>Jeddah airport taxi</strong> for a late-night arrival or a day tour of the <strong>Jeddah Corniche</strong>, our drivers are at your service. We also specialize in seamless transfers for pilgrims arriving in Jeddah before heading to <a href='/locations/makkah' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>Makkah</a> or <a href='/locations/madinah' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>Madinah</a>.",
+            overview: "As the commercial capital of Saudi Arabia, Jeddah demands efficient transportation. Our <strong>taxi service in Jeddah</strong> caters to airport arrivals, business executives, and families enjoying the Red Sea coast. We offer a fleet ranging from standard sedans to luxury SUVs like GMC Yukon.",
+            services: "Whether you need a <strong>Jeddah airport taxi</strong> for a late-night arrival or a day tour of the <strong>Jeddah Corniche</strong>, our drivers are at your service. We also specialize in seamless transfers for pilgrims arriving in Jeddah before heading to Makkah or Madinah.",
             whyChoose: "Choose us for our punctuality and local expertise. Our drivers know the best routes to avoid traffic near <strong>King Fahd's Fountain</strong> and ensuring you reach your meetings or hotels on time."
         },
         contextualBlock: {
@@ -423,9 +423,9 @@ export const cities: Record<string, CityData> = {
             ]
         },
         seoContent: {
-            overview: "Discover the Eastern Province with our premier <strong>taxi service in Dammam</strong>. Whether you are heading to the **Dammam Corniche** for leisure or to the industrial hubs for business, we provide the right vehicle for you. We connect Dammam to <a href='/locations/riyadh' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>Riyadh</a> and other key cities.",
+            overview: "Discover the Eastern Province with our premier <strong>taxi service in Dammam</strong>. Whether you are heading to the **Dammam Corniche** for leisure or to the industrial hubs for business, we provide the right vehicle for you. We connect Dammam to Riyadh and other key cities.",
             services: "We excel in <strong>airport taxi in Dammam</strong> transfers from King Fahd International Airport. Our services also extend to day trips to **Half Moon Bay** and cultural visits to the **Ithra Center** in nearby Dhahran.",
-            whyChoose: "Locals and visitors trust our <strong>reliable taxi in Dammam</strong> for our knowledge of the Eastern Province roads. We ensure quick, safe, and comfortable rides for daily commutes or special trips in our <a href='/fleet' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>modern fleet</a>."
+            whyChoose: "Locals and visitors trust our <strong>reliable taxi in Dammam</strong> for our knowledge of the Eastern Province roads. We ensure quick, safe, and comfortable rides for daily commutes or special trips in our modern fleet."
         },
         contextualBlock: {
             title: "Connecting the Eastern Province",

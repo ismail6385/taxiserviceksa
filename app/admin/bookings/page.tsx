@@ -10,7 +10,8 @@ import {
     Download,
     Trash2,
     Eye,
-    X
+    X,
+    CheckCircle
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -464,7 +465,16 @@ export default function BookingsPage() {
                                 </div>
                             </div>
 
-                            <div className="pt-6 border-t border-neutral-800">
+                            <div className="pt-6 border-t border-neutral-800 space-y-3">
+                                {selectedBooking.status !== 'completed' && selectedBooking.status !== 'cancelled' && (
+                                    <Button
+                                        className="w-full bg-green-500 hover:bg-green-600 text-black font-bold h-12"
+                                        onClick={() => updateStatus(selectedBooking.id, 'completed')}
+                                    >
+                                        <CheckCircle className="w-5 h-5 mr-2" /> Complete Journey & Request Review
+                                    </Button>
+                                )}
+
                                 <Button className="w-full bg-red-500/10 text-red-500 hover:bg-red-500/20 border border-red-500/20" onClick={() => deleteBooking(selectedBooking.id)}>
                                     <Trash2 className="w-4 h-4 mr-2" /> Delete This Booking
                                 </Button>
