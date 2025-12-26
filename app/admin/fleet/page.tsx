@@ -58,7 +58,7 @@ export default function FleetPage() {
                     </h1>
                     <p className="text-neutral-400 mt-1">Manage your available vehicles and pricing</p>
                 </div>
-                <Button className="bg-primary text-black hover:bg-primary/90 font-bold">
+                <Button className="bg-primary text-white hover:text-black hover:bg-primary/90 font-bold">
                     <Plus className="mr-2 h-4 w-4" /> Add Vehicle
                 </Button>
             </div>

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Users, Briefcase, CheckCircle2, Star, Shield, Clock, Car } from 'lucide-react';
+import FleetPricing from '@/components/FleetPricing';
 import {
     Accordion,
     AccordionContent,
@@ -11,8 +12,8 @@ import {
 } from '@/components/ui/accordion';
 
 export const metadata: Metadata = {
-    title: 'Toyota Camry - Economic Sedan | Taxi Service KSA',
-    description: 'Book our comfortable Toyota Camry for city travel in Saudi Arabia. Economic choice, AC, perfect for airport transfers and business trips.',
+    title: 'Toyota Camry Taxi Service in Saudi Arabia | 4-Seater Sedan',
+    description: 'Toyota Camry taxi service in Saudi Arabia accommodates 4 passengers and 2 large bags. Suitable for city travel, airport transfers, and business trips. Automatic transmission.',
     keywords: ['Toyota Camry rental Saudi Arabia', 'economic taxi KSA', 'city transport', 'airport transfer'],
 };
 
@@ -47,19 +48,19 @@ export default function ToyotaCamryPage() {
     const faqs = [
         {
             question: "Does the Toyota Camry come with a professional driver?",
-            answer: "Yes, all our Toyota Camry rentals include a professional, well-trained chauffeur. We do not offer self-drive options."
+            answer: "Toyota Camry taxi service includes a professional driver. Service does not offer self-drive options. Drivers speak English and Arabic."
         },
         {
             question: "How many passengers can the Toyota Camry accommodate comfortably?",
-            answer: "The Toyota Camry is designed to carry 4 passengers with 2 large luggage pieces comfortably, ensuring a relaxing journey."
+            answer: "Toyota Camry accommodates 4 passengers with 2 large luggage pieces. Vehicle features automatic transmission and air conditioning."
         },
         {
             question: "Is fuel and toll charges included in the booking?",
-            answer: "Yes, our pricing is all-inclusive. Fuel, road tolls, and parking fees at airports are covered specially for point-to-point transfers."
+            answer: "Taxi booking includes fuel, road tolls, and airport parking fees for point-to-point transfers. Pricing is all-inclusive."
         },
         {
             question: "Can I book the Toyota Camry for a trip from Jeddah to Makkah?",
-            answer: "Absolutely. The Toyota Camry is an excellent choice for the Jeddah-Makkah route, providing a smooth and safe ride for Umrah pilgrims."
+            answer: "Toyota Camry booking is available for Jeddah to Makkah route (95 km, approximately 75 minutes). Suitable for Umrah pilgrims and business travelers."
         }
     ];
 
@@ -83,11 +84,12 @@ export default function ToyotaCamryPage() {
                                 Economic Choice
                             </span>
                             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                                Toyota Camry
+                                Toyota Camry Taxi Service in Saudi Arabia
                             </h1>
                             <p className="text-xl text-gray-600 mb-6">
-                                Reliable and comfortable sedan perfect for city travel and airport transfers. Economic choice without compromising on comfort.
+                                Toyota Camry taxi service accommodates 4 passengers with 2 large bags. Vehicle features automatic transmission and air conditioning. Suitable for city travel and airport transfers.
                             </p>
+
 
                             <div className="grid grid-cols-2 gap-4 mb-6">
                                 {specifications.map((spec, index) => (
@@ -105,6 +107,27 @@ export default function ToyotaCamryPage() {
                             </Link>
                         </div>
                     </div>
+                </div>
+
+                <div className="max-w-3xl mx-auto mb-12">
+                    <FleetPricing
+                        vehicleName="Toyota Camry"
+                        colorTheme="emerald"
+                        prices={[
+                            { route: 'Jeddah Airport → Makkah', price: '250' },
+                            { route: 'Makkah → Madinah Hotel', price: '450' },
+                            { route: 'Makkah → Madinah via Baddar Ziyarat', price: '600' },
+                            { route: 'Makkah Ziyarat Tour', price: '250' },
+                            { route: 'Madinah Hotel → Madinah Airport', price: '150' },
+                            { route: 'Madinah Ziyarat Tour', price: '200' },
+                            { route: 'Madinah Hotel → Train Station', price: '120' },
+                            { route: 'Madinah Hotel → Jeddah Airport', price: '450' },
+                            { route: 'Makkah Hotel → Train Station', price: '120' },
+                            { route: 'Makkah Hotel → Jeddah Airport', price: '200' },
+                            { route: 'Full Day (Fuel + Driver)', price: '800', highlight: true },
+                            { route: 'Per Hour (No Fuel)', price: '120', highlight: true },
+                        ]}
+                    />
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
@@ -184,6 +207,6 @@ export default function ToyotaCamryPage() {
                     </Link>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }

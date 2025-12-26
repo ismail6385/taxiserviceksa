@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Script from 'next/script';
 import { Shield, Users, Clock, Star, Award, Target, Heart, TrendingUp, CheckCircle, Car, MapPin, Headphones } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
@@ -10,9 +11,9 @@ import {
 } from '@/components/ui/accordion';
 
 export const metadata: Metadata = {
-    title: 'About Us | Taxi Service KSA - Premium Chauffeur Services',
-    description: 'Learn about Taxi Service KSA, Saudi Arabia\'s premier chauffeur service. Discover our mission, values, and commitment to luxury transportation excellence.',
-    keywords: ['about taxi service', 'Saudi Arabia chauffeur', 'premium transport', 'company mission', 'our values'],
+    title: 'About Taxi Service KSA | Airport and Umrah Transport in Saudi Arabia',
+    description: 'Taxi Service KSA operates in 8 cities across Saudi Arabia. Service includes airport transfers, Umrah transport, and intercity travel. Fleet: GMC Yukon, Toyota Camry, Hyundai Staria.',
+    keywords: ['taxi service Saudi Arabia', 'airport transfer company', 'Umrah transport provider', 'intercity taxi service'],
 };
 
 export default function AboutPage() {
@@ -40,10 +41,10 @@ export default function AboutPage() {
     ];
 
     const achievements = [
-        { number: '10,000+', label: 'Happy Customers' },
-        { number: '50+', label: 'Professional Drivers' },
-        { number: '15+', label: 'Premium Vehicles' },
-        { number: '24/7', label: 'Service Available' }
+        { number: '10,000+', label: 'Pilgrims Served' },
+        { number: '50+', label: 'Vetted Chauffeurs' },
+        { number: '15+', label: 'Luxury Fleet' },
+        { number: '24/7', label: 'Operations' }
     ];
 
     const whyChooseUs = [
@@ -72,47 +73,141 @@ export default function AboutPage() {
     const faqs = [
         {
             question: "Is Taxi Service KSA a licensed provider?",
-            answer: "Yes, we are a fully licensed and insured transportation service provider operating in compliance with Saudi Public Transport Authority regulations."
+            answer: "Taxi Service KSA operates under Saudi Public Transport Authority regulations. Service includes commercial vehicle insurance and licensed drivers."
         },
         {
             question: "Do you offer corporate accounts?",
-            answer: "Yes, we offer tailored corporate accounts with monthly billing and priority booking for businesses and organizations."
+            answer: "Corporate accounts are available for businesses and organizations. Service includes monthly billing and priority booking. Contact via email for corporate rates."
         },
         {
             question: "How do you ensure passenger safety?",
-            answer: "We prioritize safety through rigorous driver vetting, regular vehicle maintenance checks, and 24/7 trip monitoring."
+            answer: "Passenger safety includes driver background verification, vehicle maintenance inspections, and trip monitoring. Vehicles undergo monthly safety checks."
         },
         {
             question: "Can I book a ride for someone else?",
-            answer: "Absolutely. You can easily book a ride for guests, family members, or colleagues. Just provide their contact details during booking."
+            answer: "Taxi booking for other passengers is available. Booking requires passenger name and contact number. Confirmation is sent to both booker and passenger."
         },
         {
             question: "What areas do you serve?",
-            answer: "We primarily serve Jeddah, Makkah, Madinah, Taif, Yanbu, and AlUla, covering all major airports and intercity routes."
+            answer: "Service operates in Jeddah, Makkah, Madinah, Taif, Yanbu, AlUla, Riyadh, and Khaybar. Airport transfers cover King Abdulaziz Airport (Jeddah) and Prince Mohammad Airport (Madinah)."
         }
     ];
+
+    const aboutSchema = {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "header": "About Taxi Service KSA",
+        "primaryImageOfPage": "https://taxiserviceksa.com/hero-image.jpg",
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "Taxi Service KSA",
+            "foundingDate": "2012",
+            "description": "Premium taxi service provider in Saudi Arabia specializing in Umrah transport and airport transfers.",
+            "url": "https://taxiserviceksa.com",
+            "logo": "https://taxiserviceksa.com/logo.png",
+            "areaServed": "Saudi Arabia"
+        }
+    };
 
     return (
         <div className="bg-gray-50 min-h-screen pt-24 pb-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <Script
+                    id="about-schema"
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+                />
 
                 {/* Hero Section */}
                 <div className="text-center mb-16">
-                    <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
+                    <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
                         About Us
                     </span>
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        Saudi Arabia's Premier Chauffeur Service
+                        Professional Taxi Service<br />
+                        <span className="text-primary">With Licensed Drivers in Saudi Arabia</span>
                     </h1>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        We are dedicated to providing luxury, safety, and reliability for every journey across the Kingdom of Saudi Arabia.
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">
+                        Taxi Service KSA is a professional transport company operating across 8 major Saudi cities. We provide taxi services with licensed drivers for Umrah pilgrims, business travelers, and tourists.
                     </p>
+                    <div className="bg-gray-900 text-white rounded-2xl p-6 max-w-4xl mx-auto">
+                        <p className="text-lg font-bold mb-2">🚗 Important: We Are NOT a Car Rental Company</p>
+                        <p className="text-gray-300">
+                            All our vehicles include professional drivers. We do not offer self-drive car rental or ride-sharing services. Our focus is exclusively on chauffeur-driven taxi transport.
+                        </p>
+                    </div>
+                </div>
+
+                {/* What We Do - Source Context Definition */}
+                <div className="mb-20">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                            What We Do
+                        </h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Professional taxi transport with licensed drivers across Saudi Arabia
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div className="bg-white rounded-xl p-6 border-2 border-gray-200">
+                            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
+                                <Car className="w-6 h-6 text-black" />
+                            </div>
+                            <h3 className="text-lg font-bold text-gray-900 mb-2">Umrah Transport</h3>
+                            <p className="text-sm text-gray-600 mb-3">
+                                Complete transport for Umrah pilgrims from Jeddah Airport to Makkah, Makkah to Madinah, and all Ziyarat sites.
+                            </p>
+                            <Link href="/services/umrah-transport" className="text-primary font-bold text-sm hover:underline">
+                                Learn More →
+                            </Link>
+                        </div>
+
+                        <div className="bg-white rounded-xl p-6 border-2 border-gray-200">
+                            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
+                                <MapPin className="w-6 h-6 text-black" />
+                            </div>
+                            <h3 className="text-lg font-bold text-gray-900 mb-2">Airport Transfers</h3>
+                            <p className="text-sm text-gray-600 mb-3">
+                                Professional airport transfer service across 8 major Saudi airports with meet-and-greet and flight tracking.
+                            </p>
+                            <Link href="/services/airport-transfers" className="text-primary font-bold text-sm hover:underline">
+                                Learn More →
+                            </Link>
+                        </div>
+
+                        <div className="bg-white rounded-xl p-6 border-2 border-gray-200">
+                            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
+                                <Users className="w-6 h-6 text-black" />
+                            </div>
+                            <h3 className="text-lg font-bold text-gray-900 mb-2">Corporate Travel</h3>
+                            <p className="text-sm text-gray-600 mb-3">
+                                Executive transport for business professionals with monthly billing, priority booking, and dedicated account management.
+                            </p>
+                            <Link href="/services/corporate-travel" className="text-primary font-bold text-sm hover:underline">
+                                Learn More →
+                            </Link>
+                        </div>
+
+                        <div className="bg-white rounded-xl p-6 border-2 border-gray-200">
+                            <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mb-4">
+                                <Award className="w-6 h-6 text-black" />
+                            </div>
+                            <h3 className="text-lg font-bold text-gray-900 mb-2">Heritage Tours</h3>
+                            <p className="text-sm text-gray-600 mb-3">
+                                Specialized transport for UNESCO heritage sites with 4x4 desert vehicles for AlUla, Khaybar, and historical circuits.
+                            </p>
+                            <Link href="/services/heritage-tours" className="text-primary font-bold text-sm hover:underline">
+                                Learn More →
+                            </Link>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Mission & Vision Section */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
                     {/* Mission */}
-                    <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+                    <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 hover:border-black/5 transition-colors">
                         <div className="flex items-center mb-6">
                             <div className="bg-gray-100 p-3 rounded-lg mr-4">
                                 <Target className="w-8 h-8 text-black" />
@@ -120,15 +215,15 @@ export default function AboutPage() {
                             <h2 className="text-3xl font-bold text-gray-900">Our Mission</h2>
                         </div>
                         <p className="text-gray-600 text-lg leading-relaxed mb-4">
-                            At Taxi Service KSA, our mission is to redefine transportation in Saudi Arabia by offering a service that goes beyond just getting from point A to point B.
+                            Since 2012, Taxi Service KSA has been the trusted partner for Umrah pilgrims and business travelers. We don't just drive; we facilitate your spiritual and professional journeys with a deep understanding of Saudi Arabia's roads and customs.
                         </p>
                         <p className="text-gray-600 text-lg leading-relaxed">
-                            We strive to provide an experience of unmatched comfort, professionalism, and luxury. Whether you are performing Umrah, traveling for business, or exploring the kingdom, we ensure your journey is smooth, safe, and memorable.
+                            Our mission is to provide safe, reliable, and dignified transport, ensuring that every pilgrim focuses on their worship and every executive focuses on their business, while we handle the logistics.
                         </p>
                     </div>
 
                     {/* Vision */}
-                    <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+                    <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 hover:border-black/5 transition-colors">
                         <div className="flex items-center mb-6">
                             <div className="bg-gray-100 p-3 rounded-lg mr-4">
                                 <TrendingUp className="w-8 h-8 text-black" />
@@ -136,10 +231,10 @@ export default function AboutPage() {
                             <h2 className="text-3xl font-bold text-gray-900">Our Vision</h2>
                         </div>
                         <p className="text-gray-600 text-lg leading-relaxed mb-4">
-                            To become the most trusted and preferred transportation service provider in Saudi Arabia, recognized for excellence in customer service and innovation.
+                            To set the standard for ground transportation in the Kingdom, bridging the gap between Jeddah, Makkah, and Madinah with a fleet that prioritizes safety, comfort, and absolute punctuality.
                         </p>
                         <p className="text-gray-600 text-lg leading-relaxed">
-                            We envision a future where every traveler in the Kingdom experiences world-class transportation with the highest standards of safety, comfort, and reliability.
+                            We envision a seamless travel experience where "Taxi Service KSA" is synonymous with trust, bridging the historical wonders of AlUla with the modern pulse of Riyadh.
                         </p>
                     </div>
                 </div>

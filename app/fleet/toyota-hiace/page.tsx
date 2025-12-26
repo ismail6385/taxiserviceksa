@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Users, Briefcase, CheckCircle2, Star, Shield, Clock, Car } from 'lucide-react';
+import FleetPricing from '@/components/FleetPricing';
 import {
     Accordion,
     AccordionContent,
@@ -12,8 +13,8 @@ import {
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Toyota Hiace - Group Transport | Taxi Service KSA',
-    description: 'Book our spacious Toyota Hiace for group travel in Saudi Arabia. 11 passengers, perfect for Umrah groups and large families.',
+    title: 'Toyota Hiace Taxi Service in Saudi Arabia | 11-Seater Group Van',
+    description: 'Toyota Hiace taxi service accommodates 11 passengers and 16 bags. Suitable for Umrah groups, large families, and airport transfers. Multi-zone air conditioning.',
     keywords: ['Toyota Hiace rental Saudi Arabia', 'group transport KSA', 'Umrah van', '11 seater'],
 };
 
@@ -48,19 +49,19 @@ export default function ToyotaHiacePage() {
     const faqs = [
         {
             question: "Does the Toyota Hiace come with a professional driver?",
-            answer: "Yes, all our Toyota Hiace rentals include a professional, well-trained chauffeur. We do not offer self-drive options."
+            answer: "Toyota Hiace taxi service includes a professional driver. Service does not offer self-drive options. Drivers speak English and Arabic."
         },
         {
             question: "How many passengers can the Toyota Hiace accommodate comfortably?",
-            answer: "The Toyota Hiace is designed to carry 11 passengers with 16 luggage pieces comfortably, ensuring a relaxing journey for large groups."
+            answer: "Toyota Hiace accommodates 11 passengers with 16 luggage pieces. Vehicle features dedicated ceiling vents for every row and retractable boarding step."
         },
         {
             question: "Is fuel and toll charges included in the booking?",
-            answer: "Yes, our pricing is all-inclusive. Fuel, road tolls, and parking fees at airports are covered specially for point-to-point transfers."
+            answer: "Taxi booking includes fuel, road tolls, and airport parking fees for point-to-point transfers. Pricing is all-inclusive."
         },
         {
             question: "Can I book the Toyota Hiace for an Umrah trip?",
-            answer: "Absolutely. The Toyota Hiace is the preferred choice for Umrah groups traveling between Jeddah, Makkah, and Madinah."
+            answer: "Toyota Hiace booking is available for Umrah group transport between Jeddah, Makkah, and Madinah. Suitable for groups of 10-11 passengers."
         }
     ];
 
@@ -85,12 +86,13 @@ export default function ToyotaHiacePage() {
                                 Group Transport
                             </span>
                             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                                Toyota Hiace
+                                Toyota Hiace Taxi Service in Saudi Arabia
                             </h1>
                             <p className="text-xl text-gray-600 mb-6">
-                                Reliable and spacious van perfect for group travel and Umrah trips. Comfortable seating for up to 11 passengers.
+                                Toyota Hiace accommodates 11 passengers with 16 bags. Vehicle features multi-zone air conditioning and high roof option. Suitable for Umrah groups and large families.
                             </p>
 
+                            {/* Specifications */}
                             <div className="grid grid-cols-2 gap-4 mb-6">
                                 {specifications.map((spec, index) => (
                                     <div key={index} className="bg-gray-50 p-4 rounded-lg">
@@ -109,25 +111,98 @@ export default function ToyotaHiacePage() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-                    <div className="bg-white p-8 rounded-2xl shadow-sm">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-6">Features</h2>
+                <div className="max-w-3xl mx-auto mb-12">
+                    <FleetPricing
+                        vehicleName="Toyota Hiace"
+                        colorTheme="amber"
+                        prices={[
+                            { route: 'Jeddah Airport → Makkah', price: '350' },
+                            { route: 'Makkah → Madinah Hotel', price: '650' },
+                            { route: 'Makkah → Madinah via Badr Ziyarat', price: '750' },
+                            { route: 'Makkah Ziyarat Tour', price: '350' },
+                            { route: 'Madinah Hotel → Madinah Airport', price: '200' },
+                            { route: 'Madinah Ziyarat Tour', price: '300' },
+                            { route: 'Madinah Hotel → Train Station', price: '200' },
+                            { route: 'Madinah Hotel → Jeddah Airport', price: '650' },
+                            { route: 'Makkah Hotel → Train Station', price: '200' },
+                            { route: 'Makkah Hotel → Jeddah Airport', price: '300' },
+                            { route: 'Full Day (Fuel + Driver)', price: '1200', highlight: true },
+                            { route: 'Per Hour', price: '170', highlight: true },
+                        ]}
+                    />
+                </div>
+
+                {/* Experience Layer: Captain's Perspective */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <div className="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-amber-500">
+                        <div className="flex items-center gap-4 mb-4">
+                            <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
+                                <Users className="w-6 h-6 text-gray-600" />
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-gray-900">Captain Ibrahim</h3>
+                                <p className="text-xs text-gray-500 uppercase tracking-wider">Group Transport Specialist • 8 Years Exp.</p>
+                            </div>
+                        </div>
+                        <blockquote className="text-gray-600 italic mb-4">
+                            "The #1 complaint in other vans is the heat in the back row. Our 2024 Hiace models have dedicated ceiling vents for every single row, not just the front. I drove a family of 10 from Madinah to Makkah in July (45°C), and the kids in the back were asleep under blankets. That's the Hiace difference."
+                        </blockquote>
+                        <div className="flex flex-wrap gap-2">
+                            <span className="bg-amber-50 text-amber-800 px-3 py-1 rounded-full text-xs font-medium">Climate: Multi-Zone Roof Vents</span>
+                            <span className="bg-amber-50 text-amber-800 px-3 py-1 rounded-full text-xs font-medium">Capacity: 10 Pax + 15 Bags</span>
+                        </div>
+                    </div>
+
+                    <div className="bg-gray-900 text-white p-8 rounded-2xl shadow-lg relative overflow-hidden">
+                        <div className="relative z-10">
+                            <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
+                                <Briefcase className="w-5 h-5 text-amber-500" />
+                                The "Luggage Reality" Check
+                            </h3>
+                            <p className="text-gray-300 text-sm mb-4">
+                                Many providers modify vans to squeeze in 14 seats, leaving ZERO space for bags. We keep the standard <strong>11-seat layout</strong> to guarantee cargo room.
+                            </p>
+                            <ul className="space-y-3 text-gray-300 text-sm">
+                                <li className="flex items-start gap-2">
+                                    <CheckCircle2 className="w-4 h-4 text-amber-500 mt-0.5 shrink-0" />
+                                    <span><strong>Standard Config:</strong> Fits 10-11 Adults + 12-15 Large Suitcases easily.</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <CheckCircle2 className="w-4 h-4 text-amber-500 mt-0.5 shrink-0" />
+                                    <span><strong>High Roof Option:</strong> Available upon request for extra headroom and standing ease for elderly pilgrims.</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <CheckCircle2 className="w-4 h-4 text-amber-500 mt-0.5 shrink-0" />
+                                    <span><strong>Boarding Step:</strong> Retractable side step makes entering in Ihram/Abaya safe and dignified.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        {/* Decorative background element */}
+                        <div className="absolute -bottom-10 -right-10 opacity-10">
+                            <Car className="w-48 h-48" />
+                        </div>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                    <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6">Standard Features</h2>
                         <ul className="space-y-3">
                             {features.map((feature, index) => (
                                 <li key={index} className="flex items-center text-gray-700">
-                                    <CheckCircle2 className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
+                                    <CheckCircle2 className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
                                     {feature}
                                 </li>
                             ))}
                         </ul>
                     </div>
 
-                    <div className="bg-white p-8 rounded-2xl shadow-sm">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-6">Ideal For</h2>
+                    <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+                        <h2 className="text-2xl font-bold text-gray-900 mb-6">Best Suited For</h2>
                         <ul className="space-y-3">
                             {idealFor.map((use, index) => (
                                 <li key={index} className="flex items-center text-gray-700">
-                                    <Car className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
+                                    <Car className="w-5 h-5 text-amber-500 mr-3 flex-shrink-0" />
                                     {use}
                                 </li>
                             ))}

@@ -4,42 +4,45 @@
 
 @layer base {
   :root {
-    /* InDrive-Inspired Theme - Bright Lime Green & Dark */
+    /* Modern Professional Theme - Premium Taxi Service */
     --background: 0 0% 100%;
     /* Pure White */
-    --foreground: 0 0% 9%;
-    /* Almost Black Text */
+    --foreground: 222 47% 11%;
+    /* Dark Slate Text - Better readability */
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 9%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 9%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Primary: Bright Lime Green - InDrive Style */
-    --primary: 75 100% 57%;
-    /* Lime Green #C6FF00 */
-    --primary-foreground: 0 0% 9%;
-    /* Dark text on lime */
+    /* Primary: Modern Blue - Trust & Professional */
+    --primary: 221 83% 53%;
+    /* #2563EB - Modern Blue */
+    --primary-foreground: 0 0% 100%;
+    /* White text on blue */
 
-    /* Secondary: Dark Gray/Black - Modern */
-    --secondary: 0 0% 15%;
-    /* Dark Gray #262626 */
+    /* Secondary: Slate Gray - Professional & Clean */
+    --secondary: 215 16% 47%;
+    /* #64748B - Slate Gray */
     --secondary-foreground: 0 0% 100%;
+    /* White text on gray */
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    /* Accent: Bright Lime - Highlights */
-    --accent: 75 100% 57%;
-    --accent-foreground: 0 0% 9%;
+    /* Accent: Vibrant Orange - Energy & Action */
+    --accent: 24 95% 53%;
+    /* #F97316 - Vibrant Orange */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 75 100% 57%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+    /* Blue ring for focus */
     --radius: 0.75rem;
 
     /* Chart Colors (Required for shadcn charts) */
@@ -79,7 +82,29 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
+    /* Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Better focus states for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Better button and link touch targets on mobile */
+  @media (max-width: 768px) {
+    button, a {
+      min-height: 44px;
+      min-width: 44px;
+    }
   }
 }
 
@@ -103,6 +128,15 @@
     background-size: 200% auto;
   }
 
+  .animate-shimmer {
+    animation: shimmer 3s linear infinite;
+    background-size: 200% auto;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+
   .delay-100 {
     animation-delay: 100ms;
   }
@@ -113,6 +147,10 @@
 
   .delay-300 {
     animation-delay: 300ms;
+  }
+
+  .delay-400 {
+    animation-delay: 400ms;
   }
 
   @keyframes slow-zoom {
@@ -160,6 +198,28 @@
 
     100% {
       background-position: 0% 50%;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  @keyframes pulse-slow {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.8;
     }
   }
 }

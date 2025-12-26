@@ -22,7 +22,7 @@ export default function FAQPage() {
             questions: [
                 {
                     question: 'How do I book a taxi?',
-                    answer: 'You can book through our website, phone, email, or WhatsApp. Simply provide your pickup location, destination, date, time, and number of passengers. You\'ll receive a confirmation once your booking is processed.'
+                    answer: 'You can book primarily through our website booking form or by email. simply provide your pickup location, destination, date, time, and number of passengers. You\'ll receive a confirmation once your booking is processed.'
                 },
                 {
                     question: 'How far in advance should I book?',

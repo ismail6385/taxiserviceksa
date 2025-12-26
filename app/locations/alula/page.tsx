@@ -1,7 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
+import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { MapPin, Phone, Clock, Star, CheckCircle2, Car, Users, Shield, Palmtree } from 'lucide-react';
+import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Compass } from 'lucide-react';
 import Hero from '@/components/Hero';
 import {
     Accordion,
@@ -9,223 +11,269 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from '@/components/ui/accordion';
+import JsonLdFAQ from '@/components/JsonLdFAQ';
+import RelatedServices from '@/components/seo/RelatedServices';
+import QuestionsDisplay from '@/components/QuestionsDisplay';
+import ReviewsDisplay from '@/components/ReviewsDisplay';
+import ReviewForm from '@/components/seo/ReviewForm';
+import QuestionForm from '@/components/seo/QuestionForm';
 
 export const metadata: Metadata = {
-    title: 'Taxi Service to AlUla | Hegra Tours & Heritage Site Transport',
-    description: 'Professional taxi service to AlUla helping tourists with Hegra (Madain Saleh) tours, UNESCO heritage site visits, and desert exploration.',
-    keywords: ['AlUla taxi', 'Hegra tour taxi', 'Madain Saleh transport', 'AlUla heritage tour'],
+    title: 'Taxi Service in AlUla | Hegra Tours & Airport Transfer Saudi Arabia',
+    description: 'Taxi service in AlUla for Hegra UNESCO site tours and airport transfers. AlUla Airport to hotels. 4x4 vehicles for desert terrain. Fixed rates for heritage tours.',
+    keywords: ['taxi service in AlUla', 'AlUla taxi', 'Hegra tours', 'AlUla Airport transfer', 'AlUla heritage tours'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/locations/alula',
+    },
+    openGraph: {
+        title: 'Taxi Service in AlUla | Hegra Tours & Airport Transfer',
+        description: 'Taxi service in AlUla operates for UNESCO heritage tours and airport transfers. 4x4 vehicles for desert sites. Book online.',
+        url: 'https://taxiserviceksa.com/locations/alula',
+        type: 'website',
+    },
 };
 
 export default function AlUlaPage() {
     const services = [
-        { name: 'Heritage Site Tours', description: 'Hegra & ancient tombs' },
-        { name: 'Desert Excursions', description: 'Stunning landscapes' },
-        { name: 'Multi-Day Tours', description: 'Extended exploration' },
-        { name: 'Airport Transfers', description: 'AlUla International Airport' },
-        { name: 'Photography Tours', description: 'Capture ancient wonders' },
-        { name: 'Custom Itinerary', description: 'Personalized experiences' },
+        { name: 'AlUla Airport Transfer', description: 'Transfers from AlUla International Airport (ULH) to AlUla hotels and resorts', icon: Plane },
+        { name: 'Hegra UNESCO Tours', description: 'Transport to Hegra archaeological site (Madain Saleh) with 4x4 desert vehicles', icon: Compass },
+        { name: 'AlUla Heritage Circuit', description: 'Tours to Dadan, Jabal Ikmah, and Elephant Rock heritage sites', icon: MapPin },
+        { name: 'AlUla to Khaybar Route', description: 'Intercity travel between AlUla and Khaybar Fort (150 km)', icon: Car },
     ];
 
     const features = [
-        'UNESCO site expertise',
-        'Luxury 4x4 vehicles',
-        'Professional guides',
-        'Flexible schedules',
-        'Photography assistance',
-        'Premium service',
+        'Drivers with AlUla heritage site knowledge',
+        '4x4 vehicles for desert terrain access',
+        'Airport pickup with flight tracking',
+        'Flexible tour schedules for photography',
+        'Fixed fares with no hidden charges',
+        'English and Arabic speaking guides',
     ];
 
     const alulaImages = [
         '/alula-hegra-tombs.webp',
-        '/hero-slide-5.webp',
-        '/hero-slide-4.webp',
+        '/hero-slide-2.webp',
+        '/hero-slide-3.webp',
     ];
 
     const faqs = [
         {
-            question: "How do I get from AlUla Airport to Hegra (Madain Saleh)?",
-            answer: "We provide private airport transfers from AlUla International Airport (ULH) directly to your hotel or Hegra. The drive takes about 35-45 minutes."
+            question: "How far is AlUla Airport from Hegra archaeological site by taxi?",
+            answer: "AlUla International Airport (ULH) is located 30 kilometers from Hegra (Madain Saleh) UNESCO site. Taxi travel time is 25-35 minutes. Airport transfers include meet-and-greet service and luggage assistance for photography equipment."
         },
         {
-            question: "Can a taxi take me to Elephant Rock and Maraya Concert Hall?",
-            answer: "Yes, our chauffeurs can take you to all major attractions including Elephant Rock (Jabal AlFil), Maraya, and Dadan. We can arrange a full-day tour for your convenience."
+            question: "Do you provide 4x4 vehicles for AlUla desert tours?",
+            answer: "Taxi fleet includes 4x4 SUVs (GMC Yukon, Toyota Land Cruiser) suitable for AlUla desert terrain. Vehicles access Elephant Rock, Jabal Ikmah, and remote heritage sites. Drivers know safe desert routes."
         },
         {
-            question: "Is Uber available in AlUla?",
-            answer: "Ride-hailing apps can be scarce in AlUla. It is highly recommended to book a private chauffeur service in advance to ensure reliable transport in this desert region."
+            question: "Is taxi service available for multi-day AlUla heritage tours?",
+            answer: "Multi-day taxi service is available for AlUla heritage circuit tours. Service includes daily pickups from hotels, flexible schedules for sunrise/sunset photography, and rest stops. Rates are quoted per day or per tour."
         },
         {
-            question: "What is the best time to visit AlUla Old Town?",
-            answer: "The best time is usually late afternoon or evening when the temperature is cooler. Our drivers can drop you off at the entrance as cars are restricted inside the Old Town."
+            question: "How much does a taxi cost from AlUla Airport to hotels?",
+            answer: "Taxi rates from AlUla Airport to AlUla city hotels start from SAR 100. Pricing depends on vehicle type (sedan, 4x4 SUV) and resort location. Fares are fixed with no surge charges."
         },
         {
-            question: "Do you offer desert safari transport?",
-            answer: "Our 4x4 GMC Yukons are perfect for navigating the terrain around AlUla, offering a comfortable and safe ride for your desert excursions."
+            question: "Can I book a taxi from AlUla to Khaybar Fort for historical tours?",
+            answer: "Intercity taxi service is available from AlUla to Khaybar Fort (150 km). Travel time is 2-3 hours. Rates start from SAR 350. Service includes stops at viewpoints and historical markers along the route."
+        },
+        {
+            question: "Do your drivers speak English for international tourists?",
+            answer: "Drivers speak English and Arabic. Many drivers have heritage site knowledge and can provide basic historical context for Hegra, Dadan, and other AlUla attractions. Professional tour guides are available upon request."
         }
     ];
 
+    const locationSchema = {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Taxi Service AlUla",
+        "image": "https://taxiserviceksa.com/alula-hegra-tombs.webp",
+        "email": "taxiserviceksa9988@gmail.com",
+        "url": "https://taxiserviceksa.com/locations/alula",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "AlUla",
+            "addressCountry": "SA"
+        },
+        "priceRange": "$$",
+        "areaServed": "AlUla",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "850"
+        }
+    };
+
     return (
         <div className="bg-gray-50 min-h-screen">
+            <Script
+                id="location-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
+            />
+            <JsonLdFAQ faqs={faqs} />
+
+            {/* Hero Section */}
             <Hero
                 images={alulaImages}
-                h1Text="AlUla Taxi Service | Heritage Tours to Hegra & Ancient Sites"
+                h1Text="Taxi Service in AlUla: Hegra Tours and Heritage Site Transport"
                 title={
-                    <span className="bg-primary text-black px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         AlUla Taxi Service
                     </span>
                 }
-                subtitle="Heritage Tours"
-                location="Hegra & Ancient Sites"
-            />
-
-            {/* Breadcrumb Navigation */}
-            <section className="bg-white border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                    <nav className="flex items-center space-x-2 text-sm">
-                        <Link href="/" className="text-gray-500 hover:text-gray-900 transition-colors">
-                            Home
+                subtitle="UNESCO Heritage Transport"
+                location="4x4 Desert Tours Available"
+            >
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                    <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
+                        <Link href="/booking">
+                            Book Taxi Now
+                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                        <span className="text-gray-400">/</span>
-                        <Link href="/locations" className="text-gray-500 hover:text-gray-900 transition-colors">
-                            Locations
-                        </Link>
-                        <span className="text-gray-400">/</span>
-                        <span className="text-gray-900 font-semibold">AlUla</span>
-                    </nav>
+                    </Button>
+                    <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
+                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                            Email Us
+                        </a>
+                    </Button>
                 </div>
-            </section>
+            </Hero>
 
-            <section className="py-20 px-4 sm:px-6 lg:px-8">
+            {/* Services Section */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block">Our Services</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4 mb-4">
-                            AlUla Tour & Transport Services
-                        </h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">
-                            Explore the ancient wonders of AlUla with our specialized services
+                    <div className="text-center mb-16">
+                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Our Services</span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">AlUla Heritage Transport</h2>
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                            Specialized taxi service for UNESCO heritage tours and desert exploration in AlUla.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {services.map((service, index) => (
-                            <div key={index} className="bg-white p-6 rounded-2xl border border-gray-200 hover:border-primary/50 hover:shadow-lg transition-all">
-                                <Car className="w-8 h-8 text-gray-700 mb-4" />
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">{service.name}</h3>
-                                <p className="text-gray-600 text-sm">{service.description}</p>
+                            <div key={index} className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all border border-gray-200">
+                                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
+                                    <service.icon className="w-8 h-8 text-black" />
+                                </div>
+                                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.name}</h3>
+                                <p className="text-gray-600 leading-relaxed">{service.description}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+            {/* Features Section */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Why Choose Us</span>
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                                Expert AlUla Tour Specialists
-                            </h2>
-                            <p className="text-gray-600 mb-8">
-                                Experience AlUla's ancient wonders with our knowledgeable guides and premium vehicles. We specialize in UNESCO World Heritage Site tours.
-                            </p>
-                            <ul className="space-y-4">
-                                {features.map((feature, index) => (
-                                    <li key={index} className="flex items-center text-gray-700">
-                                        <CheckCircle2 className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
-                                        {feature}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-gray-50 p-6 rounded-2xl text-center border border-gray-200">
-                                <Clock className="w-8 h-8 text-gray-700 mx-auto mb-3" />
-                                <div className="text-3xl font-bold text-gray-900 mb-1">Custom</div>
-                                <div className="text-sm text-gray-600">Schedules</div>
-                            </div>
-                            <div className="bg-gray-50 p-6 rounded-2xl text-center border border-gray-200">
-                                <Users className="w-8 h-8 text-gray-700 mx-auto mb-3" />
-                                <div className="text-3xl font-bold text-gray-900 mb-1">500+</div>
-                                <div className="text-sm text-gray-600">Tourists</div>
-                            </div>
-                            <div className="bg-gray-50 p-6 rounded-2xl text-center border border-gray-200">
-                                <Star className="w-8 h-8 text-gray-700 mx-auto mb-3" />
-                                <div className="text-3xl font-bold text-gray-900 mb-1">5.0</div>
-                                <div className="text-sm text-gray-600">Rating</div>
-                            </div>
-                            <div className="bg-gray-50 p-6 rounded-2xl text-center border border-gray-200">
-                                <Shield className="w-8 h-8 text-gray-700 mx-auto mb-3" />
-                                <div className="text-3xl font-bold text-gray-900 mb-1">100%</div>
-                                <div className="text-sm text-gray-600">Safe</div>
-                            </div>
-                        </div>
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our AlUla Taxi Service</h2>
                     </div>
-                </div>
-            </section>
-
-            {/* Plan Your Visit Section */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 border-y border-gray-200">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Useful Resources</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Plan Your Visit to AlUla</h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">Essential information for exploring this UNESCO World Heritage Site</p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <a href="https://www.experiencealula.com" target="_blank" rel="noopener noreferrer" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-black hover:shadow-lg transition-all group">
-                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">Experience AlUla</h3>
-                            <p className="text-sm text-gray-600">Official tourism website</p>
-                        </a>
-                        <a href="https://whc.unesco.org/en/list/1293" target="_blank" rel="noopener noreferrer" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-black hover:shadow-lg transition-all group">
-                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">UNESCO - Hegra</h3>
-                            <p className="text-sm text-gray-600">World Heritage Site information</p>
-                        </a>
-                        <a href="https://www.visitsaudi.com/en/see-do/destinations/alula" target="_blank" rel="noopener noreferrer" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-black hover:shadow-lg transition-all group">
-                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">Visit Saudi - AlUla</h3>
-                            <p className="text-sm text-gray-600">Travel guide and tips</p>
-                        </a>
-                        <a href="https://visa.visitsaudi.com" target="_blank" rel="noopener noreferrer" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-black hover:shadow-lg transition-all group">
-                            <h3 className="font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">Saudi eVisa</h3>
-                            <p className="text-sm text-gray-600">Apply for tourist visa</p>
-                        </a>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                        {features.map((feature, index) => (
+                            <div key={index} className="flex items-center gap-3 bg-white p-6 rounded-xl border border-gray-200">
+                                <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0" />
+                                <span className="text-gray-700 font-medium">{feature}</span>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
             {/* FAQ Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-12">
-                        <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">FAQ</span>
+                    <div className="text-center mb-16">
+                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">FAQ</span>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-                        <p className="text-gray-600">Common questions about our taxi service</p>
                     </div>
+
                     <Accordion type="single" collapsible className="space-y-4">
                         {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left font-bold text-gray-900 hover:no-underline">{faq.question}</AccordionTrigger>
-                                <AccordionContent className="text-gray-600 pt-2">{faq.answer}</AccordionContent>
+                            <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-xl border border-gray-200 px-6 shadow-sm">
+                                <AccordionTrigger className="text-left hover:no-underline py-4">
+                                    <h3 className="text-lg font-bold text-gray-900 pr-4">{faq.question}</h3>
+                                </AccordionTrigger>
+                                <AccordionContent className="pb-4">
+                                    <p className="text-gray-600 leading-relaxed pt-2">{faq.answer}</p>
+                                </AccordionContent>
                             </AccordionItem>
                         ))}
                     </Accordion>
                 </div>
             </section>
 
+            {/* User-Generated Content Section */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
+                            Community Insights
+                        </span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                            Share Your AlUla Experience
+                        </h2>
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                            Help fellow travelers by sharing your experience or asking questions about AlUla transport and tours.
+                        </p>
+                    </div>
+
+                    <div className="space-y-12 mb-12">
+                        <ReviewsDisplay location="AlUla" />
+                        <QuestionsDisplay location="AlUla" />
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <ReviewForm locationName="AlUla" />
+                        <QuestionForm locationName="AlUla" />
+                    </div>
+                </div>
+            </section>
+
+            <RelatedServices
+                services={[
+                    {
+                        name: 'Heritage Tours',
+                        description: 'UNESCO heritage site tours with 4x4 desert vehicles and English-speaking guides.',
+                        href: '/services/heritage-tours',
+                        icon: Compass
+                    },
+                    {
+                        name: 'Airport Transfers',
+                        description: 'Professional airport transfer service from AlUla International Airport.',
+                        href: '/services/airport-transfers',
+                        icon: Plane
+                    },
+                ]}
+                title="Services Available in AlUla"
+                description="Professional taxi services with licensed drivers for heritage tourism."
+            />
+
+            {/* CTA Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Ready to Explore AlUla's Ancient Wonders?
+                        Book Your AlUla Heritage Tour
                     </h2>
-                    <p className="text-lg text-gray-300 mb-8">
-                        Book your UNESCO heritage tour now and discover the magic of AlUla!
+                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+                        Explore UNESCO heritage sites with professional transport and 4x4 desert vehicles.
                     </p>
-                    <Link href="#booking">
-                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6">
-                            Book Your Tour Now
-                        </Button>
-                    </Link>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link href="/booking">
+                            <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
+                                Book Your Ride
+                            </Button>
+                        </Link>
+                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                            <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
+                                Email Us
+                            </Button>
+                        </a>
+                    </div>
                 </div>
             </section>
         </div>

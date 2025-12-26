@@ -35,7 +35,7 @@ export default function LocationsPage() {
                     </h1>
                     <p className="text-neutral-400 mt-1">Manage service areas and pickup points</p>
                 </div>
-                <Button className="bg-primary text-black hover:bg-primary/90 font-bold">
+                <Button className="bg-primary text-white hover:text-black hover:bg-primary/90 font-bold">
                     <Plus className="mr-2 h-4 w-4" /> Add Location
                 </Button>
             </div>
@@ -65,8 +65,8 @@ export default function LocationsPage() {
                                 <TableCell className="text-neutral-300">{loc.type}</TableCell>
                                 <TableCell>
                                     <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${loc.status === 'Active'
-                                            ? 'bg-green-500/10 text-green-500'
-                                            : 'bg-red-500/10 text-red-500'
+                                        ? 'bg-green-500/10 text-green-500'
+                                        : 'bg-red-500/10 text-red-500'
                                         }`}>
                                         {loc.status}
                                     </span>

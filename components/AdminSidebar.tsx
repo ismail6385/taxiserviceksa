@@ -11,7 +11,10 @@ import {
     LogOut,
     Menu,
     X,
-    MapPin
+    MapPin,
+    FileText,
+    Star,
+    HelpCircle
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
@@ -20,6 +23,9 @@ import { cn } from '@/lib/utils'; // Assuming you have a utils file for class me
 const menuItems = [
     { name: 'Dashboard', href: '/admin/dashboard', icon: LayoutDashboard },
     { name: 'Bookings', href: '/admin/bookings', icon: CalendarDays },
+    { name: 'Reviews', href: '/admin/reviews', icon: Star },
+    { name: 'Questions', href: '/admin/questions', icon: HelpCircle },
+    { name: 'Blogs', href: '/admin/blogs', icon: FileText },
     { name: 'Fleet', href: '/admin/fleet', icon: Car },
     { name: 'Locations', href: '/admin/locations', icon: MapPin },
     { name: 'Settings', href: '/admin/settings', icon: Settings },

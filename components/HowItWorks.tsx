@@ -4,7 +4,7 @@ const steps = [
     {
         icon: CalendarCheck,
         title: "1. Book Your Ride",
-        description: "Choose your pickup location, destination, and preferred vehicle type. You can book online or via WhatsApp instantly."
+        description: "Choose your pickup location, destination, and preferred vehicle type. You can book online instantly."
     },
     {
         icon: Car,

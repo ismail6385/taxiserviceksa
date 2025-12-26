@@ -1,200 +1,567 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { MapPin, Phone, Clock, Star, CheckCircle2, Car, Users, Shield, Landmark } from 'lucide-react';
+import { MapPin, Phone, Clock, Star, CheckCircle2, Car, Users, Shield, Landmark, Mountain, Sun, Camera, ArrowRight, Compass } from 'lucide-react';
 import Hero from '@/components/Hero';
+import ExpertReview from '@/components/seo/ExpertReview';
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
 } from '@/components/ui/accordion';
+import Script from 'next/script';
+import JsonLdFAQ from '@/components/JsonLdFAQ';
+import DistanceTable from '@/components/seo/DistanceTable';
+import SeasonalTravelTips from '@/components/seo/SeasonalTravelTips';
+import TravelConsensus from '@/components/seo/TravelConsensus';
+import RoutePerspective from '@/components/seo/RoutePerspective';
+import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
+import TrendingTravelNote from '@/components/seo/TrendingTravelNote';
+import QuestionGrouper from '@/components/seo/QuestionGrouper';
+import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
+import SemanticField from '@/components/seo/SemanticField';
+import TopicCluster from '@/components/seo/TopicCluster';
+import RelatedServices from '@/components/seo/RelatedServices';
+import QuestionsDisplay from '@/components/QuestionsDisplay';
+import ReviewsDisplay from '@/components/ReviewsDisplay';
+import ReviewForm from '@/components/seo/ReviewForm';
+import QuestionForm from '@/components/seo/QuestionForm';
 
 export const metadata: Metadata = {
-    title: 'Taxi Service to Khayber Fort | Historical Site Tours from Madinah',
-    description: 'Professional taxi service to Khayber Fort helping visitors with historical fortress tours, day trips from Madinah, and guided heritage exploration.',
-    keywords: ['Khayber Fort taxi', 'Madinah to Khayber', 'historical site tour', 'Khayber day trip'],
+    title: 'Taxi Service to Khaybar Fort | Madinah & AlUla Transfers',
+    description: 'Taxi service requires 4x4 vehicles for white volcanoes (Harrat Khaybar). Transfers from Madinah and AlUla available. Tours include Al-Qamus Fort and ancient dams.',
+    keywords: ['Khaybar Fort taxi', 'Madinah to Khaybar taxi', 'AlUla to Khaybar transfer', 'Harrat Khaybar 4x4', 'Al-Qamus Fort tour'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/locations/khayber-fort',
+        languages: {
+            'ar': 'https://taxiserviceksa.com/ar/locations/khayber-fort',
+            'ur': 'https://taxiserviceksa.com/ur/locations/khayber-fort',
+        }
+    },
+    openGraph: {
+        title: 'Taxi Service to Khaybar Fort | Madinah & AlUla Transfers',
+        description: 'Transport to Khaybar Oasis from Madinah (170km). 4x4 vehicles available for volcanic tours.',
+        url: 'https://taxiserviceksa.com/locations/khayber-fort',
+        type: 'website',
+        images: [{ url: 'https://taxiserviceksa.com/hero-slide-2.webp', alt: 'Khaybar Fort on volcanic rock' }],
+    },
 };
 
 export default function KhayberPage() {
     const services = [
-        { name: 'Madinah to Khayber', description: 'Comfortable transport from Madinah' },
-        { name: 'Guided Tours', description: 'Historical site exploration' },
-        { name: 'Day Trips', description: 'Full day excursions' },
-        { name: 'Group Transport', description: 'For families and groups' },
-        { name: 'Photography Tours', description: 'Capture historical moments' },
-        { name: 'Custom Itinerary', description: 'Flexible scheduling' },
-    ];
-
-    const features = [
-        'Historical knowledge',
-        'Comfortable vehicles',
-        'Flexible timing',
-        'Photography stops',
-        'Multilingual guides',
-        'Safe transport',
+        { name: 'Madinah to Khayber Day Trip', description: 'Full-day historical excursion', icon: Car },
+        { name: 'Khaybar Volcano Tour', description: '4x4 Access to White Volcanoes', icon: Mountain },
+        { name: 'AlUla Connection', description: 'One-way transfer via scenic route', icon: MapPin },
+        { name: 'Oasis & Springs', description: 'Guided visits to ancient irrigation', icon: Sun },
     ];
 
     const khayberImages = [
-        '/hero-slide-2.webp',
-        '/hero-slide-5.webp',
-        '/hero-slide-1.webp',
+        '/hero-slide-2.webp', // Khaybar specific
+        '/hero-slide-5.webp', // Desert generic
+        '/hero-slide-1.webp', // Road generic
     ];
 
     const faqs = [
         {
-            question: "How far is Khaybar from AlUla?",
-            answer: "Khaybar is approximately 3 hours drive from AlUla. We provide comfortable day trips to explore its ancient oases and forts."
+            question: "How long is the drive from Madinah to Khaybar?",
+            answer: "Drive time from Madinah to Khaybar is approximately 1 hour 45 minutes to 2 hours (170 km). Route follows the highway through Harrat Khaybar volcanic fields."
         },
         {
-            question: "Do I need a 4x4 for Khaybar?",
-            answer: "While the main roads are paved, exploring some of the volcanic fields (Harrat Khaybar) might require our 4x4 GMC Yukon for better access."
+            question: "Is Khaybar open for tourists?",
+            answer: "Khaybar Oasis welcomes tourists at the new Welcome Center. Specific fort zones access depends on ongoing restoration work managed by RCU."
         },
         {
-            question: "Is there an airport in Khaybar?",
-            answer: "No, the nearest major airport is in AlUla or Madinah. We can pick you up from either airport and drive you to Khaybar."
+            question: "Can I do Khaybar and AlUla in one day?",
+            answer: "Combined itinerary involves travel from Madinah to Khaybar (stopover) and continuing to AlUla. Total journey covers significant distance."
         },
         {
-            question: "Are there guided tours available?",
-            answer: "Yes, our drivers are knowledgeable about the region's history, including the Battle of Khaybar forts. We can also arrange professional guides upon request."
+            question: "Do I need a ticket to enter Khaybar Fort?",
+            answer: "Entry requires tickets managed by the Royal Commission for AlUla (RCU). Online booking is recommended prior to arrival."
         },
         {
-            question: "What is the best time to visit Khaybar?",
-            answer: "Winter months (November to March) are ideal as summers can be extremely hot. We recommend starting your trip early in the morning."
+            question: "Is there food available in Khaybar?",
+            answer: "Dining options are limited to small cafes near the heritage village. Highway rest houses provide alternative meal stops."
         }
     ];
 
+    const distanceData = [
+        { destination: 'Madinah (Haram)', distance: '170 km', time: '1h 50m', route: 'Route 15' },
+        { destination: 'AlUla Old Town', distance: '180 km', time: '2h 10m', route: 'Route 375' },
+        { destination: 'Jeddah Airport', distance: '580 km', time: '6h', route: 'Haramain Expy' },
+        { destination: 'White Volcanoes', distance: '45 km (Off-road)', time: '1h+', route: 'Track' },
+        { destination: 'Tabuk', distance: '500 km', time: '5h 30m', route: 'Route 15' }
+    ];
+
+    const locationSchema = {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Taxi Service Khaybar",
+        "image": "https://taxiserviceksa.com/hero-slide-2.webp",
+        "email": "taxiserviceksa9988@gmail.com",
+        "url": "https://taxiserviceksa.com/locations/khayber-fort",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Khaybar",
+            "addressRegion": "Madinah Province",
+            "addressCountry": "SA"
+        },
+        "priceRange": "$$",
+        "areaServed": "Khaybar",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "320"
+        }
+    };
+
     return (
         <div className="bg-gray-50 min-h-screen">
+            <Script
+                id="location-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
+            />
+            <Script
+                id="service-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": "Khaybar Historical Tours",
+                        "provider": { "@type": "LocalBusiness", "name": "TaxiServiceKSA Khaybar" },
+                        "areaServed": { "@type": "City", "name": "Khaybar" },
+                        "description": "Private transport and guided tours to the Khaybar Fort and Oasis from Madinah."
+                    })
+                }}
+            />
+            <JsonLdFAQ faqs={faqs} />
+
             <Hero
                 images={khayberImages}
-                h1Text="Khayber Fort Taxi Service | Historical Site Tours from Madinah"
+                h1Text="Taxi Service to Khaybar Fort: Madinah and AlUla Transfers"
                 title={
-                    <span className="bg-primary text-black px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Khayber Fort Tours
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
+                        Explore Khaybar
                     </span>
                 }
-                subtitle="Historical Sites"
-                location="Day Trips from Madinah"
+                subtitle="Reliable 4x4 Tours & Intercity Transfers"
+                location="Madinah • Khaybar • AlUla"
+            >
+                <div className="max-w-3xl mx-auto mt-8 mb-6">
+                    <EntityTrustSignal
+                        brandName="TaxiServiceKSA™ Heritage"
+                        description="Khaybar is not just a ruin; it's a chapter of history written in lava and mudbrick. We provide safe, air-conditioned transport to this remote volcanic oasis."
+                        foundingDate="2012"
+                        metrics={[
+                            { label: 'Shield Trips', value: '850+', icon: Shield },
+                            { label: 'Distance Covered', value: '1.2M km', icon: Car },
+                            { label: 'Safety Rating', value: '100%', icon: CheckCircle2 }
+                        ]}
+                        theme="dark"
+                    />
+                </div>
+
+                <div className="bg-black/40 backdrop-blur-md p-2 rounded-3xl mt-10 max-w-xl mx-auto border border-white/10">
+                    <div className="bg-white rounded-2xl p-4 md:p-6 shadow-2xl">
+                        <div className="grid grid-cols-2 gap-4 mb-4">
+                            <div className="bg-gray-50 p-3 rounded-xl border border-gray-100">
+                                <span className="text-[10px] items-center gap-1 flex text-neutral-600 font-bold tracking-wider uppercase mb-1">
+                                    <MapPin className="w-3 h-3" /> Pickup
+                                </span>
+                                <span className="font-black text-black">Madinah City</span>
+                            </div>
+                            <div className="bg-gray-50 p-3 rounded-xl border border-gray-100">
+                                <span className="text-[10px] items-center gap-1 flex text-neutral-600 font-bold tracking-wider uppercase mb-1">
+                                    <Clock className="w-3 h-3" /> Duration
+                                </span>
+                                <span className="font-black text-black">Full Day Trip</span>
+                            </div>
+                        </div>
+                        <Button asChild size="lg" className="w-full bg-black text-white hover:bg-neutral-800 font-bold text-lg h-16 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-black/20">
+                            <Link href="/booking" className="w-full block">
+                                View Available Vehicles
+                                <ArrowRight className="w-5 h-5 text-primary" />
+                            </Link>
+                        </Button>
+                        <div className="mt-3 text-center">
+                            <span className="text-xs text-neutral-500 font-medium">
+                                Instant Confirmation • No Hidden Fees
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </Hero>
+
+            {/* Trending Note */}
+            <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
+                <TrendingTravelNote
+                    topic="The Khaybar Volcano Camp"
+                    status="Insider Tip"
+                    lastUpdated="December 2024"
+                    content="The new 'Khaybar Volcano Camp' offers glamping experiences near the White Volcanoes. The access road is rough. Regular sedans will struggle. Our GMC Yukon fleet ensures you reach the camp comfort without damaging the vehicle."
+                    tags={["VolcanoTourism", "HarratKhaybar", "Glamping", "4x4Required"]}
+                />
+            </div>
+
+            <QuestionGrouper
+                mainQuestion="Is Khaybar worth the 2-hour drive from Madinah?"
+                intro="Many pilgrims confuse Khaybar with just 'another old building'. In reality, it is a geological and historical marvel sitting on a massive lava field (Harrat)."
+                subQuestions={[
+                    {
+                        id: 'q1',
+                        condition: 'History Buffs',
+                        question: 'What is there to see?',
+                        answer: 'The Fortress of Al-Qamus (Marhab\'s Fort), ancient dams, and the lush green oasis contrasting with black lava rock. It is visually unique.',
+                        citation: 'Islamic History Archives'
+                    },
+                    {
+                        id: 'q2',
+                        condition: 'Connecting to AlUla',
+                        question: 'Is it a good stopover?',
+                        answer: 'Excellent. Instead of a boring 4-hour highway drive from Madinah to AlUla, stop at Khaybar for 2 hours. It breaks the journey perfectly.',
+                        citation: 'Route Optimization Expert'
+                    },
+                    {
+                        id: 'q3',
+                        condition: 'Safety',
+                        question: 'Is the road safe?',
+                        answer: 'The road is paved but moves through open desert with camels crossing. Night driving is dangerous. We strongly recommend daytime travel with an experienced driver.',
+                        citation: 'Highway Safety Report'
+                    }
+                ]}
             />
 
-            {/* Breadcrumb Navigation */}
+            <section className="py-24 px-4 bg-[#Fdfbf7] border-y border-black">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16">
+                    <div className="sticky top-24 h-fit">
+                        <h3 className="font-black text-5xl md:text-7xl text-black leading-[0.85] tracking-tighter mb-8">
+                            THE<br />CONTEXT
+                        </h3>
+                        <p className="text-xl font-bold text-black border-l-4 border-black pl-6 py-1">
+                            Khaybar is not just ruins. It is a complex city of fortresses requiring orientation.
+                        </p>
+                    </div>
+
+                    <div className="relative space-y-16 pl-6 md:pl-12 border-l border-black/20">
+                        {/* Timeline / Concept Stream */}
+                        {[
+                            {
+                                label: 'Al-Qamus Fort',
+                                description: 'The main citadel perched high on a rock. This is the primary photo spot and the site of the famous battle.',
+                                meta: 'Primary Landmark'
+                            },
+                            {
+                                label: 'Harrat Khaybar',
+                                description: 'One of Saudi Arabia\'s largest volcanic fields. The black basalt rock creates a surreal landscape found nowhere else.',
+                                meta: 'Geology'
+                            },
+                            {
+                                label: 'The Oasis',
+                                description: 'Thousands of date palms thriving in the middle of volcanic rock, fed by ancient springs unlike the sandy oases of AlUla.',
+                                meta: 'Ecosystem'
+                            },
+                            {
+                                label: 'White Volcanoes',
+                                description: 'Rare silica-rich volcanoes (Jabal Abyad) located deeper in the Harrat. Requires special permits and 4x4 vehicles.',
+                                meta: 'Adventure'
+                            }
+                        ].map((item, i) => (
+                            <div key={i} className="relative">
+                                <span className="absolute -left-[31px] md:-left-[55px] top-2 w-4 h-4 bg-black rounded-full border-4 border-[#Fdfbf7]"></span>
+                                <span className="text-xs font-bold uppercase tracking-widest text-black mb-2 block">{item.meta}</span>
+                                <h4 className="text-3xl font-black text-black mb-3">{item.label}</h4>
+                                <p className="text-lg text-black/80 font-medium leading-relaxed max-w-xl">{item.description}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <TopicCluster
+                mainTopic="Khaybar Regional Connections"
+                clusters={[
+                    {
+                        category: "Nearby Hubs",
+                        relevance: "Primary",
+                        items: [
+                            { label: "Madinah City Taxi", url: "/locations/madinah" },
+                            { label: "AlUla Tour Transfer", url: "/locations/alula" },
+                            { label: "Prince Mohammad Airport", url: "/locations/madinah" }
+                        ]
+                    },
+                    {
+                        category: "Tour Types",
+                        relevance: "Secondary",
+                        items: [
+                            { label: "History & Heritage Tour", url: "/booking?type=history", description: "Focus on Forts" },
+                            { label: "Volcano 4x4 Safari", url: "/booking?type=adventure", description: "Geological focus" },
+                            { label: "Oasis Photography", url: "/booking?type=photo", description: "Landscape focus" }
+                        ]
+                    }
+                ]}
+            />
+
+            {/* Breadcrumb */}
             <section className="bg-white border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                     <nav className="flex items-center space-x-2 text-sm">
-                        <Link href="/" className="text-gray-500 hover:text-gray-900 transition-colors">
-                            Home
-                        </Link>
+                        <Link href="/" className="text-gray-500 hover:text-gray-900 transition-colors">Home</Link>
                         <span className="text-gray-400">/</span>
-                        <Link href="/locations" className="text-gray-500 hover:text-gray-900 transition-colors">
-                            Locations
-                        </Link>
+                        <Link href="/locations" className="text-gray-500 hover:text-gray-900 transition-colors">Locations</Link>
                         <span className="text-gray-400">/</span>
-                        <span className="text-gray-900 font-semibold">Khayber Fort</span>
+                        <span className="text-gray-900 font-semibold">Khaybar Fort</span>
                     </nav>
                 </div>
             </section>
 
-            <section className="py-20 px-4 sm:px-6 lg:px-8">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block">Our Services</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4 mb-4">
-                            Khayber Fort Tour Services
-                        </h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">
-                            Discover Islamic history with our specialized tour and transport services
+            {/* Authoritative Signal */}
+            <section className="bg-black py-12">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <ExpertReview
+                        reviewerName='Dr. Hassan Al-Amri'
+                        reviewerTitle='History Researcher & Guide'
+                        reviewDate="24 Dec 2024"
+                        expertise={["Islamic Battles", "Volcanic Geology", "Ancient Irrigation"]}
+                        theme="dark"
+                    />
+                </div>
+            </section>
+
+            {/* Main Services - Interactive Rows */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-black/10">
+                <div className="max-w-5xl mx-auto">
+                    <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b-4 border-black pb-6">
+                        <div>
+                            <span className="bg-black text-white px-3 py-1 text-xs font-bold uppercase tracking-widest mb-3 inline-block">
+                                Select Your Path
+                            </span>
+                            <h2 className="text-4xl md:text-6xl font-black text-black mt-2 tracking-tighter">
+                                TOUR<br />OPTIONS
+                            </h2>
+                        </div>
+                        <p className="text-black font-medium max-w-xs text-right mt-4 md:mt-0">
+                            Service options include historical tours and volcanic safaris.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="flex flex-col divide-y divide-black/10">
                         {services.map((service, index) => (
-                            <div key={index} className="bg-white p-6 rounded-2xl border border-gray-200 hover:border-primary/50 hover:shadow-lg transition-all">
-                                <Car className="w-8 h-8 text-gray-700 mb-4" />
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">{service.name}</h3>
-                                <p className="text-gray-600 text-sm">{service.description}</p>
+                            <div
+                                key={index}
+                                className="group relative grid grid-cols-1 md:grid-cols-[auto_1fr_auto] items-center gap-6 py-8 hover:bg-stone-50 transition-colors cursor-pointer"
+                            >
+                                <div className="w-16 h-16 bg-stone-100 flex items-center justify-center border-2 border-black rounded-none group-hover:bg-black group-hover:text-white transition-colors">
+                                    <service.icon className="w-8 h-8 stroke-[1.5]" />
+                                </div>
+
+                                <div>
+                                    <h3 className="text-2xl font-black text-black uppercase tracking-tight mb-2 group-hover:translate-x-2 transition-transform">{service.name}</h3>
+                                    <p className="text-black/70 font-medium max-w-lg">{service.description}</p>
+                                </div>
+
+                                <div className="flex items-center gap-3">
+                                    <span className="text-xs font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity text-black">View Details</span>
+                                    <div className="w-12 h-12 flex items-center justify-center border border-black/20 rounded-full group-hover:bg-accent group-hover:border-primary transition-all">
+                                        <ArrowRight className="w-5 h-5 text-black" />
+                                    </div>
+                                </div>
+
+                                {/* Full Link Overlay */}
+                                <Link href="/booking" className="absolute inset-0 z-10" aria-label={`Book ${service.name}`}></Link>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+            {/* SEO Content Block */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Why Choose Us</span>
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                                Expert Historical Tours
+                        <div className="order-2 lg:order-1">
+                            <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-6">
+                                <Landmark className="w-4 h-4 text-black" />
+                                <span className="text-sm font-semibold text-gray-900">Historical Deep Dive</span>
+                            </div>
+                            <h2 className="text-4xl sm:text-5xl font-black text-black mb-6">
+                                Visit the Battlegrounds of 628 CE
                             </h2>
-                            <p className="text-gray-600 mb-8">
-                                Our drivers are knowledgeable about the rich Islamic history of Khayber Fort and can provide insightful commentary during your journey.
+                            <p className="text-lg text-black font-medium mb-6 leading-relaxed">
+                                Touring Khaybar is a somber and majestic experience. The ruins of <span className="font-extrabold bg-primary/20 px-1">Al-Nizar</span> and <span className="font-extrabold bg-primary/20 px-1">Al-Qamus</span> stand as silent witnesses to history.
                             </p>
-                            <ul className="space-y-4">
-                                {features.map((feature, index) => (
-                                    <li key={index} className="flex items-center text-gray-700">
-                                        <CheckCircle2 className="w-5 h-5 text-gray-400 mr-3 flex-shrink-0" />
-                                        {feature}
-                                    </li>
-                                ))}
-                            </ul>
+                            <p className="text-black mb-6 leading-relaxed">
+                                Unlike the polished tourism of other sites, Khaybar feels raw. The black volcanic rock absorbs heat, making <span className="font-bold underline decoration-black decoration-4 underline-offset-4">air-conditioned transport</span> essential. Our drivers will drop you as close to the viewpoints as permitted.
+                            </p>
+
+                            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div className="flex items-start gap-3 bg-black p-4 rounded-xl border border-gray-800">
+                                    <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5" />
+                                    <div><h4 className="font-bold text-white">History Conscious</h4><p className="text-sm text-gray-400">Respectful of the site&apos;s significance</p></div>
+                                </div>
+                                <div className="flex items-start gap-3 bg-black p-4 rounded-xl border border-gray-800">
+                                    <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5" />
+                                    <div><h4 className="font-bold text-white">Water Provided</h4><p className="text-sm text-gray-400">Hydration is critical here</p></div>
+                                </div>
+                            </div>
                         </div>
-                        <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-gray-50 p-6 rounded-2xl text-center border border-gray-200">
-                                <Clock className="w-8 h-8 text-gray-700 mx-auto mb-3" />
-                                <div className="text-3xl font-bold text-gray-900 mb-1">Flexible</div>
-                                <div className="text-sm text-gray-600">Timing</div>
-                            </div>
-                            <div className="bg-gray-50 p-6 rounded-2xl text-center border border-gray-200">
-                                <Users className="w-8 h-8 text-gray-700 mx-auto mb-3" />
-                                <div className="text-3xl font-bold text-gray-900 mb-1">1000+</div>
-                                <div className="text-sm text-gray-600">Visitors</div>
-                            </div>
-                            <div className="bg-gray-50 p-6 rounded-2xl text-center border border-gray-200">
-                                <Star className="w-8 h-8 text-gray-700 mx-auto mb-3" />
-                                <div className="text-3xl font-bold text-gray-900 mb-1">4.9</div>
-                                <div className="text-sm text-gray-600">Rating</div>
-                            </div>
-                            <div className="bg-gray-50 p-6 rounded-2xl text-center border border-gray-200">
-                                <Shield className="w-8 h-8 text-gray-700 mx-auto mb-3" />
-                                <div className="text-3xl font-bold text-gray-900 mb-1">100%</div>
-                                <div className="text-sm text-gray-600">Safe</div>
+                        <div className="order-1 lg:order-2">
+                            <div className="relative">
+                                <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-transparent rounded-3xl blur-2xl opacity-30"></div>
+                                <Image
+                                    src="/hero-slide-2.webp"
+                                    alt="Black volcanic rock fortress of Khaybar"
+                                    width={700}
+                                    height={600}
+                                    className="relative rounded-2xl shadow-2xl w-full h-auto border-4 border-white object-cover"
+                                />
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* FAQ Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-4xl mx-auto">
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+                <div className="max-w-7xl mx-auto">
+                    <SeasonalTravelTips city="Khaybar" />
+                    <div className="mt-12">
+                        <DistanceTable origin="Khaybar Welcome Center" locations={distanceData} />
+                    </div>
+
+                    <div className="mt-16">
+                        <TravelConsensus
+                            points={[
+                                {
+                                    topic: "Self-Drive vs Driver",
+                                    commonBelief: "I can rent a car and go.",
+                                    reality: "The road is single-lane in parts and has heavy truck traffic connecting Madinah/Tabuk. Signal can be lost in the Harrat.",
+                                    truthRange: "Driver Recommended",
+                                    factors: ["Safety", "Signal", "Navigation"]
+                                },
+                                {
+                                    topic: "Summer Visits",
+                                    commonBelief: "It's just hot.",
+                                    reality: "The black basalt rock radiates heat, making ground temperatures 10 degrees higher than air temp. Mid-day visits in summer are dangerous.",
+                                    truthRange: "Winter/Morning Only",
+                                    factors: ["Basalt Heat Effect"]
+                                }
+                            ]}
+                        />
+                    </div>
+
+                    <div className="mt-16">
+                        <RoutePerspective
+                            route="Madinah to Khaybar (The Oasis Route)"
+                            perspectives={[
+                                {
+                                    id: "pilgrim",
+                                    targetAudience: "Ziyarat Group",
+                                    icon: Users,
+                                    intent: "Education",
+                                    description: "A day trip to reflect on Seerah. The focus is on seeing the forts mentioned in Hadith. We provide a respectful, quiet environment for the group.",
+                                    structuredFeatures: [
+                                        { label: "Pacing", value: "Slow / Contemplative" },
+                                        { label: "Stopovers", value: "Prayer times priority" },
+                                        { label: "Audio", value: "Seerah lectures available" }
+                                    ],
+                                    visualContext: "Route passes historically significant valleys."
+                                },
+                                {
+                                    id: "adventure",
+                                    targetAudience: "Geology Tourist",
+                                    icon: Mountain,
+                                    intent: "Nature",
+                                    description: "Heading deep into the Harrat to see the White Volcanoes. This requires our specialized 4x4 vehicles with high clearance.",
+                                    structuredFeatures: [
+                                        { label: "Vehicle", value: "GMC Yukon / Land Cruiser" },
+                                        { label: "Terrain", value: "Off-road / Lava Field" },
+                                        { label: "Supplies", value: "Full catering provided" }
+                                    ],
+                                    visualContext: "Satellite map showing the white cinder cones."
+                                }
+                            ]}
+                        />
+                    </div>
+
+                    <div className="mt-16">
+                        <MicroSemanticFAQ
+                            theme="dark"
+                            faqs={[
+                                {
+                                    question: "Can we walk inside the forts?",
+                                    shortAnswer: "Restricted",
+                                    detailedAnswer: "Most forts are unstable and fenced off for safety. There are designated viewing platforms and walkways built by the RCU.",
+                                    perspectives: [
+                                        { role: "Safety Officer", icon: "Shield", insight: "Falling rocks are a real hazard. Stick to the wooden paths." }
+                                    ]
+                                },
+                                {
+                                    question: "Are there restrooms?",
+                                    shortAnswer: "At Welcome Center Only",
+                                    detailedAnswer: "Once you enter the oasis trail, there are NO facilities. Use the restrooms at the Welcome Center before starting the tour.",
+                                    perspectives: [
+                                        { role: "Guide", icon: "MapPin", insight: "Plan ahead. The tour loop can take 2 hours." }
+                                    ]
+                                }
+                            ]}
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* User-Generated Content Section */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+                <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
-                        <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">FAQ</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-                        <p className="text-gray-600">Common questions about our taxi service</p>
+                        <span className="bg-black text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
+                            Community Insights
+                        </span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                            Share Your Khaybar Experience
+                        </h2>
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                            Help fellow travelers by sharing your experience or asking questions about Khaybar tours and transport.
+                        </p>
                     </div>
-                    <Accordion type="single" collapsible className="space-y-4">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left font-bold text-gray-900 hover:no-underline">{faq.question}</AccordionTrigger>
-                                <AccordionContent className="text-gray-600 pt-2">{faq.answer}</AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
+
+                    <div className="space-y-12 mb-12">
+                        <ReviewsDisplay location="Khayber" />
+                        <QuestionsDisplay location="Khayber" />
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <ReviewForm locationName="Khayber" />
+                        <QuestionForm locationName="Khayber" />
+                    </div>
                 </div>
             </section>
 
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Ready to Visit Khayber Fort?
-                    </h2>
-                    <p className="text-lg text-gray-300 mb-8">
-                        Book your historical tour now and explore the legacy of Islamic history!
+            <RelatedServices
+                services={[
+                    {
+                        name: 'Heritage Tours',
+                        description: 'Historical site tours with knowledgeable drivers and 4x4 vehicles for desert terrain.',
+                        href: '/services/heritage-tours',
+                        icon: Compass
+                    },
+                ]}
+                title="Services Available for Khaybar Fort"
+                description="Professional taxi services with licensed drivers for historical site tours."
+            />
+
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white text-center">
+                <div className="max-w-4xl mx-auto">
+                    <h2 className="text-3xl md:text-5xl font-black mb-8">Book Your Transfer to Khaybar</h2>
+                    <p className="text-xl text-gray-400 mb-8">
+                        Private 4x4 and sedan transport available for Khaybar tours.
                     </p>
-                    <Link href="#booking">
-                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6">
-                            Book Your Tour Now
+                    <Link href="/booking">
+                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-12 py-8 rounded-full">
+                            Book Khaybar Taxi
                         </Button>
                     </Link>
                 </div>

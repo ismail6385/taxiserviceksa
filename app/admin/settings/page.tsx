@@ -67,7 +67,7 @@ export default function SettingsPage() {
                                 className="bg-neutral-900 border-neutral-700 text-white"
                             />
                         </div>
-                        <Button className="bg-primary text-black hover:bg-primary/90 font-bold mt-2">
+                        <Button className="bg-primary text-white hover:text-black hover:bg-primary/90 font-bold mt-2">
                             Update Password
                         </Button>
                     </div>

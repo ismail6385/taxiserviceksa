@@ -89,7 +89,7 @@ export default function LoginPage() {
 
                     <Button
                         type="submit"
-                        className="w-full bg-primary text-black hover:bg-primary/90 font-bold py-6"
+                        className="w-full bg-primary text-white hover:text-black hover:bg-primary/90 font-bold py-6"
                         disabled={loading}
                     >
                         {loading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : 'Sign In'}

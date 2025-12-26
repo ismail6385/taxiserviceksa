@@ -275,13 +275,14 @@ export default function BookingForm() {
                         <div className="space-y-4">
                             <div className="relative group/input">
                                 <h4 className="text-sm font-medium text-gray-700 mb-1 ml-1">Country</h4>
-                                <Popover open={open} onOpenChange={setOpen}>
+                                <Popover open={open} onOpenChange={setOpen} modal={false}>
                                     <PopoverTrigger asChild>
                                         <Button
+                                            type="button"
                                             variant="outline"
                                             role="combobox"
                                             aria-expanded={open}
-                                            className="w-full h-12 justify-between bg-gray-50 border-gray-300 text-gray-900 hover:bg-gray-100/50 hover:text-gray-900 rounded-xl font-normal px-3"
+                                            className="w-full h-12 justify-between bg-gray-50 border-gray-300 text-gray-900 hover:bg-gray-100/50 hover:text-gray-900 rounded-xl font-normal px-3 cursor-pointer"
                                         >
                                             {countryCode ? (
                                                 <span className="flex items-center truncate">
@@ -291,10 +292,15 @@ export default function BookingForm() {
                                             ) : (
                                                 "Select country..."
                                             )}
-                                            <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                                            <ChevronsUpDown className={cn("ml-2 h-4 w-4 shrink-0 opacity-50 transition-transform", open && "rotate-180")} />
                                         </Button>
                                     </PopoverTrigger>
-                                    <PopoverContent className="w-[--radix-popover-trigger-width] p-0 max-h-[300px]" align="start">
+                                    <PopoverContent 
+                                        className="w-[var(--radix-popover-trigger-width)] p-0 max-h-[300px] z-[200]" 
+                                        align="start"
+                                        sideOffset={5}
+                                        onOpenAutoFocus={(e) => e.preventDefault()}
+                                    >
                                         <Command>
                                             <CommandInput placeholder="Search country..." />
                                             <CommandList>
@@ -311,6 +317,7 @@ export default function BookingForm() {
                                                                 }
                                                                 setOpen(false);
                                                             }}
+                                                            className="cursor-pointer"
                                                         >
                                                             <Check
                                                                 className={cn(
@@ -331,7 +338,7 @@ export default function BookingForm() {
                             </div>
 
                             <div className="relative group/input">
-                                <h4 className="text-sm font-medium text-gray-700 mb-1 ml-1">WhatsApp Number</h4>
+                                <h4 className="text-sm font-medium text-gray-700 mb-1 ml-1">Mobile Number</h4>
                                 <div className="flex">
                                     <div className="h-12 bg-gray-100 border border-r-0 border-gray-300 text-gray-500 flex items-center justify-center px-4 rounded-l-xl font-mono text-sm min-w-[80px] mt-0 gap-2">
                                         <Phone className="w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors" />
@@ -384,7 +391,7 @@ export default function BookingForm() {
                                 <SelectTrigger className="w-full bg-white border-gray-200">
                                     <SelectValue placeholder="Select a popular route..." />
                                 </SelectTrigger>
-                                <SelectContent>
+                                <SelectContent className="z-[200]">
                                     {POPULAR_ROUTES.map((route) => (
                                         <SelectItem key={route.id} value={route.id}>
                                             {route.label}
@@ -439,7 +446,7 @@ export default function BookingForm() {
                                 <SelectTrigger className="w-full bg-white border-gray-200">
                                     <SelectValue placeholder="Select vehicle type..." />
                                 </SelectTrigger>
-                                <SelectContent>
+                                <SelectContent className="z-[200]">
                                     {vehicles.map((vehicle) => (
                                         <SelectItem key={vehicle.name} value={vehicle.name}>
                                             {vehicle.name} — {vehicle.passengers} pax, {vehicle.luggage} luggage
@@ -494,7 +501,7 @@ export default function BookingForm() {
                                             )}
                                         </Button>
                                     </PopoverTrigger>
-                                    <PopoverContent className="w-auto p-0" align="start">
+                                    <PopoverContent className="w-auto p-0 z-[200]" align="start">
                                         <CalendarComponent
                                             mode="single"
                                             selected={formData.pickup_date ? new Date(formData.pickup_date) : undefined}
@@ -529,7 +536,7 @@ export default function BookingForm() {
                                             <SelectValue placeholder="Select time" />
                                         </div>
                                     </SelectTrigger>
-                                    <SelectContent className="max-h-[300px]">
+                                    <SelectContent className="max-h-[300px] z-[200]">
                                         {Array.from({ length: 48 }).map((_, i) => {
                                             const hour = Math.floor(i / 2);
                                             const minute = i % 2 === 0 ? '00' : '30';

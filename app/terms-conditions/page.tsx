@@ -355,7 +355,7 @@ export default function TermsConditionsPage() {
 
                 {/* Back to Home */}
                 <div className="text-center mt-12">
-                    <Link href="/" className="text-primary hover:text-primary/80 font-semibold">
+                    <Link href="/" className="text-primary hover:text-primary font-semibold">
                         ← Back to Home
                     </Link>
                 </div>

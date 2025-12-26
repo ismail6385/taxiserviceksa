@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
                                 <p>Dear <strong>${customerName}</strong>,</p>
                                 <p>Great news! Your booking <strong>#${bookingId.slice(0, 8)}</strong> has been fully confirmed by our team.</p>
                                 <p>Your driver will meet you at the scheduled time and location.</p>
-                                <p>If you need any assistance, simply reply to this email or contact us via WhatsApp.</p>
+                                <p>If you need any assistance, simply reply to this email or contact our support team.</p>
                                 <center><a href="https://taxiserviceksa.com/contact" class="button">Contact Support</a></center>
                             </div>
                         </div>

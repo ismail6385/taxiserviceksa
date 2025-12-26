@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Users, Briefcase, CheckCircle2, Star, Shield, Clock, Car } from 'lucide-react';
+import FleetPricing from '@/components/FleetPricing';
 import {
     Accordion,
     AccordionContent,
@@ -11,8 +12,8 @@ import {
 } from '@/components/ui/accordion';
 
 export const metadata: Metadata = {
-    title: 'Toyota Coaster - Large Group Bus | Taxi Service KSA',
-    description: 'Book our Toyota Coaster bus for large groups in Saudi Arabia. 17 passengers, perfect for corporate events and tour groups.',
+    title: 'Toyota Coaster Taxi Service in Saudi Arabia | 17-Seater Tour Bus',
+    description: 'Toyota Coaster accommodates 17 passengers and 20 bags. Suitable for tour groups, corporate events, and large families. Air conditioning and entertainment system included.',
     keywords: ['Toyota Coaster rental Saudi Arabia', 'tour bus KSA', 'large group transport', '17 seater bus'],
 };
 
@@ -47,19 +48,19 @@ export default function ToyotaCoasterPage() {
     const faqs = [
         {
             question: "Does the Toyota Coaster come with a professional driver?",
-            answer: "Yes, all our Toyota Coaster rentals include a professional, well-trained bus driver. We do not offer self-drive options."
+            answer: "Toyota Coaster taxi service includes a professional bus driver. Service does not offer self-drive options. Drivers speak English and Arabic."
         },
         {
             question: "How many passengers can the Toyota Coaster accommodate comfortably?",
-            answer: "The Toyota Coaster is designed to carry 17 passengers comfortably, making it ideal for large groups, corporate transport, and tours."
+            answer: "Toyota Coaster accommodates 17 passengers. Vehicle is suitable for large groups, corporate transport, and tour groups."
         },
         {
             question: "Is fuel and toll charges included in the booking?",
-            answer: "Yes, our pricing is all-inclusive. Fuel, road tolls, and parking fees at airports are covered specially for point-to-point transfers."
+            answer: "Taxi booking includes fuel, road tolls, and airport parking fees for point-to-point transfers. Pricing is all-inclusive."
         },
         {
             question: "Can I book the Toyota Coaster for intercity travel?",
-            answer: "Absolutely. The Toyota Coaster is designed for long-distance travel, providing a safe and comfortable ride between major cities like Jeddah, Makkah, and Madinah."
+            answer: "Toyota Coaster booking is available for intercity travel between Jeddah, Makkah, and Madinah. Suitable for long-distance group transport."
         }
     ];
 
@@ -83,12 +84,13 @@ export default function ToyotaCoasterPage() {
                                 Large Groups
                             </span>
                             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                                Toyota Coaster
+                                Toyota Coaster Taxi Service in Saudi Arabia
                             </h1>
                             <p className="text-xl text-gray-600 mb-6">
-                                Professional tour bus perfect for large groups and corporate events. Comfortable seating for up to 17 passengers with ample luggage space.
+                                Toyota Coaster accommodates 17 passengers with 20 bags. Vehicle features air conditioning and entertainment system. Suitable for tour groups and corporate events.
                             </p>
 
+                            {/* Specifications */}
                             <div className="grid grid-cols-2 gap-4 mb-6">
                                 {specifications.map((spec, index) => (
                                     <div key={index} className="bg-gray-50 p-4 rounded-lg">
@@ -105,6 +107,27 @@ export default function ToyotaCoasterPage() {
                             </Link>
                         </div>
                     </div>
+                </div>
+
+                <div className="max-w-3xl mx-auto mb-12">
+                    <FleetPricing
+                        vehicleName="Toyota Coaster"
+                        colorTheme="blue"
+                        prices={[
+                            { route: 'Jeddah Airport → Makkah', price: '500' },
+                            { route: 'Makkah → Madinah Hotel', price: '1100' },
+                            { route: 'Makkah → Madinah via Badr Ziyarat', price: '1300' },
+                            { route: 'Makkah Ziyarat Tour', price: '500' },
+                            { route: 'Madinah Hotel → Madinah Airport', price: '350' },
+                            { route: 'Madinah Ziyarat Tour', price: '400' },
+                            { route: 'Madinah Hotel → Train Station', price: '300' },
+                            { route: 'Madinah Hotel → Jeddah Airport', price: '1200' },
+                            { route: 'Makkah Hotel → Train Station', price: '300' },
+                            { route: 'Makkah Hotel → Jeddah Airport', price: '450' },
+                            { route: 'Full Day (Fuel + Driver)', price: '1500', highlight: true },
+                            { route: 'Per Hour', price: '200', highlight: true },
+                        ]}
+                    />
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">

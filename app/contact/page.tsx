@@ -9,31 +9,31 @@ import {
 } from '@/components/ui/accordion';
 
 export const metadata: Metadata = {
-    title: 'Contact Taxi Service KSA | 24/7 Custormer Support',
-    description: 'Contact Taxi Service KSA for premium chauffeur inquiries. 24/7 support for airport transfers, Umrah taxi & luxury travel booking in Saudi Arabia.',
+    title: 'Contact Taxi Service KSA | Booking and Support',
+    description: 'Contact Taxi Service KSA for taxi booking in Saudi Arabia. Service operates 24/7. Email: taxiserviceksa9988@gmail.com. Online booking form available.',
 };
 
 export default function ContactPage() {
     const faqs = [
         {
             question: "How can I contact customer support regarding my booking?",
-            answer: "You can reach our 24/7 customer support team via the contact form on this page, or by calling our hotline. For urgent inquiries, we recommend finding our WhatsApp link in the footer."
+            answer: "Customer support is available via the contact form on this page or email at taxiserviceksa9988@gmail.com. Response time is typically 30-60 minutes."
         },
         {
             question: "What is your average response time for inquiries?",
-            answer: "We strive to respond to all web inquiries within 30-60 minutes. For immediate assistance, please use our phone support."
+            answer: "Email inquiries receive responses within 30-60 minutes during business hours. Urgent booking requests are prioritized."
         },
         {
             question: "I left a personal item in the taxi, what should I do?",
-            answer: "Please contact us immediately with your booking reference number and a description of the item. We will coordinate with the driver to locate and return your lost property."
+            answer: "Lost items can be reported via email with booking reference number and item description. Driver coordination for item return is arranged within 24 hours."
         },
         {
             question: "How do I cancel or modify my confirmed booking?",
-            answer: "To cancel or modify a booking, please contact our support team at least 24 hours before your scheduled pickup time to avoid cancellation fees."
+            answer: "Booking cancellation or modification requires 24 hours notice before scheduled pickup time. Contact via email with booking reference number."
         },
         {
             question: "Do you offer corporate or long-term partnership agreements?",
-            answer: "Yes, we provide tailored solutions for corporate clients and travel agencies. Please fill out the form with your company details, and our B2B team will contact you."
+            answer: "Corporate accounts are available for businesses and travel agencies. Contact via email with company details for B2B partnership information."
         }
     ];
 
@@ -43,9 +43,9 @@ export default function ContactPage() {
             <div className="bg-white py-16 mb-12 border-b border-gray-200">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Get In Touch</span>
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Contact Us</h1>
+                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Contact Taxi Service KSA</h1>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                        Have questions about our services or need a custom quote? We are available 24/7 to assist you with your travel needs.
+                        Taxi booking is available through the online form or email at taxiserviceksa9988@gmail.com. Service operates 24/7 in Saudi Arabia.
                     </p>
                 </div>
             </div>

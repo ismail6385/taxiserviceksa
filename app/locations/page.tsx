@@ -29,6 +29,12 @@ const locations = [
         href: '/locations/madinah'
     },
     {
+        name: 'Riyadh',
+        description: 'Corporate transport and airport transfers in the capital.',
+        image: '/hero-slide-1.webp',
+        href: '/locations/riyadh'
+    },
+    {
         name: 'AlUla',
         description: 'Explore the ancient wonders of Hegra and Dadan.',
         image: '/alula-hegra-tombs.webp',
@@ -41,9 +47,15 @@ const locations = [
         href: '/locations/taif'
     },
     {
+        name: 'Yanbu',
+        description: 'Industrial transport and Red Sea gateway services.',
+        image: '/hero-slide-2.webp',
+        href: '/locations/yanbu'
+    },
+    {
         name: 'Khayber Fort',
         description: 'Historical tours to the ancient oases of Khaybar.',
-        image: '/alula-hegra-tombs.webp', // Using AlUla image as fallback/relevant
+        image: '/alula-hegra-tombs.webp',
         href: '/locations/khayber-fort'
     }
 ];

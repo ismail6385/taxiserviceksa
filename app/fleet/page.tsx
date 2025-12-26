@@ -63,7 +63,7 @@ export default function FleetPage() {
         <div className="bg-gray-50 min-h-screen pt-24 pb-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <span className="bg-primary text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block">Our Fleet</span>
+                    <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block">Our Fleet</span>
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">Premium Luxury Vehicles</h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                         Experience the journey in style with our diverse collection of luxury vehicles, meticulously maintained for your comfort and safety across Saudi Arabia.

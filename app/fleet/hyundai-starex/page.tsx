@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Users, Briefcase, CheckCircle2, Star, Shield, Clock, Car } from 'lucide-react';
+import FleetPricing from '@/components/FleetPricing';
 import {
     Accordion,
     AccordionContent,
@@ -11,8 +12,8 @@ import {
 } from '@/components/ui/accordion';
 
 export const metadata: Metadata = {
-    title: 'Hyundai Starex - Family Van | Taxi Service KSA',
-    description: 'Book our reliable Hyundai Starex for family travel in Saudi Arabia. 7 passengers, comfortable and spacious, perfect for airport transfers.',
+    title: 'Hyundai Starex Taxi Service in Saudi Arabia | 7-Seater Family Van',
+    description: 'Hyundai Starex taxi service accommodates 7 passengers and 10 bags. Suitable for families, airport transfers, and Umrah transport. Automatic transmission.',
     keywords: ['Hyundai Starex rental Saudi Arabia', 'family van KSA', 'airport transfer', '7 seater van'],
 };
 
@@ -47,19 +48,19 @@ export default function HyundaiStarexPage() {
     const faqs = [
         {
             question: "Does the Hyundai Starex come with a professional driver?",
-            answer: "Yes, all our Hyundai Starex rentals include a professional, well-trained chauffeur. We do not offer self-drive options."
+            answer: "Hyundai Starex taxi service includes a professional driver. Service does not offer self-drive options. Drivers speak English and Arabic."
         },
         {
             question: "How many passengers can the Hyundai Starex accommodate comfortably?",
-            answer: "The Hyundai Starex is designed to carry 7 passengers with 10 luggage pieces comfortably, ensuring a relaxing journey for families."
+            answer: "Hyundai Starex accommodates 7 passengers with 10 luggage pieces. Vehicle features automatic transmission and air conditioning."
         },
         {
             question: "Is fuel and toll charges included in the booking?",
-            answer: "Yes, our pricing is all-inclusive. Fuel, road tolls, and parking fees at airports are covered specially for point-to-point transfers."
+            answer: "Taxi booking includes fuel, road tolls, and airport parking fees for point-to-point transfers. Pricing is all-inclusive."
         },
         {
             question: "Can I book the Hyundai Starex for a trip from Jeddah to Makkah?",
-            answer: "Absolutely. The Hyundai Starex is a reliable choice for the Jeddah-Makkah route, providing a smooth and safe ride for Umrah pilgrims."
+            answer: "Hyundai Starex booking is available for Jeddah to Makkah route (95 km, approximately 75 minutes). Suitable for Umrah pilgrims and families."
         }
     ];
 
@@ -83,10 +84,10 @@ export default function HyundaiStarexPage() {
                                 Reliable Choice
                             </span>
                             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                                Hyundai Starex
+                                Hyundai Starex Taxi Service in Saudi Arabia
                             </h1>
                             <p className="text-xl text-gray-600 mb-6">
-                                Reliable and comfortable van perfect for families and small groups. Spacious interior with ample luggage capacity.
+                                Hyundai Starex accommodates 7 passengers with 10 bags. Vehicle features air conditioning and automatic transmission. Suitable for families and airport transfers.
                             </p>
 
                             <div className="grid grid-cols-2 gap-4 mb-6">
@@ -105,6 +106,27 @@ export default function HyundaiStarexPage() {
                             </Link>
                         </div>
                     </div>
+                </div>
+
+                <div className="max-w-3xl mx-auto mb-12">
+                    <FleetPricing
+                        vehicleName="Hyundai Starex"
+                        colorTheme="indigo"
+                        prices={[
+                            { route: 'Jeddah Airport → Makkah', price: '300' },
+                            { route: 'Makkah → Madinah Hotel', price: '550' },
+                            { route: 'Makkah → Madinah via Badr Ziyarat', price: '700' },
+                            { route: 'Makkah Ziyarat', price: '300' },
+                            { route: 'Madinah Hotel → Madinah Airport', price: '200' },
+                            { route: 'Madinah Ziyarat', price: '250' },
+                            { route: 'Madinah Hotel → Train Station', price: '150' },
+                            { route: 'Madinah Hotel → Jeddah Airport', price: '600' },
+                            { route: 'Makkah Hotel → Train Station', price: '150' },
+                            { route: 'Makkah Hotel → Jeddah Airport', price: '250' },
+                            { route: 'Per Day (Fuel + Driver)', price: '1000', highlight: true },
+                            { route: 'Per Hour', price: '150', highlight: true },
+                        ]}
+                    />
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">

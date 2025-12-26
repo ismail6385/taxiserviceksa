@@ -8,7 +8,7 @@ import {
 const faqs = [
     {
         question: "How do I book a taxi from Jeddah Airport?",
-        answer: "You can easily book a taxi through our website by clicking the 'Book Now' button. Alternatively, you can call or WhatsApp us at 03176243861 for instant booking confirmation."
+        answer: "You can easily book a taxi through our website by clicking the 'Book Now' button. Alternatively, you can email us for instant booking confirmation."
     },
     {
         question: "What types of vehicles do you offer?",

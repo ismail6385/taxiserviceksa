@@ -200,11 +200,9 @@ export async function POST(request: NextRequest) {
                                 </div>
                             </div>
                             
-                            <p>Our team will contact you shortly on <strong>+${formatPhoneForWhatsApp(booking.customer_phone)}</strong> to confirm the final details.</p>
+                            <p>Our team will review your booking and send a final confirmation email shortly.</p>
                             
-                            <center>
-                                ${booking.customer_phone ? `<a href="https://wa.me/${formatPhoneForWhatsApp(booking.customer_phone)}" class="button">Contact Us on WhatsApp</a>` : ''}
-                            </center>
+
                             
                             <p style="margin-top: 30px; font-size: 14px; color: #666;">
                                 If you have any questions, feel free to reach out to us at <a href="mailto:taxiserviceksa9988@gmail.com">taxiserviceksa9988@gmail.com</a>

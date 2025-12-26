@@ -25,7 +25,7 @@ export default function BookingPage() {
         <div className="bg-gray-50 min-h-screen pt-24 pb-24">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                    <span className="bg-primary text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block">Secure Your Ride</span>
+                    <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block">Secure Your Ride</span>
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">Book Your Ride</h1>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                         Fill out the form below to reserve your luxury vehicle. Our team will verify your details and confirm your booking shortly.

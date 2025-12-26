@@ -3,16 +3,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Star, Shield, CheckCircle, Sparkles, MapPin, Clock, Award, Phone } from 'lucide-react';
+import { ArrowRight, Star, Shield, CheckCircle, Sparkles, MapPin, Clock, Award } from 'lucide-react';
 import BookingForm from './BookingForm';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactNode } from 'react';
 
 interface HeroProps {
     images?: string[];
-    title?: React.ReactNode;
+    title?: ReactNode;
     subtitle?: string;
     location?: string;
     h1Text?: string; // Custom H1 text for SEO
+    children?: ReactNode;
 }
 
 export default function Hero(props: HeroProps) {
@@ -29,7 +30,7 @@ export default function Hero(props: HeroProps) {
     ];
 
     // Alt text for each slide (SEO optimized with keywords)
-    const slideAltTexts = images 
+    const slideAltTexts = images
         ? images.map((img, idx) => {
             // Extract meaningful alt text from image path with SEO keywords
             const imgLower = img.toLowerCase();
@@ -126,48 +127,56 @@ export default function Hero(props: HeroProps) {
                     </div>
                 ))}
                 {/* Subtle dark overlay for text readability */}
-                <div className="absolute inset-0 bg-black/40" aria-hidden="true" />
+                {/* Enhanced gradient overlay with animation */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60 animate-pulse-slow" aria-hidden="true" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" aria-hidden="true" />
             </div>
-
-
-
 
             {/* Main Content */}
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24 w-full">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-center">
-                    {/* Left Content */}
-                    <div className="lg:col-span-7 space-y-6 sm:space-y-8">
+                    {/* Left Content - Give more space to hero text */}
+                    <div className="lg:col-span-8 space-y-6 sm:space-y-8">
 
                         {/* Main Heading - SEO Optimized: Static H1 for better SEO */}
                         <div className="space-y-4 sm:space-y-6 animate-fade-in-up delay-100">
                             {/* Static H1 for SEO - Main keyword always visible to search engines */}
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight leading-tight sm:leading-tight text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-                                {h1Text || "Premium Taxi Service KSA"}
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight sm:leading-tight text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] animate-fade-in-up">
+                                <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent animate-shimmer">
+                                    {h1Text || "Premium Taxi Service KSA"}
+                                </span>
                             </h1>
 
                             {/* Dynamic H2 for visual appeal - Changes with slides */}
-                            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight leading-tight sm:leading-tight" key={currentSlide}>
-                                <span className="block text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight sm:leading-tight animate-fade-in-up delay-200" key={currentSlide}>
+                                <span className="block text-primary drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] font-black">
                                     {currentContent.subtitle}
                                 </span>
-                                <span className="block text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] mt-1 sm:mt-2">
+                                <span className="block text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] mt-1 sm:mt-2">
                                     {currentContent.location}
                                 </span>
                             </h2>
 
                             {/* Subtitle - SEO optimized description */}
-                            <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] max-w-2xl mt-4 sm:mt-6">
+                            <p className="text-lg sm:text-xl md:text-2xl text-white leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] max-w-3xl mt-4 sm:mt-6 animate-fade-in-up delay-300 bg-black/20 backdrop-blur-sm p-4 rounded-xl border border-white/10">
                                 Professional chauffeur and airport transfer services across Saudi Arabia.
                                 We help travelers, pilgrims, and business executives with luxury vehicles and 24/7 availability.
                             </p>
+
+                            {/* Optional Custom Content (Links/Buttons) */}
+                            {props.children && (
+                                <div className="mt-6 md:mt-8 animate-fade-in-up delay-400">
+                                    {props.children}
+                                </div>
+                            )}
                         </div>
-
-
                     </div>
 
-                    {/* Right Side - Booking Form */}
-                    <div className="lg:col-span-5 w-full animate-fade-in-left delay-300">
-                        <BookingForm />
+                    {/* Right Side - Booking Form - Smaller and less dominant */}
+                    <div className="lg:col-span-4 w-full animate-fade-in-left delay-300">
+                        <div className="transform hover:scale-[1.02] transition-transform duration-300">
+                            <BookingForm />
+                        </div>
                     </div>
                 </div>
             </div>

@@ -8,6 +8,7 @@ export default function JsonLdOrganization() {
         "alternateName": "TaxiServiceKSA",
         "url": "https://taxiserviceksa.com",
         "logo": "https://taxiserviceksa.com/logo.png",
+        "email": "taxiserviceksa9988@gmail.com",
         "description": "Premium chauffeur and taxi services across Saudi Arabia including airport transfers, Umrah transportation, and luxury intercity travel.",
         "address": {
             "@type": "PostalAddress",
@@ -21,10 +22,10 @@ export default function JsonLdOrganization() {
         ],
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+966-50-000-0000",
+            "email": "taxiserviceksa9988@gmail.com",
             "contactType": "customer service",
             "areaServed": "SA",
-            "availableLanguage": ["en", "ar"]
+            "availableLanguage": ["en", "ar", "ur"]
         }
     };
 

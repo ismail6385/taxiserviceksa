@@ -3,17 +3,17 @@ import { Facebook, Instagram, Twitter, Linkedin, Car, Youtube, Share2 } from 'lu
 
 export default function Footer() {
     return (
-        <footer className="bg-neutral-900 text-white pt-16 pb-8 border-t border-white/10 relative overflow-hidden">
+        <footer className="bg-gradient-to-b from-neutral-900 to-black text-white pt-16 pb-8 border-t border-primary/20 relative overflow-hidden">
             {/* Abstract Background Elements */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-70"></div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-12">
                     {/* Brand & Social */}
                     <div className="space-y-6">
                         <Link href="/" className="flex items-center gap-2 group">
-                            <div className="bg-primary p-2 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-[0_0_15px_rgba(200,255,0,0.3)]">
-                                <Car className="w-6 h-6 text-neutral-900" />
+                            <div className="bg-gradient-to-br from-primary via-blue-500 to-primary p-2 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+                                <Car className="w-6 h-6 text-white" />
                             </div>
                             <span className="text-2xl font-bold text-white tracking-tight">TaxiService<span className="text-primary">KSA</span></span>
                         </Link>
@@ -58,6 +58,12 @@ export default function Footer() {
                                 <Share2 className="w-5 h-5" />
                             </a>
                         </div>
+                        <div className="mt-6 pt-6 border-t border-white/10">
+                            <p className="text-gray-400 text-sm mb-2 font-semibold">Contact Us</p>
+                            <a href="mailto:taxiserviceksa9988@gmail.com" className="text-primary hover:text-primary/80 transition-colors text-sm">
+                                taxiserviceksa9988@gmail.com
+                            </a>
+                        </div>
                     </div>
 
                     {/* Quick Links */}
@@ -100,30 +106,30 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Useful Links (External) */}
+                    {/* Travel Guides */}
                     <div>
                         <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                            Useful Links
+                            Travel Guides
                             <span className="h-1 w-8 bg-primary rounded-full"></span>
                         </h4>
                         <ul className="space-y-3">
                             <li>
-                                <a href="https://www.visitsaudi.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
+                                <Link href="/guides/jeddah-airport-guide" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Visit Saudi
-                                </a>
+                                    Jeddah Airport Guide
+                                </Link>
                             </li>
                             <li>
-                                <a href="https://visa.visitsaudi.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
+                                <Link href="/guides/makkah-umrah-guide" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Saudi eVisa
-                                </a>
+                                    Makkah Umrah Guide
+                                </Link>
                             </li>
                             <li>
-                                <a href="https://www.haj.gov.sa" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
+                                <Link href="/guides/riyadh-business-guide" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Ministry of Hajj
-                                </a>
+                                    Riyadh Business Guide
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -150,13 +156,19 @@ export default function Footer() {
                             <li>
                                 <Link href="/locations/makkah" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Makkah
+                                    Makkah (Umrah Hub)
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/locations/madinah" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Madinah
+                                    Madinah (Ziyarat Hub)
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/locations/riyadh" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
+                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
+                                    Riyadh
                                 </Link>
                             </li>
                             <li>
@@ -169,6 +181,12 @@ export default function Footer() {
                                 <Link href="/locations/taif" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
                                     Taif
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/locations/yanbu" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
+                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
+                                    Yanbu
                                 </Link>
                             </li>
                             <li>

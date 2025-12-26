@@ -60,6 +60,22 @@ export default function AdminDashboard() {
 
 
     useEffect(() => {
+        const fetchBookings = async () => {
+            try {
+                const { data, error } = await supabase
+                    .from('bookings')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (error) throw error;
+                setBookings(data || []);
+            } catch (error) {
+                console.error('Error fetching bookings:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
         const checkSession = async () => {
             const { data: { session } } = await supabase.auth.getSession();
             if (!session) {
@@ -69,23 +85,7 @@ export default function AdminDashboard() {
             }
         };
         checkSession();
-    }, [router, supabase]);
-
-    const fetchBookings = async () => {
-        try {
-            const { data, error } = await supabase
-                .from('bookings')
-                .select('*')
-                .order('created_at', { ascending: false });
-
-            if (error) throw error;
-            setBookings(data || []);
-        } catch (error) {
-            console.error('Error fetching bookings:', error);
-        } finally {
-            setLoading(false);
-        }
-    };
+    }, [router]);
 
     const updateStatus = async (id: string, newStatus: string) => {
         try {
