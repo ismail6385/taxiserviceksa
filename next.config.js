@@ -7,8 +7,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: { unoptimized: true },
-
-
+  trailingSlash: true,
 };
 
 module.exports = nextConfig;
