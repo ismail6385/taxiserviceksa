@@ -19,7 +19,7 @@ export default function BlogGeneratorPage() {
             setStatus(`Generating ${template.title}...`);
 
             // Check if exists
-            const existing = await blogService.getBlogBySlug(template.slug).catch(() => null);
+            const existing = await blogService.getBlogBySlugAnyStatus(template.slug).catch(() => null);
             if (existing) {
                 setStatus('Blog already exists! Skipping.');
                 setGenerating(null);

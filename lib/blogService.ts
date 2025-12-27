@@ -50,6 +50,18 @@ export const blogService = {
         return data as Blog[];
     },
 
+    // Get blog by slug (any status - for admin checks)
+    async getBlogBySlugAnyStatus(slug: string) {
+        const { data, error } = await supabase
+            .from('blogs')
+            .select('*')
+            .eq('slug', slug)
+            .maybeSingle();
+
+        if (error) throw error;
+        return data as Blog;
+    },
+
     // Get blog by slug
     async getBlogBySlug(slug: string) {
         const { data, error } = await supabase
