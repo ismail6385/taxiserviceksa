@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, User, Tag, Eye } from 'lucide-react';
 import BookingForm from '@/components/BookingForm';
+import { marked } from 'marked';
 
 interface Props {
     params: {
@@ -100,7 +101,7 @@ export default function BlogPreviewPage({ params }: Props) {
                             {/* Content Body */}
                             <article
                                 className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-a:text-primary hover:prose-a:text-primary-dark prose-img:rounded-xl"
-                                dangerouslySetInnerHTML={{ __html: blog.content }}
+                                dangerouslySetInnerHTML={{ __html: marked.parse(blog.content) as string }}
                             />
 
                             {/* Tags */}
