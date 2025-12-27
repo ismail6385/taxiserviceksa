@@ -97,6 +97,19 @@ export const blogService = {
         return data as Blog[];
     },
 
+    // Get blogs by author
+    async getBlogsByAuthor(authorName: string) {
+        const { data, error } = await supabase
+            .from('blogs')
+            .select('*')
+            .eq('author', authorName)
+            .eq('status', 'published')
+            .order('published_at', { ascending: false });
+
+        if (error) throw error;
+        return data as Blog[];
+    },
+
     // Create blog
     async createBlog(blog: Omit<Blog, 'id' | 'created_at' | 'updated_at' | 'views'>) {
         const { data, error } = await supabase

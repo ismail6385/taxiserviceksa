@@ -8,6 +8,7 @@ import { Calendar, User, Tag } from 'lucide-react';
 import BookingForm from '@/components/BookingForm';
 import { marked } from 'marked';
 import BlogContent from '@/components/BlogContent';
+import AuthorCard from '@/components/AuthorCard';
 
 export const revalidate = 3600; // Revalidate every hour
 
@@ -130,6 +131,11 @@ export default async function BlogPostPage({ params }: Props) {
                                     </div>
                                 </div>
                             )}
+                        </div>
+
+                        {/* Author Bio Box */}
+                        <div className="mt-8">
+                            <AuthorCard authorName={blog.author} />
                         </div>
                     </div>
 
