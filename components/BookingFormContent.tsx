@@ -210,18 +210,18 @@ export default function BookingFormContent() {
     const prevStep = () => setStep(step - 1);
 
     return (
-        <div className="bg-white border border-gray-200 p-6 sm:p-8 rounded-3xl shadow-xl w-full max-w-2xl mx-auto relative overflow-hidden">
+        <div className="bg-white border border-gray-200 p-4 sm:p-8 rounded-3xl shadow-xl w-full mx-auto relative overflow-hidden">
             {/* Progress Bar */}
-            <div className="mb-8">
-                <div className="flex justify-between items-center mb-4">
+            <div className="mb-6">
+                <div className="flex justify-between items-center mb-4 px-2">
                     {[1, 2, 3].map((s) => (
                         <div key={s} className="flex items-center">
-                            <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all ${step >= s ? 'bg-primary text-black' : 'bg-gray-200 text-gray-500'
+                            <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold transition-all text-sm sm:text-base ${step >= s ? 'bg-primary text-black' : 'bg-gray-200 text-gray-500'
                                 }`}>
-                                {step > s ? <Check className="w-5 h-5" /> : s}
+                                {step > s ? <Check className="w-4 h-4 sm:w-5 sm:h-5" /> : s}
                             </div>
                             {s < 3 && (
-                                <div className={`h-1 w-12 sm:w-20 mx-2 transition-all ${step > s ? 'bg-primary' : 'bg-gray-200'
+                                <div className={`h-1 flex-1 mx-1 sm:mx-2 transition-all min-w-[20px] ${step > s ? 'bg-primary' : 'bg-gray-200'
                                     }`} />
                             )}
                         </div>

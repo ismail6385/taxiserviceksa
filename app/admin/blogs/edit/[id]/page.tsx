@@ -8,6 +8,9 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, Save, Eye } from 'lucide-react';
 import Link from 'next/link';
 import RichTextEditor from '@/components/RichTextEditor';
+import { useDropzone } from 'react-dropzone';
+import { AUTHORS } from '@/lib/constants';
+import { X, UploadCloud } from 'lucide-react';
 
 interface EditBlogPageProps {
     params: {
@@ -113,6 +116,34 @@ export default function EditBlogPage({ params }: EditBlogPageProps) {
             setSaving(false);
         }
     };
+
+    const onDrop = async (acceptedFiles: File[]) => {
+        const file = acceptedFiles[0];
+        if (!file) return;
+
+        try {
+            // Upload logic
+            const url = await blogService.uploadImage(file);
+            if (url) {
+                setFormData(prev => ({ ...prev, featured_image: url }));
+            } else {
+                alert('Upload failed. Ensure "blog-images" bucket exists in Supabase.');
+            }
+        } catch (error) {
+            console.error('Upload error', error);
+            alert('Upload failed');
+        }
+    };
+
+    const removeImage = () => {
+        setFormData(prev => ({ ...prev, featured_image: '' }));
+    };
+
+    const { getRootProps, getInputProps, isDragActive } = useDropzone({
+        onDrop,
+        accept: { 'image/*': [] },
+        maxFiles: 1
+    });
 
     if (loading) {
         return (
@@ -231,38 +262,74 @@ export default function EditBlogPage({ params }: EditBlogPageProps) {
                         </div>
                     </div>
 
-                    {/* Image & Date */}
-                    <div className="grid grid-cols-2 gap-6">
+                    {/* Image & Date & Author */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {/* Image Upload */}
                         <div>
                             <label className="block text-sm font-bold text-gray-900 mb-2">
-                                Featured Image URL
+                                Featured Image
                             </label>
-                            <div className="flex gap-2">
-                                <input
-                                    type="text"
-                                    value={formData.featured_image}
-                                    onChange={(e) => setFormData({ ...formData, featured_image: e.target.value })}
-                                    className="flex-1 px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none"
-                                    placeholder="/images/example.jpg"
-                                />
-                            </div>
-                            {formData.featured_image && (
-                                <div className="mt-2 relative h-32 w-full rounded-lg overflow-hidden border">
-                                    <img src={formData.featured_image} alt="Preview" className="object-cover w-full h-full" />
+
+                            {!formData.featured_image ? (
+                                <div
+                                    {...getRootProps()}
+                                    className={`border-2 border-dashed rounded-lg p-6 flex flex-col items-center justify-center cursor-pointer transition-colors
+                                        ${isDragActive ? 'border-primary bg-primary/10' : 'border-gray-300 hover:border-primary hover:bg-gray-50'}`}
+                                >
+                                    <input {...getInputProps()} />
+                                    <UploadCloud className="w-8 h-8 text-gray-400 mb-2" />
+                                    <p className="text-sm text-gray-500 text-center">
+                                        {isDragActive ? "Drop image here..." : "Drag & drop image, or click to select"}
+                                    </p>
+                                </div>
+                            ) : (
+                                <div className="relative border-2 border-gray-200 rounded-lg overflow-hidden group">
+                                    <img
+                                        src={formData.featured_image}
+                                        alt="Featured"
+                                        className="w-full h-48 object-cover"
+                                    />
+                                    <button
+                                        onClick={removeImage}
+                                        className="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                                        title="Remove Image"
+                                    >
+                                        <X className="w-4 h-4" />
+                                    </button>
                                 </div>
                             )}
                         </div>
-                        <div>
-                            <label className="block text-sm font-bold text-gray-900 mb-2">
-                                Schedule / Publish Date
-                            </label>
-                            <input
-                                type="datetime-local"
-                                value={formData.published_at ? new Date(formData.published_at).toISOString().slice(0, 16) : ''}
-                                onChange={(e) => setFormData({ ...formData, published_at: new Date(e.target.value).toISOString() })}
-                                className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none"
-                            />
-                            <p className="text-xs text-gray-500 mt-1">Leave empty to publish immediately upon clicking Publish.</p>
+
+                        <div className="space-y-4">
+                            {/* Author Selection */}
+                            <div>
+                                <label className="block text-sm font-bold text-gray-900 mb-2">
+                                    Author
+                                </label>
+                                <select
+                                    value={formData.author}
+                                    onChange={(e) => setFormData({ ...formData, author: e.target.value })}
+                                    className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none"
+                                >
+                                    {AUTHORS.map(author => (
+                                        <option key={author.id} value={author.name}>{author.name}</option>
+                                    ))}
+                                    <option value="Taxi Service KSA">Taxi Service KSA (Legacy)</option>
+                                </select>
+                            </div>
+
+                            {/* Schedule */}
+                            <div>
+                                <label className="block text-sm font-bold text-gray-900 mb-2">
+                                    Schedule / Publish Date
+                                </label>
+                                <input
+                                    type="datetime-local"
+                                    value={formData.published_at ? new Date(formData.published_at).toISOString().slice(0, 16) : ''}
+                                    onChange={(e) => setFormData({ ...formData, published_at: new Date(e.target.value).toISOString() })}
+                                    className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none"
+                                />
+                            </div>
                         </div>
                     </div>
 
