@@ -1,5 +1,6 @@
 
 'use client';
+import React from 'react';
 
 import { useEffect, useRef } from 'react';
 import {
@@ -9,6 +10,8 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion';
 import { createRoot } from 'react-dom/client';
+
+import { ArrowRight, Check, X, Info } from 'lucide-react';
 
 interface BlogContentProps {
     content: string; // HTML content
@@ -21,26 +24,133 @@ export default function BlogContent({ content }: BlogContentProps) {
         if (!contentRef.current) return;
 
         const container = contentRef.current;
-        const headers = container.querySelectorAll('h2');
+        const cleanupFunctions: (() => void)[] = [];
 
-        let faqHeader: Element | null = null;
+        // --- Helper to create and manage React roots ---
+        const renderReactComponent = (element: Element, Component: React.ReactNode) => {
+            const wrapperDiv = document.createElement('div');
+            element.replaceWith(wrapperDiv); // Replace the original element with our wrapper
+            const root = createRoot(wrapperDiv);
+            root.render(Component);
+            cleanupFunctions.push(() => {
+                setTimeout(() => root.unmount(), 0);
+                if (wrapperDiv.parentNode) {
+                    wrapperDiv.remove();
+                }
+            });
+            return wrapperDiv; // Return the new wrapper div
+        };
 
-        // 1. Find the FAQ Header
-        headers.forEach(h2 => {
-            if (h2.textContent?.toLowerCase().includes('frequently asked questions') || h2.textContent?.includes('FAQ')) {
-                faqHeader = h2;
+        // --- 1. Table of Contents (TOC) ---
+        const tocItems: { id: string; text: string; level: number }[] = [];
+        const allHeaders = container.querySelectorAll('h2, h3');
+        let tocContainer: HTMLDivElement | null = null;
+
+        allHeaders.forEach((header, index) => {
+            const text = header.textContent?.trim();
+            if (text) {
+                const id = header.id || `section-${index}-${text.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+                header.id = id;
+                tocItems.push({ id, text, level: parseInt(header.tagName.substring(1)) });
             }
         });
 
-        if (faqHeader) {
-            // 2. Identify all Q&A pairs following the header
-            const questions: { question: string, answer: string }[] = [];
-            let nextSibling = (faqHeader as Element).nextElementSibling;
+        if (tocItems.length > 0) {
+            tocContainer = document.createElement('div');
+            tocContainer.className = 'not-prose mb-8 p-6 bg-gray-50 rounded-lg shadow-sm border border-gray-200';
+            const tocTitle = document.createElement('h3');
+            tocTitle.className = 'text-lg font-semibold text-gray-900 mb-4';
+            tocTitle.textContent = 'Table of Contents';
+            tocContainer.appendChild(tocTitle);
 
-            // Collect siblings until the next H2 or end of container
+            const tocList = document.createElement('ul');
+            tocList.className = 'space-y-2';
+
+            tocItems.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.className = item.level === 3 ? 'ml-4 text-sm' : 'text-base';
+                const link = document.createElement('a');
+                link.href = `#${item.id}`;
+                link.className = 'text-primary hover:text-primary-dark hover:underline flex items-center';
+                if (item.level === 3) {
+                    link.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-2 text-gray-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>${item.text}`;
+                } else {
+                    link.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" /></svg>${item.text}`;
+                }
+                listItem.appendChild(link);
+                tocList.appendChild(listItem);
+            });
+            tocContainer.appendChild(tocList);
+            container.prepend(tocContainer); // Add TOC at the very beginning
+            cleanupFunctions.push(() => {
+                if (tocContainer && tocContainer.parentNode) {
+                    tocContainer.remove();
+                }
+            });
+        }
+
+        // --- 2. Process Pros, Cons, Key Takeaways ---
+        const processSection = (headerText: string, icon: React.ElementType, iconColor: string, bgColor: string, borderColor: string) => {
+            const header = Array.from(container.querySelectorAll('h2, h3')).find(h =>
+                h.textContent?.toLowerCase().includes(headerText.toLowerCase())
+            );
+
+            if (header) {
+                const items: string[] = [];
+                let nextSibling = header.nextElementSibling;
+                const elementsToRemove: Element[] = [header];
+
+                while (nextSibling && (nextSibling.tagName === 'UL' || nextSibling.tagName === 'OL')) {
+                    Array.from(nextSibling.children).forEach(li => {
+                        items.push(li.innerHTML);
+                    });
+                    elementsToRemove.push(nextSibling);
+                    nextSibling = nextSibling.nextElementSibling;
+                }
+
+                if (items.length > 0) {
+                    const sectionComponent = (
+                        <div className={`not-prose my-8 p-6 rounded-lg border ${borderColor} ${bgColor}`}>
+                            <h3 className={`flex items-center text-lg font-semibold text-gray-900 mb-4`}>
+                                {React.createElement(icon, { className: `h-6 w-6 mr-3 ${iconColor}` })}
+                                {header.textContent}
+                            </h3>
+                            <ul className="space-y-3 list-none p-0 m-0">
+                                {items.map((item, i) => (
+                                    <li key={i} className="flex items-start text-gray-700">
+                                        {React.createElement(icon, { className: `h-5 w-5 mr-3 flex-shrink-0 ${iconColor}` })}
+                                        <span dangerouslySetInnerHTML={{ __html: item }} />
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    );
+
+                    // Replace the first element to remove (the header) with the new component
+                    const newWrapper = renderReactComponent(header, sectionComponent);
+
+                    // Remove the rest of the original elements
+                    elementsToRemove.slice(1).forEach(el => el.remove());
+                }
+            }
+        };
+
+        processSection('pros', Check, 'text-green-600', 'bg-green-50', 'border-green-200');
+        processSection('cons', X, 'text-red-600', 'bg-red-50', 'border-red-200');
+        processSection('key takeaways', Info, 'text-blue-600', 'bg-blue-50', 'border-blue-200');
+
+
+        // --- 3. FAQ Section ---
+        const faqHeader = Array.from(container.querySelectorAll('h2')).find(h2 =>
+            h2.textContent?.toLowerCase().includes('frequently asked questions') || h2.textContent?.includes('FAQ')
+        );
+
+        if (faqHeader) {
+            const questions: { question: string, answer: string }[] = [];
+            let nextSibling = faqHeader.nextElementSibling;
+            const elementsToRemove: Element[] = [faqHeader];
+
             while (nextSibling && nextSibling.tagName !== 'H2') {
-                // Check for H3 (Question) or STRONG at start of P (sometimes markdown does this)
-                // We primarily look for H3 as per standard markdown structure
                 if (nextSibling.tagName === 'H3' || (nextSibling.tagName === 'P' && nextSibling.querySelector('strong'))) {
                     const questionText = nextSibling.tagName === 'H3'
                         ? (nextSibling.textContent || '')
@@ -52,45 +162,27 @@ export default function BlogContent({ content }: BlogContentProps) {
                     }
 
                     let answerHTML = '';
-
-                    // The answer is the rest of the P or subsequent Ps
                     let answerSibling = nextSibling.nextElementSibling;
-
-                    // If we found a P with strong as title, we might need to handle content inside that P too? 
-                    // Simpler assumption: H3 is question, Ps are answer.
-
-                    if (nextSibling.tagName === 'P' && nextSibling.querySelector('strong')) {
-                        // If it's a P with Strong, the rest of the P might be the answer, or next Ps
-                        // This is tricky. Let's stick to H3 for now as standard KORAY prompt usually produces ### Question
-                    }
+                    elementsToRemove.push(nextSibling); // Add question element to removal list
 
                     while (answerSibling && answerSibling.tagName !== 'H3' && answerSibling.tagName !== 'H2' && !(answerSibling.tagName === 'P' && answerSibling.querySelector('strong'))) {
                         answerHTML += answerSibling.outerHTML;
-                        const toRemove = answerSibling;
+                        elementsToRemove.push(answerSibling); // Add answer element to removal list
                         answerSibling = answerSibling.nextElementSibling;
-                        toRemove.remove();
                     }
 
                     if (answerHTML) {
                         questions.push({ question: questionText, answer: answerHTML });
                     }
-
-                    const qToRemove = nextSibling;
-                    nextSibling = answerSibling;
-                    qToRemove.remove();
+                    nextSibling = answerSibling; // Move to the next potential question or H2
                 } else {
+                    elementsToRemove.push(nextSibling); // Add non-Q&A elements between FAQ header and next H2 to removal list
                     nextSibling = nextSibling.nextElementSibling;
                 }
             }
 
-            // 3. Render Accordion if questions found
             if (questions.length > 0) {
-                const accordionContainer = document.createElement('div');
-                accordionContainer.className = 'mt-6 not-prose';
-                (faqHeader as Element).after(accordionContainer);
-
-                const root = createRoot(accordionContainer);
-                root.render(
+                const accordionComponent = (
                     <Accordion type="single" collapsible className="w-full">
                         {questions.map((q, i) => (
                             <AccordionItem key={i} value={`item-${i}`} className="border-b border-gray-200">
@@ -105,15 +197,19 @@ export default function BlogContent({ content }: BlogContentProps) {
                     </Accordion>
                 );
 
-                // Cleanup
-                return () => {
-                    setTimeout(() => root.unmount(), 0);
-                    if (accordionContainer.parentNode) {
-                        accordionContainer.remove();
-                    }
-                };
+                // Replace the FAQ header with the new accordion component
+                const newWrapper = renderReactComponent(faqHeader, <div className="mt-6 not-prose">{accordionComponent}</div>);
+
+                // Remove all other original elements that were part of the FAQ section
+                elementsToRemove.slice(1).forEach(el => el.remove());
             }
         }
+
+        // --- Cleanup function ---
+        return () => {
+            cleanupFunctions.forEach(cleanup => cleanup());
+        };
+
     }, [content]);
 
     return (
