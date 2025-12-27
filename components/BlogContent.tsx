@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/accordion';
 import { createRoot } from 'react-dom/client';
 
-import { ArrowRight, Check, X, Info } from 'lucide-react';
+import { ArrowRight, Check, X, Info, List } from 'lucide-react';
 
 interface BlogContentProps {
     content: string; // HTML content
@@ -56,35 +56,51 @@ export default function BlogContent({ content }: BlogContentProps) {
         });
 
         if (tocItems.length > 0) {
-            tocContainer = document.createElement('div');
-            tocContainer.className = 'not-prose mb-8 p-6 bg-gray-50 rounded-lg shadow-sm border border-gray-200';
-            const tocTitle = document.createElement('h3');
-            tocTitle.className = 'text-lg font-semibold text-gray-900 mb-4';
-            tocTitle.textContent = 'Table of Contents';
-            tocContainer.appendChild(tocTitle);
+            const TOCComponent = (
+                <div className="not-prose mb-10">
+                    <Accordion type="single" collapsible className="w-full bg-gray-50 rounded-xl border border-gray-200" defaultValue="toc">
+                        <AccordionItem value="toc" className="border-none">
+                            <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-gray-100/50 rounded-t-xl data-[state=open]:border-b border-gray-200">
+                                <span className="flex items-center text-lg font-bold text-gray-900">
+                                    <List className="w-5 h-5 mr-3 text-primary" />
+                                    Table of Contents
+                                </span>
+                            </AccordionTrigger>
+                            <AccordionContent className="px-6 py-4 bg-white/50 rounded-b-xl">
+                                <ul className="space-y-3">
+                                    {tocItems.map((item, idx) => (
+                                        <li key={idx} className={`${item.level === 3 ? 'ml-6' : ''}`}>
+                                            <a
+                                                href={`#${item.id}`}
+                                                className="flex items-start group text-gray-600 hover:text-primary transition-colors text-base leading-snug"
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
+                                                }}
+                                            >
+                                                <span className={`mr-2 mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${item.level === 2 ? 'bg-primary' : 'bg-gray-300 group-hover:bg-primary/50'}`}></span>
+                                                <span className={`${item.level === 2 ? 'font-medium' : ''}`}>{item.text}</span>
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </AccordionContent>
+                        </AccordionItem>
+                    </Accordion>
+                </div>
+            );
 
-            const tocList = document.createElement('ul');
-            tocList.className = 'space-y-2';
+            // Insert TOC at the top
+            const tocWrapper = document.createElement('div');
+            container.prepend(tocWrapper);
 
-            tocItems.forEach(item => {
-                const listItem = document.createElement('li');
-                listItem.className = item.level === 3 ? 'ml-4 text-sm' : 'text-base';
-                const link = document.createElement('a');
-                link.href = `#${item.id}`;
-                link.className = 'text-primary hover:text-primary-dark hover:underline flex items-center';
-                if (item.level === 3) {
-                    link.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 mr-2 text-gray-400" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>${item.text}`;
-                } else {
-                    link.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-primary" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd" /></svg>${item.text}`;
-                }
-                listItem.appendChild(link);
-                tocList.appendChild(listItem);
-            });
-            tocContainer.appendChild(tocList);
-            container.prepend(tocContainer); // Add TOC at the very beginning
+            const root = createRoot(tocWrapper);
+            root.render(TOCComponent);
+
             cleanupFunctions.push(() => {
-                if (tocContainer && tocContainer.parentNode) {
-                    tocContainer.remove();
+                setTimeout(() => root.unmount(), 0);
+                if (tocWrapper.parentNode) {
+                    tocWrapper.remove();
                 }
             });
         }
@@ -216,19 +232,22 @@ export default function BlogContent({ content }: BlogContentProps) {
         <article
             ref={contentRef}
             className="prose prose-lg max-w-none 
-                prose-headings:text-gray-900 prose-headings:font-bold prose-headings:mt-10 prose-headings:mb-6
-                prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl
-                prose-p:text-gray-600 prose-p:leading-8 prose-p:mb-6
-                prose-a:text-primary hover:prose-a:text-primary-dark prose-a:no-underline
+                prose-headings:text-gray-900 prose-headings:font-bold prose-headings:mt-12 prose-headings:mb-6 prose-headings:scroll-mt-24
+                prose-h2:text-3xl prose-h2:border-b prose-h2:border-gray-100 prose-h2:pb-4 prose-h2:mt-16
+                prose-h3:text-2xl prose-h3:text-gray-800
+                prose-p:text-gray-600 prose-p:leading-relaxed prose-p:mb-8 prose-p:text-lg
+                prose-a:text-primary hover:prose-a:text-primary-dark prose-a:font-semibold prose-a:no-underline prose-a:border-b prose-a:border-primary/30 hover:prose-a:border-primary
                 prose-strong:font-bold prose-strong:text-gray-900
-                prose-ul:list-disc prose-ul:pl-6 prose-ul:mb-6
-                prose-ol:list-decimal prose-ol:pl-6 prose-ol:mb-6
-                prose-li:mb-2 text-gray-600
-                prose-table:w-full prose-table:border-collapse prose-table:mb-8 prose-table:rounded-lg prose-table:overflow-hidden prose-table:shadow-sm
-                prose-thead:bg-gray-50
-                prose-th:border-b prose-th:border-gray-200 prose-th:p-4 prose-th:text-left prose-th:font-semibold prose-th:text-gray-900
-                prose-td:border-b prose-td:border-gray-100 prose-td:p-4 prose-td:bg-white
-                prose-img:rounded-2xl prose-img:shadow-lg prose-img:my-12 prose-img:w-full prose-img:object-cover"
+                prose-ul:list-none prose-ul:pl-0 prose-ul:space-y-3 prose-ul:my-8
+                prose-li:pl-8 prose-li:relative prose-li:text-lg prose-li:before:content-[''] prose-li:before:absolute prose-li:before:left-2 prose-li:before:top-3 prose-li:before:w-2 prose-li:before:h-2 prose-li:before:bg-primary prose-li:before:rounded-full
+                prose-ol:pl-8 prose-ol:space-y-3 prose-ol:text-lg prose-ol:marker:font-bold prose-ol:marker:text-primary
+                prose-table:w-full prose-table:my-10 prose-table:overflow-hidden prose-table:rounded-xl prose-table:shadow-lg prose-table:border prose-table:border-gray-200
+                prose-thead:bg-gray-50 prose-thead:text-gray-900 prose-thead:border-b-2 prose-thead:border-gray-200
+                prose-th:p-5 prose-th:text-base prose-th:font-extrabold prose-th:uppercase prose-th:tracking-wider prose-th:text-gray-700
+                prose-td:p-5 prose-td:border-b prose-td:border-gray-100 prose-td:text-base prose-td:text-gray-600 prose-td:bg-white
+                prose-tr:hover:bg-gray-50/50 prose-tr:transition-colors
+                prose-img:rounded-2xl prose-img:shadow-xl prose-img:my-12 prose-img:border prose-img:border-gray-100
+                prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-gray-50 prose-blockquote:py-4 prose-blockquote:px-8 prose-blockquote:rounded-r-xl prose-blockquote:italic prose-blockquote:text-gray-700 prose-blockquote:my-8"
             dangerouslySetInnerHTML={{ __html: content }}
         />
     );
