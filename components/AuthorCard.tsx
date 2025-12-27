@@ -34,7 +34,7 @@ export default function AuthorCard({ authorName, showBio = true, className = '' 
                             {author.name}
                         </Link>
                     </h3>
-                    <p className="text-sm text-gray-500 mb-3 font-medium uppercase tracking-wider">Author</p>
+                    <p className="text-sm text-gray-500 mb-3 font-medium uppercase tracking-wider">{author.role || 'Author'}</p>
 
                     {showBio && (
                         <p className="text-gray-600 mb-4 leading-relaxed text-sm">
