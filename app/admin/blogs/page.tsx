@@ -137,6 +137,35 @@ export default function AdminBlogsPage() {
                             Drafts ({stats.draft})
                         </Button>
                     </div>
+
+                    {/* Publish All Button */}
+                    {stats.draft > 0 && (
+                        <Button
+                            onClick={async () => {
+                                if (confirm(`Are you sure you want to PUBLISH all ${stats.draft} drafts? This will make them live on the website.`)) {
+                                    setLoading(true);
+                                    let count = 0;
+                                    const draftBlogs = blogs.filter(b => b.status === 'draft');
+
+                                    for (const blog of draftBlogs) {
+                                        try {
+                                            await blogService.publishBlog(blog.id);
+                                            count++;
+                                        } catch (e) {
+                                            console.error(`Failed to publish ${blog.title}`, e);
+                                        }
+                                    }
+
+                                    alert(`Successfully published ${count} blogs!`);
+                                    loadBlogs();
+                                }
+                            }}
+                            className="bg-green-600 text-white hover:bg-green-700 font-bold"
+                        >
+                            <Sparkles className="w-4 h-4 mr-2" />
+                            Publish All {stats.draft} Drafts
+                        </Button>
+                    )}
                 </div>
 
                 {/* Blog List */}

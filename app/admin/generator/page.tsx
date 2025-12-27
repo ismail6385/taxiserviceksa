@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import { blogService } from '@/lib/blogService';
 import { Button } from '@/components/ui/button';
-import { Check, Loader2, FileText } from 'lucide-react';
+import { Check, Loader2, FileText, Sparkles } from 'lucide-react';
 
 import { BLOG_TEMPLATES } from '@/data/blogTemplates';
 
@@ -66,7 +66,30 @@ export default function BlogGeneratorPage() {
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
                     <div className="p-6 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
                         <h2 className="font-semibold text-gray-700">Available Templates</h2>
-                        <span className="text-sm text-gray-500">{BLOG_TEMPLATES.length} templates ready</span>
+                        <div className="flex gap-3 items-center">
+                            <span className="text-sm text-gray-500">{BLOG_TEMPLATES.length} templates ready</span>
+                            <Button
+                                onClick={async () => {
+                                    if (confirm(`Are you sure you want to GENERATE all ${BLOG_TEMPLATES.length} drafts? This may take a minute.`)) {
+                                        let count = 0;
+                                        for (const template of BLOG_TEMPLATES) {
+                                            // Skip if already generated in this session
+                                            if (generated.includes(template.slug)) continue;
+
+                                            // Call the generation function directly
+                                            await generateBlog(template);
+                                            count++;
+                                        }
+                                        alert(`Finished! Generated ${count} templates.`);
+                                    }
+                                }}
+                                disabled={generating !== null}
+                                className="bg-blue-600 text-white hover:bg-blue-700 text-xs"
+                            >
+                                <Sparkles className="w-3 h-3 mr-1" />
+                                Generate All
+                            </Button>
+                        </div>
                     </div>
 
                     <div className="divide-y divide-gray-100">
