@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     }
 };
 
-export const revalidate = 3600; // Revalidate every hour
+export const revalidate = 0; // Disable caching for immediate updates
 
 export default async function BlogIndexPage() {
     const blogs: Blog[] = await blogService.getPublishedBlogs();
