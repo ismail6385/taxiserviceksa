@@ -18,8 +18,8 @@ export const AUTHORS = [
         id: '2',
         name: 'Muhammad Ismail',
         slug: 'muhammad-ismail',
-        role: 'Founder & Senior Travel Consultant', // Added role
-        bio: 'Founder of Taxi Service KSA. A dedicated SQA professional and Travel Consultant passionate about simplifying Hajj, Umrah, and intercity travel logistics in Saudi Arabia.',
+        role: 'Founder & Tech Lead',
+        bio: 'Founder of Taxi Service KSA. A versatile tech professional specializing in SQA, Next.js Web Development, SEO Content Strategy, and AI Automation. Ismail combines technical expertise with travel logistics to build smart, efficient digital experiences for Hajj & Umrah pilgrims.',
         avatar: '/images/authors/ismail.jpg',
         social: {
             twitter: '',
