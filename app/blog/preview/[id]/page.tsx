@@ -6,10 +6,12 @@ import { notFound } from 'next/navigation';
 import { blogService, Blog } from '@/lib/blogService';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Calendar, User, Tag, Eye } from 'lucide-react';
+import { Calendar, User, Tag, Eye, Clock, ChevronRight, Home } from 'lucide-react';
 import BookingForm from '@/components/BookingForm';
 import { marked } from 'marked';
 import BlogContent from '@/components/BlogContent';
+import AuthorCard from '@/components/AuthorCard';
+import ShareButtons from '@/components/ShareButtons';
 
 interface Props {
     params: {
@@ -39,6 +41,11 @@ export default function BlogPreviewPage({ params }: Props) {
     if (loading) return <div className="p-10 text-center">Loading Preview...</div>;
     if (!blog) return <div className="p-10 text-center text-red-600">Blog not found or deleted.</div>;
 
+    // Calculate reading time
+    const wordsPerMinute = 200;
+    const wordCount = blog.content.split(/\s+/g).length;
+    const readingTime = Math.ceil(wordCount / wordsPerMinute);
+
     return (
         <div className="min-h-screen bg-gray-50">
             {/* Preview Banner */}
@@ -55,6 +62,23 @@ export default function BlogPreviewPage({ params }: Props) {
             {/* Hero Section */}
             <div className="bg-primary/10 py-12">
                 <div className="container mx-auto px-4 max-w-4xl">
+                    {/* Breadcrumbs */}
+                    <nav className="flex items-center text-sm text-gray-500 mb-8 overflow-x-auto whitespace-nowrap pb-2">
+                        <Link href="/" className="hover:text-primary flex items-center gap-1">
+                            <Home className="w-3 h-3" /> Home
+                        </Link>
+                        <ChevronRight className="w-4 h-4 mx-2" />
+                        <Link href="/blog" className="hover:text-primary">
+                            Blog
+                        </Link>
+                        {blog.category && (
+                            <>
+                                <ChevronRight className="w-4 h-4 mx-2" />
+                                <span className="text-gray-900 font-medium">{blog.category}</span>
+                            </>
+                        )}
+                    </nav>
+
                     <div className="text-center mb-6">
                         <span className="inline-block bg-primary/20 text-primary-dark font-semibold px-3 py-1 rounded-full text-sm mb-4">
                             {blog.category}
@@ -75,6 +99,10 @@ export default function BlogPreviewPage({ params }: Props) {
                                     month: 'long',
                                     day: 'numeric'
                                 })}
+                            </span>
+                            <span className="flex items-center gap-2">
+                                <Clock className="w-4 h-4" />
+                                {readingTime} min read
                             </span>
                         </div>
                     </div>
@@ -99,6 +127,10 @@ export default function BlogPreviewPage({ params }: Props) {
                         )}
 
                         <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12">
+                            <div className="flex justify-end mb-6">
+                                <ShareButtons title={blog.title} description={blog.excerpt} />
+                            </div>
+
                             {/* Content Body */}
                             <BlogContent content={marked.parse(blog.content) as string} />
 
@@ -115,6 +147,11 @@ export default function BlogPreviewPage({ params }: Props) {
                                     </div>
                                 </div>
                             )}
+                        </div>
+
+                        {/* Author Bio Box */}
+                        <div className="mt-8">
+                            <AuthorCard authorName={blog.author} />
                         </div>
                     </div>
 
