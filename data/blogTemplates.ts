@@ -162,5 +162,172 @@ The official currency of Saudi Arabia is the **Saudi Riyal (SAR)**. It is pegged
 *   **Exchange 100-200 SAR** at the airport for immediate needs (SIM card, taxi), then exchange the rest in the city.
 *   **Notify your bank** before traveling to prevent card blocking.
 `
+    },
+    {
+        title: "Umrah Tawaf Guide: Steps, Rules & Duas (2025)",
+        slug: "umrah-tawaf-guide-steps-rules",
+        category: "Umrah Guide",
+        excerpt: "Step-by-step guide to performing Tawaf for Umrah. Learn about Ramal, Idtiba, proper Etiquette, and allowed Duas during the 7 rounds.",
+        seo_title: "How to Perform Tawaf: Step-by-Step Umrah Guide & Rules",
+        seo_description: "Beginner's guide to Tawaf for Umrah. Steps for 7 rounds, Ramal, Idtiba for men, and essential Duas to recite at the Kaaba.",
+        seo_keywords: ["Tawaf rules", "How to perform Tawaf", "Umrah guide", "Tawaf duas", "Ramal and Idtiba"],
+        content: `
+**Tawaf** is the act of circumambulating (walking around) the Holy Kaaba 7 times in a counter-clockwise direction. It is a pillar of Umrah and Hajj.
+
+### The 7 Rounds of Tawaf
+Each round starts and ends at the **Hajar al-Aswad (Black Stone)** corner.
+
+| Round # | Action | Sunnah for Men |
+| :--- | :--- | :--- |
+| **1-3** | Walk briskly with chest out | **Ramal** (Brisk walking) |
+| **4-7** | Walk at normal pace | Normal walking |
+
+**Important Note:** **Idtiba** (uncovering the right shoulder) is only for men and ONLY during the Tawaf of Umrah/Arrival. Cover your shoulder immediately after finishing the 7th round.
+
+## Steps to Perform Tawaf
+1.  **Niyyah (Intention):** Make intention for Tawaf at the Black Stone corner.
+2.  **Istilam:** Raise your right hand towards the Black Stone and say *"Bismillahi Allahu Akbar"*.
+3.  **Start Walking:** Keep the Kaaba on your **left**.
+4.  **Rukn al-Yamani:** When reaching the Yemeni Corner (the corner before the Black Stone), it is Sunnah to touch it if possible (do not kiss it). If crowded, just walk past.
+5.  **Between Yemeni Corner & Black Stone:** Recite: *"Rabbana atina fid-dunya hasanatan wa fil-akhirati hasanatan wa qina adhaban-nar."*
+6.  **Complete 7 Rounds.**
+
+## Key Rules
+*   **Wudu (Ablution):** You MUST be in a state of Wudu. If Wudu breaks, you must redo ablution and restart the round (scholars differ whether to restart round or whole Tawaf; restarting round is safer).
+*   **Hijr Ismail (The Hatim):** Do NOT walk inside the semi-circular wall. Walking inside it invalidates that round because Hijr Ismail is part of the Kaaba.
+
+### Frequently Asked Questions
+
+### Can I touch the Kaaba?
+During Tawaf, it is better to focus on the orbit and avoid the crush of the crowd near the walls. Touching the Kaaba is not a requirement for Tawaf validity.
+
+### What if I lose count of rounds?
+Build on certainty (the lower number). If you are unsure if it’s 3 or 4, assume it is 3 and complete the rest.
+
+### Pros and Cons of Mataf (Ground Floor) vs. Roof
+**Mataf (Ground):**
+*   **Pros:** Closer to Kaaba, spiritual feeling.
+*   **Cons:** Extremely crowded, slower movement.
+
+**Roof/Upper Floors:**
+*   **Pros:** Less crowded, airy, good for wheelchairs.
+*   **Cons:** Much longer distance (circumference is larger).
+`
+    },
+    {
+        title: "Madinah Job Prayer Times: Understanding the Schedule",
+        slug: "madinah-prayer-times-schedule",
+        category: "Madinah Guide",
+        excerpt: "Accurate information on prayer times in Madinah and the importance of arriving early at Masjid Al-Nabawi for Jummah and daily prayers.",
+        seo_title: "Madinah Prayer Times 2025: Schedule & Masjid Nabawi Tips",
+        seo_description: "Current prayer times for Madinah. Tips for getting a spot inside Masjid Al-Nabawi, Jummah timing, and RAWDAH opening hours.",
+        seo_keywords: ["Madinah Prayer Times", "Masjid Nabawi Schedule", "Jummah in Madinah", "Rawdah entry times"],
+        content: `
+Praying in **Masjid Al-Nabawi** carries the reward of **1,000 prayers** (except for Masjid al-Haram). Therefore, knowing the schedule is vital.
+
+### Typical Daily Schedule (Subject to change)
+*   **Tahajjud:** 1 hour before Fajr (Mosque is busiest).
+*   **Fajr:** Adhan is approx. 5:00 - 5:30 AM.
+*   **Dhuhr:** Adhan is approx. 12:15 - 12:30 PM.
+*   **Asr:** Adhan is approx. 3:30 - 3:45 PM.
+*   **Maghrib:** Immediately after sunset.
+*   **Isha:** Approx. 1.5 hours after Maghrib.
+
+## Tips for Getting a Spot
+1.  **Inside the Mosque:** For Fard prayers, arrive at least **45-60 minutes early**, especially for Maghrib and Isha.
+2.  **Jummah (Friday):** You MUST arrive by **10:00 AM** (2 hours before Adhan) to get a spot inside the main hall. If you arrive at 11:30 AM, you will likely be in the courtyard under the sun.
+3.  **Ladies Section:** Gate 25, 29, and the northern expansion are popular entry points for women.
+
+## The Rawdah (Riaz-ul-Jannah)
+*   **Entry:** Strictly by appointment via **Nusuk App**.
+*   **Men:** Usually open overnight and morning.
+*   **Women:** Usually open in morning (post-Fajr) and late night.
+*   **Note:** Check the app for latest slots; they open continuously.
+
+### Key Takeaways
+*   **Don't trust Google blindly.** Arrive early.
+*   **Gate numbers matter.** Know which gate is closest to your hotel to avoid long walks after prayer.
+*   **Shoe Bags:** Always carry a shoe bag. Do not leave shoes outside; they will be removed by cleaners.
+`
+    },
+    {
+        title: "History of Mount Uhud: Site of the Second Battle",
+        slug: "history-mount-uhud-ziyarah",
+        category: "Madinah Guide",
+        excerpt: "A deep dive into the Battle of Uhud, the Archers' Hill, and the Martyrs' Cemetery. Why the Prophet (PBUH) loved this mountain.",
+        seo_title: "Mount Uhud History & Ziyarah Guide: Archers Hill & Martyrs",
+        seo_description: "Visit Mount Uhud in Madinah. History of the Battle of Uhud, climb Archers' Hill, and pay respects at the Shuhada Cemetery (Hamza RA).",
+        seo_keywords: ["Mount Uhud history", "Battle of Uhud", "Archers Hill", "Graves of Martyrs Uhud", "Ziyarat Madinah"],
+        content: `
+**Mount Uhud** is not just a mountain; it is a landmark of love and sacrifice. Prophet Muhammad (PBUH) said: *"Uhud is a mountain that loves us and we love it."* (Bukhari)
+
+It was the site of the **Battle of Uhud** (3 AH), a pivotal moment in Islamic history.
+
+### What to See at Uhud
+1.  **Archers' Hill (Jabal Rumaat):** The small hillock where the Prophet (PBUH) stationed 50 archers with strict orders not to move. Their descent to collect spoils led to the turn of the battle. You can climb this hill for a panoramic view.
+2.  **Shuhada Cemetery:** The resting place of **70 martyrs**, including **Hamza ibn Abdul-Muttalib (RA)**, the uncle of the Prophet (PBUH). It is enclosed by a fence; you can view it from the outside and recite Salam.
+3.  **Uhud Mosque:** A newer masjid built near the site.
+
+## The Battle Summary
+*   **Muslim Army:** ~700 men.
+*   **Quraysh Army:** ~3,000 men.
+*   **Turning Point:** Khalid bin Walid (then a non-Muslim) led a cavalry charge from behind Archers' Hill after the archers abandoned their post.
+*   **Lesson:** The importance of obedience to the Prophet's (PBUH) command.
+
+### Visitor Etiquette
+*   **Respect:** Maintain silence and dignity near the cemetery.
+*   **No Bid'ah:** Do not throw letters, money, or grain inside the fence. Do not wipe your face on the walls.
+*   **Sunnah:** Recite the Dua for visiting graves: *"Assalamu alaykum ahla al-diyar..."*
+
+### Frequently Asked Questions
+
+### Can I climb the big mountain?
+**It is dangerous and restricted.** Visitors usually only climb the small **Archers' Hill**. The main Mount Uhud is rugged and steep.
+
+### Is there a cave?
+Yes, the **Cave of Uhud** (Ghar Uhud) where the Prophet (PBUH) took rest after being injured is higher up. However, climbing there is difficult and generally discouraged by authorities for safety reasons.
+`
+    },
+    {
+        title: "The Seven Mosques of Madinah (Saba Masajid)",
+        slug: "seven-mosques-madinah-khandaq",
+        category: "Madinah Guide",
+        excerpt: "Discover the site of the Battle of the Trench (Khandaq). Guide to the Seven Mosques, including Masjid Fath and Masjid Salman Farsi.",
+        seo_title: "The Seven Mosques (Saba Masajid) Madinah: Khandaq History",
+        seo_description: "Guide to the Seven Mosques (Al-Masajid Al-Sab'ah) in Madinah. Visiting the site of the Battle of Trench (Khandaq) and Masjid Fath.",
+        seo_keywords: ["Seven Mosques Madinah", "Battle of Trench site", "Masjid Fath", "Ghazwa Khandaq", "Ziyarat places Madinah"],
+        content: `
+The **Seven Mosques (Al-Masajid Al-Sab'ah)** mark the site of the **Battle of the Trench (Ghazwa Khandaq)**. This is where the Muslims dug a deep trench to defend Madinah against the Confederate armies.
+
+Historically, these were small prayer spots used by different companions. Today, a large, modern mosque (**Masjid Al-Fath**) dominates the site, but the smaller historical structures remain.
+
+### The Mosques
+Actually, there are currently **six** structures, but traditionally they are known as seven.
+1.  **Masjid Al-Fath (The Victory):** On the hilltop. It is where the Prophet (PBUH) made dua for victory for three days, and it was granted.
+2.  **Masjid Salman Al-Farsi:** Named after the companion who proposed the idea of digging the trench.
+3.  **Masjid Abu Bakr As-Siddiq**
+4.  **Masjid Umar bin Khattab**
+5.  **Masjid Ali bin Abi Talib**
+6.  **Masjid Fatimah Az-Zahra** (Also known as Masjid Saad bin Muadh).
+
+## The Battle of the Trench (5 AH)
+*   **Strategy:** A defensive trench (~5.5km long) prevented enemy cavalry from entering the city.
+*   **Result:** A cold wind sent by Allah destroyed the enemy camp after a month-long siege.
+
+### Visiting Tips
+*   **Location:** Located on the western side of Mount Sala.
+*   **Timing:** Best visited in the morning (7 AM - 11 AM) as part of a general Ziyarat tour.
+*   **Modernization:** The site has been beautifully renovated. The large new white mosque is fully air-conditioned and holds daily prayers.
+
+### Pros and Cons of Visiting
+**Pros:**
+*   Deep connection to Seerah.
+*   Beautiful architecture of the new masjid.
+*   Great views of Madinah from the hill.
+
+**Cons:**
+*   Can be crowded with tour buses.
+*   Parking can be tight during peak season.
+`
     }
 ];
