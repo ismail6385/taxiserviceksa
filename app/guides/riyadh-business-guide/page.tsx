@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Riyadh Business Travel Guide 2024 | Complete Corporate Transport Guide',
         description: 'Everything business travelers need: KAFD access, districts, venues, corporate facilities, and transport.',
-        url: 'https://taxiserviceksa.com/guides/riyadh-business-guide',
+        url: 'https://taxiserviceksa.com/guides/riyadh-business-guide/',
         type: 'article',
     },
 };

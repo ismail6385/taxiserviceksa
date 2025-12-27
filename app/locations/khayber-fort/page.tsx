@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Taxi Service to Khaybar Fort | Madinah & AlUla Transfers',
         description: 'Transport to Khaybar Oasis from Madinah (170km). 4x4 vehicles available for volcanic tours.',
-        url: 'https://taxiserviceksa.com/locations/khayber-fort',
+        url: 'https://taxiserviceksa.com/locations/khayber-fort/',
         type: 'website',
         images: [{ url: 'https://taxiserviceksa.com/hero-slide-2.webp', alt: 'Khaybar Fort on volcanic rock' }],
     },

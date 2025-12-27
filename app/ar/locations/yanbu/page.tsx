@@ -23,12 +23,12 @@ export const metadata: Metadata = {
     description: 'Taxi service in Yanbu operates 24/7 for airport transfers and industrial transport. Yanbu Airport to port and industrial city. Fixed rates for corporate travel.',
     keywords: ['taxi service in Yanbu', 'Yanbu taxi', 'Yanbu Airport transfer', 'Yanbu industrial transport', 'Yanbu port taxi'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/yanbu',
+        canonical: 'https://taxiserviceksa.com/locations/yanbu/',
     },
     openGraph: {
         title: 'Taxi Service in Yanbu | Airport Transfer & Industrial Transport',
         description: 'Taxi service in Yanbu operates 24/7. Airport transfers and industrial city transport. Fixed rates. Book online.',
-        url: 'https://taxiserviceksa.com/locations/yanbu',
+        url: 'https://taxiserviceksa.com/locations/yanbu/',
         type: 'website',
     },
 };

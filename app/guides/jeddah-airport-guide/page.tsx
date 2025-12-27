@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Jeddah Airport Complete Guide 2024 | King Abdulaziz Airport',
         description: 'Everything you need to know about navigating Jeddah Airport: terminals, facilities, transport to Makkah.',
-        url: 'https://taxiserviceksa.com/guides/jeddah-airport-guide',
+        url: 'https://taxiserviceksa.com/guides/jeddah-airport-guide/',
         type: 'article',
     },
 };

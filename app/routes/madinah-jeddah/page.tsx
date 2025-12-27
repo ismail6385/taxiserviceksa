@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Madinah to Jeddah Taxi | Airport Transfer 450km - Fixed Price',
         description: 'Taxi from Madinah to Jeddah Airport (JED). 4-5 hour comfortable journey. Fixed rates from SAR 450. Book your ride now.',
-        url: 'https://taxiserviceksa.com/routes/madinah-jeddah',
+        url: 'https://taxiserviceksa.com/routes/madinah-jeddah/',
         type: 'website',
     },
 };

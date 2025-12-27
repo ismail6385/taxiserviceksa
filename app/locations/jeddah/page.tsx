@@ -36,14 +36,14 @@ export const metadata: Metadata = {
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/',
         languages: {
-            'ar': 'https://taxiserviceksa.com/ar/locations/jeddah',
-            'ur': 'https://taxiserviceksa.com/ur/locations/jeddah',
+            'ar': 'https://taxiserviceksa.com/ar/locations/jeddah/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/jeddah/',
         }
     },
     openGraph: {
         title: 'Taxi Service in Jeddah | Airport Taxi & Makkah Transfers',
         description: 'Pre-booked private transfers from KAIA Terminal 1 & North Terminal directly to hotels. Fixed rates available.',
-        url: 'https://taxiserviceksa.com/locations/jeddah',
+        url: 'https://taxiserviceksa.com/locations/jeddah/',
         type: 'website',
         images: [{ url: 'https://taxiserviceksa.com/jeddah-corniche-sunset.webp', alt: 'Jeddah Corniche Waterfront' }],
     },

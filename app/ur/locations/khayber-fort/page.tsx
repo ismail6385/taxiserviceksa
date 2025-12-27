@@ -15,8 +15,8 @@ export const metadata: Metadata = {
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/locations/khayber-fort/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/khayber-fort',
-            'ar': 'https://taxiserviceksa.com/ar/locations/khayber-fort',
+            'en': 'https://taxiserviceksa.com/locations/khayber-fort/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/khayber-fort/',
         }
     },
     openGraph: {

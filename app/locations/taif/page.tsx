@@ -36,14 +36,14 @@ export const metadata: Metadata = {
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/taif/',
         languages: {
-            'ar': 'https://taxiserviceksa.com/ar/locations/taif',
-            'ur': 'https://taxiserviceksa.com/ur/locations/taif',
+            'ar': 'https://taxiserviceksa.com/ar/locations/taif/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/taif/',
         }
     },
     openGraph: {
         title: 'Taxi Service in Taif | Makkah Transfers & Al Hada Tours',
         description: 'Private transport to Taif via Al Hada mountain road. Service includes stops at cable car and rose factories.',
-        url: 'https://taxiserviceksa.com/locations/taif',
+        url: 'https://taxiserviceksa.com/locations/taif/',
         type: 'website',
         images: [{ url: 'https://taxiserviceksa.com/taif-mountains-view.webp', alt: 'Taif Al Hada Mountain Road' }],
     },

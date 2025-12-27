@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Taxi Service in Riyadh | Airport Transfer & Corporate Transport',
         description: 'Taxi service in Riyadh operates 24/7. King Khalid Airport transfers and corporate travel. Fixed rates. Book online.',
-        url: 'https://taxiserviceksa.com/locations/riyadh',
+        url: 'https://taxiserviceksa.com/locations/riyadh/',
         type: 'website',
     },
 };

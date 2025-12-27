@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: 'Explore the history of the Battle of Uhud. Guide to the Archers Hill, Martyrs Cemetery (Sayyidina Hamza), and the significance of Mount Uhud in Islam.',
     keywords: ['Mount Uhud history', 'Battle of Uhud guide', 'Archers Hill Madinah', 'Hamza grave Uhud', 'Madinah historical sites'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/uhud-history',
+        canonical: 'https://taxiserviceksa.com/guides/uhud-history/',
     },
 };
 

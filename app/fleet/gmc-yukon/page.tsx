@@ -19,12 +19,12 @@ export const metadata: Metadata = {
     description: 'GMC Yukon taxi service in Saudi Arabia accommodates 7 passengers and 5 large bags. Service includes airport transfers, Umrah transport, and intercity travel. Available 24/7.',
     keywords: ['GMC Yukon taxi service Saudi Arabia', 'luxury SUV taxi KSA', 'GMC Yukon airport transfer', 'chauffeur service Saudi Arabia', 'Umrah luxury taxi'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/fleet/gmc-yukon',
+        canonical: 'https://taxiserviceksa.com/fleet/gmc-yukon/',
     },
     openGraph: {
         title: 'GMC Yukon Luxury Taxi Service in Saudi Arabia',
         description: 'Experience premium travel with our GMC Yukon chauffeur service. Ideal for Umrah, airport transfers (JED/MED), and VIP city travel.',
-        url: 'https://taxiserviceksa.com/fleet/gmc-yukon',
+        url: 'https://taxiserviceksa.com/fleet/gmc-yukon/',
         images: [{ url: 'https://taxiserviceksa.com/gmc-yukon.webp', alt: 'GMC Yukon Luxury Taxi Saudi Arabia' }],
     },
 };

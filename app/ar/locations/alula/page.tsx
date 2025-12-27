@@ -23,12 +23,12 @@ export const metadata: Metadata = {
     description: 'Taxi service in AlUla for Hegra UNESCO site tours and airport transfers. AlUla Airport to hotels. 4x4 vehicles for desert terrain. Fixed rates for heritage tours.',
     keywords: ['taxi service in AlUla', 'AlUla taxi', 'Hegra tours', 'AlUla Airport transfer', 'AlUla heritage tours'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/alula',
+        canonical: 'https://taxiserviceksa.com/locations/alula/',
     },
     openGraph: {
         title: 'Taxi Service in AlUla | Hegra Tours & Airport Transfer',
         description: 'Taxi service in AlUla operates for UNESCO heritage tours and airport transfers. 4x4 vehicles for desert sites. Book online.',
-        url: 'https://taxiserviceksa.com/locations/alula',
+        url: 'https://taxiserviceksa.com/locations/alula/',
         type: 'website',
     },
 };

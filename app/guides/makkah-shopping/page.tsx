@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: 'Best places for shopping in Makkah. Guide to Abraj Al Bait Mall, Makkah Mall, and traditional souqs. Where to buy dates, perfumes, gold, and souvenirs.',
     keywords: ['Makkah shopping malls', 'Abraj Al Bait mall', 'Buy dates Makkah', 'Makkah gold market', 'Souvenirs Makkah'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/makkah-shopping',
+        canonical: 'https://taxiserviceksa.com/guides/makkah-shopping/',
     },
 };
 

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Jeddah to Taif Taxi | Scenic Mountain Transfer',
         description: 'Taxi from Jeddah to Taif. Enjoy the scenic drive to Taif mountains. 2.5 hour journey. Fixed rates from SAR 350.',
-        url: 'https://taxiserviceksa.com/routes/jeddah-taif',
+        url: 'https://taxiserviceksa.com/routes/jeddah-taif/',
         type: 'website',
     },
 };

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: 'Reliable taxi from Madinah Airport to Masjid Nabawi hotels. 24/7 pickup reliability. Fixed rates starting from 50 SAR. Professional drivers.',
     keywords: ['Madinah airport taxi', 'Prince Mohammad airport transfer', 'MED airport taxi', 'Taxi Madinah airport to Haram', 'Madinah airport pickup'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/madinah-airport-taxi',
+        canonical: 'https://taxiserviceksa.com/madinah-airport-taxi/',
     },
 };
 

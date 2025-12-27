@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Jeddah to Al Ula Taxi | 700km Route - Fixed Price SAR 1400',
         description: 'Comfortable private transfer from Jeddah to Al Ula. 700km journey. Fixed rates starting SAR 1400. Visit the ancient city of Hegra.',
-        url: 'https://taxiserviceksa.com/routes/jeddah-alula',
+        url: 'https://taxiserviceksa.com/routes/jeddah-alula/',
         type: 'website',
     },
 };

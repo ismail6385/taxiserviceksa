@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description: 'A complete guide to the pedestrian walkway connecting Al-Masjid an-Nabawi to Masjid Quba. Distance, best time to walk, and amenities along the route.',
     keywords: ['Quba walking path', 'Masjid Nabawi to Quba walk', 'Quba avenue Madinah', 'Ziyarat walking tour', 'Sunnah walk Madinah'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/quba-walking-path',
+        canonical: 'https://taxiserviceksa.com/guides/quba-walking-path/',
     },
 };
 

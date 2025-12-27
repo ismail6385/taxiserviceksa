@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Taxi Service in Makkah | Umrah Transport & Airport Transfers',
         description: 'Taxi service in Makkah operates 24/7 for Umrah pilgrims and airport transfers. Fixed rates from Jeddah Airport to Makkah hotels. Book online.',
-        url: 'https://taxiserviceksa.com/locations/makkah',
+        url: 'https://taxiserviceksa.com/locations/makkah/',
         type: 'website',
         images: [{ url: 'https://taxiserviceksa.com/makkah-kaaba-night.webp', alt: 'Taxi service in Makkah near Masjid al Haram' }],
     },

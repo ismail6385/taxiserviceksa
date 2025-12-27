@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: 'Premier corporate taxi service in Saudi Arabia for business professionals. Executive cars, monthly invoicing, reliable airport transfers, and event transport.',
     keywords: ['Corporate taxi Saudi Arabia', 'Business executive transfer KSA', 'Chauffeur service Riyadh', 'Jeddah business taxi', 'VIP transport Saudi Arabia'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/business',
+        canonical: 'https://taxiserviceksa.com/services/business/',
     },
 };
 

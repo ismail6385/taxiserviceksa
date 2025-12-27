@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Jeddah to Makkah Taxi | Airport Transfer 80km - Fixed Price',
         description: 'Taxi from Jeddah to Makkah operates 24/7. King Abdulaziz Airport to Makkah hotels in 60-90 minutes. Fixed rate SAR 250. Book online.',
-        url: 'https://taxiserviceksa.com/routes/jeddah-makkah',
+        url: 'https://taxiserviceksa.com/routes/jeddah-makkah/',
         type: 'website',
     },
 };

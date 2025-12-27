@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Jeddah to Yanbu Taxi | 330km Route - Fixed Price SAR 550',
         description: 'Reliable taxi from Jeddah to Yanbu. 3.5-hour journey. Fixed rates starting SAR 550. Ideal for business travelers and residents.',
-        url: 'https://taxiserviceksa.com/routes/jeddah-yanbu',
+        url: 'https://taxiserviceksa.com/routes/jeddah-yanbu/',
         type: 'website',
     },
 };

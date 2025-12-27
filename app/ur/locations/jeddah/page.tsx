@@ -17,8 +17,8 @@ export const metadata: Metadata = {
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/locations/jeddah/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/jeddah',
-            'ar': 'https://taxiserviceksa.com/ar/locations/jeddah',
+            'en': 'https://taxiserviceksa.com/locations/jeddah/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/jeddah/',
         }
     },
     openGraph: {

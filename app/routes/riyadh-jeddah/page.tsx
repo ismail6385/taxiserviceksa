@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Riyadh to Jeddah Taxi | Long Distance Transfer',
         description: 'Private taxi from Riyadh to Jeddah. Comfortable long-distance travel (950 km). Professional drivers, luxury cars, door-to-door service.',
-        url: 'https://taxiserviceksa.com/routes/riyadh-jeddah',
+        url: 'https://taxiserviceksa.com/routes/riyadh-jeddah/',
         type: 'website',
     },
 };

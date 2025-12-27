@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Makkah Umrah Complete Guide 2024 | Everything Pilgrims Need',
         description: 'Comprehensive Umrah guide: Haram access, Tawaf timing, Ziyarat sites, transport, and practical tips for pilgrims.',
-        url: 'https://taxiserviceksa.com/guides/makkah-umrah-guide',
+        url: 'https://taxiserviceksa.com/guides/makkah-umrah-guide/',
         type: 'article',
     },
 };
