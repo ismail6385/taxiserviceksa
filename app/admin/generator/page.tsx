@@ -6,74 +6,7 @@ import { blogService } from '@/lib/blogService';
 import { Button } from '@/components/ui/button';
 import { Check, Loader2, FileText } from 'lucide-react';
 
-const BLOG_TEMPLATES = [
-    {
-        title: "Complete Guide to Meeqat Locations for Umrah (Map & Rules)",
-        slug: "meeqat-locations-umrah-map-rules",
-        category: "Umrah Guide",
-        excerpt: "Detailed guide to the 5 Meeqat points: Dhul Hulaifah, Al-Juhfah, Qarn al-Manazil, Yalamlam, and Dhat Irq. Know where to enter Ihram to avoid penalties.",
-        seo_title: "Meeqat Locations for Umrah: 5 Stations Map & Rules (2025)",
-        seo_description: "Where is the Meeqat for Umrah? Complete guide to Dhul Hulaifah, Yalamlam, Qarn al-Manazil, and penalties for bypassing them.",
-        seo_keywords: ["Meeqat locations", "Dhul Hulaifah", "Abyar Ali", "Yalamlam", "Umrah rules", "Jeddah Meeqat"],
-        content: `
-**The Meeqat (Site of Intention)** is the geographic boundary that a pilgrim intending to perform Hajj or Umrah **must not cross** without assuming **Ihram** (state of ritual purity).
-
-There are **5 specific Meeqat locations** established by Prophet Muhammad (PBUH). Bypassing these boundaries without Ihram requires a **Damm (sacrifice of a sheep)** as expiation.
-
-### Table: The 5 Meeqat Locations
-
-| Meeqat Name | Distance from Makkah | For Pilgrims Coming From |
-| :--- | :--- | :--- |
-| **Dhul Hulaifah (Abyar Ali)** | 450 km (North) | Madinah |
-| **Al-Juhfah (Rabigh)** | 183 km (North-West) | Egypt, Syria, North Africa, Europe |
-| **Qarn al-Manazil (As-Sayl Al-Kabir)** | 75 km (East) | Riyadh, Taif, UAE, Pakistan, India |
-| **Yalamlam (Sa'adiyah)** | 92 km (South) | Yemen, South Africa, Nigeria |
-| **Dhat Irq** | 94 km (North-East) | Iraq, Iran, Eastern Saudi Arabia |
-
-## 1. Dhul Hulaifah (Abyar Ali) – The Furthest Meeqat
-Located **450 kilometers north of Makkah**, this is the Meeqat for pilgrims traveling from **Madinah**. It is often called **Abyar Ali** today.
-*   **Significance:** It is where the Prophet (PBUH) entered Ihram for his pilgrimage.
-*   **Facilities:** Includes a large mosque (Masjid Al-Shajarah) with extensive bathing and changing facilities.
-
-## 2. Al-Juhfah (Rabigh)
-Historically a village, now located near **Rabigh** (approx. 183km from Makkah).
-*   **For:** Pilgrims from Egypt, Levant, and North America/Europe traveling via the coastal route.
-
-## 3. Qarn al-Manazil (As-Sayl Al-Kabir)
-Located **75km east of Makkah**, near Taif.
-*   **For:** Visitors from Riyadh, Dammam, Dubai, Pakistan, and India.
-*   **Note:** There is a second location called *Wadi Mahram* for those descending from Taif via the mountain road.
-
-## 4. Yalamlam (Sa'adiyah)
-Located **92km south of Makkah**.
-*   **For:** Pilgrims from Yemen and those crossing the Red Sea by ship from the south.
-
-## 5. Dhat Irq
-Located **94km north-east**.
-*   **For:** Pilgrims from Iraq and Iran.
-*   **Status:** It is less accessible by modern highways compared to others.
-
-### Frequently Asked Questions
-
-### What if I am flying to Jeddah?
-**Jeddah is NOT a Meeqat.** It is inside the boundary. If you fly to Jeddah for Umrah:
-1.  **Wear Ihram on the plane** before crossing the Meeqat zone (usually 20-30 mins before landing).
-2.  Or, travel to a Meeqat (like Dhul Hulaifah if going to Madinah first) by taxi.
-
-### Can I wear Ihram at my hotel in Makkah?
-**No**, unless you are already a resident of Makkah (Hil). For Umrah, you must go out to the nearest boundary (like Masjid Aisha/Taneem) if you are already in the city.
-
-### Pros and Cons of Taxi to Meeqat
-**Pros:**
-*   Comfortable changing stops.
-*   Direct travel to Makkah Haram.
-*   No luggage hassle.
-
-**Cons:**
-*   More expensive than bus.
-`
-    }
-];
+import { BLOG_TEMPLATES } from '@/data/blogTemplates';
 
 export default function BlogGeneratorPage() {
     const [generating, setGenerating] = useState<string | null>(null);
