@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Complete Umrah guide for Makkah: Haram access, Tawaf timing, Ziyarat sites, Zamzam logistics, hotel zones, prayer schedules, and taxi transport. Everything pilgrims need to know.',
     keywords: ['Umrah guide Makkah', 'Tawaf timing', 'Ziyarat sites Makkah', 'Haram access points', 'Makkah hotel zones', 'Jabal al-Nour', 'Zamzam water'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/makkah-umrah-guide',
+        canonical: 'https://taxiserviceksa.com/guides/makkah-umrah-guide/',
     },
     openGraph: {
         title: 'Makkah Umrah Complete Guide 2024 | Everything Pilgrims Need',

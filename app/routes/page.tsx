@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     title: 'Popular Routes | Taxi Service KSA - Fixed Price Routes',
     description: 'Popular taxi routes in Saudi Arabia with fixed pricing. Jeddah to Makkah (80km), Makkah to Madinah (450km). 24/7 service with transparent rates.',
     keywords: ['taxi routes Saudi Arabia', 'Jeddah Makkah taxi', 'Makkah Madinah taxi', 'intercity taxi KSA'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/routes/',
+    },
 };
 
 export default function RoutesPage() {

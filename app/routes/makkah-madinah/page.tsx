@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: 'Taxi from Makkah to Madinah operates 24/7. 450km pilgrimage route in 4-5 hours. Fixed rate SAR 450. Rest stops included. Complete your Umrah journey.',
     keywords: ['Makkah to Madinah taxi', 'Umrah taxi Makkah Madinah', 'taxi price Makkah Madinah', 'Makkah Madinah distance', 'pilgrimage transport'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/makkah-madinah',
+        canonical: 'https://taxiserviceksa.com/routes/makkah-madinah/',
     },
     openGraph: {
         title: 'Makkah to Madinah Taxi | 450km Umrah Route - Fixed Price',

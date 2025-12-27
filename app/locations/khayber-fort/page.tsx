@@ -34,10 +34,10 @@ export const metadata: Metadata = {
     description: 'Taxi service requires 4x4 vehicles for white volcanoes (Harrat Khaybar). Transfers from Madinah and AlUla available. Tours include Al-Qamus Fort and ancient dams.',
     keywords: ['Khaybar Fort taxi', 'Madinah to Khaybar taxi', 'AlUla to Khaybar transfer', 'Harrat Khaybar 4x4', 'Al-Qamus Fort tour'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/khayber-fort',
+        canonical: 'https://taxiserviceksa.com/locations/khayber-fort/',
         languages: {
-            'ar': 'https://taxiserviceksa.com/ar/locations/khayber-fort',
-            'ur': 'https://taxiserviceksa.com/ur/locations/khayber-fort',
+            'ar': 'https://taxiserviceksa.com/ar/locations/khayber-fort/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/khayber-fort/',
         }
     },
     openGraph: {

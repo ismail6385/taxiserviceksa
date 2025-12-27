@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: 'Taxi from Jeddah to Taif. Enjoy the scenic drive to Taif mountains. 2.5 hour journey. Fixed rates from SAR 350. Reliable 24/7 service.',
     keywords: ['Jeddah to Taif taxi', 'Jeddah Taif transfer', 'taxi fare Jeddah Taif', 'Al Hada road taxi', 'Taif city tours'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/jeddah-taif',
+        canonical: 'https://taxiserviceksa.com/routes/jeddah-taif/',
     },
     openGraph: {
         title: 'Jeddah to Taif Taxi | Scenic Mountain Transfer',

@@ -7,6 +7,9 @@ export const metadata: Metadata = {
     title: 'Services | Taxi Service KSA - Transport Solutions Saudi Arabia',
     description: 'Professional taxi services in Saudi Arabia with licensed drivers. Umrah transport, airport transfers, corporate travel, and heritage tours. 24/7 service across 8 cities.',
     keywords: ['taxi services Saudi Arabia', 'Umrah transport', 'airport transfer KSA', 'corporate taxi', 'heritage tours'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/services/',
+    },
 };
 
 export default function ServicesPage() {

@@ -36,10 +36,10 @@ export const metadata: Metadata = {
     description: 'Taxi service in Makkah for Umrah pilgrims and airport transfers. Service operates 24/7. Fixed rates for Jeddah Airport to Makkah hotels. Family vehicles available.',
     keywords: ['taxi service in Makkah', 'Makkah taxi', 'Umrah transport', 'Jeddah to Makkah taxi', 'Makkah airport transfer'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/makkah',
+        canonical: 'https://taxiserviceksa.com/locations/makkah/',
         languages: {
-            'ar': 'https://taxiserviceksa.com/ar/locations/makkah',
-            'ur': 'https://taxiserviceksa.com/ur/locations/makkah',
+            'ar': 'https://taxiserviceksa.com/ar/locations/makkah/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/makkah/',
         }
     },
     openGraph: {

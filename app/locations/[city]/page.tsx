@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: city.metaTitle,
         description: city.metaDescription,
         alternates: {
-            canonical: `https://taxiserviceksa.com/locations/${city.slug}`,
+            canonical: `https://taxiserviceksa.com/locations/${city.slug}/`,
         },
         openGraph: {
             title: city.metaTitle,

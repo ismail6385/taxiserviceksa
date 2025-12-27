@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: 'Taxi from Jeddah to Yanbu operates 24/7. 330km intercity transfer in 3.5-4 hours. Fixed rate from SAR 550. Professional drivers for RCY and Yanbu Industrial.',
     keywords: ['Jeddah to Yanbu taxi', 'taxi Jeddah airport to Yanbu', 'Yanbu simplified taxi', 'Jeddah Yanbu price', 'RCY transport'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/jeddah-yanbu',
+        canonical: 'https://taxiserviceksa.com/routes/jeddah-yanbu/',
     },
     openGraph: {
         title: 'Jeddah to Yanbu Taxi | 330km Route - Fixed Price SAR 550',

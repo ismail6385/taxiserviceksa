@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: 'Professional heritage tour transport for AlUla, Khaybar, and UNESCO sites. 4x4 desert vehicles with licensed drivers. English-speaking guides available.',
     keywords: ['AlUla tours', 'Hegra transport', 'UNESCO sites Saudi Arabia', 'heritage tours KSA', '4x4 desert tours'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/heritage-tours',
+        canonical: 'https://taxiserviceksa.com/services/heritage-tours/',
     },
     openGraph: {
         title: 'Heritage Tours Saudi Arabia | UNESCO Sites Transport with 4x4',

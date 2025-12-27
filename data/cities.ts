@@ -533,5 +533,102 @@ export const cities: Record<string, CityData> = {
                 context: "For large families visiting the mountains, we recommend our"
             }
         }
+    },
+    'al-khobar': {
+        name: "Al Khobar",
+        slug: "al-khobar",
+        metaTitle: "Taxi Service in Al Khobar | Corniche & Causeway Transfers",
+        metaDescription: "Best taxi service in Al Khobar for local travel & Causeway trips to Bahrain. Reliable, comfortable rides to Dammam Airport and Corniche.",
+        primaryAudience: "Business, Residents, Visitors",
+        serviceFocus: "Business & Cross-Border Travel",
+        landmarks: ["Khobar Corniche", "King Fahd Causeway", "Half Moon Beach", "Al Rashid Mall"],
+        nearbyCities: ["dammam", "dhahran"],
+        description: "Al Khobar is a vibrant coastal city known for its Corniche and business hubs. We provide top-tier taxi services for seamless city travel.",
+        faqSetA: [
+            {
+                question: "Do you go to Bahrain from Al Khobar?",
+                answer: "Yes, we specialize in transfers across the King Fahd Causeway to Bahrain. Please ensure you have the necessary travel documents.",
+                intent: "Transactional",
+                chatbotData: {
+                    userQuestion: "Taxi Khobar to Bahrain?",
+                    botAnswer: "Yes, we offer transfers to Bahrain. Please have travel documents ready.",
+                    suggestedAction: "Booking"
+                }
+            },
+            {
+                question: "Can I book a taxi for shopping at Al Rashid Mall?",
+                answer: "Absolutely. We can drop you off at Al Rashid Mall or Mall of Dhahran and pick you up when you're done via a scheduled booking.",
+                intent: "Informational",
+                chatbotData: {
+                    userQuestion: "Taxi to Al Rashid Mall?",
+                    botAnswer: "Yes, we offer scheduled drop-offs and pickups for shopping malls.",
+                    suggestedAction: "Booking"
+                }
+            },
+            {
+                question: "How far is Dammam Airport from Al Khobar?",
+                answer: "It takes about 45-60 minutes to reach King Fahd International Airport (DMM) from Al Khobar. We recommend booking in advance.",
+                intent: "Informational",
+                chatbotData: {
+                    userQuestion: "Distance Khobar to Dammam Airport?",
+                    botAnswer: "It takes 45-60 mins. Advance booking recommended.",
+                    suggestedAction: "Booking"
+                }
+            }
+        ],
+        faqSetB: [
+            {
+                question: "Is there a taxi service to the Corniche?",
+                answer: "Yes, enjoy a ride to the beautiful Al Khobar Corniche for a family outing. We provide safe and clean vehicles.",
+                intent: "Contextual",
+                chatbotData: {
+                    userQuestion: "Taxi to Khobar Corniche?",
+                    botAnswer: "Yes, we provide rides to the Corniche for family outings.",
+                    suggestedAction: "Booking"
+                }
+            },
+            {
+                question: "Do you offer executive cars in Khobar?",
+                answer: "Yes, we have a fleet of luxury sedans and SUVs for business executives attending meetings in the Eastern Province.",
+                intent: "Commercial",
+                chatbotData: {
+                    userQuestion: "Executive cars Khobar?",
+                    botAnswer: "Yes, luxury sedans and SUVs are available for business travel.",
+                    suggestedAction: "Booking"
+                }
+            },
+            {
+                question: "Can I pay by card?",
+                answer: "We accept online payments during booking for your convenience.",
+                intent: "Transactional",
+                chatbotData: {
+                    userQuestion: "Pay by card in Khobar?",
+                    botAnswer: "Online payments are accepted during booking.",
+                    suggestedAction: "Booking"
+                }
+            }
+        ],
+        howTo: {
+            title: "Getting Around Al Khobar",
+            steps: [
+                { name: "Select Destination", text: "Choose your drop-off, whether it's the Corniche, Mall, or Bahrain." },
+                { name: "Book Ride", text: "Reserve your taxi online for a guaranteed pickup." },
+                { name: "Arrive in Comfort", text: "Relax as our driver takes you to your destination." }
+            ]
+        },
+        seoContent: {
+            overview: "Experience the best of the Eastern Province with our <strong>taxi service in Al Khobar</strong>. From the busy <strong>King Fahd Causeway</strong> to the relaxing <strong>Half Moon Beach</strong>, we cover all your travel needs.",
+            services: "We offer dedicated <strong>airport transfers to Dammam Airport</strong> and cross-border rides to Bahrain. Our service is perfect for business travelers and families alike.",
+            whyChoose: "Punctuality and comfort are our hallmarks. Choose us for a <strong>reliable taxi in Al Khobar</strong> that understands your schedule."
+        },
+        contextualBlock: {
+            title: "Business and Leisure in Khobar",
+            content: "Al Khobar perfectly blends business with leisure. After a meeting at the business towers, unwind at the Corniche. Our taxi service ensures you transition smoothly between work and play. We also facilitate safe trips across the Causeway for weekend getaways to Bahrain.",
+            internalLink: {
+                text: "Airport Transfers",
+                url: "/services/airport-transfers",
+                context: "Need to catch a flight? Book our reliable"
+            }
+        }
     }
 };

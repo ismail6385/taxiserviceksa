@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: 'Complete Umrah transport service with professional drivers. Jeddah Airport to Makkah, Makkah to Madinah taxi. Fixed rates, 24/7 service. All vehicles include licensed drivers.',
     keywords: ['Umrah taxi service', 'Makkah Madinah transport', 'Umrah transport with driver', 'Jeddah Airport Makkah taxi', 'pilgrimage transport KSA'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/umrah-transport',
+        canonical: 'https://taxiserviceksa.com/services/umrah-transport/',
     },
     openGraph: {
         title: 'Umrah Transport Service | Taxi with Driver for Makkah & Madinah',

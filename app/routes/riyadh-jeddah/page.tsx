@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: 'Private taxi from Riyadh to Jeddah. Comfortable long-distance travel (950 km). Professional drivers, luxury cars, door-to-door service. Book your intercity ride.',
     keywords: ['Riyadh to Jeddah taxi', 'Riyadh to Jeddah distance', 'taxi fare Riyadh Jeddah', 'intercity taxi Saudi Arabia', 'long distance taxi KSA'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/riyadh-jeddah',
+        canonical: 'https://taxiserviceksa.com/routes/riyadh-jeddah/',
     },
     openGraph: {
         title: 'Riyadh to Jeddah Taxi | Long Distance Transfer',

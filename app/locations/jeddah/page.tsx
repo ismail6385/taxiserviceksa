@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     description: 'Taxi service in Jeddah for King Abdulaziz Airport (KAIA) transfers. Direct transport to Makkah hotels and Madinah. Terminal 1 and North Terminal pickups.',
     keywords: ['Jeddah taxi service', 'KAIA airport transfer', 'Jeddah to Makkah taxi', 'Terminal 1 taxi', 'North Terminal pickup', 'Jeddah chauffeur'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/jeddah',
+        canonical: 'https://taxiserviceksa.com/locations/jeddah/',
         languages: {
             'ar': 'https://taxiserviceksa.com/ar/locations/jeddah',
             'ur': 'https://taxiserviceksa.com/ur/locations/jeddah',

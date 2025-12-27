@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description: 'Taxi service in Riyadh operates 24/7 for airport transfers and corporate travel. King Khalid Airport to Riyadh city center. Fixed rates for business transport.',
     keywords: ['taxi service in Riyadh', 'Riyadh taxi', 'King Khalid Airport transfer', 'Riyadh corporate transport', 'business taxi Riyadh'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/riyadh',
+        canonical: 'https://taxiserviceksa.com/locations/riyadh/',
     },
     openGraph: {
         title: 'Taxi Service in Riyadh | Airport Transfer & Corporate Transport',

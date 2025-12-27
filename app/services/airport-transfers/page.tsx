@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: 'Professional airport transfer service across Saudi Arabia with licensed drivers. Covers 8 major airports: Jeddah, Riyadh, Madinah, AlUla, Yanbu, Taif. Meet-and-greet, flight tracking, 24/7 service.',
     keywords: ['airport transfer Saudi Arabia', 'Jeddah Airport taxi', 'Riyadh Airport transfer', 'Madinah Airport taxi', 'airport pickup KSA'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/airport-transfers',
+        canonical: 'https://taxiserviceksa.com/services/airport-transfers/',
     },
     openGraph: {
         title: 'Airport Transfer Service Saudi Arabia | Taxi with Driver - 8 Airports',

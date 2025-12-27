@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: 'Taxi from Jeddah to Al Ula operates 24/7. 700km scenic journey to Hegra in 7-8 hours. Fixed rate from SAR 1400. Luxury SUVs for the long drive.',
     keywords: ['Jeddah to Al Ula taxi', 'taxi Jeddah airport to Al Ula', 'Al Ula transport', 'Jeddah Alula price', 'Hegra taxi'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/jeddah-alula',
+        canonical: 'https://taxiserviceksa.com/routes/jeddah-alula/',
     },
     openGraph: {
         title: 'Jeddah to Al Ula Taxi | 700km Route - Fixed Price SAR 1400',

@@ -35,10 +35,10 @@ export const metadata: Metadata = {
     description: 'Taxi service in Madinah for Prince Mohammad Airport transfers and Ziyarat tours. Transport to Prophet\'s Mosque and Makkah available. 7-seater vehicles for families.',
     keywords: ['Madinah taxi', 'Madinah airport taxi', 'Ziyarat tour Madinah', 'Madinah to Makkah taxi', 'Masjid Nabawi transport'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/madinah',
+        canonical: 'https://taxiserviceksa.com/locations/madinah/',
         languages: {
-            'ar': 'https://taxiserviceksa.com/ar/locations/madinah',
-            'ur': 'https://taxiserviceksa.com/ur/locations/madinah',
+            'ar': 'https://taxiserviceksa.com/ar/locations/madinah/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/madinah/',
         }
     },
 };

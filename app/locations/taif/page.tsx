@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     description: 'Taxi service requires mountain-ready vehicles for Al Hada road. Transfers from Makkah to Taif and Jeddah Airport available. Tours to Al Shafa rose farms.',
     keywords: ['Taif taxi service', 'Makkah to Taif taxi', 'Jeddah to Taif taxi', 'Al Hada transport', 'Taif rose farm tour', 'Qarn al Manazil taxi'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/taif',
+        canonical: 'https://taxiserviceksa.com/locations/taif/',
         languages: {
             'ar': 'https://taxiserviceksa.com/ar/locations/taif',
             'ur': 'https://taxiserviceksa.com/ur/locations/taif',
