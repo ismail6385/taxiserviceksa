@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { Clock, Star, CheckCircle2, Car, Users, Shield, Compass, MapPin } from 'lucide-react';
+import { Clock, Star, CheckCircle2, Car, Users, Shield, Compass, MapPin, User, Briefcase, Heart, Plane } from 'lucide-react';
 import Hero from '@/components/Hero';
 import ExpertReview from '@/components/seo/ExpertReview';
 import DistanceTable from '@/components/seo/DistanceTable';
@@ -18,7 +18,6 @@ import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import SemanticField from '@/components/seo/SemanticField';
 import TopicCluster from '@/components/seo/TopicCluster';
 import RelatedServices from '@/components/seo/RelatedServices';
-import { User, Briefcase, Heart, Plane } from 'lucide-react';
 import {
     Accordion,
     AccordionContent,
@@ -29,6 +28,8 @@ import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
+import { blogService } from '@/lib/blogService';
+import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
     title: 'Taxi Service in Madinah | Airport Transfers & Ziyarat Tours',
@@ -43,7 +44,11 @@ export const metadata: Metadata = {
     },
 };
 
-export default function MadinahPage() {
+export default async function MadinahPage() {
+    // Fetch related blogs
+    const blogs = await blogService.getBlogsByCategory('Madinah Guide');
+    const displayBlogs = blogs.slice(0, 6);
+
     const services = [
         { name: 'Airport Transfers', description: 'Prince Mohammad Airport to hotels' },
         { name: 'Ziyarat Tours', description: 'Holy sites and historical places' },
@@ -568,6 +573,9 @@ export default function MadinahPage() {
                     />
                 </div>
             </section>
+
+            {/* Related Guides Section */}
+            <RelatedGuides blogs={displayBlogs} title="Expert Madinah Travel Guides" subtitle="Discover hidden gems, Ziyarat history, and local food in the City of the Prophet." />
 
             {/* FAQ Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">

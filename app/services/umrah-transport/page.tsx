@@ -11,6 +11,8 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion';
 import JsonLdFAQ from '@/components/JsonLdFAQ';
+import { blogService } from '@/lib/blogService';
+import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
     title: 'Umrah Transport Service | Taxi with Driver for Makkah & Madinah',
@@ -27,7 +29,11 @@ export const metadata: Metadata = {
     },
 };
 
-export default function UmrahTransportPage() {
+export default async function UmrahTransportPage() {
+    // Fetch related blogs
+    const blogs = await blogService.getBlogsByCategory('Umrah Guide');
+    const displayBlogs = blogs.slice(0, 3);
+
     const umrahRoutes = [
         {
             name: 'Jeddah Airport → Makkah',
@@ -310,6 +316,9 @@ export default function UmrahTransportPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Related Guides Section */}
+            <RelatedGuides blogs={displayBlogs} title="Essential Umrah Guides" subtitle="Tips, checklists, and spiritual insights for your pilgrimage." />
 
             {/* FAQ Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">

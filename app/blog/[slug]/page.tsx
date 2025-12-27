@@ -5,7 +5,6 @@ import { blogService } from '@/lib/blogService';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Calendar, User, Tag, Clock, ChevronRight, Home } from 'lucide-react';
-import BookingForm from '@/components/BookingForm';
 import { marked } from 'marked';
 import BlogContent from '@/components/BlogContent';
 import AuthorCard from '@/components/AuthorCard';
@@ -181,12 +180,30 @@ export default async function BlogPostPage({ params }: Props) {
                     <div className="lg:col-span-1 space-y-8">
                         {/* Booking CTA */}
                         <div className="sticky top-24">
-                            <div className="bg-white p-6 rounded-2xl shadow-lg border border-primary/20">
-                                <h3 className="text-xl font-bold mb-4 text-gray-900">Need a Ride?</h3>
-                                <p className="text-gray-600 mb-6">
-                                    Book reliable taxi service for Umrah, Airport Transfers, and Intercity travel.
+                            <div className="bg-white p-6 rounded-2xl shadow-lg border border-primary/20 bg-gradient-to-br from-white to-primary/5">
+                                <h3 className="text-xl font-bold mb-3 text-gray-900 leading-tight">
+                                    Planning Your Umrah or Ziyarat?
+                                </h3>
+                                <p className="text-gray-600 mb-6 text-sm leading-relaxed">
+                                    Get reliable, safe, and comfortable transport with our professional fleet.
                                 </p>
-                                <BookingForm />
+
+                                <div className="space-y-3">
+                                    <Link href="/booking" className="block w-full">
+                                        <button className="w-full bg-primary text-black font-bold py-3 px-4 rounded-xl hover:bg-primary/90 transition-all shadow-md shadow-primary/20 flex items-center justify-center gap-2 group">
+                                            Book Your Taxi
+                                            <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                        </button>
+                                    </Link>
+
+                                    <div className="flex items-center justify-center gap-2 text-xs text-gray-500">
+                                        <Clock className="w-3 h-3" />
+                                        <span>Instant Confirmation</span>
+                                        <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
+                                        <Tag className="w-3 h-3" />
+                                        <span>Fixed Rates</span>
+                                    </div>
+                                </div>
                             </div>
 
                             {/* More Topics */}

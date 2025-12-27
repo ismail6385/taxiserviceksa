@@ -11,6 +11,8 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion';
 import JsonLdFAQ from '@/components/JsonLdFAQ';
+import { blogService } from '@/lib/blogService';
+import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
     title: 'Airport Transfer Service Saudi Arabia | Taxi with Driver - 8 Airports',
@@ -27,7 +29,13 @@ export const metadata: Metadata = {
     },
 };
 
-export default function AirportTransfersPage() {
+export default async function AirportTransfersPage() {
+    // Fetch related blogs
+    // Try to get general airport guides or mix of major city guides
+    const jeddahBlogs = await blogService.getBlogsByCategory('Jeddah Guide');
+    const madinahBlogs = await blogService.getBlogsByCategory('Madinah Guide');
+    const displayBlogs = [...jeddahBlogs.slice(0, 2), ...madinahBlogs.slice(0, 1)];
+
     const airports = [
         {
             name: 'King Abdulaziz International Airport (JED)',
@@ -350,6 +358,9 @@ export default function AirportTransfersPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Related Guides Section */}
+            <RelatedGuides blogs={displayBlogs} title="Airport Survival Guides" subtitle="Navigate Saudi airports like a pro with our expert guides and tips." />
 
             {/* FAQ Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">

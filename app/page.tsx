@@ -1,6 +1,6 @@
-
 import { Metadata } from 'next';
 import HomeClient from './page-client';
+import { blogService } from '@/lib/blogService';
 
 export const metadata: Metadata = {
   title: 'Taxi Service in Saudi Arabia | Umrah & Airport Taxi KSA',
@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
-  return <HomeClient />;
+export default async function Home() {
+  const blogs = await blogService.getPublishedBlogs();
+  const latestBlogs = blogs.slice(0, 4);
+  return <HomeClient latestBlogs={latestBlogs} />;
 }

@@ -24,8 +24,14 @@ import { useRef } from "react";
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 import TrustedTransportNetwork from '@/components/seo/TrustedTransportNetwork';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
+import RelatedGuides from '@/components/RelatedGuides';
+import { Blog } from '@/lib/blogService';
 
-export default function HomeClient() {
+interface HomeClientProps {
+    latestBlogs?: Blog[];
+}
+
+export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
     const plugin = useRef(
         Autoplay({ delay: 5000, stopOnInteraction: true })
     );
@@ -541,11 +547,11 @@ export default function HomeClient() {
                         </p>
                     </div>
 
-                    <div className="overflow-x-auto rounded-xl shadow-lg border border-gray-200">
-                        <table className="w-full text-sm text-left text-gray-600">
+                    <div className="overflow-x-auto rounded-xl shadow-lg border border-gray-200 w-full relative">
+                        <table className="w-full text-sm text-left text-gray-600 min-w-[800px]">
                             <thead className="text-xs text-white uppercase bg-gray-900">
                                 <tr>
-                                    <th scope="col" className="px-6 py-4 font-bold text-base whitespace-nowrap bg-primary sticky left-0 z-10">
+                                    <th scope="col" className="px-6 py-4 font-bold text-base whitespace-nowrap bg-primary sticky left-0 z-20 border-r border-primary-dark/20 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]">
                                         Service Route
                                     </th>
                                     <th scope="col" className="px-6 py-4 font-bold text-center whitespace-nowrap">
@@ -584,7 +590,7 @@ export default function HomeClient() {
                                     { route: 'Per Hour', camry: 120, staria: 150, starex: 150, gmc: 220, hiace: 170, coaster: 200, highlight: true },
                                 ].map((row, index) => (
                                     <tr key={index} className={`border-b hover:bg-gray-50 transition-colors ${row.highlight ? 'bg-gray-50/50 font-bold' : 'bg-white'}`}>
-                                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap sticky left-0 z-10 bg-inherit border-r border-gray-100 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]">
+                                        <th scope="row" className={`px-6 py-4 font-medium text-gray-900 whitespace-nowrap sticky left-0 z-10 border-r border-gray-100 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] ${row.highlight ? 'bg-gray-50' : 'bg-white'}`}>
                                             {row.route}
                                         </th>
                                         <td className="px-6 py-4 text-center font-bold text-gray-700 bg-blue-50/30">
@@ -787,6 +793,9 @@ export default function HomeClient() {
                 </div>
             </section>
 
+            {/* Latest Guide Section */}
+            <RelatedGuides blogs={latestBlogs} title="Latest Travel Guides" subtitle="Expert advice for your Umrah and Saudi travel journey." />
+
             {/* FAQ Section */}
             <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-4xl mx-auto">
@@ -810,10 +819,10 @@ export default function HomeClient() {
                         ))}
                     </Accordion>
                 </div>
-            </section>
+            </section >
 
             {/* Final CTA Section - Optimized A/B & Trust */}
-            <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-black">
+            < section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-black" >
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 px-4">
                         Book Your Taxi in Saudi Arabia Now
@@ -847,9 +856,9 @@ export default function HomeClient() {
                         <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-white" /> Free Cancellation</span>
                     </div>
                 </div>
-            </section>
+            </section >
 
 
-        </div>
+        </div >
     );
 }

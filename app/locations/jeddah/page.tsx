@@ -28,6 +28,8 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 import RelatedServices from '@/components/seo/RelatedServices';
+import { blogService } from '@/lib/blogService';
+import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
     title: 'Taxi Service in Jeddah | Airport Taxi & Makkah Transfers',
@@ -49,7 +51,11 @@ export const metadata: Metadata = {
     },
 };
 
-export default function JeddahPage() {
+export default async function JeddahPage() {
+    // Fetch related blogs
+    const blogs = await blogService.getBlogsByCategory('Jeddah Guide');
+    const displayBlogs = blogs.slice(0, 6);
+
     const services = [
         { name: 'KAIA Airport Transfer', description: 'Meet & Greet at T1 Aquarium or North Gate 2', icon: Plane },
         { name: 'Jeddah to Makkah', description: 'Direct Hotel Drop-off (75 mins)', icon: Car },
@@ -616,6 +622,9 @@ export default function JeddahPage() {
                 </div>
             </section>
 
+            {/* Related Guides Section */}
+            <RelatedGuides blogs={displayBlogs} title="Expert Jeddah Travel Guides" subtitle="Explore the Red Sea Bride, Airport Guides, and Historic Al-Balad." />
+
             {/* User-Generated Content Section */}
             <section className="mb-16 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto">
@@ -641,7 +650,7 @@ export default function JeddahPage() {
                         <QuestionForm locationName="Jeddah" />
                     </div>
                 </div>
-            </section>
+            </section >
 
             <RelatedServices
                 services={[
@@ -675,6 +684,6 @@ export default function JeddahPage() {
                     </Button>
                 </div>
             </section>
-        </div>
+        </div >
     );
 }

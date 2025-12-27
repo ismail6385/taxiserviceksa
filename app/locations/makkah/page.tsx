@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { MapPin, Phone, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight } from 'lucide-react';
+import { MapPin, Phone, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, User, Briefcase, Compass, Heart } from 'lucide-react';
 import Hero from '@/components/Hero';
 import ExpertReview from '@/components/seo/ExpertReview';
 import {
@@ -29,7 +29,8 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 import RelatedServices from '@/components/seo/RelatedServices';
-import { User, Briefcase, Compass, Heart } from 'lucide-react';
+import { blogService } from '@/lib/blogService';
+import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
     title: 'Taxi Service in Makkah | Umrah Transport & Airport Transfers',
@@ -51,7 +52,12 @@ export const metadata: Metadata = {
     },
 };
 
-export default function MakkahPage() {
+export default async function MakkahPage() {
+    // Fetch related blogs
+    const makkahBlogs = await blogService.getBlogsByCategory('Makkah Guide');
+    const umrahBlogs = await blogService.getBlogsByCategory('Umrah Guide');
+    const displayBlogs = [...makkahBlogs, ...umrahBlogs].slice(0, 6);
+
     const services = [
         { name: 'Makkah Airport Taxi', description: 'Transfers from King Abdulaziz Airport (Jeddah) to Makkah hotels', icon: Plane },
         { name: 'Umrah Taxi Service', description: 'Transport for Umrah pilgrims and Ziyarat tours', icon: MapPin },
@@ -746,6 +752,10 @@ export default function MakkahPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Related Guides Section */}
+            <RelatedGuides blogs={displayBlogs} title="Expert Makkah Travel Guides" subtitle="Plan your Ziyarat and spiritual journey with our detailed local guides." />
+
 
 
             {/* Umrah Journey Flow */}

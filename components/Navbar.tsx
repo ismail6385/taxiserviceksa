@@ -13,6 +13,7 @@ export default function Navbar() {
     const [isLocationsOpen, setIsLocationsOpen] = useState(false);
     const [isRoutesOpen, setIsRoutesOpen] = useState(false);
     const [isGuidesOpen, setIsGuidesOpen] = useState(false);
+    const [isCompanyOpen, setIsCompanyOpen] = useState(false); // Added missing state
     const pathname = usePathname();
 
     const navLinks = [
@@ -221,6 +222,10 @@ export default function Navbar() {
                                                     setIsLocationsOpen(!isLocationsOpen);
                                                 } else if (link.name === 'Routes') {
                                                     setIsRoutesOpen(!isRoutesOpen);
+                                                } else if (link.name === 'Guides') {
+                                                    setIsGuidesOpen(!isGuidesOpen);
+                                                } else if (link.name === 'Company') {
+                                                    setIsCompanyOpen(!isCompanyOpen);
                                                 }
                                             }}
                                             className={`w-full flex justify-between items-center px-3 py-3 rounded-md text-base font-medium transition-all min-h-[44px] ${pathname.startsWith(link.href) ? 'bg-primary text-white' : 'text-gray-700 hover:bg-primary/10 hover:text-primary'}
@@ -228,7 +233,9 @@ export default function Navbar() {
                                             aria-expanded={(link.name === 'Services' && isServicesOpen) ||
                                                 (link.name === 'Fleet' && isFleetOpen) ||
                                                 (link.name === 'Locations' && isLocationsOpen) ||
-                                                (link.name === 'Routes' && isRoutesOpen)}
+                                                (link.name === 'Routes' && isRoutesOpen) ||
+                                                (link.name === 'Guides' && isGuidesOpen) ||
+                                                (link.name === 'Company' && isCompanyOpen)}
                                         >
                                             <span className="flex items-center">
                                                 <link.icon className="w-5 h-5 mr-3" />
@@ -237,14 +244,18 @@ export default function Navbar() {
                                             <ChevronDown className={`w-5 h-5 transition-transform ${(link.name === 'Services' && isServicesOpen) ||
                                                 (link.name === 'Fleet' && isFleetOpen) ||
                                                 (link.name === 'Locations' && isLocationsOpen) ||
-                                                (link.name === 'Routes' && isRoutesOpen)
+                                                (link.name === 'Routes' && isRoutesOpen) ||
+                                                (link.name === 'Guides' && isGuidesOpen) ||
+                                                (link.name === 'Company' && isCompanyOpen)
                                                 ? 'rotate-180' : ''
                                                 }`} />
                                         </button>
                                         {((link.name === 'Services' && isServicesOpen) ||
                                             (link.name === 'Fleet' && isFleetOpen) ||
                                             (link.name === 'Locations' && isLocationsOpen) ||
-                                            (link.name === 'Routes' && isRoutesOpen)) && (
+                                            (link.name === 'Routes' && isRoutesOpen) ||
+                                            (link.name === 'Guides' && isGuidesOpen) ||
+                                            (link.name === 'Company' && isCompanyOpen)) && (
                                                 <div className="pl-4 space-y-1 bg-primary/5 rounded-md mt-1 mb-1 py-2 border border-primary/10">
                                                     {link.children.map((child) => (
                                                         <Link
