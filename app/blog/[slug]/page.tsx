@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Calendar, User, Tag } from 'lucide-react';
 import BookingForm from '@/components/BookingForm';
 import { marked } from 'marked';
+import BlogContent from '@/components/BlogContent';
 
 export const revalidate = 3600; // Revalidate every hour
 
@@ -114,10 +115,7 @@ export default async function BlogPostPage({ params }: Props) {
 
                         <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12">
                             {/* Content Body */}
-                            <article
-                                className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-a:text-primary hover:prose-a:text-primary-dark prose-img:rounded-xl"
-                                dangerouslySetInnerHTML={{ __html: marked.parse(blog.content) as string }}
-                            />
+                            <BlogContent content={marked.parse(blog.content) as string} />
 
                             {/* Tags */}
                             {blog.tags && blog.tags.length > 0 && (
