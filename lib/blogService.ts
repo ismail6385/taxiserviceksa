@@ -15,14 +15,14 @@ export interface Blog {
     category: string;
     tags: string[];
     author: string;
-    status: 'draft' | 'published';
+    status: 'draft' | 'published' | 'scheduled';
+    published_at?: string;
     seo_title?: string;
     seo_description?: string;
     seo_keywords?: string[];
     views: number;
     created_at: string;
     updated_at: string;
-    published_at?: string;
 }
 
 export const blogService = {
@@ -32,6 +32,7 @@ export const blogService = {
             .from('blogs')
             .select('*')
             .eq('status', 'published')
+            .lte('published_at', new Date().toISOString()) // Only past posts
             .order('published_at', { ascending: false });
 
         if (error) throw error;

@@ -18,10 +18,12 @@ export default function NewBlogPage() {
         content: '',
         category: 'Travel Tips',
         tags: [] as string[],
-        status: 'draft' as 'draft' | 'published',
+        status: 'draft' as 'draft' | 'published' | 'scheduled',
         seo_title: '',
         seo_description: '',
         seo_keywords: [] as string[],
+        featured_image: '',
+        published_at: ''
     });
 
     const categories = [
@@ -55,8 +57,9 @@ export default function NewBlogPage() {
             await blogService.createBlog({
                 ...formData,
                 status: publish ? 'published' : 'draft',
-                published_at: publish ? new Date().toISOString() : undefined,
-                author: 'Taxi Service KSA'
+                published_at: formData.published_at || (publish ? new Date().toISOString() : undefined),
+                author: 'Taxi Service KSA',
+                featured_image: formData.featured_image
             });
 
             alert(`Blog ${publish ? 'published' : 'saved as draft'} successfully!`);
@@ -169,6 +172,39 @@ export default function NewBlogPage() {
                                 className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none"
                                 placeholder="tag1, tag2, tag3"
                             />
+                        </div>
+                    </div>
+
+                    {/* Image & Date */}
+                    <div className="grid grid-cols-2 gap-6">
+                        <div>
+                            <label className="block text-sm font-bold text-gray-900 mb-2">
+                                Featured Image URL
+                            </label>
+                            <input
+                                type="text"
+                                value={formData.featured_image}
+                                onChange={(e) => setFormData({ ...formData, featured_image: e.target.value })}
+                                className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none"
+                                placeholder="/images/example.jpg"
+                            />
+                            {formData.featured_image && (
+                                <div className="mt-2 relative h-32 w-full rounded-lg overflow-hidden border">
+                                    <img src={formData.featured_image} alt="Preview" className="object-cover w-full h-full" />
+                                </div>
+                            )}
+                        </div>
+                        <div>
+                            <label className="block text-sm font-bold text-gray-900 mb-2">
+                                Schedule / Publish Date
+                            </label>
+                            <input
+                                type="datetime-local"
+                                value={formData.published_at ? new Date(formData.published_at).toISOString().slice(0, 16) : ''}
+                                onChange={(e) => setFormData({ ...formData, published_at: new Date(e.target.value).toISOString() })}
+                                className="w-full px-4 py-2 border-2 border-gray-200 rounded-lg focus:border-primary focus:outline-none"
+                            />
+                            <p className="text-xs text-gray-500 mt-1">Leave empty to publish immediately upon clicking Publish.</p>
                         </div>
                     </div>
 
