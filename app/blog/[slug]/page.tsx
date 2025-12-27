@@ -4,11 +4,13 @@ import { notFound } from 'next/navigation';
 import { blogService } from '@/lib/blogService';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Calendar, User, Tag } from 'lucide-react';
+import { Calendar, User, Tag, Clock, ChevronRight, Home } from 'lucide-react';
 import BookingForm from '@/components/BookingForm';
 import { marked } from 'marked';
 import BlogContent from '@/components/BlogContent';
 import AuthorCard from '@/components/AuthorCard';
+import ShareButtons from '@/components/ShareButtons';
+import { AUTHORS } from '@/lib/constants';
 
 export const revalidate = 3600; // Revalidate every hour
 
@@ -52,6 +54,14 @@ export default async function BlogPostPage({ params }: Props) {
         notFound();
     }
 
+    // Calculate reading time
+    const wordsPerMinute = 200;
+    const wordCount = blog.content.split(/\s+/g).length;
+    const readingTime = Math.ceil(wordCount / wordsPerMinute);
+
+    // Get Author Details
+    const authorDetails = AUTHORS.find(a => a.name === blog.author);
+
     const structuredData = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
@@ -61,9 +71,12 @@ export default async function BlogPostPage({ params }: Props) {
         "dateModified": blog.updated_at,
         "author": {
             "@type": "Person",
-            "name": blog.author || "Taxi Service KSA"
+            "name": blog.author || "Taxi Service KSA",
+            "url": authorDetails ? `https://taxiserviceksa.com/author/${authorDetails.slug}` : undefined,
+            "image": authorDetails?.avatar ? `https://taxiserviceksa.com${authorDetails.avatar}` : undefined
         },
-        "description": blog.seo_description || blog.excerpt
+        "description": blog.seo_description || blog.excerpt,
+        "timeRequired": `PT${readingTime}M`
     };
 
     return (
@@ -71,6 +84,23 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Hero Section */}
             <div className="bg-primary/10 py-12">
                 <div className="container mx-auto px-4 max-w-4xl">
+                    {/* Breadcrumbs */}
+                    <nav className="flex items-center text-sm text-gray-500 mb-8 overflow-x-auto whitespace-nowrap pb-2">
+                        <Link href="/" className="hover:text-primary flex items-center gap-1">
+                            <Home className="w-3 h-3" /> Home
+                        </Link>
+                        <ChevronRight className="w-4 h-4 mx-2" />
+                        <Link href="/blog" className="hover:text-primary">
+                            Blog
+                        </Link>
+                        {blog.category && (
+                            <>
+                                <ChevronRight className="w-4 h-4 mx-2" />
+                                <span className="text-gray-900 font-medium">{blog.category}</span>
+                            </>
+                        )}
+                    </nav>
+
                     <div className="text-center mb-6">
                         <span className="inline-block bg-primary/20 text-primary-dark font-semibold px-3 py-1 rounded-full text-sm mb-4">
                             {blog.category}
@@ -91,6 +121,10 @@ export default async function BlogPostPage({ params }: Props) {
                                     month: 'long',
                                     day: 'numeric'
                                 })}
+                            </span>
+                            <span className="flex items-center gap-2">
+                                <Clock className="w-4 h-4" />
+                                {readingTime} min read
                             </span>
                         </div>
                     </div>
@@ -115,6 +149,10 @@ export default async function BlogPostPage({ params }: Props) {
                         )}
 
                         <div className="bg-white rounded-2xl shadow-sm p-8 md:p-12">
+                            <div className="flex justify-end mb-6">
+                                <ShareButtons title={blog.title} description={blog.excerpt} />
+                            </div>
+
                             {/* Content Body */}
                             <BlogContent content={marked.parse(blog.content) as string} />
 
