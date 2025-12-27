@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { blogService, Blog } from '@/lib/blogService';
 import { Button } from '@/components/ui/button';
-import { Plus, Edit, Trash2, Eye, EyeOff, Calendar } from 'lucide-react';
+import { Plus, Edit, Trash2, Eye, EyeOff, Calendar, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
 export default function AdminBlogsPage() {
@@ -76,12 +76,20 @@ export default function AdminBlogsPage() {
                         <h1 className="text-3xl font-bold text-gray-900">Blog Management</h1>
                         <p className="text-gray-600 mt-2">Manage your blog posts and articles</p>
                     </div>
-                    <Link href="/admin/blogs/new">
-                        <Button className="bg-primary text-white hover:text-black hover:bg-primary/90">
-                            <Plus className="w-4 h-4 mr-2" />
-                            New Blog Post
-                        </Button>
-                    </Link>
+                    <div className="flex gap-2">
+                        <Link href="/admin/generator">
+                            <Button className="bg-purple-600 text-white hover:bg-purple-700">
+                                <Sparkles className="w-4 h-4 mr-2" />
+                                AI Blog Generator
+                            </Button>
+                        </Link>
+                        <Link href="/admin/blogs/new">
+                            <Button className="bg-primary text-white hover:text-black hover:bg-primary/90">
+                                <Plus className="w-4 h-4 mr-2" />
+                                New Blog Post
+                            </Button>
+                        </Link>
+                    </div>
                 </div>
 
                 {/* Stats */}
