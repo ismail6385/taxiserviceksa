@@ -28,7 +28,7 @@ export default function JeddahMakkahRoutePage() {
     return (
         <div className="bg-gray-50 min-h-screen">
             <Hero
-                images={['/jeddah-airport-terminal.webp', '/mecca-royal-clock-tower.webp']}
+                images={['/jeddah-airport-terminal.webp', '/mecca-royal-clock-tower.png']}
                 h1Text="Jeddah to Makkah Taxi Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">

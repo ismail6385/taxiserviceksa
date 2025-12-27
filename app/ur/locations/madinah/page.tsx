@@ -34,6 +34,8 @@ export const metadata: Metadata = {
         languages: {
             'en': 'https://taxiserviceksa.com/locations/madinah/',
             'ar': 'https://taxiserviceksa.com/ar/locations/madinah/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/madinah/',
+            'x-default': 'https://taxiserviceksa.com/locations/madinah/',
         }
     },
     openGraph: {

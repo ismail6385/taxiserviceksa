@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Compass } from 'lucide-react';
+import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Building2, ShoppingBag } from 'lucide-react';
 import Hero from '@/components/Hero';
 import {
     Accordion,
@@ -19,96 +19,96 @@ import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 
 export const metadata: Metadata = {
-    title: 'Taxi Service in AlUla | Hegra Tours & Airport Transfer Saudi Arabia',
-    description: 'Taxi service in AlUla for Hegra UNESCO site tours and airport transfers. AlUla Airport to hotels. 4x4 vehicles for desert terrain. Fixed rates for heritage tours.',
-    keywords: ['taxi service in AlUla', 'AlUla taxi', 'Hegra tours', 'AlUla Airport transfer', 'AlUla heritage tours'],
+    title: 'Taxi Service in Al Khobar | Corniche & Causeway Transfers',
+    description: 'Best taxi service in Al Khobar for local travel & Causeway trips to Bahrain. Reliable, comfortable rides to Dammam Airport and Corniche.',
+    keywords: ['taxi service in Al Khobar', 'Al Khobar taxi', 'Bahrain Causeway taxi', 'Khobar Corniche transport', 'Dammam Airport transfer'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/alula/',
+        canonical: 'https://taxiserviceksa.com/locations/al-khobar/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/alula/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/alula/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/alula/',
-            'x-default': 'https://taxiserviceksa.com/locations/alula/',
+            'en': 'https://taxiserviceksa.com/locations/al-khobar/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/al-khobar/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/al-khobar/',
+            'x-default': 'https://taxiserviceksa.com/locations/al-khobar/',
         }
     },
     openGraph: {
-        title: 'Taxi Service in AlUla | Hegra Tours & Airport Transfer',
-        description: 'Taxi service in AlUla operates for UNESCO heritage tours and airport transfers. 4x4 vehicles for desert sites. Book online.',
-        url: 'https://taxiserviceksa.com/locations/alula/',
+        title: 'Taxi Service in Al Khobar | Corniche & Causeway Transfers',
+        description: 'Best taxi service in Al Khobar for local travel & Causeway trips to Bahrain. Reliable, comfortable rides to Dammam Airport and Corniche.',
+        url: 'https://taxiserviceksa.com/locations/al-khobar/',
         type: 'website',
     },
 };
 
-export default function AlUlaPage() {
+export default function AlKhobarPage() {
     const services = [
-        { name: 'AlUla Airport Transfer', description: 'Transfers from AlUla International Airport (ULH) to AlUla hotels and resorts', icon: Plane },
-        { name: 'Hegra UNESCO Tours', description: 'Transport to Hegra archaeological site (Madain Saleh) with 4x4 desert vehicles', icon: Compass },
-        { name: 'AlUla Heritage Circuit', description: 'Tours to Dadan, Jabal Ikmah, and Elephant Rock heritage sites', icon: MapPin },
-        { name: 'AlUla to Khaybar Route', description: 'Intercity travel between AlUla and Khaybar Fort (150 km)', icon: Car },
+        { name: 'Bahrain Causeway Trips', description: 'Specialized transfers across King Fahd Causeway to Bahrain', icon: Car },
+        { name: 'Khobar Corniche Rides', description: 'Relaxing rides to the beautiful Al Khobar Corniche and waterfront', icon: MapPin },
+        { name: 'Shopping Mall Transports', description: 'Drop-offs at Al Rashid Mall and Mall of Dhahran', icon: ShoppingBag },
+        { name: 'Airport Transfers', description: 'Reliable taxi to King Fahd International Airport (DMM)', icon: Plane },
     ];
 
     const features = [
-        'Drivers with AlUla heritage site knowledge',
-        '4x4 vehicles for desert terrain access',
-        'Airport pickup with flight tracking',
-        'Flexible tour schedules for photography',
-        'Fixed fares with no hidden charges',
-        'English and Arabic speaking guides',
+        'Experienced Causeway drivers',
+        'Luxury sedans for business travel',
+        '24/7 Service for mall & dinners',
+        'Fixed rates to Dammam Airport',
+        'Clean & Smoke-free vehicles',
+        'Easy online booking',
     ];
 
-    const alulaImages = [
-        '/alula-hegra-tombs.webp',
+    const khobarImages = [
+        '/hero-slide-1.webp',
         '/hero-slide-2.webp',
         '/hero-slide-3.webp',
     ];
 
     const faqs = [
         {
-            question: "How far is AlUla Airport from Hegra archaeological site by taxi?",
-            answer: "AlUla International Airport (ULH) is located 30 kilometers from Hegra (Madain Saleh) UNESCO site. Taxi travel time is 25-35 minutes. Airport transfers include meet-and-greet service and luggage assistance for photography equipment."
+            question: "Do you go to Bahrain from Al Khobar?",
+            answer: "Yes, we specialize in transfers across the King Fahd Causeway to Bahrain. Please ensure you have the necessary travel documents (passport, visa) ready for border control."
         },
         {
-            question: "Do you provide 4x4 vehicles for AlUla desert tours?",
-            answer: "Taxi fleet includes 4x4 SUVs (GMC Yukon, Toyota Land Cruiser) suitable for AlUla desert terrain. Vehicles access Elephant Rock, Jabal Ikmah, and remote heritage sites. Drivers know safe desert routes."
+            question: "Can I book a taxi for shopping at Al Rashid Mall?",
+            answer: "Absolutely. We can drop you off at Al Rashid Mall or Mall of Dhahran and pick you up when you're done via a scheduled booking."
         },
         {
-            question: "Is taxi service available for multi-day AlUla heritage tours?",
-            answer: "Multi-day taxi service is available for AlUla heritage circuit tours. Service includes daily pickups from hotels, flexible schedules for sunrise/sunset photography, and rest stops. Rates are quoted per day or per tour."
+            question: "How far is Dammam Airport from Al Khobar?",
+            answer: "It takes about 45-60 minutes to reach King Fahd International Airport (DMM) from Al Khobar. We recommend booking in advance to ensure timely arrival."
         },
         {
-            question: "How much does a taxi cost from AlUla Airport to hotels?",
-            answer: "Taxi rates from AlUla Airport to AlUla city hotels start from SAR 100. Pricing depends on vehicle type (sedan, 4x4 SUV) and resort location. Fares are fixed with no surge charges."
+            question: "Is there a taxi service to the Corniche?",
+            answer: "Yes, enjoy a ride to the beautiful Al Khobar Corniche for a family outing. We provide safe and clean vehicles suitable for families."
         },
         {
-            question: "Can I book a taxi from AlUla to Khaybar Fort for historical tours?",
-            answer: "Intercity taxi service is available from AlUla to Khaybar Fort (150 km). Travel time is 2-3 hours. Rates start from SAR 350. Service includes stops at viewpoints and historical markers along the route."
+            question: "Do you offer executive cars in Khobar?",
+            answer: "Yes, we have a fleet of luxury sedans and SUVs (like GMC Yukon) for business executives attending meetings in the Eastern Province."
         },
         {
-            question: "Do your drivers speak English for international tourists?",
-            answer: "Drivers speak English and Arabic. Many drivers have heritage site knowledge and can provide basic historical context for Hegra, Dadan, and other AlUla attractions. Professional tour guides are available upon request."
+            question: "Can I pay by card?",
+            answer: "We accept online payments during booking for your convenience. Cash is also accepted."
         }
     ];
 
     const locationSchema = {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "Taxi Service AlUla",
-        "image": "https://taxiserviceksa.com/alula-hegra-tombs.webp",
+        "name": "Taxi Service Al Khobar",
+        "image": "https://taxiserviceksa.com/hero-slide-3.webp",
         "email": "taxiserviceksa9988@gmail.com",
-        "url": "https://taxiserviceksa.com/locations/alula",
+        "url": "https://taxiserviceksa.com/locations/al-khobar/",
         "address": {
             "@type": "PostalAddress",
-            "addressLocality": "AlUla",
+            "addressLocality": "Al Khobar",
             "addressCountry": "SA"
         },
         "priceRange": "$$",
-        "areaServed": "AlUla",
+        "areaServed": "Al Khobar",
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "4.9",
+            "ratingValue": "4.8",
             "bestRating": "5",
             "worstRating": "1",
-            "ratingCount": "850"
+            "ratingCount": "350"
         }
     };
 
@@ -123,20 +123,20 @@ export default function AlUlaPage() {
 
             {/* Hero Section */}
             <Hero
-                images={alulaImages}
-                h1Text="Taxi Service in AlUla: Hegra Tours and Heritage Site Transport"
+                images={khobarImages}
+                h1Text="Taxi Service in Al Khobar: Corniche and Causeway Transfers"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        AlUla Taxi Service
+                        Al Khobar Taxi Service
                     </span>
                 }
-                subtitle="UNESCO Heritage Transport"
-                location="4x4 Desert Tours Available"
+                subtitle="Business & Leisure Transport"
+                location="Corniche • Bahrain • Malls"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                         <Link href="/booking">
-                            Book Taxi Now
+                            Book Khobar Taxi
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </Button>
@@ -153,9 +153,9 @@ export default function AlUlaPage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Our Services</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">AlUla Heritage Transport</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Al Khobar Transport Solutions</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Specialized taxi service for UNESCO heritage tours and desert exploration in AlUla.
+                            Connecting you to Bahrain, Dammam Airport, and the best shopping spots in the Eastern Province.
                         </p>
                     </div>
 
@@ -177,7 +177,7 @@ export default function AlUlaPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our AlUla Taxi Service</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Khobar Taxi Service</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                         {features.map((feature, index) => (
@@ -221,21 +221,37 @@ export default function AlUlaPage() {
                             Community Insights
                         </span>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                            Share Your AlUla Experience
+                            Share Your Khobar Experience
                         </h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Help fellow travelers by sharing your experience or asking questions about AlUla transport and tours.
+                            Help fellow travelers by sharing your experience or asking questions about Al Khobar transport.
                         </p>
                     </div>
 
                     <div className="space-y-12 mb-12">
-                        <ReviewsDisplay location="AlUla" />
-                        <QuestionsDisplay location="AlUla" />
+                        <ReviewsDisplay location="Al Khobar" />
+                        <QuestionsDisplay location="Al Khobar" />
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <ReviewForm locationName="AlUla" />
-                        <QuestionForm locationName="AlUla" />
+                        <ReviewForm locationName="Al Khobar" />
+                        <QuestionForm locationName="Al Khobar" />
+                    </div>
+                </div>
+            </section>
+
+            {/* Internal Linking Silo */}
+            <section className="py-12 bg-white border-t border-gray-200">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h3 className="text-lg font-bold text-gray-900 mb-6">Explore Nearby Locations</h3>
+                    <div className="flex flex-wrap gap-4">
+                        <Link href="/locations/dammam/" className="text-gray-600 hover:text-primary capitalize transition-colors">
+                            Taxi Service in Dammam
+                        </Link>
+                        <span className="text-gray-300">|</span>
+                        <Link href="/locations/dhahran/" className="text-gray-600 hover:text-primary capitalize transition-colors">
+                            Taxi Service in Dhahran
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -243,30 +259,30 @@ export default function AlUlaPage() {
             <RelatedServices
                 services={[
                     {
-                        name: 'Heritage Tours',
-                        description: 'UNESCO heritage site tours with 4x4 desert vehicles and English-speaking guides.',
-                        href: '/services/heritage-tours',
-                        icon: Compass
-                    },
-                    {
                         name: 'Airport Transfers',
-                        description: 'Professional airport transfer service from AlUla International Airport.',
+                        description: 'Professional airport transfer service from King Fahd International Airport (DMM).',
                         href: '/services/airport-transfers',
                         icon: Plane
                     },
+                    {
+                        name: 'Corporate Travel',
+                        description: 'Reliable transport for business meetings and corporate events in Al Khobar.',
+                        href: '/services/corporate-travel',
+                        icon: Building2
+                    },
                 ]}
-                title="Services Available in AlUla"
-                description="Professional taxi services with licensed drivers for heritage tourism."
+                title="Services Available in Al Khobar"
+                description="Professional taxi services with licensed drivers for local and cross-border travel."
             />
 
             {/* CTA Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your AlUla Heritage Tour
+                        Book Your Al Khobar Taxi Now
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Explore UNESCO heritage sites with professional transport and 4x4 desert vehicles.
+                        Professional transport for Causeway trips, Corniche visits, and Airport transfers.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking">

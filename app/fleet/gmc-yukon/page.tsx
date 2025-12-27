@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description: 'GMC Yukon taxi service in Saudi Arabia accommodates 7 passengers and 5 large bags. Service includes airport transfers, Umrah transport, and intercity travel. Available 24/7.',
     keywords: ['GMC Yukon taxi service Saudi Arabia', 'luxury SUV taxi KSA', 'GMC Yukon airport transfer', 'chauffeur service Saudi Arabia', 'Umrah luxury taxi'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/fleet/gmc-yukon/',
+        canonical: '/fleet/gmc-yukon/',
     },
     openGraph: {
         title: 'GMC Yukon Luxury Taxi Service in Saudi Arabia',

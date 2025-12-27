@@ -38,8 +38,10 @@ export const metadata: Metadata = {
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/madinah/',
         languages: {
+            'en': 'https://taxiserviceksa.com/locations/madinah/',
             'ar': 'https://taxiserviceksa.com/ar/locations/madinah/',
             'ur': 'https://taxiserviceksa.com/ur/locations/madinah/',
+            'x-default': 'https://taxiserviceksa.com/locations/madinah/',
         }
     },
 };

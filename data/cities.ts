@@ -62,7 +62,7 @@ export const cities: Record<string, CityData> = {
         faqSetA: [
             {
                 question: "How much is a taxi from Jeddah Airport to the Corniche?",
-                answer: "Our rates are competitive and fixed. Booking a <a href='/locations/jeddah' class='text-primary hover:underline'>taxi from King Abdulaziz International Airport to the Jeddah Corniche</a> is affordable and stress-free. We recommend booking in advance to avoid waiting. <strong>Book online instantly for quick confirmation.</strong>",
+                answer: "Our rates are competitive and fixed. Booking a <a href='/locations/jeddah/' class='text-primary hover:underline'>taxi from King Abdulaziz International Airport to the Jeddah Corniche</a> is affordable and stress-free. We recommend booking in advance to avoid waiting. <strong>Book online instantly for quick confirmation.</strong>",
                 intent: "Transactional",
                 chatbotData: {
                     userQuestion: "How much is taxi from JED airport to Corniche?",
@@ -141,7 +141,7 @@ export const cities: Record<string, CityData> = {
             content: "Jeddah serves as the primary entry point for millions of pilgrims performing Umrah and Hajj. Navigating from King Abdulaziz International Airport (JED) requires a reliable transport partner who understands the logistics of pilgrim transfers. Our service bridges the gap between arrival and your spiritual journey, offering direct routes to the Haramain High Speed Railway station or private, comfortable drives directly to your hotel in the Holy City. We ensure that your transition from the airport environment to the state of Ihram is handled with respect and efficiency.",
             internalLink: {
                 text: "Umrah taxi services to Makkah",
-                url: "/locations/makkah",
+                url: "/locations/makkah/",
                 context: "For a seamless spiritual journey, consider our dedicated"
             }
         }
@@ -229,16 +229,16 @@ export const cities: Record<string, CityData> = {
             ]
         },
         seoContent: {
-            overview: "Navigating the capital requires a reliable partner. Our <strong>taxi service in Riyadh</strong> offers premium transportation for the city's busy professionals and visitors. From the <strong>Kingdom Centre</strong> to the historic <a href='/locations/riyadh' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>Ad Diriyah</a>, we cover it all.",
-            services: "We provide specialized <strong>airport taxi in Riyadh</strong> services, ensuring swift pickups from King Khalid International Airport. Our fleet is perfect for corporate events at <strong>Riyadh Boulevard</strong> or private city tours in a <a href='/fleet/gmc-yukon' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>VIP chauffeur car</a>.",
-            whyChoose: "Our commitment to professionalism makes us the top choice for <strong>taxi service in Riyadh</strong>. Enjoy clean, air-conditioned luxury vehicles and drivers who value your time and privacy. We also offer transfers to nearby cities like <a href='/locations/dammam' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>Dammam</a>."
+            overview: "Navigating the capital requires a reliable partner. Our <strong>taxi service in Riyadh</strong> offers premium transportation for the city's busy professionals and visitors. From the <strong>Kingdom Centre</strong> to the historic <a href='/locations/riyadh/' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>Ad Diriyah</a>, we cover it all.",
+            services: "We provide specialized <strong>airport taxi in Riyadh</strong> services, ensuring swift pickups from King Khalid International Airport. Our fleet is perfect for corporate events at <strong>Riyadh Boulevard</strong> or private city tours in a <a href='/fleet/gmc-yukon/' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>VIP chauffeur car</a>.",
+            whyChoose: "Our commitment to professionalism makes us the top choice for <strong>taxi service in Riyadh</strong>. Enjoy clean, air-conditioned luxury vehicles and drivers who value your time and privacy. We also offer transfers to nearby cities like <a href='/locations/dammam/' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>Dammam</a>."
         },
         contextualBlock: {
             title: "Corporate Mobility in the Capital",
             content: "As Saudi Arabia's financial hub, Riyadh demands a level of transportation that matches its pace. Business travelers visiting the King Abdullah Financial District (KAFD) or attending major conferences require more than just a ride; they need a mobile office. Our chauffeur service provides the quiet, climate-controlled environment necessary for preparing for meetings on the go. Whether moving between diplomatic quarters or heading to Riyadh Season events, our service offers the discretion and reliability expected by top-tier executives.",
             internalLink: {
                 text: "GMC Yukon Luxury Fleet",
-                url: "/fleet/gmc-yukon",
+                url: "/fleet/gmc-yukon/",
                 context: "Experience superior comfort and status with our"
             }
         }
@@ -276,7 +276,7 @@ export const cities: Record<string, CityData> = {
             },
             {
                 question: "What is the best way to travel from Madinah to Makkah?",
-                answer: "The most comfortable way is to book a <a href='/fleet/gmc-yukon' class='text-primary hover:underline'>GMC Yukon taxi</a> for the journey. It takes about 4-5 hours and ensures a restful trip between the two holy cities.",
+                answer: "The most comfortable way is to book a <a href='/fleet/gmc-yukon/' class='text-primary hover:underline'>GMC Yukon taxi</a> for the journey. It takes about 4-5 hours and ensures a restful trip between the two holy cities.",
                 intent: "Commercial",
                 chatbotData: {
                     userQuestion: "Best way Madinah to Makkah?",
@@ -326,16 +326,16 @@ export const cities: Record<string, CityData> = {
             ]
         },
         seoContent: {
-            overview: "Our <strong>taxi service in Madinah</strong> is dedicated to serving the guests of the Prophet. We provide serene and safe transportation for pilgrims visiting <strong>Al-Masjid an-Nabawi</strong> and other significant Islamic landmarks like <a href='/locations/madinah' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>Quba Mosque</a>.",
-            services: "Beyond hotel transfers, we specialize in **Madinah Ziyarat tours**. Visit **Quba Mosque** and the historic **Mount Uhud** with drivers who understand the spiritual importance of your journey. We also offer reliable **airport taxi in Madinah** transfers to <a href='/locations/jeddah' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>Jeddah Airport</a>.",
-            whyChoose: "We are the preferred <strong>reliable taxi in Madinah</strong> for families. Our spacious vehicles like the <a href='/fleet/gmc-yukon' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>GMC Yukon</a> accommodate groups, and our respectful drivers ensure a peaceful journey consistent with the sanctity of the city."
+            overview: "Our <strong>taxi service in Madinah</strong> is dedicated to serving the guests of the Prophet. We provide serene and safe transportation for pilgrims visiting <strong>Al-Masjid an-Nabawi</strong> and other significant Islamic landmarks like <a href='/locations/madinah/' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>Quba Mosque</a>.",
+            services: "Beyond hotel transfers, we specialize in **Madinah Ziyarat tours**. Visit **Quba Mosque** and the historic **Mount Uhud** with drivers who understand the spiritual importance of your journey. We also offer reliable **airport taxi in Madinah** transfers to <a href='/locations/jeddah/' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>Jeddah Airport</a>.",
+            whyChoose: "We are the preferred <strong>reliable taxi in Madinah</strong> for families. Our spacious vehicles like the <a href='/fleet/gmc-yukon/' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>GMC Yukon</a> accommodate groups, and our respectful drivers ensure a peaceful journey consistent with the sanctity of the city."
         },
         contextualBlock: {
             title: "Respectful Transport for Ziyarat",
             content: "Visiting Madinah Al Munawwarah involves more than just transit; it is an act of devotion. Our drivers are trained to provide a respectful, quiet atmosphere befitting the holiness of the city. When performing Ziyarat to historical sites like Mount Uhud or the Qiblatain Mosque, having a knowledgeable local driver transforms the trip into an educational experience. We coordinate pickups around prayer times, ensuring you never miss a congregational prayer at Al-Masjid an-Nabawi while still exploring the rich Islamic heritage.",
             internalLink: {
                 text: "Intercity taxi to Makkah",
-                url: "/locations/makkah",
+                url: "/locations/makkah/",
                 context: "Upon completing your stay, book our comfortable"
             }
         }
@@ -432,7 +432,7 @@ export const cities: Record<string, CityData> = {
             content: "Dammam is the heart of a metropolitan area that includes Al Khobar and Dhahran. Our service is designed to tackle the unique geography of this tri-city region. Whether you are an engineer commuting to the industrial zones of Jubail or a family visiting the Ithra Center for a cultural weekend, our drivers understand the highway networks that connect these hubs. We provide reliable intercity transfers that turn a long commute across the Eastern Province into a relaxing journey, maximizing your productivity or leisure time.",
             internalLink: {
                 text: "Taxi to Riyadh",
-                url: "/locations/riyadh",
+                url: "/locations/riyadh/",
                 context: "Need to travel to the capital? Book our direct"
             }
         }
@@ -520,8 +520,8 @@ export const cities: Record<string, CityData> = {
             ]
         },
         seoContent: {
-            overview: "Enjoy the cool breeze of the mountains with our <strong>taxi service in Taif</strong>. Perfect for summer getaways, we transport you to <strong>Al Hada</strong> and **Shubra Palace** with ease and safety. We offer direct transfers from <a href='/locations/makkah' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>Makkah</a> for pilgrims wanting to visit Taif.",
-            services: "Our services focus on tourism. Book a <strong>taxi in Taif</strong> for a tour of the **Taif Rose Factories** or a trip to the historic **Souq Okaz**. We also provide transfers from <a href='/locations/jeddah' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>Jeddah</a>.",
+            overview: "Enjoy the cool breeze of the mountains with our <strong>taxi service in Taif</strong>. Perfect for summer getaways, we transport you to <strong>Al Hada</strong> and **Shubra Palace** with ease and safety. We offer direct transfers from <a href='/locations/makkah/' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>Makkah</a> for pilgrims wanting to visit Taif.",
+            services: "Our services focus on tourism. Book a <strong>taxi in Taif</strong> for a tour of the **Taif Rose Factories** or a trip to the historic **Souq Okaz**. We also provide transfers from <a href='/locations/jeddah/' class='bg-primary text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline'>Jeddah</a>.",
             whyChoose: "Mountain roads require skilled driving. Our **reliable taxi in Taif** drivers are experts on the winding roads of Al Hada, ensuring a safe and enjoyable sightseeing experience for your family."
         },
         contextualBlock: {
@@ -529,7 +529,7 @@ export const cities: Record<string, CityData> = {
             content: "Driving in Taif, especially around the Al Hada mountain roads, requires vehicles with good power and drivers with specific mountain experience. Our fleet is maintained to the highest standards to handle steep gradients and winding turns safely. Whether you are taking the cable car at Al Hada or visiting the Rose Factories in the valley, our drivers ensure a smooth, nausea-free ride for your family, allowing you to enjoy the spectacular views without concern for the road conditions.",
             internalLink: {
                 text: "Family vans like Hyundai Staria",
-                url: "/fleet/hyundai-staria",
+                url: "/fleet/hyundai-staria/",
                 context: "For large families visiting the mountains, we recommend our"
             }
         }
@@ -626,8 +626,105 @@ export const cities: Record<string, CityData> = {
             content: "Al Khobar perfectly blends business with leisure. After a meeting at the business towers, unwind at the Corniche. Our taxi service ensures you transition smoothly between work and play. We also facilitate safe trips across the Causeway for weekend getaways to Bahrain.",
             internalLink: {
                 text: "Airport Transfers",
-                url: "/services/airport-transfers",
+                url: "/services/airport-transfers/",
                 context: "Need to catch a flight? Book our reliable"
+            }
+        }
+    },
+    dhahran: {
+        name: "Dhahran",
+        slug: "dhahran",
+        metaTitle: "Taxi Service in Dhahran | Aramco & Ithra Transfers",
+        metaDescription: "Reliable taxi service in Dhahran. Transfers to Saudi Aramco, KFUPM, and Ithra Center. Professional drivers for business & city travel.",
+        primaryAudience: "Business Professionals, Aramco Employees, Visitors",
+        serviceFocus: "Corporate & Cultural Travel",
+        landmarks: ["King Abdulaziz Center for World Culture (Ithra)", "KFUPM", "Saudi Aramco", "Mall of Dhahran"],
+        nearbyCities: ["dammam", "al-khobar"],
+        description: "Dhahran is a major administrative center for the Saudi oil industry. Our taxi service provides secure and professional transport for business and leisure.",
+        faqSetA: [
+            {
+                question: "Do you offer rides to the Ithra Center?",
+                answer: "Yes, we provide comfortable rides to the King Abdulaziz Center for World Culture (Ithra) for visitors and events.",
+                intent: "Contextual",
+                chatbotData: {
+                    userQuestion: "Taxi to Ithra Center?",
+                    botAnswer: "Yes, we provide comfortable rides to the Ithra Center.",
+                    suggestedAction: "Booking"
+                }
+            },
+            {
+                question: "Can I book a taxi to KFUPM?",
+                answer: "Yes, we offer reliable transport to King_Fahd_University_of_Petroleum_and_Minerals (KFUPM) for students, faculty, and visitors.",
+                intent: "Informational",
+                chatbotData: {
+                    userQuestion: "Taxi to KFUPM?",
+                    botAnswer: "Yes, we offer transport to KFUPM for students and visitors.",
+                    suggestedAction: "Booking"
+                }
+            },
+            {
+                question: "How far is Dhahran from Dammam Airport?",
+                answer: "It is approximately a 45-minute drive from King Fahd International Airport (DMM) to Dhahran.",
+                intent: "Informational",
+                chatbotData: {
+                    userQuestion: "Distance Dhahran to Dammam Airport?",
+                    botAnswer: "It is about a 45-minute drive.",
+                    suggestedAction: "Booking"
+                }
+            }
+        ],
+        faqSetB: [
+            {
+                question: "Do you serve the Saudi Aramco camp area?",
+                answer: "Yes, we provide drop-offs and pickups for authorized areas near Saudi Aramco facilities in Dhahran.",
+                intent: "Commercial",
+                chatbotData: {
+                    userQuestion: "Taxi to Aramco camp?",
+                    botAnswer: "Yes, we serve authorized areas near Saudi Aramco facilities.",
+                    suggestedAction: "Booking"
+                }
+            },
+            {
+                question: "Is there a taxi service to the Mall of Dhahran?",
+                answer: "Yes, we offer convenient rides to and from the Mall of Dhahran for your shopping needs.",
+                intent: "Contextual",
+                chatbotData: {
+                    userQuestion: "Taxi to Mall of Dhahran?",
+                    botAnswer: "Yes, we offer rides to the Mall of Dhahran.",
+                    suggestedAction: "Booking"
+                }
+            },
+            {
+                question: "Can I book a corporate taxi account?",
+                answer: "Yes, we offer corporate accounts for businesses in Dhahran requiring frequent travel for employees.",
+                intent: "Commercial",
+                chatbotData: {
+                    userQuestion: "Corporate taxi account Dhahran?",
+                    botAnswer: "Yes, business accounts are available for frequent corporate travel.",
+                    suggestedAction: "Booking"
+                }
+            }
+        ],
+        howTo: {
+            title: "Booking a Taxi in Dhahran",
+            steps: [
+                { name: "Specify Location", text: "Enter your pickup point, whether it's Ithra, KFUPM, or a hotel." },
+                { name: "Choose Vehicle", text: "Select a sedan or SUV based on your needs." },
+                { name: "Confirm Booking", text: "Get instant confirmation and driver details." }
+            ]
+        },
+        seoContent: {
+            overview: "Dhahran is the hub of energy and education. Our <strong>taxi service in Dhahran</strong> ensures punctual transport to <strong>Saudi Aramco</strong> and **KFUPM**. Whether you are attending a conference or visiting the **Ithra Center**, rely on us for professional service.",
+            services: "We specialize in **business taxi transfers** and airport rides to **King Fahd International Airport**. Our fleet is impeccably maintained to meet the standards of corporate travelers in Dhahran.",
+            whyChoose: "Security and professionalism are paramount in Dhahran. Our **reliable taxi service** guarantees respectful and vetted drivers, ensuring peace of mind for all passenger types, including families and executives."
+        },
+        contextualBlock: {
+            title: "Hub of Energy and Culture",
+            content: "Dhahran stands unique as a blend of industrial power and cultural depth. Home to the world-class Ithra Center, it attracts visitors for art and history. Our taxi service is attuned to the schedules of events at Ithra and the business hours of the energy sector, ensuring you are never late. We provide a seamless link between the academic environment of KFUPM, the corporate world of Aramco, and the leisure spots in Al Khobar.",
+            internalLink: {
+                text: "Taxi to Al Khobar",
+                url: "/locations/al-khobar/",
+                context: "Visiting nearby cities? Seamlessly travel with our"
             }
         }
     }

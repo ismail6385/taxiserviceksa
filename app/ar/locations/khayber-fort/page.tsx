@@ -16,7 +16,9 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/ar/locations/khayber-fort/',
         languages: {
             'en': 'https://taxiserviceksa.com/locations/khayber-fort/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/khayber-fort/',
             'ur': 'https://taxiserviceksa.com/ur/locations/khayber-fort/',
+            'x-default': 'https://taxiserviceksa.com/locations/khayber-fort/',
         }
     },
     openGraph: {
@@ -31,7 +33,7 @@ export const metadata: Metadata = {
 
 export default function KhayberPageArabic() {
     const images = [
-        '/locations/alula.webp', // Placeholder
+        '/khayber-fort-oasis.png',
         '/hero-slide-2.webp',
     ];
 

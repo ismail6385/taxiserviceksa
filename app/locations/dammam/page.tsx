@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Compass } from 'lucide-react';
+import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Building2, Palmtree } from 'lucide-react';
 import Hero from '@/components/Hero';
 import {
     Accordion,
@@ -19,96 +19,96 @@ import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 
 export const metadata: Metadata = {
-    title: 'Taxi Service in AlUla | Hegra Tours & Airport Transfer Saudi Arabia',
-    description: 'Taxi service in AlUla for Hegra UNESCO site tours and airport transfers. AlUla Airport to hotels. 4x4 vehicles for desert terrain. Fixed rates for heritage tours.',
-    keywords: ['taxi service in AlUla', 'AlUla taxi', 'Hegra tours', 'AlUla Airport transfer', 'AlUla heritage tours'],
+    title: 'Taxi Service in Dammam | Airport & City Travel',
+    description: 'Book the best taxi service in Dammam. fast airport transfers, corniche rides & intercity travel to Khobar/Jubail. 24/7 availability.',
+    keywords: ['taxi service in Dammam', 'Dammam taxi', 'King Fahd Airport taxi', 'Dammam Corniche transport', 'Jubail transfer'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/alula/',
+        canonical: 'https://taxiserviceksa.com/locations/dammam/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/alula/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/alula/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/alula/',
-            'x-default': 'https://taxiserviceksa.com/locations/alula/',
+            'en': 'https://taxiserviceksa.com/locations/dammam/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/dammam/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/dammam/',
+            'x-default': 'https://taxiserviceksa.com/locations/dammam/',
         }
     },
     openGraph: {
-        title: 'Taxi Service in AlUla | Hegra Tours & Airport Transfer',
-        description: 'Taxi service in AlUla operates for UNESCO heritage tours and airport transfers. 4x4 vehicles for desert sites. Book online.',
-        url: 'https://taxiserviceksa.com/locations/alula/',
+        title: 'Taxi Service in Dammam | Airport & City Travel',
+        description: 'Book the best taxi service in Dammam. fast airport transfers, corniche rides & intercity travel to Khobar/Jubail. 24/7 availability.',
+        url: 'https://taxiserviceksa.com/locations/dammam/',
         type: 'website',
     },
 };
 
-export default function AlUlaPage() {
+export default function DammamPage() {
     const services = [
-        { name: 'AlUla Airport Transfer', description: 'Transfers from AlUla International Airport (ULH) to AlUla hotels and resorts', icon: Plane },
-        { name: 'Hegra UNESCO Tours', description: 'Transport to Hegra archaeological site (Madain Saleh) with 4x4 desert vehicles', icon: Compass },
-        { name: 'AlUla Heritage Circuit', description: 'Tours to Dadan, Jabal Ikmah, and Elephant Rock heritage sites', icon: MapPin },
-        { name: 'AlUla to Khaybar Route', description: 'Intercity travel between AlUla and Khaybar Fort (150 km)', icon: Car },
+        { name: 'King Fahd Airport (DMM)', description: 'Fast and reliable transfers to/from King Fahd International Airport', icon: Plane },
+        { name: 'Dammam Corniche', description: 'Leisure rides to the Dammam Corniche and Dolphin Village', icon: Palmtree },
+        { name: 'Intercity to Jubail', description: 'Direct transfers to Jubail Industrial City for business travelers', icon: Building2 },
+        { name: 'Half Moon Bay Trips', description: 'Day trips to Half Moon Bay for family recreation', icon: Car },
     ];
 
     const features = [
-        'Drivers with AlUla heritage site knowledge',
-        '4x4 vehicles for desert terrain access',
-        'Airport pickup with flight tracking',
-        'Flexible tour schedules for photography',
-        'Fixed fares with no hidden charges',
-        'English and Arabic speaking guides',
+        'Drivers with Eastern Province expertise',
+        '24/7 Airport pickup service',
+        'Vehicles for families & groups',
+        'Fixed fares to Jubail & Khobar',
+        'Safe & Insured rides',
+        'Online booking confirmation',
     ];
 
-    const alulaImages = [
-        '/alula-hegra-tombs.webp',
+    const dammamImages = [
+        '/hero-slide-1.webp',
         '/hero-slide-2.webp',
         '/hero-slide-3.webp',
     ];
 
     const faqs = [
         {
-            question: "How far is AlUla Airport from Hegra archaeological site by taxi?",
-            answer: "AlUla International Airport (ULH) is located 30 kilometers from Hegra (Madain Saleh) UNESCO site. Taxi travel time is 25-35 minutes. Airport transfers include meet-and-greet service and luggage assistance for photography equipment."
+            question: "Is airport pickup available at King Fahd Airport?",
+            answer: "Yes, we offer 24/7 pickups from King Fahd International Airport (DMM). Our drivers track your flight and meet you at the terminal. Pre-book online for peace of mind."
         },
         {
-            question: "Do you provide 4x4 vehicles for AlUla desert tours?",
-            answer: "Taxi fleet includes 4x4 SUVs (GMC Yukon, Toyota Land Cruiser) suitable for AlUla desert terrain. Vehicles access Elephant Rock, Jabal Ikmah, and remote heritage sites. Drivers know safe desert routes."
+            question: "Do you offer rides from Dammam to Al Khobar?",
+            answer: "Yes, we provide frequent and affordable intercity taxi services between Dammam, Al Khobar, and Dhahran, connecting the tri-city area seamlessly."
         },
         {
-            question: "Is taxi service available for multi-day AlUla heritage tours?",
-            answer: "Multi-day taxi service is available for AlUla heritage circuit tours. Service includes daily pickups from hotels, flexible schedules for sunrise/sunset photography, and rest stops. Rates are quoted per day or per tour."
+            question: "What is the fastest way to get to Jubail from Dammam?",
+            answer: "Our private taxi service is the fastest and most convenient way to travel from Dammam to Jubail (approx. 1 hour), avoiding the hassle of buses or shared rides."
         },
         {
-            question: "How much does a taxi cost from AlUla Airport to hotels?",
-            answer: "Taxi rates from AlUla Airport to AlUla city hotels start from SAR 100. Pricing depends on vehicle type (sedan, 4x4 SUV) and resort location. Fares are fixed with no surge charges."
+            question: "Can I book a taxi for a day trip to Half Moon Bay?",
+            answer: "Certainly! You can book a taxi for a relaxing day trip to Half Moon Bay. Our drivers can drop you off and pick you up at your specified time."
         },
         {
-            question: "Can I book a taxi from AlUla to Khaybar Fort for historical tours?",
-            answer: "Intercity taxi service is available from AlUla to Khaybar Fort (150 km). Travel time is 2-3 hours. Rates start from SAR 350. Service includes stops at viewpoints and historical markers along the route."
+            question: "Do you offer corporate transport in Dammam?",
+            answer: "Yes, we provide tailored corporate transport solutions for companies operating in Dammam's industrial sectors and for employee commuting."
         },
         {
-            question: "Do your drivers speak English for international tourists?",
-            answer: "Drivers speak English and Arabic. Many drivers have heritage site knowledge and can provide basic historical context for Hegra, Dadan, and other AlUla attractions. Professional tour guides are available upon request."
+            question: "How do I pay for my taxi in Dammam?",
+            answer: "We offer flexible payment options including cash and secure online payments when you book through our website."
         }
     ];
 
     const locationSchema = {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "Taxi Service AlUla",
-        "image": "https://taxiserviceksa.com/alula-hegra-tombs.webp",
+        "name": "Taxi Service Dammam",
+        "image": "https://taxiserviceksa.com/hero-slide-1.webp",
         "email": "taxiserviceksa9988@gmail.com",
-        "url": "https://taxiserviceksa.com/locations/alula",
+        "url": "https://taxiserviceksa.com/locations/dammam/",
         "address": {
             "@type": "PostalAddress",
-            "addressLocality": "AlUla",
+            "addressLocality": "Dammam",
             "addressCountry": "SA"
         },
         "priceRange": "$$",
-        "areaServed": "AlUla",
+        "areaServed": "Dammam",
         "aggregateRating": {
             "@type": "AggregateRating",
-            "ratingValue": "4.9",
+            "ratingValue": "4.8",
             "bestRating": "5",
             "worstRating": "1",
-            "ratingCount": "850"
+            "ratingCount": "480"
         }
     };
 
@@ -123,20 +123,20 @@ export default function AlUlaPage() {
 
             {/* Hero Section */}
             <Hero
-                images={alulaImages}
-                h1Text="Taxi Service in AlUla: Hegra Tours and Heritage Site Transport"
+                images={dammamImages}
+                h1Text="Taxi Service in Dammam: Airport & City Transfers"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        AlUla Taxi Service
+                        Dammam Taxi Service
                     </span>
                 }
-                subtitle="UNESCO Heritage Transport"
-                location="4x4 Desert Tours Available"
+                subtitle="Eastern Province Metro Hub"
+                location="Airport • Jubail • Corniche"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                         <Link href="/booking">
-                            Book Taxi Now
+                            Book Dammam Taxi
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </Button>
@@ -153,9 +153,9 @@ export default function AlUlaPage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Our Services</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">AlUla Heritage Transport</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Dammam Transport Solutions</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Specialized taxi service for UNESCO heritage tours and desert exploration in AlUla.
+                            Connecting Dammam to King Fahd Airport, Jubail, and the rest of the Eastern Province.
                         </p>
                     </div>
 
@@ -177,7 +177,7 @@ export default function AlUlaPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our AlUla Taxi Service</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Dammam Taxi Service</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                         {features.map((feature, index) => (
@@ -221,21 +221,41 @@ export default function AlUlaPage() {
                             Community Insights
                         </span>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                            Share Your AlUla Experience
+                            Share Your Dammam Experience
                         </h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Help fellow travelers by sharing your experience or asking questions about AlUla transport and tours.
+                            Help fellow travelers by sharing your experience or asking questions about Dammam transport.
                         </p>
                     </div>
 
                     <div className="space-y-12 mb-12">
-                        <ReviewsDisplay location="AlUla" />
-                        <QuestionsDisplay location="AlUla" />
+                        <ReviewsDisplay location="Dammam" />
+                        <QuestionsDisplay location="Dammam" />
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <ReviewForm locationName="AlUla" />
-                        <QuestionForm locationName="AlUla" />
+                        <ReviewForm locationName="Dammam" />
+                        <QuestionForm locationName="Dammam" />
+                    </div>
+                </div>
+            </section>
+
+            {/* Internal Linking Silo */}
+            <section className="py-12 bg-white border-t border-gray-200">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h3 className="text-lg font-bold text-gray-900 mb-6">Explore Nearby Locations</h3>
+                    <div className="flex flex-wrap gap-4">
+                        <Link href="/locations/dhahran/" className="text-gray-600 hover:text-primary capitalize transition-colors">
+                            Taxi Service in Dhahran
+                        </Link>
+                        <span className="text-gray-300">|</span>
+                        <Link href="/locations/al-khobar/" className="text-gray-600 hover:text-primary capitalize transition-colors">
+                            Taxi Service in Al Khobar
+                        </Link>
+                        <span className="text-gray-300">|</span>
+                        <Link href="/locations/riyadh/" className="text-gray-600 hover:text-primary capitalize transition-colors">
+                            Taxi Service in Riyadh
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -243,30 +263,30 @@ export default function AlUlaPage() {
             <RelatedServices
                 services={[
                     {
-                        name: 'Heritage Tours',
-                        description: 'UNESCO heritage site tours with 4x4 desert vehicles and English-speaking guides.',
-                        href: '/services/heritage-tours',
-                        icon: Compass
-                    },
-                    {
                         name: 'Airport Transfers',
-                        description: 'Professional airport transfer service from AlUla International Airport.',
+                        description: 'Professional airport transfer service from King Fahd International Airport (DMM).',
                         href: '/services/airport-transfers',
                         icon: Plane
                     },
+                    {
+                        name: 'Intercity Travel',
+                        description: 'Fast transfers from Dammam to Jubail, Riyadh, and other cities.',
+                        href: '/services/intercity',
+                        icon: Car
+                    },
                 ]}
-                title="Services Available in AlUla"
-                description="Professional taxi services with licensed drivers for heritage tourism."
+                title="Services Available in Dammam"
+                description="Professional taxi services with experienced drivers for the entire Eastern Province."
             />
 
             {/* CTA Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your AlUla Heritage Tour
+                        Book Your Dammam Taxi Now
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Explore UNESCO heritage sites with professional transport and 4x4 desert vehicles.
+                        Reliable transport for airport transfers, Jubail trips, and city travel.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking">

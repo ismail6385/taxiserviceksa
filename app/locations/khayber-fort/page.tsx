@@ -36,8 +36,10 @@ export const metadata: Metadata = {
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/khayber-fort/',
         languages: {
+            'en': 'https://taxiserviceksa.com/locations/khayber-fort/',
             'ar': 'https://taxiserviceksa.com/ar/locations/khayber-fort/',
             'ur': 'https://taxiserviceksa.com/ur/locations/khayber-fort/',
+            'x-default': 'https://taxiserviceksa.com/locations/khayber-fort/',
         }
     },
     openGraph: {
@@ -58,9 +60,9 @@ export default function KhayberPage() {
     ];
 
     const khayberImages = [
+        '/khayber-fort-oasis.png', // New Generated Image
         '/hero-slide-2.webp', // Khaybar specific
         '/hero-slide-5.webp', // Desert generic
-        '/hero-slide-1.webp', // Road generic
     ];
 
     const faqs = [

@@ -39,8 +39,10 @@ export const metadata: Metadata = {
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/makkah/',
         languages: {
+            'en': 'https://taxiserviceksa.com/locations/makkah/',
             'ar': 'https://taxiserviceksa.com/ar/locations/makkah/',
             'ur': 'https://taxiserviceksa.com/ur/locations/makkah/',
+            'x-default': 'https://taxiserviceksa.com/locations/makkah/',
         }
     },
     openGraph: {

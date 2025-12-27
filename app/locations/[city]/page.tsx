@@ -56,9 +56,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-    return Object.keys(cities).map((city) => ({
-        city: city,
-    }));
+    const staticCities = ['jeddah', 'riyadh', 'madinah', 'taif', 'dammam', 'dhahran', 'al-khobar'];
+    return Object.keys(cities)
+        .filter(city => !staticCities.includes(city))
+        .map((city) => ({
+            city: city,
+        }));
 }
 
 export default function LocationPage({ params }: Props) {
@@ -356,7 +359,7 @@ export default function LocationPage({ params }: Props) {
                         <span className="text-gray-300">|</span>
                         {city.nearbyCities.map((slug, idx) => (
                             <span key={idx} className="flex items-center gap-4">
-                                <Link href={`/locations/${slug}`} className="text-gray-600 hover:text-primary capitalize transition-colors">
+                                <Link href={`/locations/${slug}/`} className="text-gray-600 hover:text-primary capitalize transition-colors">
                                     Taxi Service in {slug}
                                 </Link>
                                 {idx < city.nearbyCities.length - 1 && <span className="text-gray-300">|</span>}

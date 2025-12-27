@@ -24,6 +24,12 @@ export const metadata: Metadata = {
     keywords: ['taxi service in Yanbu', 'Yanbu taxi', 'Yanbu Airport transfer', 'Yanbu industrial transport', 'Yanbu port taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/yanbu/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/locations/yanbu/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/yanbu/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/yanbu/',
+            'x-default': 'https://taxiserviceksa.com/locations/yanbu/',
+        }
     },
     openGraph: {
         title: 'Taxi Service in Yanbu | Airport Transfer & Industrial Transport',

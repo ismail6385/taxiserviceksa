@@ -17,7 +17,9 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/ar/locations/taif/',
         languages: {
             'en': 'https://taxiserviceksa.com/locations/taif/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/taif/',
             'ur': 'https://taxiserviceksa.com/ur/locations/taif/',
+            'x-default': 'https://taxiserviceksa.com/locations/taif/',
         }
     },
     openGraph: {

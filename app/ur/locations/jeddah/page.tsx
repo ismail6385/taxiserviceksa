@@ -19,6 +19,8 @@ export const metadata: Metadata = {
         languages: {
             'en': 'https://taxiserviceksa.com/locations/jeddah/',
             'ar': 'https://taxiserviceksa.com/ar/locations/jeddah/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/jeddah/',
+            'x-default': 'https://taxiserviceksa.com/locations/jeddah/',
         }
     },
     openGraph: {
