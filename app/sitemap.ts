@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next'
 import { cities } from '@/data/cities'
+import { blogService } from '@/lib/blogService'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = 'https://taxiserviceksa.com'
 
     // Core static pages
@@ -107,5 +108,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         console.log('Sample URL:', routes[1].url)
     }
 
-    return [...routes, ...locationPages, ...guidePages, ...routePages, ...servicePages, ...fleetPages]
+    // Dynamic Blog Pages
+    const blogs = await blogService.getPublishedBlogs();
+    const blogPages = blogs.map((blog) => ({
+        url: `${baseUrl}/blog/${blog.slug}/`,
+        lastModified: new Date(blog.updated_at || blog.created_at),
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
+    }));
+
+    return [...routes, ...locationPages, ...guidePages, ...routePages, ...servicePages, ...fleetPages, ...blogPages]
 }
