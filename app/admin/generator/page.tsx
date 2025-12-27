@@ -45,7 +45,8 @@ export default function BlogGeneratorPage() {
             setStatus(`Successfully created draft: ${template.title}`);
         } catch (error) {
             console.error(error);
-            setStatus(`Error creating ${template.title}`);
+            // @ts-ignore
+            setStatus(`Error creating ${template.title}: ${error.message || 'Unknown error'}`);
         } finally {
             setGenerating(null);
         }
