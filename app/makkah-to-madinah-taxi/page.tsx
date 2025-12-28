@@ -1,6 +1,7 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import Script from 'next/script';
 import { Car, Clock, MapPin, CheckCircle2, Shield, User, ArrowRight } from 'lucide-react';
 import Hero from '@/components/Hero';
