@@ -120,11 +120,7 @@ export default function CorporateTravelPage() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Corporate Travel Service Saudi Arabia",
-        "provider": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA",
-            "email": "taxiserviceksa9988@gmail.com"
-        },
+
         "serviceType": "Corporate Transport",
         "areaServed": [
             { "@type": "City", "name": "Riyadh" },

@@ -6,8 +6,7 @@ import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import StickyContactButton from '@/components/StickyContactButton';
 import JsonLdBreadcrumb from '@/components/JsonLdBreadcrumb';
-import JsonLdOrganization from '@/components/JsonLdOrganization';
-import JsonLdLocalBusiness from '@/components/JsonLdLocalBusiness';
+
 import JsonLdService from '@/components/JsonLdService';
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
@@ -21,8 +20,7 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
         <>
           <Navbar />
           <JsonLdBreadcrumb />
-          <JsonLdOrganization />
-          <JsonLdLocalBusiness />
+
           <JsonLdService />
         </>
       )}
@@ -39,4 +37,3 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
     </>
   );
 }
-

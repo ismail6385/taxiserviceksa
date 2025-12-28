@@ -112,11 +112,7 @@ export default function JeddahTaifRoutePage() {
             }
         },
         "distance": "170 km",
-        "provider": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA",
-            "email": "taxiserviceksa9988@gmail.com"
-        }
+
     };
 
     return (

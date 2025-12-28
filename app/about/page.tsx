@@ -98,32 +98,7 @@ export default function AboutPage() {
         "@type": "AboutPage",
         "header": "About Taxi Service KSA",
         "primaryImageOfPage": "https://taxiserviceksa.com/hero-image.jpg",
-        "mainEntity": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA",
-            "alternateName": "Taxi Service Saudi Arabia",
-            "legalName": "Taxi Service KSA Transport",
-            "foundingDate": "2012",
-            "description": "Premium taxi service provider in Saudi Arabia specializing in Umrah transport and airport transfers. Operating strict safety protocols with licensed chauffeurs.",
-            "url": "https://taxiserviceksa.com",
-            "logo": "https://taxiserviceksa.com/logo.png",
-            "areaServed": "Saudi Arabia",
-            "email": "taxiserviceksa9988@gmail.com",
-            "contactPoint": {
-                "@type": "ContactPoint",
-                "contactType": "customer service",
-                "email": "taxiserviceksa9988@gmail.com",
-                "availableLanguage": ["English", "Arabic", "Urdu"]
-            },
-            "sameAs": [
-                "https://www.facebook.com/people/Taxi-Service-KSA/61573850597962/",
-                "https://www.linkedin.com/company/taxi-service-ksa/",
-                "https://www.youtube.com/channel/UCeP44oxBUKUG5X-UhYmPMNw",
-                "https://www.pinterest.com/taxiserviceksa/",
-                "https://twitter.com/TaxiServiceKSA",
-                "https://www.instagram.com/taxiserviceksa/"
-            ]
-        }
+
     };
 
     return (

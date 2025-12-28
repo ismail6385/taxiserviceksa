@@ -102,37 +102,11 @@ export default async function JeddahPage() {
         { destination: 'Obhur (North)', distance: '35 km', time: '40 mins', route: 'Corniche Rd' }
     ];
 
-    const locationSchema = {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Taxi Service Jeddah",
-        "image": "https://taxiserviceksa.com/jeddah-airport-taxi.jpg",
-        "email": "taxiserviceksa9988@gmail.com",
-        "url": "https://taxiserviceksa.com/locations/jeddah",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Jeddah",
-            "addressRegion": "Makkah Province",
-            "addressCountry": "SA"
-        },
-        "priceRange": "$$",
-        "areaServed": "Jeddah",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "1250"
-        }
-    };
+
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="location-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
-            />
+
             <Script
                 id="service-schema"
                 type="application/ld+json"
@@ -141,7 +115,7 @@ export default async function JeddahPage() {
                         "@context": "https://schema.org",
                         "@type": "Service",
                         "name": "Jeddah Airport Transfer",
-                        "provider": { "@type": "LocalBusiness", "name": "TaxiServiceKSA Jeddah" },
+
                         "areaServed": { "@type": "City", "name": "Jeddah" },
                         "description": "Private VIP transfer from King Abdulaziz International Airport to Makkah and Madinah."
                     })

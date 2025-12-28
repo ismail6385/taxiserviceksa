@@ -124,11 +124,7 @@ export default function JeddahMakkahRoutePage() {
             }
         },
         "distance": "80 km",
-        "provider": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA",
-            "email": "taxiserviceksa9988@gmail.com"
-        }
+
     };
 
     return (

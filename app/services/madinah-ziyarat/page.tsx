@@ -52,10 +52,7 @@ export default function MadinahZiyaratPage() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Madinah Ziyarat Service",
-        "provider": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA"
-        },
+
         "description": "Guided taxi tours to holy Islamic sites in Madinah.",
         "areaServed": "Madinah",
         "serviceType": "ReligiousTour"

@@ -145,11 +145,7 @@ export default function MakkahMadinahRoutePage() {
             }
         },
         "distance": "450 km",
-        "provider": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA",
-            "email": "taxiserviceksa9988@gmail.com"
-        }
+
     };
 
     return (

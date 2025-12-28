@@ -123,11 +123,7 @@ export default function HeritageToursPage() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Heritage Tours Saudi Arabia",
-        "provider": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA",
-            "email": "taxiserviceksa9988@gmail.com"
-        },
+
         "serviceType": "Heritage Tourism Transport",
         "areaServed": [
             { "@type": "City", "name": "AlUla" },

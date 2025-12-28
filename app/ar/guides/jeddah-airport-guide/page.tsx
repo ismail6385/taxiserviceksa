@@ -63,18 +63,8 @@ export default function JeddahAirportGuidePage() {
         "@type": "Article",
         "headline": "Jeddah Airport Complete Guide 2024",
         "description": "Comprehensive guide to navigating King Abdulaziz International Airport (Jeddah) with practical information for travelers and pilgrims.",
-        "author": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://taxiserviceksa.com/logo.png"
-            }
-        },
+
+
         "datePublished": "2024-01-01",
         "dateModified": "2024-01-01"
     };

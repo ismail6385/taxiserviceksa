@@ -89,36 +89,11 @@ export default function AlKhobarPage() {
         }
     ];
 
-    const locationSchema = {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Taxi Service Al Khobar",
-        "image": "https://taxiserviceksa.com/hero-slide-3.webp",
-        "email": "taxiserviceksa9988@gmail.com",
-        "url": "https://taxiserviceksa.com/locations/al-khobar/",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Al Khobar",
-            "addressCountry": "SA"
-        },
-        "priceRange": "$$",
-        "areaServed": "Al Khobar",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "350"
-        }
-    };
+
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="location-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
-            />
+
             <JsonLdFAQ faqs={faqs} />
 
             {/* Hero Section */}

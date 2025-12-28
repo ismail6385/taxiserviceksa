@@ -64,18 +64,8 @@ export default function MakkahUmrahGuidePage() {
         "@type": "Article",
         "headline": "Makkah Umrah Complete Guide 2024",
         "description": "Comprehensive guide for Umrah pilgrims in Makkah covering Haram access, Tawaf timing, Ziyarat sites, and practical logistics.",
-        "author": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://taxiserviceksa.com/logo.png"
-            }
-        },
+
+
         "datePublished": "2024-01-01",
         "dateModified": "2024-01-01"
     };

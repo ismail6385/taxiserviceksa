@@ -107,36 +107,11 @@ export default async function MadinahPage() {
         }
     ];
 
-    const locationSchema = {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Taxi Service Madinah",
-        "image": "https://taxiserviceksa.com/madinah-prophets-mosque.webp",
-        "email": "taxiserviceksa9988@gmail.com",
-        "url": "https://taxiserviceksa.com/locations/madinah",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Madinah",
-            "addressCountry": "SA"
-        },
-        "priceRange": "$$",
-        "areaServed": "Madinah",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "2100"
-        }
-    };
+
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="location-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
-            />
+
             <Script
                 id="service-schema"
                 type="application/ld+json"
@@ -145,7 +120,7 @@ export default async function MadinahPage() {
                         "@context": "https://schema.org",
                         "@type": "Service",
                         "name": "Madinah Ziyarat & Airport Taxi",
-                        "provider": { "@type": "LocalBusiness", "name": "TaxiServiceKSA Madinah" },
+
                         "areaServed": { "@type": "City", "name": "Madinah" },
                         "description": "Professional taxi service for Prophet's Mosque visits and Madinah airport transfers."
                     })

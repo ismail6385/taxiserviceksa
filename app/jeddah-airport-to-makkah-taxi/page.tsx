@@ -33,7 +33,7 @@ export default function JeddahAirportToMakkahPage() {
                         "@context": "https://schema.org",
                         "@type": "Service",
                         "name": "Jeddah Airport to Makkah Transfer",
-                        "provider": { "@type": "Organization", "name": "Taxi Service KSA" },
+
                         "areaServed": { "@type": "City", "name": "Makkah" },
                         "offers": { "@type": "Offer", "price": "200", "priceCurrency": "SAR", "priceValidUntil": "2025-12-31" }
                     })
@@ -69,7 +69,6 @@ export default function JeddahAirportToMakkahPage() {
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-20 mb-12">
                 <div className="bg-white p-2 rounded-2xl shadow-xl border-4 border-white transform hover:scale-[1.01] transition-transform duration-500">
                     <div className="relative aspect-[2/1] w-full overflow-hidden rounded-xl bg-gray-100">
-                        {/* Placeholder for the generated asset - User needs to move 'jeddah_makkah_route_map.png' to public folder */}
                         <Image
                             src="/jeddah_makkah_route_map.png"
                             alt="Map of journey from Jeddah Airport to Makkah"

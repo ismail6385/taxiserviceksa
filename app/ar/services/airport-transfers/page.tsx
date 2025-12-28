@@ -163,11 +163,7 @@ export default function AirportTransfersPage() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Airport Transfer Service Saudi Arabia",
-        "provider": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA",
-            "email": "taxiserviceksa9988@gmail.com"
-        },
+
         "serviceType": "Airport Transfer",
         "areaServed": [
             { "@type": "City", "name": "Jeddah" },

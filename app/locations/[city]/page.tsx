@@ -87,24 +87,7 @@ export default function LocationPage({ params }: Props) {
     const selectedFaqs = showSetA ? city.faqSetA : city.faqSetB;
 
     // Schema Markup
-    const citySchema = {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": `Taxi Service ${city.name}`,
-        "description": city.metaDescription,
-        "url": `https://taxiserviceksa.com/locations/${city.slug}`,
-        "areaServed": {
-            "@type": "City",
-            "name": city.name,
-            "address": {
-                "@type": "PostalAddress",
-                "addressCountry": "SA"
-            }
-        },
-        "priceRange": "$$",
 
-        "image": "https://taxiserviceksa.com/hero-image.jpg"
-    };
 
     const howToSchema = {
         "@context": "https://schema.org",
@@ -125,11 +108,7 @@ export default function LocationPage({ params }: Props) {
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id={`schema-${city.slug}`}
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(citySchema) }}
-            />
+
             <Script
                 id={`howto-schema-${city.slug}`}
                 type="application/ld+json"

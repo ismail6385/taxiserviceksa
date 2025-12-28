@@ -31,7 +31,7 @@ export default function MakkahTrainStationPage() {
                         "@context": "https://schema.org",
                         "@type": "Service",
                         "name": "Makkah Train Station Transfer",
-                        "provider": { "@type": "Organization", "name": "Taxi Service KSA" },
+
                         "areaServed": { "@type": "City", "name": "Makkah" },
                         "offers": { "@type": "Offer", "price": "100", "priceCurrency": "SAR", "priceValidUntil": "2025-12-31" }
                     })

@@ -79,10 +79,7 @@ export default function ToursPage() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Saudi Arabia Private Tours",
-        "provider": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA"
-        },
+
         "description": "Private sightseeing and historical tours across Saudi Arabia including Ziyarat and Heritage sites.",
         "areaServed": "Saudi Arabia",
         "serviceType": "TourOperator"

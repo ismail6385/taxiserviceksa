@@ -126,36 +126,11 @@ export default async function MakkahPage() {
         { destination: 'Jabal Omar Hotels', distance: '1-3 km (0.6-1.8 mi)', time: '5-10 mins', route: 'King Abdulaziz Rd' }
     ];
 
-    const locationSchema = {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Taxi Service Makkah",
-        "image": "https://taxiserviceksa.com/makkah-kaaba-night.webp",
 
-        "url": "https://taxiserviceksa.com/locations/makkah",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Makkah",
-            "addressCountry": "SA"
-        },
-        "priceRange": "$$",
-        "areaServed": "Makkah",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "5000"
-        }
-    };
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="location-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
-            />
+
             <Script
                 id="breadcrumb-schema"
                 type="application/ld+json"
@@ -197,10 +172,7 @@ export default async function MakkahPage() {
                             {
                                 "@type": "Service",
                                 "serviceType": "Umrah Taxi Service",
-                                "provider": {
-                                    "@type": "LocalBusiness",
-                                    "name": "Taxi Service Makkah"
-                                },
+
                                 "areaServed": {
                                     "@type": "City",
                                     "name": "Makkah"
@@ -210,10 +182,7 @@ export default async function MakkahPage() {
                             {
                                 "@type": "Service",
                                 "serviceType": "Airport Taxi to Makkah",
-                                "provider": {
-                                    "@type": "LocalBusiness",
-                                    "name": "Taxi Service Makkah"
-                                },
+
                                 "areaServed": [
                                     {
                                         "@type": "City",
@@ -229,10 +198,7 @@ export default async function MakkahPage() {
                             {
                                 "@type": "Service",
                                 "serviceType": "Hotel to Haram Taxi",
-                                "provider": {
-                                    "@type": "LocalBusiness",
-                                    "name": "Taxi Service Makkah"
-                                },
+
                                 "areaServed": {
                                     "@type": "City",
                                     "name": "Makkah"

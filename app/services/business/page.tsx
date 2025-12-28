@@ -57,10 +57,7 @@ export default function BusinessPage() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Corporate Taxi Service KSA",
-        "provider": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA"
-        },
+
         "description": "Executive transportation services for business travelers in Saudi Arabia.",
         "areaServed": "Saudi Arabia",
         "serviceType": "Taxis"

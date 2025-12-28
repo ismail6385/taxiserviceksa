@@ -89,36 +89,11 @@ export default function DhahranPage() {
         }
     ];
 
-    const locationSchema = {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Taxi Service Dhahran",
-        "image": "https://taxiserviceksa.com/hero-slide-2.webp",
-        "email": "taxiserviceksa9988@gmail.com",
-        "url": "https://taxiserviceksa.com/locations/dhahran/",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Dhahran",
-            "addressCountry": "SA"
-        },
-        "priceRange": "$$",
-        "areaServed": "Dhahran",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "420"
-        }
-    };
+
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="location-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
-            />
+
             <JsonLdFAQ faqs={faqs} />
 
             {/* Hero Section */}

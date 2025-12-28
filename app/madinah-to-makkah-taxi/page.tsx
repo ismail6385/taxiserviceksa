@@ -34,7 +34,7 @@ export default function MadinahToMakkahPage() {
                         "@context": "https://schema.org",
                         "@type": "Service",
                         "name": "Madinah to Makkah Taxi Transfer",
-                        "provider": { "@type": "Organization", "name": "Taxi Service KSA" },
+
                         "areaServed": { "@type": "City", "name": "Makkah" },
                         "offers": { "@type": "Offer", "price": "450", "priceCurrency": "SAR", "priceValidUntil": "2025-12-31" }
                     })

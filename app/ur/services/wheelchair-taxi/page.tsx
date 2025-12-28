@@ -34,10 +34,7 @@ export default function WheelchairTaxiPage() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Wheelchair Accessible Taxi Service",
-        "provider": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA"
-        },
+
         "description": "Specialized transportation for passengers with mobility needs and wheelchairs.",
         "areaServed": "Saudi Arabia",
         "serviceType": "MedicalTransport"

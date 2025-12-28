@@ -64,18 +64,8 @@ export default function RiyadhBusinessGuidePage() {
         "@type": "Article",
         "headline": "Riyadh Business Travel Guide 2024",
         "description": "Comprehensive guide for business travelers in Riyadh covering KAFD, business districts, corporate facilities, and transport.",
-        "author": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://taxiserviceksa.com/logo.png"
-            }
-        },
+
+
         "datePublished": "2024-01-01",
         "dateModified": "2024-01-01"
     };

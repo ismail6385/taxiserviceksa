@@ -96,37 +96,11 @@ export default function TaifPage() {
         { destination: 'Al Shafa Mountains', distance: '25 km (from City)', time: '30 mins', route: 'Shafa Rd' }
     ];
 
-    const locationSchema = {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Taxi Service Taif",
-        "image": "https://taxiserviceksa.com/taif-roses.jpg",
-        "email": "taxiserviceksa9988@gmail.com",
-        "url": "https://taxiserviceksa.com/locations/taif",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Taif",
-            "addressRegion": "Makkah Province",
-            "addressCountry": "SA"
-        },
-        "priceRange": "$$",
-        "areaServed": "Taif",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "640"
-        }
-    };
+
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="location-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
-            />
+
             <Script
                 id="service-schema"
                 type="application/ld+json"
@@ -135,7 +109,7 @@ export default function TaifPage() {
                         "@context": "https://schema.org",
                         "@type": "Service",
                         "name": "Taif Mountain Transfer",
-                        "provider": { "@type": "LocalBusiness", "name": "TaxiServiceKSA Taif" },
+
                         "areaServed": { "@type": "City", "name": "Taif" },
                         "description": "Professional transport from Makkah to Taif via Al Hada mountain road."
                     })

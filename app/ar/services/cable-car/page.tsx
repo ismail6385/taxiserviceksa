@@ -52,10 +52,7 @@ export default function CableCarPage() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Cable Car Station Transfers",
-        "provider": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA"
-        },
+
         "description": "Transport service to major cable car tourist attractions in Saudi Arabia.",
         "areaServed": ["Taif", "Abha"],
         "serviceType": "TouristTransport"

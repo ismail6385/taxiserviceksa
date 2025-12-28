@@ -78,10 +78,7 @@ export default function IntercityServicePage() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Intercity Taxi Service KSA",
-        "provider": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA"
-        },
+
         "description": "Professional long-distance intercity taxi service connecting major cities in Saudi Arabia.",
         "areaServed": "Saudi Arabia",
         "serviceType": "Transport"

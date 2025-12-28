@@ -32,7 +32,7 @@ export default function MadinahAirportTaxiPage() {
                         "@context": "https://schema.org",
                         "@type": "Service",
                         "name": "Madinah Airport Transfer",
-                        "provider": { "@type": "Organization", "name": "Taxi Service KSA" },
+
                         "areaServed": { "@type": "City", "name": "Madinah" },
                         "offers": { "@type": "Offer", "price": "100", "priceCurrency": "SAR", "priceValidUntil": "2025-12-31" }
                     })

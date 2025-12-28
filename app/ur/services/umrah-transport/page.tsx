@@ -141,11 +141,7 @@ export default function UmrahTransportPage() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Umrah Transport Service with Driver",
-        "provider": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA",
-            "email": "taxiserviceksa9988@gmail.com"
-        },
+
         "serviceType": "Umrah Transport",
         "areaServed": [
             { "@type": "City", "name": "Makkah" },

@@ -112,11 +112,7 @@ export default function RiyadhJeddahRoutePage() {
             }
         },
         "distance": "950 km",
-        "provider": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA",
-            "email": "taxiserviceksa9988@gmail.com"
-        }
+
     };
 
     return (

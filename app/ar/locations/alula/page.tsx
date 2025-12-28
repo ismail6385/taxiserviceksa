@@ -89,36 +89,11 @@ export default function AlUlaPage() {
         }
     ];
 
-    const locationSchema = {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Taxi Service AlUla",
-        "image": "https://taxiserviceksa.com/alula-hegra-tombs.webp",
-        "email": "taxiserviceksa9988@gmail.com",
-        "url": "https://taxiserviceksa.com/locations/alula",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "AlUla",
-            "addressCountry": "SA"
-        },
-        "priceRange": "$$",
-        "areaServed": "AlUla",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "850"
-        }
-    };
+
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="location-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
-            />
+
             <JsonLdFAQ faqs={faqs} />
 
             {/* Hero Section */}

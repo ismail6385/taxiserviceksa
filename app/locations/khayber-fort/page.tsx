@@ -96,37 +96,11 @@ export default function KhayberPage() {
         { destination: 'Tabuk', distance: '500 km', time: '5h 30m', route: 'Route 15' }
     ];
 
-    const locationSchema = {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Taxi Service Khaybar",
-        "image": "https://taxiserviceksa.com/hero-slide-2.webp",
-        "email": "taxiserviceksa9988@gmail.com",
-        "url": "https://taxiserviceksa.com/locations/khayber-fort",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Khaybar",
-            "addressRegion": "Madinah Province",
-            "addressCountry": "SA"
-        },
-        "priceRange": "$$",
-        "areaServed": "Khaybar",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "320"
-        }
-    };
+
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="location-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
-            />
+
             <Script
                 id="service-schema"
                 type="application/ld+json"
@@ -135,7 +109,7 @@ export default function KhayberPage() {
                         "@context": "https://schema.org",
                         "@type": "Service",
                         "name": "Khaybar Historical Tours",
-                        "provider": { "@type": "LocalBusiness", "name": "TaxiServiceKSA Khaybar" },
+
                         "areaServed": { "@type": "City", "name": "Khaybar" },
                         "description": "Private transport and guided tours to the Khaybar Fort and Oasis from Madinah."
                     })

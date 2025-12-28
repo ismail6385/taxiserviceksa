@@ -108,11 +108,7 @@ export default function JeddahAlulaRoutePage() {
             }
         },
         "distance": "700 km",
-        "provider": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA",
-            "email": "taxiserviceksa9988@gmail.com"
-        }
+
     };
 
     return (

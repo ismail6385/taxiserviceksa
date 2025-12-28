@@ -61,10 +61,7 @@ export default function MeeqatLocationsPage() {
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": "Guide to Meeqat Locations for Umrah",
-        "author": {
-            "@type": "Organization",
-            "name": "Taxi Service KSA"
-        },
+
         "description": "Detailed guide on the 5 designated stations (Meeqat) where pilgrims must enter the state of Ihram.",
         "image": "https://taxiserviceksa.com/madinah-ziyarat-map.png"
     };

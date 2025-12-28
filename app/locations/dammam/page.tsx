@@ -89,36 +89,11 @@ export default function DammamPage() {
         }
     ];
 
-    const locationSchema = {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Taxi Service Dammam",
-        "image": "https://taxiserviceksa.com/hero-slide-1.webp",
-        "email": "taxiserviceksa9988@gmail.com",
-        "url": "https://taxiserviceksa.com/locations/dammam/",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Dammam",
-            "addressCountry": "SA"
-        },
-        "priceRange": "$$",
-        "areaServed": "Dammam",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "bestRating": "5",
-            "worstRating": "1",
-            "ratingCount": "480"
-        }
-    };
+
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="location-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema) }}
-            />
+
             <JsonLdFAQ faqs={faqs} />
 
             {/* Hero Section */}
