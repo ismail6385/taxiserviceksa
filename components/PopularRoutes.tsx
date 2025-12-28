@@ -71,6 +71,8 @@ export default function PopularRoutes() {
                 <img
                   src={route.image}
                   alt={`${route.from} to ${route.to}`}
+                  width="800"
+                  height="600"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
@@ -94,7 +96,7 @@ export default function PopularRoutes() {
                 <p className="text-gray-400 mb-6 leading-relaxed text-sm flex-1">
                   {route.description}
                 </p>
-                <Link href={`/booking?service=${encodeURIComponent(`${route.from} to ${route.to}`)}`} className="w-full">
+                <Link href={`/booking?service=${encodeURIComponent(`${route.from} to ${route.to}`.replace(/\s+/g, '-'))}`} className="w-full">
                   <Button className="w-full bg-white text-black hover:bg-primary hover:text-black font-bold transition-all hover:scale-105 active:scale-95">
                     Book This Route
                   </Button>

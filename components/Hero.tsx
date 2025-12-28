@@ -117,10 +117,11 @@ export default function Hero(props: HeroProps) {
                         <Image
                             src={slide}
                             alt={slideAltTexts[index] || `Premium taxi service in Saudi Arabia - ${index + 1}`}
-                            fill
+                            width={1920}
+                            height={1080}
                             priority={index === 0}
                             quality={90}
-                            className="object-cover"
+                            className="object-cover w-full h-full"
                             sizes="100vw"
                             aria-hidden={index !== currentSlide}
                         />

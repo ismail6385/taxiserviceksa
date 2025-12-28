@@ -81,7 +81,8 @@ export default function BookingFormContent() {
         const serviceParam = searchParams.get('service');
 
         if (vehicleParam) {
-            const selectedVehicle = vehicles.find(v => v.name === vehicleParam);
+            const vehicleName = vehicleParam.replace(/-/g, ' ');
+            const selectedVehicle = vehicles.find(v => v.name === vehicleName);
             if (selectedVehicle) {
                 setFormData(prev => ({
                     ...prev,

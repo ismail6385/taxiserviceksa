@@ -10,7 +10,7 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ title, description, icon: Icon }: ServiceCardProps) {
     return (
-        <Link href={`/booking?service=${encodeURIComponent(title)}`} className="block group h-full">
+        <Link href={`/booking?service=${encodeURIComponent(title.replace(/\s+/g, '-'))}`} className="block group h-full">
             <div className="h-full bg-white rounded-2xl p-6 hover:bg-gray-900 transition-all duration-300 border border-gray-100 shadow-sm hover:shadow-2xl relative overflow-hidden flex flex-col">
 
                 {/* Hover Accent */}

@@ -23,8 +23,9 @@ export default function AuthorCard({ authorName, showBio = true, className = '' 
                     <Image
                         src={author.avatar}
                         alt={author.name}
-                        fill
-                        className="object-cover rounded-full border-4 border-gray-50 shadow-sm"
+                        width={96}
+                        height={96}
+                        className="w-full h-full object-cover rounded-full border-4 border-gray-50 shadow-sm"
                     />
                 </div>
 

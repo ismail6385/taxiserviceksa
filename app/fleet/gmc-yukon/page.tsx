@@ -118,8 +118,9 @@ export default function GMCYukonPage() {
                             <Image
                                 src="/gmc-yukon.webp"
                                 alt="GMC Yukon luxury taxi service in Saudi Arabia for airport transfers and Umrah"
-                                fill
-                                className="object-cover"
+                                width={800}
+                                height={600}
+                                className="w-full h-full object-cover"
                                 priority
                             />
                         </div>
@@ -146,7 +147,7 @@ export default function GMCYukonPage() {
                                 ))}
                             </div>
 
-                            <Link href="/booking?vehicle=GMC%20Yukon">
+                            <Link href="/booking?vehicle=GMC-Yukon">
                                 <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold h-14 text-lg">
                                     Book GMC Yukon Now
                                 </Button>
@@ -337,7 +338,7 @@ export default function GMCYukonPage() {
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
                             {/* Primary CTA */}
-                            <Link href="/booking?vehicle=GMC%20Yukon" className="w-full sm:w-auto">
+                            <Link href="/booking?vehicle=GMC-Yukon" className="w-full sm:w-auto">
                                 <Button size="lg" className="w-full bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                     Book GMC Yukon
                                 </Button>

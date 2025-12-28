@@ -268,7 +268,7 @@ export default function TaifPage() {
                             items: [
                                 { label: "Rose Festival Tours", url: "/blog/taif-rose-festival-guide", description: "March/April Only" },
                                 { label: "Cable Car Transfers", url: "/services/cable-car", description: "Top Station Dropoff" },
-                                { label: "Miqat Ziyarat", url: "/guides/miqat-locations", description: "Qarn al-Manazil" }
+                                { label: "Miqat Ziyarat", url: "/guides/meeqat-locations", description: "Qarn al-Manazil" }
                             ]
                         }
                     ]}

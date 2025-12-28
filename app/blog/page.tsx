@@ -17,7 +17,11 @@ export const metadata: Metadata = {
 
 export const revalidate = 0; // Disable caching for immediate updates
 
-export default async function BlogIndexPage() {
+interface Props {
+    searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+export default async function BlogIndexPage({ searchParams }: Props) {
     const blogs: Blog[] = await blogService.getPublishedBlogs();
 
     if (!blogs) {
@@ -31,8 +35,35 @@ export default async function BlogIndexPage() {
         );
     }
 
+    const tag = searchParams?.tag;
+    const category = searchParams?.category;
+
+    let filteredBlogs = blogs;
+
+    if (tag) {
+        const decodedTag = (Array.isArray(tag) ? tag[0] : tag).replace(/-/g, ' ');
+        filteredBlogs = blogs.filter(blog =>
+            blog.tags?.some(t => t.toLowerCase() === decodedTag.toLowerCase()) ||
+            blog.category?.toLowerCase() === decodedTag.toLowerCase()
+        );
+    }
+
+    if (filteredBlogs.length === 0) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-gray-50 flex-col gap-4">
+                <div className="text-center">
+                    <h1 className="text-2xl font-bold text-gray-900">No articles found {tag ? `for "${tag}"` : ''}</h1>
+                    <p className="text-gray-600 mt-2">Try a different topic or view all guides.</p>
+                </div>
+                <Link href="/blog">
+                    <button className="bg-primary px-4 py-2 rounded-lg font-bold">View All Articles</button>
+                </Link>
+            </div>
+        );
+    }
+
     // Separate featured/latest post (optional, for now just simple grid)
-    const [latestPost, ...otherPosts] = blogs;
+    const [latestPost, ...otherPosts] = filteredBlogs;
 
     return (
         <main className="bg-gray-50 min-h-screen pb-20">

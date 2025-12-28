@@ -23,8 +23,9 @@ export default function FleetCard({ name, image, passengers, luggage, features, 
                         <Image
                             src={image}
                             alt={name}
-                            fill
-                            className="object-cover group-hover:scale-110 transition-transform duration-500"
+                            width={600}
+                            height={400}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         />
                         {/* Overlay on hover */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -73,7 +74,7 @@ export default function FleetCard({ name, image, passengers, luggage, features, 
 
                     {/* CTA Buttons */}
                     <div className="space-y-2">
-                        <Link href={`/booking?vehicle=${encodeURIComponent(name)}`} className="block">
+                        <Link href={`/booking?vehicle=${encodeURIComponent(name.replace(/\s+/g, '-'))}`} className="block">
                             <Button className="w-full bg-primary hover:bg-primary/90 text-black font-bold group-hover:shadow-lg transition-all">
                                 Book {name} <ArrowRight className="w-4 h-4 ml-2" />
                             </Button>

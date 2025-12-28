@@ -76,8 +76,9 @@ export default function ToyotaHiacePage() {
                             <Image
                                 src="/toyota-hiace.webp"
                                 alt="Toyota Hiace"
-                                fill
-                                className="object-cover"
+                                width={800}
+                                height={600}
+                                className="w-full h-full object-cover"
                             />
                         </div>
 
@@ -102,7 +103,7 @@ export default function ToyotaHiacePage() {
                                 ))}
                             </div>
 
-                            <Link href="/booking?vehicle=Toyota%20Hiace">
+                            <Link href="/booking?vehicle=Toyota-Hiace">
                                 <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold">
                                     Book Toyota Hiace Now
                                 </Button>
@@ -254,7 +255,7 @@ export default function ToyotaHiacePage() {
                     <p className="text-lg text-gray-300 mb-6">
                         Book our Toyota Hiace now for your Umrah or group journey
                     </p>
-                    <Link href="/booking?vehicle=Toyota%20Hiace">
+                    <Link href="/booking?vehicle=Toyota-Hiace">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6">
                             Book Now
                         </Button>

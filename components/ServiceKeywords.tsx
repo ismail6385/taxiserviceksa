@@ -170,7 +170,7 @@ export default function ServiceKeywords() {
                                     const isJeddahMakkah = service === "Jeddah Airport to Makkah Taxi";
                                     const isJeddahPickup = service === "Jeddah Airport Pickup";
 
-                                    let href = `/booking?service=${encodeURIComponent(service)}`;
+                                    let href = `/booking?service=${encodeURIComponent(service.replace(/\s+/g, '-'))}`;
 
                                     if (isJeddahMakkah) {
                                         href = "/services/jeddah-airport-to-makkah-taxi";

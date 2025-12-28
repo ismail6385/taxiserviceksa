@@ -74,8 +74,9 @@ export default function HyundaiStariaPage() {
                             <Image
                                 src="/hyundai-staria.webp"
                                 alt="Hyundai Staria"
-                                fill
-                                className="object-cover"
+                                width={800}
+                                height={600}
+                                className="w-full h-full object-cover"
                             />
                         </div>
 
@@ -100,7 +101,7 @@ export default function HyundaiStariaPage() {
                             </div>
 
 
-                            <Link href="/booking?vehicle=Hyundai%20Staria">
+                            <Link href="/booking?vehicle=Hyundai-Staria">
                                 <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold">
                                     Book Hyundai Staria Now
                                 </Button>
@@ -252,7 +253,7 @@ export default function HyundaiStariaPage() {
                     <p className="text-lg text-gray-300 mb-6">
                         Book our Hyundai Staria now for comfortable group travel
                     </p>
-                    <Link href="/booking?vehicle=Hyundai%20Staria">
+                    <Link href="/booking?vehicle=Hyundai-Staria">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6">
                             Book Now
                         </Button>

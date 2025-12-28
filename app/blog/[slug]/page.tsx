@@ -213,7 +213,7 @@ export default async function BlogPostPage({ params }: Props) {
                                     {['Umrah', 'Ziyarat', 'Hajj', 'Jeddah Airport', 'Makkah', 'Madinah', 'VIP Transport'].map(topic => (
                                         <Link
                                             key={topic}
-                                            href={`/blog?tag=${topic}`}
+                                            href={`/blog?tag=${topic.replace(/\s+/g, '-')}`}
                                             className="bg-white border text-sm text-gray-600 px-3 py-1 rounded-lg hover:border-primary transition-colors"
                                         >
                                             {topic}

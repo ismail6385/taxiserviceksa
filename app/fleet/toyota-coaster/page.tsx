@@ -74,8 +74,9 @@ export default function ToyotaCoasterPage() {
                             <Image
                                 src="/toyota-coaster.webp"
                                 alt="Toyota Coaster"
-                                fill
-                                className="object-cover"
+                                width={800}
+                                height={600}
+                                className="w-full h-full object-cover"
                             />
                         </div>
 
@@ -100,7 +101,7 @@ export default function ToyotaCoasterPage() {
                                 ))}
                             </div>
 
-                            <Link href="/booking?vehicle=Toyota%20Coaster">
+                            <Link href="/booking?vehicle=Toyota-Coaster">
                                 <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold">
                                     Book Toyota Coaster Now
                                 </Button>
@@ -200,7 +201,7 @@ export default function ToyotaCoasterPage() {
                     <p className="text-lg text-gray-300 mb-6">
                         Book our Toyota Coaster now for large group travel
                     </p>
-                    <Link href="/booking?vehicle=Toyota%20Coaster">
+                    <Link href="/booking?vehicle=Toyota-Coaster">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6">
                             Book Now
                         </Button>

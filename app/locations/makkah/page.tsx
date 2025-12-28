@@ -607,8 +607,9 @@ export default async function MakkahPage() {
                                 <Image
                                     src="/makkah-peak-season.png"
                                     alt="Map of Makkah Miqat points and Haram drop-off zones for taxi"
-                                    fill
-                                    className="object-cover"
+                                    width={1400}
+                                    height={800}
+                                    className="object-cover w-full h-full"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                             </div>

@@ -74,8 +74,9 @@ export default function HyundaiStarexPage() {
                             <Image
                                 src="/hyundai-starex.webp"
                                 alt="Hyundai Starex"
-                                fill
-                                className="object-cover"
+                                width={800}
+                                height={600}
+                                className="w-full h-full object-cover"
                             />
                         </div>
 
@@ -99,7 +100,7 @@ export default function HyundaiStarexPage() {
                                 ))}
                             </div>
 
-                            <Link href="/booking?vehicle=Hyundai%20Starex">
+                            <Link href="/booking?vehicle=Hyundai-Starex">
                                 <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold">
                                     Book Hyundai Starex Now
                                 </Button>
@@ -199,7 +200,7 @@ export default function HyundaiStarexPage() {
                     <p className="text-lg text-gray-300 mb-6">
                         Book our Hyundai Starex now for your next journey
                     </p>
-                    <Link href="/booking?vehicle=Hyundai%20Starex">
+                    <Link href="/booking?vehicle=Hyundai-Starex">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6">
                             Book Now
                         </Button>

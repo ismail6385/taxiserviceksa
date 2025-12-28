@@ -306,7 +306,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         <div className="lg:col-span-7 space-y-0">
                             {services.map((service, index) => (
                                 <div key={index} className="group relative border-l-4 border-gray-200 hover:border-black pl-8 py-8 transition-colors duration-300">
-                                    <Link href={`${service.link}?service=${encodeURIComponent(service.title)}`} className="block">
+                                    <Link href={service.link} className="block">
                                         <div className="flex items-baseline justify-between mb-2">
                                             <h3 className="text-3xl font-bold text-gray-900 group-hover:text-primary transition-colors">
                                                 {service.title}
@@ -489,8 +489,9 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                             <Image
                                                 src={vehicle.image}
                                                 alt={`${vehicle.name} - Reliable taxi service in Saudi Arabia for ${vehicle.passengers} people`}
-                                                fill
-                                                className="object-cover transform group-hover:scale-105 transition-transform duration-500"
+                                                width={800}
+                                                height={600}
+                                                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                             />
                                             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
@@ -521,7 +522,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                                 </div>
                                             ))}
                                         </div>
-                                        <Link href={`/booking?vehicle=${encodeURIComponent(vehicle.name)}`} className="w-full">
+                                        <Link href={`/booking?vehicle=${encodeURIComponent(vehicle.name.replace(/\s+/g, '-'))}`} className="w-full">
                                             <Button className="w-full bg-primary text-white hover:bg-blue-600 font-bold transition-all min-h-[48px] hover:scale-[1.02] active:scale-95 shadow-md shadow-primary/20">
                                                 Book {vehicle.name}
                                             </Button>
@@ -644,18 +645,18 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4">
                                 <div className="space-y-2 sm:space-y-3 md:space-y-4">
                                     <div className="relative h-40 sm:h-48 md:h-56 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
-                                        <Image src="/makkah-kaaba-night.webp" alt="Umrah pilgrims using reliable taxi service in Saudi Arabia at Makkah" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+                                        <Image src="/makkah-kaaba-night.webp" alt="Umrah pilgrims using reliable taxi service in Saudi Arabia at Makkah" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
                                     </div>
                                     <div className="relative h-52 sm:h-60 md:h-64 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
-                                        <Image src="/gmc-yukon.webp" alt="Luxury GMC Yukon Taxi Saudi Arabia Interior" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+                                        <Image src="/gmc-yukon.webp" alt="Luxury GMC Yukon Taxi Saudi Arabia Interior" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
                                     </div>
                                 </div>
                                 <div className="space-y-2 sm:space-y-3 md:space-y-4 pt-4 sm:pt-6 md:pt-8">
                                     <div className="relative h-52 sm:h-60 md:h-64 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
-                                        <Image src="/madinah-prophets-mosque.webp" alt="Ziyarat taxi service in Madinah near Prophet's Mosque" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+                                        <Image src="/madinah-prophets-mosque.webp" alt="Ziyarat taxi service in Madinah near Prophet's Mosque" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
                                     </div>
                                     <div className="relative h-40 sm:h-48 md:h-56 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
-                                        <Image src="/hyundai-staria.webp" alt="Family taxi Saudi Arabia Hyundai Staria vehicle" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+                                        <Image src="/hyundai-staria.webp" alt="Family taxi Saudi Arabia Hyundai Staria vehicle" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
                                     </div>
                                 </div>
                             </div>
@@ -709,8 +710,9 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             <Image
                                 src="/hero-slide-4.webp"
                                 alt="Haramain Railway connection taxi"
-                                fill
-                                className="object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-700"
+                                width={1200}
+                                height={800}
+                                className="w-full h-full object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-700"
                             />
                         </div>
                     </div>
