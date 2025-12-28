@@ -38,9 +38,30 @@ export async function GET() {
     // Build Items XML
     let itemsXml = "";
 
+    // Smart Image Helper
+    const getFallbackImage = (title: string, excerpt: string) => {
+        const text = (title + " " + excerpt).toLowerCase();
+        if (text.includes('makkah') || text.includes('haram') || text.includes('umrah') || text.includes('kaaba')) return `${siteUrl}/locations/makkah.webp`;
+        if (text.includes('madinah') || text.includes('prophet') || text.includes('masjid') || text.includes('nabawi')) return `${siteUrl}/locations/madinah.webp`;
+        if (text.includes('jeddah') || text.includes('airport') || text.includes('terminal')) return `${siteUrl}/locations/jeddah.webp`;
+        if (text.includes('alula') || text.includes('hegra') || text.includes('elephant')) return `${siteUrl}/locations/alula.webp`;
+        if (text.includes('taif') || text.includes('cable car')) return `${siteUrl}/locations/taif.webp`;
+        if (text.includes('yanbu')) return `${siteUrl}/locations/yanbu.webp`;
+        if (text.includes('khayber')) return `${siteUrl}/locations/khayber.webp`;
+        return `${siteUrl}/opengraph-image.png`; // Final Brand Fallback
+    };
+
     // Add blogs
     posts.forEach((post) => {
         const link = `${siteUrl}/blog/${post.slug}`;
+        // Logic: Use DB image -> OR Smart Fallback -> OR Brand Card
+        let validImage = post.featured_image;
+        if (!validImage || validImage.trim() === "") {
+            validImage = getFallbackImage(post.title, post.excerpt || "");
+        } else if (validImage.startsWith('/')) {
+            validImage = `${siteUrl}${validImage}`;
+        }
+
         itemsXml += `
         <item>
             <title><![CDATA[${post.title}]]></title>
@@ -49,12 +70,16 @@ export async function GET() {
             <pubDate>${new Date(post.published_at || post.created_at).toUTCString()}</pubDate>
             <description><![CDATA[${post.excerpt}]]></description>
             <author>${authorEmail} (${authorName})</author>
+            <enclosure url="${validImage}" length="0" type="image/webp" />
+            <media:content xmlns:media="http://search.yahoo.com/mrss/" url="${validImage}" medium="image" />
         </item>`;
     });
 
     // Add sticky pages
     stickyPages.forEach((page) => {
         const link = `${siteUrl}/${page.slug}`;
+        const image = getFallbackImage(page.title, page.excerpt);
+
         itemsXml += `
         <item>
             <title><![CDATA[${page.title}]]></title>
@@ -63,11 +88,13 @@ export async function GET() {
             <pubDate>${new Date(page.date).toUTCString()}</pubDate>
             <description><![CDATA[${page.excerpt}]]></description>
             <author>${authorEmail} (${authorName})</author>
+            <enclosure url="${image}" length="0" type="image/webp" />
+            <media:content xmlns:media="http://search.yahoo.com/mrss/" url="${image}" medium="image" />
         </item>`;
     });
 
     const rssXml = `<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
     <channel>
         <title>Taxi Service KSA - Travel Insights</title>
         <link>${siteUrl}</link>
