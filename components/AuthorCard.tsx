@@ -8,9 +8,10 @@ interface AuthorCardProps {
     authorName: string;
     showBio?: boolean;
     className?: string;
+    asH1?: boolean;
 }
 
-export default function AuthorCard({ authorName, showBio = true, className = '' }: AuthorCardProps) {
+export default function AuthorCard({ authorName, showBio = true, className = '', asH1 = false }: AuthorCardProps) {
     const author = AUTHORS.find(a => a.name === authorName) || AUTHORS[0]; // Fallback to default
 
     // Safely generate slug if not present (though it should be in constants)
@@ -30,11 +31,17 @@ export default function AuthorCard({ authorName, showBio = true, className = '' 
                 </div>
 
                 <div className="flex-1 text-center sm:text-left">
-                    <h3 className="text-xl font-bold text-gray-900 mb-1">
-                        <Link href={`/author/${authorSlug}`} className="hover:text-primary transition-colors">
+                    {asH1 ? (
+                        <h1 className="text-3xl font-bold text-gray-900 mb-2">
                             {author.name}
-                        </Link>
-                    </h3>
+                        </h1>
+                    ) : (
+                        <h3 className="text-xl font-bold text-gray-900 mb-1">
+                            <Link href={`/author/${authorSlug}`} className="hover:text-primary transition-colors">
+                                {author.name}
+                            </Link>
+                        </h3>
+                    )}
                     <p className="text-sm text-gray-500 mb-3 font-medium uppercase tracking-wider">{author.role || 'Author'}</p>
 
                     {showBio && (
@@ -64,9 +71,11 @@ export default function AuthorCard({ authorName, showBio = true, className = '' 
                                 <Instagram className="w-4 h-4" />
                             </a>
                         )}
-                        <Link href={`/author/${authorSlug}`} className="ml-auto text-sm font-semibold text-primary hover:text-primary-dark flex items-center gap-1">
-                            View Profile <ExternalLink className="w-3 h-3" />
-                        </Link>
+                        {!asH1 && (
+                            <Link href={`/author/${authorSlug}`} className="ml-auto text-sm font-semibold text-primary hover:text-primary-dark flex items-center gap-1">
+                                View Profile <ExternalLink className="w-3 h-3" />
+                            </Link>
+                        )}
                     </div>
                 </div>
             </div>

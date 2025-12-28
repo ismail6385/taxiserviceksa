@@ -114,6 +114,12 @@ export default function Footer() {
                         </h4>
                         <ul className="space-y-3">
                             <li>
+                                <Link href="/insights/pilgrimage-transport-report-2025" className="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center group text-sm font-bold">
+                                    <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mr-2 opacity-100 group-hover:w-2 group-hover:h-2 transition-all duration-300"></span>
+                                    2025 Transport Report
+                                </Link>
+                            </li>
+                            <li>
                                 <Link href="/guides/jeddah-airport-guide" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
                                     Jeddah Airport Guide

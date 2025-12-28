@@ -10,6 +10,7 @@ import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
+import DriverMeetGreet from '@/components/DriverMeetGreet';
 
 export const metadata: Metadata = {
     title: 'Madinah Airport Taxi | Prince Mohammad Airport (MED) Transfer',
@@ -33,7 +34,7 @@ export default function MadinahAirportTaxiPage() {
                         "name": "Madinah Airport Transfer",
                         "provider": { "@type": "Organization", "name": "Taxi Service KSA" },
                         "areaServed": { "@type": "City", "name": "Madinah" },
-                        "offers": { "@type": "Offer", "price": "100", "priceCurrency": "SAR" }
+                        "offers": { "@type": "Offer", "price": "100", "priceCurrency": "SAR", "priceValidUntil": "2025-12-31" }
                     })
                 }}
             />
@@ -62,6 +63,8 @@ export default function MadinahAirportTaxiPage() {
                     />
                 </div>
             </Hero>
+
+            <DriverMeetGreet />
 
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">

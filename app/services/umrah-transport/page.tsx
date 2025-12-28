@@ -160,9 +160,11 @@ export default async function UmrahTransportPage() {
         ],
         "description": "Complete Umrah transport service with professional drivers. Covers Jeddah Airport to Makkah, Makkah to Madinah, and local city transport. All vehicles include licensed drivers.",
         "offers": {
-            "@type": "Offer",
-            "priceRange": "SAR 150-900",
-            "priceCurrency": "SAR"
+            "@type": "AggregateOffer",
+            "priceCurrency": "SAR",
+            "lowPrice": "150",
+            "highPrice": "900",
+            "priceValidUntil": "2025-12-31"
         }
     };
 

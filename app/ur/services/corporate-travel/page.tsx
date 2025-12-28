@@ -132,9 +132,11 @@ export default function CorporateTravelPage() {
         ],
         "description": "Professional corporate travel service for business executives with monthly billing, priority booking, and executive vehicles.",
         "offers": {
-            "@type": "Offer",
-            "priceRange": "SAR 80-1200",
-            "priceCurrency": "SAR"
+            "@type": "AggregateOffer",
+            "priceCurrency": "SAR",
+            "lowPrice": "80",
+            "highPrice": "1200",
+            "priceValidUntil": "2025-12-31"
         }
     };
 

@@ -33,7 +33,7 @@ export default function MakkahToMadinahPage() {
                         "name": "Makkah to Madinah Transfer",
                         "provider": { "@type": "Organization", "name": "Taxi Service KSA" },
                         "areaServed": { "@type": "City", "name": "Madinah" },
-                        "offers": { "@type": "Offer", "price": "450", "priceCurrency": "SAR" }
+                        "offers": { "@type": "Offer", "price": "450", "priceCurrency": "SAR", "priceValidUntil": "2025-12-31" }
                     })
                 }}
             />
@@ -62,6 +62,67 @@ export default function MakkahToMadinahPage() {
                     />
                 </div>
             </Hero>
+
+            {/* Route Map Visualization */}
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-20 mb-12">
+                <div className="bg-white p-2 rounded-2xl shadow-xl border-4 border-white transform hover:scale-[1.01] transition-transform duration-500">
+                    <div className="relative aspect-[2/1] w-full overflow-hidden rounded-xl bg-gray-100">
+                        {/* Placeholder for the generated asset */}
+                        <Image
+                            src="/makkah_madinah_route_map.png"
+                            alt="Map of 450km journey from Makkah to Madinah"
+                            fill
+                            className="object-cover"
+                        />
+                        <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg text-xs font-bold shadow-sm">
+                            Route: 450km • ~4.5 Hours
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Long Distance Comfort Features */}
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+                <div className="bg-gray-900 rounded-2xl p-8 sm:p-12 text-white relative overflow-hidden">
+                    <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <span className="text-emerald-400 font-bold tracking-wider uppercase text-sm mb-2 block">Premium Intercity Travel</span>
+                            <h2 className="text-3xl font-bold mb-6">Why Choose Private Taxi for 450km?</h2>
+                            <p className="text-gray-300 leading-relaxed mb-8">
+                                The journey between the Two Holy Cities is long. We turn it into a comfortable experience.
+                                Unlike buses where you are crowd-dependent, or trains where you have strict schedules, a private car gives you total freedom.
+                            </p>
+                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <li className="flex items-center gap-3 bg-white/10 p-3 rounded-lg">
+                                    <div className="p-2 bg-emerald-500/20 rounded-full text-emerald-400"><Car /></div>
+                                    <span className="font-medium text-sm">GMC Yukon (7 Pax)</span>
+                                </li>
+                                <li className="flex items-center gap-3 bg-white/10 p-3 rounded-lg">
+                                    <div className="p-2 bg-emerald-500/20 rounded-full text-emerald-400"><Clock /></div>
+                                    <span className="font-medium text-sm">Flexible Breaks</span>
+                                </li>
+                                <li className="flex items-center gap-3 bg-white/10 p-3 rounded-lg">
+                                    <div className="p-2 bg-emerald-500/20 rounded-full text-emerald-400"><Shield /></div>
+                                    <span className="font-medium text-sm">Safe Highway Driving</span>
+                                </li>
+                                <li className="flex items-center gap-3 bg-white/10 p-3 rounded-lg">
+                                    <div className="p-2 bg-emerald-500/20 rounded-full text-emerald-400"><User /></div>
+                                    <span className="font-medium text-sm">Respectful Driver</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className="relative h-64 sm:h-80 bg-gray-800 rounded-xl overflow-hidden border border-gray-700">
+                        {/* Placeholder for the services icons asset */}
+                        <Image
+                            src="/service_icons_set.png" // Using the second asset created
+                            alt="Premium Service Features"
+                            fill
+                            className="object-contain p-8"
+                        />
+                    </div>
+                </div>
+            </section>
 
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
@@ -147,6 +208,6 @@ export default function MakkahToMadinahPage() {
                     </div>
                 </div>
             </section>
-        </div>
+        </div >
     );
 }

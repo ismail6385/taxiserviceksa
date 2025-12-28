@@ -101,11 +101,28 @@ export default function AboutPage() {
         "mainEntity": {
             "@type": "Organization",
             "name": "Taxi Service KSA",
+            "alternateName": "Taxi Service Saudi Arabia",
+            "legalName": "Taxi Service KSA Transport",
             "foundingDate": "2012",
-            "description": "Premium taxi service provider in Saudi Arabia specializing in Umrah transport and airport transfers.",
+            "description": "Premium taxi service provider in Saudi Arabia specializing in Umrah transport and airport transfers. Operating strict safety protocols with licensed chauffeurs.",
             "url": "https://taxiserviceksa.com",
             "logo": "https://taxiserviceksa.com/logo.png",
-            "areaServed": "Saudi Arabia"
+            "areaServed": "Saudi Arabia",
+            "email": "taxiserviceksa9988@gmail.com",
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "email": "taxiserviceksa9988@gmail.com",
+                "availableLanguage": ["English", "Arabic", "Urdu"]
+            },
+            "sameAs": [
+                "https://www.facebook.com/people/Taxi-Service-KSA/61573850597962/",
+                "https://www.linkedin.com/company/taxi-service-ksa/",
+                "https://www.youtube.com/channel/UCeP44oxBUKUG5X-UhYmPMNw",
+                "https://www.pinterest.com/taxiserviceksa/",
+                "https://twitter.com/TaxiServiceKSA",
+                "https://www.instagram.com/taxiserviceksa/"
+            ]
         }
     };
 
@@ -405,6 +422,33 @@ export default function AboutPage() {
                                 Contact Us
                             </Button>
                         </Link>
+                    </div>
+                </div>
+
+                {/* Corporate Identity - Golden Record Source */}
+                <div className="max-w-3xl mx-auto rounded-xl border border-gray-200 bg-white p-8 mb-20">
+                    <h3 className="text-xl font-bold text-gray-900 mb-6 border-b border-gray-100 pb-4">Corporate Information</h3>
+                    <div className="space-y-4 text-sm">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                            <span className="text-gray-500 font-medium">Legal Name</span>
+                            <span className="text-gray-900 sm:col-span-2 font-mono">Taxi Service KSA Transport</span>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                            <span className="text-gray-500 font-medium">Brand Name</span>
+                            <span className="text-gray-900 sm:col-span-2">Taxi Service KSA™</span>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                            <span className="text-gray-500 font-medium">Headquarters</span>
+                            <span className="text-gray-900 sm:col-span-2">Jeddah, Saudi Arabia</span>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                            <span className="text-gray-500 font-medium">Contact Email</span>
+                            <span className="text-gray-900 sm:col-span-2 text-emerald-600">taxiserviceksa9988@gmail.com</span>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                            <span className="text-gray-500 font-medium">Service Type</span>
+                            <span className="text-gray-900 sm:col-span-2">Private Chauffeur & Airport Transfer</span>
+                        </div>
                     </div>
                 </div>
 

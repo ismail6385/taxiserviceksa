@@ -45,7 +45,7 @@ export default async function AuthorProfilePage({ params }: Props) {
                     {/* Main Content */}
                     <div className="lg:col-span-2 space-y-8">
                         {/* Author Header */}
-                        <AuthorCard authorName={author.name} className="border-primary/20 shadow-lg" />
+                        <AuthorCard authorName={author.name} className="border-primary/20 shadow-lg" asH1 />
 
                         <div className="flex items-center justify-between">
                             <h2 className="text-2xl font-bold text-gray-900">

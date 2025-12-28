@@ -50,6 +50,14 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
         "priceRange": "$$",
         "serviceType": "Chauffeur-driven taxi service",
         "knowsAbout": ["Umrah", "Haramain High Speed Railway", "King Abdulaziz International Airport", "Prince Mohammad bin Abdulaziz International Airport"],
+        "sameAs": [
+            "https://www.facebook.com/people/Taxi-Service-KSA/61573850597962/",
+            "https://www.linkedin.com/company/taxi-service-ksa/",
+            "https://www.youtube.com/channel/UCeP44oxBUKUG5X-UhYmPMNw",
+            "https://www.pinterest.com/taxiserviceksa/",
+            "https://twitter.com/TaxiServiceKSA",
+            "https://www.instagram.com/taxiserviceksa/"
+        ],
         "potentialAction": {
             "@type": "ReserveAction",
             "target": {
@@ -249,6 +257,24 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                     Service coverage across 8 cities in Saudi Arabia <ArrowRight className="w-4 h-4" />
                 </Link>
             </Hero>
+
+            {/* LATEST INSIGHT BANNER */}
+            <div className="bg-emerald-600 text-white relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-10"></div>
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                        <span className="bg-white text-emerald-700 text-xs font-bold px-2 py-1 rounded shadow-sm whitespace-nowrap">NEW REPORT</span>
+                        <p className="text-sm sm:text-base font-medium">
+                            <span className="font-bold">2025 Study:</span> Why 70% of Families Choose Taxis Over High-Speed Rail?
+                        </p>
+                    </div>
+                    <Link href="/insights/pilgrimage-transport-report-2025" className="flex-shrink-0">
+                        <button className="text-white border-b border-white hover:border-emerald-200 hover:text-emerald-100 transition-colors text-sm font-bold flex items-center gap-1 group">
+                            Read the Data <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                        </button>
+                    </Link>
+                </div>
+            </div>
 
             {/* Source Context Clarification - Koray's Methodology */}
             <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-gray-800 text-white">

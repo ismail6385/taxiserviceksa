@@ -135,9 +135,11 @@ export default function HeritageToursPage() {
         ],
         "description": "Professional heritage tour transport for UNESCO sites with 4x4 desert vehicles and licensed drivers. AlUla, Khaybar, and historical circuits.",
         "offers": {
-            "@type": "Offer",
-            "priceRange": "SAR 400-1200",
-            "priceCurrency": "SAR"
+            "@type": "AggregateOffer",
+            "priceCurrency": "SAR",
+            "lowPrice": "400",
+            "highPrice": "1200",
+            "priceValidUntil": "2025-12-31"
         }
     };
 

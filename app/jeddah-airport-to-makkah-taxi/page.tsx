@@ -10,6 +10,8 @@ import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
+import Image from 'next/image';
+import DriverMeetGreet from '@/components/DriverMeetGreet';
 
 export const metadata: Metadata = {
     title: 'Jeddah Airport to Makkah Taxi | JED to Haram Transfer',
@@ -33,7 +35,7 @@ export default function JeddahAirportToMakkahPage() {
                         "name": "Jeddah Airport to Makkah Transfer",
                         "provider": { "@type": "Organization", "name": "Taxi Service KSA" },
                         "areaServed": { "@type": "City", "name": "Makkah" },
-                        "offers": { "@type": "Offer", "price": "200", "priceCurrency": "SAR" }
+                        "offers": { "@type": "Offer", "price": "200", "priceCurrency": "SAR", "priceValidUntil": "2025-12-31" }
                     })
                 }}
             />
@@ -62,6 +64,26 @@ export default function JeddahAirportToMakkahPage() {
                     />
                 </div>
             </Hero>
+
+            {/* Route Map Visualization */}
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-20 relative z-20 mb-12">
+                <div className="bg-white p-2 rounded-2xl shadow-xl border-4 border-white transform hover:scale-[1.01] transition-transform duration-500">
+                    <div className="relative aspect-[2/1] w-full overflow-hidden rounded-xl bg-gray-100">
+                        {/* Placeholder for the generated asset - User needs to move 'jeddah_makkah_route_map.png' to public folder */}
+                        <Image
+                            src="/jeddah_makkah_route_map.png"
+                            alt="Map of journey from Jeddah Airport to Makkah"
+                            fill
+                            className="object-cover"
+                        />
+                        <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur px-4 py-2 rounded-lg text-xs font-bold shadow-sm">
+                            Route: 85km • ~60 Mins
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <DriverMeetGreet />
 
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">

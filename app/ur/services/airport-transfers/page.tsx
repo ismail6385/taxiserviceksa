@@ -179,9 +179,11 @@ export default function AirportTransfersPage() {
         ],
         "description": "Professional airport transfer service across 8 major Saudi airports with licensed drivers. Meet-and-greet, flight tracking, and 24/7 service.",
         "offers": {
-            "@type": "Offer",
-            "priceRange": "SAR 40-400",
-            "priceCurrency": "SAR"
+            "@type": "AggregateOffer",
+            "priceCurrency": "SAR",
+            "lowPrice": "40",
+            "highPrice": "400",
+            "priceValidUntil": "2025-12-31"
         }
     };
 
