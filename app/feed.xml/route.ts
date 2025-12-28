@@ -41,6 +41,13 @@ export async function GET() {
     // Smart Image Helper
     const getFallbackImage = (title: string, excerpt: string) => {
         const text = (title + " " + excerpt).toLowerCase();
+
+        // Exact Article Matches (High Priority)
+        if (text.includes('hidden') && text.includes('makkah')) return `${siteUrl}/blog/hidden-makkah-spots.png`;
+        if (text.includes('shopping') && text.includes('jeddah')) return `${siteUrl}/blog/jeddah-shopping-guide.png`;
+        if (text.includes('taif') && text.includes('rose')) return `${siteUrl}/blog/taif-rose-festival.png`;
+
+        // General Fallbacks (Medium Priority)
         if (text.includes('makkah') || text.includes('haram') || text.includes('umrah') || text.includes('kaaba')) return `${siteUrl}/locations/makkah.webp`;
         if (text.includes('madinah') || text.includes('prophet') || text.includes('masjid') || text.includes('nabawi')) return `${siteUrl}/locations/madinah.webp`;
         if (text.includes('jeddah') || text.includes('airport') || text.includes('terminal')) return `${siteUrl}/locations/jeddah.webp`;
@@ -48,6 +55,7 @@ export async function GET() {
         if (text.includes('taif') || text.includes('cable car')) return `${siteUrl}/locations/taif.webp`;
         if (text.includes('yanbu')) return `${siteUrl}/locations/yanbu.webp`;
         if (text.includes('khayber')) return `${siteUrl}/locations/khayber.webp`;
+
         return `${siteUrl}/opengraph-image.png`; // Final Brand Fallback
     };
 
