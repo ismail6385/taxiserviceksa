@@ -16,7 +16,7 @@ import JsonLdFAQ from '@/components/JsonLdFAQ';
 export const metadata: Metadata = {
     title: 'Jeddah to Makkah Taxi | Airport Transfer 80km - Fixed Price SAR 250',
     description: 'Taxi from Jeddah to Makkah operates 24/7. King Abdulaziz Airport to Makkah hotels in 60-90 minutes. Fixed rate SAR 250. Meet-and-greet service. Book online.',
-    keywords: ['Jeddah to Makkah taxi', 'Jeddah Airport to Makkah', 'taxi price Jeddah Makkah', 'King Abdulaziz Airport Makkah transfer', 'Haramain train alternative'],
+    keywords: ['Jeddah to Makkah taxi', 'Jeddah Airport to Makkah', 'taxi price Jeddah Makkah', 'King Abdulaziz Airport Makkah transfer', 'Haramain train alternative', 'makkah to jeddah taxi service', 'jeddah to makkah taxi fare 7 seater', 'airport pick and drop', 'how much is taxi from jeddah to makkah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-makkah/',
     },
@@ -69,35 +69,39 @@ export default function JeddahMakkahRoutePage() {
     const faqs = [
         {
             question: "How much does a taxi cost from Jeddah Airport to Makkah?",
-            answer: "Taxi rates from King Abdulaziz International Airport (Jeddah) to Makkah start from SAR 150 for a sedan (Toyota Camry). SUV rates (GMC Yukon) start from SAR 250. Van rates (Toyota Hiace) start from SAR 400. Prices are fixed with no surge charges or hidden fees."
+            answer: "Taxi rates from King Abdulaziz International Airport (Jeddah) to Makkah start from SAR 150 for a sedan (Toyota Camry). A 7 seater (GMC/Starex) starts from SAR 250. Van rates (Toyota Hiace) start from SAR 400. Prices are fixed with no surge charges."
         },
         {
-            question: "How long does it take to travel from Jeddah to Makkah by taxi?",
-            answer: "Taxi travel time from Jeddah to Makkah is 60-90 minutes depending on traffic. Distance is 80-95 kilometers via Haramain Highway. Early morning departures (4-6 AM) are fastest. Peak traffic occurs during Ramadan and Hajj season."
+            question: "How long is the taxi ride from Jeddah to Makkah?",
+            answer: "The taxi ride from Jeddah to Makkah takes about 60 to 90 minutes. Distance is 80-95 kilometers via the Haramain Highway. Early mornings are fastest, but traffic can increase during Ramadan and Hajj."
         },
         {
-            question: "Is taxi better than Haramain Train from Jeddah to Makkah?",
-            answer: "Taxi provides door-to-door service from Jeddah Airport directly to Makkah hotels. Haramain Train requires additional taxi rides (Airport → Train Station → Hotel). For families with luggage, taxi is 40% more time-efficient. Train is cheaper for solo travelers with light luggage."
+            question: "Is it better to take a taxi or the Haramain Train to Makkah?",
+            answer: "A taxi provides direct door-to-door service from the airport to your hotel. The Haramain Train is faster (35 mins) but requires two extra taxi rides (Airport to Station, and Makkah Station to Hotel). For families with luggage, a direct taxi is usually faster overall."
         },
         {
-            question: "Do you provide meet-and-greet service at Jeddah Airport?",
-            answer: "Meet-and-greet service is included for all Jeddah Airport pickups. Driver waits at arrivals hall with name sign. Flight tracking monitors delays automatically. Service includes luggage assistance and direct escort to vehicle."
+            question: "Do you offer meet-and-greet at Jeddah Airport?",
+            answer: "Yes, meet-and-greet is included. Our driver waits at the arrivals hall with a name sign. We track your flight to ensure we are there when you land. We also help with luggage."
         },
         {
-            question: "Can I book a taxi from Jeddah to Makkah for late-night flights?",
-            answer: "Taxi service operates 24/7 for all flight arrival times. Late-night pickups (10 PM - 6 AM) have the same fixed rates. Advance booking via email or online form is recommended for flights arriving after midnight."
+            question: "Can I get a taxi from Jeddah to Makkah late at night?",
+            answer: "Yes, our taxi service operates 24/7. Late-night pickups (10 PM - 6 AM) cost the same fixed rate. We recommend booking in advance for late arrivals."
         },
         {
-            question: "What is the best route from Jeddah Airport to Makkah hotels?",
-            answer: "The primary route is Haramain Highway (Route 40) via Makkah Tunnel. Travel time is 60-75 minutes in normal traffic. Alternative route is Old Makkah Road (Route 15) used during highway maintenance. Drivers choose the fastest route based on real-time traffic."
+            question: "Which route do you take from Jeddah to Makkah?",
+            answer: "We primarily use the Haramain Highway (Route 40) via the Makkah Tunnel, which takes 60-75 minutes. If there is roadwork, we may use the Old Makkah Road (Route 15). Drivers always choose the fastest route."
         },
         {
-            question: "Do you accept Zamzam water containers and extra luggage?",
-            answer: "Vehicles accommodate Zamzam water containers (5-10 liters) and extra luggage. SUVs and vans have dedicated cargo space. Passengers should specify large luggage quantities during booking for appropriate vehicle assignment."
+            question: "Do you take Zamzam water and extra luggage?",
+            answer: "Yes, our vehicles can carry Zamzam water and extra luggage. If you have a lot of bags, please book an SUV or Van to ensure enough space."
         },
         {
-            question: "Can I stop at a rest area during the Jeddah to Makkah journey?",
-            answer: "Rest stops are available upon request at designated areas along Haramain Highway. Common stops include Al Shumaisi rest area (40 km from Jeddah) for restrooms and refreshments. Stop duration is 10-15 minutes."
+            question: "Can we stop for a break on the way to Makkah?",
+            answer: "Yes, you can ask for a rest stop at designated areas like Al Shumaisi (40 km from Jeddah). Stops usually last 10-15 minutes for restrooms or snacks."
+        },
+        {
+            question: "Is your service better than renting a car in Jeddah?",
+            answer: "Our private chauffeur service is more convenient than renting. You get a professional driver, no deposit is required, and there are no insurance worries. It's a stress-free way to travel."
         }
     ];
 
@@ -135,6 +139,17 @@ export default function JeddahMakkahRoutePage() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
             />
             <JsonLdFAQ faqs={faqs} />
+            <Script
+                id="speakable-schema-jeddah-makkah"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Speakable",
+                        "cssSelector": [".faq-answer"]
+                    })
+                }}
+            />
 
             {/* Hero Section */}
             <Hero

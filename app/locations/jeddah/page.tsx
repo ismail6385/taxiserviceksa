@@ -34,7 +34,7 @@ import RelatedGuides from '@/components/RelatedGuides';
 export const metadata: Metadata = {
     title: 'Taxi Service in Jeddah | Airport Taxi & Makkah Transfers',
     description: 'Taxi service in Jeddah for King Abdulaziz Airport (KAIA) transfers. Direct transport to Makkah hotels and Madinah. Terminal 1 and North Terminal pickups.',
-    keywords: ['Jeddah taxi service', 'KAIA airport transfer', 'Jeddah to Makkah taxi', 'Terminal 1 taxi', 'North Terminal pickup', 'Jeddah chauffeur'],
+    keywords: ['Jeddah taxi service', 'KAIA airport transfer', 'Jeddah to Makkah taxi', 'Terminal 1 taxi', 'North Terminal pickup', 'Jeddah chauffeur', 'jeddah to madina taxi', 'jeddah to makkah car service', 'rent a car with driver in jeddah', 'jeddah airport to makkah taxi booking', 'private driver jeddah', 'private umrah taxi', 'jeddah to makkah coaster', 'transport madinah to makkah', 'rent a car with driver in saudi arabia', 'toyota hiace for rent in jeddah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/',
         languages: {
@@ -59,9 +59,10 @@ export default async function JeddahPage() {
     const displayBlogs = blogs.slice(0, 6);
 
     const services = [
-        { name: 'KAIA Airport Transfer', description: 'Meet & Greet at T1 Aquarium or North Gate 2', icon: Plane },
-        { name: 'Jeddah to Makkah', description: 'Direct Hotel Drop-off (75 mins)', icon: Car },
-        { name: 'Business Chauffeur', description: 'Hourly rental for meetings', icon: Building2 },
+        { name: 'KAIA Airport Taxi', description: 'Jeddah Airport to Makkah taxi booking & Meet/Greet', icon: Plane },
+        { name: 'Jeddah to Makkah Car', description: 'Private taxi for Umrah families (75 mins)', icon: Car },
+        { name: 'Rent a Car with Driver', description: 'Hourly private driver in Jeddah for meetings', icon: Building2 },
+        { name: 'Jeddah to Makkah Coaster', description: 'Toyota Coaster & Hiace for large Umrah groups', icon: Users },
         { name: 'Al-Balad & Corniche', description: 'Sightseeing tours of Historic Jeddah', icon: Waves },
     ];
 
@@ -71,28 +72,7 @@ export default async function JeddahPage() {
         '/jeddah-city-night.webp',
     ];
 
-    const faqs = [
-        {
-            question: "Where do I meet my driver at Jeddah Airport (KAIA)?",
-            answer: "Meeting point for Terminal 1 is the 'Aquarium' near arrivals exit. For North Terminal, meeting point is Gate 2. Flight tracking is included for all bookings."
-        },
-        {
-            question: "Is it better to take the Train to Makkah?",
-            answer: "Haramain Train stops at Rusaifa Station (15-20 mins from Haram). Direct taxi service offers hotel lobby drop-off. Taxi transport is recommended for groups with luggage."
-        },
-        {
-            question: "Do you have GMC Yukons for large families?",
-            answer: "Fleet includes GMC Yukon and Chevrolet Suburban XL. Vehicles accommodate 7 passengers and 5-6 large suitcases. Suitable for Umrah groups."
-        },
-        {
-            question: "Can we stop at the Corniche on the way to Makkah?",
-            answer: "Stopovers at Jeddah Corniche or other locations can be arranged. Hourly rates apply for additional stops."
-        },
-        {
-            question: "What if my flight is delayed?",
-            answer: "Flight status is monitored using flight number. Driver waits up to 90 minutes after actual landing time at no extra cost."
-        }
-    ];
+
 
     const distanceData = [
         { destination: 'Makkah (Haram)', distance: '95 km', time: '1h 15m', route: 'Haramain Expy' },
@@ -121,7 +101,7 @@ export default async function JeddahPage() {
                     })
                 }}
             />
-            <JsonLdFAQ faqs={faqs} />
+
 
             <Hero
                 images={jeddahImages}
@@ -131,13 +111,13 @@ export default async function JeddahPage() {
                         Gateway to Makkah
                     </span>
                 }
-                subtitle="KAIA Airport Transfers"
+                subtitle="KAIA Airport Transfers & Private Driver Jeddah"
                 location="Jeddah • Makkah • Madinah"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
                         brandName="TaxiServiceKSA™ Jeddah"
-                        description="Navigating the massive King Abdulaziz International Airport (KAIA) can be confusing. We provide clear meeting points at Terminal 1 and North Terminal, ensuring you don't get lost in the arrivals chaos."
+                        description="Professional chauffeur and airport transfer services in Jeddah. We help travelers, pilgrims, and business executives with luxury vehicles and 24/7 availability for King Abdulaziz International Airport (KAIA) and Makkah transfers."
                         foundingDate="2012"
                         metrics={[
                             { label: 'Airport Pickups', value: '25,000+', icon: Plane },
@@ -239,7 +219,8 @@ export default async function JeddahPage() {
                             items: [
                                 { label: "Book Airport Pickup", url: "/booking?pickup=kaia" },
                                 { label: "Makkah Transfers", url: "/locations/makkah" },
-                                { label: "Madinah Transfers", url: "/locations/madinah" }
+                                { label: "Jeddah to Madinah Taxi", url: "/locations/madinah" },
+                                { label: "Umrah Taxi Service", url: "/services/umrah-transport" }
                             ]
                         },
                         {
@@ -274,7 +255,7 @@ export default async function JeddahPage() {
                     <ExpertReview
                         reviewerName='Captain Tariq Al-Sayed'
                         reviewerTitle='Airport Logistics Manager'
-                        reviewDate="26 Dec 2024"
+                        reviewDate="26 Dec 2025"
                         expertise={["Terminal 1 Ops", "VIP Protocol", "Makkah Route Optimization"]}
                     />
                 </div>
@@ -334,11 +315,11 @@ export default async function JeddahPage() {
                             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="flex items-start gap-3 bg-gray-50 p-4 rounded-xl border border-gray-200">
                                     <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
-                                    <div><h4 className="font-bold">Wait Time Included</h4><p className="text-sm text-gray-500">90 mins free waiting for delays</p></div>
+                                    <div><h3 className="font-bold text-lg">Wait Time Included</h3><p className="text-sm text-gray-500">90 mins free waiting for delays</p></div>
                                 </div>
                                 <div className="flex items-start gap-3 bg-gray-50 p-4 rounded-xl border border-gray-200">
                                     <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
-                                    <div><h4 className="font-bold">Family Vans</h4><p className="text-sm text-gray-500">Hyundia Staria & GMC Available</p></div>
+                                    <div><h3 className="font-bold text-lg">Family Vans</h3><p className="text-sm text-gray-500">Hyundia Staria & GMC Available</p></div>
                                 </div>
                             </div>
                         </div>
@@ -424,19 +405,52 @@ export default async function JeddahPage() {
                         <MicroSemanticFAQ
                             faqs={[
                                 {
-                                    question: "Are there different terminals?",
-                                    shortAnswer: "Yes: T1 & North",
-                                    detailedAnswer: "Terminal 1 (New) serves Saudia & major international. North Terminal serves some budget carriers. OLD South Terminal is closed. Check your ticket carefully.",
+                                    question: "Where do I meet my driver at Jeddah Airport?",
+                                    shortAnswer: "T1: Aquarium / North: Gate 2",
+                                    detailedAnswer: "For Terminal 1 (New), the meeting point is the 'Aquarium' near the arrivals exit. For North Terminal, it is Gate 2. We track your flight and the driver holds a name sign.",
                                     perspectives: [
-                                        { role: "Dispatcher", icon: "Plane", insight: "T1 and North are 20km apart! Tell us your flight number." }
+                                        { role: "First Timer", icon: "MapPin", insight: "The Aquarium is huge and impossible to miss in T1." },
+                                        { role: "Dispatcher", icon: "Plane", insight: "T1 and North are 20km apart! Tell us your flight number correctly." }
+                                    ]
+                                },
+                                {
+                                    question: "What if my flight is delayed?",
+                                    shortAnswer: "We Wait (Free)",
+                                    detailedAnswer: "We track your flight number automatically. Our driver waits for free up to 90 minutes after your plane actually lands. No need to stress.",
+                                    perspectives: [
+                                        { role: "Traveler", icon: "Clock", insight: "Customs queues can be long; knowing the driver waits is a relief." }
+                                    ]
+                                },
+                                {
+                                    question: "Do you have large vehicles for Umrah families?",
+                                    shortAnswer: "Yes, GMC & Coasters",
+                                    detailedAnswer: "We operate GMC Yukons (7 pax) and Toyota Coasters (20 pax). The Yukon fits 7 passengers plus 6 large suitcases comfortably.",
+                                    perspectives: [
+                                        { role: "Family Head", icon: "Users", insight: "Fits all our luggage + Zamzam water easily." }
+                                    ]
+                                },
+                                {
+                                    question: "Can we stop at Jeddah Corniche on the way to Makkah?",
+                                    shortAnswer: "Yes, Hourly Rate",
+                                    detailedAnswer: "Absolutely. Many pilgrims like to see the Red Sea before heading to Makkah. We charge a simple hourly waiting fee.",
+                                    perspectives: [
+                                        { role: "Tourist", icon: "Waves", insight: "Sunset at King Fahd's Fountain is worth the stop." }
+                                    ]
+                                },
+                                {
+                                    question: "Can I rent a car without a driver?",
+                                    shortAnswer: "No, Chauffeur Only",
+                                    detailedAnswer: "We only provide rental with a professional licensed driver. This ensures safety and stress-free navigation, especially for those unfamiliar with Saudi traffic.",
+                                    perspectives: [
+                                        { role: "Safety", icon: "Shield", insight: "Saudi driving style can be aggressive for newcomers." }
                                     ]
                                 },
                                 {
                                     question: "Can I wear Ihram in the taxi?",
                                     shortAnswer: "Yes",
-                                    detailedAnswer: "Most pilgrims arrive in Ihram. If you need to change, there are facilities at the airport, but lines are long. Doing it on the plane is recommended.",
+                                    detailedAnswer: "Most pilgrims arrive in Ihram. We keep our vehicles cool (20-22°C) for comfort. If you need to change, airport facilities are available but busy.",
                                     perspectives: [
-                                        { role: "Driver", icon: "User", insight: "We keep the car extra cool for those in Ihram cloths." }
+                                        { role: "Driver", icon: "User", insight: "We respect the sanctity of your state of Ihram." }
                                     ]
                                 }
                             ]}
@@ -469,11 +483,11 @@ export default async function JeddahPage() {
                             <h3 className="text-xl font-bold text-gray-900 mb-4">Prayer Facilities</h3>
                             <div className="space-y-3 text-gray-600">
                                 <div>
-                                    <p className="font-bold text-gray-900 mb-1">Terminal 1 (New):</p>
+                                    <h4 className="font-bold text-gray-900 mb-1">Terminal 1 (New):</h4>
                                     <p className="text-sm">Prayer room on Level 2 (after security). Separate sections for men and women. Wudu facilities available.</p>
                                 </div>
                                 <div>
-                                    <p className="font-bold text-gray-900 mb-1">North Terminal:</p>
+                                    <h4 className="font-bold text-gray-900 mb-1">North Terminal:</h4>
                                     <p className="text-sm">Musalla near Gate 5. Smaller facility but well-maintained. Prayer times displayed on screens.</p>
                                 </div>
                             </div>
@@ -487,11 +501,11 @@ export default async function JeddahPage() {
                             <h3 className="text-xl font-bold text-gray-900 mb-4">Currency & SIM Cards</h3>
                             <div className="space-y-3 text-gray-600">
                                 <div>
-                                    <p className="font-bold text-gray-900 mb-1">Currency Exchange:</p>
+                                    <h4 className="font-bold text-gray-900 mb-1">Currency Exchange:</h4>
                                     <p className="text-sm">Available in arrivals hall (both terminals). Rates are standard. ATMs accept international cards (Visa, Mastercard).</p>
                                 </div>
                                 <div>
-                                    <p className="font-bold text-gray-900 mb-1">SIM Cards:</p>
+                                    <h4 className="font-bold text-gray-900 mb-1">SIM Cards:</h4>
                                     <p className="text-sm">Mobily and STC kiosks in arrivals. Tourist SIM: SAR 50-100 (includes data). Passport required for activation.</p>
                                 </div>
                             </div>
@@ -505,11 +519,11 @@ export default async function JeddahPage() {
                             <h3 className="text-xl font-bold text-gray-900 mb-4">Ihram Facilities</h3>
                             <div className="space-y-3 text-gray-600">
                                 <div>
-                                    <p className="font-bold text-gray-900 mb-1">Changing Rooms:</p>
+                                    <h4 className="font-bold text-gray-900 mb-1">Changing Rooms:</h4>
                                     <p className="text-sm">Terminal 1: Level 1, near baggage claim. Separate facilities for men and women.</p>
                                 </div>
                                 <div>
-                                    <p className="font-bold text-gray-900 mb-1">Important Note:</p>
+                                    <h4 className="font-bold text-gray-900 mb-1">Important Note:</h4>
                                     <p className="text-sm">Lines can be 30+ minutes during Hajj season (Dhul Hijjah). Recommendation: Change into Ihram on the plane before landing.</p>
                                 </div>
                             </div>
@@ -523,11 +537,11 @@ export default async function JeddahPage() {
                             <h3 className="text-xl font-bold text-gray-900 mb-4">Climate & Weather</h3>
                             <div className="space-y-3 text-gray-600">
                                 <div>
-                                    <p className="font-bold text-gray-900 mb-1">Temperature:</p>
+                                    <h4 className="font-bold text-gray-900 mb-1">Temperature:</h4>
                                     <p className="text-sm">Summer (May-Sep): 35-45°C. Winter (Nov-Feb): 20-30°C. Humidity is high year-round (coastal city).</p>
                                 </div>
                                 <div>
-                                    <p className="font-bold text-gray-900 mb-1">AC in Vehicles:</p>
+                                    <h4 className="font-bold text-gray-900 mb-1">AC in Vehicles:</h4>
                                     <p className="text-sm">All our vehicles have strong AC. Essential for Ihram-wearing pilgrims. We keep temperature at 20-22°C for comfort.</p>
                                 </div>
                             </div>
@@ -541,11 +555,11 @@ export default async function JeddahPage() {
                             <h3 className="text-xl font-bold text-gray-900 mb-4">Luggage & Storage</h3>
                             <div className="space-y-3 text-gray-600">
                                 <div>
-                                    <p className="font-bold text-gray-900 mb-1">Baggage Claim:</p>
+                                    <h4 className="font-bold text-gray-900 mb-1">Baggage Claim:</h4>
                                     <p className="text-sm">Terminal 1: Carousels 1-8 (international), 9-12 (domestic). Average wait time: 20-30 minutes.</p>
                                 </div>
                                 <div>
-                                    <p className="font-bold text-gray-900 mb-1">Vehicle Capacity:</p>
+                                    <h4 className="font-bold text-gray-900 mb-1">Vehicle Capacity:</h4>
                                     <p className="text-sm">GMC Yukon: 5-6 large suitcases. Toyota Camry: 2-3 large suitcases. Zamzam containers accommodated in all vehicles.</p>
                                 </div>
                             </div>
@@ -559,11 +573,11 @@ export default async function JeddahPage() {
                             <h3 className="text-xl font-bold text-gray-900 mb-4">Meeting Point Details</h3>
                             <div className="space-y-3 text-gray-600">
                                 <div>
-                                    <p className="font-bold text-gray-900 mb-1">Terminal 1:</p>
+                                    <h4 className="font-bold text-gray-900 mb-1">Terminal 1:</h4>
                                     <p className="text-sm">Meet at the "Aquarium" (large fish tank near arrivals exit). Driver holds name sign. Landmark: Near Starbucks.</p>
                                 </div>
                                 <div>
-                                    <p className="font-bold text-gray-900 mb-1">North Terminal:</p>
+                                    <h4 className="font-bold text-gray-900 mb-1">North Terminal:</h4>
                                     <p className="text-sm">Meet at Gate 2 (main exit). Driver waits outside customs area. Look for name sign with "Taxi Service KSA" logo.</p>
                                 </div>
                             </div>

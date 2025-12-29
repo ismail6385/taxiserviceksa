@@ -34,7 +34,7 @@ import RelatedGuides from '@/components/RelatedGuides';
 export const metadata: Metadata = {
     title: 'Taxi Service in Madinah | Airport Transfers & Ziyarat Tours',
     description: 'Taxi service in Madinah for Prince Mohammad Airport transfers and Ziyarat tours. Transport to Prophet\'s Mosque and Makkah available. 7-seater vehicles for families.',
-    keywords: ['Madinah taxi', 'Madinah airport taxi', 'Ziyarat tour Madinah', 'Madinah to Makkah taxi', 'Masjid Nabawi transport'],
+    keywords: ['Madinah taxi', 'Madinah airport taxi', 'Ziyarat tour Madinah', 'Madinah to Makkah taxi', 'Masjid Nabawi transport', 'car with driver in madina', 'taxi madinah to makkah', 'rent a car from madinah to makkah', 'madinah to makkah transport', 'transport madinah to makkah', 'rent a car from makkah to madinah', 'car rental makkah to madinah', 'madinah to makkah private car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/madinah/',
         languages: {
@@ -54,10 +54,10 @@ export default async function MadinahPage() {
     const services = [
         { name: 'Airport Transfers', description: 'Prince Mohammad Airport to hotels' },
         { name: 'Ziyarat Tours', description: 'Holy sites and historical places' },
-        { name: 'Makkah Transport', description: 'Madinah to Makkah and return' },
-        { name: 'Local Taxi Service', description: 'Within Madinah city' },
+        { name: 'Transport Madinah to Makkah', description: 'Private car service for Umrah pilgrims' },
+        { name: 'Rent a Car with Driver in Madina', description: 'Daily rental with driver within Madinah' },
         { name: 'Mosque Transfers', description: 'Hotel to Masjid Nabawi' },
-        { name: 'Group Transport', description: 'For families and groups' },
+        { name: 'Coaster Madinah', description: 'For families and groups (Hiace/Coaster)' },
     ];
 
     const features = [
@@ -86,24 +86,32 @@ export default async function MadinahPage() {
 
     const faqs = [
         {
-            question: "What is the taxi fare from Madinah Airport to Masjid An Nabawi?",
-            answer: "Taxi fare from Prince Mohammad Bin Abdulaziz International Airport (MED) to Masjid An Nabawi ranges from SAR 80 to SAR 120. Fixed rates are available for pre-booked transfers."
+            question: "How much is a taxi from Madinah Airport to Masjid An Nabawi?",
+            answer: "The taxi fare from Madinah Airport to Masjid An Nabawi is between SAR 80 and SAR 120. If you book a private transfer in advance, you can get a fixed rate."
         },
         {
-            question: "Can I visit Ziyarat places in Madinah by taxi?",
-            answer: "Ziyarat packages include visits to Mount Uhud, Masjid Quba, Masjid Qiblatayn, and the Seven Mosques. Drivers follow historical routes for all Islamic sites."
+            question: "Can I do Ziyarat in Madinah by taxi?",
+            answer: "Yes, our taxi Ziyarat packages cover all the main holy sites, including Mount Uhud, Masjid Quba, Masjid Qiblatayn, and the Seven Mosques. The driver knows the best historical routes."
         },
         {
             question: "How far is the train station from the Prophet's Mosque?",
-            answer: "Haramain High-Speed Railway station is 15-20 minutes by taxi from Al-Masjid an-Nabawi. Travel time depends on traffic conditions."
+            answer: "The Haramain High-Speed Railway station is about a 15-20 minute taxi ride from Al-Masjid an-Nabawi, depending on traffic."
         },
         {
-            question: "Do you provide transport from Madinah to Makkah?",
-            answer: "Private taxi transfers from Madinah to Makkah (450 km) take approximately 4-5 hours. Service includes door-to-door pickup and drop-off."
+            question: "Do you offer transport from Madinah to Makkah?",
+            answer: "Yes, we provide private taxi transfers from Madinah to Makkah. The 450 km trip takes about 4-5 hours and is door-to-door."
         },
         {
-            question: "Are there female drivers available in Madinah?",
-            answer: "Fleet is operated by professional male chauffeurs. Service protocols ensure privacy and safety for all family members."
+            question: "Do you have female drivers in Madinah?",
+            answer: "Currently, our fleet is operated by professional male chauffeurs. However, we follow strict safety protocols to ensure privacy and comfort for families and female travelers."
+        },
+        {
+            question: "Is there a tour from Madinah to Badr?",
+            answer: "Yes, we offer Ziyarat tours to Badr, which is about 150km from Madinah. You can visit the Battle of Badr site and the Martyrs' cemetery. The trip usually takes 3-4 hours."
+        },
+        {
+            question: "Can I rent a car with a driver from Madinah to Makkah?",
+            answer: "Yes, you can book a car with a driver for the one-way trip to Makkah. We have comfortable Sedans and SUVs for the 450km drive on Hijrah Road, with stops at Miqat Dhul Hulaifah."
         }
     ];
 
@@ -126,21 +134,32 @@ export default async function MadinahPage() {
                     })
                 }}
             />
+            <Script
+                id="speakable-schema-madinah"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Speakable",
+                        "cssSelector": [".faq-answer"]
+                    })
+                }}
+            />
             <Hero
                 images={madinahImages}
                 h1Text="Taxi Service in Madinah: Airport Transfers and Ziyarat Tours"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Madinah Taxi Service
+                        TaxiServiceKSA™ Madinah
                     </span>
                 }
-                subtitle="Ziyarat Tours"
+                subtitle="Ziyarat Tours Prophet's Mosque"
                 location="Prophet's Mosque"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
                         brandName="TaxiServiceKSA™ Madinah"
-                        description="Specialized Ziyarat transport experts with deep historical knowledge of Madinah's sacred sites (Uhud, Quba, Qiblatain). Trust your Ziyarat to locals who know the stories, not just the roads."
+                        description="Professional chauffeur and Ziyarat services in Madinah. We help pilgrims and travelers with luxury vehicles and 24/7 availability for Prophet's Mosque visits and Prince Mohammad Bin Abdulaziz Airport transfers."
                         foundingDate="2012"
                         metrics={[
                             { label: 'Ziyarat Tours', value: '8,000+', icon: Compass },
@@ -156,7 +175,7 @@ export default async function MadinahPage() {
                 <TrendingTravelNote
                     topic="Ziyarat Timing Alert: Masjid Quba & Uhud"
                     status="Insider Tip"
-                    lastUpdated="December 2024"
+                    lastUpdated="December 2025"
                     content="To avoid the tourist buses and scorching afternoon heat, our local drivers recommend starting your Ziyarat tour immediately after Fajr prayer (around 6:00 AM). You'll experience a serene atmosphere at Masjid Quba and clear views at Mount Uhud before the crowds arrive."
                     tags={["MadinahZiyarat", "QubaMosque", "LocalTips", "BestTimeVisit"]}
                     linkText="Book Morning Ziyarat Tour"
@@ -205,9 +224,9 @@ export default async function MadinahPage() {
                                 <span className="text-sm font-bold text-emerald-900">Essential Pilgrim Logistics</span>
                             </div>
 
-                            <h3 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight text-gray-900 mb-6">
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight text-gray-900 mb-6">
                                 Mastering the City of the Prophet ﷺ
-                            </h3>
+                            </h2>
 
                             <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                                 Madinah is not just a destination; it's a sanctuary with specific protocols. From entering the <span className="font-bold text-gray-900">Rawdah</span> to departing from <span className="font-bold text-gray-900">Miqat Dhul Hulaifah</span>, our local experts guide you through every spiritual node.
@@ -216,10 +235,10 @@ export default async function MadinahPage() {
                             <div className="space-y-6">
                                 {/* Entity 1: Rawdah & Gates */}
                                 <div className="bg-gray-50 p-5 rounded-2xl border-l-4 border-emerald-600">
-                                    <h4 className="flex items-center gap-2 font-bold text-gray-900 text-lg mb-2">
+                                    <h3 className="flex items-center gap-2 font-bold text-gray-900 text-lg mb-2">
                                         <Shield className="w-5 h-5 text-emerald-600" />
                                         Masjid Nabawi Logistics
-                                    </h4>
+                                    </h3>
                                     <p className="text-gray-600 text-sm mb-3">
                                         Accessing the Rawdah requires a Nusuk permit. We drop you at the precise gates to minimize walking during your allotted slot time.
                                     </p>
@@ -232,10 +251,10 @@ export default async function MadinahPage() {
 
                                 {/* Entity 2: Miqat Departure */}
                                 <div className="bg-gray-50 p-5 rounded-2xl border-l-4 border-black">
-                                    <h4 className="flex items-center gap-2 font-bold text-gray-900 text-lg mb-2">
+                                    <h3 className="flex items-center gap-2 font-bold text-gray-900 text-lg mb-2">
                                         <MapPin className="w-5 h-5 text-black" />
                                         Miqat Dhul Hulaifah (Abyar Ali)
-                                    </h4>
+                                    </h3>
                                     <p className="text-gray-600 text-sm mb-3">
                                         Departing for Makkah? This is your mandatory stop for Ihram. Unlike passing trains, our private taxis pause here for 45+ minutes, allowing you to shower, pray, and make Niyyah comfortably before the highway journey.
                                     </p>
@@ -243,10 +262,10 @@ export default async function MadinahPage() {
 
                                 {/* Entity 3: The Ziyarat Circuit */}
                                 <div className="bg-gray-50 p-5 rounded-2xl border-l-4 border-blue-500">
-                                    <h4 className="flex items-center gap-2 font-bold text-gray-900 text-lg mb-2">
+                                    <h3 className="flex items-center gap-2 font-bold text-gray-900 text-lg mb-2">
                                         <CheckCircle2 className="w-5 h-5 text-blue-500" />
                                         Sunnah Ziyarat Circuit
-                                    </h4>
+                                    </h3>
                                     <p className="text-gray-600 text-sm mb-2">
                                         Our drivers follow the comprehensive Sunnah route, not just the tourist shortcuts.
                                     </p>
@@ -301,8 +320,8 @@ export default async function MadinahPage() {
                             relevance: "Primary",
                             items: [
                                 { label: "Book Full Ziyarat Package", url: "/services/madinah-ziyarat" },
-                                { label: "Madinah to Makkah Transfer", url: "/madinah-to-makkah-taxi" },
-                                { label: "Airport to Hotel", url: "/madinah-airport-taxi" }
+                                { label: "Madinah to Makkah Taxi", url: "/madinah-to-makkah-taxi" },
+                                { label: "Madinah Airport Taxi", url: "/madinah-airport-taxi" }
                             ]
                         },
                         {
@@ -349,7 +368,7 @@ export default async function MadinahPage() {
             <section className="bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <ExpertReview
-                        reviewDate="25 Dec 2024"
+                        reviewDate="25 Dec 2025"
                         expertise={["Rawdah Slot Logistics", "Ziyarat Sunnah Route", "Madinah Hotel Zones"]}
                     />
                 </div>
@@ -565,7 +584,9 @@ export default async function MadinahPage() {
                     <Accordion type="single" collapsible className="space-y-4">
                         {faqs.map((faq, index) => (
                             <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left font-bold text-gray-900 hover:no-underline">{faq.question}</AccordionTrigger>
+                                <AccordionTrigger className="text-left font-bold text-gray-900 hover:no-underline">
+                                    <h3 className="text-base sm:text-lg">{faq.question}</h3>
+                                </AccordionTrigger>
                                 <AccordionContent className="text-gray-600 pt-2">{faq.answer}</AccordionContent>
                             </AccordionItem>
                         ))}

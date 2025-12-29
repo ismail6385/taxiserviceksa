@@ -68,10 +68,10 @@ export default function Footer() {
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                        <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
                             Quick Links
                             <span className="h-1 w-8 bg-primary rounded-full"></span>
-                        </h4>
+                        </h3>
                         <ul className="space-y-3">
                             <li>
                                 <Link href="/about" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
@@ -108,10 +108,10 @@ export default function Footer() {
 
                     {/* Travel Guides */}
                     <div>
-                        <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                        <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
                             Travel Guides
                             <span className="h-1 w-8 bg-primary rounded-full"></span>
-                        </h4>
+                        </h3>
                         <ul className="space-y-3">
                             <li>
                                 <Link href="/insights/pilgrimage-transport-report-2025" className="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center group text-sm font-bold">
@@ -142,10 +142,10 @@ export default function Footer() {
 
                     {/* Locations */}
                     <div>
-                        <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                        <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
                             Locations
                             <span className="h-1 w-8 bg-primary rounded-full"></span>
-                        </h4>
+                        </h3>
                         <ul className="space-y-3">
                             <li>
                                 <Link href="/locations" className="text-primary hover:text-primary/80 transition-colors flex items-center group text-sm font-semibold">
@@ -206,10 +206,10 @@ export default function Footer() {
 
                     {/* Fleet */}
                     <div>
-                        <h4 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                        <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
                             Our Fleet
                             <span className="h-1 w-8 bg-primary rounded-full"></span>
-                        </h4>
+                        </h3>
                         <ul className="space-y-3">
                             <li>
                                 <Link href="/fleet/gmc-yukon" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">

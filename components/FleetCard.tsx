@@ -80,7 +80,7 @@ export default function FleetCard({ name, image, passengers, luggage, features, 
                             </Button>
                         </Link>
                         <Link href={href} className="block">
-                            <Button variant="outline" className="w-full border-gray-300 hover:bg-gray-50 text-gray-700 font-semibold">
+                            <Button variant="outline" className="w-full border-gray-300 hover:bg-gray-100 hover:text-black text-gray-700 font-semibold">
                                 View Details
                             </Button>
                         </Link>

@@ -131,7 +131,7 @@ export default function KhayberPage() {
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
                         brandName="TaxiServiceKSA™ Heritage"
-                        description="Khaybar is not just a ruin; it's a chapter of history written in lava and mudbrick. We provide safe, air-conditioned transport to this remote volcanic oasis."
+                        description="Professional chauffeur and historical tour services to Khaybar. We help history enthusiasts and travelers with luxury 4x4 vehicles and 24/7 availability for Madinah to Khaybar excursion."
                         foundingDate="2012"
                         metrics={[
                             { label: 'Shield Trips', value: '850+', icon: Shield },
@@ -178,7 +178,7 @@ export default function KhayberPage() {
                 <TrendingTravelNote
                     topic="The Khaybar Volcano Camp"
                     status="Insider Tip"
-                    lastUpdated="December 2024"
+                    lastUpdated="December 2025"
                     content="The new 'Khaybar Volcano Camp' offers glamping experiences near the White Volcanoes. The access road is rough. Regular sedans will struggle. Our GMC Yukon fleet ensures you reach the camp comfort without damaging the vehicle."
                     tags={["VolcanoTourism", "HarratKhaybar", "Glamping", "4x4Required"]}
                 />
@@ -215,9 +215,9 @@ export default function KhayberPage() {
             <section className="py-24 px-4 bg-[#Fdfbf7] border-y border-black">
                 <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16">
                     <div className="sticky top-24 h-fit">
-                        <h3 className="font-black text-5xl md:text-7xl text-black leading-[0.85] tracking-tighter mb-8">
+                        <h2 className="font-black text-5xl md:text-7xl text-black leading-[0.85] tracking-tighter mb-8">
                             THE<br />CONTEXT
-                        </h3>
+                        </h2>
                         <p className="text-xl font-bold text-black border-l-4 border-black pl-6 py-1">
                             Khaybar is not just ruins. It is a complex city of fortresses requiring orientation.
                         </p>
@@ -250,7 +250,7 @@ export default function KhayberPage() {
                             <div key={i} className="relative">
                                 <span className="absolute -left-[31px] md:-left-[55px] top-2 w-4 h-4 bg-black rounded-full border-4 border-[#Fdfbf7]"></span>
                                 <span className="text-xs font-bold uppercase tracking-widest text-black mb-2 block">{item.meta}</span>
-                                <h4 className="text-3xl font-black text-black mb-3">{item.label}</h4>
+                                <h3 className="text-3xl font-black text-black mb-3">{item.label}</h3>
                                 <p className="text-lg text-black/80 font-medium leading-relaxed max-w-xl">{item.description}</p>
                             </div>
                         ))}
@@ -301,7 +301,7 @@ export default function KhayberPage() {
                     <ExpertReview
                         reviewerName='Dr. Hassan Al-Amri'
                         reviewerTitle='History Researcher & Guide'
-                        reviewDate="24 Dec 2024"
+                        reviewDate="24 Dec 2025"
                         expertise={["Islamic Battles", "Volcanic Geology", "Ancient Irrigation"]}
                         theme="dark"
                     />
@@ -377,11 +377,11 @@ export default function KhayberPage() {
                             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="flex items-start gap-3 bg-black p-4 rounded-xl border border-gray-800">
                                     <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5" />
-                                    <div><h4 className="font-bold text-white">History Conscious</h4><p className="text-sm text-gray-400">Respectful of the site&apos;s significance</p></div>
+                                    <div><h3 className="font-bold text-white">History Conscious</h3><p className="text-sm text-gray-400">Respectful of the site&apos;s significance</p></div>
                                 </div>
                                 <div className="flex items-start gap-3 bg-black p-4 rounded-xl border border-gray-800">
                                     <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5" />
-                                    <div><h4 className="font-bold text-white">Water Provided</h4><p className="text-sm text-gray-400">Hydration is critical here</p></div>
+                                    <div><h3 className="font-bold text-white">Water Provided</h3><p className="text-sm text-gray-400">Hydration is critical here</p></div>
                                 </div>
                             </div>
                         </div>

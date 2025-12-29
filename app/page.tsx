@@ -16,10 +16,25 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
+  keywords: ['Taxi Service in Saudi Arabia', 'Umrah Taxi Service', 'Airport Taxi KSA', 'rent a car with driver in saudi arabia', 'jeddah to makkah coaster', 'transport madinah to makkah', 'private umrah taxi for families', 'toyota hiace for rent in jeddah'],
 };
 
 export default async function Home() {
   const blogs = await blogService.getPublishedBlogs();
   const latestBlogs = blogs.slice(0, 4);
-  return <HomeClient latestBlogs={latestBlogs} />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Speakable",
+            "cssSelector": ["h1", "p"]
+          })
+        }}
+      />
+      <HomeClient latestBlogs={latestBlogs} />
+    </>
+  );
 }

@@ -1,13 +1,20 @@
-'use client';
+import { Metadata } from 'next';
+import Link from 'next/link';
+import Script from 'next/script';
+import { Sparkles, Shield, User } from 'lucide-react';
+import FleetListing from '@/components/FleetListing';
+import RelatedServices from '@/components/seo/RelatedServices'; // Assuming this exists or similar
 
-import { useState } from 'react';
-import FleetCard from '@/components/FleetCard';
-import { Car, Shield, User, Clock, CheckCircle2, Star, Sparkles, SlidersHorizontal } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+export const metadata: Metadata = {
+    title: 'Taxi Fleet Saudi Arabia | GMC Yukon, Hiace, Staria & Camry',
+    description: 'Choose from our premium taxi fleet in Saudi Arabia. Luxury GMC Yukon for VIPs, Toyota Hiace for Umrah groups, and Hyundai Staria for families. 2025 Models.',
+    keywords: ['taxi fleet saudi arabia', 'gmc yukon tax', 'toyota hiace rental ksa', 'luxury car with driver saudi arabia', 'hyundai staria taxi', 'umrah bus rental', 'camry taxi jeddah'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/fleet/',
+    }
+};
 
 export default function FleetPage() {
-    const [filter, setFilter] = useState('All');
-
     const fleet = [
         {
             name: "GMC Yukon",
@@ -51,7 +58,7 @@ export default function FleetPage() {
             image: "/toyota-hiace.webp",
             passengers: 11,
             luggage: 16,
-            features: ["Group Travel", "Spacious Interior", "Umrah Groups", "Reliable"],
+            features: ["Group Travel", "Spacious Interior", "Umrah Groups", "Reliable", "2025 Model"],
             href: "/fleet/toyota-hiace"
         },
         {
@@ -65,11 +72,27 @@ export default function FleetPage() {
         }
     ];
 
-    const filteredFleet = filter === 'All' ? fleet : fleet.filter(v => v.type === filter);
-    const categories = ['All', 'Luxury', 'Economy', 'Group'];
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": fleet.map((vehicle, index) => ({
+            "@type": "Car",
+            "position": index + 1,
+            "name": vehicle.name,
+            "image": `https://taxiserviceksa.com${vehicle.image}`,
+            "description": `Book ${vehicle.name} (${vehicle.type}) for your travel in Saudi Arabia.`,
+            "url": `https://taxiserviceksa.com${vehicle.href}`
+        }))
+    };
 
     return (
         <div className="bg-white min-h-screen">
+            <Script
+                id="fleet-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+            />
+
             {/* Elegant Dark Header */}
             <div className="relative bg-black pt-32 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
                 {/* Abstract Background */}
@@ -81,51 +104,17 @@ export default function FleetPage() {
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-emerald-400 text-xs font-bold uppercase tracking-widest border border-white/10 mb-6">
                         <Sparkles className="w-3 h-3" /> The Gold Standard
                     </div>
-                    <h1 className="text-4xl md:text-6xl font-black text-white mb-6">
-                        World-Class Fleet
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
+                        Luxury Taxi Fleet in Saudi Arabia
                     </h1>
-                    <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-                        Experience Saudi Arabia in absolute comfort. From the executive <span className="text-white font-semibold">GMC Yukon</span> to the reliable <span className="text-white font-semibold">Camry</span>, every vehicle is meticulously maintained.
+                    <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                        Experience diverse transport options. From the executive <span className="text-white font-semibold">GMC Yukon</span> for VIPs to the reliable <span className="text-white font-semibold">Toyota Hiace</span> for Umrah groups, every vehicle is a 2025 model kept in showroom condition.
                     </p>
                 </div>
             </div>
 
-            {/* Filter Bar */}
-            <div className="sticky top-20 z-40 bg-white/80 backdrop-blur-lg border-b border-gray-100 py-4 shadow-sm">
-                <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-                    <div className="flex items-center gap-2 text-gray-500 text-sm font-medium">
-                        <SlidersHorizontal className="w-4 h-4" /> Filter Vehicles:
-                    </div>
-                    <div className="flex gap-2 p-1 bg-gray-100 rounded-lg overflow-x-auto max-w-full">
-                        {categories.map((cat) => (
-                            <button
-                                key={cat}
-                                onClick={() => setFilter(cat)}
-                                className={`px-6 py-2 rounded-md text-sm font-bold transition-all duration-300 ${filter === cat
-                                        ? 'bg-white text-black shadow-md scale-105'
-                                        : 'text-gray-500 hover:text-gray-900 hover:bg-gray-200'
-                                    }`}
-                            >
-                                {cat}
-                            </button>
-                        ))}
-                    </div>
-                    <div className="hidden sm:block text-sm text-gray-400">
-                        Showing {filteredFleet.length} vehicles
-                    </div>
-                </div>
-            </div>
-
-            {/* Grid */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {filteredFleet.map((vehicle, index) => (
-                        <div key={index} className="transform hover:-translate-y-2 transition-transform duration-500">
-                            <FleetCard {...vehicle} />
-                        </div>
-                    ))}
-                </div>
-            </div>
+            {/* Client Component for Filtering and Grid */}
+            <FleetListing fleet={fleet} />
 
             {/* Trust Signals */}
             <div className="bg-gray-50 py-24 border-t border-gray-200">
@@ -133,28 +122,31 @@ export default function FleetPage() {
                     <div className="text-center mb-16">
                         <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Choose Our Fleet?</h2>
                         <div className="w-20 h-1 bg-emerald-500 mx-auto rounded-full"></div>
+                        <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+                            Our fleet maintenance standards exceed regulatory requirements. We ensure every journey is safe, cool, and comfortable, even in the Saudi summer.
+                        </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                         <div className="text-center">
                             <div className="w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-100 flex items-center justify-center mx-auto mb-6">
                                 <Shield className="w-8 h-8 text-emerald-600" />
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">Safety First</h3>
-                            <p className="text-gray-500 leading-relaxed">All vehicles are equipped with GPS tracking and undergo rigorous daily safety inspections.</p>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">Safety & Tracking</h3>
+                            <p className="text-gray-500 leading-relaxed">All vehicles are equipped with real-time GPS tracking, speed limiters, and undergo rigorous daily safety inspections.</p>
                         </div>
                         <div className="text-center">
                             <div className="w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-100 flex items-center justify-center mx-auto mb-6">
                                 <Sparkles className="w-8 h-8 text-emerald-600" />
                             </div>
                             <h3 className="text-xl font-bold text-gray-900 mb-3">Immaculate Condition</h3>
-                            <p className="text-gray-500 leading-relaxed">We maintain a strict "Showroom Clean" policy. Every car is sanitized before pickup.</p>
+                            <p className="text-gray-500 leading-relaxed">We maintain a strict "Showroom Clean" policy. Every car is deep-cleaned and sanitized before every single passenger pickup.</p>
                         </div>
                         <div className="text-center">
                             <div className="w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-100 flex items-center justify-center mx-auto mb-6">
                                 <User className="w-8 h-8 text-emerald-600" />
                             </div>
                             <h3 className="text-xl font-bold text-gray-900 mb-3">Professional Chauffeurs</h3>
-                            <p className="text-gray-500 leading-relaxed">Our drivers are uniformed, multilingual, and trained in hospitality.</p>
+                            <p className="text-gray-500 leading-relaxed">Our drivers are uniformed, multilingual (Arabic, English, Urdu), and trained in hospitality and defensive driving.</p>
                         </div>
                     </div>
                 </div>

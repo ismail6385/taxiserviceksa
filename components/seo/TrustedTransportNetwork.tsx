@@ -33,14 +33,14 @@ const TrustedTransportNetwork = () => {
                             <div className="flex items-start gap-3">
                                 <ShieldCheck className="w-6 h-6 text-emerald-600 mt-1" />
                                 <div>
-                                    <h4 className="font-bold text-gray-900 text-sm">Official License</h4>
+                                    <h3 className="font-bold text-gray-900 text-sm">Official License</h3>
                                     <p className="text-xs text-gray-500">Ministry of Transport Certified</p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-3">
                                 <Clock className="w-6 h-6 text-emerald-600 mt-1" />
                                 <div>
-                                    <h4 className="font-bold text-gray-900 text-sm">Prayer-Time Synced</h4>
+                                    <h3 className="font-bold text-gray-900 text-sm">Prayer-Time Synced</h3>
                                     <p className="text-xs text-gray-500">Schedules aligned with Salah</p>
                                 </div>
                             </div>

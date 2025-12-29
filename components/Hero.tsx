@@ -153,16 +153,14 @@ export default function Hero(props: HeroProps) {
                                 <span className="block text-primary drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] font-black">
                                     {currentContent.subtitle}
                                 </span>
+                                {' '}
                                 <span className="block text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] mt-1 sm:mt-2">
                                     {currentContent.location}
                                 </span>
                             </h2>
 
                             {/* Subtitle - SEO optimized description */}
-                            <p className="text-lg sm:text-xl md:text-2xl text-white leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] max-w-3xl mt-4 sm:mt-6 animate-fade-in-up delay-300 bg-black/20 backdrop-blur-sm p-4 rounded-xl border border-white/10">
-                                Professional chauffeur and airport transfer services across Saudi Arabia.
-                                We help travelers, pilgrims, and business executives with luxury vehicles and 24/7 availability.
-                            </p>
+
 
                             {/* Optional Custom Content (Links/Buttons) */}
                             {props.children && (

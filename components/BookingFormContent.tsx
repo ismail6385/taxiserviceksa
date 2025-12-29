@@ -229,12 +229,12 @@ export default function BookingFormContent() {
                     ))}
                 </div>
                 <div className="text-center">
-                    <h3 className="text-xl font-bold text-gray-900">
+                    <h2 className="text-xl font-bold text-gray-900">
                         {step === 1 && 'Your Details'}
                         {step === 2 && 'Trip & Vehicle'}
                         {step === 3 && 'Confirm Booking'}
                         {step === 4 && 'Booking Confirmed!'}
-                    </h3>
+                    </h2>
                     <p className="text-sm text-gray-600 mt-1">
                         {step === 1 && 'Tell us about yourself'}
                         {step === 2 && 'Where and when do you need a ride?'}
@@ -275,7 +275,7 @@ export default function BookingFormContent() {
 
                         <div className="space-y-4">
                             <div className="relative group/input">
-                                <h4 className="text-sm font-medium text-gray-700 mb-1 ml-1">Country</h4>
+                                <h3 className="text-sm font-medium text-gray-700 mb-1 ml-1">Country</h3>
                                 <Popover open={open} onOpenChange={setOpen} modal={false}>
                                     <PopoverTrigger asChild>
                                         <Button
@@ -339,7 +339,7 @@ export default function BookingFormContent() {
                             </div>
 
                             <div className="relative group/input">
-                                <h4 className="text-sm font-medium text-gray-700 mb-1 ml-1">Mobile Number</h4>
+                                <h3 className="text-sm font-medium text-gray-700 mb-1 ml-1">Mobile Number</h3>
                                 <div className="flex">
                                     <div className="h-12 bg-gray-100 border border-r-0 border-gray-300 text-gray-500 flex items-center justify-center px-4 rounded-l-xl font-mono text-sm min-w-[80px] mt-0 gap-2">
                                         <Phone className="w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors" />
@@ -434,7 +434,7 @@ export default function BookingFormContent() {
 
                         {/* Vehicle Selection - under route */}
                         <div className="space-y-3">
-                            <h4 className="text-lg font-bold text-gray-900">Choose Your Vehicle *</h4>
+                            <h3 className="text-lg font-bold text-gray-900">Choose Your Vehicle *</h3>
                             <Select
                                 value={formData.vehicle_type || undefined}
                                 onValueChange={(value) => {
@@ -582,7 +582,7 @@ export default function BookingFormContent() {
                 {step === 3 && (
                     <div className="space-y-5 animate-fade-in-up">
                         <div className="bg-gray-50 rounded-xl p-6 space-y-4">
-                            <h4 className="font-bold text-lg text-gray-900 mb-4">Booking Summary</h4>
+                            <h3 className="font-bold text-lg text-gray-900 mb-4">Booking Summary</h3>
 
                             <div className="space-y-2 text-sm">
                                 <div className="flex justify-between">

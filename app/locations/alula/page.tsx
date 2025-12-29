@@ -17,11 +17,22 @@ import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
+import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
+import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
+import TrendingTravelNote from '@/components/seo/TrendingTravelNote';
+import QuestionGrouper from '@/components/seo/QuestionGrouper';
+import SemanticField from '@/components/seo/SemanticField';
+import TopicCluster from '@/components/seo/TopicCluster';
+import SeasonalTravelTips from '@/components/seo/SeasonalTravelTips';
+import DistanceTable from '@/components/seo/DistanceTable';
+import TravelConsensus from '@/components/seo/TravelConsensus';
+import RoutePerspective from '@/components/seo/RoutePerspective';
+import ExpertReview from '@/components/seo/ExpertReview';
 
 export const metadata: Metadata = {
     title: 'Taxi Service in AlUla | Hegra Tours & Airport Transfer Saudi Arabia',
     description: 'Taxi service in AlUla for Hegra UNESCO site tours and airport transfers. AlUla Airport to hotels. 4x4 vehicles for desert terrain. Fixed rates for heritage tours.',
-    keywords: ['taxi service in AlUla', 'AlUla taxi', 'Hegra tours', 'AlUla Airport transfer', 'AlUla heritage tours'],
+    keywords: ['taxi service in AlUla', 'AlUla taxi', 'Hegra tours', 'AlUla Airport transfer', 'AlUla heritage tours', 'taxi in al ula', 'madain saleh tour', 'winter at tantora transport', 'al ula driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/alula/',
         languages: {
@@ -62,39 +73,14 @@ export default function AlUlaPage() {
         '/hero-slide-3.webp',
     ];
 
-    const faqs = [
-        {
-            question: "How far is AlUla Airport from Hegra archaeological site by taxi?",
-            answer: "AlUla International Airport (ULH) is located 30 kilometers from Hegra (Madain Saleh) UNESCO site. Taxi travel time is 25-35 minutes. Airport transfers include meet-and-greet service and luggage assistance for photography equipment."
-        },
-        {
-            question: "Do you provide 4x4 vehicles for AlUla desert tours?",
-            answer: "Taxi fleet includes 4x4 SUVs (GMC Yukon, Toyota Land Cruiser) suitable for AlUla desert terrain. Vehicles access Elephant Rock, Jabal Ikmah, and remote heritage sites. Drivers know safe desert routes."
-        },
-        {
-            question: "Is taxi service available for multi-day AlUla heritage tours?",
-            answer: "Multi-day taxi service is available for AlUla heritage circuit tours. Service includes daily pickups from hotels, flexible schedules for sunrise/sunset photography, and rest stops. Rates are quoted per day or per tour."
-        },
-        {
-            question: "How much does a taxi cost from AlUla Airport to hotels?",
-            answer: "Taxi rates from AlUla Airport to AlUla city hotels start from SAR 100. Pricing depends on vehicle type (sedan, 4x4 SUV) and resort location. Fares are fixed with no surge charges."
-        },
-        {
-            question: "Can I book a taxi from AlUla to Khaybar Fort for historical tours?",
-            answer: "Intercity taxi service is available from AlUla to Khaybar Fort (150 km). Travel time is 2-3 hours. Rates start from SAR 350. Service includes stops at viewpoints and historical markers along the route."
-        },
-        {
-            question: "Do your drivers speak English for international tourists?",
-            answer: "Drivers speak English and Arabic. Many drivers have heritage site knowledge and can provide basic historical context for Hegra, Dadan, and other AlUla attractions. Professional tour guides are available upon request."
-        }
-    ];
+
 
 
 
     return (
         <div className="bg-gray-50 min-h-screen">
 
-            <JsonLdFAQ faqs={faqs} />
+
 
             {/* Hero Section */}
             <Hero
@@ -108,6 +94,19 @@ export default function AlUlaPage() {
                 subtitle="UNESCO Heritage Transport"
                 location="4x4 Desert Tours Available"
             >
+                <div className="max-w-3xl mx-auto mt-8 mb-6">
+                    <EntityTrustSignal
+                        brandName="TaxiServiceKSA™ AlUla"
+                        description="Professional chauffeur and heritage tour services in AlUla. We help tourists and travelers with luxury 4x4 vehicles and 24/7 availability for Hegra tours, Airport transfers, and desert exploration."
+                        foundingDate="2012"
+                        metrics={[
+                            { label: 'Heritage Tours', value: '3,000+', icon: Compass },
+                            { label: 'Airport Pickups', value: '4,500+', icon: Plane },
+                            { label: 'Reliability', value: '100%', icon: Shield }
+                        ]}
+                    />
+                </div>
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                         <Link href="/booking">
@@ -122,6 +121,178 @@ export default function AlUlaPage() {
                     </Button>
                 </div>
             </Hero>
+
+            {/* Trending Note */}
+            <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
+                <TrendingTravelNote
+                    topic="Hegra (Madain Saleh) Access"
+                    status="Insider Tip"
+                    lastUpdated="Winter 2025"
+                    content="Private vehicles are NOT allowed inside the Hegra archaeological site. Our driver will drop you at the Winter Park Visitor Center or your hotel, where you must board the official RCU bus for the tour."
+                    tags={["HegraRules", "WinterPark", "PermitOnly", "BusTransfer"]}
+                />
+            </div>
+
+            {/* Semantic Hub */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-16">
+                <QuestionGrouper
+                    mainQuestion="Do I really need a taxi in AlUla?"
+                    intro="AlUla is vast. The distance between the Old Town and Hegra is over 25km. There is no public bus system."
+                    subQuestions={[
+                        {
+                            id: 'q1',
+                            condition: 'Uber Availability',
+                            question: 'Does Uber work here?',
+                            answer: 'Very poorly. Drivers are scarce, especially at night or near remote resorts like Habitas. You risk being stranded.',
+                            citation: 'Visitor Reports'
+                        },
+                        {
+                            id: 'q2',
+                            condition: 'Desert Driving',
+                            question: 'Can I rent a small car?',
+                            answer: 'Accessing Elephant Rock or campground parking often involves soft sand. We use 4x4 SUVs to prevent getting stuck.',
+                            citation: 'Terrain Analysis'
+                        },
+                        {
+                            id: 'q3',
+                            condition: 'Site Spacing',
+                            question: 'Are sites walkable?',
+                            answer: 'No. Maraya Concert Hall, Hegra, and Old Town are kilometers apart. A dedicated driver for the day is highly recommended.',
+                            citation: 'Map Agency'
+                        }
+                    ]}
+                />
+
+                <SemanticField
+                    title="AlUla: The Open-Air Museum"
+                    explanation="Understanding the layout of AlUla is key to planning your transport needs."
+                    concepts={[
+                        {
+                            label: 'Winter Park',
+                            description: 'The main logistics hub. All official tours to Hegra and Dadan depart from here by bus.',
+                            wikiLink: 'https://www.experiencealula.com/'
+                        },
+                        {
+                            label: 'Hegra',
+                            description: 'The UNESCO site with 111 Nabataean tombs. 25km north of Old Town.',
+                            wikiLink: 'https://en.wikipedia.org/wiki/Hegra_(Mada%27in_Salih)'
+                        },
+                        {
+                            label: 'Maraya',
+                            description: 'The mirrored concert hall. Located in the Ashar Valley. Requires special permit or reservation to enter the valley gate.',
+                            internalLink: '/locations/alula'
+                        }
+                    ]}
+                />
+
+                <TopicCluster
+                    mainTopic="AlUla Transport Logistics"
+                    clusters={[
+                        {
+                            category: "Site Access",
+                            relevance: "Primary",
+                            items: [
+                                { label: "Airport to Hotel", url: "/services/airport-transfers" },
+                                { label: "Hegra Drop-off", url: "/services/heritage-tours" },
+                                { label: "Winter Park Transfer", url: "/locations/alula" }
+                            ]
+                        },
+                        {
+                            category: "Adventure",
+                            relevance: "Secondary",
+                            items: [
+                                { label: "Elephant Rock Sunset", url: "/locations/alula", description: "Evening Trips" },
+                                { label: "Khaybar Day Trip", url: "/locations/khayber-fort", description: "Volcanic Fields" }
+                            ]
+                        }
+                    ]}
+                />
+            </div>
+
+            {/* Authoritative Signal */}
+            <section className="bg-white mt-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <ExpertReview
+                        reviewerName='Guide Ibrahim Al-Balawi'
+                        reviewerTitle='Heritage Site Specialist'
+                        reviewDate="28 Dec 2025"
+                        expertise={["Desert Navigation", "RCU Permits", "Photography Spots"]}
+                    />
+                </div>
+            </section>
+
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+                <div className="max-w-7xl mx-auto">
+                    <SeasonalTravelTips city="AlUla" />
+                    <div className="mt-12">
+                        <DistanceTable
+                            origin="AlUla Old Town"
+                            locations={[
+                                { destination: 'Hegra (Madain Saleh)', distance: '22 km', time: '25 mins', route: 'Hwy 375' },
+                                { destination: 'AlUla Airport (ULH)', distance: '35 km', time: '40 mins', route: 'Airport Rd' },
+                                { destination: 'Elephant Rock', distance: '12 km', time: '15 mins', route: 'Desert Track' },
+                                { destination: 'Maraya Hall', distance: '18 km', time: '20 mins', route: 'Ashar Valley Gate' },
+                                { destination: 'Khaybar Fort', distance: '185 km', time: '2h 15m', route: 'Route 70' }
+                            ]}
+                        />
+                    </div>
+
+                    <div className="mt-16">
+                        <TravelConsensus
+                            points={[
+                                {
+                                    topic: "Maraya Access",
+                                    commonBelief: "We can just drive up to it.",
+                                    reality: "NO. The Ashar Valley gate is strict. You need a restaurant reservation or concert ticket to pass. Taxis drop you at the gate unless you have a pass.",
+                                    truthRange: "Restricted Access",
+                                    factors: ["Reservation", "Security Gate"]
+                                },
+                                {
+                                    topic: "Summer Heat",
+                                    commonBelief: "It's like Riyadh.",
+                                    reality: "It is hotter. Mid-day tours in July are dangerous. We schedule rides for sunrise/sunset.",
+                                    truthRange: "Extreme Heat",
+                                    factors: ["No Shade", "hydration"]
+                                }
+                            ]}
+                        />
+                    </div>
+
+                    <div className="mt-16">
+                        <RoutePerspective
+                            route="AlUla Airport to Resort (Banyan Tree/Habitas)"
+                            perspectives={[
+                                {
+                                    id: "luxury",
+                                    targetAudience: "Resort Guest",
+                                    icon: Star,
+                                    intent: "Relaxation",
+                                    description: "Arriving at ULH airport. Our chauffeur handles all luggage and navigates the sometimes unmarked desert roads to the resort reception.",
+                                    structuredFeatures: [
+                                        { label: "Vehicle", value: "GMC Yukon" },
+                                        { label: "Luggage", value: "Full Service" },
+                                        { label: "Gate", value: "Pre-Cleared" }
+                                    ],
+                                    visualContext: "Driving through sandstone canyons."
+                                },
+                                {
+                                    id: "explorer",
+                                    targetAudience: "History Buff",
+                                    icon: Compass,
+                                    intent: "Discovery",
+                                    description: "Heading straight to Winter Park to pick up the Heritage Pass before checking in.",
+                                    structuredFeatures: [
+                                        { label: "Stop", value: "Winter Park" },
+                                        { label: "Timing", value: "Tour Synced" },
+                                        { label: "Flexibility", value: "High" }
+                                    ],
+                                    visualContext: "Passing Elephant Rock."
+                                }
+                            ]}
+                        />
+                    </div>
+                </div>
+            </section>
 
             {/* Services Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
@@ -166,25 +337,47 @@ export default function AlUlaPage() {
             </section>
 
             {/* FAQ Section */}
+            {/* Micro-Semantic FAQ Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">FAQ</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-                    </div>
-
-                    <Accordion type="single" collapsible className="space-y-4">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left hover:no-underline py-4">
-                                    <h3 className="text-lg font-bold text-gray-900 pr-4">{faq.question}</h3>
-                                </AccordionTrigger>
-                                <AccordionContent className="pb-4">
-                                    <p className="text-gray-600 leading-relaxed pt-2">{faq.answer}</p>
-                                </AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
+                <div className="max-w-7xl mx-auto">
+                    <MicroSemanticFAQ
+                        faqs={[
+                            {
+                                question: "How far is Hegra from AlUla Airport?",
+                                shortAnswer: "30km / 30 Minutes",
+                                detailedAnswer: "Hegra (Madain Saleh) is a short drive from the airport. Note that private cars cannot enter the restricted tombs area; you must use the official bus from Winter Park or have a special permit.",
+                                perspectives: [
+                                    { role: "Tourist", icon: "Compass", insight: "Booking the official tour bus is mandatory for the site itself." },
+                                    { role: "Driver", icon: "Car", insight: "We drop you at Winter Park or the hotel to catch the shuttle." }
+                                ]
+                            },
+                            {
+                                question: "Do you use 4x4 cars for desert tours?",
+                                shortAnswer: "Yes, 4x4 Available",
+                                detailedAnswer: "For Elephant Rock and remote desert campsites, we deploy GMC Yukons or Land Cruisers. Standard sedans can struggle in soft sand parking areas.",
+                                perspectives: [
+                                    { role: "Photographer", icon: "Maximize", insight: "4x4 is needed to get close to the best sunset spots." },
+                                    { role: "Camper", icon: "Sun", insight: "Essential for reaching desert glamping sites safely." }
+                                ]
+                            },
+                            {
+                                question: "Can I book a driver for the whole day?",
+                                shortAnswer: "Daily Rates Available",
+                                detailedAnswer: "Since AlUla sites (Old Town, Hegra, Elephant Rock) are spread out, booking a driver for 8-10 hours is the most efficient way to see everything without waiting.",
+                                perspectives: [
+                                    { role: "Family", icon: "Users", insight: "Much easier than waiting for Ubers that don't exist here." }
+                                ]
+                            },
+                            {
+                                question: "Can I get a taxi from AlUla to Khaybar?",
+                                shortAnswer: "Yes, 2-3 Hours",
+                                detailedAnswer: "The volcanic lava fields of Khaybar are 150km away. It's a popular day trip. We wait while you explore the fort and oasis.",
+                                perspectives: [
+                                    { role: "Historian", icon: "BookOpen", insight: "A must-see hidden gem nearby." }
+                                ]
+                            }
+                        ]}
+                    />
                 </div>
             </section>
 

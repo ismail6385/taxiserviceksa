@@ -16,7 +16,7 @@ import JsonLdFAQ from '@/components/JsonLdFAQ';
 export const metadata: Metadata = {
     title: 'Makkah to Madinah Taxi | 450km Umrah Route - Fixed Price SAR 450',
     description: 'Taxi from Makkah to Madinah operates 24/7. 450km pilgrimage route in 4-5 hours. Fixed rate SAR 450. Rest stops included. Complete your Umrah journey.',
-    keywords: ['Makkah to Madinah taxi', 'Umrah taxi Makkah Madinah', 'taxi price Makkah Madinah', 'Makkah Madinah distance', 'pilgrimage transport'],
+    keywords: ['Makkah to Madinah taxi', 'Umrah taxi Makkah Madinah', 'taxi price Makkah Madinah', 'Makkah Madinah distance', 'pilgrimage transport', 'taxi fare from makkah to madinah', 'gmc from makkah to madinah', 'how far is badr from makkah', 'madinah to makkah taxi time'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/makkah-madinah/',
     },
@@ -103,6 +103,14 @@ export default function MakkahMadinahRoutePage() {
         {
             question: "Are rest stops included in the Makkah to Madinah taxi journey?",
             answer: "Rest stops are included in the fixed rate. Standard stops include Badr rest area (150 km), Rabigh service station (80 km), and Al-Juhfah historical marker (200 km). Each stop is 10-20 minutes for restrooms, prayers, and refreshments. Additional stops are available upon request."
+        },
+        {
+            question: "How far is Badr from Makkah?",
+            answer: "Badr is approximately 150 km from Makkah. It is a common stop on the coastal route to Madinah. We can arrange a short stop for Ziyarat if you choose the coastal highway route."
+        },
+        {
+            question: "Can I book a GMC from Makkah to Madinah?",
+            answer: "Yes, we offer GMC Yukon XL and other large SUVs for the Makkah to Madinah route. These are ideal for families carrying Zamzam water and extra luggage, providing a comfortable ride for the 4-5 hour journey."
         },
         {
             question: "Can I book a taxi from Makkah to Madinah for same-day travel?",

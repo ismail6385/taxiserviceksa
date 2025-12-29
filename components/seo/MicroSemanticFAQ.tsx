@@ -64,7 +64,7 @@ const MicroSemanticFAQ: React.FC<MicroSemanticFAQProps> = ({
         <div className={`my-16 ${isRtl ? 'rtl' : 'ltr'}`} dir={isRtl ? 'rtl' : 'ltr'}>
             <div className="text-center mb-10">
                 <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2 inline-block ${isDark ? 'bg-blue-900/30 text-blue-300' : 'bg-blue-100 text-blue-700'}`}>
-                    Micro-Semantics
+                    FAQs
                 </span>
                 <h2 className={`text-3xl font-bold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>{labels.title}</h2>
                 <p className={`${isDark ? 'text-gray-400' : 'text-gray-500'} max-w-2xl mx-auto`}>{labels.subtitle}</p>

@@ -7,6 +7,12 @@ import { Mountain, MapPin, Clock, CheckCircle2, Star, Shield } from 'lucide-reac
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
+import TrendingTravelNote from '@/components/seo/TrendingTravelNote';
+import QuestionGrouper from '@/components/seo/QuestionGrouper';
+import SemanticField from '@/components/seo/SemanticField';
+import TopicCluster from '@/components/seo/TopicCluster';
+import TravelConsensus from '@/components/seo/TravelConsensus';
+import ExpertReview from '@/components/seo/ExpertReview';
 
 import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
@@ -81,7 +87,7 @@ export default function MakkahZiyaratPage() {
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
                         brandName="TaxiServiceKSA™ Tours"
-                        description="Explore the sacred geography of Makkah beyond the Haram. Visit the mountains of revelation and refuge, and the plains of Hajj."
+                        description="Professional chauffeur and Ziyarat services in Makkah. We help pilgrims perform Ziyarat with ease, visiting sacred historical sites with luxury vehicles and 24/7 availability."
                         foundingDate="2012"
                         metrics={[
                             { label: 'Ziyarat Trips', value: '15k+', icon: Mountain },
@@ -91,6 +97,119 @@ export default function MakkahZiyaratPage() {
                     />
                 </div>
             </Hero>
+
+            {/* Trending Note */}
+            <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
+                <TrendingTravelNote
+                    topic="Jabal Al-Nour Access"
+                    status="Insider Tip"
+                    lastUpdated="New Cable Car Info"
+                    content="Local authorities are developing a cable car to Cave Hira. Currently, access is only by foot (steep climb). Taxis drop at the visitor center at the base."
+                    tags={["CaveHira", "JabalNour", "WalkingShoes", "VisitorCenter"]}
+                />
+            </div>
+
+            {/* Semantic Hub */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-16">
+                <QuestionGrouper
+                    mainQuestion="Why do Ziyarat with a private taxi?"
+                    intro="Group buses are cheaper but they rush through sites. A private taxi lets you reflect and pray."
+                    subQuestions={[
+                        {
+                            id: 'q1',
+                            condition: 'Time',
+                            question: 'Can we stay longer at Arafat?',
+                            answer: 'Yes. With a private car, you control the schedule. You can spend 20 minutes making dua at Jabal Rahmah instead of the usual 5-minute photo stop.',
+                            citation: 'Flexible Schedule'
+                        },
+                        {
+                            id: 'q2',
+                            condition: 'Elderly',
+                            question: 'Is it walking-intensive?',
+                            answer: 'Most sites are viewed from the car or close parking. Climbing Hura or Thawr is hiking. We can park close to minimize walking for elders.',
+                            citation: 'Accessibility'
+                        },
+                        {
+                            id: 'q3',
+                            condition: 'Route',
+                            question: 'Which route do we take?',
+                            answer: 'We usually start with Jabal Al-Nour, then cemetery, then towards Arafat/Mina loop. But you can customize it.',
+                            citation: 'Custom Route'
+                        }
+                    ]}
+                />
+
+                <SemanticField
+                    title="Sacred Geography of Makkah"
+                    explanation="Understanding the locations helps you visualize the Seerah."
+                    concepts={[
+                        {
+                            label: 'Jabal Thawr',
+                            description: 'Located in the south. The cave of migration. Higher and harder to climb than Hira.',
+                            internalLink: '/locations/makkah'
+                        },
+                        {
+                            label: 'Mina',
+                            description: 'The City of Tents. Empty most of the year, but full of spiritual significance. We drive through the streets used during Hajj.',
+                            internalLink: '/guides/makkah-umrah-guide'
+                        },
+                        {
+                            label: 'Jannat al-Mualla',
+                            description: 'Near the Haram (approx 1-2km). The resting place of Umm al-Mu\'mineen Khadija (RA).',
+                            wikiLink: 'https://en.wikipedia.org/wiki/Jannat_al-Mu%27alla'
+                        }
+                    ]}
+                />
+
+                <TopicCluster
+                    mainTopic="Ziyarat Experience"
+                    clusters={[
+                        {
+                            category: "Preparation",
+                            relevance: "Primary",
+                            items: [
+                                { label: "Makkah Hotels", url: "/locations/makkah" },
+                                { label: "Umrah Guide", url: "/guides/makkah-umrah-guide" },
+                                { label: "Madinah Ziyarat", url: "/locations/madinah" }
+                            ]
+                        },
+                        {
+                            category: "Logistics",
+                            relevance: "Secondary",
+                            items: [
+                                { label: "Taxi Booking", url: "/booking", description: "Reserve Slot" },
+                                { label: "Jeddah Airport", url: "/services/airport-transfers", description: "Arrival" }
+                            ]
+                        }
+                    ]}
+                />
+
+                <div className="mt-16">
+                    <TravelConsensus
+                        points={[
+                            {
+                                topic: "Climbing Cave Hira",
+                                commonBelief: "It's a quick walk.",
+                                reality: "It is a strenuous 1-hour hike up steep stairs. Not recommended for elderly or those with knee issues. The Hira Cultural District at the base offers a VR experience instead.",
+                                truthRange: "Physically Demanding",
+                                factors: ["Heat", "Stairs", "Elevation"]
+                            }
+                        ]}
+                    />
+                </div>
+            </div>
+
+            {/* Authoritative Signal */}
+            <section className="bg-white mt-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <ExpertReview
+                        reviewerName='Guide Ahmed Al-Harbi'
+                        reviewerTitle='Historical Tour Specialist'
+                        reviewDate="25 Dec 2025"
+                        expertise={["Seerah Sites", "Makkah Geography", "Crowd Management"]}
+                    />
+                </div>
+            </section>
 
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">

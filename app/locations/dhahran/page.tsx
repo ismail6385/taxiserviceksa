@@ -17,6 +17,16 @@ import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
+import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
+import TrendingTravelNote from '@/components/seo/TrendingTravelNote';
+import QuestionGrouper from '@/components/seo/QuestionGrouper';
+import SemanticField from '@/components/seo/SemanticField';
+import TopicCluster from '@/components/seo/TopicCluster';
+import DistanceTable from '@/components/seo/DistanceTable';
+import TravelConsensus from '@/components/seo/TravelConsensus';
+import RoutePerspective from '@/components/seo/RoutePerspective';
+import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
+import ExpertReview from '@/components/seo/ExpertReview';
 
 export const metadata: Metadata = {
     title: 'Taxi Service in Dhahran | Aramco & Ithra Transfers',
@@ -108,6 +118,19 @@ export default function DhahranPage() {
                 subtitle="Corporate & Cultural Hub"
                 location="Aramco • KFUPM • Ithra"
             >
+                <div className="max-w-3xl mx-auto mt-8 mb-6">
+                    <EntityTrustSignal
+                        brandName="TaxiServiceKSA™ Dhahran"
+                        description="Professional chauffeur and corporate taxi services in Dhahran. We help Aramco employees, KFUPM faculty, and visitors with luxury vehicles and 24/7 availability for Dammam Airport transfers."
+                        foundingDate="2012"
+                        metrics={[
+                            { label: 'Corporate Trips', value: '25k+', icon: Building2 },
+                            { label: 'Aramco Transfers', value: '10k+', icon: Shield },
+                            { label: 'Reliability', value: '99.9%', icon: CheckCircle2 }
+                        ]}
+                    />
+                </div>
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                         <Link href="/booking">
@@ -122,6 +145,105 @@ export default function DhahranPage() {
                     </Button>
                 </div>
             </Hero>
+
+            {/* Trending Note */}
+            <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
+                <TrendingTravelNote
+                    topic="Aramco Access Control"
+                    status="Insider Tip"
+                    lastUpdated="Security Advisory"
+                    content="Entry to the Saudi Aramco Residential Camp is strictly for pass holders. Taxis without a permit must drop passengers at designated Visitor Gates (e.g., Dhahran Main Gate). We cannot drive inside the camp."
+                    tags={["AramcoSecurity", "GateDropOff", "VisitorPass", "IthraEvents"]}
+                />
+            </div>
+
+            {/* Semantic Hub */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-16">
+                <QuestionGrouper
+                    mainQuestion="How does taxi service work in Dhahran?"
+                    intro="Dhahran is not a typical open city. It is a cluster of secured zones (Aramco, KFUPM, Airbase) and public areas (Ithra, Malls)."
+                    subQuestions={[
+                        {
+                            id: 'q1',
+                            condition: 'University',
+                            question: 'Can you enter KFUPM?',
+                            answer: 'We can drop you at the main gates. Access inside the academic campus requires a faculty/student ID or prior visitor clearance.',
+                            citation: 'Campus Security'
+                        },
+                        {
+                            id: 'q2',
+                            condition: 'Ithra',
+                            question: 'Is Ithra open to public?',
+                            answer: 'Yes. The King Abdulaziz Center for World Culture (Ithra) is accessible. We drop you right at the plaza entrance.',
+                            citation: 'Ithra Guide'
+                        },
+                        {
+                            id: 'q3',
+                            condition: 'Techno Valley',
+                            question: 'Techno Valley Access?',
+                            answer: 'This business park requires ID checks. Our drivers are familiar with the check-in procedures for corporate visitors.',
+                            citation: 'Business Park Rules'
+                        }
+                    ]}
+                />
+
+                <SemanticField
+                    title="Dhahran: The Energy Capital"
+                    explanation="Navigation here is about knowing which gate to use."
+                    concepts={[
+                        {
+                            label: 'Ithra',
+                            description: 'The architectural marvel hosting museums and theater. Located within the Aramco perimeter but publicly accessible via a specific ring road.',
+                            wikiLink: 'https://www.ithra.com/'
+                        },
+                        {
+                            label: 'KFUPM',
+                            description: 'The premier technical university. Located on the hill (Jabal) overlooking the city.',
+                            wikiLink: 'https://www.kfupm.edu.sa/'
+                        },
+                        {
+                            label: 'Dhahran Mall',
+                            description: 'The main public shopping hub, outside the secured zones.',
+                            internalLink: '/locations/dhahran'
+                        }
+                    ]}
+                />
+
+                <TopicCluster
+                    mainTopic="Dhahran Corporate Services"
+                    clusters={[
+                        {
+                            category: "Business Logistics",
+                            relevance: "Primary",
+                            items: [
+                                { label: "Airport Meet & Greet", url: "/services/airport-transfers" },
+                                { label: "Techno Valley Commute", url: "/services/corporate-travel" },
+                                { label: "Consultant Transport", url: "/services/city-transport" }
+                            ]
+                        },
+                        {
+                            category: "Academic & Culture",
+                            relevance: "Secondary",
+                            items: [
+                                { label: "Ithra Event Transport", url: "/locations/dhahran", description: "Concerts/Exhibits" },
+                                { label: "KFUPM Faculty Ride", url: "/locations/dhahran", description: "Daily Pickup" }
+                            ]
+                        }
+                    ]}
+                />
+            </div>
+
+            {/* Authoritative Signal */}
+            <section className="bg-white mt-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <ExpertReview
+                        reviewerName='Logistics Manager Ali Al-Qahtani'
+                        reviewerTitle='Corporate Fleet Coordinator'
+                        reviewDate="26 Dec 2025"
+                        expertise={["Gate Clearances", "VIP Protocols", "Aramco Logistics"]}
+                    />
+                </div>
+            </section>
 
             {/* Services Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
@@ -165,26 +287,104 @@ export default function DhahranPage() {
                 </div>
             </section>
 
-            {/* FAQ Section */}
+            {/* Micro-Semantic FAQ Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">FAQ</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+                <div className="max-w-7xl mx-auto">
+                    <div className="mt-12 mb-16">
+                        <DistanceTable
+                            origin="Dhahran (Ithra)"
+                            locations={[
+                                { destination: 'Dammam Airport (DMM)', distance: '50 km', time: '40 mins', route: 'Dhahran-Jubail Expy' },
+                                { destination: 'Al Khobar Corniche', distance: '12 km', time: '15 mins', route: 'King Saud Rd' },
+                                { destination: 'Bahrain Causeway', distance: '25 km', time: '30 mins', route: 'Khobar Rd' },
+                                { destination: 'Riyadh', distance: '400 km', time: '3h 45m', route: 'Route 40' },
+                                { destination: 'Jubail', distance: '100 km', time: '60 mins', route: 'Abu Hadriyah Hwy' }
+                            ]}
+                        />
                     </div>
 
-                    <Accordion type="single" collapsible className="space-y-4">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left hover:no-underline py-4">
-                                    <h3 className="text-lg font-bold text-gray-900 pr-4">{faq.question}</h3>
-                                </AccordionTrigger>
-                                <AccordionContent className="pb-4">
-                                    <p className="text-gray-600 leading-relaxed pt-2">{faq.answer}</p>
-                                </AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
+                    <div className="mb-16">
+                        <TravelConsensus
+                            points={[
+                                {
+                                    topic: "Ithra Parking vs Taxi",
+                                    commonBelief: "I'll just drive and park.",
+                                    reality: "Parking at Ithra can be far from the entrance during big events. A taxi drop-off at the plaza is much more convenient, especially in summer heat.",
+                                    truthRange: "Taxi is More Convenient",
+                                    factors: ["Heat", "Parking Distance"]
+                                },
+                                {
+                                    topic: "Leaving the Camp",
+                                    commonBelief: "Taxis wait inside.",
+                                    reality: "No. Taxis wait at the gate. You must take an internal camp bus or walk to the gate to meet the driver.",
+                                    truthRange: "Gate Pickup Only",
+                                    factors: ["Security Policy"]
+                                }
+                            ]}
+                        />
+                    </div>
+
+                    <div className="mb-16">
+                        <RoutePerspective
+                            route="Dammam Airport to Dhahran (The Business Run)"
+                            perspectives={[
+                                {
+                                    id: "executive",
+                                    targetAudience: "Consultant",
+                                    icon: Building2,
+                                    intent: "Work",
+                                    description: "Landing at DMM and heading straight to a meeting at Techno Valley. Needs invoice and Wi-Fi.",
+                                    structuredFeatures: [
+                                        { label: "Vehicle", value: "Luxury Sedan" },
+                                        { label: "Payment", value: "Credit Card" },
+                                        { label: "Receipt", value: "Digital" }
+                                    ],
+                                    visualContext: "Moving fast on the highway."
+                                },
+                                {
+                                    id: "academic",
+                                    targetAudience: "Visiting Professor",
+                                    icon: GraduationCap,
+                                    intent: "Education",
+                                    description: "Arriving for a conference at KFUPM. Driver assists with navigating to the campus hotel (Mall).",
+                                    structuredFeatures: [
+                                        { label: "Gate", value: "Visitor Reception" },
+                                        { label: "ID", value: "Required" }
+                                    ],
+                                    visualContext: "Passing the University Clock Tower."
+                                }
+                            ]}
+                        />
+                    </div>
+
+                    <MicroSemanticFAQ
+                        faqs={[
+                            {
+                                question: "How do I get to the Aramco Camp?",
+                                shortAnswer: "Gate Drop-off",
+                                detailedAnswer: "We can drive you to any of the main gates (North, South, etc.). We cannot enter the residential zone without a vehicle pass, which is rarely issued for taxis.",
+                                perspectives: [
+                                    { role: "Resident", icon: "Home", insight: "Residents usually meet drivers at the gate." }
+                                ]
+                            },
+                            {
+                                question: "Is Uber allowed in KFUPM?",
+                                shortAnswer: "Restricted",
+                                detailedAnswer: "Similar to Aramco, access is controlled. We recommend booking with us so we can provide driver details for you to arrange a gate pass if needed.",
+                                perspectives: [
+                                    { role: "Student", icon: "GraduationCap", insight: "Campus buses are internal only." }
+                                ]
+                            },
+                            {
+                                question: "Taxi fare from Airport to Dhahran?",
+                                shortAnswer: "180-220 SAR",
+                                detailedAnswer: "The fare is fixed for quality service. This includes waiting time at the terminal and luggage handling.",
+                                perspectives: [
+                                    { role: "Traveler", icon: "Plane", insight: "No surge pricing." }
+                                ]
+                            }
+                        ]}
+                    />
                 </div>
             </section>
 

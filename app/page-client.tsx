@@ -12,15 +12,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from '@/components/ui/accordion';
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from '@/components/ui/carousel';
-import Autoplay from "embla-carousel-autoplay";
-import { useRef } from "react";
+
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 import TrustedTransportNetwork from '@/components/seo/TrustedTransportNetwork';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
@@ -32,9 +24,7 @@ interface HomeClientProps {
 }
 
 export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
-    const plugin = useRef(
-        Autoplay({ delay: 5000, stopOnInteraction: true })
-    );
+
 
     // Enhanced Structured Data with multiple schema types
     const webSiteSchema = {
@@ -174,50 +164,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
     ];
 
     // Testimonials
-    const testimonials = [
-        {
-            name: "Ahmed Al-Rashid",
-            location: "Jeddah",
-            rating: 5,
-            text: "Excellent airport taxi Saudi Arabia service! The driver met me at King Abdulaziz Airport and the ride to Makkah was smooth. Highly recommended.",
-            service: "Airport Transfer"
-        },
-        {
-            name: "Fatima Hassan",
-            location: "Madinah",
-            rating: 5,
-            text: "We used their Umrah taxi service for our family. The driver was very respectful and the car was clean. Best taxi service for pilgrims.",
-            service: "Umrah Taxi"
-        },
-        {
-            name: "Mohammed bin Salman",
-            location: "Riyadh",
-            rating: 5,
-            text: "Professional VIP taxi service in Riyadh. The GMC Yukon was perfect for my business meetings. Reliable taxi service KSA.",
-            service: "VIP Chauffeur"
-        },
-        {
-            name: "Sarah Abdullah",
-            location: "Makkah",
-            rating: 5,
-            text: "Booked a Toyota Hiace for our group. Great taxi service in Saudi Arabia for large families. The driver knew all the best routes.",
-            service: "Group Travel"
-        },
-        {
-            name: "Khalid Al-Otaibi",
-            location: "Dammam",
-            rating: 5,
-            text: "Reliable airport taxi. Driver was on time and the car was comfortable. Will use this taxi service again.",
-            service: "Intercity Travel"
-        },
-        {
-            name: "Aisha Mohammed",
-            location: "Jeddah",
-            rating: 5,
-            text: "Top notch taxi service for pilgrims! Very helpful with luggage and Ziyarat spots.",
-            service: "Airport Transfer"
-        }
-    ];
+
 
     // FAQ data - Entity-optimized answers
     const faqs = [
@@ -253,7 +200,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                 images={heroImages}
                 h1Text="Taxi Service in Saudi Arabia: Airport Transfers and Umrah Transport"
             >
-                <Link href="/locations" className="text-white/90 hover:text-accent underline underline-offset-4 text-sm mobile:text-xs font-medium inline-flex items-center gap-2 transition-colors mt-4">
+                <Link href="/locations" className="text-white/90 hover:text-accent underline underline-offset-4 text-xs sm:text-sm font-medium inline-flex items-center gap-2 transition-colors mt-4">
                     Service coverage across 8 cities in Saudi Arabia <ArrowRight className="w-4 h-4" />
                 </Link>
             </Hero>
@@ -316,7 +263,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                 Core Capabilities
                             </span>
                             <h2 className="text-4xl md:text-6xl font-black text-gray-900 mb-6 tracking-tight leading-[0.9]">
-                                SAUDI<br />WIDE<br />NETWORK
+                                SAUDI{' '}<br />WIDE{' '}<br />NETWORK
                             </h2>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                                 Whether it is the spiritual journey of Umrah or a critical business transfer, our fleet is positioned to serve.
@@ -452,7 +399,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                 </li>
                                 <li className="flex items-center gap-2 sm:gap-3 text-gray-700 font-medium text-sm sm:text-base">
                                     <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 flex-shrink-0" />
-                                    2024/2025 model year fleet
+                                    2025 model year fleet
                                 </li>
                                 <li className="flex items-center gap-2 sm:gap-3 text-gray-700 font-medium text-sm sm:text-base">
                                     <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 flex-shrink-0" />
@@ -705,15 +652,15 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         </div>
                     </div>
 
-                    <div className="flex flex-wrap gap-4">
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:flex lg:flex-wrap gap-4">
                         {serviceAreas.map((area, index) => (
                             <Link key={index} href={area.link} className="block group">
-                                <div className="bg-white border border-gray-200 rounded-xl p-6 hover:border-black hover:shadow-lg transition-all duration-300">
-                                    <h3 className="text-xl font-bold text-gray-900 mb-1 flex items-center gap-2">
-                                        <MapPin className="w-5 h-5 text-primary" />
+                                <div className="bg-white border border-gray-200 rounded-xl p-4 sm:p-6 hover:border-black hover:shadow-lg transition-all duration-300 h-full">
+                                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 flex items-center gap-2">
+                                        <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
                                         {area.name}
                                     </h3>
-                                    <p className="text-sm text-gray-500 font-medium">{area.role}</p>
+                                    <p className="text-xs sm:text-sm text-gray-500 font-medium">{area.role}</p>
                                 </div>
                             </Link>
                         ))}
@@ -724,7 +671,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         <div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Jeddah Airport to Makkah Direct</h3>
                             <p className="text-gray-600 leading-relaxed mb-6">
-                                Skip the multi-leg train journey. Our door-to-door taxi service from King Abdulaziz Airport to Makkah hotels is 40% faster for families with luggage. Fixed rates from SAR 150.
+                                Skip the multi-leg train journey. Our door-to-door taxi service from King Abdulaziz Airport to Makkah hotels is 40% faster for families with luggage. Fixed rates from SAR 250.
                             </p>
                             <Link href="/routes/jeddah-makkah">
                                 <Button className="text-black font-bold border-b-2 border-black rounded-none px-0 py-0 h-auto hover:bg-transparent hover:border-primary transition-colors">
@@ -745,47 +692,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                 </div>
             </section>
 
-            {/* Testimonials Section - Optimized H2 */}
-            <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12 sm:mb-16">
-                        <span className="bg-primary text-white font-semibold tracking-wider uppercase text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-1.5 rounded-full inline-block shadow-md shadow-primary/30">Testimonials</span>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mt-3 sm:mt-4 mb-4 sm:mb-6 px-4">
-                            Trusted Reviews from Pilgrims & Travelers
-                        </h2>
-                    </div>
 
-                    <Carousel
-                        plugins={[plugin.current]}
-                        opts={{
-                            align: "start",
-                            loop: true,
-                        }}
-                        className="w-full max-w-6xl mx-auto"
-                    >
-                        <CarouselContent className="-ml-2 sm:-ml-4">
-                            {testimonials.map((testimonial, index) => (
-                                <CarouselItem key={index} className="pl-2 sm:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
-                                    <div className="bg-gray-50 rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 shadow-md border border-gray-200 hover:shadow-lg transition-shadow duration-300 h-full">
-                                        <div className="flex items-center gap-1 mb-3 sm:mb-4">
-                                            {[...Array(testimonial.rating)].map((_, i) => (
-                                                <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-yellow-400 text-yellow-400" />
-                                            ))}
-                                        </div>
-                                        <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 leading-relaxed">"{testimonial.text}"</p>
-                                        <div className="border-t border-gray-200 pt-3 sm:pt-4">
-                                            <p className="font-bold text-sm sm:text-base text-gray-900">{testimonial.name}</p>
-                                            <p className="text-xs sm:text-sm text-gray-500">{testimonial.location} • {testimonial.service}</p>
-                                        </div>
-                                    </div>
-                                </CarouselItem>
-                            ))}
-                        </CarouselContent>
-                        <CarouselPrevious className="hidden sm:flex -left-4 md:-left-12" />
-                        <CarouselNext className="hidden sm:flex -right-4 md:-right-12" />
-                    </Carousel>
-                </div>
-            </section>
 
             {/* Customer Reviews Section - UGC for Koray's Methodology */}
             <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">

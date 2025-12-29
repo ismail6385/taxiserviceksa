@@ -11,18 +11,18 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from '@/components/ui/accordion';
-import JsonLdFAQ from '@/components/JsonLdFAQ';
+import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
     title: 'Riyadh to Jeddah Taxi | Long Distance 950km Transfer',
     description: 'Private taxi from Riyadh to Jeddah. Comfortable long-distance travel (950 km). Professional drivers, luxury cars, door-to-door service. Book your intercity ride.',
-    keywords: ['Riyadh to Jeddah taxi', 'Riyadh to Jeddah distance', 'taxi fare Riyadh Jeddah', 'intercity taxi Saudi Arabia', 'long distance taxi KSA'],
+    keywords: ['Riyadh to Jeddah taxi', 'Riyadh to Jeddah distance', 'taxi fare Riyadh Jeddah', 'intercity taxi Saudi Arabia', 'long distance taxi KSA', 'private taxi service in riyadh', '7 seater rent a car riyadh', 'toyota hiace for rent in riyadh', 'cab service in riyadh', 'riyadh to makkah car service', 'luxury chauffeur service'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/riyadh-jeddah/',
     },
     openGraph: {
-        title: 'Riyadh to Jeddah Taxi | Long Distance Transfer',
-        description: 'Private taxi from Riyadh to Jeddah. Comfortable long-distance travel (950 km). Professional drivers, luxury cars, door-to-door service.',
+        title: 'Taxi From Riyadh to Jeddah | 950km Private Transfer',
+        description: 'Book a comfortable private taxi from Riyadh to Jeddah. Door-to-door service for the 10-hour drive. Sleep while we drive.',
         url: 'https://taxiserviceksa.com/routes/riyadh-jeddah/',
         type: 'website',
     },
@@ -66,28 +66,7 @@ export default function RiyadhJeddahRoutePage() {
         '/hero-slide-3.webp',
     ];
 
-    const faqs = [
-        {
-            question: "How long does it take time to drive from Riyadh to Jeddah?",
-            answer: "The drive from Riyadh to Jeddah takes approximately 10 to 12 hours depending on traffic and speed. The distance is about 950 km. We recommend starting early in the morning."
-        },
-        {
-            question: "How much does a taxi cost from Riyadh to Jeddah?",
-            answer: "Private taxi fares from Riyadh to Jeddah start from SAR 1800 for a sedan. SUVs are priced around SAR 2500. This includes fuel, driver, and tolls. Prices may vary slightly based on specific pickup/drop-off locations."
-        },
-        {
-            question: "Is it safe to travel by taxi from Riyadh to Jeddah?",
-            answer: "Yes, the route follows major highways which are well-maintained and safe. Our drivers are experienced in long-distance travel and ensure a safe, steady pace with necessary rest stops."
-        },
-        {
-            question: "Can we stop for breaks?",
-            answer: "Absolutely. For a 10-12 hour journey, multiple rest stops (for food, prayer, restrooms) are essential and included. You can request stops whenever you need."
-        },
-        {
-            question: "Is flying better than taking a taxi for this route?",
-            answer: "Flying is much faster (1.5 hours flight time). Taxi is only recommended if you have a lot of luggage, are moving pets, dislike flying, or want to enjoy a road trip across the Kingdom."
-        }
-    ];
+
 
     const routeSchema = {
         "@context": "https://schema.org",
@@ -122,7 +101,7 @@ export default function RiyadhJeddahRoutePage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
             />
-            <JsonLdFAQ faqs={faqs} />
+
 
             {/* Hero Section */}
             <Hero
@@ -260,25 +239,46 @@ export default function RiyadhJeddahRoutePage() {
             </section>
 
             {/* FAQ Section */}
+            {/* Micro-Semantic FAQ Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">FAQ</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-                    </div>
-
-                    <Accordion type="single" collapsible className="space-y-4">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left hover:no-underline py-4">
-                                    <h3 className="text-lg font-bold text-gray-900 pr-4">{faq.question}</h3>
-                                </AccordionTrigger>
-                                <AccordionContent className="pb-4">
-                                    <p className="text-gray-600 leading-relaxed pt-2">{faq.answer}</p>
-                                </AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
+                <div className="max-w-7xl mx-auto">
+                    <MicroSemanticFAQ
+                        faqs={[
+                            {
+                                question: "How long is the drive from Riyadh to Jeddah?",
+                                shortAnswer: "10-12 Hours",
+                                detailedAnswer: "The 950km journey across the Peninsula is a full day trip. We recommend starting at 5:00 AM to arrive by late afternoon. We plan stops every 3-4 hours at major service stations (SASCO) for fuel, prayers, and food.",
+                                perspectives: [
+                                    { role: "Driver", icon: "Clock", insight: "Speed limit is 140km/h on most sections. We adhere strictly to safety limits." },
+                                    { role: "Safety", icon: "Shield", insight: "Night driving is safe but day driving is preferred for better visibility." }
+                                ]
+                            },
+                            {
+                                question: "Is flying better than taking a taxi?",
+                                shortAnswer: "For Speed: Yes",
+                                detailedAnswer: "Flying is much faster (1.5 hours flight). Taxi is recommended ONLY if you have: 1) Excess luggage, 2) Pets (not allowed on Saudia cabin), or 3) A large family where 6 tickets cost more than 1 van rental.",
+                                perspectives: [
+                                    { role: "Budget Traveler", icon: "DollarSign", insight: "For a family of 7, one GMC rental is half the price of 7 flex-flight tickets." }
+                                ]
+                            },
+                            {
+                                question: "What cars do you use for this long trip?",
+                                shortAnswer: "SUVs Recommended",
+                                detailedAnswer: "We strongly recommend GMC Yukon or Chevrolet Suburban. Sedans (Camry) are available but sitting for 10 hours in a sedan is tiring. SUVs allow leg stretching and reclining.",
+                                perspectives: [
+                                    { role: "Passenger", icon: "Car", insight: "The extra space in the Yukon makes sleeping possible during the ride." }
+                                ]
+                            },
+                            {
+                                question: "Can we stop for sightseeing?",
+                                shortAnswer: "Yes, Flexible",
+                                detailedAnswer: "The route passes through desert landscapes. If you want to stop for photos or at a specific rest house, just ask the driver. It's your private charter.",
+                                perspectives: [
+                                    { role: "Tourist", icon: "MapPin", insight: "There are some scenic dunes near Taif if you take the southern route." }
+                                ]
+                            }
+                        ]}
+                    />
                 </div>
             </section>
 

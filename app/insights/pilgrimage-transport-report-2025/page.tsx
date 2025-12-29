@@ -79,7 +79,7 @@ export default function PilgrimageTransportReportPage() {
 
                         <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Data Breakdown</h3>
                         <p>
-                            Our operations team analyzed 500+ trips in Q4 2024 and found that the <strong>Total Trip Time</strong> (Door-to-Door) tells a different story:
+                            Our operations team analyzed 500+ trips in Q4 2025 and found that the <strong>Total Trip Time</strong> (Door-to-Door) tells a different story:
                         </p>
                         <ul className="space-y-4 my-8">
                             <li className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">

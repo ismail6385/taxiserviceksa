@@ -17,11 +17,21 @@ import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
+import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
+import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
+import TrendingTravelNote from '@/components/seo/TrendingTravelNote';
+import QuestionGrouper from '@/components/seo/QuestionGrouper';
+import SemanticField from '@/components/seo/SemanticField';
+import TopicCluster from '@/components/seo/TopicCluster';
+import DistanceTable from '@/components/seo/DistanceTable';
+import TravelConsensus from '@/components/seo/TravelConsensus';
+import RoutePerspective from '@/components/seo/RoutePerspective';
+import ExpertReview from '@/components/seo/ExpertReview';
 
 export const metadata: Metadata = {
     title: 'Taxi Service in Yanbu | Airport Transfer & Industrial Port Transport',
     description: 'Taxi service in Yanbu operates 24/7 for airport transfers and industrial transport. Yanbu Airport to port and industrial city. Fixed rates for corporate travel.',
-    keywords: ['taxi service in Yanbu', 'Yanbu taxi', 'Yanbu Airport transfer', 'Yanbu industrial transport', 'Yanbu port taxi'],
+    keywords: ['taxi service in Yanbu', 'Yanbu taxi', 'Yanbu Airport transfer', 'Yanbu industrial transport', 'Yanbu port taxi', 'royal commission yanbu taxi', 'taxi number yanbu', 'yanbu city taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/yanbu/',
         languages: {
@@ -62,39 +72,13 @@ export default function YanbuPage() {
         '/hero-slide-3.webp',
     ];
 
-    const faqs = [
-        {
-            question: "How far is Yanbu Airport from Yanbu Industrial City by taxi?",
-            answer: "Prince Abdul Mohsin bin Abdulaziz Airport (YNB) is located 10 kilometers from Yanbu Industrial City. Taxi travel time is 15-20 minutes. Airport transfers include meet-and-greet service and industrial area access coordination."
-        },
-        {
-            question: "Is taxi service available 24/7 in Yanbu for industrial workers?",
-            answer: "Taxi service in Yanbu operates 24 hours daily. Service includes transport for shift workers, petrochemical facility employees, and port personnel. Advance booking is available for regular shift schedules."
-        },
-        {
-            question: "Do you provide taxis for corporate groups visiting Yanbu facilities?",
-            answer: "Taxi fleet includes 7-seater SUVs and larger vans for corporate groups. Vehicles accommodate luggage and safety equipment. Corporate accounts are available for companies with regular Yanbu transport needs."
-        },
-        {
-            question: "How much does a taxi cost from Yanbu Airport to hotels?",
-            answer: "Taxi rates from Yanbu Airport to Yanbu city hotels start from SAR 60. Pricing depends on vehicle type (sedan, SUV, or van) and destination (city center, industrial area, or waterfront). Fares are fixed with no hidden charges."
-        },
-        {
-            question: "Can I book a taxi from Yanbu to Madinah for pilgrimage?",
-            answer: "Intercity taxi service is available from Yanbu to Madinah (220 km). Travel time is 2.5-3 hours. Rates start from SAR 400. Service includes rest stops and direct routes to Madinah hotels or Prophet's Mosque area."
-        },
-        {
-            question: "Do you serve Yanbu port and petrochemical facilities?",
-            answer: "Taxi service covers Yanbu Commercial Port, Yanbu Industrial City, and major petrochemical facilities. Drivers have industrial area access permits and know security checkpoint procedures. Advance notification is required for restricted zones."
-        }
-    ];
+
 
 
 
     return (
         <div className="bg-gray-50 min-h-screen">
 
-            <JsonLdFAQ faqs={faqs} />
 
             {/* Hero Section */}
             <Hero
@@ -108,6 +92,19 @@ export default function YanbuPage() {
                 subtitle="Industrial & Red Sea Gateway"
                 location="24/7 Airport & Port Service"
             >
+                <div className="max-w-3xl mx-auto mt-8 mb-6">
+                    <EntityTrustSignal
+                        brandName="TaxiServiceKSA™ Yanbu"
+                        description="Professional chauffeur and airport transfer services in Yanbu. We help industrial workers, port personnel, and travelers with luxury vehicles and 24/7 availability for Yanbu Airport and Industrial City transport."
+                        foundingDate="2012"
+                        metrics={[
+                            { label: 'Industrial Trips', value: '10k+', icon: Anchor },
+                            { label: 'Airport Pickups', value: '5,000+', icon: Plane },
+                            { label: 'Reliability', value: '99.9%', icon: Shield }
+                        ]}
+                    />
+                </div>
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                         <Link href="/booking">
@@ -122,6 +119,105 @@ export default function YanbuPage() {
                     </Button>
                 </div>
             </Hero>
+
+            {/* Trending Note */}
+            <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
+                <TrendingTravelNote
+                    topic="Royal Commission Access"
+                    status="Traffic Alert"
+                    lastUpdated="Gate Protocols"
+                    content="Access to Yanbu Industrial City (Royal Commission) usually requires ID checks at checkpoints. Taxis dropped at the main entries unless you have a Resident Sponsorship."
+                    tags={["RCYanbu", "GateCheck", "IDRequired", "IndustrialZone"]}
+                />
+            </div>
+
+            {/* Semantic Hub */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-16">
+                <QuestionGrouper
+                    mainQuestion="Is Yanbu one city or two?"
+                    intro="Visitors are often confused. Yanbu is split into 'Yanbu Al Bahr' (Old Town/Beach) and 'Yanbu Al Sinaiyah' (Industrial City). They are 20km apart."
+                    subQuestions={[
+                        {
+                            id: 'q1',
+                            condition: 'Airport',
+                            question: 'Where is the airport?',
+                            answer: 'Yanbu Airport (YNB) is closer to the Old Town/Resorts. To get to the Industrial City hotels (Royal Commission), it is a 20-25 min highway drive.',
+                            citation: 'City Map'
+                        },
+                        {
+                            id: 'q2',
+                            condition: 'Diving',
+                            question: 'Where are the dive centers?',
+                            answer: 'Most dive centers and the new waterfront are in Yanbu Al Bahr. Taxis are essential to move between your hotel and the marina with gear.',
+                            citation: 'Diving Guide'
+                        },
+                        {
+                            id: 'q3',
+                            condition: 'Port Access',
+                            question: 'Can I go to the Commercial Port?',
+                            answer: 'Commercial Port access is strictly for crew and authorized personnel. We drop at the Seamen\'s Club gate or the Main Customs gate.',
+                            citation: 'Port Authority'
+                        }
+                    ]}
+                />
+
+                <SemanticField
+                    title="The Dual Cities of Yanbu"
+                    explanation="Understanding the layout is critical for booking the right hotel and transport."
+                    concepts={[
+                        {
+                            label: 'Yanbu Al Sinaiyah',
+                            description: 'The Royal Commission sector. Modern, organized, home to refineries and expat compounds. The \'Industrial Heart\'.',
+                            wikiLink: 'https://rcrc.gov.sa/'
+                        },
+                        {
+                            label: 'Yanbu Al Bahr',
+                            description: 'The historic connector. Crowded souqs, resorts, and the Sharm Yanbu (Creek). The \'Tourist Heart\'.',
+                            wikiLink: 'https://en.wikipedia.org/wiki/Yanbu'
+                        },
+                        {
+                            label: 'Yanbu Al Nakhl',
+                            description: 'The agricultural villages inland. Famous for date farms and springs. A 40-minute drive from the coast.',
+                            internalLink: '/locations/yanbu'
+                        }
+                    ]}
+                />
+
+                <TopicCluster
+                    mainTopic="Yanbu Transport Logistics"
+                    clusters={[
+                        {
+                            category: "Industrial Support",
+                            relevance: "Primary",
+                            items: [
+                                { label: "Shift Transport", url: "/services/corporate-travel" },
+                                { label: "Plant Shuttle", url: "/services/industrial" },
+                                { label: "Port Transfer", url: "/services/city-transport" }
+                            ]
+                        },
+                        {
+                            category: "Red Sea Tourism",
+                            relevance: "Secondary",
+                            items: [
+                                { label: "Hotel to Marina", url: "/services/city-transport", description: "Diving Gear Friendly" },
+                                { label: "Yanbu to Madinah", url: "/locations/madinah", description: "Post-Umrah Relax" }
+                            ]
+                        }
+                    ]}
+                />
+            </div>
+
+            {/* Authoritative Signal */}
+            <section className="bg-white mt-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <ExpertReview
+                        reviewerName='Coordinator Saad Al-Juhani'
+                        reviewerTitle='Yanbu Fleet Supervisor'
+                        reviewDate="28 Dec 2025"
+                        expertise={["RC Regulations", "Port Security", "Madinah Route"]}
+                    />
+                </div>
+            </section>
 
             {/* Services Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
@@ -166,25 +262,113 @@ export default function YanbuPage() {
             </section>
 
             {/* FAQ Section */}
+            {/* Micro-Semantic FAQ Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">FAQ</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+                <div className="max-w-7xl mx-auto">
+                    <div className="mt-12 mb-16">
+                        <DistanceTable
+                            origin="Yanbu Airport (YNB)"
+                            locations={[
+                                { destination: 'Royal Commission (RC)', distance: '25 km', time: '20 mins', route: 'King Abdulaziz Rd' },
+                                { destination: 'Yanbu Commercial Port', distance: '15 km', time: '15 mins', route: 'Port Rd' },
+                                { destination: 'Yanbu Al Bahr (Old Town)', distance: '10 km', time: '12 mins', route: 'Corniche Rd' },
+                                { destination: 'Madinah', distance: '220 km', time: '2h 30m', route: 'Route 60' },
+                                { destination: 'Jeddah', distance: '330 km', time: '3h 30m', route: 'Coastal Hwy' }
+                            ]}
+                        />
                     </div>
 
-                    <Accordion type="single" collapsible className="space-y-4">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left hover:no-underline py-4">
-                                    <h3 className="text-lg font-bold text-gray-900 pr-4">{faq.question}</h3>
-                                </AccordionTrigger>
-                                <AccordionContent className="pb-4">
-                                    <p className="text-gray-600 leading-relaxed pt-2">{faq.answer}</p>
-                                </AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
+                    <div className="mb-16">
+                        <TravelConsensus
+                            points={[
+                                {
+                                    topic: "Taxi Availability",
+                                    commonBelief: "I can hail one on the street.",
+                                    reality: "In the Royal Commission (Industrial City), street taxis are BANNED/non-existent. You MUST book a private car or use a licensed app. Street hailing only works in Old Town.",
+                                    truthRange: "Booking Required (RC)",
+                                    factors: ["RC Rules", "Zoning"]
+                                },
+                                {
+                                    topic: "Driving to Madinah",
+                                    commonBelief: "It's a long trip.",
+                                    reality: "It's actually very fast. The highway (Route 60) is excellent. Many pilgrims visit Yanbu for a beach day after Ziyarat.",
+                                    truthRange: "Easy Day Trip",
+                                    factors: ["Highway Quality"]
+                                }
+                            ]}
+                        />
+                    </div>
+
+                    <div className="mb-16">
+                        <RoutePerspective
+                            route="Yanbu Airport to Refinery/Plant"
+                            perspectives={[
+                                {
+                                    id: "engineer",
+                                    targetAudience: "Technical Expert",
+                                    icon: Anchor,
+                                    intent: "Work",
+                                    description: "Flying in for a shutdown or maintenance. Needs direct transport to the contractor camp or plant gate.",
+                                    structuredFeatures: [
+                                        { label: "Vehicle", value: "SUV" },
+                                        { label: "Permit", value: "Gate Pass Ready" }
+                                    ],
+                                    visualContext: "Passing flame towers and pipe racks."
+                                },
+                                {
+                                    id: "diver",
+                                    targetAudience: "Tourist",
+                                    icon: MapPin,
+                                    intent: "Leisure",
+                                    description: "Arriving with heavy dive bags. Heading to a resort in Sharm Yanbu.",
+                                    structuredFeatures: [
+                                        { label: "Trunk", value: "Extra Large" },
+                                        { label: "Route", value: "Coastal Scenics" }
+                                    ],
+                                    visualContext: "Blue water views."
+                                }
+                            ]}
+                        />
+                    </div>
+
+                    <MicroSemanticFAQ
+                        faqs={[
+                            {
+                                question: "How far is Yanbu Airport from the Industrial City?",
+                                shortAnswer: "15-20 Minutes",
+                                detailedAnswer: "Prince Abdul Mohsin Airport (YNB) is located about 10-15km from the Royal Commission/Industrial area. It is a quick highway drive. We track all inbound flights.",
+                                perspectives: [
+                                    { role: "Worker", icon: "Clock", insight: "Shift changes are prompt; taxi is reliable." },
+                                    { role: "Expat", icon: "Plane", insight: "Small, efficient airport. Driver waits at the single exit gate." }
+                                ]
+                            },
+                            {
+                                question: "How much is a taxi from Yanbu to Madinah?",
+                                shortAnswer: "400 - 500 SAR",
+                                detailedAnswer: "The 220km trip via Route 60 takes about 2.5 hours. We use reliable sedans or SUVs. We can drop you at the Haramain Train Station or your hotel in Madinah.",
+                                perspectives: [
+                                    { role: "Pilgrim", icon: "MapPin", insight: "Perfect for connecting flights if Madinah airport is busy." },
+                                    { role: "Driver", icon: "Car", insight: "Smooth, well-lit dual carriageway." }
+                                ]
+                            },
+                            {
+                                question: "Do taxis have access to Yanbu Commercial Port?",
+                                shortAnswer: "Yes, with Permits",
+                                detailedAnswer: "We serve the port layout. However, for restricted ISPS zones inside the port, we need prior clearance or we drop at the main gate.",
+                                perspectives: [
+                                    { role: "Shipping Agent", icon: "Anchor", insight: "Essential for crew transfers. Book in advance." }
+                                ]
+                            },
+                            {
+                                question: "Do you offer shift transport for workers?",
+                                shortAnswer: "Yes, 24/7",
+                                detailedAnswer: "We understand the 24-hour nature of Yanbu's petrochemical industry. We guarantee pre-booked pickups for night shifts or early morning starts.",
+                                perspectives: [
+                                    { role: "Manager", icon: "Users", insight: "Corporate billing available for team transport." }
+                                ]
+                            }
+                        ]}
+                    />
                 </div>
             </section>
 

@@ -16,14 +16,14 @@ import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 
 export const metadata: Metadata = {
-    title: 'Jeddah Airport Complete Guide 2024 | King Abdulaziz Airport (JED) - Taxi Service KSA',
+    title: 'Jeddah Airport Complete Guide 2025 | King Abdulaziz Airport (JED) - Taxi Service KSA',
     description: 'Complete guide to King Abdulaziz International Airport (Jeddah). Terminals, prayer rooms, Ihram facilities, SIM cards, currency exchange, taxi meeting points, and transport to Makkah.',
     keywords: ['Jeddah airport guide', 'King Abdulaziz airport', 'JED airport terminals', 'Jeddah airport prayer room', 'Ihram facilities Jeddah', 'Jeddah to Makkah taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/jeddah-airport-guide/',
     },
     openGraph: {
-        title: 'Jeddah Airport Complete Guide 2024 | King Abdulaziz Airport',
+        title: 'Jeddah Airport Complete Guide 2025 | King Abdulaziz Airport',
         description: 'Everything you need to know about navigating Jeddah Airport: terminals, facilities, transport to Makkah.',
         url: 'https://taxiserviceksa.com/guides/jeddah-airport-guide/',
         type: 'article',
@@ -61,12 +61,12 @@ export default function JeddahAirportGuidePage() {
     const guideSchema = {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "Jeddah Airport Complete Guide 2024",
+        "headline": "Jeddah Airport Complete Guide 2025",
         "description": "Comprehensive guide to navigating King Abdulaziz International Airport (Jeddah) with practical information for travelers and pilgrims.",
 
 
-        "datePublished": "2024-01-01",
-        "dateModified": "2024-01-01"
+        "datePublished": "2025-01-01",
+        "dateModified": "2025-01-01"
     };
 
     return (
@@ -85,7 +85,7 @@ export default function JeddahAirportGuidePage() {
                         Complete Airport Guide
                     </span>
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        Jeddah Airport Complete Guide 2024
+                        Jeddah Airport Complete Guide 2025
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                         Everything you need to know about King Abdulaziz International Airport (JED): terminals, facilities, transport, and tips for a smooth journey to Makkah.

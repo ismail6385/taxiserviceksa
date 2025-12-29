@@ -17,7 +17,7 @@ import RelatedGuides from '@/components/RelatedGuides';
 export const metadata: Metadata = {
     title: 'Umrah Transport Service | Taxi with Driver for Makkah & Madinah',
     description: 'Complete Umrah transport service with professional drivers. Jeddah Airport to Makkah, Makkah to Madinah taxi. Fixed rates, 24/7 service. All vehicles include licensed drivers.',
-    keywords: ['Umrah taxi service', 'Makkah Madinah transport', 'Umrah transport with driver', 'Jeddah Airport Makkah taxi', 'pilgrimage transport KSA'],
+    keywords: ['Umrah taxi service', 'Makkah Madinah transport', 'Umrah transport with driver', 'Jeddah Airport Makkah taxi', 'pilgrimage transport KSA', 'private umrah taxi for families', 'rent a car with driver in makkah', 'jeddah to makkah coaster', 'toyota hiace for rent in jeddah', 'rent a car with driver in saudi arabia'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/umrah-transport/',
     },
@@ -118,8 +118,12 @@ export default async function UmrahTransportPage() {
             answer: "Umrah transport service includes: professional driver, vehicle fuel, airport meet-and-greet (for airport pickups), flight tracking, prayer breaks, rest stops (for long journeys), and Zamzam water container accommodation. All vehicles are air-conditioned and regularly maintained."
         },
         {
-            question: "How much does complete Umrah transport cost (Jeddah to Makkah to Madinah)?",
-            answer: "Complete Umrah transport package: Jeddah Airport to Makkah (SAR 150-400 depending on vehicle), Makkah to Madinah (SAR 400-900), plus local transport in each city (SAR 30-50 per trip). Total cost depends on group size and vehicle type. Advance booking for full package is recommended."
+            question: "How much is a Toyota Hiace or Coaster for Makkah to Madinah?",
+            answer: "We offer Toyota Hiace (11-12 seater) and Toyota Coaster (20+ seater) for large groups. Prices for Makkah to Madinah transport start from SAR 600 for Hiace and SAR 1100 for Coaster. This includes fuel and driver."
+        },
+        {
+            question: "Do you have Hyundai Staria or Starex for rent with driver?",
+            answer: "Yes, our fleet includes Hyundai Staria and H1 (Starex) vans, ideal for families of 5-7 people. These provide a comfortable ride with ample luggage space for Umrah trips."
         },
         {
             question: "Can the driver wait during Umrah or prayers?",

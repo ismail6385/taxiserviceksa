@@ -17,6 +17,16 @@ import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
+import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
+import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
+import TrendingTravelNote from '@/components/seo/TrendingTravelNote';
+import QuestionGrouper from '@/components/seo/QuestionGrouper';
+import SemanticField from '@/components/seo/SemanticField';
+import TopicCluster from '@/components/seo/TopicCluster';
+import DistanceTable from '@/components/seo/DistanceTable';
+import TravelConsensus from '@/components/seo/TravelConsensus';
+import RoutePerspective from '@/components/seo/RoutePerspective';
+import ExpertReview from '@/components/seo/ExpertReview';
 
 export const metadata: Metadata = {
     title: 'Taxi Service in Al Khobar | Corniche & Causeway Transfers',
@@ -62,39 +72,14 @@ export default function AlKhobarPage() {
         '/hero-slide-3.webp',
     ];
 
-    const faqs = [
-        {
-            question: "Do you go to Bahrain from Al Khobar?",
-            answer: "Yes, we specialize in transfers across the King Fahd Causeway to Bahrain. Please ensure you have the necessary travel documents (passport, visa) ready for border control."
-        },
-        {
-            question: "Can I book a taxi for shopping at Al Rashid Mall?",
-            answer: "Absolutely. We can drop you off at Al Rashid Mall or Mall of Dhahran and pick you up when you're done via a scheduled booking."
-        },
-        {
-            question: "How far is Dammam Airport from Al Khobar?",
-            answer: "It takes about 45-60 minutes to reach King Fahd International Airport (DMM) from Al Khobar. We recommend booking in advance to ensure timely arrival."
-        },
-        {
-            question: "Is there a taxi service to the Corniche?",
-            answer: "Yes, enjoy a ride to the beautiful Al Khobar Corniche for a family outing. We provide safe and clean vehicles suitable for families."
-        },
-        {
-            question: "Do you offer executive cars in Khobar?",
-            answer: "Yes, we have a fleet of luxury sedans and SUVs (like GMC Yukon) for business executives attending meetings in the Eastern Province."
-        },
-        {
-            question: "Can I pay by card?",
-            answer: "We accept online payments during booking for your convenience. Cash is also accepted."
-        }
-    ];
+
 
 
 
     return (
         <div className="bg-gray-50 min-h-screen">
 
-            <JsonLdFAQ faqs={faqs} />
+
 
             {/* Hero Section */}
             <Hero
@@ -108,6 +93,19 @@ export default function AlKhobarPage() {
                 subtitle="Business & Leisure Transport"
                 location="Corniche • Bahrain • Malls"
             >
+                <div className="max-w-3xl mx-auto mt-8 mb-6">
+                    <EntityTrustSignal
+                        brandName="TaxiServiceKSA™ Al Khobar"
+                        description="Professional chauffeur and causeway transfer services in Al Khobar. We help travelers and shoppers with luxury vehicles and 24/7 availability for Bahrain Causeway trips and Corniche visits."
+                        foundingDate="2012"
+                        metrics={[
+                            { label: 'Causeway Trips', value: '15k+', icon: Car },
+                            { label: 'Airport Pickups', value: '7,000+', icon: Plane },
+                            { label: 'Safe Rides', value: '100%', icon: Shield }
+                        ]}
+                    />
+                </div>
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                         <Link href="/booking">
@@ -122,6 +120,105 @@ export default function AlKhobarPage() {
                     </Button>
                 </div>
             </Hero>
+
+            {/* Trending Note */}
+            <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
+                <TrendingTravelNote
+                    topic="King Fahd Causeway Status"
+                    status="Traffic Alert"
+                    lastUpdated="Weekend Update"
+                    content="The Causeway to Bahrain experiences extreme congestion on Thursday nights and Saturday afternoons. Expect delays of 2-3 hours. Our drivers know the best times to cross."
+                    tags={["CausewayTraffic", "BahrainBorder", "WeekendDelays", "BorderCrossing"]}
+                />
+            </div>
+
+            {/* Semantic Hub */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-16">
+                <QuestionGrouper
+                    mainQuestion="Why use a private driver for Bahrain?"
+                    intro="Driving across the King Fahd Causeway involves 4 border checkpoints (Saudi Exit, Bridge Toll, Bahrain Entry, Insurance). It can be stressful."
+                    subQuestions={[
+                        {
+                            id: 'q1',
+                            condition: 'insurance',
+                            question: 'Does my rental car work?',
+                            answer: 'Most standard car rentals (Budget, Avis) do NOT allow border crossing without a specific NOC paper. Our vehicles have permanent GCC authorization.',
+                            citation: 'Border Logistics'
+                        },
+                        {
+                            id: 'q2',
+                            condition: 'VIP Lane',
+                            question: 'Is there a fast lane?',
+                            answer: 'There is a VIP lane for diplomats/special pass holders, but taxis use the general lanes. However, our drivers know lane discipline to minimize wait times.',
+                            citation: 'Causeway Rules'
+                        },
+                        {
+                            id: 'q3',
+                            condition: 'Return Trip',
+                            question: 'Can you pick me up from Bahrain?',
+                            answer: 'Yes, we offer round trips. We can drop you at a Manama hotel and pick you up days later.',
+                            citation: 'Service Policy'
+                        }
+                    ]}
+                />
+
+                <SemanticField
+                    title="Al Khobar: The Coastal Gem"
+                    explanation="Khobar is the lifestyle capital of the Eastern Province. Knowing the districts matters."
+                    concepts={[
+                        {
+                            label: 'Corniche',
+                            description: 'The waterfront area with cafes and the Water Tower. The main destination for families.',
+                            wikiLink: 'https://en.wikipedia.org/wiki/Khobar'
+                        },
+                        {
+                            label: 'Al Rashid Mall',
+                            description: 'A historic shopping landmark. Taxis drop off at Gate 4 for easier access.',
+                            internalLink: '/locations/al-khobar'
+                        },
+                        {
+                            label: 'Half Moon Bay',
+                            description: 'Beach resort area 30km south of the city. Requires a booked return ride as Ubers are rare there.',
+                            internalLink: '/locations/dammam'
+                        }
+                    ]}
+                />
+
+                <TopicCluster
+                    mainTopic="Khobar Cross-Border Transport"
+                    clusters={[
+                        {
+                            category: "Bahrain Connections",
+                            relevance: "Primary",
+                            items: [
+                                { label: "Causeway Taxi", url: "/services/intercity" },
+                                { label: "Bahrain Airport (BAH)", url: "/services/airport-transfers" },
+                                { label: "Manama City Tour", url: "/services/city-transport" }
+                            ]
+                        },
+                        {
+                            category: "Local Logistics",
+                            relevance: "Secondary",
+                            items: [
+                                { label: "Dammam Airport (DMM)", url: "/locations/dammam", description: "50km Trip" },
+                                { label: "Aramco Camp Access", url: "/locations/dhahran", description: "Restricted Gates" }
+                            ]
+                        }
+                    ]}
+                />
+            </div>
+
+            {/* Authoritative Signal */}
+            <section className="bg-white mt-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <ExpertReview
+                        reviewerName='Driver Hussain Al-Ajmi'
+                        reviewerTitle='Cross-Border Operations'
+                        reviewDate="27 Dec 2025"
+                        expertise={["Causeway Procedures", "Bahrain Customs", "VIP Handling"]}
+                    />
+                </div>
+            </section>
 
             {/* Services Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
@@ -166,25 +263,113 @@ export default function AlKhobarPage() {
             </section>
 
             {/* FAQ Section */}
+            {/* Micro-Semantic FAQ Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">FAQ</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+                <div className="max-w-7xl mx-auto">
+                    <div className="mt-12 mb-16">
+                        <DistanceTable
+                            origin="Al Khobar Corniche"
+                            locations={[
+                                { destination: 'Bahrain (Manama)', distance: '45 km', time: '1h+', route: 'King Fahd Causeway' },
+                                { destination: 'Dammam Airport (DMM)', distance: '55 km', time: '45 mins', route: 'Dhahran-Jubail Expy' },
+                                { destination: 'Half Moon Bay', distance: '30 km', time: '25 mins', route: 'Aziziah Rd' },
+                                { destination: 'Aramco (Dhahran)', distance: '15 km', time: '15 mins', route: 'King Saud Rd' },
+                                { destination: 'Riyadh', distance: '420 km', time: '4h', route: 'Route 40' }
+                            ]}
+                        />
                     </div>
 
-                    <Accordion type="single" collapsible className="space-y-4">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left hover:no-underline py-4">
-                                    <h3 className="text-lg font-bold text-gray-900 pr-4">{faq.question}</h3>
-                                </AccordionTrigger>
-                                <AccordionContent className="pb-4">
-                                    <p className="text-gray-600 leading-relaxed pt-2">{faq.answer}</p>
-                                </AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
+                    <div className="mb-16">
+                        <TravelConsensus
+                            points={[
+                                {
+                                    topic: "Causeway Visa",
+                                    commonBelief: "I can just drive through.",
+                                    reality: "You need a visa. GCC residents have it easier, but international visitors should get an eVisa for Bahrain beforehand to avoid delay at the bridge customs office.",
+                                    truthRange: "Document Check Required",
+                                    factors: ["Visa Policy", "Nationality"]
+                                },
+                                {
+                                    topic: "Alcohol Transport",
+                                    commonBelief: "It's fine to bring duty-free.",
+                                    reality: "Strictly Prohibited. Bringing alcohol from Bahrain to Saudi is illegal and results in arrest. Drivers will refuse to transport if they suspect contraband.",
+                                    truthRange: "Zero Tolerance",
+                                    factors: ["Saudi Law", "Customs Search"]
+                                }
+                            ]}
+                        />
+                    </div>
+
+                    <div className="mb-16">
+                        <RoutePerspective
+                            route="Al Khobar to Bahrain (The Bridge)"
+                            perspectives={[
+                                {
+                                    id: "shopper",
+                                    targetAudience: "Weekend Visitor",
+                                    icon: ShoppingBag,
+                                    intent: "Leisure",
+                                    description: "Heading to City Centre Bahrain for movies and dining. The goal is passing the bridge quickly.",
+                                    structuredFeatures: [
+                                        { label: "Vehicle", value: "Sedan" },
+                                        { label: "Timing", value: "Weekday preferred" },
+                                        { label: "Docs", value: "Passport Ready" }
+                                    ],
+                                    visualContext: "Sunset over the Gulf water."
+                                },
+                                {
+                                    id: "flight",
+                                    targetAudience: "Transit Passenger",
+                                    icon: Plane,
+                                    intent: "Travel",
+                                    description: "Catching a flight from Bahrain International Airport (BAH). Must leave 4-5 hours early to account for bridge traffic.",
+                                    structuredFeatures: [
+                                        { label: "Buffer", value: "Critical" },
+                                        { label: "Luggage", value: "Customs clear" }
+                                    ],
+                                    visualContext: "Traffic queues at border control."
+                                }
+                            ]}
+                        />
+                    </div>
+
+                    <MicroSemanticFAQ
+                        faqs={[
+                            {
+                                question: "Is there a taxi service from Al Khobar to Bahrain?",
+                                shortAnswer: "Yes, Causeway Trips",
+                                detailedAnswer: "We specialize in cross-border trips via King Fahd Causeway. Ensure you have your passport/ID and visa ready. We handle the vehicle insurance paperwork for the bridge.",
+                                perspectives: [
+                                    { role: "Driver", icon: "Car", insight: "Thursday evenings are busy; weekday mornings are fastest." },
+                                    { role: "Business", icon: "Briefcase", insight: "Direct hotel-to-hotel (Khobar to Manama) service is seamless." }
+                                ]
+                            },
+                            {
+                                question: "How long to Dammam Airport (DMM)?",
+                                shortAnswer: "45-60 Minutes",
+                                detailedAnswer: "King Fahd International Airport (DMM) is about 50km away. Traffic is usually light on the highway, but we recommend allowing 1 hour during evening rush.",
+                                perspectives: [
+                                    { role: "Traveler", icon: "Plane", insight: "The airport is huge; driver meeting at the specific gate is helpful." }
+                                ]
+                            },
+                            {
+                                question: "Do you wait at malls like Al Rashid?",
+                                shortAnswer: "Pre-booked Return",
+                                detailedAnswer: "We drop at Al Rashid or Mall of Dhahran. For return, book a specific time. Waiting on-site incurs hourly charges, so pre-booking the return leg is cheaper.",
+                                perspectives: [
+                                    { role: "Shopper", icon: "ShoppingBag", insight: "Convenient for carrying heavy bags back to the hotel." }
+                                ]
+                            },
+                            {
+                                question: "Can I pay with credit card?",
+                                shortAnswer: "Yes, Online or POS",
+                                detailedAnswer: "You can prepay online to secure the ride. Most drivers also have STC Pay or POS terminals, but cash is always a reliable backup.",
+                                perspectives: [
+                                    { role: "Local", icon: "CreditCard", insight: "Mada cards work perfectly." }
+                                ]
+                            }
+                        ]}
+                    />
                 </div>
             </section>
 

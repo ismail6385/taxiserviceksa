@@ -146,7 +146,7 @@ export default function ToyotaHiacePage() {
                             </div>
                         </div>
                         <blockquote className="text-gray-600 italic mb-4">
-                            "The #1 complaint in other vans is the heat in the back row. Our 2024 Hiace models have dedicated ceiling vents for every single row, not just the front. I drove a family of 10 from Madinah to Makkah in July (45°C), and the kids in the back were asleep under blankets. That's the Hiace difference."
+                            "The #1 complaint in other vans is the heat in the back row. Our 2025 Hiace models have dedicated ceiling vents for every single row, not just the front. I drove a family of 10 from Madinah to Makkah in July (45°C), and the kids in the back were asleep under blankets. That's the Hiace difference."
                         </blockquote>
                         <div className="flex flex-wrap gap-2">
                             <span className="bg-amber-50 text-amber-800 px-3 py-1 rounded-full text-xs font-medium">Climate: Multi-Zone Roof Vents</span>

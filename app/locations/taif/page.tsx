@@ -32,7 +32,7 @@ import QuestionForm from '@/components/seo/QuestionForm';
 export const metadata: Metadata = {
     title: 'Taxi Service in Taif | Makkah Transfers & Al Hada Tours',
     description: 'Taxi service requires mountain-ready vehicles for Al Hada road. Transfers from Makkah to Taif and Jeddah Airport available. Tours to Al Shafa rose farms.',
-    keywords: ['Taif taxi service', 'Makkah to Taif taxi', 'Jeddah to Taif taxi', 'Al Hada transport', 'Taif rose farm tour', 'Qarn al Manazil taxi'],
+    keywords: ['Taif taxi service', 'Makkah to Taif taxi', 'Jeddah to Taif taxi', 'Al Hada transport', 'Taif rose farm tour', 'Qarn al Manazil taxi', 'makkah to taif taxi fare', 'makkah to taif distance', 'taif to makkah', 'luxury car rental in taif with driver', 'best car rental in taif', 'taif car rentals', 'taif rent a car', 'taif to makkah taxi fare', 'from taif to makkah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/taif/',
         languages: {
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
 
 export default function TaifPage() {
     const services = [
-        { name: 'Makkah to Taif Transfer', description: 'Cool mountain escape (1 hr)', icon: Car },
+        { name: 'Makkah to Taif Taxi', description: 'Cool mountain escape (1 hr) - Luxury SUV', icon: Car },
         { name: 'Jeddah Airport to Taif', description: 'Direct transfer (2 hrs)', icon: MapPin },
         { name: 'Al Hada & Cable Car', description: 'Drop-off at top station', icon: CloudFog },
         { name: 'Rose Farm Tours', description: 'Seasonal factory visits (Mar-Apr)', icon: Flower2 },
@@ -65,28 +65,7 @@ export default function TaifPage() {
         '/hero-slide-5.webp',
     ];
 
-    const faqs = [
-        {
-            question: "How much is a taxi from Makkah to Taif?",
-            answer: "Taxi fare from Makkah to Taif ranges from 200-300 SAR. Distance is 90km via Al Hada road. Travel time is 60-75 minutes."
-        },
-        {
-            question: "Is the road to Taif dangerous?",
-            answer: "Al Hada mountain road is a dual carriageway with winding turns. Fog conditions occur frequently. Drivers are experienced with high-altitude navigation."
-        },
-        {
-            question: "Can I visit the Taif Rose Farms anytime?",
-            answer: "Rose harvesting season occurs in March and April. Factories in Al Shafa demonstrate oil distillation during this period. Farms remain open year-round for sightseeing."
-        },
-        {
-            question: "Is there a Miqat in Taif?",
-            answer: "Qarn al-Manazil (As-Sayl Al-Kabir) is the Miqat for pilgrims approaching Makkah from the East. Stops for Ihram are available upon request."
-        },
-        {
-            question: "Is Uber available in Taif?",
-            answer: "Ride-hailing apps operate in Taif city center. Private bookings are recommended for Al Shafa, Al Hada, and remote nature reserves due to connection reliability."
-        }
-    ];
+
 
     const distanceData = [
         { destination: 'Makkah (Haram)', distance: '88 km', time: '1h 10m', route: 'Al Hada Rd' },
@@ -115,7 +94,7 @@ export default function TaifPage() {
                     })
                 }}
             />
-            <JsonLdFAQ faqs={faqs} />
+
 
             <Hero
                 images={taifImages}
@@ -131,7 +110,7 @@ export default function TaifPage() {
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
                         brandName="TaxiServiceKSA™ Taif"
-                        description="Driving the Al Hada mountain road requires skill and confidence. Our fleet is maintained for high-altitude performance, ensuring your ascent to the 'Summer Capital' is smooth and safe."
+                        description="Professional chauffeur and airport transfer services in Taif. We help travelers and rose festival visitors with luxury vehicles and 24/7 availability for Al Hada mountain road and Jeddah Airport transfers."
                         foundingDate="2012"
                         metrics={[
                             { label: 'Mountain Trips', value: '5,000+', icon: Mountain },
@@ -161,7 +140,7 @@ export default function TaifPage() {
                 <TrendingTravelNote
                     topic="Al Hada Road Status: Fog Alerts"
                     status="Traffic Alert"
-                    lastUpdated="Winter 2024"
+                    lastUpdated="Winter 2025"
                     content="The Al Hada mountain road frequently closes during heavy rain or dense fog for safety. When closed, the alternative route (As-Sayl) adds 45 minutes to the trip. Our drivers monitor traffic police updates in real-time to choose the open route."
                     tags={["RoadClosure", "AlHada", "FogSafety", "DetourAlert"]}
                 />
@@ -268,7 +247,7 @@ export default function TaifPage() {
                     <ExpertReview
                         reviewerName='Captain Waleed Al-Thaqafi'
                         reviewerTitle='High-Altitude Driving Specialist'
-                        reviewDate="26 Dec 2024"
+                        reviewDate="26 Dec 2025"
                         expertise={["Mountain Safety", "Fog Navigation", "Local Farm Access"]}
                     />
                 </div>
@@ -328,11 +307,11 @@ export default function TaifPage() {
                             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="flex items-start gap-3 bg-gray-50 p-4 rounded-xl border border-gray-200">
                                     <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
-                                    <div><h4 className="font-bold">Brake Check</h4><p className="text-sm text-gray-500">Compulsory safety stops included</p></div>
+                                    <div><h3 className="font-bold text-lg">Brake Check</h3><p className="text-sm text-gray-500">Compulsory safety stops included</p></div>
                                 </div>
                                 <div className="flex items-start gap-3 bg-gray-50 p-4 rounded-xl border border-gray-200">
                                     <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
-                                    <div><h4 className="font-bold">Family Space</h4><p className="text-sm text-gray-500">Room for picnic gear & strollers</p></div>
+                                    <div><h3 className="font-bold text-lg">Family Space</h3><p className="text-sm text-gray-500">Room for picnic gear & strollers</p></div>
                                 </div>
                             </div>
                         </div>
@@ -418,7 +397,40 @@ export default function TaifPage() {
                         <MicroSemanticFAQ
                             faqs={[
                                 {
-                                    question: "Are there wild monkeys?",
+                                    question: "How much is a taxi from Makkah to Taif?",
+                                    shortAnswer: "200-300 SAR",
+                                    detailedAnswer: "Standard sedan rates for the one-way drop to Taif city start from 200 SAR. Visiting Al Hada (Cable car point) or Al Shafa requires a different rate due to the steep ascent.",
+                                    perspectives: [
+                                        { role: "Tourist", icon: "Mountain", insight: "Much cheaper than Uber which often cancels on the mountain." },
+                                        { role: "Local", icon: "Shield", insight: "Fixed price is better than meter in steep terrain." }
+                                    ]
+                                },
+                                {
+                                    question: "Is the Al Hada mountain road safe?",
+                                    shortAnswer: "Yes (Dual Highway)",
+                                    detailedAnswer: "It is a world-class engineered road. However, it is steep. We use V6/V8 SUVs to ensure engine braking power and safety. We avoid it during heavy fog warnings.",
+                                    perspectives: [
+                                        { role: "Safety", icon: "CloudFog", insight: "If the road is closed due to rain, we take the alternative As-Sayl route (safe but 45 mins longer)." }
+                                    ]
+                                },
+                                {
+                                    question: "When can we see the Taif Roses?",
+                                    shortAnswer: "March & April Only",
+                                    detailedAnswer: "The famous Taif Rose harvest happens in spring (March-April). Factories in Al Shafa are open for distillation demos. Off-season, you can still visit the green farms, but no pink flowers.",
+                                    perspectives: [
+                                        { role: "Photographer", icon: "Flower2", insight: "Best light is early morning 6-8 AM before farmers harvest the blooms." }
+                                    ]
+                                },
+                                {
+                                    question: "Is Uber available in Taif?",
+                                    shortAnswer: "Limited Reliability",
+                                    detailedAnswer: "Uber works in the city center but is very difficult to find near remote resorts in Al Shafa or Al Hada. You risk getting stranded at the top of the mountain.",
+                                    perspectives: [
+                                        { role: "Solo Traveler", icon: "User", insight: "I got stuck at the cable car for 2 hours waiting for a ride. Pre-booking is essential." }
+                                    ]
+                                },
+                                {
+                                    question: "Are there wild monkeys in Al Hada?",
                                     shortAnswer: "Yes, many.",
                                     detailedAnswer: "You will see baboons along the Al Hada road. They are generally harmless if you stay in the car, but they will steal food if windows are open.",
                                     perspectives: [

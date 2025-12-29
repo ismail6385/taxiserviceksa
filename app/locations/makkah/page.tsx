@@ -35,7 +35,7 @@ import RelatedGuides from '@/components/RelatedGuides';
 export const metadata: Metadata = {
     title: 'Taxi Service in Makkah | Umrah Transport & Airport Transfers',
     description: 'Taxi service in Makkah for Umrah pilgrims and airport transfers. Service operates 24/7. Fixed rates for Jeddah Airport to Makkah hotels. Family vehicles available.',
-    keywords: ['taxi service in Makkah', 'Makkah taxi', 'Umrah transport', 'Jeddah to Makkah taxi', 'Makkah airport transfer'],
+    keywords: ['taxi service in Makkah', 'Makkah taxi', 'Umrah transport', 'Jeddah to Makkah taxi', 'Makkah airport transfer', 'makkah to madina taxi', 'makkah car with driver', 'jeddah to makkah taxi fare', 'private umrah taxi for families', 'rent a car with driver in makkah', 'makkah to taif taxi price', 'rent a car in makkah with driver', 'makkah to madinah car rental', 'transport from madinah to makkah', 'rent a car makkah', 'car rental makkah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/makkah/',
         languages: {
@@ -61,9 +61,9 @@ export default async function MakkahPage() {
     const displayBlogs = [...makkahBlogs, ...umrahBlogs].slice(0, 6);
 
     const services = [
-        { name: 'Makkah Airport Taxi', description: 'Transfers from King Abdulaziz Airport (Jeddah) to Makkah hotels', icon: Plane },
-        { name: 'Umrah Taxi Service', description: 'Transport for Umrah pilgrims and Ziyarat tours', icon: MapPin },
-        { name: 'Makkah to Madinah Taxi', description: 'Intercity travel between Makkah and Madinah (450 km)', icon: Car },
+        { name: 'Taxi Makkah to Jeddah', description: 'Transfers from Makkah hotels to Jeddah Airport (KAIA)', icon: Plane },
+        { name: 'Private Umrah Taxi', description: 'Dedicated car with driver for Umrah & Ziyarat', icon: MapPin },
+        { name: 'Taxi Makkah to Madinah', description: 'Intercity car hire Makkah to Madinah (450 km)', icon: Car },
         { name: 'Hotel to Haram Taxi', description: 'Transport between Makkah hotels and Masjid al Haram', icon: Clock },
     ];
 
@@ -83,46 +83,13 @@ export default async function MakkahPage() {
         '/makkah-clock-tower.webp',
     ];
 
-    const faqs = [
-        {
-            question: "How far is Jeddah Airport from Makkah by taxi?",
-            answer: "The distance from Jeddah Airport (King Abdulaziz International) to Makkah is 80-90 kilometers. Taxi travel time is approximately 60-90 minutes depending on traffic. Airport transfers include flight tracking and meet-and-greet service."
-        },
-        {
-            question: "Is taxi service available 24/7 in Makkah for Umrah pilgrims?",
-            answer: "Taxi service in Makkah operates 24/7. Use of service includes transport for prayer times, late-night arrivals, and early morning departures. Drivers are available near Masjid al Haram and major hotels."
-        },
-        {
-            question: "Do you provide taxis for large Umrah families in Makkah?",
-            answer: "Taxi fleet includes 7-seater GMC Yukons and larger vans for groups. Vehicles accommodate luggage, Zamzam water containers, and personal belongings. Family bookings are available via email or online form."
-        },
-        {
-            question: "How much does a taxi cost from Jeddah Airport to Makkah?",
-            answer: "Taxi rates from Jeddah Airport to Makkah start from SAR 250. Pricing depends on vehicle type (sedan, SUV, or van) and hotel location. Fares are fixed with no surge charges."
-        },
-        {
-            question: "Can I book a taxi from Makkah to Madinah for Umrah?",
-            answer: "Intercity taxi service is available from Makkah to Madinah (450 km). Travel time is 4-5 hours. Rates start from SAR 450. Service includes rest stops."
-        },
-        {
-            question: "How early should I book a taxi for Fajr prayer at the Haram?",
-            answer: "Booking 45-60 minutes before Fajr prayer is recommended. Traffic volume increases during Ramadan. Drivers pick up from hotels between 4:00-4:30 AM."
-        },
-        {
-            question: "Can your taxis accommodate wheelchairs for elderly pilgrims?",
-            answer: "Vehicles with wheelchair capacity are available. Drivers assist with wheelchair loading and boarding. Wheelchair requirements must be specified during booking."
-        },
-        {
-            question: "Is it safe to carry Ihram clothing and valuables in your taxis?",
-            answer: "Vehicles are secure for luggage and Ihram garments. Passengers should keep important documents and money on their person. Drivers are licensed and vetted."
-        }
-    ];
+
 
     const distanceData = [
         { destination: 'Jeddah Airport (KAIA)', distance: '95 km (59 mi)', time: '60-80 mins', route: 'Haramain Hwy' },
         { destination: 'Madinah (Prophet\'s Mosque)', distance: '450 km (280 mi)', time: '4-5 hours', route: 'Route 15' },
         { destination: 'Taif (City Center)', distance: '85 km (53 mi)', time: '60-90 mins', route: 'Al Hada Mtn' },
-        { destination: 'Aziziyah (Makkah)', distance: '5-10 km (3-6 mi)', time: '15-20 mins', route: 'Tunnel Access' },
+        { destination: 'Aziziyah (Makkah)', distance: '3-7 km (2-4 mi)', time: '10-20 mins', route: 'Tunnel Access' },
         { destination: 'Jabal Omar Hotels', distance: '1-3 km (0.6-1.8 mi)', time: '5-10 mins', route: 'King Abdulaziz Rd' }
     ];
 
@@ -209,7 +176,7 @@ export default async function MakkahPage() {
                     })
                 }}
             />
-            <JsonLdFAQ faqs={faqs} />
+
 
             {/* Hero Section with Rank-Focused H1 */}
             <Hero
@@ -217,16 +184,16 @@ export default async function MakkahPage() {
                 h1Text="Taxi Service in Makkah: Umrah Transport and Ziyarat Tours"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Makkah Taxi Service
+                        TaxiServiceKSA™ Makkah
                     </span>
                 }
-                subtitle="Safe & Comfortable Pilgrimage Transport"
+                subtitle="Safe Umrah Taxi & Makkah Transport"
                 location="24/7 Hotel to Haram Service"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
                         brandName="TaxiServiceKSA™ Makkah"
-                        description="The official transportation partner for over 10,000 Umrah pilgrims. We don't just 'drive'; we facilitate your spiritual journey with verified, licensed, and knowledgeable local drivers."
+                        description="Professional chauffeur and Ziyarat services in Makkah. We help pilgrims perform Umrah with ease, offering luxury vehicles and 24/7 availability for Haram transfers and Jeddah Airport pickups."
                         foundingDate="2012"
                         metrics={[
                             { label: 'Pilgrims Served', value: '15k+', icon: Users },
@@ -240,7 +207,7 @@ export default async function MakkahPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book Taxi Now
+                            Rent a Car with Driver
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
@@ -257,7 +224,7 @@ export default async function MakkahPage() {
                 <TrendingTravelNote
                     topic="Jeddah Airport to Makkah: New Train vs Taxi Reality"
                     status="High Demand"
-                    lastUpdated="December 2024"
+                    lastUpdated="December 2025"
                     content="While the Haramain Train is operational, recent pilgrim feedback suggests that for families (3+ pax) with luggage, the 'Door-to-Door' taxi service remains 40% more time-efficient than the multi-leg train journey (Train + Taxi to Station + Taxi to Hotel). Book a private GMC for the smoothest experience."
                     tags={["HaramainTrain", "JeddahAirportTaxi", "FamilyTransport", "Umrah2025"]}
                 />
@@ -274,7 +241,7 @@ export default async function MakkahPage() {
                             condition: 'Solo Traveler (Light Luggage)',
                             question: 'Is the train faster for a single person?',
                             answer: 'Yes. For a solo traveler with one backpack, the train (35 SAR) is unbeatable. You can easily navigate the station to the bus/taxi stand in Makkah.',
-                            citation: 'Haramain High Speed Railway Schedule 2024'
+                            citation: 'Haramain High Speed Railway Schedule 2025'
                         },
                         {
                             id: 'q2',
@@ -288,7 +255,7 @@ export default async function MakkahPage() {
                             condition: 'Hotel Distance from Haram',
                             question: 'Does my hotel location matter?',
                             answer: 'Critically. If your hotel is in Aziziyah or far from the Haram, the taxi from Makkah Train Station can cost 50-80 SAR extra. A direct Jeddah taxi avoids this "last mile" surge pricing.',
-                            citation: 'Local Rate Monitor (Dec 2024)'
+                            citation: 'Local Rate Monitor (Dec 2025)'
                         }
                     ]}
                 />
@@ -329,6 +296,7 @@ export default async function MakkahPage() {
                             items: [
                                 { label: "Jeddah Airport to Makkah", url: "/jeddah-airport-to-makkah-taxi" },
                                 { label: "Makkah to Madinah Taxi", url: "/makkah-to-madinah-taxi" },
+                                { label: "Makkah to Taif Taxi", url: "/locations/taif" },
                                 { label: "Haramain Train Station Transfer", url: "/makkah-train-station-taxi" }
                             ]
                         },
@@ -376,7 +344,7 @@ export default async function MakkahPage() {
             <section className="bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <ExpertReview
-                        reviewDate="25 Dec 2024"
+                        reviewDate="25 Dec 2025"
                         expertise={["Haram Tunnels", "Miqat Zones", "Ajyad Traffic Patterns"]}
                     />
                 </div>
@@ -459,14 +427,14 @@ export default async function MakkahPage() {
                                 <div className="flex items-start gap-3 bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
                                     <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
                                     <div>
-                                        <h4 className="font-semibold text-gray-900 mb-1">Prayer Time Respect</h4>
+                                        <h3 className="font-semibold text-gray-900 mb-1">Prayer Time Respect</h3>
                                         <p className="text-sm text-gray-600">Drivers understand Salah timings</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-3 bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
                                     <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
                                     <div>
-                                        <h4 className="font-semibold text-gray-900 mb-1">Zamzam Safe Transport</h4>
+                                        <h3 className="font-semibold text-gray-900 mb-1">Zamzam Safe Transport</h3>
                                         <p className="text-sm text-gray-600">Secure space for holy water</p>
                                     </div>
                                 </div>
@@ -511,9 +479,9 @@ export default async function MakkahPage() {
                                 <span className="text-sm font-bold text-emerald-900">Critical Pilgrim Logistics</span>
                             </div>
 
-                            <h3 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight text-gray-900 mb-6">
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight text-gray-900 mb-6">
                                 Mastering Makkah's Transport Nodes
-                            </h3>
+                            </h2>
 
                             <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                                 A successful Umrah requires navigating specific <span className="font-bold text-gray-900">Miqat boundaries</span> and restricted <span className="font-bold text-gray-900">Haram zones</span>. Unlike standard ride-hailing apps, our specialized drivers are trained on the exact geofenced drop-off loops allowed by local authorities.
@@ -522,10 +490,10 @@ export default async function MakkahPage() {
                             <div className="space-y-6">
                                 {/* Entity 1: Miqat Points */}
                                 <div className="bg-gray-50 p-5 rounded-2xl border-l-4 border-black">
-                                    <h4 className="flex items-center gap-2 font-bold text-gray-900 text-lg mb-2">
+                                    <h3 className="flex items-center gap-2 font-bold text-gray-900 text-lg mb-2">
                                         <Compass className="w-5 h-5 text-black" />
                                         Miqat Stops (Ihram Boundary)
-                                    </h4>
+                                    </h3>
                                     <p className="text-gray-600 text-sm mb-3">
                                         We guarantee 45-minute stopovers at key Miqat points for you to wear Ihram and make Niyyah before entering the Haram boundary.
                                     </p>
@@ -538,10 +506,10 @@ export default async function MakkahPage() {
 
                                 {/* Entity 2: Haram Gates & Drop-off */}
                                 <div className="bg-gray-50 p-5 rounded-2xl border-l-4 border-blue-500">
-                                    <h4 className="flex items-center gap-2 font-bold text-gray-900 text-lg mb-2">
+                                    <h3 className="flex items-center gap-2 font-bold text-gray-900 text-lg mb-2">
                                         <Shield className="w-5 h-5 text-blue-600" />
                                         Haram Drop-Off Zones
-                                    </h4>
+                                    </h3>
                                     <p className="text-gray-600 text-sm mb-3">
                                         Private vehicles cannot stop at the main King Abdulaziz Gate. We utilize the closest authorized underground tunnels and bus loops to minimize your walking distance.
                                     </p>
@@ -555,10 +523,10 @@ export default async function MakkahPage() {
 
                                 {/* Entity 3: Terminals & Nusuk */}
                                 <div className="bg-gray-50 p-5 rounded-2xl border-l-4 border-emerald-500">
-                                    <h4 className="flex items-center gap-2 font-bold text-gray-900 text-lg mb-2">
+                                    <h3 className="flex items-center gap-2 font-bold text-gray-900 text-lg mb-2">
                                         <Plane className="w-5 h-5 text-emerald-600" />
                                         Terminals & Permits
-                                    </h4>
+                                    </h3>
                                     <div className="space-y-2 text-sm text-gray-600">
                                         <p><span className="font-bold text-gray-900">Jeddah Airport (KAIA):</span> We track arrivals at <span className="underline decoration-emerald-300">Terminal 1 (New)</span> and <span className="underline decoration-emerald-300">North Terminal</span>.</p>
                                         <p><span className="font-bold text-gray-900">Nusuk Compliance:</span> All our vehicles carry the necessary digital permits to access Makkah's central zones during Hajj and Ramadan seasons.</p>
@@ -667,52 +635,88 @@ export default async function MakkahPage() {
                             faqs={[
                                 {
                                     question: "How much is a taxi from Jeddah Airport to Makkah?",
-                                    shortAnswer: "250 SAR (Fixed Price)",
-                                    detailedAnswer: "The standard market rate for a private sedan start from 250 SAR. Official airport taxis run on meters and often cost more due to waiting time and airport surcharges. Apps like Uber/Careem fluctuate heavily with surge pricing.",
+                                    shortAnswer: "From 250 SAR (Sedan)",
+                                    detailedAnswer: "Our fixed rates start at 250 SAR for a standard sedan. For larger families, GMC Yukons are available from 400 SAR. Prices are fixed upfront, avoiding the 30-50% surge pricing common with apps like Uber or Careem during peak prayer times.",
                                     perspectives: [
                                         {
-                                            role: "Budget Traveler",
+                                            role: "Budget Monitor",
                                             icon: "Briefcase",
-                                            insight: "Haramain Train is cheaper (35 SAR) but requires a taxi from Rusaifa station to your hotel (40-50 SAR). Total cost stacks up for groups."
+                                            insight: "While the Haramain Train is 35 SAR/person, the total cost for a family of 5 (plus taxi to station) often exceeds the cost of a private door-to-door GMC."
                                         },
                                         {
-                                            role: "Family Head (5+ Pax)",
+                                            role: "Family Head",
                                             icon: "Users",
-                                            insight: "Booking two sedans costs 500 SAR. A single GMC Yukon XL costs 450 SAR, saving money and keeping the family together."
+                                            insight: "Booking one large vehicle for 450 SAR is stressful-free compared to coordinating two separate sedans for a large family."
                                         }
                                     ]
                                 },
                                 {
-                                    question: "How long is the journey from Jeddah to Makkah?",
-                                    shortAnswer: "75 - 90 Minutes",
-                                    detailedAnswer: "The distance is roughly 100km via the Prince Main Highway. Under normal traffic, it's a smooth 75-minute drive.",
+                                    question: "How long is the taxi ride from Makkah to Madinah?",
+                                    shortAnswer: "4.5 Hours",
+                                    detailedAnswer: "The 450km journey via the Hijrah Highway (Route 15) takes about 4 hours and 30 minutes in a private car. We include a 30-minute stop at a service station (SASCO) for food, restrooms, and prayer.",
                                     perspectives: [
                                         {
-                                            role: "Umrah Pilgrim",
+                                            role: "Pilgrim",
                                             icon: "Heart",
-                                            insight: "The Haram Boundary checkpoint (Shumaisi) usually adds 10-20 minutes for permit checks. Usually faster for tourists/GCC residents."
+                                            insight: "It is a long drive, but much more comfortable than the bus. You can sleep, and the driver handles the luggage door-to-door."
                                         },
                                         {
-                                            role: "Local Expert",
+                                            role: "Safety Officer",
                                             icon: "Shield",
-                                            insight: "Avoid departing Jeddah between 5:00 PM - 7:00 PM (Work rush). On Fridays, access to Haram hotels is blocked from 10:30 AM to 2:30 PM for prayers."
+                                            insight: "We monitor speed strictly. The road is monitored by Saher cameras, ensuring a safe, steady pace."
+                                        }
+                                    ]
+                                },
+                                {
+                                    question: "Can taxis drop us directly at the Haram gates?",
+                                    shortAnswer: "Tunnels Only (Standard)",
+                                    detailedAnswer: "Private vehicles are restricted from the immediate King Abdulaziz Gate plaza. We drop you at the nearest authorized points: the Ajyad Tunnel (for Clock Tower) or Gaza Loop (for Marwah side), which are a 5-8 minute walk to the Mataf.",
+                                    perspectives: [
+                                        {
+                                            role: "Local Guide",
+                                            icon: "MapPin",
+                                            insight: "During Ramadan, police close inner roads 1 hour before prayers. We know the 'secret' drop-off points in Kudai to get you as close as legally possible."
+                                        },
+                                        {
+                                            role: "Elderly Care",
+                                            icon: "User",
+                                            insight: "Wheelchairs can be offloaded at the tunnel entrance. It's a flat walk from there."
+                                        }
+                                    ]
+                                },
+                                {
+                                    question: "Do you offer private Ziyarat tours in Makkah?",
+                                    shortAnswer: "Yes, 3-Hour Tours",
+                                    detailedAnswer: "We provide comprehensive Ziyarat packages visiting Jabal al-Nour (Hira Cave), Jabal Thawr, Arafat, Mina, and Muzdalifah. The driver waits for you at each site for photos and prayer.",
+                                    perspectives: [
+                                        {
+                                            role: "History Buff",
+                                            icon: "Compass",
+                                            insight: "Ask specifically to visit the 'Exhibition of the Two Holy Mosques' in Umm Al Joud if you have time. It's a hidden gem."
+                                        }
+                                    ]
+                                },
+                                {
+                                    question: "Is it safe to go to Taif from Makkah by taxi?",
+                                    shortAnswer: "Yes (Al Hada Road)",
+                                    detailedAnswer: "The Al Hada mountain road is a modern engineering marvel. Our V8 SUVs handle the steep ascent easily. However, we monitor weather reports for fog to ensure safety.",
+                                    perspectives: [
+                                        {
+                                            role: "Tourist",
+                                            icon: "Mountain",
+                                            insight: "The views of Makkah at night from the top of Al Hada are breathtaking. It's worth the trip just for the photo."
                                         }
                                     ]
                                 },
                                 {
                                     question: "Can I wear Ihram in the taxi?",
-                                    shortAnswer: "Yes, it is standard.",
-                                    detailedAnswer: "90% of our passengers are pilgrims. Our cars are kept cool (AC), and seats are clean for those in Ihram.",
+                                    shortAnswer: "Yes, fully acceptable.",
+                                    detailedAnswer: "Our vehicles are 'Ihram-friendly', meaning they are kept cool, clean, and spacious. Drivers are respectful of the pilgrims' state and avoid playing music.",
                                     perspectives: [
                                         {
-                                            role: "Spiritual Guide",
-                                            icon: "User",
-                                            insight: "This journey is an ibadah. Drivers respect this, offering silence or Quran recitation rather than loud music."
-                                        },
-                                        {
-                                            role: "Comfort Seeker",
-                                            icon: "Compass",
-                                            insight: "Sedans can be tight for men in Ihram. Just for legroom and ease of movement, upgrading to an SUV (GMC) is highly recommended."
+                                            role: "Spiritual",
+                                            icon: "Star",
+                                            insight: "Drivers often play Talbiyah or Quran upon request to help maintain your spiritual focus."
                                         }
                                     ]
                                 }
@@ -737,9 +741,9 @@ export default async function MakkahPage() {
                             <span className="text-sm font-semibold text-gray-900">Complete Journey</span>
                         </div>
 
-                        <h3 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-tight text-gray-900 mb-6">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-tight text-gray-900 mb-6">
                             Your Complete Umrah Travel Journey in Makkah
-                        </h3>
+                        </h2>
 
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                             From airport arrival to departure, we handle every transportation need during your spiritual journey
@@ -771,7 +775,7 @@ export default async function MakkahPage() {
                             <div className="flex-1 bg-white p-6 rounded-2xl border-2 border-gray-100 hover:border-black/30 hover:shadow-lg transition-all">
                                 <div className="flex items-center gap-2 mb-2">
                                     <Plane className="w-5 h-5 text-black" />
-                                    <h4 className="text-xl font-bold text-gray-900">Airport Arrival & Hotel Transfer</h4>
+                                    <h3 className="text-xl font-bold text-gray-900">Airport Arrival & Hotel Transfer</h3>
                                 </div>
                                 <p className="text-gray-600 leading-relaxed">
                                     Land at Jeddah Airport, clear customs, and meet your driver for a comfortable 60-90 minute journey to your hotel in Makkah (Aziziyah, Jabal Omar, or Clock Tower area). <Link href="/locations/jeddah" className="text-black font-semibold underline decoration-black/30 hover:decoration-black underline-offset-4 transition-all">Learn more about our Jeddah airport transfer service</Link>.
@@ -791,7 +795,7 @@ export default async function MakkahPage() {
                             <div className="flex-1 bg-white p-6 rounded-2xl border-2 border-gray-100 hover:border-primary/30 hover:shadow-lg transition-all">
                                 <div className="flex items-center gap-2 mb-2">
                                     <MapPin className="w-5 h-5 text-primary" />
-                                    <h4 className="text-xl font-bold text-gray-900">Daily Haram Visits for Prayers</h4>
+                                    <h3 className="text-xl font-bold text-gray-900">Daily Haram Visits for Prayers</h3>
                                 </div>
                                 <p className="text-gray-600 leading-relaxed">
                                     Multiple daily trips between your hotel and Masjid al-Haram for Tawaf, Salah, and worship. Our drivers understand prayer schedules and peak traffic times around the Haram. <Link href="/booking" className="text-primary font-semibold underline decoration-primary/30 hover:decoration-primary underline-offset-4 transition-all">Book your daily Haram transport now</Link>.
@@ -1041,38 +1045,7 @@ export default async function MakkahPage() {
                             </div>
 
                             {/* Content Configuration: Internal Linking to Blog */}
-                            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                                <div className="max-w-7xl mx-auto">
-                                    <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Essential Makkah Travel Guides</h2>
-                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                        {/* Guide 1: Hidden Spots */}
-                                        <Link href="/blog/hidden-makkah-spots" className="group">
-                                            <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
-                                                <div className="h-48 bg-gray-200 relative">
-                                                    <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                                                        <span className="flex items-center gap-2"><MapPin className="w-5 h-5" /> Hidden Gems</span>
-                                                    </div>
-                                                </div>
-                                                <div className="p-6">
-                                                    <div className="flex items-center gap-2 mb-3">
-                                                        <span className="bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-1 rounded-full uppercase">Culture</span>
-                                                        <span className="text-gray-500 text-xs">Dec 2024</span>
-                                                    </div>
-                                                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-emerald-600 transition-colors">
-                                                        5 Hidden Historical Spots in Makkah That Most Pilgrims Miss
-                                                    </h3>
-                                                    <p className="text-gray-600 text-sm line-clamp-2">
-                                                        Discover the Jinn Mosque, the Prophet's Birthplace, and other secret Ziyarat locations beyond the main Haram area.
-                                                    </p>
-                                                    <div className="mt-4 flex items-center text-emerald-600 font-bold text-sm">
-                                                        Read Guide <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </section>
+
 
                             {/* Travel Time Logic */}
                             {/* Travel Tip */}
@@ -1101,8 +1074,8 @@ export default async function MakkahPage() {
                                 </div>
                                 <div className="bg-white p-4 rounded-xl text-center border-2 border-gray-100 hover:border-primary/30 transition-all">
                                     <Users className="w-6 h-6 text-primary mx-auto mb-2" />
-                                    <div className="text-2xl font-bold text-gray-900 mb-1">5k+</div>
-                                    <div className="text-xs text-gray-600">Pilgrims</div>
+                                    <div className="text-2xl font-bold text-gray-900 mb-1">15k+</div>
+                                    <div className="text-xs text-gray-600">Pilgrims Served</div>
                                 </div>
                                 <div className="bg-white p-4 rounded-xl text-center border-2 border-gray-100 hover:border-primary/30 transition-all">
                                     <Star className="w-6 h-6 text-primary mx-auto mb-2" />
@@ -1174,7 +1147,7 @@ export default async function MakkahPage() {
                             </div>
                             <div className="text-xl font-bold text-gray-900 mb-3">Airport Transfers</div>
                             <div className="text-4xl font-black text-primary mb-3">
-                                <span className="text-2xl">From</span> SAR 150
+                                <span className="text-2xl">From</span> SAR 250
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
                                 Jeddah Airport to Makkah hotels
@@ -1234,13 +1207,13 @@ export default async function MakkahPage() {
                             </p>
                         </div>
 
-                        {/* Block 2: Airport Transfers */}
+                        {/* Block 2: Ziyarat & Sightseeing */}
                         <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                             <h3 className="text-xl font-bold text-gray-900 mb-4">
-                                Airport Transfers and Arrival Travel in Makkah
+                                Planning Your Ziyarat and Historical Tours
                             </h3>
                             <p className="text-gray-600 text-sm leading-relaxed">
-                                The journey from King Abdulaziz International Airport to Makkah is distinct from any other travel experience, often marking the beginning of a sacred pilgrimage. After a long international flight, the last thing a visitor needs is uncertainty regarding their transfer. Securing a private ride ensures that you and your luggage are handled with care immediately upon arrival. This direct service eliminates the profound fatigue associated with waiting for buses or hailing cabs. By choosing dedicated <Link href="/locations/jeddah" className="text-gray-900 font-medium underline decoration-gray-200 hover:decoration-gray-900 underline-offset-4 transition-all">airport taxi services in Makkah</Link>, travelers guarantee a smooth, air-conditioned transition from the terminal directly to their hotel lobby, allowing them to enter the state of Ihram or rest without unnecessary delay.
+                                Beyond the Haram, Makkah is rich with Islamic history that forms an integral part of the pilgrim's journey. Visiting sites like <span className="font-semibold text-gray-900">Jabal al-Nour (Cave of Hira)</span>, <span className="font-semibold text-gray-900">Jabal Thawr</span>, and the holy sites of <span className="font-semibold text-gray-900">Mina and Arafat</span> allows you to connect deeply with the Seerah. Our <Link href="/locations/makkah-ziyarat" className="text-gray-900 font-medium underline decoration-gray-200 hover:decoration-gray-900 underline-offset-4 transition-all">private Ziyarat taxi tours</Link> are designed to give you ample time at each location for prayer and reflection, without the rush of group bus tours. Drivers act as knowledgeable local guides, ensuring you visit these blessed locations at the best times to avoid overcrowding.
                             </p>
                         </div>
 
@@ -1404,7 +1377,7 @@ export default async function MakkahPage() {
                                 </div>
                                 <div>
                                     <p className="font-bold text-gray-900 mb-1">Taxi-Dependent Hotels:</p>
-                                    <p className="text-sm">Aziziyah, Misfalah, Rusayfah: 2-5 km from Haram. Taxi essential for all prayers. Travel time: 10-20 min.</p>
+                                    <p className="text-sm">Aziziyah, Misfalah, Rusayfah: 3-7 km from Haram. Taxi essential for all prayers. Travel time: 10-20 min.</p>
                                 </div>
                             </div>
                         </div>
@@ -1464,30 +1437,13 @@ export default async function MakkahPage() {
                 </div>
             </section>
 
-            {/* FAQ Section */}
+            {/* Service Areas Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-12">
-                        <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">FAQ</span>
-                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tight leading-tight text-gray-900 mb-6">Frequently Asked Questions About Taxi Service in Makkah</h2>
-                        <p className="text-gray-600">Answers to common questions about our taxi service in Makkah</p>
-                    </div>
-                    <Accordion type="single" collapsible className="space-y-4">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item - ${index} `} className="bg-white rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left font-bold text-gray-900 hover:no-underline">{faq.question}</AccordionTrigger>
-                                <AccordionContent className="text-gray-600 pt-2">{faq.answer}</AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
 
-                    {/* Content Freshness Signal */}
-                    <p className="text-center text-xs text-gray-500 mt-8 italic">
-                        This Makkah taxi service page is regularly updated to match current Umrah travel needs and seasonal requirements.
-                    </p>
 
                     {/* Service Area Expansion */}
-                    <div className="mt-16">
+                    <div className="">
                         <div className="text-center mb-12">
                             <div className="inline-flex items-center gap-2 bg-purple-100 px-4 py-2 rounded-full mb-6">
                                 <MapPin className="w-4 h-4 text-purple-600" />

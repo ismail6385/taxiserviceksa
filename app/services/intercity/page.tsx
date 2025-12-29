@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 
 export default function IntercityServicePage() {
     const popularRoutes = [
-        { name: 'Jeddah ↔ Makkah', distance: '85 km', time: '1 hr 15 min', price: 'From SAR 200' },
+        { name: 'Jeddah ↔ Makkah', distance: '85 km', time: '1 hr 15 min', price: 'From SAR 250' },
         { name: 'Makkah ↔ Madinah', distance: '450 km', time: '4 hr 30 min', price: 'From SAR 450' },
         { name: 'Jeddah ↔ Madinah', distance: '420 km', time: '4 hr', price: 'From SAR 400' },
         { name: 'Riyadh ↔ Dammam', distance: '400 km', time: '3 hr 45 min', price: 'From SAR 600' },
@@ -123,7 +123,7 @@ export default function IntercityServicePage() {
                     topic="New Highway Routes"
                     status="Seasonal Update"
 
-                    lastUpdated="December 2024"
+                    lastUpdated="December 2025"
                     content="The road network between Makkah and Madinah has recently been upgraded with more rest areas and service stations, making the 450km journey more comfortable than ever by car."
                     tags={["HighwayTravel", "Infrastructure", "Comfort"]}
                     linkText="Book Intercity Ride"

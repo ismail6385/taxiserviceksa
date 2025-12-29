@@ -72,7 +72,7 @@ export default function TaifRoseFestivalPage() {
                         <ExpertReview
                             reviewerName="Sarah Al-Amri"
                             reviewerTitle="Saudi Heritage Guide"
-                            reviewDate="Dec 2024"
+                            reviewDate="Jan 2025"
                             expertise={["Taif Agriculture", "Cultural Festivals"]}
                         />
                     </div>
