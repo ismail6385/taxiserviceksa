@@ -3,7 +3,7 @@
 import Hero from '@/components/Hero';
 import Script from 'next/script';
 import Image from 'next/image';
-import { Plane, MapPin, Building2, Shield, Clock, Award, Star, CheckCircle2, Users, Car, ArrowRight, Camera, Calendar } from 'lucide-react';
+import { Plane, MapPin, Building2, Shield, Clock, Award, Star, CheckCircle2, Users, Car, ArrowRight, Camera, Calendar, User } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import {
@@ -18,6 +18,8 @@ import TrustedTransportNetwork from '@/components/seo/TrustedTransportNetwork';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import RelatedGuides from '@/components/RelatedGuides';
 import { Blog } from '@/lib/blogService';
+import HowItWorks from '@/components/HowItWorks';
+import GlobalTrust from '@/components/GlobalTrust';
 
 interface HomeClientProps {
     latestBlogs?: Blog[];
@@ -34,7 +36,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
         "url": "https://taxiserviceksa.com",
         "logo": "https://taxiserviceksa.com/logo.png",
         "image": "https://taxiserviceksa.com/hero-image.jpg",
-        "description": "Professional taxi service with licensed drivers in Saudi Arabia. Provides airport transfers, Umrah transport, corporate travel, and heritage tours. All vehicles include professional drivers (no self-drive car rental). Service operates in Jeddah, Makkah, Madinah, Riyadh, Taif, AlUla, Yanbu, and Khaybar.",
+        "description": "Online taxi service in Saudi Arabia offering 24/7 airport transfers and Umrah transport. Book a reliable ride from Jeddah, Makkah, and Madinah.",
         "areaServed": "Saudi Arabia",
         "availableLanguage": ["English", "Arabic", "Urdu"],
         "priceRange": "$$",
@@ -75,7 +77,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
     const services = [
         {
             title: "Airport Transfer Service",
-            description: "Airport transfers in Saudi Arabia operate 24/7 from King Abdulaziz Airport (Jeddah) and Prince Mohammad Airport (Madinah) to Makkah hotels. Meet-and-greet service at arrivals.",
+            description: "Airport transfer service operates 24/7 from King Abdulaziz Airport (Jeddah) and Prince Mohammad Airport (Madinah). The service ensures efficient transport for arrivals.",
             rdfTriple: "Airport transfer Jeddah → provides → 24/7 chauffeur service from King Abdulaziz Airport",
             icon: Plane,
             link: "/locations/jeddah",
@@ -83,15 +85,15 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
         },
         {
             title: "Umrah Transport Service",
-            description: "Umrah pilgrims use our taxi service for transportation between Makkah, Madinah, and Jeddah Airport. Drivers understand prayer schedules and Haram access routes.",
+            description: "Umrah transport connects Makkah, Madinah, and Jeddah Airport. Drivers adhere to prayer schedules and utilize designated Haram access routes.",
             rdfTriple: "Umrah taxi → specializes in → comfortable transportation for pilgrims",
             icon: MapPin,
             link: "/locations/makkah",
             price: "From SAR 450"
         },
         {
-            title: "Intercity Taxi Service",
-            description: "Intercity travel in Saudi Arabia connects AlUla, Taif, Riyadh, and Jeddah. Fixed-rate pricing for long-distance routes. Suitable for tourism and business travel.",
+            title: "Intercity Travel",
+            description: "Intercity routes connect AlUla, Taif, Riyadh, and Jeddah. Fixed-rate pricing applies to all long-distance trips across Saudi Arabia.",
             rdfTriple: "AlUla tour → provides → luxury travel to heritage sites",
             icon: Building2,
             link: "/locations/alula",
@@ -173,8 +175,8 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             answer: "Airport taxi service from King Abdulaziz International Airport (JED) to Makkah hotels operates 24/7. Drivers provide meet-and-greet service at arrivals. Flight tracking monitors delays automatically."
         },
         {
-            question: "What is the best taxi service for Umrah pilgrims?",
-            answer: "Umrah pilgrims use taxi services that understand prayer schedules and Haram access routes. Drivers know the routes between Makkah, Madinah, and Jeddah Airport. Service includes assistance with luggage and Zamzam containers."
+            question: "What is the best online taxi service for Umrah pilgrims?",
+            answer: "Taxi Service KSA is the best online taxi service for Umrah pilgrims, providing transportation that accounts for prayer schedules and Haram access routes. Drivers know the routes between Makkah, Madinah, and Jeddah Airport. Service includes assistance with luggage and Zamzam containers."
         },
         {
             question: "Is your taxi service in Saudi Arabia available 24/7?",
@@ -198,16 +200,19 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             {/* Hero Section with Entity-Optimized H1 */}
             <Hero
                 images={heroImages}
-                h1Text="Taxi Service in Saudi Arabia: Airport Transfers and Umrah Transport"
+                h1Text="Top Rated Online Taxi Service in Saudi Arabia"
             >
                 <Link href="/locations" className="text-white/90 hover:text-accent underline underline-offset-4 text-xs sm:text-sm font-medium inline-flex items-center gap-2 transition-colors mt-4">
                     Service coverage across 8 cities in Saudi Arabia <ArrowRight className="w-4 h-4" />
                 </Link>
             </Hero>
 
+            {/* Global Trust Marquee */}
+            <GlobalTrust />
+
             {/* LATEST INSIGHT BANNER */}
             <div className="bg-emerald-600 text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-10"></div>
+
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
                         <span className="bg-white text-emerald-700 text-xs font-bold px-2 py-1 rounded shadow-sm whitespace-nowrap">NEW REPORT</span>
@@ -224,29 +229,65 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             </div>
 
             {/* Source Context Clarification - Koray's Methodology */}
-            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                        <div className="md:col-span-2">
-                            <h2 className="text-2xl md:text-3xl font-bold mb-3">
-                                Professional Taxi Service <span className="text-white">With Licensed Drivers</span>
+            <section className="py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+                {/* Background with Gradient Overlay */}
+                <div className="absolute inset-0 bg-[#0B1120]">
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-transparent"></div>
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                </div>
+
+                <div className="max-w-7xl mx-auto relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                        {/* Text Content */}
+                        <div className="space-y-6">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 text-primary text-xs font-bold uppercase tracking-widest">
+                                <Shield className="w-3 h-3" />
+                                <span>Safety First</span>
+                            </div>
+                            <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
+                                Professional Online Taxi Service in Saudi Arabia <span className="text-primary block mt-2">With Licensed Drivers</span>
                             </h2>
-                            <p className="text-gray-300 text-lg leading-relaxed">
-                                We are a professional taxi transport company, NOT a car rental service. All our vehicles include licensed, experienced drivers. We do not offer self-drive car rental or ride-sharing services.
+                            <p className="text-gray-300 text-lg leading-relaxed max-w-xl">
+                                Experience the safety and comfort of the leading online taxi service in Saudi Arabia. We are a premium chauffeur company, meaning every vehicle comes with an experienced, licensed driver—ensuring a stress-free journey for Umrah and Business travel. We do <strong>not</strong> offers self-drive rentals.
                             </p>
+
+                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                                <Link href="/booking">
+                                    <Button size="lg" className="bg-primary text-white hover:bg-white hover:text-primary font-bold transition-all shadow-lg shadow-primary/20">
+                                        Book Your Driver
+                                    </Button>
+                                </Link>
+                            </div>
                         </div>
-                        <div className="flex flex-col gap-3">
-                            <div className="flex items-center gap-3 bg-white/10 rounded-lg p-4">
-                                <CheckCircle2 className="w-6 h-6 text-white flex-shrink-0" />
-                                <span className="font-medium">Licensed Drivers Included</span>
-                            </div>
-                            <div className="flex items-center gap-3 bg-white/10 rounded-lg p-4">
-                                <CheckCircle2 className="w-6 h-6 text-white flex-shrink-0" />
-                                <span className="font-medium">No Self-Drive Rental</span>
-                            </div>
-                            <div className="flex items-center gap-3 bg-white/10 rounded-lg p-4">
-                                <CheckCircle2 className="w-6 h-6 text-white flex-shrink-0" />
-                                <span className="font-medium">Chauffeur Service Only</span>
+
+                        {/* Feature Cards Grid */}
+                        {/* Feature Image & Highlights */}
+                        <div className="relative">
+                            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
+                                <Image
+                                    src="/chauffeur-service.png"
+                                    alt="Best online taxi service chauffeur opening car door in Saudi Arabia"
+                                    width={600}
+                                    height={400}
+                                    className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                                <div className="absolute bottom-0 left-0 right-0 p-6">
+                                    <div className="grid grid-cols-1 gap-3">
+                                        <div className="flex items-center gap-3 text-white/90">
+                                            <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                                            <span className="font-medium text-sm">Licensed Drivers Included</span>
+                                        </div>
+                                        <div className="flex items-center gap-3 text-white/90">
+                                            <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                                            <span className="font-medium text-sm">No Self-Drive Rental</span>
+                                        </div>
+                                        <div className="flex items-center gap-3 text-white/90">
+                                            <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                                            <span className="font-medium text-sm">Chauffeur Service Only</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -263,10 +304,10 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                 Core Capabilities
                             </span>
                             <h2 className="text-4xl md:text-6xl font-black text-gray-900 mb-6 tracking-tight leading-[0.9]">
-                                SAUDI{' '}<br />WIDE{' '}<br />NETWORK
+                                PROFESSIONAL{' '}<br />TAXI{' '}<br />SERVICES
                             </h2>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                Whether it is the spiritual journey of Umrah or a critical business transfer, our fleet is positioned to serve.
+                                From Jeddah Airport to Makkah, Taxi Service KSA provides efficient transport for Umrah pilgrims and business travelers.
                             </p>
                             <Link href="/booking">
                                 <Button className="bg-primary text-white hover:bg-blue-600 rounded-full px-8 py-6 text-lg font-bold min-h-[48px] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/30">
@@ -303,57 +344,8 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             {/* Semantic Authority Network */}
             <TrustedTransportNetwork />
 
-            {/* How It Works - Visual Flow (No Cards) */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white relative">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6">
-                            Streamlined Booking
-                        </h2>
-                        <div className="w-24 h-1 bg-primary mx-auto"></div>
-                    </div>
-
-                    <div className="relative">
-                        {/* Connecting Line (Desktop) */}
-                        <div className="hidden md:block absolute top-[25%] left-0 right-0 h-0.5 bg-gray-100 -z-10"></div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                            {/* Step 1 */}
-                            <div className="text-center group">
-                                <div className="w-20 h-20 mx-auto bg-white border-4 border-gray-100 rounded-full flex items-center justify-center mb-6 group-hover:border-primary transition-colors duration-300">
-                                    <span className="font-black text-2xl text-gray-300 group-hover:text-primary">01</span>
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">Select Vehicle</h3>
-                                <p className="text-gray-500 leading-relaxed max-w-xs mx-auto">
-                                    Choose from our fleet of GMC Yukons, Camrys, and Buses based on your group size.
-                                </p>
-                            </div>
-
-                            {/* Step 2 */}
-                            <div className="text-center group">
-                                <div className="w-20 h-20 mx-auto bg-white border-4 border-gray-100 rounded-full flex items-center justify-center mb-6 group-hover:border-primary transition-colors duration-300">
-                                    <span className="font-black text-2xl text-gray-300 group-hover:text-primary">02</span>
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">Instant Booking</h3>
-                                <p className="text-gray-500 leading-relaxed max-w-xs mx-auto">
-                                    Enter flight details for automatic tracking. We monitor delays so you don't have to.
-                                </p>
-                            </div>
-
-                            {/* Step 3 */}
-                            <div className="text-center group">
-                                <div className="w-20 h-20 mx-auto bg-white border-4 border-gray-100 rounded-full flex items-center justify-center mb-6 group-hover:border-primary transition-colors duration-300">
-                                    <span className="font-black text-2xl text-gray-300 group-hover:text-primary">03</span>
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">Meet & Greet</h3>
-                                <p className="text-gray-500 leading-relaxed max-w-xs mx-auto">
-                                    Your driver waits at the arrival hall with a name sign. Journey to Makkah in comfort.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {/* How It Works - Visual Flow */}
+            <HowItWorks />
 
             {/* About Us Preview - Optimized H2 */}
             <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 overflow-hidden">
@@ -365,7 +357,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-4 sm:border-8 border-white">
                                 <Image
                                     src="/gmc-yukon.webp"
-                                    alt="Comfortable taxi service in Saudi Arabia - GMC Yukon for airport and umrah transfer"
+                                    alt="Best online taxi service in Saudi Arabia - GMC Yukon for airport and umrah transfer"
                                     width={800}
                                     height={600}
                                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
@@ -387,10 +379,10 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         <div className="order-1 lg:order-2">
                             <span className="bg-primary text-white font-semibold tracking-wider uppercase text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-1.5 rounded-full inline-block mb-4 sm:mb-6 shadow-md shadow-primary/30">Service Information</span>
                             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-                                Taxi Service Operating in Saudi Arabia
+                                Trusted Online Taxi Service in Saudi Arabia
                             </h2>
                             <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 sm:mb-6 leading-relaxed">
-                                Taxi Service KSA operates in 8 cities across Saudi Arabia. Service includes airport transfers, Umrah transport, and intercity travel. Fleet consists of GMC Yukon, Toyota Camry, Hyundai Staria, and Toyota Hiace vehicles.
+                                Taxi Service KSA is a professional online taxi service operating in 8 cities across Saudi Arabia. Service includes airport transfers, Umrah transport, and intercity travel. The fleet consists of GMC Yukon, Toyota Camry, Hyundai Staria, and Toyota Hiace vehicles.
                             </p>
                             <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                                 <li className="flex items-center gap-2 sm:gap-3 text-gray-700 font-medium text-sm sm:text-base">
@@ -416,29 +408,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                 </div>
             </section>
 
-            {/* Features Band - Modern Blue Strip */}
-            <section className="py-12 bg-gradient-to-r from-primary via-blue-600 to-primary text-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/10 text-center">
-                        <div className="p-4">
-                            <div className="text-4xl lg:text-5xl font-black text-white mb-2">100%</div>
-                            <div className="text-sm font-bold tracking-widest uppercase text-white/60">Fully Licensed</div>
-                        </div>
-                        <div className="p-4">
-                            <div className="text-4xl lg:text-5xl font-black text-white mb-2">24/7</div>
-                            <div className="text-sm font-bold tracking-widest uppercase text-white/60">Service Availability</div>
-                        </div>
-                        <div className="p-4">
-                            <div className="text-4xl lg:text-5xl font-black text-white mb-2">10k+</div>
-                            <div className="text-sm font-bold tracking-widest uppercase text-white/60">Succcesful Trips</div>
-                        </div>
-                        <div className="p-4">
-                            <div className="text-4xl lg:text-5xl font-black text-white mb-2">4.9/5</div>
-                            <div className="text-sm font-bold tracking-widest uppercase text-white/60">Trust Rating</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 
             {/* Fleet Section - Optimized H2 */}
             <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
@@ -446,10 +416,10 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                     <div className="text-center mb-12 sm:mb-16">
                         <span className="bg-primary text-white font-semibold tracking-wider uppercase text-xs sm:text-sm px-4 py-1.5 rounded-full inline-block shadow-md shadow-primary/30">Our Fleet</span>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mt-3 sm:mt-4 mb-4 sm:mb-6 px-4">
-                            Airport & Umrah Taxi Solutions
+                            Best Online Taxi Fleet Collection
                         </h2>
                         <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-                            Our fleet includes luxury sedans, family vans, and buses. Perfect for Saudi airport transfer and pilgrim groups.
+                            Our top-rated online taxi service fleet features GMC Yukon, Toyota Camry, Hyundai Staria, and Toyota Hiace vehicles.
                         </p>
                     </div>
 
@@ -514,10 +484,10 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                     <div className="text-center mb-12 sm:mb-16">
                         <span className="bg-primary text-white font-semibold tracking-wider uppercase text-xs sm:text-sm px-4 py-1.5 rounded-full inline-block shadow-md shadow-primary/30">Transparent Pricing</span>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mt-3 sm:mt-4 mb-4 sm:mb-6 px-4">
-                            Fixed Rates for All Destinations
+                            Competitive Online Taxi Service Rates
                         </h2>
                         <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-                            No hidden fees. Book your ride with confidence knowing exactly what you'll pay.
+                            Taxi Service KSA offers the best online taxi service rates for all point-to-point transfers in Saudi Arabia.
                         </p>
                     </div>
 
@@ -603,10 +573,10 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         <div>
                             <span className="bg-primary text-white font-semibold tracking-wider uppercase text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-1.5 rounded-full inline-block mb-3 sm:mb-4 shadow-md shadow-primary/30">Our Gallery</span>
                             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-                                See Our Fleet & Destinations in Action
+                                Premium Fleet & Destination Gallery
                             </h2>
                             <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-                                Explore our premium vehicles and destination views. We are the leading taxi service for pilgrims visiting Makkah and Madinah.
+                                Visuals display our professional online taxi service vehicles including GMC Yukon and Hyundai Staria in Makkah and Madinah.
                             </p>
                             <Link href="/gallery">
                                 <Button size="lg" className="bg-primary text-white hover:bg-blue-600 font-bold px-6 sm:px-8 py-4 sm:py-5 md:py-6 text-base sm:text-lg rounded-xl shadow-lg shadow-primary/30 transition-all hover:scale-105 active:scale-95">
@@ -618,18 +588,18 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4">
                                 <div className="space-y-2 sm:space-y-3 md:space-y-4">
                                     <div className="relative h-40 sm:h-48 md:h-56 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
-                                        <Image src="/makkah-kaaba-night.webp" alt="Umrah pilgrims using reliable taxi service in Saudi Arabia at Makkah" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+                                        <Image src="/makkah-kaaba-night.webp" alt="Umrah pilgrims using best online taxi service in Saudi Arabia at Makkah" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
                                     </div>
                                     <div className="relative h-52 sm:h-60 md:h-64 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
-                                        <Image src="/gmc-yukon.webp" alt="Luxury GMC Yukon Taxi Saudi Arabia Interior" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+                                        <Image src="/gmc-yukon.webp" alt="Luxury GMC Yukon - Best Online Taxi Service Saudi Arabia Interior" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
                                     </div>
                                 </div>
                                 <div className="space-y-2 sm:space-y-3 md:space-y-4 pt-4 sm:pt-6 md:pt-8">
                                     <div className="relative h-52 sm:h-60 md:h-64 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
-                                        <Image src="/madinah-prophets-mosque.webp" alt="Ziyarat taxi service in Madinah near Prophet's Mosque" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+                                        <Image src="/madinah-prophets-mosque.webp" alt="Ziyarat with best online taxi service in Madinah near Prophet's Mosque" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
                                     </div>
                                     <div className="relative h-40 sm:h-48 md:h-56 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
-                                        <Image src="/hyundai-staria.webp" alt="Family taxi Saudi Arabia Hyundai Staria vehicle" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+                                        <Image src="/hyundai-staria.webp" alt="Family taxi Saudi Arabia - Best Online Taxi Service Hyundai Staria vehicle" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
                                     </div>
                                 </div>
                             </div>
@@ -644,23 +614,37 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                     <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
                         <div>
                             <h2 className="text-3xl font-black text-gray-900 mb-4">
-                                Operating Zones
+                                Online Taxi Service Coverage Areas
                             </h2>
                             <p className="text-gray-600 max-w-xl">
-                                We connect all major transport hubs. Click a location for specific route details.
+                                Our top-rated operations extend to Jeddah, Makkah, Madinah, and Riyadh.
                             </p>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:flex lg:flex-wrap gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         {serviceAreas.map((area, index) => (
                             <Link key={index} href={area.link} className="block group">
-                                <div className="bg-white border border-gray-200 rounded-xl p-4 sm:p-6 hover:border-black hover:shadow-lg transition-all duration-300 h-full">
-                                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 flex items-center gap-2">
-                                        <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
-                                        {area.name}
-                                    </h3>
-                                    <p className="text-xs sm:text-sm text-gray-500 font-medium">{area.role}</p>
+                                <div className="relative overflow-hidden bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col justify-between">
+                                    <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150 group-hover:bg-primary/10"></div>
+
+                                    <div className="relative z-10">
+                                        <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                                            <MapPin className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors" />
+                                        </div>
+
+                                        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                                            {area.name}
+                                        </h3>
+
+                                        <p className="text-sm text-gray-500 font-medium leading-relaxed">
+                                            {area.role}
+                                        </p>
+                                    </div>
+
+                                    <div className="mt-4 pt-4 border-t border-gray-100 flex items-center text-primary font-semibold text-sm opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                                        Explore Routes <ArrowRight className="w-4 h-4 ml-2" />
+                                    </div>
                                 </div>
                             </Link>
                         ))}
@@ -669,9 +653,9 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                     {/* Contextual Block: National Infrastructure */}
                     <div className="mt-16 border-t border-gray-200 pt-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-4">Jeddah Airport to Makkah Direct</h3>
+                            <h3 className="text-2xl font-bold text-gray-900 mb-4">Express Route: Jeddah to Makkah</h3>
                             <p className="text-gray-600 leading-relaxed mb-6">
-                                Skip the multi-leg train journey. Our door-to-door taxi service from King Abdulaziz Airport to Makkah hotels is 40% faster for families with luggage. Fixed rates from SAR 250.
+                                Direct taxi transfers from King Abdulaziz Airport to Makkah hotels operate 24/7. Fixed rates start from SAR 250.
                             </p>
                             <Link href="/routes/jeddah-makkah">
                                 <Button className="text-black font-bold border-b-2 border-black rounded-none px-0 py-0 h-auto hover:bg-transparent hover:border-primary transition-colors">
@@ -682,7 +666,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         <div className="h-64 bg-gray-200 rounded-2xl relative overflow-hidden">
                             <Image
                                 src="/hero-slide-4.webp"
-                                alt="Haramain Railway connection taxi"
+                                alt="Haramain Railway connection with best online taxi service"
                                 width={1200}
                                 height={800}
                                 className="w-full h-full object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-700"
@@ -699,10 +683,10 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                            Real Customer Reviews
+                            Top Rated Customer Reviews
                         </h2>
                         <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-                            Verified experiences from travelers across Saudi Arabia
+                            Passengers evaluate Taxi Service KSA as a professional online taxi service known for reliability.
                         </p>
                     </div>
 
@@ -760,10 +744,10 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             < section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-black" >
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 px-4">
-                        Book Your Taxi in Saudi Arabia Now
+                        Book the Best Online Taxi Service
                     </h2>
                     <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 px-4 max-w-2xl mx-auto">
-                        Join 10,000+ satisfied travelers. <Link href="/booking" className="text-white hover:underline font-bold">Book your taxi service today</Link> for reliable airport taxi and Umrah transfer.
+                        Secure your booking with the top-rated online taxi service in Saudi Arabia for reliable airport transfers.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">

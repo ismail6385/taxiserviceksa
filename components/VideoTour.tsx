@@ -25,7 +25,7 @@ export default function VideoTour() {
                 <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
                     Journey in <span className="text-primary">Pure Luxury</span>
                 </h2>
-                <p className="text-gray-300 text-lg md:text-xl mb-12 max-w-2xl mx-auto">
+                <p className="text-gray-100 text-lg md:text-xl mb-12 max-w-2xl mx-auto">
                     Experience the comfort of our premium fleet. From leather seats to ambient lighting, every detail is curated for your relaxation.
                 </p>
 

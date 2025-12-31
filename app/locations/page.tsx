@@ -60,6 +60,24 @@ const locations = [
         description: 'Historical tours to the ancient oases of Khaybar.',
         image: '/alula-hegra-tombs.webp',
         href: '/locations/khayber-fort'
+    },
+    {
+        name: 'Dammam',
+        description: 'Airport and city transfers in the administrative hub of the Eastern Province.',
+        image: '/hero-slide-3.webp',
+        href: '/locations/dammam'
+    },
+    {
+        name: 'Al Khobar',
+        description: 'Luxury transport for Corniche, hotels, and Causeway trips.',
+        image: '/khobar-water-tower.webp',
+        href: '/locations/al-khobar'
+    },
+    {
+        name: 'Dhahran',
+        description: 'Professional service for Energy and Industrial hubs (Aramco/Ithra).',
+        image: '/ithra-center.webp',
+        href: '/locations/dhahran'
     }
 ];
 

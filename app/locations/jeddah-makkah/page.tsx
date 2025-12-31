@@ -14,6 +14,7 @@ import QuestionGrouper from '@/components/seo/QuestionGrouper';
 import SemanticField from '@/components/seo/SemanticField';
 import TopicCluster from '@/components/seo/TopicCluster';
 import RoutePerspective from '@/components/seo/RoutePerspective';
+import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'Jeddah to Makkah Taxi | Private Transfers 24/7',
@@ -203,11 +204,77 @@ export default function JeddahMakkahRoutePage() {
                         <div className="p-4">
                             <Car className="w-10 h-10 text-emerald-600 mx-auto mb-4" />
                             <h3 className="text-xl font-bold text-gray-900">Door-to-Door</h3>
-                            <p className="text-gray-500">Hotel lobby drop-off</p>
+                            <p className="text-gray-500">Hotel lobby drop-off (Makkah Tower)</p>
                         </div>
-
                     </div>
                 </div>
+            </div>
+
+            {/* Pricing Section */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <div className="inline-flex items-center gap-2 bg-emerald-100 px-4 py-2 rounded-full mb-6">
+                            <CheckCircle2 className="w-4 h-4 text-emerald-700" />
+                            <span className="text-sm font-semibold text-emerald-900">Route Fares</span>
+                        </div>
+
+                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
+                            Jeddah to Makkah Prices
+                        </h3>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Flat rates from Jeddah Airport to your Makkah hotel.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Car className="w-6 h-6 text-emerald-600" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Standard Sedan</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 200
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                4 Pax Max / 2 Bags
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-emerald-500 hover:shadow-xl transition-all text-center relative">
+                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-emerald-600 text-white hover:text-black px-4 py-1 rounded-full text-xs font-bold">
+                                BEST SELLER
+                            </div>
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Shield className="w-6 h-6 text-emerald-600" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">GMC VIP (SUV)</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 350
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                7 Pax / 7 Bags
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <MapPin className="w-6 h-6 text-emerald-600" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Family Bus</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 450
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                HiAce for 10 Passengers
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <RelatedLocations currentCity="Jeddah" />
             </div>
 
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">

@@ -2,9 +2,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { MapPin, Phone, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, Building2, Waves, ArrowRight } from 'lucide-react';
+import { MapPin, Phone, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, Building2, Waves, ArrowRight, User } from 'lucide-react';
 import Hero from '@/components/Hero';
-import ExpertReview from '@/components/seo/ExpertReview';
 import {
     Accordion,
     AccordionContent,
@@ -12,24 +11,9 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion';
 import Script from 'next/script';
-import JsonLdFAQ from '@/components/JsonLdFAQ';
 import DistanceTable from '@/components/seo/DistanceTable';
 import SeasonalTravelTips from '@/components/seo/SeasonalTravelTips';
-import TravelConsensus from '@/components/seo/TravelConsensus';
-import RoutePerspective from '@/components/seo/RoutePerspective';
-import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
-import TrendingTravelNote from '@/components/seo/TrendingTravelNote';
-import QuestionGrouper from '@/components/seo/QuestionGrouper';
-import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
-import SemanticField from '@/components/seo/SemanticField';
-import TopicCluster from '@/components/seo/TopicCluster';
-import QuestionsDisplay from '@/components/QuestionsDisplay';
-import ReviewsDisplay from '@/components/ReviewsDisplay';
-import ReviewForm from '@/components/seo/ReviewForm';
-import QuestionForm from '@/components/seo/QuestionForm';
-import RelatedServices from '@/components/seo/RelatedServices';
-import { blogService } from '@/lib/blogService';
-import RelatedGuides from '@/components/RelatedGuides';
+import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'Taxi Service in Jeddah | Airport Taxi & Makkah Transfers',
@@ -54,16 +38,11 @@ export const metadata: Metadata = {
 };
 
 export default async function JeddahPage() {
-    // Fetch related blogs
-    const blogs = await blogService.getBlogsByCategory('Jeddah Guide');
-    const displayBlogs = blogs.slice(0, 6);
-
     const services = [
-        { name: 'KAIA Airport Taxi', description: 'Jeddah Airport to Makkah taxi booking & Meet/Greet', icon: Plane },
-        { name: 'Jeddah to Makkah Car', description: 'Private taxi for Umrah families (75 mins)', icon: Car },
-        { name: 'Rent a Car with Driver', description: 'Hourly private driver in Jeddah for meetings', icon: Building2 },
-        { name: 'Jeddah to Makkah Coaster', description: 'Toyota Coaster & Hiace for large Umrah groups', icon: Users },
-        { name: 'Al-Balad & Corniche', description: 'Sightseeing tours of Historic Jeddah', icon: Waves },
+        { name: 'KAIA Airport Taxi', description: 'Meet & Greet at King Abdulaziz International Airport (Terminal 1 & North).', icon: Plane },
+        { name: 'Jeddah to Makkah', description: 'Private transfer for Umrah pilgrims. 75 minutes direct to your hotel.', icon: Car },
+        { name: 'Jeddah to Madinah', description: 'Long-distance taxi to the Prophet\'s City. Comfortable 4-hour journey.', icon: MapPin },
+        { name: 'City Chauffeur', description: 'Hourly rental for business meetings, shopping, or Corniche tours.', icon: User },
     ];
 
     const jeddahImages = [
@@ -72,215 +51,111 @@ export default async function JeddahPage() {
         '/jeddah-city-night.webp',
     ];
 
-
-
     const distanceData = [
         { destination: 'Makkah (Haram)', distance: '95 km', time: '1h 15m', route: 'Haramain Expy' },
         { destination: 'Madinah', distance: '415 km', time: '4h', route: 'Route 15' },
         { destination: 'Taif', distance: '170 km', time: '2h 15m', route: 'Al Hada Rd' },
-        { destination: 'KAIA Airport', distance: '25 km (from City)', time: '30 mins', route: 'Madinah Rd' },
         { destination: 'Obhur (North)', distance: '35 km', time: '40 mins', route: 'Corniche Rd' }
     ];
 
-
+    const faqs = [
+        {
+            question: "How much is a taxi from Jeddah Airport to Makkah?",
+            answer: "A private sedan starts from SAR 200, while a GMC/SUV for families is around SAR 350. The price is fixed and includes waiting time."
+        },
+        {
+            question: "Where does the driver meet me at KAIA Terminal 1?",
+            answer: "For Terminal 1 (New Airport), the meeting point is usually near the Aquarium in the arrival hall. Our driver will hold a name sign."
+        },
+        {
+            question: "Is it better to take the train or a taxi to Makkah?",
+            answer: "The train is faster but requires transfers to/from stations. A taxi offers door-to-door service from the airport directly to your hotel lobby, which is much better for families with luggage."
+        },
+        {
+            question: "Do you go to Madinah from Jeddah?",
+            answer: "Yes, we offer direct trips from Jeddah Airport to Madinah hotels. The journey takes about 4 hours."
+        },
+        {
+            question: "Can I stop at the Miqat on the way to Makkah?",
+            answer: "Yes, absolutely. Just inform the driver, and we will stop at the designated Miqat (usually Qarn al-Manazil or Juhfah depending on route) for you to enter Ihram."
+        },
+        {
+            question: "Is there Uber at Jeddah Airport?",
+            answer: "Yes, Uber is available but surge pricing can be high during peak flight times. Our pre-booked service offers a fixed rate guarantee."
+        }
+    ];
 
     return (
         <div className="bg-gray-50 min-h-screen">
-
             <Script
-                id="service-schema"
+                id="jeddah-schema"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "Service",
-                        "name": "Jeddah Airport Transfer",
-
+                        "name": "Jeddah Airport Taxi & Transfers",
                         "areaServed": { "@type": "City", "name": "Jeddah" },
-                        "description": "Private VIP transfer from King Abdulaziz International Airport to Makkah and Madinah."
+                        "description": "Professional 24/7 taxi service for King Abdulaziz International Airport and Makkah transfers."
                     })
                 }}
             />
 
-
             <Hero
                 images={jeddahImages}
-                h1Text="Taxi Service in Jeddah: Airport Transfers and Makkah Transport"
+                h1Text="Online Taxi Service In Jeddah"
+                bookingFormTitle="Book Online Taxi Service in Jeddah"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Gateway to Makkah
+                        TaxiServiceKSA™ Jeddah
                     </span>
                 }
-                subtitle="KAIA Airport Transfers & Private Driver Jeddah"
+                subtitle="KAIA Airport Transfers & Makkah Transport"
                 location="Jeddah • Makkah • Madinah"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
-                    <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ Jeddah"
-                        description="Professional chauffeur and airport transfer services in Jeddah. We help travelers, pilgrims, and business executives with luxury vehicles and 24/7 availability for King Abdulaziz International Airport (KAIA) and Makkah transfers."
-                        foundingDate="2012"
-                        metrics={[
-                            { label: 'Airport Pickups', value: '25,000+', icon: Plane },
-                            { label: 'Business Clients', value: '450+', icon: Building2 },
-                            { label: 'On-Time Rate', value: '99.8%', icon: Clock }
-                        ]}
-                    />
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <Link href="/booking">
-                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book Airport Transfer
-                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Button>
-                    </Link>
-                    <Link href="#pricing">
-                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            View Fixed Rates
-                        </Button>
-                    </Link>
                 </div>
             </Hero>
 
-            {/* Trending Note */}
-            <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
-                <TrendingTravelNote
-                    topic="Jeddah Traffic: Al Haramain Expy"
-                    status="Traffic Alert"
-                    lastUpdated="Daily Update"
-                    content="The main highway to Makkah (Haramain Expy) experiences heavy congestion during 5 PM - 8 PM on weekdays. Our drivers use real-time GPS re-routing via the Old Makkah Road or Briman branch to save you 20-30 minutes."
-                    tags={["TrafficAvoidance", "Terminal1", "RushHour", "SmartRouting"]}
-                />
-            </div>
-
-            {/* SEO Content Semantic Hub - Wrapped for Desktop Responsiveness */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-16">
-                <QuestionGrouper
-                    mainQuestion="Is the Train or Taxi better for Makkah?"
-                    intro="The Haramain High Speed Train is a marvel of engineering, but it solves a different problem than most travelers have."
-                    subQuestions={[
-                        {
-                            id: 'q1',
-                            condition: 'Solo Traveler / Couple',
-                            question: 'Is it cheaper?',
-                            answer: 'Yes. The train ticket is cheaper for 1-2 people. However, you must add the taxi cost from Makkah Station to your hotel.',
-                            citation: 'Cost Benefit Analysis'
-                        },
-                        {
-                            id: 'q2',
-                            condition: 'Family with Luggage',
-                            question: 'Is it convenient?',
-                            answer: 'No. Managing 6 suitcases on a train, then transferring to a taxi in Makkah is exhausting. A direct GMC Yukon from Airport to Hotel Lobby is far superior for groups.',
-                            citation: 'Logistics Expert'
-                        },
-                        {
-                            id: 'q3',
-                            condition: 'Timing',
-                            question: 'Is it faster?',
-                            answer: 'The train ride is 55 mins. But with boarding time + waiting + final taxi, the total door-to-door time is often 2+ hours. A taxi is ~75 mins direct.',
-                            citation: 'Time Sample Data'
-                        }
-                    ]}
-                />
-
-                <SemanticField
-                    title="Jeddah: Where Tradition Meets Modernity"
-                    explanation="Jeddah is more than just an airport. It is a UNESCO heritage site and a modern business hub. Our drivers know the city inside out."
-                    concepts={[
-                        {
-                            label: 'KAIA Terminal 1',
-                            description: 'The massive new terminal serving Saudia, Flynas, and major international carriers. Features the famous Aquarium.',
-                            wikiLink: 'https://en.wikipedia.org/wiki/King_Abdulaziz_International_Airport'
-                        },
-                        {
-                            label: 'Al-Balad',
-                            description: 'The historic district with coral houses like Nasseef House. Narrow streets make drop-off points tricky; we know the best spots.',
-                            wikiLink: 'https://en.wikipedia.org/wiki/Al-Balad,_Jeddah'
-                        },
-                        {
-                            label: 'Jeddah Corniche',
-                            description: 'The 30km waterfront hosting the F1 track and the Yacht Club. Perfect for a relaxing drive after arrival.',
-                            internalLink: '/locations/jeddah'
-                        },
-                        {
-                            label: 'King Fahd\'s Fountain',
-                            description: 'The tallest of its kind in the world. Visible from many parts of the city.',
-                            wikiLink: 'https://en.wikipedia.org/wiki/King_Fahd%27s_Fountain'
-                        }
-                    ]}
-                />
-
-                <TopicCluster
-                    mainTopic="Jeddah Transport Network"
-                    clusters={[
-                        {
-                            category: "Airport Connections",
-                            relevance: "Primary",
-                            items: [
-                                { label: "Book Airport Pickup", url: "/booking?pickup=kaia" },
-                                { label: "Makkah Transfers", url: "/locations/makkah" },
-                                { label: "Jeddah to Madinah Taxi", url: "/locations/madinah" },
-                                { label: "Umrah Taxi Service", url: "/services/umrah-transport" }
-                            ]
-                        },
-                        {
-                            category: "City Logistics",
-                            relevance: "Secondary",
-                            items: [
-                                { label: "Corporate Events", url: "/services/business", description: "Jeddah Superdome" },
-                                { label: "Shopping Tours", url: "/blog/jeddah-shopping-guide", description: "Red Sea Mall" },
-                                { label: "Historic Tours", url: "/services/tours", description: "Al-Balad" }
-                            ]
-                        }
-                    ]}
-                />
-            </div>
-
-            {/* Breadcrumb */}
+            {/* Breadcrumb Navigation */}
             <section className="bg-white border-b border-gray-200">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                     <nav className="flex items-center space-x-2 text-sm">
-                        <Link href="/" className="text-gray-500 hover:text-gray-900 transition-colors">Home</Link>
+                        <Link href="/" className="text-gray-500 hover:text-gray-900 transition-colors">
+                            Home
+                        </Link>
                         <span className="text-gray-400">/</span>
-                        <Link href="/locations" className="text-gray-500 hover:text-gray-900 transition-colors">Locations</Link>
+                        <Link href="/locations" className="text-gray-500 hover:text-gray-900 transition-colors">
+                            Locations
+                        </Link>
                         <span className="text-gray-400">/</span>
                         <span className="text-gray-900 font-semibold">Jeddah</span>
                     </nav>
                 </div>
             </section>
 
-            {/* Authoritative Signal */}
-            <section className="bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <ExpertReview
-                        reviewerName='Captain Tariq Al-Sayed'
-                        reviewerTitle='Airport Logistics Manager'
-                        reviewDate="26 Dec 2025"
-                        expertise={["Terminal 1 Ops", "VIP Protocol", "Makkah Route Optimization"]}
-                    />
-                </div>
-            </section>
-
-            {/* Main Services Grid */}
+            {/* Main Content & Services */}
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
                 <div className="max-w-7xl mx-auto">
+                    {/* Section Header */}
                     <div className="text-center mb-12">
                         <span className="bg-primary/10 text-gray-900 font-semibold tracking-wider uppercase text-sm px-4 py-2 rounded-full inline-block border border-primary/20">
                             Available Services
                         </span>
-                        <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-gray-900 mt-6 mb-4">
-                            Airport and City Transport
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mt-6 mb-4">
+                            Jeddah Taxi Services
                         </h2>
-                        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                            Transport services cover King Abdulaziz International Airport (KAIA) and Jeddah city locations. Vehicles are air-conditioned.
+                        <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
+                            From King Abdulaziz Airport (KAIA) pickups to intercity transfers to Makkah and Madinah.
                         </p>
                     </div>
 
+                    {/* Services Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
                         {services.map((service, index) => (
                             <div
                                 key={index}
-                                className="bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-black/50 hover:shadow-xl transition-all duration-300 text-center group"
+                                className="bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-black/20 hover:shadow-xl transition-all duration-300 text-center group"
                             >
                                 <div className="bg-gray-100 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-gray-200 transition-colors">
                                     <service.icon className="w-8 h-8 text-black" />
@@ -293,45 +168,51 @@ export default async function JeddahPage() {
                 </div>
             </section>
 
-            {/* SEO Content Block */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+            {/* SEO Content Block - Cheap Taxi */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-gray-50 to-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        {/* Text Content */}
                         <div className="order-2 lg:order-1">
                             <div className="inline-flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full mb-6">
                                 <Plane className="w-4 h-4 text-black" />
-                                <span className="text-sm font-semibold text-gray-900">The Comfort of Private Transfer</span>
+                                <span className="text-sm font-semibold text-gray-900">Airport & Makkah Transfers</span>
                             </div>
-                            <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-6">
-                                Avoid the &quot;Taxi Line&quot; Humidity
-                            </h2>
-                            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                                Jeddah is humid. Waiting in the outdoor taxi queue after a long flight can be exhausting. Our driver greets you <span className="italic">inside</span> the terminal or at the nearest curbside point with a pre-cooled car.
-                            </p>
-                            <p className="text-gray-700 mb-6 leading-relaxed">
-                                We specialize in &quot;Last Mile&quot; comfort. While the train drops you at the station, we drop you at the hotel reception. For families with children and elderly, this convenience is priceless.
-                            </p>
 
-                            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div className="flex items-start gap-3 bg-gray-50 p-4 rounded-xl border border-gray-200">
-                                    <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
-                                    <div><h3 className="font-bold text-lg">Wait Time Included</h3><p className="text-sm text-gray-500">90 mins free waiting for delays</p></div>
-                                </div>
-                                <div className="flex items-start gap-3 bg-gray-50 p-4 rounded-xl border border-gray-200">
-                                    <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
-                                    <div><h3 className="font-bold text-lg">Family Vans</h3><p className="text-sm text-gray-500">Hyundia Staria & GMC Available</p></div>
-                                </div>
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
+                                Cheap Taxi Service in Jeddah
+                            </h2>
+
+                            <div className="space-y-4 text-gray-700 leading-relaxed">
+                                <p className="text-lg">
+                                    We offer affordable and reliable <strong>online taxi service in Jeddah</strong>. Whether you are arriving at King Abdulaziz International Airport (Terminal 1 or North) or need a ride to Makkah for Umrah, our fixed rates save you money compared to airport meters.
+                                </p>
+
+                                <p>
+                                    Jeddah traffic can be challenging. Our professional drivers use the best routes via <span className="font-semibold text-gray-900">Haramain Expressway</span> to ensure you reach your destination on time. Avoid the humidity and long taxi queues by booking your private ride in advance.
+                                </p>
+                            </div>
+
+                            {/* CTA */}
+                            <div className="mt-8 bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded-r-xl">
+                                <p className="text-sm text-gray-900 font-semibold flex items-center gap-2">
+                                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                                    Flight Delayed? We track your flight and wait for free up to 90 minutes!
+                                </p>
                             </div>
                         </div>
+
+                        {/* Image */}
                         <div className="order-1 lg:order-2">
                             <div className="relative">
                                 <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-transparent rounded-3xl blur-2xl opacity-30"></div>
                                 <Image
                                     src="/jeddah-airport-terminal.webp"
-                                    alt="Luxury Transfer at Jeddah KAIA Airport"
+                                    alt="Jeddah KAIA Airport Taxi Pickup"
                                     width={700}
                                     height={600}
-                                    className="relative rounded-2xl shadow-2xl w-full h-auto border-4 border-white object-cover"
+                                    className="relative rounded-2xl shadow-2xl w-full h-auto border-4 border-white"
+                                    priority
                                 />
                             </div>
                         </div>
@@ -339,341 +220,200 @@ export default async function JeddahPage() {
                 </div>
             </section>
 
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <SeasonalTravelTips city="Jeddah" />
-                    <div className="mt-12">
-                        <DistanceTable origin="KAIA Airport" locations={distanceData} />
-                    </div>
-
-                    <div className="mt-16">
-                        <TravelConsensus
-                            points={[
-                                {
-                                    topic: "Train to Makkah",
-                                    commonBelief: "Always faster.",
-                                    reality: "Actual travel time is similar when you add the taxi from Makkah station to Haram. Train is only better for solo travelers with light backpacks.",
-                                    truthRange: "Situation Dependent",
-                                    factors: ["Luggage Count", "Group Size", "Hotel Location"]
-                                },
-                                {
-                                    topic: "Uber at Airport",
-                                    commonBelief: "Easy availability.",
-                                    reality: "Surge pricing is common during flight banks. Drivers often cancel for short trips or if they don't like the payment method.",
-                                    truthRange: "Unreliable",
-                                    factors: ["Surge Pricing", "Cancellations"]
-                                }
-                            ]}
-                        />
-                    </div>
-
-                    <div className="mt-16">
-                        <RoutePerspective
-                            route="Jeddah to Makkah (The Sacred Route)"
-                            perspectives={[
-                                {
-                                    id: "pilgrim",
-                                    targetAudience: "Umrah Group",
-                                    icon: Users,
-                                    intent: "Worship",
-                                    description: "The primary goal is getting to the hotel to rest before Umrah. Our driver puts on Talbiyah audio if requested and drives smoothly.",
-                                    structuredFeatures: [
-                                        { label: "Checkpoints", value: "Permit Ready" },
-                                        { label: "Luggage", value: "High Capacity" },
-                                        { label: "Ac", value: "Max Cooling" }
-                                    ],
-                                    visualContext: "Passing the Quran Gate structure."
-                                },
-                                {
-                                    id: "business",
-                                    targetAudience: "Corporate",
-                                    icon: Building2,
-                                    intent: "Efficiency",
-                                    description: "Heading to a meeting in Jeddah. Needs WiFi hotspot (available on request) and efficient route avoiding Corniche traffic.",
-                                    structuredFeatures: [
-                                        { label: "Privacy", value: "Tinted Windows" },
-                                        { label: "Route", value: "Express" },
-                                        { label: "Payment", value: "Invoice Available" }
-                                    ],
-                                    visualContext: "Skyline views of HQ towers."
-                                }
-                            ]}
-                        />
-                    </div>
-
-                    <div className="mt-16">
-                        <MicroSemanticFAQ
-                            faqs={[
-                                {
-                                    question: "Where do I meet my driver at Jeddah Airport?",
-                                    shortAnswer: "T1: Aquarium / North: Gate 2",
-                                    detailedAnswer: "For Terminal 1 (New), the meeting point is the 'Aquarium' near the arrivals exit. For North Terminal, it is Gate 2. We track your flight and the driver holds a name sign.",
-                                    perspectives: [
-                                        { role: "First Timer", icon: "MapPin", insight: "The Aquarium is huge and impossible to miss in T1." },
-                                        { role: "Dispatcher", icon: "Plane", insight: "T1 and North are 20km apart! Tell us your flight number correctly." }
-                                    ]
-                                },
-                                {
-                                    question: "What if my flight is delayed?",
-                                    shortAnswer: "We Wait (Free)",
-                                    detailedAnswer: "We track your flight number automatically. Our driver waits for free up to 90 minutes after your plane actually lands. No need to stress.",
-                                    perspectives: [
-                                        { role: "Traveler", icon: "Clock", insight: "Customs queues can be long; knowing the driver waits is a relief." }
-                                    ]
-                                },
-                                {
-                                    question: "Do you have large vehicles for Umrah families?",
-                                    shortAnswer: "Yes, GMC & Coasters",
-                                    detailedAnswer: "We operate GMC Yukons (7 pax) and Toyota Coasters (20 pax). The Yukon fits 7 passengers plus 6 large suitcases comfortably.",
-                                    perspectives: [
-                                        { role: "Family Head", icon: "Users", insight: "Fits all our luggage + Zamzam water easily." }
-                                    ]
-                                },
-                                {
-                                    question: "Can we stop at Jeddah Corniche on the way to Makkah?",
-                                    shortAnswer: "Yes, Hourly Rate",
-                                    detailedAnswer: "Absolutely. Many pilgrims like to see the Red Sea before heading to Makkah. We charge a simple hourly waiting fee.",
-                                    perspectives: [
-                                        { role: "Tourist", icon: "Waves", insight: "Sunset at King Fahd's Fountain is worth the stop." }
-                                    ]
-                                },
-                                {
-                                    question: "Can I rent a car without a driver?",
-                                    shortAnswer: "No, Chauffeur Only",
-                                    detailedAnswer: "We only provide rental with a professional licensed driver. This ensures safety and stress-free navigation, especially for those unfamiliar with Saudi traffic.",
-                                    perspectives: [
-                                        { role: "Safety", icon: "Shield", insight: "Saudi driving style can be aggressive for newcomers." }
-                                    ]
-                                },
-                                {
-                                    question: "Can I wear Ihram in the taxi?",
-                                    shortAnswer: "Yes",
-                                    detailedAnswer: "Most pilgrims arrive in Ihram. We keep our vehicles cool (20-22°C) for comfort. If you need to change, airport facilities are available but busy.",
-                                    perspectives: [
-                                        { role: "Driver", icon: "User", insight: "We respect the sanctity of your state of Ihram." }
-                                    ]
-                                }
-                            ]}
-                        />
-                    </div>
-                </div>
-            </section>
-
-            {/* Practical Information - Koray's Entity-Attribute Coverage */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
-                            Practical Information
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                            Essential Information for Jeddah Airport Travelers
-                        </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Real-world details to help you navigate King Abdulaziz International Airport and Jeddah city.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* Prayer Facilities */}
-                        <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
-                            <div className="w-14 h-14 bg-black rounded-full flex items-center justify-center mb-4">
-                                <MapPin className="w-7 h-7 text-white" />
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">Prayer Facilities</h3>
-                            <div className="space-y-3 text-gray-600">
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Terminal 1 (New):</h4>
-                                    <p className="text-sm">Prayer room on Level 2 (after security). Separate sections for men and women. Wudu facilities available.</p>
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">North Terminal:</h4>
-                                    <p className="text-sm">Musalla near Gate 5. Smaller facility but well-maintained. Prayer times displayed on screens.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Currency & SIM Cards */}
-                        <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
-                            <div className="w-14 h-14 bg-black rounded-full flex items-center justify-center mb-4">
-                                <Building2 className="w-7 h-7 text-white" />
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">Currency & SIM Cards</h3>
-                            <div className="space-y-3 text-gray-600">
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Currency Exchange:</h4>
-                                    <p className="text-sm">Available in arrivals hall (both terminals). Rates are standard. ATMs accept international cards (Visa, Mastercard).</p>
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">SIM Cards:</h4>
-                                    <p className="text-sm">Mobily and STC kiosks in arrivals. Tourist SIM: SAR 50-100 (includes data). Passport required for activation.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Ihram Facilities */}
-                        <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
-                            <div className="w-14 h-14 bg-black rounded-full flex items-center justify-center mb-4">
-                                <Users className="w-7 h-7 text-white" />
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">Ihram Facilities</h3>
-                            <div className="space-y-3 text-gray-600">
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Changing Rooms:</h4>
-                                    <p className="text-sm">Terminal 1: Level 1, near baggage claim. Separate facilities for men and women.</p>
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Important Note:</h4>
-                                    <p className="text-sm">Lines can be 30+ minutes during Hajj season (Dhul Hijjah). Recommendation: Change into Ihram on the plane before landing.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Climate & Weather */}
-                        <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
-                            <div className="w-14 h-14 bg-black rounded-full flex items-center justify-center mb-4">
-                                <Waves className="w-7 h-7 text-white" />
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">Climate & Weather</h3>
-                            <div className="space-y-3 text-gray-600">
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Temperature:</h4>
-                                    <p className="text-sm">Summer (May-Sep): 35-45°C. Winter (Nov-Feb): 20-30°C. Humidity is high year-round (coastal city).</p>
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">AC in Vehicles:</h4>
-                                    <p className="text-sm">All our vehicles have strong AC. Essential for Ihram-wearing pilgrims. We keep temperature at 20-22°C for comfort.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Luggage & Storage */}
-                        <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
-                            <div className="w-14 h-14 bg-black rounded-full flex items-center justify-center mb-4">
-                                <Car className="w-7 h-7 text-white" />
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">Luggage & Storage</h3>
-                            <div className="space-y-3 text-gray-600">
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Baggage Claim:</h4>
-                                    <p className="text-sm">Terminal 1: Carousels 1-8 (international), 9-12 (domestic). Average wait time: 20-30 minutes.</p>
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Vehicle Capacity:</h4>
-                                    <p className="text-sm">GMC Yukon: 5-6 large suitcases. Toyota Camry: 2-3 large suitcases. Zamzam containers accommodated in all vehicles.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Meeting Point Details */}
-                        <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
-                            <div className="w-14 h-14 bg-black rounded-full flex items-center justify-center mb-4">
-                                <Plane className="w-7 h-7 text-white" />
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">Meeting Point Details</h3>
-                            <div className="space-y-3 text-gray-600">
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Terminal 1:</h4>
-                                    <p className="text-sm">Meet at the "Aquarium" (large fish tank near arrivals exit). Driver holds name sign. Landmark: Near Starbucks.</p>
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">North Terminal:</h4>
-                                    <p className="text-sm">Meet at Gate 2 (main exit). Driver waits outside customs area. Look for name sign with "Taxi Service KSA" logo.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Pro Tips Section */}
-                    <div className="mt-12 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 text-white">
-                        <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                            <CheckCircle2 className="w-8 h-8 text-white" />
-                            Pro Tips from Our Drivers
-                        </h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <p className="font-bold text-white mb-2">📱 Stay Connected:</p>
-                                <p className="text-gray-300 text-sm">Buy SIM card BEFORE exiting customs. You'll need data to contact driver if needed. WhatsApp works on Saudi SIMs.</p>
-                            </div>
-                            <div>
-                                <p className="font-bold text-white mb-2">🕌 Ihram Timing:</p>
-                                <p className="text-gray-300 text-sm">If flying during Hajj season, wear Ihram on plane. Airport changing rooms have 30+ min wait. Miqat boundary is before Jeddah.</p>
-                            </div>
-                            <div>
-                                <p className="font-bold text-white mb-2">💰 Currency:</p>
-                                <p className="text-gray-300 text-sm">Exchange small amount (SAR 200-300) at airport for immediate needs. Better rates in Makkah city. ATMs widely available.</p>
-                            </div>
-                            <div>
-                                <p className="font-bold text-white mb-2">🚗 Traffic Timing:</p>
-                                <p className="text-gray-300 text-sm">Jeddah→Makkah traffic peaks 4-7 PM (weekdays). Early morning (5-8 AM) is fastest. Friday afternoons are busiest (Jummah prayer).</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Related Guides Section */}
-            <RelatedGuides blogs={displayBlogs} title="Expert Jeddah Travel Guides" subtitle="Explore the Red Sea Bride, Airport Guides, and Historic Al-Balad." />
-
-            {/* User-Generated Content Section */}
-            <section className="mb-16 px-4 sm:px-6 lg:px-8">
+            {/* Essential Logistics */}
+            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white" id="logistics-guide">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
-                        <span className="bg-black text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
-                            Community Insights
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                            Share Your Experience
-                        </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Help fellow travelers by sharing your experience or asking questions about Jeddah Airport and transport.
-                        </p>
-                    </div>
-
-                    <div className="space-y-12 mb-12">
-                        <ReviewsDisplay location="Jeddah" />
-                        <QuestionsDisplay location="Jeddah" />
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-4">Jeddah Distances</h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto">Key travel times from King Abdulaziz Airport.</p>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <ReviewForm locationName="Jeddah" />
-                        <QuestionForm locationName="Jeddah" />
+                        <DistanceTable origin="KAIA Airport" locations={distanceData} />
+                        <SeasonalTravelTips city="Jeddah" />
                     </div>
                 </div>
-            </section >
+            </section>
 
-            <RelatedServices
-                services={[
-                    {
-                        name: 'Airport Transfers',
-                        description: 'Professional airport transfer service across 8 major Saudi airports with meet-and-greet.',
-                        href: '/services/airport-transfers',
-                        icon: Plane
-                    },
-                    {
-                        name: 'Umrah Transport',
-                        description: 'Complete Umrah journey transport from Jeddah Airport to Makkah and Madinah.',
-                        href: '/services/umrah-transport',
-                        icon: Car
-                    },
-                ]}
-                title="Services Available in Jeddah"
-                description="Professional taxi services with licensed drivers for all your Jeddah transport needs."
-            />
+            {/* Pricing Information */}
+            <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <div className="inline-flex items-center gap-2 bg-yellow-100 px-4 py-2 rounded-full mb-6">
+                            <Star className="w-4 h-4 text-yellow-600" />
+                            <span className="text-sm font-semibold text-yellow-900">Fixed Rates</span>
+                        </div>
 
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white text-center">
-                <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl md:text-5xl font-black mb-8">Arrive with Peace of Mind</h2>
-                    <p className="text-xl text-gray-400 mb-8">
-                        Don&apos;t leave your arrival to chance. Book a guaranteed pickup from Jeddah Airport today.
-                    </p>
-                    <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-12 py-8 rounded-full">
-                        <Link href="/booking">
-                            Book Airport Transfer
-                        </Link>
-                    </Button>
+                        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
+                            Transparent Pricing
+                        </h3>
+                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                            No surge pricing. The price you see is the price you pay.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Plane className="w-6 h-6 text-primary" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Airport to City</div>
+                            <div className="text-4xl font-black text-primary mb-3">
+                                <span className="text-2xl">From</span> SAR 100
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                KAIA to Jeddah Hotels
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-primary/30 hover:border-primary hover:shadow-xl transition-all text-center relative">
+                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white hover:text-black px-4 py-1 rounded-full text-xs font-bold">
+                                BEST SELLER
+                            </div>
+                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Car className="w-6 h-6 text-primary" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Airport to Makkah</div>
+                            <div className="text-4xl font-black text-primary mb-3">
+                                <span className="text-2xl">From</span> SAR 200
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                Direct to Hotel / Haram
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <MapPin className="w-6 h-6 text-primary" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Airport to Madinah</div>
+                            <div className="text-4xl font-black text-primary mb-3">
+                                <span className="text-2xl">From</span> SAR 450
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                Long Distance Transfer
+                            </div>
+                        </div>
+                    </div>
+                    <div className="bg-gray-100 border-l-4 border-gray-400 p-4 rounded-r-xl text-center">
+                        <p className="text-sm text-gray-700">
+                            <strong>Note:</strong> Rates depend on vehicle type (Sedan vs GMC) and season. Contact us for group rates.
+                        </p>
+                    </div>
                 </div>
             </section>
+
+            {/* Reviews */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16">
+                        <div className="inline-flex items-center gap-2 bg-yellow-100 px-4 py-2 rounded-full mb-6">
+                            <Star className="w-4 h-4 text-yellow-600" />
+                            <span className="text-sm font-semibold text-yellow-900">Guest Reviews</span>
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
+                            Trusted in Jeddah
+                        </h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all">
+                            <div className="flex items-center gap-1 mb-4">
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <Star key={star} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                                ))}
+                            </div>
+                            <p className="text-gray-700 italic mb-6">"Driver was waiting for us at Terminal 1 with a name card. Very smooth ride to our hotel in Al Hamra."</p>
+                            <div className="font-bold text-gray-900">- James W. from UK</div>
+                        </div>
+                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all">
+                            <div className="flex items-center gap-1 mb-4">
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <Star key={star} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                                ))}
+                            </div>
+                            <p className="text-gray-700 italic mb-6">"Excellent service for Umrah. The GMC was spacious for our family and 6 bags. Highly recommended."</p>
+                            <div className="font-bold text-gray-900">- Ahmed K. from UAE</div>
+                        </div>
+                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all">
+                            <div className="flex items-center gap-1 mb-4">
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <Star key={star} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                                ))}
+                            </div>
+                            <p className="text-gray-700 italic mb-6">"Cheaper than the airport taxi queue and much cleaner cars. Will book again."</p>
+                            <div className="font-bold text-gray-900">- Sarah L.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* FAQs */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+                <div className="max-w-4xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
+                            Jeddah Taxi FAQ
+                        </h2>
+                    </div>
+                    <Accordion type="single" collapsible className="w-full">
+                        {faqs.map((faq, index) => (
+                            <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-xl border border-gray-200 px-6 shadow-sm mb-4">
+                                <AccordionTrigger className="text-left font-bold text-gray-900 hover:no-underline text-lg py-6">
+                                    {faq.question}
+                                </AccordionTrigger>
+                                <AccordionContent className="text-gray-600 text-base leading-relaxed pb-6">
+                                    {faq.answer}
+                                </AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
+                </div>
+            </section>
+
+            {/* CTA Block */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+                <div className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/90 rounded-3xl p-12 shadow-2xl">
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0 opacity-10">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-black rounded-full blur-3xl"></div>
+                        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+                    </div>
+
+                    <div className="relative z-10 text-center max-w-5xl mx-auto">
+                        <div className="inline-flex items-center gap-2 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+                            <Phone className="w-4 h-4 text-black" />
+                            <span className="text-sm font-semibold text-black">24/7 Booking</span>
+                        </div>
+
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-black mb-4">
+                            Need a Ride in Jeddah?
+                        </h2>
+                        <p className="text-lg md:text-xl text-black/90 mb-8 max-w-2xl mx-auto font-medium">
+                            Book your airport transfer or Makkah taxi in under 2 minutes.
+                        </p>
+
+                        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+                            <Link href="/booking">
+                                <Button className="bg-black text-white hover:bg-black/90 font-bold px-10 py-7 text-lg rounded-2xl h-auto shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
+                                    Book Now
+                                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                </Button>
+                            </Link>
+                            <a href="mailto:taxiserviceksa9988@gmail.com">
+                                <Button variant="outline" className="bg-white/20 backdrop-blur-sm text-black border-2 border-black/30 hover:bg-white/30 font-bold px-10 py-7 text-lg rounded-2xl h-auto">
+                                    <Phone className="mr-2 w-5 h-5" />
+                                    Email Us
+                                </Button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <RelatedLocations currentCity="Jeddah" />
+            </div>
         </div >
     );
 }

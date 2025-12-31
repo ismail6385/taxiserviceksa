@@ -11,7 +11,7 @@ export default function StickyContactButton() {
     return (
         <>
             {/* Sticky Button - Hidden on mobile, visible on desktop */}
-            <div className="hidden md:block fixed right-0 top-1/3 -translate-y-1/2 z-40">
+            <div className="hidden md:block fixed right-0 top-1/3 -translate-y-1/2 z-[50]">
                 <Button
                     onClick={() => setIsOpen(true)}
                     className="h-auto py-4 px-1 rounded-l-lg rounded-r-none bg-gradient-to-b from-primary via-amber-500 to-primary text-black hover:from-amber-500 hover:via-primary hover:to-amber-500 shadow-lg shadow-primary/40 flex flex-col items-center gap-2 transition-all hover:-translate-x-1 min-h-[120px]"
@@ -25,7 +25,7 @@ export default function StickyContactButton() {
             </div>
 
             {/* Mobile Floating Button - Bottom right */}
-            <div className="md:hidden fixed bottom-20 right-4 z-40">
+            <div className="md:hidden fixed bottom-20 right-4 z-[50]">
                 <Button
                     onClick={() => setIsOpen(true)}
                     className="h-14 w-14 rounded-full bg-gradient-to-br from-primary via-amber-500 to-primary text-black hover:from-amber-500 hover:via-primary hover:to-amber-500 shadow-xl shadow-primary/40 flex items-center justify-center transition-all hover:scale-110 active:scale-95"

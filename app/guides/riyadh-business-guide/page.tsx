@@ -17,14 +17,14 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 
 
 export const metadata: Metadata = {
-    title: 'Riyadh Business Travel Guide 2024 | KAFD, Corporate Transport - Taxi Service KSA',
+    title: 'Riyadh Business Travel Guide 2026 | KAFD, Corporate Transport - Taxi Service KSA',
     description: 'Complete business travel guide for Riyadh: KAFD access, business districts, meeting venues, corporate facilities, traffic strategies, and professional transport services.',
     keywords: ['Riyadh business travel', 'KAFD taxi', 'corporate transport Riyadh', 'business districts Riyadh', 'Riyadh meeting venues', 'King Khalid Airport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/riyadh-business-guide/',
     },
     openGraph: {
-        title: 'Riyadh Business Travel Guide 2024 | Complete Corporate Transport Guide',
+        title: 'Riyadh Business Travel Guide 2026 | Complete Corporate Transport Guide',
         description: 'Everything business travelers need: KAFD access, districts, venues, corporate facilities, and transport.',
         url: 'https://taxiserviceksa.com/guides/riyadh-business-guide/',
         type: 'article',
@@ -62,12 +62,12 @@ export default function RiyadhBusinessGuidePage() {
     const guideSchema = {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "Riyadh Business Travel Guide 2024",
+        "headline": "Riyadh Business Travel Guide 2026",
         "description": "Comprehensive guide for business travelers in Riyadh covering KAFD, business districts, corporate facilities, and transport.",
 
 
         "datePublished": "2024-01-01",
-        "dateModified": "2024-01-01"
+        "dateModified": "2026-01-01"
     };
 
     return (
@@ -86,7 +86,7 @@ export default function RiyadhBusinessGuidePage() {
                         Complete Business Guide
                     </span>
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        Riyadh Business Travel Guide 2024
+                        Riyadh Business Travel Guide 2026
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                         Everything business travelers need for Riyadh: KAFD access, business districts, meeting venues, corporate facilities, traffic strategies, and professional transport.

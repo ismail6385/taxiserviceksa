@@ -20,12 +20,10 @@ export default function RelatedGuides({
     }
 
     return (
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200 overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-12">
-                    <span className="bg-emerald-50 text-emerald-800 font-semibold tracking-wider uppercase text-sm px-4 py-2 rounded-full inline-block border border-emerald-100 mb-4">
-                        Travel Knowledge
-                    </span>
+
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-gray-900 mb-4">
                         {title}
                     </h2>
@@ -34,12 +32,12 @@ export default function RelatedGuides({
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="flex overflow-x-auto pb-8 gap-6 snap-x snap-mandatory scroll-smooth hide-scrollbar px-4 sm:px-0 -mx-4 sm:mx-0">
                     {blogs.map((blog) => (
                         <Link
                             href={`/blog/${blog.slug}`}
                             key={blog.id}
-                            className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-emerald-500/20 hover:-translate-y-1 h-full"
+                            className="snap-center shrink-0 w-[300px] sm:w-[350px] group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-emerald-500/20 hover:-translate-y-1"
                         >
                             <div className="relative h-56 w-full overflow-hidden">
                                 {blog.featured_image ? (

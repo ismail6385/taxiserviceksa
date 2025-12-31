@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Star, Shield, CheckCircle, Sparkles, MapPin, Clock, Award } from 'lucide-react';
-import BookingForm from './BookingForm';
+import { Star, Shield, Sparkles, Award } from 'lucide-react';
+import HeroBookingWidget from './HeroBookingWidget';
 import { useState, useEffect, ReactNode } from 'react';
 
 interface HeroProps {
@@ -13,12 +13,12 @@ interface HeroProps {
     subtitle?: string;
     location?: string;
     h1Text?: string; // Custom H1 text for SEO
+    bookingFormTitle?: string; // Custom title for the booking widget
     children?: ReactNode;
 }
 
 export default function Hero(props: HeroProps) {
-    const { images, title, subtitle, location, h1Text } = props;
-    const [currentSlide, setCurrentSlide] = useState(0);
+    const { images, title, subtitle, location, h1Text, bookingFormTitle } = props;
 
     // Use custom images if provided, otherwise use default homepage slides
     const slides = images || [
@@ -59,126 +59,67 @@ export default function Hero(props: HeroProps) {
             'Riyadh cityscape - Premium intercity taxi and chauffeur service from Jeddah to Riyadh, Saudi Arabia'
         ];
 
-    // Default text content for homepage slides
-    const defaultSlideContent = [
-        {
-            highlight: <span className="bg-primary text-black px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">Umrah Taxi Service!</span>,
-            subtitle: "Comfortable & Reliable",
-            location: "Makkah to Madinah"
-        },
-        {
-            highlight: <span className="bg-primary text-black px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">Ziyarat Tours!</span>,
-            subtitle: "Sacred Sites Visit",
-            location: "Madinah Holy Places"
-        },
-        {
-            highlight: <span className="bg-primary text-black px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">VIP Chauffeur!</span>,
-            subtitle: "Luxury Experience",
-            location: "Premium Fleet"
-        },
-        {
-            highlight: <span className="bg-primary text-black px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">Airport Transfer!</span>,
-            subtitle: "Jeddah Airport",
-            location: "To Makkah & Madinah"
-        },
-        {
-            highlight: <span className="bg-primary text-black px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">City Tours!</span>,
-            subtitle: "Explore Saudi Arabia",
-            location: "Riyadh & Beyond"
-        }
-    ];
 
-    // Text content for each slide (either from props or default)
-    const slideContent = title && subtitle && location
-        ? [{ highlight: title, subtitle: subtitle, location: location }]
-        : defaultSlideContent;
 
-    // Auto-slide every 5 seconds
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setCurrentSlide((prev) => (prev + 1) % slides.length);
-        }, 5000);
-        return () => clearInterval(timer);
-    }, [slides.length]);
 
-    // Get current slide content (use modulo to stay within bounds)
-    const currentContent = slideContent[currentSlide % slideContent.length];
 
     return (
-        <section className="relative bg-white text-gray-900 overflow-hidden min-h-screen flex items-center" aria-label="Hero section">
-            {/* Background Image Carousel - SEO Optimized with proper img tags */}
-            <div className="absolute inset-0 z-0">
-                {slides.map((slide, index) => (
-                    <div
-                        key={index}
-                        className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
-                            }`}
-                    >
-                        <Image
-                            src={slide}
-                            alt={slideAltTexts[index] || `Premium taxi service in Saudi Arabia - ${index + 1}`}
-                            width={1920}
-                            height={1080}
-                            priority={index === 0}
-                            quality={90}
-                            className="object-cover w-full h-full"
-                            sizes="100vw"
-                            aria-hidden={index !== currentSlide}
-                        />
-                    </div>
-                ))}
-                {/* Subtle dark overlay for text readability */}
-                {/* Enhanced gradient overlay with animation */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/60 animate-pulse-slow" aria-hidden="true" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" aria-hidden="true" />
+        <section className="relative bg-white text-gray-900 min-h-[800px] flex flex-col justify-center items-center py-20" aria-label="Hero section">
+            {/* Background Image - Static */}
+            <div className="absolute inset-0 z-0 overflow-hidden">
+                <Image
+                    src={slides[0]}
+                    alt={slideAltTexts[0] || "Premium taxi service in Saudi Arabia"}
+                    fill
+                    priority
+                    quality={75}
+                    className="object-cover w-full h-full"
+                    sizes="100vw"
+                />
+                {/* Blue Overlay matching the reference */}
+                <div className="absolute inset-0 bg-blue-900/80 mix-blend-multiply" aria-hidden="true" />
+                <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
             </div>
 
             {/* Main Content */}
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20 lg:py-24 w-full">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 items-center">
-                    {/* Left Content - Give more space to hero text */}
-                    <div className="lg:col-span-8 space-y-6 sm:space-y-8">
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center text-center space-y-8">
 
-                        {/* Main Heading - SEO Optimized: Static H1 for better SEO */}
-                        <div className="space-y-4 sm:space-y-6 animate-fade-in-up delay-100">
-                            {/* Static H1 for SEO - Main keyword always visible to search engines */}
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight sm:leading-tight text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] animate-fade-in-up">
-                                <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent animate-shimmer">
-                                    {h1Text || "Premium Taxi Service KSA"}
-                                </span>
-                            </h1>
-
-                            {/* Dynamic H2 for visual appeal - Changes with slides */}
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight sm:leading-tight animate-fade-in-up delay-200" key={currentSlide}>
-                                <span className="block text-primary drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] font-black">
-                                    {currentContent.subtitle}
-                                </span>
-                                {' '}
-                                <span className="block text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] mt-1 sm:mt-2">
-                                    {currentContent.location}
-                                </span>
-                            </h2>
-
-                            {/* Subtitle - SEO optimized description */}
+                {/* Title & SEO H1 */}
+                <div className="space-y-4 animate-fade-in-up">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white drop-shadow-md">
+                        {h1Text || "Premium Taxi Service KSA"}
+                    </h1>
 
 
-                            {/* Optional Custom Content (Links/Buttons) */}
-                            {props.children && (
-                                <div className="mt-6 md:mt-8 animate-fade-in-up delay-400">
-                                    {props.children}
-                                </div>
-                            )}
-                        </div>
+                </div>
+
+                {/* Trust Signals (Icons Row) */}
+                <div className="flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-12 text-white/90 py-6 animate-fade-in-up delay-100">
+                    <div className="flex items-center gap-2">
+                        <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400" />
+                        <span className="text-sm sm:text-base font-semibold">Professional Drivers</span>
                     </div>
-
-                    {/* Right Side - Booking Form - Smaller and less dominant */}
-                    <div className="lg:col-span-4 w-full animate-fade-in-left delay-300">
-                        <div className="transform hover:scale-[1.02] transition-transform duration-300">
-                            <BookingForm />
-                        </div>
+                    <div className="flex items-center gap-2">
+                        <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400" />
+                        <span className="text-sm sm:text-base font-semibold">25k+ Happy Pilgrims</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <Award className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400" />
+                        <span className="text-sm sm:text-base font-semibold">Secure Online Payments</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <Star className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400" />
+                        <span className="text-sm sm:text-base font-semibold">Fixed Pricing</span>
                     </div>
                 </div>
+
+                {/* Booking Widget Container - Lifts up into the hero content */}
+                <div className="w-full animate-fade-in-up delay-200 mt-4">
+                    <HeroBookingWidget title={bookingFormTitle} />
+                </div>
             </div>
+
+
         </section>
     );
 }

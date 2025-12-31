@@ -5,13 +5,8 @@ import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Plane, ArrowRight, Train, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from '@/components/ui/accordion';
-import JsonLdFAQ from '@/components/JsonLdFAQ';
+import RelatedLocations from '@/components/seo/RelatedLocations';
+import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 
 export const metadata: Metadata = {
@@ -37,29 +32,7 @@ export default function MadinahJeddahRoutePage() {
         { label: 'Availability', value: '24/7 Service', icon: CheckCircle2 },
     ];
 
-    const vehicleOptions = [
-        {
-            name: 'Toyota Camry (Sedan)',
-            passengers: '4 passengers',
-            luggage: '2 large bags',
-            price: 'SAR 450',
-            ideal: 'Solo travelers or couples'
-        },
-        {
-            name: 'GMC Yukon (SUV)',
-            passengers: '7 passengers',
-            luggage: '5 large bags',
-            price: 'SAR 850',
-            ideal: 'Families or groups with luggage'
-        },
-        {
-            name: 'Toyota Hiace (Van)',
-            passengers: '11 passengers',
-            luggage: '16 large bags',
-            price: 'SAR 650',
-            ideal: 'Large Umrah groups'
-        },
-    ];
+
 
     const routeImages = [
         '/madinah-prophets-mosque.webp',
@@ -67,32 +40,7 @@ export default function MadinahJeddahRoutePage() {
         '/hero-slide-3.webp',
     ];
 
-    const faqs = [
-        {
-            question: "How long is the taxi ride from Madinah to Jeddah?",
-            answer: "The journey takes approximately 4 to 5 hours depending on traffic and the number of rest stops you wish to take. The distance is about 450 kilometers along the fast and modern highway."
-        },
-        {
-            question: "How much is a taxi from Madinah to Jeddah Airport?",
-            answer: "Our fixed rates start from SAR 450 for a standard sedan. SUVs are available from SAR 700, and large vans for groups start from SAR 850. These are fixed prices with no hidden fees."
-        },
-        {
-            question: "Can we stop for breaks during the recurring journey?",
-            answer: "Yes, absolutely. Since it is a longer trip (450 km), we are happy to stop at designated rest areas for food, prayer, or restrooms. Common stops include SASCO rest houses."
-        },
-        {
-            question: "Is it better to take a taxi or the train from Madinah to Jeddah?",
-            answer: "The Haramain High Speed Train is faster (approx 2 hours) but requires transport to/from stations and follows a strict schedule. A private taxi offers door-to-door convenience, flexibility with departure times, and is often more economical for groups of 3 or more."
-        },
-        {
-            question: "Do you pick up from hotels in Madinah?",
-            answer: "Yes, we provide door-to-door service. We will pick you up directly from your hotel lobby in Madinah near the Prophet's Mosque or any other location in the city."
-        },
-        {
-            question: "Is the road between Madinah and Jeddah safe?",
-            answer: "Yes, the highway connecting the two holy cities is a modern, well-maintained multi-lane expressway. Our drivers are experienced professionals who drive this route daily."
-        }
-    ];
+
 
     const routeSchema = {
         "@context": "https://schema.org",
@@ -127,12 +75,16 @@ export default function MadinahJeddahRoutePage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
             />
-            <JsonLdFAQ faqs={faqs} />
+            <Script
+                id="route-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
+            />
 
             {/* Hero Section */}
             <Hero
                 images={routeImages}
-                h1Text="Taxi from Madinah to Jeddah: 450km Transfer"
+                h1Text="Online Taxi from Madinah to Jeddah"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Madinah → Jeddah Route
@@ -238,90 +190,113 @@ export default function MadinahJeddahRoutePage() {
                 </div>
             </section>
 
-            {/* Vehicle Options Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+            {/* Pricing Section */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Vehicle Options & Pricing</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Modern, air-conditioned vehicles perfect for the long drive.
+                    <div className="text-center mb-12">
+                        <div className="inline-flex items-center gap-2 bg-emerald-100 px-4 py-2 rounded-full mb-6">
+                            <Star className="w-4 h-4 text-emerald-700" />
+                            <span className="text-sm font-semibold text-emerald-900">Return Route Fares</span>
+                        </div>
+
+                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
+                            Madinah to Jeddah Pricing
+                        </h3>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Flat rates including rest stops.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {vehicleOptions.map((vehicle, index) => (
-                            <div key={index} className="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-primary transition-all">
-                                <div className="text-center mb-6">
-                                    <Car className="w-12 h-12 text-primary mx-auto mb-4" />
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{vehicle.name}</h3>
-                                    <div className="text-3xl font-black text-primary mb-4">{vehicle.price}</div>
-                                </div>
-                                <div className="space-y-3 mb-6">
-                                    <div className="flex items-center gap-2 text-gray-600">
-                                        <Users className="w-5 h-5 text-gray-400" />
-                                        <span>{vehicle.passengers}</span>
-                                    </div>
-                                    <div className="flex items-center gap-2 text-gray-600">
-                                        <CheckCircle2 className="w-5 h-5 text-gray-400" />
-                                        <span>{vehicle.luggage}</span>
-                                    </div>
-                                </div>
-                                <div className="pt-4 border-t border-gray-200">
-                                    <p className="text-sm text-gray-500">
-                                        <strong className="text-gray-900">Ideal for:</strong> {vehicle.ideal}
-                                    </p>
-                                </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Car className="w-6 h-6 text-emerald-600" />
                             </div>
-                        ))}
+                            <div className="text-xl font-bold text-gray-900 mb-3">Camry (Sedan)</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 450
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                4 Passengers / 2 Bags
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-emerald-500 hover:shadow-xl transition-all text-center relative">
+                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-emerald-600 text-white hover:text-black px-4 py-1 rounded-full text-xs font-bold">
+                                MOST POPULAR
+                            </div>
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Users className="w-6 h-6 text-emerald-600" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">GMC Yukon (SUV)</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 850
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                7 Passengers / 5 Bags
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <MapPin className="w-6 h-6 text-emerald-600" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">HiAce Bus</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 650
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                Small Groups (10-12 pax)
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* FAQ Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">FAQ</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-                    </div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+                <RelatedLocations currentCity="Madinah" />
+            </div>
 
-                    <Accordion type="single" collapsible className="space-y-4">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left hover:no-underline py-4">
-                                    <h3 className="text-lg font-bold text-gray-900 pr-4">{faq.question}</h3>
-                                </AccordionTrigger>
-                                <AccordionContent className="pb-4">
-                                    <p className="text-gray-600 leading-relaxed pt-2">{faq.answer}</p>
-                                </AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
-                </div>
-            </section>
-
-            {/* Related Routes */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Related Routes</h2>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <Link href="/routes/makkah-madinah" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary transition-all group">
-                            <h3 className="font-bold text-lg mb-2 group-hover:text-primary">Makkah to Madinah</h3>
-                            <p className="text-gray-600 text-sm">Similar distance (450km) between Holy Cities</p>
-                        </Link>
-                        <Link href="/locations/madinah" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary transition-all group">
-                            <h3 className="font-bold text-lg mb-2 group-hover:text-primary">Madinah City Transport</h3>
-                            <p className="text-gray-600 text-sm">Ziyarah and local transfers</p>
-                        </Link>
-                        <Link href="/routes/jeddah-makkah" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary transition-all group">
-                            <h3 className="font-bold text-lg mb-2 group-hover:text-primary">Jeddah to Makkah</h3>
-                            <p className="text-gray-600 text-sm">The most popular Umrah route</p>
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            <MicroSemanticFAQ
+                faqs={[
+                    {
+                        question: "How long is the taxi ride from Madinah to Jeddah?",
+                        shortAnswer: "4 - 5 Hours",
+                        detailedAnswer: "The journey takes approximately 4 to 5 hours depending on traffic and the number of rest stops you wish to take. The distance is about 450 kilometers along the fast and modern highway.",
+                        perspectives: []
+                    },
+                    {
+                        question: "How much is a taxi from Madinah to Jeddah Airport?",
+                        shortAnswer: "From SAR 450",
+                        detailedAnswer: "Our fixed rates start from SAR 450 for a standard sedan. SUVs are available from SAR 850, and large vans for groups start from SAR 650. These are fixed prices with no hidden fees.",
+                        perspectives: []
+                    },
+                    {
+                        question: "Can we stop for breaks during the recurring journey?",
+                        shortAnswer: "Yes, Flexible",
+                        detailedAnswer: "Yes, absolutely. Since it is a longer trip (450 km), we are happy to stop at designated rest areas for food, prayer, or restrooms. Common stops include SASCO rest houses.",
+                        perspectives: []
+                    },
+                    {
+                        question: "Is it better to take a taxi or the train from Madinah to Jeddah?",
+                        shortAnswer: "Taxi = Direct",
+                        detailedAnswer: "The Haramain High Speed Train is faster (approx 2 hours) but requires transport to/from stations and follows a strict schedule. A private taxi offers door-to-door convenience, flexibility with departure times, and is often more economical for groups.",
+                        perspectives: []
+                    },
+                    {
+                        question: "Do you pick up from hotels in Madinah?",
+                        shortAnswer: "Yes, Door-to-Door",
+                        detailedAnswer: "Yes, we provide door-to-door service. We will pick you up directly from your hotel lobby in Madinah near the Prophet's Mosque or any other location in the city.",
+                        perspectives: []
+                    },
+                    {
+                        question: "Is the road between Madinah and Jeddah safe?",
+                        shortAnswer: "Yes, Modern Hwy",
+                        detailedAnswer: "Yes, the highway connecting the two holy cities is a modern, well-maintained multi-lane expressway. Our drivers are experienced professionals who drive this route daily.",
+                        perspectives: []
+                    }
+                ]}
+            />
 
             {/* CTA Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">

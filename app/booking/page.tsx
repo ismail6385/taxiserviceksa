@@ -20,13 +20,21 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
     };
 }
 
-export default function BookingPage() {
+export default function BookingPage({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+    const route = typeof searchParams.route === 'string' ? searchParams.route : null;
+
+    const getTitle = (routeSlug: string | null) => {
+        if (!routeSlug) return "Book Your Ride";
+        const formatted = routeSlug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+        return `Book Taxi from ${formatted.replace(' To ', ' to ')}`;
+    };
+
     return (
         <div className="bg-gray-50 min-h-screen pt-24 pb-24">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
                     <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block">Secure Your Ride</span>
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">Book Your Ride</h1>
+                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">{getTitle(route)}</h1>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                         Fill out the form below to reserve your luxury vehicle. Our team will verify your details and confirm your booking shortly.
                     </p>

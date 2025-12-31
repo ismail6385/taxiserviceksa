@@ -5,13 +5,8 @@ import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Plane, ArrowRight, Coffee, Navigation, Mountain } from 'lucide-react';
 import Hero from '@/components/Hero';
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from '@/components/ui/accordion';
-import JsonLdFAQ from '@/components/JsonLdFAQ';
+import RelatedLocations from '@/components/seo/RelatedLocations';
+import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
     title: 'Jeddah to Al Ula Taxi | 700km Heritage Route - Fixed Price',
@@ -36,29 +31,7 @@ export default function JeddahAlulaRoutePage() {
         { label: 'Terrain', value: 'Desert & Mountain', icon: Mountain },
     ];
 
-    const vehicleOptions = [
-        {
-            name: 'Toyota Camry (Sedan)',
-            passengers: '3 passengers',
-            luggage: '2 large bags',
-            price: 'SAR 1400',
-            ideal: 'Couples on a budget'
-        },
-        {
-            name: 'GMC Yukon (SUV)',
-            passengers: '6 passengers',
-            luggage: '5 large bags',
-            price: 'SAR 1800',
-            ideal: 'Families, Comfort seekers'
-        },
-        {
-            name: 'Hyundai Staria (Family)',
-            passengers: '7 passengers',
-            luggage: '6 large bags',
-            price: 'SAR 1600',
-            ideal: 'Groups of friends'
-        },
-    ];
+
 
     const routeImages = [
         '/alula-hegra.webp',
@@ -66,24 +39,7 @@ export default function JeddahAlulaRoutePage() {
         '/jeddah-airport.webp',
     ];
 
-    const faqs = [
-        {
-            question: "How long is the taxi ride from Jeddah to Al Ula?",
-            answer: "The journey from Jeddah to Al Ula is approximately 700 km and takes about 7 to 8 hours by car. The route passes through scenic desert landscapes and small towns."
-        },
-        {
-            question: "What is the price of a taxi from Jeddah to Al Ula?",
-            answer: "Fixed rates start from SAR 1400 for a sedan and SAR 1800 for a luxury GMC Yukon SUV. This price includes fuel, driver service, and taxes."
-        },
-        {
-            question: "Is it better to fly or drive to Al Ula?",
-            answer: "Flying is faster (1 hour flight) but flights can be infrequent and expensive. Driving offers flexibility, door-to-door service, and the chance to see the changing Saudi landscape. It's often more economical for groups."
-        },
-        {
-            question: "Are there rest stops on the way to Al Ula?",
-            answer: "Yes, there are several gas stations and rest areas along the highway (Route 15 & Route 328) where you can stop for food, prayer, and restrooms. Drivers are happy to make stops as needed."
-        }
-    ];
+
 
     const routeSchema = {
         "@context": "https://schema.org",
@@ -118,12 +74,11 @@ export default function JeddahAlulaRoutePage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
             />
-            <JsonLdFAQ faqs={faqs} />
 
             {/* Hero Section */}
             <Hero
                 images={routeImages}
-                h1Text="Taxi from Jeddah to Al Ula: The Ancient Kingdom Route"
+                h1Text="Online Taxi from Jeddah to Al Ula"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Jeddah → Al Ula Route
@@ -225,67 +180,101 @@ export default function JeddahAlulaRoutePage() {
                 </div>
             </section>
 
-            {/* Vehicle Options Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+            {/* Pricing Section */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Comfort Class Vehicles</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            For long-distance travel, we highly recommend our SUV range for extra legroom and luggage space.
+                    <div className="text-center mb-12">
+                        <div className="inline-flex items-center gap-2 bg-emerald-100 px-4 py-2 rounded-full mb-6">
+                            <Star className="w-4 h-4 text-emerald-700" />
+                            <span className="text-sm font-semibold text-emerald-900">Long Distance Fares</span>
+                        </div>
+
+                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
+                            Jeddah to Al Ula Pricing
+                        </h3>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Flat rates for the 700km journey. Fuel and driver included.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {vehicleOptions.map((vehicle, index) => (
-                            <div key={index} className="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-primary transition-all">
-                                <div className="text-center mb-6">
-                                    <Car className="w-12 h-12 text-primary mx-auto mb-4" />
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{vehicle.name}</h3>
-                                    <div className="text-3xl font-black text-primary mb-4">{vehicle.price}</div>
-                                </div>
-                                <div className="space-y-3 mb-6">
-                                    <div className="flex items-center gap-2 text-gray-600">
-                                        <Users className="w-5 h-5 text-gray-400" />
-                                        <span>{vehicle.passengers}</span>
-                                    </div>
-                                    <div className="flex items-center gap-2 text-gray-600">
-                                        <CheckCircle2 className="w-5 h-5 text-gray-400" />
-                                        <span>{vehicle.luggage}</span>
-                                    </div>
-                                </div>
-                                <div className="pt-4 border-t border-gray-200">
-                                    <p className="text-sm text-gray-500">
-                                        <strong className="text-gray-900">Ideal for:</strong> {vehicle.ideal}
-                                    </p>
-                                </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Car className="w-6 h-6 text-emerald-600" />
                             </div>
-                        ))}
+                            <div className="text-xl font-bold text-gray-900 mb-3">Camry (Sedan)</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 1400
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                3 Passengers / 2 Bags
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-emerald-500 hover:shadow-xl transition-all text-center relative">
+                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-emerald-600 text-white hover:text-black px-4 py-1 rounded-full text-xs font-bold">
+                                MOST COMFORTABLE
+                            </div>
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Users className="w-6 h-6 text-emerald-600" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">GMC Yukon (SUV)</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 1800
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                6 Passengers / 5 Bags
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <MapPin className="w-6 h-6 text-emerald-600" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Hyundai Staria</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 1600
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                7 Passengers / 6 Bags
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* FAQ Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">FAQ</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Questions?</h2>
-                    </div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+                <RelatedLocations currentCity="Jeddah" />
+            </div>
 
-                    <Accordion type="single" collapsible className="space-y-4">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left hover:no-underline py-4">
-                                    <h3 className="text-lg font-bold text-gray-900 pr-4">{faq.question}</h3>
-                                </AccordionTrigger>
-                                <AccordionContent className="pb-4">
-                                    <p className="text-gray-600 leading-relaxed pt-2">{faq.answer}</p>
-                                </AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
-                </div>
-            </section>
+            <MicroSemanticFAQ
+                faqs={[
+                    {
+                        question: "How long is the taxi ride from Jeddah to Al Ula?",
+                        shortAnswer: "7 - 8 Hours",
+                        detailedAnswer: "The journey from Jeddah to Al Ula is approximately 700 km and takes about 7 to 8 hours by car. The route passes through scenic desert landscapes and small towns.",
+                        perspectives: []
+                    },
+                    {
+                        question: "What is the price of a taxi from Jeddah to Al Ula?",
+                        shortAnswer: "From SAR 1400",
+                        detailedAnswer: "Fixed rates start from SAR 1400 for a sedan and SAR 1800 for a luxury GMC Yukon SUV. This price includes fuel, driver service, and taxes.",
+                        perspectives: []
+                    },
+                    {
+                        question: "Is it better to fly or drive to Al Ula?",
+                        shortAnswer: "Drive = Scenic",
+                        detailedAnswer: "Flying is faster (1 hour flight) but flights can be infrequent. Driving offers flexibility, door-to-door service, and the chance to see the changing Saudi landscape. It's often more economical for groups.",
+                        perspectives: []
+                    },
+                    {
+                        question: "Are there rest stops on the way to Al Ula?",
+                        shortAnswer: "Yes, Many Stops",
+                        detailedAnswer: "Yes, there are several gas stations and rest areas along the highway (Route 15 & Route 328) where you can stop for food, prayer, and restrooms.",
+                        perspectives: []
+                    }
+                ]}
+            />
 
             {/* CTA Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">

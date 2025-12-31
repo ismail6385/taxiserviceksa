@@ -21,7 +21,7 @@ export default function ServiceCard({ title, description, icon: Icon }: ServiceC
                     <div className="bg-gray-50 group-hover:bg-white/10 w-14 h-14 rounded-xl flex items-center justify-center transition-colors duration-300">
                         <Icon className="w-7 h-7 text-gray-900 group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-white transform rotate-0 group-hover:-rotate-45 transition-all duration-300" />
+                    <ArrowRight className="w-5 h-5 text-gray-500 group-hover:text-white transform rotate-0 group-hover:-rotate-45 transition-all duration-300" />
                 </div>
 
                 {/* Content */}

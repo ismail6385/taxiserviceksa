@@ -5,13 +5,8 @@ import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Plane, ArrowRight, Train, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from '@/components/ui/accordion';
-import JsonLdFAQ from '@/components/JsonLdFAQ';
+import RelatedLocations from '@/components/seo/RelatedLocations';
+import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
     title: 'Jeddah to Makkah Taxi | Airport Transfer 80km - Fixed Price SAR 250',
@@ -36,29 +31,7 @@ export default function JeddahMakkahRoutePage() {
         { label: 'Availability', value: '24/7 Service', icon: CheckCircle2 },
     ];
 
-    const vehicleOptions = [
-        {
-            name: 'Toyota Camry (Sedan)',
-            passengers: '4 passengers',
-            luggage: '2 large bags',
-            price: 'SAR 250',
-            ideal: 'Solo travelers or couples'
-        },
-        {
-            name: 'GMC Yukon (SUV)',
-            passengers: '7 passengers',
-            luggage: '5 large bags',
-            price: 'SAR 450',
-            ideal: 'Families or groups with luggage'
-        },
-        {
-            name: 'Toyota Hiace (Van)',
-            passengers: '11 passengers',
-            luggage: '16 large bags',
-            price: 'SAR 350',
-            ideal: 'Large Umrah groups'
-        },
-    ];
+
 
     const routeImages = [
         '/makkah-kaaba-night.webp',
@@ -66,44 +39,7 @@ export default function JeddahMakkahRoutePage() {
         '/hero-slide-3.webp',
     ];
 
-    const faqs = [
-        {
-            question: "How much does a taxi cost from Jeddah Airport to Makkah?",
-            answer: "Taxi rates from King Abdulaziz International Airport (Jeddah) to Makkah start from SAR 150 for a sedan (Toyota Camry). A 7 seater (GMC/Starex) starts from SAR 250. Van rates (Toyota Hiace) start from SAR 400. Prices are fixed with no surge charges."
-        },
-        {
-            question: "How long is the taxi ride from Jeddah to Makkah?",
-            answer: "The taxi ride from Jeddah to Makkah takes about 60 to 90 minutes. Distance is 80-95 kilometers via the Haramain Highway. Early mornings are fastest, but traffic can increase during Ramadan and Hajj."
-        },
-        {
-            question: "Is it better to take a taxi or the Haramain Train to Makkah?",
-            answer: "A taxi provides direct door-to-door service from the airport to your hotel. The Haramain Train is faster (35 mins) but requires two extra taxi rides (Airport to Station, and Makkah Station to Hotel). For families with luggage, a direct taxi is usually faster overall."
-        },
-        {
-            question: "Do you offer meet-and-greet at Jeddah Airport?",
-            answer: "Yes, meet-and-greet is included. Our driver waits at the arrivals hall with a name sign. We track your flight to ensure we are there when you land. We also help with luggage."
-        },
-        {
-            question: "Can I get a taxi from Jeddah to Makkah late at night?",
-            answer: "Yes, our taxi service operates 24/7. Late-night pickups (10 PM - 6 AM) cost the same fixed rate. We recommend booking in advance for late arrivals."
-        },
-        {
-            question: "Which route do you take from Jeddah to Makkah?",
-            answer: "We primarily use the Haramain Highway (Route 40) via the Makkah Tunnel, which takes 60-75 minutes. If there is roadwork, we may use the Old Makkah Road (Route 15). Drivers always choose the fastest route."
-        },
-        {
-            question: "Do you take Zamzam water and extra luggage?",
-            answer: "Yes, our vehicles can carry Zamzam water and extra luggage. If you have a lot of bags, please book an SUV or Van to ensure enough space."
-        },
-        {
-            question: "Can we stop for a break on the way to Makkah?",
-            answer: "Yes, you can ask for a rest stop at designated areas like Al Shumaisi (40 km from Jeddah). Stops usually last 10-15 minutes for restrooms or snacks."
-        },
-        {
-            question: "Is your service better than renting a car in Jeddah?",
-            answer: "Our private chauffeur service is more convenient than renting. You get a professional driver, no deposit is required, and there are no insurance worries. It's a stress-free way to travel."
-        }
-    ];
+
 
     const routeSchema = {
         "@context": "https://schema.org",
@@ -138,7 +74,7 @@ export default function JeddahMakkahRoutePage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
             />
-            <JsonLdFAQ faqs={faqs} />
+
             <Script
                 id="speakable-schema-jeddah-makkah"
                 type="application/ld+json"
@@ -154,14 +90,14 @@ export default function JeddahMakkahRoutePage() {
             {/* Hero Section */}
             <Hero
                 images={routeImages}
-                h1Text="Taxi from Jeddah to Makkah: Airport Transfer 80km Route"
+                h1Text="Online Taxi from Jeddah to Makkah"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Jeddah → Makkah Route
                     </span>
                 }
                 subtitle="King Abdulaziz Airport to Makkah Hotels"
-                location="60-90 Minutes | Fixed Rate SAR 250+"
+                location="60-90 Minutes | Fixed Rate SAR 200+"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?route=jeddah-makkah">
@@ -260,90 +196,109 @@ export default function JeddahMakkahRoutePage() {
                 </div>
             </section>
 
-            {/* Vehicle Options Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+            {/* Pricing Section */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Vehicle Options & Pricing</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Choose the right vehicle for your group size and luggage requirements.
+                    <div className="text-center mb-12">
+                        <div className="inline-flex items-center gap-2 bg-emerald-100 px-4 py-2 rounded-full mb-6">
+                            <Star className="w-4 h-4 text-emerald-700" />
+                            <span className="text-sm font-semibold text-emerald-900">Route Fares</span>
+                        </div>
+
+                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
+                            Jeddah to Makkah Pricing
+                        </h3>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Flat rates from Jeddah Airport to your Makkah hotel.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {vehicleOptions.map((vehicle, index) => (
-                            <div key={index} className="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-primary transition-all">
-                                <div className="text-center mb-6">
-                                    <Car className="w-12 h-12 text-primary mx-auto mb-4" />
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{vehicle.name}</h3>
-                                    <div className="text-3xl font-black text-primary mb-4">{vehicle.price}</div>
-                                </div>
-                                <div className="space-y-3 mb-6">
-                                    <div className="flex items-center gap-2 text-gray-600">
-                                        <Users className="w-5 h-5 text-gray-400" />
-                                        <span>{vehicle.passengers}</span>
-                                    </div>
-                                    <div className="flex items-center gap-2 text-gray-600">
-                                        <CheckCircle2 className="w-5 h-5 text-gray-400" />
-                                        <span>{vehicle.luggage}</span>
-                                    </div>
-                                </div>
-                                <div className="pt-4 border-t border-gray-200">
-                                    <p className="text-sm text-gray-500">
-                                        <strong className="text-gray-900">Ideal for:</strong> {vehicle.ideal}
-                                    </p>
-                                </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Car className="w-6 h-6 text-emerald-600" />
                             </div>
-                        ))}
+                            <div className="text-xl font-bold text-gray-900 mb-3">Camry (Sedan)</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 250
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                4 Passengers / 2 Bags
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-emerald-500 hover:shadow-xl transition-all text-center relative">
+                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-emerald-600 text-white hover:text-black px-4 py-1 rounded-full text-xs font-bold">
+                                BEST SELLER
+                            </div>
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Users className="w-6 h-6 text-emerald-600" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">GMC Yukon (SUV)</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 450
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                7 Passengers / 7 Bags
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <MapPin className="w-6 h-6 text-emerald-600" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">HiAce Bus</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 350
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                Small Groups (10-12 pax)
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* FAQ Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">FAQ</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-                    </div>
 
-                    <Accordion type="single" collapsible className="space-y-4">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left hover:no-underline py-4">
-                                    <h3 className="text-lg font-bold text-gray-900 pr-4">{faq.question}</h3>
-                                </AccordionTrigger>
-                                <AccordionContent className="pb-4">
-                                    <p className="text-gray-600 leading-relaxed pt-2">{faq.answer}</p>
-                                </AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
-                </div>
-            </section>
 
-            {/* Related Routes */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Related Routes</h2>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <Link href="/locations/makkah" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary transition-all group">
-                            <h3 className="font-bold text-lg mb-2 group-hover:text-primary">Makkah City Transport</h3>
-                            <p className="text-gray-600 text-sm">Hotel to Haram taxi service</p>
-                        </Link>
-                        <Link href="/locations/jeddah" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary transition-all group">
-                            <h3 className="font-bold text-lg mb-2 group-hover:text-primary">Jeddah Airport Transfers</h3>
-                            <p className="text-gray-600 text-sm">All Jeddah taxi services</p>
-                        </Link>
-                        <Link href="/locations/madinah" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary transition-all group">
-                            <h3 className="font-bold text-lg mb-2 group-hover:text-primary">Makkah to Madinah (450km)</h3>
-                            <p className="text-gray-600 text-sm">Intercity pilgrimage route</p>
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+                <RelatedLocations currentCity="Jeddah" />
+            </div>
+
+            <MicroSemanticFAQ
+                faqs={[
+                    {
+                        question: "How much does a taxi cost from Jeddah Airport to Makkah?",
+                        shortAnswer: "From SAR 200",
+                        detailedAnswer: "Taxi rates from King Abdulaziz International Airport (Jeddah) to Makkah start from SAR 200 for a sedan (Toyota Camry). A 7 seater (GMC/Starex) starts from SAR 350. Van rates (Toyota Hiace) start from SAR 450. Prices are fixed with no surge charges.",
+                        perspectives: []
+                    },
+                    {
+                        question: "How long is the taxi ride from Jeddah to Makkah?",
+                        shortAnswer: "60 - 90 Minutes",
+                        detailedAnswer: "The taxi ride from Jeddah to Makkah takes about 60 to 90 minutes. Distance is 80-95 kilometers via the Haramain Highway. Early mornings are fastest, but traffic can increase during Ramadan and Hajj.",
+                        perspectives: []
+                    },
+                    {
+                        question: "Is it better to take a taxi or the Haramain Train to Makkah?",
+                        shortAnswer: "Taxi = Door-to-Door",
+                        detailedAnswer: "A taxi provides direct door-to-door service from the airport to your hotel. The Haramain Train is faster (35 mins) but requires two extra taxi rides (Airport to Station, and Makkah Station to Hotel). For families with luggage, a direct taxi is usually faster overall.",
+                        perspectives: []
+                    },
+                    {
+                        question: "Do you offer meet-and-greet at Jeddah Airport?",
+                        shortAnswer: "Yes, Included",
+                        detailedAnswer: "Yes, meet-and-greet is included. Our driver waits at the arrivals hall with a name sign. We track your flight to ensure we are there when you land. We also help with luggage.",
+                        perspectives: []
+                    },
+                    {
+                        question: "Can I get a taxi from Jeddah to Makkah late at night?",
+                        shortAnswer: "24/7 Service",
+                        detailedAnswer: "Yes, our taxi service operates 24/7. Late-night pickups (10 PM - 6 AM) cost the same fixed rate. We recommend booking in advance for late arrivals.",
+                        perspectives: []
+                    }
+                ]}
+            />
 
             {/* CTA Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">

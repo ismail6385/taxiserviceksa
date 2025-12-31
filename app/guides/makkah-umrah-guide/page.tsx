@@ -17,14 +17,14 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 
 
 export const metadata: Metadata = {
-    title: 'Makkah Umrah Complete Guide 2024 | Transport, Tawaf, Ziyarat - Taxi Service KSA',
+    title: 'Makkah Umrah Complete Guide 2026 | Transport, Tawaf, Ziyarat - Taxi Service KSA',
     description: 'Complete Umrah guide for Makkah: Haram access, Tawaf timing, Ziyarat sites, Zamzam logistics, hotel zones, prayer schedules, and taxi transport. Everything pilgrims need to know.',
     keywords: ['Umrah guide Makkah', 'Tawaf timing', 'Ziyarat sites Makkah', 'Haram access points', 'Makkah hotel zones', 'Jabal al-Nour', 'Zamzam water'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/makkah-umrah-guide/',
     },
     openGraph: {
-        title: 'Makkah Umrah Complete Guide 2024 | Everything Pilgrims Need',
+        title: 'Makkah Umrah Complete Guide 2026 | Everything Pilgrims Need',
         description: 'Comprehensive Umrah guide: Haram access, Tawaf timing, Ziyarat sites, transport, and practical tips for pilgrims.',
         url: 'https://taxiserviceksa.com/guides/makkah-umrah-guide/',
         type: 'article',
@@ -62,12 +62,12 @@ export default function MakkahUmrahGuidePage() {
     const guideSchema = {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "Makkah Umrah Complete Guide 2024",
+        "headline": "Makkah Umrah Complete Guide 2026",
         "description": "Comprehensive guide for Umrah pilgrims in Makkah covering Haram access, Tawaf timing, Ziyarat sites, and practical logistics.",
 
 
         "datePublished": "2024-01-01",
-        "dateModified": "2024-01-01"
+        "dateModified": "2026-01-01"
     };
 
     return (
@@ -86,7 +86,7 @@ export default function MakkahUmrahGuidePage() {
                         Complete Umrah Guide
                     </span>
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        Makkah Umrah Complete Guide 2024
+                        Makkah Umrah Complete Guide 2026
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                         Everything you need for a blessed Umrah: Haram access, Tawaf timing, Ziyarat sites, Zamzam logistics, hotel zones, and transport. Complete guide for pilgrims.

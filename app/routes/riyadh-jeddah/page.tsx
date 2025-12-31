@@ -5,12 +5,7 @@ import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Plane, ArrowRight, Train, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from '@/components/ui/accordion';
+import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
@@ -36,29 +31,7 @@ export default function RiyadhJeddahRoutePage() {
         { label: 'Availability', value: 'Advance Booking', icon: CheckCircle2 },
     ];
 
-    const vehicleOptions = [
-        {
-            name: 'Toyota Camry (Sedan)',
-            passengers: '3 passengers',
-            luggage: '2 large bags',
-            price: 'SAR 1800',
-            ideal: 'Solo travelers (Max comfort)'
-        },
-        {
-            name: 'GMC Yukon (SUV)',
-            passengers: '5 passengers',
-            luggage: '5 large bags',
-            price: 'SAR 2500',
-            ideal: 'Families or VIPs'
-        },
-        {
-            name: 'Toyota Hiace (Van)',
-            passengers: '10 passengers',
-            luggage: '10 large bags',
-            price: 'SAR 3000',
-            ideal: 'Large groups / Relocation'
-        },
-    ];
+
 
     const routeImages = [
         '/jeddah-corniche-sunset.webp', // Need a Riyadh image ideally, but will reuse existing for now or generic highway
@@ -106,7 +79,7 @@ export default function RiyadhJeddahRoutePage() {
             {/* Hero Section */}
             <Hero
                 images={routeImages}
-                h1Text="Taxi from Riyadh to Jeddah: 950km Long Distance Transfer"
+                h1Text="Online Taxi from Riyadh to Jeddah"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Riyadh → Jeddah Route
@@ -199,111 +172,112 @@ export default function RiyadhJeddahRoutePage() {
                 </div>
             </section>
 
-            {/* Vehicle Options Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+            {/* Pricing Section */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Vehicle Options & Pricing</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Reliable vehicles for long-distance travel.
+                    <div className="text-center mb-12">
+                        <div className="inline-flex items-center gap-2 bg-emerald-100 px-4 py-2 rounded-full mb-6">
+                            <Star className="w-4 h-4 text-emerald-700" />
+                            <span className="text-sm font-semibold text-emerald-900">Long Distance Fares</span>
+                        </div>
+
+                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
+                            Riyadh to Jeddah Pricing
+                        </h3>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Flat rates for the 950km cross-country journey.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {vehicleOptions.map((vehicle, index) => (
-                            <div key={index} className="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-primary transition-all">
-                                <div className="text-center mb-6">
-                                    <Car className="w-12 h-12 text-primary mx-auto mb-4" />
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{vehicle.name}</h3>
-                                    <div className="text-3xl font-black text-primary mb-4">{vehicle.price}</div>
-                                </div>
-                                <div className="space-y-3 mb-6">
-                                    <div className="flex items-center gap-2 text-gray-600">
-                                        <Users className="w-5 h-5 text-gray-400" />
-                                        <span>{vehicle.passengers}</span>
-                                    </div>
-                                    <div className="flex items-center gap-2 text-gray-600">
-                                        <CheckCircle2 className="w-5 h-5 text-gray-400" />
-                                        <span>{vehicle.luggage}</span>
-                                    </div>
-                                </div>
-                                <div className="pt-4 border-t border-gray-200">
-                                    <p className="text-sm text-gray-500">
-                                        <strong className="text-gray-900">Ideal for:</strong> {vehicle.ideal}
-                                    </p>
-                                </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Car className="w-6 h-6 text-emerald-600" />
                             </div>
-                        ))}
+                            <div className="text-xl font-bold text-gray-900 mb-3">Camry (Sedan)</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 1800
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                4 Passengers / 2 Bags
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-emerald-500 hover:shadow-xl transition-all text-center relative">
+                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-emerald-600 text-white hover:text-black px-4 py-1 rounded-full text-xs font-bold">
+                                MOST COMFORTABLE
+                            </div>
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Users className="w-6 h-6 text-emerald-600" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">GMC Yukon (SUV)</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 2500
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                7 Passengers / 5 Bags
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <MapPin className="w-6 h-6 text-emerald-600" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">HiAce Bus</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 3000
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                Large Groups (10-12 pax)
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* FAQ Section */}
             {/* Micro-Semantic FAQ Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <MicroSemanticFAQ
-                        faqs={[
-                            {
-                                question: "How long is the drive from Riyadh to Jeddah?",
-                                shortAnswer: "10-12 Hours",
-                                detailedAnswer: "The 950km journey across the Peninsula is a full day trip. We recommend starting at 5:00 AM to arrive by late afternoon. We plan stops every 3-4 hours at major service stations (SASCO) for fuel, prayers, and food.",
-                                perspectives: [
-                                    { role: "Driver", icon: "Clock", insight: "Speed limit is 140km/h on most sections. We adhere strictly to safety limits." },
-                                    { role: "Safety", icon: "Shield", insight: "Night driving is safe but day driving is preferred for better visibility." }
-                                ]
-                            },
-                            {
-                                question: "Is flying better than taking a taxi?",
-                                shortAnswer: "For Speed: Yes",
-                                detailedAnswer: "Flying is much faster (1.5 hours flight). Taxi is recommended ONLY if you have: 1) Excess luggage, 2) Pets (not allowed on Saudia cabin), or 3) A large family where 6 tickets cost more than 1 van rental.",
-                                perspectives: [
-                                    { role: "Budget Traveler", icon: "DollarSign", insight: "For a family of 7, one GMC rental is half the price of 7 flex-flight tickets." }
-                                ]
-                            },
-                            {
-                                question: "What cars do you use for this long trip?",
-                                shortAnswer: "SUVs Recommended",
-                                detailedAnswer: "We strongly recommend GMC Yukon or Chevrolet Suburban. Sedans (Camry) are available but sitting for 10 hours in a sedan is tiring. SUVs allow leg stretching and reclining.",
-                                perspectives: [
-                                    { role: "Passenger", icon: "Car", insight: "The extra space in the Yukon makes sleeping possible during the ride." }
-                                ]
-                            },
-                            {
-                                question: "Can we stop for sightseeing?",
-                                shortAnswer: "Yes, Flexible",
-                                detailedAnswer: "The route passes through desert landscapes. If you want to stop for photos or at a specific rest house, just ask the driver. It's your private charter.",
-                                perspectives: [
-                                    { role: "Tourist", icon: "MapPin", insight: "There are some scenic dunes near Taif if you take the southern route." }
-                                ]
-                            }
-                        ]}
-                    />
-                </div>
-            </section>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+                <RelatedLocations currentCity="Riyadh" />
+            </div>
 
-            {/* Related Routes */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Related Routes</h2>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <Link href="/routes/jeddah-makkah" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary transition-all group">
-                            <h3 className="font-bold text-lg mb-2 group-hover:text-primary">Jeddah to Makkah</h3>
-                            <p className="text-gray-600 text-sm">Popular Umrah route</p>
-                        </Link>
-                        <Link href="/routes/jeddah-taif" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary transition-all group">
-                            <h3 className="font-bold text-lg mb-2 group-hover:text-primary">Jeddah to Taif</h3>
-                            <p className="text-gray-600 text-sm">Mountain destination trip</p>
-                        </Link>
-                        <Link href="/locations/riyadh" className="bg-white p-6 rounded-xl border border-gray-200 hover:border-primary transition-all group">
-                            <h3 className="font-bold text-lg mb-2 group-hover:text-primary">Riyadh City Transport</h3>
-                            <p className="text-gray-600 text-sm">Local Riyadh taxi services</p>
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            <MicroSemanticFAQ
+                faqs={[
+                    {
+                        question: "How long is the drive from Riyadh to Jeddah?",
+                        shortAnswer: "10-12 Hours",
+                        detailedAnswer: "The 950km journey across the Peninsula is a full day trip. We recommend starting at 5:00 AM to arrive by late afternoon. We plan stops every 3-4 hours at major service stations (SASCO) for fuel, prayers, and food.",
+                        perspectives: [
+                            { role: "Driver", icon: "Clock", insight: "Speed limit is 140km/h on most sections. We adhere strictly to safety limits." },
+                            { role: "Safety", icon: "Shield", insight: "Night driving is safe but day driving is preferred for better visibility." }
+                        ]
+                    },
+                    {
+                        question: "Is flying better than taking a taxi?",
+                        shortAnswer: "For Speed: Yes",
+                        detailedAnswer: "Flying is much faster (1.5 hours flight). Taxi is recommended ONLY if you have: 1) Excess luggage, 2) Pets (not allowed on Saudia cabin), or 3) A large family where 6 tickets cost more than 1 van rental.",
+                        perspectives: [
+                            { role: "Budget Traveler", icon: "DollarSign", insight: "For a family of 7, one GMC rental is half the price of 7 flex-flight tickets." }
+                        ]
+                    },
+                    {
+                        question: "What cars do you use for this long trip?",
+                        shortAnswer: "SUVs Recommended",
+                        detailedAnswer: "We strongly recommend GMC Yukon or Chevrolet Suburban. Sedans (Camry) are available but sitting for 10 hours in a sedan is tiring. SUVs allow leg stretching and reclining.",
+                        perspectives: [
+                            { role: "Passenger", icon: "Car", insight: "The extra space in the Yukon makes sleeping possible during the ride." }
+                        ]
+                    },
+                    {
+                        question: "Can we stop for sightseeing?",
+                        shortAnswer: "Yes, Flexible",
+                        detailedAnswer: "The route passes through desert landscapes. If you want to stop for photos or at a specific rest house, just ask the driver. It's your private charter.",
+                        perspectives: [
+                            { role: "Tourist", icon: "MapPin", insight: "There are some scenic dunes near Taif if you take the southern route." }
+                        ]
+                    }
+                ]}
+            />
 
             {/* CTA Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">

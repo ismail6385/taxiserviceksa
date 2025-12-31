@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { Mountain, MapPin, Clock, CheckCircle2, Star, Shield } from 'lucide-react';
+import { Mountain, MapPin, Clock, CheckCircle2, Star, Shield, Car, Users } from 'lucide-react';
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
@@ -13,11 +13,7 @@ import SemanticField from '@/components/seo/SemanticField';
 import TopicCluster from '@/components/seo/TopicCluster';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 import ExpertReview from '@/components/seo/ExpertReview';
-
-import ReviewForm from '@/components/seo/ReviewForm';
-import QuestionForm from '@/components/seo/QuestionForm';
-import ReviewsDisplay from '@/components/ReviewsDisplay';
-import QuestionsDisplay from '@/components/QuestionsDisplay';
+import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'Makkah Ziyarat Places | Holy Sites Taxi Tour',
@@ -259,20 +255,72 @@ export default function MakkahZiyaratPage() {
                 </div>
             </section>
 
-            {/* UGC Section */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+            {/* Pricing Section */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-2xl font-bold text-center mb-8">Pilgrim Experiences</h2>
-                    <div className="space-y-12">
-                        <ReviewsDisplay location="MakkahZiyarat" />
-                        <QuestionsDisplay location="MakkahZiyarat" />
+                    <div className="text-center mb-12">
+                        <div className="inline-flex items-center gap-2 bg-emerald-100 px-4 py-2 rounded-full mb-6">
+                            <Star className="w-4 h-4 text-emerald-700" />
+                            <span className="text-sm font-semibold text-emerald-900">Ziyarat Fares</span>
+                        </div>
+
+                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
+                            Private Tour Pricing
+                        </h3>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Comprehensive 3-4 hour tour of all holy sites. Price is per vehicle, not per person.
+                        </p>
                     </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
-                        <ReviewForm locationName="MakkahZiyarat" />
-                        <QuestionForm locationName="MakkahZiyarat" />
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Car className="w-6 h-6 text-emerald-600" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Sedan</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 200
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                Up to 4 Passengers
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-emerald-500 hover:shadow-xl transition-all text-center relative">
+                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-emerald-600 text-white hover:text-black px-4 py-1 rounded-full text-xs font-bold">
+                                MOST POPULAR
+                            </div>
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Users className="w-6 h-6 text-emerald-600" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">SUV (GMC/Ford)</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 300
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                Up to 7 Passengers
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <MapPin className="w-6 h-6 text-emerald-600" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">HiAce Bus</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 450
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                Small Groups (10-12 pax)
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+                <RelatedLocations currentCity="Makkah" />
+            </div>
         </div>
     );
 }

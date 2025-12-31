@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Building2 } from 'lucide-react';
+import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Building, Phone } from 'lucide-react';
 import Hero from '@/components/Hero';
 import {
     Accordion,
@@ -11,23 +11,18 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from '@/components/ui/accordion';
-import JsonLdFAQ from '@/components/JsonLdFAQ';
-import RelatedServices from '@/components/seo/RelatedServices';
-import QuestionsDisplay from '@/components/QuestionsDisplay';
-import ReviewsDisplay from '@/components/ReviewsDisplay';
-import ReviewForm from '@/components/seo/ReviewForm';
-import QuestionForm from '@/components/seo/QuestionForm';
+import DistanceTable from '@/components/seo/DistanceTable';
+import SeasonalTravelTips from '@/components/seo/SeasonalTravelTips';
+import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import TrendingTravelNote from '@/components/seo/TrendingTravelNote';
-import QuestionGrouper from '@/components/seo/QuestionGrouper';
-import SemanticField from '@/components/seo/SemanticField';
+import ServiceComparison from '@/components/ServiceComparison';
 import TopicCluster from '@/components/seo/TopicCluster';
 import ExpertReview from '@/components/seo/ExpertReview';
-import DistanceTable from '@/components/seo/DistanceTable';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 import RoutePerspective from '@/components/seo/RoutePerspective';
-import SeasonalTravelTips from '@/components/seo/SeasonalTravelTips';
+import ProcessFlow from '@/components/ProcessFlow';
 
 export const metadata: Metadata = {
     title: 'Taxi Service in Riyadh | Airport Transfer & Corporate Transport KSA',
@@ -46,19 +41,10 @@ export const metadata: Metadata = {
 
 export default function RiyadhPage() {
     const services = [
-        { name: 'King Khalid Airport Transfer', description: 'Transfers from King Khalid International Airport (RUH) to Riyadh hotels and business districts', icon: Plane },
-        { name: 'Corporate Transport Riyadh', description: 'Executive transport for business meetings, conferences, and corporate events', icon: Building2 },
-        { name: 'Riyadh to Jeddah Taxi', description: 'Intercity travel between Riyadh and Jeddah (950 km, 9-10 hours)', icon: Car },
-        { name: 'Riyadh City Tours', description: 'Transport to Kingdom Centre, Masmak Fort, and Diriyah UNESCO site', icon: MapPin },
-    ];
-
-    const features = [
-        'Licensed drivers with Riyadh route knowledge',
-        'Airport pickup with flight tracking',
-        'Executive vehicles for corporate clients',
-        '24/7 availability for business travel',
-        'Fixed fares with no surge pricing',
-        'English and Arabic speaking staff',
+        { name: 'King Khalid Airport', description: 'Meet & Greet service at RUH Airport (Terminals 1, 2, 3, 4 & 5).', icon: Plane },
+        { name: 'Corporate Transport', description: 'Professional chauffeur service for business meetings and events.', icon: Building },
+        { name: 'Riyadh to Makkah', description: 'Long-distance VIP taxi from Riyadh to Makkah (9 hours).', icon: Car },
+        { name: 'Riyadh to Dammam', description: 'Intercity transfer to Dammam, Khobar, and Bahrain Causeway.', icon: MapPin },
     ];
 
     const riyadhImages = [
@@ -75,557 +61,364 @@ export default function RiyadhPage() {
         { destination: 'Dammam/Khobar', distance: '400 km', time: '3.5-4 hours', route: 'Route 40' }
     ];
 
-
-
-
+    const faqs = [
+        {
+            question: "How much is a taxi from Riyadh Airport to Olaya/Downtown?",
+            answer: "Our fixed rate for airport transfers to the city center starts from SAR 150. This includes meet & greet service and waiting time."
+        },
+        {
+            question: "Do you offer monthly driver services for companies?",
+            answer: "Yes, we specialize in corporate transport. We offer daily, weekly, and monthly rates for businesses with professional English-speaking drivers."
+        },
+        {
+            question: "How much is a taxi from Riyadh to Makkah?",
+            answer: "A direct private taxi from Riyadh to Makkah costs between SAR 1200 - 1500, depending on the vehicle type (Sedan vs GMC)."
+        },
+        {
+            question: "Can I book a taxi from Riyadh to Dammam?",
+            answer: "Yes, we provide intercity transfers to Dammam and Khobar starting from SAR 800. The journey takes about 4 hours on a comfortable highway."
+        },
+        {
+            question: "Is the taxi service 24/7?",
+            answer: "Yes, our operations are 24/7. Whether your flight lands at 3 AM or you have a late business meeting, we are available."
+        },
+        {
+            question: "Do you accept credit cards?",
+            answer: "Yes, you can pay online securely or pay the driver in cash. Corporate accounts with invoicing are also available."
+        }
+    ];
 
     return (
         <div className="bg-gray-50 min-h-screen">
-
-
+            <Script
+                id="riyadh-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": "Riyadh Taxi & Limousine Service",
+                        "areaServed": { "@type": "City", "name": "Riyadh" },
+                        "description": "Premium taxi service in Riyadh for airport transfers, corporate travel, and intercity trips."
+                    })
+                }}
+            />
 
             {/* Hero Section */}
             <Hero
                 images={riyadhImages}
-                h1Text="Taxi Service in Riyadh: Airport Transfers and Corporate Transport"
+                h1Text="Online Taxi Service In Riyadh"
+                bookingFormTitle="Book Online Taxi Service in Riyadh"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Riyadh Taxi Service
+                        TaxiServiceKSA™ Riyadh
                     </span>
                 }
-                subtitle="Professional Business Transport"
-                location="24/7 Airport & Corporate Service"
+                subtitle="Professional Business Transport & Airport Taxi"
+                location="Riyadh • Airport • Dammam"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
-                    <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ Riyadh"
-                        description="Professional chauffeur and corporate transport services in Riyadh. We help business executives and travelers with luxury vehicles and 24/7 availability for King Khalid International Airport (RUH) and KAFD meetings."
-                        foundingDate="2012"
-                        metrics={[
-                            { label: 'Corporate Clients', value: '1,200+', icon: Building2 },
-                            { label: 'Airport Trips', value: '18k+', icon: Plane },
-                            { label: 'Reliability', value: '99.9%', icon: Shield }
-                        ]}
-                    />
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <Link href="/booking">
-                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book Taxi Now
-                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Button>
-                    </Link>
-                    <a href="mailto:taxiserviceksa9988@gmail.com">
-                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            Email Us
-                        </Button>
-                    </a>
                 </div>
             </Hero>
 
-            {/* Trending Note */}
-            <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
-                <TrendingTravelNote
-                    topic="Riyadh Metro & Traffic"
-                    status="Traffic Alert"
-                    lastUpdated="Daily Update"
-                    content="Ongoing roadworks for Riyadh Metro and Green Riyadh projects are causing significant delays in Olaya and Malaz. We use Waze-optimized alternative routes to avoid bottlenecks."
-                    tags={["RiyadhMetro", "Roadworks", "OlayaTraffic", "SmartRouting"]}
-                />
-            </div>
-
-            {/* Semantic Hub */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-16">
-                <QuestionGrouper
-                    mainQuestion="Uber vs Private Chauffeur in Riyadh?"
-                    intro="Richer travelers and executives often debate this. The answer depends on your value of time and certainty."
-                    subQuestions={[
-                        {
-                            id: 'q1',
-                            condition: 'Reliability',
-                            question: 'Can I rely on Uber for meetings?',
-                            answer: 'Risky. Cancellations are frequent during peak heat or traffic. A private chauffeur is contractually bound to be there 15 mins early.',
-                            citation: 'Business Traveler Survey'
-                        },
-                        {
-                            id: 'q2',
-                            condition: 'Vehicle Quality',
-                            question: 'Are cars clean?',
-                            answer: 'Ride-share quality varies. Our corporate fleet (GMC/BMW/Camry) undergoes daily detailing and smoke-free checks.',
-                            citation: 'Fleet Standards'
-                        },
-                        {
-                            id: 'q3',
-                            condition: 'Security',
-                            question: 'KAFD Access?',
-                            answer: 'Ride-share drivers often lack security clearance for gated compounds. We register driver IDs in advance for seamless entry.',
-                            citation: 'Security Protocol'
-                        }
-                    ]}
-                />
-
-                <SemanticField
-                    title="Riyadh: The Power Center"
-                    explanation="Riyadh is the heartbeat of Vision 2030. Navigating its sprawling geography requires understanding its key nodes."
-                    concepts={[
-                        {
-                            label: 'KAFD',
-                            description: 'King Abdullah Financial District. The futurist business hub. Requires specific gate access.',
-                            wikiLink: 'https://en.wikipedia.org/wiki/King_Abdullah_Financial_District'
-                        },
-                        {
-                            label: 'Diriyah Gate',
-                            description: 'The birthplace of the Saudi state. A UNESCO heritage site requiring timed entry for vehicles.',
-                            internalLink: '/locations/riyadh'
-                        },
-                        {
-                            label: 'The Line (Connection)',
-                            description: 'Riyadh is the HQ for NEOM projects. Many executives travel between RUH and Tabuk.',
-                            internalLink: '/services/corporate-travel'
-                        }
-                    ]}
-                />
-
-                <TopicCluster
-                    mainTopic="Riyadh Business Logistics"
-                    clusters={[
-                        {
-                            category: "Corporate Services",
-                            relevance: "Primary",
-                            items: [
-                                { label: "Monthly Chauffeur", url: "/services/corporate-travel" },
-                                { label: "Event Transport", url: "/services/events" },
-                                { label: "Airport VIP", url: "/services/airport-transfers" }
-                            ]
-                        },
-                        {
-                            category: "Districts",
-                            relevance: "Secondary",
-                            items: [
-                                { label: "Olaya Guide", url: "/locations/riyadh", description: "Central Business District" },
-                                { label: "Diplomatic Quarter", url: "/locations/riyadh", description: "Embassies & Ministries" }
-                            ]
-                        }
-                    ]}
-                />
-            </div>
-
-            {/* Breadcrumb */}
+            {/* Breadcrumb Navigation */}
             <section className="bg-white border-b border-gray-200">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                     <nav className="flex items-center space-x-2 text-sm">
-                        <Link href="/" className="text-gray-500 hover:text-gray-900 transition-colors">Home</Link>
+                        <Link href="/" className="text-gray-500 hover:text-gray-900 transition-colors">
+                            Home
+                        </Link>
                         <span className="text-gray-400">/</span>
-                        <Link href="/locations" className="text-gray-500 hover:text-gray-900 transition-colors">Locations</Link>
+                        <Link href="/locations" className="text-gray-500 hover:text-gray-900 transition-colors">
+                            Locations
+                        </Link>
                         <span className="text-gray-400">/</span>
                         <span className="text-gray-900 font-semibold">Riyadh</span>
                     </nav>
                 </div>
             </section>
 
-            {/* Authoritative Signal */}
-            <section className="bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <ExpertReview
-                        reviewerName='Fahad Al-Malki'
-                        reviewerTitle='Corporate Transport Manager'
-                        reviewDate="26 Dec 2025"
-                        expertise={["KAFD Access Protocols", "VIP Security", "Dammam Highway"]}
-                    />
-                </div>
-            </section>
-
-            {/* Services Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+            {/* Main Content & Services */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Our Services</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Riyadh Transport Solutions</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Professional taxi service for business travelers and airport transfers in Saudi Arabia's capital city.
+                    {/* Section Header */}
+                    <div className="text-center mb-12">
+                        <span className="bg-primary/10 text-gray-900 font-semibold tracking-wider uppercase text-sm px-4 py-2 rounded-full inline-block border border-primary/20">
+                            Available Services
+                        </span>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mt-6 mb-4">
+                            Premium Riyadh Transport
+                        </h2>
+                        <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
+                            Reliable transport solutions for Saudi Arabia's capital. From airport pickups to corporate fleets.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {/* Services Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
                         {services.map((service, index) => (
-                            <div key={index} className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all border border-gray-200">
-                                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
+                            <div
+                                key={index}
+                                className="bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-black/20 hover:shadow-xl transition-all duration-300 text-center group"
+                            >
+                                <div className="bg-gray-100 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-gray-200 transition-colors">
                                     <service.icon className="w-8 h-8 text-black" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.name}</h3>
-                                <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                                <h3 className="text-lg font-bold text-gray-900 mb-2">{service.name}</h3>
+                                <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Features Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+            {/* SEO Content Block - Cheap Taxi */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-gray-50 to-white">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Riyadh Taxi Service</h2>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                        {features.map((feature, index) => (
-                            <div key={index} className="flex items-center gap-3 bg-white p-6 rounded-xl border border-gray-200">
-                                <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0" />
-                                <span className="text-gray-700 font-medium">{feature}</span>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        {/* Text Content */}
+                        <div className="order-2 lg:order-1">
+                            <div className="inline-flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full mb-6">
+                                <Building className="w-4 h-4 text-black" />
+                                <span className="text-sm font-semibold text-gray-900">Corporate & Airport</span>
                             </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <SeasonalTravelTips city="Riyadh" />
-                    <div className="mt-12">
-                        <DistanceTable origin="King Khalid Airport" locations={distanceData} />
-                    </div>
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
+                                Cheap Taxi Service in Riyadh
+                            </h2>
 
-                    <div className="mt-16">
-                        <TravelConsensus
-                            points={[
-                                {
-                                    topic: "Riyadh Metro Status",
-                                    commonBelief: "It's fully open.",
-                                    reality: "While parts are operational, full city-wide connectivity is still rolling out. Key business districts like KAFD are linked, but last-mile transport to hotels often still requires a taxi.",
-                                    truthRange: "Partially Operational",
-                                    factors: ["Station Access", "Timings", "Last Mile"]
-                                },
-                                {
-                                    topic: "Traffic Jam Timing",
-                                    commonBelief: "Avoid 5 PM.",
-                                    reality: "Riyadh traffic peaks from 4 PM to 8 PM continuously. Thursday evenings are gridlocked until 10 PM. Early morning flights (before 6 AM) are the best way to beat the rush.",
-                                    truthRange: "4 PM - 9 PM",
-                                    factors: ["School Runs", "Office Exit"]
-                                }
-                            ]}
-                        />
-                    </div>
+                            <div className="space-y-4 text-gray-700 leading-relaxed">
+                                <p className="text-lg">
+                                    Looking for a <strong>cheap taxi service in Riyadh</strong> without compromising on quality? We provide competitive fixed rates for airport transfers and city travel. Unlike ride-sharing apps that surge during rush hour, our prices remain stable.
+                                </p>
 
-                    <div className="mt-16">
-                        <RoutePerspective
-                            route="King Khalid Airport to Downtown (Olaya)"
-                            perspectives={[
-                                {
-                                    id: "business",
-                                    targetAudience: "Executive",
-                                    icon: Building2,
-                                    intent: "Meeting Punctuality",
-                                    description: "The priority is reaching the meeting on time. We take the express lane on King Salman Road to avoid the local exits. The vehicle becomes a mobile office.",
-                                    structuredFeatures: [
-                                        { label: "Route", value: "King Fahd Exp" },
-                                        { label: "WiFi", value: "High Speed" },
-                                        { label: "Privacy", value: "High" }
-                                    ],
-                                    visualContext: "Skyline view of KAFD approaching from North."
-                                },
-                                {
-                                    id: "family",
-                                    targetAudience: "Relocation Family",
-                                    icon: Users,
-                                    intent: "Comfort",
-                                    description: "Arriving with 10+ suitcases for a long stay. We use the GMC Yukon XL to fit everything without needing a second car. Direct to compound gate.",
-                                    structuredFeatures: [
-                                        { label: "Vehicle", value: "Yukon XL" },
-                                        { label: "Luggage", value: "8+ Bags" },
-                                        { label: "Child Seat", value: "Available" }
-                                    ],
-                                    visualContext: "Spacious trunk loading at Terminal 2."
-                                }
-                            ]}
-                        />
-                    </div>
-                </div>
-            </section>
-
-            {/* FAQ Section */}
-            {/* Micro-Semantic FAQ Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <MicroSemanticFAQ
-                        faqs={[
-                            {
-                                question: "How long is the taxi ride from Riyadh Airport to the city center?",
-                                shortAnswer: "30-45 Minutes",
-                                detailedAnswer: "King Khalid International Airport (RUH) is 35km from Olaya/Downtown. Rush hour (7-9 AM, 4-6 PM) can extend this to 60+ minutes. We track flight arrivals to adjust pickup times.",
-                                perspectives: [
-                                    { role: "Business", icon: "Building2", insight: "Take King Fahd Rd for speed, but Olaya St for better hotel access." },
-                                    { role: "Local", icon: "Clock", insight: "Avoid Sunday morning rush hour if possible." }
-                                ]
-                            },
-                            {
-                                question: "How much is a taxi from Riyadh to Jeddah?",
-                                shortAnswer: "From 1200 SAR",
-                                detailedAnswer: "The 950km journey takes 9-10 hours. We provide comfortable SUVs (GMC/Tahoe) for this long haul, including rest stops. It's a popular overnight option for those who prefer ground travel.",
-                                perspectives: [
-                                    { role: "Driver", icon: "Car", insight: "Route 40 is a safe, dual highway. We stop at SASCO stations for fuel and food." },
-                                    { role: "Family", icon: "Users", insight: "Cheaper than 5 flight tickets and more flexible with luggage." }
-                                ]
-                            },
-                            {
-                                question: "Do you offer monthly car rental with driver?",
-                                shortAnswer: "Yes, Corporate Rates",
-                                detailedAnswer: "We specialize in monthly contracts for corporate executives. Includes fuel, insurance, maintenance, and a dedicated English-speaking driver knowledgeable in Riyadh business districts.",
-                                perspectives: [
-                                    { role: "Expat", icon: "User", insight: "Hassle-free compared to buying a car or dealing with daily Uber scheduling." },
-                                    { role: "Company", icon: "Shield", insight: "VAT invoices provided for expensing." }
-                                ]
-                            },
-                            {
-                                question: "Is taxi service available 24/7 in Riyadh?",
-                                shortAnswer: "Yes, All Areas",
-                                detailedAnswer: "Riyadh is a 24-hour city. We operate round the clock, serving airport arrivals, late-night business meetings, and early morning departures.",
-                                perspectives: [
-                                    { role: "Night Shift", icon: "Clock", insight: "Reliable pickup from KAFD even at 3 AM." }
-                                ]
-                            },
-                            {
-                                question: "Do drivers know KAFD and Diplomatic Quarter?",
-                                shortAnswer: "Yes, Permit Holders",
-                                detailedAnswer: "Our drivers are familiar with the security protocols for entering Key business zones like KAFD and the Diplomatic Quarter (DQ).",
-                                perspectives: [
-                                    { role: "Security", icon: "Shield", insight: "We provide driver ID details in advance for gate clearance." }
-                                ]
-                            }
-                        ]}
-                    />
-                </div>
-            </section>
-
-            {/* Practical Information - Riyadh Business Focus */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
-                            Practical Information
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                            Essential Information for Riyadh Business Travelers
-                        </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Real-world details to help you navigate Riyadh's business districts and maximize productivity.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* Business Districts */}
-                        <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
-                            <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center mb-4">
-                                <Building2 className="w-7 h-7 text-black" />
+                                <p>
+                                    Whether you need a ride to the <strong>King Abdullah Financial District (KAFD)</strong>, Diplomatic Quarter, or a simple airport pickup, our professional drivers ensure a smooth journey. We also offer long-distance taxis to Dammam, Al Khobar, and Makkah at the best market rates.
+                                </p>
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">Business Districts</h3>
-                            <div className="space-y-3 text-gray-600">
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">King Abdullah Financial District (KAFD):</h4>
-                                    <p className="text-sm">35 km from airport (30-40 min). Major banks, financial institutions. Peak traffic: 7-9 AM, 4-6 PM.</p>
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Olaya District:</h4>
-                                    <p className="text-sm">25 km from airport (25-35 min). Kingdom Centre, Al Faisaliah Tower. Business hub with hotels and restaurants.</p>
-                                </div>
+
+                            {/* CTA */}
+                            <div className="mt-8 bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded-r-xl">
+                                <p className="text-sm text-gray-900 font-semibold flex items-center gap-2">
+                                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                                    Book regular corporate rides and get special monthly invoice rates!
+                                </p>
                             </div>
                         </div>
 
-                        {/* King Khalid Airport */}
-                        <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
-                            <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center mb-4">
-                                <Plane className="w-7 h-7 text-black" />
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">King Khalid Airport (RUH)</h3>
-                            <div className="space-y-3 text-gray-600">
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Terminals:</h4>
-                                    <p className="text-sm">Terminal 1: Saudia domestic. Terminal 2: International. Terminal 3: Low-cost carriers. Terminal 5: Saudia international.</p>
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Meeting Point:</h4>
-                                    <p className="text-sm">Terminal 2: Arrivals hall, near Starbucks. Driver holds name sign. Free WiFi available.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Corporate Facilities */}
-                        <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
-                            <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center mb-4">
-                                <Users className="w-7 h-7 text-black" />
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">Corporate Facilities</h3>
-                            <div className="space-y-3 text-gray-600">
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Monthly Billing:</h4>
-                                    <p className="text-sm">Corporate accounts available. Invoice sent monthly. Payment via bank transfer. Minimum 10 trips/month.</p>
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Priority Booking:</h4>
-                                    <p className="text-sm">Corporate clients get priority during peak hours. Dedicated account manager. 24/7 booking support via email.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Meeting Venues */}
-                        <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
-                            <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center mb-4">
-                                <MapPin className="w-7 h-7 text-black" />
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">Meeting Venues</h3>
-                            <div className="space-y-3 text-gray-600">
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Popular Venues:</h4>
-                                    <p className="text-sm">Riyadh International Convention Center (RICC), Four Seasons Hotel, Ritz-Carlton. Drivers know all major venues.</p>
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Timing Advice:</h4>
-                                    <p className="text-sm">Book taxi 60-90 min before meeting. Riyadh traffic unpredictable. Allow extra time for security checks at towers.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Business Accommodation */}
-                        <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
-                            <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center mb-4">
-                                <Car className="w-7 h-7 text-black" />
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">Business Hotels</h3>
-                            <div className="space-y-3 text-gray-600">
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Olaya District Hotels:</h4>
-                                    <p className="text-sm">Ritz-Carlton, Four Seasons, Burj Rafal. Walking distance to Kingdom Centre. Taxi needed for KAFD (15 min).</p>
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Diplomatic Quarter:</h4>
-                                    <p className="text-sm">Quieter area. 20 km from Olaya (20-30 min). Ideal for government meetings. Limited restaurants.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Transport Timing */}
-                        <div className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200">
-                            <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center mb-4">
-                                <Clock className="w-7 h-7 text-black" />
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">Traffic & Timing</h3>
-                            <div className="space-y-3 text-gray-600">
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Peak Hours:</h4>
-                                    <p className="text-sm">Morning: 7-9 AM (worst on King Fahd Road). Evening: 4-6 PM. Thursday evenings: Very busy (weekend starts).</p>
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">Best Times:</h4>
-                                    <p className="text-sm">Early morning (6-7 AM): Minimal traffic. Midday (12-2 PM): Moderate. Friday mornings: Empty roads (prayer time).</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Pro Tips Section */}
-                    <div className="mt-12 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 text-white">
-                        <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                            <CheckCircle2 className="w-8 h-8 text-white" />
-                            Pro Tips for Business Travelers
-                        </h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <p className="font-bold text-white mb-2">🏢 KAFD Access:</p>
-                                <p className="text-gray-300 text-sm">Security checkpoint at KAFD entrance. Have meeting invitation ready. Driver can't enter without authorization. Drop-off at gate.</p>
-                            </div>
-                            <div>
-                                <p className="font-bold text-white mb-2">⏰ Meeting Timing:</p>
-                                <p className="text-gray-300 text-sm">Riyadh meetings often start 15-30 min late (cultural norm). Don't stress if taxi arrives early. Use time for email/calls.</p>
-                            </div>
-                            <div>
-                                <p className="font-bold text-white mb-2">📱 WiFi Strategy:</p>
-                                <p className="text-gray-300 text-sm">Airport WiFi is free but slow. Buy local SIM (Mobily/STC) at airport. Data plans: SAR 100-200/month. Essential for maps/email.</p>
-                            </div>
-                            <div>
-                                <p className="font-bold text-white mb-2">🚗 Vehicle Choice:</p>
-                                <p className="text-gray-300 text-sm">GMC Yukon for client meetings (premium impression). Toyota Camry for solo travel (efficient). Both have WiFi hotspot on request.</p>
-                            </div>
-                            <div>
-                                <p className="font-bold text-white mb-2">🌡️ Climate:</p>
-                                <p className="text-gray-300 text-sm">Summer (May-Sep): 40-48°C. Wear light suit. Our vehicles maintain 20-22°C AC. Carry water bottle (we provide).</p>
-                            </div>
-                            <div>
-                                <p className="font-bold text-white mb-2">🕌 Prayer Times:</p>
-                                <p className="text-gray-300 text-sm">Shops/offices close 15-20 min for each prayer (5 times daily). Plan meetings around prayer times. Friday: Jummah prayer 12-2 PM (everything closed).</p>
+                        {/* Image */}
+                        <div className="order-1 lg:order-2">
+                            <div className="relative">
+                                <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-transparent rounded-3xl blur-2xl opacity-30"></div>
+                                <Image
+                                    src="/hero-slide-3.webp"
+                                    alt="Riyadh Business Taxi Service"
+                                    width={700}
+                                    height={600}
+                                    className="relative rounded-2xl shadow-2xl w-full h-auto border-4 border-white"
+                                    priority
+                                />
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* User-Generated Content Section */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+            {/* Essential Logistics */}
+            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white" id="logistics-guide">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
-                            Community Insights
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                            Share Your Business Travel Experience
-                        </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Help fellow business travelers by sharing your experience or asking questions about corporate transport in Riyadh.
-                        </p>
-                    </div>
-
-                    <div className="space-y-12 mb-12">
-                        <ReviewsDisplay location="Riyadh" />
-                        <QuestionsDisplay location="Riyadh" />
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-4">Riyadh Travel Times</h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto">Traffic in Riyadh can be heavy. Plan your trips accordingly.</p>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <ReviewForm locationName="Riyadh" />
-                        <QuestionForm locationName="Riyadh" />
+                        <DistanceTable origin="RUH Airport" locations={distanceData} />
+                        <SeasonalTravelTips city="Riyadh" />
                     </div>
                 </div>
             </section>
 
-            <RelatedServices
-                services={[
-                    {
-                        name: 'Corporate Travel',
-                        description: 'Executive transport for business professionals with monthly billing and priority booking.',
-                        href: '/services/corporate-travel',
-                        icon: Building2
-                    },
-                    {
-                        name: 'Airport Transfers',
-                        description: 'Professional airport transfer service from King Khalid Airport with meet-and-greet.',
-                        href: '/services/airport-transfers',
-                        icon: Plane
-                    },
-                ]}
-                title="Services Available in Riyadh"
-                description="Professional taxi services with licensed drivers for business and airport transport."
-            />
 
-            {/* CTA Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your Riyadh Taxi Now
-                    </h2>
-                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Professional transport for business travelers and airport transfers in Saudi Arabia's capital.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
+            {/* Pricing Information */}
+            <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <div className="inline-flex items-center gap-2 bg-yellow-100 px-4 py-2 rounded-full mb-6">
+                            <Star className="w-4 h-4 text-yellow-600" />
+                            <span className="text-sm font-semibold text-yellow-900">Competitive Rates</span>
+                        </div>
+
+                        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
+                            Simple & Fair Pricing
+                        </h3>
+                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                            Fixed fares for peace of mind. No hidden meters.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Plane className="w-6 h-6 text-primary" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Airport Transfer</div>
+                            <div className="text-4xl font-black text-primary mb-3">
+                                <span className="text-2xl">From</span> SAR 150
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                RUH to City Center
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-primary/30 hover:border-primary hover:shadow-xl transition-all text-center relative">
+                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white hover:text-black px-4 py-1 rounded-full text-xs font-bold">
+                                POPULAR
+                            </div>
+                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <MapPin className="w-6 h-6 text-primary" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Riyadh to Dammam</div>
+                            <div className="text-4xl font-black text-primary mb-3">
+                                <span className="text-2xl">From</span> SAR 800
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                4-Hour Intercity Trip
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Car className="w-6 h-6 text-primary" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Riyadh to Makkah</div>
+                            <div className="text-4xl font-black text-primary mb-3">
+                                <span className="text-2xl">From</span> SAR 1200
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                Long Distance Sleeper
+                            </div>
+                        </div>
+                    </div>
+                    <div className="bg-gray-100 border-l-4 border-gray-400 p-4 rounded-r-xl text-center">
+                        <p className="text-sm text-gray-700">
+                            <strong>Corporate?</strong> Contact us for customized monthly billing and fleet management services.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Reviews */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16">
+                        <div className="inline-flex items-center gap-2 bg-yellow-100 px-4 py-2 rounded-full mb-6">
+                            <Star className="w-4 h-4 text-yellow-600" />
+                            <span className="text-sm font-semibold text-yellow-900">Client Feedback</span>
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
+                            Business Trusted
+                        </h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all">
+                            <div className="flex items-center gap-1 mb-4">
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <Star key={star} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                                ))}
+                            </div>
+                            <p className="text-gray-700 italic mb-6">"Reliable service for our visiting executives. The drivers know KAFD well and always arrive on time."</p>
+                            <div className="font-bold text-gray-900">- Mohammed A., HR Manager</div>
+                        </div>
+                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all">
+                            <div className="flex items-center gap-1 mb-4">
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <Star key={star} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                                ))}
+                            </div>
+                            <p className="text-gray-700 italic mb-6">"Great airport pickup experience. The car was clean and cool, which is essential in Riyadh heat."</p>
+                            <div className="font-bold text-gray-900">- Sarah Jenkins, Consultant</div>
+                        </div>
+                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-all">
+                            <div className="flex items-center gap-1 mb-4">
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <Star key={star} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
+                                ))}
+                            </div>
+                            <p className="text-gray-700 italic mb-6">"Used them for a trip to Dammam. Much better than flying and dealing with airport security for a short trip."</p>
+                            <div className="font-bold text-gray-900">- Fahad K.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* FAQs */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+                <div className="max-w-4xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
+                            Riyadh Taxi FAQ
+                        </h2>
+                    </div>
+                    <Accordion type="single" collapsible className="w-full">
+                        {faqs.map((faq, index) => (
+                            <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-xl border border-gray-200 px-6 shadow-sm mb-4">
+                                <AccordionTrigger className="text-left font-bold text-gray-900 hover:no-underline text-lg py-6">
+                                    {faq.question}
+                                </AccordionTrigger>
+                                <AccordionContent className="text-gray-600 text-base leading-relaxed pb-6">
+                                    {faq.answer}
+                                </AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
+                </div>
+            </section>
+
+            {/* CTA Block */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+                <div className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/90 rounded-3xl p-12 shadow-2xl">
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0 opacity-10">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-black rounded-full blur-3xl"></div>
+                        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+                    </div>
+
+                    <div className="relative z-10 text-center max-w-5xl mx-auto">
+                        <div className="inline-flex items-center gap-2 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+                            <Phone className="w-4 h-4 text-black" />
+                            <span className="text-sm font-semibold text-black">24/7 Booking</span>
+                        </div>
+
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-black mb-4">
+                            Need a Ride in Riyadh?
+                        </h2>
+                        <p className="text-lg md:text-xl text-black/90 mb-8 max-w-2xl mx-auto font-medium">
+                            Book your ride in seconds. Professional drivers.
+                        </p>
+
+                        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
                             <Link href="/booking">
-                                Book Your Ride
+                                <Button className="bg-black text-white hover:bg-black/90 font-bold px-10 py-7 text-lg rounded-2xl h-auto shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
+                                    Book Now
+                                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                </Button>
                             </Link>
-                        </Button>
-                        <Button asChild variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                             <a href="mailto:taxiserviceksa9988@gmail.com">
-                                Email Us
+                                <Button variant="outline" className="bg-white/20 backdrop-blur-sm text-black border-2 border-black/30 hover:bg-white/30 font-bold px-10 py-7 text-lg rounded-2xl h-auto">
+                                    <Phone className="mr-2 w-5 h-5" />
+                                    Email Us
+                                </Button>
                             </a>
-                        </Button>
+                        </div>
                     </div>
                 </div>
             </section>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <RelatedLocations currentCity="Riyadh" />
+            </div>
         </div>
     );
 }

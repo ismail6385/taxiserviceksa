@@ -4,9 +4,9 @@ import { Car, Plane, Building2, Compass, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-    title: 'Services | Taxi Service KSA - Transport Solutions Saudi Arabia',
-    description: 'Professional taxi services in Saudi Arabia with licensed drivers. Umrah transport, airport transfers, corporate travel, and heritage tours. 24/7 service across 8 cities.',
-    keywords: ['taxi services Saudi Arabia', 'Umrah transport', 'airport transfer KSA', 'corporate taxi', 'heritage tours'],
+    title: 'Top Rated Online Taxi Service in Saudi Arabia | Professional Services',
+    description: 'Best online taxi service in Saudi Arabia offering professional airport transfers, Umrah transport, and corporate travel. Book licensed drivers 24/7.',
+    keywords: ['Online Taxi Service in Saudi Arabia', 'Top Rated Taxi Service', 'Best Taxi Service KSA', 'Umrah transport', 'airport transfer KSA', 'corporate taxi', 'heritage tours'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/',
     },
@@ -15,32 +15,32 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
     const services = [
         {
-            name: 'Umrah Transport',
-            description: 'Complete transport solution for your Umrah journey with professional drivers. Covers Jeddah Airport to Makkah, Makkah to Madinah, and all Ziyarat sites.',
+            name: 'Umrah Taxi Service',
+            description: 'Umrah taxi service provides transport for pilgrims between Jeddah, Makkah, and Madinah. Professional drivers ensure on-time arrival for prayer schedules.',
             icon: Car,
             href: '/services/umrah-transport',
             features: ['Jeddah Airport pickup', 'Makkah to Madinah route', 'Prayer time flexibility', 'Zamzam accommodation'],
             isPopular: true
         },
         {
-            name: 'Airport Transfers',
-            description: 'Professional airport transfer service across all major Saudi airports. Meet-and-greet, flight tracking, and direct hotel transfers.',
+            name: 'Airport Transfer Service',
+            description: 'Airport transfer service operates 24/7 at all major Saudi airports. Top rated online taxi service includes flight tracking and meet-and-greet.',
             icon: Plane,
             href: '/services/airport-transfers',
             features: ['8 airports covered', 'Flight tracking', 'Meet & greet', '24/7 availability'],
             isPopular: true
         },
         {
-            name: 'Corporate Travel',
-            description: 'Executive transport for business travelers. Monthly billing, conference transport, and dedicated account management.',
+            name: 'Corporate Taxi Service',
+            description: 'Corporate taxi service ensures reliable transport for business executives. Best online taxi service offers monthly billing and priority booking.',
             icon: Building2,
             href: '/services/corporate-travel',
             features: ['Executive vehicles', 'Monthly billing', 'Priority booking', 'Business districts'],
             isPopular: true
         },
         {
-            name: 'Heritage Tours',
-            description: 'Specialized transport for UNESCO heritage sites. 4x4 vehicles for AlUla, Khaybar, and historical circuits.',
+            name: 'Heritage Tour Transport',
+            description: 'Heritage tour transport connects tourists to UNESCO sites like AlUla. Professional drivers operate 4x4 vehicles for desert excursions.',
             icon: Compass,
             href: '/services/heritage-tours',
             features: ['AlUla Hegra tours', '4x4 desert vehicles', 'English-speaking guides', 'Flexible schedules'],
@@ -57,11 +57,11 @@ export default function ServicesPage() {
                         Our Services
                     </span>
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        Professional Taxi Services<br />
+                        Top Rated Online Taxi Service<br />
                         <span className="text-emerald-600">With Licensed Drivers</span>
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Comprehensive transport solutions across Saudi Arabia. All vehicles include professional drivers. No self-drive rental available.
+                        Taxi Service KSA is a professional online taxi service in Saudi Arabia. All vehicles include licensed drivers. No self-drive rental available.
                     </p>
                 </div>
 
@@ -77,7 +77,7 @@ export default function ServicesPage() {
                                     </div>
                                     {service.isPopular && (
                                         <span className="bg-black text-white text-xs font-bold px-3 py-1 rounded-full">
-                                            POPULAR
+                                            TOP RATED
                                         </span>
                                     )}
                                 </div>

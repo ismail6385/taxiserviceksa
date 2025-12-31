@@ -13,9 +13,9 @@ import {
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Heritage Tours Saudi Arabia | UNESCO Sites Transport with 4x4 Vehicles',
-    description: 'Professional heritage tour transport for AlUla, Khaybar, and UNESCO sites. 4x4 desert vehicles with licensed drivers. English-speaking guides available.',
-    keywords: ['AlUla tours', 'Hegra transport', 'UNESCO sites Saudi Arabia', 'heritage tours KSA', '4x4 desert tours'],
+    title: 'Top Rated Heritage Tours In Saudi Arabia | Best 4x4 Desert Transport',
+    description: 'Best online taxi service for heritage tours in Saudi Arabia. Professional 4x4 transport for AlUla, Hegra & UNESCO sites. Top rated drivers with local knowledge.',
+    keywords: ['Top Rated Heritage Tours', 'Best 4x4 Desert Transport KSA', 'AlUla Tours Saudi Arabia', 'Hegra UNESCO Transport', 'Saudi Heritage Sites Taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/heritage-tours/',
     },
@@ -129,7 +129,7 @@ export default function HeritageToursPage() {
             { "@type": "City", "name": "AlUla" },
             { "@type": "City", "name": "Khaybar" }
         ],
-        "description": "Professional heritage tour transport for UNESCO sites with 4x4 desert vehicles and licensed drivers. AlUla, Khaybar, and historical circuits.",
+        "description": "Top rated online taxi service for heritage tours in Saudi Arabia. Professional 4x4 transport for AlUla and UNESCO sites.",
         "offers": {
             "@type": "AggregateOffer",
             "priceCurrency": "SAR",
@@ -160,11 +160,11 @@ export default function HeritageToursPage() {
                             Heritage Tours
                         </span>
                         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                            UNESCO Heritage Sites<br />
-                            <span className="text-white">4x4 Desert Transport</span>
+                            Top Rated Heritage Tours<br />
+                            <span className="text-white">In Saudi Arabia</span>
                         </h1>
                         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                            Professional heritage tour transport for AlUla, Khaybar, and UNESCO sites. 4x4 desert vehicles with licensed drivers and English-speaking guides.
+                            Taxi Service KSA provides the best online taxi service for exploring UNESCO World Heritage Sites. Professional 4x4 desert transport for AlUla and Khaybar.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/booking?service=heritage-tours">
@@ -187,9 +187,9 @@ export default function HeritageToursPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Heritage Tour Packages</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">UNESCO Heritage Sites in Saudi Arabia</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Explore Saudi Arabia's UNESCO World Heritage Sites and ancient historical landmarks.
+                            Explore Saudi Arabia's top rated historical landmarks with our professional tour transport.
                         </p>
                     </div>
 
@@ -246,9 +246,9 @@ export default function HeritageToursPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Desert-Ready Vehicles</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Best 4x4 Desert Fleet in KSA</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            4x4 vehicles equipped for desert terrain and heritage site access.
+                            Our top rated fleet includes 4x4 vehicles equipped for Saudi desert terrain.
                         </p>
                     </div>
 
@@ -282,7 +282,7 @@ export default function HeritageToursPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Heritage Tour Features</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Top Rated Heritage Tours</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
                         {features.map((feature, index) => (
@@ -322,10 +322,10 @@ export default function HeritageToursPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your Heritage Tour
+                        Book The Best Heritage Tour in Saudi Arabia
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Explore Saudi Arabia's UNESCO World Heritage Sites with professional 4x4 transport and knowledgeable drivers.
+                        Explore Saudi Arabia's UNESCO sites with the top rated online taxi service. Professional 4x4 transport and knowledgeable drivers.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking?service=heritage-tours">

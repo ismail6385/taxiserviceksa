@@ -24,6 +24,7 @@ import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import SemanticField from '@/components/seo/SemanticField';
 import TopicCluster from '@/components/seo/TopicCluster';
 import { User, Briefcase, Compass, Heart } from 'lucide-react';
+import DiscoveryMap from '@/components/DiscoveryMap';
 
 export const metadata: Metadata = {
     title: 'خدمة تاكسي في مكة | تاكسي العمرة وتوصيل المطار (٢٤/٧)',
@@ -149,6 +150,8 @@ export default function MakkahPageArabic() {
                     linkText="شاهد أسعار التاكسي العائلي"
                 />
             </div>
+
+            <DiscoveryMap city="makkah" />
 
             <QuestionGrouper
                 isRtl={true}
@@ -472,6 +475,6 @@ export default function MakkahPageArabic() {
                 />
             </div>
 
-        </div>
+        </div >
     );
 }

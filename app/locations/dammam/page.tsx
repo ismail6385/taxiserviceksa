@@ -11,12 +11,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from '@/components/ui/accordion';
-import JsonLdFAQ from '@/components/JsonLdFAQ';
-import RelatedServices from '@/components/seo/RelatedServices';
-import QuestionsDisplay from '@/components/QuestionsDisplay';
-import ReviewsDisplay from '@/components/ReviewsDisplay';
-import ReviewForm from '@/components/seo/ReviewForm';
-import QuestionForm from '@/components/seo/QuestionForm';
+import RelatedLocations from '@/components/seo/RelatedLocations';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import TrendingTravelNote from '@/components/seo/TrendingTravelNote';
 import QuestionGrouper from '@/components/seo/QuestionGrouper';
@@ -104,18 +99,25 @@ export default function DammamPage() {
     return (
         <div className="bg-gray-50 min-h-screen">
 
-            <JsonLdFAQ faqs={faqs} />
             <Script
-                id="speakable-schema-dammam"
+                id="dammam-faq-schema"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
-                        "@type": "Speakable",
-                        "cssSelector": [".faq-answer"]
+                        "@type": "FAQPage",
+                        "mainEntity": faqs.map(faq => ({
+                            "@type": "Question",
+                            "name": faq.question,
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": faq.answer
+                            }
+                        }))
                     })
                 }}
             />
+
 
             {/* Hero Section */}
             <Hero
@@ -408,71 +410,72 @@ export default function DammamPage() {
                 </div>
             </section>
 
-            {/* User-Generated Content Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+            {/* Pricing Information */}
+            <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
-                            Community Insights
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                            Share Your Dammam Experience
-                        </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Help fellow travelers by sharing your experience or asking questions about Dammam transport.
+                        <div className="inline-flex items-center gap-2 bg-yellow-100 px-4 py-2 rounded-full mb-6">
+                            <Star className="w-4 h-4 text-yellow-600" />
+                            <span className="text-sm font-semibold text-yellow-900">Fixed Rates</span>
+                        </div>
+
+                        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
+                            Dammam Taxi Fares
+                        </h3>
+                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                            Flat rates to/from King Fahd International Airport (DMM).
                         </p>
                     </div>
 
-                    <div className="space-y-12 mb-12">
-                        <ReviewsDisplay location="Dammam" />
-                        <QuestionsDisplay location="Dammam" />
-                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Plane className="w-6 h-6 text-primary" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Dammam Airport</div>
+                            <div className="text-4xl font-black text-primary mb-3">
+                                <span className="text-2xl">From</span> SAR 150
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                To Dammam City Center
+                            </div>
+                        </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <ReviewForm locationName="Dammam" />
-                        <QuestionForm locationName="Dammam" />
+                        <div className="bg-white p-8 rounded-2xl border-2 border-primary/30 hover:border-primary hover:shadow-xl transition-all text-center relative">
+                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white hover:text-black px-4 py-1 rounded-full text-xs font-bold">
+                                POPULAR
+                            </div>
+                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Building2 className="w-6 h-6 text-primary" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">To Jubail</div>
+                            <div className="text-4xl font-black text-primary mb-3">
+                                <span className="text-2xl">From</span> SAR 350
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                Industrial City Transfer
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <MapPin className="w-6 h-6 text-primary" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">To Al Khobar</div>
+                            <div className="text-4xl font-black text-primary mb-3">
+                                <span className="text-2xl">From</span> SAR 200
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                King Fahd Causeway / Corniche
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Internal Linking Silo */}
-            <section className="py-12 bg-white border-t border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h3 className="text-lg font-bold text-gray-900 mb-6">Explore Nearby Locations</h3>
-                    <div className="flex flex-wrap gap-4">
-                        <Link href="/locations/dhahran/" className="text-gray-600 hover:text-primary capitalize transition-colors">
-                            Taxi Service in Dhahran
-                        </Link>
-                        <span className="text-gray-300">|</span>
-                        <Link href="/locations/al-khobar/" className="text-gray-600 hover:text-primary capitalize transition-colors">
-                            Taxi Service in Al Khobar
-                        </Link>
-                        <span className="text-gray-300">|</span>
-                        <Link href="/locations/riyadh/" className="text-gray-600 hover:text-primary capitalize transition-colors">
-                            Taxi Service in Riyadh
-                        </Link>
-                    </div>
-                </div>
-            </section>
-
-            <RelatedServices
-                services={[
-                    {
-                        name: 'Airport Transfers',
-                        description: 'Professional airport transfer service from King Fahd International Airport (DMM).',
-                        href: '/services/airport-transfers',
-                        icon: Plane
-                    },
-                    {
-                        name: 'Intercity Travel',
-                        description: 'Fast transfers from Dammam to Jubail, Riyadh, and other cities.',
-                        href: '/services/intercity',
-                        icon: Car
-                    },
-                ]}
-                title="Services Available in Dammam"
-                description="Professional taxi services with experienced drivers for the entire Eastern Province."
-            />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <RelatedLocations currentCity="Dammam" />
+            </div>
 
             {/* CTA Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">

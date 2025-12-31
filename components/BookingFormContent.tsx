@@ -47,7 +47,13 @@ const POPULAR_ROUTES = [
     { id: 'makkah-hotel-jeddah-airport', from: 'Makkah Hotel', to: 'Jeddah Airport', label: 'Makkah Hotel → Jeddah Airport' },
 ];
 
-export default function BookingFormContent() {
+interface BookingFormProps {
+    prefilledData?: Partial<BookingData>;
+    className?: string; // Allow custom styling wrapper
+}
+
+export default function BookingFormContent({ prefilledData, className }: BookingFormProps) {
+    // Steps: 1=Locations, 2=Vehicle Selection, 3=Contact Details, 4=Success
     const [step, setStep] = useState(1);
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
@@ -73,40 +79,59 @@ export default function BookingFormContent() {
 
     const searchParams = useSearchParams();
 
+    // Initialize data and determine starting step
     useEffect(() => {
-        // Fallback if searchParams is undefined (some build environments)
-        if (!searchParams) return;
+        let updates: Partial<BookingData> = {};
 
-        const vehicleParam = searchParams.get('vehicle');
-        const serviceParam = searchParams.get('service');
+        // 1. Merge Props
+        if (prefilledData) {
+            updates = { ...updates, ...prefilledData };
+        }
 
-        if (vehicleParam) {
-            const vehicleName = vehicleParam.replace(/-/g, ' ');
-            const selectedVehicle = vehicles.find(v => v.name === vehicleName);
-            if (selectedVehicle) {
-                setFormData(prev => ({
-                    ...prev,
-                    vehicle_type: selectedVehicle.name,
-                    vehicle_image: selectedVehicle.image,
-                    passengers: selectedVehicle.passengers,
-                    luggage: selectedVehicle.luggage
-                }));
+        // 2. Merge URL Params
+        if (searchParams) {
+            const from = searchParams.get('from');
+            const to = searchParams.get('to');
+            const date = searchParams.get('date');
+            const time = searchParams.get('time');
+            const vehicle = searchParams.get('vehicle');
+
+            if (from) updates.pickup_location = from;
+            if (to) updates.destination = to;
+            if (date) updates.pickup_date = date;
+            if (time) updates.pickup_time = time;
+
+            if (vehicle) {
+                const vName = vehicle.replace(/-/g, ' ');
+                const vObj = vehicles.find(v => v.name === vName);
+                if (vObj) {
+                    updates.vehicle_type = vObj.name;
+                    updates.vehicle_image = vObj.image;
+                    updates.passengers = vObj.passengers;
+                    updates.luggage = vObj.luggage;
+                }
             }
         }
 
-        if (serviceParam) {
-            setFormData(prev => ({
-                ...prev, // Keep existing fields
-                special_requests: prev.special_requests ? `${prev.special_requests}. Service: ${serviceParam}` : `Service: ${serviceParam}`
-            }));
+        if (Object.keys(updates).length > 0) {
+            setFormData(prev => {
+                const newData = { ...prev, ...updates };
+                // Auto-advance logic:
+                // If we have From, To, Date, and Time -> Go to Step 2 (Vehicles) directly
+                if (newData.pickup_location && newData.destination && newData.pickup_date && newData.pickup_time) {
+                    // Use a timeout to avoid conflicts with render cycle if needed, or simply set state
+                    // We'll setStep(2) here.
+                    setStep(2);
+                }
+                return newData;
+            });
         }
-    }, [searchParams]);
+    }, [searchParams, prefilledData]);
 
-    // Calculate price whenever relevant fields change
+    // Calculate price effect
     useEffect(() => {
         if (formData.pickup_location && formData.destination && formData.vehicle_type) {
-            const price = getPrice(formData.pickup_location, formData.destination, formData.vehicle_type);
-            setCalculatedPrice(price);
+            setCalculatedPrice(getPrice(formData.pickup_location, formData.destination, formData.vehicle_type));
         } else {
             setCalculatedPrice(null);
         }
@@ -114,34 +139,31 @@ export default function BookingFormContent() {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-
-        // Convert numeric fields to numbers
-        const numericFields = ['passengers', 'luggage'];
         setFormData(prev => ({
             ...prev,
-            [name]: numericFields.includes(name) ? Number(value) || 0 : value
+            [name]: ['passengers', 'luggage'].includes(name) ? Number(value) || 0 : value
         }));
     };
 
     const selectVehicle = (vehicle: typeof vehicles[0]) => {
-        setFormData({
-            ...formData,
+        setFormData(prev => ({
+            ...prev,
             vehicle_type: vehicle.name,
             vehicle_image: vehicle.image,
             passengers: vehicle.passengers,
             luggage: vehicle.luggage
-        });
+        }));
+        // Auto advance to next step after picking vehicle? 
+        // Better to let user click "Continue" or do it automatically. 
+        // Let's keep it manual for explicit confirmation, or auto if they click the card.
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
-
+        // ... (Submit logic same as before, see next chunk) ...
         try {
-            // Combine country code and phone number
             const fullPhoneNumber = `${countryCode}${formData.customer_phone}`;
-
-            // Include price in special requests if calculated, so it's saved in DB
             const finalFormData = {
                 ...formData,
                 customer_phone: fullPhoneNumber,
@@ -150,338 +172,119 @@ export default function BookingFormContent() {
                     : formData.special_requests
             };
 
-            // Save to Supabase
-            const { data, error } = await supabase
-                .from('bookings')
-                .insert([finalFormData])
-                .select();
-
+            const { data, error } = await supabase.from('bookings').insert([finalFormData]).select();
             if (error) throw error;
 
-            console.log('Booking saved successfully:', data[0]);
-
-            // Send emails (non-blocking - don't fail booking if emails fail)
-            try {
-                const emailResponse = await fetch('/api/send-booking-emails', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        booking: data[0],
-                        price: calculatedPrice // Pass explicitly to API
-                    })
-                });
-
-                if (!emailResponse.ok) {
-                    const errorData = await emailResponse.json().catch(() => ({}));
-                    console.error('Email API error:', {
-                        status: emailResponse.status,
-                        statusText: emailResponse.statusText,
-                        error: errorData
-                    });
-                } else {
-                    const result = await emailResponse.json();
-                    console.log('Emails sent successfully:', result);
-                }
-            } catch (emailError) {
-                console.error('Email sending failed (booking still saved):', emailError);
-            }
+            // Email API call
+            fetch('/api/send-booking-emails', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ booking: data[0], price: calculatedPrice })
+            }).catch(console.error);
 
             setSuccess(true);
-            setStep(4); // Success step
+            setStep(4);
         } catch (error) {
-            console.error('Error:', error);
-            alert('Booking failed. Please try again or contact us directly.');
+            console.error(error);
+            alert('Booking failed. Please try again.');
         } finally {
             setLoading(false);
         }
     };
 
+    const isStep1Valid = !!(formData.pickup_location && formData.destination && formData.pickup_date && formData.pickup_time);
+    const isStep2Valid = !!(formData.vehicle_type);
+    const isStep3Valid = !!(formData.customer_name && formData.customer_email && formData.customer_phone);
+
     const nextStep = () => {
-        if (step === 1 && (!formData.customer_name || !formData.customer_email || !formData.customer_phone)) {
-            alert('Please fill all required fields');
+        if (step === 1 && !isStep1Valid) return alert('Please fill in all trip details.');
+        if (step === 2 && !isStep2Valid) return alert('Please select a vehicle.');
+        if (step === 3 && !isStep3Valid) return alert('Please fill in your contact details.');
+        if (step === 3) {
+            // Wait this should be submit button on step 3? usually Step 3 is "Review & Details" then Submit
+            // Let's make Step 3 the final form step with Submit button.
             return;
         }
-        if (step === 2 && (!formData.pickup_location || !formData.destination || !formData.pickup_date || !formData.pickup_time || !formData.vehicle_type)) {
-            alert('Please fill all required fields and select a vehicle');
-            return;
-        }
-        setStep(step + 1);
+        setStep(val => val + 1);
     };
 
-    const prevStep = () => setStep(step - 1);
+    const prevStep = () => setStep(val => val - 1);
 
     return (
-        <div className="bg-white border border-gray-200 p-4 sm:p-8 rounded-3xl shadow-xl w-full mx-auto relative overflow-hidden">
-            {/* Progress Bar */}
-            <div className="mb-6">
-                <div className="flex justify-between items-center mb-4 px-2">
+        <div className={`bg-white border border-gray-200 p-4 sm:p-8 rounded-3xl shadow-xl w-full mx-auto relative overflow-hidden ${className}`}>
+            {/* Progress Steps Header */}
+            <div className="mb-8">
+                <div className="flex justify-between items-center relative">
+                    {/* Progress Bar Background */}
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-gray-100 -z-10 rounded-full"></div>
+                    {/* Active Progress Bar */}
+                    <div
+                        className="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-primary transition-all duration-300 rounded-full"
+                        style={{ width: `${((step - 1) / 2) * 100}%` }}
+                    ></div>
+
                     {[1, 2, 3].map((s) => (
-                        <div key={s} className="flex items-center">
-                            <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold transition-all text-sm sm:text-base ${step >= s ? 'bg-primary text-black' : 'bg-gray-200 text-gray-500'
+                        <div key={s} className={`flex flex-col items-center gap-2 bg-white px-2 cursor-pointer transition-colors ${step >= s ? 'text-primary' : 'text-gray-400'}`} onClick={() => s < step && setStep(s)}>
+                            <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold border-2 transition-all ${step > s ? 'bg-primary text-black border-primary' :
+                                step === s ? 'bg-white text-primary border-primary ring-4 ring-primary/10' :
+                                    'bg-white text-gray-300 border-gray-200'
                                 }`}>
-                                {step > s ? <Check className="w-4 h-4 sm:w-5 sm:h-5" /> : s}
+                                {step > s ? <Check className="w-5 h-5" /> : s}
                             </div>
-                            {s < 3 && (
-                                <div className={`h-1 flex-1 mx-1 sm:mx-2 transition-all min-w-[20px] ${step > s ? 'bg-primary' : 'bg-gray-200'
-                                    }`} />
-                            )}
+                            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider hidden sm:block">
+                                {s === 1 && "Trip"}
+                                {s === 2 && "Vehicle"}
+                                {s === 3 && "Details"}
+                            </span>
                         </div>
                     ))}
                 </div>
-                <div className="text-center">
-                    <h2 className="text-xl font-bold text-gray-900">
-                        {step === 1 && 'Your Details'}
-                        {step === 2 && 'Trip & Vehicle'}
-                        {step === 3 && 'Confirm Booking'}
-                        {step === 4 && 'Booking Confirmed!'}
-                    </h2>
-                    <p className="text-sm text-gray-600 mt-1">
-                        {step === 1 && 'Tell us about yourself'}
-                        {step === 2 && 'Where and when do you need a ride?'}
-                        {step === 3 && 'Review and confirm your booking'}
-                        {step === 4 && 'We\'ll contact you shortly'}
-                    </p>
-                </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Step 1: User Details */}
+            <form onSubmit={handleSubmit} className="space-y-6">
+
+                {/* STEP 1: TRIP DETAILS */}
                 {step === 1 && (
                     <div className="space-y-5 animate-fade-in-up">
-                        <div className="relative group/input">
-                            <User className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors" />
-                            <Input
-                                name="customer_name"
-                                placeholder="Full Name *"
-                                required
-                                value={formData.customer_name}
-                                className="pl-10 h-12 bg-gray-50 border-gray-300 text-gray-900 focus:border-primary focus:bg-white transition-all rounded-xl"
-                                onChange={handleChange}
-                            />
+                        <div className="text-center mb-4">
+                            <h2 className="text-2xl font-bold text-gray-900">Where are you going?</h2>
                         </div>
 
-                        <div className="relative group/input">
-                            <Mail className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors" />
-                            <Input
-                                name="customer_email"
-                                type="email"
-                                placeholder="Email Address *"
-                                required
-                                value={formData.customer_email}
-                                className="pl-10 h-12 bg-gray-50 border-gray-300 text-gray-900 focus:border-primary focus:bg-white transition-all rounded-xl"
-                                onChange={handleChange}
-                            />
+                        {/* Quick Select */}
+                        <div className="bg-gray-50/50 p-3 rounded-xl border border-dashed border-gray-200">
+                            <label className="text-xs font-semibold text-gray-500 ml-2 mb-1 block">Quick Select Route</label>
+                            <Select onValueChange={(val) => {
+                                if (val === 'custom') setFormData(prev => ({ ...prev, pickup_location: '', destination: '' }));
+                                else {
+                                    const r = POPULAR_ROUTES.find(pr => pr.id === val);
+                                    if (r) setFormData(prev => ({ ...prev, pickup_location: r.from || '', destination: r.to || '' }));
+                                }
+                            }}>
+                                <SelectTrigger className="bg-white border-gray-200"><SelectValue placeholder="Select a popular route..." /></SelectTrigger>
+                                <SelectContent className="z-[200]">{POPULAR_ROUTES.map((r) => <SelectItem key={r.id} value={r.id}>{r.label}</SelectItem>)}</SelectContent>
+                            </Select>
                         </div>
 
-                        <div className="space-y-4">
-                            <div className="relative group/input">
-                                <h3 className="text-sm font-medium text-gray-700 mb-1 ml-1">Country</h3>
-                                <Popover open={open} onOpenChange={setOpen} modal={false}>
-                                    <PopoverTrigger asChild>
-                                        <Button
-                                            type="button"
-                                            variant="outline"
-                                            role="combobox"
-                                            aria-expanded={open}
-                                            className="w-full h-12 justify-between bg-gray-50 border-gray-300 text-gray-900 hover:bg-gray-100/50 hover:text-gray-900 rounded-xl font-normal px-3 cursor-pointer"
-                                        >
-                                            {countryCode ? (
-                                                <span className="flex items-center truncate">
-                                                    <span className="mr-2 text-lg">{countryCodes.find((c) => c.code === countryCode)?.flag}</span>
-                                                    {countryCodes.find((c) => c.code === countryCode)?.country}
-                                                </span>
-                                            ) : (
-                                                "Select country..."
-                                            )}
-                                            <ChevronsUpDown className={cn("ml-2 h-4 w-4 shrink-0 opacity-50 transition-transform", open && "rotate-180")} />
-                                        </Button>
-                                    </PopoverTrigger>
-                                    <PopoverContent
-                                        className="w-[var(--radix-popover-trigger-width)] p-0 max-h-[300px] z-[200]"
-                                        align="start"
-                                        sideOffset={5}
-                                        onOpenAutoFocus={(e) => e.preventDefault()}
-                                    >
-                                        <Command>
-                                            <CommandInput placeholder="Search country..." />
-                                            <CommandList>
-                                                <CommandEmpty>No country found.</CommandEmpty>
-                                                <CommandGroup>
-                                                    {countryCodes.map((country) => (
-                                                        <CommandItem
-                                                            key={country.country}
-                                                            value={country.country}
-                                                            onSelect={(currentValue) => {
-                                                                const found = countryCodes.find((c) => c.country.toLowerCase() === currentValue.toLowerCase());
-                                                                if (found) {
-                                                                    setCountryCode(found.code);
-                                                                }
-                                                                setOpen(false);
-                                                            }}
-                                                            className="cursor-pointer"
-                                                        >
-                                                            <Check
-                                                                className={cn(
-                                                                    "mr-2 h-4 w-4",
-                                                                    countryCode === country.code ? "opacity-100" : "opacity-0"
-                                                                )}
-                                                            />
-                                                            <span className="mr-2 text-lg">{country.flag}</span>
-                                                            {country.country}
-                                                            <span className="ml-auto text-muted-foreground text-xs">{country.code}</span>
-                                                        </CommandItem>
-                                                    ))}
-                                                </CommandGroup>
-                                            </CommandList>
-                                        </Command>
-                                    </PopoverContent>
-                                </Popover>
+                        {/* Locations */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="space-y-1.5">
+                                <label className="text-sm font-semibold text-gray-700 ml-1">From</label>
+                                <div className="relative group/input">
+                                    <MapPin className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors" />
+                                    <Input name="pickup_location" placeholder="Jeddah Airport, Hotel..." required value={formData.pickup_location} className="pl-10 h-12 bg-gray-50 border-gray-300 rounded-xl" onChange={handleChange} />
+                                </div>
                             </div>
-
-                            <div className="relative group/input">
-                                <h3 className="text-sm font-medium text-gray-700 mb-1 ml-1">Mobile Number</h3>
-                                <div className="flex">
-                                    <div className="h-12 bg-gray-100 border border-r-0 border-gray-300 text-gray-500 flex items-center justify-center px-4 rounded-l-xl font-mono text-sm min-w-[80px] mt-0 gap-2">
-                                        <Phone className="w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors" />
-                                        {countryCode}
-                                    </div>
-                                    <Input
-                                        name="customer_phone"
-                                        type="tel"
-                                        placeholder="Number *"
-                                        required
-                                        value={formData.customer_phone}
-                                        className="pl-4 h-12 bg-gray-50 border-gray-300 text-gray-900 focus:border-primary focus:bg-white transition-all rounded-r-xl rounded-l-none border-l-0"
-                                        onChange={handleChange}
-                                    />
+                            <div className="space-y-1.5">
+                                <label className="text-sm font-semibold text-gray-700 ml-1">To</label>
+                                <div className="relative group/input">
+                                    <MapPin className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors" />
+                                    <Input name="destination" placeholder="Makkah Hotel, Kaaba..." required value={formData.destination} className="pl-10 h-12 bg-gray-50 border-gray-300 rounded-xl" onChange={handleChange} />
                                 </div>
                             </div>
                         </div>
 
-                        <Button
-                            type="button"
-                            onClick={nextStep}
-                            className="w-full bg-primary hover:bg-primary/90 text-black font-bold py-6 text-lg rounded-xl"
-                        >
-                            Continue <ArrowRight className="w-5 h-5 ml-2" />
-                        </Button>
-                    </div>
-                )}
-
-                {/* Step 2: Trip Details & Vehicle Selection */}
-                {step === 2 && (
-                    <div className="space-y-5 animate-fade-in-up">
-
-                        {/* Quick Route Selection */}
-                        <div className="bg-gray-50/50 p-2 rounded-xl border border-dashed border-gray-200">
-                            <label className="text-xs font-semibold text-gray-500 ml-2 mb-1 block">Quick Select Route (Optional)</label>
-                            <Select onValueChange={(value) => {
-                                if (value === 'custom') {
-                                    setFormData(prev => ({ ...prev, pickup_location: '', destination: '' }));
-                                } else {
-                                    const route = POPULAR_ROUTES.find(r => r.id === value);
-                                    if (route) {
-                                        setFormData(prev => ({
-                                            ...prev,
-                                            pickup_location: route.from || '',
-                                            destination: route.to || ''
-                                        }));
-                                    }
-                                }
-                            }}>
-                                <SelectTrigger className="w-full bg-white border-gray-200">
-                                    <SelectValue placeholder="Select a popular route..." />
-                                </SelectTrigger>
-                                <SelectContent className="z-[200]">
-                                    {POPULAR_ROUTES.map((route) => (
-                                        <SelectItem key={route.id} value={route.id}>
-                                            {route.label}
-                                        </SelectItem>
-                                    ))}
-                                </SelectContent>
-                            </Select>
-                        </div>
-
-                        <div className="space-y-1">
-                            <p className="text-xs text-center text-gray-400">- OR Enter Custom Locations -</p>
-                        </div>
-
-                        {/* Route fields */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div className="relative group/input">
-                                <MapPin className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors" />
-                                <Input
-                                    name="pickup_location"
-                                    placeholder="Pickup Location *"
-                                    required
-                                    value={formData.pickup_location}
-                                    className="pl-10 h-12 bg-gray-50 border-gray-300 text-gray-900 focus:border-primary focus:bg-white transition-all rounded-xl"
-                                    onChange={handleChange}
-                                />
-                            </div>
-                            <div className="relative group/input">
-                                <MapPin className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors" />
-                                <Input
-                                    name="destination"
-                                    placeholder="Destination *"
-                                    required
-                                    value={formData.destination}
-                                    className="pl-10 h-12 bg-gray-50 border-gray-300 text-gray-900 focus:border-primary focus:bg-white transition-all rounded-xl"
-                                    onChange={handleChange}
-                                />
-                            </div>
-                        </div>
-
-                        {/* Vehicle Selection - under route */}
-                        <div className="space-y-3">
-                            <h3 className="text-lg font-bold text-gray-900">Choose Your Vehicle *</h3>
-                            <Select
-                                value={formData.vehicle_type || undefined}
-                                onValueChange={(value) => {
-                                    const vehicle = vehicles.find(v => v.name === value);
-                                    if (vehicle) {
-                                        selectVehicle(vehicle);
-                                    }
-                                }}
-                            >
-                                <SelectTrigger className="w-full bg-white border-gray-200">
-                                    <SelectValue placeholder="Select vehicle type..." />
-                                </SelectTrigger>
-                                <SelectContent className="z-[200]">
-                                    {vehicles.map((vehicle) => (
-                                        <SelectItem key={vehicle.name} value={vehicle.name}>
-                                            {vehicle.name} — {vehicle.passengers} pax, {vehicle.luggage} luggage
-                                        </SelectItem>
-                                    ))}
-                                </SelectContent>
-                            </Select>
-                            {formData.vehicle_type && (
-                                <p className="text-xs text-gray-600">
-                                    Selected: <span className="font-semibold text-gray-900">{formData.vehicle_type}</span>
-                                </p>
-                            )}
-                        </div>
-
-                        {/* Passenger count */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div className="relative group/input">
-                                <Users className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors" />
-                                <Input
-                                    name="passengers"
-                                    type="number"
-                                    min={1}
-                                    max={50}
-                                    placeholder="Number of Passengers *"
-                                    required
-                                    value={formData.passengers}
-                                    className="pl-10 h-12 bg-gray-50 border-gray-300 text-gray-900 focus:border-primary focus:bg-white transition-all rounded-xl"
-                                    onChange={handleChange}
-                                />
-                            </div>
-                        </div>
-
-                        {/* Date & time */}
-                        {/* Date & time */}
+                        {/* Date & Time */}
+                        {/* Date & Time */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="relative group/input flex flex-col gap-1.5">
                                 <label className="text-sm font-semibold text-gray-700 ml-1">Pickup Date</label>
@@ -558,139 +361,137 @@ export default function BookingFormContent() {
                             </div>
                         </div>
 
-                        <div className="flex gap-3">
-                            <Button
-                                type="button"
-                                onClick={prevStep}
-                                variant="outline"
-                                className="flex-1 py-6 text-lg rounded-xl"
-                            >
-                                <ArrowLeft className="w-5 h-5 mr-2" /> Back
-                            </Button>
-                            <Button
-                                type="button"
-                                onClick={nextStep}
-                                className="flex-1 bg-primary hover:bg-primary/90 text-black font-bold py-6 text-lg rounded-xl"
-                            >
-                                Continue <ArrowRight className="w-5 h-5 ml-2" />
-                            </Button>
+                        <Button type="button" onClick={nextStep} className="w-full bg-primary hover:bg-primary/90 text-black font-bold py-4 text-lg rounded-xl mt-4">
+                            Select Vehicle <ArrowRight className="w-5 h-5 ml-2" />
+                        </Button>
+                    </div>
+                )}
+
+                {/* STEP 2: VEHICLE SELECTION */}
+                {step === 2 && (
+                    <div className="space-y-6 animate-fade-in-up">
+                        <div className="text-center">
+                            <h2 className="text-2xl font-bold text-gray-900">Choose Your Ride</h2>
+                            <p className="text-gray-500 text-sm mt-1">{formData.pickup_location} <ArrowRight className="w-3 h-3 inline mx-1" /> {formData.destination}</p>
+                        </div>
+
+                        <div className="grid grid-cols-1 gap-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+                            {vehicles.map((v) => (
+                                <div
+                                    key={v.name}
+                                    onClick={() => { selectVehicle(v); setStep(3); }}
+                                    className={`relative group cursor-pointer border-2 rounded-2xl p-4 transition-all hover:shadow-md ${formData.vehicle_type === v.name ? 'border-primary bg-primary/5' : 'border-gray-100 bg-white hover:border-primary/50'}`}
+                                >
+                                    <div className="flex items-center gap-4">
+                                        <div className="flex-1">
+                                            <h3 className="font-bold text-lg text-gray-900">{v.name}</h3>
+                                            <div className="flex items-center gap-3 text-sm text-gray-500 mt-1">
+                                                <span className="flex items-center gap-1"><Users className="w-3 h-3" /> {v.passengers}</span>
+                                                <span className="flex items-center gap-1"><Briefcase className="w-3 h-3" /> {v.luggage}</span>
+                                            </div>
+                                        </div>
+                                        {/* Price hint if available */}
+                                        {formData.pickup_location && formData.destination && (
+                                            <div className="text-right">
+                                                <span className="block font-bold text-lg text-primary">
+                                                    SAR {getPrice(formData.pickup_location, formData.destination, v.name) || 'Quote'}
+                                                </span>
+                                            </div>
+                                        )}
+                                    </div>
+                                    <div className={`absolute top-4 right-4 w-5 h-5 rounded-full border-2 flex items-center justify-center ${formData.vehicle_type === v.name ? 'border-primary bg-primary text-white' : 'border-gray-300'}`}>
+                                        {formData.vehicle_type === v.name && <Check className="w-3 h-3" />}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                        <div className="flex gap-3 mt-4">
+                            <Button type="button" onClick={prevStep} variant="outline" className="flex-1 py-4 text-lg rounded-xl">Back</Button>
                         </div>
                     </div>
                 )}
 
-                {/* Step 3: Confirmation */}
+                {/* STEP 3: CUSTOMER DETAILS (FINAL) */}
                 {step === 3 && (
                     <div className="space-y-5 animate-fade-in-up">
-                        <div className="bg-gray-50 rounded-xl p-6 space-y-4">
-                            <h3 className="font-bold text-lg text-gray-900 mb-4">Booking Summary</h3>
+                        <div className="text-center">
+                            <h2 className="text-2xl font-bold text-gray-900">Contact Details</h2>
+                            <p className="text-gray-500 text-sm">Where should we send the booking confirmation?</p>
+                        </div>
 
-                            <div className="space-y-2 text-sm">
-                                <div className="flex justify-between">
-                                    <span className="text-gray-600">Name:</span>
-                                    <span className="font-semibold text-gray-900">{formData.customer_name}</span>
+                        {/* Booking Summary Card */}
+                        <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 text-sm space-y-2">
+                            <div className="flex justify-between font-medium">
+                                <span className="text-gray-500">Vehicle:</span>
+                                <span className="text-gray-900">{formData.vehicle_type}</span>
+                            </div>
+                            <div className="flex justify-between font-medium">
+                                <span className="text-gray-500">Date:</span>
+                                <span className="text-gray-900">{formData.pickup_date} at {formData.pickup_time}</span>
+                            </div>
+                            {calculatedPrice && (
+                                <div className="flex justify-between font-bold text-primary pt-2 border-t border-gray-200 mt-2">
+                                    <span>Total Estimate:</span>
+                                    <span>SAR {calculatedPrice}</span>
                                 </div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-600">Email:</span>
-                                    <span className="font-semibold text-gray-900">{formData.customer_email}</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-600">Phone:</span>
-                                    <span className="font-semibold text-gray-900" dir="ltr">{countryCode} {formData.customer_phone}</span>
-                                </div>
-                                <div className="border-t border-gray-200 my-3"></div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-600">From:</span>
-                                    <span className="font-semibold text-gray-900">{formData.pickup_location}</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-600">To:</span>
-                                    <span className="font-semibold text-gray-900">{formData.destination}</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-600">Date & Time:</span>
-                                    <span className="font-semibold text-gray-900">{formData.pickup_date} at {formData.pickup_time}</span>
-                                </div>
-                                <div className="border-t border-gray-200 my-3"></div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-600">Vehicle:</span>
-                                    <span className="font-semibold text-gray-900">{formData.vehicle_type}</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-600">Capacity:</span>
-                                    <span className="font-semibold text-gray-900">{formData.passengers} passengers, {formData.luggage} luggage</span>
-                                </div>
+                            )}
+                        </div>
 
-                                <div className="border-t border-gray-200 my-3"></div>
-                                <div className="flex justify-between items-center bg-primary/10 p-3 rounded-lg border border-primary/20">
-                                    <span className="text-gray-800 font-bold flex items-center">
-                                        <Wallet className="w-4 h-4 mr-2" /> Total Price:
-                                    </span>
-                                    <span className="font-bold text-lg text-black">
-                                        {calculatedPrice ? `SAR ${calculatedPrice}` : 'Calculated upon confirmation'}
-                                    </span>
+                        <div className="space-y-4">
+                            <div className="relative group/input">
+                                <User className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors" />
+                                <Input name="customer_name" placeholder="Full Name *" required value={formData.customer_name} className="pl-10 h-12 bg-gray-50 border-gray-300 rounded-xl" onChange={handleChange} />
+                            </div>
+                            <div className="relative group/input">
+                                <Mail className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors" />
+                                <Input name="customer_email" type="email" placeholder="Email Address *" required value={formData.customer_email} className="pl-10 h-12 bg-gray-50 border-gray-300 rounded-xl" onChange={handleChange} />
+                            </div>
+                            <div className="relative group/input">
+                                <div className="flex gap-2">
+                                    <Popover open={open} onOpenChange={setOpen} modal={false}>
+                                        <PopoverTrigger asChild>
+                                            <Button variant="outline" role="combobox" aria-expanded={open} className="w-[110px] h-12 justify-between bg-gray-50 border-gray-300"><span className="truncate">{countryCode}</span><ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" /></Button>
+                                        </PopoverTrigger>
+                                        <PopoverContent className="w-[250px] p-0 max-h-[300px] z-[200]">
+                                            <Command>
+                                                <CommandInput placeholder="Search country..." />
+                                                <CommandList>
+                                                    <CommandEmpty>No country found.</CommandEmpty>
+                                                    <CommandGroup>
+                                                        {countryCodes.map((c) => (
+                                                            <CommandItem key={c.country} onSelect={() => { setCountryCode(c.code); setOpen(false); }}>
+                                                                <Check className={cn("mr-2 h-4 w-4", countryCode === c.code ? "opacity-100" : "opacity-0")} />
+                                                                <span className="mr-2">{c.flag}</span>
+                                                                {c.country} ({c.code})
+                                                            </CommandItem>
+                                                        ))}
+                                                    </CommandGroup>
+                                                </CommandList>
+                                            </Command>
+                                        </PopoverContent>
+                                    </Popover>
+                                    <Input name="customer_phone" type="tel" placeholder="Mobile Number *" required value={formData.customer_phone} className="flex-1 h-12 bg-gray-50 border-gray-300 rounded-xl" onChange={handleChange} />
                                 </div>
                             </div>
                         </div>
 
-                        <div className="flex gap-3">
-                            <Button
-                                type="button"
-                                onClick={prevStep}
-                                variant="outline"
-                                className="flex-1 py-6 text-lg rounded-xl"
-                                disabled={loading}
-                            >
-                                <ArrowLeft className="w-5 h-5 mr-2" /> Back
-                            </Button>
-                            <Button
-                                type="submit"
-                                className="flex-1 bg-primary hover:bg-primary/90 text-black font-bold py-6 text-lg rounded-xl"
-                                disabled={loading}
-                            >
-                                {loading ? 'Booking...' : 'Confirm Booking'} <Check className="w-5 h-5 ml-2" />
+                        <div className="flex gap-3 mt-4">
+                            <Button type="button" onClick={prevStep} variant="outline" className="flex-1 py-4 text-lg rounded-xl">Back</Button>
+                            <Button type="submit" className="flex-1 bg-primary hover:bg-primary/90 text-black font-bold py-4 text-lg rounded-xl" disabled={loading}>
+                                {loading ? 'Booking...' : 'Confirm Booking'}
                             </Button>
                         </div>
                     </div>
                 )}
 
-                {/* Step 4: Success */}
+                {/* STEP 4: SUCCESS */}
                 {step === 4 && success && (
                     <div className="text-center space-y-6 animate-fade-in-up py-8">
-                        <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto">
-                            <Check className="w-10 h-10 text-black" />
-                        </div>
+                        <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto"><Check className="w-10 h-10 text-black" /></div>
                         <h3 className="text-2xl font-bold text-gray-900">Booking Confirmed!</h3>
-                        <p className="text-gray-600">
-                            Thank you for choosing Taxi Service KSA. We've sent a confirmation email to <strong>{formData.customer_email}</strong>.
-                            Our team will contact you shortly to confirm your booking.
-                        </p>
-                        <Button
-                            type="button"
-                            onClick={() => {
-                                setStep(1);
-                                setSuccess(false);
-                                setCalculatedPrice(null);
-                                setCountryCode('+966');
-                                setFormData({
-                                    customer_name: '',
-                                    customer_email: '',
-                                    customer_phone: '',
-                                    pickup_location: '',
-                                    destination: '',
-                                    pickup_date: '',
-                                    pickup_time: '',
-                                    vehicle_type: '',
-                                    vehicle_image: '',
-                                    passengers: 1,
-                                    luggage: 0,
-                                    special_requests: '',
-                                    status: 'pending'
-                                });
-                            }}
-                            className="bg-primary hover:bg-primary/90 text-black font-bold py-4 px-8 rounded-xl"
-                        >
-                            Make Another Booking
-                        </Button>
+                        <p className="text-gray-600">We've sent a confirmation to <strong>{formData.customer_email}</strong>. Our team will contact you shortly.</p>
+                        <Button type="button" onClick={() => { setStep(1); setSuccess(false); setCalculatedPrice(null); setFormData(prev => ({ ...prev, pickup_location: '', destination: '', status: 'pending' })); }} className="bg-primary hover:bg-primary/90 text-black font-bold py-4 px-8 rounded-xl">Book Another</Button>
                     </div>
                 )}
             </form>

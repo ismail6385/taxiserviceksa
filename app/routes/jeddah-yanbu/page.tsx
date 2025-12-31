@@ -5,13 +5,8 @@ import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Plane, ArrowRight, Coffee, Navigation, Mountain } from 'lucide-react';
 import Hero from '@/components/Hero';
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from '@/components/ui/accordion';
-import JsonLdFAQ from '@/components/JsonLdFAQ';
+import RelatedLocations from '@/components/seo/RelatedLocations';
+import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
     title: 'Jeddah to Yanbu Taxi | 330km Industrial City Route - Fixed Price',
@@ -36,29 +31,7 @@ export default function JeddahYanbuRoutePage() {
         { label: 'Route', value: 'Coastal Highway', icon: MapPin },
     ];
 
-    const vehicleOptions = [
-        {
-            name: 'Toyota Camry (Sedan)',
-            passengers: '4 passengers',
-            luggage: '2 large bags',
-            price: 'SAR 550',
-            ideal: 'Business travelers, Couples'
-        },
-        {
-            name: 'GMC Yukon (SUV)',
-            passengers: '7 passengers',
-            luggage: '5 large bags',
-            price: 'SAR 800',
-            ideal: 'Families, Site engineers'
-        },
-        {
-            name: 'Hyundai Staria (Family)',
-            passengers: '7 passengers',
-            luggage: '4 large bags',
-            price: 'SAR 750',
-            ideal: 'Small groups'
-        },
-    ];
+
 
     const routeImages = [
         '/yanbu-lake.webp',
@@ -66,24 +39,7 @@ export default function JeddahYanbuRoutePage() {
         '/jeddah-airport.webp',
     ];
 
-    const faqs = [
-        {
-            question: "How much is a taxi from Jeddah Airport to Yanbu?",
-            answer: "Taxi rates from Jeddah Airport to Yanbu start from SAR 550 for a standard sedan (Camry). SUVs like GMC Yukon are approximately SAR 800. Prices are fixed and include fuel and driver fees."
-        },
-        {
-            question: "How long is the drive from Jeddah to Yanbu?",
-            answer: "The drive typically takes 3.5 to 4 hours (330 km) via Route 5 (Coastal Highway). The road is well-maintained and scenic, running parallel to the Red Sea."
-        },
-        {
-            question: "Do you drop off at Royal Commission Yanbu (RCY)?",
-            answer: "Yes, we provide door-to-door service to all areas of Yanbu, including the Royal Commission (Yanbu Al Sinaiyah), Yanbu Al Bahr (Downtown), and the industrial zones."
-        },
-        {
-            question: "Is the road from Jeddah to Yanbu safe?",
-            answer: "Yes, the Coastal Highway is a modern, dual-carriageway road that is generally very safe. We recommend daytime travel for the best experience, but our drivers are experienced with night transfers as well."
-        }
-    ];
+
 
     const routeSchema = {
         "@context": "https://schema.org",
@@ -118,12 +74,16 @@ export default function JeddahYanbuRoutePage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
             />
-            <JsonLdFAQ faqs={faqs} />
+            <Script
+                id="route-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
+            />
 
             {/* Hero Section */}
             <Hero
                 images={routeImages}
-                h1Text="Taxi from Jeddah to Yanbu: Professional Intercity Transfer"
+                h1Text="Online Taxi from Jeddah to Yanbu"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Jeddah → Yanbu Route
@@ -220,67 +180,101 @@ export default function JeddahYanbuRoutePage() {
                 </div>
             </section>
 
-            {/* Vehicle Options Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+            {/* Pricing Section */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Vehicle Fleet & Rates</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Modern, air-conditioned vehicles perfect for the coastal highway drive.
+                    <div className="text-center mb-12">
+                        <div className="inline-flex items-center gap-2 bg-emerald-100 px-4 py-2 rounded-full mb-6">
+                            <Star className="w-4 h-4 text-emerald-700" />
+                            <span className="text-sm font-semibold text-emerald-900">Industrial Route Fares</span>
+                        </div>
+
+                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
+                            Jeddah to Yanbu Pricing
+                        </h3>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Flat rates for the 330km coastal journey.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {vehicleOptions.map((vehicle, index) => (
-                            <div key={index} className="bg-white rounded-2xl p-8 border-2 border-gray-200 hover:border-primary transition-all">
-                                <div className="text-center mb-6">
-                                    <Car className="w-12 h-12 text-primary mx-auto mb-4" />
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{vehicle.name}</h3>
-                                    <div className="text-3xl font-black text-primary mb-4">{vehicle.price}</div>
-                                </div>
-                                <div className="space-y-3 mb-6">
-                                    <div className="flex items-center gap-2 text-gray-600">
-                                        <Users className="w-5 h-5 text-gray-400" />
-                                        <span>{vehicle.passengers}</span>
-                                    </div>
-                                    <div className="flex items-center gap-2 text-gray-600">
-                                        <CheckCircle2 className="w-5 h-5 text-gray-400" />
-                                        <span>{vehicle.luggage}</span>
-                                    </div>
-                                </div>
-                                <div className="pt-4 border-t border-gray-200">
-                                    <p className="text-sm text-gray-500">
-                                        <strong className="text-gray-900">Ideal for:</strong> {vehicle.ideal}
-                                    </p>
-                                </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Car className="w-6 h-6 text-emerald-600" />
                             </div>
-                        ))}
+                            <div className="text-xl font-bold text-gray-900 mb-3">Camry (Sedan)</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 550
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                4 Passengers / 2 Bags
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-emerald-500 hover:shadow-xl transition-all text-center relative">
+                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-emerald-600 text-white hover:text-black px-4 py-1 rounded-full text-xs font-bold">
+                                MOST POPULAR
+                            </div>
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Users className="w-6 h-6 text-emerald-600" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">GMC Yukon (SUV)</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 800
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                7 Passengers / 5 Bags
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <MapPin className="w-6 h-6 text-emerald-600" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Hyundai Staria</div>
+                            <div className="text-4xl font-black text-emerald-600 mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 750
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                7 Passengers / 4 Bags
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* FAQ Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">FAQ</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Route FAQs</h2>
-                    </div>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+                <RelatedLocations currentCity="Jeddah" />
+            </div>
 
-                    <Accordion type="single" collapsible className="space-y-4">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left hover:no-underline py-4">
-                                    <h3 className="text-lg font-bold text-gray-900 pr-4">{faq.question}</h3>
-                                </AccordionTrigger>
-                                <AccordionContent className="pb-4">
-                                    <p className="text-gray-600 leading-relaxed pt-2">{faq.answer}</p>
-                                </AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
-                </div>
-            </section>
+            <MicroSemanticFAQ
+                faqs={[
+                    {
+                        question: "How much is a taxi from Jeddah Airport to Yanbu?",
+                        shortAnswer: "From SAR 550",
+                        detailedAnswer: "Taxi rates from Jeddah Airport to Yanbu start from SAR 550 for a standard sedan (Camry). SUVs like GMC Yukon are approximately SAR 800. Prices are fixed and include fuel and driver fees.",
+                        perspectives: []
+                    },
+                    {
+                        question: "How long is the drive from Jeddah to Yanbu?",
+                        shortAnswer: "3.5 - 4 Hours",
+                        detailedAnswer: "The drive typically takes 3.5 to 4 hours (330 km) via Route 5 (Coastal Highway). The road is well-maintained and scenic, running parallel to the Red Sea.",
+                        perspectives: []
+                    },
+                    {
+                        question: "Do you drop off at Royal Commission Yanbu (RCY)?",
+                        shortAnswer: "Yes, All Areas",
+                        detailedAnswer: "Yes, we provide door-to-door service to all areas of Yanbu, including the Royal Commission (Yanbu Al Sinaiyah), Yanbu Al Bahr (Downtown), and the industrial zones.",
+                        perspectives: []
+                    },
+                    {
+                        question: "Is the road from Jeddah to Yanbu safe?",
+                        shortAnswer: "Yes, Safe Hwy",
+                        detailedAnswer: "Yes, the Coastal Highway is a modern, dual-carriageway road that is generally very safe. We recommend daytime travel for the best experience, but our drivers are experienced with night transfers as well.",
+                        perspectives: []
+                    }
+                ]}
+            />
 
             {/* CTA Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">

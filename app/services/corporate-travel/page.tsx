@@ -13,9 +13,9 @@ import {
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Corporate Travel Service Saudi Arabia | Executive Taxi with Driver',
-    description: 'Professional corporate travel service for business executives in Saudi Arabia. Monthly billing, priority booking, and executive vehicles with licensed drivers. Riyadh and Jeddah focus.',
-    keywords: ['corporate taxi Saudi Arabia', 'executive transport Riyadh', 'business travel Jeddah', 'corporate car service KSA'],
+    title: 'Top Rated Corporate Travel Service Saudi Arabia | Best Executive Taxi',
+    description: 'Best online taxi service for corporate travel in Saudi Arabia. Professional executive transport for business meetings in Riyadh and Jeddah. Monthly billing available.',
+    keywords: ['Top Rated Corporate Taxi', 'Best Online Taxi Service in Saudi Arabia', 'Executive Transport Riyadh', 'Business Travel Jeddah', 'Corporate Chauffeur Service'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/corporate-travel/',
     },
@@ -126,7 +126,7 @@ export default function CorporateTravelPage() {
             { "@type": "City", "name": "Riyadh" },
             { "@type": "City", "name": "Jeddah" }
         ],
-        "description": "Professional corporate travel service for business executives with monthly billing, priority booking, and executive vehicles.",
+        "description": "Top rated online taxi service for corporate travel. Professional executive transport with monthly billing and priority booking for business clients.",
         "offers": {
             "@type": "AggregateOffer",
             "priceCurrency": "SAR",
@@ -157,11 +157,11 @@ export default function CorporateTravelPage() {
                             Corporate Travel Service
                         </span>
                         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                            Executive Transport<br />
-                            <span className="text-white">For Business Professionals</span>
+                            Top Rated Executive Transport<br />
+                            <span className="text-white">In Saudi Arabia</span>
                         </h1>
                         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                            Professional corporate travel service with licensed drivers. Monthly billing, priority booking, and executive vehicles for Riyadh and Jeddah business districts.
+                            Taxi Service KSA provides the best online taxi service for corporate clients. Professional executive transport with licensed drivers in Riyadh and Jeddah.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/booking?service=corporate-travel">
@@ -184,9 +184,9 @@ export default function CorporateTravelPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Business Districts Covered</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Executive Business Districts in Riyadh & Jeddah</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Executive transport for Riyadh and Jeddah corporate areas.
+                            Our top rated online taxi service covers major corporate areas in Riyadh and Jeddah.
                         </p>
                     </div>
 
@@ -221,7 +221,7 @@ export default function CorporateTravelPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Corporate Transport Services</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Corporate Taxi Services in KSA</h2>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -242,7 +242,7 @@ export default function CorporateTravelPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Corporate Account Benefits</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Saudi Corporate Service</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
                         {features.map((feature, index) => (
@@ -282,10 +282,10 @@ export default function CorporateTravelPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Setup Your Corporate Account
+                        Book The Best Corporate Transport in Saudi Arabia
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Monthly billing, priority booking, and dedicated account management for your business transport needs.
+                        Secure your business travel with the top rated online taxi service in Saudi Arabia. Monthly billing and priority booking available.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking?service=corporate-travel">

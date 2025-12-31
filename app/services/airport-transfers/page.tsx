@@ -15,9 +15,9 @@ import { blogService } from '@/lib/blogService';
 import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-    title: 'Airport Transfer Service Saudi Arabia | Taxi with Driver - 8 Airports',
-    description: 'Professional airport transfer service across Saudi Arabia with licensed drivers. Covers 8 major airports: Jeddah, Riyadh, Madinah, AlUla, Yanbu, Taif. Meet-and-greet, flight tracking, 24/7 service.',
-    keywords: ['airport transfer Saudi Arabia', 'Jeddah Airport taxi', 'Riyadh Airport transfer', 'Madinah Airport taxi', 'airport pickup KSA'],
+    title: 'Airport Transfers in Saudi Arabia | Online Booking & Fixed Prices',
+    description: 'Book reliable airport transfers across Saudi Arabia (Jeddah, Riyadh, Madinah). Online booking for private cars, taxis & luxury vans. Flight tracking & fixed pricing included.',
+    keywords: ['Airport Transfers in Saudi Arabia', 'Saudi Arabia Airport Transfer Taxi', 'Online Booking Airport Transfer', 'Jeddah Airport Taxi', 'Riyadh Airport Transfer', 'Madinah Airport Shuttle'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/airport-transfers/',
     },
@@ -181,7 +181,7 @@ export default async function AirportTransfersPage() {
             { "@type": "City", "name": "Yanbu" },
             { "@type": "City", "name": "Taif" }
         ],
-        "description": "Professional airport transfer service across 8 major Saudi airports with licensed drivers. Meet-and-greet, flight tracking, and 24/7 service.",
+        "description": "Book airport transfers in Saudi Arabia with online booking. Professional drivers, flight tracking, and fixed pricing for Jeddah, Riyadh, and Madinah airports.",
         "offers": {
             "@type": "AggregateOffer",
             "priceCurrency": "SAR",
@@ -212,11 +212,11 @@ export default async function AirportTransfersPage() {
                             Airport Transfer Service
                         </span>
                         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                            Airport Transfers<br />
-                            <span className="text-white">Across 8 Saudi Airports</span>
+                            Airport Transfers In<br />
+                            <span className="text-white">Saudi Arabia</span>
                         </h1>
                         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                            Professional airport transfer service with licensed drivers. Meet-and-greet, flight tracking, and 24/7 availability across all major Saudi airports.
+                            Saudi Arabia Airport Transfer Taxi services with easy online booking. Enjoy flight tracking, fixed pricing, and free cancellation for stress-free travel to all major destinations.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/booking?service=airport-transfer">
@@ -239,9 +239,9 @@ export default async function AirportTransfersPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">8 Major Airports Covered</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Major Airports Covered</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Professional taxi service with drivers at every major Saudi airport. Fixed rates, no surge pricing.
+                            We provide comprehensive airport transfer services across the Kingdom, focusing on convenience and value.
                         </p>
                     </div>
 
@@ -302,9 +302,9 @@ export default async function AirportTransfersPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Airport Transfer Features</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Benefits of Pre-Booking</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Professional service designed for stress-free airport arrivals and departures.
+                            Experience stress-free travel with no waiting, flight tracking, and fixed rates.
                         </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
@@ -322,9 +322,9 @@ export default async function AirportTransfersPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Vehicles with Professional Drivers</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Select Your Vehicle Class</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            All vehicles include licensed drivers. No self-drive rental available.
+                            Choose from private cars, taxis, luxury sedans, or large vans based on your passenger and luggage needs.
                         </p>
                     </div>
 
@@ -387,10 +387,10 @@ export default async function AirportTransfersPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your Airport Transfer
+                        Online Booking Airport Transfer Services
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Professional drivers, meet-and-greet service, and flight tracking across all major Saudi airports. Fixed rates, no hidden fees.
+                        Get instant booking confirmation with transparent, fixed pricing. Meet your driver directly at the terminal exit.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking?service=airport-transfer">

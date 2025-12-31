@@ -11,12 +11,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from '@/components/ui/accordion';
-import JsonLdFAQ from '@/components/JsonLdFAQ';
-import RelatedServices from '@/components/seo/RelatedServices';
-import QuestionsDisplay from '@/components/QuestionsDisplay';
-import ReviewsDisplay from '@/components/ReviewsDisplay';
-import ReviewForm from '@/components/seo/ReviewForm';
-import QuestionForm from '@/components/seo/QuestionForm';
+import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import TrendingTravelNote from '@/components/seo/TrendingTravelNote';
@@ -381,51 +376,72 @@ export default function AlUlaPage() {
                 </div>
             </section>
 
-            {/* User-Generated Content Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+            {/* Pricing Section */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
-                            Community Insights
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                            Share Your AlUla Experience
-                        </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Help fellow travelers by sharing your experience or asking questions about AlUla transport and tours.
+                        <div className="inline-flex items-center gap-2 bg-yellow-100 px-4 py-2 rounded-full mb-6">
+                            <Star className="w-4 h-4 text-yellow-600" />
+                            <span className="text-sm font-semibold text-yellow-900">Heritage Rates</span>
+                        </div>
+
+                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
+                            AlUla Transport Fares
+                        </h3>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Transparent pricing for airport transfers and daily driver hire.
                         </p>
                     </div>
 
-                    <div className="space-y-12 mb-12">
-                        <ReviewsDisplay location="AlUla" />
-                        <QuestionsDisplay location="AlUla" />
-                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Plane className="w-6 h-6 text-primary" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Airport Transfer</div>
+                            <div className="text-4xl font-black text-primary mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 150
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                To City Hotels / Resorts
+                            </div>
+                        </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <ReviewForm locationName="AlUla" />
-                        <QuestionForm locationName="AlUla" />
+                        <div className="bg-white p-8 rounded-2xl border-2 border-primary/30 hover:shadow-xl transition-all text-center relative">
+                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white hover:text-black px-4 py-1 rounded-full text-xs font-bold">
+                                RECOMMENDED
+                            </div>
+                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Clock className="w-6 h-6 text-primary" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Daily Driver (8h)</div>
+                            <div className="text-4xl font-black text-primary mb-3">
+                                <span className="text-2xl text-gray-500">From</span> SAR 800
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                Dedicated Sedan for Tours
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Compass className="w-6 h-6 text-primary" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Winter Park Drop</div>
+                            <div className="text-4xl font-black text-primary mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 100
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                One-Way Transfer
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <RelatedServices
-                services={[
-                    {
-                        name: 'Heritage Tours',
-                        description: 'UNESCO heritage site tours with 4x4 desert vehicles and English-speaking guides.',
-                        href: '/services/heritage-tours',
-                        icon: Compass
-                    },
-                    {
-                        name: 'Airport Transfers',
-                        description: 'Professional airport transfer service from AlUla International Airport.',
-                        href: '/services/airport-transfers',
-                        icon: Plane
-                    },
-                ]}
-                title="Services Available in AlUla"
-                description="Professional taxi services with licensed drivers for heritage tourism."
-            />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <RelatedLocations currentCity="AlUla" />
+            </div>
 
             {/* CTA Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">

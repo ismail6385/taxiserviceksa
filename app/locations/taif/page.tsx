@@ -23,11 +23,7 @@ import QuestionGrouper from '@/components/seo/QuestionGrouper';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import SemanticField from '@/components/seo/SemanticField';
 import TopicCluster from '@/components/seo/TopicCluster';
-import RelatedServices from '@/components/seo/RelatedServices';
-import QuestionsDisplay from '@/components/QuestionsDisplay';
-import ReviewsDisplay from '@/components/ReviewsDisplay';
-import ReviewForm from '@/components/seo/ReviewForm';
-import QuestionForm from '@/components/seo/QuestionForm';
+import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'Taxi Service in Taif | Makkah Transfers & Al Hada Tours',
@@ -451,45 +447,72 @@ export default function TaifPage() {
                 </div>
             </section>
 
-            {/* User-Generated Content Section */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+            {/* Pricing Information */}
+            <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
-                            Community Insights
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                            Share Your Taif Experience
-                        </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Help fellow travelers by sharing your experience or asking questions about Taif mountain transport.
+                        <div className="inline-flex items-center gap-2 bg-yellow-100 px-4 py-2 rounded-full mb-6">
+                            <Star className="w-4 h-4 text-yellow-600" />
+                            <span className="text-sm font-semibold text-yellow-900">Fixed Fares</span>
+                        </div>
+
+                        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
+                            Taif Taxi Prices
+                        </h3>
+                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                            Transparent pricing for mountain trips. No meter surprises.
                         </p>
                     </div>
 
-                    <div className="space-y-12 mb-12">
-                        <ReviewsDisplay location="Taif" />
-                        <QuestionsDisplay location="Taif" />
-                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Car className="w-6 h-6 text-primary" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Makkah to Taif</div>
+                            <div className="text-4xl font-black text-primary mb-3">
+                                <span className="text-2xl">From</span> SAR 250
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                One-Way Drop (Sedan)
+                            </div>
+                        </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <ReviewForm locationName="Taif" />
-                        <QuestionForm locationName="Taif" />
+                        <div className="bg-white p-8 rounded-2xl border-2 border-primary/30 hover:border-primary hover:shadow-xl transition-all text-center relative">
+                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white hover:text-black px-4 py-1 rounded-full text-xs font-bold">
+                                BEST SELLER
+                            </div>
+                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Mountain className="w-6 h-6 text-primary" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Taif City Tour</div>
+                            <div className="text-4xl font-black text-primary mb-3">
+                                <span className="text-2xl">From</span> SAR 300
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                5-Hour Tour (Al Hada/Shafa)
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <MapPin className="w-6 h-6 text-primary" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Jeddah Airport</div>
+                            <div className="text-4xl font-black text-primary mb-3">
+                                <span className="text-2xl">From</span> SAR 400
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                Direct Airport Transfer
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <RelatedServices
-                services={[
-                    {
-                        name: 'Airport Transfers',
-                        description: 'Airport transfer service from Taif Regional Airport and connections to Jeddah/Makkah.',
-                        href: '/services/airport-transfers',
-                        icon: Plane
-                    },
-                ]}
-                title="Services Available in Taif"
-                description="Professional taxi services with licensed drivers for mountain travel."
-            />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <RelatedLocations currentCity="Taif" />
+            </div>
 
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white text-center">
                 <div className="max-w-4xl mx-auto">

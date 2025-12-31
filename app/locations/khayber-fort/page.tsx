@@ -23,11 +23,7 @@ import QuestionGrouper from '@/components/seo/QuestionGrouper';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import SemanticField from '@/components/seo/SemanticField';
 import TopicCluster from '@/components/seo/TopicCluster';
-import RelatedServices from '@/components/seo/RelatedServices';
-import QuestionsDisplay from '@/components/QuestionsDisplay';
-import ReviewsDisplay from '@/components/ReviewsDisplay';
-import ReviewForm from '@/components/seo/ReviewForm';
-import QuestionForm from '@/components/seo/QuestionForm';
+import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'Taxi Service to Khaybar Fort | Madinah & AlUla Transfers',
@@ -489,45 +485,74 @@ export default function KhayberPage() {
                 </div>
             </section>
 
-            {/* User-Generated Content Section */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+            {/* Pricing Section */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
-                        <span className="bg-black text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
-                            Community Insights
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                            Share Your Khaybar Experience
-                        </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Help fellow travelers by sharing your experience or asking questions about Khaybar tours and transport.
+                        <div className="inline-flex items-center gap-2 bg-black px-4 py-2 rounded-full mb-6">
+                            <Star className="w-4 h-4 text-white" />
+                            <span className="text-sm font-semibold text-white">Expedition Rates</span>
+                        </div>
+
+                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
+                            Khaybar Tour Packages
+                        </h3>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Comprehensive transport including waiting time and off-road capabilities.
                         </p>
                     </div>
 
-                    <div className="space-y-12 mb-12">
-                        <ReviewsDisplay location="Khayber" />
-                        <QuestionsDisplay location="Khayber" />
-                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-black/50 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-black/5 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Car className="w-6 h-6 text-black" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Day Trip (Sedan)</div>
+                            <div className="text-4xl font-black text-black mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 600
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                Madinah Round Trip (8 Hours)
+                            </div>
+                        </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <ReviewForm locationName="Khayber" />
-                        <QuestionForm locationName="Khayber" />
+                        <div className="bg-white p-8 rounded-2xl border-2 border-black hover:shadow-xl transition-all text-center relative">
+                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-black text-white px-4 py-1 rounded-full text-xs font-bold">
+                                ADVENTURE CHOICE
+                            </div>
+                            <div className="w-12 h-12 bg-black/5 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <Mountain className="w-6 h-6 text-black" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">4x4 Volcano Safari</div>
+                            <div className="text-4xl font-black text-black mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 1200
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                GMC Yukon (Off-Road Access)
+                            </div>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-black/50 hover:shadow-xl transition-all text-center">
+                            <div className="w-12 h-12 bg-black/5 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                <MapPin className="w-6 h-6 text-black" />
+                            </div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">AlUla Connection</div>
+                            <div className="text-4xl font-black text-black mb-3">
+                                <span className="text-2xl text-gray-500">SAR</span> 500
+                            </div>
+                            <div className="text-sm text-gray-600 leading-relaxed">
+                                One-Way Transfer
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <RelatedServices
-                services={[
-                    {
-                        name: 'Heritage Tours',
-                        description: 'Historical site tours with knowledgeable drivers and 4x4 vehicles for desert terrain.',
-                        href: '/services/heritage-tours',
-                        icon: Compass
-                    },
-                ]}
-                title="Services Available for Khaybar Fort"
-                description="Professional taxi services with licensed drivers for historical site tours."
-            />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <RelatedLocations currentCity="Khaybar" />
+            </div>
+
+
 
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white text-center">
                 <div className="max-w-4xl mx-auto">
