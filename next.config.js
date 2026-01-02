@@ -155,6 +155,43 @@ const nextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      // Sitemap rewrites - map .xml URLs to route handlers
+      {
+        source: '/sitemap-index.xml',
+        destination: '/sitemap-index',
+      },
+      {
+        source: '/sitemap-blogs.xml',
+        destination: '/sitemap-blogs',
+      },
+      {
+        source: '/sitemap-fleet.xml',
+        destination: '/sitemap-fleet',
+      },
+      {
+        source: '/sitemap-locations.xml',
+        destination: '/sitemap-locations',
+      },
+      {
+        source: '/sitemap-routes.xml',
+        destination: '/sitemap-routes',
+      },
+      {
+        source: '/sitemap-services.xml',
+        destination: '/sitemap-services',
+      },
+      {
+        source: '/sitemap-guides.xml',
+        destination: '/sitemap-guides',
+      },
+      {
+        source: '/sitemap-static.xml',
+        destination: '/sitemap-static',
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
