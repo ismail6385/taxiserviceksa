@@ -157,38 +157,38 @@ const nextConfig = {
   },
   async rewrites() {
     return [
-      // Sitemap rewrites - map .xml URLs to route handlers
+      // Sitemap rewrites - map .xml URLs to API route handlers
       {
         source: '/sitemap-index.xml',
-        destination: '/sitemap-index',
+        destination: '/api/sitemaps/sitemap-index',
       },
       {
         source: '/sitemap-blogs.xml',
-        destination: '/sitemap-blogs',
+        destination: '/api/sitemaps/sitemap-blogs',
       },
       {
         source: '/sitemap-fleet.xml',
-        destination: '/sitemap-fleet',
+        destination: '/api/sitemaps/sitemap-fleet',
       },
       {
         source: '/sitemap-locations.xml',
-        destination: '/sitemap-locations',
+        destination: '/api/sitemaps/sitemap-locations',
       },
       {
         source: '/sitemap-routes.xml',
-        destination: '/sitemap-routes',
+        destination: '/api/sitemaps/sitemap-routes',
       },
       {
         source: '/sitemap-services.xml',
-        destination: '/sitemap-services',
+        destination: '/api/sitemaps/sitemap-services',
       },
       {
         source: '/sitemap-guides.xml',
-        destination: '/sitemap-guides',
+        destination: '/api/sitemaps/sitemap-guides',
       },
       {
         source: '/sitemap-static.xml',
-        destination: '/sitemap-static',
+        destination: '/api/sitemaps/sitemap-static',
       },
     ];
   },
