@@ -61,6 +61,13 @@ export default async function BlogPostPage({ params }: Props) {
     // Get Author Details
     const authorDetails = AUTHORS.find(a => a.name === blog.author);
 
+    // Fetch all published blogs for "Related Posts" sidebar
+    const allBlogs = await blogService.getPublishedBlogs();
+    const relatedBlogs = allBlogs
+        .filter(b => b.slug !== params.slug) // Exclude current blog
+        .slice(0, 4); // Take top 4 recent posts
+
+
     const structuredData = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
@@ -179,7 +186,7 @@ export default async function BlogPostPage({ params }: Props) {
                     {/* Sidebar */}
                     <div className="lg:col-span-1 space-y-8">
                         {/* Booking CTA */}
-                        <div className="sticky top-24">
+                        <div className="sticky top-24 space-y-8">
                             <div className="bg-white p-6 rounded-2xl shadow-lg border border-primary/20 bg-gradient-to-br from-white to-primary/5">
                                 <h3 className="text-xl font-bold mb-3 text-gray-900 leading-tight">
                                     Planning Your Umrah or Ziyarat?
@@ -189,7 +196,7 @@ export default async function BlogPostPage({ params }: Props) {
                                 </p>
 
                                 <div className="space-y-3">
-                                    <Link href="/booking" className="block w-full">
+                                    <Link href="/booking/" className="block w-full">
                                         <button className="w-full bg-primary text-black font-bold py-3 px-4 rounded-xl hover:bg-primary/90 transition-all shadow-md shadow-primary/20 flex items-center justify-center gap-2 group">
                                             Book Your Taxi
                                             <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -206,14 +213,53 @@ export default async function BlogPostPage({ params }: Props) {
                                 </div>
                             </div>
 
+                            {/* Recent Articles */}
+                            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                                <h3 className="text-lg font-bold mb-4 text-gray-900 border-b pb-2">Recent Articles</h3>
+                                <div className="space-y-4">
+                                    {relatedBlogs.map((post) => (
+                                        <Link key={post.slug} href={`/blog/${post.slug}/`} className="block group">
+                                            <div className="flex gap-3">
+                                                {post.featured_image && (
+                                                    <div className="relative w-16 h-16 rounded-md overflow-hidden flex-shrink-0">
+                                                        <Image
+                                                            src={post.featured_image}
+                                                            alt={post.title}
+                                                            fill
+                                                            className="object-cover group-hover:scale-110 transition-transform duration-300"
+                                                        />
+                                                    </div>
+                                                )}
+                                                <div>
+                                                    <h4 className="text-sm font-semibold text-gray-800 line-clamp-2 group-hover:text-primary transition-colors">
+                                                        {post.title}
+                                                    </h4>
+                                                    <span className="text-xs text-gray-400 mt-1 block">
+                                                        {new Date(post.published_at || post.created_at).toLocaleDateString()}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </Link>
+                                    ))}
+                                    {relatedBlogs.length === 0 && (
+                                        <p className="text-sm text-gray-500">No recent articles found.</p>
+                                    )}
+                                </div>
+                                <div className="mt-4 pt-4 border-t border-gray-50 text-center">
+                                    <Link href="/blog/" className="text-xs font-semibold text-primary hover:text-primary-dark uppercase tracking-wide">
+                                        View All Posts
+                                    </Link>
+                                </div>
+                            </div>
+
                             {/* More Topics */}
-                            <div className="mt-8 bg-gray-50 p-6 rounded-2xl">
+                            <div className="bg-gray-50 p-6 rounded-2xl">
                                 <h3 className="text-lg font-bold mb-4">Related Topics</h3>
                                 <div className="flex flex-wrap gap-2">
                                     {['Umrah', 'Ziyarat', 'Hajj', 'Jeddah Airport', 'Makkah', 'Madinah', 'VIP Transport'].map(topic => (
                                         <Link
                                             key={topic}
-                                            href={`/blog?tag=${topic.replace(/\s+/g, '-')}`}
+                                            href={`/blog/?tag=${topic.replace(/\s+/g, '-')}`}
                                             className="bg-white border text-sm text-gray-600 px-3 py-1 rounded-lg hover:border-primary transition-colors"
                                         >
                                             {topic}

@@ -35,7 +35,7 @@ export default function RelatedGuides({
                 <div className="flex overflow-x-auto pb-8 gap-6 snap-x snap-mandatory scroll-smooth hide-scrollbar px-4 sm:px-0 -mx-4 sm:mx-0">
                     {blogs.map((blog) => (
                         <Link
-                            href={`/blog/${blog.slug}`}
+                            href={`/blog/${blog.slug}/`}
                             key={blog.id}
                             className="snap-center shrink-0 w-[300px] sm:w-[350px] group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-emerald-500/20 hover:-translate-y-1"
                         >
@@ -89,7 +89,7 @@ export default function RelatedGuides({
                 </div>
 
                 <div className="mt-12 text-center">
-                    <Link href="/blog">
+                    <Link href="/blog/">
                         <button className="bg-white border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white font-bold py-3 px-8 rounded-xl transition-all duration-300">
                             View All Guides
                         </button>

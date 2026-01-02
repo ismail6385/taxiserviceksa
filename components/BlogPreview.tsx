@@ -10,7 +10,7 @@ export default function BlogPreview() {
             image: "https://images.unsplash.com/photo-1565552629477-e254f3a367c9?q=80&w=2068&auto=format&fit=crop",
             date: "Oct 15, 2024",
             author: "Ahmed Al-Sayed",
-            slug: "/blog/umrah-guide-2025"
+            slug: "/blog/umrah-guide-2025/"
         },
         {
             title: "Top 5 Luxury Hotels in Jeddah",
@@ -18,7 +18,7 @@ export default function BlogPreview() {
             image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
             date: "Nov 02, 2024",
             author: "Sarah Khan",
-            slug: "/blog/luxury-hotels-jeddah"
+            slug: "/blog/luxury-hotels-jeddah/"
         },
         {
             title: "Business Travel Etiquette in KSA",
@@ -26,7 +26,7 @@ export default function BlogPreview() {
             image: "https://images.unsplash.com/photo-1554469384-e5898eb74c0f?q=80&w=2070&auto=format&fit=crop",
             date: "Nov 10, 2024",
             author: "Faisal Rahman",
-            slug: "/blog/business-etiquette-ksa"
+            slug: "/blog/business-etiquette-ksa/"
         }
     ];
 
@@ -79,7 +79,7 @@ export default function BlogPreview() {
                 </div>
 
                 <div className="text-center mt-12">
-                    <Link href="/blog">
+                    <Link href="/blog/">
                         <Button
                             variant="outline"
                             className="bg-white border-gray-300 text-gray-900 hover:bg-gray-50 hover:text-primary hover:border-primary transition-all"

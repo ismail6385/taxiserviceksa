@@ -14,6 +14,8 @@ import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
+import { blogService } from '@/lib/blogService';
+import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
     title: 'Jeddah Airport Complete Guide 2026 | King Abdulaziz Airport (JED) - Taxi Service KSA',
@@ -30,7 +32,9 @@ export const metadata: Metadata = {
     },
 };
 
-export default function JeddahAirportGuidePage() {
+export default async function JeddahAirportGuidePage() {
+    const relatedBlogs = (await blogService.getPublishedBlogs()).slice(0, 3);
+
     const faqs = [
         {
             question: "Which terminal should I go to at Jeddah Airport?",
@@ -63,14 +67,12 @@ export default function JeddahAirportGuidePage() {
         "@type": "Article",
         "headline": "Jeddah Airport Complete Guide 2026",
         "description": "Comprehensive guide to navigating King Abdulaziz International Airport (Jeddah) with practical information for travelers and pilgrims.",
-
-
         "datePublished": "2024-01-01",
         "dateModified": "2026-01-01"
     };
 
     return (
-        <div className="bg-gray-50 min-h-screen pt-24 pb-20">
+        <div className="bg-gray-50 min-h-screen pt-24 pb-0">
             <Script
                 id="guide-schema"
                 type="application/ld+json"
@@ -257,9 +259,6 @@ export default function JeddahAirportGuidePage() {
                     </div>
                 </section>
 
-                {/* Continue with remaining sections... */}
-                {/* For brevity, I'll add a CTA and FAQ section */}
-
                 {/* FAQ Section */}
                 <section id="faq" className="mb-16">
                     <h2 className="text-3xl font-bold text-gray-900 mb-8">Frequently Asked Questions</h2>
@@ -303,7 +302,7 @@ export default function JeddahAirportGuidePage() {
                 </section>
 
                 {/* CTA Section */}
-                <section className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-12 text-center text-white">
+                <section className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-12 text-center text-white mb-20">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">
                         Need a Taxi from Jeddah Airport?
                     </h2>
@@ -312,19 +311,21 @@ export default function JeddahAirportGuidePage() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto">
-                            <Link href="/booking">
+                            <Link href="/booking/">
                                 Book Airport Transfer
                                 <ArrowRight className="ml-2 w-5 h-5" />
                             </Link>
                         </Button>
                         <Button asChild size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto">
-                            <Link href="/locations/jeddah">
+                            <Link href="/locations/jeddah/">
                                 View Jeddah Services
                             </Link>
                         </Button>
                     </div>
                 </section>
             </div>
+
+            <RelatedGuides blogs={relatedBlogs} title="More Travel Resources" subtitle="Read our latest guides and articles for a smooth journey." />
         </div>
     );
 }

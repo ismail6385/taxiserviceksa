@@ -21,65 +21,65 @@ export default function Navbar() {
 
         {
             name: 'Services',
-            href: '/services',
+            href: '/services/',
             icon: Briefcase,
             children: [
-                { name: 'Umrah Transport', href: '/services/umrah-transport', isHub: true },
-                { name: 'Airport Transfers', href: '/services/airport-transfers', isHub: true },
-                { name: 'Corporate Travel', href: '/services/corporate-travel', isHub: true },
-                { name: 'Heritage Tours', href: '/services/heritage-tours', isHub: true },
+                { name: 'Umrah Transport', href: '/services/umrah-transport/', isHub: true },
+                { name: 'Airport Transfers', href: '/services/airport-transfers/', isHub: true },
+                { name: 'Corporate Travel', href: '/services/corporate-travel/', isHub: true },
+                { name: 'Heritage Tours', href: '/services/heritage-tours/', isHub: true },
             ]
         },
         {
             name: 'Fleet',
-            href: '/fleet',
+            href: '/fleet/',
             icon: Car,
             children: [
-                { name: 'GMC Yukon', href: '/fleet/gmc-yukon' },
-                { name: 'Toyota Camry', href: '/fleet/toyota-camry' },
-                { name: 'Hyundai Staria', href: '/fleet/hyundai-staria' },
-                { name: 'Toyota Hiace', href: '/fleet/toyota-hiace' },
-                { name: 'Toyota Coaster', href: '/fleet/toyota-coaster' },
-                { name: 'Hyundai Starex', href: '/fleet/hyundai-starex' },
+                { name: 'GMC Yukon', href: '/fleet/gmc-yukon/' },
+                { name: 'Toyota Camry', href: '/fleet/toyota-camry/' },
+                { name: 'Hyundai Staria', href: '/fleet/hyundai-staria/' },
+                { name: 'Toyota Hiace', href: '/fleet/toyota-hiace/' },
+                { name: 'Toyota Coaster', href: '/fleet/toyota-coaster/' },
+                { name: 'Hyundai Starex', href: '/fleet/hyundai-starex/' },
             ]
         },
         {
             name: 'Locations',
-            href: '/locations',
+            href: '/locations/',
             icon: MapPin,
             children: [
-                { name: 'Makkah (Umrah Hub)', href: '/locations/makkah', isHub: true },
-                { name: 'Madinah (Ziyarat Hub)', href: '/locations/madinah', isHub: true },
-                { name: 'Jeddah (Airport)', href: '/locations/jeddah' },
-                { name: 'Riyadh (Capital)', href: '/locations/riyadh' },
-                { name: 'Taif (City Tour)', href: '/locations/taif' },
-                { name: 'AlUla (Heritage)', href: '/locations/alula' },
-                { name: 'Yanbu (Port)', href: '/locations/yanbu' },
-                { name: 'Khayber Fort', href: '/locations/khayber-fort' },
+                { name: 'Makkah (Umrah Hub)', href: '/locations/makkah/', isHub: true },
+                { name: 'Madinah (Ziyarat Hub)', href: '/locations/madinah/', isHub: true },
+                { name: 'Jeddah (Airport)', href: '/locations/jeddah/' },
+                { name: 'Riyadh (Capital)', href: '/locations/riyadh/' },
+                { name: 'Taif (City Tour)', href: '/locations/taif/' },
+                { name: 'AlUla (Heritage)', href: '/locations/alula/' },
+                { name: 'Yanbu (Port)', href: '/locations/yanbu/' },
+                { name: 'Khayber Fort', href: '/locations/khayber-fort/' },
             ]
         },
         {
             name: 'Routes',
-            href: '/routes',
+            href: '/routes/',
             icon: Navigation,
             children: [
-                { name: 'Jeddah → Makkah (80km)', href: '/routes/jeddah-makkah', isHub: true },
-                { name: 'Makkah → Madinah (450km)', href: '/routes/makkah-madinah', isHub: true },
-                { name: 'Madinah → Jeddah (450km)', href: '/routes/madinah-jeddah', isHub: true },
-                { name: 'Riyadh → Jeddah (950km)', href: '/routes/riyadh-jeddah', isHub: true },
-                { name: 'Jeddah → Taif (170km)', href: '/routes/jeddah-taif', isHub: true },
-                { name: 'Jeddah → Yanbu (330km)', href: '/routes/jeddah-yanbu', isHub: true },
-                { name: 'Jeddah → Al Ula (700km)', href: '/routes/jeddah-alula', isHub: true },
+                { name: 'Jeddah → Makkah (80km)', href: '/routes/jeddah-makkah/', isHub: true },
+                { name: 'Makkah → Madinah (450km)', href: '/routes/makkah-madinah/', isHub: true },
+                { name: 'Madinah → Jeddah (450km)', href: '/routes/madinah-jeddah/', isHub: true },
+                { name: 'Riyadh → Jeddah (950km)', href: '/routes/riyadh-jeddah/', isHub: true },
+                { name: 'Jeddah → Taif (170km)', href: '/routes/jeddah-taif/', isHub: true },
+                { name: 'Jeddah → Yanbu (330km)', href: '/routes/jeddah-yanbu/', isHub: true },
+                { name: 'Jeddah → Al Ula (700km)', href: '/routes/jeddah-alula/', isHub: true },
             ]
         },
         {
             name: 'Guides',
-            href: '/guides',
+            href: '/guides/',
             icon: Star,
             children: [
-                { name: 'Jeddah Airport Guide', href: '/guides/jeddah-airport-guide', isHub: true },
-                { name: 'Makkah Umrah Guide', href: '/guides/makkah-umrah-guide', isHub: true },
-                { name: 'Riyadh Business Guide', href: '/guides/riyadh-business-guide', isHub: true },
+                { name: 'Jeddah Airport Guide', href: '/guides/jeddah-airport-guide/', isHub: true },
+                { name: 'Makkah Umrah Guide', href: '/guides/makkah-umrah-guide/', isHub: true },
+                { name: 'Riyadh Business Guide', href: '/guides/riyadh-business-guide/', isHub: true },
             ]
         },
         {
@@ -87,10 +87,9 @@ export default function Navbar() {
             href: '#',
             icon: Info,
             children: [
-                { name: 'Gallery', href: '/gallery', icon: Camera },
-                { name: 'FAQ', href: '/faq', icon: HelpCircle },
-                { name: 'About Us', href: '/about', icon: Info },
-                { name: 'Contact', href: '/contact', icon: Contact },
+                { name: 'Gallery', href: '/gallery/', icon: Camera },
+                { name: 'About Us', href: '/about/', icon: Info },
+                { name: 'Contact', href: '/contact/', icon: Contact },
             ]
         },
     ];
@@ -174,7 +173,7 @@ export default function Navbar() {
                                 )}
                             </div>
                         ))}
-                        <Link href="/booking">
+                        <Link href="/booking/">
                             <Button className="bg-primary text-white hover:bg-blue-600 font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/30">
                                 Book Now
                             </Button>
@@ -288,7 +287,7 @@ export default function Navbar() {
                                 )}
                             </div>
                         ))}
-                        <Link href="/booking" onClick={() => setIsOpen(false)} className="block mt-4">
+                        <Link href="/booking/" onClick={() => setIsOpen(false)} className="block mt-4">
                             <Button className="w-full bg-primary text-white hover:bg-blue-600 font-bold shadow-lg shadow-primary/30 min-h-[48px]">
                                 Book Now
                             </Button>
