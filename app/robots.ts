@@ -5,8 +5,11 @@ export default function robots(): MetadataRoute.Robots {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: ['/api/', '/admin/', '/wp-content/'],
+            disallow: ['/api/', '/admin/', '/wp-content/', '/_next/', '/2025/'],
         },
-        sitemap: 'https://taxiserviceksa.com/sitemap.xml',
+        sitemap: [
+            'https://taxiserviceksa.com/sitemap-index.xml',
+            'https://taxiserviceksa.com/sitemap.xml',
+        ],
     }
 }
