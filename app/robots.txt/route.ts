@@ -9,6 +9,7 @@ Disallow: /wp-content/
 Disallow: /_next/
 Disallow: /2025/
 
+Sitemap: https://taxiserviceksa.com/sitemap-index.xml
 Sitemap: https://taxiserviceksa.com/sitemap.xml
 `;
 
