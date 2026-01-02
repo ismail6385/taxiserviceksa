@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { blogService } from '@/lib/blogService';
 
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 export async function GET() {
     const baseUrl = 'https://taxiserviceksa.com';
     

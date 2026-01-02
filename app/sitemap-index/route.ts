@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
 export async function GET() {
     const baseUrl = 'https://taxiserviceksa.com';
     const now = new Date().toISOString().split('T')[0];
