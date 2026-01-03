@@ -125,7 +125,7 @@ export default async function JeddahPage() {
                             Home
                         </Link>
                         <span className="text-gray-400">/</span>
-                        <Link href="/locations" className="text-gray-500 hover:text-gray-900 transition-colors">
+                        <Link href="/locations/" className="text-gray-500 hover:text-gray-900 transition-colors">
                             Locations
                         </Link>
                         <span className="text-gray-400">/</span>
@@ -164,6 +164,59 @@ export default async function JeddahPage() {
                                 <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
                             </div>
                         ))}
+                    </div>
+
+                    {/* Strategic Internal Links Hub */}
+                    <div className="bg-white border border-gray-100 rounded-3xl p-8 mb-16 shadow-sm">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                    <Car className="w-5 h-5 text-primary" /> Popular Jeddah Routes
+                                </h4>
+                                <ul className="space-y-3">
+                                    <li>
+                                        <Link href="/routes/jeddah-makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Jeddah to Makkah (80km)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/routes/jeddah-madinah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Jeddah to Madinah (450km)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/routes/jeddah-taif/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Jeddah to Taif (170km)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                    <Users className="w-5 h-5 text-primary" /> Recommended Fleet
+                                </h4>
+                                <ul className="space-y-3">
+                                    <li>
+                                        <Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Elite VIP GMC Yukon</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Spacious Toyota HiAce Bus</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/fleet/" className="text-primary font-bold hover:underline">View Entire Fleet →</Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -394,7 +447,7 @@ export default async function JeddahPage() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-                            <Link href="/booking">
+                            <Link href="/booking/">
                                 <Button className="bg-black text-white hover:bg-black/90 font-bold px-10 py-7 text-lg rounded-2xl h-auto shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
                                     Book Now
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

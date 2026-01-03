@@ -130,7 +130,7 @@ export default function TaifRoseFestivalPage() {
                                     Book Taif Tour
                                 </Button>
                             </Link>
-                            <Link href="/booking">
+                            <Link href="/booking/">
                                 <Button variant="outline" className="border-white text-white hover:bg-white/10 px-8">
                                     Check Rates
                                 </Button>

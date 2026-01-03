@@ -110,7 +110,7 @@ export default function MakkahMadinahRoutePage() {
                 location="4-5 Hours | Fixed Rate SAR 450+"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <Link href="/booking?route=makkah-madinah">
+                    <Link href="/booking/?route=makkah-madinah">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                             Book This Route
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -181,6 +181,56 @@ export default function MakkahMadinahRoutePage() {
                                     <div className="font-bold text-lg mb-1">Arrival in Madinah (10:30 AM)</div>
                                     <p className="text-gray-300 text-sm">Drop-off at hotel. Time to rest before Dhuhr prayer at Prophet's Mosque.</p>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Strategic Internal Links Hub */}
+                    <div className="bg-white border-2 border-primary/10 rounded-3xl p-8 mb-16 shadow-lg">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+                            <div>
+                                <h4 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                                    <MapPin className="w-5 h-5 text-primary" /> Destination Guides
+                                </h4>
+                                <ul className="space-y-4">
+                                    <li>
+                                        <Link href="/locations/madinah/" className="text-gray-700 hover:text-primary transition-colors flex items-center justify-between group py-2 border-b border-gray-50">
+                                            <span>Arriving in Madinah (City Guide)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all font-bold" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/locations/makkah/" className="text-gray-700 hover:text-primary transition-colors flex items-center justify-between group py-2 border-b border-gray-50">
+                                            <span>Makkah Umrah Services</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all font-bold" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/routes/" className="text-primary font-bold hover:underline">Explore More Intercity Routes →</Link>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                                    <Car className="w-5 h-5 text-primary" /> Vehicle Options for 450km
+                                </h4>
+                                <ul className="space-y-4">
+                                    <li>
+                                        <Link href="/fleet/gmc-yukon/" className="text-gray-700 hover:text-primary transition-colors flex items-center justify-between group py-2 border-b border-gray-50">
+                                            <span>Premium GMC Yukon (Top Choice)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all font-bold" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/fleet/toyota-hiace/" className="text-gray-700 hover:text-primary transition-colors flex items-center justify-between group py-2 border-b border-gray-50">
+                                            <span>Toyota HiAce (Umrah Groups)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all font-bold" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/fleet/" className="text-primary font-bold hover:underline">Compare All Vehicles →</Link>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -335,7 +385,7 @@ export default function MakkahMadinahRoutePage() {
                         Complete your Umrah journey with comfortable, direct transport. Fixed rates, rest stops included, and experienced drivers who understand pilgrimage schedules.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking?route=makkah-madinah">
+                        <Link href="/booking/?route=makkah-madinah">
                             <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Book Now (SAR 450+)
                             </Button>

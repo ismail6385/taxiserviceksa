@@ -2,7 +2,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
-import { Coins, CreditCard, DollarSign, Building, AlertTriangle } from 'lucide-react';
+import { Coins, CreditCard, DollarSign, Building, AlertTriangle, ArrowRight, Car, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
@@ -46,7 +46,7 @@ export default function CurrencyGuidePage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <p className="text-gray-200 text-lg leading-relaxed text-center">
-                        The official currency of Saudi Arabia is the Saudi Riyal (SAR). It is pegged to the US Dollar at a fixed rate of approximately 3.75 SAR = 1 USD.
+                        The official currency of Saudi Arabia is the Saudi Riyal (SAR). You will likely first encounter it upon landing at <Link href="/locations/jeddah/" className="text-white underline hover:text-primary transition-colors">Jeddah Airport (Arrivals)</Link>.
                     </p>
                 </div>
             </Hero>
@@ -58,7 +58,7 @@ export default function CurrencyGuidePage() {
                             <Coins className="w-10 h-10 text-emerald-600 mb-4" />
                             <h3 className="text-xl font-bold mb-2">Cash is Still King</h3>
                             <p className="text-gray-600 text-sm">
-                                While cards are widely accepted in malls and hotels, small shops, dates markets, and taxi drivers often prefer cash. Always keep small denominations (5, 10, 50 SAR).
+                                While cards are widely accepted, small shops, markets, and street taxi drivers often prefer cash. To avoid carrying large amounts of cash for transport, you should <Link href="/booking/" className="text-emerald-700 font-bold underline">book a taxi online with a fixed price</Link> before you arrive.
                             </p>
                         </div>
                         <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
@@ -72,7 +72,7 @@ export default function CurrencyGuidePage() {
                             <Building className="w-10 h-10 text-purple-600 mb-4" />
                             <h3 className="text-xl font-bold mb-2">Exchange Locations</h3>
                             <p className="text-gray-600 text-sm">
-                                Avoid exchanging large amounts at airports (higher fees). Use banks or licensed money exchangers (Enjaz, Tahweel) in the city centers of Makkah and Madinah for better rates.
+                                Avoid exchanging large amounts at airports. Use banks in the city centers of Makkah and Madinah for better rates. Most guests using our <Link href="/services/airport-transfers/" className="text-purple-700 hover:underline">premium airport transfers</Link> find it easier to withdraw cash from a city ATM.
                             </p>
                         </div>
                     </div>

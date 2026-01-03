@@ -1,8 +1,8 @@
-
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { MapPin, ArrowRight } from 'lucide-react';
+import { MapPin, ArrowRight, Car } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
     title: 'Service Locations | Taxi Service KSA',
@@ -17,67 +17,67 @@ const locations = [
         name: 'Jeddah',
         description: 'Airport transfers and city tours in the Bride of the Red Sea.',
         image: '/jeddah-corniche-sunset.webp',
-        href: '/locations/jeddah'
+        href: '/locations/jeddah/'
     },
     {
         name: 'Makkah',
         description: 'Reliable transport for Umrah pilgrims and Ziyarat.',
         image: '/makkah-kaaba-night.webp',
-        href: '/locations/makkah'
+        href: '/locations/makkah/'
     },
     {
         name: 'Madinah',
         description: 'Comfortable journeys to the Prophet\'s City.',
         image: '/madinah-prophets-mosque.webp',
-        href: '/locations/madinah'
+        href: '/locations/madinah/'
     },
     {
         name: 'Riyadh',
         description: 'Corporate transport and airport transfers in the capital.',
         image: '/hero-slide-1.webp',
-        href: '/locations/riyadh'
+        href: '/locations/riyadh/'
     },
     {
         name: 'AlUla',
         description: 'Explore the ancient wonders of Hegra and Dadan.',
         image: '/alula-hegra-tombs.webp',
-        href: '/locations/alula'
+        href: '/locations/alula/'
     },
     {
         name: 'Taif',
         description: 'Scenic drives to the City of Roses.',
         image: '/taif-mountains-view.webp',
-        href: '/locations/taif'
+        href: '/locations/taif/'
     },
     {
         name: 'Yanbu',
         description: 'Industrial transport and Red Sea gateway services.',
         image: '/hero-slide-2.webp',
-        href: '/locations/yanbu'
+        href: '/locations/yanbu/'
     },
     {
         name: 'Khayber Fort',
         description: 'Historical tours to the ancient oases of Khaybar.',
         image: '/alula-hegra-tombs.webp',
-        href: '/locations/khayber-fort'
+        href: '/locations/khayber-fort/'
     },
     {
         name: 'Dammam',
         description: 'Airport and city transfers in the administrative hub of the Eastern Province.',
         image: '/hero-slide-3.webp',
-        href: '/locations/dammam'
+        href: '/locations/dammam/'
     },
     {
         name: 'Al Khobar',
         description: 'Luxury transport for Corniche, hotels, and Causeway trips.',
         image: '/khobar-water-tower.webp',
-        href: '/locations/al-khobar'
+        href: '/locations/al-khobar/'
     },
     {
         name: 'Dhahran',
         description: 'Professional service for Energy and Industrial hubs (Aramco/Ithra).',
         image: '/ithra-center.webp',
-        href: '/locations/dhahran'
+        href: '/locations/dhahran/'
     }
 ];
 
@@ -89,7 +89,8 @@ export default function LocationsPage() {
                     <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Destinations</span>
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Service Locations</h1>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                        We serve all major cities and historical sites in Saudi Arabia with our premium fleet.
+                        We serve all major cities and historical sites in Saudi Arabia. Before you travel, check our <Link href="/guides/makkah-umrah-guide/" className="text-gray-900 font-bold hover:underline underline-offset-4 decoration-primary">Makkah Umrah Guide</Link> for local advice.
+                        Choose your destination and book your <Link href="/routes/" className="text-gray-900 font-bold hover:underline underline-offset-4 decoration-primary">intercity route</Link> today.
                     </p>
                 </div>
 
@@ -122,6 +123,22 @@ export default function LocationsPage() {
                             </div>
                         </Link>
                     ))}
+                </div>
+
+                <div className="mt-20 bg-gray-900 text-white rounded-3xl p-12 text-center shadow-xl">
+                    <h2 className="text-3xl font-bold mb-4 text-white">Ready to Start Your Journey?</h2>
+                    <p className="text-gray-400 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
+                        Whether you are arriving at JED, RUH, or MED, our drivers are ready to welcome you.
+                        Experience the most <Link href='/booking/' className='text-white font-bold underline decoration-primary'>reliable taxi service in Saudi Arabia</Link> at fixed rates.
+                    </p>
+                    <div className="flex justify-center">
+                        <Link href="/booking/">
+                            <Button className="bg-primary text-white hover:bg-white hover:text-black font-bold px-10 py-6 text-lg rounded-xl flex items-center gap-2">
+                                <Car className="w-5 h-5" />
+                                Book Your Ride Now
+                            </Button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

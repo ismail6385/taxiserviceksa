@@ -115,7 +115,7 @@ export default function MadinahPageArabic() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <Link href="/booking">
+                    <Link href="/booking/">
                         <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-primary/90 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl w-full sm:w-auto">
                             احجز جولات الزيارة
                             <ArrowRight className="mr-2 w-5 h-5 rotate-180" />

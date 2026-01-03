@@ -7,6 +7,9 @@ export const metadata: Metadata = {
     title: 'Travel Guides | Taxi Service KSA - Expert Insights for Saudi Arabia',
     description: 'Comprehensive travel guides for Jeddah Airport, Makkah Umrah, and Riyadh Business Travel. Expert insights from professional drivers with years of local experience.',
     keywords: ['Jeddah Airport Guide', 'Makkah Umrah Guide', 'Riyadh Business Guide', 'Saudi Arabia Travel', 'Taxi Service KSA'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/guides/',
+    },
 };
 
 const guides = [
@@ -79,8 +82,8 @@ export default function GuidesPage() {
                         Expert Travel Guides for Saudi Arabia
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Comprehensive guides written by professional drivers with years of local experience.
-                        Get insider insights, practical tips, and answers to all your questions.
+                        Comprehensive guides written by professional drivers from <Link href="/locations/makkah/" className="text-primary font-bold hover:underline">Makkah</Link> and Madinah.
+                        Get insider insights, practical tips, and answers to all your questions for a smooth journey.
                     </p>
                 </div>
 
@@ -149,7 +152,7 @@ export default function GuidesPage() {
                                 </div>
 
                                 {/* CTA */}
-                                <Link href={`/guides/${guide.slug}`}>
+                                <Link href={`/guides/${guide.slug}/`}>
                                     <Button className="w-full bg-black text-white hover:bg-gray-800 font-semibold">
                                         Read Complete Guide
                                         <ArrowRight className="w-4 h-4 ml-2" />
@@ -158,6 +161,35 @@ export default function GuidesPage() {
                             </div>
                         );
                     })}
+                </div>
+
+                {/* Additional Guides Section */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    {/* Madinah Heritage & Ziyarat */}
+                    <div className="bg-white rounded-2xl p-8 border-2 border-gray-100 shadow-sm">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                            <MapPin className="w-6 h-6 text-emerald-600" /> Madinah Heritage & Ziyarat
+                        </h3>
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <li><Link href="/guides/uhud-history/" className="text-gray-600 hover:text-emerald-600 flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-emerald-600 opacity-0 group-hover:opacity-100 transition-all" /> Mount Uhud History</Link></li>
+                            <li><Link href="/guides/seven-mosques/" className="text-gray-600 hover:text-emerald-600 flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-emerald-600 opacity-0 group-hover:opacity-100 transition-all" /> The Seven Mosques</Link></li>
+                            <li><Link href="/guides/quba-walking-path/" className="text-gray-600 hover:text-emerald-600 flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-emerald-600 opacity-0 group-hover:opacity-100 transition-all" /> Quba Walking Path</Link></li>
+                            <li><Link href="/guides/madinah-food/" className="text-gray-600 hover:text-emerald-600 flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-emerald-600 opacity-0 group-hover:opacity-100 transition-all" /> Madinah Food Guide</Link></li>
+                        </ul>
+                    </div>
+
+                    {/* Practical Pilgrim Guides */}
+                    <div className="bg-white rounded-2xl p-8 border-2 border-gray-100 shadow-sm">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                            <Star className="w-6 h-6 text-primary" /> Practical Insights
+                        </h3>
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <li><Link href="/guides/haram-gates-access/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Haram Gates Guide</Link></li>
+                            <li><Link href="/guides/meeqat-locations/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Meeqat Points</Link></li>
+                            <li><Link href="/guides/currency/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Currency & SAR Guide</Link></li>
+                            <li><Link href="/insights/pilgrimage-transport-report-2025/" className="text-emerald-600 font-bold hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> 2025 Transport Report</Link></li>
+                        </ul>
+                    </div>
                 </div>
 
                 {/* Features Section */}
@@ -204,17 +236,17 @@ export default function GuidesPage() {
                     <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
                         Can't find what you're looking for? Ask our experienced drivers and get personalized answers within 24 hours.
                     </p>
-                    <div className="flex gap-4 justify-center">
-                        <Link href="/ask-question">
-                            <Button size="lg" className="bg-black text-white hover:bg-gray-800 font-bold">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link href="/booking/">
+                            <Button size="lg" className="bg-black text-white hover:bg-gray-800 font-bold w-full sm:w-auto">
                                 <MessageCircle className="w-5 h-5 mr-2" />
-                                Ask a Question
+                                Book With Expert Driver
                             </Button>
                         </Link>
-                        <Link href="/submit-review">
-                            <Button size="lg" variant="outline" className="border-2 border-black text-black hover:bg-gray-100 font-bold">
+                        <Link href="/fleet/">
+                            <Button size="lg" variant="outline" className="border-2 border-black text-black hover:bg-gray-100 font-bold w-full sm:w-auto">
                                 <Star className="w-5 h-5 mr-2" />
-                                Share Your Experience
+                                Explore Our Fleet
                             </Button>
                         </Link>
                     </div>

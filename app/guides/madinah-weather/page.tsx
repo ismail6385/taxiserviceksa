@@ -2,7 +2,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
-import { Cloud, Sun, Thermometer, Wind, AlertCircle } from 'lucide-react';
+import { Cloud, Sun, Thermometer, Wind, AlertCircle, ArrowRight, Car, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
@@ -44,8 +44,7 @@ export default function MadinahWeatherPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <p className="text-gray-200 text-lg leading-relaxed text-center">
-                        Madinah has a desert
-                        climate with very hot summers and mild winters. Knowing what to expect helps you pack the right clothing for your spiritual journey.
+                        <Link href="/locations/madinah/" className="text-white underline hover:text-primary transition-colors">Madinah Al-Nabawi</Link> has a desert climate with very hot summers and mild winters. Knowing what to expect helps you pack the right clothing for your spiritual journey.
                     </p>
                 </div>
             </Hero>
@@ -71,7 +70,7 @@ export default function MadinahWeatherPage() {
                                         <h3 className="font-bold text-lg text-amber-900">Summer (Jun - Aug)</h3>
                                     </div>
                                     <p className="text-amber-800 text-sm">
-                                        <strong>Extremely Hot.</strong> Temperatures often exceed 45°C. Outdoor activities should be limited to night time. Hydration is critical.
+                                        <strong>Extremely Hot.</strong> Temperatures often exceed 45°C. For long journeys like the <Link href="/routes/madinah-jeddah/" className="text-emerald-700 hover:underline">Madinah to Jeddah taxi</Link>, we recommend air-conditioned private transport to avoid heat exhaustion.
                                     </p>
                                 </div>
                             </div>
@@ -127,7 +126,7 @@ export default function MadinahWeatherPage() {
                                     {
                                         role: "Tip",
                                         icon: "Sun",
-                                        insight: "The marble floor of the Haram is cooled, but the outside courtyard tiles can burn feet at noon. Wear sandals until the entrance."
+                                        insight: "The marble floor of the Haram is cooled, but courthouse tiles burn at noon. You can <Link href='/booking/' className='text-primary font-bold hover:underline'>book a comfortable GMC Yukon</Link> with powerful AC for all your city movements."
                                     }
                                 ]
                             }

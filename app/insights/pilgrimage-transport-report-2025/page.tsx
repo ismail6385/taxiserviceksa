@@ -65,12 +65,12 @@ export default function PilgrimageTransportReportPage() {
 
                     <div className="prose prose-lg max-w-none text-gray-600">
                         <p className="lead text-xl md:text-2xl text-gray-900 font-medium mb-12">
-                            While the Haramain High-Speed Railway is a technological marvel connecting Makkah and Madinah, new data suggests that for families and pilgrims with luggage, private taxi transfer remains the superior choice in 2025.
+                            While the Haramain High-Speed Railway is a technological marvel connecting <Link href="/locations/makkah/" className="text-primary hover:underline font-bold">Makkah (Haram Area)</Link> and Madinah, new data suggests that for families and pilgrims with luggage, private taxi transfer remains the superior choice in 2025.
                         </p>
 
                         <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">The "Last Mile" Problem</h2>
                         <p>
-                            Most travelers compare the <strong>travel time</strong> of the train (55 mins Jeddah-Makkah) vs. Taxi (75 mins). However, this calculation is fatally flawed because it ignores the "Last Mile" friction.
+                            Most travelers compare the <strong>travel time</strong> of the train (55 mins Jeddah-Makkah) vs. Taxi (75 mins). However, this calculation is fatally flawed because it ignores the "Last Mile" friction involved when traveling to <Link href="/locations/madinah/" className="text-primary hover:underline">Madinah (Holy City)</Link> or Makkah hotel zones.
                         </p>
 
                         <div className="my-12">
@@ -88,7 +88,7 @@ export default function PilgrimageTransportReportPage() {
                             </li>
                             <li className="flex items-start gap-3 p-4 bg-emerald-50/50 rounded-lg border border-emerald-100">
                                 <span className="font-bold text-emerald-900 min-w-[120px]">Taxi Reality:</span>
-                                <span>Direct curb-to-curb drive = <strong>1.25 Hours</strong></span>
+                                <span>Direct curb-to-curb drive on the <Link href="/routes/jeddah-makkah/" className="text-emerald-700 hover:underline">Jeddah to Makkah route</Link> = <strong>1.25 Hours</strong></span>
                             </li>
                         </ul>
 
@@ -129,7 +129,7 @@ export default function PilgrimageTransportReportPage() {
 
                             <div className="bg-emerald-600 text-white p-6 rounded-xl shadow-lg ring-4 ring-emerald-100">
                                 <div className="absolute top-0 right-0 bg-white text-emerald-700 text-xs font-bold px-3 py-1 rounded-bl-lg">RECOMMENDED</div>
-                                <h4 className="font-bold text-white mb-4 text-lg">🚕 Private GMC Yukon</h4>
+                                <h4 className="font-bold text-white mb-4 text-lg">🚕 Private <Link href="/fleet/gmc-yukon/" className="text-white underline hover:text-emerald-200 transition-colors">VIP GMC Yukon</Link></h4>
                                 <ul className="space-y-2 text-emerald-100 mb-6 text-sm">
                                     <li className="flex justify-between"><span>Door-to-Door Rates</span> <span>450 SAR</span></li>
                                     <li className="flex justify-between"><span>Luggage Handling</span> <span>Included</span></li>
@@ -148,7 +148,7 @@ export default function PilgrimageTransportReportPage() {
 
                         <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Conclusion</h2>
                         <p>
-                            The High-Speed Railway is perfect for the solo business traveler or light packer. However, our 2025 analysis confirms that for the core demographic of Umrah pilgrims—<strong>families with luggage</strong>—the Private Taxi remains the logical, economic, and ergonomic champion.
+                            The High-Speed Railway is perfect for the solo business traveler or light packer. However, our 2025 analysis confirms that for the core demographic of Umrah pilgrims—<strong>families with luggage</strong>—the Private Taxi remains the logical, economic, and ergonomic champion. For maximum convenience, you should <Link href="/booking/" className="text-primary font-bold hover:underline">book a taxi online</Link> before your arrival.
                         </p>
                     </div>
 
@@ -160,7 +160,7 @@ export default function PilgrimageTransportReportPage() {
                                 Don't let luggage drag you down. Book a GMC Yukon for your family and experience the convenience of door-to-door service.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <Link href="/booking">
+                                <Link href="/booking/">
                                     <Button size="lg" className="bg-white text-black hover:bg-emerald-500 hover:text-white font-bold px-8 py-6 h-auto text-lg w-full sm:w-auto">
                                         Book Family Taxi <ArrowRight className="ml-2 w-5 h-5" />
                                     </Button>
@@ -171,6 +171,58 @@ export default function PilgrimageTransportReportPage() {
                     </div>
                 </div>
             </div>
+
+            {/* Strategic Internal Links Hub */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+                <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                        <div>
+                            <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <ArrowRight className="w-5 h-5 text-emerald-600" /> Related Routes
+                            </h4>
+                            <ul className="space-y-3">
+                                <li>
+                                    <Link href="/routes/jeddah-makkah/" className="text-gray-600 hover:text-emerald-600 transition-colors flex items-center justify-between group text-sm">
+                                        <span>Jeddah Airport to Makkah (95km)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/routes/makkah-madinah/" className="text-gray-600 hover:text-emerald-600 transition-colors flex items-center justify-between group text-sm">
+                                        <span>Makkah to Madinah (450km)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/routes/" className="text-emerald-600 font-bold hover:underline text-sm">View All Fixed-Price Routes →</Link>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <Briefcase className="w-5 h-5 text-emerald-600" /> Specialist Guides
+                            </h4>
+                            <ul className="space-y-3">
+                                <li>
+                                    <Link href="/guides/jeddah-airport-guide/" className="text-gray-600 hover:text-emerald-600 transition-colors flex items-center justify-between group text-sm">
+                                        <span>Jeddah Airport Survival Guide</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/guides/makkah-umrah-guide/" className="text-gray-600 hover:text-emerald-600 transition-colors flex items-center justify-between group text-sm">
+                                        <span>Makkah Umrah Practical Guide</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/guides/" className="text-emerald-600 font-bold hover:underline text-sm">Expert Travel Resources →</Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </article>
     );
 }

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Navigation, ArrowRight, Clock, DollarSign, MapPin } from 'lucide-react';
+import { Navigation, ArrowRight, Clock, DollarSign, MapPin, Car } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export default function RoutesPage() {
             price: 'From SAR 250',
             description: 'Most popular route for Umrah pilgrims. Direct transfer from King Abdulaziz Airport to Makkah hotels.',
             image: '/makkah-kaaba-night.webp',
-            href: '/routes/jeddah-makkah',
+            href: '/routes/jeddah-makkah/',
             highlights: ['Airport pickup', 'Meet & greet', 'Train alternative'],
             isPopular: true
         },
@@ -33,7 +33,7 @@ export default function RoutesPage() {
             price: 'From SAR 450',
             description: 'Complete your Umrah journey. Comfortable transfer with rest stops between the two holy cities.',
             image: '/madinah-prophets-mosque.webp',
-            href: '/routes/makkah-madinah',
+            href: '/routes/makkah-madinah/',
             highlights: ['Rest stops included', 'Prayer breaks', 'Zamzam accommodation'],
             isPopular: true
         },
@@ -44,7 +44,7 @@ export default function RoutesPage() {
             price: 'From SAR 450',
             description: 'Reliable return transfer to Jeddah Airport. Comfortable journey for pilgrims departing from Madinah.',
             image: '/madinah-prophets-mosque.webp',
-            href: '/routes/madinah-jeddah',
+            href: '/routes/madinah-jeddah/',
             highlights: ['Airport drop-off', 'Rest stops included', 'Group friendly'],
             isPopular: true
         },
@@ -55,7 +55,7 @@ export default function RoutesPage() {
             price: 'From SAR 350',
             description: 'Scenic mountain drive to the City of Roses. Enjoy the cool weather and nature of Taif.',
             image: '/hero-slide-3.webp',
-            href: '/routes/jeddah-taif',
+            href: '/routes/jeddah-taif/',
             highlights: ['Mountain views', 'Cable car access', 'Cool climate'],
             isPopular: true
         },
@@ -66,7 +66,7 @@ export default function RoutesPage() {
             price: 'From SAR 1800',
             description: 'Premium long-distance chauffeur service. Travel between the capital and the coast in comfort.',
             image: '/jeddah-corniche-sunset.webp',
-            href: '/routes/riyadh-jeddah',
+            href: '/routes/riyadh-jeddah/',
             highlights: ['Luxury vehicles', 'Professional drivers', 'Door-to-door'],
             isPopular: false
         },
@@ -77,7 +77,7 @@ export default function RoutesPage() {
             price: 'From SAR 550',
             description: 'Express transfer to the Industrial City and Royal Commission. Scenic drive along the Red Sea coast.',
             image: '/yanbu-lake.webp',
-            href: '/routes/jeddah-yanbu',
+            href: '/routes/jeddah-yanbu/',
             highlights: ['RCY drop-off', 'Coastal highway', 'Business travel'],
             isPopular: false
         },
@@ -88,7 +88,7 @@ export default function RoutesPage() {
             price: 'From SAR 1400',
             description: 'Journey to the ancient city of Hegra. Long-distance comfort for the ultimate heritage experience.',
             image: '/alula-hegra.webp',
-            href: '/routes/jeddah-alula',
+            href: '/routes/jeddah-alula/',
             highlights: ['Hegra visit', 'Desert landscapes', 'Premium SUVs'],
             isPopular: false
         },
@@ -106,7 +106,8 @@ export default function RoutesPage() {
                         Taxi Routes in Saudi Arabia
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Fixed-price routes with transparent pricing. Direct transfers between major cities with professional drivers and comfortable vehicles.
+                        Fixed-price routes for your journey to the <Link href="/locations/makkah/" className="text-primary font-bold hover:underline">Holy City of Makkah</Link> and other major cities.
+                        Direct intercity transfers with professional drivers and comfortable vehicles.
                     </p>
                 </div>
 
@@ -184,17 +185,70 @@ export default function RoutesPage() {
                     ))}
                 </div>
 
-                {/* Custom Route Section */}
-                <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 md:p-12 text-white text-center">
-                    <h2 className="text-2xl md:text-3xl font-bold mb-4">Need a Custom Route?</h2>
-                    <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-                        We cover all major cities in Saudi Arabia including Yanbu, Dammam, Al Ula, and more. Contact us for a custom quote.
-                    </p>
-                    <Link href="/booking">
-                        <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold">
-                            Get Custom Quote
-                        </Button>
-                    </Link>
+                {/* Booking CTA */}
+                <div className="bg-black text-white rounded-3xl p-12 text-center mb-16 shadow-2xl relative overflow-hidden">
+                    <div className="relative z-10">
+                        <h3 className="text-3xl font-bold mb-4 text-white">Need a Custom Route?</h3>
+                        <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+                            If you don't see your destination here, we can still provide a quote. Most pilgrims traveling between holy cities use our <Link href="/services/umrah-transport/" className="text-white underline font-bold hover:text-primary transition-colors">Umrah transport packages</Link> for the best value.
+                        </p>
+                        <Link href="/booking/">
+                            <Button size="lg" className="bg-primary text-white hover:bg-white hover:text-black font-bold px-10 py-6 rounded-xl">
+                                <Car className="w-5 h-5 mr-2" />
+                                Book a Reliable Taxi Online
+                            </Button>
+                        </Link>
+                    </div>
+                </div>
+
+                {/* Strategic Internal Links Hub */}
+                <div className="mt-16 bg-white border border-gray-100 rounded-3xl p-8 shadow-sm">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                        <div>
+                            <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <Car className="w-5 h-5 text-primary" /> Premium Fleet For Intercity
+                            </h4>
+                            <ul className="space-y-3">
+                                <li>
+                                    <Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>GMC Yukon (Top Rated for Long Trips)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Toyota HiAce (Umrah & Large Groups)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/fleet/" className="text-primary font-bold hover:underline">View All Vehicle Options →</Link>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <MapPin className="w-5 h-5 text-primary" /> Service Hubs
+                            </h4>
+                            <ul className="space-y-3">
+                                <li>
+                                    <Link href="/locations/makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Makkah (Haram & Umrah)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/locations/madinah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Madinah (Prophet's Mosque)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/locations/" className="text-primary font-bold hover:underline">See All Service Locations →</Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

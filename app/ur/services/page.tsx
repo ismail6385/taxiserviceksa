@@ -114,7 +114,7 @@ export default function ServicesPage() {
                     <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
                         We do not offer self-drive car rental. All our vehicles come with licensed, experienced drivers who know Saudi routes and traffic regulations.
                     </p>
-                    <Link href="/booking">
+                    <Link href="/booking/">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold">
                             Book Any Service
                         </Button>

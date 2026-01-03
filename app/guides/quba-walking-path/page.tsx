@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { Footprints, MapPin, Sun, Clock, Heart, Coffee, Car } from 'lucide-react';
+import { Footprints, MapPin, Sun, Clock, Heart, Coffee, Car, Navigation, ArrowRight } from 'lucide-react';
 
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
@@ -50,7 +50,7 @@ export default function QubaWalkingPathPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <p className="text-gray-200 text-lg leading-relaxed text-center">
-                        Revive the tradition of walking to Quba Mosque. The Prophet ﷺ used to go to Quba every Saturday (sometimes walking, sometimes riding).
+                        Revive the tradition of walking to Quba Mosque from <Link href="/locations/madinah/" className="text-white underline hover:text-primary transition-colors">Madinah (Al Haram)</Link>. The Prophet ﷺ used to go to Quba every Saturday (sometimes walking, sometimes riding).
                     </p>
                 </div>
             </Hero>
@@ -93,7 +93,7 @@ export default function QubaWalkingPathPage() {
                                 "The Prophet ﷺ used to go to the Mosque of Quba every Saturday (sometimes) walking and (sometimes) riding."
                             </p>
                             <p className="text-sm text-emerald-700">
-                                This modern path allows you to follow this Sunnah comfortably. The path is wheelchair accessible and safe for families.
+                                This modern path allows you to follow this Sunnah comfortably. If you've just arrived via the <Link href="/routes/makkah-madinah/" className="text-emerald-700 font-bold underline">Makkah to Madinah route</Link>, this walk is an excellent way to stretch your legs and explore the area.
                             </p>
                         </div>
                     </div>
@@ -136,10 +136,16 @@ export default function QubaWalkingPathPage() {
             <RelatedServices
                 services={[
                     {
-                        name: 'Madinah Ziyarat Taxi',
-                        description: 'Too tired to walk back? Book a taxi return from Quba.',
-                        href: '/services/madinah-ziyarat',
+                        name: 'Madinah City Taxi',
+                        description: 'Too tired to walk back? You can book a taxi in Madinah for a quick return from Quba.',
+                        href: '/booking/',
                         icon: Car
+                    },
+                    {
+                        name: 'Heritage Tours',
+                        description: 'Explore more historical sites with our professional drivers.',
+                        href: '/services/heritage-tours/',
+                        icon: MapPin
                     }
                 ]}
                 title="Alternative Transport"

@@ -412,7 +412,7 @@ export default function MakkahUmrahGuidePage() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto">
-                            <Link href="/booking">
+                            <Link href="/booking/">
                                 Book Umrah Transport
                                 <ArrowRight className="ml-2 w-5 h-5" />
                             </Link>

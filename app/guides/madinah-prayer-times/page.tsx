@@ -2,7 +2,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
-import { Clock, Sun, Moon, AlertCircle } from 'lucide-react';
+import { Clock, Sun, Moon, AlertCircle, ArrowRight, Car, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
@@ -49,7 +49,7 @@ export default function PrayerTimesPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <p className="text-gray-200 text-lg leading-relaxed text-center">
-                        "One prayer in my Mosque is better than a thousand prayers in any other mosque excepting Al-Masjid Al-Haram."
+                        "One prayer in my Mosque is better than a thousand prayers in any other mosque excepting Al-Masjid Al-Haram." Plan your spiritual journey in <Link href="/locations/madinah/" className="text-white underline hover:text-primary transition-colors">Madinah (Al Haram)</Link> with our comprehensive schedule.
                     </p>
                 </div>
             </Hero>
@@ -82,7 +82,7 @@ export default function PrayerTimesPage() {
                         <div>
                             <h4 className="font-bold text-blue-900 mb-2">Visitor Tip</h4>
                             <p className="text-blue-800 text-sm">
-                                Arrive at the Prophet's Mosque at least <strong>45 minutes</strong> before prayer time to find space inside the main prayer hall. For Friday (Jumu'ah) prayer, aim to arrive by 10:30 AM.
+                                Arrive at the Prophet's Mosque at least <strong>45 minutes</strong> before prayer time to find space. If you've just arrived via the <Link href="/routes/makkah-madinah/" className="text-blue-900 font-bold underline hover:text-primary transition-colors">Makkah to Madinah taxi</Link>, we recommend heading to your hotel first for a quick refresh.
                             </p>
                         </div>
                     </div>
@@ -113,7 +113,7 @@ export default function PrayerTimesPage() {
                                     {
                                         role: "Access",
                                         icon: "AlertCircle",
-                                        insight: "Do not attempt to enter without a permit; security is strict."
+                                        insight: "Do not attempt to enter without a permit; security is strict. You can <Link href='/booking/' className='text-primary font-bold hover:underline'>book a reliable taxi service</Link> to ensure you arrive at the designated Rawdah gates on time."
                                     }
                                 ]
                             }

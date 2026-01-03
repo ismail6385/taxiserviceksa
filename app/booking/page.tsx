@@ -1,6 +1,7 @@
 import BookingForm from '@/components/BookingForm';
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 type Props = {
     searchParams: { [key: string]: string | string[] | undefined };
@@ -36,7 +37,7 @@ export default function BookingPage({ searchParams }: { searchParams: { [key: st
                     <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block">Secure Your Ride</span>
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">{getTitle(route)}</h1>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                        Fill out the form below to reserve your luxury vehicle. Our team will verify your details and confirm your booking shortly.
+                        Fill out the form below to reserve your luxury vehicle. For travel tips, check our <Link href="/guides/makkah-umrah-guide/" className="text-primary font-bold hover:underline">Makkah Umrah Guide</Link>. Our team will verify your details and confirm your booking.
                     </p>
                 </div>
 

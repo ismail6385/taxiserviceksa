@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { Moon, Sun, Clock, MapPin, CheckCircle2, Car, Users, Star } from 'lucide-react';
+import { Moon, Sun, Clock, MapPin, CheckCircle2, Car, Users, Star, Compass, ArrowRight, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
@@ -80,7 +80,7 @@ export default function MadinahZiyaratPage() {
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
                         brandName="TaxiServiceKSA™ Ziyarat"
-                        description="Facilitating the Sunnah of visiting Quba and the Shuhada of Uhud. We provide not just a car, but a respectful environment for your Ibadah."
+                        description="Facilitating the Sunnah of visiting Quba and the Shuhada of Uhud in <Link href='/locations/madinah/' className='text-emerald-700 font-bold hover:underline'>Al-Madinah Al-Munawwarah</Link>. We provide not just a car, but a respectful environment for your Ibadah."
                         foundingDate="2012"
                         metrics={[
                             { label: 'Ziyarat Trips', value: '25k+', icon: Moon },
@@ -127,7 +127,7 @@ export default function MadinahZiyaratPage() {
                             {
                                 topic: "Morning vs Evening Ziyarat",
                                 commonBelief: "Any time is fine.",
-                                reality: "Early morning (7 AM - 10 AM) is best to avoid heat and crowds. Evening Ziyarat is beautiful for illuminated mosques but sites like Uhud are harder to see clearly in the dark.",
+                                reality: "Early morning (7 AM - 10 AM) is best to avoid heat and crowds. Many pilgrims who arrive via the <Link href='/routes/makkah-madinah/' className='text-emerald-700 hover:underline'>Makkah to Madinah taxi booking</Link> prefer to start their Ziyarat the next morning for the best lighting.",
                                 truthRange: "Morning Recommended",
                                 factors: ["Lighting", "Heat", "Crowds"]
                             },
@@ -199,9 +199,9 @@ export default function MadinahZiyaratPage() {
                     },
                     {
                         name: 'Makkah Transport',
-                        description: 'Travel to Makkah for Umrah after your stay in Madinah.',
-                        href: '/madinah-to-makkah-taxi',
-                        icon: Compass
+                        description: 'Travel back to the Holy City of Makkah after your stay in Madinah.',
+                        href: '/routes/makkah-madinah/',
+                        icon: Navigation
                     },
                 ]}
                 title="Complete Your Journey"
@@ -211,4 +211,3 @@ export default function MadinahZiyaratPage() {
     );
 }
 
-import { Compass } from 'lucide-react';

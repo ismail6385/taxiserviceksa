@@ -150,7 +150,7 @@ export default function IntercityServicePage() {
                                 </div>
                                 <div className="pt-2 border-t mt-2 flex justify-between items-center">
                                     <span className="text-emerald-600 font-bold text-lg">{route.price}</span>
-                                    <Link href="/booking" className="text-blue-600 text-xs font-semibold hover:underline">Book Now</Link>
+                                    <Link href="/booking/" className="text-blue-600 text-xs font-semibold hover:underline">Book Now</Link>
                                 </div>
                             </div>
                         </div>

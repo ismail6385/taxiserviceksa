@@ -164,7 +164,7 @@ export default function HeritageToursPage() {
                             <span className="text-white">In Saudi Arabia</span>
                         </h1>
                         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                            Taxi Service KSA provides the best online taxi service for exploring UNESCO World Heritage Sites. Professional 4x4 desert transport for AlUla and Khaybar.
+                            Taxi Service KSA provides the best transport for exploring historical sites starting from <Link href="/locations/madinah/" className="text-white underline hover:text-primary transition-colors">Madinah (The Gateway to the North)</Link>. Professional 4x4 desert transport for AlUla and Khaybar.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/booking?service=heritage-tours">
@@ -189,7 +189,7 @@ export default function HeritageToursPage() {
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">UNESCO Heritage Sites in Saudi Arabia</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Explore Saudi Arabia's top rated historical landmarks with our professional tour transport.
+                            Explore Saudi Arabia's top rated historical landmarks. Many guests combine these with our <Link href="/services/madinah-ziyarat/" className="text-emerald-700 font-bold hover:underline">Madinah Ziyarat tours</Link> for a complete spiritual and cultural experience.
                         </p>
                     </div>
 

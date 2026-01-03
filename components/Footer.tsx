@@ -109,7 +109,7 @@ export default function Footer() {
                     {/* Travel Guides */}
                     <div>
                         <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                            Travel Guides
+                            Travel Resources
                             <span className="h-1 w-8 bg-primary rounded-full"></span>
                         </h3>
                         <ul className="space-y-3">
@@ -120,15 +120,27 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
+                                <Link href="/guides/makkah-umrah-guide/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
+                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
+                                    Makkah Umrah Guide
+                                </Link>
+                            </li>
+                            <li>
                                 <Link href="/guides/jeddah-airport-guide/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
                                     Jeddah Airport Guide
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/guides/makkah-umrah-guide/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
+                                <Link href="/guides/umrah-tawaf-guide/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Makkah Umrah Guide
+                                    Umrah Tawaf Guide
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/guides/meeqat-locations/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
+                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
+                                    Meeqat Locations
                                 </Link>
                             </li>
                             <li>
@@ -143,62 +155,44 @@ export default function Footer() {
                     {/* Locations */}
                     <div>
                         <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                            Locations
+                            Top Locations
                             <span className="h-1 w-8 bg-primary rounded-full"></span>
                         </h3>
                         <ul className="space-y-3">
                             <li>
-                                <Link href="/locations/" className="text-primary hover:text-primary/80 transition-colors flex items-center group text-sm font-semibold">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 group-hover:w-2 group-hover:h-2 transition-all duration-300"></span>
-                                    View All Locations
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/locations/jeddah/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Jeddah
-                                </Link>
-                            </li>
-                            <li>
                                 <Link href="/locations/makkah/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Makkah (Umrah Hub)
+                                    Makkah (Haram)
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/locations/madinah/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Madinah (Ziyarat Hub)
+                                    Madinah (Ziyarat)
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/locations/jeddah/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
+                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
+                                    Jeddah Airport
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/locations/riyadh/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Riyadh
+                                    Riyadh City
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/locations/alula/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    AlUla
+                                    AlUla Heritage
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/locations/taif/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Taif
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/locations/yanbu/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Yanbu
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/locations/khayber-fort/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Khayber Fort
+                                <Link href="/locations/" className="text-primary hover:text-primary/80 transition-colors flex items-center group text-sm font-semibold">
+                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 group-hover:w-2 group-hover:h-2 transition-all duration-300"></span>
+                                    All 20+ Locations →
                                 </Link>
                             </li>
                         </ul>
@@ -207,44 +201,38 @@ export default function Footer() {
                     {/* Fleet */}
                     <div>
                         <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                            Our Fleet
+                            Popular Fleet
                             <span className="h-1 w-8 bg-primary rounded-full"></span>
                         </h3>
                         <ul className="space-y-3">
                             <li>
                                 <Link href="/fleet/gmc-yukon/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    GMC Yukon
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/fleet/toyota-camry/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Toyota Camry
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/fleet/hyundai-staria/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Hyundai Staria
+                                    GMC Yukon (VIP)
                                 </Link>
                             </li>
                             <li>
                                 <Link href="/fleet/toyota-hiace/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Toyota Hiace
+                                    Toyota Hiace (Group)
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/fleet/toyota-coaster/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
+                                <Link href="/fleet/toyota-camry/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Toyota Coaster
+                                    Toyota Camry (Economy)
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/fleet/hyundai-starex/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
+                                <Link href="/fleet/hyundai-staria/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Hyundai Starex
+                                    Hyundai Staria (Family)
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/fleet/" className="text-primary hover:text-primary/80 transition-colors flex items-center group text-sm font-semibold">
+                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 group-hover:w-2 group-hover:h-2 transition-all duration-300"></span>
+                                    Compare All Vehicles →
                                 </Link>
                             </li>
                         </ul>
@@ -258,6 +246,7 @@ export default function Footer() {
                     <div className="flex gap-6 text-sm text-gray-500">
                         <Link href="/privacy-policy/" className="hover:text-primary transition-colors">Privacy Policy</Link>
                         <Link href="/terms-conditions/" className="hover:text-primary transition-colors">Terms & Conditions</Link>
+                        <Link href="/faq/" className="hover:text-primary transition-colors">FAQ</Link>
                     </div>
                 </div>
             </div>

@@ -166,7 +166,7 @@ export default function GalleryPage() {
                     <p className="text-lg text-black/90 mb-6">
                         Book your ride now and travel in style across Saudi Arabia
                     </p>
-                    <Link href="/booking">
+                    <Link href="/booking/">
                         <button className="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-900 transition-all hover:scale-105">
                             Book Now
                         </button>

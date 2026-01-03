@@ -116,7 +116,7 @@ export default function CableCarPage() {
                                         <div className="flex items-center gap-1"><Cloud className="w-4 h-4" /> {loc.height}</div>
                                         <div className="flex items-center gap-1"><Clock className="w-4 h-4" /> {loc.rideTime}</div>
                                     </div>
-                                    <Link href="/booking" className="block mt-6">
+                                    <Link href="/booking/" className="block mt-6">
                                         <Button variant="outline" className="w-full border-emerald-600 text-emerald-700 hover:bg-emerald-50">Book Ride Here</Button>
                                     </Link>
                                 </div>

@@ -2,7 +2,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
-import { MapPin, History, Landmark, Info } from 'lucide-react';
+import { MapPin, History, Landmark, Info, ArrowRight, Car, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
@@ -32,7 +32,7 @@ export default function SevenMosquesPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <p className="text-gray-200 text-lg leading-relaxed text-center">
-                        A complex of small mosques marking the locations where the Muslim armies camped during the Battle of the Trench (Ghazwat Al-Khandaq).
+                        A complex of small mosques marking the locations where the Muslim armies camped during the Battle of the Trench (Ghazwat Al-Khandaq) in <Link href="/locations/madinah/" className="text-white underline hover:text-primary transition-colors">Madinah Al Munawwarah</Link>.
                     </p>
                 </div>
             </Hero>
@@ -43,7 +43,7 @@ export default function SevenMosquesPage() {
                         <div>
                             <h2 className="text-3xl font-bold text-gray-900 mb-6">Historical Context</h2>
                             <p className="text-gray-700 leading-relaxed mb-6">
-                                In 5 AH, the Muslims dug a trench to defend Madinah against a coalition of enemy tribes. The "Seven Mosques" mark the command posts of various Companions (Sahaba) along this trench line.
+                                In 5 AH, the Muslims dug a trench to defend Madinah against a coalition of enemy tribes. The "Seven Mosques" mark the command posts of various Companions (Sahaba). Most pilgrims visit this as part of a <Link href="/services/heritage-tours/" className="text-emerald-700 hover:underline">professional Madinah Ziyarat service</Link>.
                             </p>
                             <p className="text-gray-700 leading-relaxed">
                                 The most prominent is **Masjid Al-Fath** (Mosque of Victory), where the Prophet ﷺ made Dua for victory, which was granted.
@@ -88,7 +88,7 @@ export default function SevenMosquesPage() {
                                     {
                                         role: "Visitor Note",
                                         icon: "Info",
-                                        insight: "You usually visit 4-5 of the small structures which are walkable."
+                                        insight: "You usually visit 4-5 of the small structures which are walkable. To visit all these sites comfortably, you can <Link href='/booking/' className='text-primary font-bold hover:underline'>book a taxi in Madinah</Link> for your personal tour."
                                     }
                                 ]
                             }

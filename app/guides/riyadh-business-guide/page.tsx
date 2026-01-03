@@ -47,11 +47,11 @@ export default function RiyadhBusinessGuidePage() {
         },
         {
             question: "What are Riyadh's peak traffic hours?",
-            answer: "Morning: 7-9 AM (worst on King Fahd Road). Evening: 4-6 PM. Thursday evenings are very busy (weekend starts Friday). Best times: Early morning 6-7 AM (minimal traffic), Midday 12-2 PM (moderate), Friday mornings (empty roads during Jummah prayer 12-2 PM). Plan meetings around these times."
+            answer: "Morning: 7-9 AM (worst on King Fahd Road). Evening: 4-6 PM. Thursday evenings are very busy as groups travel to <Link href='/locations/jeddah/' className='text-emerald-700 hover:underline'>Jeddah (Financial District)</Link> for the weekend. Plan meetings around these times."
         },
         {
             question: "Do you offer corporate accounts for Riyadh businesses?",
-            answer: "Yes. Corporate accounts include: monthly billing, invoice via email, payment by bank transfer, priority booking during peak hours, dedicated account manager, 24/7 booking support. Minimum 10 trips/month. Contact taxiserviceksa9988@gmail.com for corporate rates and setup."
+            answer: "Yes. Corporate accounts include: monthly billing, invoice via email, payment by bank transfer, priority booking during peak hours for <Link href='/services/airport-transfers/' className='text-emerald-700 hover:underline'>premium airport transfers</Link>, dedicated account manager, 24/7 support. Contact us for corporate rates."
         },
         {
             question: "Should I choose GMC Yukon or Toyota Camry for business meetings?",
@@ -89,7 +89,7 @@ export default function RiyadhBusinessGuidePage() {
                         Riyadh Business Travel Guide 2026
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Everything business travelers need for Riyadh: KAFD access, business districts, meeting venues, corporate facilities, traffic strategies, and professional transport.
+                        Everything business travelers need for Riyadh: KAFD access, business districts, meeting venues, corporate facilities, traffic strategies, and professional transport. Book our <Link href="/fleet/gmc-yukon/" className="text-black font-bold underline decoration-primary">GMC Yukon</Link> for your next executive meeting in <Link href="/locations/riyadh/" className="text-black font-bold underline decoration-primary">Riyadh (Business Hub)</Link>.
                     </p>
                 </div>
 
@@ -234,7 +234,7 @@ export default function RiyadhBusinessGuidePage() {
                                 <li><strong>Best for:</strong> Retail, hospitality businesses</li>
                             </ul>
                             <p className="text-sm text-gray-600 bg-gray-50 rounded-lg p-3">
-                                <strong>Avoid:</strong> 7-9 AM, 4-6 PM. Use alternative routes during peak times.
+                                <strong>Avoid:</strong> 7-9 AM, 4-6 PM. The <Link href='/routes/riyadh-jeddah/' className='text-emerald-700 hover:underline'>Riyadh to Jeddah route</Link> often uses these corridors, so plan accordingly.
                             </p>
                         </div>
 
@@ -327,6 +327,42 @@ export default function RiyadhBusinessGuidePage() {
                         <ReviewForm locationName="Riyadh" serviceName="Corporate Travel" />
                         <QuestionForm locationName="Riyadh" serviceName="Corporate Travel" />
                     </div>
+
+                    {/* Strategic Internal Links Hub */}
+                    <div className="mt-16 bg-white border-2 border-primary/10 rounded-3xl p-8 shadow-sm">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                            <div>
+                                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                    <MapPin className="w-5 h-5 text-primary" /> Riyadh Service Area
+                                </h4>
+                                <ul className="space-y-3">
+                                    <li><Link href="/locations/riyadh/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>Riyadh City Hub</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
+                                    <li><Link href="/locations/jeddah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>Jeddah (Financial)</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
+                                    <li><Link href="/locations/" className="text-primary font-bold hover:underline">All Service Locations →</Link></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                    <Car className="w-5 h-5 text-primary" /> Corporate Fleet
+                                </h4>
+                                <ul className="space-y-3">
+                                    <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>VIP GMC Yukon</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
+                                    <li><Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>Hyundai Staria (Team)</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
+                                    <li><Link href="/fleet/" className="text-primary font-bold hover:underline">View Business Fleet →</Link></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                    <Clock className="w-5 h-5 text-primary" /> Key Routes
+                                </h4>
+                                <ul className="space-y-3">
+                                    <li><Link href="/routes/riyadh-jeddah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>Riyadh to Jeddah</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
+                                    <li><Link href="/services/airport-transfers/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>Airport Transfers</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
+                                    <li><Link href="/routes/" className="text-primary font-bold hover:underline">See All Routes →</Link></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
                 {/* CTA Section */}
@@ -335,17 +371,17 @@ export default function RiyadhBusinessGuidePage() {
                         Need Corporate Transport in Riyadh?
                     </h2>
                     <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Professional taxi service for business travelers. Airport transfers, KAFD access, corporate accounts, monthly billing, and priority booking.
+                        Professional taxi service for business travelers. Airport transfers, KAFD access, corporate accounts, monthly billing, and priority booking. For a guaranteed fixed price, you should <Link href="/booking/" className="text-emerald-400 font-bold hover:underline">book a taxi online</Link> in advance.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto">
-                            <Link href="/booking">
+                            <Link href="/booking/">
                                 Book Corporate Transport
                                 <ArrowRight className="ml-2 w-5 h-5" />
                             </Link>
                         </Button>
                         <Button asChild size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto">
-                            <Link href="/services/corporate-travel">
+                            <Link href="/services/corporate-travel/">
                                 View Corporate Services
                             </Link>
                         </Button>

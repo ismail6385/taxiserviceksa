@@ -23,7 +23,7 @@ export default function FleetPage() {
             passengers: 7,
             luggage: 5,
             features: ["Luxury Interior", "Extra Legroom", "VIP Experience", "Premium Sound System"],
-            href: "/fleet/gmc-yukon"
+            href: "/fleet/gmc-yukon/"
         },
         {
             name: "Hyundai Staria",
@@ -32,7 +32,7 @@ export default function FleetPage() {
             passengers: 7,
             luggage: 4,
             features: ["Modern Design", "Spacious", "Family Travel", "USB Charging"],
-            href: "/fleet/hyundai-staria"
+            href: "/fleet/hyundai-staria/"
         },
         {
             name: "Toyota Camry",
@@ -41,7 +41,7 @@ export default function FleetPage() {
             passengers: 4,
             luggage: 2,
             features: ["Comfortable Seating", "AC", "Economic Choice", "City Travel"],
-            href: "/fleet/toyota-camry"
+            href: "/fleet/toyota-camry/"
         },
         {
             name: "Hyundai Starex",
@@ -50,7 +50,7 @@ export default function FleetPage() {
             passengers: 7,
             luggage: 10,
             features: ["Family Friendly", "Comfortable", "Reliable", "Airport Transfer"],
-            href: "/fleet/hyundai-starex"
+            href: "/fleet/hyundai-starex/"
         },
         {
             name: "Toyota Hiace",
@@ -59,7 +59,7 @@ export default function FleetPage() {
             passengers: 11,
             luggage: 16,
             features: ["Group Travel", "Spacious Interior", "Umrah Groups", "Reliable", "2025 Model"],
-            href: "/fleet/toyota-hiace"
+            href: "/fleet/toyota-hiace/"
         },
         {
             name: "Toyota Coaster",
@@ -68,7 +68,7 @@ export default function FleetPage() {
             passengers: 17,
             luggage: 20,
             features: ["Large Groups", "Tour Bus", "Corporate Events", "Long Distance"],
-            href: "/fleet/toyota-coaster"
+            href: "/fleet/toyota-coaster/"
         }
     ];
 
@@ -108,8 +108,16 @@ export default function FleetPage() {
                         Luxury Taxi Fleet in Saudi Arabia
                     </h1>
                     <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                        Experience diverse transport options. From the executive <span className="text-white font-semibold">GMC Yukon</span> for VIPs to the reliable <span className="text-white font-semibold">Toyota Hiace</span> for Umrah groups, every vehicle is a 2025 model kept in showroom condition.
+                        Experience diverse transport options. From the executive <Link href="/fleet/gmc-yukon/" className="text-white hover:text-primary font-semibold underline decoration-primary/30 underline-offset-4">GMC Yukon</Link> for VIPs to the reliable <Link href="/fleet/toyota-hiace/" className="text-white hover:text-primary font-semibold underline decoration-primary/30 underline-offset-4">Toyota Hiace</Link> for Umrah groups, every vehicle is a 2025 model kept in showroom condition.
                     </p>
+                    <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm font-bold uppercase tracking-widest text-gray-500">
+                        <span>Popular destinations:</span>
+                        <Link href="/locations/makkah/" className="text-emerald-400 hover:text-white transition-colors">Makkah</Link>
+                        <span>•</span>
+                        <Link href="/locations/madinah/" className="text-emerald-400 hover:text-white transition-colors">Madinah</Link>
+                        <span>•</span>
+                        <Link href="/locations/jeddah/" className="text-emerald-400 hover:text-white transition-colors">Jeddah</Link>
+                    </div>
                 </div>
             </div>
 

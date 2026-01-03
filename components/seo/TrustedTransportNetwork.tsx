@@ -21,7 +21,7 @@ const TrustedTransportNetwork = () => {
                         <p className="text-gray-600 leading-relaxed text-base">
                             When performing Umrah or Ziyarat, your focus should be on worship, not logistics.
                             <strong>TaxiServiceKSA</strong> isn't just a generic ride-booking platform; we are a specialized
-                            transportation network designed specifically for the unique needs of the <Link href="/locations/makkah" className="text-primary hover:underline font-semibold">Makkah (Haram)</Link> and <Link href="/locations/madinah" className="text-primary hover:underline font-semibold">Madinah (Prophet's Mosque)</Link> route.
+                            transport transport network designed specifically for the unique needs of the <Link href="/locations/makkah/" className="text-primary hover:underline font-semibold">Makkah (Haram)</Link> and <Link href="/locations/madinah/" className="text-primary hover:underline font-semibold">Madinah (Prophet's Mosque)</Link> route.
                         </p>
                         <p className="text-gray-600 leading-relaxed text-base mt-4">
                             Unlike standard taxi apps, our drivers understand the <em>Miqat</em> locations, prayer times at the Haram,
@@ -58,7 +58,7 @@ const TrustedTransportNetwork = () => {
                         <div className="space-y-4 relative z-10">
                             {/* Route 1: Jeddah -> Makkah */}
                             <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:border-primary/50 transition-all group cursor-pointer">
-                                <Link href="/locations/jeddah" className="flex items-center justify-between">
+                                <Link href="/routes/jeddah-makkah/" className="flex items-center justify-between">
                                     <div className="flex items-center gap-4">
                                         <div className="flex flex-col items-center gap-1">
                                             <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
@@ -78,7 +78,7 @@ const TrustedTransportNetwork = () => {
 
                             {/* Route 2: Makkah -> Madinah */}
                             <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:border-primary/50 transition-all group cursor-pointer">
-                                <Link href="/locations/makkah" className="flex items-center justify-between">
+                                <Link href="/routes/makkah-madinah/" className="flex items-center justify-between">
                                     <div className="flex items-center gap-4">
                                         <div className="flex flex-col items-center gap-1">
                                             <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
@@ -98,7 +98,7 @@ const TrustedTransportNetwork = () => {
 
                             {/* Route 3: Madinah -> Jeddah */}
                             <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:border-primary/50 transition-all group cursor-pointer">
-                                <Link href="/locations/madinah" className="flex items-center justify-between">
+                                <Link href="/routes/madinah-jeddah/" className="flex items-center justify-between">
                                     <div className="flex items-center gap-4">
                                         <div className="flex flex-col items-center gap-1">
                                             <div className="w-3 h-3 bg-gray-300 rounded-full"></div>

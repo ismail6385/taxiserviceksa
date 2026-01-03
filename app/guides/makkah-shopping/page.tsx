@@ -2,7 +2,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
-import { ShoppingBag, MapPin, Tag, Star, Gift } from 'lucide-react';
+import { ShoppingBag, MapPin, Tag, Star, Gift, ArrowRight, Car, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
@@ -44,7 +44,7 @@ export default function MakkahShoppingPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <p className="text-gray-200 text-lg leading-relaxed text-center">
-                        Whether you are looking for premium dates, Oud perfumes, or prayer mats as gifts, Makkah offers a diverse shopping experience.
+                        Whether you are looking for premium dates, Oud perfumes, or prayer mats in <Link href="/locations/makkah/" className="text-white underline hover:text-primary transition-colors">Makkah (Haram Area)</Link>, the city offers a diverse shopping experience.
                     </p>
                 </div>
             </Hero>
@@ -60,7 +60,7 @@ export default function MakkahShoppingPage() {
                             <div className="space-y-6">
                                 <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
                                     <h3 className="font-bold text-lg mb-1">Abraj Al Bait (Clock Tower) Mall</h3>
-                                    <p className="text-gray-600 text-sm mb-2">Located directly in front of the Haram. 5 floors of international brands, food court, and perfume shops.</p>
+                                    <p className="text-gray-600 text-sm mb-2">Located directly in front of the Haram. Many pilgrims stop here after arriving via the <Link href="/routes/jeddah-makkah/" className="text-emerald-700 hover:underline font-bold">Jeddah to Makkah route taxi</Link>.</p>
                                     <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded">Luxury & Convenience</span>
                                 </div>
                                 <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
@@ -83,7 +83,7 @@ export default function MakkahShoppingPage() {
                                 </div>
                                 <div className="bg-amber-50 p-6 rounded-xl border border-amber-100">
                                     <h3 className="font-bold text-lg mb-1">Kakia Wholesale Market</h3>
-                                    <p className="text-gray-600 text-sm mb-2">Best place for buying dates, fruits, and wholesale items in bulk.</p>
+                                    <p className="text-gray-600 text-sm mb-2">Best place for buying dates and wholesale items in bulk. You can <Link href='/booking/' className='text-primary font-bold hover:underline'>book a GMC Yukon</Link> to transport your rewards and luggage comfortably back to your hotel.</p>
                                 </div>
                             </div>
                         </div>

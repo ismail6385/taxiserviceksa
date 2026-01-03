@@ -54,7 +54,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             "@type": "ReserveAction",
             "target": {
                 "@type": "EntryPoint",
-                "urlTemplate": "https://taxiserviceksa.com/booking"
+                "urlTemplate": "https://taxiserviceksa.com/booking/"
             },
             "result": {
                 "@type": "Reservation",
@@ -80,7 +80,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             description: "Airport transfer service operates 24/7 from King Abdulaziz Airport (Jeddah) and Prince Mohammad Airport (Madinah). The service ensures efficient transport for arrivals.",
             rdfTriple: "Airport transfer Jeddah → provides → 24/7 chauffeur service from King Abdulaziz Airport",
             icon: Plane,
-            link: "/locations/jeddah",
+            link: "/services/airport-transfers/",
             price: "From SAR 250"
         },
         {
@@ -88,7 +88,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             description: "Umrah transport connects Makkah, Madinah, and Jeddah Airport. Drivers adhere to prayer schedules and utilize designated Haram access routes.",
             rdfTriple: "Umrah taxi → specializes in → comfortable transportation for pilgrims",
             icon: MapPin,
-            link: "/locations/makkah",
+            link: "/services/umrah-transport/",
             price: "From SAR 450"
         },
         {
@@ -96,7 +96,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             description: "Intercity routes connect AlUla, Taif, Riyadh, and Jeddah. Fixed-rate pricing applies to all long-distance trips across Saudi Arabia.",
             rdfTriple: "AlUla tour → provides → luxury travel to heritage sites",
             icon: Building2,
-            link: "/locations/alula",
+            link: "/routes/",
             price: "Custom Quote"
         }
     ];
@@ -109,7 +109,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             passengers: 7,
             luggage: 5,
             features: ["vip taxi saudi arabia", "extra legroom", "luxury suv"],
-            link: "/fleet/gmc-yukon"
+            link: "/fleet/gmc-yukon/",
         },
         {
             name: "Toyota Camry",
@@ -117,7 +117,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             passengers: 4,
             luggage: 2,
             features: ["reliable city taxi", "ac comfort", "economic ride"],
-            link: "/fleet/toyota-camry"
+            link: "/fleet/toyota-camry/",
         },
         {
             name: "Hyundai Staria",
@@ -125,7 +125,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             passengers: 7,
             luggage: 4,
             features: ["family taxi ksa", "spacious van", "group travel"],
-            link: "/fleet/hyundai-staria"
+            link: "/fleet/hyundai-staria/",
         },
         {
             name: "Toyota Hiace",
@@ -133,7 +133,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             passengers: 11,
             luggage: 16,
             features: ["umrah group taxi", "pilgrim transport", "large van"],
-            link: "/fleet/toyota-hiace"
+            link: "/fleet/toyota-hiace/",
         },
         {
             name: "Toyota Coaster",
@@ -141,7 +141,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             passengers: 17,
             luggage: 20,
             features: ["tourist bus ksa", "corporate transport", "large groups"],
-            link: "/fleet/toyota-coaster"
+            link: "/fleet/toyota-coaster/",
         },
         {
             name: "Hyundai Starex",
@@ -149,20 +149,20 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             passengers: 7,
             luggage: 10,
             features: ["family friendly", "comfortable ride", "airport taxi"],
-            link: "/fleet/hyundai-starex"
+            link: "/fleet/hyundai-starex/",
         }
     ];
 
     // Service areas with Entity Context
     const serviceAreas = [
-        { name: "Jeddah", role: "Gateway to Makkah", link: "/locations/jeddah" },
-        { name: "Makkah", role: "Holy City & Umrah Hub", link: "/locations/makkah" },
-        { name: "Madinah", role: "City of the Prophet", link: "/locations/madinah" },
-        { name: "Riyadh", role: "Business Capital", link: "/locations/riyadh" },
-        { name: "Taif", role: "City of Roses", link: "/locations/taif" },
-        { name: "AlUla", role: "Historical Heritage", link: "/locations/alula" },
-        { name: "Yanbu", role: "Industrial Hub", link: "/locations/yanbu" },
-        { name: "Khaybar", role: "Ancient Oasis", link: "/locations/khayber-fort" }
+        { name: "Jeddah", role: "Gateway to Makkah", link: "/locations/jeddah/" },
+        { name: "Makkah", role: "Holy City & Umrah Hub", link: "/locations/makkah/" },
+        { name: "Madinah", role: "City of the Prophet", link: "/locations/madinah/" },
+        { name: "Riyadh", role: "Business Capital", link: "/locations/riyadh/" },
+        { name: "Taif", role: "City of Roses", link: "/locations/taif/" },
+        { name: "AlUla", role: "Historical Heritage", link: "/locations/alula/" },
+        { name: "Yanbu", role: "Industrial Hub", link: "/locations/yanbu/" },
+        { name: "Khaybar", role: "Ancient Oasis", link: "/locations/khayber-fort/" }
     ];
 
     // Testimonials
@@ -184,7 +184,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
         },
         {
             question: "How do I book a taxi service in Saudi Arabia?",
-            answer: "Taxi booking is available through the <a href='/booking' class='text-primary hover:underline font-bold'>online booking form</a> or email at taxiserviceksa9988@gmail.com. Booking requires pickup location, destination, and preferred vehicle type. Confirmation is sent via email."
+            answer: "Taxi booking is available through the <a href='/booking/' class='text-primary hover:underline font-bold'>online booking form</a> or email at taxiserviceksa9988@gmail.com. Booking requires pickup location, destination, and preferred vehicle type. Confirmation is sent via email."
         }
     ];
 
@@ -202,7 +202,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                 images={heroImages}
                 h1Text="Top Rated Online Taxi Service in Saudi Arabia"
             >
-                <Link href="/locations" className="text-white/90 hover:text-accent underline underline-offset-4 text-xs sm:text-sm font-medium inline-flex items-center gap-2 transition-colors mt-4">
+                <Link href="/locations/" className="text-white/90 hover:text-accent underline underline-offset-4 text-xs sm:text-sm font-medium inline-flex items-center gap-2 transition-colors mt-4">
                     Service coverage across 8 cities in Saudi Arabia <ArrowRight className="w-4 h-4" />
                 </Link>
             </Hero>
@@ -220,7 +220,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             <span className="font-bold">2025 Study:</span> Why 70% of Families Choose Taxis Over High-Speed Rail?
                         </p>
                     </div>
-                    <Link href="/insights/pilgrimage-transport-report-2025" className="flex-shrink-0">
+                    <Link href="/insights/pilgrimage-transport-report-2025/" className="flex-shrink-0">
                         <button className="text-white border-b border-white hover:border-emerald-200 hover:text-emerald-100 transition-colors text-sm font-bold flex items-center gap-1 group">
                             Read the Data <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                         </button>
@@ -252,7 +252,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                                <Link href="/booking">
+                                <Link href="/booking/">
                                     <Button size="lg" className="bg-primary text-white hover:bg-white hover:text-primary font-bold transition-all shadow-lg shadow-primary/20">
                                         Book Your Driver
                                     </Button>
@@ -309,7 +309,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                                 From Jeddah Airport to Makkah, Taxi Service KSA provides efficient transport for Umrah pilgrims and business travelers.
                             </p>
-                            <Link href="/booking">
+                            <Link href="/booking/">
                                 <Button className="bg-primary text-white hover:bg-blue-600 rounded-full px-8 py-6 text-lg font-bold min-h-[48px] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/30">
                                     Book Now <ArrowRight className="ml-2 w-5 h-5" />
                                 </Button>
@@ -398,7 +398,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                     Flight tracking for airport pickups
                                 </li>
                             </ul>
-                            <Link href="/about">
+                            <Link href="/about/">
                                 <Button size="lg" className="bg-primary text-white hover:bg-blue-600 font-bold px-6 sm:px-8 py-4 sm:py-5 md:py-6 text-base sm:text-lg rounded-xl shadow-lg shadow-primary/30 transition-all hover:scale-105 active:scale-95">
                                     More About Us <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                                 </Button>
@@ -566,6 +566,57 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                 </div>
             </section>
 
+            {/* Top 5 Contextual Routes - Transactional Gold */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <span className="text-primary font-bold uppercase tracking-widest text-xs">Transactional Hub</span>
+                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 mt-2">MOST POPULAR TAXI ROUTES</h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <Link href="/routes/jeddah-makkah/" className="group p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
+                            <div className="flex justify-between items-center mb-2">
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Jeddah Airport to Makkah</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                            <p className="text-sm text-gray-500">Fastest airport transfer for Umrah pilgrims. 80km direct route.</p>
+                        </Link>
+                        <Link href="/routes/makkah-madinah/" className="group p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
+                            <div className="flex justify-between items-center mb-2">
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Makkah to Madinah</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                            <p className="text-sm text-gray-500">The historical 450km pilgrimage route between the Holy Cities.</p>
+                        </Link>
+                        <Link href="/routes/madinah-jeddah/" className="group p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
+                            <div className="flex justify-between items-center mb-2">
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Madinah to Jeddah Airport</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                            <p className="text-sm text-gray-500">Perfect for return flights from Madinah hotels to King Abdulaziz Airport.</p>
+                        </Link>
+                        <Link href="/routes/riyadh-jeddah/" className="group p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
+                            <div className="flex justify-between items-center mb-2">
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Riyadh to Jeddah</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                            <p className="text-sm text-gray-500">Executive intercity transfer connecting the Capital to the Coast.</p>
+                        </Link>
+                        <Link href="/routes/jeddah-taif/" className="group p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
+                            <div className="flex justify-between items-center mb-2">
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Jeddah to Taif</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                            <p className="text-sm text-gray-500">Scenic drive to the City of Roses and Sarawat Mountains.</p>
+                        </Link>
+                        <Link href="/routes/" className="group p-6 bg-primary text-white rounded-2xl border border-primary hover:bg-black transition-all shadow-lg flex items-center justify-center font-bold">
+                            View All 50+ Routes →
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
             {/* Gallery Preview Section */}
             <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
                 <div className="max-w-7xl mx-auto">
@@ -578,7 +629,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                                 Visuals display our professional online taxi service vehicles including GMC Yukon and Hyundai Staria in Makkah and Madinah.
                             </p>
-                            <Link href="/gallery">
+                            <Link href="/gallery/">
                                 <Button size="lg" className="bg-primary text-white hover:bg-blue-600 font-bold px-6 sm:px-8 py-4 sm:py-5 md:py-6 text-base sm:text-lg rounded-xl shadow-lg shadow-primary/30 transition-all hover:scale-105 active:scale-95">
                                     View Full Gallery <Camera className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
                                 </Button>
@@ -657,7 +708,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             <p className="text-gray-600 leading-relaxed mb-6">
                                 Direct taxi transfers from King Abdulaziz Airport to Makkah hotels operate 24/7. Fixed rates start from SAR 250.
                             </p>
-                            <Link href="/routes/jeddah-makkah">
+                            <Link href="/routes/jeddah-makkah/">
                                 <Button className="text-black font-bold border-b-2 border-black rounded-none px-0 py-0 h-auto hover:bg-transparent hover:border-primary transition-colors">
                                     View Route Details & Pricing
                                 </Button>
@@ -697,13 +748,13 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
 
                     {/* CTA Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <Link href="/submit-review">
+                        <Link href="/submit-review/">
                             <Button size="lg" className="bg-black text-white hover:bg-gray-800 font-bold">
                                 <Star className="w-5 h-5 mr-2" />
                                 Share Your Experience
                             </Button>
                         </Link>
-                        <Link href="/ask-question">
+                        <Link href="/ask-question/">
                             <Button size="lg" variant="outline" className="border-2 border-black text-black hover:bg-black hover:text-white font-bold transition-colors">
                                 Have a Question? Ask Our Drivers
                             </Button>
@@ -752,7 +803,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
                         {/* Primary CTA */}
-                        <Link href="/booking" className="w-full sm:w-auto">
+                        <Link href="/booking/" className="w-full sm:w-auto">
                             <Button size="lg" className="w-full bg-primary text-white hover:bg-blue-600 font-bold text-lg px-10 py-6 h-auto min-h-[56px] min-w-[200px] transition-all hover:scale-105 active:scale-95 shadow-xl shadow-primary/40">
                                 Book Your Ride
                             </Button>

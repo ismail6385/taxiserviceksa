@@ -2,7 +2,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
-import { Mountain, Flag, Shield, MapPin, Layers } from 'lucide-react';
+import { Mountain, Flag, Shield, MapPin, Layers, ArrowRight, Car, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
@@ -55,7 +55,7 @@ export default function UhudHistoryPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <p className="text-gray-200 text-lg leading-relaxed text-center">
-                        "Uhud is a mountain that loves us and we love it." — Prophet Muhammad ﷺ
+                        "Uhud is a mountain that loves us and we love it." — Prophet Muhammad ﷺ. A must-visit site when planning your stay in the <Link href="/locations/madinah/" className="text-white underline hover:text-primary transition-colors">Holy City of Madinah</Link>.
                     </p>
                 </div>
             </Hero>
@@ -69,7 +69,7 @@ export default function UhudHistoryPage() {
                                 The **Battle of Uhud** took place in 3 AH (625 CE) between the Muslims and the Quraish of Makkah. It was a pivotal moment in Islamic history, teaching valuable lessons about obedience to leadership.
                             </p>
                             <p className="text-gray-700 leading-relaxed">
-                                The site contains the graves of 70 martyrs, including **Hamza ibn Abdul-Muttalib (RA)**, the uncle of the Prophet ﷺ, known as the "Lion of Allah".
+                                The site contains the graves of 70 martyrs, including **Hamza ibn Abdul-Muttalib (RA)**, the uncle of the Prophet ﷺ, known as the "Lion of Allah". Many pilgrims visit this site shortly after arriving via the <Link href="/routes/makkah-madinah/" className="text-emerald-700 hover:underline">Makkah to Madinah route taxi</Link>.
                             </p>
                         </div>
                         <div className="space-y-6">
@@ -105,8 +105,8 @@ export default function UhudHistoryPage() {
                                 perspectives: [
                                     {
                                         role: "Safety",
-                                        icon: "AlertTriangle",
-                                        insight: "Stick to the Archers' Hill for the best view and safety."
+                                        icon: "AlertCircle",
+                                        insight: "Stick to the Archers' Hill for the best view and safety. For a hassle-free visit, you can <Link href='/booking/' className='text-primary font-bold hover:underline'>book a Ziyarat tour online</Link> with our experienced drivers."
                                     }
                                 ]
                             },

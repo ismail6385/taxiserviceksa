@@ -387,7 +387,7 @@ export default function AboutPage() {
                         Join thousands of satisfied customers who trust us for their travel needs across Saudi Arabia
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking">
+                        <Link href="/booking/">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6">
                                 Book Your Ride
                             </Button>

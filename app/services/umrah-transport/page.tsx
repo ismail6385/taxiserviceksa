@@ -40,8 +40,8 @@ export default async function UmrahTransportPage() {
             distance: '80 km',
             duration: '60-90 minutes',
             price: 'From SAR 150',
-            description: 'Direct transfer from King Abdulaziz International Airport to your Makkah hotel. Meet-and-greet service included.',
-            link: '/routes/jeddah-makkah',
+            description: 'Direct transfer from King Abdulaziz International Airport. Our drivers assist you with finding the right <Link href="/guides/jeddah-airport-guide/" className="text-emerald-700 hover:underline">Jeddah Airport terminal transport</Link> points.',
+            link: '/routes/jeddah-makkah/',
             icon: Plane
         },
         {
@@ -50,7 +50,7 @@ export default async function UmrahTransportPage() {
             duration: '4-5 hours',
             price: 'From SAR 400',
             description: 'Complete your Umrah journey with comfortable transfer between the two holy cities. Rest stops included.',
-            link: '/routes/makkah-madinah',
+            link: '/routes/makkah-madinah/',
             icon: Navigation
         },
         {
@@ -59,7 +59,7 @@ export default async function UmrahTransportPage() {
             duration: '15-30 minutes',
             price: 'From SAR 30',
             description: 'Hotel to Haram taxi service. Available 24/7 for prayers and Ziyarat tours.',
-            link: '/locations/makkah',
+            link: '/locations/makkah/',
             icon: MapPin
         },
         {
@@ -68,7 +68,7 @@ export default async function UmrahTransportPage() {
             duration: '15-30 minutes',
             price: 'From SAR 30',
             description: 'Hotel to Prophet\'s Mosque and Ziyarat sites. Professional drivers with local knowledge.',
-            link: '/locations/madinah',
+            link: '/locations/madinah/',
             icon: MapPin
         },
     ];
@@ -127,7 +127,7 @@ export default async function UmrahTransportPage() {
         },
         {
             question: "Can the driver wait during Umrah or prayers?",
-            answer: "Yes. Drivers can wait during Umrah rituals or prayers. Waiting time charges apply for extended stops (over 2 hours). For Tawaf and Sa'i, drivers typically drop off at Haram entrance and pick up after completion. Flexible scheduling is available for Ziyarat tours."
+            answer: "Yes. Drivers can wait during Umrah rituals or prayers. For those <Link href='/guides/umrah-tawaf-guide/' className='text-primary hover:underline'>performing your Tawaf and Sa'i</Link>, drivers typically drop off at the nearest Haram entrance and pick up after completion. Flexible scheduling is available for Ziyarat tours."
         },
         {
             question: "Do drivers speak English for international pilgrims?",
@@ -193,10 +193,10 @@ export default async function UmrahTransportPage() {
                             <span className="text-white">In Saudi Arabia</span>
                         </h1>
                         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                            Experience VIP luxury transport for Hajj & Umrah. We provide trusted and affordable taxi services from Jeddah Airport to Makkah and Madinah.
+                            Experience VIP luxury transport for Hajj & Umrah in <Link href="/locations/makkah/" className="text-white underline hover:text-primary transition-colors">Makkah Al Mukarramah</Link>. We provide trusted and affordable taxi services from Jeddah Airport to your hotel.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link href="/booking?service=umrah-transport">
+                            <Link href="/booking/?service=umrah-transport">
                                 <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
                                     Book Umrah Transport
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -319,6 +319,59 @@ export default async function UmrahTransportPage() {
                 </div>
             </section>
 
+            {/* Strategic Internal Links Hub */}
+            <div className="mt-16 bg-white border border-gray-100 rounded-3xl p-8 shadow-sm">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                    <div>
+                        <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <Car className="w-5 h-5 text-primary" /> Specialist Umrah Fleet
+                        </h4>
+                        <ul className="space-y-3">
+                            <li>
+                                <Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                    <span>GMC Yukon (Luxury Family)</span>
+                                    <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                    <span>Toyota Hiace (Group Van)</span>
+                                    <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/fleet/" className="text-primary font-bold hover:underline">Compare All Vehicles →</Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <MapPin className="w-5 h-5 text-primary" /> Pilgrimage Locations
+                        </h4>
+                        <ul className="space-y-3">
+                            <li>
+                                <Link href="/locations/makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                    <span>Makkah (Haram Area)</span>
+                                    <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/locations/madinah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                    <span>Madinah (Prophet's City)</span>
+                                    <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/locations/jeddah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                    <span>Jeddah (Airport Gateway)</span>
+                                    <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             {/* Related Guides Section */}
             <RelatedGuides blogs={displayBlogs} title="Essential Umrah Guides" subtitle="Tips, checklists, and spiritual insights for your pilgrimage." />
 
@@ -355,7 +408,7 @@ export default async function UmrahTransportPage() {
                         Secure your booking with Saudi Arabia's trusted Umrah taxi service. VIP comfort at affordable rates.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking?service=umrah-transport">
+                        <Link href="/booking/?service=umrah-transport">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Book Now
                             </Button>

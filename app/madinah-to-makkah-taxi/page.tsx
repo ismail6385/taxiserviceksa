@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { Car, Clock, MapPin, CheckCircle2, Shield, User, ArrowRight } from 'lucide-react';
+import { Car, Clock, MapPin, CheckCircle2, Shield, User, ArrowRight, Briefcase, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
@@ -156,6 +156,94 @@ export default function MadinahToMakkahPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
                         <ReviewForm locationName="MadinahToMakkah" />
                         <QuestionForm locationName="MadinahToMakkah" />
+                    </div>
+                </div>
+            </section>
+            {/* Strategic Internal Links Hub */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
+                <div className="max-w-7xl mx-auto">
+                    <div className="bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-200">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                            {/* Column 1: Locations */}
+                            <div>
+                                <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                                    <MapPin className="w-5 h-5 text-primary" /> Pilgrimage Hubs
+                                </h3>
+                                <ul className="space-y-4">
+                                    <li>
+                                        <Link href="/locations/makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Makkah (Haram Area)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/locations/madinah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Madinah (Holy City)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/guides/jeddah-airport-guide/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Jeddah Airport Guide</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {/* Column 2: Routes */}
+                            <div>
+                                <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                                    <Navigation className="w-5 h-5 text-primary" /> Key Connections
+                                </h3>
+                                <ul className="space-y-4">
+                                    <li>
+                                        <Link href="/routes/makkah-madinah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Makkah → Madinah (Return)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/routes/jeddah-makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Jeddah Airport → Makkah</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/routes/madinah-jeddah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Madinah → Jeddah Airport</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {/* Column 3: Services */}
+                            <div>
+                                <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                                    <Briefcase className="w-5 h-5 text-primary" /> Premium Options
+                                </h3>
+                                <ul className="space-y-4">
+                                    <li>
+                                        <Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>VIP GMC Yukon (5-7 Pax)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Toyota Hiace (Large Group)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/booking/" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors w-full shadow-lg shadow-primary/20">
+                                            Book Your Private Taxi
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

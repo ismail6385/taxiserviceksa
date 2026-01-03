@@ -2,7 +2,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
-import { Utensils, Coffee, Star, MapPin } from 'lucide-react';
+import { Utensils, Coffee, Star, MapPin, AlertCircle, ArrowRight, Car, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
@@ -44,7 +44,7 @@ export default function MadinahFoodPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <p className="text-gray-200 text-lg leading-relaxed text-center">
-                        Experience the traditional flavors of Hejazi cuisine or grab a quick meal at famous fast-food spots near the Haram.
+                        Experience the traditional flavors of Hejazi cuisine in <Link href="/locations/madinah/" className="text-white underline hover:text-primary transition-colors">Al-Madinah Al-Munawwarah</Link> or grab a quick meal at famous fast-food spots near the Haram.
                     </p>
                 </div>
             </Hero>
@@ -77,7 +77,7 @@ export default function MadinahFoodPage() {
                             <div className="space-y-6">
                                 <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
                                     <h3 className="font-bold text-lg mb-1">Mandi & Madhbi</h3>
-                                    <p className="text-gray-600 text-sm mb-2">Try local spots like <strong>Romansiah</strong> for traditional rice and meat dishes cooked in underground ovens.</p>
+                                    <p className="text-gray-600 text-sm mb-2">Try local spots like <strong>Romansiah</strong> for traditional rice and meat dishes. Many are located on the way to the <Link href="/routes/makkah-madinah/" className="text-emerald-700 hover:underline">Madinah to Makkah taxi service</Link> pickup points.</p>
                                 </div>
                                 <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
                                     <h3 className="font-bold text-lg mb-1">Dates & Coffee</h3>
@@ -113,7 +113,7 @@ export default function MadinahFoodPage() {
                                     {
                                         role: "Option",
                                         icon: "Coffee",
-                                        insight: "Good for a familiar taste if local spices are too strong."
+                                        insight: "Good for a familiar taste. If you need to reach restaurants further from the Haram, you should <Link href='/booking/' className='text-primary font-bold hover:underline'>book a ride in Madinah</Link> in advance."
                                     }
                                 ]
                             }
@@ -125,4 +125,3 @@ export default function MadinahFoodPage() {
     );
 }
 
-import { AlertCircle } from 'lucide-react';

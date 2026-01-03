@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Building, Phone } from 'lucide-react';
+import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Building, Phone, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
 import {
     Accordion,
@@ -129,7 +129,7 @@ export default function RiyadhPage() {
                             Home
                         </Link>
                         <span className="text-gray-400">/</span>
-                        <Link href="/locations" className="text-gray-500 hover:text-gray-900 transition-colors">
+                        <Link href="/locations/" className="text-gray-500 hover:text-gray-900 transition-colors">
                             Locations
                         </Link>
                         <span className="text-gray-400">/</span>
@@ -150,7 +150,7 @@ export default function RiyadhPage() {
                             Premium Riyadh Transport
                         </h2>
                         <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-                            Reliable transport solutions for Saudi Arabia's capital. From airport pickups to corporate fleets.
+                            Reliable transport solutions for Saudi Arabia's capital. From airport pickups to corporate fleets. Book our <Link href="/fleet/gmc-yukon/" className="text-black font-bold underline decoration-primary">GMC Yukon</Link> for professional business travel.
                         </p>
                     </div>
 
@@ -399,7 +399,7 @@ export default function RiyadhPage() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-                            <Link href="/booking">
+                            <Link href="/booking/">
                                 <Button className="bg-black text-white hover:bg-black/90 font-bold px-10 py-7 text-lg rounded-2xl h-auto shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
                                     Book Now
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -416,7 +416,55 @@ export default function RiyadhPage() {
                 </div>
             </section>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Strategic Internal Links Hub */}
+            <section className="py-12 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="bg-gray-50 border border-gray-100 rounded-3xl p-8 shadow-sm">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                            <div>
+                                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                    <Navigation className="w-5 h-5 text-primary" /> Popular Riyadh Routes
+                                </h4>
+                                <ul className="space-y-3">
+                                    <li>
+                                        <Link href="/routes/riyadh-jeddah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Riyadh to Jeddah (Capital to Coast)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/routes/" className="text-primary font-bold hover:underline">View All City Routes →</Link>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                    <Car className="w-5 h-5 text-primary" /> Recommended Fleet for Riyadh
+                                </h4>
+                                <ul className="space-y-3">
+                                    <li>
+                                        <Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>GMC Yukon (VIP Business Choice)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/fleet/toyota-camry/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Toyota Camry (Efficient Solo Travel)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/fleet/" className="text-primary font-bold hover:underline">Explore Entire Fleet →</Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
                 <RelatedLocations currentCity="Riyadh" />
             </div>
         </div>

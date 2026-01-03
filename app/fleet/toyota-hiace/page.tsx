@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Users, Briefcase, CheckCircle2, Star, Shield, Clock, Car } from 'lucide-react';
+import { Users, Briefcase, CheckCircle2, Star, Shield, Clock, Car, MapPin, Navigation, ArrowRight } from 'lucide-react';
 import FleetPricing from '@/components/FleetPricing';
 import {
     Accordion,
@@ -103,7 +103,7 @@ export default function ToyotaHiacePage() {
                                 ))}
                             </div>
 
-                            <Link href="/booking?vehicle=Toyota-Hiace">
+                            <Link href="/booking/?vehicle=Toyota-Hiace">
                                 <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold">
                                     Book Toyota Hiace Now
                                 </Button>
@@ -247,6 +247,81 @@ export default function ToyotaHiacePage() {
                     </Accordion>
                 </div>
 
+                {/* Strategic Internal Links Hub */}
+                <div className="mt-16 bg-white border border-gray-100 rounded-3xl p-8 shadow-sm mb-12">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                        <div>
+                            <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <MapPin className="w-5 h-5 text-primary" /> Group Service Hubs
+                            </h4>
+                            <ul className="space-y-3">
+                                <li>
+                                    <Link href="/locations/makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Makkah (Group Umrah)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/locations/madinah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Madinah (Ziyarat Tours)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/locations/jeddah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Jeddah (Airport Arrival)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <Navigation className="w-5 h-5 text-primary" /> Popular Group Routes
+                            </h4>
+                            <ul className="space-y-3">
+                                <li>
+                                    <Link href="/routes/jeddah-makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Jeddah to Makkah (80km)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/routes/makkah-madinah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Makkah to Madinah (450km)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/routes/" className="text-primary font-bold hover:underline">View All City Routes →</Link>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <Briefcase className="w-5 h-5 text-primary" /> Specialist Services
+                            </h4>
+                            <ul className="space-y-3">
+                                <li>
+                                    <Link href="/services/airport-transfers/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Airport Group Transfer</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/services/umrah-transport/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Umrah Group Transport</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/booking/" className="text-primary font-bold hover:underline">Book Toyota Hiace Now →</Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 {/* CTA */}
                 <div className="bg-black rounded-2xl p-8 md:p-12 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -255,7 +330,7 @@ export default function ToyotaHiacePage() {
                     <p className="text-lg text-gray-300 mb-6">
                         Book our Toyota Hiace now for your Umrah or group journey
                     </p>
-                    <Link href="/booking?vehicle=Toyota-Hiace">
+                    <Link href="/booking/?vehicle=Toyota-Hiace">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6">
                             Book Now
                         </Button>

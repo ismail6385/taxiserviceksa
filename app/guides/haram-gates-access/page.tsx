@@ -44,7 +44,7 @@ export default function HaramGatesPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <p className="text-gray-200 text-lg leading-relaxed text-center">
-                        With over 100 gates, navigating Masjid Al Haram can be confusing. Knowing the key main gates helps you find your meeting points easily.
+                        With over 100 gates, navigating Masjid Al Haram can be confusing. Knowing the key main gates helps you find your meeting points easily, especially when exploring the <Link href="/locations/makkah/" className="text-white underline hover:text-primary transition-colors">Makkah (Haram Area)</Link>.
                     </p>
                 </div>
             </Hero>
@@ -75,7 +75,7 @@ export default function HaramGatesPage() {
                             <Accessibility className="w-6 h-6" /> Wheelchair Access
                         </h3>
                         <p className="text-blue-800 mb-4">
-                            If you are performing Umrah with a wheelchair, you should use the designated ramp bridges.
+                            If you are performing Umrah with a wheelchair, you should use the designated ramp bridges. Our <Link href="/services/umrah-transport/" className="font-bold underline">professional Umrah transport service</Link> can help coordinate drop-offs at these exact points.
                         </p>
                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-blue-900 font-medium">
                             <li className="flex items-center gap-2"><div className="w-2 h-2 bg-blue-500 rounded-full"></div>Ajyad Bridge (near Gate 1)</li>
@@ -93,7 +93,7 @@ export default function HaramGatesPage() {
                             {
                                 question: "What is the best gate for Umrah?",
                                 shortAnswer: "King Abdulaziz (1).",
-                                detailedAnswer: "Traditionally, pilgrims enter via King Abdulaziz Gate (1) or Al-Salam Gate to access the Mataf directly for Tawaf. However, you can enter for Umrah from any gate.",
+                                detailedAnswer: "Traditionally, pilgrims enter via King Abdulaziz Gate (1) or Al-Salam Gate to access the Mataf directly for Tawaf. This is highly recommended for those arriving via the <Link href='/routes/jeddah-makkah/' className='text-emerald-700 hover:underline'>Jeddah Airport to Makkah route</Link>. However, you can enter from any gate.",
                                 perspectives: [
                                     {
                                         role: "Tip",
@@ -110,7 +110,7 @@ export default function HaramGatesPage() {
                                     {
                                         role: "Advice",
                                         icon: "AlertCircle",
-                                        insight: "Bring a shoe bag and carry them with you to avoid this common issue."
+                                        insight: "Bring a shoe bag and carry them with you. For those also visiting <Link href='/locations/madinah/' className='text-emerald-700 hover:underline'>Madinah (Holy City)</Link>, the shoe management system there is different but equally important. You can avoid heat and traffic by choosing to <Link href='/booking/' className='text-primary font-bold hover:underline'>book your taxi online</Link> for all transfers."
                                     }
                                 ]
                             }

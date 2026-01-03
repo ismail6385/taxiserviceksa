@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { MapPin, Clock, Users, Car, ArrowRight, CheckCircle2, AlertCircle, Info, Compass } from 'lucide-react';
+import { MapPin, Clock, Users, Car, ArrowRight, CheckCircle2, AlertCircle, Info, Compass, Navigation } from 'lucide-react';
 import {
     Accordion,
     AccordionContent,
@@ -55,7 +55,7 @@ export default function MakkahUmrahGuidePage() {
         },
         {
             question: "What are the main Ziyarat sites in Makkah?",
-            answer: "Jabal al-Nour (Cave Hira): 7km, 20 min. Jabal Thawr: 5km, 15 min. Masjid Aisha (Taneem - for Ihram): 8km, 20 min. Masjid Jin: 2km, 10 min. Our drivers know all Ziyarat sites and can arrange full-day tours with multiple stops."
+            answer: "Jabal al-Nour (Cave Hira): 7km, 20 min. Jabal Thawr: 5km, 15 min. Masjid Aisha (Taneem - for Ihram): 8km, 20 min. Masjid Jin: 2km, 10 min. Our professional <Link href='/services/umrah-transport/' className='text-emerald-700 hover:underline'>Umrah transport service</Link> drivers know all Ziyarat sites and can arrange full-day tours with multiple stops."
         },
     ];
 
@@ -89,7 +89,7 @@ export default function MakkahUmrahGuidePage() {
                         Makkah Umrah Complete Guide 2026
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Everything you need for a blessed Umrah: Haram access, Tawaf timing, Ziyarat sites, Zamzam logistics, hotel zones, and transport. Complete guide for pilgrims.
+                        Everything you need for a blessed Umrah in <Link href="/locations/makkah/" className="text-black font-bold underline decoration-primary">Makkah (Haram Area)</Link>: Haram access, Tawaf timing, Ziyarat sites, Zamzam logistics, hotel zones, and transport. Complete guide for pilgrims. Plan your journey with our <Link href="/routes/jeddah-makkah/" className="text-black font-bold underline decoration-primary">Jeddah to Makkah</Link> or <Link href="/routes/makkah-madinah/" className="text-black font-bold underline decoration-primary">Makkah to Madinah</Link> routes.
                     </p>
                 </div>
 
@@ -338,7 +338,7 @@ export default function MakkahUmrahGuidePage() {
                             </div>
                             <div>
                                 <p className="font-bold text-white mb-2">🏨 Hotel Location Matters:</p>
-                                <p className="text-gray-300 text-sm">If staying in Aziziyah/Misfalah (2-5km from Haram), book taxi for ALL prayers. Walking 2-3km in heat, 5 times daily, exhausts pilgrims. Taxi is essential, not luxury.</p>
+                                <p className="text-gray-300 text-sm">If staying in Aziziyah/Misfalah (2-5km from Haram), book taxi for ALL prayers. For those traveling onwards, we suggest booking a <Link href="/locations/madinah/" className="text-emerald-400 hover:text-emerald-300 underline transition-colors">reliable taxi in Madinah</Link> in advance. Walking 2-3km in heat, 5 times daily, exhausts pilgrims.</p>
                             </div>
                             <div>
                                 <p className="font-bold text-white mb-2">⏰ Fajr Prayer is Special:</p>
@@ -400,6 +400,42 @@ export default function MakkahUmrahGuidePage() {
                         <ReviewForm locationName="Makkah" serviceName="Umrah Transport" />
                         <QuestionForm locationName="Makkah" serviceName="Umrah Transport" />
                     </div>
+
+                    {/* Strategic Internal Links Hub */}
+                    <div className="mt-16 bg-white border-2 border-primary/10 rounded-3xl p-8 shadow-sm">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                            <div>
+                                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                    <MapPin className="w-5 h-5 text-primary" /> Key Locations
+                                </h4>
+                                <ul className="space-y-3">
+                                    <li><Link href="/locations/makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>Makkah Hub</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
+                                    <li><Link href="/locations/madinah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>Madinah Ziyarat</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
+                                    <li><Link href="/locations/jeddah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>Jeddah Airport</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                    <Navigation className="w-5 h-5 text-primary" /> Popular Routes
+                                </h4>
+                                <ul className="space-y-3">
+                                    <li><Link href="/routes/jeddah-makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>Jeddah → Makkah</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
+                                    <li><Link href="/routes/makkah-madinah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>Makkah → Madinah</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
+                                    <li><Link href="/routes/" className="text-primary font-bold hover:underline">View All Routes →</Link></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                    <Car className="w-5 h-5 text-primary" /> Umrah Fleet
+                                </h4>
+                                <ul className="space-y-3">
+                                    <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>GMC Yukon (Luxury)</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
+                                    <li><Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>Toyota HiAce (Group)</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
+                                    <li><Link href="/fleet/" className="text-primary font-bold hover:underline">Compare Fleet →</Link></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
                 {/* CTA Section */}
@@ -408,17 +444,17 @@ export default function MakkahUmrahGuidePage() {
                         Need Transport for Your Umrah?
                     </h2>
                     <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Professional taxi service for Umrah pilgrims. Airport transfers, Haram transport, Ziyarat tours. Drivers understand prayer schedules and Haram access routes.
+                        Professional taxi service for Umrah pilgrims. Airport transfers, Haram transport, Ziyarat tours. Drivers understand prayer schedules and Haram access routes. We recommend that you <Link href="/booking/" className="text-emerald-400 font-bold hover:underline">book your Umrah taxi online</Link> to secure your slot.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto">
-                            <Link href="/booking">
+                            <Link href="/booking/">
                                 Book Umrah Transport
                                 <ArrowRight className="ml-2 w-5 h-5" />
                             </Link>
                         </Button>
                         <Button asChild size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto">
-                            <Link href="/services/umrah-transport">
+                            <Link href="/services/umrah-transport/">
                                 View Umrah Services
                             </Link>
                         </Button>

@@ -32,9 +32,6 @@ export const metadata: Metadata = {
 
 export default async function MakkahPage() {
 
-
-
-
     const services = [
         { name: 'Jeddah Airport to Makkah', description: 'Direct pickup from KAIA Terminal 1 & North Terminal to your Hotel.', icon: Plane },
         { name: 'Hotel to Haram Transfers', description: '24/7 drop-off at Ajyad Tunnel and Gaza Loop for prayers.', icon: MapPin },
@@ -58,8 +55,6 @@ export default async function MakkahPage() {
         '/makkah-clock-tower.webp',
     ];
 
-
-
     const distanceData = [
         { destination: 'Jeddah Airport (KAIA)', distance: '95 km (59 mi)', time: '60-80 mins', route: 'Haramain Hwy' },
         { destination: 'Madinah (Prophet\'s Mosque)', distance: '450 km (280 mi)', time: '4-5 hours', route: 'Route 15' },
@@ -67,8 +62,6 @@ export default async function MakkahPage() {
         { destination: 'Aziziyah (Makkah)', distance: '3-7 km (2-4 mi)', time: '10-20 mins', route: 'Tunnel Access' },
         { destination: 'Jabal Omar Hotels', distance: '1-3 km (0.6-1.8 mi)', time: '5-10 mins', route: 'King Abdulaziz Rd' }
     ];
-
-
 
     return (
         <div className="bg-gray-50 min-h-screen">
@@ -85,19 +78,19 @@ export default async function MakkahPage() {
                                 "@type": "ListItem",
                                 "position": 1,
                                 "name": "Home",
-                                "item": "https://taxiserviceksa.com"
+                                "item": "https://taxiserviceksa.com/"
                             },
                             {
                                 "@type": "ListItem",
                                 "position": 2,
                                 "name": "Locations",
-                                "item": "https://taxiserviceksa.com/locations"
+                                "item": "https://taxiserviceksa.com/locations/"
                             },
                             {
                                 "@type": "ListItem",
                                 "position": 3,
                                 "name": "Makkah",
-                                "item": "https://taxiserviceksa.com/locations/makkah"
+                                "item": "https://taxiserviceksa.com/locations/makkah/"
                             }
                         ]
                     })
@@ -165,20 +158,19 @@ export default async function MakkahPage() {
                 }
                 subtitle="Reliable Transport for Pilgrims & Families in Makkah"
                 location="24/7 Hotel to Haram & Airport Service"
-            >
-                <div className="max-w-3xl mx-auto mt-8 mb-6">
+            />
 
+            {/* Contextual Link Hub - Strategic Linking */}
+            <div className="bg-white border-b border-gray-100">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                    <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+                        <span className="text-gray-500 font-bold uppercase tracking-widest text-xs">Popular Makkah Routes:</span>
+                        <Link href="/routes/jeddah-makkah/" className="bg-primary/5 text-gray-900 px-4 py-2 rounded-full border border-primary/20 hover:bg-primary/10 transition-colors font-semibold">Jeddah to Makkah</Link>
+                        <Link href="/routes/makkah-madinah/" className="bg-primary/5 text-gray-900 px-4 py-2 rounded-full border border-primary/20 hover:bg-primary/10 transition-colors font-semibold">Makkah to Madinah</Link>
+                        <Link href="/routes/makkah-jeddah/" className="bg-primary/5 text-gray-900 px-4 py-2 rounded-full border border-primary/20 hover:bg-primary/10 transition-colors font-semibold">Makkah to Jeddah Airport</Link>
+                    </div>
                 </div>
-
-
-
-            </Hero>
-
-
-
-
-
-
+            </div>
 
             {/* Breadcrumb Navigation */}
             <section className="bg-white border-b border-gray-200">
@@ -188,7 +180,7 @@ export default async function MakkahPage() {
                             Home
                         </Link>
                         <span className="text-gray-400">/</span>
-                        <Link href="/locations" className="text-gray-500 hover:text-gray-900 transition-colors">
+                        <Link href="/locations/" className="text-gray-500 hover:text-gray-900 transition-colors">
                             Locations
                         </Link>
                         <span className="text-gray-400">/</span>
@@ -196,8 +188,6 @@ export default async function MakkahPage() {
                     </nav>
                 </div>
             </section>
-
-
 
             {/* Main Content & Services */}
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
@@ -231,7 +221,41 @@ export default async function MakkahPage() {
                         ))}
                     </div>
 
-
+                    {/* Recommended Fleet for Makkah */}
+                    <div className="mt-16 bg-gray-900 rounded-3xl p-8 md:p-12 text-white">
+                        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                            <div className="flex-1">
+                                <h3 className="text-2xl font-bold mb-4 text-primary">Recommended Fleet for Makkah</h3>
+                                <p className="text-gray-400 mb-6">For families and large groups performing Umrah, we recommend our spacious SUVs and Vans.</p>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <Link href="/fleet/gmc-yukon/" className="flex items-center gap-2 group p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all border border-white/10">
+                                        <div className="w-10 h-10 bg-primary/20 rounded flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                                            <Car className="w-5 h-5 text-primary" />
+                                        </div>
+                                        <div>
+                                            <span className="font-bold block group-hover:text-primary transition-colors">GMC Yukon</span>
+                                            <span className="text-xs text-gray-500">7 Adults | 5 Large Bags</span>
+                                        </div>
+                                    </Link>
+                                    <Link href="/fleet/toyota-hiace/" className="flex items-center gap-2 group p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all border border-white/10">
+                                        <div className="w-10 h-10 bg-primary/20 rounded flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                                            <Car className="w-5 h-5 text-primary" />
+                                        </div>
+                                        <div>
+                                            <span className="font-bold block group-hover:text-primary transition-colors">Toyota HiAce</span>
+                                            <span className="text-xs text-gray-500">12 Adults | 16 Large Bags</span>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </div>
+                            <Link href="/fleet/">
+                                <Button className="bg-primary text-white hover:bg-white hover:text-primary font-bold px-8 py-6 h-auto text-lg rounded-2xl shadow-xl shadow-primary/20 transition-all">
+                                    View Full Fleet
+                                    <ArrowRight className="ml-2 w-5 h-5" />
+                                </Button>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -257,7 +281,7 @@ export default async function MakkahPage() {
                                 </p>
 
                                 <p>
-                                    Performing Umrah involves coordinating multiple travel points—from your arrival at King Abdulaziz International Airport to your hotel in Aziziyah or Jabal Omar, then daily trips to Masjid al Haram for prayers. We handle this complete journey, including Ziyarat tours to historical sites, transfers to <Link href="/locations/madinah" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">Madinah</Link>, and <Link href="/locations/jeddah" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">return airport pickups</Link>. Our <Link href="/fleet" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">family-friendly vehicles</Link> accommodate luggage, Zamzam water, and multiple passengers comfortably.
+                                    Performing Umrah involves coordinating multiple travel points—from your arrival at King Abdulaziz International Airport to your hotel in Aziziyah or Jabal Omar, then daily trips to Masjid al Haram for prayers. We handle this complete journey, including Ziyarat tours to historical sites, transfers to <Link href="/locations/madinah/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">Madinah</Link>, and <Link href="/locations/jeddah/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">return airport pickups</Link>. Our <Link href="/fleet/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">family-friendly vehicles</Link> accommodate luggage, Zamzam water, and multiple passengers comfortably.
                                 </p>
                             </div>
 
@@ -323,18 +347,8 @@ export default async function MakkahPage() {
             </section>
 
 
-            {/* Related Guides Section */}
-
-
-
-
-
-
-
-
-
             {/* CTA Block 1 */}
-            < section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-50" >
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">
                 <div className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/90 rounded-3xl p-12 shadow-2xl">
                     {/* Background Pattern */}
                     <div className="absolute inset-0 opacity-10">
@@ -359,7 +373,7 @@ export default async function MakkahPage() {
 
                         {/* CTA Button */}
                         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-                            <Link href="/booking">
+                            <Link href="/booking/">
                                 <Button className="bg-black text-white hover:bg-black/90 font-bold px-10 py-7 text-lg rounded-2xl h-auto shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
                                     Book Taxi Now
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -390,9 +404,7 @@ export default async function MakkahPage() {
                         </div>
                     </div>
                 </div>
-            </section >
-
-
+            </section>
 
 
             {/* Pricing Information */}
@@ -442,7 +454,7 @@ export default async function MakkahPage() {
                         </div>
 
                         <div className="bg-white p-8 rounded-2xl border-2 border-primary/30 hover:border-primary hover:shadow-xl transition-all text-center relative">
-                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white hover:text-black px-4 py-1 rounded-full text-xs font-bold">
+                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white font-bold hover:text-black px-4 py-1 rounded-full text-xs">
                                 MOST POPULAR
                             </div>
                             <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
@@ -479,12 +491,6 @@ export default async function MakkahPage() {
                     </div>
                 </div>
             </section>
-
-
-
-
-
-
 
 
             {/* Scraped Content: Holy Sites & Attractions */}
@@ -535,7 +541,7 @@ export default async function MakkahPage() {
                                     src="/makkah-clock-tower.webp" // Using as a scenic fallback
                                     alt="Jabal Al-Nour and Hira Cave"
                                     fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                    className="object-cover group-hover:scale-110 transition-transform duration-500"
                                 />
                                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-gray-900">
                                     Scenic View
@@ -628,16 +634,6 @@ export default async function MakkahPage() {
             </section>
 
 
-
-
-
-
-
-
-
-
-
-
             {/* Reviews Section - Social Proof */}
             <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
                 <div className="max-w-7xl mx-auto">
@@ -728,27 +724,27 @@ export default async function MakkahPage() {
                     </div>
 
                     <Accordion type="single" collapsible className="w-full">
-                        <AccordionItem value="item-1">
-                            <AccordionTrigger className="text-lg font-bold text-gray-900">How much is a taxi from Jeddah Airport to Makkah?</AccordionTrigger>
-                            <AccordionContent className="text-gray-600 text-base leading-relaxed">
+                        <AccordionItem value="item-1 border-b">
+                            <AccordionTrigger className="text-lg font-bold text-gray-900 py-6">How much is a taxi from Jeddah Airport to Makkah?</AccordionTrigger>
+                            <AccordionContent className="text-gray-600 text-base leading-relaxed pb-6">
                                 Our fixed rate for a standard sedan starts from SAR 250. For larger families needing a GMC Yukon or HiAce, prices range from SAR 400-500. There are no hidden fees or surge charges.
                             </AccordionContent>
                         </AccordionItem>
-                        <AccordionItem value="item-2">
-                            <AccordionTrigger className="text-lg font-bold text-gray-900">Do you offer 24/7 service to Masjid al-Haram?</AccordionTrigger>
-                            <AccordionContent className="text-gray-600 text-base leading-relaxed">
+                        <AccordionItem value="item-2 border-b">
+                            <AccordionTrigger className="text-lg font-bold text-gray-900 py-6">Do you offer 24/7 service to Masjid al-Haram?</AccordionTrigger>
+                            <AccordionContent className="text-gray-600 text-base leading-relaxed pb-6">
                                 Yes, we operate 24 hours a day, 7 days a week. We can pick you up from your hotel in Aziziyah, Jabal Omar, or Kudai for any prayer time, including Tahajjud and Fajr.
                             </AccordionContent>
                         </AccordionItem>
-                        <AccordionItem value="item-3">
-                            <AccordionTrigger className="text-lg font-bold text-gray-900">How can I book an online taxi in Makkah?</AccordionTrigger>
-                            <AccordionContent className="text-gray-600 text-base leading-relaxed">
+                        <AccordionItem value="item-3 border-b">
+                            <AccordionTrigger className="text-lg font-bold text-gray-900 py-6">How can I book an online taxi in Makkah?</AccordionTrigger>
+                            <AccordionContent className="text-gray-600 text-base leading-relaxed pb-6">
                                 You can book directly through our website using the booking form above, or contact us via WhatsApp for instant confirmation. We recommend booking at least 24 hours in advance for airport transfers.
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-4">
-                            <AccordionTrigger className="text-lg font-bold text-gray-900">Are your drivers experienced with Ziyarat locations?</AccordionTrigger>
-                            <AccordionContent className="text-gray-600 text-base leading-relaxed">
+                            <AccordionTrigger className="text-lg font-bold text-gray-900 py-6">Are your drivers experienced with Ziyarat locations?</AccordionTrigger>
+                            <AccordionContent className="text-gray-600 text-base leading-relaxed pb-6">
                                 Absolutely. Our drivers are locals who know the exact locations and history of holy sites like Ghar Hira, Ghar Thawr, Mina, Arafat, and Muzdalifah.
                             </AccordionContent>
                         </AccordionItem>
@@ -756,9 +752,59 @@ export default async function MakkahPage() {
                 </div>
             </section>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+                {/* Strategic Internal Links Hub */}
+                <div className="bg-white border border-gray-100 rounded-3xl p-8 mb-16 shadow-sm">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                        <div>
+                            <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <Car className="w-5 h-5 text-primary" /> Specialist Umrah Fleet
+                            </h4>
+                            <ul className="space-y-3">
+                                <li>
+                                    <Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>GMC Yukon (Luxury Family)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Toyota Hiace (Group Van)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/fleet/" className="text-primary font-bold hover:underline">Compare All Vehicles →</Link>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <MapPin className="w-5 h-5 text-primary" /> Top Makkah Routes
+                            </h4>
+                            <ul className="space-y-3">
+                                <li>
+                                    <Link href="/routes/jeddah-makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Jeddah to Makkah (80km)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/routes/makkah-madinah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Makkah to Madinah (450km)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/routes/" className="text-primary font-bold hover:underline">View All Intercity Routes →</Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 <RelatedLocations currentCity="Makkah" />
             </div>
-        </div >
+        </div>
     );
 }

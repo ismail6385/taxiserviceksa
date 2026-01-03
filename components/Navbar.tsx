@@ -79,6 +79,8 @@ export default function Navbar() {
             children: [
                 { name: 'Jeddah Airport Guide', href: '/guides/jeddah-airport-guide/', isHub: true },
                 { name: 'Makkah Umrah Guide', href: '/guides/makkah-umrah-guide/', isHub: true },
+                { name: 'Umrah Tawaf Guide', href: '/guides/umrah-tawaf-guide/' },
+                { name: 'Meeqat Locations', href: '/guides/meeqat-locations/' },
                 { name: 'Riyadh Business Guide', href: '/guides/riyadh-business-guide/', isHub: true },
             ]
         },

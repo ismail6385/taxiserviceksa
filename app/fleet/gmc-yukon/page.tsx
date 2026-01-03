@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Users, Briefcase, CheckCircle2, Star, Shield, Clock, Car, MapPin, ArrowRight } from 'lucide-react';
+import { Users, Briefcase, CheckCircle2, Star, Shield, Clock, Car, MapPin, ArrowRight, Navigation } from 'lucide-react';
 import FleetPricing from '@/components/FleetPricing';
 
 import {
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description: 'GMC Yukon taxi service in Saudi Arabia accommodates 7 passengers and 5 large bags. Service includes airport transfers, Umrah transport, and intercity travel. Available 24/7.',
     keywords: ['GMC Yukon taxi service Saudi Arabia', 'luxury SUV taxi KSA', 'GMC Yukon airport transfer', 'chauffeur service Saudi Arabia', 'Umrah luxury taxi'],
     alternates: {
-        canonical: '/fleet/gmc-yukon/',
+        canonical: 'https://taxiserviceksa.com/fleet/gmc-yukon/',
     },
     openGraph: {
         title: 'GMC Yukon Luxury Taxi Service in Saudi Arabia',
@@ -134,7 +134,7 @@ export default function GMCYukonPage() {
                                 GMC Yukon Taxi Service in Saudi Arabia
                             </h1>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                                GMC Yukon taxi service in Saudi Arabia accommodates 7 passengers with 5 large bags. Service includes <Link href="/locations/jeddah" className="bg-primary text-white hover:text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline">Jeddah airport transfers</Link> and Umrah transport. Vehicle features dual AC system and leather interior.
+                                GMC Yukon taxi service in Saudi Arabia accommodates 7 passengers with 5 large bags. Service includes <Link href="/locations/jeddah/" className="bg-primary text-white hover:text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline">Jeddah airport transfers</Link> and Umrah transport. Vehicle features dual AC system and leather interior.
                             </p>
 
                             {/* Specifications */}
@@ -147,7 +147,7 @@ export default function GMCYukonPage() {
                                 ))}
                             </div>
 
-                            <Link href="/booking?vehicle=GMC-Yukon">
+                            <Link href="/booking/?vehicle=GMC-Yukon">
                                 <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold h-14 text-lg">
                                     Book GMC Yukon Now
                                 </Button>
@@ -203,7 +203,7 @@ export default function GMCYukonPage() {
                         </ul>
                         <div className="mt-6 pt-6 border-t border-gray-100 text-gray-600 text-sm">
                             <p>
-                                Check our <Link href="/locations/makkah" className="bg-primary text-white hover:text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline font-medium">Umrah taxi services</Link> for more details on pilgrim transport options.
+                                Check our <Link href="/locations/makkah/" className="bg-primary text-white hover:text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline font-medium">Umrah taxi services</Link> for more details on pilgrim transport options.
                             </p>
                         </div>
                     </div>
@@ -241,10 +241,10 @@ export default function GMCYukonPage() {
                     </p>
                     <h3 className="text-xl font-bold text-gray-900 mb-3">Premium SUV Taxi for Umrah & Tourists</h3>
                     <p className="mb-4">
-                        For pilgrims, comfort is key. Our <strong>GMC Yukon taxi service</strong> provides a serene environment perfect for the spiritual journey between <Link href="/locations/makkah" className="bg-primary text-white hover:text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline">Makkah</Link> and <Link href="/locations/madinah" className="bg-primary text-white hover:text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline">Madinah</Link>. With ample luggage space and plush seating, it is the ideal <strong>premium family taxi KSA</strong>. Tourists visiting <Link href="/locations/riyadh" className="bg-primary text-white hover:text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline">Riyadh</Link> also prefer the Yukon for its ability to handle long distances with ease.
+                        For pilgrims, comfort is key. Our <strong>GMC Yukon taxi service</strong> provides a serene environment perfect for the spiritual journey between <Link href="/locations/makkah/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">Makkah</Link> and <Link href="/locations/madinah/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">Madinah</Link>. With ample luggage space and plush seating, it is the ideal <strong>premium family taxi KSA</strong>. Tourists visiting <Link href="/locations/riyadh/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">Riyadh</Link> also prefer the Yukon for its ability to handle long distances with ease.
                     </p>
                     <p>
-                        Our professional drivers ensure your safety and privacy, making us the preferred <strong>chauffeur service Saudi Arabia</strong> provider. Explore our full <Link href="/fleet" className="bg-primary text-white hover:text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline">luxury fleet</Link> to find the perfect vehicle for your needs.
+                        Our professional drivers ensure your safety and privacy, making us the preferred <strong>chauffeur service Saudi Arabia</strong> provider. Explore our full <Link href="/fleet/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">luxury fleet</Link> to find the perfect vehicle for your needs.
                     </p>
                 </div>
 
@@ -304,13 +304,15 @@ export default function GMCYukonPage() {
                             <MapPin className="w-5 h-5 text-emerald-700" />
                         </div>
                         <div>
-                            <h4 className="font-bold text-gray-900 text-sm">Planning a Ziyarat Trip?</h4>
-                            <p className="text-gray-600 text-xs">Don't miss the secret history of the Holy City.</p>
+                            <h4 className="font-bold text-gray-900 text-sm">GMC Yukon - Best for these Routes</h4>
+                            <p className="text-gray-600 text-xs text-left">The ultimate comfort for long distances.</p>
                         </div>
                     </div>
-                    <Link href="/blog/hidden-makkah-spots" className="text-emerald-700 hover:text-emerald-800 text-sm font-bold flex items-center gap-1 group">
-                        Read Hidden Makkah Guide <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
+                    <div className="flex flex-wrap gap-4">
+                        <Link href="/routes/jeddah-makkah/" className="text-emerald-700 hover:text-emerald-800 text-sm font-bold border-b border-emerald-200">Jeddah to Makkah</Link>
+                        <Link href="/routes/makkah-madinah/" className="text-emerald-700 hover:text-emerald-800 text-sm font-bold border-b border-emerald-200">Makkah to Madinah</Link>
+                        <Link href="/routes/jeddah-taif/" className="text-emerald-700 hover:text-emerald-800 text-sm font-bold border-b border-emerald-200">Jeddah to Taif</Link>
+                    </div>
                 </div>
 
                 {/* FAQ Section */}
@@ -326,6 +328,81 @@ export default function GMCYukonPage() {
                     </Accordion>
                 </div>
 
+                {/* Strategic Internal Links Hub */}
+                <div className="mt-16 bg-white border border-gray-100 rounded-3xl p-8 shadow-sm mb-12">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                        <div>
+                            <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <MapPin className="w-5 h-5 text-primary" /> Yukon Service Hubs
+                            </h4>
+                            <ul className="space-y-3">
+                                <li>
+                                    <Link href="/locations/riyadh/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Riyadh (Business VIP)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/locations/jeddah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Jeddah (Airport)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/locations/makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Makkah (Executive Umrah)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <Navigation className="w-5 h-5 text-primary" /> Top Yukon Routes
+                            </h4>
+                            <ul className="space-y-3">
+                                <li>
+                                    <Link href="/routes/jeddah-makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Jeddah to Makkah (95km)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/routes/makkah-madinah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Makkah to Madinah (450km)</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/routes/" className="text-primary font-bold hover:underline">View All Routes →</Link>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <Briefcase className="w-5 h-5 text-primary" /> Specialist Services
+                            </h4>
+                            <ul className="space-y-3">
+                                <li>
+                                    <Link href="/services/airport-transfers/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Airport Meet & Greet</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/services/umrah-transport/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>VIP Umrah Transport</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/booking/" className="text-primary font-bold hover:underline">Book Your Yukon Now →</Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 {/* Optimized CTA Block */}
                 <div className="bg-black rounded-2xl p-8 md:p-12 text-center relative overflow-hidden">
                     <div className="relative z-10">
@@ -338,7 +415,7 @@ export default function GMCYukonPage() {
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
                             {/* Primary CTA */}
-                            <Link href="/booking?vehicle=GMC-Yukon" className="w-full sm:w-auto">
+                            <Link href="/booking/?vehicle=GMC-Yukon" className="w-full sm:w-auto">
                                 <Button size="lg" className="w-full bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                     Book GMC Yukon
                                 </Button>

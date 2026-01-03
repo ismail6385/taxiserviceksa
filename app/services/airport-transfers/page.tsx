@@ -41,10 +41,10 @@ export default async function AirportTransfersPage() {
             name: 'King Abdulaziz International Airport (JED)',
             city: 'Jeddah',
             code: 'JED',
-            description: 'Largest airport in Saudi Arabia. Main gateway for Umrah pilgrims arriving to Makkah.',
+            description: 'Largest airport in Saudi Arabia and the main gateway for Umrah. Check our <Link href="/guides/jeddah-airport-guide/" className="text-emerald-700 hover:underline">Jeddah Airport terminal guide</Link> for navigation tips.',
             routes: ['Jeddah → Makkah (80km)', 'Jeddah → Taif (90km)', 'Jeddah City Hotels'],
             price: 'From SAR 150',
-            link: '/locations/jeddah',
+            link: '/locations/jeddah/',
             isHub: true
         },
         {
@@ -54,7 +54,7 @@ export default async function AirportTransfersPage() {
             description: 'Capital city airport. Business travel hub with connections to major Saudi cities.',
             routes: ['RUH → Riyadh Hotels', 'RUH → Business Districts', 'RUH → Diplomatic Quarter'],
             price: 'From SAR 80',
-            link: '/locations/riyadh',
+            link: '/locations/riyadh/',
             isHub: true
         },
         {
@@ -64,7 +64,7 @@ export default async function AirportTransfersPage() {
             description: 'Pilgrimage airport serving Madinah. Direct access to Prophet\'s Mosque area.',
             routes: ['MED → Madinah Hotels', 'MED → Prophet\'s Mosque', 'MED → Quba Mosque'],
             price: 'From SAR 50',
-            link: '/locations/madinah'
+            link: '/locations/madinah/',
         },
         {
             name: 'AlUla International Airport (ULH)',
@@ -73,7 +73,7 @@ export default async function AirportTransfersPage() {
             description: 'Tourism airport for UNESCO heritage sites. Gateway to Hegra and Dadan.',
             routes: ['ULH → AlUla Hotels', 'ULH → Hegra Site', 'ULH → Khaybar (150km)'],
             price: 'From SAR 60',
-            link: '/locations/alula'
+            link: '/locations/alula/',
         },
         {
             name: 'Prince Abdul Mohsin bin Abdulaziz Airport (YNB)',
@@ -82,7 +82,7 @@ export default async function AirportTransfersPage() {
             description: 'Industrial city airport. Serves port workers and Red Sea coastal access.',
             routes: ['YNB → Yanbu Hotels', 'YNB → Industrial City', 'YNB → Madinah (220km)'],
             price: 'From SAR 50',
-            link: '/locations/yanbu'
+            link: '/locations/yanbu/',
         },
         {
             name: 'Taif Regional Airport (TIF)',
@@ -91,7 +91,7 @@ export default async function AirportTransfersPage() {
             description: 'Mountain resort airport. Summer destination with cooler climate.',
             routes: ['TIF → Taif Hotels', 'TIF → Mountain Resorts', 'TIF → Jeddah (90km)'],
             price: 'From SAR 40',
-            link: '/locations/taif'
+            link: '/locations/taif/',
         },
     ];
 
@@ -155,7 +155,7 @@ export default async function AirportTransfersPage() {
         },
         {
             question: "Do you provide airport transfer from Jeddah Airport to Makkah?",
-            answer: "Yes. Jeddah Airport (JED) to Makkah is our most popular airport transfer route. Distance is 80 km, travel time 60-90 minutes. Fixed rate from SAR 150 (sedan) to SAR 400 (van). Meet-and-greet service included. See detailed route information at /routes/jeddah-makkah."
+            answer: "Yes. The <Link href='/routes/jeddah-makkah/' className='text-primary hover:underline'>Jeddah to Makkah route</Link> is our most popular service. Distance is 80 km, travel time 60-90 minutes. Fixed rates include meet-and-greet service at the arrivals hall."
         },
         {
             question: "Can I book return airport transfer (hotel to airport)?",
@@ -216,7 +216,7 @@ export default async function AirportTransfersPage() {
                             <span className="text-white">Saudi Arabia</span>
                         </h1>
                         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                            Saudi Arabia Airport Transfer Taxi services with easy online booking. Enjoy flight tracking, fixed pricing, and free cancellation for stress-free travel to all major destinations.
+                            Experience stress-free travel from <Link href="/locations/jeddah/" className="text-white underline hover:text-primary transition-colors">Jeddah Airport</Link> and all major KSA hubs. Enjoy flight tracking, fixed pricing, and professional meet-and-greet service.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/booking?service=airport-transfer">
@@ -353,6 +353,60 @@ export default async function AirportTransfersPage() {
                                 </div>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Strategic Internal Links Hub */}
+            <section className="py-12 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="bg-gray-50 border border-gray-100 rounded-3xl p-8 shadow-sm">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                            <div>
+                                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                    <Navigation className="w-5 h-5 text-primary" /> Popular Airport Routes
+                                </h4>
+                                <ul className="space-y-3">
+                                    <li>
+                                        <Link href="/routes/jeddah-makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Jeddah Airport (JED) to Makkah</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/routes/madinah-jeddah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Madinah to Jeddah Airport</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/routes/" className="text-primary font-bold hover:underline">View All 50+ Routes →</Link>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                    <Car className="w-5 h-5 text-primary" /> Recommended Airport Fleet
+                                </h4>
+                                <ul className="space-y-3">
+                                    <li>
+                                        <Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>GMC Yukon (Executive Choice)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Toyota Hiace (Large Groups)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/fleet/" className="text-primary font-bold hover:underline">Explore Entire Fleet →</Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

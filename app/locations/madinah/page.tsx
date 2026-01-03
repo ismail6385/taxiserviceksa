@@ -90,13 +90,13 @@ export default async function MadinahPage() {
                                 "@type": "ListItem",
                                 "position": 2,
                                 "name": "Locations",
-                                "item": "https://taxiserviceksa.com/locations"
+                                "item": "https://taxiserviceksa.com/locations/"
                             },
                             {
                                 "@type": "ListItem",
                                 "position": 3,
                                 "name": "Madinah",
-                                "item": "https://taxiserviceksa.com/locations/madinah"
+                                "item": "https://taxiserviceksa.com/locations/madinah/"
                             }
                         ]
                     })
@@ -129,7 +129,7 @@ export default async function MadinahPage() {
                             Home
                         </Link>
                         <span className="text-gray-400">/</span>
-                        <Link href="/locations" className="text-gray-500 hover:text-gray-900 transition-colors">
+                        <Link href="/locations/" className="text-gray-500 hover:text-gray-900 transition-colors">
                             Locations
                         </Link>
                         <span className="text-gray-400">/</span>
@@ -169,6 +169,56 @@ export default async function MadinahPage() {
                             </div>
                         ))}
                     </div>
+
+                    {/* Strategic Internal Links Hub */}
+                    <div className="bg-white border border-gray-100 rounded-3xl p-8 mb-16 shadow-sm">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                            <div>
+                                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                    <Car className="w-5 h-5 text-primary" /> Intercity from Madinah
+                                </h4>
+                                <ul className="space-y-3">
+                                    <li>
+                                        <Link href="/routes/makkah-madinah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Madinah to Makkah (450km)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/routes/madinah-jeddah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Madinah to Jeddah (450km)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/routes/" className="text-primary font-bold hover:underline">View All Intercity Routes →</Link>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                    <Users className="w-5 h-5 text-primary" /> Premium Fleet Options
+                                </h4>
+                                <ul className="space-y-3">
+                                    <li>
+                                        <Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>VIP GMC Yukon (7 Seater)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Luxury Hyundai Staria</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/fleet/" className="text-primary font-bold hover:underline">Compare All Vehicles →</Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -193,7 +243,7 @@ export default async function MadinahPage() {
                                 </p>
 
                                 <p>
-                                    Whether you need to visit <span className="font-semibold text-gray-900">Masjid Quba</span>, <span className="font-semibold text-gray-900">Mount Uhud</span>, or travel to <Link href="/locations/makkah" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">Makkah</Link> for Umrah via Miqat Dhul Hulaifah, we handle your complete journey. Our <Link href="/fleet" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">fleet</Link> includes spacious GMC Yukons and sedans suitable for families and groups.
+                                    Whether you need to visit <span className="font-semibold text-gray-900">Masjid Quba</span>, <span className="font-semibold text-gray-900">Mount Uhud</span>, or travel to <Link href="/locations/makkah/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">Makkah</Link> for Umrah via Miqat Dhul Hulaifah, we handle your complete journey. Our <Link href="/fleet/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">fleet</Link> includes spacious GMC Yukons and sedans suitable for families and groups.
                                 </p>
                             </div>
 
@@ -262,7 +312,7 @@ export default async function MadinahPage() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
-                            <Link href="/booking">
+                            <Link href="/booking/">
                                 <Button className="bg-black text-white hover:bg-black/90 font-bold px-10 py-7 text-lg rounded-2xl h-auto shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
                                     Book Taxi Now
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

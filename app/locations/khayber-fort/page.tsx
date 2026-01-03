@@ -155,7 +155,7 @@ export default function KhayberPage() {
                             </div>
                         </div>
                         <Button asChild size="lg" className="w-full bg-black text-white hover:bg-neutral-800 font-bold text-lg h-16 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-black/20">
-                            <Link href="/booking" className="w-full block">
+                            <Link href="/booking/" className="w-full block">
                                 View Available Vehicles
                                 <ArrowRight className="w-5 h-5 text-primary" />
                             </Link>
@@ -344,7 +344,7 @@ export default function KhayberPage() {
                                 </div>
 
                                 {/* Full Link Overlay */}
-                                <Link href="/booking" className="absolute inset-0 z-10" aria-label={`Book ${service.name}`}></Link>
+                                <Link href="/booking/" className="absolute inset-0 z-10" aria-label={`Book ${service.name}`}></Link>
                             </div>
                         ))}
                     </div>
@@ -560,7 +560,7 @@ export default function KhayberPage() {
                     <p className="text-xl text-gray-400 mb-8">
                         Private 4x4 and sedan transport available for Khaybar tours.
                     </p>
-                    <Link href="/booking">
+                    <Link href="/booking/">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-12 py-8 rounded-full">
                             Book Khaybar Taxi
                         </Button>

@@ -100,7 +100,7 @@ export default function JeddahMakkahRoutePage() {
                 location="60-90 Minutes | Fixed Rate SAR 200+"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <Link href="/booking?route=jeddah-makkah">
+                    <Link href="/booking/?route=jeddah-makkah">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                             Book This Route
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -113,6 +113,32 @@ export default function JeddahMakkahRoutePage() {
                     </a>
                 </div>
             </Hero>
+
+            {/* Strategic Internal Links Hub */}
+            <div className="bg-white border-b border-gray-100">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div className="flex flex-wrap items-center gap-4 text-sm">
+                            <span className="text-gray-500 font-bold uppercase tracking-widest text-xs">Route Destinations:</span>
+                            <Link href="/locations/makkah/" className="text-gray-900 hover:text-primary font-semibold flex items-center gap-1">
+                                <MapPin className="w-4 h-4" /> Makkah Services
+                            </Link>
+                            <Link href="/locations/jeddah/" className="text-gray-900 hover:text-primary font-semibold flex items-center gap-1">
+                                <MapPin className="w-4 h-4" /> Jeddah Services
+                            </Link>
+                        </div>
+                        <div className="flex flex-wrap items-center md:justify-end gap-4 text-sm">
+                            <span className="text-gray-500 font-bold uppercase tracking-widest text-xs">Recommended for this Route:</span>
+                            <Link href="/fleet/gmc-yukon/" className="text-gray-900 hover:text-primary font-semibold flex items-center gap-1">
+                                <Car className="w-4 h-4" /> GMC Yukon (Luxury)
+                            </Link>
+                            <Link href="/fleet/toyota-hiace/" className="text-gray-900 hover:text-primary font-semibold flex items-center gap-1">
+                                <Car className="w-4 h-4" /> Toyota HiAce (Groups)
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             {/* Route Details Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
@@ -310,7 +336,7 @@ export default function JeddahMakkahRoutePage() {
                         Fixed rates, meet-and-greet service, and direct door-to-door transport from King Abdulaziz Airport to your Makkah hotel.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking?route=jeddah-makkah">
+                        <Link href="/booking/?route=jeddah-makkah">
                             <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Book Now (SAR 250+)
                             </Button>

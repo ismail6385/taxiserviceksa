@@ -3,7 +3,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { MapPin, Navigation, Compass, Info, AlertTriangle, CheckCircle2, Car } from 'lucide-react';
+import { MapPin, Navigation, Compass, Info, AlertTriangle, CheckCircle2, Car, ArrowRight, Briefcase, Plane } from 'lucide-react';
+
 
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
@@ -29,7 +30,7 @@ export default function MeeqatLocationsPage() {
             name: "Dhul Hulaifah (Abyar Ali)",
             forwhom: "Pilgrims from Madinah",
             distance: "450 km from Makkah",
-            desc: "The farthest Miqat from Makkah. It has a large mosque with extensive facilities for shower and Ihram."
+            desc: "The farthest Miqat from Makkah. It has a large mosque with extensive facilities for shower and Ihram for those departing from <Link href='/locations/madinah/' className='text-emerald-700 hover:underline'>Madinah (Holy City)</Link>."
         },
         {
             name: "Al-Juhfah (Rabigh)",
@@ -41,7 +42,7 @@ export default function MeeqatLocationsPage() {
             name: "Qarn al-Manazil (As-Sail Al-Kabir)",
             forwhom: "Pilgrims from Najd (Riyadh) & Taif",
             distance: "75 km from Makkah",
-            desc: "Located on the road from Taif. A major stop for those coming from Riyadh."
+            desc: "Located on the road from Taif. A major stop for those traveling the <Link href='/routes/riyadh-jeddah/' className='text-emerald-700 hover:underline'>Riyadh to Jeddah route</Link>."
         },
         {
             name: "Yalamlam (Sa'diyah)",
@@ -87,7 +88,7 @@ export default function MeeqatLocationsPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <p className="text-gray-200 text-lg leading-relaxed text-center">
-                        The Meeqat is the designated boundary line that pilgrims intending to perform Umrah or Hajj must not cross without being in the state of Ihram.
+                        The Meeqat is the designated boundary line that pilgrims intending to perform Umrah or Hajj must not cross without being in the state of Ihram, especially when visiting <Link href="/locations/makkah/" className="text-white underline hover:text-primary transition-colors">Makkah (Haram Area)</Link>.
                     </p>
                 </div>
             </Hero>
@@ -133,7 +134,7 @@ export default function MeeqatLocationsPage() {
                             </li>
                             <li className="flex items-start gap-3">
                                 <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-1 shrink-0" />
-                                <span>For those flying into Jeddah: The plane often crosses the Meeqat in the air. You should wear your Ihram garments before boarding or on the plane, and make Niyyah when the pilot announces the Meeqat zone.</span>
+                                <span>For those flying into Jeddah: The plane often crosses the Meeqat in the air. You should wear your Ihram garments before boarding and arrange a <Link href='/services/umrah-transport/' className='text-emerald-700 hover:underline font-medium'>professional Umrah transport hub</Link> trip to ensure you reach the Haram without delay.</span>
                             </li>
                         </ul>
                     </div>
@@ -164,7 +165,7 @@ export default function MeeqatLocationsPage() {
                                     {
                                         role: "Route Guide",
                                         icon: "Navigation",
-                                        insight: "It is about 75km from Makkah. Our taxi drivers know the exact stop."
+                                        insight: "It is about 75km from Makkah. Our taxi drivers know the exact stop. You can <Link href='/booking/' className='text-primary font-bold hover:underline'>book your Meeqat transfer online</Link> for total peace of mind."
                                     }
                                 ]
                             }
@@ -178,19 +179,108 @@ export default function MeeqatLocationsPage() {
                     {
                         name: 'Madinah to Makkah Taxi',
                         description: 'We stop at Dhul Hulaifah (Abyar Ali) for 45+ minutes for your Ihram.',
-                        href: '/madinah-to-makkah-taxi',
+                        href: '/madinah-to-makkah-taxi/',
                         icon: Car
                     },
                     {
                         name: 'Jeddah to Makkah',
                         description: 'Direct transfer for those who arrived in Ihram via flight.',
-                        href: '/locations/jeddah-makkah', // Assuming route location
+                        href: '/routes/jeddah-makkah/',
                         icon: MapPin
                     }
                 ]}
                 title="Transport to Meeqat"
                 description=""
             />
+
+            {/* Strategic Internal Links Hub */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
+                <div className="max-w-7xl mx-auto">
+                    <div className="bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-200">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                            {/* Column 1: Locations */}
+                            <div>
+                                <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                                    <MapPin className="w-5 h-5 text-primary" /> Pilgrimage Hubs
+                                </h3>
+                                <ul className="space-y-4">
+                                    <li>
+                                        <Link href="/locations/makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Makkah (Haram Area)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/locations/madinah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Madinah (Al Haram)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/locations/taif/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Taif (Ziyarat)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {/* Column 2: Routes */}
+                            <div>
+                                <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                                    <Navigation className="w-5 h-5 text-primary" /> Key Routes
+                                </h3>
+                                <ul className="space-y-4">
+                                    <li>
+                                        <Link href="/routes/jeddah-makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Jeddah Airport → Makkah</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/madinah-to-makkah-taxi/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Madinah → Makkah (Taxi)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/routes/makkah-madinah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Makkah → Madinah</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {/* Column 3: Services */}
+                            <div>
+                                <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                                    <Briefcase className="w-5 h-5 text-primary" /> Specialized Services
+                                </h3>
+                                <ul className="space-y-4">
+                                    <li>
+                                        <Link href="/services/umrah-transport/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Umrah Transport Hub</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Family Group Vans</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/booking/" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors w-full shadow-lg shadow-primary/20">
+                                            Book Meeqat Transfer
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }

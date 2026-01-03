@@ -54,11 +54,11 @@ export default async function JeddahAirportGuidePage() {
         },
         {
             question: "How do I meet my taxi driver at Jeddah Airport?",
-            answer: "Terminal 1: Meet at the 'Aquarium' (large fish tank near arrivals exit, close to Starbucks). Driver holds a name sign. North Terminal: Meet at Gate 2 (main exit). Driver waits outside customs area. Look for 'Taxi Service KSA' logo on the sign."
+            answer: "Terminal 1: Meet at the 'Aquarium' (large fish tank near arrivals exit, close to Starbucks). Driver holds a name sign. North Terminal: Meet at Gate 2 (main exit). Driver waits outside customs area. Look for our <Link href='/services/airport-transfers/' className='text-emerald-700 hover:underline'>premium airport transfer</Link> sign with the 'Taxi Service KSA' logo."
         },
         {
             question: "How long does it take from Jeddah Airport to Makkah?",
-            answer: "75-90 minutes by taxi (80 km via Haramain Expressway). Traffic peaks 4-7 PM on weekdays. Early morning (5-8 AM) is fastest. Friday afternoons are busiest due to Jummah prayer. Our drivers monitor traffic and choose optimal routes."
+            answer: "75-90 minutes on the <Link href='/routes/jeddah-makkah/' className='text-emerald-700 hover:underline'>Jeddah Airport to Makkah route</Link> (80 km via Haramain Expressway). Traffic peaks 4-7 PM on weekdays. Early morning (5-8 AM) is fastest. Friday afternoons are busiest due to Jummah prayer. Our drivers also monitor connections to <Link href='/locations/madinah/' className='text-emerald-700 hover:underline'>Madinah (Holy City)</Link> for continuing pilgrims."
         },
     ];
 
@@ -90,8 +90,28 @@ export default async function JeddahAirportGuidePage() {
                         Jeddah Airport Complete Guide 2026
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Everything you need to know about King Abdulaziz International Airport (JED): terminals, facilities, transport, and tips for a smooth journey to Makkah.
+                        Everything you need to know about King Abdulaziz International Airport (JED): terminals, facilities, transport, and tips for a smooth journey to <Link href="/locations/makkah/" className="text-gray-900 font-semibold underline decoration-primary/30 hover:decoration-primary underline-offset-4 transition-all">Makkah (Haram Area)</Link>.
                     </p>
+                </div>
+
+                {/* Money Page Hub - Strategic Internal Linking */}
+                <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-6 mb-16">
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div className="flex items-center gap-4">
+                            <div className="bg-emerald-100 p-3 rounded-xl">
+                                <Car className="w-6 h-6 text-emerald-700" />
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-gray-900">Arriving at Jeddah Airport?</h3>
+                                <p className="text-gray-600 text-sm">Secure your transport before you land.</p>
+                            </div>
+                        </div>
+                        <div className="flex flex-wrap gap-3">
+                            <Link href="/booking/" className="bg-emerald-600 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-emerald-700 transition-colors">Book Now</Link>
+                            <Link href="/routes/jeddah-makkah/" className="bg-white text-emerald-700 border border-emerald-200 px-6 py-2.5 rounded-xl font-bold hover:bg-emerald-50 transition-colors">Jeddah to Makkah Taxi</Link>
+                            <Link href="/fleet/gmc-yukon/" className="bg-white text-emerald-700 border border-emerald-200 px-6 py-2.5 rounded-xl font-bold hover:bg-emerald-50 transition-colors">VIP GMC Yukon</Link>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Quick Navigation */}
@@ -162,7 +182,7 @@ export default async function JeddahAirportGuidePage() {
                                 </div>
                                 <div>
                                     <p className="font-bold text-gray-900">Baggage Claim:</p>
-                                    <p className="text-sm">Carousels 1-8 (international), 9-12 (domestic). Average wait: 20-30 minutes.</p>
+                                    <p className="text-sm">Carousels 1-8 (international), 9-12 (domestic). Average wait: 20-30 minutes. If you have large bags, consider our <Link href="/fleet/toyota-hiace/" className="text-primary hover:underline underline-offset-2">Toyota HiAce group transfer</Link>.</p>
                                 </div>
                             </div>
                         </div>
@@ -307,7 +327,7 @@ export default async function JeddahAirportGuidePage() {
                         Need a Taxi from Jeddah Airport?
                     </h2>
                     <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Professional airport transfer service with meet-and-greet, flight tracking, and experienced drivers who know the best routes to Makkah.
+                        Professional airport transfer service with meet-and-greet, flight tracking, and experienced drivers who know the best routes to Makkah. For a guaranteed fixed price, you should <Link href="/booking/" className="text-emerald-400 font-bold hover:underline">book a taxi online</Link> before you land.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto">
