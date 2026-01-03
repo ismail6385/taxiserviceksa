@@ -59,9 +59,28 @@ export default function SubmitReviewPage() {
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                         Share Your Experience
                     </h1>
-                    <p className="text-xl text-gray-600">
+                    <p className="text-xl text-gray-600 mb-8">
                         Help other travelers by sharing your experience with our taxi service
                     </p>
+
+                    {/* Trustpilot CTA */}
+                    <div className="bg-[#00b67a]/10 border-2 border-[#00b67a]/20 rounded-2xl p-6 mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
+                        <div className="text-left">
+                            <h3 className="text-lg font-bold text-gray-900 mb-1">Prefer Trustpilot?</h3>
+                            <p className="text-sm text-gray-600">Review us on the world's most trusted review platform.</p>
+                        </div>
+                        <a
+                            href="https://www.trustpilot.com/review/taxiserviceksa.com?utm_medium=trustbox&utm_source=ReviewCollector"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="shrink-0"
+                        >
+                            <Button className="bg-[#00b67a] hover:bg-[#00a36c] text-white font-bold px-6 py-4 h-auto border-none">
+                                <Star className="w-4 h-4 mr-2 fill-white" />
+                                Review on Trustpilot
+                            </Button>
+                        </a>
+                    </div>
                 </div>
 
                 {submitted ? (
@@ -70,9 +89,23 @@ export default function SubmitReviewPage() {
                             <CheckCircle className="w-10 h-10 text-white" />
                         </div>
                         <h2 className="text-3xl font-bold text-green-900 mb-4">Thank You!</h2>
-                        <p className="text-lg text-green-800 mb-6">
+                        <p className="text-lg text-green-800 mb-8">
                             Your review has been submitted successfully and will be published after verification by our team.
                         </p>
+
+                        <div className="bg-gray-50 rounded-xl p-6 mb-8 border border-gray-200">
+                            <p className="text-sm font-bold text-gray-900 mb-4">Would you also like to share your review on Trustpilot?</p>
+                            <a
+                                href="https://www.trustpilot.com/review/taxiserviceksa.com?utm_medium=trustbox&utm_source=ReviewCollector"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Button className="bg-[#00b67a] hover:bg-[#00a36c] text-white font-bold px-8">
+                                    <Star className="w-4 h-4 mr-2 fill-white" />
+                                    Review on Trustpilot
+                                </Button>
+                            </a>
+                        </div>
                         <div className="flex gap-4 justify-center">
                             <Button
                                 onClick={() => setSubmitted(false)}

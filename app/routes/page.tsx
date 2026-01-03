@@ -32,10 +32,32 @@ export default function RoutesPage() {
             duration: '4-5 hours',
             price: 'From SAR 450',
             description: 'Complete your Umrah journey. Comfortable transfer with rest stops between the two holy cities.',
-            image: '/madinah-prophets-mosque.webp',
+            image: '/makkah-kaaba-night.webp',
             href: '/routes/makkah-madinah/',
             highlights: ['Rest stops included', 'Prayer breaks', 'Zamzam accommodation'],
             isPopular: true
+        },
+        {
+            name: 'Makkah → Jeddah',
+            distance: '85 km',
+            duration: '60-90 minutes',
+            price: 'From SAR 200',
+            description: 'Quick return transfer to Jeddah city or King Abdulaziz Airport after completing Umrah.',
+            image: '/makkah-kaaba-night.webp',
+            href: '/routes/makkah-jeddah/',
+            highlights: ['Airport drop-off', 'Hotel pickup', 'Direct route'],
+            isPopular: false
+        },
+        {
+            name: 'Jeddah → Madinah',
+            distance: '410 km',
+            duration: '4-5 hours',
+            price: 'From SAR 600',
+            description: 'Direct intercity transfer from Jeddah to the Holy City of Madinah. Travel in comfort.',
+            image: '/madinah-prophets-mosque.webp',
+            href: '/routes/jeddah-madinah/',
+            highlights: ['Long distance comfort', 'Professional drivers', 'Door-to-door'],
+            isPopular: false
         },
         {
             name: 'Madinah → Jeddah',

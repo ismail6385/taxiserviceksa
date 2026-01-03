@@ -63,6 +63,13 @@ export default function RootLayout({
           `}
         </Script>
 
+        {/* Trustpilot Review Collector */}
+        <Script
+          src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+          strategy="lazyOnload"
+          async
+        />
+
         <LayoutWrapper>
           {children}
         </LayoutWrapper>

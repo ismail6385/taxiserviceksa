@@ -58,6 +58,24 @@ export default function Footer() {
                                 <Share2 className="w-5 h-5" />
                             </a>
                         </div>
+
+                        {/* Trustpilot Widget */}
+                        <div className="mt-6 pt-6 border-t border-white/10">
+                            <div
+                                className="trustpilot-widget"
+                                data-locale="en-US"
+                                data-template-id="56278e9abfbbba0bdcd568bc"
+                                data-businessunit-id="69590063ca6f6aed3292cfb9"
+                                data-style-height="52px"
+                                data-style-width="100%"
+                                data-token="fab9a024-f184-45ab-904b-1cf6f5e9b94a"
+                            >
+                                <a href="https://www.trustpilot.com/review/taxiserviceksa.com" target="_blank" rel="noopener noreferrer">
+                                    Trustpilot
+                                </a>
+                            </div>
+                        </div>
+
                         <div className="mt-6 pt-6 border-t border-white/10">
                             <p className="text-gray-400 text-sm mb-2 font-semibold">Contact Us</p>
                             <a href="mailto:taxiserviceksa9988@gmail.com" className="text-primary hover:text-primary/80 transition-colors text-sm">

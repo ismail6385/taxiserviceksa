@@ -741,22 +741,50 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         </p>
                     </div>
 
+                    {/* Trustpilot Review Collector */}
+                    <div className="mb-12 flex justify-center">
+                        <div
+                            className="trustpilot-widget w-full max-w-4xl"
+                            data-locale="en-US"
+                            data-template-id="56278e9abfbbba0bdcd568bc"
+                            data-businessunit-id="69590063ca6f6aed3292cfb9"
+                            data-style-height="52px"
+                            data-style-width="100%"
+                            data-token="fab9a024-f184-45ab-904b-1cf6f5e9b94a"
+                        >
+                            <a href="https://www.trustpilot.com/review/taxiserviceksa.com" target="_blank" rel="noopener noreferrer">
+                                Trustpilot
+                            </a>
+                        </div>
+                    </div>
+
                     {/* Reviews Display */}
                     <div className="mb-12">
                         <ReviewsDisplay limit={3} />
                     </div>
 
                     {/* CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <div className="flex flex-col lg:flex-row gap-4 justify-center items-center">
                         <Link href="/submit-review/">
-                            <Button size="lg" className="bg-black text-white hover:bg-gray-800 font-bold">
+                            <Button size="lg" className="w-full lg:w-auto bg-black text-white hover:bg-gray-800 font-bold min-h-[56px] px-8">
                                 <Star className="w-5 h-5 mr-2" />
                                 Share Your Experience
                             </Button>
                         </Link>
-                        <Link href="/ask-question/">
-                            <Button size="lg" variant="outline" className="border-2 border-black text-black hover:bg-black hover:text-white font-bold transition-colors">
-                                Have a Question? Ask Our Drivers
+                        <a
+                            href="https://www.trustpilot.com/review/taxiserviceksa.com?utm_medium=trustbox&utm_source=ReviewCollector"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full lg:w-auto"
+                        >
+                            <Button size="lg" className="w-full lg:w-auto bg-[#00b67a] text-white hover:bg-[#00a36c] font-bold min-h-[56px] px-8 border-none">
+                                <Star className="w-5 h-5 mr-2 fill-white" />
+                                Review on Trustpilot
+                            </Button>
+                        </a>
+                        <Link href="/ask-question/" className="w-full lg:w-auto">
+                            <Button size="lg" variant="outline" className="w-full lg:w-auto border-2 border-black text-black hover:bg-black hover:text-white font-bold transition-colors min-h-[56px] px-8">
+                                Have a Question?
                             </Button>
                         </Link>
                     </div>
