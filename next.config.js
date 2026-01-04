@@ -153,6 +153,12 @@ const nextConfig = {
         destination: '/',
         permanent: false,
       },
+      // Redundant route redirect
+      {
+        source: '/locations/jeddah-makkah/',
+        destination: '/routes/jeddah-makkah/',
+        permanent: true,
+      },
     ];
   },
   async rewrites() {

@@ -54,7 +54,8 @@ export default function ShareButtons({ title, description }: ShareButtonsProps) 
                     key={link.name}
                     href={link.url}
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="nofollow noopener noreferrer"
+                    aria-label={`Share on ${link.name}`}
                     className={`p-2 rounded-full bg-gray-100 text-gray-600 transition-all duration-300 ${link.color}`}
                     title={`Share on ${link.name}`}
                 >

@@ -33,7 +33,6 @@ export const metadata: Metadata = {
 
 export default function KhayberPageUrdu() {
     const images = [
-        '/khayber-fort-oasis.png',
         '/hero-slide-2.webp',
     ];
 

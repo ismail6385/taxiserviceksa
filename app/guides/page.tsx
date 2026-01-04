@@ -187,6 +187,7 @@ export default function GuidesPage() {
                             <li><Link href="/guides/haram-gates-access/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Haram Gates Guide</Link></li>
                             <li><Link href="/guides/meeqat-locations/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Meeqat Points</Link></li>
                             <li><Link href="/guides/currency/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Currency & SAR Guide</Link></li>
+                            <li><Link href="/guides/makkah-shopping/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Makkah Shopping Guide</Link></li>
                             <li><Link href="/insights/pilgrimage-transport-report-2025/" className="text-emerald-600 font-bold hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> 2025 Transport Report</Link></li>
                         </ul>
                     </div>

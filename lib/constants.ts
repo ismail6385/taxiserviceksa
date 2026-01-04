@@ -6,7 +6,7 @@ export const AUTHORS = [
         slug: 'taxi-service-ksa',
         role: 'Official Team', // Added role
         bio: 'Official updates and travel guides from the Taxi Service KSA team.',
-        avatar: '/images/logo.png',
+        avatar: '/logo.png',
         social: {
             twitter: 'https://twitter.com/taxiserviceksa',
             facebook: 'https://facebook.com/taxiserviceksa',

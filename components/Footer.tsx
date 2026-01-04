@@ -24,7 +24,7 @@ export default function Footer() {
                             <a
                                 href="https://www.facebook.com/people/Taxi-Service-KSA/61573850597962/"
                                 target="_blank"
-                                rel="noopener noreferrer"
+                                rel="nofollow noopener noreferrer"
                                 className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary text-gray-400 hover:text-neutral-900 transition-all duration-300 hover:scale-110 border border-white/5 hover:border-primary"
                                 aria-label="Facebook"
                             >
@@ -33,7 +33,7 @@ export default function Footer() {
                             <a
                                 href="https://www.linkedin.com/company/taxi-service-ksa/"
                                 target="_blank"
-                                rel="noopener noreferrer"
+                                rel="nofollow noopener noreferrer"
                                 className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary text-gray-400 hover:text-neutral-900 transition-all duration-300 hover:scale-110 border border-white/5 hover:border-primary"
                                 aria-label="LinkedIn"
                             >
@@ -42,7 +42,7 @@ export default function Footer() {
                             <a
                                 href="https://www.youtube.com/channel/UCeP44oxBUKUG5X-UhYmPMNw"
                                 target="_blank"
-                                rel="noopener noreferrer"
+                                rel="nofollow noopener noreferrer"
                                 className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary text-gray-400 hover:text-neutral-900 transition-all duration-300 hover:scale-110 border border-white/5 hover:border-primary"
                                 aria-label="YouTube"
                             >
@@ -51,7 +51,7 @@ export default function Footer() {
                             <a
                                 href="https://www.pinterest.com/taxiserviceksa/"
                                 target="_blank"
-                                rel="noopener noreferrer"
+                                rel="nofollow noopener noreferrer"
                                 className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary text-gray-400 hover:text-neutral-900 transition-all duration-300 hover:scale-110 border border-white/5 hover:border-primary"
                                 aria-label="Pinterest"
                             >
@@ -84,41 +84,41 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Quick Links */}
+                    {/* Top Routes */}
                     <div>
                         <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                            Quick Links
+                            Top Routes
                             <span className="h-1 w-8 bg-primary rounded-full"></span>
                         </h3>
                         <ul className="space-y-3">
                             <li>
-                                <Link href="/about/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
+                                <Link href="/routes/jeddah-makkah/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    About Us
+                                    Jeddah to Makkah
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/fleet/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
+                                <Link href="/routes/makkah-madinah/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Our Fleet
+                                    Makkah to Madinah
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/gallery/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
+                                <Link href="/routes/madinah-jeddah/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Gallery
+                                    Madinah to Jeddah
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/faq/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
+                                <Link href="/routes/riyadh-jeddah/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
                                     <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    FAQ
+                                    Riyadh to Jeddah
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/contact/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Contact Us
+                                <Link href="/routes/" className="text-primary hover:text-primary/80 transition-colors flex items-center group text-sm font-semibold">
+                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 group-hover:w-2 group-hover:h-2 transition-all duration-300"></span>
+                                    All 50+ Routes →
                                 </Link>
                             </li>
                         </ul>

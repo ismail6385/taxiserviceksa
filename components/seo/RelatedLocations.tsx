@@ -14,10 +14,10 @@ export interface RelatedLink {
 }
 
 const defaultLinks: RelatedLink[] = [
-    { name: 'Taxi Makkah to Madinah', url: '/locations/madinah', description: 'Intercity transfer to the Prophet\'s Mosque' },
-    { name: 'Jeddah Airport Taxi', url: '/locations/jeddah', description: 'Airport pickup from JED King Abdulaziz Into' },
-    { name: 'Taif City Tours', url: '/locations/taif', description: 'Day trips to the City of Roses' },
-    { name: 'Riyadh Long Distance', url: '/locations/riyadh', description: 'Cross-country VIP transport' },
+    { name: 'Makkah (Haram Area)', url: '/locations/makkah/', description: '24/7 taxi services for Umrah pilgrims and Haram visitors' },
+    { name: 'Madinah (Prophet\'s Mosque)', url: '/locations/madinah/', description: 'Reliable transport for Ziyarat and Mosque visits' },
+    { name: 'Jeddah International Airport', url: '/locations/jeddah/', description: 'King Abdulaziz Airport (JED) meet & greet transfers' },
+    { name: 'Riyadh (Capital City)', url: '/locations/riyadh/', description: 'Business and intercity transport in the capital' },
 ];
 
 interface RelatedLocationsProps {

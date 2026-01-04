@@ -26,8 +26,12 @@ export default function Navbar() {
             children: [
                 { name: 'Umrah Transport', href: '/services/umrah-transport/', isHub: true },
                 { name: 'Airport Transfers', href: '/services/airport-transfers/', isHub: true },
-                { name: 'Corporate Travel', href: '/services/corporate-travel/', isHub: true },
-                { name: 'Heritage Tours', href: '/services/heritage-tours/', isHub: true },
+                { name: 'Business & Executive', href: '/services/business/', isHub: true },
+                { name: 'Wheelchair Taxi', href: '/services/wheelchair-taxi/' },
+                { name: 'Sightseeing Tours', href: '/services/tours/', isHub: true },
+                { name: 'Corporate Travel', href: '/services/corporate-travel/' },
+                { name: 'Heritage Tours', href: '/services/heritage-tours/' },
+                { name: 'Intercity Transfers', href: '/services/intercity/', isHub: true },
             ]
         },
         {
@@ -79,6 +83,7 @@ export default function Navbar() {
             children: [
                 { name: 'Jeddah Airport Guide', href: '/guides/jeddah-airport-guide/', isHub: true },
                 { name: 'Makkah Umrah Guide', href: '/guides/makkah-umrah-guide/', isHub: true },
+                { name: 'Makkah Shopping Guide', href: '/guides/makkah-shopping/', isHub: true },
                 { name: 'Umrah Tawaf Guide', href: '/guides/umrah-tawaf-guide/' },
                 { name: 'Meeqat Locations', href: '/guides/meeqat-locations/' },
                 { name: 'Riyadh Business Guide', href: '/guides/riyadh-business-guide/', isHub: true },

@@ -72,7 +72,7 @@ export default async function AuthorProfilePage({ params }: Props) {
                                                 />
                                             ) : (
                                                 <div className="flex items-center justify-center h-full text-gray-300">
-                                                    <Image src="/images/logo.png" alt="Placeholder" width={50} height={50} className="opacity-20" />
+                                                    <Image src="/logo.png" alt="Placeholder" width={50} height={50} className="opacity-20" />
                                                 </div>
                                             )}
                                         </div>

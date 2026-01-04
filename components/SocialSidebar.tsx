@@ -6,7 +6,8 @@ export default function SocialSidebar() {
             <a
                 href="https://www.facebook.com/people/Taxi-Service-KSA/61573850597962/"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
+                aria-label="Facebook"
                 className="p-3.5 hover:bg-[#1877F2] hover:text-white text-[#1877F2] transition-all duration-300 flex items-center justify-center group relative hover:scale-110"
                 title="Facebook"
             >
@@ -19,7 +20,8 @@ export default function SocialSidebar() {
             <a
                 href="https://www.instagram.com/taxiserviceksa/"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
+                aria-label="Instagram"
                 className="p-3.5 hover:bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] hover:text-white text-[#bc1888] transition-all duration-300 flex items-center justify-center group relative hover:scale-110"
                 title="Instagram"
             >
@@ -32,7 +34,8 @@ export default function SocialSidebar() {
             <a
                 href="https://twitter.com/TaxiServiceKSA"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
+                aria-label="Twitter"
                 className="p-3.5 hover:bg-black hover:text-white text-black transition-all duration-300 flex items-center justify-center group relative hover:scale-110"
                 title="Twitter (X)"
             >
@@ -45,7 +48,8 @@ export default function SocialSidebar() {
             <a
                 href="https://www.linkedin.com/company/taxi-service-ksa/"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
+                aria-label="LinkedIn"
                 className="p-3.5 hover:bg-[#0077b5] hover:text-white text-[#0077b5] transition-all duration-300 flex items-center justify-center group relative hover:scale-110"
                 title="LinkedIn"
             >
@@ -58,7 +62,8 @@ export default function SocialSidebar() {
             <a
                 href="https://www.youtube.com/channel/UCeP44oxBUKUG5X-UhYmPMNw"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
+                aria-label="YouTube"
                 className="p-3.5 hover:bg-[#FF0000] hover:text-white text-[#FF0000] transition-all duration-300 flex items-center justify-center group relative hover:scale-110"
                 title="YouTube"
             >
@@ -71,7 +76,8 @@ export default function SocialSidebar() {
             <a
                 href="https://www.pinterest.com/taxiserviceksa/"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
+                aria-label="Pinterest"
                 className="p-3.5 hover:bg-[#BD081C] hover:text-white text-[#BD081C] transition-all duration-300 flex items-center justify-center group relative hover:scale-110"
                 title="Pinterest"
             >
@@ -88,7 +94,8 @@ export default function SocialSidebar() {
             <a
                 href="https://www.trustpilot.com/review/taxiserviceksa.com"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="nofollow noopener noreferrer"
+                aria-label="Trustpilot"
                 className="p-3.5 hover:bg-[#00b67a] hover:text-white text-[#00b67a] transition-all duration-300 flex items-center justify-center group relative hover:scale-110"
                 title="Trustpilot"
             >

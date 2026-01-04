@@ -56,7 +56,6 @@ export default function KhayberPage() {
     ];
 
     const khayberImages = [
-        '/khayber-fort-oasis.png', // New Generated Image
         '/hero-slide-2.webp', // Khaybar specific
         '/hero-slide-5.webp', // Desert generic
     ];

@@ -52,22 +52,22 @@ export default function AuthorCard({ authorName, showBio = true, className = '',
 
                     <div className="flex items-center justify-center sm:justify-start gap-3">
                         {author.social.twitter && (
-                            <a href={author.social.twitter} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-50 rounded-full text-gray-500 hover:text-[#1DA1F2] hover:bg-[#1DA1F2]/10 transition-colors">
+                            <a href={author.social.twitter} target="_blank" rel="nofollow noopener noreferrer" aria-label={`Follow ${author.name} on Twitter`} className="p-2 bg-gray-50 rounded-full text-gray-500 hover:text-[#1DA1F2] hover:bg-[#1DA1F2]/10 transition-colors">
                                 <Twitter className="w-4 h-4" />
                             </a>
                         )}
                         {author.social.facebook && (
-                            <a href={author.social.facebook} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-50 rounded-full text-gray-500 hover:text-[#4267B2] hover:bg-[#4267B2]/10 transition-colors">
+                            <a href={author.social.facebook} target="_blank" rel="nofollow noopener noreferrer" aria-label={`Follow ${author.name} on Facebook`} className="p-2 bg-gray-50 rounded-full text-gray-500 hover:text-[#4267B2] hover:bg-[#4267B2]/10 transition-colors">
                                 <Facebook className="w-4 h-4" />
                             </a>
                         )}
                         {author.social.linkedin && (
-                            <a href={author.social.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-50 rounded-full text-gray-500 hover:text-[#0077b5] hover:bg-[#0077b5]/10 transition-colors">
+                            <a href={author.social.linkedin} target="_blank" rel="nofollow noopener noreferrer" aria-label={`Follow ${author.name} on LinkedIn`} className="p-2 bg-gray-50 rounded-full text-gray-500 hover:text-[#0077b5] hover:bg-[#0077b5]/10 transition-colors">
                                 <Linkedin className="w-4 h-4" />
                             </a>
                         )}
                         {author.social.instagram && (
-                            <a href={author.social.instagram} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-50 rounded-full text-gray-500 hover:text-[#E1306C] hover:bg-[#E1306C]/10 transition-colors">
+                            <a href={author.social.instagram} target="_blank" rel="nofollow noopener noreferrer" aria-label={`Follow ${author.name} on Instagram`} className="p-2 bg-gray-50 rounded-full text-gray-500 hover:text-[#E1306C] hover:bg-[#E1306C]/10 transition-colors">
                                 <Instagram className="w-4 h-4" />
                             </a>
                         )}

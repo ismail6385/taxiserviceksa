@@ -58,7 +58,7 @@ const locations = [
     {
         name: 'Khayber Fort',
         description: 'Historical tours to the ancient oases of Khaybar.',
-        image: '/alula-hegra-tombs.webp',
+        image: '/hero-slide-2.webp',
         href: '/locations/khayber-fort/'
     },
     {
@@ -70,13 +70,13 @@ const locations = [
     {
         name: 'Al Khobar',
         description: 'Luxury transport for Corniche, hotels, and Causeway trips.',
-        image: '/khobar-water-tower.webp',
+        image: '/hero-slide-4.webp',
         href: '/locations/al-khobar/'
     },
     {
         name: 'Dhahran',
         description: 'Professional service for Energy and Industrial hubs (Aramco/Ithra).',
-        image: '/ithra-center.webp',
+        image: '/hero-slide-5.webp',
         href: '/locations/dhahran/'
     }
 ];

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Car, Plane, Building2, Compass, ArrowRight } from 'lucide-react';
+import { Car, Plane, Building2, Compass, ArrowRight, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
@@ -42,9 +42,41 @@ export default function ServicesPage() {
             name: 'Heritage Tour Transport',
             description: 'Heritage tour transport connects tourists to UNESCO sites like AlUla. Professional drivers operate 4x4 vehicles for desert excursions.',
             icon: Compass,
-            href: '/services/heritage-tours',
+            href: '/services/heritage-tours/',
             features: ['AlUla Hegra tours', '4x4 desert vehicles', 'English-speaking guides', 'Flexible schedules'],
             isPopular: true
+        },
+        {
+            name: 'Business & Executive Taxi',
+            description: 'Business taxi service for corporate travelers in Riyadh and Jeddah. Premium vehicles and professional chauffeurs for executive meetings.',
+            icon: Building2,
+            href: '/services/business/',
+            features: ['KAFD & Business districts', 'Punctual meeting arrivals', 'Premium VIP fleet', 'Hourly booking options'],
+            isPopular: false
+        },
+        {
+            name: 'Wheelchair Accessible Taxi',
+            description: 'Wheelchair accessible taxi service for pilgrims and passengers with special needs. Specially equipped vehicles with ramps.',
+            icon: Car,
+            href: '/services/wheelchair-taxi/',
+            features: ['Ramp equipped vehicles', 'Safe luggage storage', 'Trained helpful drivers', 'Door-to-door assistance'],
+            isPopular: false
+        },
+        {
+            name: 'Sightseeing & Ziyarat Tours',
+            description: 'Sightseeing tours in Makkah, Madinah, and Taif. Visit historical sites with knowledgeable drivers who know the city history.',
+            icon: MapPin,
+            href: '/services/tours/',
+            features: ['Makkah Ziyarat', 'Madinah historical sites', 'Taif mountain tours', 'Flexible itinerary'],
+            isPopular: false
+        },
+        {
+            name: 'Intercity Taxi Transfers',
+            description: 'Intercity taxi service connecting all major cities. Travel comfortably from Riyadh to Jeddah or Madinah with flat rates.',
+            icon: Compass,
+            href: '/services/intercity/',
+            features: ['Long distance comfort', 'Multiple city stops', 'Fixed intercity rates', '24/7 highway service'],
+            isPopular: false
         },
     ];
 

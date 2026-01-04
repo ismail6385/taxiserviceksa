@@ -18,6 +18,9 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
         description: vehicleName
             ? `Instant online booking for ${vehicleName} in Saudi Arabia. Best rates, professional drivers & 24/7 service. Reserve your ride now.`
             : 'Book your taxi in Saudi Arabia online. Secure reservations for airport transfers, Umrah & intercity travel. 24/7 professional service.',
+        alternates: {
+            canonical: 'https://taxiserviceksa.com/booking/',
+        },
     };
 }
 

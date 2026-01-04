@@ -755,7 +755,7 @@ export default async function MakkahPage() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
                 {/* Strategic Internal Links Hub */}
                 <div className="bg-white border border-gray-100 rounded-3xl p-8 mb-16 shadow-sm">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
                         <div>
                             <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
                                 <Car className="w-5 h-5 text-primary" /> Specialist Umrah Fleet
@@ -797,6 +797,28 @@ export default async function MakkahPage() {
                                 </li>
                                 <li>
                                     <Link href="/routes/" className="text-primary font-bold hover:underline">View All Intercity Routes →</Link>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                <History className="w-5 h-5 text-primary" /> Makkah Travel Guides
+                            </h4>
+                            <ul className="space-y-3">
+                                <li>
+                                    <Link href="/guides/makkah-umrah-guide/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Complete Umrah Guide</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/guides/makkah-shopping/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                        <span>Makkah Shopping Guide</span>
+                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/guides/" className="text-primary font-bold hover:underline">Browse All Guides →</Link>
                                 </li>
                             </ul>
                         </div>

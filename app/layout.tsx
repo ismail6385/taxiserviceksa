@@ -41,13 +41,30 @@ export const metadata = {
   },
 };
 
+import { headers } from 'next/headers';
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const headersList = headers();
+  const pathname = headersList.get('x-pathname') || '';
+
+  // Detect language and direction
+  let lang = 'en';
+  let dir = 'ltr';
+
+  if (pathname.startsWith('/ar/') || pathname === '/ar') {
+    lang = 'ar';
+    dir = 'rtl';
+  } else if (pathname.startsWith('/ur/') || pathname === '/ur') {
+    lang = 'ur';
+    dir = 'rtl';
+  }
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={lang} dir={dir} suppressHydrationWarning>
       <body className={poppins.className} suppressHydrationWarning>
         {/* Google Analytics */}
         <Script

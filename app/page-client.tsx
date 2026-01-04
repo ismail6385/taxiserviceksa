@@ -752,7 +752,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             data-style-width="100%"
                             data-token="fab9a024-f184-45ab-904b-1cf6f5e9b94a"
                         >
-                            <a href="https://www.trustpilot.com/review/taxiserviceksa.com" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.trustpilot.com/review/taxiserviceksa.com" target="_blank" rel="nofollow noopener noreferrer">
                                 Trustpilot
                             </a>
                         </div>
@@ -774,7 +774,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         <a
                             href="https://www.trustpilot.com/review/taxiserviceksa.com?utm_medium=trustbox&utm_source=ReviewCollector"
                             target="_blank"
-                            rel="noopener noreferrer"
+                            rel="nofollow noopener noreferrer"
                             className="w-full lg:w-auto"
                         >
                             <Button size="lg" className="w-full lg:w-auto bg-[#00b67a] text-white hover:bg-[#00a36c] font-bold min-h-[56px] px-8 border-none">
