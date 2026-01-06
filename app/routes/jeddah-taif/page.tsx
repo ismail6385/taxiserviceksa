@@ -1,70 +1,74 @@
-
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Plane, ArrowRight, Train, Navigation, Mountain } from 'lucide-react';
+import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Mountain, CloudSun, ArrowRight } from 'lucide-react';
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
+import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Jeddah to Taif Taxi | Scenic Mountain Transfer 170km',
-    description: 'Taxi from Jeddah to Taif. Enjoy the scenic drive to Taif mountains. 2.5 hour journey. Fixed rates from SAR 350. Reliable 24/7 service.',
-    keywords: ['Jeddah to Taif taxi', 'Jeddah Taif transfer', 'taxi fare Jeddah Taif', 'Al Hada road taxi', 'Taif city tours'],
+    title: 'Taxi Jeddah Airport to Taif | Al Hada Mountain Transfers',
+    description: 'Book a taxi from Jeddah Airport to Taif. Enjoy the scenic drive up Al Hada mountain. Reliable transfers to Taif city, glorious resorts, and historic sites.',
+    keywords: ['Taxi Jeddah to Taif', 'Jeddah Airport to Taif taxi', 'Al Hada mountain taxi service', 'Taif cable car transfer', 'Jeddah to Taif car'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/jeddah-taif/',
+        canonical: 'https://transferksa.com/routes/jeddah-taif/',
     },
     openGraph: {
-        title: 'Jeddah to Taif Taxi | Scenic Mountain Transfer',
-        description: 'Taxi from Jeddah to Taif. Enjoy the scenic drive to Taif mountains. 2.5 hour journey. Fixed rates from SAR 350.',
-        url: 'https://taxiserviceksa.com/routes/jeddah-taif/',
+        title: 'Scenic Taxi Ride: Jeddah to Taif (Al Hada)',
+        description: 'Escape the humidity. Travel from Jeddah to the cool mountains of Taif in comfort. We specialize in the Al Hada mountain route.',
+        url: 'https://transferksa.com/routes/jeddah-taif/',
         type: 'website',
     },
 };
 
 export default function JeddahTaifRoutePage() {
-    const routeDetails = [
-        { label: 'Distance', value: '170 km', icon: Navigation },
-        { label: 'Travel Time', value: '2.5 - 3 Hours', icon: Clock },
-        { label: 'Starting Price', value: 'SAR 350', icon: DollarSign },
-        { label: 'Route Type', value: 'Mountain Drive', icon: Mountain },
-    ];
-
-
-
-    const routeImages = [
-        '/jeddah-corniche-sunset.webp', // Ideally Taif mountains, but will use Jeddah image or generic
+    const images = [
+        '/jeddah-airport.webp', // Ideally Al Hada Mountain Road
         '/hero-slide-3.webp',
-        '/makkah-kaaba-night.webp',
+        '/hero-slide-2.webp',
     ];
-
-
 
     const routeSchema = {
         "@context": "https://schema.org",
-        "@type": "TravelAction",
-        "name": "Taxi from Jeddah to Taif",
-        "fromLocation": {
-            "@type": "Place",
-            "name": "Jeddah",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Jeddah",
-                "addressCountry": "SA"
-            }
+        "@type": "Service",
+        "name": "Jeddah to Taif Taxi",
+        "provider": {
+            "@type": "TransportationService",
+            "name": "TaxiServiceKSA"
         },
-        "toLocation": {
-            "@type": "Place",
-            "name": "Taif",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Taif",
-                "addressCountry": "SA"
-            }
+        "areaServed": {
+            "@type": "City",
+            "name": "Taif"
         },
-        "distance": "170 km",
-
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Mountain Route",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Sedan (Al Hada Route)",
+                        "description": "Comfortable sedan for up to 3 passengers."
+                    },
+                    "price": "350",
+                    "priceCurrency": "SAR"
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "GMC/SUV Mountain Special",
+                        "description": "Powerful SUV ideal for the mountain ascent."
+                    },
+                    "price": "550",
+                    "priceCurrency": "SAR"
+                }
+            ]
+        }
     };
 
     return (
@@ -74,208 +78,147 @@ export default function JeddahTaifRoutePage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
             />
-            <Script
-                id="route-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
-            />
 
-            {/* Hero Section */}
             <Hero
-                images={routeImages}
-                h1Text="Online Taxi from Jeddah to Taif"
+                images={images}
+                h1Text="Taxi Jeddah to Taif (Al Hada)"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Jeddah → Taif Route
+                        City of Roses
                     </span>
                 }
-                subtitle="Scenic Drive to the City of Roses"
-                location="2.5 Hours | Fixed Rate SAR 350+"
+                subtitle="The Cool Mountain Escape | 2 Hours"
+                location="Via Al Hada Mountain Road"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <Link href="/booking?route=jeddah-taif">
+                    <Link href="/booking?pickup=Jeddah%20Airport&dropoff=Taif">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book This Route
+                            Book Taif Ride (350 SAR)
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:taxiserviceksa9988@gmail.com">
+                    <a href="mailto:info@transferksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            Email for Quote
+                            Summer Tour
                         </Button>
                     </a>
                 </div>
             </Hero>
 
-            {/* Route Details Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Route Information</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Jeddah to Taif Mountain Transfer</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Experience the breathtaking drive up the Al Hada mountain range to the cool, rose-filled city of Taif.
-                        </p>
-                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <span className="text-rose-900 font-bold uppercase tracking-wider text-sm">Mountain Retreat</span>
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
+                                Journey Above the Clouds
+                            </h2>
+                            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                                Taif is Jeddah's favorite summer getaway. Located at an elevation of 1,800 meters, it offers cool weather, fruit orchards, and the famous Taif roses.
+                            </p>
+                            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                                The drive involves ascending the spectacular Al Hada mountain road with its winding turns and stunning views. It requires a skilled driver and a well-maintained vehicle to navigate safely and comfortably.
+                            </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                        {routeDetails.map((detail, index) => (
-                            <div key={index} className="bg-gray-50 rounded-2xl p-8 text-center border border-gray-200">
-                                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <detail.icon className="w-8 h-8 text-black" />
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
+                                    <Mountain className="w-6 h-6 text-primary" />
+                                    <span className="font-semibold text-gray-800">Al Hada Road</span>
                                 </div>
-                                <div className="text-sm text-gray-500 uppercase tracking-wider mb-2">{detail.label}</div>
-                                <div className="text-2xl font-bold text-gray-900">{detail.value}</div>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Features Section */}
-                    <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 md:p-12 text-white">
-                        <div className="flex items-center gap-3 mb-6">
-                            <Mountain className="w-8 h-8 text-white" />
-                            <h3 className="text-2xl font-bold">Why Visit Taif?</h3>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div>
-                                <h4 className="font-bold text-lg mb-4 text-white">Cool Weather & Nature</h4>
-                                <p className="text-gray-300 mb-4">Taif is known as the summer capital of Saudi Arabia due to its pleasant climate. Enjoy the fresh mountain air, far from the heat of Jeddah.</p>
-                            </div>
-                            <div>
-                                <h4 className="font-bold text-lg mb-4 text-white">Cable Car & Fruit Market</h4>
-                                <p className="text-gray-300 mb-4">Experience the famous cable car ride in Al Hada and visit the vibrant local fruit markets selling pomegranates, grapes, and figs.</p>
+                                <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
+                                    <CloudSun className="w-6 h-6 text-primary" />
+                                    <span className="font-semibold text-gray-800">Cool Weather</span>
+                                </div>
+                                <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
+                                    <Car className="w-6 h-6 text-primary" />
+                                    <span className="font-semibold text-gray-800">Experienced Driver</span>
+                                </div>
+                                <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
+                                    <Users className="w-6 h-6 text-primary" />
+                                    <span className="font-semibold text-gray-800">Family SUVs</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
+                        <div className="bg-gray-100 rounded-3xl p-8 border border-gray-200">
+                            <h3 className="text-2xl font-bold text-gray-900 mb-6">Must-Visit Spots</h3>
+                            <ul className="space-y-6">
+                                <li className="flex gap-4">
+                                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">1</div>
+                                    <div>
+                                        <h4 className="font-bold text-gray-900">Al Hada Cable Car</h4>
+                                        <p className="text-sm text-gray-500">The longest cable car in the region, connecting the mountain top to the water park below.</p>
+                                    </div>
+                                </li>
+                                <li className="flex gap-4">
+                                    <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center shrink-0 text-primary font-bold">2</div>
+                                    <div>
+                                        <h4 className="font-bold text-gray-900">Shubra Palace</h4>
+                                        <p className="text-sm text-gray-500">A stunning historic palace that offers a glimpse into Taif's royal past.</p>
+                                    </div>
+                                </li>
+                                <li className="flex gap-4">
+                                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">3</div>
+                                    <div>
+                                        <h4 className="font-bold text-gray-900">Rose Factories</h4>
+                                        <p className="text-sm text-gray-500">Visit in spring to see how the world-famous Taif rose water is distilled.</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            {/* Pricing Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <div className="inline-flex items-center gap-2 bg-emerald-100 px-4 py-2 rounded-full mb-6">
-                            <Star className="w-4 h-4 text-emerald-700" />
-                            <span className="text-sm font-semibold text-emerald-900">Mountain Route Fares</span>
-                        </div>
-
-                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
-                            Jeddah to Taif Pricing
-                        </h3>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            Flat rates including the scenic drive up Al Hada mountain.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all text-center">
-                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                <Car className="w-6 h-6 text-emerald-600" />
-                            </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">Camry (Sedan)</div>
-                            <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-gray-500">SAR</span> 350
-                            </div>
-                            <div className="text-sm text-gray-600 leading-relaxed">
-                                4 Passengers / 2 Bags
-                            </div>
-                        </div>
-
-                        <div className="bg-white p-8 rounded-2xl border-2 border-emerald-500 hover:shadow-xl transition-all text-center relative">
-                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-emerald-600 text-white hover:text-black px-4 py-1 rounded-full text-xs font-bold">
-                                RECOMMENDED
-                            </div>
-                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                <Users className="w-6 h-6 text-emerald-600" />
-                            </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">GMC Yukon (SUV)</div>
-                            <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-gray-500">SAR</span> 550
-                            </div>
-                            <div className="text-sm text-gray-600 leading-relaxed">
-                                7 Passengers / 5 Bags
-                            </div>
-                        </div>
-
-                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all text-center">
-                            <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                <MapPin className="w-6 h-6 text-emerald-600" />
-                            </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">HiAce Bus</div>
-                            <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-gray-500">SAR</span> 700
-                            </div>
-                            <div className="text-sm text-gray-600 leading-relaxed">
-                                Small Groups (10-12 pax)
-                            </div>
-                        </div>
-                    </div>
+                    <TravelConsensus
+                        points={[
+                            {
+                                topic: "Motion Sickness",
+                                commonBelief: "It's just a normal road.",
+                                reality: "The Al Hada zig-zag road can cause motion sickness. Our drivers know how to drive smoothly to minimize discomfort.",
+                                truthRange: "Windy Roads",
+                                factors: ["Zig-Zag Descent", "Altitude Change"]
+                            },
+                            {
+                                topic: "Monkeys",
+                                commonBelief: "They are aggressive.",
+                                reality: "You will see baboons on the roadside. They are generally fine if you stay in the car. Do not feed them.",
+                                truthRange: "Wildlife Present",
+                                factors: ["Baboons", "Don't Feed"]
+                            }
+                        ]}
+                    />
                 </div>
             </section>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
                 <RelatedLocations currentCity="Jeddah" />
             </div>
 
             <MicroSemanticFAQ
                 faqs={[
                     {
-                        question: "How long is the taxi ride from Jeddah to Taif?",
-                        shortAnswer: "2.5 - 3 Hours",
-                        detailedAnswer: "The drive typically takes 2.5 to 3 hours. The route involves driving up the Al Hada mountain road, which is scenic but requires careful driving.",
+                        question: "How long does it take to get to Taif?",
+                        shortAnswer: "2 - 2.5 Hours",
+                        detailedAnswer: "It typically takes about 2 to 2.5 hours from Jeddah Airport, depending on whether you take the Al Hada mountain road (scenic) or the Sail road (truck route).",
                         perspectives: []
                     },
                     {
-                        question: "How much is a taxi from Jeddah to Taif?",
-                        shortAnswer: "From SAR 350",
-                        detailedAnswer: "Fares start from SAR 350 for a standard sedan. SUVs, which are recommended for the mountain ascent for better power and comfort, start from SAR 550.",
+                        question: "Is the Al Hada road always open?",
+                        shortAnswer: "Mostly",
+                        detailedAnswer: "It is occasionally closed during heavy rain or fog for safety. In that case, we take the alternative Sail Road route.",
                         perspectives: []
                     },
                     {
-                        question: "Is the Al Hada mountain road safe?",
-                        shortAnswer: "Yes, Safe",
-                        detailedAnswer: "Yes, the Al Hada road is a modern engineering marvel with multiple lanes and safety barriers. However, it can be foggy in winter. Our drivers are experienced with mountain driving conditions.",
-                        perspectives: []
-                    },
-                    {
-                        question: "Do you offer return trips from Taif to Jeddah?",
-                        shortAnswer: "Yes, Available",
-                        detailedAnswer: "Yes, you can book a one-way transfer or a round trip. If you are visiting Taif for a day tour, the driver can wait for you (waiting charges apply) or return to pick you up later.",
-                        perspectives: []
-                    },
-                    {
-                        question: "Can I stop to take photos on the mountain road?",
-                        shortAnswer: "Yes, Of Course",
-                        detailedAnswer: "Yes, there are designated parking spots and fruit stalls along the Al Hada road where you can stop for photos and see the famous monkeys. Just let your driver know.",
+                        question: "Can we stop for photos on the mountain?",
+                        shortAnswer: "Yes",
+                        detailedAnswer: "Absolutely. There are dedicated viewpoints (Fruit Market area) where we can pause for you to enjoy the view and buy local fruits.",
                         perspectives: []
                     }
                 ]}
             />
-
-            {/* CTA Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your Jeddah to Taif Transfer
-                    </h2>
-                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Enjoy a safe and scenic mountain drive with our experienced chauffeurs.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking?route=jeddah-taif">
-                            <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Now (SAR 350+)
-                            </Button>
-                        </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
-                            <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Email for Quote
-                            </Button>
-                        </a>
-                    </div>
-                </div>
-            </section>
         </div>
     );
 }

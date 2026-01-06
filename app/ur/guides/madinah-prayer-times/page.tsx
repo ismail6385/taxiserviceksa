@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: 'Current prayer (Salah) times in Madinah Al Munawwarah. Importance of praying in the Prophet\'s Mosque. Avoid peak crowds.',
     keywords: ['Madinah prayer times', 'Masjid Nabawi salat time', 'Fajr time Madinah', 'Isha time Madinah', 'Prayer schedule Madinah'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/madinah-prayer-times/',
+        canonical: 'https://transferksa.com/guides/madinah-prayer-times/',
     },
 };
 
@@ -25,7 +25,7 @@ export default function PrayerTimesPage() {
         "@type": "Article",
         "headline": "Prayer Times Guidance for Madinah",
         "description": "Information on calculating prayer times and visiting Masjid Nabawi.",
-        "image": "https://taxiserviceksa.com/madinah-night-view.webp"
+        "image": "https://transferksa.com/madinah-night-view.webp"
     };
 
     return (

@@ -2,10 +2,10 @@
 export const AUTHORS = [
     {
         id: '1',
-        name: 'Taxi Service KSA',
-        slug: 'taxi-service-ksa',
-        role: 'Official Team', // Added role
-        bio: 'Official updates and travel guides from the Taxi Service KSA team.',
+        name: 'VIP Transfer KSA',
+        slug: 'vip-transfer-ksa',
+        role: 'Official Team',
+        bio: 'Official updates and travel guides from the VIP Transfer KSA team.',
         avatar: '/logo.png',
         social: {
             twitter: 'https://twitter.com/taxiserviceksa',
@@ -19,7 +19,7 @@ export const AUTHORS = [
         name: 'Muhammad Ismail',
         slug: 'muhammad-ismail',
         role: 'Founder & Tech Lead',
-        bio: 'Founder of Taxi Service KSA. A versatile tech professional specializing in SQA, Next.js Web Development, SEO Content Strategy, and AI Automation. Ismail combines technical expertise with travel logistics to build smart, efficient digital experiences for Hajj & Umrah pilgrims.',
+        bio: 'Founder of VIP Transfer KSA. A versatile tech professional specializing in SQA, Next.js Web Development, SEO Content Strategy, and AI Automation. Ismail combines technical expertise with travel logistics to build smart, efficient digital experiences for Hajj & Umrah pilgrims.',
         avatar: '/images/authors/ismail.jpg',
         social: {
             twitter: '',

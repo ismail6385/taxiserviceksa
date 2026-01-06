@@ -177,8 +177,8 @@ export default function QuestionForm({ locationName, serviceName }: QuestionForm
                 <p className="text-sm text-gray-500 text-center">
                     Questions and answers will be published on this page to help other travelers.
                     For urgent booking inquiries, please email{' '}
-                    <a href="mailto:taxiserviceksa9988@gmail.com" className="text-primary hover:underline font-medium">
-                        taxiserviceksa9988@gmail.com
+                    <a href="mailto:info@taxiserviceksa.com" className="text-primary hover:underline font-medium">
+                        info@taxiserviceksa.com
                     </a>
                 </p>
             </div>

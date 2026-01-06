@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: 'Guide to Masjid Al Haram gates. Find King Abdulaziz Gate, King Fahd Gate, Umrah entrances, and wheelchair accessible gates. Navigate the Haram easily.',
     keywords: ['Haram gates Makkah', 'King Abdulaziz Gate', 'King Fahd Gate', 'Umrah gate number', 'Wheelchair access Haram gates'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/haram-gates-access/',
+        canonical: 'https://transferksa.com/guides/haram-gates-access/',
     },
 };
 

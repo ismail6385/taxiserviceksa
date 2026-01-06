@@ -15,16 +15,14 @@ import { blogService } from '@/lib/blogService';
 import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-    title: 'Airport Transfers in Saudi Arabia | Online Booking & Fixed Prices',
-    description: 'Book reliable airport transfers across Saudi Arabia (Jeddah, Riyadh, Madinah). Online booking for private cars, taxis & luxury vans. Flight tracking & fixed pricing included.',
-    keywords: ['Airport Transfers in Saudi Arabia', 'Saudi Arabia Airport Transfer Taxi', 'Online Booking Airport Transfer', 'Jeddah Airport Taxi', 'Riyadh Airport Transfer', 'Madinah Airport Shuttle'],
+    keywords: ['VIP Airport Transfers Saudi Arabia', 'Premium Chauffeur Service', 'Jeddah Airport VIP Transfer', 'Riyadh Executive Transfer', 'Madinah Private Airport Shuttle'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/airport-transfers/',
+        canonical: 'https://transferksa.com/services/airport-transfers/',
     },
     openGraph: {
-        title: 'Airport Transfer Service Saudi Arabia | Taxi with Driver - 8 Airports',
-        description: 'Professional airport transfer service across Saudi Arabia. 8 major airports covered. Meet-and-greet, flight tracking, 24/7 service.',
-        url: 'https://taxiserviceksa.com/services/airport-transfers/',
+        title: 'VIP Airport Transfer Service Saudi Arabia | Premium Chauffeur - 8 Airports',
+        description: 'Professional VIP airport transfer service across Saudi Arabia. 8 major airports covered. Executive meet-and-greet, flight tracking, 24/7 service.',
+        url: 'https://transferksa.com/services/airport-transfers/',
         type: 'website',
     },
 };
@@ -96,9 +94,9 @@ export default async function AirportTransfersPage() {
     ];
 
     const features = [
-        'Meet-and-greet service at arrivals hall',
+        'Meet-and-greet at Terminal 1 Aquarium & North Terminal',
         'Flight tracking with automatic delay adjustment',
-        'Professional drivers with airport route knowledge',
+        'Ministry of Transport Licensed Drivers',
         'Name sign display for easy identification',
         'Luggage assistance included',
         'All vehicles with licensed drivers (no self-drive)',
@@ -134,16 +132,16 @@ export default async function AirportTransfersPage() {
 
     const faqs = [
         {
-            question: "How does meet-and-greet service work at Saudi airports?",
-            answer: "Driver waits at arrivals hall with name sign displaying passenger name. For Jeddah (JED), Riyadh (RUH), and Madinah (MED) airports, drivers wait at designated meeting points near baggage claim. Driver monitors flight status and adjusts pickup time for delays automatically. Contact number provided in booking confirmation."
+            question: "How does the VIP meet-and-greet service work at Saudi airports?",
+            answer: "Driver waits at arrivals hall with name sign displaying passenger name. For Jeddah (JED), we meet at the **Aquarium (Terminal 1)** or **Gate 4 (North Terminal)**. For Madinah (MED), drivers wait at the main international exit barrier. Detailed meeting point photos are sent via WhatsApp."
         },
         {
             question: "What happens if my flight is delayed or arrives early?",
             answer: "Flight tracking is included for all airport pickups. Driver monitors real-time flight status via airline systems. No extra charges for delays up to 3 hours. For early arrivals, driver adjusts pickup time automatically. For delays over 3 hours, notify us via email for driver rescheduling."
         },
         {
-            question: "Do you provide airport transfer service for late-night or early-morning flights?",
-            answer: "Yes. Airport transfer service operates 24/7 for all flight times. Late-night pickups (10 PM - 6 AM) have the same fixed rates as daytime service. Advance booking (24-48 hours) is recommended for flights arriving between midnight and 5 AM."
+            question: "Do you provide airport transfer service for late-night or early-morning VIP flights?",
+            answer: "Yes. Our VIP airport transfer service operates 24/7 for all flight times. Late-night pickups (10 PM - 6 AM) have the same competitive fixed rates as daytime service. Advance booking (24-48 hours) is recommended for flights arriving between midnight and 5 AM."
         },
         {
             question: "Can I book airport transfer with child seats?",
@@ -170,7 +168,7 @@ export default async function AirportTransfersPage() {
     const serviceSchema = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Airport Transfer Service Saudi Arabia",
+        "name": "VIP Airport Transfer Service Saudi Arabia",
 
         "serviceType": "Airport Transfer",
         "areaServed": [
@@ -181,7 +179,7 @@ export default async function AirportTransfersPage() {
             { "@type": "City", "name": "Yanbu" },
             { "@type": "City", "name": "Taif" }
         ],
-        "description": "Book airport transfers in Saudi Arabia with online booking. Professional drivers, flight tracking, and fixed pricing for Jeddah, Riyadh, and Madinah airports.",
+        "description": "Executive VIP airport transfer and premium chauffeur service in Saudi Arabia. Specializing in private meet-and-greet transfers for international travelers and business clients at JED, RUH, and MED airports.",
         "offers": {
             "@type": "AggregateOffer",
             "priceCurrency": "SAR",
@@ -212,11 +210,11 @@ export default async function AirportTransfersPage() {
                             Airport Transfer Service
                         </span>
                         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                            Airport Transfers In<br />
-                            <span className="text-white">Saudi Arabia</span>
+                            VIP Airport Private Transfers<br />
+                            <span className="text-white">In Saudi Arabia</span>
                         </h1>
                         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                            Experience stress-free travel from <Link href="/locations/jeddah/" className="text-white underline hover:text-primary transition-colors">Jeddah Airport</Link> and all major KSA hubs. Enjoy flight tracking, fixed pricing, and professional meet-and-greet service.
+                            Experience international standard meet-and-greet services. We provide **premium, pre-booked VIP private transfers** from <Link href="/locations/jeddah/" className="text-white underline hover:text-primary transition-colors">Jeddah Airport</Link> and all major KSA hubs. Our executive chauffeur service is dedicated to long-distance journeys, ensuring you reach your destination with absolute privacy and comfort.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/booking?service=airport-transfer">
@@ -225,7 +223,7 @@ export default async function AirportTransfersPage() {
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>
-                            <a href="mailto:taxiserviceksa9988@gmail.com">
+                            <a href="mailto:info@transferksa.com">
                                 <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
                                     Email for Quote
                                 </Button>
@@ -239,9 +237,9 @@ export default async function AirportTransfersPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Major Airports Covered</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Strategic Airport Hubs</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            We provide comprehensive airport transfer services across the Kingdom, focusing on convenience and value.
+                            We provide exclusive, pre-booked executive transportation. We do **not** serve local street-hail or short-hop requests.
                         </p>
                     </div>
 
@@ -324,7 +322,7 @@ export default async function AirportTransfersPage() {
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Select Your Vehicle Class</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Choose from private cars, taxis, luxury sedans, or large vans based on your passenger and luggage needs.
+                            Choose from executive private cars, luxury sedans, or premium large vans based on your passenger and luggage needs.
                         </p>
                     </div>
 
@@ -441,10 +439,10 @@ export default async function AirportTransfersPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Online Booking Airport Transfer Services
+                        Book Your VIP Airport Chauffeur
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Get instant booking confirmation with transparent, fixed pricing. Meet your driver directly at the terminal exit.
+                        Secure your private transfer with Saudi Arabia's premium executive transport provider. Dedicated to international travelers and business excellence.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking?service=airport-transfer">
@@ -452,7 +450,7 @@ export default async function AirportTransfersPage() {
                                 Book Now
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Custom Quote
                             </Button>

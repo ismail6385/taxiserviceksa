@@ -24,22 +24,22 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import ExpertReview from '@/components/seo/ExpertReview';
 
 export const metadata: Metadata = {
-    title: 'Taxi Service in Dammam | Airport & City Travel',
-    description: 'Book the best taxi service in Dammam. fast airport transfers, corniche rides & intercity travel to Khobar/Jubail. 24/7 availability.',
-    keywords: ['taxi service in Dammam', 'Dammam taxi', 'King Fahd Airport taxi', 'Dammam Corniche transport', 'Jubail transfer', 'rent a car with driver in dammam', 'chauffeur service dammam', 'private taxi dammam', 'dammam to jubail taxi fare'],
+    title: 'VIP Private Transfer & Executive Chauffeur Dammam | DMM Airport',
+    description: 'Premium VIP private transfer and executive chauffeur service in Dammam. Specialized King Fahd International Airport (DMM) pickups and industrial hub transfers to Jubail. Professional corporate standards.',
+    keywords: ['Dammam VIP private transfer', 'Executive chauffeur Dammam', 'DMM airport VIP pickup', 'Premium Dammam to Jubail transfer', 'Dammam corporate transport'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/dammam/',
+        canonical: 'https://transferksa.com/locations/dammam/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/dammam/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/dammam/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/dammam/',
-            'x-default': 'https://taxiserviceksa.com/locations/dammam/',
+            'en': 'https://transferksa.com/locations/dammam/',
+            'ar': 'https://transferksa.com/ar/locations/dammam/',
+            'ur': 'https://transferksa.com/ur/locations/dammam/',
+            'x-default': 'https://transferksa.com/locations/dammam/',
         }
     },
     openGraph: {
-        title: 'Taxi Service in Dammam | Airport & City Travel',
-        description: 'Book the best taxi service in Dammam. fast airport transfers, corniche rides & intercity travel to Khobar/Jubail. 24/7 availability.',
-        url: 'https://taxiserviceksa.com/locations/dammam/',
+        title: 'VIP Transfer in Dammam | Airport & City Travel',
+        description: 'Book the premium VIP transfer in Dammam. Fast airport transfers, corniche rides & intercity travel to Khobar/Jubail. 24/7 availability.',
+        url: 'https://transferksa.com/locations/dammam/',
         type: 'website',
     },
 };
@@ -122,18 +122,19 @@ export default function DammamPage() {
             {/* Hero Section */}
             <Hero
                 images={dammamImages}
-                h1Text="Taxi Service in Dammam: Airport & City Transfers"
+                h1Text="VIP Private Transfer & Chauffeur Dammam"
+                bookingFormTitle="Book Premium Transfer in Dammam"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Dammam Taxi Service
+                        VIP Chauffeur Service Dammam
                     </span>
                 }
-                subtitle="Eastern Province Metro Hub"
-                location="Airport • Jubail • Corniche"
+                subtitle="Eastern Province Metro Hub & Industrial Artery"
+                location="DMM Airport • Jubail • Corporate"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ Dammam"
+                        brandName="VIP Transfer KSA™ Dammam"
                         description="Professional chauffeur and airport transfer services in Dammam. We help business travelers and families with luxury vehicles and 24/7 availability for King Fahd International Airport (DMM) and Jubail transfers."
                         foundingDate="2012"
                         metrics={[
@@ -147,17 +148,27 @@ export default function DammamPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                         <Link href="/booking/">
-                            Book Dammam Taxi
+                            Book VIP Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </Button>
                     <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             Email Us
                         </a>
                     </Button>
                 </div>
             </Hero>
+
+            {/* Premium Service Disclaimer */}
+            <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                        <Shield className="w-4 h-4" />
+                        OFFICIAL NOTE: We specialize in pre-booked Airport, Intercity, and VIP Corporate transfers. We do NOT provide local short-distance hailing.
+                    </p>
+                </div>
+            </div>
 
             {/* Trending Note */}
             <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
@@ -262,10 +273,10 @@ export default function DammamPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Our Services</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Dammam Transport Solutions</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Connecting Dammam to King Fahd Airport, Jubail, and the rest of the Eastern Province.
+                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Executive Services</span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">VIP Dammam Transport Solutions</h2>
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                            Premium chauffeur-driven experiences connecting Dammam to King Fahd Airport (DMM), Jubail Industrial City, and corporate hubs across the Eastern Province.
                         </p>
                     </div>
 
@@ -287,7 +298,7 @@ export default function DammamPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Dammam Taxi Service</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Dammam VIP Transfer</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                         {features.map((feature, index) => (
@@ -373,7 +384,7 @@ export default function DammamPage() {
                     <MicroSemanticFAQ
                         faqs={[
                             {
-                                question: "How much is a taxi from Dammam Airport to the city?",
+                                question: "How much is a VIP transfer from Dammam Airport to the city?",
                                 shortAnswer: "150-200 SAR",
                                 detailedAnswer: "King Fahd International Airport (DMM) is 45-50km from the city. The standard fare reflects this distance. Uber pricing surges, but our fixed rate includes meet & greet.",
                                 perspectives: [
@@ -390,7 +401,7 @@ export default function DammamPage() {
                                 ]
                             },
                             {
-                                question: "Is there a taxi to Riyadh?",
+                                question: "Is there a VIP transfer to Riyadh?",
                                 shortAnswer: "Yes, 4 Hours",
                                 detailedAnswer: "We provide intercity transfers to Riyadh (400km). It is a smooth highway drive. Popular for those who miss flights or carry heavy luggage.",
                                 perspectives: [
@@ -420,7 +431,7 @@ export default function DammamPage() {
                         </div>
 
                         <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                            Dammam Taxi Fares
+                            Dammam VIP Transfer Fares
                         </h3>
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                             Flat rates to/from King Fahd International Airport (DMM).
@@ -432,12 +443,12 @@ export default function DammamPage() {
                             <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                                 <Plane className="w-6 h-6 text-primary" />
                             </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">Dammam Airport</div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">VIP Airport Pickup</div>
                             <div className="text-4xl font-black text-primary mb-3">
-                                <span className="text-2xl">From</span> SAR 150
+                                <span className="text-2xl">From</span> SAR 200
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
-                                To Dammam City Center
+                                MED Airport to Dammam Center (Fixed)
                             </div>
                         </div>
 
@@ -481,7 +492,7 @@ export default function DammamPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your Dammam Taxi Now
+                        Book Your Dammam VIP Transfer Now
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                         Reliable transport for airport transfers, Jubail trips, and city travel.
@@ -489,10 +500,10 @@ export default function DammamPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Your Ride
+                                Book VIP Transfer
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email Us
                             </Button>

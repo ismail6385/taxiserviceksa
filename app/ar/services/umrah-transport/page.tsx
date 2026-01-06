@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     description: 'Complete Umrah transport service with professional drivers. Jeddah Airport to Makkah, Makkah to Madinah taxi. Fixed rates, 24/7 service. All vehicles include licensed drivers.',
     keywords: ['Umrah taxi service', 'Makkah Madinah transport', 'Umrah transport with driver', 'Jeddah Airport Makkah taxi', 'pilgrimage transport KSA'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/umrah-transport/',
+        canonical: 'https://transferksa.com/services/umrah-transport/',
     },
     openGraph: {
         title: 'Umrah Transport Service | Taxi with Driver for Makkah & Madinah',
         description: 'Complete Umrah transport service with professional drivers. Jeddah Airport to Makkah, Makkah to Madinah taxi. Fixed rates, 24/7 service.',
-        url: 'https://taxiserviceksa.com/services/umrah-transport/',
+        url: 'https://transferksa.com/services/umrah-transport/',
         type: 'website',
     },
 };
@@ -192,7 +192,7 @@ export default function UmrahTransportPage() {
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>
-                            <a href="mailto:taxiserviceksa9988@gmail.com">
+                            <a href="mailto:info@transferksa.com">
                                 <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
                                     Email for Quote
                                 </Button>
@@ -347,7 +347,7 @@ export default function UmrahTransportPage() {
                                 Book Now
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Custom Package
                             </Button>

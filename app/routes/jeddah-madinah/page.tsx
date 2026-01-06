@@ -8,16 +8,16 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Jeddah to Madinah Taxi | Intercity Transfer 410km - Fixed Price SAR 600',
-    description: 'Book a taxi from Jeddah to Madinah 24/7. Long-distance intercity transfer (410km) in 4-5 hours. Fixed rate SAR 600. Professional drivers & luxury fleet. Book online.',
-    keywords: ['Jeddah to Madinah taxi', 'Jeddah Airport to Madinah taxi', 'taxi price Jeddah Madinah', 'jeddah to madinah by road taxi', 'private taxi jeddah to madinah fare', 'Jeddah to Madinah transport'],
+    title: 'Jeddah to Madinah Taxi | Pre-Book Private Transfer 410km | From SAR 600',
+    description: 'Pre-book your smooth transfer from Jeddah to Madinah. Trusted by travelers from UK, USA, & Canada. English-speaking drivers, fixed rates, and door-to-door luxury service.',
+    keywords: ['Jeddah to Madinah taxi booking', 'Jeddah Airport to Madinah private car', 'prebook taxi saudi arabia', 'luxury transfer jeddah to madinah', 'Jeddah to Madinah taxi fare'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/jeddah-madinah/',
+        canonical: 'https://transferksa.com/routes/jeddah-madinah/',
     },
     openGraph: {
-        title: 'Jeddah to Madinah Taxi | Intercity Transfer - Fixed Price',
-        description: 'Book a taxi from Jeddah to Madinah 24/7. 410km intercity transfer in 4-5 hours. Fixed rate SAR 600.',
-        url: 'https://taxiserviceksa.com/routes/jeddah-madinah/',
+        title: 'Jeddah to Madinah Taxi | Pre-Book VIP Transfer - Fixed Price',
+        description: 'Reliable 410km intercity transfer. Book in advance from home. 24/7 service with professional drivers.',
+        url: 'https://transferksa.com/routes/jeddah-madinah/',
         type: 'website',
     },
 };
@@ -71,23 +71,23 @@ export default function JeddahMadinahRoutePage() {
 
             <Hero
                 images={routeImages}
-                h1Text="Taxi from Jeddah to Madinah"
+                h1Text="Jeddah to Madinah Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Jeddah → Madinah Intercity
                     </span>
                 }
-                subtitle="King Abdulaziz Airport to Madinah Hotels"
-                location="4-5 Hours | Fixed Rate SAR 600+"
+                subtitle="Reliable Airport to Hotel Transfer - Book Before You Fly"
+                location="4-5 Hours | Fixed Rate SAR 600+ | Pre-Book Online"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?route=jeddah-madinah">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book This Route
+                            Secure Your Ride
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:taxiserviceksa9988@gmail.com">
+                    <a href="mailto:info@transferksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email for Quote
                         </Button>
@@ -127,7 +127,7 @@ export default function JeddahMadinahRoutePage() {
                         <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Route Info</span>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Long-Distance Jeddah to Madinah Transfer</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Our intercity taxi service offers a comfortable way to travel the 410km between Jeddah and Madinah. Avoid the crowds of public transport and enjoy a private air-conditioned ride.
+                            Our <strong>Jeddah to Madinah taxi</strong> service is the stress-free alternative to the <strong>Haramain Train</strong>. We offer door-to-door pickup from <strong>King Abdulaziz International Airport (KAIA)</strong> directly to <strong>Al Masjid an Nabawi</strong> in 4 hours—no station transfers or luggage limits.
                         </p>
                     </div>
 
@@ -162,20 +162,34 @@ export default function JeddahMadinahRoutePage() {
                                         <p className="text-sm text-gray-400 leading-relaxed">No baggage weight limits or carrying heavy suitcases through crowded terminals. Your driver handles all luggage.</p>
                                     </div>
                                 </div>
+                                <div className="flex gap-4">
+                                    <div className="shrink-0 w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center font-bold text-primary">03</div>
+                                    <div>
+                                        <h4 className="font-bold mb-1">Licensed & Insured</h4>
+                                        <p className="text-sm text-gray-400 leading-relaxed">All our vehicles are fully licensed by the <strong>Transport General Authority (TGA)</strong>, ensuring a safe, legal, and insured journey.</p>
+                                    </div>
+                                </div>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4">
-                                    <div className="shrink-0 w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center font-bold text-primary">03</div>
+                                    <div className="shrink-0 w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center font-bold text-primary">04</div>
                                     <div>
                                         <h4 className="font-bold mb-1">Flexible Schedule</h4>
                                         <p className="text-sm text-gray-400 leading-relaxed">Depart whenever you want. You are not tied to train or bus timings. Perfect for late-night arrivals at Jeddah Airport.</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-4">
-                                    <div className="shrink-0 w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center font-bold text-primary">04</div>
+                                    <div className="shrink-0 w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center font-bold text-primary">05</div>
                                     <div>
-                                        <h4 className="font-bold mb-1">Rest Stops</h4>
-                                        <p className="text-sm text-gray-400 leading-relaxed">Since it's a 4-hour drive, your driver can stop for refreshments or prayer breaks at your request.</p>
+                                        <h4 className="font-bold mb-1">International Standards</h4>
+                                        <p className="text-sm text-gray-400 leading-relaxed">Trusted by visitors from UK, USA, and Europe. We provide professional service with clear, fixed pricing and no surprises.</p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4">
+                                    <div className="shrink-0 w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center font-bold text-primary">06</div>
+                                    <div>
+                                        <h4 className="font-bold mb-1">Rest Stops & Prayers</h4>
+                                        <p className="text-sm text-gray-400 leading-relaxed">It&apos;s a 4-hour drive. We are happy to stop at clean, family-friendly rest areas like <strong>SASCO</strong> or <strong>Badr</strong> for coffee, bathrooms, or prayer times.</p>
                                     </div>
                                 </div>
                             </div>
@@ -199,7 +213,7 @@ export default function JeddahMadinahRoutePage() {
                         <div className="bg-white p-8 rounded-2xl shadow-sm border-2 border-primary">
                             <div className="text-lg font-bold mb-2">GMC Yukon (VIP)</div>
                             <div className="text-4xl font-black text-primary mb-4">SAR 850</div>
-                            <p className="text-sm text-gray-500">Premium Comfort (SUV)</p>
+                            <p className="text-sm text-gray-500">Best Comfort (SUV)</p>
                         </div>
                         <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
                             <div className="text-lg font-bold mb-2">HiAce / Staria</div>
@@ -208,7 +222,7 @@ export default function JeddahMadinahRoutePage() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 pt-20">
                 <RelatedLocations currentCity="Jeddah" />
@@ -247,6 +261,6 @@ export default function JeddahMadinahRoutePage() {
                     </Link>
                 </div>
             </section>
-        </div>
+        </div >
     );
 }

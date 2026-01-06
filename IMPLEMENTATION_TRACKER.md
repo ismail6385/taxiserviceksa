@@ -1,4 +1,4 @@
-# 📊 Implementation Tracker - Taxi Service KSA
+# 📊 Implementation Tracker - VIP Transfer KSA
 
 ## 🎯 Current Status: READY TO START
 
@@ -28,8 +28,8 @@
 
 #### Day 1: GMB Profile Creation (TODAY!)
 - [ ] Go to https://business.google.com
-- [ ] Create/claim "Taxi Service KSA" listing
-- [ ] Add business name: Taxi Service KSA - Premium Chauffeur & Airport Transfer
+- [ ] Create/claim "VIP Transfer KSA" listing
+- [ ] Add business name: VIP Transfer KSA - Premium Chauffeur & Airport Transfer
 - [ ] Select categories (Primary: Taxi Service)
 - [ ] Add service areas (8 cities)
 - [ ] Add phone: +92-317-6243861
@@ -243,11 +243,11 @@ Local Pack Rankings: Top 3 for 5+ keywords
 1. **Go to Google My Business** (30 min)
    - Visit: https://business.google.com
    - Sign in with Google account
-   - Search for "Taxi Service KSA"
+   - Search for "VIP Transfer KSA"
    - Claim if exists, or create new listing
 
 2. **Add Basic Information** (30 min)
-   - Business name: Taxi Service KSA - Premium Chauffeur & Airport Transfer
+   - Business name: VIP Transfer KSA - Premium Chauffeur & Airport Transfer
    - Primary category: Taxi Service
    - Phone: +92-317-6243861
    - Website: https://taxiserviceksa.com

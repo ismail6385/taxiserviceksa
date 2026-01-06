@@ -15,21 +15,21 @@ export const metadata: Metadata = {
     description: 'جدہ میں بہترین ٹیکسی سروس۔ کنگ عبدالعزیز ایئرپورٹ سے مکہ اور مدینہ کے لیے آرام دہ سفر۔ فیملی کاریں (GMC) دستیاب ہیں۔',
     keywords: ['جدہ ٹیکسی', 'جدہ ایئرپورٹ پک اپ', 'مکہ ٹیکسی', 'عمرہ ٹرانسپورٹ', 'جدہ سے مدینہ'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/ur/locations/jeddah/',
+        canonical: 'https://transferksa.com/ur/locations/jeddah/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/jeddah/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/jeddah/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/jeddah/',
-            'x-default': 'https://taxiserviceksa.com/locations/jeddah/',
+            'en': 'https://transferksa.com/locations/jeddah/',
+            'ar': 'https://transferksa.com/ar/locations/jeddah/',
+            'ur': 'https://transferksa.com/ur/locations/jeddah/',
+            'x-default': 'https://transferksa.com/locations/jeddah/',
         }
     },
     openGraph: {
         title: 'جدہ ٹیکسی | مکہ اور مدینہ ٹرانسفر',
         description: 'جدہ ایئرپورٹ (ٹرمینل 1) سے مکہ ہوٹل تک براہ راست سروس۔ سامان اور فیملی کے لیے بہترین۔',
-        url: 'https://taxiserviceksa.com/ur/locations/jeddah/',
+        url: 'https://transferksa.com/ur/locations/jeddah/',
         locale: 'ur_PK',
         type: 'website',
-        images: [{ url: 'https://taxiserviceksa.com/jeddah-corniche-sunset.webp', alt: 'جدہ کورنیش' }],
+        images: [{ url: 'https://transferksa.com/jeddah-corniche-sunset.webp', alt: 'جدہ کورنیش' }],
     },
 };
 

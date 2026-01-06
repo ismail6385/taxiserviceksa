@@ -10,8 +10,8 @@ import {
 } from '@/components/ui/accordion';
 
 export const metadata: Metadata = {
-    title: 'FAQs | Taxi Service KSA - Common Questions',
-    description: 'Find answers to frequently asked questions about booking, payments, vehicles, and services at Taxi Service KSA.',
+    title: 'FAQs | VIP Transfer KSA - Common Questions',
+    description: 'Find answers to frequently asked questions about booking, payments, vehicles, and services at VIP Transfer KSA.',
     keywords: ['taxi FAQ Saudi Arabia', 'booking help', 'payment questions', 'service coverage', 'airport transfer FAQ'],
 };
 
@@ -21,8 +21,8 @@ export default function FAQPage() {
             category: 'Booking & Reservations',
             questions: [
                 {
-                    question: 'How do I book a taxi?',
-                    answer: 'You can book primarily through our website booking form or by email. simply provide your pickup location, destination, date, time, and number of passengers. You\'ll receive a confirmation once your booking is processed.'
+                    question: 'How do I book a VIP transfer?',
+                    answer: 'You can book primarily through our website booking form or by email. Simply provide your pickup location, destination, date, time, and number of passengers. You\'ll receive a confirmation once your booking is processed.'
                 },
                 {
                     question: 'How far in advance should I book?',
@@ -92,8 +92,8 @@ export default function FAQPage() {
                     answer: 'Yes, we specialize in airport transfers to/from all major airports including Jeddah (KAIA), Madinah, and Taif airports with flight tracking and meet & greet services.'
                 },
                 {
-                    question: 'Can you arrange Umrah transportation?',
-                    answer: 'Yes, we offer specialized Umrah taxi services including Makkah to Madinah transfers, Ziyarat tours, and hotel to Haram transportation.'
+                    question: 'Can you arrange VIP Umrah transportation?',
+                    answer: 'Yes, we offer specialized VIP Umrah transfer services including Makkah to Madinah transfers, Ziyarat tours, and premium hotel transfers.'
                 },
                 {
                     question: 'Do you offer hourly rental services?',

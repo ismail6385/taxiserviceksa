@@ -1,270 +1,188 @@
 import Link from 'next/link';
-import { Facebook, Instagram, Twitter, Linkedin, Car, Youtube, Share2 } from 'lucide-react';
+import {
+    Facebook, Instagram, Twitter, Linkedin, Car, Youtube, Share2,
+    MapPin, Phone, Mail, Clock, ShieldCheck, Globe
+} from 'lucide-react';
 
 export default function Footer() {
     return (
-        <footer className="bg-gradient-to-b from-neutral-900 to-black text-white pt-16 pb-8 border-t border-primary/20 relative overflow-hidden">
-            {/* Abstract Background Elements */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-70"></div>
+        <footer className="bg-gray-950 text-white pt-24 pb-12 border-t border-gray-900 relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none">
+                <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary rounded-full blur-[150px] -translate-y-1/2 translate-x-1/2"></div>
+                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-900 rounded-full blur-[150px] translate-y-1/2 -translate-x-1/2"></div>
+            </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-12">
-                    {/* Brand & Social */}
-                    <div className="space-y-6">
-                        <Link href="/" className="flex items-center gap-2 group">
-                            <div className="bg-gradient-to-br from-primary via-blue-500 to-primary p-2 rounded-xl group-hover:scale-110 transition-transform duration-300 shadow-[0_0_20px_rgba(37,99,235,0.4)]">
+                {/* Main Grid */}
+                {/* Main Grid: Mega Footer Structure - 5 Columns */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-20">
+
+                    {/* Column 1: Brand & About (RESTORED) */}
+                    <div className="space-y-8">
+                        <Link href="/" className="flex items-center gap-3 group w-fit">
+                            <div className="bg-gradient-to-br from-primary via-blue-600 to-indigo-700 p-2.5 rounded-xl group-hover:rotate-[360deg] transition-all duration-700 shadow-lg shadow-primary/20">
                                 <Car className="w-6 h-6 text-white" />
                             </div>
-                            <span className="text-2xl font-bold text-white tracking-tight">TaxiService<span className="text-primary">KSA</span></span>
-                        </Link>
-                        <p className="text-gray-400 leading-relaxed text-sm">
-                            Premium chauffeur services in Saudi Arabia. Experience luxury, comfort, and reliability for all your travel needs.
-                        </p>
-                        <div className="flex flex-wrap gap-3">
-                            <a
-                                href="https://www.facebook.com/people/Taxi-Service-KSA/61573850597962/"
-                                target="_blank"
-                                rel="nofollow noopener noreferrer"
-                                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary text-gray-400 hover:text-neutral-900 transition-all duration-300 hover:scale-110 border border-white/5 hover:border-primary"
-                                aria-label="Facebook"
-                            >
-                                <Facebook className="w-5 h-5" />
-                            </a>
-                            <a
-                                href="https://www.linkedin.com/company/taxi-service-ksa/"
-                                target="_blank"
-                                rel="nofollow noopener noreferrer"
-                                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary text-gray-400 hover:text-neutral-900 transition-all duration-300 hover:scale-110 border border-white/5 hover:border-primary"
-                                aria-label="LinkedIn"
-                            >
-                                <Linkedin className="w-5 h-5" />
-                            </a>
-                            <a
-                                href="https://www.youtube.com/channel/UCeP44oxBUKUG5X-UhYmPMNw"
-                                target="_blank"
-                                rel="nofollow noopener noreferrer"
-                                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary text-gray-400 hover:text-neutral-900 transition-all duration-300 hover:scale-110 border border-white/5 hover:border-primary"
-                                aria-label="YouTube"
-                            >
-                                <Youtube className="w-5 h-5" />
-                            </a>
-                            <a
-                                href="https://www.pinterest.com/taxiserviceksa/"
-                                target="_blank"
-                                rel="nofollow noopener noreferrer"
-                                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-primary text-gray-400 hover:text-neutral-900 transition-all duration-300 hover:scale-110 border border-white/5 hover:border-primary"
-                                aria-label="Pinterest"
-                            >
-                                <Share2 className="w-5 h-5" />
-                            </a>
-                        </div>
-
-                        {/* Trustpilot Widget */}
-                        <div className="mt-6 pt-6 border-t border-white/10">
-                            <div
-                                className="trustpilot-widget"
-                                data-locale="en-US"
-                                data-template-id="56278e9abfbbba0bdcd568bc"
-                                data-businessunit-id="69590063ca6f6aed3292cfb9"
-                                data-style-height="52px"
-                                data-style-width="100%"
-                                data-token="fab9a024-f184-45ab-904b-1cf6f5e9b94a"
-                            >
-                                <a href="https://www.trustpilot.com/review/taxiserviceksa.com" target="_blank" rel="noopener noreferrer">
-                                    Trustpilot
-                                </a>
+                            <div className="flex flex-col">
+                                <span className="text-2xl font-black text-white tracking-tight leading-none">
+                                    VIPTransfer<span className="text-primary">KSA</span>
+                                </span>
+                                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-2 block">Premium Chauffeur Service</span>
                             </div>
+                        </Link>
+                        <p className="text-gray-400 leading-relaxed text-sm font-medium pr-4">
+                            Your trusted partner for premium transportation across Saudi Arabia. We specialize in Umrah transfers, corporate logistics, and luxury chauffeur services.
+                        </p>
+                        {/* Socials (Moved back here for better brand association) */}
+                        <div className="flex gap-3">
+                            {[
+                                { title: 'Facebook', icon: Facebook, href: 'https://www.facebook.com/people/Taxi-Service-KSA/61573850597962/' },
+                                { title: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/company/taxi-service-ksa/' },
+                                { title: 'YouTube', icon: Youtube, href: 'https://www.youtube.com/channel/UCeP44oxBUKUG5X-UhYmPMNw' },
+                                { title: 'Pinterest', icon: Share2, href: 'https://www.pinterest.com/taxiserviceksa/' }
+                            ].map((social) => (
+                                <a
+                                    key={social.title}
+                                    href={social.href}
+                                    target="_blank"
+                                    rel="nofollow noopener noreferrer"
+                                    className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 hover:bg-primary text-gray-400 hover:text-white transition-all hover:-translate-y-1"
+                                    aria-label={social.title}
+                                >
+                                    <social.icon className="w-5 h-5" />
+                                </a>
+                            ))}
                         </div>
-
-                        <div className="mt-6 pt-6 border-t border-white/10">
-                            <p className="text-gray-400 text-sm mb-2 font-semibold">Contact Us</p>
-                            <a href="mailto:taxiserviceksa9988@gmail.com" className="text-primary hover:text-primary/80 transition-colors text-sm">
-                                taxiserviceksa9988@gmail.com
-                            </a>
-                        </div>
                     </div>
 
-                    {/* Top Routes */}
+                    {/* Column 2: Holy Cities (Makkah & Madinah) */}
                     <div>
-                        <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                            Top Routes
-                            <span className="h-1 w-8 bg-primary rounded-full"></span>
+                        <h3 className="text-lg font-black text-white mb-6 flex items-center gap-2">
+                            <div className="w-1 h-6 bg-primary rounded-full"></div>
+                            Holy City Transfers
                         </h3>
-                        <ul className="space-y-3">
-                            <li>
-                                <Link href="/routes/jeddah-makkah/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Jeddah to Makkah
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/routes/makkah-madinah/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Makkah to Madinah
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/routes/madinah-jeddah/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Madinah to Jeddah
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/routes/riyadh-jeddah/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Riyadh to Jeddah
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/routes/" className="text-primary hover:text-primary/80 transition-colors flex items-center group text-sm font-semibold">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 group-hover:w-2 group-hover:h-2 transition-all duration-300"></span>
-                                    All 50+ Routes →
-                                </Link>
-                            </li>
+                        <ul className="space-y-2">
+                            {[
+                                { name: 'VIP Transfer Makkah', href: '/locations/makkah/' },
+                                { name: 'Makkah Clock Tower Transfer', href: '/locations/makkah/' },
+                                { name: 'Jabal Omar VIP Transfer', href: '/locations/makkah/jabal-omar/' },
+                                { name: 'Makkah Train Station Transfer', href: '/locations/makkah/train-station/' },
+                                { name: 'VIP Transfer Madinah', href: '/locations/madinah/' },
+                                { name: 'Madinah Airport VIP Transfer', href: '/locations/madinah/madinah-airport/' },
+                                { name: 'Madinah Train Station Transfer', href: '/locations/madinah/train-station/' },
+                                { name: 'Quba Mosque Private Transfer', href: '/locations/madinah/quba/' },
+                            ].map((item) => (
+                                <li key={item.name}>
+                                    <Link href={item.href} className="text-gray-400 hover:text-white hover:translate-x-1 transition-all flex items-center gap-2 group text-sm font-medium">
+                                        <div className="w-1 h-1 bg-gray-600 rounded-full group-hover:bg-primary transition-colors"></div>
+                                        {item.name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    {/* Travel Guides */}
+                    {/* Column 3: Major Hubs (Jeddah, Riyadh, Eastern) */}
                     <div>
-                        <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                            Travel Resources
-                            <span className="h-1 w-8 bg-primary rounded-full"></span>
+                        <h3 className="text-lg font-black text-white mb-6 flex items-center gap-2">
+                            <div className="w-1 h-6 bg-primary rounded-full"></div>
+                            Executive City Transfers
                         </h3>
-                        <ul className="space-y-3">
-                            <li>
-                                <Link href="/insights/pilgrimage-transport-report-2025/" className="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center group text-sm font-bold">
-                                    <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mr-2 opacity-100 group-hover:w-2 group-hover:h-2 transition-all duration-300"></span>
-                                    2025 Transport Report
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/guides/makkah-umrah-guide/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Makkah Umrah Guide
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/guides/jeddah-airport-guide/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Jeddah Airport Guide
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/guides/umrah-tawaf-guide/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Umrah Tawaf Guide
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/guides/meeqat-locations/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Meeqat Locations
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/guides/riyadh-business-guide/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Riyadh Business Guide
-                                </Link>
-                            </li>
+                        <ul className="space-y-2">
+                            {[
+                                { name: 'VIP Transfer Jeddah', href: '/locations/jeddah/' },
+                                { name: 'Jeddah Airport Transfer', href: '/services/airport-transfers/' },
+                                { name: 'Jeddah Port VIP Transfer', href: '/locations/jeddah/islamic-port/' },
+                                { name: 'VIP Transfer Riyadh', href: '/locations/riyadh/' },
+                                { name: 'Olaya District Transfer', href: '/locations/riyadh/olaya/' },
+                                { name: 'Diriyah Gate VIP Transfer', href: '/locations/riyadh/diriyah/' },
+                                { name: 'Bujairi Terrace Transfer', href: '/locations/riyadh/bujairi-terrace/' },
+                                { name: 'KAFD Riyadh Transfer', href: '/locations/riyadh/kafd/' },
+                                { name: 'Boulevard World Transfer', href: '/locations/riyadh/boulevard-world/' },
+                                { name: 'VIP Transfer Dammam', href: '/locations/dammam/' },
+                                { name: 'Al Khobar Private Transfer', href: '/locations/al-khobar/' },
+                            ].map((item) => (
+                                <li key={item.name}>
+                                    <Link href={item.href} className="text-gray-400 hover:text-white hover:translate-x-1 transition-all flex items-center gap-2 group text-sm font-medium">
+                                        <div className="w-1 h-1 bg-gray-600 rounded-full group-hover:bg-primary transition-colors"></div>
+                                        {item.name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    {/* Locations */}
+                    {/* Column 4: Tourism & Regions */}
                     <div>
-                        <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                            Top Locations
-                            <span className="h-1 w-8 bg-primary rounded-full"></span>
+                        <h3 className="text-lg font-black text-white mb-6 flex items-center gap-2">
+                            <div className="w-1 h-6 bg-primary rounded-full"></div>
+                            Premium Tourist Transfers
                         </h3>
-                        <ul className="space-y-3">
-                            <li>
-                                <Link href="/locations/makkah/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Makkah (Haram)
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/locations/madinah/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Madinah (Ziyarat)
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/locations/jeddah/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Jeddah Airport
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/locations/riyadh/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Riyadh City
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/locations/alula/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    AlUla Heritage
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/locations/" className="text-primary hover:text-primary/80 transition-colors flex items-center group text-sm font-semibold">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 group-hover:w-2 group-hover:h-2 transition-all duration-300"></span>
-                                    All 20+ Locations →
-                                </Link>
-                            </li>
+                        <ul className="space-y-2">
+                            {[
+                                { name: 'VIP Transfer AlUla', href: '/locations/alula/' },
+                                { name: 'Hegra VIP Transfer', href: '/locations/alula/hegra/' },
+                                { name: 'VIP Transfer Taif', href: '/locations/taif/' },
+                                { name: 'VIP Transfer Yanbu', href: '/locations/yanbu/' },
+                                { name: 'Jubail Industrial Transfer', href: '/locations/jubail/industrial-city/' },
+                                { name: 'Exclusive NEOM Transfer', href: '/locations/neom/' },
+                                { name: 'Abha Private Transfer', href: '/locations/abha/al-soudah/' },
+                                { name: 'Bahrain VIP Transfer', href: '/routes/dammam-bahrain/' },
+                            ].map((item) => (
+                                <li key={item.name}>
+                                    <Link href={item.href} className="text-gray-400 hover:text-white hover:translate-x-1 transition-all flex items-center gap-2 group text-sm font-medium">
+                                        <div className="w-1 h-1 bg-gray-600 rounded-full group-hover:bg-primary transition-colors"></div>
+                                        {item.name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    {/* Fleet */}
+                    {/* Column 5: Routes & Services */}
                     <div>
-                        <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                            Popular Fleet
-                            <span className="h-1 w-8 bg-primary rounded-full"></span>
+                        <h3 className="text-lg font-black text-white mb-6 flex items-center gap-2">
+                            <div className="w-1 h-6 bg-primary rounded-full"></div>
+                            VIP Intercity Routes
                         </h3>
-                        <ul className="space-y-3">
-                            <li>
-                                <Link href="/fleet/gmc-yukon/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    GMC Yukon (VIP)
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/fleet/toyota-hiace/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Toyota Hiace (Group)
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/fleet/toyota-camry/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Toyota Camry (Economy)
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/fleet/hyundai-staria/" className="text-gray-400 hover:text-primary transition-colors flex items-center group text-sm">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:w-2 group-hover:h-2"></span>
-                                    Hyundai Staria (Family)
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/fleet/" className="text-primary hover:text-primary/80 transition-colors flex items-center group text-sm font-semibold">
-                                    <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2 group-hover:w-2 group-hover:h-2 transition-all duration-300"></span>
-                                    Compare All Vehicles →
-                                </Link>
-                            </li>
+                        <ul className="space-y-2">
+                            {[
+                                { name: 'Transfer Jeddah to Makkah', href: '/routes/jeddah-makkah/' },
+                                { name: 'Transfer Makkah to Madinah', href: '/routes/makkah-madinah/' },
+                                { name: 'Transfer Jeddah to Madinah', href: '/routes/jeddah-madinah/' },
+                                { name: 'Transfer Jeddah to Yanbu', href: '/routes/jeddah-yanbu/' },
+                                { name: 'Transfer Jeddah to Taif', href: '/routes/jeddah-taif/' },
+                                { name: 'Transfer Riyadh to Dammam', href: '/routes/riyadh-dammam/' },
+                                { name: 'Transfer Dammam to Bahrain', href: '/routes/dammam-bahrain/' },
+                                { name: 'Jeddah Train Transfer', href: '/routes/jeddah-train-station-taxi/' },
+                                { name: 'Madinah Train Transfer', href: '/routes/madinah-train-station-taxi/' },
+                                { name: 'VIP Umrah Transfer', href: '/services/umrah-transport/' },
+                            ].map((item) => (
+                                <li key={item.name}>
+                                    <Link href={item.href} className="text-gray-400 hover:text-white hover:translate-x-1 transition-all flex items-center gap-2 group text-sm font-medium">
+                                        <div className="w-1 h-1 bg-gray-600 rounded-full group-hover:bg-primary transition-colors"></div>
+                                        {item.name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
+                        {/* Partners links could go here or be omitted to be cleaner, I'll omit strictly partner links to save space unless requested, but keeping socials in Col 1 is standard brand behavior */}
                     </div>
+
                 </div>
 
-                <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-gray-500 text-sm text-center md:text-left">
-                        &copy; {new Date().getFullYear()} TaxiServiceKSA. All rights reserved.
-                    </p>
-                    <div className="flex gap-6 text-sm text-gray-500">
-                        <Link href="/privacy-policy/" className="hover:text-primary transition-colors">Privacy Policy</Link>
-                        <Link href="/terms-conditions/" className="hover:text-primary transition-colors">Terms & Conditions</Link>
-                        <Link href="/faq/" className="hover:text-primary transition-colors">FAQ</Link>
+                {/* Bottom Bar */}
+                <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div className="text-sm text-gray-500 font-medium">
+                        &copy; {new Date().getFullYear()} VIPTransferKSA. Premium Chauffeur Service.
+                    </div>
+                    <div className="flex flex-wrap justify-center gap-6">
+                        <Link href="/privacy-policy/" className="text-sm text-gray-500 hover:text-primary transition-colors font-medium">Privacy Policy</Link>
+                        <Link href="/terms-conditions/" className="text-sm text-gray-500 hover:text-primary transition-colors font-medium">Terms of Service</Link>
+                        <Link href="/sitemap.xml" className="text-sm text-gray-500 hover:text-primary transition-colors font-medium">Sitemap</Link>
+                        <Link href="/sitemap-locations.xml" className="text-sm text-gray-500 hover:text-primary transition-colors font-medium">Locations Map</Link>
+                        <Link href="/contact/" className="text-sm text-gray-500 hover:text-primary transition-colors font-medium">Support Center</Link>
                     </div>
                 </div>
             </div>

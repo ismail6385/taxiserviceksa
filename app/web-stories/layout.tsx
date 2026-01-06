@@ -1,5 +1,5 @@
 export const metadata = {
-    title: 'Web Stories | Taxi Service KSA',
+    title: 'Web Stories | VIP Transfer KSA',
     description: 'Visual stories and guides for Umrah pilgrims.',
 }
 

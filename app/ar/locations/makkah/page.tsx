@@ -31,21 +31,21 @@ export const metadata: Metadata = {
     description: 'احجز خدمة تاكسي موثوقة في مكة للمعتمرين والسياح. تاكسي مطار مكة ٢٤/٧، توصيل من الفندق وجولات الزيارة. سائقين محترفين وآمنين.',
     keywords: ['تاكسي مكة', 'توصيل المطار مكة', 'تاكسي العمرة', 'نقل المعتمرين', 'تاكسي الحرم'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/ar/locations/makkah/',
+        canonical: 'https://transferksa.com/ar/locations/makkah/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/makkah/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/makkah/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/makkah/',
-            'x-default': 'https://taxiserviceksa.com/locations/makkah/',
+            'en': 'https://transferksa.com/locations/makkah/',
+            'ar': 'https://transferksa.com/ar/locations/makkah/',
+            'ur': 'https://transferksa.com/ur/locations/makkah/',
+            'x-default': 'https://transferksa.com/locations/makkah/',
         }
     },
     openGraph: {
         title: 'خدمة تاكسي في مكة | تاكسي العمرة الموثوق',
         description: 'هل تحتاج تاكسي في مكة؟ نوفر خدمة ٢٤/٧ للمعتمرين وتوصيل مطار جدة والمدينة. احجز الآن.',
-        url: 'https://taxiserviceksa.com/ar/locations/makkah/',
+        url: 'https://transferksa.com/ar/locations/makkah/',
         locale: 'ar_SA',
         type: 'website',
-        images: [{ url: 'https://taxiserviceksa.com/makkah-kaaba-night.webp', alt: 'تاكسي مكة بجوار الحرم' }],
+        images: [{ url: 'https://transferksa.com/makkah-kaaba-night.webp', alt: 'تاكسي مكة بجوار الحرم' }],
     },
 };
 

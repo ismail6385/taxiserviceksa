@@ -25,26 +25,26 @@ import RoutePerspective from '@/components/seo/RoutePerspective';
 import ProcessFlow from '@/components/ProcessFlow';
 
 export const metadata: Metadata = {
-    title: 'Taxi Service in Riyadh | Airport Transfer & Corporate Transport KSA',
-    description: 'Taxi service in Riyadh operates 24/7 for airport transfers and corporate travel. King Khalid Airport to Riyadh city center. Fixed rates for business transport.',
-    keywords: ['taxi service in Riyadh', 'Riyadh taxi', 'King Khalid Airport transfer', 'Riyadh corporate transport', 'business taxi Riyadh', 'rent a car with driver in riyadh', 'chauffeur service in riyadh', 'toyota hiace for rent in riyadh monthly', '7 seater rent a car riyadh', 'luxury car rental riyadh'],
+    title: 'VIP Private Transfer & Executive Chauffeur Riyadh | RUH Airport',
+    description: 'Premium VIP private transfer and executive chauffeur service in Riyadh. Specialized King Khalid Airport (RUH) pickups and corporate business transport. Professional international standards.',
+    keywords: ['Riyadh VIP private transfer', 'Executive chauffeur service Riyadh', 'Riyadh airport VIP pickup', 'RUH premium airport transfer', 'Riyadh corporate business transport', 'Luxury car with driver Riyadh', 'Riyadh to Makkah VIP transfer'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/riyadh/',
+        canonical: 'https://transferksa.com/locations/riyadh/',
     },
     openGraph: {
-        title: 'Taxi Service in Riyadh | Airport Transfer & Corporate Transport',
-        description: 'Taxi service in Riyadh operates 24/7. King Khalid Airport transfers and corporate travel. Fixed rates. Book online.',
-        url: 'https://taxiserviceksa.com/locations/riyadh/',
+        title: 'VIP Private Transfer & Executive Chauffeur Riyadh',
+        description: 'Premium VIP private transfer and professional chauffeur service in Riyadh. Specialized King Khalid Airport (RUH) pickups and elite corporate transport.',
+        url: 'https://transferksa.com/locations/riyadh/',
         type: 'website',
     },
 };
 
 export default function RiyadhPage() {
     const services = [
-        { name: 'King Khalid Airport', description: 'Meet & Greet service at RUH Airport (Terminals 1, 2, 3, 4 & 5).', icon: Plane },
-        { name: 'Corporate Transport', description: 'Professional chauffeur service for business meetings and events.', icon: Building },
-        { name: 'Riyadh to Makkah', description: 'Long-distance VIP taxi from Riyadh to Makkah (9 hours).', icon: Car },
-        { name: 'Riyadh to Dammam', description: 'Intercity transfer to Dammam, Khobar, and Bahrain Causeway.', icon: MapPin },
+        { name: 'VIP Airport Pickup', description: 'VIP Meet & Greet service at RUH Airport (Terminals 1, 2, 3, 4 & 5).', icon: Plane },
+        { name: 'VIP Corporate Transport', description: 'Professional executive chauffeur service for business meetings and events.', icon: Building },
+        { name: 'Riyadh to Makkah', description: 'Long-distance VIP private transfer from Riyadh to Makkah (9 hours).', icon: Car },
+        { name: 'Riyadh to Dammam', description: 'Premium intercity transfer to Dammam, Khobar, and Bahrain Causeway.', icon: MapPin },
     ];
 
     const riyadhImages = [
@@ -63,24 +63,24 @@ export default function RiyadhPage() {
 
     const faqs = [
         {
-            question: "How much is a taxi from Riyadh Airport to Olaya/Downtown?",
-            answer: "Our fixed rate for airport transfers to the city center starts from SAR 150. This includes meet & greet service and waiting time."
+            question: "How much is a VIP transfer from Riyadh Airport to Olaya/Downtown?",
+            answer: "Our fixed rate for VIP airport transfers to the city center starts from SAR 150. This includes professional meet & greet service and generous waiting time."
         },
         {
-            question: "Do you offer monthly driver services for companies?",
-            answer: "Yes, we specialize in corporate transport. We offer daily, weekly, and monthly rates for businesses with professional English-speaking drivers."
+            question: "Do you offer monthly chauffeur services for companies?",
+            answer: "Yes, we specialize in corporate executive transport. We offer daily, weekly, and monthly rates for businesses with professional English-speaking chauffeurs."
         },
         {
-            question: "How much is a taxi from Riyadh to Makkah?",
-            answer: "A direct private taxi from Riyadh to Makkah costs between SAR 1200 - 1500, depending on the vehicle type (Sedan vs GMC)."
+            question: "How much is a VIP transfer from Riyadh to Makkah?",
+            answer: "A direct private VIP transfer from Riyadh to Makkah costs between SAR 1200 - 1500, depending on the vehicle type (Premium Sedan vs GMC Yukon)."
         },
         {
-            question: "Can I book a taxi from Riyadh to Dammam?",
-            answer: "Yes, we provide intercity transfers to Dammam and Khobar starting from SAR 800. The journey takes about 4 hours on a comfortable highway."
+            question: "Can I book a VIP transfer from Riyadh to Dammam?",
+            answer: "Yes, we provide premium intercity transfers to Dammam and Khobar starting from SAR 800. The journey takes about 4 hours in a comfortable executive vehicle."
         },
         {
-            question: "Is the taxi service 24/7?",
-            answer: "Yes, our operations are 24/7. Whether your flight lands at 3 AM or you have a late business meeting, we are available."
+            question: "Is the VIP chauffeur service available 24/7?",
+            answer: "Yes, our operations are 24/7. Whether your flight lands at 3 AM or you have a late-night executive meeting, our chauffeurs are available."
         },
         {
             question: "Do you accept credit cards?",
@@ -97,9 +97,9 @@ export default function RiyadhPage() {
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "Service",
-                        "name": "Riyadh Taxi & Limousine Service",
+                        "name": "Riyadh VIP Transfer & Chauffeur Service",
                         "areaServed": { "@type": "City", "name": "Riyadh" },
-                        "description": "Premium taxi service in Riyadh for airport transfers, corporate travel, and intercity trips."
+                        "description": "Premium VIP private transfer service in Riyadh for airport transfers, corporate travel, and executive intercity trips."
                     })
                 }}
             />
@@ -107,19 +107,29 @@ export default function RiyadhPage() {
             {/* Hero Section */}
             <Hero
                 images={riyadhImages}
-                h1Text="Online Taxi Service In Riyadh"
-                bookingFormTitle="Book Online Taxi Service in Riyadh"
+                h1Text="VIP Private Transfer & Chauffeur Riyadh"
+                bookingFormTitle="Book Premium Transfer in Riyadh"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        TaxiServiceKSA™ Riyadh
+                        VIP Chauffeur Service Riyadh
                     </span>
                 }
-                subtitle="Professional Business Transport & Airport Taxi"
-                location="Riyadh • Airport • Dammam"
+                subtitle="Executive Business Transport & Premium Airport Transfers"
+                location="Riyadh • RUH Airport • Intercity"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                 </div>
             </Hero>
+
+            {/* Premium Service Disclaimer */}
+            <div className="bg-amber-50 border-y border-amber-200 py-3">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                        <Shield className="w-4 h-4" />
+                        OFFICIAL NOTE: We specialize in pre-booked Airport, Intercity, and VIP Business transfers. We do NOT provide local short-distance hailing.
+                    </p>
+                </div>
+            </div>
 
             {/* Breadcrumb Navigation */}
             <section className="bg-white border-b border-gray-200">
@@ -150,7 +160,7 @@ export default function RiyadhPage() {
                             Premium Riyadh Transport
                         </h2>
                         <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-                            Reliable transport solutions for Saudi Arabia's capital. From airport pickups to corporate fleets. Book our <Link href="/fleet/gmc-yukon/" className="text-black font-bold underline decoration-primary">GMC Yukon</Link> for professional business travel.
+                            Reliable VIP transport solutions for Saudi Arabia's capital. From executive airport pickups to premium corporate fleets. Book our <Link href="/fleet/gmc-yukon/" className="text-black font-bold underline decoration-primary">GMC Yukon</Link> for professional business travel.
                         </p>
                     </div>
 
@@ -184,16 +194,16 @@ export default function RiyadhPage() {
                             </div>
 
                             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                                Cheap Taxi Service in Riyadh
+                                VIP Executive Transfer Service Riyadh
                             </h2>
 
-                            <div className="space-y-4 text-gray-700 leading-relaxed">
-                                <p className="text-lg">
-                                    Looking for a <strong>cheap taxi service in Riyadh</strong> without compromising on quality? We provide competitive fixed rates for airport transfers and city travel. Unlike ride-sharing apps that surge during rush hour, our prices remain stable.
+                            <div className="space-y-4 text-gray-700 leading-relaxed text-lg">
+                                <p>
+                                    Discover the premier <strong>VIP private transfer service in Riyadh</strong>, tailored for international business travelers and diplomatic personnel. We offer an elite alternative to standard city transport, providing a reliable, chauffeur-driven experience that meets global corporate standards.
                                 </p>
 
                                 <p>
-                                    Whether you need a ride to the <strong>King Abdullah Financial District (KAFD)</strong>, Diplomatic Quarter, or a simple airport pickup, our professional drivers ensure a smooth journey. We also offer long-distance taxis to Dammam, Al Khobar, and Makkah at the best market rates.
+                                    Our executive service focuses exclusively on <strong>King Khalid International Airport (RUH) pickups and long-distance intercity transfers</strong>. Whether you have meetings in the King Abdullah Financial District (KAFD) or require a private chauffeur to Dammam or Makkah, we ensure a punctual, high-end journey. Unlike app-based hailing, we guarantee fixed professional rates and a premium 2025 fleet, ensuring your transportation reflects your professional status.
                                 </p>
                             </div>
 
@@ -212,7 +222,7 @@ export default function RiyadhPage() {
                                 <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-transparent rounded-3xl blur-2xl opacity-30"></div>
                                 <Image
                                     src="/hero-slide-3.webp"
-                                    alt="Riyadh Business Taxi Service"
+                                    alt="Riyadh VIP Private Transfer Service"
                                     width={700}
                                     height={600}
                                     className="relative rounded-2xl shadow-2xl w-full h-auto border-4 border-white"
@@ -296,7 +306,7 @@ export default function RiyadhPage() {
                                 <span className="text-2xl">From</span> SAR 1200
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
-                                Long Distance Sleeper
+                                VIP Transfer to Makkah Hotel
                             </div>
                         </div>
                     </div>
@@ -358,7 +368,7 @@ export default function RiyadhPage() {
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                            Riyadh Taxi FAQ
+                            Riyadh VIP Transfer FAQ
                         </h2>
                     </div>
                     <Accordion type="single" collapsible className="w-full">
@@ -392,20 +402,20 @@ export default function RiyadhPage() {
                         </div>
 
                         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-black mb-4">
-                            Need a Ride in Riyadh?
+                            Request Your VIP Transfer
                         </h2>
                         <p className="text-lg md:text-xl text-black/90 mb-8 max-w-2xl mx-auto font-medium">
-                            Book your ride in seconds. Professional drivers.
+                            Professional executive transport at your service.
                         </p>
 
                         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
                             <Link href="/booking/">
                                 <Button className="bg-black text-white hover:bg-black/90 font-bold px-10 py-7 text-lg rounded-2xl h-auto shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
-                                    Book Now
+                                    Book VIP Transfer
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>
-                            <a href="mailto:taxiserviceksa9988@gmail.com">
+                            <a href="mailto:info@transferksa.com">
                                 <Button variant="outline" className="bg-white/20 backdrop-blur-sm text-black border-2 border-black/30 hover:bg-white/30 font-bold px-10 py-7 text-lg rounded-2xl h-auto">
                                     <Phone className="mr-2 w-5 h-5" />
                                     Email Us

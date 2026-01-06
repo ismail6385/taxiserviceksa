@@ -277,7 +277,7 @@ export default function BookingsPage() {
                                         </div>
                                     </TableCell>
                                     <TableCell>
-                                        <Badge variant="outline" className="bg-neutral-900 border-neutral-600 text-neutral-300">
+                                        <Badge variant="outline" className="bg-neutral-900 border-primary/50 text-white font-medium shadow-sm shadow-primary/10">
                                             {booking.vehicle_type}
                                         </Badge>
                                     </TableCell>
@@ -433,7 +433,7 @@ export default function BookingsPage() {
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
                                             <span className="block text-xs text-neutral-500 mb-1">Vehicle Type</span>
-                                            <Badge variant="outline" className="text-sm bg-neutral-900 border-neutral-600">
+                                            <Badge variant="outline" className="text-sm bg-neutral-900 border-primary/50 text-white font-medium shadow-sm shadow-primary/10">
                                                 {selectedBooking.vehicle_type}
                                             </Badge>
                                         </div>
@@ -466,7 +466,16 @@ export default function BookingsPage() {
                             </div>
 
                             <div className="pt-6 border-t border-neutral-800 space-y-3">
-                                {selectedBooking.status !== 'completed' && selectedBooking.status !== 'cancelled' && (
+                                {selectedBooking.status === 'pending' && (
+                                    <Button
+                                        className="w-full bg-primary hover:bg-black text-white font-bold h-12 shadow-lg shadow-primary/20"
+                                        onClick={() => updateStatus(selectedBooking.id, 'confirmed')}
+                                    >
+                                        <CheckCircle className="w-5 h-5 mr-2" /> Confirm Booking & Send Email
+                                    </Button>
+                                )}
+
+                                {selectedBooking.status === 'confirmed' && (
                                     <Button
                                         className="w-full bg-green-500 hover:bg-green-600 text-black font-bold h-12"
                                         onClick={() => updateStatus(selectedBooking.id, 'completed')}

@@ -23,18 +23,18 @@ export const metadata: Metadata = {
     description: 'Taxi service in Yanbu operates 24/7 for airport transfers and industrial transport. Yanbu Airport to port and industrial city. Fixed rates for corporate travel.',
     keywords: ['taxi service in Yanbu', 'Yanbu taxi', 'Yanbu Airport transfer', 'Yanbu industrial transport', 'Yanbu port taxi'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/ur/locations/yanbu/',
+        canonical: 'https://transferksa.com/ur/locations/yanbu/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/yanbu/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/yanbu/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/yanbu/',
-            'x-default': 'https://taxiserviceksa.com/locations/yanbu/',
+            'en': 'https://transferksa.com/locations/yanbu/',
+            'ar': 'https://transferksa.com/ar/locations/yanbu/',
+            'ur': 'https://transferksa.com/ur/locations/yanbu/',
+            'x-default': 'https://transferksa.com/locations/yanbu/',
         }
     },
     openGraph: {
         title: 'Taxi Service in Yanbu | Airport Transfer & Industrial Transport',
         description: 'Taxi service in Yanbu operates 24/7. Airport transfers and industrial city transport. Fixed rates. Book online.',
-        url: 'https://taxiserviceksa.com/locations/yanbu/',
+        url: 'https://transferksa.com/locations/yanbu/',
         type: 'website',
     },
 };
@@ -116,7 +116,7 @@ export default function YanbuPage() {
                         </Link>
                     </Button>
                     <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             Email Us
                         </a>
                     </Button>
@@ -243,7 +243,7 @@ export default function YanbuPage() {
                                 Book Your Ride
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email Us
                             </Button>

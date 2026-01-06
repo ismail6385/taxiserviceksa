@@ -30,21 +30,21 @@ export const metadata: Metadata = {
     description: 'مدینہ منورہ میں قابل اعتماد ٹیکسی سروس۔ مسجد نبوی، مسجد قباء اور دیگر زیارات کے لیے بہترین۔ ٢٤ گھنٹے دستیاب۔',
     keywords: ['مدینہ ٹیکسی', 'زیارات مدینہ', 'ایئرپورٹ پک اپ', 'حرم ٹیکسی', 'مسجد قباء ٹرانسپورٹ'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/ur/locations/madinah/',
+        canonical: 'https://transferksa.com/ur/locations/madinah/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/madinah/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/madinah/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/madinah/',
-            'x-default': 'https://taxiserviceksa.com/locations/madinah/',
+            'en': 'https://transferksa.com/locations/madinah/',
+            'ar': 'https://transferksa.com/ar/locations/madinah/',
+            'ur': 'https://transferksa.com/ur/locations/madinah/',
+            'x-default': 'https://transferksa.com/locations/madinah/',
         }
     },
     openGraph: {
         title: 'مدینہ ٹیکسی سروس | مسجد نبوی کی زیارت',
         description: 'مدینہ میں سستی اور آرام دہ ٹیکسی بک کریں۔ ہوٹل سے حرم اور ایئرپورٹ ٹرانسفر کے لیے۔',
-        url: 'https://taxiserviceksa.com/ur/locations/madinah/',
+        url: 'https://transferksa.com/ur/locations/madinah/',
         locale: 'ur_PK',
         type: 'website',
-        images: [{ url: 'https://taxiserviceksa.com/madinah-prophets-mosque.webp', alt: 'مسجد نبوی، مدینہ' }],
+        images: [{ url: 'https://transferksa.com/madinah-prophets-mosque.webp', alt: 'مسجد نبوی، مدینہ' }],
     },
 };
 

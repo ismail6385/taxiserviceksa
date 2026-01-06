@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: 'Book a private taxi from Makkah to Madinah. Direct travel with no stops (unless requested). 4.5 hour journey. Comfortable GMCs and sedans.',
     keywords: ['Makkah to Madinah taxi', 'Makkah to Madinah car rental', 'Makkah Madinah transfer', 'Taxi fare Makkah to Madinah', 'Private driver Makkah to Madinah'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/makkah-to-madinah-taxi/',
+        canonical: 'https://transferksa.com/makkah-to-madinah-taxi/',
     },
 };
 

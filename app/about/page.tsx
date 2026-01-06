@@ -11,9 +11,9 @@ import {
 } from '@/components/ui/accordion';
 
 export const metadata: Metadata = {
-    title: 'About Taxi Service KSA | Airport and Umrah Transport in Saudi Arabia',
-    description: 'Taxi Service KSA operates in 8 cities across Saudi Arabia. Service includes airport transfers, Umrah transport, and intercity travel. Fleet: GMC Yukon, Toyota Camry, Hyundai Staria.',
-    keywords: ['taxi service Saudi Arabia', 'airport transfer company', 'Umrah transport provider', 'intercity taxi service'],
+    title: 'About VIP Private Transfers | Premium Chauffeur Service Saudi Arabia',
+    description: 'Learn about VIP Transfer KSA, the leading VIP private transfer and chauffeur service in Saudi Arabia. Specializing in luxury airport pickups, Umrah transport, and executive intercity travel.',
+    keywords: ['VIP Private Transfer Saudi Arabia', 'Premium Chauffeur Service', 'Luxury Airport Transport', 'Executive Umrah Transport', 'Professional Driver KSA'],
 };
 
 export default function AboutPage() {
@@ -72,8 +72,8 @@ export default function AboutPage() {
 
     const faqs = [
         {
-            question: "Is Taxi Service KSA a licensed provider?",
-            answer: "Taxi Service KSA operates under Saudi Public Transport Authority regulations. Service includes commercial vehicle insurance and licensed drivers."
+            question: "Is VIP Transfer KSA a licensed provider?",
+            answer: "VIP Transfer KSA operates under Saudi Public Transport Authority regulations. Service includes commercial vehicle insurance and licensed drivers."
         },
         {
             question: "Do you offer corporate accounts?",
@@ -96,9 +96,14 @@ export default function AboutPage() {
     const aboutSchema = {
         "@context": "https://schema.org",
         "@type": "AboutPage",
-        "header": "About Taxi Service KSA",
-        "primaryImageOfPage": "https://taxiserviceksa.com/hero-image.jpg",
-
+        "header": "About VIP Transfer KSA",
+        "primaryImageOfPage": "https://transferksa.com/hero-image.jpg",
+        "knowsAbout": ["Umrah Transport", "Airport Transfers", "Haramain High Speed Railway"],
+        "areaServed": "Kingdom of Saudi Arabia",
+        "memberOf": {
+            "@type": "Organization",
+            "name": "Ministry of Transport and Logistic Services"
+        }
     };
 
     return (
@@ -115,17 +120,17 @@ export default function AboutPage() {
                     <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
                         About Us
                     </span>
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        Professional Taxi Service<br />
-                        <span className="text-primary">With Licensed Drivers in Saudi Arabia</span>
+                    <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
+                        VIP Private Transfer &<br />
+                        <span className="text-black">Executive Chauffeur Service</span>
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-6">
-                        Taxi Service KSA is a professional transport company operating across 8 major Saudi cities. We provide taxi services with licensed drivers for Umrah pilgrims, business travelers, and tourists.
+                        <strong>VIP Transfer KSA</strong> is a premium transport provider operating across the Kingdom since 2012. We specialize in **high-end private transfers**, specialized Umrah transport, and executive intercity travel for international guests and business leaders.
                     </p>
-                    <div className="bg-gray-900 text-white rounded-2xl p-6 max-w-4xl mx-auto">
-                        <p className="text-lg font-bold mb-2">🚗 Important: We Are NOT a Car Rental Company</p>
+                    <div className="bg-gray-900 text-white rounded-2xl p-6 max-w-4xl mx-auto border-l-4 border-amber-400">
+                        <p className="text-lg font-bold mb-2">🚗 Note: Premium Chauffeur Service Only</p>
                         <p className="text-gray-300">
-                            All our vehicles include professional drivers. We do not offer self-drive car rental or ride-sharing services. Our focus is exclusively on chauffeur-driven taxi transport.
+                            We provide exclusive, pre-booked private transfers with professional chauffeurs. We **do not** offer local "street hail" taxi services, ride-sharing, or self-drive rentals.
                         </p>
                     </div>
                 </div>
@@ -207,7 +212,7 @@ export default function AboutPage() {
                             <h2 className="text-3xl font-bold text-gray-900">Our Mission</h2>
                         </div>
                         <p className="text-gray-600 text-lg leading-relaxed mb-4">
-                            Since 2012, Taxi Service KSA has been the trusted partner for Umrah pilgrims and business travelers. We don't just drive; we facilitate your spiritual and professional journeys with a deep understanding of Saudi Arabia's roads and customs.
+                            Since 2012, <strong>VIP Transfer KSA</strong> has been the trusted partner for Umrah pilgrims and business travelers. We don't just drive; we facilitate your spiritual and professional journeys with a deep understanding of Saudi Arabia's roads and customs.
                         </p>
                         <p className="text-gray-600 text-lg leading-relaxed">
                             Our mission is to provide safe, reliable, and dignified transport, ensuring that every pilgrim focuses on their worship and every executive focuses on their business, while we handle the logistics.
@@ -226,7 +231,7 @@ export default function AboutPage() {
                             To set the standard for ground transportation in the Kingdom, bridging the gap between Jeddah, Makkah, and Madinah with a fleet that prioritizes safety, comfort, and absolute punctuality.
                         </p>
                         <p className="text-gray-600 text-lg leading-relaxed">
-                            We envision a seamless travel experience where "Taxi Service KSA" is synonymous with trust, bridging the historical wonders of AlUla with the modern pulse of Riyadh.
+                            We envision a seamless travel experience where "VIP Transfer KSA" is synonymous with trust, bridging the historical wonders of AlUla with the modern pulse of Riyadh.
                         </p>
                     </div>
                 </div>
@@ -333,8 +338,8 @@ export default function AboutPage() {
                         <div className="flex items-start">
                             <CheckCircle className="w-6 h-6 text-black mr-3 flex-shrink-0 mt-1" />
                             <div>
-                                <h3 className="font-bold text-gray-900 mb-2">Professional Drivers</h3>
-                                <p className="text-gray-600">Licensed, experienced, and courteous chauffeurs dedicated to your comfort and safety.</p>
+                                <h3 className="font-bold text-gray-900 mb-2">Licensed Captains</h3>
+                                <p className="text-gray-600">Our drivers are officially registered "Captains" with Ministry of Interior clearance and extensive Hajj/Umrah route experience.</p>
                             </div>
                         </div>
                         <div className="flex items-start">
@@ -406,11 +411,11 @@ export default function AboutPage() {
                     <div className="space-y-4 text-sm">
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                             <span className="text-gray-500 font-medium">Legal Name</span>
-                            <span className="text-gray-900 sm:col-span-2 font-mono">Taxi Service KSA Transport</span>
+                            <span className="text-gray-900 sm:col-span-2 font-mono">VIP Transfer KSA Transport</span>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                             <span className="text-gray-500 font-medium">Brand Name</span>
-                            <span className="text-gray-900 sm:col-span-2">Taxi Service KSA™</span>
+                            <span className="text-gray-900 sm:col-span-2">VIP Transfer KSA™</span>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                             <span className="text-gray-500 font-medium">Headquarters</span>
@@ -418,11 +423,26 @@ export default function AboutPage() {
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                             <span className="text-gray-500 font-medium">Contact Email</span>
-                            <span className="text-gray-900 sm:col-span-2 text-emerald-600">taxiserviceksa9988@gmail.com</span>
+                            <span className="text-gray-900 sm:col-span-2 text-emerald-600">info@transferksa.com</span>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                             <span className="text-gray-500 font-medium">Service Type</span>
                             <span className="text-gray-900 sm:col-span-2">Private Chauffeur & Airport Transfer</span>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                            <span className="text-gray-500 font-medium">License Status</span>
+                            <span className="text-gray-900 sm:col-span-2 flex items-center gap-2">
+                                <span className="bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded-full font-bold">ACTIVE</span>
+                                <span>Ministry of Transport Regularized</span>
+                            </span>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                            <span className="text-gray-500 font-medium">Insurance</span>
+                            <span className="text-gray-900 sm:col-span-2">Comprehensive Commercial Policy (Passenger Coverage)</span>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                            <span className="text-gray-500 font-medium">VAT Registration</span>
+                            <span className="text-gray-900 sm:col-span-2">Electronic Invoicing Enabled (ZATCA Compliant)</span>
                         </div>
                     </div>
                 </div>

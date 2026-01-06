@@ -1,69 +1,69 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { MapPin, ArrowRight, Car } from 'lucide-react';
+import { MapPin, ArrowRight, Car, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-    title: 'Service Locations | Taxi Service KSA',
-    description: 'Premium taxi service across Saudi Arabia. Professional chauffeurs for airport transfers & tours in Jeddah, Makkah, Madinah, Riyadh, AlUla & Taif. Book 24/7.',
+    title: 'Service Locations | VIP Private Transfer KSA',
+    description: 'Premium VIP private transfer service across Saudi Arabia. Professional executive chauffeurs for airport transfers & tours in Jeddah, Makkah, Madinah, Riyadh, AlUla & Taif.',
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/',
+        canonical: 'https://transferksa.com/locations/',
     },
 };
 
 const locations = [
     {
         name: 'Jeddah',
-        description: 'Airport transfers and city tours in the Bride of the Red Sea.',
+        description: 'VIP airport transfers and premium city tours in the Bride of the Red Sea.',
         image: '/jeddah-corniche-sunset.webp',
         href: '/locations/jeddah/'
     },
     {
         name: 'Makkah',
-        description: 'Reliable transport for Umrah pilgrims and Ziyarat.',
+        description: 'Reliable VIP transport for Umrah pilgrims and sacred Ziyarat.',
         image: '/makkah-kaaba-night.webp',
         href: '/locations/makkah/'
     },
     {
         name: 'Madinah',
-        description: 'Comfortable journeys to the Prophet\'s City.',
+        description: 'Comfortable VIP journeys to the Prophet\'s City.',
         image: '/madinah-prophets-mosque.webp',
         href: '/locations/madinah/'
     },
     {
         name: 'Riyadh',
-        description: 'Corporate transport and airport transfers in the capital.',
+        description: 'Executive corporate transport and VIP airport transfers in the capital.',
         image: '/hero-slide-1.webp',
         href: '/locations/riyadh/'
     },
     {
         name: 'AlUla',
-        description: 'Explore the ancient wonders of Hegra and Dadan.',
+        description: 'Explore ancient wonders with premium private transfers.',
         image: '/alula-hegra-tombs.webp',
         href: '/locations/alula/'
     },
     {
         name: 'Taif',
-        description: 'Scenic drives to the City of Roses.',
+        description: 'Scenic VIP mountain drives to the City of Roses.',
         image: '/taif-mountains-view.webp',
         href: '/locations/taif/'
     },
     {
         name: 'Yanbu',
-        description: 'Industrial transport and Red Sea gateway services.',
+        description: 'Industrial VIP transport and Red Sea executive services.',
         image: '/hero-slide-2.webp',
         href: '/locations/yanbu/'
     },
     {
         name: 'Khayber Fort',
-        description: 'Historical tours to the ancient oases of Khaybar.',
+        description: 'Exclusive heritage tours to the ancient oases of Khaybar.',
         image: '/hero-slide-2.webp',
         href: '/locations/khayber-fort/'
     },
     {
         name: 'Dammam',
-        description: 'Airport and city transfers in the administrative hub of the Eastern Province.',
+        description: 'VIP airport and executive city transfers in the administrative hub.',
         image: '/hero-slide-3.webp',
         href: '/locations/dammam/'
     },
@@ -125,11 +125,18 @@ export default function LocationsPage() {
                     ))}
                 </div>
 
+                <div className="mt-20 border-y border-amber-200 bg-amber-50 rounded-3xl p-6 text-center shadow-md mb-12">
+                    <p className="text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                        <Shield className="w-4 h-4" />
+                        OFFICIAL NOTE: We specialize in pre-booked VIP Private Transfers, Intercity, and Airport services. We do NOT provide local short-distance hailing.
+                    </p>
+                </div>
+
                 <div className="mt-20 bg-gray-900 text-white rounded-3xl p-12 text-center shadow-xl">
                     <h2 className="text-3xl font-bold mb-4 text-white">Ready to Start Your Journey?</h2>
                     <p className="text-gray-400 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
-                        Whether you are arriving at JED, RUH, or MED, our drivers are ready to welcome you.
-                        Experience the most <Link href='/booking/' className='text-white font-bold underline decoration-primary'>reliable taxi service in Saudi Arabia</Link> at fixed rates.
+                        Whether you are arriving at JED, RUH, or MED, our executive chauffeurs are ready to welcome you.
+                        Experience the most <Link href='/booking/' className='text-white font-bold underline decoration-primary'>reliable VIP transfer service in Saudi Arabia</Link> at fixed rates.
                     </p>
                     <div className="flex justify-center">
                         <Link href="/booking/">

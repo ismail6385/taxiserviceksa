@@ -14,11 +14,11 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 
 export const metadata: Metadata = {
-    title: 'Business & Corporate Taxi Service KSA | Executive Transfers',
+    title: 'Business & Corporate VIP Transfer KSA | Executive Transfers',
     description: 'Premier corporate taxi service in Saudi Arabia for business professionals. Executive cars, monthly invoicing, reliable airport transfers, and event transport.',
     keywords: ['Corporate taxi Saudi Arabia', 'Business executive transfer KSA', 'Chauffeur service Riyadh', 'Jeddah business taxi', 'VIP transport Saudi Arabia'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/business/',
+        canonical: 'https://transferksa.com/services/business/',
     },
 };
 
@@ -56,7 +56,7 @@ export default function BusinessPage() {
     const schemas = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Corporate Taxi Service KSA",
+        "name": "Corporate VIP Transfer KSA",
 
         "description": "Executive transportation services for business travelers in Saudi Arabia.",
         "areaServed": "Saudi Arabia",
@@ -140,7 +140,7 @@ export default function BusinessPage() {
                             {
                                 question: "How do I open a corporate account?",
                                 shortAnswer: "Contact Sales.",
-                                detailedAnswer: "Please email our corporate sales team at taxiserviceksa9988@gmail.com with your company details. We will set up your account with credit terms and a dedicated booking portal.",
+                                detailedAnswer: "Please email our corporate sales team at info@transferksa.com with your company details. We will set up your account with credit terms and a dedicated booking portal.",
                                 perspectives: [
                                     {
                                         role: "Account Manager",

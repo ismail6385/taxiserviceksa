@@ -1,5 +1,5 @@
 # 🎯 TOPICAL AUTHORITY MASTER PLAN
-## Taxi Service KSA - Holistic SEO Transformation
+## VIP Transfer KSA - Holistic SEO Transformation
 
 **Framework**: Topical Authority + Semantic SEO + Ranking State  
 **Platform**: Next.js  

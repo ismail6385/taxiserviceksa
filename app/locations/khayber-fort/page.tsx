@@ -26,24 +26,24 @@ import TopicCluster from '@/components/seo/TopicCluster';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'Taxi Service to Khaybar Fort | Madinah & AlUla Transfers',
-    description: 'Taxi service requires 4x4 vehicles for white volcanoes (Harrat Khaybar). Transfers from Madinah and AlUla available. Tours include Al-Qamus Fort and ancient dams.',
-    keywords: ['Khaybar Fort taxi', 'Madinah to Khaybar taxi', 'AlUla to Khaybar transfer', 'Harrat Khaybar 4x4', 'Al-Qamus Fort tour'],
+    title: 'VIP Private Transfer & Chauffeur Khaybar Fort | Madinah & AlUla',
+    description: 'Premium VIP private transfer and executive chauffeur service to Khaybar Fort. Specialized heritage tours from Madinah and AlUla with luxury 4x4 vehicle options.',
+    keywords: ['Khaybar Fort VIP transfer', 'Executive chauffeur Khaybar', 'Madinah to Khaybar VIP', 'AlUla to Khaybar premium transfer', 'Khaybar 4x4 expedition'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/khayber-fort/',
+        canonical: 'https://transferksa.com/locations/khayber-fort/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/khayber-fort/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/khayber-fort/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/khayber-fort/',
-            'x-default': 'https://taxiserviceksa.com/locations/khayber-fort/',
+            'en': 'https://transferksa.com/locations/khayber-fort/',
+            'ar': 'https://transferksa.com/ar/locations/khayber-fort/',
+            'ur': 'https://transferksa.com/ur/locations/khayber-fort/',
+            'x-default': 'https://transferksa.com/locations/khayber-fort/',
         }
     },
     openGraph: {
-        title: 'Taxi Service to Khaybar Fort | Madinah & AlUla Transfers',
-        description: 'Transport to Khaybar Oasis from Madinah (170km). 4x4 vehicles available for volcanic tours.',
-        url: 'https://taxiserviceksa.com/locations/khayber-fort/',
+        title: 'VIP Transfer to Khaybar Fort | Madinah & AlUla Transfers',
+        description: 'VIP transfer to Khaybar Oasis from Madinah (170km). Premium 4x4 vehicles available for volcanic tours.',
+        url: 'https://transferksa.com/locations/khayber-fort/',
         type: 'website',
-        images: [{ url: 'https://taxiserviceksa.com/hero-slide-2.webp', alt: 'Khaybar Fort on volcanic rock' }],
+        images: [{ url: 'https://transferksa.com/hero-slide-2.webp', alt: 'Khaybar Fort on volcanic rock' }],
     },
 };
 
@@ -114,18 +114,19 @@ export default function KhayberPage() {
 
             <Hero
                 images={khayberImages}
-                h1Text="Taxi Service to Khaybar Fort: Madinah and AlUla Transfers"
+                h1Text="VIP Private Transfer & Chauffeur Khaybar Fort"
+                bookingFormTitle="Book Premium Transfer in Khaybar"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Explore Khaybar
+                        VIP Chauffeur Service Khaybar
                     </span>
                 }
-                subtitle="Reliable 4x4 Tours & Intercity Transfers"
+                subtitle="Historical Heritage & Volcanic Expeditions"
                 location="Madinah • Khaybar • AlUla"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ Heritage"
+                        brandName="VIP Transfer KSA™ Heritage"
                         description="Professional chauffeur and historical tour services to Khaybar. We help history enthusiasts and travelers with luxury 4x4 vehicles and 24/7 availability for Madinah to Khaybar excursion."
                         foundingDate="2012"
                         metrics={[
@@ -155,18 +156,28 @@ export default function KhayberPage() {
                         </div>
                         <Button asChild size="lg" className="w-full bg-black text-white hover:bg-neutral-800 font-bold text-lg h-16 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-black/20">
                             <Link href="/booking/" className="w-full block">
-                                View Available Vehicles
+                                Book VIP Transfer
                                 <ArrowRight className="w-5 h-5 text-primary" />
                             </Link>
                         </Button>
                         <div className="mt-3 text-center">
                             <span className="text-xs text-neutral-500 font-medium">
-                                Instant Confirmation • No Hidden Fees
+                                Premium Standards • Executive 4x4 Options
                             </span>
                         </div>
                     </div>
                 </div>
             </Hero>
+
+            {/* Premium Service Disclaimer */}
+            <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                        <Shield className="w-4 h-4" />
+                        OFFICIAL NOTE: We specialize in pre-booked Heritage Tours, Intercity, and VIP 4x4 transfers. We do NOT provide local short-distance hailing.
+                    </p>
+                </div>
+            </div>
 
             {/* Trending Note */}
             <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
@@ -180,7 +191,7 @@ export default function KhayberPage() {
             </div>
 
             <QuestionGrouper
-                mainQuestion="Is Khaybar worth the 2-hour drive from Madinah?"
+                mainQuestion="Is a VIP transfer worth it for the 2-hour drive from Madinah?"
                 intro="Many pilgrims confuse Khaybar with just 'another old building'. In reality, it is a geological and historical marvel sitting on a massive lava field (Harrat)."
                 subQuestions={[
                     {
@@ -260,7 +271,7 @@ export default function KhayberPage() {
                         category: "Nearby Hubs",
                         relevance: "Primary",
                         items: [
-                            { label: "Madinah City Taxi", url: "/locations/madinah" },
+                            { label: "Madinah VIP Transfer", url: "/locations/madinah" },
                             { label: "AlUla Tour Transfer", url: "/locations/alula" },
                             { label: "Prince Mohammad Airport", url: "/locations/madinah" }
                         ]
@@ -407,10 +418,10 @@ export default function KhayberPage() {
                         <TravelConsensus
                             points={[
                                 {
-                                    topic: "Self-Drive vs Driver",
+                                    topic: "Self-Drive vs VIP Chauffeur",
                                     commonBelief: "I can rent a car and go.",
                                     reality: "The road is single-lane in parts and has heavy truck traffic connecting Madinah/Tabuk. Signal can be lost in the Harrat.",
-                                    truthRange: "Driver Recommended",
+                                    truthRange: "Chauffeur Recommended",
                                     factors: ["Safety", "Signal", "Navigation"]
                                 },
                                 {
@@ -494,7 +505,7 @@ export default function KhayberPage() {
                         </div>
 
                         <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
-                            Khaybar Tour Packages
+                            VIP Khaybar Expedition Rates
                         </h3>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                             Comprehensive transport including waiting time and off-road capabilities.
@@ -561,7 +572,7 @@ export default function KhayberPage() {
                     </p>
                     <Link href="/booking/">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-12 py-8 rounded-full">
-                            Book Khaybar Taxi
+                            Book VIP Transfer
                         </Button>
                     </Link>
                 </div>

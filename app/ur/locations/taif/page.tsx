@@ -14,21 +14,21 @@ export const metadata: Metadata = {
     description: 'طائف کے لیے قابل اعتماد ٹیکسی۔ الہدا، شفا اور دیگر تفریحی مقامات کی سیر۔ جدہ ایئرپورٹ سے طائف فیملی پک اپ۔',
     keywords: ['طائف ٹیکسی', 'جدہ طائف ٹیکسی', 'الہدا ٹرپ', 'شفا طائف', 'طائف سیاحت'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/ur/locations/taif/',
+        canonical: 'https://transferksa.com/ur/locations/taif/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/taif/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/taif/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/taif/',
-            'x-default': 'https://taxiserviceksa.com/locations/taif/',
+            'en': 'https://transferksa.com/locations/taif/',
+            'ar': 'https://transferksa.com/ar/locations/taif/',
+            'ur': 'https://transferksa.com/ur/locations/taif/',
+            'x-default': 'https://transferksa.com/locations/taif/',
         }
     },
     openGraph: {
         title: 'طائف فیملی ٹرپ | پہاڑی مقامات کی سیر',
         description: 'گرمیوں میں طائف کا سفر کریں۔ ٹھنڈا موسم اور خوبصورت پہاڑ۔ ہمارے ساتھ محفوظ سفر کریں۔',
-        url: 'https://taxiserviceksa.com/ur/locations/taif/',
+        url: 'https://transferksa.com/ur/locations/taif/',
         locale: 'ur_PK',
         type: 'website',
-        images: [{ url: 'https://taxiserviceksa.com/locations/taif.webp', alt: 'طائف پہاڑ' }],
+        images: [{ url: 'https://transferksa.com/locations/taif.webp', alt: 'طائف پہاڑ' }],
     },
 };
 

@@ -12,9 +12,9 @@ import {
 } from '@/components/ui/accordion';
 
 export const metadata: Metadata = {
-    title: 'Hyundai Staria Taxi Service in Saudi Arabia | 7-Seater Family Van',
-    description: 'Hyundai Staria taxi service accommodates 7 passengers and 4 large bags. Modern van suitable for families, Umrah groups, and airport transfers. Automatic transmission.',
-    keywords: ['Hyundai Staria rental Saudi Arabia', 'family van KSA', 'Umrah transport', '7 seater'],
+    title: 'Hyundai Staria VIP Private Transfer Saudi Arabia | Premium Van',
+    description: 'Premium Hyundai Staria VIP private transfer and executive chauffeur service in Saudi Arabia. 7-seater "Business Class" van for families and VIP groups.',
+    keywords: ['Hyundai Staria VIP transfer', 'premium van chauffeur KSA', 'Hyundai Staria Riyadh transfer', 'executive group transport Saudi Arabia'],
 };
 
 export default function HyundaiStariaPage() {
@@ -47,20 +47,20 @@ export default function HyundaiStariaPage() {
 
     const faqs = [
         {
-            question: "Does the Hyundai Staria come with a professional driver?",
-            answer: "Hyundai Staria taxi service includes a professional driver. Service does not offer self-drive options. Drivers speak English and Arabic."
+            question: "Does the Hyundai Staria VIP transfer include a chauffeur?",
+            answer: "Our Hyundai Staria VIP transfer includes a professional, uniformed chauffeur. We specialize in dedicated chauffeur-driven experiences for families and corporate groups."
         },
         {
             question: "How many passengers can the Hyundai Staria accommodate comfortably?",
-            answer: "Hyundai Staria accommodates 7 passengers with 4 large luggage pieces. Vehicle features multi-link suspension and reclining middle-row seats."
+            answer: "The Hyundai Staria comfortably accommodates 7 passengers with 4 large suitcases. It features specialized multi-link suspension and reclining business-class middle-row seats."
         },
         {
-            question: "Is fuel and toll charges included in the booking?",
-            answer: "Taxi booking includes fuel, road tolls, and airport parking fees for point-to-point transfers. Pricing is all-inclusive."
+            question: "Is fuel and airport parking included in the VIP booking?",
+            answer: "Yes, our VIP transfer rates are flat and all-inclusive of fuel, road tolls, and airport parking fees for scheduled point-to-point transfers."
         },
         {
-            question: "Can I book the Hyundai Staria for a trip from Jeddah to Makkah?",
-            answer: "Hyundai Staria booking is available for Jeddah to Makkah route (95 km, approximately 75 minutes). Suitable for Umrah pilgrims and family groups."
+            question: "Can I book a VIP Staria transfer from Jeddah to Makkah?",
+            answer: "Yes, the Hyundai Staria is extremely popular for the Jeddah to Makkah route, offering panoramic views and superior comfort for Umrah pilgrims and families."
         }
     ];
 
@@ -82,13 +82,13 @@ export default function HyundaiStariaPage() {
 
                         <div className="p-8 lg:p-12 flex flex-col justify-center">
                             <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block w-fit mb-4">
-                                Family Friendly
+                                Premium Executive Van
                             </span>
                             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                                Hyundai Staria Taxi Service in Saudi Arabia
+                                Hyundai Staria VIP Private Transfer
                             </h1>
-                            <p className="text-xl text-gray-600 mb-6">
-                                Hyundai Staria accommodates 7 passengers with 4 large bags. Vehicle features panoramic windows, climate control, and USB charging ports. Suitable for families and Umrah groups.
+                            <p className="text-xl text-gray-600 mb-6 font-medium">
+                                Step into the future of group travel with our <strong>Hyundai Staria VIP transfer service</strong>. Known as the "Business Class of Vans," it offers panoramic views, superior suspension, and a premium chauffeur-driven experience for discerning families and corporate groups.
                             </p>
 
                             <div className="grid grid-cols-2 gap-4 mb-6">
@@ -102,11 +102,21 @@ export default function HyundaiStariaPage() {
 
 
                             <Link href="/booking?vehicle=Hyundai-Staria">
-                                <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold">
-                                    Book Hyundai Staria Now
+                                <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold h-14 text-lg">
+                                    Book VIP Staria Transfer
                                 </Button>
                             </Link>
                         </div>
+                    </div>
+                </div>
+
+                {/* Premium Service Disclaimer */}
+                <div className="bg-amber-50 border border-amber-200 py-3 rounded-xl mb-12">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                            <Shield className="w-4 h-4" />
+                            OFFICIAL NOTE: We specialize in pre-booked VIP Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
+                        </p>
                     </div>
                 </div>
 
@@ -248,14 +258,14 @@ export default function HyundaiStariaPage() {
                 {/* CTA */}
                 <div className="bg-black rounded-2xl p-8 md:p-12 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                        Perfect for Family Travel?
+                        Secure Your Premium Group Journey
                     </h2>
-                    <p className="text-lg text-gray-300 mb-6">
-                        Book our Hyundai Staria now for comfortable group travel
+                    <p className="text-lg text-gray-300 mb-8">
+                        Experience the gold standard of group transport with our Hyundai Staria VIP private transfer.
                     </p>
                     <Link href="/booking?vehicle=Hyundai-Staria">
-                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6">
-                            Book Now
+                        <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto">
+                            Book Your VIP Van
                         </Button>
                     </Link>
                 </div>

@@ -1,4 +1,4 @@
-# 🎥 Veo / AI Video Prompts for Taxi Service KSA
+# 🎥 Veo / AI Video Prompts for VIP Transfer KSA
 
 Here is a complete list of **15 High-Quality Video Prompts** you can generate using Veo (or Sora/Runway). These cover all key sections of your website.
 
@@ -26,7 +26,7 @@ Here is a complete list of **15 High-Quality Video Prompts** you can generate us
 > **Prompt:** Wide panoramic shot of the Hijrah Highway connecting Makkah and Madinah. A modern paved road cutting through stunning rocky desert mountains. A single luxury SUV driving towards the horizon. The sun is setting, casting long dramatic shadows on the sand dunes. Epic travel feel, motion blur on road, 4k.
 
 **6. VIP Fleet Showcase (Fleet Page)**
-> **Prompt:** Studio lighting showcase. A montage of three cars parked in a luxury hotel driveway: A GMC Yukon, A Hyundai Staria, and a Toyota Camry. Camera glides smoothly around the vehicles, highlighting the shiny rims and clean grills. "Taxi Service KSA" branding subtle. Automotive commercial style.
+> **Prompt:** Studio lighting showcase. A montage of three cars parked in a luxury hotel driveway: A GMC Yukon, A Hyundai Staria, and a Toyota Camry. Camera glides smoothly around the vehicles, highlighting the shiny rims and clean grills. "VIP Transfer KSA" branding subtle. Automotive commercial style.
 
 ---
 

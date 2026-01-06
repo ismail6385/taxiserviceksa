@@ -1,5 +1,5 @@
 # Duplicate Content Removal - Summary Report
-## Taxi Service KSA Home Page Optimization
+## VIP Transfer KSA Home Page Optimization
 
 ---
 

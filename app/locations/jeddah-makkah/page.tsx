@@ -17,11 +17,11 @@ import RoutePerspective from '@/components/seo/RoutePerspective';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'Jeddah to Makkah Taxi | Private Transfers 24/7',
-    description: 'Book a private taxi from Jeddah to Makkah. Direct hotel drop-off, clean vehicles, and experienced drivers. Umrah transfers from KAIA Airport available.',
-    keywords: ['Jeddah to Makkah taxi', 'Jeddah airport to Makkah', 'Makkah transfer', 'Taxi fare Jeddah Makkah'],
+    title: 'VIP Private Transfer Jeddah to Makkah | Premium Chauffeur',
+    description: 'Premium VIP private transfer and executive chauffeur service from Jeddah to Makkah. Specialized Umrah transfers with luxury SUVs and professional drivers.',
+    keywords: ['Jeddah to Makkah VIP transfer', 'Premium chauffeur Jeddah Makkah', 'Executive Makkah transfer', 'Luxury Umrah transport'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/jeddah-makkah/',
+        canonical: 'https://transferksa.com/locations/jeddah-makkah/',
     },
 };
 
@@ -36,19 +36,20 @@ export default function JeddahMakkahRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <Hero
                 images={['/jeddah-airport-terminal.webp', '/mecca-royal-clock-tower.png']}
-                h1Text="Jeddah to Makkah Taxi Transfer"
+                h1Text="VIP Private Transfer Jeddah to Makkah"
+                bookingFormTitle="Book Premium Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Most Popular Route
+                        Executive Chauffeur Service
                     </span>
                 }
-                subtitle="Direct from Airport/City to Hotel"
-                location="Jeddah ➔ Makkah"
+                subtitle="The Premium Link for Pilgrims & Professionals"
+                location="Jeddah ➔ Makkah | VIP"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ Route"
-                        description="Professional chauffeur and taxi transfer services between Jeddah and Makkah. We help pilgrims and travelers with reliable door-to-door transport and 24/7 availability."
+                        brandName="VIP Transfer KSA™ Route"
+                        description="Professional chauffeur and VIP transfer services between Jeddah and Makkah. We help pilgrims and travelers with reliable door-to-door transport and 24/7 availability."
                         foundingDate="2012"
                         metrics={[
                             { label: 'Route Trips', value: '25k+', icon: Car },
@@ -61,12 +62,22 @@ export default function JeddahMakkahRoutePage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book Now
+                            Book VIP Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
                 </div>
             </Hero>
+
+            {/* Premium Service Disclaimer */}
+            <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                        <Shield className="w-4 h-4" />
+                        OFFICIAL NOTE: We specialize in pre-booked VIP Intercity and Airport transfers. We do NOT provide local short-distance hailing.
+                    </p>
+                </div>
+            </div>
 
             {/* Trending Note */}
             <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
@@ -89,14 +100,14 @@ export default function JeddahMakkahRoutePage() {
                             id: 'q1',
                             condition: 'Luggage',
                             question: 'Can I take luggage on the Train?',
-                            answer: 'The Haramain Train has strict baggage limits (similar to airlines). Large suitcases are often rejected. Our taxis have no such restrictions.',
+                            answer: 'The Haramain Train has strict baggage limits (similar to airlines). Large suitcases are often rejected. Our VIP transfers have no such restrictions.',
                             citation: 'HHR Policy'
                         },
                         {
                             id: 'q2',
                             condition: 'Directness',
                             question: 'Does the bus go to my hotel?',
-                            answer: 'No. SAPTCO buses drop you at a central station (Jarwal). You still need a taxi to reach your hotel near the Haram. We drive you door-to-door.',
+                            answer: 'No. SAPTCO buses drop you at a central station (Jarwal). You still need a VIP transfer to reach your hotel near the Haram. We drive you door-to-door.',
                             citation: 'Bus Route'
                         },
                         {
@@ -220,7 +231,7 @@ export default function JeddahMakkahRoutePage() {
                         </div>
 
                         <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
-                            Jeddah to Makkah Prices
+                            VIP Jeddah to Makkah Rates
                         </h3>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                             Flat rates from Jeddah Airport to your Makkah hotel.
@@ -285,9 +296,9 @@ export default function JeddahMakkahRoutePage() {
                         <TravelConsensus
                             points={[
                                 {
-                                    topic: "Taxi vs Train",
+                                    topic: "VIP Transfer vs Train",
                                     commonBelief: "Train is faster.",
-                                    reality: "The Train is fast on track (50 mins), but stations are far from hotels. Taxi is door-to-door and usually faster overall for groups with luggage.",
+                                    reality: "The Train is fast on track (50 mins), but stations are far from hotels. Private VIP transfer is door-to-door and usually faster overall for groups with luggage.",
                                     truthRange: "Taxi = Convenience",
                                     factors: ["Luggage", "Family Size"]
                                 }

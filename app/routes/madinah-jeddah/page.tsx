@@ -10,16 +10,16 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 
 export const metadata: Metadata = {
-    title: 'Madinah to Jeddah Taxi | Airport Transfer 450km - Fixed Price',
+    title: 'Best Madinah to Jeddah Taxi | Airport Transfer 450km - Fixed Price',
     description: 'Taxi from Madinah to Jeddah Airport (JED). 4-5 hour comfortable journey. Fixed rates from SAR 450. Door-to-door service 24/7. Book your ride now.',
     keywords: ['Madinah to Jeddah taxi', 'Madinah to Jeddah Airport', 'taxi fare Madinah Jeddah', 'Prince Mohammad Bin Abdulaziz to King Abdulaziz Airport', 'Umrah return taxi'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/madinah-jeddah/',
+        canonical: 'https://transferksa.com/routes/madinah-jeddah/',
     },
     openGraph: {
-        title: 'Madinah to Jeddah Taxi | Airport Transfer 450km - Fixed Price',
+        title: 'Madinah to Jeddah: Sleep All the Way to the Airport (450km Private Transfer)',
         description: 'Taxi from Madinah to Jeddah Airport (JED). 4-5 hour comfortable journey. Fixed rates from SAR 450. Book your ride now.',
-        url: 'https://taxiserviceksa.com/routes/madinah-jeddah/',
+        url: 'https://transferksa.com/routes/madinah-jeddah/',
         type: 'website',
     },
 };
@@ -84,7 +84,7 @@ export default function MadinahJeddahRoutePage() {
             {/* Hero Section */}
             <Hero
                 images={routeImages}
-                h1Text="Online Taxi from Madinah to Jeddah"
+                h1Text="Best Madinah to Jeddah Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Madinah → Jeddah Route
@@ -100,7 +100,7 @@ export default function MadinahJeddahRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:taxiserviceksa9988@gmail.com">
+                    <a href="mailto:info@transferksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email for Quote
                         </Button>
@@ -113,9 +113,9 @@ export default function MadinahJeddahRoutePage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Route Information</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Madinah to Jeddah Airport Transfer</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Best Madinah to Jeddah Airport Transfer</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            A comfortable return journey from the Prophet's City to Jeddah. Perfect for pilgrims catching their return flights or visiting Jeddah.
+                            Book your private <strong>Madinah to Jeddah taxi</strong> for a comfortable return journey via the <strong>Madinah-Jeddah Highway (Route 15)</strong>. Whether you need a drop-off at <strong className="text-gray-900">King Abdulaziz International Airport (JED)</strong> (Terminal 1 or North Terminal) or any Jeddah hotel, our drivers ensure you arrive on time.
                         </p>
                     </div>
 
@@ -190,6 +190,32 @@ export default function MadinahJeddahRoutePage() {
                 </div>
             </section>
 
+            {/* Direct Airport Drop-offs - Reverse Silo Interlinking */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <span className="bg-blue-100 text-blue-800 font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Airport Specialists</span>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Direct Jeddah Airport Drop-offs</h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto">
+                            Flying out? We drop you exactly where you need to be. Our drivers are familiar with all terminal layouts at <strong>King Abdulaziz International Airport (JED)</strong>.
+                        </p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
+                        <Link href="/madinah-to-jeddah-airport-departures/" className="group bg-white p-6 rounded-2xl border border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all flex items-start gap-4">
+                            <div className="bg-blue-100 p-3 rounded-xl group-hover:bg-blue-600 transition-colors">
+                                <Plane className="w-6 h-6 text-blue-700 group-hover:text-white" />
+                            </div>
+                            <div>
+                                <h3 className="font-bold text-gray-900 group-hover:text-blue-700 transition-colors">Jeddah Airport Departures</h3>
+                                <p className="text-sm text-gray-500 mt-1">Terminal 1 & North Terminal</p>
+                            </div>
+                            <ArrowRight className="w-5 h-5 text-gray-300 ml-auto group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+
             {/* Pricing Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
                 <div className="max-w-7xl mx-auto">
@@ -253,6 +279,73 @@ export default function MadinahJeddahRoutePage() {
                 </div>
             </section>
 
+            {/* Traveler Essentials - Entity Injection */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+                <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                        <CheckCircle2 className="w-6 h-6 text-emerald-600" />
+                        Traveler Essentials
+                    </h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div>
+                            <h4 className="font-bold text-gray-900 mb-2">Highway Route</h4>
+                            <p className="text-sm text-gray-600">
+                                We utilize the primary <strong>Madinah-Jeddah Highway (Route 15)</strong> for the fastest and smoothest connection between the two Holy Cities. Rest stops available at SASCO.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 className="font-bold text-gray-900 mb-2">Language Support</h4>
+                            <p className="text-sm text-gray-600">
+                                Our drivers are trained in <strong>English and Arabic</strong>, with many also speaking Urdu to assist international pilgrims from Pakistan and India.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 className="font-bold text-gray-900 mb-2">Terminal Drop-off</h4>
+                            <p className="text-sm text-gray-600">
+                                We drop off at all JED terminals: <strong>Terminal 1 (New Airport)</strong>, North Terminal (Foreign Airlines), and Pilgrimage Terminal.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Local SEO Hierarchy: Neighborhood Coverage */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Service Coverage Areas</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                        <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                            <MapPin className="w-5 h-5 text-primary" /> Madinah Pickup Zones
+                        </h4>
+                        <p className="text-sm text-gray-600 mb-4">
+                            We offer door-to-door pickup from all hotels in the Central Area (Markaziyah) near Al Masjid an Nabawi and outlying districts.
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                            {['Al Markaziyah (Central)', 'Quba', 'Awali', 'Al Harrah Al Sharqiyah', 'Al Khalidiyyah', 'King Fahd District', 'Prince Mohammed Airport Road'].map((zone) => (
+                                <span key={zone} className="text-xs bg-gray-50 border border-gray-200 px-2 py-1 rounded-md text-gray-700">
+                                    {zone}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                        <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                            <MapPin className="w-5 h-5 text-emerald-600" /> Jeddah Drop-off Districts
+                        </h4>
+                        <p className="text-sm text-gray-600 mb-4">
+                            Arriving in Jeddah? We drop you off at any hotel, apartment, or residential address across the city.
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                            {['Al Hamra', 'Al Shati', 'Al Rawdah', 'Al Bawadi', 'Obhur', 'Al Balad', 'Al Safa', 'Prince Majed Rd', 'Al Naeem'].map((zone) => (
+                                <span key={zone} className="text-xs bg-gray-50 border border-gray-200 px-2 py-1 rounded-md text-gray-700">
+                                    {zone}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
                 <RelatedLocations currentCity="Madinah" />
             </div>
@@ -313,7 +406,7 @@ export default function MadinahJeddahRoutePage() {
                                 Book Now (SAR 450+)
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Quote
                             </Button>

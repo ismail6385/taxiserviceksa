@@ -16,16 +16,16 @@ import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 
 export const metadata: Metadata = {
-    title: 'Jeddah Airport Complete Guide 2025 | King Abdulaziz Airport (JED) - Taxi Service KSA',
+    title: 'Jeddah Airport Complete Guide 2025 | King Abdulaziz Airport (JED) - VIP Transfer KSA',
     description: 'Complete guide to King Abdulaziz International Airport (Jeddah). Terminals, prayer rooms, Ihram facilities, SIM cards, currency exchange, taxi meeting points, and transport to Makkah.',
     keywords: ['Jeddah airport guide', 'King Abdulaziz airport', 'JED airport terminals', 'Jeddah airport prayer room', 'Ihram facilities Jeddah', 'Jeddah to Makkah taxi'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/jeddah-airport-guide/',
+        canonical: 'https://transferksa.com/guides/jeddah-airport-guide/',
     },
     openGraph: {
         title: 'Jeddah Airport Complete Guide 2025 | King Abdulaziz Airport',
         description: 'Everything you need to know about navigating Jeddah Airport: terminals, facilities, transport to Makkah.',
-        url: 'https://taxiserviceksa.com/guides/jeddah-airport-guide/',
+        url: 'https://transferksa.com/guides/jeddah-airport-guide/',
         type: 'article',
     },
 };
@@ -50,7 +50,7 @@ export default function JeddahAirportGuidePage() {
         },
         {
             question: "How do I meet my taxi driver at Jeddah Airport?",
-            answer: "Terminal 1: Meet at the 'Aquarium' (large fish tank near arrivals exit, close to Starbucks). Driver holds a name sign. North Terminal: Meet at Gate 2 (main exit). Driver waits outside customs area. Look for 'Taxi Service KSA' logo on the sign."
+            answer: "Terminal 1: Meet at the 'Aquarium' (large fish tank near arrivals exit, close to Starbucks). Driver holds a name sign. North Terminal: Meet at Gate 2 (main exit). Driver waits outside customs area. Look for 'VIP Transfer KSA' logo on the sign."
         },
         {
             question: "How long does it take from Jeddah Airport to Makkah?",

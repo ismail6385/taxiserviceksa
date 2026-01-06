@@ -12,12 +12,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi from Makkah to Jeddah (City or Airport) 24/7. Reliable door-to-door transfer in 60-90 minutes. Fixed rates starting from SAR 200. Professional drivers.',
     keywords: ['Makkah to Jeddah taxi', 'Makkah to Jeddah Airport taxi', 'taxi price Makkah to Jeddah', 'Makkah to King Abdulaziz Airport', 'Haramain train vs taxi makkah', 'private taxi makkah to jeddah'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/makkah-jeddah/',
+        canonical: 'https://transferksa.com/routes/makkah-jeddah/',
     },
     openGraph: {
-        title: 'Makkah to Jeddah Taxi | Door-to-Door Transfer - Fixed Price',
+        title: 'Makkah to Jeddah: Why Private Taxis Beat the Train (Faster & Door-to-Door)',
         description: 'Book a taxi from Makkah to Jeddah (City or Airport) 24/7. Reliable door-to-door transfer in 60-90 minutes. Fixed rates starting from SAR 200.',
-        url: 'https://taxiserviceksa.com/routes/makkah-jeddah/',
+        url: 'https://transferksa.com/routes/makkah-jeddah/',
         type: 'website',
     },
 };
@@ -87,7 +87,7 @@ export default function MakkahJeddahRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:taxiserviceksa9988@gmail.com">
+                    <a href="mailto:info@transferksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email for Quote
                         </Button>
@@ -127,7 +127,7 @@ export default function MakkahJeddahRoutePage() {
                         <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Transfer Guide</span>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Makkah to Jeddah Contactless Pickup</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Whether you are returning from Umrah or heading to Jeddah for business, our drivers provide door-to-door service from your Makkah hotel directly to Jeddah Airport or any city location.
+                            Whether you are returning from Umrah or heading to Jeddah for business, book our <strong>Makkah to Jeddah taxi</strong> for a direct door-to-door service. We pick you up from your Makkah hotel and drive you straight to Jeddah Airport or any city location via the Expressway.
                         </p>
                     </div>
 
@@ -141,6 +141,71 @@ export default function MakkahJeddahRoutePage() {
                                 <div className="text-2xl font-bold text-gray-900">{detail.value}</div>
                             </div>
                         ))}
+                    </div>
+
+                    {/* Traveler Essentials - Entity Injection */}
+                    <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm mb-16">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                            <CheckCircle2 className="w-6 h-6 text-emerald-600" />
+                            Makkah to Jeddah Essentials
+                        </h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div>
+                                <h4 className="font-bold text-gray-900 mb-2">Fastest Route</h4>
+                                <p className="text-sm text-gray-600">
+                                    We use the <strong>Makkah-Jeddah Expressway</strong> to ensure a smooth 60-90 minute journey, avoiding city traffic where possible.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 className="font-bold text-gray-900 mb-2">Train vs Taxi</h4>
+                                <p className="text-sm text-gray-600">
+                                    The <strong>Haramain High-Speed Railway</strong> is fast but drops you at Al-Sulimaniyah Station, requiring another taxi. We provide direct hotel-to-airport service.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 className="font-bold text-gray-900 mb-2">Terminal Expertise</h4>
+                                <p className="text-sm text-gray-600">
+                                    Our drivers know the exact drop-off lanes for <strong className="text-gray-900">Terminal 1 (New Airport)</strong> and the North Terminal for international departures.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Local SEO Hierarchy: Neighborhood Coverage */}
+                    <div className="mb-16">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-6">Service Coverage Areas</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                                <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                                    <MapPin className="w-5 h-5 text-primary" /> Makkah Pickup Zones
+                                </h4>
+                                <p className="text-sm text-gray-600 mb-4">
+                                    We provide 24/7 distinct pickup from all major Makkah neighborhoods, ensuring a prompt start to your journey.
+                                </p>
+                                <div className="flex flex-wrap gap-2">
+                                    {['Aziziyah', 'Jabal Omar', 'Abraj Al Bait (Clock Tower)', 'Al Naseem', 'Kudai', 'Ajyad', 'Al Awali', 'Misfalah'].map((zone) => (
+                                        <span key={zone} className="text-xs bg-white border border-gray-200 px-2 py-1 rounded-md text-gray-700">
+                                            {zone}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
+                                <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                                    <MapPin className="w-5 h-5 text-emerald-600" /> Jeddah Drop-off Districts
+                                </h4>
+                                <p className="text-sm text-gray-600 mb-4">
+                                    Beyond the airport, we deliver directly to your doorstep in any Jeddah district.
+                                </p>
+                                <div className="flex flex-wrap gap-2">
+                                    {['Al Hamra', 'Al Shati', 'Al Rawdah', 'Al Bawadi', 'Obhur', 'Al Balad', 'Al Safa', 'Prince Majed Rd'].map((zone) => (
+                                        <span key={zone} className="text-xs bg-white border border-gray-200 px-2 py-1 rounded-md text-gray-700">
+                                            {zone}
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div className="bg-emerald-900 rounded-2xl p-8 md:p-12 text-white">

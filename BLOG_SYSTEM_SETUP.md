@@ -113,7 +113,7 @@ blogs (
     featured_image TEXT,
     category TEXT NOT NULL,
     tags TEXT[],
-    author TEXT DEFAULT 'Taxi Service KSA',
+    author TEXT DEFAULT 'VIP Transfer KSA',
     status TEXT ('draft' | 'published'),
     seo_title TEXT,
     seo_description TEXT,

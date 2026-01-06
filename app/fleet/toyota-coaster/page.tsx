@@ -12,9 +12,9 @@ import {
 } from '@/components/ui/accordion';
 
 export const metadata: Metadata = {
-    title: 'Toyota Coaster Taxi Service in Saudi Arabia | 17-Seater Tour Bus',
-    description: 'Toyota Coaster accommodates 17 passengers and 20 bags. Suitable for tour groups, corporate events, and large families. Air conditioning and entertainment system included.',
-    keywords: ['Toyota Coaster rental Saudi Arabia', 'tour bus KSA', 'large group transport', '17 seater bus'],
+    title: 'Toyota Coaster VIP Private Transfer Saudi Arabia | 17-Seater Bus',
+    description: 'Premium Toyota Coaster VIP private transfer and group chauffeur service in Saudi Arabia. 17-seater executive bus for corporate events, tour groups, and large families.',
+    keywords: ['Toyota Coaster VIP transfer', 'group bus KSA', 'corporate transport Saudi Arabia', '17 seater executive bus'],
 };
 
 export default function ToyotaCoasterPage() {
@@ -47,20 +47,20 @@ export default function ToyotaCoasterPage() {
 
     const faqs = [
         {
-            question: "Does the Toyota Coaster come with a professional driver?",
-            answer: "Toyota Coaster taxi service includes a professional bus driver. Service does not offer self-drive options. Drivers speak English and Arabic."
+            question: "Does the Toyota Coaster VIP transfer include a chauffeur?",
+            answer: "Every Toyota Coaster VIP transfer includes a professional, licensed bus chauffeur. This is a chauffeur-driven experience for large groups; we do not offer self-drive bus rentals."
         },
         {
-            question: "How many passengers can the Toyota Coaster accommodate comfortably?",
-            answer: "Toyota Coaster accommodates 17 passengers. Vehicle is suitable for large groups, corporate transport, and tour groups."
+            question: "What is the total capacity for passengers and luggage?",
+            answer: "The Toyota Coaster comfortably accommodates up to 17 passengers with 20 large suitcases, making it ideal for event logistics and pilgrimage tours."
         },
         {
-            question: "Is fuel and toll charges included in the booking?",
-            answer: "Taxi booking includes fuel, road tolls, and airport parking fees for point-to-point transfers. Pricing is all-inclusive."
+            question: "Are fuel and driver expenses included in the price?",
+            answer: "Yes, our VIP transfer rates are all-inclusive of fuel, road tolls, and professional driver fees for point-to-point or full-day bookings."
         },
         {
-            question: "Can I book the Toyota Coaster for intercity travel?",
-            answer: "Toyota Coaster booking is available for intercity travel between Jeddah, Makkah, and Madinah. Suitable for long-distance group transport."
+            question: "Can I book the Coaster for executive intercity travel?",
+            answer: "Absolutely. The Toyota Coaster is high in demand for corporate delegations and large families traveling between Riyadh, Jeddah, and the Holy Cities."
         }
     ];
 
@@ -82,13 +82,13 @@ export default function ToyotaCoasterPage() {
 
                         <div className="p-8 lg:p-12 flex flex-col justify-center">
                             <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block w-fit mb-4">
-                                Large Groups
+                                Premium Group Logistics
                             </span>
                             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                                Toyota Coaster Taxi Service in Saudi Arabia
+                                Toyota Coaster VIP Private Transfer
                             </h1>
-                            <p className="text-xl text-gray-600 mb-6">
-                                Toyota Coaster accommodates 17 passengers with 20 bags. Vehicle features air conditioning and entertainment system. Suitable for tour groups and corporate events.
+                            <p className="text-xl text-gray-600 mb-6 font-medium">
+                                Experience the pinnacle of group travel with our <strong>Toyota Coaster VIP private transfer</strong>. Tailored for corporate delegates and large pilgrimage groups, this 17-seater executive bus offers an unmatched chauffeur-driven journey with dedicated luggage capacity and premium climate control.
                             </p>
 
                             {/* Specifications */}
@@ -102,11 +102,21 @@ export default function ToyotaCoasterPage() {
                             </div>
 
                             <Link href="/booking?vehicle=Toyota-Coaster">
-                                <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold">
-                                    Book Toyota Coaster Now
+                                <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold h-14 text-lg">
+                                    Book VIP Coaster Transfer
                                 </Button>
                             </Link>
                         </div>
+                    </div>
+                </div>
+
+                {/* Premium Service Disclaimer */}
+                <div className="bg-amber-50 border border-amber-200 py-3 rounded-xl mb-12">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                            <Shield className="w-4 h-4" />
+                            OFFICIAL NOTE: We specialize in pre-booked VIP Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
+                        </p>
                     </div>
                 </div>
 
@@ -196,14 +206,14 @@ export default function ToyotaCoasterPage() {
                 {/* CTA */}
                 <div className="bg-black rounded-2xl p-8 md:p-12 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                        Need a Tour Bus?
+                        Secure Your Executive Group Transfer
                     </h2>
-                    <p className="text-lg text-gray-300 mb-6">
-                        Book our Toyota Coaster now for large group travel
+                    <p className="text-lg text-gray-300 mb-8">
+                        The ultimate choice for corporate delegation and large group VIP travel in Saudi Arabia.
                     </p>
                     <Link href="/booking?vehicle=Toyota-Coaster">
-                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6">
-                            Book Now
+                        <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto">
+                            Book Your VIP Coaster
                         </Button>
                     </Link>
                 </div>

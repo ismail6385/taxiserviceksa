@@ -15,17 +15,17 @@ import JsonLdFAQ from '@/components/JsonLdFAQ';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-    title: 'GMC Yukon Taxi Service in Saudi Arabia | 7-Seater Airport Transfer',
-    description: 'GMC Yukon taxi service in Saudi Arabia accommodates 7 passengers and 5 large bags. Service includes airport transfers, Umrah transport, and intercity travel. Available 24/7.',
-    keywords: ['GMC Yukon taxi service Saudi Arabia', 'luxury SUV taxi KSA', 'GMC Yukon airport transfer', 'chauffeur service Saudi Arabia', 'Umrah luxury taxi'],
+    title: 'GMC Yukon VIP Private Transfer Saudi Arabia | Premium Chauffeur',
+    description: 'Elite GMC Yukon VIP private transfer and executive chauffeur service in Saudi Arabia. Premium 7-seater SUV for RUH/JED airport transfers and business travel.',
+    keywords: ['GMC Yukon VIP transfer', 'luxury SUV chauffeur KSA', 'GMC Yukon Riyadh transfer', 'executive chauffeur service Saudi Arabia', 'GMC Yukon VIP car'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/fleet/gmc-yukon/',
+        canonical: 'https://transferksa.com/fleet/gmc-yukon/',
     },
     openGraph: {
-        title: 'GMC Yukon Luxury Taxi Service in Saudi Arabia',
-        description: 'Experience premium travel with our GMC Yukon chauffeur service. Ideal for Umrah, airport transfers (JED/MED), and VIP city travel.',
-        url: 'https://taxiserviceksa.com/fleet/gmc-yukon/',
-        images: [{ url: 'https://taxiserviceksa.com/gmc-yukon.webp', alt: 'GMC Yukon Luxury Taxi Saudi Arabia' }],
+        title: 'GMC Yukon VIP Private Transfer & Executive Chauffeur',
+        description: 'Experience elite executive travel with our premium GMC Yukon chauffeur service. Ideal for Riyadh business, airport transfers, and VIP tours.',
+        url: 'https://transferksa.com/fleet/gmc-yukon/',
+        images: [{ url: 'https://transferksa.com/gmc-yukon.webp', alt: 'GMC Yukon VIP Private Transfer Saudi Arabia' }],
     },
 };
 
@@ -59,20 +59,20 @@ export default function GMCYukonPage() {
 
     const faqs = [
         {
-            question: "Does the GMC Yukon taxi service include a driver?",
-            answer: "GMC Yukon taxi service in Saudi Arabia includes a professional driver. Drivers speak English and Arabic. Service operates 24/7 for airport transfers and Umrah transport."
+            question: "Does the GMC Yukon VIP transfer service include a chauffeur?",
+            answer: "Our GMC Yukon VIP transfer service in Saudi Arabia includes a professional, uniformed chauffeur. Chauffeurs are multilingual (English/Arabic) and trained in executive hospitality."
         },
         {
-            question: "Is the GMC Yukon suitable for families performing Umrah?",
-            answer: "GMC Yukon accommodates up to 7 passengers with space for luggage. Vehicle is suitable for Umrah transport between Makkah and Madinah. Privacy tinted windows and dual AC system included."
+            question: "Is the GMC Yukon suitable for VIP family travel?",
+            answer: "The GMC Yukon accommodates up to 7 passengers in complete luxury. It is perfect for VIP family travel between Riyadh, Makkah, and Madinah. Privacy glass and tri-zone climate control are standard."
         },
         {
             question: "How much luggage can the GMC Yukon hold for airport transfers?",
-            answer: "GMC Yukon holds 5 large suitcases in the cargo area. Third-row seats fold flat for additional luggage space. Suitable for international travelers at King Abdulaziz Airport (Jeddah)."
+            answer: "The GMC Yukon comfortably holds 5 large suitcases. For airport transfers at RUH or JED, the third-row seats can be folded to accommodate extra baggage for international travelers."
         },
         {
-            question: "Can I book a GMC Yukon for a trip from Jeddah to Makkah?",
-            answer: "GMC Yukon booking is available for Jeddah to Makkah transfers (95 km, approximately 75 minutes). Service includes flight tracking and meet-and-greet at airport arrivals."
+            question: "Can I book a GMC Yukon for a Riyadh to Makkah transfer?",
+            answer: "Yes, the GMC Yukon is our most popular choice for Riyadh to Makkah transfers (9-hour journey). It provides the essential comfort and stability needed for long-distance Saudi travel."
         }
     ];
 
@@ -80,8 +80,8 @@ export default function GMCYukonPage() {
         "@context": "https://schema.org/",
         "@type": "Product",
         "name": "GMC Yukon Luxury Chauffeur Service",
-        "image": "https://taxiserviceksa.com/gmc-yukon.webp",
-        "description": "Premium GMC Yukon taxi service in Saudi Arabia for Umrah and airport transfers.",
+        "image": "https://transferksa.com/gmc-yukon.webp",
+        "description": "Premium GMC Yukon VIP transfer service in Saudi Arabia for Umrah and airport transfers.",
         "brand": {
             "@type": "Brand",
             "name": "GMC"
@@ -90,7 +90,7 @@ export default function GMCYukonPage() {
             "@type": "Offer",
             "priceCurrency": "SAR",
             "availability": "https://schema.org/InStock",
-            "url": "https://taxiserviceksa.com/fleet/gmc-yukon"
+            "url": "https://transferksa.com/fleet/gmc-yukon"
         },
         "aggregateRating": {
             "@type": "AggregateRating",
@@ -111,13 +111,13 @@ export default function GMCYukonPage() {
                 <JsonLdFAQ faqs={faqs} />
 
                 {/* Hero Section */}
-                <div className="bg-white rounded-2xl overflow-hidden shadow-lg mb-12">
+                <div className="bg-white rounded-2xl overflow-hidden shadow-lg mb-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         {/* Image - Optimized Alt Text */}
                         <div className="relative h-96 lg:h-auto">
                             <Image
                                 src="/gmc-yukon.webp"
-                                alt="GMC Yukon luxury taxi service in Saudi Arabia for airport transfers and Umrah"
+                                alt="GMC Yukon VIP private transfer service in Saudi Arabia"
                                 width={800}
                                 height={600}
                                 className="w-full h-full object-cover"
@@ -128,13 +128,13 @@ export default function GMCYukonPage() {
                         {/* Content - Optimized H1 & Content */}
                         <div className="p-8 lg:p-12 flex flex-col justify-center">
                             <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block w-fit mb-4">
-                                Premium Chauffeur
+                                VIP Executive SUV
                             </span>
                             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-                                GMC Yukon Taxi Service in Saudi Arabia
+                                GMC Yukon VIP Private Transfer
                             </h1>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                                GMC Yukon taxi service in Saudi Arabia accommodates 7 passengers with 5 large bags. Service includes <Link href="/locations/jeddah/" className="bg-primary text-white hover:text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline">Jeddah airport transfers</Link> and Umrah transport. Vehicle features dual AC system and leather interior.
+                                Experience the pinnacle of Saudi road travel with our <strong>GMC Yukon VIP private transfer service</strong>. Tailored for executive business in Riyadh and luxury family travel, our 2025 Yukon fleet delivers unmatched comfort, privacy, and professional chauffeur standards.
                             </p>
 
                             {/* Specifications */}
@@ -149,10 +149,20 @@ export default function GMCYukonPage() {
 
                             <Link href="/booking/?vehicle=GMC-Yukon">
                                 <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold h-14 text-lg">
-                                    Book GMC Yukon Now
+                                    Book VIP Yukon Transfer
                                 </Button>
                             </Link>
                         </div>
+                    </div>
+                </div>
+
+                {/* Premium Service Disclaimer */}
+                <div className="bg-amber-50 border border-amber-200 py-3 rounded-xl mb-12">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                            <Shield className="w-4 h-4" />
+                            OFFICIAL NOTE: We specialize in pre-booked VIP Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
+                        </p>
                     </div>
                 </div>
 
@@ -203,7 +213,7 @@ export default function GMCYukonPage() {
                         </ul>
                         <div className="mt-6 pt-6 border-t border-gray-100 text-gray-600 text-sm">
                             <p>
-                                Check our <Link href="/locations/makkah/" className="bg-primary text-white hover:text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline font-medium">Umrah taxi services</Link> for more details on pilgrim transport options.
+                                Check our <Link href="/locations/makkah/" className="bg-primary text-white hover:text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline font-medium">Umrah transfer services</Link> for more details on pilgrim transport options.
                             </p>
                         </div>
                     </div>
@@ -237,14 +247,14 @@ export default function GMCYukonPage() {
                 <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 mb-12 prose max-w-none text-gray-700">
                     <h2 className="text-2xl font-bold text-gray-900 mb-4">GMC Yukon Chauffeur Service Overview</h2>
                     <p className="mb-4">
-                        The <strong>GMC Yukon</strong> stands as the pinnacle of <Link href="/" className="bg-primary text-white hover:text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline">luxury taxi service in Saudi Arabia</Link>. Combining robust performance with a sophisticated interior, it offers an unmatched travel experience. It is the top choice for VIPs and families looking for a reliable <strong>GMC Yukon airport transfer KSA</strong>.
+                        The <strong>GMC Yukon</strong> stands as the pinnacle of <Link href="/" className="bg-primary text-white hover:text-black px-1 rounded hover:bg-primary/80 transition-colors no-underline">VIP private transfer service in Saudi Arabia</Link>. Combining robust performance with a sophisticated interior, it offers an unmatched travel experience. It is the top choice for VIPs and executives looking for a reliable <strong>GMC Yukon airport transfer KSA</strong>.
                     </p>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">Premium SUV Taxi for Umrah & Tourists</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">Premium SUV Chauffeur for Riyadh & Intercity</h3>
                     <p className="mb-4">
-                        For pilgrims, comfort is key. Our <strong>GMC Yukon taxi service</strong> provides a serene environment perfect for the spiritual journey between <Link href="/locations/makkah/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">Makkah</Link> and <Link href="/locations/madinah/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">Madinah</Link>. With ample luggage space and plush seating, it is the ideal <strong>premium family taxi KSA</strong>. Tourists visiting <Link href="/locations/riyadh/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">Riyadh</Link> also prefer the Yukon for its ability to handle long distances with ease.
+                        For business travelers in <Link href="/locations/riyadh/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">Riyadh</Link>, the Yukon is the standard for professionalism. Our <strong>GMC Yukon VIP transfer service</strong> provides a serene environment perfect for the journey between Riyadh and the Holy Cities. With ample luggage space and plush seating, it is the ideal <strong>premium executive SUV KSA</strong>.
                     </p>
                     <p>
-                        Our professional drivers ensure your safety and privacy, making us the preferred <strong>chauffeur service Saudi Arabia</strong> provider. Explore our full <Link href="/fleet/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">luxury fleet</Link> to find the perfect vehicle for your needs.
+                        Our professional chauffeurs ensure your safety and privacy, making us the preferred <strong>chauffeur service Saudi Arabia</strong> provider. Explore our full <Link href="/fleet/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">VIP fleet</Link> to find the perfect vehicle for your needs.
                     </p>
                 </div>
 
@@ -407,10 +417,10 @@ export default function GMCYukonPage() {
                 <div className="bg-black rounded-2xl p-8 md:p-12 text-center relative overflow-hidden">
                     <div className="relative z-10">
                         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                            Ready to Experience Luxury?
+                            Ready to Experience VIP Excellence?
                         </h2>
                         <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                            Book our <strong>GMC Yukon luxury taxi</strong> today for a seamless journey. Instant confirmation available.
+                            Book our <strong>GMC Yukon VIP private transfer</strong> today for a seamless, executive journey. Instant reservation confirmation.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
@@ -422,7 +432,7 @@ export default function GMCYukonPage() {
                             </Link>
 
                             {/* Secondary CTA */}
-                            <a href="mailto:taxiserviceksa9988@gmail.com" className="w-full sm:w-auto">
+                            <a href="mailto:info@transferksa.com" className="w-full sm:w-auto">
                                 <Button variant="outline" className="w-full bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                     Email for Availability
                                 </Button>

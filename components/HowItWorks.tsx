@@ -21,13 +21,13 @@ export default function HowItWorks({ title }: HowItWorksProps) {
         {
             id: 2,
             title: "Instant Verification",
-            description: "Submit your details and get immediate confirmation. We track your flight status to ensure your driver is there exactly when you land.",
+            description: "Submit details and get immediate confirmation via <strong>Email</strong>. We track your international flight to ensure the driver waits even if you are delayed.",
             icon: <Monitor className="w-12 h-12 text-blue-500" />
         },
         {
             id: 3,
             title: "Performance & Comfort",
-            description: "Meet your licensed chauffeur at the arrival hall. Enjoy a safe, premium journey to Makkah or Madinah with no hidden costs.",
+            description: "Meet your English-speaking chauffeur at the arrival hall with a name sign. Enjoy a safe, premium journey to Makkah or Madinah.",
             icon: <div className="relative">
                 <Car className="w-12 h-12 text-blue-500" />
                 <Heart className="w-5 h-5 text-red-500 absolute -bottom-1 -right-1 fill-red-500" />

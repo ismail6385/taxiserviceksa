@@ -26,30 +26,30 @@ import TopicCluster from '@/components/seo/TopicCluster';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'Taxi Service in Taif | Makkah Transfers & Al Hada Tours',
-    description: 'Taxi service requires mountain-ready vehicles for Al Hada road. Transfers from Makkah to Taif and Jeddah Airport available. Tours to Al Shafa rose farms.',
-    keywords: ['Taif taxi service', 'Makkah to Taif taxi', 'Jeddah to Taif taxi', 'Al Hada transport', 'Taif rose farm tour', 'Qarn al Manazil taxi', 'makkah to taif taxi fare', 'makkah to taif distance', 'taif to makkah', 'luxury car rental in taif with driver', 'best car rental in taif', 'taif car rentals', 'taif rent a car', 'taif to makkah taxi fare', 'from taif to makkah'],
+    title: 'VIP Private Transfer & Chauffeur Taif | Al Hada Mountain',
+    description: 'Premium VIP private transfer and executive chauffeur service in Taif. Specialized Makkah to Taif mountain transfers via Al Hada and Jeddah Airport pickups. Professional high-altitude driving expertise.',
+    keywords: ['Taif VIP private transfer', 'Executive chauffeur Taif', 'Al Hada VIP transport', 'Premium Makkah to Taif transfer', 'Taif mountain chauffeur service'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/taif/',
+        canonical: 'https://transferksa.com/locations/taif/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/taif/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/taif/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/taif/',
-            'x-default': 'https://taxiserviceksa.com/locations/taif/',
+            'en': 'https://transferksa.com/locations/taif/',
+            'ar': 'https://transferksa.com/ar/locations/taif/',
+            'ur': 'https://transferksa.com/ur/locations/taif/',
+            'x-default': 'https://transferksa.com/locations/taif/',
         }
     },
     openGraph: {
-        title: 'Taxi Service in Taif | Makkah Transfers & Al Hada Tours',
-        description: 'Private transport to Taif via Al Hada mountain road. Service includes stops at cable car and rose factories.',
-        url: 'https://taxiserviceksa.com/locations/taif/',
+        title: 'VIP Transfer in Taif | Makkah Transfers & Al Hada Tours',
+        description: 'Premium VIP transfer to Taif via Al Hada mountain road. Service includes stops at cable car and rose factories.',
+        url: 'https://transferksa.com/locations/taif/',
         type: 'website',
-        images: [{ url: 'https://taxiserviceksa.com/taif-mountains-view.webp', alt: 'Taif Al Hada Mountain Road' }],
+        images: [{ url: 'https://transferksa.com/taif-mountains-view.webp', alt: 'Taif Al Hada Mountain Road' }],
     },
 };
 
 export default function TaifPage() {
     const services = [
-        { name: 'Makkah to Taif Taxi', description: 'Cool mountain escape (1 hr) - Luxury SUV', icon: Car },
+        { name: 'Makkah to Taif VIP Transfer', description: 'Cool mountain escape (1 hr) - Luxury SUV', icon: Car },
         { name: 'Jeddah Airport to Taif', description: 'Direct transfer (2 hrs)', icon: MapPin },
         { name: 'Al Hada & Cable Car', description: 'Drop-off at top station', icon: CloudFog },
         { name: 'Rose Farm Tours', description: 'Seasonal factory visits (Mar-Apr)', icon: Flower2 },
@@ -94,18 +94,19 @@ export default function TaifPage() {
 
             <Hero
                 images={taifImages}
-                h1Text="Taxi Service in Taif: Makkah Transfers and Al Hada Tours"
+                h1Text="VIP Private Transfer & Chauffeur Taif"
+                bookingFormTitle="Book Premium Transfer in Taif"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        City of Roses
+                        VIP Chauffeur Service Taif
                     </span>
                 }
-                subtitle="Cool Mountain Breeze"
-                location="Al Hada • Shafa • City Center"
+                subtitle="High-Altitude Excellence & Mountain Comfort"
+                location="Al Hada • Shafa • VIP Tours"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ Taif"
+                        brandName="VIP Transfer KSA™ Taif"
                         description="Professional chauffeur and airport transfer services in Taif. We help travelers and rose festival visitors with luxury vehicles and 24/7 availability for Al Hada mountain road and Jeddah Airport transfers."
                         foundingDate="2012"
                         metrics={[
@@ -119,17 +120,27 @@ export default function TaifPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                         <Link href="/booking/">
-                            Book Taif Transfer
+                            Book VIP Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </Button>
                     <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                         <Link href="#pricing">
-                            View Prices
+                            View VIP Rates
                         </Link>
                     </Button>
                 </div>
             </Hero>
+
+            {/* Premium Service Disclaimer */}
+            <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                        <Shield className="w-4 h-4" />
+                        OFFICIAL NOTE: We specialize in pre-booked Mountain, Intercity, and VIP Airport transfers. We do NOT provide local short-distance hailing.
+                    </p>
+                </div>
+            </div>
 
             {/* Trending Note */}
             <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
@@ -206,7 +217,7 @@ export default function TaifPage() {
                             category: "Key Routes",
                             relevance: "Primary",
                             items: [
-                                { label: "Makkah to Taif Taxi", url: "/locations/makkah" },
+                                { label: "Makkah to Taif Transfer", url: "/locations/makkah" },
                                 { label: "Jeddah Airport to Taif", url: "/locations/jeddah" },
                                 { label: "Riyadh to Taif (Overland)", url: "/services/intercity" }
                             ]
@@ -393,11 +404,11 @@ export default function TaifPage() {
                         <MicroSemanticFAQ
                             faqs={[
                                 {
-                                    question: "How much is a taxi from Makkah to Taif?",
+                                    question: "How much is a VIP transfer from Makkah to Taif?",
                                     shortAnswer: "200-300 SAR",
                                     detailedAnswer: "Standard sedan rates for the one-way drop to Taif city start from 200 SAR. Visiting Al Hada (Cable car point) or Al Shafa requires a different rate due to the steep ascent.",
                                     perspectives: [
-                                        { role: "Tourist", icon: "Mountain", insight: "Much cheaper than Uber which often cancels on the mountain." },
+                                        { role: "Tourist", icon: "Mountain", insight: "Much cheaper than executive Ubers which often cancel on the mountain." },
                                         { role: "Local", icon: "Shield", insight: "Fixed price is better than meter in steep terrain." }
                                     ]
                                 },
@@ -418,7 +429,7 @@ export default function TaifPage() {
                                     ]
                                 },
                                 {
-                                    question: "Is Uber available in Taif?",
+                                    question: "Is Uber available in Taif for mountain trips?",
                                     shortAnswer: "Limited Reliability",
                                     detailedAnswer: "Uber works in the city center but is very difficult to find near remote resorts in Al Shafa or Al Hada. You risk getting stranded at the top of the mountain.",
                                     perspectives: [
@@ -457,10 +468,10 @@ export default function TaifPage() {
                         </div>
 
                         <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                            Taif Taxi Prices
+                            VIP Taif Transfer Rates
                         </h3>
-                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                            Transparent pricing for mountain trips. No meter surprises.
+                        <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                            Transparent pricing for mountain journeys and executive city disposal.
                         </p>
                     </div>
 
@@ -516,13 +527,13 @@ export default function TaifPage() {
 
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white text-center">
                 <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl md:text-5xl font-black mb-8">Book Your Ride to Taif</h2>
-                    <p className="text-xl text-gray-400 mb-8">
-                        Private SUVs available for Makkah to Taif transfers. Instant confirmation.
+                    <h2 className="text-3xl md:text-5xl font-black mb-8">Elevate Your Taif Journey</h2>
+                    <p className="text-xl text-gray-400 mb-8 leading-relaxed">
+                        Premium SUVs and professional chauffeurs ready for your Makkah to Taif mountain transfer.
                     </p>
                     <Link href="/booking/">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-12 py-8 rounded-full">
-                            Book Taif Taxi
+                            Reserve VIP Transfer
                         </Button>
                     </Link>
                 </div>

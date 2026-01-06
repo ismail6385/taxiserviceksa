@@ -3,20 +3,20 @@ import HomeClient from './page-client';
 import { blogService } from '@/lib/blogService';
 
 export const metadata: Metadata = {
-  title: 'Online Taxi Service in Saudi Arabia | Airport & Umrah Taxi',
-  description: 'Book online taxi service in Saudi Arabia for Umrah, airport transfers & city travel. 24/7 reliable airport taxi with professional drivers.',
+  title: 'BEST VIP Private Transfer Saudi Arabia | Executive Chauffeur',
+  description: 'Book elite VIP private transfers in Saudi Arabia for Umrah, airport transfers & executive travel. 24/7 premium chauffeur service with professional drivers.',
   alternates: {
     canonical: 'https://taxiserviceksa.com/',
   },
   openGraph: {
-    title: 'Online Taxi Service in Saudi Arabia | Airport & Umrah Taxi',
-    description: 'Book online taxi service in Saudi Arabia for Umrah, airport transfers & city travel. 24/7 reliable airport taxi with professional drivers.',
+    title: 'BEST VIP Private Transfer & Executive Chauffeur Saudi Arabia',
+    description: 'Book elite VIP private transfers in Saudi Arabia for Umrah, airport transfers & executive travel. 24/7 premium chauffeur service with professional drivers.',
     url: 'https://taxiserviceksa.com/',
-    siteName: 'Taxi Service KSA',
+    siteName: 'VIP Transfer KSA',
     locale: 'en_US',
     type: 'website',
   },
-  keywords: ['Online Taxi Service in Saudi Arabia', 'Taxi Service in Saudi Arabia', 'Umrah Taxi Service', 'Airport Taxi KSA', 'rent a car with driver in saudi arabia', 'jeddah to makkah coaster', 'transport madinah to makkah', 'private umrah taxi for families', 'toyota hiace for rent in jeddah'],
+  keywords: ['VIP Private Transfer Saudi Arabia', 'Executive Chauffeur Saudi Arabia', 'VIP Umrah Transport', 'Premium Airport Transfer KSA', 'rent a car with driver in saudi arabia', 'jeddah to makkah coaster', 'transport madinah to makkah', 'private luxury transfer for families', 'executive suv for rent in jeddah', 'taxi saudi arabia from uk', 'umrah taxi from usa', 'jeddah airport transfer canada', 'prebook taxi jeddah', 'luxury transport saudi arabia'],
 };
 
 export default async function Home() {

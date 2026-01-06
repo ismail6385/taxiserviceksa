@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { format } from 'date-fns';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -40,6 +40,7 @@ interface HeroBookingWidgetProps {
 
 export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
     const router = useRouter();
+    const pathname = usePathname();
     // Booking State
     const [step, setStep] = useState(1); // 1: Search, 2: Vehicles, 3: Details, 4: Success
     const [loading, setLoading] = useState(false);
@@ -100,7 +101,7 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                 vehicle_image: selectedVehicle.image,
                 passengers: selectedVehicle.passengers,
                 luggage: selectedVehicle.luggage,
-                special_requests: isRoundTrip ? `Request: Round Trip. Quoted Price: SAR ${calculatedPrice || 'TBD'}` : `Quoted Price: SAR ${calculatedPrice || 'TBD'}`,
+                special_requests: (isRoundTrip ? `Request: Round Trip. Quoted Price: SAR ${calculatedPrice || 'TBD'}` : `Quoted Price: SAR ${calculatedPrice || 'TBD'}`) + ` | Source: ${pathname}`,
                 status: 'pending'
             };
 
@@ -128,17 +129,22 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
             {/* Header / Title */}
             {step === 1 && (
                 <>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 text-center mb-2 animate-fade-in">
-                        {title || "Book Best Online Taxi Service in Saudi Arabia for Pilgrims, Tourists & Locals"}
+                    <h3 className="text-xl sm:text-2xl font-black text-gray-900 text-center mb-2 animate-fade-in uppercase tracking-tight">
+                        {title || "VIP Private Transfer & Chauffeur Service"}
                     </h3>
-                    <div className="flex items-center justify-center gap-2 mb-6">
-                        <span className="relative flex h-2.5 w-2.5">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                        </span>
-                        <span className="text-xs sm:text-sm font-semibold text-emerald-700">
-                            143 bookings were booked today
-                        </span>
+                    <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
+                        <div className="flex items-center gap-1.5 bg-emerald-50 text-emerald-700 px-2 py-1 rounded-md border border-emerald-100">
+                            <Check className="w-3.5 h-3.5" />
+                            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider">Airport Pickup</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 bg-blue-50 text-blue-700 px-2 py-1 rounded-md border border-blue-100">
+                            <Check className="w-3.5 h-3.5" />
+                            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider">Intercity Travel</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 bg-amber-50 text-amber-700 px-2 py-1 rounded-md border border-amber-100">
+                            <Check className="w-3.5 h-3.5" />
+                            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider">Premium Fleet</span>
+                        </div>
                     </div>
                 </>
             )}
@@ -151,10 +157,10 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                         <div className="relative group">
                             <MapPin className="absolute left-3 top-3.5 w-5 h-5 text-gray-400 group-focus-within:text-primary transition-colors" />
                             <Input
-                                placeholder="Pickup Location (e.g. Jeddah Airport)"
+                                placeholder="Pickup (Airport or City)"
                                 value={pickup}
                                 onChange={(e) => setPickup(e.target.value)}
-                                className="pl-10 h-12 bg-gray-50 border-gray-200 focus:border-primary rounded-xl text-base"
+                                className="pl-10 h-12 bg-gray-50 border-gray-200 focus:border-primary rounded-xl text-base font-medium"
                                 required
                             />
                         </div>
@@ -172,10 +178,10 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                         <div className="relative group">
                             <MapPin className="absolute left-3 top-3.5 w-5 h-5 text-gray-400 group-focus-within:text-primary transition-colors" />
                             <Input
-                                placeholder="Dropoff Location (e.g. Makkah Hotel)"
+                                placeholder="Destination (Hotel or City)"
                                 value={dropoff}
                                 onChange={(e) => setDropoff(e.target.value)}
-                                className="pl-10 h-12 bg-gray-50 border-gray-200 focus:border-primary rounded-xl text-base"
+                                className="pl-10 h-12 bg-gray-50 border-gray-200 focus:border-primary rounded-xl text-base font-medium"
                                 required
                             />
                         </div>
@@ -236,9 +242,12 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                         </div>
                     </div>
 
-                    <Button type="submit" className="w-full h-14 bg-[#FFC107] hover:bg-[#FFB300] text-black font-bold text-lg rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
-                        View Prices & Vehicles
+                    <Button type="submit" className="w-full h-14 bg-black hover:bg-gray-800 text-white font-bold text-lg rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                        Check Availability & Rates
                     </Button>
+                    <p className="text-[10px] sm:text-xs text-center text-gray-400 mt-2 italic px-4">
+                        * We specialize in long-distance intercity transfers and airport pickups. We do not provide local short-distance hailing.
+                    </p>
                 </form>
             )}
 

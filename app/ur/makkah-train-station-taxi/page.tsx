@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: 'مکہ حرمین ٹرین اسٹیشن (رسیفہ) سے حرم ہوٹل تک ٹیکسی سروس۔ اسٹیشن اور ہوٹل کے درمیان آرام دہ سفر۔ فکسڈ ریٹس۔',
     keywords: ['مکہ ٹرین اسٹیشن ٹیکسی', 'حرمین اسٹیشن ٹرانسفر', 'رسیفہ اسٹیشن ٹیکسی', 'مکہ اسٹیشن سے حرم'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/ur/makkah-train-station-taxi/',
+        canonical: 'https://transferksa.com/ur/makkah-train-station-taxi/',
     },
 };
 

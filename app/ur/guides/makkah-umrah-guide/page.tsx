@@ -17,16 +17,16 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 
 
 export const metadata: Metadata = {
-    title: 'Makkah Umrah Complete Guide 2025 | Transport, Tawaf, Ziyarat - Taxi Service KSA',
+    title: 'Makkah Umrah Complete Guide 2025 | Transport, Tawaf, Ziyarat - VIP Transfer KSA',
     description: 'Complete Umrah guide for Makkah: Haram access, Tawaf timing, Ziyarat sites, Zamzam logistics, hotel zones, prayer schedules, and taxi transport. Everything pilgrims need to know.',
     keywords: ['Umrah guide Makkah', 'Tawaf timing', 'Ziyarat sites Makkah', 'Haram access points', 'Makkah hotel zones', 'Jabal al-Nour', 'Zamzam water'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/makkah-umrah-guide/',
+        canonical: 'https://transferksa.com/guides/makkah-umrah-guide/',
     },
     openGraph: {
         title: 'Makkah Umrah Complete Guide 2025 | Everything Pilgrims Need',
         description: 'Comprehensive Umrah guide: Haram access, Tawaf timing, Ziyarat sites, transport, and practical tips for pilgrims.',
-        url: 'https://taxiserviceksa.com/guides/makkah-umrah-guide/',
+        url: 'https://transferksa.com/guides/makkah-umrah-guide/',
         type: 'article',
     },
 };

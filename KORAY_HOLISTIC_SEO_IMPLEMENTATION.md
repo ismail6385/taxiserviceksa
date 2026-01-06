@@ -45,7 +45,7 @@
 
 **Before (Marketing-Focused):**
 ```
-"Taxi Service KSA: Reliable Airport & Umrah Transfers"
+"VIP Transfer KSA: Reliable Airport & Umrah Transfers"
 ```
 
 **After (Entity-Focused):**
@@ -130,13 +130,13 @@
 **Before:**
 ```
 H2: "Why Choose Our Taxi Service"
-Description: "Taxi Service KSA is dedicated to serving Umrah pilgrims, tourists, and locals with the highest standards. We provide reliable taxi service KSA wide."
+Description: "VIP Transfer KSA is dedicated to serving Umrah pilgrims, tourists, and locals with the highest standards. We provide reliable VIP Transfer KSA wide."
 ```
 
 **After:**
 ```
 H2: "Taxi Service Operating in Saudi Arabia"
-Description: "Taxi Service KSA operates in 8 cities across Saudi Arabia. Service includes airport transfers, Umrah transport, and intercity travel. Fleet consists of GMC Yukon, Toyota Camry, Hyundai Staria, and Toyota Hiace vehicles."
+Description: "VIP Transfer KSA operates in 8 cities across Saudi Arabia. Service includes airport transfers, Umrah transport, and intercity travel. Fleet consists of GMC Yukon, Toyota Camry, Hyundai Staria, and Toyota Hiace vehicles."
 ```
 
 **Koray's Principle Applied:**
@@ -174,7 +174,7 @@ Description: "Taxi Service KSA operates in 8 cities across Saudi Arabia. Service
 
 **Before:**
 ```
-"Taxi Service KSA is a top-rated choice for Umrah pilgrims. We offer specialized Umrah taxi services with experienced drivers who know the routes between Makkah, Madinah, and Jeddah perfectly. We ensure a spiritual and comfortable journey."
+"VIP Transfer KSA is a top-rated choice for Umrah pilgrims. We offer specialized Umrah taxi services with experienced drivers who know the routes between Makkah, Madinah, and Jeddah perfectly. We ensure a spiritual and comfortable journey."
 ```
 
 **After:**

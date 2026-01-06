@@ -19,7 +19,7 @@ export default function JsonLdBreadcrumb() {
             item: baseUrl,
         },
         ...segments.map((segment, index) => {
-            const url = `${baseUrl}/${segments.slice(0, index + 1).join('/')}`;
+            const url = `${baseUrl}/${segments.slice(0, index + 1).join('/')}/`;
 
             // Format name: replace hyphens with spaces and capitalize words
             const name = segment

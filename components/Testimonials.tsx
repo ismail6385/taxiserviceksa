@@ -6,21 +6,21 @@ const testimonials = [
         role: "Business Traveler",
         content: "Excellent service! The driver was waiting for me at Jeddah airport even though my flight was delayed. The car was spotless and very comfortable.",
         rating: 5,
-        location: "Riyadh"
+        location: "Riyadh, Saudi Arabia"
     },
     {
         name: "Fatima Khan",
         role: "Umrah Pilgrim",
         content: "We booked a round trip from Jeddah to Makkah. The driver was very polite and helpful with our luggage. Highly recommended for Umrah pilgrims.",
         rating: 5,
-        location: "Pakistan"
+        location: "Lahore, Pakistan"
     },
     {
         name: "John Smith",
         role: "Tourist",
         content: "Great experience touring Madinah. The chauffeur knew all the historical sites and was very patient. Will definitely book again.",
         rating: 5,
-        location: "UK"
+        location: "London, UK"
     }
 ];
 
@@ -31,7 +31,7 @@ export default function Testimonials() {
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
                     <p className="text-gray-600 max-w-2xl mx-auto">
-                        Don't just take our word for it. Here's what our satisfied customers have to say about their experience with Taxi Service KSA.
+                        Don't just take our word for it. Here's what our satisfied customers have to say about their experience with VIP Transfer KSA.
                     </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

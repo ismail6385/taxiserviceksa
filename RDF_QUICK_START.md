@@ -19,7 +19,7 @@
 
 ### Core Business Triple
 ```
-Subject: Taxi Service KSA
+Subject: VIP Transfer KSA
 Predicate: provides
 Object: premium chauffeur and airport transfer services in Saudi Arabia
 ```
@@ -132,7 +132,7 @@ Example:
   "name": "[Service Name]",
   "provider": {
     "@type": "LocalBusiness",
-    "name": "Taxi Service KSA",
+    "name": "VIP Transfer KSA",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "[City]",
@@ -244,7 +244,7 @@ Be specific:
 ### 1. Update Homepage Hero Section
 ```html
 <h1>
-  Premium Taxi Service KSA - Luxury Chauffeur Service Across Saudi Arabia
+  Premium VIP Transfer KSA - Luxury Chauffeur Service Across Saudi Arabia
 </h1>
 
 <p>
@@ -258,7 +258,7 @@ Be specific:
 
 ### 2. Optimize Google Business Description
 ```
-Taxi Service KSA is a premium chauffeur service in Saudi Arabia that specializes 
+VIP Transfer KSA is a premium chauffeur service in Saudi Arabia that specializes 
 in airport transfers, Umrah transportation, and luxury intercity travel. We serve 
 Jeddah, Makkah, Madinah, and Riyadh with professional drivers, luxury vehicles 
 (GMC Yukon, Toyota Camry, Hyundai Staria), and 24/7 availability.

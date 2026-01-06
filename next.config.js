@@ -132,31 +132,31 @@ const nextConfig = {
         destination: '/services/',
         permanent: false,
       },
-      // Missing language homepages - redirect to main homepage
-      {
-        source: '/ar',
-        destination: '/',
-        permanent: false,
-      },
-      {
-        source: '/ar/',
-        destination: '/',
-        permanent: false,
-      },
-      {
-        source: '/ur',
-        destination: '/',
-        permanent: false,
-      },
-      {
-        source: '/ur/',
-        destination: '/',
-        permanent: false,
-      },
       // Redundant route redirect
       {
         source: '/locations/jeddah-makkah/',
         destination: '/routes/jeddah-makkah/',
+        permanent: true,
+      },
+      // Restructured Route Pages (301)
+      {
+        source: '/jeddah-airport-to-makkah-taxi',
+        destination: '/routes/jeddah-makkah/',
+        permanent: true,
+      },
+      {
+        source: '/jeddah-airport-to-makkah-taxi/',
+        destination: '/routes/jeddah-makkah/',
+        permanent: true,
+      },
+      {
+        source: '/madinah-to-makkah-taxi',
+        destination: '/routes/madinah-makkah/',
+        permanent: true,
+      },
+      {
+        source: '/madinah-to-makkah-taxi/',
+        destination: '/routes/madinah-makkah/',
         permanent: true,
       },
     ];

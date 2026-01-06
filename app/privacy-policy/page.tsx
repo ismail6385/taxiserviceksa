@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { Shield, Lock, Eye, UserCheck, Database, Mail, Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'Privacy Policy | Taxi Service KSA',
-    description: 'Learn how Taxi Service KSA collects, uses, and protects your personal information. Your privacy and data security are our top priorities.',
+    title: 'Privacy Policy | VIP Transfer KSA',
+    description: 'Learn how VIP Transfer KSA collects, uses, and protects your personal information. Your privacy and data security are our top priorities.',
     keywords: ['privacy policy', 'data protection', 'personal information', 'GDPR compliance'],
 };
 
@@ -29,7 +29,7 @@ export default function PrivacyPolicyPage() {
                 {/* Introduction */}
                 <div className="bg-white rounded-2xl p-8 shadow-sm mb-8">
                     <p className="text-gray-700 leading-relaxed mb-4">
-                        At <strong>Taxi Service KSA</strong>, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your data when you use our taxi and chauffeur services in Saudi Arabia.
+                        At <strong>VIP Transfer KSA</strong>, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your data when you use our taxi and chauffeur services in Saudi Arabia.
                     </p>
                     <p className="text-gray-700 leading-relaxed">
                         By using our services, you agree to the collection and use of information in accordance with this policy. We encourage you to read this document carefully to understand our practices.

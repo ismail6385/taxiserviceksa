@@ -30,21 +30,21 @@ export const metadata: Metadata = {
     description: 'مکہ میں عمرہ زائرین کے لیے قابل اعتماد ٹیکسی بک کریں۔ جدہ ایئرپورٹ سے مکہ، ہوٹل پک اپ اور زیارات۔ محفوظ سفر۔',
     keywords: ['مکہ ٹیکسی', 'عمرہ ٹیکسی', 'جدہ ایئرپورٹ ٹیکسی', 'حرم ٹرانسپورٹ', 'زیارات مکہ'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/ur/locations/makkah/',
+        canonical: 'https://transferksa.com/ur/locations/makkah/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/makkah/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/makkah/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/makkah/',
-            'x-default': 'https://taxiserviceksa.com/locations/makkah/',
+            'en': 'https://transferksa.com/locations/makkah/',
+            'ar': 'https://transferksa.com/ar/locations/makkah/',
+            'ur': 'https://transferksa.com/ur/locations/makkah/',
+            'x-default': 'https://transferksa.com/locations/makkah/',
         }
     },
     openGraph: {
         title: 'مکہ ٹیکسی سروس | قابل اعتماد عمرہ ٹرانسپورٹ',
         description: 'کیا آپ کو مکہ میں ٹیکسی چاہیے؟ ہم ٢٤/٧ سروس فراہم کرتے ہیں۔ جدہ ایئرپورٹ اور زیارات کے لیے بہترین۔',
-        url: 'https://taxiserviceksa.com/ur/locations/makkah/',
+        url: 'https://transferksa.com/ur/locations/makkah/',
         locale: 'ur_PK',
         type: 'website',
-        images: [{ url: 'https://taxiserviceksa.com/makkah-kaaba-night.webp', alt: 'مکہ ٹیکسی سروس' }],
+        images: [{ url: 'https://transferksa.com/makkah-kaaba-night.webp', alt: 'مکہ ٹیکسی سروس' }],
     },
 };
 

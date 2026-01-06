@@ -13,9 +13,9 @@ import {
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Toyota Hiace Taxi Service in Saudi Arabia | 11-Seater Group Van',
-    description: 'Toyota Hiace taxi service accommodates 11 passengers and 16 bags. Suitable for Umrah groups, large families, and airport transfers. Multi-zone air conditioning.',
-    keywords: ['Toyota Hiace rental Saudi Arabia', 'group transport KSA', 'Umrah van', '11 seater'],
+    title: 'Toyota Hiace VIP Private Transfer Saudi Arabia | Group Transport',
+    description: 'Premium Toyota Hiace VIP private transfer and group chauffeur service in Saudi Arabia. Professional 11-seater van for Umrah groups, large families, and executive transfers.',
+    keywords: ['Toyota Hiace VIP transfer', 'group transport KSA', 'Umrah van chauffeur', '11 seater Saudi Arabia'],
 };
 
 export default function ToyotaHiacePage() {
@@ -48,20 +48,20 @@ export default function ToyotaHiacePage() {
 
     const faqs = [
         {
-            question: "Does the Toyota Hiace come with a professional driver?",
-            answer: "Toyota Hiace taxi service includes a professional driver. Service does not offer self-drive options. Drivers speak English and Arabic."
+            question: "Does the Toyota Hiace VIP transfer include a chauffeur?",
+            answer: "Every Toyota Hiace VIP transfer includes a professional, uniformed chauffeur. We specialize in group logistics and executive transport; we do not offer self-drive options."
         },
         {
-            question: "How many passengers can the Toyota Hiace accommodate comfortably?",
-            answer: "Toyota Hiace accommodates 11 passengers with 16 luggage pieces. Vehicle features dedicated ceiling vents for every row and retractable boarding step."
+            question: "How many passengers and bags can the Toyota Hiace accommodate?",
+            answer: "The Toyota Hiace comfortably accommodates 11 passengers with 16 large suitcases. It is the gold standard for groups, featuring multi-zone climate control for every row."
         },
         {
-            question: "Is fuel and toll charges included in the booking?",
-            answer: "Taxi booking includes fuel, road tolls, and airport parking fees for point-to-point transfers. Pricing is all-inclusive."
+            question: "Is road toll and fuel included in the price?",
+            answer: "Yes, our VIP transfer rates are flat and all-inclusive of fuel, road tolls, and airport parking fees for point-to-point transfers."
         },
         {
-            question: "Can I book the Toyota Hiace for an Umrah trip?",
-            answer: "Toyota Hiace booking is available for Umrah group transport between Jeddah, Makkah, and Madinah. Suitable for groups of 10-11 passengers."
+            question: "Is the Toyota Hiace suitable for family Umrah groups?",
+            answer: "The Toyota Hiace is our most popular vehicle for group Umrah transport between Jeddah, Makkah, and Madinah, offering ample space for both passengers and luggage."
         }
     ];
 
@@ -84,13 +84,13 @@ export default function ToyotaHiacePage() {
 
                         <div className="p-8 lg:p-12 flex flex-col justify-center">
                             <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block w-fit mb-4">
-                                Group Transport
+                                Premium Group Transport
                             </span>
                             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                                Toyota Hiace Taxi Service in Saudi Arabia
+                                Toyota Hiace VIP Private Transfer
                             </h1>
-                            <p className="text-xl text-gray-600 mb-6">
-                                Toyota Hiace accommodates 11 passengers with 16 bags. Vehicle features multi-zone air conditioning and high roof option. Suitable for Umrah groups and large families.
+                            <p className="text-xl text-gray-600 mb-6 font-medium">
+                                Step up to <strong>Toyota Hiace VIP transfer</strong> excellence. Designed for large families and corporate delegates, our Hiace fleet features dual-zone climate control and expansive cargo space, ensuring a seamless chauffeur-driven experience across the Kingdom.
                             </p>
 
                             {/* Specifications */}
@@ -104,11 +104,21 @@ export default function ToyotaHiacePage() {
                             </div>
 
                             <Link href="/booking/?vehicle=Toyota-Hiace">
-                                <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold">
-                                    Book Toyota Hiace Now
+                                <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold h-14 text-lg">
+                                    Book VIP Hiace Transfer
                                 </Button>
                             </Link>
                         </div>
+                    </div>
+                </div>
+
+                {/* Premium Service Disclaimer */}
+                <div className="bg-amber-50 border border-amber-200 py-3 rounded-xl mb-12">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                            <Shield className="w-4 h-4" />
+                            OFFICIAL NOTE: We specialize in pre-booked VIP Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
+                        </p>
                     </div>
                 </div>
 
@@ -325,14 +335,14 @@ export default function ToyotaHiacePage() {
                 {/* CTA */}
                 <div className="bg-black rounded-2xl p-8 md:p-12 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                        Ready for Group Travel?
+                        Secure Your Group VIP Journey
                     </h2>
-                    <p className="text-lg text-gray-300 mb-6">
-                        Book our Toyota Hiace now for your Umrah or group journey
+                    <p className="text-lg text-gray-300 mb-8">
+                        Experience the gold standard of group transport with our professional chauffeur-driven Toyota Hiace.
                     </p>
                     <Link href="/booking/?vehicle=Toyota-Hiace">
-                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6">
-                            Book Now
+                        <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto">
+                            Book Your VIP Van
                         </Button>
                     </Link>
                 </div>

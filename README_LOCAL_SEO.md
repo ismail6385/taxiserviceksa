@@ -1,4 +1,4 @@
-# 📚 LOCAL SEO MASTER INDEX - Taxi Service KSA
+# 📚 LOCAL SEO MASTER INDEX - VIP Transfer KSA
 
 ## 🎯 Complete Implementation Package
 
@@ -278,7 +278,7 @@ Local Authority: Established
 
 ### Your Business Information
 ```
-Name: Taxi Service KSA - Premium Chauffeur & Airport Transfer
+Name: VIP Transfer KSA - Premium Chauffeur & Airport Transfer
 Phone: +92-317-6243861
 WhatsApp: +92-317-6243861
 Website: https://taxiserviceksa.com
@@ -305,7 +305,7 @@ Service Areas: Jeddah, Makkah, Madinah, Riyadh, Taif, Dammam, Al Khobar, Yanbu
 - best taxi service in jeddah
 - professional chauffeur riyadh
 - affordable umrah taxi
-- 24/7 taxi service ksa
+- 24/7 VIP Transfer KSA
 - vip chauffeur service riyadh airport
 
 ---

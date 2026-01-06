@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     description: 'Best online taxi service for heritage tours in Saudi Arabia. Professional 4x4 transport for AlUla, Hegra & UNESCO sites. Top rated drivers with local knowledge.',
     keywords: ['Top Rated Heritage Tours', 'Best 4x4 Desert Transport KSA', 'AlUla Tours Saudi Arabia', 'Hegra UNESCO Transport', 'Saudi Heritage Sites Taxi'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/heritage-tours/',
+        canonical: 'https://transferksa.com/services/heritage-tours/',
     },
     openGraph: {
         title: 'Heritage Tours Saudi Arabia | UNESCO Sites Transport with 4x4',
         description: 'Professional heritage tour transport for AlUla, Khaybar, and UNESCO sites. 4x4 desert vehicles with licensed drivers.',
-        url: 'https://taxiserviceksa.com/services/heritage-tours/',
+        url: 'https://transferksa.com/services/heritage-tours/',
         type: 'website',
     },
 };
@@ -164,7 +164,7 @@ export default function HeritageToursPage() {
                             <span className="text-white">In Saudi Arabia</span>
                         </h1>
                         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                            Taxi Service KSA provides the best transport for exploring historical sites starting from <Link href="/locations/madinah/" className="text-white underline hover:text-primary transition-colors">Madinah (The Gateway to the North)</Link>. Professional 4x4 desert transport for AlUla and Khaybar.
+                            VIP Transfer KSA provides the best transport for exploring historical sites starting from <Link href="/locations/madinah/" className="text-white underline hover:text-primary transition-colors">Madinah (The Gateway to the North)</Link>. Professional 4x4 desert transport for AlUla and Khaybar.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/booking?service=heritage-tours">
@@ -173,7 +173,7 @@ export default function HeritageToursPage() {
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>
-                            <a href="mailto:taxiserviceksa9988@gmail.com">
+                            <a href="mailto:info@transferksa.com">
                                 <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
                                     Email for Custom Tour
                                 </Button>
@@ -333,7 +333,7 @@ export default function HeritageToursPage() {
                                 Book Tour
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Custom Itinerary
                             </Button>

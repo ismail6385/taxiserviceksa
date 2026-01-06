@@ -25,22 +25,22 @@ import RoutePerspective from '@/components/seo/RoutePerspective';
 import ExpertReview from '@/components/seo/ExpertReview';
 
 export const metadata: Metadata = {
-    title: 'Taxi Service in AlUla | Hegra Tours & Airport Transfer Saudi Arabia',
-    description: 'Taxi service in AlUla for Hegra UNESCO site tours and airport transfers. AlUla Airport to hotels. 4x4 vehicles for desert terrain. Fixed rates for heritage tours.',
-    keywords: ['taxi service in AlUla', 'AlUla taxi', 'Hegra tours', 'AlUla Airport transfer', 'AlUla heritage tours', 'taxi in al ula', 'madain saleh tour', 'winter at tantora transport', 'al ula driver'],
+    title: 'VIP Private Transfer & Chauffeur AlUla | Hegra Heritage Tours',
+    description: 'Premium VIP private transfer and executive chauffeur service in AlUla. Specialized UNESCO heritage site transport to Hegra and ULH Airport transfers. Premium 4x4 vehicles for desert luxury.',
+    keywords: ['AlUla VIP private transfer', 'Executive chauffeur AlUla', 'Hegra VIP tours', 'ULH Airport VIP pickup', 'AlUla premium desert transport'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/alula/',
+        canonical: 'https://transferksa.com/locations/alula/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/alula/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/alula/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/alula/',
-            'x-default': 'https://taxiserviceksa.com/locations/alula/',
+            'en': 'https://transferksa.com/locations/alula/',
+            'ar': 'https://transferksa.com/ar/locations/alula/',
+            'ur': 'https://transferksa.com/ur/locations/alula/',
+            'x-default': 'https://transferksa.com/locations/alula/',
         }
     },
     openGraph: {
-        title: 'Taxi Service in AlUla | Hegra Tours & Airport Transfer',
-        description: 'Taxi service in AlUla operates for UNESCO heritage tours and airport transfers. 4x4 vehicles for desert sites. Book online.',
-        url: 'https://taxiserviceksa.com/locations/alula/',
+        title: 'VIP Transfer in AlUla | Hegra Tours & Airport Pickup',
+        description: 'VIP transfer service in AlUla for UNESCO heritage tours and airport pickups. Premium 4x4 vehicles for desert sites. Book online.',
+        url: 'https://transferksa.com/locations/alula/',
         type: 'website',
     },
 };
@@ -80,18 +80,19 @@ export default function AlUlaPage() {
             {/* Hero Section */}
             <Hero
                 images={alulaImages}
-                h1Text="Taxi Service in AlUla: Hegra Tours and Heritage Site Transport"
+                h1Text="VIP Private Transfer & Chauffeur AlUla"
+                bookingFormTitle="Book Premium Transfer in AlUla"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        AlUla Taxi Service
+                        VIP Chauffeur Service AlUla
                     </span>
                 }
-                subtitle="UNESCO Heritage Transport"
-                location="4x4 Desert Tours Available"
+                subtitle="UNESCO Heritage & Desert Excellence"
+                location="Premium 4x4 Desert Transfers"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ AlUla"
+                        brandName="VIP Transfer KSA™ AlUla"
                         description="Professional chauffeur and heritage tour services in AlUla. We help tourists and travelers with luxury 4x4 vehicles and 24/7 availability for Hegra tours, Airport transfers, and desert exploration."
                         foundingDate="2012"
                         metrics={[
@@ -105,17 +106,27 @@ export default function AlUlaPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                         <Link href="/booking/">
-                            Book Taxi Now
+                            Book VIP Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </Button>
                     <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             Email Us
                         </a>
                     </Button>
                 </div>
             </Hero>
+
+            {/* Premium Service Disclaimer */}
+            <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                        <Shield className="w-4 h-4" />
+                        OFFICIAL NOTE: We specialize in pre-booked Heritage, Intercity, and VIP Airport transfers. We do NOT provide local short-distance hailing.
+                    </p>
+                </div>
+            </div>
 
             {/* Trending Note */}
             <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
@@ -131,7 +142,7 @@ export default function AlUlaPage() {
             {/* Semantic Hub */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-16">
                 <QuestionGrouper
-                    mainQuestion="Do I really need a taxi in AlUla?"
+                    mainQuestion="Do I really need a VIP transfer in AlUla?"
                     intro="AlUla is vast. The distance between the Old Town and Hegra is over 25km. There is no public bus system."
                     subQuestions={[
                         {
@@ -293,10 +304,10 @@ export default function AlUlaPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Our Services</span>
+                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Executive Services</span>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">AlUla Heritage Transport</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Specialized taxi service for UNESCO heritage tours and desert exploration in AlUla.
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                            Premium VIP private transport for UNESCO heritage tours and professional desert exploration in AlUla.
                         </p>
                     </div>
 
@@ -318,7 +329,7 @@ export default function AlUlaPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our AlUla Taxi Service</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our AlUla VIP Transfer</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                         {features.map((feature, index) => (
@@ -364,7 +375,7 @@ export default function AlUlaPage() {
                                 ]
                             },
                             {
-                                question: "Can I get a taxi from AlUla to Khaybar?",
+                                question: "Can I get a VIP transfer from AlUla to Khaybar?",
                                 shortAnswer: "Yes, 2-3 Hours",
                                 detailedAnswer: "The volcanic lava fields of Khaybar are 150km away. It's a popular day trip. We wait while you explore the fort and oasis.",
                                 perspectives: [
@@ -386,10 +397,10 @@ export default function AlUlaPage() {
                         </div>
 
                         <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
-                            AlUla Transport Fares
+                            VIP Transport Fares
                         </h3>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            Transparent pricing for airport transfers and daily driver hire.
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                            Transparent pricing for executive airport transfers and daily chauffeur hire.
                         </p>
                     </div>
 
@@ -455,10 +466,10 @@ export default function AlUlaPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Your Ride
+                                Book VIP Transfer
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email Us
                             </Button>

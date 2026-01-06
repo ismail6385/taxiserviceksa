@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: 'تاكسي موثوق من مطار المدينة المنورة (MED) إلى فنادق الحرم. استقبال 24/7. أسعار ثابتة تبدأ من 50 ريال. سائقون محترفون.',
     keywords: ['تاكسي مطار المدينة', 'توصيل مطار محمد بن عبدالعزيز', 'تاكسي من المطار للحرم', 'رقم تاكسي المدينة'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/ar/madinah-airport-taxi/',
+        canonical: 'https://transferksa.com/ar/madinah-airport-taxi/',
     },
 };
 

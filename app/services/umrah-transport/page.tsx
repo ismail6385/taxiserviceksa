@@ -15,16 +15,14 @@ import { blogService } from '@/lib/blogService';
 import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-    title: 'Reliable Umrah Taxi Service in Saudi Arabia | Trusted & Affordable',
-    description: 'Book reliable Umrah taxi service in Saudi Arabia. Affordable & trusted transport for Hajj & Umrah. VIP luxury vehicles with professional drivers.',
-    keywords: ['Reliable Umrah Taxi Service', 'Trusted Umrah Transport', 'VIP Umrah Taxi', 'Affordable Umrah Transport', 'Umrah Taxi Service in Saudi Arabia'],
+    keywords: ['VIP Umrah Private Transfers', 'Best Umrah Chauffeur', 'Jeddah to Makkah VIP Transfer', 'Madinah Madinah Private Transfer', 'Saudi Arabia Pilgrim Transport'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/umrah-transport/',
+        canonical: 'https://transferksa.com/services/umrah-transport/',
     },
     openGraph: {
-        title: 'Umrah Transport Service | Taxi with Driver for Makkah & Madinah',
-        description: 'Complete Umrah transport service with professional drivers. Jeddah Airport to Makkah, Makkah to Madinah taxi. Fixed rates, 24/7 service.',
-        url: 'https://taxiserviceksa.com/services/umrah-transport/',
+        title: 'Umrah VIP Transfer Service | Private Chauffeur for Makkah & Madinah',
+        description: 'Complete VIP Umrah transport service with professional chauffeurs. Jeddah Airport to Makkah, Makkah to Madinah best transfer. Fixed rates, 24/7 service.',
+        url: 'https://transferksa.com/services/umrah-transport/',
         type: 'website',
     },
 };
@@ -40,7 +38,7 @@ export default async function UmrahTransportPage() {
             distance: '80 km',
             duration: '60-90 minutes',
             price: 'From SAR 150',
-            description: 'Direct transfer from King Abdulaziz International Airport. Our drivers assist you with finding the right <Link href="/guides/jeddah-airport-guide/" className="text-emerald-700 hover:underline">Jeddah Airport terminal transport</Link> points.',
+            description: 'Direct transfer from King Abdulaziz International Airport. Check our <Link href="/blog/jeddah-airport-makkah-taxi-fare-2025/" className="text-emerald-700 hover:underline">2025 Fare Guide</Link> for official vs private price comparisons.',
             link: '/routes/jeddah-makkah/',
             icon: Plane
         },
@@ -58,7 +56,7 @@ export default async function UmrahTransportPage() {
             distance: 'Within city',
             duration: '15-30 minutes',
             price: 'From SAR 30',
-            description: 'Hotel to Haram taxi service. Available 24/7 for prayers and Ziyarat tours.',
+            description: 'Hotel to Haram private transfer service. Available 24/7 for prayers and Ziyarat tours.',
             link: '/locations/makkah/',
             icon: MapPin
         },
@@ -86,7 +84,7 @@ export default async function UmrahTransportPage() {
             capacity: '7 passengers',
             luggage: '5 large bags',
             ideal: 'Families with luggage',
-            features: ['Spacious interior', 'Extra cargo space', 'Child seat available']
+            features: ['Spacious interior', 'Roof carrier (for larger bags)', 'Child seat available']
         },
         {
             name: 'Toyota Hiace',
@@ -98,14 +96,15 @@ export default async function UmrahTransportPage() {
     ];
 
     const features = [
-        'Licensed drivers with Umrah route knowledge',
-        'All vehicles include professional drivers (no self-drive)',
+        'Ministry of Transport Licensed Captains',
+        'Meeqat Stopovers (As Sayl Al Kabir / Dhul Hulaifah)',
+        'Ziyarat Knowledge (Quba Mosque, Jabal Al-Nour)',
         'Flight tracking for airport pickups',
         'Meet-and-greet service at arrivals',
         'Prayer time awareness and flexibility',
         'Zamzam water container accommodation',
         'Fixed rates with no surge pricing',
-        'English and Arabic speaking drivers',
+        'English, Arabic & Urdu speaking drivers',
     ];
 
     const faqs = [
@@ -134,8 +133,8 @@ export default async function UmrahTransportPage() {
             answer: "Yes. All drivers speak English and Arabic. Many drivers also speak Urdu for Pakistani and Indian pilgrims. Drivers are trained to assist international pilgrims with basic Umrah guidance and local directions."
         },
         {
-            question: "Is taxi service available 24/7 during Ramadan and Hajj season?",
-            answer: "Yes. Taxi service operates 24/7 throughout the year, including Ramadan and Hajj season. During peak periods, advance booking (48-72 hours) is strongly recommended due to high demand. Priority is given to pre-booked customers."
+            question: "Is VIP transfer service available 24/7 during Ramadan and Hajj season?",
+            answer: "Yes. Our best transfer service operates 24/7 throughout the year, including Ramadan and Hajj season. During peak periods, advance booking (48-72 hours) is strongly recommended due to high demand. Priority is given to pre-booked customers."
         },
         {
             question: "Can I book a driver for multiple days during Umrah?",
@@ -150,7 +149,7 @@ export default async function UmrahTransportPage() {
     const serviceSchema = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Umrah Transport Service with Driver",
+        "name": "Umrah VIP Transfer Service with Chauffeur",
 
         "serviceType": "Umrah Transport",
         "areaServed": [
@@ -158,7 +157,7 @@ export default async function UmrahTransportPage() {
             { "@type": "City", "name": "Madinah" },
             { "@type": "City", "name": "Jeddah" }
         ],
-        "description": "Reliable Umrah taxi service in Saudi Arabia offering VIP luxury transport and affordable rates. Trusted by pilgrims for Makkah and Madinah transfers.",
+        "description": "Best VIP Umrah private transfer and chauffeur service in Saudi Arabia. Specializing in long-distance intercity travel for pilgrims between Makkah, Madinah, and Jeddah.",
         "offers": {
             "@type": "AggregateOffer",
             "priceCurrency": "SAR",
@@ -189,11 +188,11 @@ export default async function UmrahTransportPage() {
                             Complete Umrah Transport
                         </span>
                         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                            Reliable Umrah Taxi Service<br />
+                            VIP Umrah Private Transfers<br />
                             <span className="text-white">In Saudi Arabia</span>
                         </h1>
                         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                            Experience VIP luxury transport for Hajj & Umrah in <Link href="/locations/makkah/" className="text-white underline hover:text-primary transition-colors">Makkah Al Mukarramah</Link>. We provide trusted and affordable taxi services from Jeddah Airport to your hotel.
+                            Experience the best standard of spiritual travel. We provide exclusive, private chauffeur-driven transport for Hajj & Umrah pilgrims. Our service specializes in **long-distance intercity transfers** and **all-day private hire**—ensuring absolute comfort and punctuality for your pilgrimage.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/booking/?service=umrah-transport">
@@ -202,7 +201,7 @@ export default async function UmrahTransportPage() {
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>
-                            <a href="mailto:taxiserviceksa9988@gmail.com">
+                            <a href="mailto:info@transferksa.com">
                                 <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
                                     Email for Quote
                                 </Button>
@@ -216,7 +215,7 @@ export default async function UmrahTransportPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Umrah Taxi & Transport Services</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Best VIP Umrah Transfers</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                             Comprehensive and reliable transport packages for every stage of your pilgrimage.
                         </p>
@@ -262,9 +261,9 @@ export default async function UmrahTransportPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">VIP Luxury Transport for Umrah</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">VIP Executive Fleet</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Choose from our fleet of reliable and affordable vehicles. From comfortable sedans to luxury GMC Yukons.
+                            Modern, air-conditioned vehicles dedicated to private transfers. We do not provide local street hail services—only pre-booked executive transportation.
                         </p>
                     </div>
 
@@ -402,10 +401,10 @@ export default async function UmrahTransportPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your Reliable Umrah Ride
+                        Book Your VIP Umrah Transfer
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Secure your booking with Saudi Arabia's trusted Umrah taxi service. VIP comfort at affordable rates.
+                        Secure your private chauffeur with Saudi Arabia's premium pilgrimage transport service. Specializing in intercity and airport-to-hotel transfers.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/?service=umrah-transport">
@@ -413,7 +412,7 @@ export default async function UmrahTransportPage() {
                                 Book Now
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Custom Package
                             </Button>

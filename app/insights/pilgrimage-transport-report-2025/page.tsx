@@ -15,7 +15,7 @@ export const metadata: Metadata = {
         description: 'Why do 70% of families choose taxis? The data might surprise you.',
         type: 'article',
         publishedTime: '2025-12-28',
-        authors: ['Taxi Service KSA Data Team'],
+        authors: ['VIP Transfer KSA Data Team'],
         images: ['/taxi-vs-train-2025.png'], // Generated Infographic
     }
 };

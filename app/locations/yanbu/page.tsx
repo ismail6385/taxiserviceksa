@@ -24,22 +24,22 @@ import RoutePerspective from '@/components/seo/RoutePerspective';
 import ExpertReview from '@/components/seo/ExpertReview';
 
 export const metadata: Metadata = {
-    title: 'Taxi Service in Yanbu | Airport Transfer & Industrial Port Transport',
-    description: 'Taxi service in Yanbu operates 24/7 for airport transfers and industrial transport. Yanbu Airport to port and industrial city. Fixed rates for corporate travel.',
-    keywords: ['taxi service in Yanbu', 'Yanbu taxi', 'Yanbu Airport transfer', 'Yanbu industrial transport', 'Yanbu port taxi', 'royal commission yanbu taxi', 'taxi number yanbu', 'yanbu city taxi'],
+    title: 'VIP Private Transfer & Chauffeur Yanbu | Airport & Industrial Port',
+    description: 'Premium VIP private transfer and executive chauffeur service in Yanbu. Specialized Prince Abdul Mohsin Airport (YNB) pickups and industrial city port transfers. Professional corporate standards.',
+    keywords: ['Yanbu VIP private transfer', 'Executive chauffeur Yanbu', 'YNB Airport VIP pickup', 'Yanbu industrial port transfer', 'Yanbu corporate transport'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/yanbu/',
+        canonical: 'https://transferksa.com/locations/yanbu/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/yanbu/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/yanbu/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/yanbu/',
-            'x-default': 'https://taxiserviceksa.com/locations/yanbu/',
+            'en': 'https://transferksa.com/locations/yanbu/',
+            'ar': 'https://transferksa.com/ar/locations/yanbu/',
+            'ur': 'https://transferksa.com/ur/locations/yanbu/',
+            'x-default': 'https://transferksa.com/locations/yanbu/',
         }
     },
     openGraph: {
-        title: 'Taxi Service in Yanbu | Airport Transfer & Industrial Transport',
-        description: 'Taxi service in Yanbu operates 24/7. Airport transfers and industrial city transport. Fixed rates. Book online.',
-        url: 'https://taxiserviceksa.com/locations/yanbu/',
+        title: 'VIP Transfer in Yanbu | Airport Transfer & Industrial Transport',
+        description: 'VIP transfer service in Yanbu operates 24/7. Premium airport transfers and industrial city transport. Fixed rates. Book online.',
+        url: 'https://transferksa.com/locations/yanbu/',
         type: 'website',
     },
 };
@@ -48,7 +48,7 @@ export default function YanbuPage() {
     const services = [
         { name: 'Yanbu Airport Transfer', description: 'Transfers from Prince Abdul Mohsin bin Abdulaziz Airport (YNB) to Yanbu hotels', icon: Plane },
         { name: 'Industrial City Transport', description: 'Transport to Yanbu Industrial City, petrochemical facilities, and port areas', icon: Anchor },
-        { name: 'Yanbu to Madinah Taxi', description: 'Intercity travel between Yanbu and Madinah (220 km, 2.5-3 hours)', icon: Car },
+        { name: 'Yanbu to Madinah VIP Transfer', description: 'Intercity travel between Yanbu and Madinah (220 km, 2.5-3 hours)', icon: Car },
         { name: 'Red Sea Waterfront Tours', description: 'Transport to Yanbu Corniche, diving centers, and Red Sea beaches', icon: MapPin },
     ];
 
@@ -78,18 +78,19 @@ export default function YanbuPage() {
             {/* Hero Section */}
             <Hero
                 images={yanbuImages}
-                h1Text="Taxi Service in Yanbu: Airport Transfers and Industrial Transport"
+                h1Text="VIP Private Transfer & Chauffeur Yanbu"
+                bookingFormTitle="Book Premium Transfer in Yanbu"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Yanbu Taxi Service
+                        VIP Chauffeur Service Yanbu
                     </span>
                 }
-                subtitle="Industrial & Red Sea Gateway"
-                location="24/7 Airport & Port Service"
+                subtitle="Industrial Hub & Red Sea Executive Gateway"
+                location="24/7 VIP Airport & Port Service"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ Yanbu"
+                        brandName="VIP Transfer KSA™ Yanbu"
                         description="Professional chauffeur and airport transfer services in Yanbu. We help industrial workers, port personnel, and travelers with luxury vehicles and 24/7 availability for Yanbu Airport and Industrial City transport."
                         foundingDate="2012"
                         metrics={[
@@ -103,17 +104,27 @@ export default function YanbuPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                         <Link href="/booking/">
-                            Book Taxi Now
+                            Book VIP Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </Button>
                     <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             Email Us
                         </a>
                     </Button>
                 </div>
             </Hero>
+
+            {/* Premium Service Disclaimer */}
+            <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                        <Shield className="w-4 h-4" />
+                        OFFICIAL NOTE: We specialize in pre-booked Airport, Port, and VIP Industrial transfers. We do NOT provide local short-distance hailing.
+                    </p>
+                </div>
+            </div>
 
             {/* Trending Note */}
             <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
@@ -218,10 +229,10 @@ export default function YanbuPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Our Services</span>
+                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Executive Services</span>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Yanbu Transport Solutions</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Professional taxi service for industrial workers, port personnel, and Red Sea travelers.
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                            Professional VIP chauffeur service for industrial executives, port personnel, and Red Sea travelers.
                         </p>
                     </div>
 
@@ -243,7 +254,7 @@ export default function YanbuPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Yanbu Taxi Service</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Yanbu VIP Transfer</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                         {features.map((feature, index) => (
@@ -277,9 +288,9 @@ export default function YanbuPage() {
                         <TravelConsensus
                             points={[
                                 {
-                                    topic: "Taxi Availability",
+                                    topic: "VIP Service Availability",
                                     commonBelief: "I can hail one on the street.",
-                                    reality: "In the Royal Commission (Industrial City), street taxis are BANNED/non-existent. You MUST book a private car or use a licensed app. Street hailing only works in Old Town.",
+                                    reality: "In the Royal Commission (Industrial City), street taxis are BANNED/non-existent. You MUST book a private VIP transfer or use a licensed app. Street hailing only works in Old Town.",
                                     truthRange: "Booking Required (RC)",
                                     factors: ["RC Rules", "Zoning"]
                                 },
@@ -333,12 +344,12 @@ export default function YanbuPage() {
                                 shortAnswer: "15-20 Minutes",
                                 detailedAnswer: "Prince Abdul Mohsin Airport (YNB) is located about 10-15km from the Royal Commission/Industrial area. It is a quick highway drive. We track all inbound flights.",
                                 perspectives: [
-                                    { role: "Worker", icon: "Clock", insight: "Shift changes are prompt; taxi is reliable." },
+                                    { role: "Worker", icon: "Clock", insight: "Shift changes are prompt; transfer is reliable." },
                                     { role: "Expat", icon: "Plane", insight: "Small, efficient airport. Driver waits at the single exit gate." }
                                 ]
                             },
                             {
-                                question: "How much is a taxi from Yanbu to Madinah?",
+                                question: "How much is a VIP transfer from Yanbu to Madinah?",
                                 shortAnswer: "400 - 500 SAR",
                                 detailedAnswer: "The 220km trip via Route 60 takes about 2.5 hours. We use reliable sedans or SUVs. We can drop you at the Haramain Train Station or your hotel in Madinah.",
                                 perspectives: [
@@ -377,7 +388,7 @@ export default function YanbuPage() {
                         </div>
 
                         <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
-                            Yanbu Taxi Rates
+                            VIP Yanbu Transfer Rates
                         </h3>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                             Flat rates for Royal Commission, Airport, and Intercity trips.
@@ -440,7 +451,7 @@ export default function YanbuPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your Yanbu Taxi Now
+                        Book Your Yanbu VIP Transfer Now
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                         Professional transport for industrial workers, port access, and Red Sea travel.
@@ -448,10 +459,10 @@ export default function YanbuPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Your Ride
+                                Book VIP Transfer
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email Us
                             </Button>

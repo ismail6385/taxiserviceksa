@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: 'جدہ ایئرپورٹ (JED) سے مکہ ہوٹلز تک آفیشل ٹیکسی سروس۔ ارائیول پر 24/7 میٹ اینڈ گریٹ۔ عمرہ زائرین کے لیے فکسڈ ریٹ۔',
     keywords: ['جدہ ایئرپورٹ مکہ ٹیکسی', 'جدہ ٹو مکہ ٹرانسفر', 'عمرہ ٹیکسی جدہ', 'جدہ ایئرپورٹ کرایہ'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/ur/jeddah-airport-to-makkah-taxi/',
+        canonical: 'https://transferksa.com/ur/jeddah-airport-to-makkah-taxi/',
     },
 };
 

@@ -1,17 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
-
-const resendApiKey = process.env.RESEND_API_KEY;
-const TRUSTPILOT_LINK = 'https://www.trustpilot.com/review/taxiserviceksa.com'; // Replace with actual link
-
-if (!resendApiKey) {
-    console.error('RESEND_API_KEY is not set');
-}
-
-const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 export async function POST(request: NextRequest) {
     try {
@@ -22,27 +13,22 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
         }
 
-        if (!resend) {
-            return NextResponse.json({ error: 'Email service not configured' }, { status: 500 });
-        }
+        // Configure Nodemailer Transporter
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.EMAIL_USER || 'taxiserviceksa9988@gmail.com',
+                pass: process.env.EMAIL_PASS,
+            },
+        });
 
+        const REVIEW_LINK = 'https://transferksa.com/submit-review';
         let subject = '';
         let htmlContent = '';
 
-        const commonStyle = `
-            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            .header { padding: 30px; text-center; border-radius: 10px 10px 0 0; }
-            .content { background: #fff; padding: 30px; border: 1px solid #e0e0e0; border-radius: 0 0 10px 10px; }
-            .button { display: inline-block; padding: 12px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; margin: 20px 0; }
-            .highlight { color: #000; font-weight: bold; }
-        `;
-
-        const REVIEW_LINK = 'https://taxiserviceksa.com/submit-review';
-
         switch (status) {
             case 'confirmed':
-                subject = '✅ Booking Confirmed - Taxi Service KSA';
+                subject = '✅ Booking Confirmed - VIP Transfer KSA';
                 htmlContent = `
                     <!DOCTYPE html>
                     <html>
@@ -66,8 +52,7 @@ export async function POST(request: NextRequest) {
                             .cta-button { display: inline-block; background: #000; color: #ffffff; padding: 15px 35px; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 16px; margin: 20px 0; transition: transform 0.2s; }
                             .cta-button:hover { transform: translateY(-2px); }
                             .footer { background: #f9f9f9; padding: 20px; text-align: center; font-size: 13px; color: #888; border-top: 1px solid #eaeaea; }
-                            .social-links { margin: 15px 0; }
-                            .social-links a { color: #888; text-decoration: none; margin: 0 10px; }
+                            .footer p { margin: 5px 0; }
                         </style>
                     </head>
                     <body>
@@ -112,11 +97,11 @@ export async function POST(request: NextRequest) {
                                 </ul>
 
                                 <center>
-                                    <a href="https://taxiserviceksa.com/contact" class="cta-button">Manage Booking</a>
+                                    <a href="https://transferksa.com/contact" class="cta-button">Manage Booking</a>
                                 </center>
                             </div>
                             <div class="footer">
-                                <p>&copy; ${new Date().getFullYear()} Taxi Service KSA. All rights reserved.</p>
+                                <p>&copy; ${new Date().getFullYear()} VIP Transfer KSA. All rights reserved.</p>
                                 <p>Jeddah | Makkah | Madinah | Riyadh</p>
                             </div>
                         </div>
@@ -126,7 +111,7 @@ export async function POST(request: NextRequest) {
                 break;
 
             case 'cancelled':
-                subject = 'Booking Status Update - Taxi Service KSA';
+                subject = 'Booking Status Update - VIP Transfer KSA';
                 htmlContent = `
                     <!DOCTYPE html>
                     <html>
@@ -150,7 +135,7 @@ export async function POST(request: NextRequest) {
                                 <p>Dear <strong>${customerName}</strong>,</p>
                                 <p>Your booking <strong>#${bookingId.slice(0, 8).toUpperCase()}</strong> has been cancelled as per request or due to unforeseen circumstances.</p>
                                 <p>If this was a mistake, you can rebook instantly.</p>
-                                <a href="https://taxiserviceksa.com" class="cta-button">Book Again</a>
+                                <a href="https://transferksa.com" class="cta-button">Book Again</a>
                             </div>
                         </div>
                     </body>
@@ -159,7 +144,7 @@ export async function POST(request: NextRequest) {
                 break;
 
             case 'completed':
-                subject = '🌟 A Special Request from Taxi Service KSA';
+                subject = '🌟 A Special Request from VIP Transfer KSA';
                 htmlContent = `
                     <!DOCTYPE html>
                     <html>
@@ -193,7 +178,7 @@ export async function POST(request: NextRequest) {
                                 <a href="${REVIEW_LINK}" class="cta-button">Rate Your Experience</a>
                                 
                                 <p style="margin-top: 40px; font-size: 12px; color: #999;">
-                                    If you felt our service was anything less than 5 stars, please <a href="mailto:support@taxiserviceksa.com" style="color: #666;">reply to this email</a> directly so we can make it right.
+                                    If you felt our service was anything less than 5 stars, please <a href="mailto:info@transferksa.com" style="color: #666;">reply to this email</a> directly so we can make it right.
                                 </p>
                             </div>
                         </div>
@@ -208,14 +193,14 @@ export async function POST(request: NextRequest) {
 
         console.log(`Sending ${status} email to ${customerEmail}`);
 
-        const data = await resend.emails.send({
-            from: 'Taxi Service KSA <noreply@taxiserviceksa.com>',
-            to: [customerEmail],
+        const info = await transporter.sendMail({
+            from: '"VIP Transfer KSA" <info@transferksa.com>',
+            to: customerEmail,
             subject: subject,
             html: htmlContent,
         });
 
-        return NextResponse.json({ success: true, data });
+        return NextResponse.json({ success: true, data: info });
 
     } catch (error: any) {
         console.error('Error sending status email:', error);

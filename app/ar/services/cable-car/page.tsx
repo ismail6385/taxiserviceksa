@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description: 'Taxi service to Cable Car (Telefric) stations in Taif (Al Hada) and Abha. Enjoy the scenic mountain views with reliable transport to and from the terminals.',
     keywords: ['Taif cable car taxi', 'Al Hada telefric transport', 'Abha cable car ride', 'Saudi Arabia cable car', 'Mountain tourism taxi'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/cable-car/',
+        canonical: 'https://transferksa.com/services/cable-car/',
     },
 };
 

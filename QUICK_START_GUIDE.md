@@ -48,7 +48,7 @@ Complete summary of Phase 1 work.
 ### Homepage Optimization
 
 #### 1. Simplify H1
-**Current**: "Taxi Service KSA: Reliable Airport & Umrah Transfers"  
+**Current**: "VIP Transfer KSA: Reliable Airport & Umrah Transfers"  
 **Goal**: Make it more factual, less marketing
 
 #### 2. Move Key Info Above Fold

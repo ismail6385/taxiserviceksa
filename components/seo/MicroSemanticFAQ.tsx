@@ -109,27 +109,26 @@ const MicroSemanticFAQ: React.FC<MicroSemanticFAQProps> = ({
                                     {faq.detailedAnswer}
                                 </div>
 
-                                <div className="mt-4">
-                                    <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">
-                                        {labels.perspectives}
-                                    </h4>
-                                    <div className="grid md:grid-cols-2 gap-4">
-                                        {faq.perspectives.map((persp, pIndex) => {
-                                            const IconComponent = iconMap[persp.icon] || HelpCircle;
-                                            return (
-                                                <div key={pIndex} className={`p-4 rounded-lg border shadow-sm flex gap-3 ${isDark ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-100'}`}>
-                                                    <div className="mt-1 flex-shrink-0">
-                                                        <IconComponent className="w-4 h-4 text-primary" />
+                                {faq.perspectives.length > 0 && (
+                                    <div className="mt-4">
+                                        <div className="grid md:grid-cols-2 gap-4">
+                                            {faq.perspectives.map((persp, pIndex) => {
+                                                const IconComponent = iconMap[persp.icon] || HelpCircle;
+                                                return (
+                                                    <div key={pIndex} className={`p-4 rounded-lg border shadow-sm flex gap-3 ${isDark ? 'bg-gray-900 border-gray-800' : 'bg-white border-gray-100'}`}>
+                                                        <div className="mt-1 flex-shrink-0">
+                                                            <IconComponent className="w-4 h-4 text-primary" />
+                                                        </div>
+                                                        <div>
+                                                            <span className={`block text-xs font-bold mb-1 ${isDark ? 'text-white' : 'text-gray-900'}`}>{persp.role}</span>
+                                                            <p className={`text-xs leading-relaxed ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>{persp.insight}</p>
+                                                        </div>
                                                     </div>
-                                                    <div>
-                                                        <span className={`block text-xs font-bold mb-1 ${isDark ? 'text-white' : 'text-gray-900'}`}>{persp.role}</span>
-                                                        <p className={`text-xs leading-relaxed ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>{persp.insight}</p>
-                                                    </div>
-                                                </div>
-                                            );
-                                        })}
+                                                );
+                                            })}
+                                        </div>
                                     </div>
-                                </div>
+                                )}
                             </div>
                         </div>
                     </div>

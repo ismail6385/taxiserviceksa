@@ -94,7 +94,7 @@ export const cities: Record<string, CityData> = {
         faqSetB: [
             {
                 question: "What is the best taxi service for families in Jeddah?",
-                answer: "For families, Taxi Service KSA is the top choice. We offer spacious vehicles like the GMC Yukon and strictly adhere to safety protocols, making us the best family taxi in Jeddah.",
+                answer: "For families, VIP Transfer KSA is the top choice. We offer spacious vehicles like the GMC Yukon and strictly adhere to safety protocols, making us the best family taxi in Jeddah.",
                 intent: "Commercial",
                 chatbotData: {
                     userQuestion: "Best taxi for families in Jeddah?",

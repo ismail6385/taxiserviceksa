@@ -1,4 +1,4 @@
-# 🎯 RDF Triples Implementation Guide - Taxi Service KSA
+# 🎯 RDF Triples Implementation Guide - VIP Transfer KSA
 
 ## 📚 What Are RDF Triples?
 
@@ -6,23 +6,23 @@ RDF (Resource Description Framework) Triples are semantic statements that help s
 
 ### Structure: Subject → Predicate → Object
 
-**Example for Taxi Service KSA:**
+**Example for VIP Transfer KSA:**
 ```
-Taxi Service KSA → provides → Airport Transfer in Jeddah
+VIP Transfer KSA → provides → Airport Transfer in Jeddah
 ```
 
-- **Subject**: Taxi Service KSA (WHO)
+- **Subject**: VIP Transfer KSA (WHO)
 - **Predicate**: provides (WHAT ACTION)
 - **Object**: Airport Transfer in Jeddah (FOR WHOM/WHAT)
 
 ---
 
-## 🚖 RDF Triples for Taxi Service KSA
+## 🚖 RDF Triples for VIP Transfer KSA
 
 ### 1. Airport Transfer Services
 
 ```
-Subject: Taxi Service KSA
+Subject: VIP Transfer KSA
 Predicate: provides
 Object: 24/7 airport transfers from King Abdulaziz International Airport
 
@@ -38,7 +38,7 @@ Object: luxury airport pickups and drop-offs
 ### 2. Umrah Transportation
 
 ```
-Subject: Taxi Service KSA
+Subject: VIP Transfer KSA
 Predicate: offers
 Object: dedicated Umrah taxi service between Makkah and Madinah
 
@@ -91,7 +91,7 @@ Object: professional airport transfers for business meetings
 
 #### 1. "Best taxi service in Jeddah"
 ```
-Subject: Taxi Service KSA
+Subject: VIP Transfer KSA
 Predicate: is rated as
 Object: the #1 premium chauffeur service in Jeddah with 4.9/5 stars
 
@@ -106,7 +106,7 @@ Subject: Umrah taxi service
 Predicate: provides
 Object: comfortable transportation for pilgrims between Makkah and Madinah
 
-Subject: Taxi Service KSA
+Subject: VIP Transfer KSA
 Predicate: specializes in
 Object: Ziyarat tours and holy site visits with experienced drivers
 ```
@@ -187,7 +187,7 @@ RDF Breakdown:
   "name": "Airport Transfer Jeddah",
   "provider": {
     "@type": "LocalBusiness",
-    "name": "Taxi Service KSA"
+    "name": "VIP Transfer KSA"
   },
   "serviceType": "Airport Transportation",
   "description": "Professional airport transfer service in Jeddah provides 24/7 chauffeur service from King Abdulaziz International Airport to Makkah, Madinah, and all Jeddah locations.",
@@ -240,7 +240,7 @@ RDF Breakdown:
 
 #### ✅ Business Name
 ```
-Taxi Service KSA - Premium Chauffeur & Airport Transfer
+VIP Transfer KSA - Premium Chauffeur & Airport Transfer
 ```
 
 #### ✅ Primary Category
@@ -258,7 +258,7 @@ Taxi Service
 
 #### ✅ Business Description (RDF Triple Structure)
 ```
-Taxi Service KSA is a premium chauffeur service in Saudi Arabia that 
+VIP Transfer KSA is a premium chauffeur service in Saudi Arabia that 
 specializes in airport transfers, Umrah transportation, and luxury intercity 
 travel. We serve Jeddah, Makkah, Madinah, and Riyadh with professional 
 drivers, luxury vehicles (GMC Yukon, Toyota Camry, Hyundai Staria), and 
@@ -266,7 +266,7 @@ drivers, luxury vehicles (GMC Yukon, Toyota Camry, Hyundai Staria), and
 at King Abdulaziz Airport, Prince Mohammad Airport, and King Khalid Airport.
 
 RDF Breakdown:
-- Subject: Taxi Service KSA
+- Subject: VIP Transfer KSA
 - Predicate: specializes in
 - Object: airport transfers, Umrah transportation, and luxury intercity travel
 ```
@@ -337,7 +337,7 @@ safe and comfortable journeys.
   "name": "Airport Transfer Jeddah",
   "provider": {
     "@type": "LocalBusiness",
-    "name": "Taxi Service KSA",
+    "name": "VIP Transfer KSA",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Jeddah",

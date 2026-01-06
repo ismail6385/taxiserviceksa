@@ -1,14 +1,14 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, MapPin, Plane, Building2, Star, MessageCircle } from 'lucide-react';
+import { ArrowRight, MapPin, Plane, Building2, Star, MessageCircle, AlertTriangle } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'Travel Guides | Taxi Service KSA - Expert Insights for Saudi Arabia',
+    title: 'Travel Guides | VIP Transfer KSA - Expert Insights for Saudi Arabia',
     description: 'Comprehensive travel guides for Jeddah Airport, Makkah Umrah, and Riyadh Business Travel. Expert insights from professional drivers with years of local experience.',
-    keywords: ['Jeddah Airport Guide', 'Makkah Umrah Guide', 'Riyadh Business Guide', 'Saudi Arabia Travel', 'Taxi Service KSA'],
+    keywords: ['Jeddah Airport Guide', 'Makkah Umrah Guide', 'Riyadh Business Guide', 'Saudi Arabia Travel', 'VIP Transfer KSA'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/',
+        canonical: 'https://transferksa.com/guides/',
     },
 };
 
@@ -184,6 +184,7 @@ export default function GuidesPage() {
                             <Star className="w-6 h-6 text-primary" /> Practical Insights
                         </h3>
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <li><Link href="/guides/avoid-taxi-scams/" className="text-red-600 font-bold hover:text-red-700 flex items-center gap-2 group"><AlertTriangle className="w-4 h-4 text-red-600 opacity-0 group-hover:opacity-100 transition-all" /> Avoid Taxi Scams (2025)</Link></li>
                             <li><Link href="/guides/haram-gates-access/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Haram Gates Guide</Link></li>
                             <li><Link href="/guides/meeqat-locations/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Meeqat Points</Link></li>
                             <li><Link href="/guides/currency/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Currency & SAR Guide</Link></li>

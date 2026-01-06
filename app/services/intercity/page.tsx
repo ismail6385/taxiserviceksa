@@ -28,11 +28,11 @@ import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 
 export const metadata: Metadata = {
-    title: 'Intercity Taxi Service KSA | Long Distance Private Transfers',
-    description: 'Reliable intercity taxi service in Saudi Arabia. Private transfers between Jeddah, Makkah, Madinah, Riyadh, and more. Comfortable long-distance travel with fixed rates.',
-    keywords: ['Intercity taxi Saudi Arabia', 'Jeddah to Riyadh taxi', 'Long distance taxi KSA', 'City to city transfer Saudi Arabia', 'Private car hire Saudi cities'],
+    title: 'Intercity VIP Transfer KSA | Long Distance Private Chauffeur',
+    description: 'Premium intercity VIP transfer service in Saudi Arabia. Executive private transfers between Jeddah, Makkah, Madinah, Riyadh, and more. Luxury long-distance travel with fixed rates.',
+    keywords: ['Intercity VIP transfer Saudi Arabia', 'Jeddah to Riyadh premium transfer', 'Long distance private chauffeur KSA', 'City to city VIP transfer Saudi Arabia', 'Private executive car hire Saudi cities'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/intercity/',
+        canonical: 'https://transferksa.com/services/intercity/',
     },
 };
 
@@ -57,8 +57,8 @@ export default function IntercityServicePage() {
 
     const faqs = [
         {
-            question: "How do I book an intercity taxi?",
-            answer: "You can book easily through our website using the booking form. Simply select your pickup and drop-off cities to get an instant quote and confirmation."
+            question: "How do I book an intercity VIP transfer?",
+            answer: "You can book easily through our website using the booking form. Simply select your pickup and drop-off cities to get an instant executive quote and confirmation."
         },
         {
             question: "Are the rates fixed for long-distance trips?",
@@ -77,11 +77,11 @@ export default function IntercityServicePage() {
     const schemas = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Intercity Taxi Service KSA",
+        "name": "Intercity VIP Transfer KSA",
 
-        "description": "Professional long-distance intercity taxi service connecting major cities in Saudi Arabia.",
+        "description": "Professional executive long-distance intercity transfer service connecting major cities in Saudi Arabia.",
         "areaServed": "Saudi Arabia",
-        "serviceType": "Transport"
+        "serviceType": "VIP Transport"
     };
 
     return (
@@ -94,7 +94,7 @@ export default function IntercityServicePage() {
 
             <Hero
                 images={['/hero-slide-1.webp', '/hero-slide-3.webp']}
-                h1Text="Intercity Taxi Service Saudi Arabia"
+                h1Text="Intercity VIP Transfer Service Saudi Arabia"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Nationwide Coverage
@@ -105,7 +105,7 @@ export default function IntercityServicePage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ Intercity"
+                        brandName="VIP Transfer KSA™ Intercity"
                         description="Connecting the Kingdom's major hubs with reliable, private transportation. From the Red Sea coast of Jeddah to the capital Riyadh and the holy cities."
                         foundingDate="2012"
                         metrics={[
@@ -200,17 +200,17 @@ export default function IntercityServicePage() {
                     <TravelConsensus
                         points={[
                             {
-                                topic: "Taxi vs Flight (Jeddah to Riyadh)",
+                                topic: "VIP Transfer vs Flight (Jeddah to Riyadh)",
                                 commonBelief: "Flight is always faster.",
                                 reality: "While flight time is 1.5 hours, airport procedures (check-in, security, bag claim) add 3-4 hours. A private car takes longer (9-10 hours) but offers door-to-door convenience and privacy, preferred by some for scenery or fear of flying.",
                                 truthRange: "Depends on Preference",
                                 factors: ["Total Travel Time", "Convenience", "Cost for Groups"]
                             },
                             {
-                                topic: "Intercity Bus vs Private Taxi",
+                                topic: "Intercity Bus vs VIP Private Transfer",
                                 commonBelief: "Bus is good enough.",
-                                reality: "Buses are cheaper but follow fixed schedules and stations. Private taxis leave on your schedule, pick you up from your door, and save substantial time by going direct.",
-                                truthRange: "Taxi = Time Saver",
+                                reality: "Buses are cheaper but follow fixed schedules and stations. Private VIP transfers leave on your schedule, pick you up from your door, and save substantial time by going direct.",
+                                truthRange: "Transfer = Time Saver",
                                 factors: ["Schedule", "Privacy", "Door-to-Door"]
                             }
                         ]}
@@ -220,7 +220,7 @@ export default function IntercityServicePage() {
                         <MicroSemanticFAQ
                             faqs={[
                                 {
-                                    question: "Is it safe to travel between cities by taxi at night?",
+                                    question: "Is it safe to travel between cities by VIP transfer at night?",
                                     shortAnswer: "Yes, generally safe.",
                                     detailedAnswer: "Saudi highways are well-lit and patrolled. Our drivers are experienced in night driving. However, for the most scenic views, day travel is recommended.",
                                     perspectives: [

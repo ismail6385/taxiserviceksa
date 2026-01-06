@@ -3,22 +3,22 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Plane, ArrowRight, Coffee, Navigation } from 'lucide-react';
+import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Plane, ArrowRight, Coffee, Navigation, Train } from 'lucide-react';
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Makkah to Madinah Taxi | 450km Umrah Route - Fixed Price SAR 450',
+    title: 'Best Makkah to Madinah VIP Transfer | Private Taxi Alternative',
     description: 'Taxi from Makkah to Madinah operates 24/7. 450km pilgrimage route in 4-5 hours. Fixed rate SAR 450. Rest stops included. Complete your Umrah journey.',
     keywords: ['Makkah to Madinah taxi', 'Umrah taxi Makkah Madinah', 'taxi price Makkah Madinah', 'Makkah Madinah distance', 'pilgrimage transport', 'taxi fare from makkah to madinah', 'gmc from makkah to madinah', 'how far is badr from makkah', 'madinah to makkah taxi time'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/makkah-madinah/',
+        canonical: 'https://transferksa.com/routes/makkah-madinah/',
     },
     openGraph: {
-        title: 'Makkah to Madinah Taxi | 450km Umrah Route - Fixed Price',
+        title: 'Makkah to Madinah VIP Transfer | Private Taxi Alternative',
         description: 'Taxi from Makkah to Madinah operates 24/7. 450km pilgrimage route in 4-5 hours. Fixed rate SAR 450. Complete your Umrah journey.',
-        url: 'https://taxiserviceksa.com/routes/makkah-madinah/',
+        url: 'https://transferksa.com/routes/makkah-madinah/',
         type: 'website',
     },
 };
@@ -100,7 +100,7 @@ export default function MakkahMadinahRoutePage() {
             {/* Hero Section */}
             <Hero
                 images={routeImages}
-                h1Text="Taxi from Makkah to Madinah: 450km Umrah Pilgrimage Route"
+                h1Text="Best Makkah to Madinah VIP Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Makkah → Madinah Route
@@ -116,7 +116,7 @@ export default function MakkahMadinahRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:taxiserviceksa9988@gmail.com">
+                    <a href="mailto:info@transferksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email for Quote
                         </Button>
@@ -129,9 +129,9 @@ export default function MakkahMadinahRoutePage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Route Information</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Makkah to Madinah Pilgrimage Transfer</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Best Makkah to Madinah VIP Transfer</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            The sacred journey between the two holy cities. Complete your Umrah with comfortable, direct transport from Makkah hotels to Madinah accommodations.
+                            Book the <strong>Best Makkah to Madinah VIP transfer</strong> for a direct pilgrimage journey via the <strong>Hijrah Road (Route 15)</strong>. Unlike the train, we offer true <strong>Haram-to-Haram</strong> service, picking you up from your Makkah hotel and dropping you at your Madinah hotel with no luggage restrictions for <strong>Zamzam water</strong>.
                         </p>
                     </div>
 
@@ -145,6 +145,54 @@ export default function MakkahMadinahRoutePage() {
                                 <div className="text-2xl font-bold text-gray-900">{detail.value}</div>
                             </div>
                         ))}
+                    </div>
+
+                    {/* Train vs Taxi Comparison */}
+                    <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 md:p-12 text-white mb-16">
+                        <div className="flex items-center gap-3 mb-6">
+                            <Train className="w-8 h-8 text-white" />
+                            <h3 className="text-2xl font-bold">Haramain Train vs Private Taxi (Makkah-Madinah)</h3>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div>
+                                <h4 className="font-bold text-lg mb-4 text-white">Haramain High Speed Railway</h4>
+                                <ul className="space-y-3 text-gray-300">
+                                    <li className="flex items-start gap-2">
+                                        <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                                        <span>Speed: 2.5 hours (Station to Station)</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-red-400 font-bold mr-2">⚠</span>
+                                        <span>Station Transfer: Requires taxi to/from stations (Adds 1 hour)</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-red-400 font-bold mr-2">⚠</span>
+                                        <span>Luggage Limit: Strict weight limits, no Zamzam gallons</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="font-bold text-lg mb-4 text-white">Private Taxi (Door-to-Door)</h4>
+                                <ul className="space-y-3 text-gray-300">
+                                    <li className="flex items-start gap-2">
+                                        <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                                        <span>Convenience: Hotel Lobby to Hotel Lobby</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                                        <span>Luggage: Unlimited (roof carriers available)</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                                        <span>Zamzam Friendly: Transport your water easily</span>
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                                        <span>Privacy: Rest/Sleep comfortably with family</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Journey Timeline */}
@@ -202,6 +250,12 @@ export default function MakkahMadinahRoutePage() {
                                     <li>
                                         <Link href="/locations/makkah/" className="text-gray-700 hover:text-primary transition-colors flex items-center justify-between group py-2 border-b border-gray-50">
                                             <span>Makkah Umrah Services</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all font-bold" />
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/blog/zamzam-water-transport-makkah-madinah/" className="text-gray-700 hover:text-primary transition-colors flex items-center justify-between group py-2 border-b border-gray-50">
+                                            <span>Guide: Transporting Zamzam Water</span>
                                             <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all font-bold" />
                                         </Link>
                                     </li>
@@ -390,7 +444,7 @@ export default function MakkahMadinahRoutePage() {
                                 Book Now (SAR 450+)
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Quote
                             </Button>

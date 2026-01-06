@@ -4,9 +4,9 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, MapPin, Plane, Building2, Star, MessageCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'Travel Guides | Taxi Service KSA - Expert Insights for Saudi Arabia',
+    title: 'Travel Guides | VIP Transfer KSA - Expert Insights for Saudi Arabia',
     description: 'Comprehensive travel guides for Jeddah Airport, Makkah Umrah, and Riyadh Business Travel. Expert insights from professional drivers with years of local experience.',
-    keywords: ['Jeddah Airport Guide', 'Makkah Umrah Guide', 'Riyadh Business Guide', 'Saudi Arabia Travel', 'Taxi Service KSA'],
+    keywords: ['Jeddah Airport Guide', 'Makkah Umrah Guide', 'Riyadh Business Guide', 'Saudi Arabia Travel', 'VIP Transfer KSA'],
 };
 
 const guides = [

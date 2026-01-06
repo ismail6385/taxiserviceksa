@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description: 'Comprehensive guide to the 5 Miqat locations for Umrah pilgrims. Dhul Hulaifah (Abyar Ali), Al-Juhfah, Qarn al-Manazil, Yalamlam, and Dhat Irq. Distances and rules.',
     keywords: ['Meeqat locations', 'Miqat maps', 'Dhul Hulaifah', 'Abyar Ali', 'Yalamlam miqat', 'Qarn al Manazil', 'Umrah ihram boundary'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/meeqat-locations/',
+        canonical: 'https://transferksa.com/guides/meeqat-locations/',
     },
 };
 
@@ -63,7 +63,7 @@ export default function MeeqatLocationsPage() {
         "headline": "Guide to Meeqat Locations for Umrah",
 
         "description": "Detailed guide on the 5 designated stations (Meeqat) where pilgrims must enter the state of Ihram.",
-        "image": "https://taxiserviceksa.com/madinah-ziyarat-map.png"
+        "image": "https://transferksa.com/madinah-ziyarat-map.png"
     };
 
     return (

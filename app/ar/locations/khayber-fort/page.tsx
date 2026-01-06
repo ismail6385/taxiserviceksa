@@ -13,21 +13,21 @@ export const metadata: Metadata = {
     description: 'اكتشف تاريخ خيبر وحصونها القديمة. رحلات يومية من المدينة المنورة والعلا. استكشف الواحات البركانية والحصون.',
     keywords: ['رحلة خيبر', 'سياحة خيبر', 'حصن خيبر', 'توصيل العلا خيبر', 'تاريخ خيبر'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/ar/locations/khayber-fort/',
+        canonical: 'https://transferksa.com/ar/locations/khayber-fort/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/khayber-fort/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/khayber-fort/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/khayber-fort/',
-            'x-default': 'https://taxiserviceksa.com/locations/khayber-fort/',
+            'en': 'https://transferksa.com/locations/khayber-fort/',
+            'ar': 'https://transferksa.com/ar/locations/khayber-fort/',
+            'ur': 'https://transferksa.com/ur/locations/khayber-fort/',
+            'x-default': 'https://transferksa.com/locations/khayber-fort/',
         }
     },
     openGraph: {
         title: 'جولة خيبر التاريخية',
         description: 'زر حصون خيبر العظيمة والواحات. رحلة عبر التاريخ.',
-        url: 'https://taxiserviceksa.com/ar/locations/khayber-fort/',
+        url: 'https://transferksa.com/ar/locations/khayber-fort/',
         locale: 'ar_SA',
         type: 'website',
-        images: [{ url: 'https://taxiserviceksa.com/locations/khayber.webp', alt: 'حصن خيبر' }],
+        images: [{ url: 'https://transferksa.com/locations/khayber.webp', alt: 'حصن خيبر' }],
     },
 };
 

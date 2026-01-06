@@ -32,16 +32,16 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
     const webSiteSchema = {
         "@context": "https://schema.org",
         "@type": "TransportationService", // Changed to TransportationService as requested
-        "name": "Taxi Service KSA",
-        "url": "https://taxiserviceksa.com",
-        "logo": "https://taxiserviceksa.com/logo.png",
-        "image": "https://taxiserviceksa.com/hero-image.jpg",
-        "description": "Online taxi service in Saudi Arabia offering 24/7 airport transfers and Umrah transport. Book a reliable ride from Jeddah, Makkah, and Madinah.",
+        "name": "VIP Transfer KSA",
+        "url": "https://transferksa.com",
+        "logo": "https://transferksa.com/logo.png",
+        "image": "https://transferksa.com/hero-image.jpg",
+        "description": "Premium VIP private transfer and chauffeur service in Saudi Arabia. Specializing in long-distance intercity travel and Umrah transport for payment-secure bookings from the USA, UK, Canada, Indonesia, and Pakistan.",
         "areaServed": "Saudi Arabia",
         "availableLanguage": ["English", "Arabic", "Urdu"],
-        "priceRange": "$$",
-        "serviceType": "Chauffeur-driven taxi service",
-        "knowsAbout": ["Umrah", "Haramain High Speed Railway", "King Abdulaziz International Airport", "Prince Mohammad bin Abdulaziz International Airport"],
+        "priceRange": "$$$",
+        "serviceType": "VIP Chauffeur & Private Transfer Service",
+        "knowsAbout": ["Umrah", "Haramain High Speed Railway", "King Abdulaziz International Airport", "Prince Mohammad bin Abdulaziz International Airport", "Executive Travel", "Intercity Transport"],
         "sameAs": [
             "https://www.facebook.com/people/Taxi-Service-KSA/61573850597962/",
             "https://www.linkedin.com/company/taxi-service-ksa/",
@@ -54,7 +54,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             "@type": "ReserveAction",
             "target": {
                 "@type": "EntryPoint",
-                "urlTemplate": "https://taxiserviceksa.com/booking/"
+                "urlTemplate": "https://transferksa.com/booking/"
             },
             "result": {
                 "@type": "Reservation",
@@ -76,25 +76,25 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
     // OPTIMIZED: Titles and descriptions for SEO
     const services = [
         {
-            title: "Airport Transfer Service",
-            description: "Airport transfer service operates 24/7 from King Abdulaziz Airport (Jeddah) and Prince Mohammad Airport (Madinah). The service ensures efficient transport for arrivals.",
-            rdfTriple: "Airport transfer Jeddah → provides → 24/7 chauffeur service from King Abdulaziz Airport",
+            title: "VIP Airport Transfers",
+            description: "Premium meet-and-greet service from Jeddah (JED) and Madinah (MED) airports. Professional chauffeurs track your flight and wait with personalized signage for a seamless transition to your hotel.",
+            rdfTriple: "Airport transfer Jeddah → provides → VIP 24/7 chauffeur service from King Abdulaziz Airport",
             icon: Plane,
             link: "/services/airport-transfers/",
-            price: "From SAR 250"
+            price: "From SAR 300"
         },
         {
-            title: "Umrah Transport Service",
-            description: "Umrah transport connects Makkah, Madinah, and Jeddah Airport. Drivers adhere to prayer schedules and utilize designated Haram access routes.",
-            rdfTriple: "Umrah taxi → specializes in → comfortable transportation for pilgrims",
+            title: "Best Umrah Transport",
+            description: "Dedicated private transfers for pilgrims. We provide spacious, luxury vehicles (GMC Yukon, Hyundai Staria) for spiritual journeys between Makkah and Madinah with experienced English/Arabic speaking drivers.",
+            rdfTriple: "Umrah taxi → specializes in → premium private transportation for pilgrims",
             icon: MapPin,
             link: "/services/umrah-transport/",
-            price: "From SAR 450"
+            price: "From SAR 500"
         },
         {
-            title: "Intercity Travel",
-            description: "Intercity routes connect AlUla, Taif, Riyadh, and Jeddah. Fixed-rate pricing applies to all long-distance trips across Saudi Arabia.",
-            rdfTriple: "AlUla tour → provides → luxury travel to heritage sites",
+            title: "Intercity & Hourly Hire",
+            description: "Specialized long-distance travel and hourly/daily chauffeur hire. Ideal for business meetings, tourism, or multi-city trips across Saudi Arabia (Jeddah, Riyadh, AlUla, Taif).",
+            rdfTriple: "Intercity taxi → provides → luxury long-distance travel and hourly rentals",
             icon: Building2,
             link: "/routes/",
             price: "Custom Quote"
@@ -108,7 +108,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             image: "/gmc-yukon.webp",
             passengers: 7,
             luggage: 5,
-            features: ["vip taxi saudi arabia", "extra legroom", "luxury suv"],
+            features: ["VIP Executive SUV", "Extra Legroom", "Premium Interior"],
             link: "/fleet/gmc-yukon/",
         },
         {
@@ -116,7 +116,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             image: "/toyota-camry.webp",
             passengers: 4,
             luggage: 2,
-            features: ["reliable city taxi", "ac comfort", "economic ride"],
+            features: ["Professional Chauffeur", "Climate Controlled", "Efficient Transfer"],
             link: "/fleet/toyota-camry/",
         },
         {
@@ -124,7 +124,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             image: "/hyundai-staria.webp",
             passengers: 7,
             luggage: 4,
-            features: ["family taxi ksa", "spacious van", "group travel"],
+            features: ["VIP Family Van", "Spacious Interior", "Group Excellence"],
             link: "/fleet/hyundai-staria/",
         },
         {
@@ -132,7 +132,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             image: "/toyota-hiace.webp",
             passengers: 11,
             luggage: 16,
-            features: ["umrah group taxi", "pilgrim transport", "large van"],
+            features: ["Group VIP Transport", "Pilgrim Logistics", "Large Capacity"],
             link: "/fleet/toyota-hiace/",
         },
         {
@@ -140,7 +140,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             image: "/toyota-coaster.webp",
             passengers: 17,
             luggage: 20,
-            features: ["tourist bus ksa", "corporate transport", "large groups"],
+            features: ["Corporate Bus", "Delegate Transport", "Large Groups"],
             link: "/fleet/toyota-coaster/",
         },
         {
@@ -148,7 +148,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             image: "/hyundai-starex.webp",
             passengers: 7,
             luggage: 10,
-            features: ["family friendly", "comfortable ride", "airport taxi"],
+            features: ["Family Hospitality", "Professional Driver", "Airport Specialist"],
             link: "/fleet/hyundai-starex/",
         }
     ];
@@ -175,16 +175,28 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             answer: "Airport taxi service from King Abdulaziz International Airport (JED) to Makkah hotels operates 24/7. Drivers provide meet-and-greet service at arrivals. Flight tracking monitors delays automatically."
         },
         {
-            question: "What is the best online taxi service for Umrah pilgrims?",
-            answer: "Taxi Service KSA is the best online taxi service for Umrah pilgrims, providing transportation that accounts for prayer schedules and Haram access routes. Drivers know the routes between Makkah, Madinah, and Jeddah Airport. Service includes assistance with luggage and Zamzam containers."
+            question: "What is the best online transfer service for Umrah pilgrims?",
+            answer: "<strong>VIP Transfer KSA</strong> is the best premium transfer service for Umrah pilgrims, providing transportation that accounts for prayer schedules and Haram access routes. Drivers know the routes between Makkah, Madinah, and Jeddah Airport. Service includes assistance with luggage and Zamzam containers."
         },
         {
             question: "Is your taxi service in Saudi Arabia available 24/7?",
             answer: "Taxi service operates 24 hours daily in Saudi Arabia. Late-night flight arrivals and early morning Ziyarat trips are accommodated. Drivers are available for booking at any time."
         },
         {
-            question: "How do I book a taxi service in Saudi Arabia?",
-            answer: "Taxi booking is available through the <a href='/booking/' class='text-primary hover:underline font-bold'>online booking form</a> or email at taxiserviceksa9988@gmail.com. Booking requires pickup location, destination, and preferred vehicle type. Confirmation is sent via email."
+            question: "How do I book a VIP transfer in Saudi Arabia?",
+            answer: "VIP transfer booking is available through the <a href='/booking/' class='text-primary hover:underline font-bold'>online booking form</a> or email at info@transferksa.com. Booking requires pickup location, destination, and preferred vehicle type. Confirmation is sent via email."
+        },
+        {
+            question: "Is VIP Transfer KSA a licensed company?",
+            answer: "Yes, <strong>VIP Transfer KSA</strong> is a fully licensed transport facilitator in Saudi Arabia, operating under Transport General Authority (TGA) regulations. All drivers hold valid licenses and vehicles allow for legal transport of pilgrims and tourists."
+        },
+        {
+            question: "Can I book a taxi from the UK/USA before my flight?",
+            answer: "Yes, you can <strong>pre-book your taxi online</strong> from the UK, USA, Canada, or anywhere in the world. We track your international flight arrival at Jeddah Airport (KAIA) and ensure your driver is waiting for you at the terminal."
+        },
+        {
+            question: "Do you accept international credit cards?",
+            answer: "Yes, we accept major international credit cards (Visa, MasterCard) as well as cash payments in <strong>SAR, USD, GBP, and EUR</strong>. You can choose to pay online or to the driver upon arrival."
         }
     ];
 
@@ -200,7 +212,8 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             {/* Hero Section with Entity-Optimized H1 */}
             <Hero
                 images={heroImages}
-                h1Text="Top Rated Online Taxi Service in Saudi Arabia"
+                h1Text="VIP Private Transfer & Executive Chauffeur Saudi Arabia"
+                subtitle="Premium Chauffeur Service for Airport, VIP Umrah, and Executive Intercity Travel. Professional. Discrete. Private."
             >
                 <Link href="/locations/" className="text-white/90 hover:text-accent underline underline-offset-4 text-xs sm:text-sm font-medium inline-flex items-center gap-2 transition-colors mt-4">
                     Service coverage across 8 cities in Saudi Arabia <ArrowRight className="w-4 h-4" />
@@ -245,10 +258,10 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                 <span>Safety First</span>
                             </div>
                             <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-                                Professional Online Taxi Service in Saudi Arabia <span className="text-primary block mt-2">With Licensed Drivers</span>
+                                VIP Private Transfers & <span className="text-primary block mt-2">Executive Chauffeur Service</span>
                             </h2>
                             <p className="text-gray-300 text-lg leading-relaxed max-w-xl">
-                                Experience the safety and comfort of the leading online taxi service in Saudi Arabia. We are a premium chauffeur company, meaning every vehicle comes with an experienced, licensed driver—ensuring a stress-free journey for Umrah and Business travel. We do <strong>not</strong> offers self-drive rentals.
+                                Experience the gold standard of travel with Saudi Arabia's premier private transfer service. We cater specifically to international tourists from <strong>all over the world</strong> (USA, UK, Europe, Asia, & MENA), and business executives who require reliable, long-distance transportation. We specialize in <strong>Airport Transfers, Intercity Trips, and Full-Day Executive Hire</strong> with professional chauffeurs—we do not offer local 'street hail' services.
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -304,10 +317,10 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                 Core Capabilities
                             </span>
                             <h2 className="text-4xl md:text-6xl font-black text-gray-900 mb-6 tracking-tight leading-[0.9]">
-                                PROFESSIONAL{' '}<br />TAXI{' '}<br />SERVICES
+                                BEST{' '}<br />PRIVATE{' '}<br />TRANSFERS
                             </h2>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                From Jeddah Airport to Makkah, Taxi Service KSA provides efficient transport for Umrah pilgrims and business travelers.
+                                Specializing in long-distance journeys, VIP airport pickups, and dedicated Umrah transport services for the discerning traveler.
                             </p>
                             <Link href="/booking/">
                                 <Button className="bg-primary text-white hover:bg-blue-600 rounded-full px-8 py-6 text-lg font-bold min-h-[48px] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/30">
@@ -379,23 +392,23 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         <div className="order-1 lg:order-2">
                             <span className="bg-primary text-white font-semibold tracking-wider uppercase text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-1.5 rounded-full inline-block mb-4 sm:mb-6 shadow-md shadow-primary/30">Service Information</span>
                             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-                                Trusted Online Taxi Service in Saudi Arabia
+                                Your VIP Connection Across the Kingdom
                             </h2>
                             <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 sm:mb-6 leading-relaxed">
-                                Taxi Service KSA is a professional online taxi service operating in 8 cities across Saudi Arabia. Service includes airport transfers, Umrah transport, and intercity travel. The fleet consists of GMC Yukon, Toyota Camry, Hyundai Staria, and Toyota Hiace vehicles.
+                                <strong>VIP Transfer KSA</strong> provides a high-end alternative to standard public transport. We focus on pre-booked, private transfers that offer the privacy and punctuality required by international visitors. Whether it's a 400km journey from Makkah to Madinah or a VIP pickup at King Abdulaziz Airport, we ensure your comfort is the priority.
                             </p>
                             <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                                 <li className="flex items-center gap-2 sm:gap-3 text-gray-700 font-medium text-sm sm:text-base">
                                     <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 flex-shrink-0" />
-                                    English and Arabic-speaking drivers
+                                    <span>Licensed by <strong>Ministry of Transport</strong> & TGA</span>
                                 </li>
                                 <li className="flex items-center gap-2 sm:gap-3 text-gray-700 font-medium text-sm sm:text-base">
                                     <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 flex-shrink-0" />
-                                    2025 model year fleet
+                                    <span>Fully Insured (Comprehensive Insurance for Pilgrims)</span>
                                 </li>
                                 <li className="flex items-center gap-2 sm:gap-3 text-gray-700 font-medium text-sm sm:text-base">
                                     <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 flex-shrink-0" />
-                                    Flight tracking for airport pickups
+                                    <span>VAT Electronic Invoicing Available</span>
                                 </li>
                             </ul>
                             <Link href="/about/">
@@ -416,10 +429,10 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                     <div className="text-center mb-12 sm:mb-16">
                         <span className="bg-primary text-white font-semibold tracking-wider uppercase text-xs sm:text-sm px-4 py-1.5 rounded-full inline-block shadow-md shadow-primary/30">Our Fleet</span>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mt-3 sm:mt-4 mb-4 sm:mb-6 px-4">
-                            Best Online Taxi Fleet Collection
+                            Best VIP Fleet Collection
                         </h2>
                         <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-                            Our top-rated online taxi service fleet features GMC Yukon, Toyota Camry, Hyundai Staria, and Toyota Hiace vehicles.
+                            Our elite fleet features GMC Yukon, Toyota Camry, Hyundai Staria, and Toyota Hiace vehicles, all meticulously maintained to executive standards.
                         </p>
                     </div>
 
@@ -484,10 +497,10 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                     <div className="text-center mb-12 sm:mb-16">
                         <span className="bg-primary text-white font-semibold tracking-wider uppercase text-xs sm:text-sm px-4 py-1.5 rounded-full inline-block shadow-md shadow-primary/30">Transparent Pricing</span>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mt-3 sm:mt-4 mb-4 sm:mb-6 px-4">
-                            Competitive Online Taxi Service Rates
+                            Exclusive Private Transfer Rates
                         </h2>
                         <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-                            Taxi Service KSA offers the best online taxi service rates for all point-to-point transfers in Saudi Arabia.
+                            Transparent, all-inclusive pricing for all point-to-point VIP transfers and executive chauffeur hire in Saudi Arabia.
                         </p>
                     </div>
 
@@ -570,8 +583,8 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
-                        <span className="text-primary font-bold uppercase tracking-widest text-xs">Transactional Hub</span>
-                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 mt-2">MOST POPULAR TAXI ROUTES</h2>
+                        <span className="text-primary font-bold uppercase tracking-widest text-xs">Executive Hub</span>
+                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 mt-2">POPULAR VIP ROUTES</h2>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -704,13 +717,13 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                     {/* Contextual Block: National Infrastructure */}
                     <div className="mt-16 border-t border-gray-200 pt-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-4">Express Route: Jeddah to Makkah</h3>
+                            <h3 className="text-2xl font-bold text-gray-900 mb-4">Jeddah to Makkah Taxi Route</h3>
                             <p className="text-gray-600 leading-relaxed mb-6">
                                 Direct taxi transfers from King Abdulaziz Airport to Makkah hotels operate 24/7. Fixed rates start from SAR 250.
                             </p>
                             <Link href="/routes/jeddah-makkah/">
                                 <Button className="text-black font-bold border-b-2 border-black rounded-none px-0 py-0 h-auto hover:bg-transparent hover:border-primary transition-colors">
-                                    View Route Details & Pricing
+                                    Book Jeddah to Makkah Taxi
                                 </Button>
                             </Link>
                         </div>
@@ -737,7 +750,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             Top Rated Customer Reviews
                         </h2>
                         <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-                            Passengers evaluate Taxi Service KSA as a professional online taxi service known for reliability.
+                            Passengers evaluate <strong>VIP Transfer KSA</strong> as a professional premium transfer service known for reliability.
                         </p>
                     </div>
 
@@ -752,7 +765,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             data-style-width="100%"
                             data-token="fab9a024-f184-45ab-904b-1cf6f5e9b94a"
                         >
-                            <a href="https://www.trustpilot.com/review/taxiserviceksa.com" target="_blank" rel="nofollow noopener noreferrer">
+                            <a href="https://www.trustpilot.com/review/transferksa.com" target="_blank" rel="nofollow noopener noreferrer">
                                 Trustpilot
                             </a>
                         </div>
@@ -772,7 +785,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             </Button>
                         </Link>
                         <a
-                            href="https://www.trustpilot.com/review/taxiserviceksa.com?utm_medium=trustbox&utm_source=ReviewCollector"
+                            href="https://www.trustpilot.com/review/transferksa.com?utm_medium=trustbox&utm_source=ReviewCollector"
                             target="_blank"
                             rel="nofollow noopener noreferrer"
                             className="w-full lg:w-auto"
@@ -838,7 +851,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         </Link>
 
                         {/* Secondary CTA - Email */}
-                        <a href="mailto:taxiserviceksa9988@gmail.com" className="w-full sm:w-auto">
+                        <a href="mailto:info@transferksa.com" className="w-full sm:w-auto">
                             <Button variant="outline" className="w-full bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-h-[56px] min-w-[200px] transition-all hover:scale-105 active:scale-95">
                                 Email Us
                             </Button>

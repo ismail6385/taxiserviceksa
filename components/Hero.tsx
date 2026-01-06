@@ -87,10 +87,13 @@ export default function Hero(props: HeroProps) {
                 {/* Title & SEO H1 */}
                 <div className="space-y-4 animate-fade-in-up">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white drop-shadow-md">
-                        {h1Text || "Premium Taxi Service KSA"}
+                        {h1Text || title || "BEST Online Taxi Service in Saudi Arabia"}
                     </h1>
-
-
+                    {subtitle && (
+                        <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto font-medium drop-shadow-sm">
+                            {subtitle}
+                        </p>
+                    )}
                 </div>
 
                 {/* Trust Signals (Icons Row) */}
@@ -115,7 +118,7 @@ export default function Hero(props: HeroProps) {
 
                 {/* Booking Widget Container - Lifts up into the hero content */}
                 <div className="w-full animate-fade-in-up delay-200 mt-4">
-                    <HeroBookingWidget title={bookingFormTitle} />
+                    <HeroBookingWidget title={bookingFormTitle || (h1Text ? `Book ${h1Text}` : undefined)} />
                 </div>
             </div>
 

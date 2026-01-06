@@ -3,7 +3,7 @@ import { FAQItem } from './cities';
 
 export const generalFaqs: FAQItem[] = [
     {
-        question: "How do I book a taxi with Taxi Service KSA?",
+        question: "How do I book a taxi with VIP Transfer KSA?",
         answer: "You can book easily via our website booking form for instant confirmation. <strong>Click the 'Book Now' button to start.</strong>",
         intent: "Transactional",
         chatbotData: {

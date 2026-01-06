@@ -30,21 +30,21 @@ export const metadata: Metadata = {
     description: 'تاكسي موثوق في المدينة المنورة. توصيل من مطار الأمير محمد، زيارات المساجد السبعة وقباء، ونقل للمسجد النبوي. خدمة ٢٤/٧.',
     keywords: ['تاكسي المدينة المنورة', 'زيارة المساجد السبعة', 'توصيل مطار المدينة', 'تاكسي الحرم النبوي', 'زيارات المدينة'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/ar/locations/madinah/',
+        canonical: 'https://transferksa.com/ar/locations/madinah/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/madinah/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/madinah/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/madinah/',
-            'x-default': 'https://taxiserviceksa.com/locations/madinah/',
+            'en': 'https://transferksa.com/locations/madinah/',
+            'ar': 'https://transferksa.com/ar/locations/madinah/',
+            'ur': 'https://transferksa.com/ur/locations/madinah/',
+            'x-default': 'https://transferksa.com/locations/madinah/',
         }
     },
     openGraph: {
         title: 'تاكسي المدينة المنورة | زيارات وتوصيل المطار',
         description: 'احجز تاكسي في المدينة المنورة لزيارة المسجد النبوي والمزارات التاريخية. سيارات حديثة وسائقين محترفين.',
-        url: 'https://taxiserviceksa.com/ar/locations/madinah/',
+        url: 'https://transferksa.com/ar/locations/madinah/',
         locale: 'ar_SA',
         type: 'website',
-        images: [{ url: 'https://taxiserviceksa.com/madinah-prophets-mosque.webp', alt: 'المسجد النبوي الشريف' }],
+        images: [{ url: 'https://transferksa.com/madinah-prophets-mosque.webp', alt: 'المسجد النبوي الشريف' }],
     },
 };
 

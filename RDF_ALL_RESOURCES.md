@@ -142,8 +142,8 @@ Experience luxury chauffeur services across KSA.
 
 **After (RDF Triple):**
 ```
-Premium Taxi Service KSA - Luxury Chauffeur Saudi Arabia
-Taxi Service KSA provides premium chauffeur and airport transfer services 
+Premium VIP Transfer KSA - Luxury Chauffeur Saudi Arabia
+VIP Transfer KSA provides premium chauffeur and airport transfer services 
 across Saudi Arabia. We help travelers, pilgrims, and business executives 
 with luxury vehicles, professional drivers, and 24/7 availability in Jeddah, 
 Makkah, Madinah, and Riyadh.
@@ -204,7 +204,7 @@ Makkah, Madinah, and Riyadh.
 
 ### Core Business Triple
 ```
-Subject: Taxi Service KSA
+Subject: VIP Transfer KSA
 Predicate: provides
 Object: premium chauffeur and airport transfer services in Saudi Arabia
 ```

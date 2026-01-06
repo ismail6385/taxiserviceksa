@@ -6,11 +6,11 @@ import FleetListing from '@/components/FleetListing';
 import RelatedServices from '@/components/seo/RelatedServices'; // Assuming this exists or similar
 
 export const metadata: Metadata = {
-    title: 'Taxi Fleet Saudi Arabia | GMC Yukon, Hiace, Staria & Camry',
-    description: 'Choose from our premium taxi fleet in Saudi Arabia. Luxury GMC Yukon for VIPs, Toyota Hiace for Umrah groups, and Hyundai Staria for families. 2025 Models.',
-    keywords: ['taxi fleet saudi arabia', 'gmc yukon tax', 'toyota hiace rental ksa', 'luxury car with driver saudi arabia', 'hyundai staria taxi', 'umrah bus rental', 'camry taxi jeddah'],
+    title: 'VIP Executive Fleet Saudi Arabia | Premium Chauffeur Vehicles',
+    description: 'Explore our VIP executive fleet in Saudi Arabia. Luxury GMC Yukon, Hyundai Staria, and Toyota Hiace for premium private transfers. 2025 models with professional chauffeurs.',
+    keywords: ['VIP Fleet Saudi Arabia', 'Premium Chauffeur Vehicles', 'GMC Yukon VIP Transfer', 'Luxury Van Transfer KSA', 'Executive Car with Driver', 'Umrah Private Fleet'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/fleet/',
+        canonical: 'https://transferksa.com/fleet/',
     }
 };
 
@@ -36,20 +36,20 @@ export default function FleetPage() {
         },
         {
             name: "Toyota Camry",
-            type: "Economy",
+            type: "Business",
             image: "/toyota-camry.webp",
             passengers: 4,
             luggage: 2,
-            features: ["Comfortable Seating", "AC", "Economic Choice", "City Travel"],
+            features: ["Comfortable Seating", "AC", "Business Choice", "City Transfer"],
             href: "/fleet/toyota-camry/"
         },
         {
             name: "Hyundai Starex",
-            type: "Economy",
+            type: "Family",
             image: "/hyundai-starex.webp",
             passengers: 7,
             luggage: 10,
-            features: ["Family Friendly", "Comfortable", "Reliable", "Airport Transfer"],
+            features: ["Family Friendly", "Comfortable", "Reliable", "Airport VIP Transfer"],
             href: "/fleet/hyundai-starex/"
         },
         {
@@ -79,9 +79,9 @@ export default function FleetPage() {
             "@type": "Car",
             "position": index + 1,
             "name": vehicle.name,
-            "image": `https://taxiserviceksa.com${vehicle.image}`,
-            "description": `Book ${vehicle.name} (${vehicle.type}) for your travel in Saudi Arabia.`,
-            "url": `https://taxiserviceksa.com${vehicle.href}`
+            "image": `https://transferksa.com${vehicle.image}`,
+            "description": `Premium ${vehicle.name} (${vehicle.type}) for VIP transfers in Saudi Arabia.`,
+            "url": `https://transferksa.com${vehicle.href}`
         }))
     };
 
@@ -105,10 +105,10 @@ export default function FleetPage() {
                         <Sparkles className="w-3 h-3" /> The Gold Standard
                     </div>
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-                        Luxury Taxi Fleet in Saudi Arabia
+                        VIP Executive Fleet In Saudi Arabia
                     </h1>
                     <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                        Experience diverse transport options. From the executive <Link href="/fleet/gmc-yukon/" className="text-white hover:text-primary font-semibold underline decoration-primary/30 underline-offset-4">GMC Yukon</Link> for VIPs to the reliable <Link href="/fleet/toyota-hiace/" className="text-white hover:text-primary font-semibold underline decoration-primary/30 underline-offset-4">Toyota Hiace</Link> for Umrah groups, every vehicle is a 2025 model kept in showroom condition.
+                        Discover the gold standard of private transfers. From the flagship <Link href="/fleet/gmc-yukon/" className="text-white hover:text-primary font-semibold underline decoration-primary/30 underline-offset-4">GMC Yukon VIP</Link> to dedicated group transport, our fleet is reserved exclusively for pre-booked chauffeur services.
                     </p>
                     <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm font-bold uppercase tracking-widest text-gray-500">
                         <span>Popular destinations:</span>

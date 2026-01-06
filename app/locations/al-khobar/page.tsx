@@ -24,32 +24,32 @@ import RoutePerspective from '@/components/seo/RoutePerspective';
 import ExpertReview from '@/components/seo/ExpertReview';
 
 export const metadata: Metadata = {
-    title: 'Taxi Service in Al Khobar | Corniche & Causeway Transfers',
-    description: 'Best taxi service in Al Khobar for local travel & Causeway trips to Bahrain. Reliable, comfortable rides to Dammam Airport and Corniche.',
-    keywords: ['taxi service in Al Khobar', 'Al Khobar taxi', 'Bahrain Causeway taxi', 'Khobar Corniche transport', 'Dammam Airport transfer'],
+    title: 'VIP Private Transfer & Chauffeur Al Khobar | Bahrain Causeway',
+    description: 'Premium VIP private transfer and executive chauffeur service in Al Khobar. Specialized cross-border King Fahd Causeway trips to Bahrain and DMM Airport transfers. Professional international standards.',
+    keywords: ['Al Khobar VIP private transfer', 'Executive chauffeur Khobar', 'Bahrain Causeway VIP pickup', 'Premium Khobar to Bahrain transfer', 'Al Khobar corporate transport'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/al-khobar/',
+        canonical: 'https://transferksa.com/locations/al-khobar/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/al-khobar/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/al-khobar/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/al-khobar/',
-            'x-default': 'https://taxiserviceksa.com/locations/al-khobar/',
+            'en': 'https://transferksa.com/locations/al-khobar/',
+            'ar': 'https://transferksa.com/ar/locations/al-khobar/',
+            'ur': 'https://transferksa.com/ur/locations/al-khobar/',
+            'x-default': 'https://transferksa.com/locations/al-khobar/',
         }
     },
     openGraph: {
-        title: 'Taxi Service in Al Khobar | Corniche & Causeway Transfers',
-        description: 'Best taxi service in Al Khobar for local travel & Causeway trips to Bahrain. Reliable, comfortable rides to Dammam Airport and Corniche.',
-        url: 'https://taxiserviceksa.com/locations/al-khobar/',
+        title: 'VIP Transfer in Al Khobar | Corniche & Causeway Trips',
+        description: 'Premium VIP transfer service in Al Khobar for local travel & Causeway trips to Bahrain. Reliable, comfortable rides to Dammam Airport and Corniche.',
+        url: 'https://transferksa.com/locations/al-khobar/',
         type: 'website',
     },
 };
 
 export default function AlKhobarPage() {
     const services = [
-        { name: 'Bahrain Causeway Trips', description: 'Specialized transfers across King Fahd Causeway to Bahrain', icon: Car },
-        { name: 'Khobar Corniche Rides', description: 'Relaxing rides to the beautiful Al Khobar Corniche and waterfront', icon: MapPin },
-        { name: 'Shopping Mall Transports', description: 'Drop-offs at Al Rashid Mall and Mall of Dhahran', icon: ShoppingBag },
-        { name: 'Airport Transfers', description: 'Reliable taxi to King Fahd International Airport (DMM)', icon: Plane },
+        { name: 'VIP Bahrain Causeway', description: 'Premium cross-border transfers via King Fahd Causeway to Bahrain.', icon: Car },
+        { name: 'Executive Coastal Tour', description: 'VIP tours of Al Khobar Corniche and the Eastern Province waterfront.', icon: MapPin },
+        { name: 'Full-Day VIP Chauffeur', description: 'Dedicated executive driver for business meetings and shopping at Al Rashid Mall.', icon: ShoppingBag },
+        { name: 'Executive Airport Pickup', description: 'VIP meet & greet at King Fahd International Airport (DMM) to Khobar.', icon: Plane },
     ];
 
     const features = [
@@ -79,18 +79,19 @@ export default function AlKhobarPage() {
             {/* Hero Section */}
             <Hero
                 images={khobarImages}
-                h1Text="Taxi Service in Al Khobar: Corniche and Causeway Transfers"
+                h1Text="VIP Private Transfer & Chauffeur Al Khobar"
+                bookingFormTitle="Book Premium Transfer in Al Khobar"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Al Khobar Taxi Service
+                        VIP Chauffeur Service Khobar
                     </span>
                 }
-                subtitle="Business & Leisure Transport"
-                location="Corniche • Bahrain • Malls"
+                subtitle="Business & International Leisure Transport"
+                location="Bahrain Causeway • DMM Airport • VIP"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ Al Khobar"
+                        brandName="VIP Transfer KSA™ Al Khobar"
                         description="Professional chauffeur and causeway transfer services in Al Khobar. We help travelers and shoppers with luxury vehicles and 24/7 availability for Bahrain Causeway trips and Corniche visits."
                         foundingDate="2012"
                         metrics={[
@@ -104,17 +105,27 @@ export default function AlKhobarPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                         <Link href="/booking/">
-                            Book Khobar Taxi
+                            Book VIP Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </Button>
                     <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             Email Us
                         </a>
                     </Button>
                 </div>
             </Hero>
+
+            {/* Premium Service Disclaimer */}
+            <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                        <Shield className="w-4 h-4" />
+                        OFFICIAL NOTE: We specialize in pre-booked Airport, Intercity, and VIP Causeway transfers. We do NOT provide local short-distance hailing.
+                    </p>
+                </div>
+            </div>
 
             {/* Trending Note */}
             <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
@@ -244,7 +255,7 @@ export default function AlKhobarPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Khobar Taxi Service</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Khobar VIP Transfer</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                         {features.map((feature, index) => (
@@ -331,9 +342,9 @@ export default function AlKhobarPage() {
                     <MicroSemanticFAQ
                         faqs={[
                             {
-                                question: "Is there a taxi service from Al Khobar to Bahrain?",
-                                shortAnswer: "Yes, Causeway Trips",
-                                detailedAnswer: "We specialize in cross-border trips via King Fahd Causeway. Ensure you have your passport/ID and visa ready. We handle the vehicle insurance paperwork for the bridge.",
+                                question: "Is there a VIP transfer service from Al Khobar to Bahrain?",
+                                shortAnswer: "Yes, VIP Causeway Trips",
+                                detailedAnswer: "We specialize in cross-border VIP transfers via King Fahd Causeway. Ensure you have your passport/ID and visa ready. We handle the vehicle insurance paperwork for the bridge.",
                                 perspectives: [
                                     { role: "Driver", icon: "Car", insight: "Thursday evenings are busy; weekday mornings are fastest." },
                                     { role: "Business", icon: "Briefcase", insight: "Direct hotel-to-hotel (Khobar to Manama) service is seamless." }
@@ -378,7 +389,7 @@ export default function AlKhobarPage() {
                         </div>
 
                         <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                            Khobar Taxi Fares
+                            Khobar VIP Transfer Fares
                         </h3>
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                             Transparent rates for Bahrain Causeway and Airport transfers.
@@ -395,7 +406,7 @@ export default function AlKhobarPage() {
                                 <span className="text-2xl">From</span> SAR 350
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
-                                One-Way Causeway Trip
+                                VIP Causeway Transfer
                             </div>
                         </div>
 
@@ -419,12 +430,12 @@ export default function AlKhobarPage() {
                             <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                                 <ShoppingBag className="w-6 h-6 text-primary" />
                             </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">City & Malls</div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">VIP City Disposal</div>
                             <div className="text-4xl font-black text-primary mb-3">
-                                <span className="text-2xl">From</span> SAR 50
+                                <span className="text-2xl">From</span> SAR 600
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
-                                Local Corniche/Mall Rides
+                                Full-Day Executive Chauffeur (8 hours)
                             </div>
                         </div>
                     </div>
@@ -439,7 +450,7 @@ export default function AlKhobarPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your Al Khobar Taxi Now
+                        Book Your Al Khobar VIP Transfer
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                         Professional transport for Causeway trips, Corniche visits, and Airport transfers.
@@ -447,10 +458,10 @@ export default function AlKhobarPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Your Ride
+                                Book VIP Transfer
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email Us
                             </Button>

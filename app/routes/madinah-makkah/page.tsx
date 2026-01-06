@@ -15,11 +15,11 @@ import QuestionsDisplay from '@/components/QuestionsDisplay';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 
 export const metadata: Metadata = {
-    title: 'Madinah to Makkah Taxi | Private Transfer with Miqat Stop',
+    title: 'Best Madinah to Makkah Taxi | Private Transfer with Miqat Stop',
     description: 'Book private taxi from Madinah to Makkah. Comfortable GMC/Sedan with mandatory stop at Miqat Dhul Hulaifah (Abyar Ali) for Ihram. Fixed rates, licensed drivers.',
     keywords: ['Madinah to Makkah taxi', 'Madinah to Makkah car hire', 'Taxi with Miqat stop', 'Madinah Makkah transfer', 'Private cab Madinah to Makkah'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/madinah-to-makkah-taxi/',
+        canonical: 'https://transferksa.com/madinah-to-makkah-taxi/',
     },
 };
 
@@ -91,7 +91,7 @@ export default function MadinahToMakkahPage() {
 
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-12">Why Book Private Taxi?</h2>
+                    <h2 className="text-3xl font-bold text-center mb-12">Why Book Best Private Taxi?</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className="bg-white p-6 rounded-xl border border-gray-200">
                             <Clock className="w-10 h-10 text-emerald-600 mb-4" />
@@ -221,7 +221,7 @@ export default function MadinahToMakkahPage() {
                             {/* Column 3: Services */}
                             <div>
                                 <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                                    <Briefcase className="w-5 h-5 text-primary" /> Premium Options
+                                    <Briefcase className="w-5 h-5 text-primary" /> Best Options
                                 </h3>
                                 <ul className="space-y-4">
                                     <li>

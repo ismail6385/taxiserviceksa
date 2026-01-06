@@ -6,8 +6,8 @@
 
 #### Morning (1 hour)
 - [ ] Go to https://business.google.com
-- [ ] Create/claim "Taxi Service KSA" listing
-- [ ] Add business name: **Taxi Service KSA - Premium Chauffeur & Airport Transfer**
+- [ ] Create/claim "VIP Transfer KSA" listing
+- [ ] Add business name: **VIP Transfer KSA - Premium Chauffeur & Airport Transfer**
 - [ ] Select primary category: **Taxi Service**
 - [ ] Add secondary categories: Airport Shuttle, Chauffeur Service, Limousine Service
 - [ ] Set service areas: Jeddah, Makkah, Madinah, Riyadh, Taif, Dammam, Al Khobar, Yanbu
@@ -92,7 +92,7 @@
 
 #### Create Profiles
 - [ ] **Facebook Business Page**
-  - Name: Taxi Service KSA
+  - Name: VIP Transfer KSA
   - Category: Transportation Service
   - Copy "About" from COMPLETE_LOCAL_SEO_STRATEGY.md → Phase 4
   - Add cover photo and profile picture
@@ -106,7 +106,7 @@
   - Post first 3 photos
 
 - [ ] **LinkedIn Company Page**
-  - Name: Taxi Service KSA
+  - Name: VIP Transfer KSA
   - Copy description from COMPLETE_LOCAL_SEO_STRATEGY.md → Phase 4
 
 - [ ] **Twitter/X**
@@ -126,7 +126,7 @@
 
 **Use This NAP Format:**
 ```
-Name: Taxi Service KSA
+Name: VIP Transfer KSA
 Address: Service Area - Jeddah, Makkah, Madinah, Riyadh, Saudi Arabia
 Phone: +92-317-6243861
 Website: https://taxiserviceksa.com

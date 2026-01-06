@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { Mountain, MapPin, Clock, CheckCircle2, Star, Shield, Car, Users } from 'lucide-react';
+import { Mountain, MapPin, Clock, CheckCircle2, Star, Shield, Car, Users, ArrowRight } from 'lucide-react';
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
@@ -16,11 +16,11 @@ import ExpertReview from '@/components/seo/ExpertReview';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'Makkah Ziyarat Places | Holy Sites Taxi Tour',
-    description: 'Book Makkah Ziyarat taxi tour. Visit Jabal Al-Nour (Cave Hira), Jabal Thawr, Arafat, Mina, and Muzdalifah. Comprehensive guided tours of Makkah\'s holy sites.',
-    keywords: ['Makkah Ziyarat places', 'Jabal Nour taxi', 'Cave Hira visit', 'Arafat Mina tour', 'Makkah holy sites taxi'],
+    title: 'VIP Private Ziyarat Tours Makkah | Premium Chauffeur Heritage',
+    description: 'Premium VIP private Ziyarat tours in Makkah. Visit Jabal Al-Nour, Jabal Thawr, Arafat, and Mina with an executive chauffeur. Luxury vehicle options for pilgrims.',
+    keywords: ['Makkah VIP Ziyarat', 'Premium Makkah holy sites tour', 'Executive chauffeur Makkah Ziyarat', 'Luxury pilgrim transport Makkah'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/makkah-ziyarat/',
+        canonical: 'https://transferksa.com/locations/makkah-ziyarat/',
     },
 };
 
@@ -71,28 +71,35 @@ export default function MakkahZiyaratPage() {
 
             <Hero
                 images={['/locations/makkah.webp', '/hero-slide-2.webp']}
-                h1Text="Makkah Ziyarat Tours"
+                h1Text="VIP Private Ziyarat Tours Makkah"
+                bookingFormTitle="Book Premium Ziyarat"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Holy Sites
+                        Executive Chauffeur Service
                     </span>
                 }
-                subtitle="Historical Journey"
-                location="Makkah Al Mukarramah"
+                subtitle="A Premium Spiritual & Historical Journey"
+                location="Makkah Al Mukarramah | VIP"
             >
-                <div className="max-w-3xl mx-auto mt-8 mb-6">
-                    <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ Tours"
-                        description="Professional chauffeur and Ziyarat services in Makkah. We help pilgrims perform Ziyarat with ease, visiting sacred historical sites with luxury vehicles and 24/7 availability."
-                        foundingDate="2012"
-                        metrics={[
-                            { label: 'Ziyarat Trips', value: '15k+', icon: Mountain },
-                            { label: 'Sites Covered', value: '6+', icon: MapPin },
-                            { label: 'Duration', value: '3-4 Hrs', icon: Clock }
-                        ]}
-                    />
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                    <Link href="/booking/">
+                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
+                            Book VIP Ziyarat
+                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                    </Link>
                 </div>
             </Hero>
+
+            {/* Premium Service Disclaimer */}
+            <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                        <Shield className="w-4 h-4" />
+                        OFFICIAL NOTE: We specialize in pre-booked VIP Private Tours and Heritage transfers. We do NOT provide local short-distance hailing.
+                    </p>
+                </div>
+            </div>
 
             {/* Trending Note */}
             <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
@@ -100,7 +107,7 @@ export default function MakkahZiyaratPage() {
                     topic="Jabal Al-Nour Access"
                     status="Insider Tip"
                     lastUpdated="New Cable Car Info"
-                    content="Local authorities are developing a cable car to Cave Hira. Currently, access is only by foot (steep climb). Taxis drop at the visitor center at the base."
+                    content="Local authorities are developing a cable car to Cave Hira. Currently, access is only by foot (steep climb). Chauffeurs drop you at the visitor center at the base."
                     tags={["CaveHira", "JabalNour", "WalkingShoes", "VisitorCenter"]}
                 />
             </div>
@@ -108,8 +115,8 @@ export default function MakkahZiyaratPage() {
             {/* Semantic Hub */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-16">
                 <QuestionGrouper
-                    mainQuestion="Why do Ziyarat with a private taxi?"
-                    intro="Group buses are cheaper but they rush through sites. A private taxi lets you reflect and pray."
+                    mainQuestion="Why book a private VIP tour for Makkah Ziyarat?"
+                    intro="Group buses are budget options but they often rush through sites. A private executive chauffeur lets you reflect and pray with dignity."
                     subQuestions={[
                         {
                             id: 'q1',
@@ -173,7 +180,7 @@ export default function MakkahZiyaratPage() {
                             category: "Logistics",
                             relevance: "Secondary",
                             items: [
-                                { label: "Taxi Booking", url: "/booking", description: "Reserve Slot" },
+                                { label: "VIP Booking", url: "/booking", description: "Reserve Slot" },
                                 { label: "Jeddah Airport", url: "/services/airport-transfers", description: "Arrival" }
                             ]
                         }
@@ -229,7 +236,7 @@ export default function MakkahZiyaratPage() {
                             {
                                 question: "Can we climb Cave Hira?",
                                 shortAnswer: "Yes, but it's demanding.",
-                                detailedAnswer: "The taxi drops you at the base of Jabal Al-Nour. The climb takes 45-90 minutes depending on fitness. Most standard Ziyarat tours stop at the base for photos and history unless you specifically request a 'Climbing Tour' which requires extra waiting time.",
+                                detailedAnswer: "The chauffeur drops you at the base of Jabal Al-Nour. The climb takes 45-90 minutes depending on fitness. Most standard VIP Ziyarat tours stop at the base for photos and history unless you specifically request a 'Climbing Tour' which requires extra waiting time.",
                                 perspectives: [
                                     {
                                         role: "Advice",
@@ -265,7 +272,7 @@ export default function MakkahZiyaratPage() {
                         </div>
 
                         <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
-                            Private Tour Pricing
+                            VIP Private Tour Pricing
                         </h3>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                             Comprehensive 3-4 hour tour of all holy sites. Price is per vehicle, not per person.

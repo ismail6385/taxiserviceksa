@@ -28,11 +28,11 @@ import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 
 export const metadata: Metadata = {
-    title: 'Intercity Taxi Service KSA | Long Distance Private Transfers',
+    title: 'Intercity VIP Transfer KSA | Long Distance Private Transfers',
     description: 'Reliable intercity taxi service in Saudi Arabia. Private transfers between Jeddah, Makkah, Madinah, Riyadh, and more. Comfortable long-distance travel with fixed rates.',
     keywords: ['Intercity taxi Saudi Arabia', 'Jeddah to Riyadh taxi', 'Long distance taxi KSA', 'City to city transfer Saudi Arabia', 'Private car hire Saudi cities'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/intercity/',
+        canonical: 'https://transferksa.com/services/intercity/',
     },
 };
 
@@ -77,7 +77,7 @@ export default function IntercityServicePage() {
     const schemas = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Intercity Taxi Service KSA",
+        "name": "Intercity VIP Transfer KSA",
 
         "description": "Professional long-distance intercity taxi service connecting major cities in Saudi Arabia.",
         "areaServed": "Saudi Arabia",

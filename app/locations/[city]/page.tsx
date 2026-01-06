@@ -44,12 +44,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: city.metaTitle,
         description: city.metaDescription,
         alternates: {
-            canonical: `https://taxiserviceksa.com/locations/${city.slug}/`,
+            canonical: `https://transferksa.com/locations/${city.slug}/`,
         },
         openGraph: {
             title: city.metaTitle,
             description: city.metaDescription,
-            url: `https://taxiserviceksa.com/locations/${city.slug}`,
+            url: `https://transferksa.com/locations/${city.slug}`,
             type: 'website',
         }
     };
@@ -73,11 +73,11 @@ export default function LocationPage({ params }: Props) {
 
     // Dynamic H2 Rotation Logic (Anti-Duplication)
     const h2Variations = [
-        `Taxi Services Available in ${city.name}`,
-        `${city.name} Taxi for ${city.primaryAudience}`,
-        `Airport Transfers to and from ${city.name}`,
-        `Why Choose Our Taxi Service in ${city.name}`,
-        `Easy Taxi Booking in ${city.name}`
+        `VIP Transfers Available in ${city.name}`,
+        `${city.name} Executive Chauffeur for ${city.primaryAudience}`,
+        `Premium Airport Transfers to and from ${city.name}`,
+        `Why Choose Our VIP Transfer Service in ${city.name}`,
+        `Easy VIP Transfer Booking in ${city.name}`
     ];
 
     // FAQ A/B Rotation Logic
@@ -97,7 +97,7 @@ export default function LocationPage({ params }: Props) {
             "@type": "HowToStep",
             "name": step.name,
             "text": step.text,
-            "url": `https://taxiserviceksa.com/locations/${city.slug}#step-${index + 1}`
+            "url": `https://transferksa.com/locations/${city.slug}#step-${index + 1}`
         }))
     };
 
@@ -118,10 +118,10 @@ export default function LocationPage({ params }: Props) {
 
             {/* Hero Section */}
             <Hero
-                h1Text={`Reliable Taxi Service in ${city.name} for Visitors & Locals`}
+                h1Text={`VIP Private Transfer & Chauffeur in ${city.name}`}
                 title={
                     <span className="bg-primary text-white hover:text-black px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Taxi Service {city.name}
+                        VIP Transfer {city.name}
                     </span>
                 }
                 subtitle={`Top-Rated ${city.serviceFocus}`}
@@ -162,7 +162,7 @@ export default function LocationPage({ params }: Props) {
                         <div className="bg-gray-50 p-8 rounded-2xl mb-12 border border-blue-50">
                             <h2 className="text-2xl font-bold text-gray-900 mb-4">{h2Variations[1]}</h2>
                             <p className="mb-4">
-                                Our taxi fleet is specifically equipped to serve {city.primaryAudience}.
+                                Our premium fleet is specifically equipped to serve {city.primaryAudience}.
                                 Whether you are visiting <strong>{city.landmarks[0]}</strong> or need a ride to <strong>{city.landmarks[1]}</strong>, we have you covered.
                             </p>
                             <p>{city.seoContent.services}</p>
@@ -210,7 +210,7 @@ export default function LocationPage({ params }: Props) {
                             <h2 className="text-2xl font-bold text-gray-900 mb-4">{h2Variations[2]}</h2>
                             <p>
                                 We provide reliable transfers to and from local airports.
-                                If you are arriving at an airport near {city.name}, rely on us for a <Highlight text={`airport taxi in ${city.name}`} />.
+                                If you are arriving at an airport near {city.name}, rely on us for a <Highlight text={`airport transfer in ${city.name}`} />.
                                 We monitor flight schedules to ensure timely pickups.
                             </p>
                         </div>
@@ -221,8 +221,8 @@ export default function LocationPage({ params }: Props) {
                     <div className="lg:col-span-1 space-y-8">
                         {/* Booking Card */}
                         <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 sticky top-24">
-                            <h3 className="text-2xl font-bold text-gray-900 mb-2">Book a Taxi in {city.name} Now</h3>
-                            <p className="text-gray-600 mb-6">Reliable, safe & affordable rides.</p>
+                            <h3 className="text-2xl font-bold text-gray-900 mb-2">Book VIP Transfer in {city.name}</h3>
+                            <p className="text-gray-600 mb-6">Premium, safe & professional chauffeurs.</p>
 
                             {/* Primary CTA (High Intent) */}
                             <Link href="/booking" className="w-full block mb-3">
@@ -296,13 +296,13 @@ export default function LocationPage({ params }: Props) {
             {/* CTA Section */}
             <section className="py-16 bg-black text-center px-4">
                 <div className="max-w-3xl mx-auto">
-                    <h2 className="text-3xl font-bold text-white mb-6">Need a Reliable Taxi in {city.name}?</h2>
+                    <h2 className="text-3xl font-bold text-white mb-6">Need a VIP Transfer in {city.name}?</h2>
                     <p className="text-gray-300 mb-8 text-lg">
-                        Don't wait. Secure your ride with the best taxi service in {city.name} today.
+                        Don't wait. Secure your ride with the best VIP transfer service in {city.name} today.
                     </p>
                     <Link href="/booking">
                         <Button className="bg-primary text-white hover:text-black hover:bg-white font-bold px-8 py-6 text-lg rounded-xl">
-                            Book {city.name} Taxi
+                            Book {city.name} Transfer
                         </Button>
                     </Link>
                 </div>
@@ -311,7 +311,7 @@ export default function LocationPage({ params }: Props) {
             {/* FAQ Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-3xl mx-auto">
-                    <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">FAQ: Taxi Service in {city.name}</h2>
+                    <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">FAQ: VIP Transfer in {city.name}</h2>
                     <Accordion type="single" collapsible className="space-y-4">
                         {selectedFaqs.map((item, index) => (
                             <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-xl border border-gray-200 px-6 shadow-sm">
@@ -333,13 +333,13 @@ export default function LocationPage({ params }: Props) {
                     <h3 className="text-lg font-bold text-gray-900 mb-6">Explore Other Locations</h3>
                     <div className="flex flex-wrap gap-4">
                         <Link href="/" className="text-gray-600 hover:text-primary transition-colors">
-                            Taxi Service Saudi Arabia
+                            VIP Transfer Saudi Arabia
                         </Link>
                         <span className="text-gray-300">|</span>
                         {city.nearbyCities.map((slug, idx) => (
                             <span key={idx} className="flex items-center gap-4">
                                 <Link href={`/locations/${slug}/`} className="text-gray-600 hover:text-primary capitalize transition-colors">
-                                    Taxi Service in {slug}
+                                    VIP Transfer in {slug}
                                 </Link>
                                 {idx < city.nearbyCities.length - 1 && <span className="text-gray-300">|</span>}
                             </span>

@@ -41,10 +41,13 @@ const POPULAR_ROUTES = [
     { id: 'makkah-ziyarat-tour', from: 'Makkah Hotel', to: 'Makkah Ziyarat Tour', label: 'Makkah Ziyarat Tour' },
     { id: 'madinah-hotel-airport', from: 'Madinah Hotel', to: 'Madinah Airport', label: 'Madinah Hotel → Jeddah Airport' },
     { id: 'madinah-ziyarat-tour', from: 'Madinah Hotel', to: 'Madinah Ziyarat Tour', label: 'Madinah Ziyarat Tour' },
-    { id: 'madinah-hotel-train', from: 'Madinah Hotel', to: 'Madinah Train Station', label: 'Madinah Hotel → Train Station' },
-    { id: 'madinah-hotel-jeddah-airport', from: 'Madinah Hotel', to: 'Jeddah Airport', label: 'Madinah Hotel → Jeddah Airport' },
-    { id: 'makkah-hotel-train', from: 'Makkah Hotel', to: 'Makkah Train Station', label: 'Makkah Hotel → Train Station' },
-    { id: 'makkah-hotel-jeddah-airport', from: 'Makkah Hotel', to: 'Jeddah Airport', label: 'Makkah Hotel → Jeddah Airport' },
+    { id: 'jeddah-train-station-transfer', from: 'Jeddah City', to: 'Jeddah Train Station (Haramain)', label: 'City → Jeddah Train Station' },
+    { id: 'madinah-train-station-transfer', from: 'Madinah City', to: 'Madinah Train Station (Haramain)', label: 'City → Madinah Train Station' },
+    // Riyadh Routes
+    { id: 'ruh-olaya', from: 'King Khalid Airport (RUH)', to: 'Olaya District', label: 'RUH Airport → Olaya' },
+    { id: 'ruh-kafd', from: 'King Khalid Airport (RUH)', to: 'KAFD Financial District', label: 'RUH Airport → KAFD' },
+    { id: 'ruh-dq', from: 'King Khalid Airport (RUH)', to: 'Diplomatic Quarter', label: 'RUH Airport → DQ' },
+    { id: 'ruh-diriyah', from: 'King Khalid Airport (RUH)', to: 'Diriyah / Bujairi Terrace', label: 'RUH Airport → Diriyah' },
 ];
 
 interface BookingFormProps {
@@ -247,7 +250,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                 {step === 1 && (
                     <div className="space-y-5 animate-fade-in-up">
                         <div className="text-center mb-4">
-                            <h2 className="text-2xl font-bold text-gray-900">Where are you going?</h2>
+                            <h2 className="text-2xl font-bold text-gray-900">Plan Your VIP Journey</h2>
                         </div>
 
                         {/* Quick Select */}
@@ -371,7 +374,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                 {step === 2 && (
                     <div className="space-y-6 animate-fade-in-up">
                         <div className="text-center">
-                            <h2 className="text-2xl font-bold text-gray-900">Choose Your Ride</h2>
+                            <h2 className="text-2xl font-bold text-gray-900">Select Your Premium Vehicle</h2>
                             <p className="text-gray-500 text-sm mt-1">{formData.pickup_location} <ArrowRight className="w-3 h-3 inline mx-1" /> {formData.destination}</p>
                         </div>
 
@@ -479,7 +482,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                         <div className="flex gap-3 mt-4">
                             <Button type="button" onClick={prevStep} variant="outline" className="flex-1 py-4 text-lg rounded-xl">Back</Button>
                             <Button type="submit" className="flex-1 bg-primary hover:bg-primary/90 text-black font-bold py-4 text-lg rounded-xl" disabled={loading}>
-                                {loading ? 'Booking...' : 'Confirm Booking'}
+                                {loading ? 'Booking...' : 'Secure VIP Reservation'}
                             </Button>
                         </div>
                     </div>

@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     description: 'Professional corporate travel service for business executives in Saudi Arabia. Monthly billing, priority booking, and executive vehicles with licensed drivers. Riyadh and Jeddah focus.',
     keywords: ['corporate taxi Saudi Arabia', 'executive transport Riyadh', 'business travel Jeddah', 'corporate car service KSA'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/corporate-travel/',
+        canonical: 'https://transferksa.com/services/corporate-travel/',
     },
     openGraph: {
         title: 'Corporate Travel Service Saudi Arabia | Executive Taxi with Driver',
         description: 'Professional corporate travel service for business executives. Monthly billing, priority booking, executive vehicles.',
-        url: 'https://taxiserviceksa.com/services/corporate-travel/',
+        url: 'https://transferksa.com/services/corporate-travel/',
         type: 'website',
     },
 };
@@ -170,7 +170,7 @@ export default function CorporateTravelPage() {
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>
-                            <a href="mailto:taxiserviceksa9988@gmail.com">
+                            <a href="mailto:info@transferksa.com">
                                 <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
                                     Email for Quote
                                 </Button>
@@ -293,7 +293,7 @@ export default function CorporateTravelPage() {
                                 Request Account
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Details
                             </Button>

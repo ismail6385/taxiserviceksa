@@ -18,13 +18,13 @@ URL: https://business.google.com
 
 ### 3. Search for Your Business
 - Click "Manage now" or "Add your business to Google"
-- Search for "Taxi Service KSA"
+- Search for "VIP Transfer KSA"
 - If it exists → Click "Claim this business"
 - If it doesn't exist → Click "Add your business to Google"
 
 ### 4. Enter Business Name
 ```
-Taxi Service KSA - Premium Chauffeur & Airport Transfer
+VIP Transfer KSA - Premium Chauffeur & Airport Transfer
 ```
 **Important:** Use EXACTLY this name for consistency
 
@@ -107,7 +107,7 @@ Click "Finish"
 ### 2. Copy and Paste This Description:
 
 ```
-Taxi Service KSA is a premium chauffeur service in Saudi Arabia that specializes in airport transfers, Umrah transportation, and luxury intercity travel. We serve Jeddah, Makkah, Madinah, and Riyadh with professional drivers, luxury vehicles (GMC Yukon, Toyota Camry, Hyundai Staria), and 24/7 availability.
+VIP Transfer KSA is a premium chauffeur service in Saudi Arabia that specializes in airport transfers, Umrah transportation, and luxury intercity travel. We serve Jeddah, Makkah, Madinah, and Riyadh with professional drivers, luxury vehicles (GMC Yukon, Toyota Camry, Hyundai Staria), and 24/7 availability.
 
 Our airport chauffeur service provides meet and greet at King Abdulaziz Airport (Jeddah), Prince Mohammad Airport (Madinah), and King Khalid Airport (Riyadh). We help business travelers, families, and Umrah pilgrims with comfortable and reliable transportation.
 
@@ -222,7 +222,7 @@ GMC Yukon - VIP chauffeur service provides luxury airport transfers in Jeddah
 
 Professional driver - Airport transfer service helps travelers with meet and greet at King Abdulaziz Airport
 
-Jeddah Airport - Taxi Service KSA provides 24/7 chauffeur service from King Abdulaziz International Airport
+Jeddah Airport - VIP Transfer KSA provides 24/7 chauffeur service from King Abdulaziz International Airport
 ```
 
 ---

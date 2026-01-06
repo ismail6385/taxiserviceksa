@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'The Pilgrim\'s Journal | Umrah, Hajj & Saudi Travel Guides',
     description: 'Expert guides, travel tips, and spiritual insights for your journey to Makkah, Madinah, and across Saudi Arabia.',
     openGraph: {
-        title: 'The Pilgrim\'s Journal | Taxi Service KSA Blog',
+        title: 'The Pilgrim\'s Journal | VIP Transfer KSA Blog',
         description: 'Your trusted companion for Umrah and Saudi travel information.',
         type: 'website',
     }

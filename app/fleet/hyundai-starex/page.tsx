@@ -12,9 +12,9 @@ import {
 } from '@/components/ui/accordion';
 
 export const metadata: Metadata = {
-    title: 'Hyundai Starex Taxi Service in Saudi Arabia | 7-Seater Family Van',
-    description: 'Hyundai Starex taxi service accommodates 7 passengers and 10 bags. Suitable for families, airport transfers, and Umrah transport. Automatic transmission.',
-    keywords: ['Hyundai Starex rental Saudi Arabia', 'family van KSA', 'airport transfer', '7 seater van'],
+    title: 'Hyundai Starex VIP Private Transfer Saudi Arabia | Family Van',
+    description: 'Premium Hyundai Starex VIP private transfer and family chauffeur service in Saudi Arabia. 7-seater van with extra luggage space for families and airport transfers.',
+    keywords: ['Hyundai Starex VIP transfer', 'family van chauffeur KSA', 'Hyundai Starex Riyadh', 'airport transfer Saudi Arabia'],
 };
 
 export default function HyundaiStarexPage() {
@@ -47,20 +47,20 @@ export default function HyundaiStarexPage() {
 
     const faqs = [
         {
-            question: "Does the Hyundai Starex come with a professional driver?",
-            answer: "Hyundai Starex taxi service includes a professional driver. Service does not offer self-drive options. Drivers speak English and Arabic."
+            question: "Does the Hyundai Starex VIP transfer include a chauffeur?",
+            answer: "Every Hyundai Starex VIP transfer includes a professional, uniformed chauffeur. This is a chauffeur-driven service only; we do not offer self-drive rentals."
         },
         {
-            question: "How many passengers can the Hyundai Starex accommodate comfortably?",
-            answer: "Hyundai Starex accommodates 7 passengers with 10 luggage pieces. Vehicle features automatic transmission and air conditioning."
+            question: "How many passengers and bags can the Hyundai Starex accommodate?",
+            answer: "The Hyundai Starex comfortably accommodates 7 passengers with up to 10 bags, making it the choice vehicle for families with significant luggage."
         },
         {
-            question: "Is fuel and toll charges included in the booking?",
-            answer: "Taxi booking includes fuel, road tolls, and airport parking fees for point-to-point transfers. Pricing is all-inclusive."
+            question: "Is the pricing all-inclusive (Fuel & Tolls)?",
+            answer: "Yes, our VIP transfer rates are all-inclusive of fuel, road toll charges (Mawaqeet), and airport parking fees for your scheduled journey."
         },
         {
-            question: "Can I book the Hyundai Starex for a trip from Jeddah to Makkah?",
-            answer: "Hyundai Starex booking is available for Jeddah to Makkah route (95 km, approximately 75 minutes). Suitable for Umrah pilgrims and families."
+            question: "Can I book a VIP Starex transfer for Umrah?",
+            answer: "Certainly. The Starex is widely used for Umrah pilgrim transfers between Jeddah Airport, Makkah, and Madinah, offering the necessary space for Zamzam water and luggage."
         }
     ];
 
@@ -82,13 +82,13 @@ export default function HyundaiStarexPage() {
 
                         <div className="p-8 lg:p-12 flex flex-col justify-center">
                             <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block w-fit mb-4">
-                                Reliable Choice
+                                Reliable Executive Van
                             </span>
                             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                                Hyundai Starex Taxi Service in Saudi Arabia
+                                Hyundai Starex VIP Private Transfer
                             </h1>
-                            <p className="text-xl text-gray-600 mb-6">
-                                Hyundai Starex accommodates 7 passengers with 10 bags. Vehicle features air conditioning and automatic transmission. Suitable for families and airport transfers.
+                            <p className="text-xl text-gray-600 mb-6 font-medium">
+                                The <strong>Hyundai Starex VIP transfer</strong> is the workhorse of premium family travel in Saudi Arabia. With an expansive cabin and massive 10-bag luggage capacity, it provides the perfect balance of utility and chauffeur-driven comfort for groups and pilgrims.
                             </p>
 
                             <div className="grid grid-cols-2 gap-4 mb-6">
@@ -101,11 +101,21 @@ export default function HyundaiStarexPage() {
                             </div>
 
                             <Link href="/booking?vehicle=Hyundai-Starex">
-                                <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold">
-                                    Book Hyundai Starex Now
+                                <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold h-14 text-lg">
+                                    Book VIP Starex Transfer
                                 </Button>
                             </Link>
                         </div>
+                    </div>
+                </div>
+
+                {/* Premium Service Disclaimer */}
+                <div className="bg-amber-50 border border-amber-200 py-3 rounded-xl mb-12">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                            <Shield className="w-4 h-4" />
+                            OFFICIAL NOTE: We specialize in pre-booked VIP Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
+                        </p>
                     </div>
                 </div>
 
@@ -195,14 +205,14 @@ export default function HyundaiStarexPage() {
                 {/* CTA */}
                 <div className="bg-black rounded-2xl p-8 md:p-12 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                        Ready for Comfortable Family Travel?
+                        Secure Your Family VIP Transfer
                     </h2>
-                    <p className="text-lg text-gray-300 mb-6">
-                        Book our Hyundai Starex now for your next journey
+                    <p className="text-lg text-gray-300 mb-8">
+                        Experience the reliability of our professional chauffeur-driven Hyundai Starex.
                     </p>
                     <Link href="/booking?vehicle=Hyundai-Starex">
-                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6">
-                            Book Now
+                        <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto">
+                            Book Your VIP Van
                         </Button>
                     </Link>
                 </div>

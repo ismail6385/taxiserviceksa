@@ -15,21 +15,21 @@ export const metadata: Metadata = {
     description: 'خدمة تاكسي في جدة. توصيل من الصالة ١ والصالة الشمالية لمكة المكرمة والمدينة. استقبال في المطار وتوصيل للفنادق.',
     keywords: ['تاكسي جدة', 'توصيل مطار جدة', 'تاكسي الحرم', 'توصيل مكة', 'استقبال المطار'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/ar/locations/jeddah/',
+        canonical: 'https://transferksa.com/ar/locations/jeddah/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/jeddah/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/jeddah/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/jeddah/',
-            'x-default': 'https://taxiserviceksa.com/locations/jeddah/',
+            'en': 'https://transferksa.com/locations/jeddah/',
+            'ar': 'https://transferksa.com/ar/locations/jeddah/',
+            'ur': 'https://transferksa.com/ur/locations/jeddah/',
+            'x-default': 'https://transferksa.com/locations/jeddah/',
         }
     },
     openGraph: {
         title: 'تاكسي جدة | توصيل مطار الملك عبدالعزيز',
         description: 'احجز تاكسي من مطار جدة إلى مكة أو المدينة. سيارات حديثة وسائقين محترفين.',
-        url: 'https://taxiserviceksa.com/ar/locations/jeddah/',
+        url: 'https://transferksa.com/ar/locations/jeddah/',
         locale: 'ar_SA',
         type: 'website',
-        images: [{ url: 'https://taxiserviceksa.com/jeddah-corniche-sunset.webp', alt: 'كورنيش جدة' }],
+        images: [{ url: 'https://transferksa.com/jeddah-corniche-sunset.webp', alt: 'كورنيش جدة' }],
     },
 };
 

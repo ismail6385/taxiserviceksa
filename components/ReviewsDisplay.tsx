@@ -120,7 +120,7 @@ export default function ReviewsDisplay({ location, service, limit = 4 }: Reviews
                     {review.admin_response && (
                         <div className="mt-4 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
                             <div className="text-sm font-bold text-blue-900 mb-1">
-                                Response from Taxi Service KSA:
+                                Response from VIP Transfer KSA:
                             </div>
                             <p className="text-blue-800 text-sm">
                                 {review.admin_response}

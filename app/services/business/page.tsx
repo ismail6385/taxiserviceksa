@@ -14,11 +14,11 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 
 export const metadata: Metadata = {
-    title: 'Business & Corporate Taxi Service KSA | Executive Transfers',
-    description: 'Premier corporate taxi service in Saudi Arabia for business professionals. Executive cars, monthly invoicing, reliable airport transfers, and event transport.',
-    keywords: ['Corporate taxi Saudi Arabia', 'Business executive transfer KSA', 'Chauffeur service Riyadh', 'Jeddah business taxi', 'VIP transport Saudi Arabia'],
+    title: 'Business & Corporate VIP Transfer KSA | Executive Chauffeur',
+    description: 'Premier corporate VIP transfer service in Saudi Arabia for business professionals. Executive cars, monthly invoicing, reliable airport transfers, and event transport.',
+    keywords: ['Corporate VIP transfer Saudi Arabia', 'Business executive transfer KSA', 'Chauffeur service Riyadh', 'Jeddah business transfer', 'VIP transport Saudi Arabia'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/business/',
+        canonical: 'https://transferksa.com/services/business/',
     },
 };
 
@@ -56,11 +56,11 @@ export default function BusinessPage() {
     const schemas = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Corporate Taxi Service KSA",
+        "name": "Corporate VIP Transfer KSA",
 
         "description": "Executive transportation services for business travelers in Saudi Arabia.",
         "areaServed": "Saudi Arabia",
-        "serviceType": "Taxis"
+        "serviceType": "VIP Transport"
     };
 
     return (
@@ -84,7 +84,7 @@ export default function BusinessPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ Corporate"
+                        brandName="VIP Transfer KSA™ Corporate"
                         description="Powering Saudi business mobility with a fleet of premium vehicles and professional chauffeurs dedicated to your schedule."
                         foundingDate="2012"
                         metrics={[
@@ -138,9 +138,9 @@ export default function BusinessPage() {
                     <MicroSemanticFAQ
                         faqs={[
                             {
-                                question: "How do I open a corporate account?",
+                                question: "How do I open a corporate VIP account?",
                                 shortAnswer: "Contact Sales.",
-                                detailedAnswer: "Please email our corporate sales team at taxiserviceksa9988@gmail.com with your company details. We will set up your account with credit terms and a dedicated booking portal.",
+                                detailedAnswer: "Please email our corporate sales team at info@transferksa.com with your company details. We will set up your account with credit terms and a dedicated booking portal.",
                                 perspectives: [
                                     {
                                         role: "Account Manager",

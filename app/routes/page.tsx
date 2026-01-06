@@ -5,11 +5,11 @@ import { Navigation, ArrowRight, Clock, DollarSign, MapPin, Car } from 'lucide-r
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-    title: 'Popular Routes | Taxi Service KSA - Fixed Price Routes',
-    description: 'Popular taxi routes in Saudi Arabia with fixed pricing. Jeddah to Makkah (80km), Makkah to Madinah (450km). 24/7 service with transparent rates.',
-    keywords: ['taxi routes Saudi Arabia', 'Jeddah Makkah taxi', 'Makkah Madinah taxi', 'intercity taxi KSA'],
+    title: 'Popular Routes | VIP Transfer KSA - Fixed Price Routes',
+    description: 'Popular VIP transfer routes in Saudi Arabia with fixed pricing. Jeddah to Makkah (80km), Makkah to Madinah (450km). 24/7 service with transparent rates.',
+    keywords: ['VIP transfer routes Saudi Arabia', 'Jeddah Makkah VIP transfer', 'Makkah Madinah VIP transfer', 'intercity VIP transfer KSA'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/',
+        canonical: 'https://transferksa.com/routes/',
     },
 };
 
@@ -125,7 +125,7 @@ export default function RoutesPage() {
                         Popular Routes
                     </span>
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        Taxi Routes in Saudi Arabia
+                        VIP Transfer Routes in KSA
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                         Fixed-price routes for your journey to the <Link href="/locations/makkah/" className="text-primary font-bold hover:underline">Holy City of Makkah</Link> and other major cities.
@@ -217,7 +217,7 @@ export default function RoutesPage() {
                         <Link href="/booking/">
                             <Button size="lg" className="bg-primary text-white hover:bg-white hover:text-black font-bold px-10 py-6 rounded-xl">
                                 <Car className="w-5 h-5 mr-2" />
-                                Book a Reliable Taxi Online
+                                Book VIP Transfer Online
                             </Button>
                         </Link>
                     </div>

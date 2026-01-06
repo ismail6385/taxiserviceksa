@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: 'Official taxi service from Jeddah Airport (JED) to Makkah hotels. 24/7 Meet & Greet at arrivals. Fixed price private transfers for Umrah pilgrims. 1 hour journey.',
     keywords: ['Jeddah airport to Makkah taxi', 'JED to Makkah transfer', 'Taxi fare Jeddah airport to Haram', 'Jeddah to Makkah cab', 'Umrah taxi Jeddah'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/jeddah-airport-to-makkah-taxi/',
+        canonical: 'https://transferksa.com/jeddah-airport-to-makkah-taxi/',
     },
 };
 

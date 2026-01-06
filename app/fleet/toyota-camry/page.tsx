@@ -12,9 +12,9 @@ import {
 } from '@/components/ui/accordion';
 
 export const metadata: Metadata = {
-    title: 'Toyota Camry Taxi Service in Saudi Arabia | 4-Seater Sedan',
-    description: 'Toyota Camry taxi service in Saudi Arabia accommodates 4 passengers and 2 large bags. Suitable for city travel, airport transfers, and business trips. Automatic transmission.',
-    keywords: ['Toyota Camry rental Saudi Arabia', 'economic taxi KSA', 'city transport', 'airport transfer'],
+    title: 'Toyota Camry VIP Private Transfer Saudi Arabia | Premium Sedan',
+    description: 'Premium Toyota Camry VIP private transfer and executive chauffeur service in Saudi Arabia. Efficient, professional 4-seater for city business and airport transfers.',
+    keywords: ['Toyota Camry VIP transfer', 'premium sedan chauffeur KSA', 'Toyota Camry Riyadh transfer', 'executive car service Saudi Arabia'],
 };
 
 export default function ToyotaCamryPage() {
@@ -47,20 +47,20 @@ export default function ToyotaCamryPage() {
 
     const faqs = [
         {
-            question: "Does the Toyota Camry come with a professional driver?",
-            answer: "Toyota Camry taxi service includes a professional driver. Service does not offer self-drive options. Drivers speak English and Arabic."
+            question: "Does the Toyota Camry VIP transfer include a chauffeur?",
+            answer: "Our Toyota Camry VIP transfer service includes a professional, uniformed chauffeur. We provide a dedicated chauffeur-driven experience for all city and airport trips."
         },
         {
             question: "How many passengers can the Toyota Camry accommodate comfortably?",
-            answer: "Toyota Camry accommodates 4 passengers with 2 large luggage pieces. Vehicle features automatic transmission and air conditioning."
+            answer: "The Toyota Camry comfortably accommodates up to 4 passengers with space for 2 large suitcases. It is the ideal choice for solo executives or couples."
         },
         {
-            question: "Is fuel and toll charges included in the booking?",
-            answer: "Taxi booking includes fuel, road tolls, and airport parking fees for point-to-point transfers. Pricing is all-inclusive."
+            question: "Are fuel and airport fees included in the VIP booking?",
+            answer: "Yes, our VIP transfer rates are all-inclusive. This includes fuel, professional chauffeur service, road tolls (Mawaqif), and airport parking fees."
         },
         {
-            question: "Can I book the Toyota Camry for a trip from Jeddah to Makkah?",
-            answer: "Toyota Camry booking is available for Jeddah to Makkah route (95 km, approximately 75 minutes). Suitable for Umrah pilgrims and business travelers."
+            question: "Can I book a VIP Camry transfer from Jeddah to Makkah?",
+            answer: "Certainly. The Toyota Camry is a highly efficient choice for the Jeddah to Makkah route, providing a smooth and professional journey for pilgrims and business travelers."
         }
     ];
 
@@ -82,13 +82,13 @@ export default function ToyotaCamryPage() {
 
                         <div className="p-8 lg:p-12 flex flex-col justify-center">
                             <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block w-fit mb-4">
-                                Economic Choice
+                                Premium Executive Sedan
                             </span>
                             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                                Toyota Camry Taxi Service in Saudi Arabia
+                                Toyota Camry VIP Private Transfer
                             </h1>
-                            <p className="text-xl text-gray-600 mb-6">
-                                Toyota Camry taxi service accommodates 4 passengers with 2 large bags. Vehicle features automatic transmission and air conditioning. Suitable for city travel and airport transfers.
+                            <p className="text-xl text-gray-600 mb-6 font-medium">
+                                Elite chauffeur-driven performance for the modern professional. Our Toyota Camry VIP transfer service offers the perfect balance of efficiency, comfort, and premium service for city travel and airport transfers across Saudi Arabia.
                             </p>
 
 
@@ -102,11 +102,21 @@ export default function ToyotaCamryPage() {
                             </div>
 
                             <Link href="/booking?vehicle=Toyota-Camry">
-                                <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold">
-                                    Book Toyota Camry Now
+                                <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold h-14 text-lg">
+                                    Book VIP Camry Transfer
                                 </Button>
                             </Link>
                         </div>
+                    </div>
+                </div>
+
+                {/* Premium Service Disclaimer */}
+                <div className="bg-amber-50 border border-amber-200 py-3 rounded-xl mb-12">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                            <Shield className="w-4 h-4" />
+                            OFFICIAL NOTE: We specialize in pre-booked VIP Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
+                        </p>
                     </div>
                 </div>
 
@@ -196,14 +206,14 @@ export default function ToyotaCamryPage() {
                 {/* CTA */}
                 <div className="bg-black rounded-2xl p-8 md:p-12 text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                        Ready for Comfortable City Travel?
+                        Experience Seamless Executive Travel
                     </h2>
-                    <p className="text-lg text-gray-300 mb-6">
-                        Book our Toyota Camry now for your next journey
+                    <p className="text-lg text-gray-300 mb-8">
+                        Book your premium Toyota Camry VIP transfer today for a professional, stress-free journey.
                     </p>
                     <Link href="/booking?vehicle=Toyota-Camry">
-                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6">
-                            Book Now
+                        <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto">
+                            Secure Your VIP Transfer
                         </Button>
                     </Link>
                 </div>

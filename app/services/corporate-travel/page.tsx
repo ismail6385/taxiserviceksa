@@ -13,16 +13,16 @@ import {
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Top Rated Corporate Travel Service Saudi Arabia | Best Executive Taxi',
-    description: 'Best online taxi service for corporate travel in Saudi Arabia. Professional executive transport for business meetings in Riyadh and Jeddah. Monthly billing available.',
-    keywords: ['Top Rated Corporate Taxi', 'Best Online Taxi Service in Saudi Arabia', 'Executive Transport Riyadh', 'Business Travel Jeddah', 'Corporate Chauffeur Service'],
+    title: 'Top Rated Corporate VIP Transfer Saudi Arabia | Best Executive Chauffeur',
+    description: 'Best VIP transfer service for corporate travel in Saudi Arabia. Professional executive transport for business meetings in Riyadh and Jeddah. Monthly billing available.',
+    keywords: ['Top Rated Corporate VIP Transfer', 'Best VIP Transfer Service in Saudi Arabia', 'Executive Transport Riyadh', 'Business Travel Jeddah', 'Corporate Chauffeur Service'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/corporate-travel/',
+        canonical: 'https://transferksa.com/services/corporate-travel/',
     },
     openGraph: {
-        title: 'Corporate Travel Service Saudi Arabia | Executive Taxi with Driver',
-        description: 'Professional corporate travel service for business executives. Monthly billing, priority booking, executive vehicles.',
-        url: 'https://taxiserviceksa.com/services/corporate-travel/',
+        title: 'Corporate VIP Transfer Service Saudi Arabia | Executive Chauffeur with Driver',
+        description: 'Professional corporate VIP transfer service for business executives. Monthly billing, priority booking, executive vehicles.',
+        url: 'https://transferksa.com/services/corporate-travel/',
         type: 'website',
     },
 };
@@ -126,7 +126,7 @@ export default function CorporateTravelPage() {
             { "@type": "City", "name": "Riyadh" },
             { "@type": "City", "name": "Jeddah" }
         ],
-        "description": "Top rated online taxi service for corporate travel. Professional executive transport with monthly billing and priority booking for business clients.",
+        "description": "Top rated VIP transfer service for corporate travel. Professional executive transport with monthly billing and priority booking for business clients.",
         "offers": {
             "@type": "AggregateOffer",
             "priceCurrency": "SAR",
@@ -161,7 +161,7 @@ export default function CorporateTravelPage() {
                             <span className="text-white">In Saudi Arabia</span>
                         </h1>
                         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                            Taxi Service KSA provides the best online taxi service for corporate clients. Professional executive transport with licensed drivers in Riyadh and Jeddah.
+                            VIP Transfer KSA provides the best executive transfer service for corporate clients. Professional executive transport with licensed chauffeurs in Riyadh and Jeddah.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/booking?service=corporate-travel">
@@ -170,7 +170,7 @@ export default function CorporateTravelPage() {
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>
-                            <a href="mailto:taxiserviceksa9988@gmail.com">
+                            <a href="mailto:info@transferksa.com">
                                 <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
                                     Email for Quote
                                 </Button>
@@ -186,7 +186,7 @@ export default function CorporateTravelPage() {
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Executive Business Districts in Riyadh & Jeddah</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Our top rated online taxi service covers major corporate areas in Riyadh and Jeddah.
+                            Our top rated executive transfer service covers major corporate areas in Riyadh and Jeddah.
                         </p>
                     </div>
 
@@ -221,7 +221,7 @@ export default function CorporateTravelPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Corporate Taxi Services in KSA</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Corporate VIP Transfer Services in KSA</h2>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -285,7 +285,7 @@ export default function CorporateTravelPage() {
                         Book The Best Corporate Transport in Saudi Arabia
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Secure your business travel with the top rated online taxi service in Saudi Arabia. Monthly billing and priority booking available.
+                        Secure your business travel with the top rated VIP transfer service in Saudi Arabia. Monthly billing and priority booking available.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking?service=corporate-travel">
@@ -293,7 +293,7 @@ export default function CorporateTravelPage() {
                                 Request Account
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Details
                             </Button>

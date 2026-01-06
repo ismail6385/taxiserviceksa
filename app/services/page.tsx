@@ -4,35 +4,35 @@ import { Car, Plane, Building2, Compass, ArrowRight, MapPin } from 'lucide-react
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-    title: 'Top Rated Online Taxi Service in Saudi Arabia | Professional Services',
-    description: 'Best online taxi service in Saudi Arabia offering professional airport transfers, Umrah transport, and corporate travel. Book licensed drivers 24/7.',
-    keywords: ['Online Taxi Service in Saudi Arabia', 'Top Rated Taxi Service', 'Best Taxi Service KSA', 'Umrah transport', 'airport transfer KSA', 'corporate taxi', 'heritage tours'],
+    title: 'VIP Private Transfers & Chauffeur Services Saudi Arabia',
+    description: 'Explore premium VIP private transfer services in Saudi Arabia. Specializing in executive airport pickups, long-distance intercity travel, and dedicated Umrah transport.',
+    keywords: ['VIP Private Transfers', 'Executive Chauffeur Service', 'Premium Transfer KSA', 'Long Distance Transfer', 'Umrah Private Transport', 'Business Chauffeur'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/',
+        canonical: 'https://transferksa.com/services/',
     },
 };
 
 export default function ServicesPage() {
     const services = [
         {
-            name: 'Umrah Taxi Service',
-            description: 'Umrah taxi service provides transport for pilgrims between Jeddah, Makkah, and Madinah. Professional drivers ensure on-time arrival for prayer schedules.',
+            name: 'VIP Umrah Transfers',
+            description: 'Exclusive private transport for pilgrims between Jeddah Airport, Makkah, and Madinah. We specialize in luxury family transfers with ample luggage space.',
             icon: Car,
             href: '/services/umrah-transport',
-            features: ['Jeddah Airport pickup', 'Makkah to Madinah route', 'Prayer time flexibility', 'Zamzam accommodation'],
+            features: ['Executive Meeqat assistance', 'Spacious pilgrim luxury vans', 'Multilingual chauffeurs', 'All-day private hire'],
             isPopular: true
         },
         {
-            name: 'Airport Transfer Service',
-            description: 'Airport transfer service operates 24/7 at all major Saudi airports. Top rated online taxi service includes flight tracking and meet-and-greet.',
+            name: 'Executive Airport Pickups',
+            description: 'Premium meet-and-greet service at all major Saudi airports. Our chauffeurs wait at the terminal with personalized signage for a VIP arrival experience.',
             icon: Plane,
             href: '/services/airport-transfers',
-            features: ['8 airports covered', 'Flight tracking', 'Meet & greet', '24/7 availability'],
+            features: ['Personalized name signs', 'Flight tracker integration', 'VIP terminal assistance', 'Luxury sedan & SUV options'],
             isPopular: true
         },
         {
-            name: 'Corporate Taxi Service',
-            description: 'Corporate taxi service ensures reliable transport for business executives. Best online taxi service offers monthly billing and priority booking.',
+            name: 'Corporate VIP Transfers',
+            description: 'Corporate VIP transfer service ensures reliable transport for business executives. Premium booking offers monthly billing and priority allocation.',
             icon: Building2,
             href: '/services/corporate-travel',
             features: ['Executive vehicles', 'Monthly billing', 'Priority booking', 'Business districts'],
@@ -47,16 +47,16 @@ export default function ServicesPage() {
             isPopular: true
         },
         {
-            name: 'Business & Executive Taxi',
-            description: 'Business taxi service for corporate travelers in Riyadh and Jeddah. Premium vehicles and professional chauffeurs for executive meetings.',
+            name: 'Business & Executive Transfers',
+            description: 'Business VIP transfers for corporate travelers in Riyadh and Jeddah. Premium vehicles and professional chauffeurs for executive meetings.',
             icon: Building2,
             href: '/services/business/',
             features: ['KAFD & Business districts', 'Punctual meeting arrivals', 'Premium VIP fleet', 'Hourly booking options'],
             isPopular: false
         },
         {
-            name: 'Wheelchair Accessible Taxi',
-            description: 'Wheelchair accessible taxi service for pilgrims and passengers with special needs. Specially equipped vehicles with ramps.',
+            name: 'Wheelchair Accessible VIP Transfer',
+            description: 'Wheelchair accessible transfer service for pilgrims and passengers with special needs. Specially equipped vehicles with ramps.',
             icon: Car,
             href: '/services/wheelchair-taxi/',
             features: ['Ramp equipped vehicles', 'Safe luggage storage', 'Trained helpful drivers', 'Door-to-door assistance'],
@@ -71,8 +71,8 @@ export default function ServicesPage() {
             isPopular: false
         },
         {
-            name: 'Intercity Taxi Transfers',
-            description: 'Intercity taxi service connecting all major cities. Travel comfortably from Riyadh to Jeddah or Madinah with flat rates.',
+            name: 'Intercity VIP Transfers',
+            description: 'Intercity transfer service connecting all major cities. Travel comfortably from Riyadh to Jeddah or Madinah with fixed flat rates.',
             icon: Compass,
             href: '/services/intercity/',
             features: ['Long distance comfort', 'Multiple city stops', 'Fixed intercity rates', '24/7 highway service'],
@@ -88,12 +88,12 @@ export default function ServicesPage() {
                     <span className="bg-black text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
                         Our Services
                     </span>
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        Top Rated Online Taxi Service<br />
-                        <span className="text-emerald-600">With Licensed Drivers</span>
+                    <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
+                        VIP Private Transfer &<br />
+                        <span className="text-black">Executive Chauffeur Services</span>
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Taxi Service KSA is a professional online taxi service in Saudi Arabia. All vehicles include licensed drivers. No self-drive rental available.
+                        VIP Transfer KSA provides a premium alternative to local transport. We specialize in **pre-booked private journeys**, intercity travel, and hourly chauffeur hire for international guests.
                     </p>
                 </div>
 
@@ -145,9 +145,9 @@ export default function ServicesPage() {
 
                 {/* Note Section */}
                 <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 md:p-12 text-white text-center">
-                    <h2 className="text-2xl md:text-3xl font-bold mb-4">All Services Include Professional Drivers</h2>
-                    <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-                        We do not offer self-drive car rental. All our vehicles come with licensed, experienced drivers who know Saudi routes and traffic regulations.
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4">Specializing in Premium & Long-Distance Travel</h2>
+                    <p className="text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed text-lg">
+                        We are a dedicated private transfer service. We do **not** provide local street-hail taxi services or short-distance point-to-point city trips. Our fleet is reserved for pre-booked airport transfers, intercity travel, and all-day rentals.
                     </p>
                     <Link href="/booking/">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold">

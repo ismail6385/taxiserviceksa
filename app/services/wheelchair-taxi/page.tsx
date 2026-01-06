@@ -14,11 +14,11 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 
 export const metadata: Metadata = {
-    title: 'Wheelchair Accessible Taxi KSA | Handicap Transport Service',
-    description: 'Reliable wheelchair taxi service in Saudi Arabia. Vehicles equipped for elderly and disabled passengers. Accessible transport for Umrah, hospital visits, and airport transfers.',
-    keywords: ['Wheelchair taxi Saudi Arabia', 'Handicap accessible transport KSA', 'Disabled taxi service', 'Elderly transport Umrah', 'Medical taxi service'],
+    title: 'Wheelchair Accessible VIP Transfer KSA | Handicap Transport Service',
+    description: 'Reliable wheelchair VIP transfer service in Saudi Arabia. Vehicles equipped for elderly and disabled passengers. Accessible transport for Umrah, hospital visits, and airport transfers.',
+    keywords: ['Wheelchair VIP transfer Saudi Arabia', 'Handicap accessible transport KSA', 'Disabled transfer service', 'Elderly transport Umrah', 'Medical VIP transfer service'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/wheelchair-taxi/',
+        canonical: 'https://transferksa.com/services/wheelchair-taxi/',
     },
 };
 
@@ -50,7 +50,7 @@ export default function WheelchairTaxiPage() {
 
             <Hero
                 images={['/hero-slide-3.webp', '/hero-slide-1.webp']}
-                h1Text="Wheelchair Accessible Taxi Service"
+                h1Text="Wheelchair Accessible VIP Transfer Service"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Care & Comfort
@@ -61,7 +61,7 @@ export default function WheelchairTaxiPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ Care"
+                        brandName="VIP Transfer KSA™ Care"
                         description="Providing dignified and comfortable mobility solutions for our elders and guests with special needs. Accessible transport for Umrah and daily needs."
                         foundingDate="2012"
                         metrics={[

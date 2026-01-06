@@ -7,7 +7,7 @@ export const runtime = 'nodejs';
 
 // Initialize Resend with API key check
 const resendApiKey = process.env.RESEND_API_KEY;
-const adminEmail = process.env.ADMIN_EMAIL || 'taxiserviceksa9988@gmail.com';
+const adminEmail = process.env.ADMIN_EMAIL || 'info@transferksa.com';
 
 if (!resendApiKey) {
     console.error('RESEND_API_KEY is not set in environment variables');
@@ -122,9 +122,9 @@ export async function POST(request: NextRequest) {
         let customerEmail;
         try {
             customerEmail = await resend.emails.send({
-                from: 'Taxi Service KSA <noreply@taxiserviceksa.com>',
+                from: 'VIP Transfer KSA <noreply@transferksa.com>',
                 to: [booking.customer_email],
-                subject: 'Booking Confirmation - Taxi Service KSA',
+                subject: 'Booking Confirmation - VIP Transfer KSA',
                 html: `
                 <!DOCTYPE html>
                 <html>
@@ -152,7 +152,7 @@ export async function POST(request: NextRequest) {
                         </div>
                         <div class="content">
                             <p>Dear <strong>${booking.customer_name}</strong>,</p>
-                            <p>Thank you for choosing Taxi Service KSA! Your booking has been confirmed.</p>
+                            <p>Thank you for choosing VIP Transfer KSA! Your booking has been confirmed.</p>
                             
                             <div class="booking-details">
                                 <h3 style="margin-top: 0; color: #000;">Booking Details</h3>
@@ -205,11 +205,11 @@ export async function POST(request: NextRequest) {
 
                             
                             <p style="margin-top: 30px; font-size: 14px; color: #666;">
-                                If you have any questions, feel free to reach out to us at <a href="mailto:taxiserviceksa9988@gmail.com">taxiserviceksa9988@gmail.com</a>
+                                If you have any questions, feel free to reach out to us at <a href="mailto:info@transferksa.com">info@transferksa.com</a>
                             </p>
                         </div>
                         <div class="footer">
-                            <p><strong>Taxi Service KSA</strong></p>
+                            <p><strong>VIP Transfer KSA</strong></p>
                             <p>Premium Chauffeur Services in Saudi Arabia</p>
                             <p>Jeddah | Makkah | Madinah | Riyadh</p>
                         </div>
@@ -229,7 +229,7 @@ export async function POST(request: NextRequest) {
             // Check if it's a domain verification error
             const errorMessage = customerEmailError.message || '';
             if (errorMessage.includes('domain') || errorMessage.includes('verify') || errorMessage.includes('not verified')) {
-                throw new Error(`Email domain not verified. Please verify 'taxiserviceksa.com' in Resend dashboard. Error: ${customerEmailError.message}`);
+                throw new Error(`Email domain not verified. Please verify 'transferksa.com' in Resend dashboard. Error: ${customerEmailError.message}`);
             }
 
             throw new Error(`Customer email failed: ${customerEmailError.message}`);
@@ -240,7 +240,7 @@ export async function POST(request: NextRequest) {
         try {
             console.log('Sending admin email to:', adminEmail);
             adminEmailResult = await resend.emails.send({
-                from: 'Taxi Service KSA <noreply@taxiserviceksa.com>',
+                from: 'VIP Transfer KSA <noreply@transferksa.com>',
                 to: [adminEmail],
                 subject: `🚗 New Booking - ${booking.customer_name} ${price ? `(SAR ${price})` : ''}`,
                 html: `
@@ -340,6 +340,13 @@ export async function POST(request: NextRequest) {
                                     <span class="label">Luggage:</span>
                                     <span class="value">${booking.luggage || 0}</span>
                                 </div>
+                                
+                                ${booking.special_requests ? `
+                                <div class="detail-row">
+                                    <span class="label">Notes / Source:</span>
+                                    <span class="value">${booking.special_requests}</span>
+                                </div>
+                                ` : ''}
                             </div>
                             
                             <center>

@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { MapPin, Phone, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Compass, Landmark, Briefcase, History } from 'lucide-react';
+import { MapPin, Phone, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Compass, Landmark, Briefcase, History, Building2 } from 'lucide-react';
 import {
     Accordion,
     AccordionContent,
@@ -18,25 +18,34 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 
 
 export const metadata: Metadata = {
-    title: 'Online Taxi Service in Makkah | 24/7 Umrah Transport',
-    description: 'Book online taxi service in Makkah for Umrah pilgrims. Reliable hotel to Haram transfers and Jeddah Airport pickup. 24/7 service with fixed rates.',
-    keywords: ['Online Taxi Service Makkah', 'Taxi Service in Makkah', 'Makkah Taxi', 'Umrah Transport Makkah', 'Jeddah to Makkah Taxi'],
+    title: 'VIP Private Transfer & Umrah Chauffeur Makkah | Premium Transport',
+    description: 'Premium VIP private transfer service in Makkah for Umrah pilgrims. Executive chauffeur service for Makkah, Madinah, and Jeddah Airport pickups. High-end fleet for a dignified journey.',
+    keywords: ['VIP Umrah transport Makkah', 'Premium private transfer Makkah', 'Makkah VIP chauffeur', 'Executive Umrah taxi', 'Jeddah to Makkah VIP transfer'],
+    alternates: {
+        canonical: 'https://transferksa.com/locations/makkah/',
+        languages: {
+            'en': 'https://transferksa.com/locations/makkah/',
+            'ar': 'https://transferksa.com/ar/locations/makkah/',
+            'ur': 'https://transferksa.com/ur/locations/makkah/',
+            'x-default': 'https://transferksa.com/locations/makkah/',
+        },
+    },
     openGraph: {
-        title: 'Online Taxi Service in Makkah | 24/7 Umrah Transport',
-        description: 'Book online taxi service in Makkah specifically for Umrah pilgrims and families. Direct hotel to Haram transfers and Jeddah Airport pickup.',
-        url: 'https://taxiserviceksa.com/locations/makkah/',
+        title: 'VIP Private Transfer in Makkah | 24/7 Umrah Transport',
+        description: 'Book premium VIP private transfers in Makkah specifically for Umrah pilgrims and families. Direct hotel to Haram transfers and Jeddah Airport pickup.',
+        url: 'https://transferksa.com/locations/makkah/',
         type: 'website',
-        images: [{ url: 'https://taxiserviceksa.com/makkah-kaaba-night.webp', alt: 'Online taxi service in Makkah' }],
+        images: [{ url: 'https://transferksa.com/makkah-kaaba-night.webp', alt: 'VIP private transfer in Makkah' }],
     },
 };
 
 export default async function MakkahPage() {
 
     const services = [
-        { name: 'Jeddah Airport to Makkah', description: 'Direct pickup from KAIA Terminal 1 & North Terminal to your Hotel.', icon: Plane },
-        { name: 'Hotel to Haram Transfers', description: '24/7 drop-off at Ajyad Tunnel and Gaza Loop for prayers.', icon: MapPin },
-        { name: 'Makkah Ziyarat Tours', description: 'Visit Jabal al-Nour, Thawr, Arafat, and Mina with a knowledgeable driver.', icon: Compass },
-        { name: 'Intercity Travel', description: 'Private transfer from Makkah to Madinah or Taif (Al Hada).', icon: Car },
+        { name: 'VIP Airport Pickup', description: 'Executive pickup from KAIA Terminal 1 & North Terminal directly to your Hotel.', icon: Plane },
+        { name: 'Executive Umrah Transfers', description: 'Premium intercity travel between Makkah, Madinah, and Jeddah with VIP hospitality.', icon: Landmark },
+        { name: 'VIP Makkah Ziyarat', description: 'Explore historical sites (Arafat, Mina, Jabal Al-Nour) in a luxury SUV with a professional driver.', icon: Compass },
+        { name: 'Full-Day Chauffeur', description: 'Dedicated private chauffeur for your entire stay in Makkah. Punctual & Professional.', icon: Briefcase },
     ];
 
     const features = [
@@ -78,19 +87,19 @@ export default async function MakkahPage() {
                                 "@type": "ListItem",
                                 "position": 1,
                                 "name": "Home",
-                                "item": "https://taxiserviceksa.com/"
+                                "item": "https://transferksa.com/"
                             },
                             {
                                 "@type": "ListItem",
                                 "position": 2,
                                 "name": "Locations",
-                                "item": "https://taxiserviceksa.com/locations/"
+                                "item": "https://transferksa.com/locations/"
                             },
                             {
                                 "@type": "ListItem",
                                 "position": 3,
                                 "name": "Makkah",
-                                "item": "https://taxiserviceksa.com/locations/makkah/"
+                                "item": "https://transferksa.com/locations/makkah/"
                             }
                         ]
                     })
@@ -106,18 +115,16 @@ export default async function MakkahPage() {
                         "itemListElement": [
                             {
                                 "@type": "Service",
-                                "serviceType": "Umrah Taxi Service",
-
+                                "serviceType": "Umrah VIP Transfer Service",
                                 "areaServed": {
                                     "@type": "City",
                                     "name": "Makkah"
                                 },
-                                "description": "Reliable online taxi service in Makkah for Umrah pilgrims. Specializing in hotel to Haram transfers and Ziyarat tours."
+                                "description": "Reliable VIP transfer service in Makkah for Umrah pilgrims. Specializing in hotel to Haram transfers and Ziyarat tours."
                             },
                             {
                                 "@type": "Service",
-                                "serviceType": "Airport Taxi to Makkah",
-
+                                "serviceType": "Airport VIP Transfer to Makkah",
                                 "areaServed": [
                                     {
                                         "@type": "City",
@@ -128,7 +135,7 @@ export default async function MakkahPage() {
                                         "name": "Makkah"
                                     }
                                 ],
-                                "description": "Direct airport transfer service from King Abdulaziz International Airport (Jeddah) to hotels in Makkah."
+                                "description": "Direct VIP airport transfer service from King Abdulaziz International Airport (Jeddah) to hotels in Makkah."
                             },
                             {
                                 "@type": "Service",
@@ -149,16 +156,26 @@ export default async function MakkahPage() {
             {/* Hero Section with Makkah-Focused H1 */}
             <Hero
                 images={makkahImages}
-                h1Text="Online Taxi Service in Makkah"
-                bookingFormTitle="Book Best Online Taxi Service in Makkah"
+                h1Text="VIP Private Transfer & Chauffeur Makkah"
+                bookingFormTitle="Book Premium Umrah Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        TaxiServiceKSA™ Makkah
+                        VIP Chauffeur Service Makkah
                     </span>
                 }
-                subtitle="Reliable Transport for Pilgrims & Families in Makkah"
-                location="24/7 Hotel to Haram & Airport Service"
+                subtitle="Premium Transport for Pilgrims & Families Seeking Excellence"
+                location="24/7 Executive Intercity & Airport Service"
             />
+
+            {/* Premium Service Disclaimer */}
+            <div className="bg-amber-50 border-y border-amber-200 py-3">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                        <Shield className="w-4 h-4" />
+                        OFFICIAL NOTE: We specialize in pre-booked VIP Umrah, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
+                    </p>
+                </div>
+            </div>
 
             {/* Contextual Link Hub - Strategic Linking */}
             <div className="bg-white border-b border-gray-100">
@@ -198,7 +215,7 @@ export default async function MakkahPage() {
                             Services in Makkah
                         </span>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mt-6 mb-4">
-                            Makkah Taxi Services
+                            Makkah VIP Transfer Services
                         </h2>
                         <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
                             From Jeddah Airport transfers to daily hotel pickups, we offer the <Link href="/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">Best Online Taxi Service in Saudi Arabia</Link>. Choose the right vehicle for your Umrah group.
@@ -260,7 +277,57 @@ export default async function MakkahPage() {
             </section>
 
 
-            {/* SEO Content Block 1 - Umrah Pilgrims */}
+            {/* Makkah Neighborhood Guides - Micro-Niche Strategy */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+                <div className="max-w-7xl mx-auto">
+                    <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
+                        <div className="max-w-2xl">
+                            <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Local Expertise</span>
+                            <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">
+                                Makkah Transport by Neighborhood
+                            </h2>
+                            <p className="text-gray-600 mt-4 text-lg">
+                                Whether you are staying in the heart of the luxury district or a quiet residential pocket, we provide specialized taxi services for every corner of Makkah.
+                            </p>
+                        </div>
+                        <Link href="/locations/" className="text-primary font-bold flex items-center gap-2 group border-b-2 border-primary/20 hover:border-primary transition-all pb-1">
+                            Explore All Locations <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                        {[
+                            { name: 'Aziziyah', slug: 'aziziyah', desc: 'The heart of pilgrim accommodation.', icon: Building2 },
+                            { name: 'Jabal Omar', slug: 'jabal-omar', desc: 'Luxury hotel district next to Haram.', icon: Star },
+                            { name: 'Kudai', slug: 'kudai', desc: 'Vital transport and parking hub.', icon: MapPin },
+                            { name: 'Misfalah', slug: 'misfalah', desc: 'Bustling area with many hotels.', icon: Users },
+                            { name: 'Jarwal', slug: 'jarwal', desc: 'Modern area near the new expansion.', icon: Landmark },
+                        ].map((district, idx) => (
+                            <Link
+                                key={idx}
+                                href={`/locations/makkah/${district.slug}/`}
+                                className="group relative bg-gray-50 p-8 rounded-[2.5rem] border border-gray-100 hover:bg-white hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2 overflow-hidden"
+                            >
+                                <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+                                <div className="relative z-10">
+                                    <div className="bg-white w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary group-hover:text-white transition-colors duration-500">
+                                        <district.icon className="w-6 h-6 transition-transform group-hover:rotate-12" />
+                                    </div>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-2">{district.name}</h3>
+                                    <p className="text-gray-500 text-sm leading-relaxed mb-4 group-hover:text-gray-700 transition-colors">
+                                        {district.desc}
+                                    </p>
+                                    <div className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0">
+                                        View Service Guide <ArrowRight className="w-4 h-4" />
+                                    </div>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-gray-50 to-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -272,16 +339,16 @@ export default async function MakkahPage() {
                             </div>
 
                             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                                Cheap Taxi for Umrah Pilgrims
+                                VIP Private Transfer for Umrah Pilgrims
                             </h2>
 
-                            <div className="space-y-4 text-gray-700 leading-relaxed">
-                                <p className="text-lg">
-                                    We provide consistent online taxi service connecting Jeddah Airport, Makkah hotels, and Masjid al-Haram. Our drivers are experienced with Makkah traffic patterns and Haram entry points.
+                            <div className="space-y-4 text-gray-700 leading-relaxed text-lg">
+                                <p>
+                                    Experience a <strong>dignified and premium Umrah journey</strong> with our VIP private transfer service. We provide an executive alternative to standard city transport, ensuring that your spiritual focus remains uninterrupted by logistical challenges.
                                 </p>
 
                                 <p>
-                                    Performing Umrah involves coordinating multiple travel points—from your arrival at King Abdulaziz International Airport to your hotel in Aziziyah or Jabal Omar, then daily trips to Masjid al Haram for prayers. We handle this complete journey, including Ziyarat tours to historical sites, transfers to <Link href="/locations/madinah/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">Madinah</Link>, and <Link href="/locations/jeddah/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">return airport pickups</Link>. Our <Link href="/fleet/" className="text-gray-900 font-semibold underline decoration-gray-300 hover:decoration-gray-900 underline-offset-4 transition-all">family-friendly vehicles</Link> accommodate luggage, Zamzam water, and multiple passengers comfortably.
+                                    Our service is dedicated to <strong>high-end intercity travel and airport pickups</strong>. Whether you are arriving at King Abdulaziz International Airport or require a dedicated chauffeur for the journey to Madinah, we offer a specialized 2025 fleet designed for pilgrims and families. We prioritize international guests, providing professional, English-speaking chauffeurs and a level of hospitality that reflects the sanctity of your visit.
                                 </p>
                             </div>
 
@@ -375,11 +442,11 @@ export default async function MakkahPage() {
                         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
                             <Link href="/booking/">
                                 <Button className="bg-black text-white hover:bg-black/90 font-bold px-10 py-7 text-lg rounded-2xl h-auto shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
-                                    Book Taxi Now
+                                    Book VIP Transfer Now
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>
-                            <a href="mailto:taxiserviceksa9988@gmail.com">
+                            <a href="mailto:info@transferksa.com">
                                 <Button variant="outline" className="bg-white/20 backdrop-blur-sm text-black border-2 border-black/30 hover:bg-white/30 font-bold px-10 py-7 text-lg rounded-2xl h-auto">
                                     <Phone className="mr-2 w-5 h-5" />
                                     Email Us
@@ -418,7 +485,7 @@ export default async function MakkahPage() {
                         </div>
 
                         <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                            Transparent Pricing for Makkah Taxi Services
+                            Transparent Pricing for Makkah VIP Transfers
                         </h3>
 
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -455,17 +522,17 @@ export default async function MakkahPage() {
 
                         <div className="bg-white p-8 rounded-2xl border-2 border-primary/30 hover:border-primary hover:shadow-xl transition-all text-center relative">
                             <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white font-bold hover:text-black px-4 py-1 rounded-full text-xs">
-                                MOST POPULAR
+                                RECOMMENDED
                             </div>
                             <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                <MapPin className="w-6 h-6 text-primary" />
+                                <Clock className="w-6 h-6 text-primary" />
                             </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">Hotel to Haram</div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Full-Day Chauffeur</div>
                             <div className="text-4xl font-black text-primary mb-3">
-                                <span className="text-2xl">From</span> SAR 30
+                                <span className="text-2xl">From</span> SAR 600
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
-                                Quick trips within Makkah
+                                12 Hours Dedicated Service
                             </div>
                         </div>
 
@@ -716,7 +783,7 @@ export default async function MakkahPage() {
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                            Frequently Asked Questions
+                            Makkah VIP Transfer FAQ
                         </h2>
                         <p className="text-lg text-gray-600">
                             Common questions about our Makkah taxi service.

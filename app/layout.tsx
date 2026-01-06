@@ -11,23 +11,35 @@ const poppins = Poppins({
 
 export const metadata = {
   metadataBase: new URL('https://taxiserviceksa.com'),
-  title: 'Taxi Service KSA',
-  description: 'Reliable taxi service in Saudi Arabia',
+  alternates: {
+    canonical: './',
+    languages: {
+      'en': './',
+      'ar-SA': '/ar/',
+      'ur-PK': '/ur/',
+    },
+  },
+  title: {
+    default: 'VIP Transfer KSA | #1 Airport Taxi & Umrah Transport (Pre-Book)',
+    template: '%s | VIP Transfer KSA',
+  },
+  description: 'Pre-book premium taxi services in Saudi Arabia. Trusted by travelers from UK, USA, Canada & Indonesia. Reliable Jeddah Airport to Makkah transfers. Fixed rates & English-speaking drivers.',
   icons: {
     icon: '/logo.png',
     shortcut: '/logo.png',
     apple: '/logo.png',
   },
   openGraph: {
-    title: 'Taxi Service KSA',
-    description: 'Reliable taxi service in Saudi Arabia',
-    url: 'https://taxiserviceksa.com',
-    siteName: 'Taxi Service KSA',
+    title: 'VIP Transfer KSA | Premium Jeddah to Makkah Transfers',
+    description: 'Book official taxi services in Saudi Arabia. Reliable private transfers from Jeddah Airport to Makkah & Madinah. Fixed rates, VIP GMCs, and 24/7 customer support.',
+    url: './',
+    siteName: 'VIP Transfer KSA',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
+        alt: 'VIP Transfer KSA Fleet',
       },
     ],
     locale: 'en_US',
@@ -35,8 +47,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Taxi Service KSA',
-    description: 'Reliable taxi service in Saudi Arabia',
+    title: 'VIP Transfer KSA | Premium Transfers',
+    description: 'Book official taxi services in Saudi Arabia. Reliable private transfers from Jeddah Airport to Makkah & Madinah.',
     images: ['/twitter-image.jpg'],
   },
 };

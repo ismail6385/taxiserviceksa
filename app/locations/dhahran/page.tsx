@@ -24,22 +24,22 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import ExpertReview from '@/components/seo/ExpertReview';
 
 export const metadata: Metadata = {
-    title: 'Taxi Service in Dhahran | Aramco & Ithra Transfers',
-    description: 'Reliable taxi service in Dhahran. Transfers to Saudi Aramco, KFUPM, and Ithra Center. Professional drivers for business & city travel.',
-    keywords: ['taxi service in Dhahran', 'Dhahran taxi', 'Aramco taxi', 'Ithra Center transport', 'KFUPM taxi'],
+    title: 'VIP Private Transfer & Chauffeur Dhahran | Aramco & Ithra',
+    description: 'Premium VIP private transfer and executive chauffeur service in Dhahran. Specialized Saudi Aramco, KFUPM, and Ithra Center transport. Professional corporate standards.',
+    keywords: ['Dhahran VIP private transfer', 'Executive chauffeur Dhahran', 'Aramco VIP pickup', 'Ithra Center VIP transport', 'KFUPM executive taxi'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/dhahran/',
+        canonical: 'https://transferksa.com/locations/dhahran/',
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/dhahran/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/dhahran/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/dhahran/',
-            'x-default': 'https://taxiserviceksa.com/locations/dhahran/',
+            'en': 'https://transferksa.com/locations/dhahran/',
+            'ar': 'https://transferksa.com/ar/locations/dhahran/',
+            'ur': 'https://transferksa.com/ur/locations/dhahran/',
+            'x-default': 'https://transferksa.com/locations/dhahran/',
         }
     },
     openGraph: {
-        title: 'Taxi Service in Dhahran | Aramco & Ithra Transfers',
-        description: 'Reliable taxi service in Dhahran. Transfers to Saudi Aramco, KFUPM, and Ithra Center. Professional drivers for business & city travel.',
-        url: 'https://taxiserviceksa.com/locations/dhahran/',
+        title: 'VIP Transfer in Dhahran | Aramco & Ithra Pickups',
+        description: 'Premium VIP transfer service in Dhahran. Transfers to Saudi Aramco, KFUPM, and Ithra Center. Professional chauffeurs for business & city travel.',
+        url: 'https://transferksa.com/locations/dhahran/',
         type: 'website',
     },
 };
@@ -48,7 +48,7 @@ export default function DhahranPage() {
     const services = [
         { name: 'Saudi Aramco Transfers', description: 'Secure transport to Saudi Aramco residential camp and office zones (permit required areas subject to clearance)', icon: Building2 },
         { name: 'Ithra Center Visits', description: 'Comfortable rides to King Abdulaziz Center for World Culture for events and exhibitions', icon: Star },
-        { name: 'University Transport', description: 'Reliable taxi service to KFUPM (King Fahd University of Petroleum and Minerals)', icon: GraduationCap },
+        { name: 'University Transport', description: 'Reliable VIP transfer to KFUPM (King Fahd University of Petroleum and Minerals)', icon: GraduationCap },
         { name: 'Airport Transfers', description: 'Transfers to King Fahd International Airport (DMM) - 45 mins away', icon: Plane },
     ];
 
@@ -121,19 +121,20 @@ export default function DhahranPage() {
             {/* Hero Section */}
             <Hero
                 images={dhahranImages}
-                h1Text="Taxi Service in Dhahran: Aramco and Ithra Center Transfers"
+                h1Text="VIP Private Transfer & Chauffeur Dhahran"
+                bookingFormTitle="Book Premium Transfer in Dhahran"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Dhahran Taxi Service
+                        VIP Chauffeur Service Dhahran
                     </span>
                 }
-                subtitle="Corporate & Cultural Hub"
+                subtitle="The Energy Capital's Executive Standard"
                 location="Aramco • KFUPM • Ithra"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ Dhahran"
-                        description="Professional chauffeur and corporate taxi services in Dhahran. We help Aramco employees, KFUPM faculty, and visitors with luxury vehicles and 24/7 availability for Dammam Airport transfers."
+                        brandName="VIP Transfer KSA™ Dhahran"
+                        description="Professional chauffeur and corporate transfer services in Dhahran. We help Aramco employees, KFUPM faculty, and visitors with luxury vehicles and 24/7 availability for Dammam Airport transfers."
                         foundingDate="2012"
                         metrics={[
                             { label: 'Corporate Trips', value: '25k+', icon: Building2 },
@@ -146,17 +147,27 @@ export default function DhahranPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                         <Link href="/booking/">
-                            Book Dhahran Taxi
+                            Book VIP Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </Button>
                     <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             Email Us
                         </a>
                     </Button>
                 </div>
             </Hero>
+
+            {/* Premium Service Disclaimer */}
+            <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                        <Shield className="w-4 h-4" />
+                        OFFICIAL NOTE: We specialize in pre-booked Corporate, Intercity, and VIP Airport transfers. We do NOT provide local short-distance hailing.
+                    </p>
+                </div>
+            </div>
 
             {/* Trending Note */}
             <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
@@ -172,7 +183,7 @@ export default function DhahranPage() {
             {/* Semantic Hub */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-16">
                 <QuestionGrouper
-                    mainQuestion="How does taxi service work in Dhahran?"
+                    mainQuestion="How does VIP transfer work in Dhahran?"
                     intro="Dhahran is not a typical open city. It is a cluster of secured zones (Aramco, KFUPM, Airbase) and public areas (Ithra, Malls)."
                     subQuestions={[
                         {
@@ -243,10 +254,10 @@ export default function DhahranPage() {
                         }
                     ]}
                 />
-            </div>
+            </div >
 
             {/* Authoritative Signal */}
-            <section className="bg-white mt-16">
+            < section className="bg-white mt-16" >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <ExpertReview
                         reviewerName='Logistics Manager Ali Al-Qahtani'
@@ -255,16 +266,16 @@ export default function DhahranPage() {
                         expertise={["Gate Clearances", "VIP Protocols", "Aramco Logistics"]}
                     />
                 </div>
-            </section>
+            </section >
 
             {/* Services Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+            < section className="py-20 px-4 sm:px-6 lg:px-8 bg-white" >
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Our Services</span>
+                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Executive Services</span>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Dhahran Transport Solutions</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Professional transport for the energy sector, academic institutions, and cultural centers.
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                            Professional VIP chauffeur service for the energy sector, academic institutions, and cultural centers.
                         </p>
                     </div>
 
@@ -280,13 +291,13 @@ export default function DhahranPage() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Features Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+            < section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50" >
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Dhahran Taxi Service</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Dhahran VIP Service</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                         {features.map((feature, index) => (
@@ -297,10 +308,10 @@ export default function DhahranPage() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Micro-Semantic FAQ Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+            < section className="py-20 px-4 sm:px-6 lg:px-8 bg-white" >
                 <div className="max-w-7xl mx-auto">
                     <div className="mt-12 mb-16">
                         <DistanceTable
@@ -388,7 +399,7 @@ export default function DhahranPage() {
                                 ]
                             },
                             {
-                                question: "Taxi fare from Airport to Dhahran?",
+                                question: "VIP transfer fare from Airport to Dhahran?",
                                 shortAnswer: "180-220 SAR",
                                 detailedAnswer: "The fare is fixed for quality service. This includes waiting time at the terminal and luggage handling.",
                                 perspectives: [
@@ -398,10 +409,10 @@ export default function DhahranPage() {
                         ]}
                     />
                 </div>
-            </section>
+            </section >
 
             {/* Pricing Information */}
-            <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
+            < section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing" >
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
                         <div className="inline-flex items-center gap-2 bg-yellow-100 px-4 py-2 rounded-full mb-6">
@@ -410,7 +421,7 @@ export default function DhahranPage() {
                         </div>
 
                         <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                            Dhahran Taxi Prices
+                            VIP Dhahran Transfer Rates
                         </h3>
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                             Transparent rates for Aramco, KFUPM, and Airport transfers.
@@ -461,7 +472,7 @@ export default function DhahranPage() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <RelatedLocations currentCity="Dhahran" />
@@ -471,7 +482,7 @@ export default function DhahranPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your Dhahran Taxi Now
+                        Book Your Dhahran VIP Transfer Now
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                         Professional transport for Saudi Aramco, KFUPM, and Ithra Center visits.
@@ -479,10 +490,10 @@ export default function DhahranPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Your Ride
+                                Book VIP Transfer
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@transferksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email Us
                             </Button>
@@ -490,6 +501,6 @@ export default function DhahranPage() {
                     </div>
                 </div>
             </section>
-        </div>
+        </div >
     );
 }

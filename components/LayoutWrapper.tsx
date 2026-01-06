@@ -9,6 +9,7 @@ import SocialSidebar from '@/components/SocialSidebar';
 import JsonLdBreadcrumb from '@/components/JsonLdBreadcrumb';
 
 import JsonLdService from '@/components/JsonLdService';
+import JsonLdLocalBusiness from '@/components/JsonLdLocalBusiness';
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -24,10 +25,13 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
           <JsonLdBreadcrumb />
 
           <JsonLdService />
+          <JsonLdLocalBusiness />
         </>
       )}
 
-      {children}
+      <main className={!isAdminRoute ? 'pt-[120px]' : ''}>
+        {children}
+      </main>
 
       {!isAdminRoute && (
         <>

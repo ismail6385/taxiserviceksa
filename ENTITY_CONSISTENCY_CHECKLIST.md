@@ -5,7 +5,7 @@ To build "Brand Authority" in the eyes of Google's AI, your business details (NA
 ## 📋 The "Golden Record" (Source of Truth)
 *Copy and paste strictly from this block for every profile creation.*
 
-*   **Business Name:** Taxi Service KSA
+*   **Business Name:** VIP Transfer KSA
 *   **Alternative Name:** TaxiServiceKSA (Branded)
 *   **Description:** Professional taxi service with licensed drivers in Saudi Arabia. Specializing in airport transfers and Umrah transport for families.
 *   **Website:** https://taxiserviceksa.com
