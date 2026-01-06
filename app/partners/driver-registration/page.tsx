@@ -152,14 +152,8 @@ export default function DriverRegistration() {
                         <div className="bg-primary p-10 rounded-[2.5rem] text-white">
                             <h3 className="text-xl font-black mb-4">Support & Coordination</h3>
                             <p className="text-primary-foreground/80 text-sm mb-6 font-medium leading-relaxed">
-                                Our dedicated partner coordinator is available 24/7 to assist you with onboarding and booking management.
+                                Our dedicated partner coordinator is available 24/7 to assist you with onboarding and booking management. We'll contact you via email after reviewing your application.
                             </p>
-                            <div className="flex items-center gap-4 text-sm font-bold">
-                                <div className="bg-white/20 p-2 rounded-lg">
-                                    <Phone className="w-4 h-4" />
-                                </div>
-                                +966 54 761 0026
-                            </div>
                         </div>
                     </div>
 
