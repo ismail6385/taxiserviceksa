@@ -13,12 +13,12 @@ export const metadata: Metadata = {
     description: 'Taxi from Jeddah to Al Ula operates 24/7. 700km scenic journey to Hegra in 7-8 hours. Fixed rate from SAR 1400. Luxury SUVs for the long drive.',
     keywords: ['Jeddah to Al Ula taxi', 'taxi Jeddah airport to Al Ula', 'Al Ula transport', 'Jeddah Alula price', 'Hegra taxi'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/jeddah-alula/',
+        canonical: 'https://taxiserviceksa.com/routes/jeddah-alula/',
     },
     openGraph: {
         title: 'Jeddah to Al Ula Taxi | 700km Route - Fixed Price SAR 1400',
         description: 'Comfortable private transfer from Jeddah to Al Ula. 700km journey. Fixed rates starting SAR 1400. Visit the ancient city of Hegra.',
-        url: 'https://transferksa.com/routes/jeddah-alula/',
+        url: 'https://taxiserviceksa.com/routes/jeddah-alula/',
         type: 'website',
     },
 };
@@ -94,7 +94,7 @@ export default function JeddahAlulaRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email for Quote
                         </Button>
@@ -291,7 +291,7 @@ export default function JeddahAlulaRoutePage() {
                                 Book Now (SAR 1400+)
                             </Button>
                         </Link>
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Quote
                             </Button>

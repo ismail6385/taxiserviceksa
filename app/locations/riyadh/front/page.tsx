@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service for Riyadh Front (Roshn Front). Professional transport for LEAP, Cityscape, and business exhibitions.',
     keywords: ['Riyadh Front VIP transfer', 'Roshn Front premium chauffeur', 'Riyadh Exhibition Center executive car', 'LEAP Riyadh VIP transport', 'Airport to Riyadh Front VIP'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/riyadh/front/',
+        canonical: 'https://taxiserviceksa.com/locations/riyadh/front/',
     },
     openGraph: {
         title: 'VIP Private Transfer to Riyadh Front (Exhibition Center)',
         description: 'Attending an event at Riyadh Front? Premium VIP private transfer and professional chauffeur service from hotels and King Khalid Airport.',
-        url: 'https://transferksa.com/locations/riyadh/front/',
+        url: 'https://taxiserviceksa.com/locations/riyadh/front/',
         type: 'website',
     },
 };
@@ -76,7 +76,7 @@ export default function RiyadhFrontPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Corporate VIP Quote
                         </Button>

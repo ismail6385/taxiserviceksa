@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: 'Guide to the Seven Mosques (Sab\'a Masajid) in Madinah. Site of the Battle of the Trench (Khandaq). History, location, and the new big mosque.',
     keywords: ['Seven mosques Madinah', 'Battle of Trench site', 'Khandaq Madinah', 'Masjid Fath', 'Masjid Salman Farsi'],
     alternates: {
-        canonical: 'https://transferksa.com/guides/seven-mosques/',
+        canonical: 'https://taxiserviceksa.com/guides/seven-mosques/',
     },
 };
 

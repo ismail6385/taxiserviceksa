@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service to Al Hamra District, Jeddah. Transfers to Ritz Carlton and InterContinental with professional chauffeurs.',
     keywords: ['Al Hamra VIP transfer', 'Jeddah fountain premium chauffeur', 'Ritz Carlton Jeddah executive transport', 'Al Hamra Corniche VIP'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/jeddah/al-hamra/',
+        canonical: 'https://taxiserviceksa.com/locations/jeddah/al-hamra/',
     },
     openGraph: {
         title: 'VIP Private Transfer Al Hamra | Executive Chauffeur',
         description: 'Premium VIP private transfers to Jeddah\'s most prestigious district. Executive chauffeur service for Ritz Carlton and InterContinental guests.',
-        url: 'https://transferksa.com/locations/jeddah/al-hamra/',
+        url: 'https://taxiserviceksa.com/locations/jeddah/al-hamra/',
         type: 'website',
     },
 };
@@ -76,7 +76,7 @@ export default function AlHamraPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Diplomatic Service Quote
                         </Button>

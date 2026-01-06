@@ -13,12 +13,12 @@ export const metadata: Metadata = {
     description: 'Reliable taxi from Madinah to Jeddah Airport Departures (North Terminal & Terminal 1). Flight tracking included to ensure on-time arrival. Fixed Price SAR 450.',
     keywords: ['Madinah to Jeddah Airport taxi', 'JED airport departure transfer', 'Madinah to Terminal 1', 'taxi to Jeddah North Terminal', 'Madinah Jeddah airport fare'],
     alternates: {
-        canonical: 'https://transferksa.com/madinah-to-jeddah-airport-departures/',
+        canonical: 'https://taxiserviceksa.com/madinah-to-jeddah-airport-departures/',
     },
     openGraph: {
         title: 'Madinah to Jeddah Airport (JED) Departures Taxi',
         description: 'Direct transfer for your return flight. Madinah to JED Terminal 1/North. On-time guarantee.',
-        url: 'https://transferksa.com/madinah-to-jeddah-airport-departures/',
+        url: 'https://taxiserviceksa.com/madinah-to-jeddah-airport-departures/',
         type: 'website',
     },
 };
@@ -91,7 +91,7 @@ export default function MadinahToJeddahAirportPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Get Quote
                         </Button>
@@ -241,7 +241,7 @@ export default function MadinahToJeddahAirportPage() {
                                 Book Airport Taxi (SAR 450)
                             </Button>
                         </Link>
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email Us
                             </Button>

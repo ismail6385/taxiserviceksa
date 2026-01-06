@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: 'احجز تاكسي خاص من المدينة المنورة إلى مكة المكرمة. سيارات مريحة مع توقف في ميقات ذو الحليفة (أبيار علي) للإحرام. أسعار ثابتة وسائقين محترفين.',
     keywords: ['تاكسي المدينة مكة', 'توصيل من المدينة الى مكة', 'تاكسي الميقات', 'سعر التاكسي من المدينة لمكة'],
     alternates: {
-        canonical: 'https://transferksa.com/ar/madinah-to-makkah-taxi/',
+        canonical: 'https://taxiserviceksa.com/ar/madinah-to-makkah-taxi/',
     },
 };
 

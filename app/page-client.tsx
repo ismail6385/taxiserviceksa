@@ -33,9 +33,9 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
         "@context": "https://schema.org",
         "@type": "TransportationService", // Changed to TransportationService as requested
         "name": "VIP Transfer KSA",
-        "url": "https://transferksa.com",
-        "logo": "https://transferksa.com/logo.png",
-        "image": "https://transferksa.com/hero-image.jpg",
+        "url": "https://taxiserviceksa.com",
+        "logo": "https://taxiserviceksa.com/logo.png",
+        "image": "https://taxiserviceksa.com/hero-image.jpg",
         "description": "Premium VIP private transfer and chauffeur service in Saudi Arabia. Specializing in long-distance intercity travel and Umrah transport for payment-secure bookings from the USA, UK, Canada, Indonesia, and Pakistan.",
         "areaServed": "Saudi Arabia",
         "availableLanguage": ["English", "Arabic", "Urdu"],
@@ -54,7 +54,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             "@type": "ReserveAction",
             "target": {
                 "@type": "EntryPoint",
-                "urlTemplate": "https://transferksa.com/booking/"
+                "urlTemplate": "https://taxiserviceksa.com/booking/"
             },
             "result": {
                 "@type": "Reservation",
@@ -184,7 +184,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
         },
         {
             question: "How do I book a VIP transfer in Saudi Arabia?",
-            answer: "VIP transfer booking is available through the <a href='/booking/' class='text-primary hover:underline font-bold'>online booking form</a> or email at info@transferksa.com. Booking requires pickup location, destination, and preferred vehicle type. Confirmation is sent via email."
+            answer: "VIP transfer booking is available through the <a href='/booking/' class='text-primary hover:underline font-bold'>online booking form</a> or email at info@taxiserviceksa.com. Booking requires pickup location, destination, and preferred vehicle type. Confirmation is sent via email."
         },
         {
             question: "Is VIP Transfer KSA a licensed company?",
@@ -765,7 +765,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             data-style-width="100%"
                             data-token="fab9a024-f184-45ab-904b-1cf6f5e9b94a"
                         >
-                            <a href="https://www.trustpilot.com/review/transferksa.com" target="_blank" rel="nofollow noopener noreferrer">
+                            <a href="https://www.trustpilot.com/review/taxiserviceksa.com" target="_blank" rel="nofollow noopener noreferrer">
                                 Trustpilot
                             </a>
                         </div>
@@ -785,7 +785,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             </Button>
                         </Link>
                         <a
-                            href="https://www.trustpilot.com/review/transferksa.com?utm_medium=trustbox&utm_source=ReviewCollector"
+                            href="https://www.trustpilot.com/review/taxiserviceksa.com?utm_medium=trustbox&utm_source=ReviewCollector"
                             target="_blank"
                             rel="nofollow noopener noreferrer"
                             className="w-full lg:w-auto"
@@ -851,7 +851,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         </Link>
 
                         {/* Secondary CTA - Email */}
-                        <a href="mailto:info@transferksa.com" className="w-full sm:w-auto">
+                        <a href="mailto:info@taxiserviceksa.com" className="w-full sm:w-auto">
                             <Button variant="outline" className="w-full bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-h-[56px] min-w-[200px] transition-all hover:scale-105 active:scale-95">
                                 Email Us
                             </Button>

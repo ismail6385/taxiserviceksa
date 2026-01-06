@@ -18,14 +18,14 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service in Kudai Makkah. Professional hotel pickups for Le Meridien Towers and Kudai Hub guests.',
     keywords: ['Kudai VIP transfer', 'Kudai to Haram premium chauffeur', 'Le Meridien Towers VIP transport', 'Makkah Kudai executive car'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/makkah/kudai/',
+        canonical: 'https://taxiserviceksa.com/locations/makkah/kudai/',
     },
     openGraph: {
         title: 'Taxi Service in Kudai Makkah | Efficient Haram Transfers',
         description: 'Need a ride from Kudai to the Haram? Our taxis provide 24/7 service from Kudai transport hub and nearby hotels. Avoid the wait and book professional.',
-        url: 'https://transferksa.com/locations/makkah/kudai/',
+        url: 'https://taxiserviceksa.com/locations/makkah/kudai/',
         type: 'website',
-        images: [{ url: 'https://transferksa.com/makkah-kudai-transport.png', alt: 'Taxi service in Kudai Makkah' }],
+        images: [{ url: 'https://taxiserviceksa.com/makkah-kudai-transport.png', alt: 'Taxi service in Kudai Makkah' }],
     },
 };
 
@@ -54,10 +54,10 @@ export default function KudaiPage() {
                         "@context": "https://schema.org",
                         "@type": "BreadcrumbList",
                         "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://transferksa.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://transferksa.com/locations/" },
-                            { "@type": "ListItem", "position": 3, "name": "Makkah", "item": "https://transferksa.com/locations/makkah/" },
-                            { "@type": "ListItem", "position": 4, "name": "Kudai", "item": "https://transferksa.com/locations/makkah/kudai/" }
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://taxiserviceksa.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://taxiserviceksa.com/locations/" },
+                            { "@type": "ListItem", "position": 3, "name": "Makkah", "item": "https://taxiserviceksa.com/locations/makkah/" },
+                            { "@type": "ListItem", "position": 4, "name": "Kudai", "item": "https://taxiserviceksa.com/locations/makkah/kudai/" }
                         ]
                     })
                 }}

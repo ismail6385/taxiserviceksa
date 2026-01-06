@@ -14,19 +14,19 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service to Masjid Quba. Perform Sunnah prayers in the first mosque of Islam with a professional driver.',
     keywords: ['Masjid Quba VIP transfer', 'Madinah Quba premium chauffeur', 'First Mosque VIP transport', 'Madinah Ziyarat executive car'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/madinah/quba/',
+        canonical: 'https://taxiserviceksa.com/locations/madinah/quba/',
     },
     openGraph: {
         title: 'Taxi to Masjid Quba (The First Mosque)',
         description: 'Visit the historic Quba Mosque. Earn the reward of an Umrah by praying here. Convenient taxi transfer from your hotel.',
-        url: 'https://transferksa.com/locations/madinah/quba/',
+        url: 'https://taxiserviceksa.com/locations/madinah/quba/',
         type: 'website',
     },
 };
 
 export default function QubaPage() {
     const images = [
-        '/madinah-mosque.webp', // Ideally Quba Mosque image
+        '/madinah-prophets-mosque.webp', // Ideally Quba Mosque image
         '/jeddah-airport.webp',
         '/hero-slide-3.webp',
     ];
@@ -76,7 +76,7 @@ export default function QubaPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Full VIP Ziyarat Tour
                         </Button>

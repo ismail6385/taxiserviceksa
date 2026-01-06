@@ -38,12 +38,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer service in Madinah. Specialized Prince Mohammad Airport (MED) pickups and executive Ziyarat tours. Professional intercity transfers to Makkah.',
     keywords: ['Madinah VIP private transfer', 'Executive chauffeur Madinah', 'Premium Ziyarat tour Madinah', 'Madinah airport VIP pickup', 'VIP transfer Madinah to Makkah'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/madinah/',
+        canonical: 'https://taxiserviceksa.com/locations/madinah/',
         languages: {
-            'en': 'https://transferksa.com/locations/madinah/',
-            'ar': 'https://transferksa.com/ar/locations/madinah/',
-            'ur': 'https://transferksa.com/ur/locations/madinah/',
-            'x-default': 'https://transferksa.com/locations/madinah/',
+            'en': 'https://taxiserviceksa.com/locations/madinah/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/madinah/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/madinah/',
+            'x-default': 'https://taxiserviceksa.com/locations/madinah/',
         }
     },
 };
@@ -84,19 +84,19 @@ export default async function MadinahPage() {
                                 "@type": "ListItem",
                                 "position": 1,
                                 "name": "Home",
-                                "item": "https://transferksa.com"
+                                "item": "https://taxiserviceksa.com"
                             },
                             {
                                 "@type": "ListItem",
                                 "position": 2,
                                 "name": "Locations",
-                                "item": "https://transferksa.com/locations/"
+                                "item": "https://taxiserviceksa.com/locations/"
                             },
                             {
                                 "@type": "ListItem",
                                 "position": 3,
                                 "name": "Madinah",
-                                "item": "https://transferksa.com/locations/madinah/"
+                                "item": "https://taxiserviceksa.com/locations/madinah/"
                             }
                         ]
                     })
@@ -377,7 +377,7 @@ export default async function MadinahPage() {
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>
-                            <a href="mailto:info@transferksa.com">
+                            <a href="mailto:info@taxiserviceksa.com">
                                 <Button variant="outline" className="bg-white/20 backdrop-blur-sm text-black border-2 border-black/30 hover:bg-white/30 font-bold px-10 py-7 text-lg rounded-2xl h-auto">
                                     <Phone className="mr-2 w-5 h-5" />
                                     Email Us

@@ -13,12 +13,12 @@ export const metadata: Metadata = {
     description: 'Direct taxi transfer from Jeddah Airport to Pullman ZamZam Makkah (Clock Tower). Fixed rates from SAR 250. 24/7 Service. Book Online.',
     keywords: ['Jeddah to Pullman ZamZam taxi', 'Pullman Makkah transfer', 'taxi Jeddah to Abraj Al Bait', 'Pullman ZamZam hotel taxi', 'Jeddah to Makkah transport'],
     alternates: {
-        canonical: 'https://transferksa.com/jeddah-to-pullman-makkah/',
+        canonical: 'https://taxiserviceksa.com/jeddah-to-pullman-makkah/',
     },
     openGraph: {
         title: 'Taxi Jeddah Airport to Pullman ZamZam Makkah',
         description: 'Reliable transfer from KAIA Airport to Pullman ZamZam Makkah. Door-to-door service.',
-        url: 'https://transferksa.com/jeddah-to-pullman-makkah/',
+        url: 'https://taxiserviceksa.com/jeddah-to-pullman-makkah/',
         type: 'website',
     },
 };
@@ -87,7 +87,7 @@ export default function JeddahToPullmanPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Get Quote
                         </Button>
@@ -236,7 +236,7 @@ export default function JeddahToPullmanPage() {
                                 Book Now (SAR 250)
                             </Button>
                         </Link>
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email Us
                             </Button>

@@ -28,18 +28,18 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service in Dammam. Specialized King Fahd International Airport (DMM) pickups and industrial hub transfers to Jubail. Professional corporate standards.',
     keywords: ['Dammam VIP private transfer', 'Executive chauffeur Dammam', 'DMM airport VIP pickup', 'Premium Dammam to Jubail transfer', 'Dammam corporate transport'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/dammam/',
+        canonical: 'https://taxiserviceksa.com/locations/dammam/',
         languages: {
-            'en': 'https://transferksa.com/locations/dammam/',
-            'ar': 'https://transferksa.com/ar/locations/dammam/',
-            'ur': 'https://transferksa.com/ur/locations/dammam/',
-            'x-default': 'https://transferksa.com/locations/dammam/',
+            'en': 'https://taxiserviceksa.com/locations/dammam/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/dammam/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/dammam/',
+            'x-default': 'https://taxiserviceksa.com/locations/dammam/',
         }
     },
     openGraph: {
         title: 'VIP Transfer in Dammam | Airport & City Travel',
         description: 'Book the premium VIP transfer in Dammam. Fast airport transfers, corniche rides & intercity travel to Khobar/Jubail. 24/7 availability.',
-        url: 'https://transferksa.com/locations/dammam/',
+        url: 'https://taxiserviceksa.com/locations/dammam/',
         type: 'website',
     },
 };
@@ -153,7 +153,7 @@ export default function DammamPage() {
                         </Link>
                     </Button>
                     <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             Email Us
                         </a>
                     </Button>
@@ -503,7 +503,7 @@ export default function DammamPage() {
                                 Book VIP Transfer
                             </Button>
                         </Link>
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email Us
                             </Button>

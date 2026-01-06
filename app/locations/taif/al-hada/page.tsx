@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi to Al Hada Mountain in Taif. Visit the Cable Car (Telefric), Fruit Markets, and Resort Hotels. Reliable mountain driving service.',
     keywords: ['Al Hada taxi', 'Taif cable car taxi', 'Al Hada mountain transport', 'Taif to Al Hada', 'Al Hada resorts taxi'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/taif/al-hada/',
+        canonical: 'https://taxiserviceksa.com/locations/taif/al-hada/',
     },
     openGraph: {
         title: 'Taxi to Al Hada Mountain & Cable Car',
         description: 'Private transfer to Al Hada, Taif. Experience the winding mountain roads and cable car with our experienced drivers.',
-        url: 'https://transferksa.com/locations/taif/al-hada/',
+        url: 'https://taxiserviceksa.com/locations/taif/al-hada/',
         type: 'website',
     },
 };
@@ -75,7 +75,7 @@ export default function AlHadaPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Tour Quote
                         </Button>

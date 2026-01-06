@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service at Madinah Haramain Train Station. Fast, professional pickup to Masjid Nabawi and local hotels.',
     keywords: ['Madinah train station VIP transfer', 'Haramain railway premium chauffeur', 'Madinah station executive car', 'Madinah railway VIP pickup'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/madinah/train-station/',
+        canonical: 'https://taxiserviceksa.com/locations/madinah/train-station/',
     },
     openGraph: {
         title: 'Taxi from Madinah Train Station (Haramain)',
         description: 'Direct transfer from Madinah Railway Station to your hotel door. 24/7 service for arriving pilgrims.',
-        url: 'https://transferksa.com/locations/madinah/train-station/',
+        url: 'https://taxiserviceksa.com/locations/madinah/train-station/',
         type: 'website',
     },
 };
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function MadinahTrainStationPage() {
     const images = [
         '/jeddah-airport.webp', // Ideally Madinah Train Station image
-        '/madinah-mosque.webp',
+        '/madinah-prophets-mosque.webp',
         '/hero-slide-3.webp',
     ];
 
@@ -76,7 +76,7 @@ export default function MadinahTrainStationPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Full VIP Ziyarat Quote
                         </Button>

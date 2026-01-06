@@ -14,21 +14,21 @@ export const metadata: Metadata = {
     description: 'خدمة تاكسي للطائف من جدة ومكة والمطار. جولات سياحية في الهدا والشفا. استمتع بجو الطائف وسياراتنا الحديثة.',
     keywords: ['تاكسي الطائف', 'توصيل جدة الطائف', 'مشوار الهدا', 'توصيل مطار جدة للطائف', 'سياحة الطائف'],
     alternates: {
-        canonical: 'https://transferksa.com/ar/locations/taif/',
+        canonical: 'https://taxiserviceksa.com/ar/locations/taif/',
         languages: {
-            'en': 'https://transferksa.com/locations/taif/',
-            'ar': 'https://transferksa.com/ar/locations/taif/',
-            'ur': 'https://transferksa.com/ur/locations/taif/',
-            'x-default': 'https://transferksa.com/locations/taif/',
+            'en': 'https://taxiserviceksa.com/locations/taif/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/taif/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/taif/',
+            'x-default': 'https://taxiserviceksa.com/locations/taif/',
         }
     },
     openGraph: {
         title: 'تاكسي الطائف | رحلات الهدا والشفا',
         description: 'احجز مشوارك للطائف الآن. سيارات عائلية وسائقين محترفين.',
-        url: 'https://transferksa.com/ar/locations/taif/',
+        url: 'https://taxiserviceksa.com/ar/locations/taif/',
         locale: 'ar_SA',
         type: 'website',
-        images: [{ url: 'https://transferksa.com/locations/taif.webp', alt: 'جبال الطائف' }],
+        images: [{ url: 'https://taxiserviceksa.com/locations/taif.webp', alt: 'جبال الطائف' }],
     },
 };
 

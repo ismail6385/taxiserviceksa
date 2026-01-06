@@ -13,12 +13,12 @@ export const metadata: Metadata = {
     description: 'Taxi from Makkah to Madinah operates 24/7. 450km pilgrimage route in 4-5 hours. Fixed rate SAR 450. Rest stops included. Complete your Umrah journey.',
     keywords: ['Makkah to Madinah taxi', 'Umrah taxi Makkah Madinah', 'taxi price Makkah Madinah', 'Makkah Madinah distance', 'pilgrimage transport', 'taxi fare from makkah to madinah', 'gmc from makkah to madinah', 'how far is badr from makkah', 'madinah to makkah taxi time'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/makkah-madinah/',
+        canonical: 'https://taxiserviceksa.com/routes/makkah-madinah/',
     },
     openGraph: {
         title: 'Makkah to Madinah VIP Transfer | Private Taxi Alternative',
         description: 'Taxi from Makkah to Madinah operates 24/7. 450km pilgrimage route in 4-5 hours. Fixed rate SAR 450. Complete your Umrah journey.',
-        url: 'https://transferksa.com/routes/makkah-madinah/',
+        url: 'https://taxiserviceksa.com/routes/makkah-madinah/',
         type: 'website',
     },
 };
@@ -116,7 +116,7 @@ export default function MakkahMadinahRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email for Quote
                         </Button>
@@ -444,7 +444,7 @@ export default function MakkahMadinahRoutePage() {
                                 Book Now (SAR 450+)
                             </Button>
                         </Link>
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Quote
                             </Button>

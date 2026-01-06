@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Comprehensive travel guides for Jeddah Airport, Makkah Umrah, and Riyadh Business Travel. Expert insights from professional drivers with years of local experience.',
     keywords: ['Jeddah Airport Guide', 'Makkah Umrah Guide', 'Riyadh Business Guide', 'Saudi Arabia Travel', 'VIP Transfer KSA'],
     alternates: {
-        canonical: 'https://transferksa.com/guides/',
+        canonical: 'https://taxiserviceksa.com/guides/',
     },
 };
 
@@ -171,7 +171,8 @@ export default function GuidesPage() {
                             <MapPin className="w-6 h-6 text-emerald-600" /> Madinah Heritage & Ziyarat
                         </h3>
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <li><Link href="/guides/uhud-history/" className="text-gray-600 hover:text-emerald-600 flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-emerald-600 opacity-0 group-hover:opacity-100 transition-all" /> Mount Uhud History</Link></li>
+                            <li><Link href="/guides/madinah-prayer-times/" className="text-gray-600 hover:text-emerald-600 flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-emerald-600 opacity-0 group-hover:opacity-100 transition-all" /> Madinah Prayer Times</Link></li>
+                            <li><Link href="/guides/madinah-weather/" className="text-gray-600 hover:text-emerald-600 flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-emerald-600 opacity-0 group-hover:opacity-100 transition-all" /> Madinah Weather Guide</Link></li>
                             <li><Link href="/guides/seven-mosques/" className="text-gray-600 hover:text-emerald-600 flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-emerald-600 opacity-0 group-hover:opacity-100 transition-all" /> The Seven Mosques</Link></li>
                             <li><Link href="/guides/quba-walking-path/" className="text-gray-600 hover:text-emerald-600 flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-emerald-600 opacity-0 group-hover:opacity-100 transition-all" /> Quba Walking Path</Link></li>
                             <li><Link href="/guides/madinah-food/" className="text-gray-600 hover:text-emerald-600 flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-emerald-600 opacity-0 group-hover:opacity-100 transition-all" /> Madinah Food Guide</Link></li>
@@ -184,12 +185,13 @@ export default function GuidesPage() {
                             <Star className="w-6 h-6 text-primary" /> Practical Insights
                         </h3>
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <li><Link href="/guides/avoid-taxi-scams/" className="text-red-600 font-bold hover:text-red-700 flex items-center gap-2 group"><AlertTriangle className="w-4 h-4 text-red-600 opacity-0 group-hover:opacity-100 transition-all" /> Avoid Taxi Scams (2025)</Link></li>
+                            <li><Link href="/guides/umrah-tawaf-guide/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Umrah Tawaf Guide</Link></li>
+                            <li><Link href="/guides/avoid-taxi-scams/" className="text-red-600 font-bold hover:text-red-700 flex items-center gap-2 group"><AlertTriangle className="w-4 h-4 text-red-600 opacity-0 group-hover:opacity-100 transition-all" /> Avoid Taxi Scams (2026)</Link></li>
                             <li><Link href="/guides/haram-gates-access/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Haram Gates Guide</Link></li>
                             <li><Link href="/guides/meeqat-locations/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Meeqat Points</Link></li>
                             <li><Link href="/guides/currency/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Currency & SAR Guide</Link></li>
                             <li><Link href="/guides/makkah-shopping/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Makkah Shopping Guide</Link></li>
-                            <li><Link href="/insights/pilgrimage-transport-report-2025/" className="text-emerald-600 font-bold hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> 2025 Transport Report</Link></li>
+                            <li><Link href="/insights/pilgrimage-transport-report-2025/" className="text-emerald-600 font-bold hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> 2026 Transport Report</Link></li>
                         </ul>
                     </div>
                 </div>

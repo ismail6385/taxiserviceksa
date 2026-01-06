@@ -20,12 +20,12 @@ export const metadata: Metadata = {
     description: 'Complete guide to King Abdulaziz International Airport (Jeddah). Terminals, prayer rooms, Ihram facilities, SIM cards, currency exchange, taxi meeting points, and transport to Makkah.',
     keywords: ['Jeddah airport guide', 'King Abdulaziz airport', 'JED airport terminals', 'Jeddah airport prayer room', 'Ihram facilities Jeddah', 'Jeddah to Makkah taxi'],
     alternates: {
-        canonical: 'https://transferksa.com/guides/jeddah-airport-guide/',
+        canonical: 'https://taxiserviceksa.com/guides/jeddah-airport-guide/',
     },
     openGraph: {
         title: 'Jeddah Airport Complete Guide 2024 | King Abdulaziz Airport',
         description: 'Everything you need to know about navigating Jeddah Airport: terminals, facilities, transport to Makkah.',
-        url: 'https://transferksa.com/guides/jeddah-airport-guide/',
+        url: 'https://taxiserviceksa.com/guides/jeddah-airport-guide/',
         type: 'article',
     },
 };

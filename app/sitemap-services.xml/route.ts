@@ -1,5 +1,5 @@
 export async function GET() {
-    const baseUrl = 'https://transferksa.com';
+    const baseUrl = 'https://taxiserviceksa.com';
     const lastMod = new Date().toISOString();
 
     // 0.8 Priority - Main Function

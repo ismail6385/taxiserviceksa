@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             authors: [blog.author],
         },
         alternates: {
-            canonical: `https://transferksa.com/blog/${blog.slug}/`,
+            canonical: `https://taxiserviceksa.com/blog/${blog.slug}/`,
         }
     };
 }
@@ -78,8 +78,8 @@ export default async function BlogPostPage({ params }: Props) {
         "author": {
             "@type": "Person",
             "name": blog.author || "Taxi Service KSA",
-            "url": authorDetails ? `https://transferksa.com/author/${authorDetails.slug}` : undefined,
-            "image": authorDetails?.avatar ? `https://transferksa.com${authorDetails.avatar}` : undefined
+            "url": authorDetails ? `https://taxiserviceksa.com/author/${authorDetails.slug}` : undefined,
+            "image": authorDetails?.avatar ? `https://taxiserviceksa.com${authorDetails.avatar}` : undefined
         },
         "description": blog.seo_description || blog.excerpt,
         "timeRequired": `PT${readingTime}M`

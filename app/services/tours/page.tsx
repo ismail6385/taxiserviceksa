@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description: 'Discover Saudi Arabia with private guided tours. Makkah & Madinah Ziyarat, AlUla Heritage sites, Taif sightseeing, and Jeddah historical tours. Book your private driver today.',
     keywords: ['Saudi Arabia tours', 'Madinah Ziyarat tour', 'AlUla heritage tour', 'Taif sightseeing', 'Jeddah historical tour', 'Private tour driver KSA'],
     alternates: {
-        canonical: 'https://transferksa.com/services/tours/',
+        canonical: 'https://taxiserviceksa.com/services/tours/',
     },
 };
 

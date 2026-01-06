@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Explore premium VIP private transfer services in Saudi Arabia. Specializing in executive airport pickups, long-distance intercity travel, and dedicated Umrah transport.',
     keywords: ['VIP Private Transfers', 'Executive Chauffeur Service', 'Premium Transfer KSA', 'Long Distance Transfer', 'Umrah Private Transport', 'Business Chauffeur'],
     alternates: {
-        canonical: 'https://transferksa.com/services/',
+        canonical: 'https://taxiserviceksa.com/services/',
     },
 };
 

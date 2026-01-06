@@ -18,14 +18,14 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service at Madinah Airport (MED). Book your professional pickup to Masjid Nabawi and local hotels.',
     keywords: ['Madinah Airport VIP transfer', 'MED Airport premium chauffeur', 'Madinah Airport executive car', 'Prince Mohammad Airport VIP pickup'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/madinah/madinah-airport/',
+        canonical: 'https://taxiserviceksa.com/locations/madinah/madinah-airport/',
     },
     openGraph: {
         title: 'Madinah Airport Taxi Service | Prince Mohammad Bin Abdulaziz Pickup',
         description: 'Skip the airport queues. Book a professional taxi from Madinah Airport. Fixed pricing and comfortable SUVs for families.',
-        url: 'https://transferksa.com/locations/madinah/madinah-airport/',
+        url: 'https://taxiserviceksa.com/locations/madinah/madinah-airport/',
         type: 'website',
-        images: [{ url: 'https://transferksa.com/madinah-airport-taxi.png', alt: 'Taxi service at Madinah Airport' }],
+        images: [{ url: 'https://taxiserviceksa.com/madinah-airport-taxi.png', alt: 'Taxi service at Madinah Airport' }],
     },
 };
 
@@ -54,10 +54,10 @@ export default function MadinahAirportPage() {
                         "@context": "https://schema.org",
                         "@type": "BreadcrumbList",
                         "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://transferksa.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://transferksa.com/locations/" },
-                            { "@type": "ListItem", "position": 3, "name": "Madinah", "item": "https://transferksa.com/locations/madinah/" },
-                            { "@type": "ListItem", "position": 4, "name": "Airport", "item": "https://transferksa.com/locations/madinah/madinah-airport/" }
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://taxiserviceksa.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://taxiserviceksa.com/locations/" },
+                            { "@type": "ListItem", "position": 3, "name": "Madinah", "item": "https://taxiserviceksa.com/locations/madinah/" },
+                            { "@type": "ListItem", "position": 4, "name": "Airport", "item": "https://taxiserviceksa.com/locations/madinah/madinah-airport/" }
                         ]
                     })
                 }}

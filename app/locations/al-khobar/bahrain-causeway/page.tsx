@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Book a reliable taxi from Khobar/Dammam to Bahrain. Cross the King Fahd Causeway with experienced drivers. Avoid insurance & permit hassles.',
     keywords: ['Taxi Khobar to Bahrain', 'Dammam to Bahrain taxi', 'King Fahd Causeway taxi', 'Bahrain airport transfer from Saudi', 'Saudi Bahrain border taxi'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/al-khobar/bahrain-causeway/',
+        canonical: 'https://taxiserviceksa.com/locations/al-khobar/bahrain-causeway/',
     },
     openGraph: {
         title: 'Taxi Service: Saudi to Bahrain (Causeway)',
         description: 'Direct transfer from your door in Khobar/Dammam to Manama, Bahrain. We handle the causeway driving permit and insurance.',
-        url: 'https://transferksa.com/locations/al-khobar/bahrain-causeway/',
+        url: 'https://taxiserviceksa.com/locations/al-khobar/bahrain-causeway/',
         type: 'website',
     },
 };
@@ -75,7 +75,7 @@ export default function BahrainCausewayPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Daily Commute Quote
                         </Button>

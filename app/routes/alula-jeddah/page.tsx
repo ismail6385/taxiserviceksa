@@ -13,12 +13,12 @@ export const metadata: Metadata = {
     description: 'Taxi from Al Ula to Jeddah. 700km return journey to Jeddah Airport or Hotel. Fixed rate from SAR 1400. 4x4 SUVs available for luggage.',
     keywords: ['Al Ula to Jeddah taxi', 'taxi Al Ula to Jeddah airport', 'Al Ula transport', 'Al Ula to Jeddah price', 'Al Ula car hire'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/alula-jeddah/',
+        canonical: 'https://taxiserviceksa.com/routes/alula-jeddah/',
     },
     openGraph: {
         title: 'Al Ula to Jeddah Taxi | 700km Route - Fixed Price SAR 1400',
         description: 'Comfortable private transfer from Al Ula to Jeddah. 700km journey. Fixed rates starting SAR 1400. Door-to-door service.',
-        url: 'https://transferksa.com/routes/alula-jeddah/',
+        url: 'https://taxiserviceksa.com/routes/alula-jeddah/',
         type: 'website',
     },
 };
@@ -89,7 +89,7 @@ export default function AlulaJeddahRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email for Quote
                         </Button>
@@ -286,7 +286,7 @@ export default function AlulaJeddahRoutePage() {
                                 Book Return (SAR 1400+)
                             </Button>
                         </Link>
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Quote
                             </Button>

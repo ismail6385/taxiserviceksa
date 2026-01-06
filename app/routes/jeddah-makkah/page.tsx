@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Pre-book your Jeddah to Makkah taxi from UK, USA & Canada. 60-90 min transfer from King Abdulaziz Airport. Fixed rate SAR 250. 24/7 Service.',
     keywords: ['Jeddah to Makkah taxi', 'Jeddah Airport to Makkah', 'taxi price Jeddah Makkah', 'King Abdulaziz Airport Makkah transfer', 'Haramain train alternative', 'makkah to jeddah taxi service', 'jeddah to makkah taxi fare 7 seater', 'airport pick and drop', 'how much is taxi from jeddah to makkah', 'taxi jeddah to makkah from uk', 'jeddah airport transfer usa', 'prebook taxi jeddah'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/jeddah-makkah/',
+        canonical: 'https://taxiserviceksa.com/routes/jeddah-makkah/',
     },
     openGraph: {
         title: 'Jeddah to Makkah VIP Transfer | Private Taxi Alternative',
         description: 'Pre-book your Jeddah to Makkah taxi from UK, USA & Canada. 60-90 min transfer from King Abdulaziz Airport. Fixed rate SAR 250. 24/7 Service.',
-        url: 'https://transferksa.com/routes/jeddah-makkah/',
+        url: 'https://taxiserviceksa.com/routes/jeddah-makkah/',
         type: 'website',
     },
 };
@@ -107,7 +107,7 @@ export default function JeddahMakkahRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email for Quote
                         </Button>
@@ -265,7 +265,7 @@ export default function JeddahMakkahRoutePage() {
                         </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <Link href="/jeddah-to-swissotel-makkah/" className="group bg-white p-6 rounded-2xl border border-gray-200 hover:border-emerald-500 hover:shadow-lg transition-all flex items-start gap-4">
+                        <Link href="/routes/jeddah-to-swissotel-makkah/" className="group bg-white p-6 rounded-2xl border border-gray-200 hover:border-emerald-500 hover:shadow-lg transition-all flex items-start gap-4">
                             <div className="bg-emerald-100 p-3 rounded-xl group-hover:bg-emerald-600 transition-colors">
                                 <Building2 className="w-6 h-6 text-emerald-700 group-hover:text-white" />
                             </div>
@@ -276,7 +276,7 @@ export default function JeddahMakkahRoutePage() {
                             <ArrowRight className="w-5 h-5 text-gray-300 ml-auto group-hover:text-emerald-600 group-hover:translate-x-1 transition-all" />
                         </Link>
 
-                        <Link href="/jeddah-to-fairmont-makkah/" className="group bg-white p-6 rounded-2xl border border-gray-200 hover:border-amber-500 hover:shadow-lg transition-all flex items-start gap-4">
+                        <Link href="/routes/jeddah-to-fairmont-makkah/" className="group bg-white p-6 rounded-2xl border border-gray-200 hover:border-amber-500 hover:shadow-lg transition-all flex items-start gap-4">
                             <div className="bg-amber-100 p-3 rounded-xl group-hover:bg-amber-600 transition-colors">
                                 <Building2 className="w-6 h-6 text-amber-700 group-hover:text-white" />
                             </div>
@@ -287,7 +287,7 @@ export default function JeddahMakkahRoutePage() {
                             <ArrowRight className="w-5 h-5 text-gray-300 ml-auto group-hover:text-amber-600 group-hover:translate-x-1 transition-all" />
                         </Link>
 
-                        <Link href="/jeddah-to-pullman-makkah/" className="group bg-white p-6 rounded-2xl border border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all flex items-start gap-4">
+                        <Link href="/routes/jeddah-to-pullman-makkah/" className="group bg-white p-6 rounded-2xl border border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all flex items-start gap-4">
                             <div className="bg-blue-100 p-3 rounded-xl group-hover:bg-blue-600 transition-colors">
                                 <Building2 className="w-6 h-6 text-blue-700 group-hover:text-white" />
                             </div>
@@ -498,7 +498,7 @@ export default function JeddahMakkahRoutePage() {
                                 Book Now (SAR 250+)
                             </Button>
                         </Link>
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Quote
                             </Button>

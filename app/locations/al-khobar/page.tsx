@@ -28,18 +28,18 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service in Al Khobar. Specialized cross-border King Fahd Causeway trips to Bahrain and DMM Airport transfers. Professional international standards.',
     keywords: ['Al Khobar VIP private transfer', 'Executive chauffeur Khobar', 'Bahrain Causeway VIP pickup', 'Premium Khobar to Bahrain transfer', 'Al Khobar corporate transport'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/al-khobar/',
+        canonical: 'https://taxiserviceksa.com/locations/al-khobar/',
         languages: {
-            'en': 'https://transferksa.com/locations/al-khobar/',
-            'ar': 'https://transferksa.com/ar/locations/al-khobar/',
-            'ur': 'https://transferksa.com/ur/locations/al-khobar/',
-            'x-default': 'https://transferksa.com/locations/al-khobar/',
+            'en': 'https://taxiserviceksa.com/locations/al-khobar/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/al-khobar/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/al-khobar/',
+            'x-default': 'https://taxiserviceksa.com/locations/al-khobar/',
         }
     },
     openGraph: {
         title: 'VIP Transfer in Al Khobar | Corniche & Causeway Trips',
         description: 'Premium VIP transfer service in Al Khobar for local travel & Causeway trips to Bahrain. Reliable, comfortable rides to Dammam Airport and Corniche.',
-        url: 'https://transferksa.com/locations/al-khobar/',
+        url: 'https://taxiserviceksa.com/locations/al-khobar/',
         type: 'website',
     },
 };
@@ -110,7 +110,7 @@ export default function AlKhobarPage() {
                         </Link>
                     </Button>
                     <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             Email Us
                         </a>
                     </Button>
@@ -461,7 +461,7 @@ export default function AlKhobarPage() {
                                 Book VIP Transfer
                             </Button>
                         </Link>
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email Us
                             </Button>

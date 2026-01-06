@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi from Abha Airport to Al Soudah, the highest peak in Saudi Arabia. Enjoy the cool weather and cable cars. Reliable 4x4 mountain transport.',
     keywords: ['Taxi to Al Soudah', 'Abha Airport to Soudah taxi', 'Al Soudah mountain taxi', 'Abha local tour taxi', 'Rijal Almaa taxi'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/abha/al-soudah/',
+        canonical: 'https://taxiserviceksa.com/locations/abha/al-soudah/',
     },
     openGraph: {
         title: 'Taxi to Al Soudah Mountain (Abha)',
         description: 'Ride to the clouds. Safe mountain transfers from Abha City and Airport to Al Soudah Park and Rijal Almaa.',
-        url: 'https://transferksa.com/locations/abha/al-soudah/',
+        url: 'https://taxiserviceksa.com/locations/abha/al-soudah/',
         type: 'website',
     },
 };
@@ -75,7 +75,7 @@ export default function AlSoudahPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Full Day Tour Quote
                         </Button>

@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service for Al Bujairi Terrace. Arrive in style for fine dining at Hakkasan, Angelina, and more.',
     keywords: ['Bujairi Terrace VIP transfer', 'Diriyah premium chauffeur', 'Hakkasan Riyadh executive car', 'Bujairi Terrace luxury transport'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/riyadh/bujairi-terrace/',
+        canonical: 'https://taxiserviceksa.com/locations/riyadh/bujairi-terrace/',
     },
     openGraph: {
         title: 'VIP Private Transfer to Al Bujairi Terrace (Diriyah)',
         description: 'Going for fine dining in Diriyah? Premium VIP private transfers and professional chauffeur service to Bujairi Terrace. Elite arrival for elite destinations.',
-        url: 'https://transferksa.com/locations/riyadh/bujairi-terrace/',
+        url: 'https://taxiserviceksa.com/locations/riyadh/bujairi-terrace/',
         type: 'website',
     },
 };
@@ -76,7 +76,7 @@ export default function BujairiTerracePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Events & Corporate
                         </Button>

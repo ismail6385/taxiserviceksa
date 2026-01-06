@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service for Jabal Omar hotels. Professional airport pickups for Hilton, Conrad, and Hyatt Regency.',
     keywords: ['Jabal Omar VIP transfer', 'Makkah Hilton premium chauffeur', 'Conrad Makkah VIP', 'Hyatt Regency Makkah executive car'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/makkah/jabal-omar/',
+        canonical: 'https://taxiserviceksa.com/locations/makkah/jabal-omar/',
     },
     openGraph: {
         title: 'VIP Taxi to Jabal Omar Hotels (Makkah)',
         description: 'Staying at the Hilton, Conrad, or Hyatt in Makkah? We provide luxury GMC transfers directly to the Jabal Omar main entrance.',
-        url: 'https://transferksa.com/locations/makkah/jabal-omar/',
+        url: 'https://taxiserviceksa.com/locations/makkah/jabal-omar/',
         type: 'website',
     },
 };
@@ -76,7 +76,7 @@ export default function JabalOmarPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Corporate Booking
                         </Button>

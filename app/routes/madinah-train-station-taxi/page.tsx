@@ -12,12 +12,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi from Madinah Haramain Train Station to your hotel (Markaziyah / Central Area). Fixed price SAR 50-80. Reliable pickup for train arrivals.',
     keywords: ['Madinah train station taxi', 'Haramain station Madinah to hotel', 'taxi from Madinah railway station to prophet mosque', 'Madinah station transfer'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/madinah-train-station-taxi/',
+        canonical: 'https://taxiserviceksa.com/routes/madinah-train-station-taxi/',
     },
     openGraph: {
         title: 'Madinah Train Station Taxi to Hotel (Markaziyah) - Fixed Price',
         description: 'Arriving in Madinah by train? Get a direct taxi transfer from the station to your hotel near Masjid Nabawi.',
-        url: 'https://transferksa.com/routes/madinah-train-station-taxi/',
+        url: 'https://taxiserviceksa.com/routes/madinah-train-station-taxi/',
         type: 'website',
     },
 };
@@ -44,7 +44,7 @@ export default function MadinahTrainStationPage() {
         "provider": {
             "@type": "TransportationService",
             "name": "VIP Transfer KSA",
-            "image": "https://transferksa.com/logo.png",
+            "image": "https://taxiserviceksa.com/logo.png",
             "telephone": "+966500000000",
             "priceRange": "$"
         },
@@ -78,7 +78,7 @@ export default function MadinahTrainStationPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email for Quote
                         </Button>

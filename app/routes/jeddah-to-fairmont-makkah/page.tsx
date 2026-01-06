@@ -13,12 +13,12 @@ export const metadata: Metadata = {
     description: 'VIP Transfer from Jeddah Airport (KAIA) to Fairmont Makkah Clock Royal Tower. Direct lobby drop-off. Luxury GMC Yukon available. Fixed Price.',
     keywords: ['Jeddah to Fairmont Makkah Taxi', 'Fairmont Clock Tower Transfer', 'Jeddah airport to Abraj Al Bait', 'Makkah Clock Royal Tower taxi', 'VIP taxi Jeddah Makkah'],
     alternates: {
-        canonical: 'https://transferksa.com/jeddah-to-fairmont-makkah/',
+        canonical: 'https://taxiserviceksa.com/jeddah-to-fairmont-makkah/',
     },
     openGraph: {
         title: 'Taxi Jeddah Airport to Fairmont Makkah | VIP Transfer',
         description: 'Direct transfer to Fairmont Makkah Clock Royal Tower. 24/7 Service.',
-        url: 'https://transferksa.com/jeddah-to-fairmont-makkah/',
+        url: 'https://taxiserviceksa.com/jeddah-to-fairmont-makkah/',
         type: 'website',
     },
 };
@@ -87,7 +87,7 @@ export default function JeddahToFairmontPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Get VIP Quote
                         </Button>
@@ -228,7 +228,7 @@ export default function JeddahToFairmontPage() {
                                 Book Fairmont Taxi (SAR 250)
                             </Button>
                         </Link>
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for VIP Quote
                             </Button>

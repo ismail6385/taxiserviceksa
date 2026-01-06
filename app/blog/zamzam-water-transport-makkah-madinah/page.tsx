@@ -10,16 +10,16 @@ export const metadata: Metadata = {
     description: 'Can you take Zamzam on Haramain Train? Learn the rules for transporting Zamzam water from Makkah to Madinah. Avoid confiscation with our private taxi guide.',
     keywords: ['transport zamzam makkah to madinah', 'zamzam water haramain train', 'taking zamzam to madinah', 'makkah to madinah taxi luggage', 'zamzam water rules saudi arabia'],
     alternates: {
-        canonical: 'https://transferksa.com/blog/zamzam-water-transport-makkah-madinah/',
+        canonical: 'https://taxiserviceksa.com/blog/zamzam-water-transport-makkah-madinah/',
     },
     openGraph: {
         title: 'Transporting Zamzam Water: Makkah to Madinah Guide',
         description: 'Comparison of Train vs Taxi rules for carrying Zamzam water. Ensure your blessed water arrives safely.',
-        url: 'https://transferksa.com/blog/zamzam-water-transport-makkah-madinah/',
+        url: 'https://taxiserviceksa.com/blog/zamzam-water-transport-makkah-madinah/',
         type: 'article',
         images: [
             {
-                url: 'https://transferksa.com/madinah-prophets-mosque.webp',
+                url: 'https://taxiserviceksa.com/madinah-prophets-mosque.webp',
                 width: 1200,
                 height: 630,
                 alt: 'Zamzam water transport guide Makkah to Madinah',

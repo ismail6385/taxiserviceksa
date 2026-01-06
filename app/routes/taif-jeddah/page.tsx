@@ -12,12 +12,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi from Taif to Jeddah Airport (JED) or Jeddah City. 2.5 hour journey via Al Hada Mountain Road. Fixed rates from SAR 350. 24/7 service.',
     keywords: ['Taif to Jeddah taxi', 'taxi from Taif to Jeddah Airport', 'Taif to Jeddah taxi price', 'Al Hada road taxi', 'Taif to Jeddah cab'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/taif-jeddah/',
+        canonical: 'https://taxiserviceksa.com/routes/taif-jeddah/',
     },
     openGraph: {
         title: 'Taif to Jeddah Taxi (Airport Transfer) - Reliable & Affordable',
         description: 'Need a ride from Taif to Jeddah? Book our private taxi via Al Hada. Fixed price SAR 350. Door-to-door pickup.',
-        url: 'https://transferksa.com/routes/taif-jeddah/',
+        url: 'https://taxiserviceksa.com/routes/taif-jeddah/',
         type: 'website',
     },
 };
@@ -62,7 +62,7 @@ export default function TaifToJeddahPage() {
         "instrument": {
             "@type": "Taxi",
             "name": "Private Taxi",
-            "image": "https://transferksa.com/fleet/camry-2024.webp"
+            "image": "https://taxiserviceksa.com/fleet/camry-2024.webp"
         },
         "priceSpecification": {
             "@type": "PriceSpecification",
@@ -97,7 +97,7 @@ export default function TaifToJeddahPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email for Quote
                         </Button>

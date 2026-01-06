@@ -20,7 +20,7 @@ export async function POST(req: Request) {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: process.env.EMAIL_USER || 'info@transferksa.com', // Official Business Email
+                user: process.env.EMAIL_USER || 'info@taxiserviceksa.com', // Official Business Email
                 pass: process.env.EMAIL_PASS || '',
             },
         });
@@ -28,7 +28,7 @@ export async function POST(req: Request) {
         // Email content
         const mailOptions = {
             from: `"${name}" <${email}>`,
-            to: 'info@transferksa.com', // Official destination email
+            to: 'info@taxiserviceksa.com', // Official destination email
             subject: `New Contact Form: ${subject}`,
             html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">

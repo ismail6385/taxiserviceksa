@@ -12,12 +12,12 @@ export const metadata: Metadata = {
     description: 'Pre-book your smooth transfer from Jeddah to Madinah. Trusted by travelers from UK, USA, & Canada. English-speaking drivers, fixed rates, and door-to-door luxury service.',
     keywords: ['Jeddah to Madinah taxi booking', 'Jeddah Airport to Madinah private car', 'prebook taxi saudi arabia', 'luxury transfer jeddah to madinah', 'Jeddah to Madinah taxi fare'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/jeddah-madinah/',
+        canonical: 'https://taxiserviceksa.com/routes/jeddah-madinah/',
     },
     openGraph: {
         title: 'Jeddah to Madinah Taxi | Pre-Book VIP Transfer - Fixed Price',
         description: 'Reliable 410km intercity transfer. Book in advance from home. 24/7 service with professional drivers.',
-        url: 'https://transferksa.com/routes/jeddah-madinah/',
+        url: 'https://taxiserviceksa.com/routes/jeddah-madinah/',
         type: 'website',
     },
 };
@@ -87,7 +87,7 @@ export default function JeddahMadinahRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email for Quote
                         </Button>

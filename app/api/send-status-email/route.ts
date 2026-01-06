@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
             },
         });
 
-        const REVIEW_LINK = 'https://transferksa.com/submit-review';
+        const REVIEW_LINK = 'https://taxiserviceksa.com/submit-review';
         let subject = '';
         let htmlContent = '';
 
@@ -97,7 +97,7 @@ export async function POST(request: NextRequest) {
                                 </ul>
 
                                 <center>
-                                    <a href="https://transferksa.com/contact" class="cta-button">Manage Booking</a>
+                                    <a href="https://taxiserviceksa.com/contact" class="cta-button">Manage Booking</a>
                                 </center>
                             </div>
                             <div class="footer">
@@ -135,7 +135,7 @@ export async function POST(request: NextRequest) {
                                 <p>Dear <strong>${customerName}</strong>,</p>
                                 <p>Your booking <strong>#${bookingId.slice(0, 8).toUpperCase()}</strong> has been cancelled as per request or due to unforeseen circumstances.</p>
                                 <p>If this was a mistake, you can rebook instantly.</p>
-                                <a href="https://transferksa.com" class="cta-button">Book Again</a>
+                                <a href="https://taxiserviceksa.com" class="cta-button">Book Again</a>
                             </div>
                         </div>
                     </body>
@@ -178,7 +178,7 @@ export async function POST(request: NextRequest) {
                                 <a href="${REVIEW_LINK}" class="cta-button">Rate Your Experience</a>
                                 
                                 <p style="margin-top: 40px; font-size: 12px; color: #999;">
-                                    If you felt our service was anything less than 5 stars, please <a href="mailto:info@transferksa.com" style="color: #666;">reply to this email</a> directly so we can make it right.
+                                    If you felt our service was anything less than 5 stars, please <a href="mailto:info@taxiserviceksa.com" style="color: #666;">reply to this email</a> directly so we can make it right.
                                 </p>
                             </div>
                         </div>
@@ -194,7 +194,7 @@ export async function POST(request: NextRequest) {
         console.log(`Sending ${status} email to ${customerEmail}`);
 
         const info = await transporter.sendMail({
-            from: '"VIP Transfer KSA" <info@transferksa.com>',
+            from: '"VIP Transfer KSA" <info@taxiserviceksa.com>',
             to: customerEmail,
             subject: subject,
             html: htmlContent,

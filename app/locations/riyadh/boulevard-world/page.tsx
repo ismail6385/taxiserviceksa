@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service to Boulevard World and Boulevard City. Professional door-to-door transport for Riyadh Season.',
     keywords: ['Boulevard World VIP transfer', 'Riyadh Season premium chauffeur', 'Boulevard City executive transport', 'Riyadh entertainment VIP car'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/riyadh/boulevard-world/',
+        canonical: 'https://taxiserviceksa.com/locations/riyadh/boulevard-world/',
     },
     openGraph: {
         title: 'VIP Private Transfer to Boulevard World & City (Riyadh)',
         description: 'The elite way to visit Riyadh Season. Premium VIP private transfer and professional chauffeur service to the entrance gate.',
-        url: 'https://transferksa.com/locations/riyadh/boulevard-world/',
+        url: 'https://taxiserviceksa.com/locations/riyadh/boulevard-world/',
         type: 'website',
     },
 };
@@ -76,7 +76,7 @@ export default function BoulevardWorldPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             VIP Daily Rental
                         </Button>

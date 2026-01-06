@@ -13,11 +13,6 @@ export const metadata = {
   metadataBase: new URL('https://taxiserviceksa.com'),
   alternates: {
     canonical: './',
-    languages: {
-      'en': './',
-      'ar-SA': '/ar/',
-      'ur-PK': '/ur/',
-    },
   },
   title: {
     default: 'VIP Transfer KSA | #1 Airport Taxi & Umrah Transport (Pre-Book)',

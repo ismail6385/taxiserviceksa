@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service for King Abdullah Financial District (KAFD). Punctual, professional transport for PIF Tower and corporate meetings.',
     keywords: ['KAFD VIP transfer', 'Riyadh Financial District premium chauffeur', 'KAFD executive transport', 'PIF Tower VIP car service', 'KAFD corporate transfer'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/riyadh/kafd/',
+        canonical: 'https://taxiserviceksa.com/locations/riyadh/kafd/',
     },
     openGraph: {
         title: 'VIP Private Transfer to KAFD (Financial District)',
         description: 'Premium VIP private transfer to Riyadh\'s business hub. Professional chauffeur service and executive vehicles for senior leadership.',
-        url: 'https://transferksa.com/locations/riyadh/kafd/',
+        url: 'https://taxiserviceksa.com/locations/riyadh/kafd/',
         type: 'website',
     },
 };
@@ -76,7 +76,7 @@ export default function KAFDPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Corporate Account Quote
                         </Button>

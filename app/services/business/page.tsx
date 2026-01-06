@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: 'Premier corporate VIP transfer service in Saudi Arabia for business professionals. Executive cars, monthly invoicing, reliable airport transfers, and event transport.',
     keywords: ['Corporate VIP transfer Saudi Arabia', 'Business executive transfer KSA', 'Chauffeur service Riyadh', 'Jeddah business transfer', 'VIP transport Saudi Arabia'],
     alternates: {
-        canonical: 'https://transferksa.com/services/business/',
+        canonical: 'https://taxiserviceksa.com/services/business/',
     },
 };
 
@@ -140,7 +140,7 @@ export default function BusinessPage() {
                             {
                                 question: "How do I open a corporate VIP account?",
                                 shortAnswer: "Contact Sales.",
-                                detailedAnswer: "Please email our corporate sales team at info@transferksa.com with your company details. We will set up your account with credit terms and a dedicated booking portal.",
+                                detailedAnswer: "Please email our corporate sales team at info@taxiserviceksa.com with your company details. We will set up your account with credit terms and a dedicated booking portal.",
                                 perspectives: [
                                     {
                                         role: "Account Manager",

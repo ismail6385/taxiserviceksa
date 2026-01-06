@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/accordion';
 
 export const metadata: Metadata = {
-    title: 'About VIP Private Transfers | Premium Chauffeur Service Saudi Arabia',
+    title: 'About VIP Transfer KSA | Premium Chauffeur Service Saudi Arabia',
     description: 'Learn about VIP Transfer KSA, the leading VIP private transfer and chauffeur service in Saudi Arabia. Specializing in luxury airport pickups, Umrah transport, and executive intercity travel.',
     keywords: ['VIP Private Transfer Saudi Arabia', 'Premium Chauffeur Service', 'Luxury Airport Transport', 'Executive Umrah Transport', 'Professional Driver KSA'],
 };
@@ -97,7 +97,7 @@ export default function AboutPage() {
         "@context": "https://schema.org",
         "@type": "AboutPage",
         "header": "About VIP Transfer KSA",
-        "primaryImageOfPage": "https://transferksa.com/hero-image.jpg",
+        "primaryImageOfPage": "https://taxiserviceksa.com/hero-image.jpg",
         "knowsAbout": ["Umrah Transport", "Airport Transfers", "Haramain High Speed Railway"],
         "areaServed": "Kingdom of Saudi Arabia",
         "memberOf": {
@@ -423,7 +423,7 @@ export default function AboutPage() {
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                             <span className="text-gray-500 font-medium">Contact Email</span>
-                            <span className="text-gray-900 sm:col-span-2 text-emerald-600">info@transferksa.com</span>
+                            <span className="text-gray-900 sm:col-span-2 text-emerald-600">info@taxiserviceksa.com</span>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                             <span className="text-gray-500 font-medium">Service Type</span>

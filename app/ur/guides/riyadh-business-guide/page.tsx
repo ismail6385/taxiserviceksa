@@ -21,12 +21,12 @@ export const metadata: Metadata = {
     description: 'Complete business travel guide for Riyadh: KAFD access, business districts, meeting venues, corporate facilities, traffic strategies, and professional transport services.',
     keywords: ['Riyadh business travel', 'KAFD taxi', 'corporate transport Riyadh', 'business districts Riyadh', 'Riyadh meeting venues', 'King Khalid Airport'],
     alternates: {
-        canonical: 'https://transferksa.com/guides/riyadh-business-guide/',
+        canonical: 'https://taxiserviceksa.com/guides/riyadh-business-guide/',
     },
     openGraph: {
         title: 'Riyadh Business Travel Guide 2025 | Complete Corporate Transport Guide',
         description: 'Everything business travelers need: KAFD access, districts, venues, corporate facilities, and transport.',
-        url: 'https://transferksa.com/guides/riyadh-business-guide/',
+        url: 'https://taxiserviceksa.com/guides/riyadh-business-guide/',
         type: 'article',
     },
 };
@@ -51,7 +51,7 @@ export default function RiyadhBusinessGuidePage() {
         },
         {
             question: "Do you offer corporate accounts for Riyadh businesses?",
-            answer: "Yes. Corporate accounts include: monthly billing, invoice via email, payment by bank transfer, priority booking during peak hours, dedicated account manager, 24/7 booking support. Minimum 10 trips/month. Contact info@transferksa.com for corporate rates and setup."
+            answer: "Yes. Corporate accounts include: monthly billing, invoice via email, payment by bank transfer, priority booking during peak hours, dedicated account manager, 24/7 booking support. Minimum 10 trips/month. Contact info@taxiserviceksa.com for corporate rates and setup."
         },
         {
             question: "Should I choose GMC Yukon or Toyota Camry for business meetings?",

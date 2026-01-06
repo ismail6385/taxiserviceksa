@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description: 'Learn how to perform Tawaf for Umrah. 7 rounds around the Kaaba, rules of Idtiba and Raml for men, and recommended Duas. Complete beginner guide.',
     keywords: ['Umrah Tawaf guide', 'How to do Tawaf', 'Tawaf duas', 'Idtiba and Raml', 'Kaaba cicumambulation'],
     alternates: {
-        canonical: 'https://transferksa.com/guides/umrah-tawaf-guide/',
+        canonical: 'https://taxiserviceksa.com/guides/umrah-tawaf-guide/',
     },
 };
 

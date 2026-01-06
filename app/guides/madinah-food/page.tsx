@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: 'Where to eat in Madinah? Guide to the best restaurants near Prophet\'s Mosque. Al Baik locations, traditional Mandi, Bukhari rice, and fine dining.',
     keywords: ['Madinah restaurants', 'Best food near Masjid Nabawi', 'Al Baik Madinah', 'Mandi Madinah', 'Places to eat Madinah'],
     alternates: {
-        canonical: 'https://transferksa.com/guides/madinah-food/',
+        canonical: 'https://taxiserviceksa.com/guides/madinah-food/',
     },
 };
 

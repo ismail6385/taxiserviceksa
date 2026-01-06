@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: 'Traveler guide to Saudi Riyal (SAR). Where to exchange money in Makkah and Madinah, ATM usage, and accepting credit cards. Avoid high exchange fees.',
     keywords: ['Saudi currency guide', 'Exchange money Makkah', 'SAR exchange rate', 'ATM Madinah', 'Currency exchange Saudi Airport'],
     alternates: {
-        canonical: 'https://transferksa.com/guides/currency/',
+        canonical: 'https://taxiserviceksa.com/guides/currency/',
     },
 };
 
@@ -22,7 +22,7 @@ export default function CurrencyGuidePage() {
         "@type": "Article",
         "headline": "Saudi Arabia Currency Guide",
         "description": "Essential financial tips for Umrah and Hajj pilgrims.",
-        "image": "https://transferksa.com/hero-slide-1.webp"
+        "image": "https://taxiserviceksa.com/hero-slide-1.webp"
     };
 
     return (

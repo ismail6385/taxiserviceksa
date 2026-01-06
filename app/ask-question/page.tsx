@@ -218,8 +218,8 @@ export default function AskQuestionPage() {
                             <p className="text-sm text-gray-500 text-center">
                                 Questions and answers will be published on this page to help other travelers.
                                 For urgent booking inquiries, please email{' '}
-                                <a href="mailto:info@transferksa.com" className="text-primary hover:underline font-medium">
-                                    info@transferksa.com
+                                <a href="mailto:info@taxiserviceksa.com" className="text-primary hover:underline font-medium">
+                                    info@taxiserviceksa.com
                                 </a>
                             </p>
                         </div>

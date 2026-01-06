@@ -14,19 +14,19 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service to Mount Uhud and Archers Mound. Visit the historic Shuhada cemetery with a professional driver.',
     keywords: ['Mount Uhud VIP transfer', 'Madinah Archers Mound premium chauffeur', 'Shuhada Uhud VIP transport', 'Madinah heritage executive car'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/madinah/uhud/',
+        canonical: 'https://taxiserviceksa.com/locations/madinah/uhud/',
     },
     openGraph: {
         title: 'Taxi to Mount Uhud & Archers Mound',
         description: 'Visit the historic site of the Battle of Uhud. We provide comfortable transport for Ziyarat to Shuhada Uhud.',
-        url: 'https://transferksa.com/locations/madinah/uhud/',
+        url: 'https://taxiserviceksa.com/locations/madinah/uhud/',
         type: 'website',
     },
 };
 
 export default function UhudPage() {
     const images = [
-        '/madinah-mosque.webp', // Ideally Mount Uhud / Archers Mound image
+        '/madinah-prophets-mosque.webp', // Ideally Mount Uhud / Archers Mound image
         '/jeddah-airport.webp',
         '/hero-slide-3.webp',
     ];
@@ -76,7 +76,7 @@ export default function UhudPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Full Ziyarat Tour Quote
                         </Button>

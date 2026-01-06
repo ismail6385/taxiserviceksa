@@ -18,14 +18,14 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service in Misfalah Makkah. Professional hotel pickups and airport transfers for Umrah pilgrims.',
     keywords: ['Misfalah VIP transfer', 'Misfalah to Haram premium chauffeur', 'Misfalah executive car', 'Makkah VIP pilgrim transport'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/makkah/misfalah/',
+        canonical: 'https://taxiserviceksa.com/locations/makkah/misfalah/',
     },
     openGraph: {
         title: 'Taxi Service in Misfalah Makkah | 24/7 Hotel Pickups',
         description: 'Staying in Misfalah? Get a comfortable ride to the Haram or Airport without the stress of street bargaining. Professional drivers specializing in Misfalah routes.',
-        url: 'https://transferksa.com/locations/makkah/misfalah/',
+        url: 'https://taxiserviceksa.com/locations/makkah/misfalah/',
         type: 'website',
-        images: [{ url: 'https://transferksa.com/makkah-misfalah-street.png', alt: 'Taxi service in Misfalah Makkah' }],
+        images: [{ url: 'https://taxiserviceksa.com/makkah-misfalah-street.png', alt: 'Taxi service in Misfalah Makkah' }],
     },
 };
 
@@ -54,10 +54,10 @@ export default function MisfalahPage() {
                         "@context": "https://schema.org",
                         "@type": "BreadcrumbList",
                         "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://transferksa.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://transferksa.com/locations/" },
-                            { "@type": "ListItem", "position": 3, "name": "Makkah", "item": "https://transferksa.com/locations/makkah/" },
-                            { "@type": "ListItem", "position": 4, "name": "Misfalah", "item": "https://transferksa.com/locations/makkah/misfalah/" }
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://taxiserviceksa.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://taxiserviceksa.com/locations/" },
+                            { "@type": "ListItem", "position": 3, "name": "Makkah", "item": "https://taxiserviceksa.com/locations/makkah/" },
+                            { "@type": "ListItem", "position": 4, "name": "Misfalah", "item": "https://taxiserviceksa.com/locations/makkah/misfalah/" }
                         ]
                     })
                 }}
@@ -207,7 +207,7 @@ export default function MisfalahPage() {
                                     Book VIP Transfer
                                 </Button>
                             </Link>
-                            <a href="mailto:info@transferksa.com">
+                            <a href="mailto:info@taxiserviceksa.com">
                                 <Button variant="outline" className="text-white border-white hover:bg-white hover:text-black font-bold px-12 py-8 text-xl rounded-2xl h-auto">
                                     Contact Support
                                 </Button>

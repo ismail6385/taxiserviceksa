@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: 'Service Locations | VIP Private Transfer KSA',
     description: 'Premium VIP private transfer service across Saudi Arabia. Professional executive chauffeurs for airport transfers & tours in Jeddah, Makkah, Madinah, Riyadh, AlUla & Taif.',
     alternates: {
-        canonical: 'https://transferksa.com/locations/',
+        canonical: 'https://taxiserviceksa.com/locations/',
     },
 };
 

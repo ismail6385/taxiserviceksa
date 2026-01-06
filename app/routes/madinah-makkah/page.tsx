@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     description: 'Book private taxi from Madinah to Makkah. Comfortable GMC/Sedan with mandatory stop at Miqat Dhul Hulaifah (Abyar Ali) for Ihram. Fixed rates, licensed drivers.',
     keywords: ['Madinah to Makkah taxi', 'Madinah to Makkah car hire', 'Taxi with Miqat stop', 'Madinah Makkah transfer', 'Private cab Madinah to Makkah'],
     alternates: {
-        canonical: 'https://transferksa.com/madinah-to-makkah-taxi/',
+        canonical: 'https://taxiserviceksa.com/madinah-to-makkah-taxi/',
     },
 };
 

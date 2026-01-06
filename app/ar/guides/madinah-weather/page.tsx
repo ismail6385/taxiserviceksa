@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: 'Seasonal weather guide for Madinah. Average temperatures, summer heat warnings, and the best months for Umrah. Plan your packing accordingly.',
     keywords: ['Madinah weather', 'Best time to visit Madinah', 'Madinah temperature by month', 'Umrah weather guide', 'Madinah climate'],
     alternates: {
-        canonical: 'https://transferksa.com/guides/madinah-weather/',
+        canonical: 'https://taxiserviceksa.com/guides/madinah-weather/',
     },
 };
 

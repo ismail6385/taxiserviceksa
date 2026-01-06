@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi to Al Shafa Mountain (Jabal Shafa) in Taif. Visit scenic parks, horse riding spots, and fruit farms. Reliable mountain drivers.',
     keywords: ['Taxi to Al Shafa', 'Al Shafa Taif taxi', 'Jabal Shafa transport', 'Taif nature tour', 'Al Shafa resorts taxi'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/taif/al-shafa/',
+        canonical: 'https://taxiserviceksa.com/locations/taif/al-shafa/',
     },
     openGraph: {
         title: 'Taxi to Al Shafa Mountains (Taif)',
         description: 'Private transfer to the stunning peaks of Al Shafa. Enjoy cool weather, horse riding, and nature parks with our reliable taxi service.',
-        url: 'https://transferksa.com/locations/taif/al-shafa/',
+        url: 'https://taxiserviceksa.com/locations/taif/al-shafa/',
         type: 'website',
     },
 };
@@ -75,7 +75,7 @@ export default function AlShafaPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Tour Package Quote
                         </Button>

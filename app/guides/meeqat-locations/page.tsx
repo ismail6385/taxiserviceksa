@@ -64,7 +64,7 @@ export default function MeeqatLocationsPage() {
         "headline": "Guide to Meeqat Locations for Umrah",
 
         "description": "Detailed guide on the 5 designated stations (Meeqat) where pilgrims must enter the state of Ihram.",
-        "image": "https://transferksa.com/madinah-ziyarat-map.png"
+        "image": "https://taxiserviceksa.com/madinah-ziyarat-map.png"
     };
 
     return (

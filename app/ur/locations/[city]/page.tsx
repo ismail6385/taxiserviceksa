@@ -44,12 +44,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: city.metaTitle,
         description: city.metaDescription,
         alternates: {
-            canonical: `https://transferksa.com/locations/${city.slug}`,
+            canonical: `https://taxiserviceksa.com/locations/${city.slug}`,
         },
         openGraph: {
             title: city.metaTitle,
             description: city.metaDescription,
-            url: `https://transferksa.com/locations/${city.slug}`,
+            url: `https://taxiserviceksa.com/locations/${city.slug}`,
             type: 'website',
         }
     };
@@ -94,7 +94,7 @@ export default function LocationPage({ params }: Props) {
             "@type": "HowToStep",
             "name": step.name,
             "text": step.text,
-            "url": `https://transferksa.com/locations/${city.slug}#step-${index + 1}`
+            "url": `https://taxiserviceksa.com/locations/${city.slug}#step-${index + 1}`
         }))
     };
 

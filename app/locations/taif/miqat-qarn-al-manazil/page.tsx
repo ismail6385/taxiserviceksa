@@ -14,19 +14,19 @@ export const metadata: Metadata = {
     description: 'Book a taxi to Miqat Qarn al-Manazil (As-Sayl Al-Kabir) from Taif or Jeddah. Reliable Ihram stop services for pilgrims. 24/7 availability.',
     keywords: ['Miqat Qarn al-Manazil taxi', 'As-Sayl Al-Kabir taxi', 'Taif Miqat taxi', 'Jeddah to Miqat Taif', 'Umrah taxi Taif'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/taif/miqat-qarn-al-manazil/',
+        canonical: 'https://taxiserviceksa.com/locations/taif/miqat-qarn-al-manazil/',
     },
     openGraph: {
         title: 'Taxi to Miqat Qarn al-Manazil (As-Sayl Al-Kabir)',
         description: 'Official taxi service to Miqat Qarn al-Manazil. Stop for Ihram on your way to Makkah. Experienced drivers.',
-        url: 'https://transferksa.com/locations/taif/miqat-qarn-al-manazil/',
+        url: 'https://taxiserviceksa.com/locations/taif/miqat-qarn-al-manazil/',
         type: 'website',
     },
 };
 
 export default function MiqatQarnAlManazilPage() {
     const images = [
-        '/makkah-kaaba.webp', // Placeholder, ideally specific Miqat image
+        '/makkah-kaaba-night.webp', // Placeholder, ideally specific Miqat image
         '/hero-slide-2.webp',
         '/hero-slide-3.webp',
     ];
@@ -76,7 +76,7 @@ export default function MiqatQarnAlManazilPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Contact Us
                         </Button>

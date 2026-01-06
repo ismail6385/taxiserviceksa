@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi to Hegra (Madain Saleh) in AlUla. We drop you at Winter Park for the official bus or directly at the gate if you have a permit. Reliable 4x4 service.',
     keywords: ['Taxi to Hegra', 'Madain Saleh taxi', 'AlUla Hegra transport', 'Hegra tour driver', 'AlUla heritage taxi'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/alula/hegra/',
+        canonical: 'https://taxiserviceksa.com/locations/alula/hegra/',
     },
     openGraph: {
         title: 'Taxi to Hegra (Madain Saleh) UNESCO Site',
         description: 'Private transfer to Hegra. Note: Private cars cannot enter the tombs area without a permit. We take you to the Visitor Center.',
-        url: 'https://transferksa.com/locations/alula/hegra/',
+        url: 'https://taxiserviceksa.com/locations/alula/hegra/',
         type: 'website',
     },
 };

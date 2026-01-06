@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service to Obhur, Jeddah. Reliable luxury transfers to Indigo, Oia, and all private beach resorts.',
     keywords: ['Obhur VIP transfer', 'Jeddah beach premium chauffeur', 'Jeddah to Obhur VIP', 'Indigo resort premium transport'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/jeddah/obhur/',
+        canonical: 'https://taxiserviceksa.com/locations/jeddah/obhur/',
     },
     openGraph: {
         title: 'VIP Private Transfer to Obhur Beach Resorts | Premium Chauffeur',
         description: 'Going to the beach? We provide premium VIP private transfers and executive SUVs for families and divers heading to Obhur resorts.',
-        url: 'https://transferksa.com/locations/jeddah/obhur/',
+        url: 'https://taxiserviceksa.com/locations/jeddah/obhur/',
         type: 'website',
     },
 };
@@ -76,7 +76,7 @@ export default function ObhurPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Diving Group VIP Quote
                         </Button>

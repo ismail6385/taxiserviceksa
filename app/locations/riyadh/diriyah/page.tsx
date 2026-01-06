@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service for Diriyah Gate and Bujairi Terrace. Professional transport to Riyadh\'s UNESCO heritage site.',
     keywords: ['Diriyah VIP transfer', 'Bujairi Terrace premium chauffeur', 'Diriyah Gate executive transport', 'At-Turaif VIP car', 'Riyadh to Diriyah premium transfer'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/riyadh/diriyah/',
+        canonical: 'https://taxiserviceksa.com/locations/riyadh/diriyah/',
     },
     openGraph: {
         title: 'VIP Private Transfer to Diriyah Gate & Bujairi Terrace',
         description: 'Premium VIP private transfer to Riyadh\'s historical heart. Professional chauffeur service for dining at Bujairi Terrace and At-Turaif tours.',
-        url: 'https://transferksa.com/locations/riyadh/diriyah/',
+        url: 'https://taxiserviceksa.com/locations/riyadh/diriyah/',
         type: 'website',
     },
 };
@@ -77,7 +77,7 @@ export default function DiriyahPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             VIP Event Logistics
                         </Button>

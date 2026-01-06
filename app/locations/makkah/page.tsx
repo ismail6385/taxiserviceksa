@@ -22,20 +22,20 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer service in Makkah for Umrah pilgrims. Executive chauffeur service for Makkah, Madinah, and Jeddah Airport pickups. High-end fleet for a dignified journey.',
     keywords: ['VIP Umrah transport Makkah', 'Premium private transfer Makkah', 'Makkah VIP chauffeur', 'Executive Umrah taxi', 'Jeddah to Makkah VIP transfer'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/makkah/',
+        canonical: 'https://taxiserviceksa.com/locations/makkah/',
         languages: {
-            'en': 'https://transferksa.com/locations/makkah/',
-            'ar': 'https://transferksa.com/ar/locations/makkah/',
-            'ur': 'https://transferksa.com/ur/locations/makkah/',
-            'x-default': 'https://transferksa.com/locations/makkah/',
+            'en': 'https://taxiserviceksa.com/locations/makkah/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/makkah/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/makkah/',
+            'x-default': 'https://taxiserviceksa.com/locations/makkah/',
         },
     },
     openGraph: {
         title: 'VIP Private Transfer in Makkah | 24/7 Umrah Transport',
         description: 'Book premium VIP private transfers in Makkah specifically for Umrah pilgrims and families. Direct hotel to Haram transfers and Jeddah Airport pickup.',
-        url: 'https://transferksa.com/locations/makkah/',
+        url: 'https://taxiserviceksa.com/locations/makkah/',
         type: 'website',
-        images: [{ url: 'https://transferksa.com/makkah-kaaba-night.webp', alt: 'VIP private transfer in Makkah' }],
+        images: [{ url: 'https://taxiserviceksa.com/makkah-kaaba-night.webp', alt: 'VIP private transfer in Makkah' }],
     },
 };
 
@@ -87,19 +87,19 @@ export default async function MakkahPage() {
                                 "@type": "ListItem",
                                 "position": 1,
                                 "name": "Home",
-                                "item": "https://transferksa.com/"
+                                "item": "https://taxiserviceksa.com/"
                             },
                             {
                                 "@type": "ListItem",
                                 "position": 2,
                                 "name": "Locations",
-                                "item": "https://transferksa.com/locations/"
+                                "item": "https://taxiserviceksa.com/locations/"
                             },
                             {
                                 "@type": "ListItem",
                                 "position": 3,
                                 "name": "Makkah",
-                                "item": "https://transferksa.com/locations/makkah/"
+                                "item": "https://taxiserviceksa.com/locations/makkah/"
                             }
                         ]
                     })
@@ -446,7 +446,7 @@ export default async function MakkahPage() {
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>
-                            <a href="mailto:info@transferksa.com">
+                            <a href="mailto:info@taxiserviceksa.com">
                                 <Button variant="outline" className="bg-white/20 backdrop-blur-sm text-black border-2 border-black/30 hover:bg-white/30 font-bold px-10 py-7 text-lg rounded-2xl h-auto">
                                     <Phone className="mr-2 w-5 h-5" />
                                     Email Us

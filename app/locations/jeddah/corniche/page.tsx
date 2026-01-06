@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service to the New Jeddah Corniche. Visit the F1 Track, Yacht Club, and Red Sea Mall with an professional driver.',
     keywords: ['Jeddah Corniche VIP transfer', 'Jeddah Waterfront premium chauffeur', 'Jeddah F1 Track VIP', 'Red Sea Mall executive transport'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/jeddah/corniche/',
+        canonical: 'https://taxiserviceksa.com/locations/jeddah/corniche/',
     },
     openGraph: {
         title: 'Taxi to Jeddah Corniche (New Waterfront)',
         description: 'The #1 leisure destination in Jeddah. Reliable transfers to the F1 Circuit and Yacht Club for international visitors.',
-        url: 'https://transferksa.com/locations/jeddah/corniche/',
+        url: 'https://taxiserviceksa.com/locations/jeddah/corniche/',
         type: 'website',
     },
 };
@@ -76,7 +76,7 @@ export default function JeddahCornichePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             VIP Custom City Tour
                         </Button>

@@ -70,7 +70,7 @@ export default function SubmitReviewPage() {
                             <p className="text-sm text-gray-600">Review us on the world's most trusted review platform.</p>
                         </div>
                         <a
-                            href="https://www.trustpilot.com/review/transferksa.com?utm_medium=trustbox&utm_source=ReviewCollector"
+                            href="https://www.trustpilot.com/review/taxiserviceksa.com?utm_medium=trustbox&utm_source=ReviewCollector"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="shrink-0"
@@ -96,7 +96,7 @@ export default function SubmitReviewPage() {
                         <div className="bg-gray-50 rounded-xl p-6 mb-8 border border-gray-200">
                             <p className="text-sm font-bold text-gray-900 mb-4">Would you also like to share your review on Trustpilot?</p>
                             <a
-                                href="https://www.trustpilot.com/review/transferksa.com?utm_medium=trustbox&utm_source=ReviewCollector"
+                                href="https://www.trustpilot.com/review/taxiserviceksa.com?utm_medium=trustbox&utm_source=ReviewCollector"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >

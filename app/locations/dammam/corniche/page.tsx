@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi to Dammam Corniche and Marjan Island. Enjoy the sea breeze with our reliable transfers from Dammam Airport (DMM) or Al Khobar.',
     keywords: ['Taxi to Dammam Corniche', 'Dammam waterfront taxi', 'Marjan Island transport', 'Dammam Airport to Corniche', 'Khobar to Dammam Corniche'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/dammam/corniche/',
+        canonical: 'https://taxiserviceksa.com/locations/dammam/corniche/',
     },
     openGraph: {
         title: 'Taxi to Dammam Corniche & Marjan Island',
         description: 'The best family picnic spot in the Eastern Province. We provide safe rides for families and groups to the Dammam waterfront.',
-        url: 'https://transferksa.com/locations/dammam/corniche/',
+        url: 'https://taxiserviceksa.com/locations/dammam/corniche/',
         type: 'website',
     },
 };
@@ -75,7 +75,7 @@ export default function DammamCornichePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Weekend Trip Quote
                         </Button>

@@ -18,12 +18,12 @@ export const metadata: Metadata = {
     description: 'Book a private taxi from Jeddah to Riyadh. Comfortable 9-10 hour journey in GMC Yukon or Sedan. Door-to-door intercity travel. Fixed rates.',
     keywords: ['Jeddah to Riyadh taxi', 'Jeddah Riyadh car hire', 'transport Jeddah to Riyadh', 'taxi from Jeddah airport to Riyadh', 'long distance taxi saudi'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/jeddah-riyadh/',
+        canonical: 'https://taxiserviceksa.com/routes/jeddah-riyadh/',
     },
     openGraph: {
         title: 'Jeddah to Riyadh Private Taxi - 950km Executive Transfer',
         description: 'Skip the flight hassle. Direct door-to-door taxi from Jeddah to Riyadh. VIP GMC Yukon available for business travel.',
-        url: 'https://transferksa.com/routes/jeddah-riyadh/',
+        url: 'https://taxiserviceksa.com/routes/jeddah-riyadh/',
         type: 'website',
     },
 };
@@ -42,7 +42,7 @@ export default function JeddahToRiyadhPage() {
                         "provider": {
                             "@type": "TransportationService",
                             "name": "VIP Transfer KSA",
-                            "image": "https://transferksa.com/logo.png"
+                            "image": "https://taxiserviceksa.com/logo.png"
                         },
                         "serviceType": "Intercity Taxi",
                         "areaServed": {

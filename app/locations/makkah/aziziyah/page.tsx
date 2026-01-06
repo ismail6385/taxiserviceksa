@@ -14,19 +14,19 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service from Aziziyah to Haram. Exclusive hotel pickups and dedicated pilgrim logistics.',
     keywords: ['Aziziyah VIP transfer', 'Aziziyah to Haram premium chauffeur', 'Aziziyah executive car', 'Makkah VIP pilgrim transport'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/makkah/aziziyah/',
+        canonical: 'https://taxiserviceksa.com/locations/makkah/aziziyah/',
     },
     openGraph: {
         title: 'Taxi from Aziziyah to Haram (Makkah)',
         description: 'Staying in Aziziyah? We provide fast 24/7 transfers to King Abdulaziz Gate and the Clock Tower.',
-        url: 'https://transferksa.com/locations/makkah/aziziyah/',
+        url: 'https://taxiserviceksa.com/locations/makkah/aziziyah/',
         type: 'website',
     },
 };
 
 export default function AziziyahPage() {
     const images = [
-        '/makkah-kaaba.webp', // Ideally Aziziyah street / Hotel image
+        '/makkah-kaaba-night.webp', // Ideally Aziziyah street / Hotel image
         '/jeddah-airport.webp',
         '/hero-slide-3.webp',
     ];
@@ -76,7 +76,7 @@ export default function AziziyahPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Weekly VIP Quote
                         </Button>

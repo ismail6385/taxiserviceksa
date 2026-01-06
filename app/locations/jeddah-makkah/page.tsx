@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service from Jeddah to Makkah. Specialized Umrah transfers with luxury SUVs and professional drivers.',
     keywords: ['Jeddah to Makkah VIP transfer', 'Premium chauffeur Jeddah Makkah', 'Executive Makkah transfer', 'Luxury Umrah transport'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/jeddah-makkah/',
+        canonical: 'https://taxiserviceksa.com/locations/jeddah-makkah/',
     },
 };
 

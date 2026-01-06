@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: 'Taxi service from Makkah Haramain Train Station (Rusayfah) to Haram hotels. Bridge the gap between the station and your hotel smoothly. Fixed rates.',
     keywords: ['Makkah train station taxi', 'Haramain station transfer Makkah', 'Rusayfah station taxi', 'Makkah station to Haram', 'Train station pickup Makkah'],
     alternates: {
-        canonical: 'https://transferksa.com/makkah-train-station-taxi/',
+        canonical: 'https://taxiserviceksa.com/makkah-train-station-taxi/',
     },
 };
 

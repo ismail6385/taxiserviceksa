@@ -27,7 +27,7 @@ export default function B2BSolutions() {
             <Hero
                 title="Scale Your Travel Business with Top-Tier Logistics"
                 subtitle="We provide reliable, high-capacity, and luxury transport solutions for corporate clients and global Umrah agencies."
-                images={["/b2b-hero.png"]}
+                images={["/chauffeur-service.png"]}
             />
 
             {/* B2B Services Grid */}
@@ -148,7 +148,7 @@ export default function B2BSolutions() {
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Button>
                         </Link>
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-900 font-black py-8 rounded-2xl text-lg transition-all">
                                 Email Business Team
                             </Button>

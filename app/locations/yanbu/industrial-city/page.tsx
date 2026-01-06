@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Book a reliable taxi to Yanbu Industrial City (Royal Commission). Daily transfers from Yanbu Airport (YNB) to major plants (SABIC, Yanpet) and hotels.',
     keywords: ['Yanbu Industrial City taxi', 'Royal Commission Yanbu transport', 'Yanbu Airport to Industrial City', 'Yanbu RC taxi', 'SABIC Yanbu transfer'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/yanbu/industrial-city/',
+        canonical: 'https://taxiserviceksa.com/locations/yanbu/industrial-city/',
     },
     openGraph: {
         title: 'Taxi to Yanbu Industrial City (Royal Commission)',
         description: 'Professional transport services for business travelers in Yanbu Industrial City. Gate drop-offs for major industries.',
-        url: 'https://transferksa.com/locations/yanbu/industrial-city/',
+        url: 'https://taxiserviceksa.com/locations/yanbu/industrial-city/',
         type: 'website',
     },
 };
@@ -76,7 +76,7 @@ export default function YanbuIndustrialPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Contract Quote
                         </Button>

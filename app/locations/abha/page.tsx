@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service in Abha. Specialized Abha Airport (AHB) pickups and mountain transfers to Al Soudah and Rijal Almaa. Professional high-altitude service.',
     keywords: ['Abha VIP private transfer', 'Executive chauffeur Abha', 'AHB Airport VIP pickup', 'Ride to Al Soudah VIP', 'Abha premium driver'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/abha/',
+        canonical: 'https://taxiserviceksa.com/locations/abha/',
     },
     openGraph: {
         title: 'Abha VIP Transfer & Airport Pickups',
         description: 'Need a premium VIP transfer in Abha? We provide comfortable chauffeured trips to Al Soudah, Green Mountain, and Abha Airport.',
-        url: 'https://transferksa.com/locations/abha/',
+        url: 'https://taxiserviceksa.com/locations/abha/',
         type: 'website',
     },
 };
@@ -36,7 +36,7 @@ export default function AbhaPage() {
         "@type": "City",
         "name": "Abha",
         "description": "The capital of Aseer Province, known for its mild climate, mountains, and heritage.",
-        "url": "https://transferksa.com/locations/abha/",
+        "url": "https://taxiserviceksa.com/locations/abha/",
         "geo": {
             "@type": "GeoCoordinates",
             "latitude": "18.2167",
@@ -71,7 +71,7 @@ export default function AbhaPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email Us
                         </Button>

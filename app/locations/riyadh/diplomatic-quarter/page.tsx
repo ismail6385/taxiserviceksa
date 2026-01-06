@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service for the Diplomatic Quarter. Secure, professional transport for embassies and Oud Square.',
     keywords: ['Diplomatic Quarter VIP transfer', 'Riyadh DQ premium chauffeur', 'Embassy executive transport', 'Oud Square VIP transfer', 'Al Safarat VIP car service'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/riyadh/diplomatic-quarter/',
+        canonical: 'https://taxiserviceksa.com/locations/riyadh/diplomatic-quarter/',
     },
     openGraph: {
         title: 'VIP Private Transfer to Diplomatic Quarter (DQ) Riyadh',
         description: 'Executive VIP private transfer to the Diplomatic Quarter. Professional chauffeur service handling all checkpoint protocols for embassy visits.',
-        url: 'https://transferksa.com/locations/riyadh/diplomatic-quarter/',
+        url: 'https://taxiserviceksa.com/locations/riyadh/diplomatic-quarter/',
         type: 'website',
     },
 };
@@ -76,7 +76,7 @@ export default function DiplomaticQuarterPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Diplomatic Visit Quote
                         </Button>

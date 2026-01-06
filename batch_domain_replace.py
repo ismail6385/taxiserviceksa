@@ -19,4 +19,7 @@ def replace_domain(root_dir, old_domain, new_domain):
                     print(f"Error processing {filepath}: {e}")
 
 if __name__ == "__main__":
-    replace_domain('d:\\taxiksa\\app', 'taxiserviceksa.com', 'transferksa.com')
+    # Fix canonicals: replace wrong domain with correct one
+    replace_domain('d:\\taxiksa\\app', 'transferksa.com', 'taxiserviceksa.com')
+    replace_domain('d:\\taxiksa\\components', 'transferksa.com', 'taxiserviceksa.com')
+    replace_domain('d:\\taxiksa\\lib', 'transferksa.com', 'taxiserviceksa.com')

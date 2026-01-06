@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service from Jeddah Airport to KAEC (King Abdullah Economic City). Fixed rates for business and leisure travel.',
     keywords: ['Jeddah to KAEC VIP transfer', 'KAEC executive chauffeur', 'Jeddah Airport to KAEC premium transport', 'KAEC business transfer'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/jeddah/kaec-transfer/',
+        canonical: 'https://taxiserviceksa.com/locations/jeddah/kaec-transfer/',
     },
     openGraph: {
         title: 'VIP Private Transfer Jeddah to KAEC | Executive Chauffeur',
         description: 'Professional VIP private transfer service from Jeddah to KAEC. Business class luxury vehicles and professional chauffeurs.',
-        url: 'https://transferksa.com/locations/jeddah/kaec-transfer/',
+        url: 'https://taxiserviceksa.com/locations/jeddah/kaec-transfer/',
         type: 'website',
     },
 };
@@ -75,7 +75,7 @@ export default function KaecTransferPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Business VIP Quote
                         </Button>

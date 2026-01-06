@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi from Jeddah Airport to Taif. Enjoy the scenic drive up Al Hada mountain. Reliable transfers to Taif city, glorious resorts, and historic sites.',
     keywords: ['Taxi Jeddah to Taif', 'Jeddah Airport to Taif taxi', 'Al Hada mountain taxi service', 'Taif cable car transfer', 'Jeddah to Taif car'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/jeddah-taif/',
+        canonical: 'https://taxiserviceksa.com/routes/jeddah-taif/',
     },
     openGraph: {
         title: 'Scenic Taxi Ride: Jeddah to Taif (Al Hada)',
         description: 'Escape the humidity. Travel from Jeddah to the cool mountains of Taif in comfort. We specialize in the Al Hada mountain route.',
-        url: 'https://transferksa.com/routes/jeddah-taif/',
+        url: 'https://taxiserviceksa.com/routes/jeddah-taif/',
         type: 'website',
     },
 };
@@ -97,7 +97,7 @@ export default function JeddahTaifRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Summer Tour
                         </Button>

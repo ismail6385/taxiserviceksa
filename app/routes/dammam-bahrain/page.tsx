@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi from Dammam Airport (DMM) to Bahrain. Reliable cross-border transfers via King Fahd Causeway. Door-to-door to Manama, Juffair, and Bahrain Airport.',
     keywords: ['Taxi Dammam to Bahrain', 'Dammam Airport to Bahrain taxi', 'Khobar to Bahrain taxi', 'Dammam to Manama transfer', 'King Fahd Causeway taxi'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/dammam-bahrain/',
+        canonical: 'https://taxiserviceksa.com/routes/dammam-bahrain/',
     },
     openGraph: {
         title: 'Taxi Service: Dammam Airport to Bahrain',
         description: 'Landing in Dammam and heading to Bahrain? We provide seamless cross-border taxi services. We handle the causeway paperwork for you.',
-        url: 'https://transferksa.com/routes/dammam-bahrain/',
+        url: 'https://taxiserviceksa.com/routes/dammam-bahrain/',
         type: 'website',
     },
 };
@@ -97,7 +97,7 @@ export default function DammamBahrainRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Weekly Commuter
                         </Button>

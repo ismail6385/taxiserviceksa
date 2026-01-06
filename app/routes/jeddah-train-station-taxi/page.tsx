@@ -12,12 +12,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi from Jeddah Haramain Train Station (Al Sulimaniyah). Fixed prices to King Abdulaziz Airport (JED) or Jeddah hotels. Avoid long queues. 24/7 Service.',
     keywords: ['Jeddah train station taxi', 'Al Sulimaniyah station taxi', 'Haramain train station Jeddah to airport', 'taxi from Jeddah train station', 'Jeddah railway station transfer'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/jeddah-train-station-taxi/',
+        canonical: 'https://taxiserviceksa.com/routes/jeddah-train-station-taxi/',
     },
     openGraph: {
         title: 'Jeddah Train Station Taxi (Al Sulimaniyah) - Fast & Reliable',
         description: 'Arriving by Haramain Train? Book your taxi from Jeddah Station to Airport or Hotel. Fixed prices, no waiting.',
-        url: 'https://transferksa.com/routes/jeddah-train-station-taxi/',
+        url: 'https://taxiserviceksa.com/routes/jeddah-train-station-taxi/',
         type: 'website',
     },
 };
@@ -44,7 +44,7 @@ export default function JeddahTrainStationPage() {
         "provider": {
             "@type": "TransportationService",
             "name": "VIP Transfer KSA",
-            "image": "https://transferksa.com/logo.png",
+            "image": "https://taxiserviceksa.com/logo.png",
             "telephone": "+966500000000",
             "priceRange": "$$"
         },
@@ -78,7 +78,7 @@ export default function JeddahTrainStationPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email for Quote
                         </Button>

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: 'Popular VIP transfer routes in Saudi Arabia with fixed pricing. Jeddah to Makkah (80km), Makkah to Madinah (450km). 24/7 service with transparent rates.',
     keywords: ['VIP transfer routes Saudi Arabia', 'Jeddah Makkah VIP transfer', 'Makkah Madinah VIP transfer', 'intercity VIP transfer KSA'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/',
+        canonical: 'https://taxiserviceksa.com/routes/',
     },
 };
 

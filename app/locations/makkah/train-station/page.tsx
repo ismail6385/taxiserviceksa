@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service from Makkah Haramain Train Station (Rusaifah). Professional pickup for Umrah pilgrims.',
     keywords: ['Makkah train station VIP transfer', 'Haramain railway premium chauffeur', 'Rusaifah station VIP transport', 'Makkah station executive car'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/makkah/train-station/',
+        canonical: 'https://taxiserviceksa.com/locations/makkah/train-station/',
     },
     openGraph: {
         title: 'Taxi from Makkah Train Station (Haramain)',
         description: 'Direct transfer from Makkah Railway Station to Clock Tower and Haram hotels. Avoid the crowds with pre-booked pickups.',
-        url: 'https://transferksa.com/locations/makkah/train-station/',
+        url: 'https://taxiserviceksa.com/locations/makkah/train-station/',
         type: 'website',
     },
 };
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function MakkahTrainStationPage() {
     const images = [
         '/jeddah-airport.webp', // Ideally Makkah Train Station image
-        '/makkah-kaaba.webp',
+        '/makkah-kaaba-night.webp',
         '/hero-slide-3.webp',
     ];
 
@@ -77,7 +77,7 @@ export default function MakkahTrainStationPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Full VIP Ziyarat Quote
                         </Button>

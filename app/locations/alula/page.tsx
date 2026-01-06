@@ -29,18 +29,18 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service in AlUla. Specialized UNESCO heritage site transport to Hegra and ULH Airport transfers. Premium 4x4 vehicles for desert luxury.',
     keywords: ['AlUla VIP private transfer', 'Executive chauffeur AlUla', 'Hegra VIP tours', 'ULH Airport VIP pickup', 'AlUla premium desert transport'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/alula/',
+        canonical: 'https://taxiserviceksa.com/locations/alula/',
         languages: {
-            'en': 'https://transferksa.com/locations/alula/',
-            'ar': 'https://transferksa.com/ar/locations/alula/',
-            'ur': 'https://transferksa.com/ur/locations/alula/',
-            'x-default': 'https://transferksa.com/locations/alula/',
+            'en': 'https://taxiserviceksa.com/locations/alula/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/alula/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/alula/',
+            'x-default': 'https://taxiserviceksa.com/locations/alula/',
         }
     },
     openGraph: {
         title: 'VIP Transfer in AlUla | Hegra Tours & Airport Pickup',
         description: 'VIP transfer service in AlUla for UNESCO heritage tours and airport pickups. Premium 4x4 vehicles for desert sites. Book online.',
-        url: 'https://transferksa.com/locations/alula/',
+        url: 'https://taxiserviceksa.com/locations/alula/',
         type: 'website',
     },
 };
@@ -111,7 +111,7 @@ export default function AlUlaPage() {
                         </Link>
                     </Button>
                     <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             Email Us
                         </a>
                     </Button>
@@ -469,7 +469,7 @@ export default function AlUlaPage() {
                                 Book VIP Transfer
                             </Button>
                         </Link>
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email Us
                             </Button>

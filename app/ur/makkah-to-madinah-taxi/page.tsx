@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: 'مکہ سے مدینہ منورہ کے لیے پرائیویٹ ٹیکسی بک کریں۔ بغیر رکے (الا یہ کہ آپ چاہیں) براہ راست سفر۔ 4.5 گھنٹے کا سفر۔ آرام دہ GMC۔',
     keywords: ['مکہ تا مدینہ ٹیکسی', 'مکہ مدینہ کار', 'پرائیویٹ ٹیکسی مکہ مدینہ', 'کرایہ مکہ مدینہ'],
     alternates: {
-        canonical: 'https://transferksa.com/ur/makkah-to-madinah-taxi/',
+        canonical: 'https://taxiserviceksa.com/ur/makkah-to-madinah-taxi/',
     },
 };
 

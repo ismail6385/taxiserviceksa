@@ -20,20 +20,20 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer service in Jeddah for King Abdulaziz International Airport (KAIA). Executive chauffeur service to Makkah hotels and Madinah. Professional international standards.',
     keywords: ['Jeddah VIP transfer service', 'KAIA premium airport transfer', 'Jeddah to Makkah VIP transfer', 'Executive chauffeur Jeddah', 'Jeddah airport VIP pickup', 'Luxury private driver Jeddah', 'Jeddah to Makkah premium car', 'Jeddah to Madinah VIP transfer'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/jeddah/',
+        canonical: 'https://taxiserviceksa.com/locations/jeddah/',
         languages: {
-            'en': 'https://transferksa.com/locations/jeddah/',
-            'ar': 'https://transferksa.com/ar/locations/jeddah/',
-            'ur': 'https://transferksa.com/ur/locations/jeddah/',
-            'x-default': 'https://transferksa.com/locations/jeddah/',
+            'en': 'https://taxiserviceksa.com/locations/jeddah/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/jeddah/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/jeddah/',
+            'x-default': 'https://taxiserviceksa.com/locations/jeddah/',
         }
     },
     openGraph: {
         title: 'BEST VIP Transfer Service in Jeddah | Airport & Makkah Transfers',
         description: 'Pre-booked premium private transfers from KAIA Terminal 1 & North Terminal directly to hotels. Fixed rates available.',
-        url: 'https://transferksa.com/locations/jeddah/',
+        url: 'https://taxiserviceksa.com/locations/jeddah/',
         type: 'website',
-        images: [{ url: 'https://transferksa.com/jeddah-corniche-sunset.webp', alt: 'Jeddah Corniche Waterfront' }],
+        images: [{ url: 'https://taxiserviceksa.com/jeddah-corniche-sunset.webp', alt: 'Jeddah Corniche Waterfront' }],
     },
 };
 
@@ -463,7 +463,7 @@ export default async function JeddahPage() {
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>
-                            <a href="mailto:info@transferksa.com">
+                            <a href="mailto:info@taxiserviceksa.com">
                                 <Button variant="outline" className="bg-white/20 backdrop-blur-sm text-black border-2 border-black/30 hover:bg-white/30 font-bold px-10 py-7 text-lg rounded-2xl h-auto">
                                     <Phone className="mr-2 w-5 h-5" />
                                     Email Us

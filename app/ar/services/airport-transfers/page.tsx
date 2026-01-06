@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     description: 'Professional airport transfer service across Saudi Arabia with licensed drivers. Covers 8 major airports: Jeddah, Riyadh, Madinah, AlUla, Yanbu, Taif. Meet-and-greet, flight tracking, 24/7 service.',
     keywords: ['airport transfer Saudi Arabia', 'Jeddah Airport taxi', 'Riyadh Airport transfer', 'Madinah Airport taxi', 'airport pickup KSA'],
     alternates: {
-        canonical: 'https://transferksa.com/services/airport-transfers/',
+        canonical: 'https://taxiserviceksa.com/services/airport-transfers/',
     },
     openGraph: {
         title: 'Airport Transfer Service Saudi Arabia | Taxi with Driver - 8 Airports',
         description: 'Professional airport transfer service across Saudi Arabia. 8 major airports covered. Meet-and-greet, flight tracking, 24/7 service.',
-        url: 'https://transferksa.com/services/airport-transfers/',
+        url: 'https://taxiserviceksa.com/services/airport-transfers/',
         type: 'website',
     },
 };
@@ -217,7 +217,7 @@ export default function AirportTransfersPage() {
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>
-                            <a href="mailto:info@transferksa.com">
+                            <a href="mailto:info@taxiserviceksa.com">
                                 <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
                                     Email for Quote
                                 </Button>
@@ -387,7 +387,7 @@ export default function AirportTransfersPage() {
                                 Book Now
                             </Button>
                         </Link>
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Custom Quote
                             </Button>

@@ -13,12 +13,12 @@ export const metadata: Metadata = {
     description: 'Private taxi from Riyadh to Jeddah. Comfortable long-distance travel (950 km). Professional drivers, luxury cars, door-to-door service. Book your intercity ride.',
     keywords: ['Riyadh to Jeddah taxi', 'Riyadh to Jeddah distance', 'taxi fare Riyadh Jeddah', 'intercity taxi Saudi Arabia', 'long distance taxi KSA', 'private taxi service in riyadh', '7 seater rent a car riyadh', 'toyota hiace for rent in riyadh', 'cab service in riyadh', 'riyadh to makkah car service', 'luxury chauffeur service'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/riyadh-jeddah/',
+        canonical: 'https://taxiserviceksa.com/routes/riyadh-jeddah/',
     },
     openGraph: {
         title: 'Taxi From Riyadh to Jeddah | 950km Private Transfer',
         description: 'Book a comfortable private taxi from Riyadh to Jeddah. Door-to-door service for the 10-hour drive. Sleep while we drive.',
-        url: 'https://transferksa.com/routes/riyadh-jeddah/',
+        url: 'https://taxiserviceksa.com/routes/riyadh-jeddah/',
         type: 'website',
     },
 };
@@ -95,7 +95,7 @@ export default function RiyadhJeddahRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email for Quote
                         </Button>
@@ -294,7 +294,7 @@ export default function RiyadhJeddahRoutePage() {
                                 Book Now (SAR 1800+)
                             </Button>
                         </Link>
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Quote
                             </Button>

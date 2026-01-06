@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: 'احجز تاكسي خاص من مكة إلى المدينة المنورة. سفر مباشر بدون توقف (إلا عند الطلب). رحلة 4.5 ساعة. سيارات جمس وسيدان مريحة.',
     keywords: ['تاكسي مكة المدينة', 'توصيل من مكة الى المدينة', 'سعر التاكسي مكة المدينة', 'حجز جمس مكة المدينة'],
     alternates: {
-        canonical: 'https://transferksa.com/ar/makkah-to-madinah-taxi/',
+        canonical: 'https://taxiserviceksa.com/ar/makkah-to-madinah-taxi/',
     },
 };
 

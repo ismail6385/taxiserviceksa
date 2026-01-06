@@ -13,21 +13,21 @@ export const metadata: Metadata = {
     description: 'مدینہ منورہ سے خیبر کا تاریخی سفر۔ قدیم قلعے اور نخلستان دیکھیں۔ العلا سے بھی سروس دستیاب ہے۔',
     keywords: ['خیبر ٹور', 'خیبر کا قلعہ', 'مدینہ سے خیبر', 'خیبر زیارت', 'تاریخی مقامات'],
     alternates: {
-        canonical: 'https://transferksa.com/ur/locations/khayber-fort/',
+        canonical: 'https://taxiserviceksa.com/ur/locations/khayber-fort/',
         languages: {
-            'en': 'https://transferksa.com/locations/khayber-fort/',
-            'ar': 'https://transferksa.com/ar/locations/khayber-fort/',
-            'ur': 'https://transferksa.com/ur/locations/khayber-fort/',
-            'x-default': 'https://transferksa.com/locations/khayber-fort/',
+            'en': 'https://taxiserviceksa.com/locations/khayber-fort/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/khayber-fort/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/khayber-fort/',
+            'x-default': 'https://taxiserviceksa.com/locations/khayber-fort/',
         }
     },
     openGraph: {
         title: 'خیبر تاریخی ٹور',
         description: 'اسلامی تاریخ کا اہم مقام خیبر دیکھیں۔',
-        url: 'https://transferksa.com/ur/locations/khayber-fort/',
+        url: 'https://taxiserviceksa.com/ur/locations/khayber-fort/',
         locale: 'ur_PK',
         type: 'website',
-        images: [{ url: 'https://transferksa.com/locations/khayber.webp', alt: 'خیبر قلعہ' }],
+        images: [{ url: 'https://taxiserviceksa.com/locations/khayber.webp', alt: 'خیبر قلعہ' }],
     },
 };
 

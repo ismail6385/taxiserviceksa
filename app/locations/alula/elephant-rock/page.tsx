@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi to Elephant Rock (Jabal AlFil) in AlUla. The best spot for sunset views and evening coffee. Reliable pickup and return service.',
     keywords: ['Taxi to Elephant Rock', 'Jabal AlFil taxi', 'AlUla sunset taxi', 'Elephant Rock cafes', 'AlUla sightseeing taxi'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/alula/elephant-rock/',
+        canonical: 'https://taxiserviceksa.com/locations/alula/elephant-rock/',
     },
     openGraph: {
         title: 'Taxi to Elephant Rock (Jabal AlFil)',
         description: 'Private transfer to AlUla\'s most iconic geological wonder. Enjoy sunset and return safely to your hotel.',
-        url: 'https://transferksa.com/locations/alula/elephant-rock/',
+        url: 'https://taxiserviceksa.com/locations/alula/elephant-rock/',
         type: 'website',
     },
 };
@@ -75,7 +75,7 @@ export default function ElephantRockPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Hourly Booking
                         </Button>

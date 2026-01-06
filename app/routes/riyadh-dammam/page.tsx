@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Book a private taxi from Riyadh to Dammam. Door-to-door luxury transfers for business meetings, airport connections, and family trips. Fixed rates.',
     keywords: ['Taxi Riyadh to Dammam', 'Riyadh to Dammam car', 'Riyadh to Khobar taxi', 'Riyadh to Dammam airport transfer', 'One way taxi Riyadh Dammam'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/riyadh-dammam/',
+        canonical: 'https://taxiserviceksa.com/routes/riyadh-dammam/',
     },
     openGraph: {
         title: 'Executive Taxi: Riyadh to Dammam / Khobar',
         description: 'Need to travel between Riyadh and Dammam? Skip the flight hassle. Our luxury GMCs provide comfortable 3.5-hour door-to-door service.',
-        url: 'https://transferksa.com/routes/riyadh-dammam/',
+        url: 'https://taxiserviceksa.com/routes/riyadh-dammam/',
         type: 'website',
     },
 };
@@ -97,7 +97,7 @@ export default function RiyadhDammamRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Corporate Contract
                         </Button>

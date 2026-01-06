@@ -12,12 +12,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi from Makkah to Jeddah (City or Airport) 24/7. Reliable door-to-door transfer in 60-90 minutes. Fixed rates starting from SAR 200. Professional drivers.',
     keywords: ['Makkah to Jeddah taxi', 'Makkah to Jeddah Airport taxi', 'taxi price Makkah to Jeddah', 'Makkah to King Abdulaziz Airport', 'Haramain train vs taxi makkah', 'private taxi makkah to jeddah'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/makkah-jeddah/',
+        canonical: 'https://taxiserviceksa.com/routes/makkah-jeddah/',
     },
     openGraph: {
         title: 'Makkah to Jeddah: Why Private Taxis Beat the Train (Faster & Door-to-Door)',
         description: 'Book a taxi from Makkah to Jeddah (City or Airport) 24/7. Reliable door-to-door transfer in 60-90 minutes. Fixed rates starting from SAR 200.',
-        url: 'https://transferksa.com/routes/makkah-jeddah/',
+        url: 'https://taxiserviceksa.com/routes/makkah-jeddah/',
         type: 'website',
     },
 };
@@ -87,7 +87,7 @@ export default function MakkahJeddahRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email for Quote
                         </Button>

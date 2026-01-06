@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: 'Explore our VIP executive fleet in Saudi Arabia. Luxury GMC Yukon, Hyundai Staria, and Toyota Hiace for premium private transfers. 2025 models with professional chauffeurs.',
     keywords: ['VIP Fleet Saudi Arabia', 'Premium Chauffeur Vehicles', 'GMC Yukon VIP Transfer', 'Luxury Van Transfer KSA', 'Executive Car with Driver', 'Umrah Private Fleet'],
     alternates: {
-        canonical: 'https://transferksa.com/fleet/',
+        canonical: 'https://taxiserviceksa.com/fleet/',
     }
 };
 
@@ -79,9 +79,9 @@ export default function FleetPage() {
             "@type": "Car",
             "position": index + 1,
             "name": vehicle.name,
-            "image": `https://transferksa.com${vehicle.image}`,
+            "image": `https://taxiserviceksa.com${vehicle.image}`,
             "description": `Premium ${vehicle.name} (${vehicle.type}) for VIP transfers in Saudi Arabia.`,
-            "url": `https://transferksa.com${vehicle.href}`
+            "url": `https://taxiserviceksa.com${vehicle.href}`
         }))
     };
 

@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service in Jubail (Al Jubail). Specialized in Jubail Industrial City, Royal Commission, and DMM Airport transfers. Professional corporate excellence.',
     keywords: ['Jubail VIP private transfer', 'Executive chauffeur Jubail', 'Jubail Industrial City VIP taxi', 'Dammam Airport to Jubail VIP', 'Jubail premium driver'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/jubail/',
+        canonical: 'https://taxiserviceksa.com/locations/jubail/',
     },
     openGraph: {
         title: 'Jubail VIP Transfer: Industrial City & Downtown',
         description: 'Need a premium VIP transfer in Jubail? We serve the Industrial City, Royal Commission, and provide transfers to Dammam Airport.',
-        url: 'https://transferksa.com/locations/jubail/',
+        url: 'https://taxiserviceksa.com/locations/jubail/',
         type: 'website',
     },
 };
@@ -36,7 +36,7 @@ export default function JubailPage() {
         "@type": "City",
         "name": "Jubail",
         "description": "A major industrial city in the Eastern Province on the Persian Gulf coast of Saudi Arabia.",
-        "url": "https://transferksa.com/locations/jubail/",
+        "url": "https://taxiserviceksa.com/locations/jubail/",
         "geo": {
             "@type": "GeoCoordinates",
             "latitude": "27.0000",
@@ -71,7 +71,7 @@ export default function JubailPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Corporate Inquiry
                         </Button>

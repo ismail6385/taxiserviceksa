@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     description: 'Elite GMC Yukon VIP private transfer and executive chauffeur service in Saudi Arabia. Premium 7-seater SUV for RUH/JED airport transfers and business travel.',
     keywords: ['GMC Yukon VIP transfer', 'luxury SUV chauffeur KSA', 'GMC Yukon Riyadh transfer', 'executive chauffeur service Saudi Arabia', 'GMC Yukon VIP car'],
     alternates: {
-        canonical: 'https://transferksa.com/fleet/gmc-yukon/',
+        canonical: 'https://taxiserviceksa.com/fleet/gmc-yukon/',
     },
     openGraph: {
         title: 'GMC Yukon VIP Private Transfer & Executive Chauffeur',
         description: 'Experience elite executive travel with our premium GMC Yukon chauffeur service. Ideal for Riyadh business, airport transfers, and VIP tours.',
-        url: 'https://transferksa.com/fleet/gmc-yukon/',
-        images: [{ url: 'https://transferksa.com/gmc-yukon.webp', alt: 'GMC Yukon VIP Private Transfer Saudi Arabia' }],
+        url: 'https://taxiserviceksa.com/fleet/gmc-yukon/',
+        images: [{ url: 'https://taxiserviceksa.com/gmc-yukon.webp', alt: 'GMC Yukon VIP Private Transfer Saudi Arabia' }],
     },
 };
 
@@ -80,7 +80,7 @@ export default function GMCYukonPage() {
         "@context": "https://schema.org/",
         "@type": "Product",
         "name": "GMC Yukon Luxury Chauffeur Service",
-        "image": "https://transferksa.com/gmc-yukon.webp",
+        "image": "https://taxiserviceksa.com/gmc-yukon.webp",
         "description": "Premium GMC Yukon VIP transfer service in Saudi Arabia for Umrah and airport transfers.",
         "brand": {
             "@type": "Brand",
@@ -90,7 +90,7 @@ export default function GMCYukonPage() {
             "@type": "Offer",
             "priceCurrency": "SAR",
             "availability": "https://schema.org/InStock",
-            "url": "https://transferksa.com/fleet/gmc-yukon"
+            "url": "https://taxiserviceksa.com/fleet/gmc-yukon"
         },
         "aggregateRating": {
             "@type": "AggregateRating",
@@ -432,7 +432,7 @@ export default function GMCYukonPage() {
                             </Link>
 
                             {/* Secondary CTA */}
-                            <a href="mailto:info@transferksa.com" className="w-full sm:w-auto">
+                            <a href="mailto:info@taxiserviceksa.com" className="w-full sm:w-auto">
                                 <Button variant="outline" className="w-full bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                     Email for Availability
                                 </Button>

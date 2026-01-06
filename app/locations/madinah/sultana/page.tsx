@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service to Sultana Road (Sultanah) in Madinah. Luxury transport for shopping, dining, and cafes.',
     keywords: ['Sultana Road VIP transfer', 'Madinah shopping premium chauffeur', 'Sultanah VIP transport', 'Madinah executive lifestyle car'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/madinah/sultana/',
+        canonical: 'https://taxiserviceksa.com/locations/madinah/sultana/',
     },
     openGraph: {
         title: 'Taxi to Sultana Road (Dining Hub)',
         description: 'Enjoy the nightlife of Madinah on Sultana Road. We provide reliable transfers from your hotel to the best restaurants and shops.',
-        url: 'https://transferksa.com/locations/madinah/sultana/',
+        url: 'https://taxiserviceksa.com/locations/madinah/sultana/',
         type: 'website',
     },
 };
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function SultanaPage() {
     const images = [
         '/hero-slide-3.webp', // Ideally a night shot of a busy street/restaurant
-        '/madinah-mosque.webp',
+        '/madinah-prophets-mosque.webp',
         '/jeddah-airport.webp',
     ];
 
@@ -76,7 +76,7 @@ export default function SultanaPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             VIP Full Day Quote
                         </Button>

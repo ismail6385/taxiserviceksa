@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi to Jubail Industrial City. Daily transfers from Dammam Airport (DMM) to SABIC, Sadara, and Royal Commission. Reliable business service.',
     keywords: ['Jubail Industrial City taxi', 'Royal Commission Jubail taxi', 'Dammam Airport to Jubail taxi', 'SABIC Jubail transport', 'Jubail RC transfer'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/jubail/industrial-city/',
+        canonical: 'https://taxiserviceksa.com/locations/jubail/industrial-city/',
     },
     openGraph: {
         title: 'Taxi to Jubail Industrial City',
         description: 'Professional transport to the world\'s largest industrial city. Transfers to all major plants and RC camps.',
-        url: 'https://transferksa.com/locations/jubail/industrial-city/',
+        url: 'https://taxiserviceksa.com/locations/jubail/industrial-city/',
         type: 'website',
     },
 };
@@ -75,7 +75,7 @@ export default function JubailIndustrialPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Monthly Contract Quote
                         </Button>

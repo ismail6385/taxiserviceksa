@@ -13,12 +13,12 @@ export const metadata: Metadata = {
     description: 'Book private taxi from Jeddah Airport (KAIA) to Swissotel Makkah (Clock Tower). Door-to-door drop-off at Abraj Al Bait tunnel. Fixed price SAR 250. 24/7 Service.',
     keywords: ['Jeddah airport to Swissotel Makkah taxi', 'Swissotel Makkah transfer', 'taxi Jeddah to Clock Tower', 'Abraj Al Bait taxi drop off', 'Jeddah to Makkah taxi fare'],
     alternates: {
-        canonical: 'https://transferksa.com/jeddah-to-swissotel-makkah/',
+        canonical: 'https://taxiserviceksa.com/jeddah-to-swissotel-makkah/',
     },
     openGraph: {
         title: 'Taxi Jeddah Airport to Swissotel Makkah | Fixed Price Transfer',
         description: 'Direct transfer from KAIA Airport to Swissotel Makkah (Clock Tower). VIP drop-off service.',
-        url: 'https://transferksa.com/jeddah-to-swissotel-makkah/',
+        url: 'https://taxiserviceksa.com/jeddah-to-swissotel-makkah/',
         type: 'website',
     },
 };
@@ -87,7 +87,7 @@ export default function JeddahToSwissotelPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Get Quote
                         </Button>
@@ -246,7 +246,7 @@ export default function JeddahToSwissotelPage() {
                                 Book Now (SAR 250)
                             </Button>
                         </Link>
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 WhatsApp / Email
                             </Button>

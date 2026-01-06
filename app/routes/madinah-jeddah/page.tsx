@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Taxi from Madinah to Jeddah Airport (JED). 4-5 hour comfortable journey. Fixed rates from SAR 450. Door-to-door service 24/7. Book your ride now.',
     keywords: ['Madinah to Jeddah taxi', 'Madinah to Jeddah Airport', 'taxi fare Madinah Jeddah', 'Prince Mohammad Bin Abdulaziz to King Abdulaziz Airport', 'Umrah return taxi'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/madinah-jeddah/',
+        canonical: 'https://taxiserviceksa.com/routes/madinah-jeddah/',
     },
     openGraph: {
         title: 'Madinah to Jeddah: Sleep All the Way to the Airport (450km Private Transfer)',
         description: 'Taxi from Madinah to Jeddah Airport (JED). 4-5 hour comfortable journey. Fixed rates from SAR 450. Book your ride now.',
-        url: 'https://transferksa.com/routes/madinah-jeddah/',
+        url: 'https://taxiserviceksa.com/routes/madinah-jeddah/',
         type: 'website',
     },
 };
@@ -100,7 +100,7 @@ export default function MadinahJeddahRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email for Quote
                         </Button>
@@ -201,7 +201,7 @@ export default function MadinahJeddahRoutePage() {
                         </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
-                        <Link href="/madinah-to-jeddah-airport-departures/" className="group bg-white p-6 rounded-2xl border border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all flex items-start gap-4">
+                        <Link href="/routes/madinah-to-jeddah-airport-departures/" className="group bg-white p-6 rounded-2xl border border-gray-200 hover:border-blue-500 hover:shadow-lg transition-all flex items-start gap-4">
                             <div className="bg-blue-100 p-3 rounded-xl group-hover:bg-blue-600 transition-colors">
                                 <Plane className="w-6 h-6 text-blue-700 group-hover:text-white" />
                             </div>
@@ -406,7 +406,7 @@ export default function MadinahJeddahRoutePage() {
                                 Book Now (SAR 450+)
                             </Button>
                         </Link>
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Quote
                             </Button>

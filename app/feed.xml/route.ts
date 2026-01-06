@@ -1,7 +1,7 @@
 import { blogService } from '@/lib/blogService';
 
 export async function GET() {
-    const siteUrl = "https://transferksa.com";
+    const siteUrl = "https://taxiserviceksa.com";
     const authorName = "VIP Transfer KSA";
     const authorEmail = "taxiserviceksa9988@gmail.com";
 

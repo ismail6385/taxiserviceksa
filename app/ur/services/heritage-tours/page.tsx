@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     description: 'Professional heritage tour transport for AlUla, Khaybar, and UNESCO sites. 4x4 desert vehicles with licensed drivers. English-speaking guides available.',
     keywords: ['AlUla tours', 'Hegra transport', 'UNESCO sites Saudi Arabia', 'heritage tours KSA', '4x4 desert tours'],
     alternates: {
-        canonical: 'https://transferksa.com/services/heritage-tours/',
+        canonical: 'https://taxiserviceksa.com/services/heritage-tours/',
     },
     openGraph: {
         title: 'Heritage Tours Saudi Arabia | UNESCO Sites Transport with 4x4',
         description: 'Professional heritage tour transport for AlUla, Khaybar, and UNESCO sites. 4x4 desert vehicles with licensed drivers.',
-        url: 'https://transferksa.com/services/heritage-tours/',
+        url: 'https://taxiserviceksa.com/services/heritage-tours/',
         type: 'website',
     },
 };
@@ -173,7 +173,7 @@ export default function HeritageToursPage() {
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>
-                            <a href="mailto:info@transferksa.com">
+                            <a href="mailto:info@taxiserviceksa.com">
                                 <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
                                     Email for Custom Tour
                                 </Button>
@@ -333,7 +333,7 @@ export default function HeritageToursPage() {
                                 Book Tour
                             </Button>
                         </Link>
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Custom Itinerary
                             </Button>

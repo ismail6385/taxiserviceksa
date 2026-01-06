@@ -98,8 +98,8 @@ export default function ContactPage() {
                                         </div>
                                         <div>
                                             <p className="text-sm text-gray-400 font-medium mb-1">Email Us</p>
-                                            <a href="mailto:info@transferksa.com" className="text-xl font-bold hover:text-primary transition-colors">
-                                                info@transferksa.com
+                                            <a href="mailto:info@taxiserviceksa.com" className="text-xl font-bold hover:text-primary transition-colors">
+                                                info@taxiserviceksa.com
                                             </a>
                                             <p className="text-xs text-gray-500 mt-1">We reply within 30 mins</p>
                                         </div>
@@ -120,7 +120,7 @@ export default function ContactPage() {
                                     </div>
                                     <h3 className="text-xl font-bold text-gray-900 mb-2">Message Sent!</h3>
                                     <p className="text-gray-600">
-                                        Thank you for contacting us. We have received your message and will respond to <span className="font-semibold text-gray-900">info@transferksa.com</span> shortly.
+                                        Thank you for contacting us. We have received your message and will respond to <span className="font-semibold text-gray-900">info@taxiserviceksa.com</span> shortly.
                                     </p>
                                     <Button
                                         onClick={() => setIsSuccess(false)}

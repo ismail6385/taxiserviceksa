@@ -1,5 +1,5 @@
 export async function GET() {
-    const baseUrl = 'https://transferksa.com';
+    const baseUrl = 'https://taxiserviceksa.com';
 
     const pages = [
         { url: '', priority: 1.0, changefreq: 'monthly' },

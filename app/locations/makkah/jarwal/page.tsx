@@ -18,14 +18,14 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service in Jarwal Makkah. Professional hotel pickups for Sheraton and Jarwal Plaza guests.',
     keywords: ['Jarwal VIP transfer', 'Jarwal to Haram premium chauffeur', 'King Abdullah Expansion VIP transport', 'Makkah Jarwal executive car'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/makkah/jarwal/',
+        canonical: 'https://taxiserviceksa.com/locations/makkah/jarwal/',
     },
     openGraph: {
         title: 'Taxi Service in Jarwal Makkah | King Abdullah Expansion Access',
         description: 'Staying near the new expansion in Jarwal? Our taxis provide direct hotel-to-Haram service with professional drivers who know the best Jarwal access points.',
-        url: 'https://transferksa.com/locations/makkah/jarwal/',
+        url: 'https://taxiserviceksa.com/locations/makkah/jarwal/',
         type: 'website',
-        images: [{ url: 'https://transferksa.com/makkah-jarwal-area.png', alt: 'Taxi service in Jarwal Makkah' }],
+        images: [{ url: 'https://taxiserviceksa.com/makkah-jarwal-area.png', alt: 'Taxi service in Jarwal Makkah' }],
     },
 };
 
@@ -54,10 +54,10 @@ export default function JarwalPage() {
                         "@context": "https://schema.org",
                         "@type": "BreadcrumbList",
                         "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://transferksa.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://transferksa.com/locations/" },
-                            { "@type": "ListItem", "position": 3, "name": "Makkah", "item": "https://transferksa.com/locations/makkah/" },
-                            { "@type": "ListItem", "position": 4, "name": "Jarwal", "item": "https://transferksa.com/locations/makkah/jarwal/" }
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://taxiserviceksa.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://taxiserviceksa.com/locations/" },
+                            { "@type": "ListItem", "position": 3, "name": "Makkah", "item": "https://taxiserviceksa.com/locations/makkah/" },
+                            { "@type": "ListItem", "position": 4, "name": "Jarwal", "item": "https://taxiserviceksa.com/locations/makkah/jarwal/" }
                         ]
                     })
                 }}

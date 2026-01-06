@@ -1,5 +1,5 @@
 export async function GET() {
-    const baseUrl = 'https://transferksa.com';
+    const baseUrl = 'https://taxiserviceksa.com';
 
     // We manually list the sub-sitemaps
     const sitemaps = [

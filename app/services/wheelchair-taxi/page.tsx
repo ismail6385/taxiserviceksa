@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: 'Reliable wheelchair VIP transfer service in Saudi Arabia. Vehicles equipped for elderly and disabled passengers. Accessible transport for Umrah, hospital visits, and airport transfers.',
     keywords: ['Wheelchair VIP transfer Saudi Arabia', 'Handicap accessible transport KSA', 'Disabled transfer service', 'Elderly transport Umrah', 'Medical VIP transfer service'],
     alternates: {
-        canonical: 'https://transferksa.com/services/wheelchair-taxi/',
+        canonical: 'https://taxiserviceksa.com/services/wheelchair-taxi/',
     },
 };
 

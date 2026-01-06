@@ -30,20 +30,20 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service in Taif. Specialized Makkah to Taif mountain transfers via Al Hada and Jeddah Airport pickups. Professional high-altitude driving expertise.',
     keywords: ['Taif VIP private transfer', 'Executive chauffeur Taif', 'Al Hada VIP transport', 'Premium Makkah to Taif transfer', 'Taif mountain chauffeur service'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/taif/',
+        canonical: 'https://taxiserviceksa.com/locations/taif/',
         languages: {
-            'en': 'https://transferksa.com/locations/taif/',
-            'ar': 'https://transferksa.com/ar/locations/taif/',
-            'ur': 'https://transferksa.com/ur/locations/taif/',
-            'x-default': 'https://transferksa.com/locations/taif/',
+            'en': 'https://taxiserviceksa.com/locations/taif/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/taif/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/taif/',
+            'x-default': 'https://taxiserviceksa.com/locations/taif/',
         }
     },
     openGraph: {
         title: 'VIP Transfer in Taif | Makkah Transfers & Al Hada Tours',
         description: 'Premium VIP transfer to Taif via Al Hada mountain road. Service includes stops at cable car and rose factories.',
-        url: 'https://transferksa.com/locations/taif/',
+        url: 'https://taxiserviceksa.com/locations/taif/',
         type: 'website',
-        images: [{ url: 'https://transferksa.com/taif-mountains-view.webp', alt: 'Taif Al Hada Mountain Road' }],
+        images: [{ url: 'https://taxiserviceksa.com/taif-mountains-view.webp', alt: 'Taif Al Hada Mountain Road' }],
     },
 };
 

@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi from Jeddah Airport (JED) to Yanbu. Reliable transfers to Yanbu Industrial City, Royal Commission, and Red Sea resorts. 24/7 Service.',
     keywords: ['Taxi Jeddah to Yanbu', 'Jeddah Airport to Yanbu taxi', 'Yanbu Industrial City transfer', 'Yanbu Royal Commission taxi', 'Jeddah to Yanbu car'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/jeddah-yanbu/',
+        canonical: 'https://taxiserviceksa.com/routes/jeddah-yanbu/',
     },
     openGraph: {
         title: 'Taxi Service: Jeddah Airport to Yanbu',
         description: 'Direct transfers from Jeddah to Yanbu Industrial City. Safe, comfortable cars for engineers, executives, and divers.',
-        url: 'https://transferksa.com/routes/jeddah-yanbu/',
+        url: 'https://taxiserviceksa.com/routes/jeddah-yanbu/',
         type: 'website',
     },
 };
@@ -97,7 +97,7 @@ export default function JeddahYanbuRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Project Logistics
                         </Button>

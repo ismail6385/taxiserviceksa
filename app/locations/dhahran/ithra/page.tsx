@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi to Ithra (King Abdulaziz Center for World Culture) in Dhahran. Visit the library, museum, and theater. Reliable pickups from Aramco camp.',
     keywords: ['Taxi to Ithra', 'Ithra Dhahran taxi', 'King Abdulaziz Center taxi', 'Aramco visitor taxi', 'Dhahran museums transport'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/dhahran/ithra/',
+        canonical: 'https://taxiserviceksa.com/locations/dhahran/ithra/',
     },
     openGraph: {
         title: 'Taxi to Ithra Cultural Center (Dhahran)',
         description: 'Visit the stunning Ithra building. We provide gate drop-offs for visitors to the library, cinema, and museums.',
-        url: 'https://transferksa.com/locations/dhahran/ithra/',
+        url: 'https://taxiserviceksa.com/locations/dhahran/ithra/',
         type: 'website',
     },
 };
@@ -75,7 +75,7 @@ export default function IthraPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             School Trip Quote
                         </Button>

@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi to Half Moon Bay (Al Khobar/Dammam). Transfers to Dana Bay, private beach resorts, and amusement parks. Reliable pickup and return.',
     keywords: ['Half Moon Bay taxi', 'Taxi to Half Moon Beach', 'Dana Beach Resort taxi', 'Khobar beach taxi', 'Half Moon Bay transport'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/al-khobar/half-moon-bay/',
+        canonical: 'https://taxiserviceksa.com/locations/al-khobar/half-moon-bay/',
     },
     openGraph: {
         title: 'Taxi to Half Moon Bay Beach & Resorts',
         description: 'Reliable transfer to the Eastern Province\'s premier beach destination. Guaranteed return rides from resorts.',
-        url: 'https://transferksa.com/locations/al-khobar/half-moon-bay/',
+        url: 'https://taxiserviceksa.com/locations/al-khobar/half-moon-bay/',
         type: 'website',
     },
 };
@@ -75,7 +75,7 @@ export default function HalfMoonBayPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Resort Pickup Quote
                         </Button>

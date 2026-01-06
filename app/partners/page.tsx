@@ -25,7 +25,7 @@ export default function PartnersPage() {
             <Hero
                 title="Grow Your Business with VIP Transfer KSA"
                 subtitle="Join our elite network of professional drivers and business partners across Saudi Arabia. We bridge the gap between world-class transport and premium clientele."
-                images={["/partners-hero.png"]}
+                images={["/chauffeur-service.png"]}
             />
 
             {/* Partnership Options */}
@@ -151,7 +151,7 @@ export default function PartnersPage() {
                         <div className="relative">
                             <div className="absolute inset-0 bg-primary/5 rounded-[3rem] -rotate-3 transform translate-x-4 translate-y-4"></div>
                             <img
-                                src="/partnership-advantage.png" // We will need to generate this
+                                src="/makkah-driver-trust.png"
                                 alt="Saudi Taxi Partners"
                                 className="relative z-10 w-full rounded-[3rem] shadow-2xl"
                             />

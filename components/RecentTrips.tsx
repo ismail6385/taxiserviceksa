@@ -23,7 +23,7 @@ const recentTrips = [
         vehicle: "HiAce VIP Bus",
         highlight: "Direct transfer for Friday Prayer",
         rating: 5,
-        image: "/madinah-mosque.webp"
+        image: "/madinah-prophets-mosque.webp"
     },
     {
         id: 3,

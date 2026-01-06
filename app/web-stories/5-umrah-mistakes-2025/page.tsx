@@ -4,7 +4,7 @@ export const metadata: Metadata = {
     title: '5 Common Umrah Mistakes to Avoid in 2025 | Web Story',
     description: 'Pro tips for a smooth Umrah 2025. Avoid these 5 costly mistakes including transport, ihram, and hotels.',
     alternates: {
-        canonical: 'https://transferksa.com/web-stories/5-umrah-mistakes-2025',
+        canonical: 'https://taxiserviceksa.com/web-stories/5-umrah-mistakes-2025',
     },
     other: {
         'amp-story-generator-name': 'VIP Transfer KSA Story Builder',
@@ -16,55 +16,55 @@ export default function WebStory() {
     const storyData = {
         title: "5 Umrah Mistakes 2025",
         publisher: "VIP Transfer KSA",
-        publisherLogo: "https://transferksa.com/logo.png",
-        poster: "https://transferksa.com/locations/makkah.webp",
+        publisherLogo: "https://taxiserviceksa.com/logo.png",
+        poster: "https://taxiserviceksa.com/locations/makkah.webp",
         pages: [
             {
                 id: "cover",
-                image: "https://transferksa.com/locations/makkah.webp",
+                image: "https://taxiserviceksa.com/locations/makkah.webp",
                 title: "5 Common Umrah Mistakes",
                 subtitle: "Don't ruin your journey! 🕋",
                 cta: "Swipe Up"
             },
             {
                 id: "mistake-1",
-                image: "https://transferksa.com/locations/jeddah-airport.webp",
+                image: "https://taxiserviceksa.com/locations/jeddah-airport.webp",
                 title: "1. Not Booking Transport Early",
                 text: "Jeddah Airport is chaotic. Waiting for a taxi on arrival can cost you 2+ hours.",
                 ctaText: "Book Taxi with us",
-                ctaLink: "https://transferksa.com/booking"
+                ctaLink: "https://taxiserviceksa.com/booking"
             },
             {
                 id: "mistake-2",
-                image: "https://transferksa.com/makkah_madinah_route_map.png",
+                image: "https://taxiserviceksa.com/makkah_madinah_route_map.png",
                 title: "2. Underestimating the Distance",
                 text: "Makkah to Madinah is 450km! It's not a short drive. Choosing a cramped bus is physically draining.",
                 ctaText: "See GMC Comfort",
-                ctaLink: "https://transferksa.com/makkah-to-madinah-taxi"
+                ctaLink: "https://taxiserviceksa.com/makkah-to-madinah-taxi"
             },
             {
                 id: "mistake-3",
-                image: "https://transferksa.com/blog/hidden-makkah-spots.png",
+                image: "https://taxiserviceksa.com/blog/hidden-makkah-spots.png",
                 title: "3. Brief Ziyarat Trips",
                 text: "Most pilgrims rush Ziyarat. You miss the history of Mount Uhud and Quba by rushing.",
                 ctaText: "Ziyarat Guide",
-                ctaLink: "https://transferksa.com/locations/madinah"
+                ctaLink: "https://taxiserviceksa.com/locations/madinah"
             },
             {
                 id: "mistake-4",
-                image: "https://transferksa.com/blog/taif-rose-festival.png",
+                image: "https://taxiserviceksa.com/blog/taif-rose-festival.png",
                 title: "4. Skipping Taif",
                 text: "It's only 1 hour from Makkah! The Rose Festival is a once-in-a-lifetime sight.",
                 ctaText: "Taif Tour Info",
-                ctaLink: "https://transferksa.com/locations/taif"
+                ctaLink: "https://taxiserviceksa.com/locations/taif"
             },
             {
                 id: "final",
-                image: "https://transferksa.com/hero-image.jpg",
+                image: "https://taxiserviceksa.com/hero-image.jpg",
                 title: "Have a Blessed Journey",
                 text: "We are here to serve you 24/7.",
                 ctaText: "Book Now",
-                ctaLink: "https://transferksa.com/booking"
+                ctaLink: "https://taxiserviceksa.com/booking"
             }
         ]
     };

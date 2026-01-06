@@ -12,12 +12,12 @@ export const metadata: Metadata = {
     description: 'Book a VIP luxury taxi from Jeddah Airport to The Oberoi Madinah Hotel. Door-to-door first-class service for executive guests. 24/7 Availability.',
     keywords: ['Jeddah to Oberoi Madinah taxi', 'Jeddah airport to The Oberoi Hotel Madinah', 'VIP transfer Madinah Oberoi', 'luxury taxi Jeddah to Madinah', 'Oberoi Madinah transport'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/jeddah-to-oberoi-madinah/',
+        canonical: 'https://taxiserviceksa.com/routes/jeddah-to-oberoi-madinah/',
     },
     openGraph: {
         title: 'VIP Transfer: Jeddah Airport to The Oberoi Madinah',
         description: 'First-class private transfer to The Oberoi Madinah. GMC Yukon & luxury options available. Direct drop-off at hotel entrance.',
-        url: 'https://transferksa.com/routes/jeddah-to-oberoi-madinah/',
+        url: 'https://taxiserviceksa.com/routes/jeddah-to-oberoi-madinah/',
         type: 'website',
     },
 };
@@ -44,7 +44,7 @@ export default function JeddahToOberoiMadinahPage() {
         "provider": {
             "@type": "LocalBusiness",
             "name": "VIP Transfer KSA",
-            "image": "https://transferksa.com/logo.png",
+            "image": "https://taxiserviceksa.com/logo.png",
             "telephone": "+966500000000",
             "priceRange": "$$$$"
         },
@@ -78,7 +78,7 @@ export default function JeddahToOberoiMadinahPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email for Quote
                         </Button>

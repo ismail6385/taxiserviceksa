@@ -12,12 +12,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi from Yanbu to Jeddah Airport (JED) or Jeddah City. 3.5 hour journey via Route 5. Fixed rates from SAR 550. 24/7 Service.',
     keywords: ['Yanbu to Jeddah taxi', 'taxi from Yanbu to Jeddah Airport', 'Yanbu to Jeddah taxi fare', 'Yanbu industrial city to Jeddah', 'transfer Yanbu Jeddah'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/yanbu-jeddah/',
+        canonical: 'https://taxiserviceksa.com/routes/yanbu-jeddah/',
     },
     openGraph: {
         title: 'Yanbu to Jeddah Taxi (Airport Transfer) - Experienced Drivers',
         description: 'Need a ride from Yanbu (Royal Commission/Industrial) to Jeddah? Book our private taxi. Fixed price SAR 550. 24/7 Pickup.',
-        url: 'https://transferksa.com/routes/yanbu-jeddah/',
+        url: 'https://taxiserviceksa.com/routes/yanbu-jeddah/',
         type: 'website',
     },
 };
@@ -62,7 +62,7 @@ export default function YanbuToJeddahPage() {
         "instrument": {
             "@type": "Taxi",
             "name": "Private Taxi",
-            "image": "https://transferksa.com/fleet/camry-2024.webp"
+            "image": "https://taxiserviceksa.com/fleet/camry-2024.webp"
         },
         "priceSpecification": {
             "@type": "PriceSpecification",
@@ -97,7 +97,7 @@ export default function YanbuToJeddahPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email for Quote
                         </Button>

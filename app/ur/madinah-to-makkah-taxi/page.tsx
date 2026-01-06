@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     description: 'مدینہ سے مکہ کے لیے پرائیویٹ ٹیکسی بک کریں۔ آرام دہ گاڑیاں اور میقات ذوالحلیفہ (ابیار علی) پر احرام کے لیے لازمی اسٹاپ۔',
     keywords: ['مدینہ سے مکہ ٹیکسی', 'مدینہ مکہ ٹرانسفر', 'میقات ٹیکسی', 'عمرہ ٹیکسی'],
     alternates: {
-        canonical: 'https://transferksa.com/ur/madinah-to-makkah-taxi/',
+        canonical: 'https://taxiserviceksa.com/ur/madinah-to-makkah-taxi/',
     },
 };
 

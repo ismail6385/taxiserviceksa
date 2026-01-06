@@ -28,18 +28,18 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service in Yanbu. Specialized Prince Abdul Mohsin Airport (YNB) pickups and industrial city port transfers. Professional corporate standards.',
     keywords: ['Yanbu VIP private transfer', 'Executive chauffeur Yanbu', 'YNB Airport VIP pickup', 'Yanbu industrial port transfer', 'Yanbu corporate transport'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/yanbu/',
+        canonical: 'https://taxiserviceksa.com/locations/yanbu/',
         languages: {
-            'en': 'https://transferksa.com/locations/yanbu/',
-            'ar': 'https://transferksa.com/ar/locations/yanbu/',
-            'ur': 'https://transferksa.com/ur/locations/yanbu/',
-            'x-default': 'https://transferksa.com/locations/yanbu/',
+            'en': 'https://taxiserviceksa.com/locations/yanbu/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/yanbu/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/yanbu/',
+            'x-default': 'https://taxiserviceksa.com/locations/yanbu/',
         }
     },
     openGraph: {
         title: 'VIP Transfer in Yanbu | Airport Transfer & Industrial Transport',
         description: 'VIP transfer service in Yanbu operates 24/7. Premium airport transfers and industrial city transport. Fixed rates. Book online.',
-        url: 'https://transferksa.com/locations/yanbu/',
+        url: 'https://taxiserviceksa.com/locations/yanbu/',
         type: 'website',
     },
 };
@@ -109,7 +109,7 @@ export default function YanbuPage() {
                         </Link>
                     </Button>
                     <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             Email Us
                         </a>
                     </Button>
@@ -462,7 +462,7 @@ export default function YanbuPage() {
                                 Book VIP Transfer
                             </Button>
                         </Link>
-                        <a href="mailto:info@transferksa.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email Us
                             </Button>

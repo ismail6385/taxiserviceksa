@@ -12,12 +12,12 @@ export const metadata: Metadata = {
     description: 'Book a luxury taxi from Jeddah Airport (JED) to Dar Al Taqwa Hotel Madinah. Professional drivers, fixed rates, and VIP service to the Haram doorstep.',
     keywords: ['Jeddah to Dar Al Taqwa Madinah taxi', 'Jeddah airport to Dar Al Taqwa hotel', 'Dar Al Taqwa transfer', 'luxury transport Jeddah Madinah', 'Madinah hotel pickup'],
     alternates: {
-        canonical: 'https://transferksa.com/routes/jeddah-to-dar-al-taqwa-madinah/',
+        canonical: 'https://taxiserviceksa.com/routes/jeddah-to-dar-al-taqwa-madinah/',
     },
     openGraph: {
         title: 'Jeddah to Dar Al Taqwa Madinah - VIP Hotel Transfer',
         description: 'Private, comfortable transfer from Jeddah Airport to Dar Al Taqwa Hotel. Located at the Main Gate of the Prophet Mosque.',
-        url: 'https://transferksa.com/routes/jeddah-to-dar-al-taqwa-madinah/',
+        url: 'https://taxiserviceksa.com/routes/jeddah-to-dar-al-taqwa-madinah/',
         type: 'website',
     },
 };
@@ -44,7 +44,7 @@ export default function JeddahToDarAlTaqwaMadinahPage() {
         "provider": {
             "@type": "LocalBusiness",
             "name": "VIP Transfer KSA",
-            "image": "https://transferksa.com/logo.png",
+            "image": "https://taxiserviceksa.com/logo.png",
             "telephone": "+966500000000",
             "priceRange": "$$$"
         },
@@ -78,7 +78,7 @@ export default function JeddahToDarAlTaqwaMadinahPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Email for Quote
                         </Button>

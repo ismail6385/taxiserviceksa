@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: 'Premium VIP private Ziyarat tours in Makkah. Visit Jabal Al-Nour, Jabal Thawr, Arafat, and Mina with an executive chauffeur. Luxury vehicle options for pilgrims.',
     keywords: ['Makkah VIP Ziyarat', 'Premium Makkah holy sites tour', 'Executive chauffeur Makkah Ziyarat', 'Luxury pilgrim transport Makkah'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/makkah-ziyarat/',
+        canonical: 'https://taxiserviceksa.com/locations/makkah-ziyarat/',
     },
 };
 

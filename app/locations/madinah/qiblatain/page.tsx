@@ -14,19 +14,19 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service to Masjid Al Qiblatain. Visit the mosque of two Qiblas with a professional driver.',
     keywords: ['Masjid Al Qiblatain VIP transfer', 'Madinah heritage premium chauffeur', 'Masjid Al Qiblatain VIP', 'Madinah Ziyarat executive transport'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/madinah/qiblatain/',
+        canonical: 'https://taxiserviceksa.com/locations/madinah/qiblatain/',
     },
     openGraph: {
         title: 'Taxi to Masjid Al Qiblatain (Madinah)',
         description: 'Visit the historical site where the direction of prayer was changed. Comfortable family taxis for your Ziyarat tour.',
-        url: 'https://transferksa.com/locations/madinah/qiblatain/',
+        url: 'https://taxiserviceksa.com/locations/madinah/qiblatain/',
         type: 'website',
     },
 };
 
 export default function QiblatainPage() {
     const images = [
-        '/makkah-kaaba.webp', // Ideally Qiblatain Mosque image
+        '/makkah-kaaba-night.webp', // Ideally Qiblatain Mosque image
         '/jeddah-airport.webp',
         '/hero-slide-3.webp',
     ];
@@ -77,7 +77,7 @@ export default function QiblatainPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Full VIP Ziyarat Tour
                         </Button>

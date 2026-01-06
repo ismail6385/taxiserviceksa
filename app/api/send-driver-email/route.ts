@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
         // We check for credentials implicitly by trying to send.
         try {
             await transporter.sendMail({
-                from: '"VIP Transfer KSA" <info@transferksa.com>',
+                from: '"VIP Transfer KSA" <info@taxiserviceksa.com>',
                 to: adminEmail,
                 replyTo: driver.email, // Allow Admin to reply directly to Driver
                 subject: `🚖 New Driver Application - ${driver.full_name}`,
@@ -83,7 +83,7 @@ export async function POST(request: NextRequest) {
         // 2. Send Applicant Confirmation Email
         try {
             await transporter.sendMail({
-                from: '"VIP Transfer KSA" <info@transferksa.com>',
+                from: '"VIP Transfer KSA" <info@taxiserviceksa.com>',
                 to: driver.email,
                 subject: 'Application Received - VIP Transfer KSA',
                 html: `

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: 'خدمة تاكسي من محطة قطار الحرمين بمكة (الرصيفة) إلى فنادق الحرم. جسر الفجوة بين المحطة وفندقك بكل يسر. أسعار ثابتة.',
     keywords: ['تاكسي محطة مكة', 'توصيل محطة القطار مكة', 'تاكسي الرصيفة', 'توصيل من المحطة للحرم'],
     alternates: {
-        canonical: 'https://transferksa.com/ar/makkah-train-station-taxi/',
+        canonical: 'https://taxiserviceksa.com/ar/makkah-train-station-taxi/',
     },
 };
 

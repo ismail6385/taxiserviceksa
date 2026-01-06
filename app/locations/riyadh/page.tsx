@@ -29,12 +29,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service in Riyadh. Specialized King Khalid Airport (RUH) pickups and corporate business transport. Professional international standards.',
     keywords: ['Riyadh VIP private transfer', 'Executive chauffeur service Riyadh', 'Riyadh airport VIP pickup', 'RUH premium airport transfer', 'Riyadh corporate business transport', 'Luxury car with driver Riyadh', 'Riyadh to Makkah VIP transfer'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/riyadh/',
+        canonical: 'https://taxiserviceksa.com/locations/riyadh/',
     },
     openGraph: {
         title: 'VIP Private Transfer & Executive Chauffeur Riyadh',
         description: 'Premium VIP private transfer and professional chauffeur service in Riyadh. Specialized King Khalid Airport (RUH) pickups and elite corporate transport.',
-        url: 'https://transferksa.com/locations/riyadh/',
+        url: 'https://taxiserviceksa.com/locations/riyadh/',
         type: 'website',
     },
 };
@@ -415,7 +415,7 @@ export default function RiyadhPage() {
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>
-                            <a href="mailto:info@transferksa.com">
+                            <a href="mailto:info@taxiserviceksa.com">
                                 <Button variant="outline" className="bg-white/20 backdrop-blur-sm text-black border-2 border-black/30 hover:bg-white/30 font-bold px-10 py-7 text-lg rounded-2xl h-auto">
                                     <Phone className="mr-2 w-5 h-5" />
                                     Email Us

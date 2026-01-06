@@ -11,12 +11,12 @@ export const metadata: Metadata = {
     description: 'Calculate official taxi fares between Jeddah Airport, Makkah, and Madinah. Check fixed prices for Sedan, GMC Yukon, and Bus. No hidden fees.',
     keywords: ['taxi fare calculator saudi arabia', 'jeddah to makkah taxi price', 'makkah to madinah taxi fare', 'saudi taxi rates', 'umrah taxi cost'],
     alternates: {
-        canonical: 'https://transferksa.com/calculator/',
+        canonical: 'https://taxiserviceksa.com/calculator/',
     },
     openGraph: {
         title: 'Check Taxi Fares: Jeddah, Makkah & Madinah (Official Rates)',
         description: 'Plan your Umrah budget. See fixed taxi prices for Jeddah Airport to Makkah and Madinah transfers.',
-        url: 'https://transferksa.com/calculator/',
+        url: 'https://taxiserviceksa.com/calculator/',
         type: 'website',
     },
 };

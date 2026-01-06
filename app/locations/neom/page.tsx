@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service to NEOM, The Line, Trojena, and Sindalah. Specialized 4x4 desert luxury for consultants and executives.',
     keywords: ['NEOM VIP private transfer', 'Executive chauffeur NEOM', 'Tabuk to NEOM VIP', 'The Line premium transport', 'Sindalah VIP transfer'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/neom/',
+        canonical: 'https://taxiserviceksa.com/locations/neom/',
     },
     openGraph: {
         title: 'VIP Transfer to NEOM (The Line, Trojena, Sindalah)',
         description: 'Premium VIP transfer from Tabuk to NEOM projects. We serve NC1, NC2, Oxagon, and the Base Camp.',
-        url: 'https://transferksa.com/locations/neom/',
+        url: 'https://taxiserviceksa.com/locations/neom/',
         type: 'website',
     },
 };
@@ -75,7 +75,7 @@ export default function NeomPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Executive Project Quote
                         </Button>

@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Book a taxi to Al Khobar Corniche. Visit the Water Tower, Ajdan Walk, and best waterfront restaurants. Reliable family transfers in Eastern Province.',
     keywords: ['Khobar Corniche taxi', 'Al Khobar waterfront taxi', 'Taxi to Ajdan Walk', 'Khobar Water Tower taxi', 'Eastern Province corniche taxi'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/al-khobar/corniche/',
+        canonical: 'https://taxiserviceksa.com/locations/al-khobar/corniche/',
     },
     openGraph: {
         title: 'Taxi to Al Khobar Corniche & Waterfront',
         description: 'Enjoy the best views in the Eastern Province. Private taxi drop-off at Khobar Corniche, Ajdan Walk, and new extension.',
-        url: 'https://transferksa.com/locations/al-khobar/corniche/',
+        url: 'https://taxiserviceksa.com/locations/al-khobar/corniche/',
         type: 'website',
     },
 };
@@ -75,7 +75,7 @@ export default function KhobarCornichePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Hourly Driver Quote
                         </Button>

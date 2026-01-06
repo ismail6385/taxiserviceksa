@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: 'خدمة تاكسي رسمية من مطار جدة (JED) إلى فنادق مكة. استقبال 24/7 في الوصول. أسعار ثابتة لرحلات العمرة الخاصة. رحلة ساعة واحدة.',
     keywords: ['تاكسي مطار جدة مكة', 'توصيل من المطار للحرم', 'سعر تاكسي جدة مكة', 'استقبال مطار جدة'],
     alternates: {
-        canonical: 'https://transferksa.com/ar/jeddah-airport-to-makkah-taxi/',
+        canonical: 'https://taxiserviceksa.com/ar/jeddah-airport-to-makkah-taxi/',
     },
 };
 

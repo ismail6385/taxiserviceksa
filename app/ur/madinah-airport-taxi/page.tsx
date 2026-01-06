@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description: 'مدینہ ایئرپورٹ سے مسجد نبوی کے ہوٹلوں تک قابل اعتماد ٹیکسی۔ 24/7 پک اپ۔ 50 ریال سے شروع ہونے والے فکسڈ ریٹس۔ پروفیشنل ڈرائیورز۔',
     keywords: ['مدینہ ایئرپورٹ ٹیکسی', 'پرنس محمد ایئرپورٹ ٹرانسفر', 'مدینہ ایئرپورٹ پک اپ', 'حرم ٹیکسی'],
     alternates: {
-        canonical: 'https://transferksa.com/ur/madinah-airport-taxi/',
+        canonical: 'https://taxiserviceksa.com/ur/madinah-airport-taxi/',
     },
 };
 

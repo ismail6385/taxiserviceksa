@@ -19,7 +19,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
             ? `Secure your VIP ${vehicleName} private transfer in Saudi Arabia. Premium chauffeur service, 2025 fleet, and international standards.`
             : 'Book your VIP private transfer in Saudi Arabia. Professional chauffeur service for airport transfers, Umrah, and intercity travel. International quality standards.',
         alternates: {
-            canonical: 'https://transferksa.com/booking/',
+            canonical: 'https://taxiserviceksa.com/booking/',
         },
     };
 }

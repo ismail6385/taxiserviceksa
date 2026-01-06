@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service for Olaya, Riyadh. Professional transport to Kingdom Centre, Al Faisaliah Tower, and Tahlia Street.',
     keywords: ['Olaya VIP transfer', 'Riyadh downtown premium chauffeur', 'Kingdom Centre VIP car', 'Faisaliah Tower executive transport', 'Olaya Street VIP transfer'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/riyadh/olaya/',
+        canonical: 'https://taxiserviceksa.com/locations/riyadh/olaya/',
     },
     openGraph: {
         title: 'VIP Private Transfer to Olaya District (Riyadh Downtown)',
         description: 'Elite VIP private transfer and professional chauffeur service for Riyadh\'s financial heart. Serving Kingdom Centre, Faisaliah, and major hotels.',
-        url: 'https://transferksa.com/locations/riyadh/olaya/',
+        url: 'https://taxiserviceksa.com/locations/riyadh/olaya/',
         type: 'website',
     },
 };
@@ -76,7 +76,7 @@ export default function OlayaPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             VIP Daily Driver
                         </Button>

@@ -98,11 +98,13 @@ export default function BookingFormContent({ prefilledData, className }: Booking
             const date = searchParams.get('date');
             const time = searchParams.get('time');
             const vehicle = searchParams.get('vehicle');
+            const phone = searchParams.get('phone');
 
             if (from) updates.pickup_location = from;
             if (to) updates.destination = to;
             if (date) updates.pickup_date = date;
             if (time) updates.pickup_time = time;
+            if (phone) updates.customer_phone = phone;
 
             if (vehicle) {
                 const vName = vehicle.replace(/-/g, ' ');

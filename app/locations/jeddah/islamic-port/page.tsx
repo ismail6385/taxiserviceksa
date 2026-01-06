@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service from Jeddah Islamic Port to Makkah. Reliable terminal pickup for pilgrims arriving by ferry.',
     keywords: ['Jeddah Islamic Port VIP transfer', 'Jeddah seaport premium chauffeur', 'Jeddah port to Makkah VIP', 'Ferry terminal executive transport'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/jeddah/islamic-port/',
+        canonical: 'https://taxiserviceksa.com/locations/jeddah/islamic-port/',
     },
     openGraph: {
         title: 'VIP Private Transfer Jeddah Islamic Port | Seaport Chauffeur',
         description: 'Direct VIP private transfer for sea arrivals. Premier chauffeur service from the passenger terminal to Makkah or Madinah.',
-        url: 'https://transferksa.com/locations/jeddah/islamic-port/',
+        url: 'https://taxiserviceksa.com/locations/jeddah/islamic-port/',
         type: 'website',
     },
 };
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function JeddahPortPage() {
     const images = [
         '/jeddah-airport.webp', // Ideally Jeddah Port / Ship image
-        '/makkah-kaaba.webp',
+        '/makkah-kaaba-night.webp',
         '/hero-slide-3.webp',
     ];
 
@@ -76,7 +76,7 @@ export default function JeddahPortPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@transferksa.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Group VIP Quote
                         </Button>

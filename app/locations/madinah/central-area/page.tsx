@@ -18,14 +18,14 @@ export const metadata: Metadata = {
     description: 'Premium VIP private transfer and executive chauffeur service in the Madinah Central Area (Markaziya). Dedicated pickups for Oberoi and Hilton pilgrims.',
     keywords: ['Madinah Central Area VIP transfer', 'Markaziya premium chauffeur', 'Oberoi Madinah VIP transport', 'Hilton Madinah executive car'],
     alternates: {
-        canonical: 'https://transferksa.com/locations/madinah/central-area/',
+        canonical: 'https://taxiserviceksa.com/locations/madinah/central-area/',
     },
     openGraph: {
         title: 'VIP Taxi Service Madinah Central Area | Markaziya Transfers',
         description: 'Elite transportation in the heart of the Holy City. Specialized taxi services for all major hotels in the Madinah Markaziya district.',
-        url: 'https://transferksa.com/locations/madinah/central-area/',
+        url: 'https://taxiserviceksa.com/locations/madinah/central-area/',
         type: 'website',
-        images: [{ url: 'https://transferksa.com/madinah-central-area-taxi.png', alt: 'VIP taxi service in Madinah Central Area' }],
+        images: [{ url: 'https://taxiserviceksa.com/madinah-central-area-taxi.png', alt: 'VIP taxi service in Madinah Central Area' }],
     },
 };
 
@@ -54,10 +54,10 @@ export default function CentralAreaPage() {
                         "@context": "https://schema.org",
                         "@type": "BreadcrumbList",
                         "itemListElement": [
-                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://transferksa.com/" },
-                            { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://transferksa.com/locations/" },
-                            { "@type": "ListItem", "position": 3, "name": "Madinah", "item": "https://transferksa.com/locations/madinah/" },
-                            { "@type": "ListItem", "position": 4, "name": "Central Area", "item": "https://transferksa.com/locations/madinah/central-area/" }
+                            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://taxiserviceksa.com/" },
+                            { "@type": "ListItem", "position": 2, "name": "Locations", "item": "https://taxiserviceksa.com/locations/" },
+                            { "@type": "ListItem", "position": 3, "name": "Madinah", "item": "https://taxiserviceksa.com/locations/madinah/" },
+                            { "@type": "ListItem", "position": 4, "name": "Central Area", "item": "https://taxiserviceksa.com/locations/madinah/central-area/" }
                         ]
                     })
                 }}
