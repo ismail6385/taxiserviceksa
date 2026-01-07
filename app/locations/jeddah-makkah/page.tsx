@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah-makkah/',
     },
+    openGraph: {
+        url: 'https://taxiserviceksa.com/locations/jeddah-makkah/',
+    },
 };
 
 export default function JeddahMakkahRoutePage() {

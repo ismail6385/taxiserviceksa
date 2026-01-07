@@ -181,7 +181,6 @@ export default function Footer() {
                         <Link href="/privacy-policy/" className="text-sm text-gray-500 hover:text-primary transition-colors font-medium">Privacy Policy</Link>
                         <Link href="/terms-conditions/" className="text-sm text-gray-500 hover:text-primary transition-colors font-medium">Terms of Service</Link>
                         <Link href="/sitemap.xml" className="text-sm text-gray-500 hover:text-primary transition-colors font-medium">Sitemap</Link>
-                        <Link href="/sitemap-locations.xml" className="text-sm text-gray-500 hover:text-primary transition-colors font-medium">Locations Map</Link>
                         <Link href="/contact/" className="text-sm text-gray-500 hover:text-primary transition-colors font-medium">Support Center</Link>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, MapPin, Plane, Building2, Star, MessageCircle, AlertTriangle } from 'lucide-react';
+import { ArrowRight, MapPin, Plane, Building2, Star, MessageCircle, AlertTriangle, Globe } from 'lucide-react';
 
 export const metadata: Metadata = {
     title: 'Travel Guides | VIP Transfer KSA - Expert Insights for Saudi Arabia',
@@ -196,6 +196,660 @@ export default function GuidesPage() {
                     </div>
                 </div>
 
+                {/* International Guides Section */}
+                <div className="mb-16">
+                    <div className="flex items-center gap-3 mb-8">
+                        <Globe className="w-8 h-8 text-indigo-600" />
+                        <h2 className="text-3xl font-bold text-gray-900">
+                            International Pilgrim Guides
+                        </h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                    <Link href="/guides/international/united-kingdom-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇬🇧</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">United Kingdom to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/united-states-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇺🇸</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">United States to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/canada-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇨🇦</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Canada to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/australia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇦🇺</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Australia to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/pakistan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇵🇰</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Pakistan to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/india-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇮🇳</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">India to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/malaysia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇲🇾</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Malaysia to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/singapore-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇸🇬</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Singapore to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/indonesia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇮🇩</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Indonesia to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/south-africa-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇿🇦</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">South Africa to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/turkey-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇹🇷</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Turkey to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/egypt-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇪🇬</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Egypt to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/france-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇫🇷</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">France to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/germany-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇩🇪</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Germany to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/nigeria-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇳🇬</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Nigeria to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/bangladesh-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇧🇩</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Bangladesh to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/philippines-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇵🇭</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Philippines to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/netherlands-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇳🇱</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Netherlands to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/sri-lanka-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇱🇰</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Sri Lanka to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/algeria-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇩🇿</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Algeria to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/morocco-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇲🇦</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Morocco to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/tunisia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇹🇳</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Tunisia to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/uzbekistan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇺🇿</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Uzbekistan to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/russia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇷🇺</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Russia to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/china-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇨🇳</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">China to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/iraq-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇮🇶</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Iraq to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/sudan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇸🇩</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Sudan to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/libya-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇱🇾</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Libya to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/jordan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇯🇴</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Jordan to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/lebanon-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇱🇧</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Lebanon to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/kazakhstan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇰🇿</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Kazakhstan to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/kyrgyzstan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇰🇬</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Kyrgyzstan to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/azerbaijan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇦🇿</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Azerbaijan to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/thailand-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇹🇭</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Thailand to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/kuwait-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇰🇼</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Kuwait to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/oman-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇴🇲</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Oman to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/bahrain-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇧🇭</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Bahrain to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/qatar-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇶🇦</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Qatar to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/belgium-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇧🇪</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Belgium to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/spain-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇪🇸</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Spain to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/singapore-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇸🇬</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Singapore to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/brunei-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇧🇳</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Brunei to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/maldives-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇲🇻</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Maldives to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/bosnia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇧🇦</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Bosnia & Herzegovina to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/albania-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇦🇱</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Albania to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/kosovo-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇽🇰</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Kosovo to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/sweden-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇸🇪</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Sweden to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/italy-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇮🇹</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Italy to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/japan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇯🇵</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Japan to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/south-korea-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇰🇷</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">South Korea to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/australia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇦🇺</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Australia to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/new-zealand-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇳🇿</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">New Zealand to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/kenya-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇰🇪</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Kenya to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/tanzania-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇹🇿</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Tanzania to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/ghana-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇬🇭</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Ghana to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/ethiopia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇪🇹</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Ethiopia to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/senegal-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇸🇳</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Senegal to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/mauritania-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇲🇷</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Mauritania to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/mali-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇲🇱</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Mali to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/ivory-coast-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇨🇮</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Ivory Coast to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/south-africa-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇿🇦</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">South Africa to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/switzerland-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇨🇭</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Switzerland to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/austria-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇦🇹</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Austria to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/norway-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇳🇴</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Norway to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/denmark-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇩🇰</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Denmark to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/ireland-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇮🇪</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Ireland to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/portugal-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇵🇹</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Portugal to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/somalia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇸🇴</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Somalia to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/afghanistan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇦🇫</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Afghanistan to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/greece-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇬🇷</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Greece to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/brazil-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇧🇷</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Brazil to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/argentina-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇦🇷</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Argentina to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/mexico-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇲🇽</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Mexico to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/poland-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇵🇱</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Poland to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/ukraine-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇺🇦</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Ukraine to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/tajikistan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇹🇯</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Tajikistan to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/turkmenistan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇹🇲</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Turkmenistan to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/romania-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇷🇴</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Romania to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/bulgaria-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇧🇬</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Bulgaria to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+                    <Link href="/guides/international/north-macedonia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                        <div className="flex items-start justify-between mb-4">
+                            <span className="text-4xl">🇲🇰</span>
+                            <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                        </div>
+                        <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">North Macedonia to KSA</h3>
+                        <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+                    </Link>
+</div>
+                </div>
+
                 {/* Features Section */}
                 <div className="bg-white rounded-2xl p-12 border-2 border-gray-200 mb-16">
                     <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
@@ -253,6 +907,646 @@ export default function GuidesPage() {
                                 Explore Our Fleet
                             </Button>
                         </Link>
+        <Link href="/guides/international/united-kingdom-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇬🇧</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">United Kingdom to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/united-states-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇺🇸</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">United States to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/canada-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇨🇦</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Canada to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/australia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇦🇺</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Australia to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/pakistan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇵🇰</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Pakistan to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/india-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇮🇳</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">India to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/malaysia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇲🇾</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Malaysia to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/singapore-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇸🇬</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Singapore to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/indonesia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇮🇩</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Indonesia to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/south-africa-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇿🇦</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">South Africa to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/turkey-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇹🇷</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Turkey to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/egypt-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇪🇬</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Egypt to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/france-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇫🇷</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">France to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/germany-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇩🇪</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Germany to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/nigeria-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇳🇬</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Nigeria to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/bangladesh-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇧🇩</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Bangladesh to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/philippines-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇵🇭</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Philippines to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/netherlands-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇳🇱</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Netherlands to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/sri-lanka-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇱🇰</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Sri Lanka to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/algeria-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇩🇿</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Algeria to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/morocco-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇲🇦</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Morocco to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/tunisia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇹🇳</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Tunisia to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/uzbekistan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇺🇿</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Uzbekistan to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/russia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇷🇺</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Russia to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/china-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇨🇳</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">China to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/iraq-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇮🇶</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Iraq to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/sudan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇸🇩</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Sudan to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/libya-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇱🇾</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Libya to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/jordan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇯🇴</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Jordan to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/lebanon-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇱🇧</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Lebanon to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/kazakhstan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇰🇿</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Kazakhstan to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/kyrgyzstan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇰🇬</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Kyrgyzstan to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/azerbaijan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇦🇿</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Azerbaijan to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/thailand-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇹🇭</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Thailand to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/kuwait-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇰🇼</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Kuwait to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/oman-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇴🇲</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Oman to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/bahrain-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇧🇭</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Bahrain to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/qatar-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇶🇦</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Qatar to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/belgium-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇧🇪</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Belgium to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/spain-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇪🇸</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Spain to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/singapore-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇸🇬</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Singapore to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/brunei-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇧🇳</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Brunei to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/maldives-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇲🇻</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Maldives to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/bosnia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇧🇦</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Bosnia & Herzegovina to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/albania-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇦🇱</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Albania to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/kosovo-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇽🇰</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Kosovo to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/sweden-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇸🇪</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Sweden to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/italy-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇮🇹</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Italy to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/japan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇯🇵</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Japan to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/south-korea-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇰🇷</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">South Korea to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/australia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇦🇺</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Australia to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/new-zealand-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇳🇿</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">New Zealand to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/kenya-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇰🇪</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Kenya to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/tanzania-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇹🇿</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Tanzania to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/ghana-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇬🇭</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Ghana to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/ethiopia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇪🇹</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Ethiopia to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/senegal-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇸🇳</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Senegal to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/mauritania-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇲🇷</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Mauritania to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/mali-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇲🇱</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Mali to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/ivory-coast-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇨🇮</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Ivory Coast to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/south-africa-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇿🇦</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">South Africa to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/switzerland-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇨🇭</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Switzerland to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/austria-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇦🇹</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Austria to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/norway-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇳🇴</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Norway to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/denmark-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇩🇰</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Denmark to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/ireland-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇮🇪</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Ireland to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/portugal-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇵🇹</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Portugal to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/somalia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇸🇴</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Somalia to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/afghanistan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇦🇫</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Afghanistan to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/greece-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇬🇷</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Greece to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/brazil-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇧🇷</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Brazil to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/argentina-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇦🇷</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Argentina to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/mexico-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇲🇽</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Mexico to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/poland-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇵🇱</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Poland to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/ukraine-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇺🇦</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Ukraine to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/tajikistan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇹🇯</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Tajikistan to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/turkmenistan-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇹🇲</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Turkmenistan to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/romania-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇷🇴</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Romania to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/bulgaria-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇧🇬</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Bulgaria to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
+        <Link href="/guides/international/north-macedonia-pilgrims-umrah-taxi-jeddah-makkah-madinah" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+            <div className="flex items-start justify-between mb-4">
+                <span className="text-4xl">🇲🇰</span>
+                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+            </div>
+            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">North Macedonia to KSA</h3>
+            <p className="text-sm text-gray-600">Trusted Umrah Transfer.</p>
+        </Link>
                     </div>
                 </div>
             </div>

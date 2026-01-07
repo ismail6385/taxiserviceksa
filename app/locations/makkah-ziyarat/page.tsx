@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/makkah-ziyarat/',
     },
+    openGraph: {
+        url: 'https://taxiserviceksa.com/locations/makkah-ziyarat/',
+    },
 };
 
 export default function MakkahZiyaratPage() {

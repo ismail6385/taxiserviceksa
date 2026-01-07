@@ -34,6 +34,9 @@ export const metadata: Metadata = {
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/intercity/',
     },
+    openGraph: {
+        url: 'https://taxiserviceksa.com/services/intercity/',
+    },
 };
 
 export default function IntercityServicePage() {
