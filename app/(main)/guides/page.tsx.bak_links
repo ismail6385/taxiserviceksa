@@ -1,0 +1,1063 @@
+import { Metadata } from 'next';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, MapPin, Plane, Building2, Star, MessageCircle, AlertTriangle, Globe } from 'lucide-react';
+
+export const metadata: Metadata = {
+    title: 'Travel Guides | VIP Transfer KSA - Expert Insights for Saudi Arabia',
+    description: 'Comprehensive travel guides for Jeddah Airport, Makkah Umrah, and Riyadh Business Travel. Expert insights from professional drivers with years of local experience.',
+    keywords: ['Jeddah Airport Guide', 'Makkah Umrah Guide', 'Riyadh Business Guide', 'Saudi Arabia Travel', 'VIP Transfer KSA'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/guides/',
+    },
+};
+
+const guides = [
+    {
+        title: 'Jeddah Airport Complete Guide',
+        slug: 'jeddah-airport-guide',
+        description: 'Everything you need to know about King Abdulaziz International Airport - terminals, facilities, taxi services, and insider tips from experienced drivers.',
+        icon: Plane,
+        color: 'blue',
+        stats: {
+            queries: '50+ topics covered',
+            tips: '12 Pro Tips',
+            faqs: '8 FAQs answered'
+        },
+        highlights: [
+            'Terminal navigation',
+            'Taxi pickup points',
+            'Prayer facilities',
+            'Currency exchange',
+            'Best routes to Makkah'
+        ]
+    },
+    {
+        title: 'Makkah Umrah Complete Guide',
+        slug: 'makkah-umrah-guide',
+        description: 'Comprehensive guide for Umrah pilgrims - Haram access, Tawaf strategy, Ziyarat sites, and practical tips from drivers who serve thousands of pilgrims.',
+        icon: MapPin,
+        color: 'green',
+        stats: {
+            queries: '60+ topics covered',
+            tips: '10 Pro Tips',
+            faqs: '10 FAQs answered'
+        },
+        highlights: [
+            'Haram access points',
+            'Tawaf timing strategy',
+            'Ziyarat site visits',
+            'Hotel zone navigation',
+            'Zamzam water guide'
+        ]
+    },
+    {
+        title: 'Riyadh Business Travel Guide',
+        slug: 'riyadh-business-guide',
+        description: 'Essential guide for business travelers - KAFD access, business districts, local etiquette, and professional transport insights for corporate visitors.',
+        icon: Building2,
+        color: 'purple',
+        stats: {
+            queries: '50+ topics covered',
+            tips: '8 Pro Tips',
+            faqs: '8 FAQs answered'
+        },
+        highlights: [
+            'KAFD access guide',
+            'Business district navigation',
+            'Local business etiquette',
+            'Meeting venue transport',
+            'Corporate monthly plans'
+        ]
+    }
+];
+
+export default function GuidesPage() {
+    return (
+        <div className="min-h-screen bg-gray-50 pt-24 pb-20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Header */}
+                <div className="text-center mb-16">
+                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                        Expert Travel Guides for Saudi Arabia
+                    </h1>
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Comprehensive guides written by professional drivers from <Link href="/locations/makkah/" className="text-primary font-bold hover:underline">Makkah</Link> and Madinah.
+                        Get insider insights, practical tips, and answers to all your questions for a smooth journey.
+                    </p>
+                </div>
+
+                {/* Guides Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                    {guides.map((guide) => {
+                        const Icon = guide.icon;
+                        const colorClasses = {
+                            blue: 'bg-blue-50 border-blue-200 hover:border-blue-400',
+                            green: 'bg-green-50 border-green-200 hover:border-green-400',
+                            purple: 'bg-purple-50 border-purple-200 hover:border-purple-400',
+                        };
+                        const iconColors = {
+                            blue: 'text-blue-600',
+                            green: 'text-green-600',
+                            purple: 'text-purple-600',
+                        };
+
+                        return (
+                            <div
+                                key={guide.slug}
+                                className={`${colorClasses[guide.color as keyof typeof colorClasses]} rounded-2xl p-8 border-2 transition-all hover:shadow-lg`}
+                            >
+                                {/* Icon */}
+                                <div className={`w-16 h-16 ${iconColors[guide.color as keyof typeof iconColors]} bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm`}>
+                                    <Icon className="w-8 h-8" />
+                                </div>
+
+                                {/* Title */}
+                                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                                    {guide.title}
+                                </h2>
+
+                                {/* Description */}
+                                <p className="text-gray-700 mb-6 leading-relaxed">
+                                    {guide.description}
+                                </p>
+
+                                {/* Stats */}
+                                <div className="grid grid-cols-3 gap-2 mb-6">
+                                    <div className="bg-white rounded-lg p-3 text-center">
+                                        <div className="text-xs text-gray-600 mb-1">Topics</div>
+                                        <div className="text-sm font-bold text-gray-900">{guide.stats.queries.split('+')[0]}+</div>
+                                    </div>
+                                    <div className="bg-white rounded-lg p-3 text-center">
+                                        <div className="text-xs text-gray-600 mb-1">Pro Tips</div>
+                                        <div className="text-sm font-bold text-gray-900">{guide.stats.tips.split(' ')[0]}</div>
+                                    </div>
+                                    <div className="bg-white rounded-lg p-3 text-center">
+                                        <div className="text-xs text-gray-600 mb-1">FAQs</div>
+                                        <div className="text-sm font-bold text-gray-900">{guide.stats.faqs.split(' ')[0]}</div>
+                                    </div>
+                                </div>
+
+                                {/* Highlights */}
+                                <div className="mb-6">
+                                    <div className="text-sm font-semibold text-gray-900 mb-3">What's Inside:</div>
+                                    <ul className="space-y-2">
+                                        {guide.highlights.map((highlight, idx) => (
+                                            <li key={idx} className="flex items-center gap-2 text-sm text-gray-700">
+                                                <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
+                                                {highlight}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                {/* CTA */}
+                                <Link href={`/guides/${guide.slug}/`}>
+                                    <Button className="w-full bg-black text-white hover:bg-gray-800 font-semibold">
+                                        Read Complete Guide
+                                        <ArrowRight className="w-4 h-4 ml-2" />
+                                    </Button>
+                                </Link>
+                            </div>
+                        );
+                    })}
+                </div>
+
+                {/* Additional Guides Section */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    {/* Madinah Heritage & Ziyarat */}
+                    <div className="bg-white rounded-2xl p-8 border-2 border-gray-100 shadow-sm">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                            <MapPin className="w-6 h-6 text-emerald-600" /> Madinah Heritage & Ziyarat
+                        </h3>
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <li><Link href="/guides/madinah-prayer-times/" className="text-gray-600 hover:text-emerald-600 flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-emerald-600 opacity-0 group-hover:opacity-100 transition-all" /> Madinah Prayer Times</Link></li>
+                            <li><Link href="/guides/madinah-weather/" className="text-gray-600 hover:text-emerald-600 flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-emerald-600 opacity-0 group-hover:opacity-100 transition-all" /> Madinah Weather Guide</Link></li>
+                            <li><Link href="/guides/seven-mosques/" className="text-gray-600 hover:text-emerald-600 flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-emerald-600 opacity-0 group-hover:opacity-100 transition-all" /> The Seven Mosques</Link></li>
+                            <li><Link href="/guides/quba-walking-path/" className="text-gray-600 hover:text-emerald-600 flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-emerald-600 opacity-0 group-hover:opacity-100 transition-all" /> Quba Walking Path</Link></li>
+                            <li><Link href="/guides/madinah-food/" className="text-gray-600 hover:text-emerald-600 flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-emerald-600 opacity-0 group-hover:opacity-100 transition-all" /> Madinah Food Guide</Link></li>
+                        </ul>
+                    </div>
+
+                    {/* Practical Pilgrim Guides */}
+                    <div className="bg-white rounded-2xl p-8 border-2 border-gray-100 shadow-sm">
+                        <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                            <Star className="w-6 h-6 text-primary" /> Practical Insights
+                        </h3>
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <li><Link href="/guides/umrah-tawaf-guide/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Umrah Tawaf Guide</Link></li>
+                            <li><Link href="/guides/avoid-taxi-scams/" className="text-red-600 font-bold hover:text-red-700 flex items-center gap-2 group"><AlertTriangle className="w-4 h-4 text-red-600 opacity-0 group-hover:opacity-100 transition-all" /> Avoid Taxi Scams (2026)</Link></li>
+                            <li><Link href="/guides/haram-gates-access/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Haram Gates Guide</Link></li>
+                            <li><Link href="/guides/meeqat-locations/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Meeqat Points</Link></li>
+                            <li><Link href="/guides/currency/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Currency & SAR Guide</Link></li>
+                            <li><Link href="/guides/makkah-shopping/" className="text-gray-600 hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> Makkah Shopping Guide</Link></li>
+                            <li><Link href="/insights/pilgrimage-transport-report-2025/" className="text-emerald-600 font-bold hover:text-primary flex items-center gap-2 group"><ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-all" /> 2026 Transport Report</Link></li>
+                        </ul>
+                    </div>
+                </div>
+
+                {/* International Guides Section */}
+                <div className="mb-16">
+                    <div className="flex items-center gap-3 mb-8">
+                        <Globe className="w-8 h-8 text-indigo-600" />
+                        <h2 className="text-3xl font-bold text-gray-900">
+                            International Pilgrim Guides
+                        </h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {/* UK Guide */}
+                        <Link href="/guides/international/uk-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇬🇧</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">UK to Jeddah</h3>
+                            <p className="text-sm text-gray-600">Travel guide for British pilgrims from London & Manchester.</p>
+                        </Link>
+
+                        {/* USA Guide */}
+                        <Link href="/guides/international/usa-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇺🇸</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">USA to Jeddah</h3>
+                            <p className="text-sm text-gray-600">Guide for American families flying from JFK & Dulles.</p>
+                        </Link>
+
+                        {/* Canada Guide */}
+                        <Link href="/guides/international/canada-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇨🇦</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Canada to Jeddah</h3>
+                            <p className="text-sm text-gray-600">Transport tips for Canadian pilgrims from Toronto.</p>
+                        </Link>
+
+                        {/* Australia Guide */}
+                        <Link href="/guides/international/australia-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇦🇺</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Australia to Jeddah</h3>
+                            <p className="text-sm text-gray-600">Long-haul travel advice for Australian hujjaj.</p>
+                        </Link>
+
+                        {/* Pakistan Guide */}
+                        <Link href="/guides/international/pakistan-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇵🇰</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Pakistan to KSA</h3>
+                            <p className="text-sm text-gray-600">Urdu service & family transport from Karachi/Lahore.</p>
+                        </Link>
+
+                        {/* India Guide */}
+                        <Link href="/guides/international/india-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇮🇳</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">India to KSA</h3>
+                            <p className="text-sm text-gray-600">Reliable taxis for pilgrims from Mumbai & Delhi.</p>
+                        </Link>
+
+                        {/* Indonesia Guide */}
+                        <Link href="/guides/international/indonesia-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇮🇩</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Indonesia to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport guide for Indonesian Jamaah.</p>
+                        </Link>
+
+                        {/* Malaysia Guide */}
+                        <Link href="/guides/international/malaysia-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇲🇾</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Malaysia to KSA</h3>
+                            <p className="text-sm text-gray-600">Premium service for guests from KL.</p>
+                        </Link>
+
+                        {/* Singapore Guide */}
+                        <Link href="/guides/international/singapore-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇸🇬</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Singapore to Jeddah</h3>
+                            <p className="text-sm text-gray-600">VIP transfers for Singaporean travelers.</p>
+                        </Link>
+
+                        {/* Turkey Guide */}
+                        <Link href="/guides/international/turkey-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇹🇷</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Turkey to KSA</h3>
+                            <p className="text-sm text-gray-600">Özel Transfer for Turkish Pilgrims.</p>
+                        </Link>
+
+                        {/* Egypt Guide */}
+                        <Link href="/guides/international/egypt-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇪🇬</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Egypt to Jeddah</h3>
+                            <p className="text-sm text-gray-600">Reliable transport for Egyptian families.</p>
+                        </Link>
+
+                        {/* France Guide */}
+                        <Link href="/guides/international/france-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇫🇷</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">France to KSA</h3>
+                            <p className="text-sm text-gray-600">Service VTC pour pèlerins français.</p>
+                        </Link>
+
+                        {/* Germany Guide */}
+                        <Link href="/guides/international/germany-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇩🇪</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Germany to KSA</h3>
+                            <p className="text-sm text-gray-600">Zuverlässiger Transfer for German pilgrims.</p>
+                        </Link>
+
+                        {/* Nigeria Guide */}
+                        <Link href="/guides/international/nigeria-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇳🇬</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Nigeria to KSA</h3>
+                            <p className="text-sm text-gray-600">Trusted pickup for Nigerian families.</p>
+                        </Link>
+
+                        {/* Bangladesh Guide */}
+                        <Link href="/guides/international/bangladesh-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇧🇩</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Bangladesh to KSA</h3>
+                            <p className="text-sm text-gray-600">Safe transport for Bangladeshi Hujjaj.</p>
+                        </Link>
+
+                        {/* Philippines Guide */}
+                        <Link href="/guides/international/philippines-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇵🇭</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Philippines to KSA</h3>
+                            <p className="text-sm text-gray-600">Kabayan transport guide.</p>
+                        </Link>
+
+                        {/* Netherlands Guide */}
+                        <Link href="/guides/international/netherlands-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇳🇱</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Netherlands to KSA</h3>
+                            <p className="text-sm text-gray-600">Reliable taxis for Dutch pilgrims.</p>
+                        </Link>
+
+                        {/* Sri Lanka Guide */}
+                        <Link href="/guides/international/srilanka-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇱🇰</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Sri Lanka to KSA</h3>
+                            <p className="text-sm text-gray-600">Trusted service for Sri Lankan families.</p>
+                        </Link>
+
+                        {/* Algeria Guide */}
+                        <Link href="/guides/international/algeria-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇩🇿</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Algeria to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport VTC pour les Algériens.</p>
+                        </Link>
+
+                        {/* Morocco Guide */}
+                        <Link href="/guides/international/morocco-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇲🇦</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Morocco to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport VTC pour pèlerins marocains.</p>
+                        </Link>
+
+                        {/* Tunisia Guide */}
+                        <Link href="/guides/international/tunisia-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇹🇳</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Tunisia to KSA</h3>
+                            <p className="text-sm text-gray-600">Taxi pour les Aigles de Carthage.</p>
+                        </Link>
+
+                        {/* Uzbekistan Guide */}
+                        <Link href="/guides/international/uzbekistan-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇺🇿</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Uzbekistan to KSA</h3>
+                            <p className="text-sm text-gray-600">Reliable transport for Uzbek pilgrims.</p>
+                        </Link>
+
+                        {/* Russia Guide */}
+                        <Link href="/guides/international/russia-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇷🇺</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Russia to KSA</h3>
+                            <p className="text-sm text-gray-600">Transfer service for Russian Muslims.</p>
+                        </Link>
+
+                        {/* China Guide */}
+                        <Link href="/guides/international/china-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇨🇳</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">China to KSA</h3>
+                            <p className="text-sm text-gray-600">Trusted service for Chinese Hujjaj.</p>
+                        </Link>
+
+                        {/* Iraq Guide */}
+                        <Link href="/guides/international/iraq-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇮🇶</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Iraq to KSA</h3>
+                            <p className="text-sm text-gray-600">Direct transport for Iraqi pilgrims.</p>
+                        </Link>
+
+                        {/* Sudan Guide */}
+                        <Link href="/guides/international/sudan-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇸🇩</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Sudan to KSA</h3>
+                            <p className="text-sm text-gray-600">Trusted Umrah transfers for Sudanese.</p>
+                        </Link>
+
+                        {/* Libya Guide */}
+                        <Link href="/guides/international/libya-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇱🇾</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Libya to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Libyan pilgrims.</p>
+                        </Link>
+
+                        {/* Jordan Guide */}
+                        <Link href="/guides/international/jordan-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇯🇴</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Jordan to KSA</h3>
+                            <p className="text-sm text-gray-600">Nashama Transport for Jordanians.</p>
+                        </Link>
+
+                        {/* Lebanon Guide */}
+                        <Link href="/guides/international/lebanon-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇱🇧</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Lebanon to KSA</h3>
+                            <p className="text-sm text-gray-600">VIP Umrah Taxi for Lebanese.</p>
+                        </Link>
+
+                        {/* Kazakhstan Guide */}
+                        <Link href="/guides/international/kazakhstan-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇰🇿</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Kazakhstan to KSA</h3>
+                            <p className="text-sm text-gray-600">Transfer for Kazakh pilgrims.</p>
+                        </Link>
+
+                        {/* Kyrgyzstan Guide */}
+                        <Link href="/guides/international/kyrgyzstan-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇰🇬</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Kyrgyzstan to KSA</h3>
+                            <p className="text-sm text-gray-600">Reliable taxi for Kyrgyz families.</p>
+                        </Link>
+
+                        {/* Azerbaijan Guide */}
+                        <Link href="/guides/international/azerbaijan-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇦🇿</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Azerbaijan to KSA</h3>
+                            <p className="text-sm text-gray-600">Premium transfer for Azeris.</p>
+                        </Link>
+
+                        {/* Thailand Guide */}
+                        <Link href="/guides/international/thailand-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇹🇭</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Thailand to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Thai pilgrims.</p>
+                        </Link>
+
+                        {/* Kuwait Guide */}
+                        <Link href="/guides/international/kuwait-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇰🇼</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Kuwait to KSA</h3>
+                            <p className="text-sm text-gray-600">Premium service for Kuwaitis.</p>
+                        </Link>
+
+                        {/* Oman Guide */}
+                        <Link href="/guides/international/oman-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇴🇲</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Oman to KSA</h3>
+                            <p className="text-sm text-gray-600">Reliable taxi for Omani pilgrims.</p>
+                        </Link>
+
+                        {/* Bahrain Guide */}
+                        <Link href="/guides/international/bahrain-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇧🇭</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Bahrain to KSA</h3>
+                            <p className="text-sm text-gray-600">Quick transfers for Bahrainis.</p>
+                        </Link>
+
+                        {/* Qatar Guide */}
+                        <Link href="/guides/international/qatar-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇶🇦</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Qatar to KSA</h3>
+                            <p className="text-sm text-gray-600">VIP Transfer for Qataris.</p>
+                        </Link>
+
+                        {/* Belgium Guide */}
+                        <Link href="/guides/international/belgium-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇧🇪</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Belgium to KSA</h3>
+                            <p className="text-sm text-gray-600">Service for Belgian pilgrims.</p>
+                        </Link>
+
+                        {/* Spain Guide */}
+                        <Link href="/guides/international/spain-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇪🇸</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Spain to KSA</h3>
+                            <p className="text-sm text-gray-600">Taxi for pilgrims from Spain.</p>
+                        </Link>
+
+                        {/* Singapore Guide */}
+                        <Link href="/guides/international/singapore-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇸🇬</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Singapore to KSA</h3>
+                            <p className="text-sm text-gray-600">Premium service for Singaporeans.</p>
+                        </Link>
+
+                        {/* Brunei Guide */}
+                        <Link href="/guides/international/brunei-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇧🇳</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Brunei to KSA</h3>
+                            <p className="text-sm text-gray-600">VIP Umrah transport for Brunei.</p>
+                        </Link>
+
+                        {/* Maldives Guide */}
+                        <Link href="/guides/international/maldives-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇲🇻</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Maldives to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Maldivian pilgrims.</p>
+                        </Link>
+
+                        {/* Bosnia Guide */}
+                        <Link href="/guides/international/bosnia-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇧🇦</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Bosnia to KSA</h3>
+                            <p className="text-sm text-gray-600">Taxi for Bosnian pilgrims.</p>
+                        </Link>
+
+                        {/* Albania Guide */}
+                        <Link href="/guides/international/albania-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇦🇱</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Albania to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Albanian pilgrims.</p>
+                        </Link>
+
+                        {/* Kosovo Guide */}
+                        <Link href="/guides/international/kosovo-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇽🇰</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Kosovo to KSA</h3>
+                            <p className="text-sm text-gray-600">Taxi for pilgrims from Kosovo.</p>
+                        </Link>
+
+                        {/* Sweden Guide */}
+                        <Link href="/guides/international/sweden-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇸🇪</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Sweden to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Swedish pilgrims.</p>
+                        </Link>
+
+                        {/* Italy Guide */}
+                        <Link href="/guides/international/italy-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇮🇹</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Italy to KSA</h3>
+                            <p className="text-sm text-gray-600">Service for Italian pilgrims.</p>
+                        </Link>
+
+                        {/* Japan Guide */}
+                        <Link href="/guides/international/japan-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇯🇵</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Japan to KSA</h3>
+                            <p className="text-sm text-gray-600">Safe taxi for Japanese pilgrims.</p>
+                        </Link>
+
+                        {/* South Korea Guide */}
+                        <Link href="/guides/international/south-korea-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇰🇷</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Korea to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Korean pilgrims.</p>
+                        </Link>
+
+                        {/* Australia Guide */}
+                        <Link href="/guides/international/australia-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇦🇺</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Australia to KSA</h3>
+                            <p className="text-sm text-gray-600">Secure transport for Aussies.</p>
+                        </Link>
+
+                        {/* New Zealand Guide */}
+                        <Link href="/guides/international/new-zealand-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇳🇿</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">New Zealand to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Kiwi pilgrims.</p>
+                        </Link>
+
+                        {/* Kenya Guide */}
+                        <Link href="/guides/international/kenya-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇰🇪</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Kenya to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Kenyan pilgrims.</p>
+                        </Link>
+
+                        {/* Tanzania Guide */}
+                        <Link href="/guides/international/tanzania-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇹🇿</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Tanzania to KSA</h3>
+                            <p className="text-sm text-gray-600">Reliable taxi for Tanzanians.</p>
+                        </Link>
+
+                        {/* Ghana Guide */}
+                        <Link href="/guides/international/ghana-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇬🇭</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Ghana to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Ghanaian pilgrims.</p>
+                        </Link>
+
+                        {/* Ethiopia Guide */}
+                        <Link href="/guides/international/ethiopia-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇪🇹</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Ethiopia to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Ethiopian pilgrims.</p>
+                        </Link>
+
+                        {/* Senegal Guide */}
+                        <Link href="/guides/international/senegal-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇸🇳</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Senegal to KSA</h3>
+                            <p className="text-sm text-gray-600">Taxi for Senegalese pilgrims.</p>
+                        </Link>
+
+                        {/* Mauritania Guide */}
+                        <Link href="/guides/international/mauritania-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇲🇷</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Mauritania to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Mauritanians.</p>
+                        </Link>
+
+                        {/* Mali Guide */}
+                        <Link href="/guides/international/mali-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇲🇱</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Mali to KSA</h3>
+                            <p className="text-sm text-gray-600">Taxi for Malian pilgrims.</p>
+                        </Link>
+
+                        {/* Ivory Coast Guide */}
+                        <Link href="/guides/international/ivory-coast-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇨🇮</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Ivory Coast to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Ivorian pilgrims.</p>
+                        </Link>
+
+                        {/* South Africa Guide */}
+                        <Link href="/guides/international/south-africa-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇿🇦</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">South Africa to KSA</h3>
+                            <p className="text-sm text-gray-600">Premium transfer for South Africans.</p>
+                        </Link>
+
+                        {/* Switzerland Guide */}
+                        <Link href="/guides/international/switzerland-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇨🇭</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Switzerland to KSA</h3>
+                            <p className="text-sm text-gray-600">Swiss standard transport.</p>
+                        </Link>
+
+                        {/* Austria Guide */}
+                        <Link href="/guides/international/austria-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇦🇹</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Austria to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Austrian pilgrims.</p>
+                        </Link>
+
+                        {/* Norway Guide */}
+                        <Link href="/guides/international/norway-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇳🇴</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Norway to KSA</h3>
+                            <p className="text-sm text-gray-600">Taxi for Norwegian pilgrims.</p>
+                        </Link>
+
+                        {/* Denmark Guide */}
+                        <Link href="/guides/international/denmark-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇩🇰</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Denmark to KSA</h3>
+                            <p className="text-sm text-gray-600">Transfer for Danish pilgrims.</p>
+                        </Link>
+
+                        {/* Ireland Guide */}
+                        <Link href="/guides/international/ireland-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇮🇪</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Ireland to KSA</h3>
+                            <p className="text-sm text-gray-600">Taxi for Irish pilgrims.</p>
+                        </Link>
+
+                        {/* Portugal Guide */}
+                        <Link href="/guides/international/portugal-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇵🇹</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Portugal to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Portuguese pilgrims.</p>
+                        </Link>
+
+                        {/* Somalia Guide */}
+                        <Link href="/guides/international/somalia-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇸🇴</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Somalia to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Somali pilgrims.</p>
+                        </Link>
+
+                        {/* Afghanistan Guide */}
+                        <Link href="/guides/international/afghanistan-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇦🇫</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Afghanistan to KSA</h3>
+                            <p className="text-sm text-gray-600">Reliable transport for Afghans.</p>
+                        </Link>
+
+                        {/* Greece Guide */}
+                        <Link href="/guides/international/greece-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇬🇷</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Greece to KSA</h3>
+                            <p className="text-sm text-gray-600">Taxi for Greek pilgrims.</p>
+                        </Link>
+
+                        {/* Brazil Guide */}
+                        <Link href="/guides/international/brazil-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇧🇷</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Brazil to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Brazilian pilgrims.</p>
+                        </Link>
+
+                        {/* Argentina Guide */}
+                        <Link href="/guides/international/argentina-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇦🇷</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Argentina to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Argentine pilgrims.</p>
+                        </Link>
+
+                        {/* Mexico Guide */}
+                        <Link href="/guides/international/mexico-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇲🇽</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Mexico to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Mexican pilgrims.</p>
+                        </Link>
+
+                        {/* Poland Guide */}
+                        <Link href="/guides/international/poland-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇵🇱</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Poland to KSA</h3>
+                            <p className="text-sm text-gray-600">Taxi for Polish pilgrims.</p>
+                        </Link>
+
+                        {/* Ukraine Guide */}
+                        <Link href="/guides/international/ukraine-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇺🇦</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Ukraine to KSA</h3>
+                            <p className="text-sm text-gray-600">Service for Ukrainian pilgrims.</p>
+                        </Link>
+
+                        {/* Tajikistan Guide */}
+                        <Link href="/guides/international/tajikistan-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇹🇯</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Tajikistan to KSA</h3>
+                            <p className="text-sm text-gray-600">Reliable taxi for Tajiks.</p>
+                        </Link>
+
+                        {/* Turkmenistan Guide */}
+                        <Link href="/guides/international/turkmenistan-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇹🇲</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Turkmenistan to KSA</h3>
+                            <p className="text-sm text-gray-600">Transport for Turkmen pilgrims.</p>
+                        </Link>
+
+                        {/* Romania Guide */}
+                        <Link href="/guides/international/romania-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇷🇴</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Romania to KSA</h3>
+                            <p className="text-sm text-gray-600">Taxi for Romanian pilgrims.</p>
+                        </Link>
+
+                        {/* Bulgaria Guide */}
+                        <Link href="/guides/international/bulgaria-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇧🇬</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Bulgaria to KSA</h3>
+                            <p className="text-sm text-gray-600">Service for Bulgarian pilgrims.</p>
+                        </Link>
+
+                        {/* North Macedonia Guide */}
+                        <Link href="/guides/international/macedonia-umrah-taxi-guide/" className="group bg-white rounded-xl border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-md transition-all">
+                            <div className="flex items-start justify-between mb-4">
+                                <span className="text-4xl">🇲🇰</span>
+                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-indigo-600 transition-colors" />
+                            </div>
+                            <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-indigo-600 transition-colors">Macedonia to KSA</h3>
+                            <p className="text-sm text-gray-600">Taxi for pilgrims from Skopje.</p>
+                        </Link>
+                    </div>
+                </div>
+
+                {/* Features Section */}
+                <div className="bg-white rounded-2xl p-12 border-2 border-gray-200 mb-16">
+                    <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
+                        Why Our Guides Are Different
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="text-center">
+                            <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <Star className="w-8 h-8 text-black" />
+                            </div>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">Driver Expertise</h3>
+                            <p className="text-gray-600">
+                                Written by professional drivers with 5-10 years of local experience serving thousands of customers.
+                            </p>
+                        </div>
+                        <div className="text-center">
+                            <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <MessageCircle className="w-8 h-8 text-black" />
+                            </div>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">Real Insights</h3>
+                            <p className="text-gray-600">
+                                Practical tips and insider knowledge you won't find in generic travel guides or tourist websites.
+                            </p>
+                        </div>
+                        <div className="text-center">
+                            <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <MapPin className="w-8 h-8 text-black" />
+                            </div>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">Comprehensive Coverage</h3>
+                            <p className="text-gray-600">
+                                50-60 topics per guide covering everything from basic navigation to advanced local insights.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* CTA Section */}
+                <div className="bg-gray-50 rounded-2xl p-12 text-center border-2 border-gray-200">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                        Have a Question?
+                    </h2>
+                    <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                        Can't find what you're looking for? Ask our experienced drivers and get personalized answers within 24 hours.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link href="/booking/">
+                            <Button size="lg" className="bg-black text-white hover:bg-gray-800 font-bold w-full sm:w-auto">
+                                <MessageCircle className="w-5 h-5 mr-2" />
+                                Book With Expert Driver
+                            </Button>
+                        </Link>
+                        <Link href="/fleet/">
+                            <Button size="lg" variant="outline" className="border-2 border-black text-black hover:bg-gray-100 font-bold w-full sm:w-auto">
+                                <Star className="w-5 h-5 mr-2" />
+                                Explore Our Fleet
+                            </Button>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}

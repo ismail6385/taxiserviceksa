@@ -12,6 +12,18 @@ export const metadata: Metadata = {
     }
 };
 
+declare global {
+    namespace JSX {
+        interface IntrinsicElements {
+            'amp-story': any;
+            'amp-story-page': any;
+            'amp-story-grid-layer': any;
+            'amp-img': any;
+            'amp-story-cta-layer': any;
+        }
+    }
+}
+
 export default function WebStory() {
     const storyData = {
         title: "5 Umrah Mistakes 2025",
@@ -59,7 +71,7 @@ export default function WebStory() {
                 ctaLink: "https://taxiserviceksa.com/locations/taif"
             },
             {
-                id: "final",
+                id: "mistake-5", // ID was missing/implicit before
                 image: "https://taxiserviceksa.com/hero-image.jpg",
                 title: "Have a Blessed Journey",
                 text: "We are here to serve you 24/7.",
@@ -70,97 +82,45 @@ export default function WebStory() {
     };
 
     return (
-        <>
-            <style dangerouslySetInnerHTML={{
-                __html: `
-        amp-story {
-           font-family: 'Inter', sans-serif;
-           color: white;
-        }
-        amp-story-page {
-           background-color: black;
-        }
-        h1 { font-weight: 900; font-size: 2.5em; line-height: 1.1; text-shadow: 0 4px 8px rgba(0,0,0,0.5); }
-        p { font-size: 1.2em; line-height: 1.5; background: rgba(0,0,0,0.6); padding: 10px; border-radius: 8px; }
-        .bottom-gradient {
-            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50%;
-            z-index: 1;
-        }
-        .content-layer {
-            position: absolute;
-            bottom: 40px;
-            left: 24px;
-            right: 24px;
-            z-index: 2;
-        }
-        .logo-layer {
-            position: absolute;
-            top: 24px;
-            left: 24px;
-            z-index: 2;
-            width: 50px;
-            height: 50px;
-            background: white;
-            border-radius: 50%;
-            padding: 5px;
-        }
-      `}} />
-
-            {/* 
-          NOTE: AMP stories must be standalone HTML documents usually. 
-          In Next.js app directory, we render the raw AMP elements.
-          The layout.tsx usually wraps this, but for AMP we strictly need specific head tags.
-          For this simplified version, we are injecting the AMP body content.
-      */}
-
-            <div dangerouslySetInnerHTML={{
-                __html: `
         <amp-story
-            standalone
-            title="${storyData.title}"
-            publisher="${storyData.publisher}"
-            publisher-logo-src="${storyData.publisherLogo}"
-            poster-portrait-src="${storyData.poster}"
+            standalone=""
+            title={storyData.title}
+            publisher={storyData.publisher}
+            publisher-logo-src={storyData.publisherLogo}
+            poster-portrait-src={storyData.poster}
         >
-            ${storyData.pages.map(page => `
-                <amp-story-page id="${page.id}">
+            {storyData.pages.map((page, index) => (
+                <amp-story-page id={page.id || `page-${index}`} key={page.id || index}>
                     <amp-story-grid-layer template="fill">
-                        <amp-img src="${page.image}"
+                        <amp-img src={page.image}
                             width="720" height="1280"
                             layout="responsive"
-                            alt="${page.title}"
+                            alt={page.title}
                             class="animate-zoom">
                         </amp-img>
                     </amp-story-grid-layer>
-                    
+
                     <amp-story-grid-layer template="vertical" class="bottom-gradient">
                     </amp-story-grid-layer>
 
                     <amp-story-grid-layer template="vertical" class="content-layer">
-                        <div class="logo-layer">
-                             <amp-img src="${storyData.publisherLogo}" width="40" height="40" layout="fixed"></amp-img>
+                        <div className="logo-layer">
+                            <amp-img src={storyData.publisherLogo} width="40" height="40" layout="fixed"></amp-img>
                         </div>
-                        <h1 animate-in="fly-in-bottom" animate-in-duration="0.5s">${page.title}</h1>
-                        ${page.subtitle ? `<p animate-in="fade-in" animate-in-delay="0.3s">${page.subtitle}</p>` : ''}
-                        ${page.text ? `<p animate-in="fade-in" animate-in-delay="0.3s">${page.text}</p>` : ''}
-                        
-                        ${page.ctaLink ? `
+                        <h1 animate-in="fly-in-bottom" animate-in-duration="0.5s">{page.title}</h1>
+                        {page.subtitle && <p animate-in="fade-in" animate-in-delay="0.3s">{page.subtitle}</p>}
+                        {page.text && <p animate-in="fade-in" animate-in-delay="0.3s">{page.text}</p>}
+
+                        {page.ctaLink && (
                             <amp-story-cta-layer>
-                                <a href="${page.ctaLink}" class="button" style="text-decoration: none; color: white; background: #10b981; padding: 12px 24px; border-radius: 30px; font-weight: bold; text-align: center; display: inline-block; margin-top: 20px;">
-                                    ${page.ctaText || 'Learn More'}
+                                <a href={page.ctaLink} className="button">
+                                    {page.ctaText || 'Learn More'}
                                 </a>
                             </amp-story-cta-layer>
-                        ` : ''}
+                        )}
                     </amp-story-grid-layer>
                 </amp-story-page>
-            `).join('')}
+            ))}
         </amp-story>
-      `}} />
-        </>
     );
 }
