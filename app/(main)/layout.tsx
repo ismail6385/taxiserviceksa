@@ -11,6 +11,11 @@ const poppins = Poppins({
 
 export const metadata = {
   metadataBase: new URL('https://taxiserviceksa.com'),
+  verification: {
+    other: {
+      'msvalidate.01': 'DBF10D8E5F51FF80E9121C8FF0A4F0A5',
+    },
+  },
   alternates: {
     canonical: './',
   },
@@ -93,6 +98,17 @@ export default function RootLayout({
           strategy="lazyOnload"
           async
         />
+
+        {/* Microsoft Clarity */}
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "qp7iv7z299");
+          `}
+        </Script>
 
         <LayoutWrapper>
           {children}
