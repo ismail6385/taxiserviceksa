@@ -8,7 +8,7 @@ export default function JsonLdLocalBusiness() {
         "name": "TaxiServiceKSA",
         "image": "https://taxiserviceksa.com/logo.png",
         "url": "https://taxiserviceksa.com",
-        "telephone": "+966555555555",
+        "telephone": "+1 (307) 346-4572",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Prince Sultan Road",

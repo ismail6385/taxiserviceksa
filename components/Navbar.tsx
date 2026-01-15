@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import {
     Menu, X, Mail, Car, ChevronDown, Home, Briefcase,
-    Info, Contact, MapPin, ShieldCheck,
+    Info, Contact, MapPin, ShieldCheck, Phone,
     Star, Navigation, Globe, Clock, Sparkles, Building2,
     Camera, Users2
 } from 'lucide-react';
@@ -139,6 +139,10 @@ export default function Navbar() {
                             <Mail className="w-3 h-3 text-primary" />
                             <span>info@taxiserviceksa.com</span>
                         </div>
+                        <a href="https://wa.me/13073464572" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
+                            <Phone className="w-3 h-3 text-primary" />
+                            <span>+1 (307) 346-4572</span>
+                        </a>
                         <div className="hidden sm:flex items-center gap-2 cursor-default">
                             <Clock className="w-3 h-3 text-primary" />
                             <span>Available 24/7 for Bookings</span>

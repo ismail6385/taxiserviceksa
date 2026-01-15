@@ -10,6 +10,22 @@ const formSchema = z.object({
     message: z.string().min(10),
 });
 
+// Helper function to format phone number for WhatsApp
+function formatPhoneForWhatsApp(phone: string): string {
+    if (!phone) return '';
+    // Remove all non-digit characters
+    const cleaned = phone.replace(/\D/g, '');
+    // If it starts with 0, remove it (Saudi Arabia format)
+    if (cleaned.startsWith('0')) {
+        return cleaned.substring(1);
+    }
+    // If it doesn't start with country code, assume Saudi Arabia (+966)
+    if (!cleaned.startsWith('966')) {
+        return `966${cleaned}`;
+    }
+    return cleaned;
+}
+
 export async function POST(req: Request) {
     try {
         const body = await req.json();
@@ -40,6 +56,13 @@ export async function POST(req: Request) {
           <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
           <h3 style="color: #555;">Message:</h3>
           <p style="white-space: pre-wrap; color: #666; font-size: 16px;">${message}</p>
+          
+          <div style="text-align: center; margin-top: 30px;">
+            <a href="https://wa.me/${formatPhoneForWhatsApp(phone)}?text=${encodeURIComponent(`Hello ${name}, regarding your inquiry: "${subject}"`)}" 
+               style="display: inline-block; background-color: #25D366; color: white; padding: 12px 24px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 16px;">
+              💬 Reply via WhatsApp
+            </a>
+          </div>
         </div>
       `,
         };

@@ -104,6 +104,19 @@ export default function ContactPage() {
                                             <p className="text-xs text-gray-500 mt-1">We reply within 30 mins</p>
                                         </div>
                                     </div>
+
+                                    <div className="flex items-start gap-4">
+                                        <div className="bg-white/10 p-3 rounded-xl mt-1">
+                                            <Phone className="w-6 h-6 text-primary" />
+                                        </div>
+                                        <div>
+                                            <p className="text-sm text-gray-400 font-medium mb-1">WhatsApp Support</p>
+                                            <a href="https://wa.me/13073464572" target="_blank" rel="noopener noreferrer" className="text-xl font-bold hover:text-primary transition-colors">
+                                                +1 (307) 346-4572
+                                            </a>
+                                            <p className="text-xs text-gray-500 mt-1">Available 24/7</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

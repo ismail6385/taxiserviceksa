@@ -34,6 +34,18 @@ export default function Footer() {
                         <p className="text-gray-400 leading-relaxed text-sm font-medium pr-4">
                             Your trusted partner for premium transportation across Saudi Arabia. We specialize in Umrah transfers, corporate logistics, and luxury chauffeur services.
                         </p>
+
+                        <div className="space-y-2">
+                            <a href="mailto:info@taxiserviceksa.com" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
+                                <Mail className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                                <span className="text-sm font-medium">info@taxiserviceksa.com</span>
+                            </a>
+                            <a href="https://wa.me/13073464572" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
+                                <Phone className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                                <span className="text-sm font-medium">+1 (307) 346-4572</span>
+                            </a>
+                        </div>
+
                         {/* Socials (Moved back here for better brand association) */}
                         <div className="flex gap-3">
                             {[
