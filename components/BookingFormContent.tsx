@@ -164,9 +164,28 @@ export default function BookingFormContent({ prefilledData, className }: Booking
     };
 
     // Helper to open WhatsApp with booking details
-    const openWhatsAppBooking = () => {
+    const openWhatsAppBooking = async () => {
         const vehicle = vehicles.find(v => v.name === formData.vehicle_type);
+        setLoading(true);
 
+        try {
+            // 1. Save to Database as a lead
+            const fullPhoneNumber = `${countryCode}${formData.customer_phone}`;
+            const bookingLeadData = {
+                ...formData,
+                customer_phone: fullPhoneNumber,
+                special_requests: (calculatedPrice ? `Quoted Price: SAR ${calculatedPrice}` : '') + ` | Source: WhatsApp Click`,
+                status: 'pending'
+            };
+
+            const { error } = await supabase.from('bookings').insert([bookingLeadData]);
+            if (error) console.error("Failed to save WhatsApp lead:", error);
+
+        } catch (err) {
+            console.error("Error in WhatsApp flow:", err);
+        }
+
+        // 2. Open WhatsApp
         const message = `Hello, I would like to book a ride using WhatsApp.
         
 *Booking Details:*
@@ -182,6 +201,7 @@ Please confirm availability.`;
 
         const whatsappUrl = `https://wa.me/13073464572?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
+        setLoading(false);
     };
 
     const handleSubmit = async (e: React.FormEvent) => {

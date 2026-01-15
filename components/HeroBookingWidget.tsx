@@ -142,9 +142,37 @@ Please confirm my ride.`;
     };
 
     // Helper to open WhatsApp with booking details
-    const openWhatsAppBooking = () => {
+    const openWhatsAppBooking = async () => {
         if (!selectedVehicle) return;
+        setLoading(true);
 
+        try {
+            // 1. Save to Database as a lead
+            const fullPhoneNumber = `${countryCode}${customerPhone}`;
+            const bookingData = {
+                customer_name: customerName,
+                customer_email: customerEmail,
+                customer_phone: fullPhoneNumber,
+                pickup_location: pickup,
+                destination: dropoff,
+                pickup_date: date,
+                pickup_time: time,
+                vehicle_type: selectedVehicle.name,
+                vehicle_image: selectedVehicle.image,
+                passengers: selectedVehicle.passengers,
+                luggage: selectedVehicle.luggage,
+                special_requests: (isRoundTrip ? `Request: Round Trip. Quoted Price: SAR ${calculatedPrice || 'TBD'}` : `Quoted Price: SAR ${calculatedPrice || 'TBD'}`) + ` | Source: WhatsApp Click`,
+                status: 'pending'
+            };
+
+            const { error } = await supabase.from('bookings').insert([bookingData]);
+            if (error) console.error("Failed to save WhatsApp lead:", error);
+
+        } catch (err) {
+            console.error("Error in WhatsApp flow:", err);
+        }
+
+        // 2. Open WhatsApp
         const message = `Hello, I would like to book a ride using WhatsApp.
         
 *Booking Details:*
@@ -160,6 +188,7 @@ Please confirm availability.`;
 
         const whatsappUrl = `https://wa.me/13073464572?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
+        setLoading(false);
     };
 
     return (
