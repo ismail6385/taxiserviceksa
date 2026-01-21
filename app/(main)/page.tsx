@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
-  keywords: ['VIP Private Transfer Saudi Arabia', 'Executive Chauffeur Saudi Arabia', 'VIP Umrah Transport', 'Premium Airport Transfer KSA', 'rent a car with driver in saudi arabia', 'jeddah to makkah coaster', 'transport madinah to makkah', 'private luxury transfer for families', 'executive suv for rent in jeddah', 'taxi saudi arabia from uk', 'umrah taxi from usa', 'jeddah airport transfer canada', 'prebook taxi jeddah', 'luxury transport saudi arabia'],
+  keywords: ['VIP Private Transfer Saudi Arabia', 'Executive Chauffeur Saudi Arabia', 'VIP Umrah Transport', 'Premium Airport Transfer KSA', 'rent a car with driver in saudi arabia', 'jeddah to makkah coaster', 'transport madinah to makkah', 'private luxury transfer for families', 'executive suv for rent in jeddah', 'taxi saudi arabia from uk', 'umrah taxi from usa', 'jeddah airport transfer canada', 'prebook taxi jeddah', 'luxury transport saudi arabia', 'Al Haram Cab alternative', 'Kaiian taxi alternative', 'Umrah Taxi Online', 'Jeddah to Makkah taxi fare', 'GMC Yukon Makkah', 'Toyota Hiace Umrah transport'],
 };
 
 export default async function Home() {

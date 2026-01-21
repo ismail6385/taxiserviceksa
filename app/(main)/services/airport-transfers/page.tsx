@@ -15,7 +15,7 @@ import { blogService } from '@/lib/blogService';
 import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-    keywords: ['VIP Airport Transfers Saudi Arabia', 'Premium Chauffeur Service', 'Jeddah Airport VIP Transfer', 'Riyadh Executive Transfer', 'Madinah Private Airport Shuttle'],
+    keywords: ['VIP Airport Transfers Saudi Arabia', 'Premium Chauffeur Service', 'Jeddah Airport VIP Transfer', 'Riyadh Executive Transfer', 'Madinah Private Airport Shuttle', 'Uber alternative Jeddah Airport', 'Careem alternative Riyadh', 'Kaiian airport taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/airport-transfers/',
     },
@@ -134,6 +134,10 @@ export default async function AirportTransfersPage() {
         {
             question: "How does the VIP meet-and-greet service work at Saudi airports?",
             answer: "Driver waits at arrivals hall with name sign displaying passenger name. For Jeddah (JED), we meet at the **Aquarium (Terminal 1)** or **Gate 4 (North Terminal)**. For Madinah (MED), drivers wait at the main international exit barrier. Detailed meeting point photos are sent via WhatsApp."
+        },
+        {
+            question: "Is it better to use Uber, Careem, or a private transfer from Jeddah Airport?",
+            answer: "While apps like **Uber, Careem, and Kaiian** are available, they often face surge pricing (up to 2x) and restrictions on pickup zones. Our **pre-booked VIP transfer** guarantees a fixed price, a professional driver waiting for you at the arrivals hall (meet-and-greet), and spacious vehicles for large families/luggage (GMC, Hiace) which are often unavailable on standard apps."
         },
         {
             question: "What happens if my flight is delayed or arrives early?",

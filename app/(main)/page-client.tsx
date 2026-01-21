@@ -172,7 +172,11 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
     const faqs = [
         {
             question: "Do you provide airport taxi in Saudi Arabia from Jeddah to Makkah?",
-            answer: "Airport taxi service from King Abdulaziz International Airport (JED) to Makkah hotels operates 24/7. Drivers provide meet-and-greet service at arrivals. Flight tracking monitors delays automatically."
+            answer: "Yes, our airport taxi service from King Abdulaziz International Airport (JED) to Makkah hotels operates 24/7. Unlike standard yellow street taxis, we offer fixed-price booking with no hidden meters. Drivers provide meet-and-greet service at arrivals. Flight tracking monitors delays automatically."
+        },
+        {
+            question: "Is this service better than Uber, Careem, or Kaiian for Umrah?",
+            answer: "For long-distance Umrah journeys (like Jeddah to Makkah or Makkah to Madinah), <strong>VIP Transfer KSA</strong> offers distinct advantages over apps like <strong>Uber, Jeeny, or Kaiian</strong>. We guarantee <strong>fixed prices</strong> (no surge pricing), spacious vehicles for luggage (GMC Yukon, Toyota Hiace), and professional drivers who wait for you even if your flight is delayed. It is a dedicated <strong>inter-city service</strong> designed for peace of mind."
         },
         {
             question: "What is the best online transfer service for Umrah pilgrims?",
@@ -261,7 +265,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                 VIP Private Transfers & <span className="text-primary block mt-2">Executive Chauffeur Service</span>
                             </h2>
                             <p className="text-gray-300 text-lg leading-relaxed max-w-xl">
-                                Experience the gold standard of travel with Saudi Arabia's premier private transfer service. We cater specifically to international tourists from <strong>all over the world</strong> (USA, UK, Europe, Asia, & MENA), and business executives who require reliable, long-distance transportation. We specialize in <strong>Airport Transfers, Intercity Trips, and Full-Day Executive Hire</strong> with professional chauffeurs—we do not offer local 'street hail' services.
+                                Experience the gold standard of travel with Saudi Arabia's premier private transfer service. We provide a <strong>reliable alternative to ride-hailing apps like Uber, Careem, and Kaiian</strong> for international tourists (USA, UK, Europe, Asia) and business executives. We specialize in <strong>Airport Transfers, Umrah Transport, and Intercity Trips</strong> (e.g., Jeddah to Makkah, Makkah to Madinah). Note: We focus on pre-booked long-distance travel and do not offer local 'street hail' or short-distance city taxi services.
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 pt-4">

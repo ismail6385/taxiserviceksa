@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 export const metadata: Metadata = {
     title: 'VIP Private Transfers & Chauffeur Services Saudi Arabia',
     description: 'Explore premium VIP private transfer services in Saudi Arabia. Specializing in executive airport pickups, long-distance intercity travel, and dedicated Umrah transport.',
-    keywords: ['VIP Private Transfers', 'Executive Chauffeur Service', 'Premium Transfer KSA', 'Long Distance Transfer', 'Umrah Private Transport', 'Business Chauffeur'],
+    keywords: ['VIP Private Transfers', 'Executive Chauffeur Service', 'Premium Transfer KSA', 'Long Distance Transfer', 'Umrah Private Transport', 'Business Chauffeur', 'Alternative to Uber KSA', 'Alternative to Careem', 'Kaiian alternative', 'Al Haram Cab alternative'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/',
     },

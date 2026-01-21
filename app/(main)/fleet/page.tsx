@@ -8,7 +8,7 @@ import RelatedServices from '@/components/seo/RelatedServices'; // Assuming this
 export const metadata: Metadata = {
     title: 'VIP Executive Fleet Saudi Arabia | Premium Chauffeur Vehicles',
     description: 'Explore our VIP executive fleet in Saudi Arabia. Luxury GMC Yukon, Hyundai Staria, and Toyota Hiace for premium private transfers. 2025 models with professional chauffeurs.',
-    keywords: ['VIP Fleet Saudi Arabia', 'Premium Chauffeur Vehicles', 'GMC Yukon VIP Transfer', 'Luxury Van Transfer KSA', 'Executive Car with Driver', 'Umrah Private Fleet'],
+    keywords: ['VIP Fleet Saudi Arabia', 'Premium Chauffeur Vehicles', 'GMC Yukon VIP Transfer', 'Luxury Van Transfer KSA', 'Executive Car with Driver', 'Umrah Private Fleet', 'UberXL alternative Saudi Arabia', 'Careem Max alternative', 'VIP GMC Booking'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/fleet/',
     }
