@@ -40,9 +40,9 @@ export default function Footer() {
                                 <Mail className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
                                 <span className="text-sm font-medium">info@taxiserviceksa.com</span>
                             </a>
-                            <a href="https://wa.me/13073464572" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
+                            <a href="https://wa.me/923080628195" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
                                 <Phone className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                                <span className="text-sm font-medium">+1 (307) 346-4572</span>
+                                <span className="text-sm font-medium">+92 308 062 8195</span>
                             </a>
                         </div>
 

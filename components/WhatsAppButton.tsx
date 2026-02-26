@@ -8,7 +8,7 @@ export default function WhatsAppButton() {
     const [isVisible, setIsVisible] = useState(false);
     const [isCardOpen, setIsCardOpen] = useState(false);
 
-    const phoneNumber = "13073464572"; // +1 (307) 346-4572
+    const phoneNumber = "923080628195"; // +92 308 062 8195
     const displayMessage = "Hello, I need some information.";
 
     // Determine typical reply time for display

@@ -130,7 +130,7 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
 • Name: ${customerName}
 
 Please confirm my ride.`;
-                const whatsappUrl = `https://wa.me/13073464572?text=${encodeURIComponent(message)}`;
+                const whatsappUrl = `https://wa.me/923080628195?text=${encodeURIComponent(message)}`;
                 window.open(whatsappUrl, '_blank');
             }, 1500); // Small delay to let user see success screen first
         } catch (error) {
@@ -186,7 +186,7 @@ ${calculatedPrice ? `• Est. Price: SAR ${calculatedPrice}` : ''}
 
 Please confirm availability.`;
 
-        const whatsappUrl = `https://wa.me/13073464572?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/923080628195?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
         setLoading(false);
     };
