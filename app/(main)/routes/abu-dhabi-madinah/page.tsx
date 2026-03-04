@@ -6,6 +6,7 @@ import { MapPin, Clock, CheckCircle2, Building2, Globe, ArrowRight } from 'lucid
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
+import RouteBreadcrumb from '@/components/seo/RouteBreadcrumb';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
@@ -24,11 +25,7 @@ export const metadata: Metadata = {
 };
 
 export default function AbuDhabiMadinahRoutePage() {
-    const images = [
-        '/hero-slide-3.webp',
-        '/hero-slide-2.webp',
-        '/jeddah-airport.webp'
-    ];
+    const images = ['/locations/abu-dhabi.webp', '/hero-slide-3.webp', '/hero-slide-2.webp'];
 
     const routeSchema = {
         "@context": "https://schema.org",
@@ -65,6 +62,10 @@ export default function AbuDhabiMadinahRoutePage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
             />
+
+            
+
+            <RouteBreadcrumb fromCity="Abu Dhabi" toCity="Madinah" fromSlug="abu-dhabi" toSlug="madinah" />
 
             <Hero
                 images={images}
@@ -181,7 +182,7 @@ export default function AbuDhabiMadinahRoutePage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
-                <RelatedLocations currentCity="Riyadh" />
+                <RelatedLocations currentCity="Madinah" />
             </div>
 
             <MicroSemanticFAQ

@@ -6,6 +6,7 @@ import { MapPin, Clock, CheckCircle2, Building2, Globe, ArrowRight } from 'lucid
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
+import RouteBreadcrumb from '@/components/seo/RouteBreadcrumb';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
@@ -24,11 +25,7 @@ export const metadata: Metadata = {
 };
 
 export default function MuscatRiyadhRoutePage() {
-    const images = [
-        '/hero-slide-3.webp',
-        '/hero-slide-2.webp',
-        '/jeddah-airport.webp'
-    ];
+    const images = ['/locations/muscat.webp', '/hero-slide-3.webp', '/hero-slide-2.webp'];
 
     const routeSchema = {
         "@context": "https://schema.org",
@@ -65,6 +62,10 @@ export default function MuscatRiyadhRoutePage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
             />
+
+            
+
+            <RouteBreadcrumb fromCity="Muscat" toCity="Riyadh" fromSlug="muscat" toSlug="riyadh" />
 
             <Hero
                 images={images}

@@ -173,8 +173,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
             const fullPhoneNumber = `${countryCode}${formData.customer_phone}`;
             const bookingLeadData = {
                 ...formData,
-                customer_phone: fullPhoneNumber,
-                special_requests: (calculatedPrice ? `Quoted Price: SAR ${calculatedPrice}` : '') + ` | Source: WhatsApp Click`,
+                special_requests: (calculatedPrice ? `Please Provide Quote` : '') + ` | Source: WhatsApp Click`,
                 status: 'pending'
             };
 
@@ -195,7 +194,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
 • Time: ${formData.pickup_time}
 ${vehicle ? `• Vehicle: ${vehicle.name}` : ''}
 ${formData.customer_name ? `• Name: ${formData.customer_name}` : ''}
-${calculatedPrice ? `• Est. Price: SAR ${calculatedPrice}` : ''}
+${calculatedPrice ? `• Est. Price: Requesting Quote` : ''}
 
 Please confirm availability.`;
 
@@ -214,7 +213,7 @@ Please confirm availability.`;
                 ...formData,
                 customer_phone: fullPhoneNumber,
                 special_requests: calculatedPrice
-                    ? `${formData.special_requests ? formData.special_requests + '. ' : ''}Quoted Price: SAR ${calculatedPrice}`
+                    ? `${formData.special_requests ? formData.special_requests + '. ' : ''}Please Provide Quote`
                     : formData.special_requests
             };
 
@@ -225,7 +224,7 @@ Please confirm availability.`;
             fetch('/api/send-booking-emails', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ booking: data[0], price: calculatedPrice })
+                body: JSON.stringify({ booking: data[0], price: 'Need Quote' })
             }).catch(console.error);
 
             setSuccess(true);
@@ -457,7 +456,7 @@ Please confirm my ride.`;
                                         {formData.pickup_location && formData.destination && (
                                             <div className="text-right">
                                                 <span className="block font-bold text-lg text-primary">
-                                                    SAR {getPrice(formData.pickup_location, formData.destination, v.name) || 'Quote'}
+                                                    Get Quote
                                                 </span>
                                             </div>
                                         )}
@@ -496,7 +495,7 @@ Please confirm my ride.`;
                             {calculatedPrice && (
                                 <div className="flex justify-between font-bold text-primary pt-2 border-t border-gray-200 mt-2">
                                     <span>Total Estimate:</span>
-                                    <span>SAR {calculatedPrice}</span>
+                                    <span>Get Quote</span>
                                 </div>
                             )}
                         </div>

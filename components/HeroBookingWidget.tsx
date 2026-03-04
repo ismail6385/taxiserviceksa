@@ -101,7 +101,7 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                 vehicle_image: selectedVehicle.image,
                 passengers: selectedVehicle.passengers,
                 luggage: selectedVehicle.luggage,
-                special_requests: (isRoundTrip ? `Request: Round Trip. Quoted Price: SAR ${calculatedPrice || 'TBD'}` : `Quoted Price: SAR ${calculatedPrice || 'TBD'}`) + ` | Source: ${pathname}`,
+                special_requests: (isRoundTrip ? `Request: Round Trip. Please Provide Quote` : `Please Provide Quote`) + ` | Source: ${pathname}`,
                 status: 'pending'
             };
 
@@ -112,7 +112,7 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
             fetch('/api/send-booking-emails', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ booking: data[0], price: calculatedPrice })
+                body: JSON.stringify({ booking: data[0], price: 'Need Quote' })
             }).catch(console.error);
 
             setStep(4); // Success
@@ -161,7 +161,7 @@ Please confirm my ride.`;
                 vehicle_image: selectedVehicle.image,
                 passengers: selectedVehicle.passengers,
                 luggage: selectedVehicle.luggage,
-                special_requests: (isRoundTrip ? `Request: Round Trip. Quoted Price: SAR ${calculatedPrice || 'TBD'}` : `Quoted Price: SAR ${calculatedPrice || 'TBD'}`) + ` | Source: WhatsApp Click`,
+                special_requests: (isRoundTrip ? `Request: Round Trip. Please Provide Quote` : `Please Provide Quote`) + ` | Source: WhatsApp Click`,
                 status: 'pending'
             };
 
@@ -182,7 +182,7 @@ Please confirm my ride.`;
 • Time: ${time}
 • Vehicle: ${selectedVehicle.name}
 ${customerName ? `• Name: ${customerName}` : ''}
-${calculatedPrice ? `• Est. Price: SAR ${calculatedPrice}` : ''}
+${calculatedPrice ? `• Est. Price: Requesting Quote` : ''}
 
 Please confirm availability.`;
 
@@ -365,7 +365,7 @@ Please confirm availability.`;
                                                     </div>
                                                 </div>
                                                 <div className="font-bold text-primary text-base">
-                                                    {price ? `SAR ${price}` : 'Quote'}
+                                                    Get Quote
                                                 </div>
                                             </div>
                                         </SelectItem>
@@ -444,8 +444,8 @@ Please confirm availability.`;
                             </div>
 
                             <div className="bg-primary/10 border border-primary/20 rounded-xl p-3 flex justify-between items-center">
-                                <span className="text-sm font-semibold text-gray-700 flex items-center"><Wallet className="w-4 h-4 mr-2" /> Total Cost:</span>
-                                <span className="text-xl font-bold text-primary">SAR {calculatedPrice}</span>
+                                <span className="text-sm font-semibold text-gray-700 flex items-center"><Wallet className="w-4 h-4 mr-2" /> Fare Estimate:</span>
+                                <span className="text-xl font-bold text-primary">Get Quote</span>
                             </div>
                         </div>
                     </div>

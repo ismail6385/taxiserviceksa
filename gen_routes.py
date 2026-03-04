@@ -4,6 +4,19 @@ import json
 def generate_page_content(route):
     from_slug = route['from'].lower().replace(' ', '-')
     to_slug = route['to'].lower().replace(' ', '-')
+    
+    # Determine the priority and changefreq based on whether it's an intercity or GCC route
+    is_gcc = route.get('is_gcc', False) # Default to False if not present
+    priority = "0.9" if is_gcc else "0.8"
+    changefreq = "weekly"
+    
+    # Custom image logic
+    images_array = "['/hero-slide-3.webp', '/hero-slide-2.webp', '/jeddah-airport.webp']"
+    if 'Dubai' in route['from'] or 'Dubai' in route['to'] or 'Abu Dhabi' in route['from'] or 'Abu Dhabi' in route['to'] or 'Sharjah' in route['from'] or 'Sharjah' in route['to']:
+        images_array = "['/locations/dubai.webp', '/hero-slide-3.webp', '/hero-slide-2.webp']"
+    elif 'Doha' in route['from'] or 'Doha' in route['to']:
+        images_array = "['/locations/doha.webp', '/hero-slide-3.webp', '/hero-slide-2.webp']"
+
     title = f"Taxi {route['from']} to {route['to']}"
     desc = f"Book a premium taxi from {route['from']} to {route['to']}. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC."
     canonical = f"https://taxiserviceksa.com/routes/{from_slug}-{to_slug}/"
@@ -39,11 +52,7 @@ export const metadata: Metadata = {{
 }};
 
 export default function {component_name}() {{
-    const images = [
-        '/hero-slide-3.webp',
-        '/hero-slide-2.webp',
-        '/jeddah-airport.webp'
-    ];
+    const images = {images_array};
 
     const routeSchema = {{
         "@context": "https://schema.org",

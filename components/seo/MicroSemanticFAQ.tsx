@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Script from 'next/script';
 import { HelpCircle, Check, ChevronDown, ChevronUp, Shield, Users, User, Briefcase, Heart, Compass } from 'lucide-react';
 
 export interface MicroPerspective {
@@ -60,8 +61,27 @@ const MicroSemanticFAQ: React.FC<MicroSemanticFAQProps> = ({
         setExpandedIndex(expandedIndex === index ? null : index);
     };
 
+    // Generate FAQPage JSON-LD schema
+    const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.detailedAnswer
+            }
+        }))
+    };
+
     return (
         <div className={`my-16 ${isRtl ? 'rtl' : 'ltr'}`} dir={isRtl ? 'rtl' : 'ltr'}>
+            <Script
+                id={`faq-schema-${faqs[0]?.question?.replace(/\s+/g, '-').substring(0, 30).toLowerCase() || 'default'}`}
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
             <div className="text-center mb-10">
                 <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2 inline-block ${isDark ? 'bg-blue-900/30 text-blue-300' : 'bg-blue-100 text-blue-700'}`}>
                     FAQs

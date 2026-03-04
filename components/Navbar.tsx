@@ -98,11 +98,11 @@ export default function Navbar() {
                     ]
                 },
                 {
-                    category: 'Pilgrimage Transfers',
+                    category: 'Executive & Pilgrimage',
                     items: [
+                        { name: 'Corporate Business Travel', href: '/services/business/' },
                         { name: 'Makkah to Madinah VIP', href: '/routes/makkah-madinah/' },
                         { name: 'VIP Umrah Transfers', href: '/services/umrah-transport/' },
-                        { name: 'Madinah Airport VIP Transfer', href: '/locations/madinah/madinah-airport/' },
                     ]
                 },
                 {
@@ -215,7 +215,7 @@ export default function Navbar() {
 
                                     {/* Dropdown Logic */}
                                     {link.children && (
-                                        <div className={`absolute top-full left-0 mt-2 origin-top-left transition-all duration-300 ${activeDropdown === link.name ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-4 invisible'}`}>
+                                        <div className={`absolute top-full mt-2 transition-all duration-300 ${activeDropdown === link.name ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-4 invisible'} ${link.name === 'Routes' || link.name === 'Locations' ? 'left-1/2 -translate-x-1/2 origin-top' : link.name === 'Company' || link.name === 'Partners' ? 'right-0 origin-top-right' : 'left-0 origin-top-left'}`}>
                                             {/* @ts-ignore */}
                                             {link.mega ? (
                                                 <div className="p-8 bg-white rounded-[2.5rem] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] border border-gray-100 min-w-[700px] w-max grid grid-cols-3 xl:grid-cols-4 gap-8">

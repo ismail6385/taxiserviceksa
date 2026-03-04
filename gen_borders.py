@@ -21,8 +21,14 @@ def generate_page_content(border):
     title = f"Taxi {border['name']} Border Crossing ({border['country']})"
     desc = f"Need a taxi at {border['name']} Border? We provide reliable, 24/7 VIP cross-border transfers between Saudi Arabia and {border['country']}. Get a quote now."
     canonical = f"https://taxiserviceksa.com/border-crossings/{slug}/"
-    
-    component_name = border['name'].replace(' ', '') + "BorderPage"
+    component_name = border['name'].replace(' ', '').replace('-', '') + "BorderPage"
+
+    # Custom image logic
+    images_array = "['/hero-slide-3.webp', '/hero-slide-2.webp', '/jeddah-airport.webp']"
+    if 'UAE' in border['country']:
+        images_array = "['/locations/dubai.webp', '/hero-slide-3.webp', '/hero-slide-2.webp']"
+    elif 'Qatar' in border['country']:
+        images_array = "['/locations/doha.webp', '/hero-slide-3.webp', '/hero-slide-2.webp']"
 
     content = f"""import {{ Metadata }} from 'next';
 import Link from 'next/link';
@@ -50,11 +56,7 @@ export const metadata: Metadata = {{
 }};
 
 export default function {component_name}() {{
-    const images = [
-        '/hero-slide-3.webp',
-        '/hero-slide-2.webp',
-        '/jeddah-airport.webp'
-    ];
+    const images = {images_array};
 
     const routeSchema = {{
         "@context": "https://schema.org",

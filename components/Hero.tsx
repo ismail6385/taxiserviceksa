@@ -112,7 +112,7 @@ export default function Hero(props: HeroProps) {
                     </div>
                     <div className="flex items-center gap-2">
                         <Star className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400" />
-                        <span className="text-sm sm:text-base font-semibold">Fixed Pricing</span>
+                        <span className="text-sm sm:text-base font-semibold">Best Price Guarantee</span>
                     </div>
                 </div>
 
