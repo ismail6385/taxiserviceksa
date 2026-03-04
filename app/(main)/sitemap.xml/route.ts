@@ -7,6 +7,8 @@ export async function GET() {
         `${baseUrl}/sitemap-services.xml`,
         `${baseUrl}/sitemap-locations.xml`,
         `${baseUrl}/sitemap-blog.xml`,
+        `${baseUrl}/sitemap-routes.xml`,
+        `${baseUrl}/sitemap-borders.xml`,
     ];
 
     const sitemapIndexXml = `<?xml version="1.0" encoding="UTF-8"?>

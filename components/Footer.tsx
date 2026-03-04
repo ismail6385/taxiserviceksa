@@ -156,20 +156,19 @@ export default function Footer() {
                     <div>
                         <h3 className="text-lg font-black text-white mb-6 flex items-center gap-2">
                             <div className="w-1 h-6 bg-primary rounded-full"></div>
-                            VIP Intercity Routes
+                            Popular GCC Routes
                         </h3>
                         <ul className="space-y-2">
                             {[
-                                { name: 'Transfer Jeddah to Makkah', href: '/routes/jeddah-makkah/' },
-                                { name: 'Transfer Makkah to Madinah', href: '/routes/makkah-madinah/' },
-                                { name: 'Transfer Jeddah to Madinah', href: '/routes/jeddah-madinah/' },
-                                { name: 'Transfer Jeddah to Yanbu', href: '/routes/jeddah-yanbu/' },
-                                { name: 'Transfer Jeddah to Taif', href: '/routes/jeddah-taif/' },
-                                { name: 'Transfer Riyadh to Dammam', href: '/routes/riyadh-dammam/' },
-                                { name: 'Transfer Dammam to Bahrain', href: '/routes/dammam-bahrain/' },
-                                { name: 'Jeddah Train Transfer', href: '/routes/jeddah-train-station-taxi/' },
-                                { name: 'Madinah Train Transfer', href: '/routes/madinah-train-station-taxi/' },
-                                { name: 'VIP Umrah Transfer', href: '/services/umrah-transport/' },
+                                { name: 'Riyadh to Dubai Taxi', href: '/routes/riyadh-dubai/' },
+                                { name: 'Dammam to Doha Taxi', href: '/routes/dammam-doha/' },
+                                { name: 'Jeddah to Amman Taxi', href: '/routes/jeddah-amman/' },
+                                { name: 'Kuwait to Riyadh Taxi', href: '/routes/kuwait-riyadh/' },
+                                { name: 'Al Batha Border Taxi', href: '/border-crossings/taxi-al-batha-border-crossing/' },
+                                { name: 'King Fahd Causeway', href: '/border-crossings/taxi-king-fahd-causeway-border-crossing/' },
+                                { name: 'Saudi to Bahrain VIP', href: '/routes/dammam-bahrain/' },
+                                { name: 'Jeddah to Makkah VIP', href: '/routes/jeddah-makkah/' },
+                                { name: 'Makkah to Madinah VIP', href: '/routes/makkah-madinah/' },
                             ].map((item) => (
                                 <li key={item.name}>
                                     <Link href={item.href} className="text-gray-400 hover:text-white hover:translate-x-1 transition-all flex items-center gap-2 group text-sm font-medium">
@@ -179,7 +178,6 @@ export default function Footer() {
                                 </li>
                             ))}
                         </ul>
-                        {/* Partners links could go here or be omitted to be cleaner, I'll omit strictly partner links to save space unless requested, but keeping socials in Col 1 is standard brand behavior */}
                     </div>
 
                 </div>

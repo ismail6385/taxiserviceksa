@@ -1,4 +1,14 @@
-import { Metadata } from 'next';
+const fs = require('fs');
+const path = require('path');
+
+const generatePageContent = (route) => {
+    const fromSlug = route.from.toLowerCase().replace(/\s+/g, '-');
+    const toSlug = route.to.toLowerCase().replace(/\s+/g, '-');
+    const title = `Taxi ${route.from} to ${route.to}`;
+    const desc = `Book a premium taxi from ${route.from} to ${route.to}. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.`;
+    const canonical = `https://taxiserviceksa.com/routes/${fromSlug}-${toSlug}/`;
+
+    return `import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
@@ -9,21 +19,21 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi Dammam to Bahrain | VIP Cross-Border Transfer',
-    description: 'Book a premium taxi from Dammam to Bahrain. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
-    keywords: ['Taxi Dammam to Bahrain', 'Dammam to Bahrain transfer', 'cross border taxi Saudi Arabia', 'VIP transport Dammam Bahrain'],
+    title: '${title} | VIP Cross-Border Transfer',
+    description: '${desc}',
+    keywords: ['Taxi ${route.from} to ${route.to}', '${route.from} to ${route.to} transfer', 'cross border taxi Saudi Arabia', 'VIP transport ${route.from} ${route.to}'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/dammam-bahrain/',
+        canonical: '${canonical}',
     },
     openGraph: {
-        title: 'Taxi Dammam to Bahrain | VIP Cross-Border Transfer',
-        description: 'Book a premium taxi from Dammam to Bahrain. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
-        url: 'https://taxiserviceksa.com/routes/dammam-bahrain/',
+        title: '${title} | VIP Cross-Border Transfer',
+        description: '${desc}',
+        url: '${canonical}',
         type: 'website',
     },
 };
 
-export default function DammamBahrainRoutePage() {
+export default function ${route.from.replace(/\s+/g, '')}${route.to.replace(/\s+/g, '')}RoutePage() {
     const images = [
         '/hero-slide-3.webp',
         '/hero-slide-2.webp',
@@ -33,14 +43,14 @@ export default function DammamBahrainRoutePage() {
     const routeSchema = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Taxi Dammam to Bahrain",
+        "name": "${title}",
         "provider": {
             "@type": "TransportationService",
             "name": "TaxiServiceKSA"
         },
         "areaServed": [
-            { "@type": "City", "name": "Dammam" },
-            { "@type": "City", "name": "Bahrain" }
+            { "@type": "City", "name": "${route.from}" },
+            { "@type": "City", "name": "${route.to}" }
         ],
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -51,7 +61,7 @@ export default function DammamBahrainRoutePage() {
                     "itemOffered": {
                         "@type": "Service",
                         "name": "One Way Transfer",
-                        "description": "Direct drop-off from Dammam to Bahrain."
+                        "description": "Direct drop-off from ${route.from} to ${route.to}."
                     }
                 }
             ]
@@ -61,30 +71,30 @@ export default function DammamBahrainRoutePage() {
     return (
         <div className="bg-gray-50 min-h-screen">
             <Script
-                id="route-schema-dammam-bahrain"
+                id="route-schema-${fromSlug}-${toSlug}"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
             />
 
             <Hero
                 images={images}
-                h1Text="Taxi Dammam to Bahrain"
+                h1Text="${title}"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         GCC Cross-Border Service
                     </span>
                 }
-                subtitle="Seamless VIP Transfers: Dammam to Bahrain"
+                subtitle="Seamless VIP Transfers: ${route.from} to ${route.to}"
                 location="Door-to-Door Service"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <Link href="/booking?pickup=Dammam&dropoff=Bahrain">
+                    <Link href="/booking?pickup=${route.from}&dropoff=${route.to}">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                             Get Quote
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="https://wa.me/923080628195?text=Hello,%20I%20want%20to%20get%20a%20quote%20for%20a%20taxi%20from%20Dammam%20to%20Bahrain">
+                    <a href="https://wa.me/923080628195?text=Hello,%20I%20want%20to%20get%20a%20quote%20for%20a%20taxi%20from%20${route.from}%20to%20${route.to}">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             WhatsApp Quote
                         </Button>
@@ -98,10 +108,10 @@ export default function DammamBahrainRoutePage() {
                         <div>
                             <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">International Border</span>
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                                The Premium Way from Dammam to Bahrain
+                                The Premium Way from ${route.from} to ${route.to}
                             </h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                                Traveling between Dammam and Bahrain by road is a popular option for families, businessmen, and GCC residents. The distance is approximately 90 km, and the journey typically takes 1-3 hours.
+                                Traveling between ${route.from} and ${route.to} by road is a popular option for families, businessmen, and GCC residents. The distance is approximately ${route.distance}, and the journey typically takes ${route.time}.
                             </p>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                                 Avoid the hassle of airport queues and strict baggage allowances. Our professional chauffeurs handle the border crossing paperwork, vehicle insurance, and navigate the journey while you relax in a spacious SUV.
@@ -114,7 +124,7 @@ export default function DammamBahrainRoutePage() {
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Clock className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">1-3 hours Journey</span>
+                                    <span className="font-semibold text-gray-800">${route.time} Journey</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Building2 className="w-6 h-6 text-primary" />
@@ -134,7 +144,7 @@ export default function DammamBahrainRoutePage() {
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">1</div>
                                     <div>
                                         <h4 className="font-bold text-gray-900">Seamless Door-to-Door Service</h4>
-                                        <p className="text-sm text-gray-500">We pick you up from your exact location in Dammam and drop you directly at your destination in Bahrain.</p>
+                                        <p className="text-sm text-gray-500">We pick you up from your exact location in ${route.from} and drop you directly at your destination in ${route.to}.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">
@@ -181,21 +191,21 @@ export default function DammamBahrainRoutePage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
-                <RelatedLocations currentCity="Dammam" />
+                <RelatedLocations currentCity="${['Riyadh', 'Dammam', 'Jeddah', 'Makkah', 'Madinah'].includes(route.from) ? route.from : 'Riyadh'}" />
             </div>
 
             <MicroSemanticFAQ
                 faqs={[
                     {
-                        question: "How long does a taxi take from Dammam to Bahrain?",
-                        shortAnswer: "1-3 hours",
-                        detailedAnswer: "The total driving time is around 1-3 hours. Please note that border crossing times can vary between 30 minutes to 2 hours depending on the season, weekends, and time of day.",
+                        question: "How long does a taxi take from ${route.from} to ${route.to}?",
+                        shortAnswer: "${route.time}",
+                        detailedAnswer: "The total driving time is around ${route.time}. Please note that border crossing times can vary between 30 minutes to 2 hours depending on the season, weekends, and time of day.",
                         perspectives: []
                     },
                     {
                         question: "What vehicle options do you have for this route?",
                         shortAnswer: "SUVs & Sedans",
-                        detailedAnswer: "We offer comfortable sedans for 1-2 passengers and premium SUVs (like GMC Yukon or Chevy Suburban) which are highly recommended for the long 90 km journey.",
+                        detailedAnswer: "We offer comfortable sedans for 1-2 passengers and premium SUVs (like GMC Yukon or Chevy Suburban) which are highly recommended for the long ${route.distance} journey.",
                         perspectives: []
                     },
                     {
@@ -209,3 +219,93 @@ export default function DammamBahrainRoutePage() {
         </div>
     );
 }
+`;
+}
+
+// Coordinates
+const coords = {
+    'Riyadh': { lat: 24.7136, lon: 46.6753 },
+    'Dammam': { lat: 26.3927, lon: 49.9777 },
+    'Jeddah': { lat: 21.4858, lon: 39.1925 },
+    'Makkah': { lat: 21.3891, lon: 39.8579 },
+    'Madinah': { lat: 24.5247, lon: 39.5692 },
+    'Dubai': { lat: 25.2048, lon: 55.2708 },
+    'Abu Dhabi': { lat: 24.4539, lon: 54.3773 },
+    'Sharjah': { lat: 25.3463, lon: 55.4209 },
+    'Doha': { lat: 25.2854, lon: 51.5310 },
+    'Kuwait': { lat: 29.3759, lon: 47.9774 },
+    'Bahrain': { lat: 26.0667, lon: 50.5577 },
+    'Amman': { lat: 31.9454, lon: 35.9284 },
+    'Muscat': { lat: 23.5859, lon: 58.4059 },
+};
+
+function calcDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const d = R * c;
+    return d;
+}
+
+const saudiCities = ['Riyadh', 'Dammam', 'Jeddah', 'Makkah', 'Madinah'];
+const gccCities = ['Dubai', 'Abu Dhabi', 'Sharjah', 'Doha', 'Kuwait', 'Bahrain', 'Amman', 'Muscat'];
+
+const generatedRoutes = [];
+
+saudiCities.forEach(saudi => {
+    gccCities.forEach(gcc => {
+        const straightLine = calcDistance(coords[saudi].lat, coords[saudi].lon, coords[gcc].lat, coords[gcc].lon);
+        let driveKm = Math.round(straightLine * 1.3);
+
+        // Exact Overrides
+        if (saudi === 'Riyadh' && gcc === 'Dubai') driveKm = 1000;
+        if (saudi === 'Dammam' && gcc === 'Dubai') driveKm = 850;
+        if (saudi === 'Riyadh' && gcc === 'Abu Dhabi') driveKm = 900;
+        if (saudi === 'Dammam' && gcc === 'Abu Dhabi') driveKm = 750;
+        if (saudi === 'Riyadh' && gcc === 'Doha') driveKm = 600;
+        if (saudi === 'Dammam' && gcc === 'Doha') driveKm = 400;
+        if (saudi === 'Riyadh' && gcc === 'Kuwait') driveKm = 650;
+        if (saudi === 'Dammam' && gcc === 'Kuwait') driveKm = 400;
+        if (saudi === 'Riyadh' && gcc === 'Bahrain') driveKm = 450;
+        if (saudi === 'Dammam' && gcc === 'Bahrain') driveKm = 90;
+        if (saudi === 'Riyadh' && gcc === 'Amman') driveKm = 1400;
+
+        const hoursMin = Math.max(1, Math.floor(driveKm / 100));
+        const hoursMax = hoursMin + 2;
+
+        generatedRoutes.push({
+            from: saudi,
+            to: gcc,
+            distance: driveKm + ' km',
+            time: hoursMin + '-' + hoursMax + ' hours',
+        });
+
+        generatedRoutes.push({
+            from: gcc,
+            to: saudi,
+            distance: driveKm + ' km',
+            time: hoursMin + '-' + hoursMax + ' hours',
+        });
+    });
+});
+
+const baseDir = path.join(__dirname, 'app', '(main)', 'routes');
+
+generatedRoutes.forEach(route => {
+    const fromSlug = route.from.toLowerCase().replace(/\s+/g, '-');
+    const toSlug = route.to.toLowerCase().replace(/\s+/g, '-');
+    const routeDir = path.join(baseDir, `${fromSlug}-${toSlug}`);
+
+    if (!fs.existsSync(routeDir)) {
+        fs.mkdirSync(routeDir, { recursive: true });
+    }
+
+    const filePath = path.join(routeDir, 'page.tsx');
+    fs.writeFileSync(filePath, generatePageContent(route), 'utf8');
+});
+
+console.log('Successfully updated ' + generatedRoutes.length + ' pages to use the new Get Quote layout without prices!');

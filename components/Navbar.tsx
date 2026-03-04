@@ -104,6 +104,16 @@ export default function Navbar() {
                         { name: 'VIP Umrah Transfers', href: '/services/umrah-transport/' },
                         { name: 'Madinah Airport VIP Transfer', href: '/locations/madinah/madinah-airport/' },
                     ]
+                },
+                {
+                    category: 'Popular GCC Routes',
+                    items: [
+                        { name: 'Riyadh to Dubai', href: '/routes/riyadh-dubai/' },
+                        { name: 'Dammam to Doha', href: '/routes/dammam-doha/' },
+                        { name: 'Jeddah to Amman', href: '/routes/jeddah-amman/' },
+                        { name: 'Kuwait to Riyadh', href: '/routes/kuwait-riyadh/' },
+                        { name: 'King Fahd Causeway', href: '/border-crossings/taxi-king-fahd-causeway-border-crossing/' },
+                    ]
                 }
             ]
         },
@@ -208,7 +218,7 @@ export default function Navbar() {
                                         <div className={`absolute top-full left-0 mt-2 origin-top-left transition-all duration-300 ${activeDropdown === link.name ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-4 invisible'}`}>
                                             {/* @ts-ignore */}
                                             {link.mega ? (
-                                                <div className="p-8 bg-white rounded-[2.5rem] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] border border-gray-100 w-[700px] grid grid-cols-3 gap-8">
+                                                <div className="p-8 bg-white rounded-[2.5rem] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] border border-gray-100 min-w-[700px] w-max grid grid-cols-3 xl:grid-cols-4 gap-8">
                                                     {link.children.map((section: any) => (
                                                         <div key={section.category}>
                                                             <div className="text-[10px] font-black uppercase text-gray-400 tracking-[0.2em] mb-6 flex items-center gap-2">

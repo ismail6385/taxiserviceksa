@@ -9,21 +9,21 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi Dammam to Bahrain | VIP Cross-Border Transfer',
-    description: 'Book a premium taxi from Dammam to Bahrain. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
-    keywords: ['Taxi Dammam to Bahrain', 'Dammam to Bahrain transfer', 'cross border taxi Saudi Arabia', 'VIP transport Dammam Bahrain'],
+    title: 'Taxi Bahrain to Dammam | VIP Cross-Border Transfer',
+    description: 'Book a premium taxi from Bahrain to Dammam. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    keywords: ['Taxi Bahrain to Dammam', 'Bahrain to Dammam transfer', 'cross border taxi Saudi Arabia', 'VIP transport Bahrain Dammam'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/dammam-bahrain/',
+        canonical: 'https://taxiserviceksa.com/routes/bahrain-dammam/',
     },
     openGraph: {
-        title: 'Taxi Dammam to Bahrain | VIP Cross-Border Transfer',
-        description: 'Book a premium taxi from Dammam to Bahrain. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
-        url: 'https://taxiserviceksa.com/routes/dammam-bahrain/',
+        title: 'Taxi Bahrain to Dammam | VIP Cross-Border Transfer',
+        description: 'Book a premium taxi from Bahrain to Dammam. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        url: 'https://taxiserviceksa.com/routes/bahrain-dammam/',
         type: 'website',
     },
 };
 
-export default function DammamBahrainRoutePage() {
+export default function BahrainDammamRoutePage() {
     const images = [
         '/hero-slide-3.webp',
         '/hero-slide-2.webp',
@@ -33,14 +33,14 @@ export default function DammamBahrainRoutePage() {
     const routeSchema = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Taxi Dammam to Bahrain",
+        "name": "Taxi Bahrain to Dammam",
         "provider": {
             "@type": "TransportationService",
             "name": "TaxiServiceKSA"
         },
         "areaServed": [
-            { "@type": "City", "name": "Dammam" },
-            { "@type": "City", "name": "Bahrain" }
+            { "@type": "City", "name": "Bahrain" },
+            { "@type": "City", "name": "Dammam" }
         ],
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -51,7 +51,7 @@ export default function DammamBahrainRoutePage() {
                     "itemOffered": {
                         "@type": "Service",
                         "name": "One Way Transfer",
-                        "description": "Direct drop-off from Dammam to Bahrain."
+                        "description": "Direct drop-off from Bahrain to Dammam."
                     }
                 }
             ]
@@ -61,30 +61,30 @@ export default function DammamBahrainRoutePage() {
     return (
         <div className="bg-gray-50 min-h-screen">
             <Script
-                id="route-schema-dammam-bahrain"
+                id="route-schema-bahrain-dammam"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
             />
 
             <Hero
                 images={images}
-                h1Text="Taxi Dammam to Bahrain"
+                h1Text="Taxi Bahrain to Dammam"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         GCC Cross-Border Service
                     </span>
                 }
-                subtitle="Seamless VIP Transfers: Dammam to Bahrain"
+                subtitle="Seamless VIP Transfers: Bahrain to Dammam"
                 location="Door-to-Door Service"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <Link href="/booking?pickup=Dammam&dropoff=Bahrain">
+                    <Link href="/booking?pickup=Bahrain&dropoff=Dammam">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                             Get Quote
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="https://wa.me/923080628195?text=Hello,%20I%20want%20to%20get%20a%20quote%20for%20a%20taxi%20from%20Dammam%20to%20Bahrain">
+                    <a href="https://wa.me/923080628195?text=Hello,%20I%20want%20to%20get%20a%20quote%20for%20a%20taxi%20from%20Bahrain%20to%20Dammam">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             WhatsApp Quote
                         </Button>
@@ -98,10 +98,10 @@ export default function DammamBahrainRoutePage() {
                         <div>
                             <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">International Border</span>
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                                The Premium Way from Dammam to Bahrain
+                                The Premium Way from Bahrain to Dammam
                             </h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                                Traveling between Dammam and Bahrain by road is a popular option for families, businessmen, and GCC residents. The distance is approximately 90 km, and the journey typically takes 1-3 hours.
+                                Traveling between Bahrain and Dammam by road is a popular option for families, businessmen, and GCC residents. The distance is approximately 90 km, and the journey typically takes 1-3 hours.
                             </p>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                                 Avoid the hassle of airport queues and strict baggage allowances. Our professional chauffeurs handle the border crossing paperwork, vehicle insurance, and navigate the journey while you relax in a spacious SUV.
@@ -134,7 +134,7 @@ export default function DammamBahrainRoutePage() {
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">1</div>
                                     <div>
                                         <h4 className="font-bold text-gray-900">Seamless Door-to-Door Service</h4>
-                                        <p className="text-sm text-gray-500">We pick you up from your exact location in Dammam and drop you directly at your destination in Bahrain.</p>
+                                        <p className="text-sm text-gray-500">We pick you up from your exact location in Bahrain and drop you directly at your destination in Dammam.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">
@@ -181,13 +181,13 @@ export default function DammamBahrainRoutePage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
-                <RelatedLocations currentCity="Dammam" />
+                <RelatedLocations currentCity="Riyadh" />
             </div>
 
             <MicroSemanticFAQ
                 faqs={[
                     {
-                        question: "How long does a taxi take from Dammam to Bahrain?",
+                        question: "How long does a taxi take from Bahrain to Dammam?",
                         shortAnswer: "1-3 hours",
                         detailedAnswer: "The total driving time is around 1-3 hours. Please note that border crossing times can vary between 30 minutes to 2 hours depending on the season, weekends, and time of day.",
                         perspectives: []
