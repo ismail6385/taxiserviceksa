@@ -229,7 +229,7 @@ supabase/migrations/create_reviews_questions_tables.sql
 
 ### **When Review Submitted**:
 ```
-To: taxiserviceksa9988@gmail.com
+To: info@taxiserviceksa.com
 Subject: New Review Submitted
 Body: 
 - Name: John Doe
@@ -241,7 +241,7 @@ Body:
 
 ### **When Question Submitted**:
 ```
-To: taxiserviceksa9988@gmail.com
+To: info@taxiserviceksa.com
 Subject: New Question Submitted
 Body:
 - Name: John Doe
@@ -341,3 +341,4 @@ Body:
 4. Website pe display karo
 
 **USER-GENERATED CONTENT SYSTEM READY HONE WALA HAI!** 🚀💪
+

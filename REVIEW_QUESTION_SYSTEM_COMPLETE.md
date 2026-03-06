@@ -189,7 +189,7 @@ http://localhost:3000/admin/questions
 
 ### **When Review Submitted**:
 ```
-To: taxiserviceksa9988@gmail.com
+To: info@taxiserviceksa.com
 Subject: New Review Submitted - ⭐⭐⭐⭐⭐
 
 Name: John Doe
@@ -202,7 +202,7 @@ Approve: http://localhost:3000/admin/reviews
 
 ### **When Question Submitted**:
 ```
-To: taxiserviceksa9988@gmail.com
+To: info@taxiserviceksa.com
 Subject: New Question - Airport Transfers
 
 Name: John Doe
@@ -387,3 +387,4 @@ Answer: http://localhost:3000/admin/questions
 3. Start collecting reviews!
 
 **USER-GENERATED CONTENT SYSTEM FULLY READY!** 💪✨
+

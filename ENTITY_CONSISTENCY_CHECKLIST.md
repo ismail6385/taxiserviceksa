@@ -9,7 +9,7 @@ To build "Brand Authority" in the eyes of Google's AI, your business details (NA
 *   **Alternative Name:** TaxiServiceKSA (Branded)
 *   **Description:** Professional taxi service with licensed drivers in Saudi Arabia. Specializing in airport transfers and Umrah transport for families.
 *   **Website:** https://taxiserviceksa.com
-*   **Email:** taxiserviceksa9988@gmail.com
+*   **Email:** info@taxiserviceksa.com
 *   **Location:** Jeddah, Saudi Arabia
 *   **Category:** Transportation Service / Taxi Service
 
@@ -64,3 +64,4 @@ To build "Brand Authority" in the eyes of Google's AI, your business details (NA
 1.  **Week 1:** Complete the **Global Authority** profiles. These take time to get indexed.
 2.  **Week 2:** Complete the **Saudi Regional** profiles.
 3.  **Verification:** Ensure EVERY profile uses the exact description from the "Golden Record" above. Do not vary the text significantly; consistency helps AI confidence.
+

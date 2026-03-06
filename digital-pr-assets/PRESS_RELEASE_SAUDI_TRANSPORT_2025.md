@@ -19,7 +19,7 @@ TaxiServiceKSA is a leading private transportation provider in Saudi Arabia, spe
 **Media Contact:**
 Data Intelligence Team
 VIP Transfer KSA
-Email: taxiserviceksa9988@gmail.com
+Email: info@taxiserviceksa.com
 Website: https://taxiserviceksa.com/insights/pilgrimage-transport-report-2025
 
 ###

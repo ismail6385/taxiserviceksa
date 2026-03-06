@@ -283,7 +283,7 @@ Jeddah Airport (return)
 ## ✅ Strict Rules Maintained Throughout
 
 ### Contact Compliance
-- ✅ **No phone numbers** (email only: taxiserviceksa9988@gmail.com)
+- ✅ **No phone numbers** (email only: info@taxiserviceksa.com)
 - ✅ **No WhatsApp links**
 - ✅ **Booking form** + **Email** CTAs only
 
@@ -310,3 +310,4 @@ Jeddah Airport (return)
 **Route Authority**: Phase 1 complete ✅  
 
 **Next Milestone**: Complete remaining 3 routes + launch service hub pages to achieve **comprehensive Saudi transport authority** status.
+

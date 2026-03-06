@@ -14,12 +14,12 @@
 
 #### 1. **Homepage** (`app/page-client.tsx`)
 - ❌ **REMOVED**: WhatsApp CTA (`https://wa.me/966500000000`)
-- ✅ **ADDED**: Email CTA (`mailto:taxiserviceksa9988@gmail.com`)
+- ✅ **ADDED**: Email CTA (`mailto:info@taxiserviceksa.com`)
 - **Impact**: Main conversion point now compliant
 
 #### 2. **Makkah Location Page** (`app/locations/makkah/page.tsx`)
 - ❌ **REMOVED**: 2x Phone CTAs (`tel:+966123456789`, `tel:+966500000000`)
-- ✅ **ADDED**: 2x Email CTAs (`mailto:taxiserviceksa9988@gmail.com`)
+- ✅ **ADDED**: 2x Email CTAs (`mailto:info@taxiserviceksa.com`)
 - **Impact**: Highest-traffic location page now compliant
 
 #### 3. **Schema Markup Updates**
@@ -61,8 +61,8 @@
 
 ### ✅ ALLOWED (Present)
 - ✅ Booking Form (`/booking`)
-- ✅ Email: `taxiserviceksa9988@gmail.com`
-- ✅ Email CTAs: `mailto:taxiserviceksa9988@gmail.com`
+- ✅ Email: `info@taxiserviceksa.com`
+- ✅ Email CTAs: `mailto:info@taxiserviceksa.com`
 - ✅ Email in footer (global)
 - ✅ Email in schema markup
 
@@ -242,3 +242,4 @@ All phone numbers and WhatsApp references have been removed from public-facing p
 **Last Updated**: 2025-12-26 02:15 AM  
 **Status**: ✅ PHASE 1 COMPLETE  
 **Next Phase**: Phase 2 - Homepage Optimization
+

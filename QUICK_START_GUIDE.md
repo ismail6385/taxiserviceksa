@@ -145,7 +145,7 @@ Complete summary of Phase 1 work.
 - Link to it from all CTAs
 
 ### ✅ Email
-- `taxiserviceksa9988@gmail.com`
+- `info@taxiserviceksa.com`
 - Use `mailto:` links
 - Display in footer
 
@@ -270,3 +270,4 @@ Follow the master plan, stick to the rules, and measure your progress.
 **Last Updated**: 2025-12-26  
 **Current Phase**: Phase 1 Complete ✅  
 **Next Phase**: Phase 2 - Homepage Optimization
+

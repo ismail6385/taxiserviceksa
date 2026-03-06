@@ -17,8 +17,8 @@
 
 ### ✅ ONLY ALLOWED:
 - ✅ Booking Form (`/booking`)
-- ✅ Email: `taxiserviceksa9988@gmail.com`
-- ✅ All CTAs → Booking Form or `mailto:taxiserviceksa9988@gmail.com`
+- ✅ Email: `info@taxiserviceksa.com`
+- ✅ All CTAs → Booking Form or `mailto:info@taxiserviceksa.com`
 
 ---
 
@@ -354,3 +354,4 @@ Once Google trusts the topic coverage, rankings will follow automatically.
 **Last Updated**: 2025-12-26  
 **Status**: Implementation Ready  
 **Next Action**: Phase 1 - Contact Rule Enforcement
+

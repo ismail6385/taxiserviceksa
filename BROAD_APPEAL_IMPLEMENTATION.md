@@ -82,7 +82,7 @@ Each location page now references:
 - `d:\taxiksa\app\locations\page.tsx` (Locations index)
 
 ### Strict Rules Maintained
-- ✅ No phone numbers (email only: taxiserviceksa9988@gmail.com)
+- ✅ No phone numbers (email only: info@taxiserviceksa.com)
 - ✅ Entity-first H1 structure
 - ✅ Micro-semantic FAQs (direct answers)
 - ✅ LocalBusiness + Service schemas
@@ -121,3 +121,4 @@ Track these signals for Broad Appeal success:
 - Click-through rates for new pages (Riyadh, AlUla, Yanbu)
 - Internal link distribution (cross-city references)
 - Schema validation (8 distinct LocalBusiness entities)
+

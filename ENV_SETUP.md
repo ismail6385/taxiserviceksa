@@ -12,7 +12,7 @@ SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhY
 RESEND_API_KEY=re_5kKdnCAR_mLeyHteVFREEe5LwnZFy5Exx
 
 # Admin Configuration
-ADMIN_EMAIL=taxiserviceksa9988@gmail.com
+ADMIN_EMAIL=info@taxiserviceksa.com
 NEXT_PUBLIC_SITE_URL=https://taxiserviceksa.com
 ```
 
@@ -32,3 +32,4 @@ After creating `.env.local`, I will:
 - Build 3-step booking form
 - Setup email notifications
 - Create admin dashboard
+

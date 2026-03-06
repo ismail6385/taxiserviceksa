@@ -10,13 +10,13 @@
 
 ### 1. Homepage (`app/page-client.tsx`)
 - ❌ **REMOVED**: WhatsApp CTA button (`https://wa.me/966500000000`)
-- ✅ **REPLACED WITH**: Email CTA (`mailto:taxiserviceksa9988@gmail.com`)
+- ✅ **REPLACED WITH**: Email CTA (`mailto:info@taxiserviceksa.com`)
 - **Line**: 673 → Changed "WhatsApp Us" to "Email Us"
 
 ### 2. Makkah Location Page (`app/locations/makkah/page.tsx`)
 - ❌ **REMOVED**: Phone CTA #1 (`tel:+966123456789`) - Line 1005
 - ❌ **REMOVED**: Phone CTA #2 (`tel:+966500000000`) - Line 1309
-- ✅ **REPLACED WITH**: Email CTAs (`mailto:taxiserviceksa9988@gmail.com`)
+- ✅ **REPLACED WITH**: Email CTAs (`mailto:info@taxiserviceksa.com`)
 - **Changes**: 2 phone CTAs → 2 email CTAs
 
 ### 3. Footer Component (`components/Footer.tsx`)
@@ -94,8 +94,8 @@ These are in structured data for SEO purposes. They should be removed or replace
 ## ✅ ALLOWED CONTACT METHODS (VERIFIED)
 
 1. **Booking Form**: `/booking` ✅
-2. **Email**: `taxiserviceksa9988@gmail.com` ✅
-3. **Email CTAs**: `mailto:taxiserviceksa9988@gmail.com` ✅
+2. **Email**: `info@taxiserviceksa.com` ✅
+3. **Email CTAs**: `mailto:info@taxiserviceksa.com` ✅
 
 ---
 
@@ -110,3 +110,4 @@ These are in structured data for SEO purposes. They should be removed or replace
 
 **Last Updated**: 2025-12-26 01:49 AM  
 **Next Review**: After Phase 1 schema cleanup
+

@@ -3,7 +3,7 @@ import { blogService } from '@/lib/blogService';
 export async function GET() {
     const siteUrl = "https://taxiserviceksa.com";
     const authorName = "VIP Transfer KSA";
-    const authorEmail = "taxiserviceksa9988@gmail.com";
+    const authorEmail = "info@taxiserviceksa.com";
 
     // 1. Fetch Dynamic Blogs
     let posts: any[] = [];
@@ -124,3 +124,4 @@ export async function GET() {
         },
     });
 }
+
