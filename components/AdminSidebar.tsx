@@ -17,7 +17,7 @@ import {
     HelpCircle
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils'; // Assuming you have a utils file for class merging
 
 const menuItems = [
@@ -26,8 +26,6 @@ const menuItems = [
     { name: 'Reviews', href: '/admin/reviews', icon: Star },
     { name: 'Questions', href: '/admin/questions', icon: HelpCircle },
     { name: 'Blogs', href: '/admin/blogs', icon: FileText },
-    { name: 'Fleet', href: '/admin/fleet', icon: Car },
-    { name: 'Locations', href: '/admin/locations', icon: MapPin },
     { name: 'Settings', href: '/admin/settings', icon: Settings },
 ];
 
@@ -35,11 +33,33 @@ export default function AdminSidebar() {
     const pathname = usePathname();
     const router = useRouter();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+
+    useEffect(() => {
+        const checkAuth = async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            setIsAuthenticated(!!session);
+
+            // Listen for auth changes
+            const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+                setIsAuthenticated(!!session);
+            });
+
+            return () => subscription.unsubscribe();
+        };
+        checkAuth();
+    }, []);
 
     const handleLogout = async () => {
         await supabase.auth.signOut();
+        setIsAuthenticated(false);
         router.push('/admin/login');
     };
+
+    // Do not show the sidebar at all if not authenticated, except during initial load check
+    if (isAuthenticated === false && pathname !== '/admin/login') {
+        return null;
+    }
 
     return (
         <>
@@ -48,7 +68,7 @@ export default function AdminSidebar() {
                 <Button
                     variant="outline"
                     size="icon"
-                    className="bg-neutral-900 border-neutral-700 text-white"
+                    className="bg-white border-gray-200 text-gray-900"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X /> : <Menu />}
@@ -57,17 +77,17 @@ export default function AdminSidebar() {
 
             {/* Sidebar */}
             <aside className={cn(
-                "fixed inset-y-0 left-0 z-40 w-64 bg-neutral-900 border-r border-neutral-800 transition-transform duration-300 ease-in-out md:translate-x-0",
+                "fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 transition-transform duration-300 ease-in-out md:translate-x-0",
                 isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
             )}>
                 <div className="flex flex-col h-full">
                     {/* Logo Section */}
-                    <div className="h-20 flex items-center px-6 border-b border-neutral-800">
+                    <div className="h-20 flex items-center px-6 border-b border-gray-200">
                         <Link href="/admin/dashboard" className="flex items-center gap-2">
                             <div className="bg-primary/20 p-2 rounded-lg">
                                 <Car className="h-6 w-6 text-primary" />
                             </div>
-                            <span className="text-xl font-bold text-white">Admin<span className="text-primary">Panel</span></span>
+                            <span className="text-xl font-bold text-gray-900">Admin<span className="text-primary">Panel</span></span>
                         </Link>
                     </div>
 
@@ -86,12 +106,12 @@ export default function AdminSidebar() {
                                     className={cn(
                                         "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group",
                                         isActive
-                                            ? "bg-primary text-black font-semibold shadow-[0_0_15px_rgba(255,215,0,0.3)]"
-                                            : "text-gray-400 hover:bg-white/5 hover:text-white"
+                                            ? "bg-primary text-black font-semibold shadow-md"
+                                            : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
                                     )}
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
-                                    <Icon className={cn("w-5 h-5", isActive ? "text-black" : "text-gray-500 group-hover:text-white")} />
+                                    <Icon className={cn("w-5 h-5", isActive ? "text-black" : "text-gray-400 group-hover:text-gray-900")} />
                                     {item.name}
                                 </Link>
                             );
@@ -99,10 +119,10 @@ export default function AdminSidebar() {
                     </nav>
 
                     {/* Logout Section */}
-                    <div className="p-4 border-t border-neutral-800">
+                    <div className="p-4 border-t border-gray-200">
                         <Button
                             onClick={handleLogout}
-                            className="w-full justify-start bg-red-500/10 hover:bg-red-500/20 text-red-500 hover:text-red-400 border border-red-500/20 transition-all"
+                            className="w-full justify-start bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700 border border-red-100 transition-all"
                             variant="ghost"
                         >
                             <LogOut className="w-5 h-5 mr-2" />

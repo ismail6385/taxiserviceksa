@@ -108,12 +108,19 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
             const { data, error } = await supabase.from('bookings').insert([bookingData]).select();
             if (error) throw error;
 
-            // Send Email (Fire & Forget)
+            // Send Email (fire-and-forget, don't block booking success)
             fetch('/api/send-booking-emails', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ booking: data[0], price: 'Need Quote' })
-            }).catch(console.error);
+            }).then(async (res) => {
+                if (!res.ok) {
+                    const errorData = await res.json().catch(() => ({}));
+                    console.error('Email API error:', res.status, errorData);
+                } else {
+                    console.log('Booking emails sent successfully!');
+                }
+            }).catch((err) => console.error('Email fetch failed:', err));
 
             setStep(4); // Success
 

@@ -13,11 +13,13 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
         }
 
+        const emailUser = process.env.EMAIL_USER;
+
         // Configure Nodemailer Transporter
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: process.env.EMAIL_USER || 'taxiserviceksa9988@gmail.com',
+                user: emailUser,
                 pass: process.env.EMAIL_PASS,
             },
         });
@@ -194,7 +196,7 @@ export async function POST(request: NextRequest) {
         console.log(`Sending ${status} email to ${customerEmail}`);
 
         const info = await transporter.sendMail({
-            from: '"VIP Transfer KSA" <info@taxiserviceksa.com>',
+            from: `"VIP Transfer KSA" <\${emailUser}>`,
             to: customerEmail,
             subject: subject,
             html: htmlContent,

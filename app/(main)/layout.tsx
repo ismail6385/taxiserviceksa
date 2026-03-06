@@ -51,6 +51,12 @@ export const metadata = {
     description: 'Book official taxi services in Saudi Arabia. Reliable private transfers from Jeddah Airport to Makkah & Madinah.',
     images: ['/twitter-image.jpg'],
   },
+  other: {
+    'theme-color': '#1d4ed8',
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'default',
+  },
 };
 
 import { headers } from 'next/headers';

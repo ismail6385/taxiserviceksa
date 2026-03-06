@@ -3,7 +3,7 @@ import HomeClient from './page-client';
 import { blogService } from '@/lib/blogService';
 
 export const metadata: Metadata = {
-  title: 'BEST VIP Private Transfer Saudi Arabia | Executive Chauffeur',
+  title: 'VIP Private Transfer Saudi Arabia | Book Executive Chauffeur Service',
   description: 'Book elite VIP private transfers in Saudi Arabia for Umrah, airport transfers & executive travel. 24/7 premium chauffeur service with professional drivers.',
   alternates: {
     canonical: 'https://taxiserviceksa.com/',

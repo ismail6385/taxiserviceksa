@@ -13,12 +13,13 @@ export async function POST(request: NextRequest) {
 
         const { driver } = body;
         const adminEmail = process.env.ADMIN_EMAIL || 'taxiserviceksa9988@gmail.com';
+        const emailUser = process.env.EMAIL_USER;
 
         // Configure Nodemailer Transporter
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: process.env.EMAIL_USER || 'taxiserviceksa9988@gmail.com',
+                user: emailUser,
                 pass: process.env.EMAIL_PASS,
             },
         });
@@ -29,7 +30,7 @@ export async function POST(request: NextRequest) {
         // We check for credentials implicitly by trying to send.
         try {
             await transporter.sendMail({
-                from: '"VIP Transfer KSA" <info@taxiserviceksa.com>',
+                from: `"VIP Transfer KSA" <${emailUser}>`,
                 to: adminEmail,
                 replyTo: driver.email, // Allow Admin to reply directly to Driver
                 subject: `🚖 New Driver Application - ${driver.full_name}`,
@@ -61,6 +62,7 @@ export async function POST(request: NextRequest) {
                             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
                             
                             <h3>Requirements Check:</h3>
+                            <p>🚗 Owns Own Car: ${driver.owns_car ? 'Yes' : 'No'}</p>
                             <p>✅ Valid License: ${driver.license_valid ? 'Yes' : 'No'}</p>
                             <p>✅ Vehicle Condition: ${driver.vehicle_condition ? 'Yes' : 'No'}</p>
                             <p>✅ Languages: ${driver.languages ? 'Yes' : 'No'}</p>

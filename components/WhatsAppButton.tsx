@@ -1,12 +1,13 @@
 "use client";
 
 import { X, Send } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 
 export default function WhatsAppButton() {
     const [isVisible, setIsVisible] = useState(false);
     const [isCardOpen, setIsCardOpen] = useState(false);
+    const hasShownCard = useRef(false); // track first-show without stale closure
 
     const phoneNumber = "923080628195"; // +92 308 062 8195
     const displayMessage = "Hello, I need some information.";
@@ -16,15 +17,26 @@ export default function WhatsAppButton() {
     const timeString = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
     useEffect(() => {
-        // Fade in button after 1 second
-        const timer1 = setTimeout(() => setIsVisible(true), 1000);
-        // Auto open card after 4 seconds to grab attention
-        const timer2 = setTimeout(() => setIsCardOpen(true), 4000);
-
-        return () => {
-            clearTimeout(timer1);
-            clearTimeout(timer2);
+        const handleScroll = () => {
+            if (window.scrollY > 500) {
+                setIsVisible(true);
+                // Only open the card automatically once per session/page load
+                if (!hasShownCard.current && !sessionStorage.getItem('whatsapp_card_opened')) {
+                    hasShownCard.current = true;
+                    setTimeout(() => {
+                        setIsCardOpen(true);
+                        sessionStorage.setItem('whatsapp_card_opened', 'true');
+                    }, 1000);
+                }
+            } else {
+                setIsVisible(false);
+                setIsCardOpen(false);
+            }
         };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(displayMessage)}`;

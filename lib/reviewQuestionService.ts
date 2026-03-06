@@ -1,4 +1,4 @@
-import { supabase } from './blogService';
+import { supabase } from './supabase';
 
 export interface Review {
     id: string;

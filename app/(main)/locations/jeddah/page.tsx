@@ -14,6 +14,12 @@ import Script from 'next/script';
 import DistanceTable from '@/components/seo/DistanceTable';
 import SeasonalTravelTips from '@/components/seo/SeasonalTravelTips';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import ReviewForm from '@/components/seo/ReviewForm';
+import QuestionForm from '@/components/seo/QuestionForm';
+import QuestionsDisplay from '@/components/QuestionsDisplay';
+import ReviewsDisplay from '@/components/ReviewsDisplay';
+
+
 
 export const metadata: Metadata = {
     title: 'VIP Private Transfer & Chauffeur Jeddah | KAIA Airport VIP Pickup',
@@ -433,6 +439,35 @@ export default async function JeddahPage() {
                     </Accordion>
                 </div>
             </section>
+
+            {/* UGC Section */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16">
+                        <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
+                            <Users className="w-4 h-4" />
+                            <span className="text-sm font-semibold">Community Feedback</span>
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
+                            Jeddah Travel Insights
+                        </h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Share your experience or ask a question about our VIP transfer services in Jeddah.
+                        </p>
+                    </div>
+
+                    <div className="space-y-16 mb-16">
+                        <ReviewsDisplay location="Jeddah" />
+                        <QuestionsDisplay location="Jeddah" />
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <ReviewForm locationName="Jeddah" />
+                        <QuestionForm locationName="Jeddah" />
+                    </div>
+                </div>
+            </section>
+
 
             {/* CTA Block */}
             <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">

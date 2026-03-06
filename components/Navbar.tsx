@@ -40,7 +40,7 @@ export default function Navbar() {
         },
         {
             name: 'Locations',
-            href: '#',
+            href: '/locations/',
             icon: MapPin,
             mega: true,
             children: [
@@ -216,7 +216,7 @@ export default function Navbar() {
                                     {/* Dropdown Logic */}
                                     {link.children && (
                                         <div className={`absolute top-full mt-2 transition-all duration-300 ${activeDropdown === link.name ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-4 invisible'} ${link.name === 'Routes' || link.name === 'Locations' ? 'left-1/2 -translate-x-1/2 origin-top' : link.name === 'Company' || link.name === 'Partners' ? 'right-0 origin-top-right' : 'left-0 origin-top-left'}`}>
-                                            {/* @ts-ignore */}
+                                            {/* Dropdown variant */}
                                             {link.mega ? (
                                                 <div className="p-8 bg-white rounded-[2.5rem] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] border border-gray-100 min-w-[700px] w-max grid grid-cols-3 xl:grid-cols-4 gap-8">
                                                     {link.children.map((section: any) => (
@@ -280,6 +280,8 @@ export default function Navbar() {
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
                                 className="p-3 bg-gray-50 rounded-xl text-gray-900 focus:ring-2 ring-primary/20"
+                                aria-label={isOpen ? 'Close menu' : 'Open menu'}
+                                aria-expanded={isOpen}
                             >
                                 {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                             </button>
@@ -306,7 +308,7 @@ export default function Navbar() {
                                     <div className="grid grid-cols-1 gap-2">
                                         {link.children ? (
                                             <>
-                                                {/* @ts-ignore */}
+                                                {/* Mobile mega-menu flatten */}
                                                 {link.mega ? (
                                                     // Flat list for mega menu on mobile
                                                     link.children.map((section: any) => (
@@ -345,7 +347,7 @@ export default function Navbar() {
                                                 onClick={() => setIsOpen(false)}
                                                 className="flex items-center gap-4 p-4 rounded-2xl bg-gray-50 font-bold text-gray-900"
                                             >
-                                                {/* @ts-ignore */}
+                                                {/* Mobile icon link */}
                                                 <link.icon className="w-5 h-5 text-primary" />
                                                 {link.name}
                                             </Link>

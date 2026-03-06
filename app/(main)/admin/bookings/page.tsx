@@ -11,7 +11,14 @@ import {
     Trash2,
     Eye,
     X,
-    CheckCircle
+    CheckCircle,
+    Clock,
+    Car,
+    Copy,
+    Share2,
+    MessageSquare,
+    Edit2,
+    Save
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -37,23 +44,21 @@ import {
     SheetHeader,
     SheetTitle,
     SheetDescription,
-    SheetFooter,
-    SheetClose
 } from '@/components/ui/sheet';
 
 interface Booking {
     id: string;
     created_at: string;
     pickup_location: string;
-    destination: string; // Changed from dropoff_location to match form
+    destination: string;
     pickup_date: string;
     pickup_time: string;
     vehicle_type: string;
-    passengers: number; // Changed from passenger_count
+    passengers: number;
     luggage: number;
-    customer_name: string; // Changed from contact_name
-    customer_phone: string; // Changed from contact_phone
-    customer_email: string; // Changed from contact_email
+    customer_name: string;
+    customer_phone: string;
+    customer_email: string;
     status: 'pending' | 'confirmed' | 'cancelled' | 'completed';
     special_requests?: string;
     total_price?: number;
@@ -64,9 +69,13 @@ export default function BookingsPage() {
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     const [statusFilter, setStatusFilter] = useState('all');
-    const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
-    const router = useRouter();
 
+    // Sheet State
+    const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
+    const [isEditing, setIsEditing] = useState(false);
+    const [editedBooking, setEditedBooking] = useState<Booking | null>(null);
+
+    const router = useRouter();
 
     useEffect(() => {
         const checkSession = async () => {
@@ -113,6 +122,7 @@ export default function BookingsPage() {
             // Allow updating status from the detail view too
             if (selectedBooking && selectedBooking.id === id) {
                 setSelectedBooking({ ...selectedBooking, status: newStatus as any });
+                setEditedBooking({ ...(editedBooking as Booking), status: newStatus as any });
             }
 
             // Send Email Notification
@@ -150,11 +160,41 @@ export default function BookingsPage() {
             }
 
             setBookings(bookings.filter(b => b.id !== id));
-            if (selectedBooking?.id === id) setSelectedBooking(null);
+            if (selectedBooking?.id === id) {
+                setSelectedBooking(null);
+                setIsEditing(false);
+            }
         } catch (error) {
             console.error('Error deleting booking:', error);
             alert('Failed to delete booking. Ensure you have the right permissions.');
         }
+    };
+
+    const saveDetails = async () => {
+        if (!editedBooking) return;
+        try {
+            const { id, created_at, status, ...updateData } = editedBooking;
+            const { error } = await supabase
+                .from('bookings')
+                .update(updateData)
+                .eq('id', id);
+
+            if (error) throw error;
+
+            // Update local state
+            setBookings(bookings.map(b => b.id === id ? editedBooking : b));
+            setSelectedBooking(editedBooking);
+            setIsEditing(false);
+        } catch (error) {
+            console.error('Error updating booking details:', error);
+            alert("Failed to update booking details.");
+        }
+    };
+
+    const openBookingDetails = (booking: Booking) => {
+        setSelectedBooking(booking);
+        setEditedBooking(booking);
+        setIsEditing(false);
     };
 
     // Filter Logic
@@ -164,19 +204,54 @@ export default function BookingsPage() {
             booking.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
             booking.customer_email?.toLowerCase().includes(searchTerm.toLowerCase());
 
-        const matchesStatus = statusFilter === 'all' || booking.status === statusFilter;
+        let matchesStatus = false;
+        const today = new Date().toLocaleDateString('en-CA');
+
+        if (statusFilter === 'all') {
+            matchesStatus = true;
+        } else if (statusFilter === 'today') {
+            matchesStatus = booking.pickup_date === today;
+        } else if (statusFilter === 'upcoming') {
+            matchesStatus = booking.pickup_date > today;
+        } else {
+            matchesStatus = booking.status === statusFilter;
+        }
 
         return matchesSearch && matchesStatus;
     });
 
+    const handleExport = () => {
+        const headers = ["ID", "Date", "Time", "Customer", "Phone", "Email", "Pickup", "Dropoff", "Vehicle", "Status"];
+        const rows = filteredBookings.map(b => [
+            b.id, b.pickup_date, b.pickup_time, `"${b.customer_name}"`, `"${b.customer_phone}"`,
+            `"${b.customer_email}"`, `"${b.pickup_location}"`, `"${b.destination}"`, b.vehicle_type, b.status
+        ]);
+        const csvContent = "data:text/csv;charset=utf-8," + [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
+        const url = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", url);
+        link.setAttribute("download", `bookings_export_${new Date().toISOString().split('T')[0]}.csv`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
     const getStatusColor = (status: string) => {
         switch (status) {
-            case 'confirmed': return 'bg-green-500/10 text-green-500 border-green-500/20';
-            case 'pending': return 'bg-yellow-500/10 text-yellow-500 border-yellow-500/20';
-            case 'cancelled': return 'bg-red-500/10 text-red-500 border-red-500/20';
-            case 'completed': return 'bg-blue-500/10 text-blue-500 border-blue-500/20';
-            default: return 'bg-gray-500/10 text-gray-500';
+            case 'confirmed': return 'bg-emerald-100 text-emerald-800 border-emerald-200';
+            case 'pending': return 'bg-amber-100 text-amber-800 border-amber-200';
+            case 'cancelled': return 'bg-rose-100 text-rose-800 border-rose-200';
+            case 'completed': return 'bg-blue-100 text-blue-800 border-blue-200';
+            default: return 'bg-gray-100 text-gray-800 border-gray-200';
         }
+    };
+
+    const shareB2BOptions = (booking: Booking) => {
+        const text = `*B2B Booking Request* 🚕\n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*From:* ${booking.pickup_location}\n*To:* ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}\n*Vehicle:* ${booking.vehicle_type}\n*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}\n\n*Notes:* ${booking.special_requests || 'N/A'}\n\nPlease confirm if you can cover this.`;
+
+        navigator.clipboard.writeText(text).then(() => {
+            alert('B2B details copied to clipboard! You can paste it to your partner.');
+        });
     };
 
     if (loading) {
@@ -188,40 +263,67 @@ export default function BookingsPage() {
     }
 
     return (
-        <div className="text-white">
+        <div className="text-gray-900 p-6 max-w-7xl mx-auto">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
                 <div>
-                    <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
-                        All Bookings
+                    <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 mb-2">
+                        Booking Management
                     </h1>
-                    <p className="text-neutral-400 mt-1">Manage all your transport reservations</p>
+                    <p className="text-gray-500 text-sm">Monitor and process your transport reservations easily.</p>
                 </div>
-                <Button variant="outline" className="bg-neutral-800 border-neutral-700 text-neutral-300 hover:bg-white/5">
-                    <Download className="mr-2 h-4 w-4" /> Export CSV
-                </Button>
+                <div className="flex gap-3">
+                    <Button variant="outline" onClick={handleExport} className="bg-white hover:bg-gray-50 border-gray-200 text-gray-700 shadow-sm">
+                        <Download className="mr-2 h-4 w-4" /> Export
+                    </Button>
+                </div>
+            </div>
+
+            {/* Stats Overview */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div className="bg-white border border-gray-200 shadow-sm p-5 rounded-2xl">
+                    <p className="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-1">Total</p>
+                    <p className="text-3xl font-bold text-gray-900">{bookings.length}</p>
+                </div>
+                <div className="bg-orange-50/50 border border-orange-200 p-5 rounded-2xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-4 opacity-10"><Clock className="w-12 h-12 text-orange-500" /></div>
+                    <p className="text-orange-600 text-xs font-semibold uppercase tracking-wider mb-1">Pending</p>
+                    <p className="text-3xl font-bold text-orange-600">{bookings.filter(b => b.status === 'pending').length}</p>
+                </div>
+                <div className="bg-emerald-50/50 border border-emerald-200 p-5 rounded-2xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-4 opacity-10"><CheckCircle className="w-12 h-12 text-emerald-500" /></div>
+                    <p className="text-emerald-700 text-xs font-semibold uppercase tracking-wider mb-1">Confirmed</p>
+                    <p className="text-3xl font-bold text-emerald-600">{bookings.filter(b => b.status === 'confirmed').length}</p>
+                </div>
+                <div className="bg-blue-50/50 border border-blue-200 p-5 rounded-2xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-4 opacity-10"><Car className="w-12 h-12 text-blue-500" /></div>
+                    <p className="text-blue-700 text-xs font-semibold uppercase tracking-wider mb-1">Completed</p>
+                    <p className="text-3xl font-bold text-blue-600">{bookings.filter(b => b.status === 'completed').length}</p>
+                </div>
             </div>
 
             {/* Filters */}
             <div className="flex flex-col md:flex-row gap-4 mb-6">
                 <div className="relative flex-1">
-                    <Search className="absolute left-3 top-3 h-5 w-5 text-neutral-500" />
+                    <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                     <Input
                         placeholder="Search by name, email, or ID..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="pl-10 bg-neutral-800 border-neutral-700 text-white placeholder:text-neutral-500 focus:border-primary"
+                        className="pl-10 bg-white border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-primary shadow-sm"
                     />
                 </div>
-                <div className="w-full md:w-[200px]">
+                <div className="w-full md:w-[250px]">
                     <Select value={statusFilter} onValueChange={setStatusFilter}>
-                        <SelectTrigger className="bg-neutral-800 border-neutral-700 text-white">
+                        <SelectTrigger className="bg-white border-gray-200 text-gray-900 shadow-sm">
                             <div className="flex items-center gap-2">
                                 <Filter className="w-4 h-4" />
-                                <SelectValue placeholder="All Status" />
+                                <SelectValue placeholder="All Bookings" />
                             </div>
                         </SelectTrigger>
-                        <SelectContent className="bg-neutral-800 border-neutral-700 text-white">
-                            <SelectItem value="all">All Status</SelectItem>
+                        <SelectContent className="bg-white border-gray-200 text-gray-900 shadow-sm">
+                            <SelectItem value="all">All Bookings</SelectItem>
+                            <SelectItem value="today">Today's Pickups</SelectItem>
+                            <SelectItem value="upcoming">Upcoming (Tomorrow+)</SelectItem>
                             <SelectItem value="pending">Pending</SelectItem>
                             <SelectItem value="confirmed">Confirmed</SelectItem>
                             <SelectItem value="completed">Completed</SelectItem>
@@ -232,132 +334,165 @@ export default function BookingsPage() {
             </div>
 
             {/* Bookings Table */}
-            <div className="bg-neutral-800 rounded-xl border border-neutral-700 overflow-hidden">
+            <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
                 <Table>
-                    <TableHeader className="bg-neutral-900/50">
-                        <TableRow className="border-neutral-700 hover:bg-transparent">
-                            <TableHead className="text-neutral-400">Booking ID</TableHead>
-                            <TableHead className="text-neutral-400">Customer</TableHead>
-                            <TableHead className="text-neutral-400">Trip Details</TableHead>
-                            <TableHead className="text-neutral-400">Vehicle</TableHead>
-                            <TableHead className="text-neutral-400">Date & Time</TableHead>
-                            <TableHead className="text-neutral-400">Status</TableHead>
-                            <TableHead className="text-neutral-400 text-right">Actions</TableHead>
+                    <TableHeader className="bg-gray-50">
+                        <TableRow className="border-gray-200 hover:bg-transparent">
+                            <TableHead className="text-gray-500 font-semibold">Booking ID</TableHead>
+                            <TableHead className="text-gray-500 font-semibold">Customer</TableHead>
+                            <TableHead className="text-gray-500 font-semibold">Trip Details</TableHead>
+                            <TableHead className="text-gray-500 font-semibold">Vehicle</TableHead>
+                            <TableHead className="text-gray-500 font-semibold">Date & Time</TableHead>
+                            <TableHead className="text-gray-500 font-semibold">Status</TableHead>
+                            <TableHead className="text-gray-500 font-semibold text-right">Actions</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         {filteredBookings.length === 0 ? (
                             <TableRow>
-                                <TableCell colSpan={7} className="text-center py-12 text-neutral-500">
+                                <TableCell colSpan={7} className="text-center py-12 text-gray-500">
                                     No bookings found matching your filters.
                                 </TableCell>
                             </TableRow>
                         ) : (
-                            filteredBookings.map((booking) => (
-                                <TableRow key={booking.id} className="border-neutral-700 hover:bg-neutral-700/50 transition-colors">
-                                    <TableCell className="font-mono text-xs text-neutral-400">
-                                        {booking.id.slice(0, 8)}...
-                                    </TableCell>
-                                    <TableCell>
-                                        <div className="flex flex-col">
-                                            <span className="font-medium text-white">{booking.customer_name}</span>
-                                            <span className="text-xs text-neutral-400">{booking.customer_email}</span>
-                                        </div>
-                                    </TableCell>
-                                    <TableCell>
-                                        <div className="flex flex-col gap-1 text-sm">
-                                            <div className="flex items-center gap-1 text-neutral-300">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
-                                                {booking.pickup_location}
+                            filteredBookings.map((booking) => {
+                                const isToday = booking.pickup_date === new Date().toLocaleDateString('en-CA');
+                                const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
+                                const isTomorrow = booking.pickup_date === tomorrow.toLocaleDateString('en-CA');
+                                const actionNeeded = (isToday || isTomorrow) && booking.status !== 'completed' && booking.status !== 'cancelled';
+
+                                return (
+                                    <TableRow key={booking.id} className={`border-gray-200 hover:bg-gray-50 transition-colors \${actionNeeded ? 'bg-red-50/50' : ''}`}>
+                                        <TableCell className="font-mono text-xs text-gray-500">
+                                            {booking.id.slice(0, 8)}...
+                                        </TableCell>
+                                        <TableCell>
+                                            <div className="flex flex-col">
+                                                <span className="font-medium text-gray-900">{booking.customer_name}</span>
+                                                <span className="text-xs text-gray-500">{booking.customer_email}</span>
                                             </div>
-                                            <div className="flex items-center gap-1 text-neutral-300">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
-                                                {booking.destination}
+                                        </TableCell>
+                                        <TableCell>
+                                            <div className="flex flex-col gap-1 text-sm">
+                                                <div className="flex items-center gap-1 text-gray-700">
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                                                    {booking.pickup_location}
+                                                </div>
+                                                <div className="flex items-center gap-1 text-gray-700">
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                                                    {booking.destination}
+                                                </div>
                                             </div>
-                                        </div>
-                                    </TableCell>
-                                    <TableCell>
-                                        <Badge variant="outline" className="bg-neutral-900 border-primary/50 text-white font-medium shadow-sm shadow-primary/10">
-                                            {booking.vehicle_type}
-                                        </Badge>
-                                    </TableCell>
-                                    <TableCell className="text-sm text-neutral-300">
-                                        <div>{booking.pickup_date}</div>
-                                        <div className="text-xs text-neutral-500">{booking.pickup_time}</div>
-                                    </TableCell>
-                                    <TableCell>
-                                        <Badge variant="outline" className={`${getStatusColor(booking.status)} uppercase text-[10px] tracking-wider`}>
-                                            {booking.status}
-                                        </Badge>
-                                    </TableCell>
-                                    <TableCell className="text-right">
-                                        <div className="flex items-center justify-end gap-2">
-                                            <Button
-                                                variant="ghost"
-                                                size="icon"
-                                                onClick={() => setSelectedBooking(booking)}
-                                                className="h-8 w-8 text-blue-500 hover:text-blue-400 hover:bg-blue-500/10"
-                                            >
-                                                <Eye className="h-4 w-4" />
-                                            </Button>
-                                            <Select
-                                                defaultValue={booking.status}
-                                                onValueChange={(val) => updateStatus(booking.id, val)}
-                                            >
-                                                <SelectTrigger className="h-8 w-[130px] bg-neutral-900/50 border-neutral-600 text-xs">
-                                                    <SelectValue />
-                                                </SelectTrigger>
-                                                <SelectContent className="bg-neutral-800 border-neutral-700">
-                                                    <SelectItem value="pending">Pending</SelectItem>
-                                                    <SelectItem value="confirmed">Confirmed</SelectItem>
-                                                    <SelectItem value="completed">Completed</SelectItem>
-                                                    <SelectItem value="cancelled">Cancelled</SelectItem>
-                                                </SelectContent>
-                                            </Select>
-                                            <Button
-                                                variant="ghost"
-                                                size="icon"
-                                                onClick={() => deleteBooking(booking.id)}
-                                                className="h-8 w-8 text-red-500 hover:text-red-400 hover:bg-red-500/10"
-                                            >
-                                                <Trash2 className="h-4 w-4" />
-                                            </Button>
-                                        </div>
-                                    </TableCell>
-                                </TableRow>
-                            ))
+                                        </TableCell>
+                                        <TableCell>
+                                            <Badge variant="outline" className="bg-gray-100 border-gray-200 text-gray-800 font-medium whitespace-nowrap">
+                                                {booking.vehicle_type}
+                                            </Badge>
+                                        </TableCell>
+                                        <TableCell className="text-sm text-gray-700">
+                                            <div className="flex items-center gap-2">
+                                                <span className={actionNeeded ? 'text-red-600 font-bold animate-pulse' : 'text-gray-700'}>{booking.pickup_date}</span>
+                                                {isToday && <Badge className="bg-red-500 hover:bg-red-600 animate-pulse text-[10px] uppercase border-none text-white px-1.5 py-0">Today</Badge>}
+                                                {isTomorrow && <Badge className="bg-orange-500 hover:bg-orange-600 text-[10px] uppercase border-none text-white px-1.5 py-0">Tomorrow</Badge>}
+                                            </div>
+                                            <div className="text-xs text-gray-500">{booking.pickup_time}</div>
+                                        </TableCell>
+                                        <TableCell>
+                                            <Badge variant="outline" className={`\${getStatusColor(booking.status)} uppercase text-[10px] tracking-wider`}>
+                                                {booking.status}
+                                            </Badge>
+                                        </TableCell>
+                                        <TableCell className="text-right">
+                                            <div className="flex items-center justify-end gap-2">
+                                                <Button
+                                                    variant="ghost"
+                                                    size="icon"
+                                                    onClick={() => openBookingDetails(booking)}
+                                                    className="h-8 w-8 text-blue-600 hover:text-blue-700 hover:bg-blue-50"
+                                                >
+                                                    <Eye className="h-4 w-4" />
+                                                </Button>
+                                                <Select
+                                                    defaultValue={booking.status}
+                                                    onValueChange={(val) => updateStatus(booking.id, val)}
+                                                >
+                                                    <SelectTrigger className="h-8 w-[130px] bg-white border-gray-200 text-xs shadow-sm focus:ring-1 focus:ring-primary">
+                                                        <SelectValue />
+                                                    </SelectTrigger>
+                                                    <SelectContent className="bg-white border-gray-200 text-gray-900 shadow-lg">
+                                                        <SelectItem value="pending">Pending</SelectItem>
+                                                        <SelectItem value="confirmed">Confirmed</SelectItem>
+                                                        <SelectItem value="completed">Completed</SelectItem>
+                                                        <SelectItem value="cancelled">Cancelled</SelectItem>
+                                                    </SelectContent>
+                                                </Select>
+                                                <Button
+                                                    variant="ghost"
+                                                    size="icon"
+                                                    onClick={() => deleteBooking(booking.id)}
+                                                    className="h-8 w-8 text-red-500 hover:text-red-600 hover:bg-red-50"
+                                                >
+                                                    <Trash2 className="h-4 w-4" />
+                                                </Button>
+                                            </div>
+                                        </TableCell>
+                                    </TableRow>
+                                )
+                            })
                         )}
                     </TableBody>
                 </Table>
             </div>
 
             {/* Booking Details Sheet */}
-            <Sheet open={!!selectedBooking} onOpenChange={(open) => !open && setSelectedBooking(null)}>
-                <SheetContent className="overflow-y-auto bg-neutral-900 border-neutral-800 text-white w-full sm:max-w-xl">
-                    <SheetHeader className="text-left mb-6">
-                        <SheetTitle className="text-2xl font-bold text-white">Booking Details</SheetTitle>
-                        <SheetDescription className="text-neutral-400">
-                            ID: #{selectedBooking?.id.toUpperCase()}
-                        </SheetDescription>
-                    </SheetHeader>
+            <Sheet open={!!selectedBooking} onOpenChange={(open) => {
+                if (!open) {
+                    setSelectedBooking(null);
+                    setIsEditing(false);
+                }
+            }}>
+                <SheetContent className="overflow-y-auto bg-white border-l border-gray-200 text-gray-900 w-full sm:max-w-xl">
+                    <div className="flex justify-between items-start mb-6">
+                        <SheetHeader className="text-left">
+                            <SheetTitle className="text-2xl font-bold text-gray-900">Booking Details</SheetTitle>
+                            <SheetDescription className="text-gray-500">
+                                ID: #{selectedBooking?.id.toUpperCase()}
+                            </SheetDescription>
+                        </SheetHeader>
+                        {!isEditing ? (
+                            <Button variant="outline" size="sm" onClick={() => setIsEditing(true)} className="bg-white text-gray-700 hover:bg-gray-50 border-gray-200">
+                                <Edit2 className="w-4 h-4 mr-2" /> Edit Details
+                            </Button>
+                        ) : (
+                            <div className="flex items-center gap-2">
+                                <Button variant="ghost" size="sm" onClick={() => { setIsEditing(false); setEditedBooking(selectedBooking); }} className="text-gray-500 hover:bg-gray-100">
+                                    Cancel
+                                </Button>
+                                <Button size="sm" onClick={saveDetails} className="bg-primary text-black hover:bg-black hover:text-white transition-all font-bold">
+                                    <Save className="w-4 h-4 mr-2" /> Save
+                                </Button>
+                            </div>
+                        )}
+                    </div>
 
-                    {selectedBooking && (
+                    {selectedBooking && editedBooking && (
                         <div className="space-y-8">
                             {/* Status Section */}
-                            <div className="bg-neutral-800/50 p-4 rounded-lg border border-neutral-700">
-                                <label className="text-xs font-semibold text-neutral-500 uppercase tracking-widest mb-2 block">Current Status</label>
+                            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                                <label className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2 block">Current Status</label>
                                 <div className="flex items-center justify-between">
-                                    <Badge className={`${getStatusColor(selectedBooking.status)} text-sm px-3 py-1`}>
+                                    <Badge className={`\${getStatusColor(selectedBooking.status)} text-sm px-3 py-1`}>
                                         {selectedBooking.status.toUpperCase()}
                                     </Badge>
                                     <Select
                                         defaultValue={selectedBooking.status}
                                         onValueChange={(val) => updateStatus(selectedBooking.id, val)}
+                                        disabled={isEditing}
                                     >
-                                        <SelectTrigger className="h-9 w-[150px] bg-neutral-900 border-neutral-600 text-sm">
+                                        <SelectTrigger className="h-9 w-[150px] bg-white border-gray-300 text-sm shadow-sm disabled:opacity-50">
                                             <SelectValue />
                                         </SelectTrigger>
-                                        <SelectContent className="bg-neutral-800 border-neutral-700">
+                                        <SelectContent className="bg-white border-gray-200 text-gray-900">
                                             <SelectItem value="pending">Pending</SelectItem>
                                             <SelectItem value="confirmed">Confirmed</SelectItem>
                                             <SelectItem value="completed">Completed</SelectItem>
@@ -369,27 +504,39 @@ export default function BookingsPage() {
 
                             {/* Customer Info */}
                             <div>
-                                <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                                <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
                                     Customer Information
                                 </h3>
-                                <div className="space-y-3 bg-neutral-800/30 p-4 rounded-lg">
+                                <div className="space-y-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div>
-                                            <span className="block text-xs text-neutral-500 mb-1">Full Name</span>
-                                            <span className="text-sm font-medium">{selectedBooking.customer_name}</span>
+                                            <span className="block text-xs text-gray-500 mb-1">Full Name</span>
+                                            {isEditing ? (
+                                                <Input value={editedBooking.customer_name} onChange={(e) => setEditedBooking({ ...editedBooking, customer_name: e.target.value })} className="h-8 text-sm bg-white" />
+                                            ) : (
+                                                <span className="text-sm font-medium text-gray-900">{selectedBooking.customer_name}</span>
+                                            )}
                                         </div>
                                         <div>
-                                            <span className="block text-xs text-neutral-500 mb-1">Phone Number</span>
-                                            <a href={`https://wa.me/${selectedBooking.customer_phone.replace(/\D/g, '')}`} target="_blank" rel="noreferrer" className="text-sm font-medium text-green-500 hover:text-green-400 flex items-center gap-1">
-                                                {selectedBooking.customer_phone}
-                                                <span className="text-xs bg-green-900/40 px-1.5 py-0.5 rounded text-green-400">WhatsApp</span>
-                                            </a>
+                                            <span className="block text-xs text-gray-500 mb-1">Phone Number</span>
+                                            {isEditing ? (
+                                                <Input value={editedBooking.customer_phone} onChange={(e) => setEditedBooking({ ...editedBooking, customer_phone: e.target.value })} className="h-8 text-sm bg-white" />
+                                            ) : (
+                                                <a href={`https://wa.me/\${selectedBooking.customer_phone.replace(/\\D/g, '')}`} target="_blank" rel="noreferrer" className="text-sm font-medium text-green-600 hover:text-green-700 flex items-center gap-1">
+                                                    {selectedBooking.customer_phone}
+                                                    <span className="text-xs bg-green-100 px-1.5 py-0.5 rounded text-green-700">WhatsApp</span>
+                                                </a>
+                                            )}
                                         </div>
                                         <div className="sm:col-span-2">
-                                            <span className="block text-xs text-neutral-500 mb-1">Email Address</span>
-                                            <a href={`mailto:${selectedBooking.customer_email}`} className="text-sm font-medium text-blue-400 hover:underline">
-                                                {selectedBooking.customer_email}
-                                            </a>
+                                            <span className="block text-xs text-gray-500 mb-1">Email Address</span>
+                                            {isEditing ? (
+                                                <Input value={editedBooking.customer_email} onChange={(e) => setEditedBooking({ ...editedBooking, customer_email: e.target.value })} className="h-8 text-sm bg-white" />
+                                            ) : (
+                                                <a href={`mailto:\${selectedBooking.customer_email}`} className="text-sm font-medium text-blue-600 hover:underline">
+                                                    {selectedBooking.customer_email}
+                                                </a>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
@@ -397,30 +544,46 @@ export default function BookingsPage() {
 
                             {/* Trip Details */}
                             <div>
-                                <h3 className="text-lg font-semibold text-white mb-3">Trip Information</h3>
-                                <div className="space-y-4 bg-neutral-800/30 p-4 rounded-lg relative overflow-hidden">
+                                <h3 className="text-lg font-semibold text-gray-900 mb-3">Trip Information</h3>
+                                <div className="space-y-4 bg-gray-50 p-4 rounded-lg border border-gray-100 relative overflow-hidden">
                                     <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-green-500 to-red-500"></div>
 
                                     <div className="pl-4 relative">
-                                        <span className="block w-3 h-3 bg-green-500 rounded-full absolute left-[-21px] top-1.5 border-2 border-neutral-900 shadow-[0_0_0_2px_rgba(34,197,94,0.3)]"></span>
-                                        <span className="block text-xs text-neutral-500 mb-1">Pickup Location</span>
-                                        <p className="text-base font-medium">{selectedBooking.pickup_location}</p>
+                                        <span className="block w-3 h-3 bg-green-500 rounded-full absolute left-[-21px] top-1.5 border-2 border-white shadow-[0_0_0_2px_rgba(34,197,94,0.3)]"></span>
+                                        <span className="block text-xs text-gray-500 mb-1">Pickup Location</span>
+                                        {isEditing ? (
+                                            <Input value={editedBooking.pickup_location} onChange={(e) => setEditedBooking({ ...editedBooking, pickup_location: e.target.value })} className="h-8 text-sm bg-white" />
+                                        ) : (
+                                            <p className="text-base font-medium text-gray-900">{selectedBooking.pickup_location}</p>
+                                        )}
                                     </div>
 
                                     <div className="pl-4 relative">
-                                        <span className="block w-3 h-3 bg-red-500 rounded-full absolute left-[-21px] top-1.5 border-2 border-neutral-900 shadow-[0_0_0_2px_rgba(239,68,68,0.3)]"></span>
-                                        <span className="block text-xs text-neutral-500 mb-1">Destination</span>
-                                        <p className="text-base font-medium">{selectedBooking.destination}</p>
+                                        <span className="block w-3 h-3 bg-red-500 rounded-full absolute left-[-21px] top-1.5 border-2 border-white shadow-[0_0_0_2px_rgba(239,68,68,0.3)]"></span>
+                                        <span className="block text-xs text-gray-500 mb-1">Destination</span>
+                                        {isEditing ? (
+                                            <Input value={editedBooking.destination} onChange={(e) => setEditedBooking({ ...editedBooking, destination: e.target.value })} className="h-8 text-sm bg-white" />
+                                        ) : (
+                                            <p className="text-base font-medium text-gray-900">{selectedBooking.destination}</p>
+                                        )}
                                     </div>
 
-                                    <div className="grid grid-cols-2 gap-4 pl-4 pt-2 border-t border-neutral-700/50 mt-4">
+                                    <div className="grid grid-cols-2 gap-4 pl-4 pt-4 border-t border-gray-200 mt-4">
                                         <div>
-                                            <span className="block text-xs text-neutral-500 mb-1">Date</span>
-                                            <span className="font-medium bg-neutral-800 px-2 py-1 rounded text-sm block w-fit">{selectedBooking.pickup_date}</span>
+                                            <span className="block text-xs text-gray-500 mb-1">Date</span>
+                                            {isEditing ? (
+                                                <Input type="date" value={editedBooking.pickup_date} onChange={(e) => setEditedBooking({ ...editedBooking, pickup_date: e.target.value })} className="h-8 text-sm bg-white" />
+                                            ) : (
+                                                <span className="font-medium bg-white border border-gray-200 px-2 py-1 rounded text-sm block w-fit text-gray-900">{selectedBooking.pickup_date}</span>
+                                            )}
                                         </div>
                                         <div>
-                                            <span className="block text-xs text-neutral-500 mb-1">Time</span>
-                                            <span className="font-medium bg-neutral-800 px-2 py-1 rounded text-sm block w-fit">{selectedBooking.pickup_time}</span>
+                                            <span className="block text-xs text-gray-500 mb-1">Time</span>
+                                            {isEditing ? (
+                                                <Input type="time" value={editedBooking.pickup_time} onChange={(e) => setEditedBooking({ ...editedBooking, pickup_time: e.target.value })} className="h-8 text-sm bg-white" />
+                                            ) : (
+                                                <span className="font-medium bg-white border border-gray-200 px-2 py-1 rounded text-sm block w-fit text-gray-900">{selectedBooking.pickup_time}</span>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
@@ -428,65 +591,109 @@ export default function BookingsPage() {
 
                             {/* Vehicle & Requirements */}
                             <div>
-                                <h3 className="text-lg font-semibold text-white mb-3">Vehicle & Requirements</h3>
-                                <div className="bg-neutral-800/30 p-4 rounded-lg space-y-4">
+                                <h3 className="text-lg font-semibold text-gray-900 mb-3">Vehicle & Requirements</h3>
+                                <div className="bg-gray-50 p-4 rounded-lg border border-gray-100 space-y-4">
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
-                                            <span className="block text-xs text-neutral-500 mb-1">Vehicle Type</span>
-                                            <Badge variant="outline" className="text-sm bg-neutral-900 border-primary/50 text-white font-medium shadow-sm shadow-primary/10">
-                                                {selectedBooking.vehicle_type}
-                                            </Badge>
+                                            <span className="block text-xs text-gray-500 mb-1">Vehicle Type</span>
+                                            {isEditing ? (
+                                                <Select value={editedBooking.vehicle_type} onValueChange={(val) => setEditedBooking({ ...editedBooking, vehicle_type: val })}>
+                                                    <SelectTrigger className="h-8 text-sm bg-white">
+                                                        <SelectValue />
+                                                    </SelectTrigger>
+                                                    <SelectContent className="bg-white border-gray-200">
+                                                        <SelectItem value="Sedan">Sedan</SelectItem>
+                                                        <SelectItem value="SUV">SUV</SelectItem>
+                                                        <SelectItem value="Van">Van</SelectItem>
+                                                        <SelectItem value="Minibus">Minibus</SelectItem>
+                                                        <SelectItem value="Bus">Bus</SelectItem>
+                                                        <SelectItem value="GMC">GMC</SelectItem>
+                                                        <SelectItem value="Starex">Starex</SelectItem>
+                                                        <SelectItem value="Hiace">Hiace</SelectItem>
+                                                    </SelectContent>
+                                                </Select>
+                                            ) : (
+                                                <Badge variant="outline" className="text-sm bg-white border-gray-200 text-gray-900 font-medium">
+                                                    {selectedBooking.vehicle_type}
+                                                </Badge>
+                                            )}
                                         </div>
                                         <div>
-                                            <span className="block text-xs text-neutral-500 mb-1">Total Quote</span>
-                                            <span className="text-lg font-bold text-green-400">
-                                                {selectedBooking.total_price ? `SAR ${selectedBooking.total_price}` : 'Calculating...'}
-                                            </span>
+                                            <span className="block text-xs text-gray-500 mb-1">Total Quote</span>
+                                            {isEditing ? (
+                                                <Input type="number" value={editedBooking.total_price || ''} onChange={(e) => setEditedBooking({ ...editedBooking, total_price: parseFloat(e.target.value) })} className="h-8 text-sm bg-white font-bold" />
+                                            ) : (
+                                                <span className="text-lg font-bold text-green-600">
+                                                    {selectedBooking.total_price ? `SAR \${selectedBooking.total_price}` : 'Calculating...'}
+                                                </span>
+                                            )}
                                         </div>
                                     </div>
 
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
-                                            <span className="block text-xs text-neutral-500 mb-1">Passengers</span>
-                                            <span className="font-medium">{selectedBooking.passengers} <span className="text-xs text-neutral-500">People</span></span>
+                                            <span className="block text-xs text-gray-500 mb-1">Passengers</span>
+                                            {isEditing ? (
+                                                <Input type="number" value={editedBooking.passengers} onChange={(e) => setEditedBooking({ ...editedBooking, passengers: parseInt(e.target.value) })} className="h-8 text-sm bg-white" />
+                                            ) : (
+                                                <span className="font-medium text-gray-900">{selectedBooking.passengers} <span className="text-xs text-gray-500">People</span></span>
+                                            )}
                                         </div>
                                         <div>
-                                            <span className="block text-xs text-neutral-500 mb-1">Luggage</span>
-                                            <span className="font-medium">{selectedBooking.luggage} <span className="text-xs text-neutral-500">Bags</span></span>
+                                            <span className="block text-xs text-gray-500 mb-1">Luggage</span>
+                                            {isEditing ? (
+                                                <Input type="number" value={editedBooking.luggage} onChange={(e) => setEditedBooking({ ...editedBooking, luggage: parseInt(e.target.value) })} className="h-8 text-sm bg-white" />
+                                            ) : (
+                                                <span className="font-medium text-gray-900">{selectedBooking.luggage} <span className="text-xs text-gray-500">Bags</span></span>
+                                            )}
                                         </div>
                                     </div>
 
                                     <div>
-                                        <span className="block text-xs text-neutral-500 mb-1">Special Requests / Notes</span>
-                                        <div className="bg-neutral-900 p-3 rounded text-sm text-neutral-300 min-h-[60px] whitespace-pre-wrap">
-                                            {selectedBooking.special_requests || "No special requests."}
-                                        </div>
+                                        <span className="block text-xs text-gray-500 mb-1">Special Requests / Notes</span>
+                                        {isEditing ? (
+                                            <textarea value={editedBooking.special_requests || ''} onChange={(e) => setEditedBooking({ ...editedBooking, special_requests: e.target.value })} className="w-full min-h-[60px] p-2 text-sm border border-gray-200 rounded-md bg-white text-gray-900" />
+                                        ) : (
+                                            <div className="bg-white border border-gray-200 p-3 rounded text-sm text-gray-700 min-h-[60px] whitespace-pre-wrap">
+                                                {selectedBooking.special_requests || "No special requests."}
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="pt-6 border-t border-neutral-800 space-y-3">
-                                {selectedBooking.status === 'pending' && (
+                            <div className="pt-6 border-t border-gray-200 space-y-3">
+                                {!isEditing && selectedBooking.status === 'pending' && (
                                     <Button
-                                        className="w-full bg-primary hover:bg-black text-white font-bold h-12 shadow-lg shadow-primary/20"
+                                        className="w-full bg-primary text-black hover:bg-black hover:text-white font-bold h-12 shadow-md transition-all"
                                         onClick={() => updateStatus(selectedBooking.id, 'confirmed')}
                                     >
                                         <CheckCircle className="w-5 h-5 mr-2" /> Confirm Booking & Send Email
                                     </Button>
                                 )}
 
-                                {selectedBooking.status === 'confirmed' && (
+                                {!isEditing && selectedBooking.status === 'confirmed' && (
                                     <Button
-                                        className="w-full bg-green-500 hover:bg-green-600 text-black font-bold h-12"
+                                        className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold h-12 transition-all"
                                         onClick={() => updateStatus(selectedBooking.id, 'completed')}
                                     >
-                                        <CheckCircle className="w-5 h-5 mr-2" /> Complete Journey & Request Review
+                                        <CheckCircle className="w-5 h-5 mr-2" /> Complete Journey
                                     </Button>
                                 )}
 
-                                <Button className="w-full bg-red-500/10 text-red-500 hover:bg-red-500/20 border border-red-500/20" onClick={() => deleteBooking(selectedBooking.id)}>
-                                    <Trash2 className="w-4 h-4 mr-2" /> Delete This Booking
-                                </Button>
+                                {!isEditing && (
+                                    <div className="mt-4 border-t border-gray-200 pt-3">
+                                        <Button variant="outline" className="w-full bg-white border-gray-300 hover:bg-gray-50 hover:text-gray-900 text-gray-700 transition-all font-semibold" onClick={() => shareB2BOptions(selectedBooking)}>
+                                            <Copy className="w-4 h-4 mr-2 text-gray-500" /> Copy B2B Message
+                                        </Button>
+                                    </div>
+                                )}
+
+                                {!isEditing && (
+                                    <Button variant="ghost" className="w-full hover:bg-red-50 text-red-500 hover:text-red-600 mt-2 transition-all" onClick={() => deleteBooking(selectedBooking.id)}>
+                                        <Trash2 className="w-4 h-4 mr-2" /> Delete This Booking
+                                    </Button>
+                                )}
                             </div>
                         </div>
                     )}

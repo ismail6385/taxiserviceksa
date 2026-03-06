@@ -5,35 +5,19 @@ import nodemailer from 'nodemailer';
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 
-// Gmail configuration
-const EMAIL_USER = process.env.EMAIL_USER || 'taxiserviceksa9988@gmail.com';
-const EMAIL_PASS = process.env.EMAIL_PASS || '';
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'taxiserviceksa9988@gmail.com';
-
-if (!EMAIL_USER || !EMAIL_PASS) {
-    console.error('EMAIL_USER or EMAIL_PASS is not set in environment variables');
-}
-
-// Create Gmail transporter
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: EMAIL_USER,
-        pass: EMAIL_PASS,
-    },
-});
+// Helper functions moved up
 
 // Helper function to format booking ID
-function formatBookingId(id: string | undefined): string {
+function formatBookingId(id: string | number | undefined): string {
     if (!id) return 'N/A';
-    return `#${id.slice(0, 8).toUpperCase()}`;
+    return `#${String(id).slice(0, 8).toUpperCase()}`;
 }
 
 // Helper function to format phone number for WhatsApp
-function formatPhoneForWhatsApp(phone: string | undefined): string {
+function formatPhoneForWhatsApp(phone: string | number | undefined): string {
     if (!phone) return '';
-    // Remove all non-digit characters
-    const cleaned = phone.replace(/\D/g, '');
+    // Remove all non-digit characters safely
+    const cleaned = String(phone).replace(/\D/g, '');
     // If it starts with 0, remove it (Saudi Arabia format)
     if (cleaned.startsWith('0')) {
         return cleaned.substring(1);
@@ -94,22 +78,35 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Validate environment variables
-        if (!EMAIL_USER || !EMAIL_PASS) {
-            console.error('Gmail credentials not configured - EMAIL_USER or EMAIL_PASS missing');
+        const emailUser = process.env.EMAIL_USER;
+        const emailPass = process.env.EMAIL_PASS;
+        const emailAdmin = process.env.ADMIN_EMAIL || 'taxiserviceksa9988@gmail.com';
+
+        // Validate environment variables — no fallback, must be explicitly configured
+        if (!emailUser || !emailPass) {
+            console.error('EMAIL_USER or EMAIL_PASS not set in environment variables');
             return NextResponse.json(
-                { error: 'Email service not configured. Please contact support.' },
+                { error: 'Email service not configured. Please set EMAIL_USER and EMAIL_PASS.' },
                 { status: 500 }
             );
         }
 
-        if (!ADMIN_EMAIL) {
+        if (!emailAdmin) {
             console.error('ADMIN_EMAIL not set');
             return NextResponse.json(
                 { error: 'Admin email not configured' },
                 { status: 500 }
             );
         }
+
+        // Create Gmail transporter dynamically inside the function
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: emailUser,
+                pass: emailPass,
+            },
+        });
 
         // Validate email format
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -126,7 +123,7 @@ export async function POST(request: NextRequest) {
         let customerEmail;
         try {
             customerEmail = await transporter.sendMail({
-                from: `"Taxi Service KSA" <${EMAIL_USER}>`,
+                from: `"Taxi Service KSA" <${emailUser}>`,
                 to: booking.customer_email,
                 subject: 'Booking Confirmation - Taxi Service KSA',
                 html: `
@@ -249,6 +246,7 @@ export async function POST(request: NextRequest) {
                             <div class="divider"></div>
 
                             <!-- Help Section -->
+                            <p class="greeting">
                                 Need assistance? Contact us at<br>
                                 <a href="mailto:taxiserviceksa9988@gmail.com">taxiserviceksa9988@gmail.com</a>
                             </p>
@@ -291,10 +289,11 @@ export async function POST(request: NextRequest) {
         // Send email to admin
         let adminEmailResult;
         try {
-            console.log('Sending admin email to:', ADMIN_EMAIL);
+            console.log('Sending admin email to:', emailAdmin);
             adminEmailResult = await transporter.sendMail({
-                from: `"Taxi Service KSA" <${EMAIL_USER}>`,
-                to: ADMIN_EMAIL,
+                from: `"Taxi Service KSA" <${emailUser}>`,
+                to: emailAdmin,
+                replyTo: booking.customer_email,
                 subject: `🚗 New Booking - ${booking.customer_name} ${price ? `(SAR ${price})` : ''}`,
                 html: `
                 <!DOCTYPE html>
@@ -322,10 +321,6 @@ export async function POST(request: NextRequest) {
                             <h1>🚗 NEW BOOKING ALERT!</h1>
                         </div>
                         <div class="content">
-                            <div class="alert">
-                                ⚡ Action Required: Contact customer immediately!
-                            </div>
-                            
                             ${price ? `
                             <div class="price-alert">
                                 💰 Quoted Price: SAR ${price}

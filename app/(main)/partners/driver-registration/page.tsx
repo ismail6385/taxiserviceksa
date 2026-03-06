@@ -16,7 +16,8 @@ import {
     Calendar,
     Sparkles,
     CheckCircle,
-    Loader2
+    Loader2,
+    AlertCircle
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -33,7 +34,8 @@ export default function DriverRegistration() {
         license_valid: false,
         vehicle_condition: false,
         languages: false,
-        code_conduct: false
+        code_conduct: false,
+        owns_car: null as boolean | null
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -249,7 +251,42 @@ export default function DriverRegistration() {
                                     </div>
                                 </div>
 
-                                <div className="space-y-4 pt-4">
+                                <div className="space-y-4 pt-6 border-t border-gray-100 mt-6">
+                                    <h4 className="text-sm font-black text-gray-900 uppercase tracking-widest">Vehicle Ownership</h4>
+                                    <div className="grid sm:grid-cols-2 gap-4">
+                                        <label className={`\${formData.owns_car === true ? 'bg-primary/10 border-primary ring-2 ring-primary/20' : 'bg-gray-50 border-gray-200 hover:bg-gray-100'} border-2 p-4 rounded-2xl cursor-pointer transition-all flex items-center gap-3`}>
+                                            <input
+                                                type="radio"
+                                                name="owns_car"
+                                                required
+                                                checked={formData.owns_car === true}
+                                                onChange={() => setFormData({ ...formData, owns_car: true })}
+                                                className="w-5 h-5 text-primary focus:ring-primary/20"
+                                            />
+                                            <span className="text-sm font-bold text-gray-900">Yes, I own my own car</span>
+                                        </label>
+                                        <label className={`\${formData.owns_car === false ? 'bg-red-50 border-red-500 ring-2 ring-red-500/20' : 'bg-gray-50 border-gray-200 hover:bg-gray-100'} border-2 p-4 rounded-2xl cursor-pointer transition-all flex items-center gap-3`}>
+                                            <input
+                                                type="radio"
+                                                name="owns_car"
+                                                required
+                                                checked={formData.owns_car === false}
+                                                onChange={() => setFormData({ ...formData, owns_car: false })}
+                                                className="w-5 h-5 text-red-500 focus:ring-red-500/20"
+                                            />
+                                            <span className="text-sm font-bold text-gray-900">No, I do not</span>
+                                        </label>
+                                    </div>
+
+                                    {formData.owns_car === false && (
+                                        <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-xl text-sm font-bold flex gap-3 items-start">
+                                            <AlertCircle className="w-5 h-5 shrink-0" />
+                                            <p>We only accept driver partners who own their own vehicle. Unfortunately, you cannot proceed with the application at this time.</p>
+                                        </div>
+                                    )}
+                                </div>
+
+                                <div className={`space-y-4 pt-6 border-t border-gray-100 \${formData.owns_car === false ? 'opacity-50 pointer-events-none' : ''}`}>
                                     <h4 className="text-sm font-black text-gray-900 uppercase tracking-widest">Requirements Check</h4>
                                     <div className="grid gap-3">
                                         <label className="flex items-center gap-3 p-4 bg-gray-50 rounded-2xl cursor-pointer hover:bg-primary/5 transition-colors group">
@@ -299,7 +336,7 @@ export default function DriverRegistration() {
                                     </div>
                                 </div>
 
-                                <Button type="submit" disabled={loading} className="w-full bg-primary hover:bg-black text-white font-black py-10 rounded-3xl text-xl shadow-2xl shadow-primary/20 transition-all group mt-8">
+                                <Button type="submit" disabled={loading || formData.owns_car === false} className="w-full bg-primary hover:bg-black text-white font-black py-10 rounded-3xl text-xl shadow-2xl shadow-primary/20 transition-all group mt-8 disabled:opacity-50 disabled:cursor-not-allowed">
                                     {loading ? (
                                         <span className="flex items-center gap-2"><Loader2 className="animate-spin" /> Submitting...</span>
                                     ) : (

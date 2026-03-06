@@ -33,18 +33,22 @@ export async function POST(req: Request) {
 
         // Create a transporter using environment variables
         // Ideally, the user needs to configure these in .env.local
+        const emailUser = process.env.EMAIL_USER || 'taxiserviceksa9988@gmail.com';
+        const adminEmail = process.env.ADMIN_EMAIL || 'taxiserviceksa9988@gmail.com';
+
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: process.env.EMAIL_USER || 'info@taxiserviceksa.com', // Official Business Email
+                user: emailUser,
                 pass: process.env.EMAIL_PASS || '',
             },
         });
 
         // Email content
         const mailOptions = {
-            from: `"${name}" <${email}>`,
-            to: 'info@taxiserviceksa.com', // Official destination email
+            from: `"Taxi Service Contact" <${emailUser}>`,
+            replyTo: email,
+            to: adminEmail,
             subject: `New Contact Form: ${subject}`,
             html: `
         <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
