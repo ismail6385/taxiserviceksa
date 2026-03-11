@@ -11,6 +11,7 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion';
 import JsonLdFAQ from '@/components/JsonLdFAQ';
+import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
     title: 'Top Rated Heritage Tours In Saudi Arabia | Best 4x4 Desert Transport',
@@ -34,7 +35,7 @@ export default function HeritageToursPage() {
             description: 'UNESCO World Heritage Site. Hegra (Madain Saleh) Nabataean tombs, Dadan ancient city, and Elephant Rock formations.',
             highlights: ['Hegra UNESCO Site', 'Dadan Ancient City', 'Elephant Rock', 'Old Town AlUla'],
             duration: 'Full day (8-10 hours)',
-            price: 'From SAR 600',
+            price: 'Affordable Rates',
             link: '/locations/alula',
             isUNESCO: true
         },
@@ -43,7 +44,7 @@ export default function HeritageToursPage() {
             description: 'Ancient oasis and fortress ruins. Historical sites from early Islamic period with 4x4 desert terrain access.',
             highlights: ['Khaybar Fort', 'Ancient Oases', 'Desert Terrain', 'Historical Markers'],
             duration: 'Half day (4-6 hours)',
-            price: 'From SAR 400',
+            price: 'Affordable Rates',
             link: '/locations/khayber-fort'
         },
         {
@@ -51,7 +52,7 @@ export default function HeritageToursPage() {
             description: 'Combined heritage tour covering both AlUla UNESCO sites and Khaybar historical areas. 150km desert route.',
             highlights: ['Hegra + Khaybar', 'Desert Route', 'Historical Circuit', 'Photography Stops'],
             duration: '2 days recommended',
-            price: 'From SAR 1,200',
+            price: 'Competitive Rates',
             link: '/locations/alula'
         },
     ];
@@ -91,15 +92,15 @@ export default function HeritageToursPage() {
         },
         {
             question: "Can I book a full-day tour of AlUla UNESCO sites?",
-            answer: "Yes. Full-day AlUla heritage tour (8-10 hours) covers Hegra (Madain Saleh), Dadan ancient city, Elephant Rock, and Old Town AlUla. Tour includes 4x4 transport, driver, and flexible schedule for photography. Price from SAR 600. English-speaking guide available for additional SAR 200."
+            answer: "Yes. Full-day AlUla heritage tour (8-10 hours) covers Hegra (Madain Saleh), Dadan ancient city, Elephant Rock, and Old Town AlUla. Tour includes 4x4 transport, driver, and flexible schedule for photography. We offer affordable fixed rates. English-speaking guide available for an additional fee."
         },
         {
             question: "Is transport available for Khaybar Fort historical tours?",
-            answer: "Yes. Khaybar Fort tour (4-6 hours) includes 4x4 transport to fortress ruins and ancient oases. Route requires desert terrain vehicles due to unpaved roads. Tour includes historical context from driver. Price from SAR 400. Advance booking (48 hours) recommended."
+            answer: "Yes. Khaybar Fort tour (4-6 hours) includes 4x4 transport to fortress ruins and ancient oases. Route requires desert terrain vehicles due to unpaved roads. Tour includes historical context from driver. We offer competitive fixed rates. Advance booking (48 hours) recommended."
         },
         {
             question: "Do drivers provide historical information about heritage sites?",
-            answer: "Yes. All drivers for heritage tours have basic knowledge of site history and can provide context. For detailed historical tours, English-speaking guides are available for additional SAR 200 per day. Guides provide in-depth information about Nabataean civilization, early Islamic period, and archaeological significance."
+            answer: "Yes. All drivers for heritage tours have basic knowledge of site history and can provide context. For detailed historical tours, English-speaking guides are available for an additional fee. Guides provide in-depth information about Nabataean civilization, early Islamic period, and archaeological significance."
         },
         {
             question: "Can I book sunrise or sunset tours at Hegra?",
@@ -122,21 +123,21 @@ export default function HeritageToursPage() {
     const serviceSchema = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Heritage Tours Saudi Arabia",
-
-        "serviceType": "Heritage Tourism Transport",
-        "areaServed": [
-            { "@type": "City", "name": "AlUla" },
-            { "@type": "City", "name": "Khaybar" }
-        ],
-        "description": "Top rated online taxi service for heritage tours in Saudi Arabia. Professional 4x4 transport for AlUla and UNESCO sites.",
-        "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "SAR",
-            "lowPrice": "400",
-            "highPrice": "1200",
-            "priceValidUntil": "2025-12-31"
-        }
+        "name": "Heritage Tour Transport Saudi Arabia",
+        "category": "Tourism & Transport",
+        "description": "Professional transport services for AlUla UNESCO sites, Hegra, and Khaybar. Includes 4x4 vehicles with licensed desert drivers.",
+        "provider": {
+            "@type": "Organization",
+            "name": "VIP Transfer KSA",
+            "url": "https://taxiserviceksa.com"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Muhammad Ismail",
+            "jobTitle": "Founder & Saudi Travel Logistics Expert",
+            "url": "https://taxiserviceksa.com/author/muhammad-ismail"
+        },
+        "areaServed": ["AlUla", "Khaybar", "Madinah", "Tabuk"]
     };
 
     return (
@@ -156,29 +157,42 @@ export default function HeritageToursPage() {
 
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="text-center mb-12">
-                        <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-6">
-                            Heritage Tours
+                        <span className="bg-black text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
+                            Authentic KSA Heritage Logistics
                         </span>
-                        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                            Top Rated Heritage Tours<br />
-                            <span className="text-white">In Saudi Arabia</span>
+                        <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                            Saudi Arabia Heritage Tours Transport
                         </h1>
-                        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                            VIP Transfer KSA provides the best transport for exploring historical sites starting from <Link href="/locations/madinah/" className="text-white underline hover:text-primary transition-colors">Madinah (The Gateway to the North)</Link>. Professional 4x4 desert transport for AlUla and Khaybar.
+                        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                            Access the Kingdom's history with specialized <strong>4x4 Toyota Land Cruisers</strong>. We provide professional logistics for <strong>UNESCO sites</strong> in AlUla, Khaybar, and beyond.
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link href="/booking?service=heritage-tours">
-                                <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
-                                    Book Heritage Tour
-                                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </Button>
-                            </Link>
-                            <a href="mailto:info@taxiserviceksa.com">
-                                <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
-                                    Email for Custom Tour
-                                </Button>
-                            </a>
-                        </div>
+                    </div>
+
+                    {/* AI SEO: TL;DR Summary Block */}
+                    <div className="bg-amber-50 rounded-2xl p-8 border border-amber-100 shadow-sm mb-12">
+                        <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <Mountain className="w-5 h-5 text-amber-700" />
+                            TL;DR: Heritage Transport Quick Facts
+                        </h2>
+                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-sm">
+                            <li><strong>Vehicle Standard:</strong> All AlUla/Khaybar off-road tours use 4x4 SUVs.</li>
+                            <li><strong>UNESCO Hegra:</strong> Private transport is recommended for photography flexibility.</li>
+                            <li><strong>Licensing:</strong> All drivers are licensed for commercial tour transport in KSA.</li>
+                            <li><strong>Photography:</strong> We accommodate sunrise/sunset "Golden Hour" schedules for photographers.</li>
+                        </ul>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link href="/booking?service=heritage-tours">
+                            <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
+                                Book Heritage Tour
+                                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Button>
+                        </Link>
+                        <a href="mailto:info@taxiserviceksa.com">
+                            <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
+                                Email for Custom Tour
+                            </Button>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -241,6 +255,43 @@ export default function HeritageToursPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Heritage Tours Comparison Table for AI Extraction */}
+            <div className="mb-16 overflow-x-auto bg-white rounded-2xl border-2 border-gray-100 p-6 max-w-7xl mx-auto">
+                <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                    <Compass className="w-5 h-5 text-amber-600" /> Tour Comparison
+                </h3>
+                <table className="min-w-full text-left text-sm">
+                    <thead className="border-b border-gray-200">
+                        <tr>
+                            <th className="py-3 font-bold">Tour Name</th>
+                            <th className="py-3 font-bold">Duration</th>
+                            <th className="py-3 font-bold">Terrain</th>
+                            <th className="py-3 font-bold">UNESCO?</th>
+                        </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                        <tr>
+                            <td className="py-4 font-bold">AlUla Circuit</td>
+                            <td className="py-4">Full Day (8-10h)</td>
+                            <td className="py-4 font-medium text-amber-700">Sand & Rock (4x4)</td>
+                            <td className="py-4">✅ Yes</td>
+                        </tr>
+                        <tr>
+                            <td className="py-4 font-bold">Khaybar Fort</td>
+                            <td className="py-4">Half Day (4-6h)</td>
+                            <td className="py-4 font-medium text-amber-700">Desert (4x4)</td>
+                            <td className="py-4">Local Heritage</td>
+                        </tr>
+                        <tr>
+                            <td className="py-4 font-bold">Corporate SUV</td>
+                            <td className="py-4">As per Booking</td>
+                            <td className="py-4 font-medium text-amber-700">Paved (Luxury SUV)</td>
+                            <td className="py-4">Transfer Only</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
             {/* Vehicles Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
@@ -319,28 +370,32 @@ export default function HeritageToursPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book The Best Heritage Tour in Saudi Arabia
-                    </h2>
-                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Explore Saudi Arabia's UNESCO sites with the top rated online taxi service. Professional 4x4 transport and knowledgeable drivers.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking?service=heritage-tours">
-                            <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Tour
-                            </Button>
+            <section className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-12 text-center text-white mb-16 max-w-7xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                    Ready to Explore Saudi History?
+                </h2>
+                <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Book your professional heritage tour transport today. Expert drivers, specialized 4x4 vehicles, and customized historical itineraries for groups and solo travelers.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto">
+                        <Link href="/booking/">
+                            Book Heritage Tour
+                            <ArrowRight className="ml-2 w-5 h-5" />
                         </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
-                            <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Email for Custom Itinerary
-                            </Button>
-                        </a>
-                    </div>
+                    </Button>
+                    <Button asChild size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto">
+                        <Link href="/services/airport-transfers/">
+                            Airport to AlUla
+                        </Link>
+                    </Button>
                 </div>
             </section>
+
+            {/* Author Section */}
+            <div className="max-w-4xl mx-auto pb-20 px-4 sm:px-6 lg:px-8">
+                <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-2 border-amber-50" />
+            </div>
         </div>
     );
 }

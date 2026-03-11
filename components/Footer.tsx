@@ -25,8 +25,8 @@ export default function Footer() {
                                 <Car className="w-6 h-6 text-white" />
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-2xl font-black text-white tracking-tight leading-none">
-                                    VIPTransfer<span className="text-primary">KSA</span>
+                                <span className="text-2xl font-black text-white tracking-tight leading-none uppercase">
+                                    VIP Transfer <span className="text-primary">KSA</span>
                                 </span>
                                 <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-2 block">Premium Chauffeur Service</span>
                             </div>
@@ -40,9 +40,9 @@ export default function Footer() {
                                 <Mail className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
                                 <span className="text-sm font-medium">info@taxiserviceksa.com</span>
                             </a>
-                            <a href="https://wa.me/923080628195" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
+                            <a href="https://wa.me/966569487569" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
                                 <Phone className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                                <span className="text-sm font-medium">+92 308 062 8195</span>
+                                <span className="text-sm font-medium">+966 56 948 7569</span>
                             </a>
                         </div>
 
@@ -188,8 +188,8 @@ export default function Footer() {
 
                 {/* Bottom Bar */}
                 <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <div className="text-sm text-gray-500 font-medium">
-                        &copy; {new Date().getFullYear()} VIPTransferKSA. Premium Chauffeur Service.
+                    <div className="text-sm text-gray-500 font-medium uppercase">
+                        &copy; {new Date().getFullYear()} VIP Transfer KSA. Premium Chauffeur Service.
                     </div>
                     <div className="flex flex-wrap justify-center gap-6">
                         <Link href="/privacy-policy/" className="text-sm text-gray-500 hover:text-primary transition-colors font-medium">Privacy Policy</Link>

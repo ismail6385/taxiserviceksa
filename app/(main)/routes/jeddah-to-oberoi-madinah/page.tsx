@@ -161,7 +161,7 @@ export default function JeddahToOberoiMadinahPage() {
                     {
                         question: "How much is a taxi from Jeddah Airport to Oberoi Madinah?",
                         shortAnswer: "Fixed Rate",
-                        detailedAnswer: "We offer fixed rates for Jeddah to Oberoi Madinah transfers. A standard sedan starts from SAR 450, while a luxury GMC Yukon is SAR 850. Prices are all-inclusive.",
+                        detailedAnswer: "We offer fixed rates for Jeddah to Oberoi Madinah transfers. A standard sedan is offered at a competitive rate, while a luxury GMC Yukon is also available. Prices are all-inclusive.",
                         perspectives: []
                     },
                     {

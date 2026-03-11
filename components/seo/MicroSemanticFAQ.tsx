@@ -7,13 +7,13 @@ import { HelpCircle, Check, ChevronDown, ChevronUp, Shield, Users, User, Briefca
 export interface MicroPerspective {
     role: string;
     icon: string; // Changed from any (component) to string name
-    insight: string;
+    insight: string | React.ReactNode;
 }
 
 export interface SemanticFAQItem {
     question: string;
     shortAnswer: string;
-    detailedAnswer: string;
+    detailedAnswer: string | React.ReactNode;
     perspectives: MicroPerspective[];
 }
 
@@ -70,7 +70,9 @@ const MicroSemanticFAQ: React.FC<MicroSemanticFAQProps> = ({
             "name": faq.question,
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": faq.detailedAnswer
+                "text": typeof faq.detailedAnswer === 'string'
+                    ? faq.detailedAnswer
+                    : faq.shortAnswer // Fallback to shortAnswer if detailed is JSX
             }
         }))
     };

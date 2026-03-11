@@ -8,15 +8,15 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Makkah to Jeddah Taxi | Door-to-Door Transfer - Fixed Price SAR 200+',
-    description: 'Book a taxi from Makkah to Jeddah (City or Airport) 24/7. Reliable door-to-door transfer in 60-90 minutes. Fixed rates starting from SAR 200. Professional drivers.',
+    title: 'Makkah to Jeddah Taxi | Door-to-Door Transfer - Fixed Prices',
+    description: 'Book a taxi from Makkah to Jeddah (City or Airport) 24/7. Reliable door-to-door transfer in 60-90 minutes. Fixed rates available. Professional drivers.',
     keywords: ['Makkah to Jeddah taxi', 'Makkah to Jeddah Airport taxi', 'taxi price Makkah to Jeddah', 'Makkah to King Abdulaziz Airport', 'Haramain train vs taxi makkah', 'private taxi makkah to jeddah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/makkah-jeddah/',
     },
     openGraph: {
         title: 'Makkah to Jeddah: Why Private Taxis Beat the Train (Faster & Door-to-Door)',
-        description: 'Book a taxi from Makkah to Jeddah (City or Airport) 24/7. Reliable door-to-door transfer in 60-90 minutes. Fixed rates starting from SAR 200.',
+        description: 'Book a taxi from Makkah to Jeddah (City or Airport) 24/7. Reliable door-to-door transfer in 60-90 minutes. Fixed rates available.',
         url: 'https://taxiserviceksa.com/routes/makkah-jeddah/',
         type: 'website',
     },
@@ -26,7 +26,7 @@ export default function MakkahJeddahRoutePage() {
     const routeDetails = [
         { label: 'Distance', value: '80-100 km', icon: Navigation },
         { label: 'Travel Time', value: '60-90 minutes', icon: Clock },
-        { label: 'Starting Price', value: 'SAR 200', icon: DollarSign },
+        { label: 'Starting Price', value: 'Competitive', icon: DollarSign },
         { label: 'Availability', value: '24/7 Service', icon: CheckCircle2 },
     ];
 
@@ -78,7 +78,7 @@ export default function MakkahJeddahRoutePage() {
                     </span>
                 }
                 subtitle="From Your Hotel to Jeddah Airport or City"
-                location="60-90 Minutes | Fixed Rate SAR 200+"
+                location="60-90 Minutes | Fixed Rates Available"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?route=makkah-jeddah">
@@ -247,17 +247,17 @@ export default function MakkahJeddahRoutePage() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
                             <div className="text-lg font-bold mb-2">Economy Sedan</div>
-                            <div className="text-4xl font-black text-primary mb-4">SAR 200</div>
+                            <div className="text-4xl font-black text-primary mb-4">Route Rate</div>
                             <p className="text-sm text-gray-500">Camry / Sonata (4 Pax)</p>
                         </div>
                         <div className="bg-white p-8 rounded-2xl shadow-sm border-2 border-primary">
                             <div className="text-lg font-bold mb-2">Luxury SUV</div>
-                            <div className="text-4xl font-black text-primary mb-4">SAR 400</div>
+                            <div className="text-4xl font-black text-primary mb-4">Executive Rate</div>
                             <p className="text-sm text-gray-500">GMC Yukon / Tahoe (7 Pax)</p>
                         </div>
                         <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
                             <div className="text-lg font-bold mb-2">Group Van</div>
-                            <div className="text-4xl font-black text-primary mb-4">SAR 300</div>
+                            <div className="text-4xl font-black text-primary mb-4">Group Rate</div>
                             <p className="text-sm text-gray-500">Hyundai Staria / H1 (7 Pax)</p>
                         </div>
                     </div>
@@ -272,8 +272,8 @@ export default function MakkahJeddahRoutePage() {
                 faqs={[
                     {
                         question: "How much is a taxi from Makkah to Jeddah Airport?",
-                        shortAnswer: "SAR 200 - 250",
-                        detailedAnswer: "A standard sedan taxi from Makkah to King Abdulaziz International Airport (Jeddah) costs SAR 200-250. Larger vehicles like the GMC Yukon for families cost SAR 400.",
+                        shortAnswer: "Affordable Fixed Rates",
+                        detailedAnswer: "A standard sedan taxi from Makkah to King Abdulaziz International Airport (Jeddah) is available at fixed rates. Larger vehicles like the GMC Yukon for families are also available.",
                         perspectives: []
                     },
                     {

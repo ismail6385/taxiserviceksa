@@ -10,14 +10,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
     title: 'Al Ula to Jeddah Taxi | 700km Return Transfer - Fixed Price',
-    description: 'Taxi from Al Ula to Jeddah. 700km return journey to Jeddah Airport or Hotel. Fixed rate from SAR 1400. 4x4 SUVs available for luggage.',
+    description: 'Taxi from Al Ula to Jeddah. 700km return journey to Jeddah Airport or Hotel. Affordable fixed rates. 4x4 SUVs available for luggage.',
     keywords: ['Al Ula to Jeddah taxi', 'taxi Al Ula to Jeddah airport', 'Al Ula transport', 'Al Ula to Jeddah price', 'Al Ula car hire'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/alula-jeddah/',
     },
     openGraph: {
-        title: 'Al Ula to Jeddah Taxi | 700km Route - Fixed Price SAR 1400',
-        description: 'Comfortable private transfer from Al Ula to Jeddah. 700km journey. Fixed rates starting SAR 1400. Door-to-door service.',
+        title: 'Al Ula to Jeddah Taxi | 700km Route - Affordable Fixed Price',
+        description: 'Comfortable private transfer from Al Ula to Jeddah. 700km journey. Flexible and affordable fixed rates. Door-to-door service.',
         url: 'https://taxiserviceksa.com/routes/alula-jeddah/',
         type: 'website',
     },
@@ -27,7 +27,7 @@ export default function AlulaJeddahRoutePage() {
     const routeDetails = [
         { label: 'Distance', value: '700 km', icon: Navigation },
         { label: 'Travel Time', value: '7-8 hours', icon: Clock },
-        { label: 'Starting Price', value: 'SAR 1400', icon: DollarSign },
+        { label: 'Pricing', value: 'Affordable', icon: DollarSign },
         { label: 'Terrain', value: 'Mountain & Desert', icon: Mountain },
     ];
 
@@ -80,7 +80,7 @@ export default function AlulaJeddahRoutePage() {
                     </span>
                 }
                 subtitle="From Heritage Sites to the Red Sea Coast"
-                location="700 km | ~7.5 Hours | From SAR 1400"
+                location="700 km | ~7.5 Hours | Fixed Rates"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?route=alula-jeddah">
@@ -199,7 +199,7 @@ export default function AlulaJeddahRoutePage() {
                             </div>
                             <div className="text-xl font-bold text-gray-900 mb-3">Camry (Sedan)</div>
                             <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-gray-500">SAR</span> 1400
+                                <span className="text-2xl text-emerald-600">Economy Rate</span>
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
                                 3 Passengers / 2 Bags
@@ -215,7 +215,7 @@ export default function AlulaJeddahRoutePage() {
                             </div>
                             <div className="text-xl font-bold text-gray-900 mb-3">GMC Yukon (SUV)</div>
                             <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-gray-500">SAR</span> 1800
+                                <span className="text-2xl text-emerald-600">VIP Rate</span>
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
                                 6 Passengers / 5 Bags
@@ -228,7 +228,7 @@ export default function AlulaJeddahRoutePage() {
                             </div>
                             <div className="text-xl font-bold text-gray-900 mb-3">Hyundai Staria</div>
                             <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-gray-500">SAR</span> 1600
+                                <span className="text-2xl text-emerald-600">Family Rate</span>
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
                                 7 Passengers / 6 Bags
@@ -258,8 +258,8 @@ export default function AlulaJeddahRoutePage() {
                     },
                     {
                         question: "What is the price for Al Ula to Jeddah taxi?",
-                        shortAnswer: "From SAR 1400",
-                        detailedAnswer: "The price is the same as the outbound trip: SAR 1400 for a sedan and SAR 1800 for a GMC Yukon. This is a fixed rate with no hidden charges.",
+                        shortAnswer: "Affordable Fixed Rates",
+                        detailedAnswer: "Our prices are competitive and fixed for sedans and GMC Yukons. This is a fixed rate with no hidden charges.",
                         perspectives: []
                     },
                     {
@@ -283,7 +283,7 @@ export default function AlulaJeddahRoutePage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking?route=alula-jeddah">
                             <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Return (SAR 1400+)
+                                Book Return
                             </Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">

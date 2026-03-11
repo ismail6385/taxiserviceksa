@@ -26,7 +26,7 @@ export default function JeddahTrainStationPage() {
     const routeDetails = [
         { label: 'Pickup Point', value: 'Al Sulimaniyah Station', icon: MapPin },
         { label: 'To Airport', value: '25-30 Minutes', icon: Clock },
-        { label: 'Starting Price', value: 'SAR 100', icon: DollarSign },
+        { label: 'Starting Price', value: 'Competitive', icon: DollarSign },
         { label: 'Availability', value: '24/7 Service', icon: CheckCircle2 },
     ];
 
@@ -69,7 +69,7 @@ export default function JeddahTrainStationPage() {
                     </span>
                 }
                 subtitle="From Haramain Train Station to KAIA Airport or Hotels"
-                location="25-30 Minutes | Fixed Rate SAR 100+"
+                location="25-30 Minutes | Affordable Fixed Rates"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking">
@@ -143,17 +143,17 @@ export default function JeddahTrainStationPage() {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
                                 <div className="text-lg font-bold mb-2">To Jeddah Airport</div>
-                                <div className="text-3xl font-black text-primary mb-2">SAR 100</div>
+                                <div className="text-3xl font-black text-primary mb-2">Fixed Rate</div>
                                 <p className="text-xs text-gray-500">Economy Sedan</p>
                             </div>
                             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
                                 <div className="text-lg font-bold mb-2">To Jeddah Hotels</div>
-                                <div className="text-3xl font-black text-primary mb-2">SAR 120</div>
+                                <div className="text-3xl font-black text-primary mb-2">City Rate</div>
                                 <p className="text-xs text-gray-500">City Center / Al Hamra</p>
                             </div>
                             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
                                 <div className="text-lg font-bold mb-2">To Obhur / North</div>
-                                <div className="text-3xl font-black text-primary mb-2">SAR 150</div>
+                                <div className="text-3xl font-black text-primary mb-2">Resort Rate</div>
                                 <p className="text-xs text-gray-500">North Jeddah / Resorts</p>
                             </div>
                         </div>

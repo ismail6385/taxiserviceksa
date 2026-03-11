@@ -35,7 +35,7 @@ export default function JeddahAirportToMakkahPage() {
                         "name": "Jeddah Airport to Makkah Transfer",
 
                         "areaServed": { "@type": "City", "name": "Makkah" },
-                        "offers": { "@type": "Offer", "price": "200", "priceCurrency": "SAR", "priceValidUntil": "2025-12-31" }
+                        "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
                     })
                 }}
             />
@@ -113,8 +113,8 @@ export default function JeddahAirportToMakkahPage() {
                         faqs={[
                             {
                                 question: "How much is the taxi fare?",
-                                shortAnswer: "From 200 SAR.",
-                                detailedAnswer: "Our fixed rate for a sedan starts at 200 SAR. Larger vehicles (GMC) are 350-400 SAR. This is a flat rate including waiting time and fuel.",
+                                shortAnswer: "Affordable Fixed Rates.",
+                                detailedAnswer: "Our fixed rates are competitive for both sedans and larger vehicles like the GMC Yukon. This is a flat rate including waiting time and fuel.",
                                 perspectives: [
                                     {
                                         role: "Comparison",

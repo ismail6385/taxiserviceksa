@@ -149,9 +149,9 @@ export default function Navbar() {
                             <Mail className="w-3 h-3 text-primary" />
                             <span>info@taxiserviceksa.com</span>
                         </div>
-                        <a href="https://wa.me/923080628195" target="_blank" rel="noopener noreferrer" className="hidden sm:flex items-center gap-2 hover:text-primary transition-colors">
+                        <a href="https://wa.me/966569487569" target="_blank" rel="noopener noreferrer" className="hidden sm:flex items-center gap-2 hover:text-primary transition-colors">
                             <Phone className="w-3 h-3 text-primary" />
-                            <span>+92 308 062 8195</span>
+                            <span>+966 56 948 7569</span>
                         </a>
                         <div className="hidden sm:flex items-center gap-2 cursor-default">
                             <Clock className="w-3 h-3 text-primary" />
@@ -186,8 +186,8 @@ export default function Navbar() {
                                 </div>
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-xl font-black tracking-tight leading-none text-gray-900">
-                                    VIPTransfer<span className="text-primary">KSA</span>
+                                <span className="text-xl font-black tracking-tight leading-none text-gray-900 uppercase">
+                                    VIP Transfer <span className="text-primary">KSA</span>
                                 </span>
                                 <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Premium Chauffeur Service</span>
                             </div>
@@ -296,7 +296,7 @@ export default function Navbar() {
             <aside className={`xl:hidden fixed top-0 right-0 w-[85%] max-w-sm h-full bg-white z-[110] shadow-2xl transition-transform duration-500 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                 <div className="flex flex-col h-full">
                     <div className="p-8 border-b flex justify-between items-center bg-gray-50/50">
-                        <span className="text-xl font-black tracking-tight">VIPTransfer<span className="text-primary">KSA</span></span>
+                        <span className="text-xl font-black tracking-tight uppercase">VIP Transfer <span className="text-primary">KSA</span></span>
                         <button onClick={() => setIsOpen(false)} className="p-2 bg-white rounded-lg shadow-sm"><X className="w-5 h-5" /></button>
                     </div>
 

@@ -37,7 +37,7 @@ export default function ToursPage() {
             name: 'Madinah Ziyarat',
             duration: '3-4 Hours',
             spots: ['Masjid Quba', 'Mount Uhud', 'Seven Mosques', 'Qiblatain'],
-            price: 'From SAR 150',
+            price: 'Affordable Rates',
             image: '/madinah-prophets-mosque.webp', // Using existing asset
             link: '/services/madinah-ziyarat'
         },
@@ -45,7 +45,7 @@ export default function ToursPage() {
             name: 'Makkah Ziyarat',
             duration: '3-4 Hours',
             spots: ['Jabal Al-Nour', 'Jabal Thawr', 'Mina/Arafat', 'Jannat al-Mualla'],
-            price: 'From SAR 200',
+            price: 'Affordable Rates',
             image: '/locations/makkah.webp', // Placeholder path, falling back if not exists is handled in Hero usually, here in card just img tag
             link: '/locations/makkah-ziyarat'
         },
@@ -53,7 +53,7 @@ export default function ToursPage() {
             name: 'AlUla Heritage Tour',
             duration: 'Full Day',
             spots: ['Hegra (Madain Saleh)', 'Elephant Rock', 'Old Town', 'Dadan'],
-            price: 'From SAR 400',
+            price: 'Competitive Rates',
             image: '/alula-hegra.webp', // User provided link content
             link: '/locations/alula'
         },
@@ -61,7 +61,7 @@ export default function ToursPage() {
             name: 'Taif City Tour',
             duration: '4-6 Hours',
             spots: ['Shubra Palace', 'Al Rudaf Park', 'Taif Rose Factory', 'Al Hada Mountain'],
-            price: 'From SAR 350',
+            price: 'Competitive Rates',
             image: '/locations/taif.webp', // Placeholder
             link: '/locations/taif'
         },
@@ -69,7 +69,7 @@ export default function ToursPage() {
             name: 'Jeddah Historical Tour',
             duration: '4 Hours',
             spots: ['Al-Balad (Old Jeddah)', 'Corniche', 'King Fahd Fountain', 'Floating Mosque'],
-            price: 'From SAR 250',
+            price: 'Affordable Rates',
             image: '/jeddah-airport.webp', // Using existing asset
             link: '/locations/jeddah'
         }

@@ -11,6 +11,7 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion';
 import JsonLdFAQ from '@/components/JsonLdFAQ';
+import AuthorCard from '@/components/AuthorCard';
 import { blogService } from '@/lib/blogService';
 import RelatedGuides from '@/components/RelatedGuides';
 
@@ -39,9 +40,17 @@ export default async function AirportTransfersPage() {
             name: 'King Abdulaziz International Airport (JED)',
             city: 'Jeddah',
             code: 'JED',
-            description: 'Largest airport in Saudi Arabia and the main gateway for Umrah. Check our <Link href="/guides/jeddah-airport-guide/" className="text-emerald-700 hover:underline">Jeddah Airport terminal guide</Link> for navigation tips.',
+            description: (
+                <>
+                    Largest airport in Saudi Arabia and the main gateway for Umrah. Check our{' '}
+                    <Link href="/guides/jeddah-airport-guide/" className="text-emerald-700 hover:underline">
+                        Jeddah Airport terminal guide
+                    </Link>{' '}
+                    for navigation tips.
+                </>
+            ),
             routes: ['Jeddah → Makkah (80km)', 'Jeddah → Taif (90km)', 'Jeddah City Hotels'],
-            price: 'From SAR 150',
+            price: 'Affordable Rates',
             link: '/locations/jeddah/',
             isHub: true
         },
@@ -51,7 +60,7 @@ export default async function AirportTransfersPage() {
             code: 'RUH',
             description: 'Capital city airport. Business travel hub with connections to major Saudi cities.',
             routes: ['RUH → Riyadh Hotels', 'RUH → Business Districts', 'RUH → Diplomatic Quarter'],
-            price: 'From SAR 80',
+            price: 'Fixed Rates',
             link: '/locations/riyadh/',
             isHub: true
         },
@@ -61,7 +70,7 @@ export default async function AirportTransfersPage() {
             code: 'MED',
             description: 'Pilgrimage airport serving Madinah. Direct access to Prophet\'s Mosque area.',
             routes: ['MED → Madinah Hotels', 'MED → Prophet\'s Mosque', 'MED → Quba Mosque'],
-            price: 'From SAR 50',
+            price: 'Local Rates',
             link: '/locations/madinah/',
         },
         {
@@ -70,7 +79,7 @@ export default async function AirportTransfersPage() {
             code: 'ULH',
             description: 'Tourism airport for UNESCO heritage sites. Gateway to Hegra and Dadan.',
             routes: ['ULH → AlUla Hotels', 'ULH → Hegra Site', 'ULH → Khaybar (150km)'],
-            price: 'From SAR 60',
+            price: 'Competitive Rates',
             link: '/locations/alula/',
         },
         {
@@ -79,7 +88,7 @@ export default async function AirportTransfersPage() {
             code: 'YNB',
             description: 'Industrial city airport. Serves port workers and Red Sea coastal access.',
             routes: ['YNB → Yanbu Hotels', 'YNB → Industrial City', 'YNB → Madinah (220km)'],
-            price: 'From SAR 50',
+            price: 'Local Rates',
             link: '/locations/yanbu/',
         },
         {
@@ -88,7 +97,7 @@ export default async function AirportTransfersPage() {
             code: 'TIF',
             description: 'Mountain resort airport. Summer destination with cooler climate.',
             routes: ['TIF → Taif Hotels', 'TIF → Mountain Resorts', 'TIF → Jeddah (90km)'],
-            price: 'From SAR 40',
+            price: 'Summer Special Rates',
             link: '/locations/taif/',
         },
     ];
@@ -153,11 +162,19 @@ export default async function AirportTransfersPage() {
         },
         {
             question: "What is the free waiting time for airport pickups?",
-            answer: "Free waiting time is 60 minutes for domestic flights and 90 minutes for international flights. Waiting time starts from actual flight landing time (not scheduled time). This allows time for baggage claim, customs, and immigration. Extra waiting beyond free time is charged at SAR 20 per 30 minutes."
+            answer: "Free waiting time is 60 minutes for domestic flights and 90 minutes for international flights. Waiting time starts from actual flight landing time (not scheduled time). This allows time for baggage claim, customs, and immigration. Extra waiting beyond free time is charged at a nominal rate per 30 minutes."
         },
         {
             question: "Do you provide airport transfer from Jeddah Airport to Makkah?",
-            answer: "Yes. The <Link href='/routes/jeddah-makkah/' className='text-primary hover:underline'>Jeddah to Makkah route</Link> is our most popular service. Distance is 80 km, travel time 60-90 minutes. Fixed rates include meet-and-greet service at the arrivals hall."
+            answer: (
+                <>
+                    Yes. The{' '}
+                    <Link href='/routes/jeddah-makkah/' className='text-primary hover:underline'>
+                        Jeddah to Makkah route
+                    </Link>{' '}
+                    is our most popular service. Distance is 80 km, travel time 60-90 minutes. Fixed rates include meet-and-greet service at the arrivals hall.
+                </>
+            )
         },
         {
             question: "Can I book return airport transfer (hotel to airport)?",
@@ -172,25 +189,21 @@ export default async function AirportTransfersPage() {
     const serviceSchema = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "VIP Airport Transfer Service Saudi Arabia",
-
-        "serviceType": "Airport Transfer",
-        "areaServed": [
-            { "@type": "City", "name": "Jeddah" },
-            { "@type": "City", "name": "Riyadh" },
-            { "@type": "City", "name": "Madinah" },
-            { "@type": "City", "name": "AlUla" },
-            { "@type": "City", "name": "Yanbu" },
-            { "@type": "City", "name": "Taif" }
-        ],
-        "description": "Executive VIP airport transfer and premium chauffeur service in Saudi Arabia. Specializing in private meet-and-greet transfers for international travelers and business clients at JED, RUH, and MED airports.",
-        "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "SAR",
-            "lowPrice": "40",
-            "highPrice": "400",
-            "priceValidUntil": "2025-12-31"
-        }
+        "name": "KSA Airport Transfer Service",
+        "category": "Travel & Transportation",
+        "description": "Professional airport transfer and taxi services across 8 major Saudi Arabian airports including Jeddah, Riyadh, and Madinah.",
+        "provider": {
+            "@type": "Organization",
+            "name": "VIP Transfer KSA",
+            "url": "https://taxiserviceksa.com"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Muhammad Ismail",
+            "jobTitle": "Founder & Saudi Aviation Logistics Expert",
+            "url": "https://taxiserviceksa.com/author/muhammad-ismail"
+        },
+        "areaServed": ["Jeddah", "Riyadh", "Madinah", "AlUla", "Yanbu", "Taif", "Dammam", "Abha"]
     };
 
     return (
@@ -200,7 +213,12 @@ export default async function AirportTransfersPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
             />
-            <JsonLdFAQ faqs={faqs} />
+            <JsonLdFAQ faqs={faqs.map(f => ({
+                question: f.question,
+                answer: typeof f.answer === 'string'
+                    ? f.answer
+                    : "Yes. The Jeddah to Makkah route is our most popular service. Distance is 80 km, travel time 60-90 minutes. Fixed rates include meet-and-greet service at the arrivals hall."
+            }))} />
 
             {/* Hero Section */}
             <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -210,15 +228,40 @@ export default async function AirportTransfersPage() {
 
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="text-center mb-12">
+                        <span className="bg-black text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4 text-glow">
+                            Expert Aviation Logistics
+                        </span>
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                            Saudi Arabia Airport Transfer Service
+                        </h2>
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                            Reliable <strong>24/7 airport pickups</strong> and departures across the Kingdom's major travel hubs. We provide <strong>meet-and-greet</strong> services at 8 airports, including the new <strong>Jeddah Terminal 1</strong> and <strong>Riyadh Terminal 3/4</strong>, for zero-wait arrivals.
+                        </p>
+                    </div>
+
+                    {/* AI SEO: TL;DR Summary Block */}
+                    <div className="bg-sky-50 rounded-2xl p-8 border border-sky-100 shadow-sm mb-12">
+                        <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <Plane className="w-5 h-5 text-sky-700" />
+                            TL;DR: KSA Airport Transport Quick Facts
+                        </h2>
+                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-sm">
+                            <li><strong>Major Hubs:</strong> JED (Jeddah), RUH (Riyadh), MED (Madinah), ULH (AlUla).</li>
+                            <li><strong>Wait Policy:</strong> 60 mins (Domestic) & 90 mins (International) free waiting.</li>
+                            <li><strong>Tracking:</strong> Real-time flight tracking is standard for all bookings.</li>
+                            <li><strong>Pickups:</strong> Professional drivers meet you at the <strong>Arrivals Terminal</strong> with a name sign.</li>
+                        </ul>
+                    </div>
+                    <div className="text-center mb-12">
                         <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-6">
                             Airport Transfer Service
                         </span>
                         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
                             VIP Airport Private Transfers<br />
-                            <span className="text-white">In Saudi Arabia</span>
+                            <span className="text-blue-400">In Saudi Arabia</span>
                         </h1>
                         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                            Experience international standard meet-and-greet services. We provide **premium, pre-booked VIP private transfers** from <Link href="/locations/jeddah/" className="text-white underline hover:text-primary transition-colors">Jeddah Airport</Link> and all major KSA hubs. Our executive chauffeur service is dedicated to long-distance journeys, ensuring you reach your destination with absolute privacy and comfort.
+                            Experience international standard meet-and-greet services. We provide **premium, pre-booked VIP private transfers** from <Link href="/locations/jeddah/" className="text-white underline hover:text-blue-400 transition-colors">Jeddah Airport</Link> to <span className="text-white font-bold">Al-Hamra</span>, <span className="text-white font-bold">Abraj Al-Bait</span>, and all major KSA hubs. Our executive chauffeur service handles complex logistics for **Aziziyah pilgrim hubs** and **Riyadh's KAFD**, ensuring you reach your destination with absolute privacy.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/booking?service=airport-transfer">
@@ -371,18 +414,18 @@ export default async function AirportTransfersPage() {
                                 <ul className="space-y-3">
                                     <li>
                                         <Link href="/routes/jeddah-makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                            <span>Jeddah Airport (JED) to Makkah</span>
+                                            <span>Jeddah Airport (JED) to Abraj Al-Bait</span>
                                             <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
                                         </Link>
                                     </li>
                                     <li>
                                         <Link href="/routes/madinah-jeddah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                            <span>Madinah to Jeddah Airport</span>
+                                            <span>Aziziyah (Makkah) to Jeddah Airport</span>
                                             <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link href="/routes/" className="text-primary font-bold hover:underline">View All 50+ Routes →</Link>
+                                        <Link href="/routes/" className="text-primary font-bold hover:underline">View All 50+ Entity Routes →</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -416,7 +459,44 @@ export default async function AirportTransfersPage() {
             {/* Related Guides Section */}
             <RelatedGuides blogs={displayBlogs} title="Airport Survival Guides" subtitle="Navigate Saudi airports like a pro with our expert guides and tips." />
 
-            {/* FAQ Section */}
+            {/* Airport Comparison Table for AI Extraction */}
+            <div className="mb-16 overflow-x-auto bg-white rounded-2xl border-2 border-gray-100 p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                    <Navigation className="w-5 h-5 text-sky-600" /> Major Airport Routes
+                </h3>
+                <table className="min-w-full text-left text-sm">
+                    <thead className="border-b border-gray-200">
+                        <tr>
+                            <th className="py-3 font-bold">Airport Name</th>
+                            <th className="py-3 font-bold">Key Route</th>
+                            <th className="py-3 font-bold">Average Distance</th>
+                            <th className="py-3 font-bold">Pricing Type</th>
+                        </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                        <tr>
+                            <td className="py-4 font-bold">Jeddah (JED)</td>
+                            <td className="py-4 font-medium text-sky-700">JED → Makkah</td>
+                            <td className="py-4">80 km</td>
+                            <td className="py-4">Affordable Rate</td>
+                        </tr>
+                        <tr>
+                            <td className="py-4 font-bold">Riyadh (RUH)</td>
+                            <td className="py-4 font-medium text-sky-700">RUH → KAFD</td>
+                            <td className="py-4">35 km</td>
+                            <td className="py-4">Fixed Rate</td>
+                        </tr>
+                        <tr>
+                            <td className="py-4 font-bold">Madinah (MED)</td>
+                            <td className="py-4 font-medium text-sky-700">MED → Haram</td>
+                            <td className="py-4">20 km</td>
+                            <td className="py-4">Local Rate</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            {/* Airports - Grid */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-16">
@@ -441,6 +521,33 @@ export default async function AirportTransfersPage() {
 
             {/* CTA Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
+                {/* CTA Section */}
+                <section className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-12 text-center text-white mb-16 px-4">
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                        Need an Airport Pickup?
+                    </h2>
+                    <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                        Professional airport transfer service with fixed prices and no surge charging. Your driver will track your flight and wait for you at the arrivals terminal.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto">
+                            <Link href="/booking/">
+                                Book Airport Pickup
+                                <ArrowRight className="ml-2 w-5 h-5" />
+                            </Link>
+                        </Button>
+                        <Button asChild size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto">
+                            <Link href="/services/intercity/">
+                                Intercity Travels
+                            </Link>
+                        </Button>
+                    </div>
+                </section>
+
+                {/* Author Section */}
+                <div className="max-w-4xl mx-auto pb-20 px-4 sm:px-6 lg:px-8">
+                    <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-2 border-sky-50" />
+                </div>
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                         Book Your VIP Airport Chauffeur

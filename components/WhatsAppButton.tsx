@@ -9,7 +9,7 @@ export default function WhatsAppButton() {
     const [isCardOpen, setIsCardOpen] = useState(false);
     const hasShownCard = useRef(false); // track first-show without stale closure
 
-    const phoneNumber = "923080628195"; // +92 308 062 8195
+    const phoneNumber = "966569487569"; // +966 56 948 7569
     const displayMessage = "Hello, I need some information.";
 
     // Determine typical reply time for display
@@ -66,7 +66,7 @@ export default function WhatsAppButton() {
                             <div className="relative w-12 h-12 bg-white rounded-full p-1 shrink-0 overflow-hidden">
                                 <Image
                                     src="/logo.png"
-                                    alt="Taxi Service KSA"
+                                    alt="VIP Transfer KSA"
                                     width={48}
                                     height={48}
                                     className="rounded-full object-cover w-full h-full"
@@ -74,7 +74,7 @@ export default function WhatsAppButton() {
                                 <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full shadow-sm"></span>
                             </div>
                             <div>
-                                <h3 className="text-white font-bold text-base leading-tight">Taxi Service KSA</h3>
+                                <h3 className="text-white font-bold text-base leading-tight">VIP Transfer KSA</h3>
                                 <p className="text-green-100 text-xs font-medium">Online • Replies instantly</p>
                             </div>
                         </div>

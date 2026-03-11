@@ -9,7 +9,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RecentTrips from '@/components/RecentTrips';
 
 export const metadata: Metadata = {
-    title: 'Taxi Jeddah Airport to Fairmont Makkah Clock Royal Tower | SAR 250',
+    title: 'Taxi Jeddah Airport to Fairmont Makkah Clock Royal Tower',
     description: 'VIP Transfer from Jeddah Airport (KAIA) to Fairmont Makkah Clock Royal Tower. Direct lobby drop-off. Luxury GMC Yukon available. Fixed Price.',
     keywords: ['Jeddah to Fairmont Makkah Taxi', 'Fairmont Clock Tower Transfer', 'Jeddah airport to Abraj Al Bait', 'Makkah Clock Royal Tower taxi', 'VIP taxi Jeddah Makkah'],
     alternates: {
@@ -27,7 +27,7 @@ export default function JeddahToFairmontPage() {
     const routeDetails = [
         { label: 'Hotel Distance', value: '95 km', icon: Navigation },
         { label: 'Time to Lobby', value: '80-90 Mins', icon: Clock },
-        { label: 'Price', value: 'SAR 250', icon: DollarSign },
+        { label: 'Price', value: 'Affordable', icon: DollarSign },
         { label: 'Service', value: 'VIP/Concierge', icon: Star },
     ];
 
@@ -56,8 +56,7 @@ export default function JeddahToFairmontPage() {
                 "addressCountry": "SA"
             }
         },
-        "price": "250",
-        "priceCurrency": "SAR"
+        "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
     };
 
     return (
@@ -194,8 +193,8 @@ export default function JeddahToFairmontPage() {
                 faqs={[
                     {
                         question: "How much is VIP taxi to Fairmont Makkah?",
-                        shortAnswer: "From SAR 450 (GMC)",
-                        detailedAnswer: "A luxury GMC Yukon XL transfer to the Fairmont Makkah costs SAR 450. Standard sedans (Camry) are available for SAR 250.",
+                        shortAnswer: "Executive Rates",
+                        detailedAnswer: "A luxury GMC Yukon XL transfer to the Fairmont Makkah is available at an executive rate. Standard sedans (Camry) are also available.",
                         perspectives: []
                     },
                     {
@@ -225,7 +224,7 @@ export default function JeddahToFairmontPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/?destination=Fairmont%20Makkah">
                             <Button size="lg" className="bg-amber-600 text-white hover:bg-amber-700 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Fairmont Taxi (SAR 250)
+                                Book Fairmont Taxi
                             </Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">

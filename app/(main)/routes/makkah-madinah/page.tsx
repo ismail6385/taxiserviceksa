@@ -10,14 +10,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
     title: 'Best Makkah to Madinah VIP Transfer | Private Taxi Alternative',
-    description: 'Taxi from Makkah to Madinah operates 24/7. 450km pilgrimage route in 4-5 hours. Fixed rate SAR 450. Rest stops included. Complete your Umrah journey.',
+    description: 'Taxi from Makkah to Madinah operates 24/7. 450km pilgrimage route in 4-5 hours. Fixed rates available. Rest stops included. Complete your Umrah journey.',
     keywords: ['Makkah to Madinah taxi', 'Umrah taxi Makkah Madinah', 'taxi price Makkah Madinah', 'Makkah Madinah distance', 'pilgrimage transport', 'taxi fare from makkah to madinah', 'gmc from makkah to madinah', 'how far is badr from makkah', 'madinah to makkah taxi time'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/makkah-madinah/',
     },
     openGraph: {
         title: 'Makkah to Madinah VIP Transfer | Private Taxi Alternative',
-        description: 'Taxi from Makkah to Madinah operates 24/7. 450km pilgrimage route in 4-5 hours. Fixed rate SAR 450. Complete your Umrah journey.',
+        description: 'Taxi from Makkah to Madinah operates 24/7. 450km pilgrimage route in 4-5 hours. Fixed rates available. Complete your Umrah journey.',
         url: 'https://taxiserviceksa.com/routes/makkah-madinah/',
         type: 'website',
     },
@@ -27,7 +27,7 @@ export default function MakkahMadinahRoutePage() {
     const routeDetails = [
         { label: 'Distance', value: '450 km', icon: Navigation },
         { label: 'Travel Time', value: '4-5 hours', icon: Clock },
-        { label: 'Starting Price', value: 'SAR 450', icon: DollarSign },
+        { label: 'Starting Price', value: 'Competitive', icon: DollarSign },
         { label: 'Rest Stops', value: '2-3 breaks', icon: Coffee },
     ];
 
@@ -107,7 +107,7 @@ export default function MakkahMadinahRoutePage() {
                     </span>
                 }
                 subtitle="Complete Your Umrah Journey"
-                location="4-5 Hours | Fixed Rate SAR 450+"
+                location="4-5 Hours | Fixed Rates Available"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?route=makkah-madinah">
@@ -349,7 +349,7 @@ export default function MakkahMadinahRoutePage() {
                             </div>
                             <div className="text-xl font-bold text-gray-900 mb-3">Camry (Sedan)</div>
                             <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-gray-500">SAR</span> 450
+                                <span className="text-2xl text-gray-500">Route</span> Rate
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
                                 4 Passengers / 2 Bags
@@ -365,7 +365,7 @@ export default function MakkahMadinahRoutePage() {
                             </div>
                             <div className="text-xl font-bold text-gray-900 mb-3">GMC Yukon (SUV)</div>
                             <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-gray-500">SAR</span> 850
+                                <span className="text-2xl text-gray-500">Executive</span> Rate
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
                                 7 Passengers / 5 Bags
@@ -378,7 +378,7 @@ export default function MakkahMadinahRoutePage() {
                             </div>
                             <div className="text-xl font-bold text-gray-900 mb-3">HiAce Bus</div>
                             <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-gray-500">SAR</span> 650
+                                <span className="text-2xl text-gray-500">Group</span> Rate
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
                                 Small Groups (10-12 pax)
@@ -398,8 +398,8 @@ export default function MakkahMadinahRoutePage() {
                 faqs={[
                     {
                         question: "How much does a taxi cost from Makkah to Madinah?",
-                        shortAnswer: "From SAR 450",
-                        detailedAnswer: "Taxi rates from Makkah to Madinah start from SAR 450 for a sedan (Toyota Camry). SUV rates (GMC Yukon) start from SAR 850. Van rates (Toyota Hiace) start from SAR 650. Prices are fixed for the 450 km journey and include rest stops.",
+                        shortAnswer: "Affordable Fixed Rates",
+                        detailedAnswer: "Taxi rates from Makkah to Madinah are fixed based on vehicle type. We offer sedans (Toyota Camry), SUV rates (GMC Yukon), and larger vans (Toyota Hiace). Prices are fixed for the 450 km journey and include rest stops.",
                         perspectives: []
                     },
                     {
@@ -441,7 +441,7 @@ export default function MakkahMadinahRoutePage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/?route=makkah-madinah">
                             <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Now (SAR 450+)
+                                Book Now (Fixed Rates)
                             </Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">

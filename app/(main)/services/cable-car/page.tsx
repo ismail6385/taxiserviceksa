@@ -150,7 +150,7 @@ export default function CableCarPage() {
                                     {
                                         role: "Budgeting",
                                         icon: "Navigation",
-                                        insight: "Taif cable car tickets are around 80-100 SAR per person."
+                                        insight: "Taif cable car tickets are sold separately at the venue."
                                     }
                                 ]
                             }

@@ -10,7 +10,7 @@ import RecentTrips from '@/components/RecentTrips';
 
 export const metadata: Metadata = {
     title: 'Taxi Jeddah Airport to Pullman ZamZam Makkah | Hotel Drop-Off',
-    description: 'Direct taxi transfer from Jeddah Airport to Pullman ZamZam Makkah (Clock Tower). Fixed rates from SAR 250. 24/7 Service. Book Online.',
+    description: 'Direct taxi transfer from Jeddah Airport to Pullman ZamZam Makkah (Clock Tower). Affordable fixed rates. 24/7 Service. Book Online.',
     keywords: ['Jeddah to Pullman ZamZam taxi', 'Pullman Makkah transfer', 'taxi Jeddah to Abraj Al Bait', 'Pullman ZamZam hotel taxi', 'Jeddah to Makkah transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/jeddah-to-pullman-makkah/',
@@ -27,7 +27,7 @@ export default function JeddahToPullmanPage() {
     const routeDetails = [
         { label: 'Distance', value: '95 km', icon: Navigation },
         { label: 'Time to Lobby', value: '75-90 Mins', icon: Clock },
-        { label: 'Price', value: 'SAR 250', icon: DollarSign },
+        { label: 'Price', value: 'Affordable', icon: DollarSign },
         { label: 'Location', value: 'Abraj Al Bait', icon: MapPin },
     ];
 
@@ -56,8 +56,7 @@ export default function JeddahToPullmanPage() {
                 "addressCountry": "SA"
             }
         },
-        "price": "250",
-        "priceCurrency": "SAR"
+        "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
     };
 
     return (
@@ -211,8 +210,8 @@ export default function JeddahToPullmanPage() {
                 faqs={[
                     {
                         question: "How much is a taxi to Pullman ZamZam Makkah?",
-                        shortAnswer: "SAR 250 Fixed Rate",
-                        detailedAnswer: "Our fixed rate for a taxi from Jeddah Airport to Pullman ZamZam Makkah starts at SAR 250 for a sedan.",
+                        shortAnswer: "Affordable Fixed Rate",
+                        detailedAnswer: "Our fixed rate for a taxi from Jeddah Airport to Pullman ZamZam Makkah is highly competitive for a sedan.",
                         perspectives: []
                     },
                     {
@@ -233,7 +232,7 @@ export default function JeddahToPullmanPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/?destination=Pullman%20ZamZam%20Makkah">
                             <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Now (SAR 250)
+                                Book Now
                             </Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">

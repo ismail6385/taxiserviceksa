@@ -195,7 +195,7 @@
 ### **🟢 MEDIUM PRIORITY** (2 hours):
 
 #### **5. Add Reviews to Other Location Pages**:
-- Madinah, Taif, AlUla, Yanbu, Khayber
+- Madinah, Taif, AlUla, Yanbu, Khayber (DONE)
 
 #### **6. Verify Indexing**:
 - Check Google Search Console

@@ -51,7 +51,7 @@ export default function MakkahUmrahGuidePage() {
         },
         {
             question: "Where can I buy Zamzam water containers?",
-            answer: "Shops near Haram sell Zamzam containers (SAR 5-20). Standard sizes: 5L, 10L, 20L. Buy on your last day - we transport to airport at no extra charge. Don't carry heavy containers throughout your Umrah stay. All our vehicles accommodate Zamzam containers."
+            answer: "Shops near Haram sell Zamzam containers at affordable prices. Standard sizes: 5L, 10L, 20L. Buy on your last day - we transport to airport at no extra charge. Don't carry heavy containers throughout your Umrah stay. All our vehicles accommodate Zamzam containers."
         },
         {
             question: "What are the main Ziyarat sites in Makkah?",
@@ -265,7 +265,7 @@ export default function MakkahUmrahGuidePage() {
                                 <li><strong>Significance:</strong> Where Prophet ﷺ received first revelation</li>
                             </ul>
                             <p className="text-sm text-gray-600 bg-gray-50 rounded-lg p-3">
-                                <strong>Taxi Service:</strong> We wait at the base while you climb (no extra charge for waiting). Round trip: SAR 80-100.
+                                <strong>Taxi Service:</strong> We wait at the base while you climb (no extra charge for waiting). Round trips available at affordable rates.
                             </p>
                         </div>
 
@@ -284,7 +284,7 @@ export default function MakkahUmrahGuidePage() {
                                 <li><strong>Significance:</strong> Cave where Prophet ﷺ hid during Hijrah</li>
                             </ul>
                             <p className="text-sm text-gray-600 bg-gray-50 rounded-lg p-3">
-                                <strong>Taxi Service:</strong> Round trip with waiting: SAR 60-80.
+                                <strong>Taxi Service:</strong> Round trip with waiting available at competitive rates.
                             </p>
                         </div>
 
@@ -303,7 +303,7 @@ export default function MakkahUmrahGuidePage() {
                                 <li><strong>Use case:</strong> For those wanting to perform additional Umrah</li>
                             </ul>
                             <p className="text-sm text-gray-600 bg-gray-50 rounded-lg p-3">
-                                <strong>Taxi Service:</strong> One-way: SAR 30-40. We can arrange return pickup.
+                                <strong>Taxi Service:</strong> Affordable one-way transport. We can arrange return pickup.
                             </p>
                         </div>
 

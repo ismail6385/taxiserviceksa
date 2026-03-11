@@ -3,7 +3,8 @@
 import Hero from '@/components/Hero';
 import Script from 'next/script';
 import Image from 'next/image';
-import { Plane, MapPin, Building2, Shield, Clock, Award, Star, CheckCircle2, Users, Car, ArrowRight, Camera, Calendar, User } from 'lucide-react';
+import AuthorCard from '@/components/AuthorCard';
+import { Plane, MapPin, Building2, Shield, Clock, Award, Star, CheckCircle2, Users, Car, ArrowRight, Camera, Calendar, User, Sparkles, Quote, Info } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import {
@@ -20,6 +21,8 @@ import RelatedGuides from '@/components/RelatedGuides';
 import { Blog } from '@/lib/blogService';
 import HowItWorks from '@/components/HowItWorks';
 import GlobalTrust from '@/components/GlobalTrust';
+import TLDRSummary from '@/components/seo/TLDRSummary';
+import FreshnessStatus from '@/components/seo/FreshnessStatus';
 
 interface HomeClientProps {
     latestBlogs?: Blog[];
@@ -31,12 +34,26 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
     // Enhanced Structured Data with multiple schema types
     const webSiteSchema = {
         "@context": "https://schema.org",
-        "@type": "TransportationService", // Changed to TransportationService as requested
+        "@type": "TransportationService",
         "name": "VIP Transfer KSA",
         "url": "https://taxiserviceksa.com",
         "logo": "https://taxiserviceksa.com/logo.png",
         "image": "https://taxiserviceksa.com/hero-image.jpg",
-        "description": "Premium VIP private transfer and chauffeur service in Saudi Arabia. Specializing in long-distance intercity travel and Umrah transport for payment-secure bookings from the USA, UK, Canada, Indonesia, and Pakistan.",
+        "description": "Premium VIP private transfer and chauffeur service in Saudi Arabia. Specializing in long-distance intercity travel and Umrah transport for payment-secure bookings from the USA, UK, Canada, Indonesia, and Pakistan. Founded by Muhammad Ismail, an expert in Saudi travel logistics and tech-enabled transport solutions.",
+        "brand": {
+            "@type": "Brand",
+            "name": "VIP Transfer KSA"
+        },
+        "founder": {
+            "@type": "Person",
+            "name": "Muhammad Ismail",
+            "jobTitle": "Founder & SEO Logistics Expert",
+            "url": "https://taxiserviceksa.com/author/muhammad-ismail",
+            "sameAs": [
+                "https://www.linkedin.com/in/muhammad-ismail-sqa/",
+                "https://www.facebook.com/profile.php?id=100007701130236"
+            ]
+        },
         "areaServed": "Saudi Arabia",
         "availableLanguage": ["English", "Arabic", "Urdu"],
         "priceRange": "$$$",
@@ -81,7 +98,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             rdfTriple: "Airport transfer Jeddah → provides → VIP 24/7 chauffeur service from King Abdulaziz Airport",
             icon: Plane,
             link: "/services/airport-transfers/",
-            price: "From SAR 300"
+            price: "Affordable Rates"
         },
         {
             title: "Best Umrah Transport",
@@ -89,7 +106,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             rdfTriple: "Umrah taxi → specializes in → premium private transportation for pilgrims",
             icon: MapPin,
             link: "/services/umrah-transport/",
-            price: "From SAR 500"
+            price: "Competitive Rates"
         },
         {
             title: "Intercity & Hourly Hire",
@@ -223,6 +240,26 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                     Service coverage across 8 cities in Saudi Arabia <ArrowRight className="w-4 h-4" />
                 </Link>
             </Hero>
+
+            {/* AI SEO: Early TL;DR for Generative Engine Extraction */}
+            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 border-y border-gray-100">
+                <div className="max-w-7xl mx-auto">
+                    <FreshnessStatus lastVerified="2026-03-06" />
+                    <TLDRSummary 
+                        title="VIP Transfer KSA Executive Summary"
+                        summary="VIP Transfer KSA is Saudi Arabia's premier executive chauffeur and private transfer service, established in 2012. We specialize in point-to-point intercity travel, 24/7 airport transfers, and dedicated Umrah logistics."
+                        points={[
+                            "12+ years of operational excellence in the Kingdom",
+                            "100% licensed chauffeurs with professional training",
+                            "Elite fleet including GMC Yukon Denali, Hyundai Staria, and VIP Coaches",
+                            "Fixed-price guarantee with no hidden surge pricing",
+                            "Service coverage including Jeddah, Makkah, Madinah, and Riyadh"
+                        ]}
+                        pricing="Fixed Rates"
+                        duration="24/7 Service"
+                    />
+                </div>
+            </section>
 
             {/* Global Trust Marquee */}
             <GlobalTrust />
@@ -537,18 +574,18 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             </thead>
                             <tbody>
                                 {[
-                                    { route: 'Jeddah Airport → Makkah', camry: 250, staria: 300, starex: 300, gmc: 450, hiace: 350, coaster: 500 },
-                                    { route: 'Makkah → Madinah Hotel', camry: 450, staria: 550, starex: 550, gmc: 850, hiace: 650, coaster: 1100 },
-                                    { route: 'Makkah → Madinah via Badr', camry: 600, staria: 700, starex: 700, gmc: 950, hiace: 750, coaster: 1300 },
-                                    { route: 'Makkah Ziyarat Tour', camry: 250, staria: 300, starex: 300, gmc: 400, hiace: 350, coaster: 500 },
-                                    { route: 'Madinah Hotel → Madinah Airport', camry: 150, staria: 200, starex: 200, gmc: 250, hiace: 200, coaster: 350 },
-                                    { route: 'Madinah Ziyarat Tour', camry: 200, staria: 250, starex: 250, gmc: 300, hiace: 300, coaster: 400 },
-                                    { route: 'Madinah Hotel → Train Station', camry: 120, staria: 150, starex: 150, gmc: 250, hiace: 200, coaster: 300 },
-                                    { route: 'Madinah Hotel → Jeddah Airport', camry: 450, staria: 600, starex: 600, gmc: 850, hiace: 650, coaster: 1200 },
-                                    { route: 'Makkah Hotel → Train Station', camry: 120, staria: 150, starex: 150, gmc: 250, hiace: 200, coaster: 300 },
-                                    { route: 'Makkah Hotel → Jeddah Airport', camry: 200, staria: 250, starex: 250, gmc: 400, hiace: 300, coaster: 450 },
-                                    { route: 'Full Day (Fuel + Driver)', camry: 800, staria: 1000, starex: 1000, gmc: 1500, hiace: 1200, coaster: 1500, highlight: true },
-                                    { route: 'Per Hour', camry: 120, staria: 150, starex: 150, gmc: 220, hiace: 170, coaster: 200, highlight: true },
+                                    { route: 'Jeddah Airport → Makkah', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
+                                    { route: 'Makkah → Madinah Hotel', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
+                                    { route: 'Makkah → Madinah via Badr', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
+                                    { route: 'Makkah Ziyarat Tour', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
+                                    { route: 'Madinah Hotel → Madinah Airport', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
+                                    { route: 'Madinah Ziyarat Tour', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
+                                    { route: 'Madinah Hotel → Train Station', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
+                                    { route: 'Madinah Hotel → Jeddah Airport', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
+                                    { route: 'Makkah Hotel → Train Station', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
+                                    { route: 'Makkah Hotel → Jeddah Airport', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
+                                    { route: 'Full Day (Fuel + Driver)', camry: 'Contact Us', staria: 'Contact Us', starex: 'Contact Us', gmc: 'Contact Us', hiace: 'Contact Us', coaster: 'Contact Us', highlight: true },
+                                    { route: 'Per Hour', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate', highlight: true },
                                 ].map((row, index) => (
                                     <tr key={index} className={`border-b hover:bg-gray-50 transition-colors ${row.highlight ? 'bg-gray-50/50 font-bold' : 'bg-white'}`}>
                                         <th scope="row" className={`px-6 py-4 font-medium text-gray-900 whitespace-nowrap sticky left-0 z-10 border-r border-gray-100 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] ${row.highlight ? 'bg-gray-50' : 'bg-white'}`}>
@@ -578,7 +615,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         </table>
                     </div>
                     <div className="mt-6 text-center text-sm text-gray-500">
-                        * All prices are in Saudi Riyal (SAR). Prices are fixed for point-to-point transfers.
+                        * Quality service for all point-to-point VIP transfers and executive chauffeur hire in Saudi Arabia. Contact us for custom quotes.
                     </div>
                 </div>
             </section>
@@ -723,7 +760,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         <div>
                             <h3 className="text-2xl font-bold text-gray-900 mb-4">Jeddah to Makkah Taxi Route</h3>
                             <p className="text-gray-600 leading-relaxed mb-6">
-                                Direct taxi transfers from King Abdulaziz Airport to Makkah hotels operate 24/7. Fixed rates start from SAR 250.
+                                Direct taxi transfers from King Abdulaziz Airport to Makkah hotels operate 24/7. Fixed rates available for all groups.
                             </p>
                             <Link href="/routes/jeddah-makkah/">
                                 <Button className="text-black font-bold border-b-2 border-black rounded-none px-0 py-0 h-auto hover:bg-transparent hover:border-primary transition-colors">

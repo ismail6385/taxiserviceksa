@@ -8,6 +8,7 @@ import { ArrowRight, CheckCircle2, MapPin, Plane, CreditCard, Clock, Shield, Glo
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
+import AuthorCard from '@/components/AuthorCard';
 
 
 // Generate static params for all defined guides
@@ -80,12 +81,22 @@ export default function InternationalGuidePage({ params }: PageProps) {
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "TravelGuide",
-                        "name": guide.title,
+                        "headline": guide.title,
                         "description": guide.metaDescription,
-                        "provider": {
+                        "author": {
+                            "@type": "Person",
+                            "name": "Muhammad Ismail",
+                            "jobTitle": "Founder & Saudi Logistics Expert",
+                            "url": "https://taxiserviceksa.com/author/muhammad-ismail"
+                        },
+                        "publisher": {
                             "@type": "Organization",
                             "name": "VIP Transfer KSA",
-                            "url": "https://taxiserviceksa.com"
+                            "url": "https://taxiserviceksa.com",
+                            "logo": {
+                                "@type": "ImageObject",
+                                "url": "https://taxiserviceksa.com/logo.png"
+                            }
                         },
                         "about": {
                             "@type": "Country",
@@ -99,21 +110,42 @@ export default function InternationalGuidePage({ params }: PageProps) {
                 }}
             />
 
+
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Hero Header */}
                 <div className="text-center mb-12">
-                    <div className="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-100 px-4 py-2 rounded-full mb-6">
+                    <div className="inline-flex items-center gap-2 bg-indigo-50 border border-indigo-100 px-4 py-2 rounded-full mb-6 text-indigo-900 font-semibold text-sm">
                         <span className="text-2xl">{guide.flagEmoji}</span>
-                        <span className="text-indigo-900 font-semibold text-sm">Official Guide for {guide.countryName} Travelers</span>
+                        Official Guide for {guide.countryName} Travelers
                     </div>
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                         {guide.title}
                     </h1>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                        Planning your Umrah trip from {guide.countryName}? Here is everything you need to know about flights, visas, and booking your <span className="font-bold text-gray-900">Jeddah Airport taxi</span> before you fly.
+                    <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+                        Comprehensive logistics for your Umrah journey from <strong>{guide.countryName}</strong>. Master your flight details, visa entry, and secure your <strong>VIP private transfer</strong> before landing in Jeddah.
                     </p>
                 </div>
+
+                {/* AI SEO: TL;DR Summary Block */}
+                <div className="bg-indigo-900 text-white rounded-3xl p-8 mb-12 shadow-md relative overflow-hidden group">
+                    <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <h2 className="text-xl font-bold mb-4 flex items-center gap-2 text-indigo-200">
+                        <Globe className="w-5 h-5" />
+                        Quick Summary (Travel Checklist)
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-indigo-50">
+                        <ul className="space-y-3">
+                            <li>✈️ <strong>Flight:</strong> ~{guide.flightInfo.flightDuration} from {guide.countryCode}.</li>
+                            <li>🛂 <strong>Visa:</strong> {guide.visaInfo.type} ({guide.visaInfo.cost}).</li>
+                            <li>💱 <strong>Currency:</strong> {guide.currency.approxRate}.</li>
+                        </ul>
+                        <div className="bg-white/10 p-5 rounded-2xl border border-white/10">
+                            <strong>Pro Tip:</strong> Pre-booking your taxi online avoids "airport taxi" price hikes and ensures your driver waits at the terminal for you.
+                        </div>
+                    </div>
+                </div>
+
 
                 {/* Hero Image */}
                 <div className="relative w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-12 shadow-lg">
@@ -242,8 +274,8 @@ export default function InternationalGuidePage({ params }: PageProps) {
 
                 {/* Final CTA */}
                 <div className="text-center mb-24">
-                    <div className="inline-block p-4 rounded-full bg-gray-100 mb-6">
-                        <Globe className="w-8 h-8 text-gray-600" />
+                    <div className="inline-block p-4 rounded-full bg-gray-100 mb-6 font-bold text-gray-600">
+                        <Globe className="w-8 h-8" />
                     </div>
                     <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to start your journey from {guide.countryName}?</h2>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
@@ -255,6 +287,12 @@ export default function InternationalGuidePage({ params }: PageProps) {
                         </Button>
                     </Link>
                 </div>
+
+                {/* Author Section */}
+                <div className="max-w-4xl mx-auto border-t border-gray-100 pt-16">
+                    <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-2 border-indigo-50" />
+                </div>
+
 
             </div>
         </div>

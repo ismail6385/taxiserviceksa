@@ -125,18 +125,18 @@ export default function HyundaiStariaPage() {
                         vehicleName="Hyundai Staria"
                         colorTheme="indigo"
                         prices={[
-                            { route: 'Jeddah Airport → Makkah', price: '300' },
-                            { route: 'Makkah → Madinah Hotel', price: '550' },
-                            { route: 'Makkah → Madinah via Baddar Ziyarat', price: '700' },
-                            { route: 'Makkah Ziyarat', price: '300' },
-                            { route: 'Madinah Hotel → Madinah Airport', price: '200' },
-                            { route: 'Madinah Ziyarat', price: '250' },
-                            { route: 'Madinah Hotel → Train Station', price: '150' },
-                            { route: 'Madinah Hotel → Jeddah Airport', price: '600' },
-                            { route: 'Makkah Hotel → Train Station', price: '150' },
-                            { route: 'Makkah Hotel → Jeddah Airport', price: '250' },
-                            { route: 'Per Day (Fuel + Driver)', price: '1000', highlight: true },
-                            { route: 'Per Hour', price: '150', highlight: true },
+                            { route: 'Jeddah Airport → Makkah', price: 'Fixed Rates' },
+                            { route: 'Makkah → Madinah Hotel', price: 'Fixed Rates' },
+                            { route: 'Makkah → Madinah via Baddar Ziyarat', price: 'Fixed Rates' },
+                            { route: 'Makkah Ziyarat', price: 'Fixed Rates' },
+                            { route: 'Madinah Hotel → Madinah Airport', price: 'Fixed Rates' },
+                            { route: 'Madinah Ziyarat', price: 'Fixed Rates' },
+                            { route: 'Madinah Hotel → Train Station', price: 'Fixed Rates' },
+                            { route: 'Madinah Hotel → Jeddah Airport', price: 'Fixed Rates' },
+                            { route: 'Makkah Hotel → Train Station', price: 'Fixed Rates' },
+                            { route: 'Makkah Hotel → Jeddah Airport', price: 'Fixed Rates' },
+                            { route: 'Per Day (Fuel + Driver)', price: 'Fixed Rates', highlight: true },
+                            { route: 'Per Hour', price: 'Fixed Rates', highlight: true },
                         ]}
                     />
                 </div>

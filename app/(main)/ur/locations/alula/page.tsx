@@ -77,11 +77,11 @@ export default function AlUlaPage() {
         },
         {
             question: "How much does a taxi cost from AlUla Airport to hotels?",
-            answer: "Taxi rates from AlUla Airport to AlUla city hotels start from SAR 100. Pricing depends on vehicle type (sedan, 4x4 SUV) and resort location. Fares are fixed with no surge charges."
+            answer: "We offer affordable taxi rates from AlUla Airport to AlUla city hotels. Pricing depends on vehicle type (sedan, 4x4 SUV) and resort location. Fares are fixed with no surge charges."
         },
         {
             question: "Can I book a taxi from AlUla to Khaybar Fort for historical tours?",
-            answer: "Intercity taxi service is available from AlUla to Khaybar Fort (150 km). Travel time is 2-3 hours. Rates start from SAR 350. Service includes stops at viewpoints and historical markers along the route."
+            answer: "Intercity taxi service is available from AlUla to Khaybar Fort (150 km). Travel time is 2-3 hours. We offer fixed rates. Service includes stops at viewpoints and historical markers along the route."
         },
         {
             question: "Do your drivers speak English for international tourists?",

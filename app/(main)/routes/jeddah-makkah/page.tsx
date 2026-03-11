@@ -8,17 +8,20 @@ import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RecentTrips from '@/components/RecentTrips';
+import TLDRSummary from '@/components/seo/TLDRSummary';
+import FreshnessStatus from '@/components/seo/FreshnessStatus';
+import ServiceComparison from '@/components/ServiceComparison';
 
 export const metadata: Metadata = {
     title: 'Best Jeddah to Makkah VIP Transfer | Private Taxi Alternative',
-    description: 'Pre-book your Jeddah to Makkah taxi from UK, USA & Canada. 60-90 min transfer from King Abdulaziz Airport. Fixed rate SAR 250. 24/7 Service.',
+    description: 'Pre-book your Jeddah to Makkah taxi from UK, USA & Canada. 60-90 min transfer from King Abdulaziz Airport. Fixed rates available. 24/7 Service.',
     keywords: ['Jeddah to Makkah taxi', 'Jeddah Airport to Makkah', 'taxi price Jeddah Makkah', 'King Abdulaziz Airport Makkah transfer', 'Haramain train alternative', 'makkah to jeddah taxi service', 'jeddah to makkah taxi fare 7 seater', 'airport pick and drop', 'how much is taxi from jeddah to makkah', 'taxi jeddah to makkah from uk', 'jeddah airport transfer usa', 'prebook taxi jeddah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-makkah/',
     },
     openGraph: {
         title: 'Jeddah to Makkah VIP Transfer | Private Taxi Alternative',
-        description: 'Pre-book your Jeddah to Makkah taxi from UK, USA & Canada. 60-90 min transfer from King Abdulaziz Airport. Fixed rate SAR 250. 24/7 Service.',
+        description: 'Pre-book your Jeddah to Makkah taxi from UK, USA & Canada. 60-90 min transfer from King Abdulaziz Airport. Fixed rates available. 24/7 Service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-makkah/',
         type: 'website',
     },
@@ -28,7 +31,7 @@ export default function JeddahMakkahRoutePage() {
     const routeDetails = [
         { label: 'Distance', value: '80-95 km', icon: Navigation },
         { label: 'Travel Time', value: '60-90 minutes', icon: Clock },
-        { label: 'Starting Price', value: 'SAR 250', icon: DollarSign },
+        { label: 'Starting Price', value: 'Competitive', icon: DollarSign },
         { label: 'Availability', value: '24/7 Service', icon: CheckCircle2 },
     ];
 
@@ -98,7 +101,7 @@ export default function JeddahMakkahRoutePage() {
                     </span>
                 }
                 subtitle="King Abdulaziz Airport to Makkah Hotels"
-                location="60-90 Minutes | Fixed Rate SAR 200+"
+                location="60-90 Minutes | Fixed Rates Available"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?route=jeddah-makkah">
@@ -150,6 +153,23 @@ export default function JeddahMakkahRoutePage() {
                     <div className="text-center mb-16">
                         <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Route Information</span>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Best Jeddah Airport to Makkah VIP Transfer</h2>
+                        
+                        <FreshnessStatus lastVerified="2026-03-06" />
+
+                        <TLDRSummary 
+                            title="Jeddah Airport to Makkah Transfer At-a-Glance"
+                            summary="The most reliable way for pilgrims and international travelers to reach Makkah from King Abdulaziz International Airport. Our door-to-door service avoids the complexities of train stations and the unreliability of ride-sharing apps."
+                            points={[
+                                "Direct pickup from KAIA Terminal 1 & North terminals",
+                                "Stop at Meeqat for Ihram/Niyyah included on request",
+                                "Drivers specialized in Abraj Al Bait (Clock Tower) tunnel access",
+                                "Family-sized GMC Yukon and Toyota Hiace available 24/7",
+                                "Fixed pricing ensures no surprises during Ramadan or peak seasons"
+                            ]}
+                            pricing="Fixed Competitive Rates"
+                            duration="60 - 90 Minutes"
+                        />
+
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                             Our <strong>Best Jeddah to Makkah VIP transfer</strong> service provides a direct, fixed-price transfer for international Umrah pilgrims from <strong>all countries worldwide</strong> (including UK, USA, Europe, & Asia). We pick up 24/7 from <strong>King Abdulaziz International Airport</strong> (KAIA Terminal 1 & North Terminal) and drive you via the Meeqat to your <strong>Makkah hotel</strong> or the Clock Tower in just 60-90 minutes.
                         </p>
@@ -203,7 +223,7 @@ export default function JeddahMakkahRoutePage() {
                                 <ul className="space-y-3 text-gray-300">
                                     <li className="flex items-start gap-2">
                                         <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                                        <span>Ticket: SAR 35-60 (economy/business)</span>
+                                        <span>Ticket: Fixed Price (economy/business)</span>
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
@@ -211,7 +231,7 @@ export default function JeddahMakkahRoutePage() {
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-red-400 font-bold mr-2">⚠</span>
-                                        <span>Requires taxi to/from stations (+SAR 40-80)</span>
+                                        <span>Requires taxi to/from stations (local rates)</span>
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-red-400 font-bold mr-2">⚠</span>
@@ -224,7 +244,7 @@ export default function JeddahMakkahRoutePage() {
                                 <ul className="space-y-3 text-gray-300">
                                     <li className="flex items-start gap-2">
                                         <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                                        <span>Fixed rate: SAR 250-500 (vehicle type)</span>
+                                        <span>Fixed rate: Based on vehicle type</span>
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
@@ -392,7 +412,7 @@ export default function JeddahMakkahRoutePage() {
                             </div>
                             <div className="text-xl font-bold text-gray-900 mb-3">Camry (Sedan)</div>
                             <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-gray-500">SAR</span> 250
+                                <span className="text-2xl text-gray-500">Route</span> Rate
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
                                 4 Passengers / 2 Bags
@@ -408,7 +428,7 @@ export default function JeddahMakkahRoutePage() {
                             </div>
                             <div className="text-xl font-bold text-gray-900 mb-3">GMC Yukon (SUV)</div>
                             <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-gray-500">SAR</span> 450
+                                <span className="text-2xl text-gray-500">Executive</span> Rate
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
                                 7 Passengers / 7 Bags
@@ -421,7 +441,7 @@ export default function JeddahMakkahRoutePage() {
                             </div>
                             <div className="text-xl font-bold text-gray-900 mb-3">HiAce Bus</div>
                             <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-gray-500">SAR</span> 350
+                                <span className="text-2xl text-gray-500">Group</span> Rate
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
                                 Small Groups (10-12 pax)
@@ -446,21 +466,39 @@ export default function JeddahMakkahRoutePage() {
                 faqs={[
                     {
                         question: "How much does a taxi cost from Jeddah Airport to Makkah?",
-                        shortAnswer: "From SAR 200",
-                        detailedAnswer: "Taxi rates from King Abdulaziz International Airport (Jeddah) to Makkah start from SAR 200 for a sedan (Toyota Camry). A 7 seater (GMC/Starex) starts from SAR 350. Van rates (Toyota Hiace) start from SAR 450. Prices are fixed with no surge charges.",
-                        perspectives: []
+                        shortAnswer: "Affordable Fixed Rates",
+                        detailedAnswer: "Taxi rates from King Abdulaziz International Airport (Jeddah) to Makkah are fixed based on vehicle type. We offer sedans (Toyota Camry), 7 seaters (GMC/Starex), and larger vans (Toyota Hiace). Prices are fixed with no surge charges.",
+                        perspectives: [
+                            {
+                                role: "Budget Pilgrim",
+                                icon: "Compass",
+                                insight: "A shared Hiace van is the most cost-effective per person, often cheaper than the train when factoring in station transfers."
+                            }
+                        ]
                     },
                     {
                         question: "How long is the taxi ride from Jeddah to Makkah?",
                         shortAnswer: "60 - 90 Minutes",
                         detailedAnswer: "The taxi ride from Jeddah to Makkah takes about 60 to 90 minutes. Distance is 80-95 kilometers via the Haramain Highway. Early mornings are fastest, but traffic can increase during Ramadan and Hajj.",
-                        perspectives: []
+                        perspectives: [
+                            {
+                                role: "Family with Kids",
+                                icon: "Users",
+                                insight: "A direct taxi is significantly faster than the train because it avoids the 45-minute station-to-hotel bus shuttle in Makkah."
+                            }
+                        ]
                     },
                     {
                         question: "Is it better to take a taxi or the Haramain Train to Makkah?",
                         shortAnswer: "Taxi = Door-to-Door",
                         detailedAnswer: "A taxi provides direct door-to-door service from the airport to your hotel. The Haramain Train is faster (35 mins) but requires two extra taxi rides (Airport to Station, and Makkah Station to Hotel). For families with luggage, a direct taxi is usually faster overall.",
-                        perspectives: []
+                        perspectives: [
+                            {
+                                role: "Senior Citizen",
+                                icon: "Heart",
+                                insight: "Walking through stations and getting on/off trains can be physically taxing. Our chauffeurs assist with all luggage from the airport arrival hall directly to your hotel lobby."
+                            }
+                        ]
                     },
                     {
                         question: "Do you offer meet-and-greet at Jeddah Airport?",
@@ -478,7 +516,13 @@ export default function JeddahMakkahRoutePage() {
                         question: "Can I book a Jeddah taxi from the UK or USA?",
                         shortAnswer: "Yes, Pre-book Online",
                         detailedAnswer: "Yes, we specialize in serving international pilgrims. You can pre-book your Jeddah to Makkah taxi from the UK, USA, Canada, or <strong>any country in the world</strong>. We track your flight and guarantee your driver will be waiting.",
-                        perspectives: []
+                        perspectives: [
+                            {
+                                role: "International Traveler",
+                                icon: "Briefcase",
+                                insight: "Pre-booking in your native currency (via our online platform) eliminates the stress of carrying large amounts of cash or negotiating with airport drivers after a long flight."
+                            }
+                        ]
                     }
                 ]}
             />
@@ -495,7 +539,7 @@ export default function JeddahMakkahRoutePage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/?route=jeddah-makkah">
                             <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Now (SAR 250+)
+                                Book Now (Fixed Rates)
                             </Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">

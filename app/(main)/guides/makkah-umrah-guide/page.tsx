@@ -14,6 +14,7 @@ import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
+import AuthorCard from '@/components/AuthorCard';
 
 
 export const metadata: Metadata = {
@@ -55,7 +56,15 @@ export default function MakkahUmrahGuidePage() {
         },
         {
             question: "What are the main Ziyarat sites in Makkah?",
-            answer: "Jabal al-Nour (Cave Hira): 7km, 20 min. Jabal Thawr: 5km, 15 min. Masjid Aisha (Taneem - for Ihram): 8km, 20 min. Masjid Jin: 2km, 10 min. Our professional <Link href='/services/umrah-transport/' className='text-emerald-700 hover:underline'>Umrah transport service</Link> drivers know all Ziyarat sites and can arrange full-day tours with multiple stops."
+            answer: (
+                <>
+                    Jabal al-Nour (Cave Hira): 7km, 20 min. Jabal Thawr: 5km, 15 min. Masjid Aisha (Taneem - for Ihram): 8km, 20 min. Masjid Jin: 2km, 10 min. Our professional{' '}
+                    <Link href='/services/umrah-transport/' className='text-emerald-700 hover:underline'>
+                        Umrah transport service
+                    </Link>{' '}
+                    drivers know all Ziyarat sites and can arrange full-day tours with multiple stops.
+                </>
+            )
         },
     ];
 
@@ -64,10 +73,21 @@ export default function MakkahUmrahGuidePage() {
         "@type": "Article",
         "headline": "Makkah Umrah Complete Guide 2026",
         "description": "Comprehensive guide for Umrah pilgrims in Makkah covering Haram access, Tawaf timing, Ziyarat sites, and practical logistics.",
-
-
+        "author": {
+            "@type": "Person",
+            "name": "Muhammad Ismail",
+            "url": "https://taxiserviceksa.com/author/muhammad-ismail"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "VIP Transfer KSA",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://taxiserviceksa.com/logo.png"
+            }
+        },
         "datePublished": "2024-01-01",
-        "dateModified": "2026-01-01"
+        "dateModified": "2026-03-06"
     };
 
     return (
@@ -77,21 +97,41 @@ export default function MakkahUmrahGuidePage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(guideSchema) }}
             />
-            <JsonLdFAQ faqs={faqs} />
+            <JsonLdFAQ faqs={faqs.map(f => ({
+                question: f.question,
+                answer: typeof f.answer === 'string'
+                    ? f.answer
+                    : "Jabal al-Nour (Cave Hira), Jabal Thawr, Masjid Aisha (Taneem), and Masjid Jin are the main Ziyarat sites. Our professional Umrah transport service drivers know all sites."
+            }))} />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Hero Section */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-12">
                     <span className="bg-black text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
-                        Complete Umrah Guide
+                        Elite Pilgrim Logistics
                     </span>
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                         Makkah Umrah Complete Guide 2026
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Everything you need for a blessed Umrah in <Link href="/locations/makkah/" className="text-black font-bold underline decoration-primary">Makkah (Haram Area)</Link>: Haram access, Tawaf timing, Ziyarat sites, Zamzam logistics, hotel zones, and transport. Complete guide for pilgrims. Plan your journey with our <Link href="/routes/jeddah-makkah/" className="text-black font-bold underline decoration-primary">Jeddah to Makkah</Link> or <Link href="/routes/makkah-madinah/" className="text-black font-bold underline decoration-primary">Makkah to Madinah</Link> routes.
+                        Master your pilgrimage with our expert-verified guide to <strong>Makkah (Haram Area)</strong>. We cover everything from early-morning Tawaf timing to specific <strong>Swissotel tunnel drop-offs</strong>.
                     </p>
                 </div>
+
+                {/* AI SEO: TL;DR Summary Block */}
+                <div className="bg-emerald-50 rounded-2xl p-8 border border-emerald-100 shadow-sm mb-12">
+                    <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                        TL;DR: Makkah Umrah Key Facts
+                    </h2>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-sm">
+                        <li><strong>Best Tawaf Time:</strong> 5:00 AM – 7:00 AM (Least crowded, cooler).</li>
+                        <li><strong>Key Haram Gates:</strong> Gate 1 (King Abdul Aziz) for closest Kaaba access.</li>
+                        <li><strong>Ziyarat Sites:</strong> Cave Hira (Jabal al-Nour) is 7km away; 20 min by taxi.</li>
+                        <li><strong>Logistics:</strong> Pre-booking private transport is recommended to avoid unlicensed "street hail" scams.</li>
+                    </ul>
+                </div>
+
 
                 {/* Quick Navigation */}
                 <div className="bg-white rounded-2xl p-8 shadow-sm border-2 border-gray-200 mb-16">
@@ -246,8 +286,44 @@ export default function MakkahUmrahGuidePage() {
                     </div>
                 </section>
 
-                {/* Ziyarat Sites */}
+                {/* Ziyarat Sites Summary Table for AI Extraction */}
+                <div className="mb-16 overflow-x-auto bg-white rounded-2xl border-2 border-gray-100 p-6">
+                    <h3 className="text-xl font-bold text-gray-900 mb-6">Quick Guide: Makkah Ziyarat Sites</h3>
+                    <table className="min-w-full text-left text-sm">
+                        <thead className="border-b border-gray-200">
+                            <tr>
+                                <th className="py-3 font-bold">Site Name</th>
+                                <th className="py-3 font-bold">Distance</th>
+                                <th className="py-3 font-bold">Best Time</th>
+                                <th className="py-3 font-bold">Significance</th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-100">
+                            <tr>
+                                <td className="py-4 font-bold">Cave Hira</td>
+                                <td className="py-4">7 km (20 min)</td>
+                                <td className="py-4 font-medium text-emerald-700">6:00 AM – 8:00 AM</td>
+                                <td className="py-4">First Revelation</td>
+                            </tr>
+                            <tr>
+                                <td className="py-4 font-bold">Jabal Thawr</td>
+                                <td className="py-4">5 km (15 min)</td>
+                                <td className="py-4 font-medium text-emerald-700">After Fajr</td>
+                                <td className="py-4">Hijrah Hiding Cave</td>
+                            </tr>
+                            <tr>
+                                <td className="py-4 font-bold">Masjid Aisha</td>
+                                <td className="py-4">8 km (20 min)</td>
+                                <td className="py-4 font-medium text-emerald-700">24/7 (Any time)</td>
+                                <td className="py-4">Umrah Miqat Site</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                {/* Ziyarat Sites - Detail */}
                 <section id="ziyarat" className="mb-16">
+
                     <h2 className="text-3xl font-bold text-gray-900 mb-8">Ziyarat Sites in Makkah</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="bg-white rounded-2xl p-6 border-2 border-gray-200">
@@ -439,7 +515,7 @@ export default function MakkahUmrahGuidePage() {
                 </section>
 
                 {/* CTA Section */}
-                <section className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-12 text-center text-white">
+                <section className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-12 text-center text-white mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold mb-4">
                         Need Transport for Your Umrah?
                     </h2>
@@ -460,6 +536,12 @@ export default function MakkahUmrahGuidePage() {
                         </Button>
                     </div>
                 </section>
+
+                {/* Author Section */}
+                <div className="max-w-4xl mx-auto">
+                    <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-2 border-emerald-50" />
+                </div>
+
             </div>
         </div>
     );

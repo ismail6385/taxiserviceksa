@@ -11,6 +11,9 @@ import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
+import TLDRSummary from '@/components/seo/TLDRSummary';
+import FreshnessStatus from '@/components/seo/FreshnessStatus';
+import ServiceComparison from '@/components/ServiceComparison';
 
 export const metadata: Metadata = {
     title: 'Makkah to Madinah Taxi | Direct Hotel-to-Hotel Transfer',
@@ -61,6 +64,9 @@ export default function MakkahToMadinahPage() {
                             { label: 'Comfort', value: 'Premium', icon: Shield }
                         ]}
                     />
+                    <div className="mt-6 flex justify-center">
+                        <FreshnessStatus status="Live" lastVerified="March 2026" verifiedBy="Captain Abdulrahman" />
+                    </div>
                 </div>
             </Hero>
 
@@ -79,6 +85,21 @@ export default function MakkahToMadinahPage() {
                             Route: 450km • ~4.5 Hours
                         </div>
                     </div>
+                </div>
+
+                <div className="mt-12">
+                    <TLDRSummary 
+                        title="Makkah to Madinah Taxi Essentials"
+                        summary="The Makkah-to-Madinah journey is the most important intercity link for pilgrims. A private taxi offers door-to-door convenience that the train and bus cannot match, especially for families with heavy luggage."
+                        points={[
+                            "Door-to-door service from your Makkah hotel to your Madinah hotel.",
+                            "Fixed pricing starting at 450 SAR for standard sedans.",
+                            "4.5 hours travel time with flexible stops for prayer/food.",
+                            "No luggage hauling or station transfers required."
+                        ]}
+                        pricing="450 - 650 SAR"
+                        duration="4.5 Hours"
+                    />
                 </div>
             </div>
 
@@ -183,16 +204,44 @@ export default function MakkahToMadinahPage() {
                                 question: "Is the train faster?",
                                 shortAnswer: "Station-to-Station, yes.",
                                 detailedAnswer: "The train ride is 2.5 hours. However, adding the time to get to Makkah station (30 mins), wait time (1 hr check-in), and get from Madinah station to hotel (30 mins) makes the total time comparable to a private taxi (4.5 hours door-to-door).",
-                                perspectives: [
+                                 perspectives: [
                                     {
                                         role: "Logistics",
                                         icon: "Clock",
                                         insight: "Taxi wins on convenience (no luggage hauling)."
                                     }
                                 ]
+                            },
+                            {
+                                question: "What if my Madinah hotel is inside the Markaziyah (Central Area)?",
+                                shortAnswer: "Direct drop-off possible.",
+                                detailedAnswer: "While some areas near the Prophet's Mosque have restricted access during prayer times, our drivers are authorized to drop you as close as possible to your hotel entrance. If you take the train, you will still need a taxi from the station to the Markaziyah.",
+                                perspectives: [
+                                    {
+                                        role: "Local Knowledge",
+                                        icon: "MapPin",
+                                        insight: "Save ~30 mins of post-train transfer time."
+                                    }
+                                ]
+                            },
+                            {
+                                question: "Is it safe to travel at night?",
+                                shortAnswer: "Yes, 100%.",
+                                detailedAnswer: "The Hijrah Highway is a modern, well-lit, and heavily patrolled international highway. Traveling at night is common and often cooler/faster. Our drivers are trained for long-distance night shifts.",
+                                perspectives: [
+                                    {
+                                        role: "Safety",
+                                        icon: "Shield",
+                                        insight: "24/7 Roadside assistance included."
+                                    }
+                                ]
                             }
                         ]}
                     />
+
+                    <div className="mt-20">
+                        <ServiceComparison />
+                    </div>
                 </div>
             </section>
 

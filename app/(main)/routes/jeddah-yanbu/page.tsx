@@ -54,8 +54,7 @@ export default function JeddahYanbuRoutePage() {
                         "name": "Standard Sedan",
                         "description": "Camry/Sonata for up to 3 passengers."
                     },
-                    "price": "550",
-                    "priceCurrency": "SAR"
+                    "availability": "https://schema.org/InStock"
                 },
                 {
                     "@type": "Offer",
@@ -64,8 +63,7 @@ export default function JeddahYanbuRoutePage() {
                         "name": "SUV (GMC/Hyundai)",
                         "description": "Spacious ride for up to 7 passengers."
                     },
-                    "price": "850",
-                    "priceCurrency": "SAR"
+                    "availability": "https://schema.org/InStock"
                 }
             ]
         }
@@ -93,7 +91,7 @@ export default function JeddahYanbuRoutePage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Jeddah%20Airport&dropoff=Yanbu">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book Yanbu Ride (550 SAR)
+                            Book Yanbu Ride (Route Rate)
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

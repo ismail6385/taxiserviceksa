@@ -111,8 +111,8 @@ export default function ContactPage() {
                                         </div>
                                         <div>
                                             <p className="text-sm text-gray-400 font-medium mb-1">WhatsApp Support</p>
-                                            <a href="https://wa.me/923080628195" target="_blank" rel="noopener noreferrer" className="text-xl font-bold hover:text-primary transition-colors">
-                                                +92 308 062 8195
+                                            <a href="https://wa.me/966569487569" target="_blank" rel="noopener noreferrer" className="text-xl font-bold hover:text-primary transition-colors">
+                                                +966 56 948 7569
                                             </a>
                                             <p className="text-xs text-gray-500 mt-1">Available 24/7</p>
                                         </div>

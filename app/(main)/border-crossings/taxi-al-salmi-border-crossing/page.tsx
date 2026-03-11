@@ -75,7 +75,7 @@ export default function AlSalmiBorderPage() {
                 location="24/7 Border Pickups"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <a href="https://wa.me/923080628195?text=Hello,%20I%20need%20a%20taxi%20at%20the%20Al Salmi%20Border%20Crossing.">
+                    <a href="https://wa.me/966569487569?text=Hello,%20I%20need%20a%20taxi%20at%20the%20Al Salmi%20Border%20Crossing.">
                         <Button size="lg" className="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                             WhatsApp for Immediate Taxi
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

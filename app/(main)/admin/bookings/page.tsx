@@ -18,7 +18,9 @@ import {
     Share2,
     MessageSquare,
     Edit2,
-    Save
+    Save,
+    Plus,
+    Printer
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -74,6 +76,22 @@ export default function BookingsPage() {
     const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
     const [isEditing, setIsEditing] = useState(false);
     const [editedBooking, setEditedBooking] = useState<Booking | null>(null);
+    const [isCreating, setIsCreating] = useState(false);
+    const [newBooking, setNewBooking] = useState<Partial<Booking>>({
+        customer_name: '',
+        customer_email: '',
+        customer_phone: '',
+        pickup_location: '',
+        destination: '',
+        pickup_date: new Date().toISOString().split('T')[0],
+        pickup_time: '12:00',
+        vehicle_type: 'Sedan',
+        passengers: 1,
+        luggage: 0,
+        status: 'pending',
+        total_price: 0,
+        special_requests: ''
+    });
 
     const router = useRouter();
 
@@ -191,6 +209,42 @@ export default function BookingsPage() {
         }
     };
 
+    const saveNewBooking = async () => {
+        try {
+            const { data, error } = await supabase
+                .from('bookings')
+                .insert([newBooking])
+                .select();
+
+            if (error) throw error;
+
+            if (data && data[0]) {
+                setBookings([data[0], ...bookings]);
+                setIsCreating(false);
+                // Reset new booking state
+                setNewBooking({
+                    customer_name: '',
+                    customer_email: '',
+                    customer_phone: '',
+                    pickup_location: '',
+                    destination: '',
+                    pickup_date: new Date().toISOString().split('T')[0],
+                    pickup_time: '12:00',
+                    vehicle_type: 'Sedan',
+                    passengers: 1,
+                    luggage: 0,
+                    status: 'pending',
+                    total_price: 0,
+                    special_requests: ''
+                });
+                alert('Booking created successfully!');
+            }
+        } catch (error) {
+            console.error('Error creating booking:', error);
+            alert('Failed to create booking.');
+        }
+    };
+
     const openBookingDetails = (booking: Booking) => {
         setSelectedBooking(booking);
         setEditedBooking(booking);
@@ -272,6 +326,9 @@ export default function BookingsPage() {
                     <p className="text-gray-500 text-sm">Monitor and process your transport reservations easily.</p>
                 </div>
                 <div className="flex gap-3">
+                    <Button onClick={() => setIsCreating(true)} className="bg-primary text-black hover:bg-black hover:text-white font-bold shadow-sm">
+                        <Plus className="mr-2 h-4 w-4" /> New Booking
+                    </Button>
                     <Button variant="outline" onClick={handleExport} className="bg-white hover:bg-gray-50 border-gray-200 text-gray-700 shadow-sm">
                         <Download className="mr-2 h-4 w-4" /> Export
                     </Button>
@@ -682,7 +739,14 @@ export default function BookingsPage() {
                                 )}
 
                                 {!isEditing && (
-                                    <div className="mt-4 border-t border-gray-200 pt-3">
+                                    <div className="mt-4 border-t border-gray-200 pt-3 flex flex-col gap-2">
+                                        <Button 
+                                            variant="outline" 
+                                            className="w-full bg-blue-50 border-blue-200 hover:bg-blue-100 hover:text-blue-900 text-blue-700 transition-all font-semibold" 
+                                            onClick={() => window.open(`/admin/bookings/${selectedBooking.id}/invoice`, '_blank')}
+                                        >
+                                            <Printer className="w-4 h-4 mr-2" /> View/Print Invoice
+                                        </Button>
                                         <Button variant="outline" className="w-full bg-white border-gray-300 hover:bg-gray-50 hover:text-gray-900 text-gray-700 transition-all font-semibold" onClick={() => shareB2BOptions(selectedBooking)}>
                                             <Copy className="w-4 h-4 mr-2 text-gray-500" /> Copy B2B Message
                                         </Button>
@@ -697,6 +761,181 @@ export default function BookingsPage() {
                             </div>
                         </div>
                     )}
+                </SheetContent>
+            </Sheet>
+
+            {/* Create Booking Sheet */}
+            <Sheet open={isCreating} onOpenChange={setIsCreating}>
+                <SheetContent className="overflow-y-auto bg-white border-l border-gray-200 text-gray-900 w-full sm:max-w-xl">
+                    <SheetHeader className="text-left mb-6">
+                        <SheetTitle className="text-2xl font-bold text-gray-900">Create New Booking</SheetTitle>
+                        <SheetDescription className="text-gray-500">
+                            Manually add a booking from WhatsApp or other sources.
+                        </SheetDescription>
+                    </SheetHeader>
+
+                    <div className="space-y-6">
+                        {/* Customer Info */}
+                        <div className="space-y-4">
+                            <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">Customer Details</h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div className="space-y-1">
+                                    <label className="text-sm font-medium text-gray-700">Full Name</label>
+                                    <Input
+                                        placeholder="John Doe"
+                                        value={newBooking.customer_name}
+                                        onChange={(e) => setNewBooking({ ...newBooking, customer_name: e.target.value })}
+                                        className="bg-white border-gray-200"
+                                    />
+                                </div>
+                                <div className="space-y-1">
+                                    <label className="text-sm font-medium text-gray-700">Phone Number</label>
+                                    <Input
+                                        placeholder="+966..."
+                                        value={newBooking.customer_phone}
+                                        onChange={(e) => setNewBooking({ ...newBooking, customer_phone: e.target.value })}
+                                        className="bg-white border-gray-200"
+                                    />
+                                </div>
+                                <div className="sm:col-span-2 space-y-1">
+                                    <label className="text-sm font-medium text-gray-700">Email Address</label>
+                                    <Input
+                                        type="email"
+                                        placeholder="customer@example.com"
+                                        value={newBooking.customer_email}
+                                        onChange={(e) => setNewBooking({ ...newBooking, customer_email: e.target.value })}
+                                        className="bg-white border-gray-200"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Trip Info */}
+                        <div className="space-y-4">
+                            <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">Trip Information</h3>
+                            <div className="space-y-4">
+                                <div className="space-y-1">
+                                    <label className="text-sm font-medium text-gray-700">Pickup Location</label>
+                                    <Input
+                                        placeholder="Hotel, Airport, etc."
+                                        value={newBooking.pickup_location}
+                                        onChange={(e) => setNewBooking({ ...newBooking, pickup_location: e.target.value })}
+                                        className="bg-white border-gray-200"
+                                    />
+                                </div>
+                                <div className="space-y-1">
+                                    <label className="text-sm font-medium text-gray-700">Destination</label>
+                                    <Input
+                                        placeholder="Hotel, Airport, etc."
+                                        value={newBooking.destination}
+                                        onChange={(e) => setNewBooking({ ...newBooking, destination: e.target.value })}
+                                        className="bg-white border-gray-200"
+                                    />
+                                </div>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div className="space-y-1">
+                                        <label className="text-sm font-medium text-gray-700">Pickup Date</label>
+                                        <Input
+                                            type="date"
+                                            value={newBooking.pickup_date}
+                                            onChange={(e) => setNewBooking({ ...newBooking, pickup_date: e.target.value })}
+                                            className="bg-white border-gray-200"
+                                        />
+                                    </div>
+                                    <div className="space-y-1">
+                                        <label className="text-sm font-medium text-gray-700">Pickup Time</label>
+                                        <Input
+                                            type="time"
+                                            value={newBooking.pickup_time}
+                                            onChange={(e) => setNewBooking({ ...newBooking, pickup_time: e.target.value })}
+                                            className="bg-white border-gray-200"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Vehicle Info */}
+                        <div className="space-y-4">
+                            <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">Vehicle & Pricing</h3>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="space-y-1">
+                                    <label className="text-sm font-medium text-gray-700">Vehicle Type</label>
+                                    <Select
+                                        value={newBooking.vehicle_type}
+                                        onValueChange={(val) => setNewBooking({ ...newBooking, vehicle_type: val })}
+                                    >
+                                        <SelectTrigger className="bg-white border-gray-200">
+                                            <SelectValue />
+                                        </SelectTrigger>
+                                        <SelectContent className="bg-white border-gray-200">
+                                            <SelectItem value="Sedan">Sedan</SelectItem>
+                                            <SelectItem value="SUV">SUV</SelectItem>
+                                            <SelectItem value="Van">Van</SelectItem>
+                                            <SelectItem value="Minibus">Minibus</SelectItem>
+                                            <SelectItem value="Bus">Bus</SelectItem>
+                                            <SelectItem value="GMC">GMC</SelectItem>
+                                            <SelectItem value="Starex">Starex</SelectItem>
+                                            <SelectItem value="Hiace">Hiace</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                                <div className="space-y-1">
+                                    <label className="text-sm font-medium text-gray-700">Total Price (SAR)</label>
+                                    <Input
+                                        type="number"
+                                        placeholder="0.00"
+                                        value={newBooking.total_price}
+                                        onChange={(e) => setNewBooking({ ...newBooking, total_price: parseFloat(e.target.value) })}
+                                        className="bg-white border-gray-200 font-bold"
+                                    />
+                                </div>
+                                <div className="space-y-1">
+                                    <label className="text-sm font-medium text-gray-700">Passengers</label>
+                                    <Input
+                                        type="number"
+                                        value={newBooking.passengers}
+                                        onChange={(e) => setNewBooking({ ...newBooking, passengers: parseInt(e.target.value) })}
+                                        className="bg-white border-gray-200"
+                                    />
+                                </div>
+                                <div className="space-y-1">
+                                    <label className="text-sm font-medium text-gray-700">Luggage</label>
+                                    <Input
+                                        type="number"
+                                        value={newBooking.luggage}
+                                        onChange={(e) => setNewBooking({ ...newBooking, luggage: parseInt(e.target.value) })}
+                                        className="bg-white border-gray-200"
+                                    />
+                                </div>
+                            </div>
+                            <div className="space-y-1">
+                                <label className="text-sm font-medium text-gray-700">Special Requests / Notes</label>
+                                <textarea
+                                    value={newBooking.special_requests}
+                                    onChange={(e) => setNewBooking({ ...newBooking, special_requests: e.target.value })}
+                                    className="w-full min-h-[80px] p-2 text-sm border border-gray-200 rounded-md bg-white text-gray-900"
+                                    placeholder="Enter any additional details..."
+                                />
+                            </div>
+                        </div>
+
+                        <div className="pt-6 flex gap-3">
+                            <Button
+                                variant="outline"
+                                className="flex-1"
+                                onClick={() => setIsCreating(false)}
+                            >
+                                Cancel
+                            </Button>
+                            <Button
+                                className="flex-1 bg-primary text-black hover:bg-black hover:text-white font-bold"
+                                onClick={saveNewBooking}
+                            >
+                                <Plus className="w-4 h-4 mr-2" /> Create Booking
+                            </Button>
+                        </div>
+                    </div>
                 </SheetContent>
             </Sheet>
         </div>

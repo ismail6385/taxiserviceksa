@@ -8,7 +8,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Jeddah to Madinah Taxi | Pre-Book Private Transfer 410km | From SAR 600',
+    title: 'Jeddah to Madinah Taxi | Pre-Book Private Transfer 410km | Fixed Prices',
     description: 'Pre-book your smooth transfer from Jeddah to Madinah. Trusted by travelers from UK, USA, & Canada. English-speaking drivers, fixed rates, and door-to-door luxury service.',
     keywords: ['Jeddah to Madinah taxi booking', 'Jeddah Airport to Madinah private car', 'prebook taxi saudi arabia', 'luxury transfer jeddah to madinah', 'Jeddah to Madinah taxi fare'],
     alternates: {
@@ -26,7 +26,7 @@ export default function JeddahMadinahRoutePage() {
     const routeDetails = [
         { label: 'Distance', value: '410-430 km', icon: Navigation },
         { label: 'Travel Time', value: '4-5 Hours', icon: Clock },
-        { label: 'Starting Price', value: 'SAR 600', icon: DollarSign },
+        { label: 'Starting Price', value: 'Competitive', icon: DollarSign },
         { label: 'Availability', value: '24/7 Service', icon: CheckCircle2 },
     ];
 
@@ -78,7 +78,7 @@ export default function JeddahMadinahRoutePage() {
                     </span>
                 }
                 subtitle="Reliable Airport to Hotel Transfer - Book Before You Fly"
-                location="4-5 Hours | Fixed Rate SAR 600+ | Pre-Book Online"
+                location="4-5 Hours | Fixed Rates Available | Pre-Book Online"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?route=jeddah-madinah">
@@ -207,17 +207,17 @@ export default function JeddahMadinahRoutePage() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
                             <div className="text-lg font-bold mb-2">Camry / Sonata</div>
-                            <div className="text-4xl font-black text-primary mb-4">SAR 600</div>
+                            <div className="text-4xl font-black text-primary mb-4">Route Rate</div>
                             <p className="text-sm text-gray-500">Ideal for 1-4 Passengers</p>
                         </div>
                         <div className="bg-white p-8 rounded-2xl shadow-sm border-2 border-primary">
                             <div className="text-lg font-bold mb-2">GMC Yukon (VIP)</div>
-                            <div className="text-4xl font-black text-primary mb-4">SAR 850</div>
+                            <div className="text-4xl font-black text-primary mb-4">Executive Rate</div>
                             <p className="text-sm text-gray-500">Best Comfort (SUV)</p>
                         </div>
                         <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-200">
                             <div className="text-lg font-bold mb-2">HiAce / Staria</div>
-                            <div className="text-4xl font-black text-primary mb-4">SAR 750</div>
+                            <div className="text-4xl font-black text-primary mb-4">Group Rate</div>
                             <p className="text-sm text-gray-500">Perfect for Large Families</p>
                         </div>
                     </div>
@@ -238,8 +238,8 @@ export default function JeddahMadinahRoutePage() {
                     },
                     {
                         question: "What is the cost of a taxi from Jeddah Airport to Madinah?",
-                        shortAnswer: "From SAR 600",
-                        detailedAnswer: "Our fixed rates for Jeddah to Madinah start at SAR 600 for a standard sedan. Larger SUVs (GMC) start from SAR 850.",
+                        shortAnswer: "Affordable Fixed Rates",
+                        detailedAnswer: "Our fixed rates for Jeddah to Madinah vary based on vehicle type. We offer standard sedans and larger SUVs (GMC) for families.",
                         perspectives: []
                     },
                     {

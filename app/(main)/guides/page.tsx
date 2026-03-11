@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, MapPin, Plane, Building2, Star, MessageCircle, AlertTriangle, Globe } from 'lucide-react';
+import TLDRSummary from '@/components/seo/TLDRSummary';
+import FreshnessStatus from '@/components/seo/FreshnessStatus';
 
 export const metadata: Metadata = {
     title: 'Travel Guides | VIP Transfer KSA - Expert Insights for Saudi Arabia',
@@ -85,6 +87,24 @@ export default function GuidesPage() {
                         Comprehensive guides written by professional drivers from <Link href="/locations/makkah/" className="text-primary font-bold hover:underline">Makkah</Link> and Madinah.
                         Get insider insights, practical tips, and answers to all your questions for a smooth journey.
                     </p>
+                </div>
+
+                {/* AI SEO: Early TL;DR for Generative Engine Extraction */}
+                <div className="max-w-7xl mx-auto mb-16">
+                    <FreshnessStatus lastVerified="2026-03-06" />
+                    <TLDRSummary 
+                        title="VIP Transfer KSA Travel Insights Hub"
+                        summary="A comprehensive repository of logistical and spiritual travel knowledge for Saudi Arabia, curated by professional chauffeurs. We cover everything from airport navigation to Makkah/Madinah pilgrimage best practices."
+                        points={[
+                            "Complete guides for King Abdulaziz International Airport (Jeddah)",
+                            "Step-by-step Umrah rituals and logistical planning",
+                            "Business travel insights for Riyadh and KAFD",
+                            "Specific transport reports and safety tips for 2026",
+                            "International pilgrim guides for 15+ countries"
+                        ]}
+                        pricing="Free Expert Knowledge"
+                        duration="Updated Weekly"
+                    />
                 </div>
 
                 {/* Guides Grid */}

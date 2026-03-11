@@ -13,6 +13,7 @@ import {
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 import { blogService } from '@/lib/blogService';
 import RelatedGuides from '@/components/RelatedGuides';
+import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
     keywords: ['VIP Umrah Private Transfers', 'Best Umrah Chauffeur', 'Jeddah to Makkah VIP Transfer', 'Madinah Madinah Private Transfer', 'Saudi Arabia Pilgrim Transport'],
@@ -37,8 +38,16 @@ export default async function UmrahTransportPage() {
             name: 'Jeddah Airport → Makkah',
             distance: '80 km',
             duration: '60-90 minutes',
-            price: 'From SAR 150',
-            description: 'Direct transfer from King Abdulaziz International Airport. Check our <Link href="/blog/jeddah-airport-makkah-taxi-fare-2025/" className="text-emerald-700 hover:underline">2025 Fare Guide</Link> for official vs private price comparisons.',
+            price: 'Affordable Rates',
+            description: (
+                <>
+                    Direct transfer from King Abdulaziz International Airport. Check our{' '}
+                    <Link href="/blog/jeddah-airport-makkah-taxi-fare-2025/" className="text-emerald-700 hover:underline">
+                        2025 Fare Guide
+                    </Link>{' '}
+                    for official vs private price comparisons.
+                </>
+            ),
             link: '/routes/jeddah-makkah/',
             icon: Plane
         },
@@ -46,7 +55,7 @@ export default async function UmrahTransportPage() {
             name: 'Makkah → Madinah',
             distance: '450 km',
             duration: '4-5 hours',
-            price: 'From SAR 400',
+            price: 'Fixed Rates',
             description: 'Complete your Umrah journey with comfortable transfer between the two holy cities. Rest stops included.',
             link: '/routes/makkah-madinah/',
             icon: Navigation
@@ -55,7 +64,7 @@ export default async function UmrahTransportPage() {
             name: 'Makkah City Transport',
             distance: 'Within city',
             duration: '15-30 minutes',
-            price: 'From SAR 30',
+            price: 'Local Rates',
             description: 'Hotel to Haram private transfer service. Available 24/7 for prayers and Ziyarat tours.',
             link: '/locations/makkah/',
             icon: MapPin
@@ -64,7 +73,7 @@ export default async function UmrahTransportPage() {
             name: 'Madinah City Transport',
             distance: 'Within city',
             duration: '15-30 minutes',
-            price: 'From SAR 30',
+            price: 'Local Rates',
             description: 'Hotel to Prophet\'s Mosque and Ziyarat sites. Professional drivers with local knowledge.',
             link: '/locations/madinah/',
             icon: MapPin
@@ -118,7 +127,7 @@ export default async function UmrahTransportPage() {
         },
         {
             question: "How much is a Toyota Hiace or Coaster for Makkah to Madinah?",
-            answer: "We offer Toyota Hiace (11-12 seater) and Toyota Coaster (20+ seater) for large groups. Prices for Makkah to Madinah transport start from SAR 600 for Hiace and SAR 1100 for Coaster. This includes fuel and driver."
+            answer: "We offer Toyota Hiace (11-12 seater) and Toyota Coaster (20+ seater) for large groups. Contact us for the latest group transport rates. This includes fuel and driver."
         },
         {
             question: "Do you have Hyundai Staria or Starex for rent with driver?",
@@ -126,7 +135,15 @@ export default async function UmrahTransportPage() {
         },
         {
             question: "Can the driver wait during Umrah or prayers?",
-            answer: "Yes. Drivers can wait during Umrah rituals or prayers. For those <Link href='/guides/umrah-tawaf-guide/' className='text-primary hover:underline'>performing your Tawaf and Sa'i</Link>, drivers typically drop off at the nearest Haram entrance and pick up after completion. Flexible scheduling is available for Ziyarat tours."
+            answer: (
+                <>
+                    Yes. Drivers can wait during Umrah rituals or prayers. For those{' '}
+                    <Link href='/guides/umrah-tawaf-guide/' className='text-primary hover:underline'>
+                        performing your Tawaf and Sa'i
+                    </Link>
+                    , drivers typically drop off at the nearest Haram entrance and pick up after completion. Flexible scheduling is available for Ziyarat tours.
+                </>
+            )
         },
         {
             question: "Do drivers speak English for international pilgrims?",
@@ -149,21 +166,24 @@ export default async function UmrahTransportPage() {
     const serviceSchema = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Umrah VIP Transfer Service with Chauffeur",
-
-        "serviceType": "Umrah Transport",
-        "areaServed": [
-            { "@type": "City", "name": "Makkah" },
-            { "@type": "City", "name": "Madinah" },
-            { "@type": "City", "name": "Jeddah" }
-        ],
-        "description": "Best VIP Umrah private transfer and chauffeur service in Saudi Arabia. Specializing in long-distance intercity travel for pilgrims between Makkah, Madinah, and Jeddah.",
+        "name": "Umrah VIP Transport Service",
+        "category": "Religious Tourism Transport",
+        "description": "Premium private transport service for Umrah pilgrims in KSA. Specialized in Makkah and Madinah hotel transfers and Ziyarat tours.",
+        "provider": {
+            "@type": "Organization",
+            "name": "VIP Transfer KSA",
+            "url": "https://taxiserviceksa.com"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Muhammad Ismail",
+            "jobTitle": "Founder & Saudi Pilgrimage Logistics Expert",
+            "url": "https://taxiserviceksa.com/author/muhammad-ismail"
+        },
+        "areaServed": ["Makkah", "Madinah", "Jeddah", "Taif", "Riyadh"],
         "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "SAR",
-            "lowPrice": "150",
-            "highPrice": "900",
-            "priceValidUntil": "2025-12-31"
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock"
         }
     };
 
@@ -174,7 +194,12 @@ export default async function UmrahTransportPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
             />
-            <JsonLdFAQ faqs={faqs} />
+            <JsonLdFAQ faqs={faqs.map(f => ({
+                question: f.question,
+                answer: typeof f.answer === 'string'
+                    ? f.answer
+                    : "Yes. Drivers can wait during Umrah rituals or prayers. For those performing your Tawaf and Sa'i, drivers typically drop off at the nearest Haram entrance and pick up after completion. Flexible scheduling is available for Ziyarat tours."
+            }))} />
 
             {/* Hero Section */}
             <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -183,31 +208,32 @@ export default async function UmrahTransportPage() {
                 </div>
 
                 <div className="max-w-7xl mx-auto relative z-10">
-                    <div className="text-center mb-12">
-                        <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-6">
-                            Complete Umrah Transport
-                        </span>
-                        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                            VIP Umrah Private Transfers<br />
-                            <span className="text-white">In Saudi Arabia</span>
-                        </h1>
-                        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                            Experience the best standard of spiritual travel. We provide exclusive, private chauffeur-driven transport for Hajj & Umrah pilgrims. Our service specializes in **long-distance intercity transfers** and **all-day private hire**—ensuring absolute comfort and punctuality for your pilgrimage.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link href="/booking/?service=umrah-transport">
-                                <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
-                                    Book Umrah Transport
-                                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </Button>
-                            </Link>
-                            <a href="mailto:info@taxiserviceksa.com">
-                                <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
-                                    Email for Quote
-                                </Button>
-                            </a>
-                        </div>
-                    </div>
+                {/* Hero Section */}
+                <div className="text-center mb-12">
+                    <span className="bg-black text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
+                        Elite Pilgrimage Logistics
+                    </span>
+                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 px-4">
+                        VIP Umrah Transport Service
+                    </h1>
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+                        Perform your Umrah with peace of mind. We provide <strong>premium private transfers</strong> between Jeddah Airport, Makkah, and Madinah with professional, licensed drivers.
+                    </p>
+                </div>
+
+                {/* AI SEO: TL;DR Summary Block */}
+                <div className="bg-emerald-50 rounded-2xl p-8 border border-emerald-100 shadow-sm mb-12 max-w-7xl mx-auto mx-4">
+                    <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-700" />
+                        TL;DR: Umrah Transport Quick Facts
+                    </h2>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-sm">
+                        <li><strong>Standard Route:</strong> JED Airport to Makkah (80km) is usually 60-90 mins.</li>
+                        <li><strong>Pilgrim Pickups:</strong> Drivers wait at the <strong>Arrivals Hall</strong> with name signs.</li>
+                        <li><strong>Holy Route:</strong> Makkah to Madinah (450km) private transfers allow unlimited stops.</li>
+                        <li><strong>Pricing:</strong> Guaranteed <strong>Fixed Rates</strong> covering all highway tolls and Zamzam carriers.</li>
+                    </ul>
+                </div>
                 </div>
             </section>
 
@@ -256,6 +282,45 @@ export default async function UmrahTransportPage() {
                     </div>
                 </div>
             </section>
+
+                {/* Umrah Routes Comparison Table for AI Extraction */}
+                <div className="mb-16 overflow-x-auto bg-white rounded-2xl border-2 border-gray-100 p-6 max-w-7xl mx-auto">
+                    <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                        <Navigation className="w-5 h-5 text-emerald-600" /> Pilgrimage Routes
+                    </h3>
+                    <table className="min-w-full text-left text-sm">
+                        <thead className="border-b border-gray-200">
+                            <tr>
+                                <th className="py-3 font-bold">Route Name</th>
+                                <th className="py-3 font-bold">Trip Duration</th>
+                                <th className="py-3 font-bold">Wait Policy</th>
+                                <th className="py-3 font-bold">Route Type</th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-100">
+                            <tr>
+                                <td className="py-4 font-bold">JED → Makkah</td>
+                                <td className="py-4">1 hr 15 min</td>
+                                <td className="py-4 font-medium text-emerald-700">90 mins Free</td>
+                                <td className="py-4 font-bold text-emerald-600">JED Airport Gateway</td>
+                            </tr>
+                            <tr>
+                                <td className="py-4 font-bold">Makkah ↔ Madinah</td>
+                                <td className="py-4">4 hr 30 min</td>
+                                <td className="py-4 font-medium text-emerald-700">Unlimited Stops</td>
+                                <td className="py-4 font-bold text-emerald-600">Holy Cities Connector</td>
+                            </tr>
+                            <tr>
+                                <td className="py-4 font-bold">Ziyarat Tours</td>
+                                <td className="py-4">Custom (4-6h)</td>
+                                <td className="py-4 font-medium text-emerald-700">Flexible</td>
+                                <td className="py-4 font-bold text-emerald-600">Madinah/Makkah Sightseeing</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                {/* Popular Routes - Grid */}
 
             {/* Vehicles Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
@@ -398,28 +463,32 @@ export default async function UmrahTransportPage() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your VIP Umrah Transfer
-                    </h2>
-                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Secure your private chauffeur with Saudi Arabia's premium pilgrimage transport service. Specializing in intercity and airport-to-hotel transfers.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking/?service=umrah-transport">
-                            <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Now
-                            </Button>
+            <section className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-12 text-center text-white mb-16 mx-4 max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 px-4">
+                    Ready for Your Umrah Journey?
+                </h2>
+                <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto px-4 leading-relaxed">
+                    Book your professional Umrah transport today. Expert drivers, clean vehicles, and guaranteed fixed prices for your peace of mind.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
+                    <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto">
+                        <Link href="/booking/">
+                            Book Umrah Taxi
+                            <ArrowRight className="ml-2 w-5 h-5" />
                         </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
-                            <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Email for Custom Package
-                            </Button>
-                        </a>
-                    </div>
+                    </Button>
+                    <Button asChild size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto">
+                        <Link href="/services/madinah-ziyarat/">
+                            Madinah Ziyarat
+                        </Link>
+                    </Button>
                 </div>
             </section>
+
+            {/* Author Section */}
+            <div className="max-w-4xl mx-auto pb-20 px-4 sm:px-6 lg:px-8">
+                <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-2 border-emerald-50" />
+            </div>
         </div>
     );
 }

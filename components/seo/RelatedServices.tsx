@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 interface Service {
     name: string;
-    description: string;
+    description: string | React.ReactNode;
     href: string;
     icon: LucideIcon;
 }

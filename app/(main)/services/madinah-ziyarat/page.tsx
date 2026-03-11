@@ -28,21 +28,21 @@ export default function MadinahZiyaratPage() {
         {
             name: 'Standard Ziyarat',
             duration: '2-3 Hours',
-            price: 'SAR 150',
+            price: 'Ziyarat Rate',
             sites: ['Masjid Quba', 'Mount Uhud', 'Masjid Qiblatain', 'Seven Mosques (Khandaq)'],
             desc: 'The essential Sunnah sites visited by millions of pilgrims.'
         },
         {
             name: 'Extended Ziyarat',
             duration: '4-5 Hours',
-            price: 'SAR 250',
+            price: 'Extended Rate',
             sites: ['Standard Sites +', 'Bir Uthman', 'Dates Market', 'Printing Press', 'Uhud Martyrs Cemetery'],
             desc: 'A deeper dive into the history of Madinah with extra stops.'
         },
         {
             name: 'Badar Ziyarat',
             duration: '5-6 Hours',
-            price: 'SAR 450',
+            price: 'Badar Rate',
             sites: ['Badar Battlefield', 'Martyrs of Badar', 'Al-Arish Mosque'],
             desc: 'A trip outside Madinah to the site of the first battle of Islam (150km away).'
         }
@@ -80,7 +80,15 @@ export default function MadinahZiyaratPage() {
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
                         brandName="TaxiServiceKSA™ Ziyarat"
-                        description="Facilitating the Sunnah of visiting Quba and the Shuhada of Uhud in <Link href='/locations/madinah/' className='text-emerald-700 font-bold hover:underline'>Al-Madinah Al-Munawwarah</Link>. We provide not just a car, but a respectful environment for your Ibadah."
+                        description={(
+                            <>
+                                Facilitating the Sunnah of visiting Quba and the Shuhada of Uhud in{' '}
+                                <Link href='/locations/madinah/' className='text-emerald-700 font-bold hover:underline'>
+                                    Al-Madinah Al-Munawwarah
+                                </Link>
+                                . We provide not just a car, but a respectful environment for your Ibadah.
+                            </>
+                        )}
                         foundingDate="2012"
                         metrics={[
                             { label: 'Ziyarat Trips', value: '25k+', icon: Moon },
@@ -127,7 +135,15 @@ export default function MadinahZiyaratPage() {
                             {
                                 topic: "Morning vs Evening Ziyarat",
                                 commonBelief: "Any time is fine.",
-                                reality: "Early morning (7 AM - 10 AM) is best to avoid heat and crowds. Many pilgrims who arrive via the <Link href='/routes/makkah-madinah/' className='text-emerald-700 hover:underline'>Makkah to Madinah taxi booking</Link> prefer to start their Ziyarat the next morning for the best lighting.",
+                                reality: (
+                                    <>
+                                        Early morning (7 AM - 10 AM) is best to avoid heat and crowds. Many pilgrims who arrive via the{' '}
+                                        <Link href='/routes/makkah-madinah/' className='text-emerald-700 hover:underline'>
+                                            Makkah to Madinah taxi booking
+                                        </Link>{' '}
+                                        prefer to start their Ziyarat the next morning for the best lighting.
+                                    </>
+                                ),
                                 truthRange: "Morning Recommended",
                                 factors: ["Lighting", "Heat", "Crowds"]
                             },

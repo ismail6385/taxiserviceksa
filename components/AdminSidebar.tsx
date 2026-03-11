@@ -23,6 +23,7 @@ import { cn } from '@/lib/utils'; // Assuming you have a utils file for class me
 const menuItems = [
     { name: 'Dashboard', href: '/admin/dashboard', icon: LayoutDashboard },
     { name: 'Bookings', href: '/admin/bookings', icon: CalendarDays },
+    { name: 'Invoice Creator', href: '/admin/invoice-generator', icon: FileText },
     { name: 'Reviews', href: '/admin/reviews', icon: Star },
     { name: 'Questions', href: '/admin/questions', icon: HelpCircle },
     { name: 'Blogs', href: '/admin/blogs', icon: FileText },

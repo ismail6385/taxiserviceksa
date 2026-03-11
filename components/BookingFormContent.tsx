@@ -198,7 +198,7 @@ ${calculatedPrice ? `• Est. Price: Requesting Quote` : ''}
 
 Please confirm availability.`;
 
-        const whatsappUrl = `https://wa.me/923080628195?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/966569487569?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
         setLoading(false);
     };
@@ -250,7 +250,7 @@ Please confirm availability.`;
 • Name: ${formData.customer_name}
 
 Please confirm my ride.`;
-                const whatsappUrl = `https://wa.me/923080628195?text=${encodeURIComponent(message)}`;
+                const whatsappUrl = `https://wa.me/966569487569?text=${encodeURIComponent(message)}`;
                 window.open(whatsappUrl, '_blank');
             }, 1500); // Small delay to let user see success screen first
         } catch (error) {

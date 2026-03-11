@@ -26,6 +26,7 @@ import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
+import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
     title: 'Intercity VIP Transfer KSA | Long Distance Private Chauffeur',
@@ -41,12 +42,12 @@ export const metadata: Metadata = {
 
 export default function IntercityServicePage() {
     const popularRoutes = [
-        { name: 'Jeddah ↔ Makkah', distance: '85 km', time: '1 hr 15 min', price: 'From SAR 250' },
-        { name: 'Makkah ↔ Madinah', distance: '450 km', time: '4 hr 30 min', price: 'From SAR 450' },
-        { name: 'Jeddah ↔ Madinah', distance: '420 km', time: '4 hr', price: 'From SAR 400' },
-        { name: 'Riyadh ↔ Dammam', distance: '400 km', time: '3 hr 45 min', price: 'From SAR 600' },
-        { name: 'Jeddah ↔ Taif', distance: '170 km', time: '2 hr', price: 'From SAR 300' },
-        { name: 'Madinah ↔ AlUla', distance: '330 km', time: '3 hr 30 min', price: 'From SAR 500' },
+        { name: 'Jeddah ↔ Makkah', distance: '85 km', time: '1 hr 15 min', price: 'Fixed Rate' },
+        { name: 'Makkah ↔ Madinah', distance: '450 km', time: '4 hr 30 min', price: 'Market Rate' },
+        { name: 'Jeddah ↔ Madinah', distance: '420 km', time: '4 hr', price: 'Fixed Rate' },
+        { name: 'Riyadh ↔ Dammam', distance: '400 km', time: '3 hr 45 min', price: 'Group Rate' },
+        { name: 'Jeddah ↔ Taif', distance: '170 km', time: '2 hr', price: 'Tour Rate' },
+        { name: 'Madinah ↔ AlUla', distance: '330 km', time: '3 hr 30 min', price: 'Special Rate' },
     ];
 
     const features = [
@@ -81,8 +82,19 @@ export default function IntercityServicePage() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Intercity VIP Transfer KSA",
-
+        "category": "Intercity Transport",
         "description": "Professional executive long-distance intercity transfer service connecting major cities in Saudi Arabia.",
+        "provider": {
+            "@type": "Organization",
+            "name": "VIP Transfer KSA",
+            "url": "https://taxiserviceksa.com"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Muhammad Ismail",
+            "jobTitle": "Founder & Saudi Intercity Logistics Expert",
+            "url": "https://taxiserviceksa.com/author/muhammad-ismail"
+        },
         "areaServed": "Saudi Arabia",
         "serviceType": "VIP Transport"
     };
@@ -98,13 +110,8 @@ export default function IntercityServicePage() {
             <Hero
                 images={['/hero-slide-1.webp', '/hero-slide-3.webp']}
                 h1Text="Intercity VIP Transfer Service Saudi Arabia"
-                title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Nationwide Coverage
-                    </span>
-                }
-                subtitle="City-to-City Transfers"
-                location="Kingdom Wide"
+                subtitle="Private Transfers Between Major KSA Cities"
+                bookingFormTitle="Professional long-distance travel between Jeddah, Makkah, Madinah, Riyadh, and Dammam. Private vehicles with licensed drivers for a comfortable intercity journey."
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
@@ -119,6 +126,22 @@ export default function IntercityServicePage() {
                     />
                 </div>
             </Hero>
+
+            {/* AI SEO: TL;DR Summary Block */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div className="bg-emerald-50 rounded-2xl p-8 border border-emerald-100 shadow-sm mb-12">
+                    <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                        TL;DR: KSA Intercity Travel Quick Facts
+                    </h2>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-sm">
+                        <li><strong>Major Routes:</strong> Jeddah-Makkah (85km), Makkah-Madinah (450km), Riyadh-Dammam (400km).</li>
+                        <li><strong>Vehicle Standard:</strong> Air-conditioned Sedans (Camry) and Luxury SUVs (GMC Yukon).</li>
+                        <li><strong>Flexibility:</strong> Private transfers allow unlimited rest/prayer stops at no extra charge.</li>
+                        <li><strong>Pricing:</strong> Guaranteed fixed rates including fuel, tolls, and driver fees.</li>
+                    </ul>
+                </div>
+            </div>
 
             {/* Trending Note */}
             <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
@@ -135,6 +158,42 @@ export default function IntercityServicePage() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
                 <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Popular Intercity Routes</h2>
+                {/* Intercity Routes Comparison Table for AI Extraction */}
+                <div className="mb-16 overflow-x-auto bg-white rounded-2xl border-2 border-gray-100 p-6">
+                    <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                        <Navigation className="w-5 h-5 text-emerald-600" /> Popular Intercity Routes
+                    </h3>
+                    <table className="min-w-full text-left text-sm">
+                        <thead className="border-b border-gray-200">
+                            <tr>
+                                <th className="py-3 font-bold">Route Name</th>
+                                <th className="py-3 font-bold">Km Distance</th>
+                                <th className="py-3 font-bold">Travel Time</th>
+                                <th className="py-3 font-bold">Route Type</th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-100">
+                            <tr>
+                                <td className="py-4 font-bold">Jeddah ↔ Makkah</td>
+                                <td className="py-4">85 km</td>
+                                <td className="py-4 font-medium text-emerald-700">1 hr 15 min</td>
+                                <td className="py-4">Pilgrimage Highway</td>
+                            </tr>
+                            <tr>
+                                <td className="py-4 font-bold">Makkah ↔ Madinah</td>
+                                <td className="py-4">450 km</td>
+                                <td className="py-4 font-medium text-emerald-700">4 hr 30 min</td>
+                                <td className="py-4">Main Express Road</td>
+                            </tr>
+                            <tr>
+                                <td className="py-4 font-bold">Riyadh ↔ Dammam</td>
+                                <td className="py-4">400 km</td>
+                                <td className="py-4 font-medium text-emerald-700">3 hr 45 min</td>
+                                <td className="py-4">Business Highway</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {popularRoutes.map((route, idx) => (
                         <div key={idx} className="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-shadow">
@@ -325,7 +384,13 @@ export default function IntercityServicePage() {
                         }
                     ]}
                 />
+                
+                {/* Author Section */}
+                <div className="max-w-4xl mx-auto border-t border-gray-100 pt-16 mb-20">
+                    <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-2 border-emerald-50" />
+                </div>
             </div>
+
 
         </div>
     );

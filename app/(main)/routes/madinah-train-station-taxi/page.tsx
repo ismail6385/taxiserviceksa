@@ -9,7 +9,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
     title: 'Madinah Train Station Taxi | Haramain Station to Hotel Transfer',
-    description: 'Book a taxi from Madinah Haramain Train Station to your hotel (Markaziyah / Central Area). Fixed price SAR 50-80. Reliable pickup for train arrivals.',
+    description: 'Book a taxi from Madinah Haramain Train Station to your hotel (Markaziyah / Central Area). Affordable fixed prices. Reliable pickup for train arrivals.',
     keywords: ['Madinah train station taxi', 'Haramain station Madinah to hotel', 'taxi from Madinah railway station to prophet mosque', 'Madinah station transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/madinah-train-station-taxi/',
@@ -26,7 +26,7 @@ export default function MadinahTrainStationPage() {
     const routeDetails = [
         { label: 'Pickup Point', value: 'Madinah Haramain Station', icon: MapPin },
         { label: 'To Haram', value: '15-20 Minutes', icon: Clock },
-        { label: 'Starting Price', value: 'SAR 50', icon: DollarSign },
+        { label: 'Starting Price', value: 'Competitive', icon: DollarSign },
         { label: 'Availability', value: 'Train Schedule', icon: CheckCircle2 },
     ];
 
@@ -69,7 +69,7 @@ export default function MadinahTrainStationPage() {
                     </span>
                 }
                 subtitle="From Train Station to Your Hotel (Markaziyah)"
-                location="15-20 Minutes | Fixed Rate SAR 50+"
+                location="15-20 Minutes | Affordable Fixed Rates"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking">
@@ -143,17 +143,17 @@ export default function MadinahTrainStationPage() {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
                                 <div className="text-lg font-bold mb-2">To Markaziyah (Central)</div>
-                                <div className="text-3xl font-black text-primary mb-2">SAR 50</div>
+                                <div className="text-3xl font-black text-primary mb-2">Fixed Rate</div>
                                 <p className="text-xs text-gray-500">Economy Sedan</p>
                             </div>
                             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
                                 <div className="text-lg font-bold mb-2">To Markaziyah (SUV)</div>
-                                <div className="text-3xl font-black text-primary mb-2">SAR 80</div>
+                                <div className="text-3xl font-black text-primary mb-2">Executive Rate</div>
                                 <p className="text-xs text-gray-500">GMC / Family Car</p>
                             </div>
                             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
                                 <div className="text-lg font-bold mb-2">To Madinah Airport</div>
-                                <div className="text-3xl font-black text-primary mb-2">SAR 80</div>
+                                <div className="text-3xl font-black text-primary mb-2">Transfer Rate</div>
                                 <p className="text-xs text-gray-500">Station to Airport Transfer</p>
                             </div>
                         </div>

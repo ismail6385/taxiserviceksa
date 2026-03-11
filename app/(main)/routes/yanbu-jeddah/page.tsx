@@ -8,15 +8,15 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Yanbu to Jeddah Taxi | Airport Transfer - Fixed Price SAR 550',
-    description: 'Book a taxi from Yanbu to Jeddah Airport (JED) or Jeddah City. 3.5 hour journey via Route 5. Fixed rates from SAR 550. 24/7 Service.',
+    title: 'Yanbu to Jeddah Taxi | Airport Transfer - Fixed Prices',
+    description: 'Book a taxi from Yanbu to Jeddah Airport (JED) or Jeddah City. 3.5 hour journey via Route 5. Fixed rates available. 24/7 Service.',
     keywords: ['Yanbu to Jeddah taxi', 'taxi from Yanbu to Jeddah Airport', 'Yanbu to Jeddah taxi fare', 'Yanbu industrial city to Jeddah', 'transfer Yanbu Jeddah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/yanbu-jeddah/',
     },
     openGraph: {
         title: 'Yanbu to Jeddah Taxi (Airport Transfer) - Experienced Drivers',
-        description: 'Need a ride from Yanbu (Royal Commission/Industrial) to Jeddah? Book our private taxi. Fixed price SAR 550. 24/7 Pickup.',
+        description: 'Need a ride from Yanbu (Royal Commission/Industrial) to Jeddah? Book our private taxi. Fixed prices available. 24/7 Pickup.',
         url: 'https://taxiserviceksa.com/routes/yanbu-jeddah/',
         type: 'website',
     },
@@ -26,7 +26,7 @@ export default function YanbuToJeddahPage() {
     const routeDetails = [
         { label: 'Distance', value: '330 km', icon: MapPin },
         { label: 'Travel Time', value: '3.5 Hours', icon: Clock },
-        { label: 'Starting Price', value: 'SAR 550', icon: DollarSign },
+        { label: 'Starting Price', value: 'Competitive', icon: DollarSign },
         { label: 'Route', value: 'Coastal Hwy 5', icon: CheckCircle2 },
     ];
 
@@ -63,11 +63,6 @@ export default function YanbuToJeddahPage() {
             "@type": "Taxi",
             "name": "Private Taxi",
             "image": "https://taxiserviceksa.com/fleet/camry-2024.webp"
-        },
-        "priceSpecification": {
-            "@type": "PriceSpecification",
-            "price": "550",
-            "priceCurrency": "SAR"
         }
     };
 
@@ -88,7 +83,7 @@ export default function YanbuToJeddahPage() {
                     </span>
                 }
                 subtitle="From Royal Commission / Industrial City to Jeddah Airport"
-                location="3.5 Hours | Fixed Rate SAR 550+"
+                location="3.5 Hours | Fixed Rates Available"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking">
@@ -162,17 +157,17 @@ export default function YanbuToJeddahPage() {
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
                                 <div className="text-lg font-bold mb-2">Sedan (Camry)</div>
-                                <div className="text-3xl font-black text-primary mb-2">SAR 550</div>
+                                <div className="text-3xl font-black text-primary mb-2">Route Rate</div>
                                 <p className="text-xs text-gray-500">Up to 4 Passengers</p>
                             </div>
                             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
                                 <div className="text-lg font-bold mb-2">SUV (GMC Yukon)</div>
-                                <div className="text-3xl font-black text-primary mb-2">SAR 850</div>
+                                <div className="text-3xl font-black text-primary mb-2">Executive Rate</div>
                                 <p className="text-xs text-gray-500">7 Passengers + Luggage</p>
                             </div>
                             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center">
                                 <div className="text-lg font-bold mb-2">Family Van (Hiace)</div>
-                                <div className="text-3xl font-black text-primary mb-2">SAR 700</div>
+                                <div className="text-3xl font-black text-primary mb-2">Group Rate</div>
                                 <p className="text-xs text-gray-500">Groups / Heavy Luggage</p>
                             </div>
                         </div>
@@ -195,8 +190,8 @@ export default function YanbuToJeddahPage() {
                     },
                     {
                         question: "How much is a taxi from Yanbu to Jeddah Airport?",
-                        shortAnswer: "From SAR 550",
-                        detailedAnswer: "Private taxi fares start at SAR 550 for a sedan and SAR 850 for a GMC Yukon. Pricing is fixed for any location in Yanbu (Royal Commission or Downtown).",
+                        shortAnswer: "Affordable Fixed Rates",
+                        detailedAnswer: "Private taxi fares are fixed for sedans and GMC Yukons. Pricing is fixed for any location in Yanbu (Royal Commission or Downtown).",
                         perspectives: []
                     }
                 ]}

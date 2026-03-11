@@ -9,8 +9,8 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RecentTrips from '@/components/RecentTrips';
 
 export const metadata: Metadata = {
-    title: 'Taxi Jeddah Airport to Swissotel Makkah | Hotel Drop-Off SAR 250',
-    description: 'Book private taxi from Jeddah Airport (KAIA) to Swissotel Makkah (Clock Tower). Door-to-door drop-off at Abraj Al Bait tunnel. Fixed price SAR 250. 24/7 Service.',
+    title: 'Taxi Jeddah Airport to Swissotel Makkah | Hotel Drop-Off',
+    description: 'Book private taxi from Jeddah Airport (KAIA) to Swissotel Makkah (Clock Tower). Door-to-door drop-off at Abraj Al Bait tunnel. Affordable fixed prices. 24/7 Service.',
     keywords: ['Jeddah airport to Swissotel Makkah taxi', 'Swissotel Makkah transfer', 'taxi Jeddah to Clock Tower', 'Abraj Al Bait taxi drop off', 'Jeddah to Makkah taxi fare'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/jeddah-to-swissotel-makkah/',
@@ -27,7 +27,7 @@ export default function JeddahToSwissotelPage() {
     const routeDetails = [
         { label: 'Hotel Distance', value: '95 km', icon: Navigation },
         { label: 'Time to Lobby', value: '75-90 Mins', icon: Clock },
-        { label: 'Price', value: 'SAR 250', icon: DollarSign },
+        { label: 'Price', value: 'Affordable', icon: DollarSign },
         { label: 'Drop-Off', value: 'Tunnel/Lobby', icon: MapPin },
     ];
 
@@ -56,8 +56,7 @@ export default function JeddahToSwissotelPage() {
                 "addressCountry": "SA"
             }
         },
-        "price": "250",
-        "priceCurrency": "SAR"
+        "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
     };
 
     return (
@@ -109,14 +108,31 @@ export default function JeddahToSwissotelPage() {
                 </div>
             </div>
 
+            {/* AI SEO: Early Definition & Summary, Scannable Format */}
+            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
+                <div className="max-w-4xl mx-auto bg-emerald-50 rounded-2xl p-8 border border-emerald-100 shadow-sm">
+                    <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                        TL;DR: Jeddah Airport to Swissotel Transfer Facts
+                    </h2>
+                    <ul className="space-y-3 text-gray-700">
+                        <li><strong>Distance & Time:</strong> 95 kilometers. The drive takes 75 to 90 minutes from JED Airport.</li>
+                        <li><strong>Drop-off Point:</strong> Direct to the Swissotel Makkah reception lobby via the exclusive Abraj Al Bait tunnel.</li>
+                        <li><strong>Vehicle Types:</strong> Sedans (Toyota Camry) and VIP SUVs (GMC Yukon) accommodating up to 7 passengers and heavy luggage.</li>
+                        <li><strong>Pricing:</strong> Affordable, fixed rates with no hidden surge fees. Bookings include meet-and-greet at the airport arrivals terminal.</li>
+                    </ul>
+                </div>
+            </section>
+
             {/* Route Details Section */}
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <span className="bg-emerald-100 text-emerald-800 font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Hotel Transfer Info</span>
+                        {/* AI SEO: Clear H2 and Entity Definition */}
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Jeddah Airport (JED) to Swissotel Makkah</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            We specialize in transfers to the <strong>Abraj Al Bait Complex</strong>. Our drivers know the exact <strong>Swissotel Makkah tunnel entrance</strong> and drop-off points, ensuring you don't have to walk far with luggage.
+                            <strong>Swissotel Makkah</strong> is a premium luxury hotel located within the iconic <strong>Abraj Al Bait Complex (Clock Tower)</strong> in Makkah, Saudi Arabia, adjacent to the Holy Haram. Our private taxi service specializes in direct transfers from <strong>King Abdulaziz International Airport (KAIA)</strong> right to the hotel. Our experienced drivers have permits to access the specific <strong>Swissotel tunnel entrance</strong>, dropping you directly at the lobby level so you do not have to walk vast distances with your luggage.
                         </p>
                     </div>
 
@@ -212,20 +228,20 @@ export default function JeddahToSwissotelPage() {
                 faqs={[
                     {
                         question: "How much is a taxi from Jeddah Airport to Swissotel Makkah?",
-                        shortAnswer: "SAR 250 Fixed",
-                        detailedAnswer: "A private sedan (Camry) from Jeddah Airport to Swissotel Makkah is SAR 250. An SUV (GMC Yukon) is SAR 450. Prices are fixed and include tunnel drop-off fees.",
+                        shortAnswer: "Fixed Rates",
+                        detailedAnswer: "A private sedan (like a Toyota Camry) from Jeddah Airport to Swissotel Makkah is offered at an affordable fixed rate. A VIP SUV (like a GMC Yukon) is also available for larger families or groups with extensive luggage. All prices are fixed, pre-agreed, and include the toll fees for the Abraj Al Bait tunnel drop-off.",
                         perspectives: []
                     },
                     {
-                        question: "Does the taxi drop off at the Swissotel main entrance?",
+                        question: "Does the taxi drop off at the Swissotel Makkah main entrance?",
                         shortAnswer: "Yes, Tunnel Entrance",
-                        detailedAnswer: "Yes, our drivers have the permits to enter the Abraj Al Bait tunnels and drop you exactly at the Swissotel Makkah reception entrance.",
+                        detailedAnswer: "Yes. Swissotel Makkah is uniquely positioned in the Clock Tower complex. Our drivers hold the necessary permits to bypass external traffic, enter the Abraj Al Bait tunnels, and drop you off exactly at the Swissotel Makkah lobby level. You will not have to drag luggage from the street.",
                         perspectives: []
                     },
                     {
-                        question: "How long is the drive from Jeddah to Swissotel Makkah?",
+                        question: "How long is the drive from Jeddah Airport (JED) to Swissotel Makkah?",
                         shortAnswer: "75-90 Minutes",
-                        detailedAnswer: "The drive takes approximately 75 to 90 minutes depending on traffic at the Makkah entry checkpoint.",
+                        detailedAnswer: "The drive from King Abdulaziz International Airport (JED) to Swissotel Makkah covers 95 kilometers and takes approximately 75 to 90 minutes. This travel time depends on traffic congestion during peak Umrah hours and processing time at the Makkah entry checkpoints.",
                         perspectives: []
                     }
                 ]}
@@ -243,7 +259,7 @@ export default function JeddahToSwissotelPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/?destination=Swissotel%20Makkah">
                             <Button size="lg" className="bg-emerald-600 text-white hover:bg-emerald-700 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Now (SAR 250)
+                                Book Now
                             </Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">

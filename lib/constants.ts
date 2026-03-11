@@ -18,8 +18,8 @@ export const AUTHORS = [
         id: '2',
         name: 'Muhammad Ismail',
         slug: 'muhammad-ismail',
-        role: 'Founder & Tech Lead',
-        bio: 'Founder of VIP Transfer KSA. A versatile tech professional specializing in SQA, Next.js Web Development, SEO Content Strategy, and AI Automation. Ismail combines technical expertise with travel logistics to build smart, efficient digital experiences for Hajj & Umrah pilgrims.',
+        role: 'Founder & SEO Logistics Expert',
+        bio: 'Founder of VIP Transfer KSA and a seasoned professional in Saudi travel logistics. With over 12 years of experience in the transport industry and a deep background in SQA and AI Automation, Ismail ensures that every pilgrim and executive receives a world-class, tech-enabled travel experience. He is a recognized authority on Hajj & Umrah transport logistics and AI-driven content strategy.',
         avatar: '/images/authors/ismail.jpg',
         social: {
             twitter: '',

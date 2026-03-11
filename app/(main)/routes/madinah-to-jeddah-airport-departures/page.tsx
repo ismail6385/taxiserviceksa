@@ -10,7 +10,7 @@ import RecentTrips from '@/components/RecentTrips';
 
 export const metadata: Metadata = {
     title: 'Madinah to Jeddah Airport (JED) Departures Taxi | 24/7 Transfer',
-    description: 'Reliable taxi from Madinah to Jeddah Airport Departures (North Terminal & Terminal 1). Flight tracking included to ensure on-time arrival. Fixed Price SAR 450.',
+    description: 'Reliable taxi from Madinah to Jeddah Airport Departures (North Terminal & Terminal 1). Flight tracking included to ensure on-time arrival. Affordable fixed prices.',
     keywords: ['Madinah to Jeddah Airport taxi', 'JED airport departure transfer', 'Madinah to Terminal 1', 'taxi to Jeddah North Terminal', 'Madinah Jeddah airport fare'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/madinah-to-jeddah-airport-departures/',
@@ -27,7 +27,7 @@ export default function MadinahToJeddahAirportPage() {
     const routeDetails = [
         { label: 'Distance', value: '450 km', icon: Navigation },
         { label: 'Travel Time', value: '4-5 Hours', icon: Clock },
-        { label: 'Fixed Price', value: 'SAR 450', icon: DollarSign },
+        { label: 'Fixed Price', value: 'Competitive', icon: DollarSign },
         { label: 'Terminal', value: 'All Terminals', icon: MapPin },
     ];
 
@@ -60,8 +60,7 @@ export default function MadinahToJeddahAirportPage() {
                 "addressCountry": "SA"
             }
         },
-        "price": "450",
-        "priceCurrency": "SAR"
+        "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
     };
 
     return (
@@ -207,8 +206,8 @@ export default function MadinahToJeddahAirportPage() {
                 faqs={[
                     {
                         question: "How much is a taxi from Madinah to Jeddah Airport?",
-                        shortAnswer: "SAR 450",
-                        detailedAnswer: "A standard sedan taxi from Madinah to Jeddah Airport costs SAR 450. Larger vehicles like the GMC Yukon are available for SAR 850.",
+                        shortAnswer: "Affordable Fixed Rates",
+                        detailedAnswer: "A standard sedan taxi from Madinah to Jeddah Airport is offered at an affordable fixed rate. Larger vehicles like the GMC Yukon are also available.",
                         perspectives: []
                     },
                     {
@@ -238,7 +237,7 @@ export default function MadinahToJeddahAirportPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/?destination=Jeddah%20Airport">
                             <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Airport Taxi (SAR 450)
+                                Book Airport Taxi
                             </Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">

@@ -127,18 +127,18 @@ export default function ToyotaHiacePage() {
                         vehicleName="Toyota Hiace"
                         colorTheme="amber"
                         prices={[
-                            { route: 'Jeddah Airport → Makkah', price: '350' },
-                            { route: 'Makkah → Madinah Hotel', price: '650' },
-                            { route: 'Makkah → Madinah via Badr Ziyarat', price: '750' },
-                            { route: 'Makkah Ziyarat Tour', price: '350' },
-                            { route: 'Madinah Hotel → Madinah Airport', price: '200' },
-                            { route: 'Madinah Ziyarat Tour', price: '300' },
-                            { route: 'Madinah Hotel → Train Station', price: '200' },
-                            { route: 'Madinah Hotel → Jeddah Airport', price: '650' },
-                            { route: 'Makkah Hotel → Train Station', price: '200' },
-                            { route: 'Makkah Hotel → Jeddah Airport', price: '300' },
-                            { route: 'Full Day (Fuel + Driver)', price: '1200', highlight: true },
-                            { route: 'Per Hour', price: '170', highlight: true },
+                            { route: 'Jeddah Airport → Makkah', price: 'Fixed Rates' },
+                            { route: 'Makkah → Madinah Hotel', price: 'Fixed Rates' },
+                            { route: 'Makkah → Madinah via Badr Ziyarat', price: 'Fixed Rates' },
+                            { route: 'Makkah Ziyarat Tour', price: 'Fixed Rates' },
+                            { route: 'Madinah Hotel → Madinah Airport', price: 'Fixed Rates' },
+                            { route: 'Madinah Ziyarat Tour', price: 'Fixed Rates' },
+                            { route: 'Madinah Hotel → Train Station', price: 'Fixed Rates' },
+                            { route: 'Madinah Hotel → Jeddah Airport', price: 'Fixed Rates' },
+                            { route: 'Makkah Hotel → Train Station', price: 'Fixed Rates' },
+                            { route: 'Makkah Hotel → Jeddah Airport', price: 'Fixed Rates' },
+                            { route: 'Full Day (Fuel + Driver)', price: 'Fixed Rates', highlight: true },
+                            { route: 'Per Hour', price: 'Fixed Rates', highlight: true },
                         ]}
                     />
                 </div>

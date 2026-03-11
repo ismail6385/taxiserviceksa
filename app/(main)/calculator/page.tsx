@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Share2, ArrowRight } from 'lucide-react';
 import Hero from '@/components/Hero';
 import TaxiFareCalculator from '@/components/TaxiFareCalculator';
+import AuthorCard from '@/components/AuthorCard';
+import { Info, CheckCircle2, ShieldCheck, MapPin } from 'lucide-react';
 
 export const metadata: Metadata = {
     title: 'Taxi Fare Calculator Saudi Arabia | Jeddah, Makkah, Madinah Rates',
@@ -22,8 +24,33 @@ export const metadata: Metadata = {
 };
 
 export default function CalculatorPage() {
+    const toolSchema = {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "KSA Taxi Fare Calculator",
+        "operatingSystem": "All",
+        "applicationCategory": "TravelApplication",
+        "description": "Calculate fixed taxi fares for airport transfers and intercity travel across Saudi Arabia, including Jeddah, Makkah, and Madinah.",
+        "author": {
+            "@type": "Person",
+            "name": "Muhammad Ismail",
+            "jobTitle": "Founder & Saudi Travel Logistics Expert",
+            "url": "https://taxiserviceksa.com/author/muhammad-ismail"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "SAR"
+        }
+    };
+
     return (
         <div className="bg-gray-50 min-h-screen">
+            <Script
+                id="tool-schema"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(toolSchema) }}
+            />
             <Hero
                 images={['/jeddah-corniche-sunset.webp', '/hero-slide-3.webp']}
                 h1Text="Taxi Fare Calculator"
@@ -42,8 +69,24 @@ export default function CalculatorPage() {
                 </div>
             </Hero>
 
+            {/* AI SEO: TL;DR Summary Block */}
+            <div className="max-w-4xl mx-auto px-4 -mt-32 relative z-30">
+                <div className="bg-emerald-50 rounded-2xl p-8 border border-emerald-100 shadow-xl mb-12">
+                    <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                        TL;DR: Taxi Cost Quick Estimates
+                    </h2>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-sm">
+                        <li><strong>JED Airport → Makkah:</strong> Fixed rates from SAR 250 (Sedan).</li>
+                        <li><strong>Makkah ↔ Madinah:</strong> Market rates from SAR 400 (Pilgrimage Route).</li>
+                        <li><strong>Luggage Inclusion:</strong> All fares include standard baggage capacity per vehicle.</li>
+                        <li><strong>Booking Time:</strong> We recommend booking <strong>6 hours in advance</strong> for guaranteed pickup.</li>
+                    </ul>
+                </div>
+            </div>
+
             {/* Calculator Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 relative -mt-32 z-20">
+            <section className="py-12 px-4 sm:px-6 lg:px-8 relative z-20">
                 <div className="max-w-4xl mx-auto">
                     <TaxiFareCalculator />
 
@@ -55,10 +98,40 @@ export default function CalculatorPage() {
                 </div>
             </section>
 
-            {/* SEO Content */}
+            {/* SEO Content with Expert Insights */}
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-4xl mx-auto prose prose-lg prose-emerald">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Understanding Saudi Taxi Fares</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">Expert Tips on Saudi Taxi Fares</h2>
+                    
+                    {/* The "Expert Nuance" Section for AI SEO */}
+                    <div className="bg-gray-50 rounded-2xl p-8 border border-gray-200 mb-16 not-prose">
+                        <div className="flex items-start gap-4 mb-6">
+                            <div className="bg-emerald-100 p-2 rounded-lg">
+                                <ShieldCheck className="w-6 h-6 text-emerald-700" />
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-bold text-gray-900">Muhammad's Pro Booking Insight</h3>
+                                <p className="text-gray-600">"Many travelers make the mistake of booking at the airport kiosks. While convenient, these are often 30-40% more expensive than pre-booking. Our calculator reflects private driver rates which offer a meet-and-greet service at a lower cost."</p>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="flex gap-3">
+                                <MapPin className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                                <div className="text-sm">
+                                    <span className="font-bold block">Terminal 1 Trick</span>
+                                    At JED, Terminal 1 is vast. Always give your gate number so the driver can wait at the closest exit point.
+                                </div>
+                            </div>
+                            <div className="flex gap-3">
+                                <Info className="w-5 h-5 text-emerald-600 flex-shrink-0" />
+                                <div className="text-sm">
+                                    <span className="font-bold block">Zamzam Policy</span>
+                                    Most private sedans can only fit **one** 5L Zamzam bottle per passenger. If you have more, book a GMC or Van.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                         <div>
                             <h3 className="text-xl font-bold text-gray-900 mb-3">Fixed vs. Metered</h3>
@@ -76,7 +149,7 @@ export default function CalculatorPage() {
                         </div>
                     </div>
 
-                    <div className="mt-16 bg-blue-50 p-8 rounded-2xl border border-blue-100 flex flex-col md:flex-row items-center gap-6">
+                    <div className="mt-16 bg-blue-50 p-8 rounded-2xl border border-blue-100 flex flex-col md:flex-row items-center gap-6 not-prose">
                         <div className="flex-1">
                             <h3 className="text-xl font-bold text-blue-900 mb-2">Share This Tool</h3>
                             <p className="text-blue-700 text-sm">
@@ -84,8 +157,13 @@ export default function CalculatorPage() {
                             </p>
                         </div>
                         <Button variant="outline" className="bg-white text-blue-600 border-blue-200 hover:bg-blue-50 gap-2">
-                            <Share2 className="w-4 h-4" /> Share Link
+                             Share Link
                         </Button>
+                    </div>
+
+                    {/* Author Section for E-E-A-T */}
+                    <div className="mt-20 border-t border-gray-100 pt-16 not-prose">
+                        <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-2 border-emerald-50" />
                     </div>
                 </div>
             </section>

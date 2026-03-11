@@ -171,18 +171,18 @@ export default function GMCYukonPage() {
                         vehicleName="GMC Yukon"
                         colorTheme="primary"
                         prices={[
-                            { route: 'Jeddah Airport → Makkah', price: '450' },
-                            { route: 'Makkah → Madinah Hotel', price: '850' },
-                            { route: 'Makkah → Madinah via Badr Ziyarat', price: '950' },
-                            { route: 'Makkah Ziyarat Tour', price: '400' },
-                            { route: 'Madinah Hotel → Madinah Airport', price: '250' },
-                            { route: 'Madinah Ziyarat Tour', price: '300' },
-                            { route: 'Madinah Hotel → Train Station', price: '250' },
-                            { route: 'Madinah Hotel → Jeddah Airport', price: '850' },
-                            { route: 'Makkah Hotel → Train Station', price: '250' },
-                            { route: 'Makkah Hotel → Jeddah Airport', price: '400' },
-                            { route: 'Full Day (Fuel + Driver)', price: '1500', highlight: true },
-                            { route: 'Per Hour', price: '220', highlight: true },
+                            { route: 'Jeddah Airport → Makkah', price: 'Fixed Rates' },
+                            { route: 'Makkah → Madinah Hotel', price: 'Fixed Rates' },
+                            { route: 'Makkah → Madinah via Badr Ziyarat', price: 'Fixed Rates' },
+                            { route: 'Makkah Ziyarat Tour', price: 'Fixed Rates' },
+                            { route: 'Madinah Hotel → Madinah Airport', price: 'Fixed Rates' },
+                            { route: 'Madinah Ziyarat Tour', price: 'Fixed Rates' },
+                            { route: 'Madinah Hotel → Train Station', price: 'Fixed Rates' },
+                            { route: 'Madinah Hotel → Jeddah Airport', price: 'Fixed Rates' },
+                            { route: 'Makkah Hotel → Train Station', price: 'Fixed Rates' },
+                            { route: 'Makkah Hotel → Jeddah Airport', price: 'Fixed Rates' },
+                            { route: 'Full Day (Fuel + Driver)', price: 'Fixed Rates', highlight: true },
+                            { route: 'Per Hour', price: 'Fixed Rates', highlight: true },
                         ]}
                     />
                 </div>

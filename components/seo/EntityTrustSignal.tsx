@@ -9,7 +9,7 @@ export interface TrustMetric {
 
 export interface EntityTrustSignalProps {
     brandName: string;
-    description: string;
+    description: string | React.ReactNode;
     foundingDate?: string;
     licenseInfo?: string;
     metrics: TrustMetric[];

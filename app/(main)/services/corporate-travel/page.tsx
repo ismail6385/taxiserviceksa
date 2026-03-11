@@ -62,12 +62,12 @@ export default function CorporateTravelPage() {
         {
             name: 'Airport Transfers',
             description: 'Executive airport pickup and drop-off for business travelers. Meet-and-greet service with name sign.',
-            price: 'From SAR 150'
+            price: 'Executive Rates'
         },
         {
             name: 'Meeting Transport',
             description: 'Point-to-point transport between offices, hotels, and meeting venues. Punctual service guaranteed.',
-            price: 'From SAR 80'
+            price: 'Corporate Rates'
         },
         {
             name: 'Conference Transport',
@@ -77,7 +77,7 @@ export default function CorporateTravelPage() {
         {
             name: 'Intercity Business Travel',
             description: 'Riyadh to Jeddah business corridor (950km). Comfortable long-distance executive transport.',
-            price: 'From SAR 1,200'
+            price: 'Corridor Rates'
         },
     ];
 
@@ -100,7 +100,7 @@ export default function CorporateTravelPage() {
         },
         {
             question: "Can we book transport for Riyadh to Jeddah business trips?",
-            answer: "Yes. Riyadh to Jeddah business corridor (950km, 9-10 hours) is available with executive vehicles (GMC Yukon). Service includes rest stops, refreshments, and flexible departure times. Overnight stays can be arranged for driver. Price from SAR 1,200."
+            answer: "Yes. Riyadh to Jeddah business corridor (950km, 9-10 hours) is available with executive vehicles (GMC Yukon). Service includes rest stops, refreshments, and flexible departure times. Overnight stays can be arranged for driver. Contact us for custom business corridor pricing."
         },
         {
             question: "Do you provide dedicated account managers for corporate clients?",
@@ -128,11 +128,8 @@ export default function CorporateTravelPage() {
         ],
         "description": "Top rated VIP transfer service for corporate travel. Professional executive transport with monthly billing and priority booking for business clients.",
         "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "SAR",
-            "lowPrice": "80",
-            "highPrice": "1200",
-            "priceValidUntil": "2025-12-31"
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock"
         }
     };
 

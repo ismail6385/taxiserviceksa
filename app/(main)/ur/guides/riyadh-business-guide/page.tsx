@@ -269,7 +269,7 @@ export default function RiyadhBusinessGuidePage() {
                             </div>
                             <div>
                                 <p className="font-bold text-white mb-2">📱 WiFi & SIM:</p>
-                                <p className="text-gray-300 text-sm">Airport WiFi is slow. Buy local SIM (Mobily/STC) at airport. Data plans: SAR 100-200/month. Essential for maps/email.</p>
+                                <p className="text-gray-300 text-sm">Airport WiFi is slow. Buy local SIM (Mobily/STC) at airport. Data plans available for a month. Essential for maps/email.</p>
                             </div>
                             <div>
                                 <p className="font-bold text-white mb-2">🚗 Vehicle Choice:</p>

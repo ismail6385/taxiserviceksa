@@ -51,9 +51,8 @@ export default function JeddahToRiyadhPage() {
                         },
                         "offers": {
                             "@type": "Offer",
-                            "price": "1500",
-                            "priceCurrency": "SAR",
-                            "description": "Starting price for Sedan"
+                            "availability": "https://schema.org/InStock",
+                            "description": "Competitive rates for Sedan and GMC Yukon"
                         }
                     })
                 }}
@@ -161,7 +160,7 @@ export default function JeddahToRiyadhPage() {
                         {/* Sedan */}
                         <div className="border rounded-2xl p-6 text-center hover:shadow-lg transition-shadow">
                             <div className="text-gray-500 font-medium mb-2">Economy Sedan</div>
-                            <div className="text-3xl font-black text-gray-900 mb-4">1500 SAR</div>
+                            <div className="text-3xl font-black text-gray-900 mb-4">Economy Rate</div>
                             <ul className="text-sm text-gray-600 space-y-2 mb-6">
                                 <li>Camry / Sonata</li>
                                 <li>Max 3 Passengers</li>
@@ -176,7 +175,7 @@ export default function JeddahToRiyadhPage() {
                         <div className="border-2 border-primary rounded-2xl p-6 text-center shadow-xl relative transform scale-105">
                             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">MOST POPULAR</div>
                             <div className="text-primary font-bold mb-2">VIP GMC Yukon</div>
-                            <div className="text-3xl font-black text-gray-900 mb-4">2200 SAR</div>
+                            <div className="text-3xl font-black text-gray-900 mb-4">VIP Rate</div>
                             <ul className="text-sm text-gray-600 space-y-2 mb-6">
                                 <li>Yukon XL / Tahoe</li>
                                 <li>Max 7 Passengers</li>
@@ -191,7 +190,7 @@ export default function JeddahToRiyadhPage() {
                         {/* Van */}
                         <div className="border rounded-2xl p-6 text-center hover:shadow-lg transition-shadow">
                             <div className="text-gray-500 font-medium mb-2">Family Van</div>
-                            <div className="text-3xl font-black text-gray-900 mb-4">1800 SAR</div>
+                            <div className="text-3xl font-black text-gray-900 mb-4">Family Rate</div>
                             <ul className="text-sm text-gray-600 space-y-2 mb-6">
                                 <li>Hyundai Staria</li>
                                 <li>Max 7 Passengers</li>

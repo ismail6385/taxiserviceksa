@@ -27,7 +27,7 @@ export default function RiyadhJeddahRoutePage() {
     const routeDetails = [
         { label: 'Distance', value: '950 km', icon: Navigation },
         { label: 'Travel Time', value: '10-12 Hours', icon: Clock },
-        { label: 'Starting Price', value: 'SAR 1800', icon: DollarSign },
+        { label: 'Starting Price', value: 'Competitive', icon: DollarSign },
         { label: 'Availability', value: 'Advance Booking', icon: CheckCircle2 },
     ];
 
@@ -86,7 +86,7 @@ export default function RiyadhJeddahRoutePage() {
                     </span>
                 }
                 subtitle="Riyadh City/Airport to Jeddah"
-                location="10-12 Hours | Starting SAR 1800"
+                location="10-12 Hours | Competitive Rate"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?route=riyadh-jeddah">
@@ -142,7 +142,7 @@ export default function RiyadhJeddahRoutePage() {
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                                        <span>Cost: ~SAR 300-600 per person</span>
+                                        <span>Cost: Varies per person</span>
                                     </li>
                                     <li className="flex items-start gap-2">
                                         <span className="text-red-400 font-bold mr-2">⚠</span>
@@ -196,7 +196,7 @@ export default function RiyadhJeddahRoutePage() {
                             </div>
                             <div className="text-xl font-bold text-gray-900 mb-3">Camry (Sedan)</div>
                             <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-gray-500">SAR</span> 1800
+                                <span className="text-2xl text-gray-500">Route</span> Rate
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
                                 4 Passengers / 2 Bags
@@ -212,7 +212,7 @@ export default function RiyadhJeddahRoutePage() {
                             </div>
                             <div className="text-xl font-bold text-gray-900 mb-3">GMC Yukon (SUV)</div>
                             <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-gray-500">SAR</span> 2500
+                                <span className="text-2xl text-gray-500">Executive</span> Rate
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
                                 7 Passengers / 5 Bags
@@ -225,7 +225,7 @@ export default function RiyadhJeddahRoutePage() {
                             </div>
                             <div className="text-xl font-bold text-gray-900 mb-3">HiAce Bus</div>
                             <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-gray-500">SAR</span> 3000
+                                <span className="text-2xl text-gray-500">Group</span> Rate
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
                                 Large Groups (10-12 pax)
@@ -291,7 +291,7 @@ export default function RiyadhJeddahRoutePage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking?route=riyadh-jeddah">
                             <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Now (SAR 1800+)
+                                Book Now (Route Rate)
                             </Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">

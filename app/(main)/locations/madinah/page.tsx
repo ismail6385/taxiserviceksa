@@ -606,6 +606,34 @@ export default async function MadinahPage() {
                 </div>
             </section>
 
+            {/* UGC Section */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16">
+                        <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
+                            <Users className="w-4 h-4" />
+                            <span className="text-sm font-semibold">Community Feedback</span>
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
+                            Madinah Travel Insights
+                        </h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Share your experience or ask a question about our VIP transfer services in Madinah.
+                        </p>
+                    </div>
+
+                    <div className="space-y-16 mb-16">
+                        <ReviewsDisplay location="Madinah" />
+                        <QuestionsDisplay location="Madinah" />
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <ReviewForm locationName="Madinah" />
+                        <QuestionForm locationName="Madinah" />
+                    </div>
+                </div>
+            </section>
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <RelatedLocations currentCity="Madinah" />
             </div>

@@ -69,7 +69,7 @@ export default function JeddahToDarAlTaqwaMadinahPage() {
                     </span>
                 }
                 subtitle="Direct Ride to Dar Al Taqwa Hotel (Main Gate)"
-                location="4-5 Hours | Fixed Rate SAR 450+"
+                location="4-5 Hours | Affordable Fixed Rates"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking">

@@ -6,7 +6,6 @@ import { MapPin, Clock, CheckCircle2, Building2, Globe, ArrowRight } from 'lucid
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
-import RouteBreadcrumb from '@/components/seo/RouteBreadcrumb';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/riyadh-doha/',
     },
     openGraph: {
-        title: 'Taxi Riyadh to Doha | VIP Cross-Border Transfer',
+        title: 'Taxi Riyadh to Doha',
         description: 'Book a premium taxi from Riyadh to Doha. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/riyadh-doha/',
         type: 'website',
@@ -25,7 +24,11 @@ export const metadata: Metadata = {
 };
 
 export default function RiyadhDohaRoutePage() {
-    const images = ['/locations/doha.webp', '/hero-slide-3.webp', '/hero-slide-2.webp'];
+    const images = [
+        '/hero-slide-3.webp',
+        '/hero-slide-2.webp',
+        '/jeddah-airport.webp'
+    ];
 
     const routeSchema = {
         "@context": "https://schema.org",
@@ -49,7 +52,9 @@ export default function RiyadhDohaRoutePage() {
                         "@type": "Service",
                         "name": "One Way Transfer",
                         "description": "Direct drop-off from Riyadh to Doha."
-                    }
+                    },
+                    "price": "1500",
+                    "priceCurrency": "SAR"
                 }
             ]
         }
@@ -62,10 +67,6 @@ export default function RiyadhDohaRoutePage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
             />
-
-            
-
-            <RouteBreadcrumb fromCity="Riyadh" toCity="Doha" fromSlug="riyadh" toSlug="doha" />
 
             <Hero
                 images={images}
@@ -81,13 +82,13 @@ export default function RiyadhDohaRoutePage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Riyadh&dropoff=Doha">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Get Quote
+                            Book Ride (1500 SAR)
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="https://wa.me/923080628195?text=Hello,%20I%20want%20to%20get%20a%20quote%20for%20a%20taxi%20from%20Riyadh%20to%20Doha">
+                    <a href="https://wa.me/966569487569?text=Hello,%20I%20want%20to%20book%20a%20taxi%20from%20Riyadh%20to%20Doha">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            WhatsApp Quote
+                            WhatsApp Booking
                         </Button>
                     </a>
                 </div>
@@ -174,7 +175,7 @@ export default function RiyadhDohaRoutePage() {
                                 commonBelief: "It's expensive for groups.",
                                 reality: "For families or groups of 4-6 people, a private VIP SUV transfer is often cheaper than buying multiple flight tickets.",
                                 truthRange: "Highly Cost-Effective",
-                                factors: ["Get Quote For Details", "No Luggage Fees"]
+                                factors: ["Per-Vehicle Price", "No Luggage Fees"]
                             }
                         ]}
                     />
@@ -182,7 +183,7 @@ export default function RiyadhDohaRoutePage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
-                <RelatedLocations currentCity="Doha" />
+                <RelatedLocations currentCity="Riyadh" />
             </div>
 
             <MicroSemanticFAQ
@@ -200,9 +201,9 @@ export default function RiyadhDohaRoutePage() {
                         perspectives: []
                     },
                     {
-                        question: "How can I get a price for this border transfer?",
-                        shortAnswer: "Request a Quote",
-                        detailedAnswer: "Prices vary based on the vehicle type, number of passengers, and specific locations. Please use our 'Get Quote' button or contact us via WhatsApp to receive an accurate, all-inclusive quote that covers vehicle crossing insurance and toll fees.",
+                        question: "Is the border vehicle insurance included in the price?",
+                        shortAnswer: "Yes",
+                        detailedAnswer: "Yes, our quoted price of 1500 SAR includes the vehicle crossing insurance and toll fees.",
                         perspectives: []
                     }
                 ]}

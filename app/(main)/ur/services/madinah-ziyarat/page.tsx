@@ -28,21 +28,21 @@ export default function MadinahZiyaratPage() {
         {
             name: 'Standard Ziyarat',
             duration: '2-3 Hours',
-            price: 'SAR 150',
+            price: 'Economy Rate',
             sites: ['Masjid Quba', 'Mount Uhud', 'Masjid Qiblatain', 'Seven Mosques (Khandaq)'],
             desc: 'The essential Sunnah sites visited by millions of pilgrims.'
         },
         {
             name: 'Extended Ziyarat',
             duration: '4-5 Hours',
-            price: 'SAR 250',
+            price: 'Executive Rate',
             sites: ['Standard Sites +', 'Bir Uthman', 'Dates Market', 'Printing Press', 'Uhud Martyrs Cemetery'],
             desc: 'A deeper dive into the history of Madinah with extra stops.'
         },
         {
             name: 'Badar Ziyarat',
             duration: '5-6 Hours',
-            price: 'SAR 450',
+            price: 'VIP Rate',
             sites: ['Badar Battlefield', 'Martyrs of Badar', 'Al-Arish Mosque'],
             desc: 'A trip outside Madinah to the site of the first battle of Islam (150km away).'
         }

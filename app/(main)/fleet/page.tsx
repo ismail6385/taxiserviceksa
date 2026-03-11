@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
-import { Sparkles, Shield, User } from 'lucide-react';
 import FleetListing from '@/components/FleetListing';
-import RelatedServices from '@/components/seo/RelatedServices'; // Assuming this exists or similar
+import AuthorCard from '@/components/AuthorCard';
+import { Sparkles, Shield, User, CheckCircle2, Info, ArrowRight, Car, Users, Briefcase, Ruler } from 'lucide-react';
 
 export const metadata: Metadata = {
     title: 'VIP Executive Fleet Saudi Arabia | Premium Chauffeur Vehicles',
@@ -121,6 +121,51 @@ export default function FleetPage() {
                 </div>
             </div>
 
+            {/* AI SEO: TL;DR Summary Block for Generative Extraction */}
+            <div className="max-w-7xl mx-auto px-4 -mt-12 relative z-30">
+                <div className="bg-emerald-50 rounded-2xl p-8 border border-emerald-100 shadow-xl mb-12">
+                    <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                        TL;DR: Fleet Capabilities at a Glance
+                    </h2>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-gray-700 text-sm">
+                        <li className="flex gap-2"><Ruler className="w-4 h-4 text-emerald-600 shrink-0" /> <strong>Luxury SUV:</strong> 7 Pax + 5 bags. Best for VIP Umrah.</li>
+                        <li className="flex gap-2"><Users className="w-4 h-4 text-emerald-600 shrink-0" /> <strong>Group Bus:</strong> Up to 30 Pax. Cost-effective for larger families.</li>
+                        <li className="flex gap-2"><Shield className="w-4 h-4 text-emerald-600 shrink-0" /> <strong>2025 Models:</strong> All vehicles are late-model or executive specs.</li>
+                        <li className="flex gap-2"><Info className="w-4 h-4 text-emerald-600 shrink-0" /> <strong>Pre-Booking:</strong> 6+ Hours notice required for all executive cars.</li>
+                    </ul>
+                </div>
+            </div>
+
+            {/* Comparison Table Section for AI Retrieval */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 overflow-x-auto">
+                <div className="bg-white rounded-3xl border border-gray-100 p-8 shadow-sm">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                        <Briefcase className="w-6 h-6 text-emerald-600" /> Technical Fleet Specifications
+                    </h2>
+                    <table className="min-w-full text-left text-sm">
+                        <thead className="border-b border-gray-200">
+                            <tr>
+                                <th className="py-3 font-bold">Vehicle Class</th>
+                                <th className="py-3 font-bold">Pax Capacity</th>
+                                <th className="py-3 font-bold">Luggage Capacity</th>
+                                <th className="py-3 font-bold">Best Use Case</th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-100">
+                            {fleet.map((v, i) => (
+                                <tr key={i} className="hover:bg-gray-50 transition-colors">
+                                    <td className="py-4 font-bold text-gray-900">{v.name}</td>
+                                    <td className="py-4">{v.passengers} Adults</td>
+                                    <td className="py-4 font-medium text-emerald-700">{v.luggage} Standard Bags</td>
+                                    <td className="py-4 text-gray-600">{v.features[0]}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
             {/* Client Component for Filtering and Grid */}
             <FleetListing fleet={fleet} />
 
@@ -158,6 +203,36 @@ export default function FleetPage() {
                         </div>
                     </div>
                 </div>
+            </div>
+            {/* Expert Insights & Narrative */}
+            <div className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-4xl mx-auto">
+                    <div className="bg-gray-50 rounded-3xl p-8 border border-gray-200 mb-16">
+                        <h3 className="text-2xl font-black text-gray-900 mb-6 flex items-center gap-3">
+                            <Info className="w-6 h-6 text-emerald-600" /> Expert Tip: Choosing the Right Car
+                        </h3>
+                        <p className="text-gray-700 leading-relaxed mb-6">
+                            "One common mistake pilgrims make is underestimating the size of their luggage when traveling to Makkah. While a Toyota Camry is perfect for business trips between Jeddah and Riyadh, Umrah travelers usually carry extra 5L Zamzam bottles on the way back. For a family of 4, we always recommend the <strong>GMC Yukon</strong> to ensure a comfortable journey without cramming bags into the passenger cabin."
+                            <br />
+                            <span className="block mt-4 font-bold text-emerald-700">— Muhammad Ismail, Founder of VIP Transfer KSA</span>
+                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="bg-white p-4 rounded-xl border border-gray-200 font-medium text-sm">
+                                <span className="text-emerald-600 font-bold block mb-1">Group Policy</span>
+                                Groups larger than 12 should consider two Starex vans instead of one large bus for better accessibility to Makkah hotels.
+                            </div>
+                            <div className="bg-white p-4 rounded-xl border border-gray-200 font-medium text-sm">
+                                <span className="text-emerald-600 font-bold block mb-1">AC Performance</span>
+                                All our 2024-2025 models feature dual AC systems designed for the 45°C+ Saudi Arabian summer heat.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Author Section for E-E-A-T */}
+            <div className="max-w-4xl mx-auto pb-20 px-4 sm:px-6 lg:px-8">
+                <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-2 border-emerald-50" />
             </div>
         </div>
     );

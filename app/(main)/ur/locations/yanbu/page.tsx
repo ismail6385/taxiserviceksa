@@ -77,11 +77,11 @@ export default function YanbuPage() {
         },
         {
             question: "How much does a taxi cost from Yanbu Airport to hotels?",
-            answer: "Taxi rates from Yanbu Airport to Yanbu city hotels start from SAR 60. Pricing depends on vehicle type (sedan, SUV, or van) and destination (city center, industrial area, or waterfront). Fares are fixed with no hidden charges."
+            answer: "We offer competitive taxi rates from Yanbu Airport to Yanbu city hotels. Pricing depends on vehicle type (sedan, SUV, or van) and destination (city center, industrial area, or waterfront). Fares are fixed with no hidden charges."
         },
         {
             question: "Can I book a taxi from Yanbu to Madinah for pilgrimage?",
-            answer: "Intercity taxi service is available from Yanbu to Madinah (220 km). Travel time is 2.5-3 hours. Rates start from SAR 400. Service includes rest stops and direct routes to Madinah hotels or Prophet's Mosque area."
+            answer: "Intercity taxi service is available from Yanbu to Madinah (220 km). Travel time is 2.5-3 hours. We offer fixed rates. Service includes rest stops and direct routes to Madinah hotels or Prophet's Mosque area."
         },
         {
             question: "Do you serve Yanbu port and petrochemical facilities?",

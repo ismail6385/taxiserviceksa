@@ -54,11 +54,31 @@ export default async function JeddahAirportGuidePage() {
         },
         {
             question: "How do I meet my taxi driver at Jeddah Airport?",
-            answer: "Terminal 1: Meet at the 'Aquarium' (large fish tank near arrivals exit, close to Starbucks). Driver holds a name sign. North Terminal: Meet at Gate 2 (main exit). Driver waits outside customs area. Look for our <Link href='/services/airport-transfers/' className='text-emerald-700 hover:underline'>premium airport transfer</Link> sign with the 'VIP Transfer KSA' logo."
+            answer: (
+                <>
+                    Terminal 1: Meet at the 'Aquarium' (large fish tank near arrivals exit, close to Starbucks). Driver holds a name sign. North Terminal: Meet at Gate 2 (main exit). Driver waits outside customs area. Look for our{' '}
+                    <Link href='/services/airport-transfers/' className='text-emerald-700 hover:underline'>
+                        premium airport transfer
+                    </Link>{' '}
+                    sign with the 'VIP Transfer KSA' logo.
+                </>
+            )
         },
         {
             question: "How long does it take from Jeddah Airport to Makkah?",
-            answer: "75-90 minutes on the <Link href='/routes/jeddah-makkah/' className='text-emerald-700 hover:underline'>Jeddah Airport to Makkah route</Link> (80 km via Haramain Expressway). Traffic peaks 4-7 PM on weekdays. Early morning (5-8 AM) is fastest. Friday afternoons are busiest due to Jummah prayer. Our drivers also monitor connections to <Link href='/locations/madinah/' className='text-emerald-700 hover:underline'>Madinah (Holy City)</Link> for continuing pilgrims."
+            answer: (
+                <>
+                    75-90 minutes on the{' '}
+                    <Link href='/routes/jeddah-makkah/' className='text-emerald-700 hover:underline'>
+                        Jeddah Airport to Makkah route
+                    </Link>{' '}
+                    (80 km via Haramain Expressway). Traffic peaks 4-7 PM on weekdays. Early morning (5-8 AM) is fastest. Friday afternoons are busiest due to Jummah prayer. Our drivers also monitor connections to{' '}
+                    <Link href='/locations/madinah/' className='text-emerald-700 hover:underline'>
+                        Madinah (Holy City)
+                    </Link>{' '}
+                    for continuing pilgrims.
+                </>
+            )
         },
     ];
 
@@ -78,7 +98,12 @@ export default async function JeddahAirportGuidePage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(guideSchema) }}
             />
-            <JsonLdFAQ faqs={faqs} />
+            <JsonLdFAQ faqs={faqs.map(f => ({
+                question: f.question,
+                answer: typeof f.answer === 'string'
+                    ? f.answer
+                    : f.question.includes("meet") ? "Terminal 1: Meet at the 'Aquarium'. North Terminal: Meet at Gate 2. Look for our premium airport transfer sign." : "75-90 minutes on the Jeddah Airport to Makkah route. Our drivers also monitor connections to Madinah for continuing pilgrims."
+            }))} />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Hero Section */}

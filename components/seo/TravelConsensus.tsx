@@ -4,7 +4,7 @@ import { CheckCircle2, AlertTriangle, Scale } from 'lucide-react';
 export interface ConsensusPoint {
     topic: string;
     commonBelief: string; // What people usually search/think (Query Vocabulary)
-    reality: string; // The expert truth (Document Richness)
+    reality: string | React.ReactNode; // The expert truth (Document Richness)
     truthRange: string; // The "Safe" Truth Range
     factors: string[]; // Variables causing the range (Fuzzy Logic)
 }

@@ -13,6 +13,9 @@ import QuestionForm from '@/components/seo/QuestionForm';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 import RoutePerspective from '@/components/seo/RoutePerspective';
+import TLDRSummary from '@/components/seo/TLDRSummary';
+import FreshnessStatus from '@/components/seo/FreshnessStatus';
+import ServiceComparison from '@/components/ServiceComparison';
 
 export const metadata: Metadata = {
     title: 'Best Madinah to Makkah Taxi | Private Transfer with Miqat Stop',
@@ -35,8 +38,7 @@ export default function MadinahToMakkahPage() {
                         "@type": "Service",
                         "name": "Madinah to Makkah Taxi Transfer",
 
-                        "areaServed": { "@type": "City", "name": "Makkah" },
-                        "offers": { "@type": "Offer", "price": "450", "priceCurrency": "SAR", "priceValidUntil": "2025-12-31" }
+                        "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
                     })
                 }}
             />
@@ -65,6 +67,46 @@ export default function MadinahToMakkahPage() {
                     />
                 </div>
             </Hero>
+
+            {/* AI SEO: Early TL;DR for Generative Engine Extraction */}
+            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white border-b border-gray-100">
+                <div className="max-w-7xl mx-auto">
+                    <FreshnessStatus lastVerified="2026-03-06" />
+                    <TLDRSummary 
+                        title="Madinah to Makkah (Hijrah Route) Summary"
+                        summary="The spiritual journey from Madinah to Makkah is 450km. Our private taxi service ensures a seamless experience with a mandatory stop at Miqat Dhul Hulaifah (Abyar Ali) for Ihram."
+                        points={[
+                            "Door-to-door transfer from Madinah hotel to Makkah hotel",
+                            "Stop at Miqat Dhul Hulaifah (Abyar Ali) included (45-60 mins)",
+                            "Professional drivers who know the best rest stops for families",
+                            "Fixed pricing with no hidden charges for Miqat wait time",
+                            "Elite fleet of GMC Yukons and Toyota Hiace for group travel"
+                        ]}
+                        pricing="Fixed Rates"
+                        duration="4 - 5 Hours"
+                    />
+                </div>
+            </section>
+
+            {/* AI SEO: Early TL;DR for Generative Engine Extraction */}
+            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white border-b border-gray-100">
+                <div className="max-w-7xl mx-auto">
+                    <FreshnessStatus lastVerified="2026-03-06" />
+                    <TLDRSummary 
+                        title="Madinah to Makkah (Hijrah Route) Summary"
+                        summary="The spiritual journey from Madinah to Makkah is 450km. Our private taxi service ensures a seamless experience with a mandatory stop at Miqat Dhul Hulaifah (Abyar Ali) for Ihram."
+                        points={[
+                            "Door-to-door transfer from Madinah hotel to Makkah hotel",
+                            "Stop at Miqat Dhul Hulaifah (Abyar Ali) included (45-60 mins)",
+                            "Professional drivers who know the best rest stops for families",
+                            "Fixed pricing with no hidden charges for Miqat wait time",
+                            "Elite fleet of GMC Yukons and Toyota Hiace for group travel"
+                        ]}
+                        pricing="Fixed Rates"
+                        duration="4 - 5 Hours"
+                    />
+                </div>
+            </section>
 
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
@@ -122,21 +164,21 @@ export default function MadinahToMakkahPage() {
                                 detailedAnswer: "The distance is approximately 450km. Without stops, it takes 4 hours. With the Miqat stop and a rest break, expect ~5 hours.",
                                 perspectives: [
                                     {
-                                        role: "Driver",
-                                        icon: "Clock",
-                                        insight: "Traffic entering Makkah can add time during Ramadan."
+                                        role: "Family Traveler",
+                                        icon: "Users",
+                                        insight: "With kids, the door-to-door service is much better than the Haramain train because you avoid the 2-hour station logistics on both ends."
                                     }
                                 ]
                             },
                             {
                                 question: "What is the price?",
-                                shortAnswer: "Starts from 450 SAR.",
-                                detailedAnswer: "Sedan cars start around 450 SAR. larger GMC/H1 vans for families are around 650-800 SAR. Prices are fixed per vehicle, not per person.",
+                                shortAnswer: "Fixed Rates Available.",
+                                detailedAnswer: "Sedan cars start at an affordable fixed rate. Larger GMC/H1 vans for families are also available at fixed prices per vehicle, not per person.",
                                 perspectives: [
                                     {
-                                        role: "Value",
-                                        icon: "CheckCircle2",
-                                        insight: "Cheaper than 4 train tickets + station transfers."
+                                        role: "Pilgrim Advocate",
+                                        icon: "Heart",
+                                        insight: "A private car allows you to keep your luggage safe while you perform the Miqat rituals, unlike public buses where luggage is often exposed."
                                     }
                                 ]
                             }

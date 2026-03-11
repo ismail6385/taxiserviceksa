@@ -11,6 +11,10 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from '@/components/ui/accordion';
+import QuestionsDisplay from '@/components/QuestionsDisplay';
+import ReviewsDisplay from '@/components/ReviewsDisplay';
+import ReviewForm from '@/components/seo/ReviewForm';
+import QuestionForm from '@/components/seo/QuestionForm';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
@@ -446,6 +450,34 @@ export default function AlUlaPage() {
                                 One-Way Transfer
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* UGC Section */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16">
+                        <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
+                            <Users className="w-4 h-4" />
+                            <span className="text-sm font-semibold">Community Feedback</span>
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
+                            AlUla Travel Insights
+                        </h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Share your experience or ask a question about our VIP transfer services in AlUla.
+                        </p>
+                    </div>
+
+                    <div className="space-y-16 mb-16">
+                        <ReviewsDisplay location="AlUla" />
+                        <QuestionsDisplay location="AlUla" />
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <ReviewForm locationName="AlUla" />
+                        <QuestionForm locationName="AlUla" />
                     </div>
                 </div>
             </section>

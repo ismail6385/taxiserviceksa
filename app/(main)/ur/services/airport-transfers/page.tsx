@@ -11,6 +11,7 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion';
 import JsonLdFAQ from '@/components/JsonLdFAQ';
+import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
     title: 'Airport Transfer Service Saudi Arabia | Taxi with Driver - 8 Airports',
@@ -35,7 +36,7 @@ export default function AirportTransfersPage() {
             code: 'JED',
             description: 'Largest airport in Saudi Arabia. Main gateway for Umrah pilgrims arriving to Makkah.',
             routes: ['Jeddah → Makkah (80km)', 'Jeddah → Taif (90km)', 'Jeddah City Hotels'],
-            price: 'From SAR 150',
+            price: 'Affordable Rates',
             link: '/locations/jeddah',
             isHub: true
         },
@@ -45,7 +46,7 @@ export default function AirportTransfersPage() {
             code: 'RUH',
             description: 'Capital city airport. Business travel hub with connections to major Saudi cities.',
             routes: ['RUH → Riyadh Hotels', 'RUH → Business Districts', 'RUH → Diplomatic Quarter'],
-            price: 'From SAR 80',
+            price: 'Fixed Rates',
             link: '/locations/riyadh',
             isHub: true
         },
@@ -55,7 +56,7 @@ export default function AirportTransfersPage() {
             code: 'MED',
             description: 'Pilgrimage airport serving Madinah. Direct access to Prophet\'s Mosque area.',
             routes: ['MED → Madinah Hotels', 'MED → Prophet\'s Mosque', 'MED → Quba Mosque'],
-            price: 'From SAR 50',
+            price: 'Local Rates',
             link: '/locations/madinah'
         },
         {
@@ -64,7 +65,7 @@ export default function AirportTransfersPage() {
             code: 'ULH',
             description: 'Tourism airport for UNESCO heritage sites. Gateway to Hegra and Dadan.',
             routes: ['ULH → AlUla Hotels', 'ULH → Hegra Site', 'ULH → Khaybar (150km)'],
-            price: 'From SAR 60',
+            price: 'Competitive Rates',
             link: '/locations/alula'
         },
         {
@@ -73,7 +74,7 @@ export default function AirportTransfersPage() {
             code: 'YNB',
             description: 'Industrial city airport. Serves port workers and Red Sea coastal access.',
             routes: ['YNB → Yanbu Hotels', 'YNB → Industrial City', 'YNB → Madinah (220km)'],
-            price: 'From SAR 50',
+            price: 'Fixed Rates',
             link: '/locations/yanbu'
         },
         {
@@ -82,7 +83,7 @@ export default function AirportTransfersPage() {
             code: 'TIF',
             description: 'Mountain resort airport. Summer destination with cooler climate.',
             routes: ['TIF → Taif Hotels', 'TIF → Mountain Resorts', 'TIF → Jeddah (90km)'],
-            price: 'From SAR 40',
+            price: 'Summer Special Rates',
             link: '/locations/taif'
         },
     ];
@@ -143,11 +144,11 @@ export default function AirportTransfersPage() {
         },
         {
             question: "What is the free waiting time for airport pickups?",
-            answer: "Free waiting time is 60 minutes for domestic flights and 90 minutes for international flights. Waiting time starts from actual flight landing time (not scheduled time). This allows time for baggage claim, customs, and immigration. Extra waiting beyond free time is charged at SAR 20 per 30 minutes."
+            answer: "Free waiting time is 60 minutes for domestic flights and 90 minutes for international flights. Waiting time starts from actual flight landing time (not scheduled time). This allows time for baggage claim, customs, and immigration. Extra waiting beyond free time is charged at standard waiting rates."
         },
         {
             question: "Do you provide airport transfer from Jeddah Airport to Makkah?",
-            answer: "Yes. Jeddah Airport (JED) to Makkah is our most popular airport transfer route. Distance is 80 km, travel time 60-90 minutes. Fixed rate from SAR 150 (sedan) to SAR 400 (van). Meet-and-greet service included. See detailed route information at /routes/jeddah-makkah."
+            answer: "Yes. Jeddah Airport (JED) to Makkah is our most popular airport transfer route. Distance is 80 km, travel time 60-90 minutes. We offer affordable fixed rates. Meet-and-greet service included. See detailed route information at /routes/jeddah-makkah."
         },
         {
             question: "Can I book return airport transfer (hotel to airport)?",
@@ -162,25 +163,21 @@ export default function AirportTransfersPage() {
     const serviceSchema = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Airport Transfer Service Saudi Arabia",
-
-        "serviceType": "Airport Transfer",
-        "areaServed": [
-            { "@type": "City", "name": "Jeddah" },
-            { "@type": "City", "name": "Riyadh" },
-            { "@type": "City", "name": "Madinah" },
-            { "@type": "City", "name": "AlUla" },
-            { "@type": "City", "name": "Yanbu" },
-            { "@type": "City", "name": "Taif" }
-        ],
-        "description": "Professional airport transfer service across 8 major Saudi airports with licensed drivers. Meet-and-greet, flight tracking, and 24/7 service.",
-        "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "SAR",
-            "lowPrice": "40",
-            "highPrice": "400",
-            "priceValidUntil": "2025-12-31"
-        }
+        "name": "KSA Airport Transfer Service",
+        "category": "Travel & Transportation",
+        "description": "Professional airport transfer and taxi services across 8 major Saudi Arabian airports including Jeddah, Riyadh, and Madinah.",
+        "provider": {
+            "@type": "Organization",
+            "name": "VIP Transfer KSA",
+            "url": "https://taxiserviceksa.com"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Muhammad Ismail",
+            "jobTitle": "Founder & Saudi Aviation Logistics Expert",
+            "url": "https://taxiserviceksa.com/author/muhammad-ismail"
+        },
+        "areaServed": ["Jeddah", "Riyadh", "Madinah", "AlUla", "Yanbu", "Taif", "Dammam", "Abha"]
     };
 
     return (
@@ -200,29 +197,43 @@ export default function AirportTransfersPage() {
 
                 <div className="max-w-7xl mx-auto relative z-10">
                     <div className="text-center mb-12">
-                        <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-6">
-                            Airport Transfer Service
+                        <span className="bg-black text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4 text-glow">
+                            Expert Aviation Logistics
                         </span>
-                        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                            Airport Transfers<br />
-                            <span className="text-white">Across 8 Saudi Airports</span>
+                        <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                            Saudi Arabia Airport Transfer Service
                         </h1>
-                        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                            Professional airport transfer service with licensed drivers. Meet-and-greet, flight tracking, and 24/7 availability across all major Saudi airports.
+                        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                            Reliable <strong>24/7 airport pickups</strong> and departures across the Kingdom's major travel hubs. We provide <strong>meet-and-greet</strong> services at 8 airports with flight tracking for zero-wait arrivals.
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link href="/booking?service=airport-transfer">
-                                <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
-                                    Book Airport Transfer
-                                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </Button>
-                            </Link>
-                            <a href="mailto:info@taxiserviceksa.com">
-                                <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
-                                    Email for Quote
-                                </Button>
-                            </a>
-                        </div>
+                    </div>
+
+                    {/* AI SEO: TL;DR Summary Block */}
+                    <div className="bg-white/10 rounded-2xl p-8 border border-white/20 shadow-sm mb-12">
+                        <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                            <Plane className="w-5 h-5 text-sky-300" />
+                            TL;DR: KSA Airport Transport Quick Facts
+                        </h2>
+                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-200 text-sm">
+                            <li><strong>Major Hubs:</strong> JED (Jeddah), RUH (Riyadh), MED (Madinah), ULH (AlUla).</li>
+                            <li><strong>Wait Policy:</strong> 60 mins (Domestic) & 90 mins (International) free waiting.</li>
+                            <li><strong>Tracking:</strong> Real-time flight tracking is standard for all bookings.</li>
+                            <li><strong>Pickups:</strong> Professional drivers meet you at the <strong>Arrivals Terminal</strong> with a name sign.</li>
+                        </ul>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link href="/booking?service=airport-transfer">
+                            <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
+                                Book Airport Transfer
+                                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Button>
+                        </Link>
+                        <a href="mailto:info@taxiserviceksa.com">
+                            <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
+                                Email for Quote
+                            </Button>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -235,6 +246,43 @@ export default function AirportTransfersPage() {
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                             Professional taxi service with drivers at every major Saudi airport. Fixed rates, no surge pricing.
                         </p>
+                    </div>
+
+                    {/* Airport Comparison Table for AI Extraction */}
+                    <div className="mb-16 overflow-x-auto bg-gray-50 rounded-2xl border-2 border-gray-100 p-6">
+                        <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                            <Navigation className="w-5 h-5 text-sky-600" /> Major Airport Routes
+                        </h3>
+                        <table className="min-w-full text-left text-sm">
+                            <thead className="border-b border-gray-200">
+                                <tr>
+                                    <th className="py-3 font-bold">Airport Name</th>
+                                    <th className="py-3 font-bold">Key Route</th>
+                                    <th className="py-3 font-bold">Average Distance</th>
+                                    <th className="py-3 font-bold">Pricing Type</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-gray-100">
+                                <tr>
+                                    <td className="py-4 font-bold">Jeddah (JED)</td>
+                                    <td className="py-4 font-medium text-sky-700">JED → Makkah</td>
+                                    <td className="py-4">80 km</td>
+                                    <td className="py-4">Affordable Rate</td>
+                                </tr>
+                                <tr>
+                                    <td className="py-4 font-bold">Riyadh (RUH)</td>
+                                    <td className="py-4 font-medium text-sky-700">RUH → KAFD</td>
+                                    <td className="py-4">35 km</td>
+                                    <td className="py-4">Fixed Rate</td>
+                                </tr>
+                                <tr>
+                                    <td className="py-4 font-bold">Madinah (MED)</td>
+                                    <td className="py-4 font-medium text-sky-700">MED → Haram</td>
+                                    <td className="py-4">20 km</td>
+                                    <td className="py-4">Local Rate</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -374,24 +422,33 @@ export default function AirportTransfersPage() {
 
             {/* CTA Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your Airport Transfer
-                    </h2>
-                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Professional drivers, meet-and-greet service, and flight tracking across all major Saudi airports. Fixed rates, no hidden fees.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking?service=airport-transfer">
-                            <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Now
+                <div className="max-w-4xl mx-auto">
+                    {/* CTA Section */}
+                    <section className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-12 text-center text-white mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                            Need an Airport Pickup?
+                        </h2>
+                        <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                            Professional airport transfer service with fixed prices and no surge charging. Your driver will track your flight and wait for you at the arrivals terminal.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto">
+                                <Link href="/booking/">
+                                    Book Airport Pickup
+                                    <ArrowRight className="ml-2 w-5 h-5" />
+                                </Link>
                             </Button>
-                        </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
-                            <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Email for Custom Quote
+                            <Button asChild size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto">
+                                <Link href="/services/intercity/">
+                                    Intercity Travels
+                                </Link>
                             </Button>
-                        </a>
+                        </div>
+                    </section>
+
+                    {/* Author Section */}
+                    <div className="max-w-4xl mx-auto">
+                        <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-2 border-sky-50" />
                     </div>
                 </div>
             </section>

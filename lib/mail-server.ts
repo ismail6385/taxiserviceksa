@@ -2,19 +2,29 @@ import nodemailer from 'nodemailer';
 
 const emailUser = process.env.EMAIL_USER || 'info@taxiserviceksa.com';
 const emailPass = process.env.EMAIL_PASS;
-const smtpHost = process.env.SMTP_HOST || 'smtp.improvemx.com';
-const smtpPort = parseInt(process.env.SMTP_PORT || '587', 10);
+// Priority: 1. ENV SMTP_HOST, 2. Detect Gmail from user, 3. Default to gmail
+let smtpHost = process.env.SMTP_HOST;
+if (!smtpHost) {
+    smtpHost = emailUser.endsWith('@gmail.com') ? 'smtp.gmail.com' : 'smtp.gmail.com';
+}
+const smtpPort = parseInt(process.env.SMTP_PORT || '465', 10);
+
+console.log(' Mail Config Initialization:', {
+    user: emailUser,
+    host: smtpHost,
+    port: smtpPort,
+    hasPass: !!emailPass
+});
 
 // Create the transporter
 export const transporter = nodemailer.createTransport({
     host: smtpHost,
     port: smtpPort,
-    secure: smtpPort === 465, // Use SSL for port 465
+    secure: smtpPort === 465,
     auth: {
         user: emailUser,
         pass: emailPass,
     },
-    // Required for some SMTP servers like ImproveMX
     tls: {
         rejectUnauthorized: false
     }
@@ -31,23 +41,34 @@ export async function sendMail({ to, subject, html, fromName = 'VIP Transfer KSA
     replyTo?: string;
 }) {
     if (!emailPass) {
-        console.warn('EMAIL_PASS not configured. Skipping email send.');
+        console.warn('⚠️ EMAIL_PASS not configured. Skipping email send.');
         return { message: 'Email skipped (no password)' };
     }
 
     try {
+        console.log(`📧 Attempting to send email to: ${to} using host: ${smtpHost}`);
+        
+        // Gmail requires the 'from' address to be the authenticated user or an alias
+        const fromEmail = emailUser.includes('@') ? emailUser : 'info@taxiserviceksa.com';
+
         const info = await transporter.sendMail({
-            from: `"${fromName}" <${emailUser}>`,
+            from: `"${fromName}" <${fromEmail}>`,
             to,
             subject,
             html,
-            replyTo,
+            replyTo: replyTo || fromEmail,
         });
 
-        console.log(`Email sent: ${info.messageId} to ${to}`);
+        console.log(`✅ Email sent: ${info.messageId} to ${to}`);
         return info;
-    } catch (error) {
-        console.error('Email sending failed:', error);
+    } catch (error: any) {
+        console.error('❌ Email sending failed!');
+        console.error('Error details:', {
+            code: error.code,
+            command: error.command,
+            address: error.address,
+            host: smtpHost
+        });
         throw error;
     }
 }

@@ -93,7 +93,15 @@ export default function HaramGatesPage() {
                             {
                                 question: "What is the best gate for Umrah?",
                                 shortAnswer: "King Abdulaziz (1).",
-                                detailedAnswer: "Traditionally, pilgrims enter via King Abdulaziz Gate (1) or Al-Salam Gate to access the Mataf directly for Tawaf. This is highly recommended for those arriving via the <Link href='/routes/jeddah-makkah/' className='text-emerald-700 hover:underline'>Jeddah Airport to Makkah route</Link>. However, you can enter from any gate.",
+                                detailedAnswer: (
+                                    <>
+                                        Traditionally, pilgrims enter via King Abdulaziz Gate (1) or Al-Salam Gate to access the Mataf directly for Tawaf. This is highly recommended for those arriving via the{' '}
+                                        <Link href='/routes/jeddah-makkah/' className='text-emerald-700 hover:underline'>
+                                            Jeddah Airport to Makkah route
+                                        </Link>
+                                        . However, you can enter from any gate.
+                                    </>
+                                ),
                                 perspectives: [
                                     {
                                         role: "Tip",
@@ -110,7 +118,19 @@ export default function HaramGatesPage() {
                                     {
                                         role: "Advice",
                                         icon: "AlertCircle",
-                                        insight: "Bring a shoe bag and carry them with you. For those also visiting <Link href='/locations/madinah/' className='text-emerald-700 hover:underline'>Madinah (Holy City)</Link>, the shoe management system there is different but equally important. You can avoid heat and traffic by choosing to <Link href='/booking/' className='text-primary font-bold hover:underline'>book your taxi online</Link> for all transfers."
+                                        insight: (
+                                            <>
+                                                Bring a shoe bag and carry them with you. For those also visiting{' '}
+                                                <Link href='/locations/madinah/' className='text-emerald-700 hover:underline'>
+                                                    Madinah (Holy City)
+                                                </Link>
+                                                , the shoe management system there is different but equally important. You can avoid heat and traffic by choosing to{' '}
+                                                <Link href='/booking/' className='text-primary font-bold hover:underline'>
+                                                    book your taxi online
+                                                </Link>{' '}
+                                                for all transfers.
+                                            </>
+                                        )
                                     }
                                 ]
                             }

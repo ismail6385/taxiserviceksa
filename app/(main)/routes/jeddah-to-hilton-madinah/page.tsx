@@ -9,7 +9,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
     title: 'Jeddah to Madinah Hilton Taxi | Hotel Transfer - Fixed Price',
-    description: 'Book a taxi from Jeddah Airport (JED) to Madinah Hilton Hotel. 4-5 hour journey. Fixed rates from SAR 450. Door-to-door service near King Fahd Gate.',
+    description: 'Book a taxi from Jeddah Airport (JED) to Madinah Hilton Hotel. 4-5 hour journey. Affordable fixed rates. Door-to-door service near King Fahd Gate.',
     keywords: ['Jeddah to Madinah Hilton taxi', 'taxi Jeddah airport to Hilton Madinah', 'Madinah Hilton transfer', 'transport Jeddah to Madinah Hilton', 'Madinah hotel taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-hilton-madinah/',
@@ -69,7 +69,7 @@ export default function JeddahToHiltonMadinahPage() {
                     </span>
                 }
                 subtitle="Direct Ride to Madinah Hilton (King Fahd Gate)"
-                location="4-5 Hours | Fixed Rate SAR 450+"
+                location="4-5 Hours | Affordable Fixed Rates"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking">
@@ -160,8 +160,8 @@ export default function JeddahToHiltonMadinahPage() {
                 faqs={[
                     {
                         question: "How much is a taxi from Jeddah Airport to Madinah Hilton?",
-                        shortAnswer: "From SAR 450",
-                        detailedAnswer: "Our fixed price for a Sedan (Camry) is SAR 450. A larger family car (GMC Yukon) costs SAR 850. Prices include the driver, fuel, and highway tolls.",
+                        shortAnswer: "Affordable Fixed Rates",
+                        detailedAnswer: "Our fixed price for a Sedan (Camry) is highly competitive. A larger family car (GMC Yukon) is also available. Prices include the driver, fuel, and highway tolls.",
                         perspectives: []
                     },
                     {

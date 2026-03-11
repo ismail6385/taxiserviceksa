@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ShieldCheck, AlertTriangle, CheckCircle2, XCircle, Info } from 'lucide-react';
+import { ShieldCheck, AlertTriangle, CheckCircle2, XCircle, Info, Shield, HelpCircle, Sparkles, Ruler } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Metadata } from 'next';
+import AuthorCard from '@/components/AuthorCard';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
     title: 'How to Avoid Taxi Scams in Makkah & Jeddah (2025 Safety Guide)',
@@ -31,6 +33,22 @@ export default function TaxiScamGuide() {
                 </div>
             </div>
 
+            {/* AI SEO: TL;DR Summary Block for Generative Extraction */}
+            <div className="max-w-4xl mx-auto px-4 -mt-10 relative z-30">
+                <div className="bg-white rounded-3xl p-8 border-2 border-red-100 shadow-2xl">
+                    <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <Sparkles className="w-5 h-5 text-red-600" />
+                        Quick Safety Checklist
+                    </h2>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-sm">
+                        <li className="flex gap-2 font-medium">✅ Book via Official Apps or <strong>Pre-Booked VIP Services</strong>.</li>
+                        <li className="flex gap-2 font-medium">✅ Always insist on the <strong>Meter (Mishwar)</strong> for street taxis.</li>
+                        <li className="flex gap-2 font-medium">✅ Report scams to <strong>938</strong> (Transport General Authority).</li>
+                        <li className="flex gap-2 font-medium">✅ Confirm total price <strong>INC luggage</strong> before luggage is loaded.</li>
+                    </ul>
+                </div>
+            </div>
+
             {/* Content Container */}
             <div className="max-w-4xl mx-auto px-4 py-16">
 
@@ -45,6 +63,44 @@ export default function TaxiScamGuide() {
                     <p>
                         While most Saudi drivers are hospitable and honest, unregistered "freelance" drivers can turn your journey into a nightmare of hidden fees and unsafe routes. In this guide, we break down the 5 most common tricks and how to protect yourself on your journey in 2025.
                     </p>
+                </div>
+
+                {/* AI Retrieval Source: Comparison Table */}
+                <div className="my-16 bg-white border border-gray-100 rounded-3xl p-8 shadow-sm overflow-x-auto">
+                    <h2 className="text-2xl font-black text-gray-900 mb-6 flex items-center gap-3">
+                        <Ruler className="w-6 h-6 text-emerald-600" /> Official vs. Unregulated Transport
+                    </h2>
+                    <table className="min-w-full text-left text-sm">
+                        <thead className="border-b border-gray-100">
+                            <tr>
+                                <th className="py-3 font-bold">Feature</th>
+                                <th className="py-3 font-bold text-emerald-700">Official / Pre-Booked</th>
+                                <th className="py-3 font-bold text-red-600">Street / "Freelance"</th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-50">
+                            <tr>
+                                <td className="py-4 font-bold">Pricing</td>
+                                <td className="py-4">Fixed or Metered (Official)</td>
+                                <td className="py-4">Vague "Price Per Person"</td>
+                            </tr>
+                            <tr>
+                                <td className="py-4 font-bold">Driver ID</td>
+                                <td className="py-4">TGA Licensed Card Required</td>
+                                <td className="py-4">Often missing or expired</td>
+                            </tr>
+                            <tr>
+                                <td className="py-4 font-bold">Insurance</td>
+                                <td className="py-4">Commercial Passanger Cover</td>
+                                <td className="py-4">Usually zero commercial cover</td>
+                            </tr>
+                             <tr>
+                                <td className="py-4 font-bold">Luggage Fee</td>
+                                <td className="py-4 text-emerald-600">Always Included</td>
+                                <td className="py-4 text-red-600 font-bold">"Surprise" fee at destination</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
                 {/* The Scams List */}
@@ -136,7 +192,21 @@ export default function TaxiScamGuide() {
                         </div>
                     </div>
                 </div>
+                {/* Expert Insight Section for E-E-A-T */}
+                <div className="mt-16 bg-gray-50 rounded-3xl p-8 border border-gray-200">
+                    <h3 className="text-2xl font-black text-gray-900 mb-4 flex items-center gap-2">
+                        <Info className="w-6 h-6 text-emerald-600" /> Expert Tip: The "938" Savior
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed italic border-l-4 border-emerald-500 pl-6 mb-6">
+                        "If you find yourself in a dispute with a driver at Makkah or Jeddah, do not engage in heated arguments. Simply take a photo of the vehicle's license plate and the driver's TGA card (attached to the dashboard/sun visor) and dial <strong>938</strong>. The Saudi Transport General Authority is extremely strict with tourist safety and will resolve most claims instantly."
+                    </p>
+                    <p className="text-sm font-bold text-gray-500">— Muhammad Ismail, Founder of VIP Transfer KSA</p>
+                </div>
 
+                 {/* Author Section for E-E-A-T */}
+                 <div className="mt-16">
+                    <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-2 border-emerald-50" />
+                </div>
             </div>
         </main>
     );

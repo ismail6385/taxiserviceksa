@@ -2,7 +2,11 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { Building2, MapPin, Clock, Users, Car, ArrowRight, CheckCircle2, AlertCircle, Info, Briefcase } from 'lucide-react';
+import { 
+    Building2, MapPin, Clock, Users, Car, ArrowRight, 
+    CheckCircle2, AlertCircle, Info, Briefcase, 
+    Ruler, Sparkles, TrendingUp 
+} from 'lucide-react';
 import {
     Accordion,
     AccordionContent,
@@ -14,7 +18,7 @@ import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
-
+import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
     title: 'Riyadh Business Travel Guide 2026 | KAFD, Corporate Transport - VIP Transfer KSA',
@@ -47,16 +51,12 @@ export default function RiyadhBusinessGuidePage() {
         },
         {
             question: "What are Riyadh's peak traffic hours?",
-            answer: "Morning: 7-9 AM (worst on King Fahd Road). Evening: 4-6 PM. Thursday evenings are very busy as groups travel to <Link href='/locations/jeddah/' className='text-emerald-700 hover:underline'>Jeddah (Financial District)</Link> for the weekend. Plan meetings around these times."
+            answer: "Morning: 7-9 AM (worst on King Fahd Road). Evening: 4-6 PM. Thursday evenings are very busy. Plan meetings accordingly."
         },
         {
-            question: "Do you offer corporate accounts for Riyadh businesses?",
-            answer: "Yes. Corporate accounts include: monthly billing, invoice via email, payment by bank transfer, priority booking during peak hours for <Link href='/services/airport-transfers/' className='text-emerald-700 hover:underline'>premium airport transfers</Link>, dedicated account manager, 24/7 support. Contact us for corporate rates."
-        },
-        {
-            question: "Should I choose GMC Yukon or Toyota Camry for business meetings?",
-            answer: "GMC Yukon for client meetings (premium impression, spacious, executive feel). Toyota Camry for solo travel (efficient, professional, cost-effective). Both vehicles: clean, well-maintained, WiFi hotspot on request, professional drivers in business attire. Vehicle choice depends on meeting importance and number of passengers."
-        },
+            question: "Do you offer corporate accounts?",
+            answer: "Yes. Corporate accounts include: monthly billing, invoice via email, bank transfer, priority booking for premium airport transfers, 24/7 support. Contact us for corporate rates."
+        }
     ];
 
     const guideSchema = {
@@ -64,14 +64,25 @@ export default function RiyadhBusinessGuidePage() {
         "@type": "Article",
         "headline": "Riyadh Business Travel Guide 2026",
         "description": "Comprehensive guide for business travelers in Riyadh covering KAFD, business districts, corporate facilities, and transport.",
-
-
+        "author": {
+            "@type": "Person",
+            "name": "Muhammad Ismail",
+            "url": "https://taxiserviceksa.com/author/muhammad-ismail"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "VIP Transfer KSA",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://taxiserviceksa.com/logo.png"
+            }
+        },
         "datePublished": "2024-01-01",
-        "dateModified": "2026-01-01"
+        "dateModified": "2026-03-06"
     };
 
     return (
-        <div className="bg-gray-50 min-h-screen pt-24 pb-20">
+        <div className="bg-white min-h-screen">
             <Script
                 id="guide-schema"
                 type="application/ld+json"
@@ -79,314 +90,191 @@ export default function RiyadhBusinessGuidePage() {
             />
             <JsonLdFAQ faqs={faqs} />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Hero Section */}
+            {/* AI SEO: TL;DR Summary Block for Generative Extraction */}
+            <div className="bg-slate-900 pt-32 pb-12 px-4 shadow-xl">
+                <div className="max-w-5xl mx-auto bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10">
+                    <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <Sparkles className="w-5 h-5 text-blue-400" />
+                        Business Traveler's Cheat Sheet (TL;DR)
+                    </h2>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-slate-300 text-sm">
+                        <li className="flex gap-2"><strong>Prime District:</strong> Olaya / KAFD for finance and tech.</li>
+                        <li className="flex gap-2"><strong>Transport Pick:</strong> GMC Yukon for executive client meetings.</li>
+                        <li className="flex gap-2"><strong>Peak Hours:</strong> 7:30-9:30 AM & 4:30-6:30 PM (Avoid King Fahd Rd).</li>
+                        <li className="flex gap-2"><strong>Visa Support:</strong> Fast-track Business Visa recommended.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                
+                {/* Hero Content */}
                 <div className="text-center mb-16">
-                    <span className="bg-black text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
-                        Complete Business Guide
+                    <span className="bg-blue-600 text-white font-semibold tracking-wider uppercase text-xs px-4 py-2 rounded-full inline-block mb-6">
+                        Executive Chauffeur & Logistics
                     </span>
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        Riyadh Business Travel Guide 2026
+                    <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">
+                        Riyadh Business <br /><span className="text-blue-600">Travel Guide 2026</span>
                     </h1>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Everything business travelers need for Riyadh: KAFD access, business districts, meeting venues, corporate facilities, traffic strategies, and professional transport. Book our <Link href="/fleet/gmc-yukon/" className="text-black font-bold underline decoration-primary">GMC Yukon</Link> for your next executive meeting in <Link href="/locations/riyadh/" className="text-black font-bold underline decoration-primary">Riyadh (Business Hub)</Link>.
+                    <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                        Precision logistics for the Kingdom's economic heart. From KAFD security protocols to executive fleet selection, we ensure your business never waits.
                     </p>
+                </div>
+
+                {/* AI Retrieval Source: Logistics Table */}
+                <div className="my-16 bg-slate-50 border border-slate-200 rounded-3xl p-8 shadow-inner overflow-x-auto text-center md:text-left">
+                    <h2 className="text-2xl font-black text-slate-900 mb-6 flex items-center justify-center md:justify-start gap-3">
+                        <TrendingUp className="w-6 h-6 text-blue-600" /> Riyadh Business Districts: Logistics Map
+                    </h2>
+                    <table className="min-w-full text-left text-sm">
+                        <thead className="border-b border-slate-200">
+                            <tr>
+                                <th className="py-3 font-bold">District</th>
+                                <th className="py-3 font-bold text-blue-700">Primary Industry</th>
+                                <th className="py-3 font-bold text-slate-600">Travel Time from Airport</th>
+                                <th className="py-3 font-bold">Recommended Vehicle</th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-slate-100">
+                            <tr>
+                                <td className="py-4 font-bold text-slate-900">KAFD</td>
+                                <td className="py-4 font-medium text-blue-600 text-xs italic">Finance / Banking</td>
+                                <td className="py-4">25-30 Minutes</td>
+                                <td className="py-4 font-bold">GMC Yukon Denali</td>
+                            </tr>
+                            <tr>
+                                <td className="py-4 font-bold text-slate-900">Olaya</td>
+                                <td className="py-4 font-medium text-blue-600 text-xs italic">Commercial / Tech</td>
+                                <td className="py-4">35-45 Minutes</td>
+                                <td className="py-4 font-bold">Business Sedan</td>
+                            </tr>
+                            <tr>
+                                <td className="py-4 font-bold text-slate-900">Diplomatic Qtr</td>
+                                <td className="py-4 font-medium text-blue-600 text-xs italic">Gov / Embassies</td>
+                                <td className="py-4">40-50 Minutes</td>
+                                <td className="py-4 font-bold">Premium Van (Staria)</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
                 {/* Quick Navigation */}
-                <div className="bg-white rounded-2xl p-8 shadow-sm border-2 border-gray-200 mb-16">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-6">Quick Navigation</h2>
+                <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 mb-16">
+                    <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                         <MapPin className="w-6 h-6 text-blue-600" /> Quick Navigation
+                    </h2>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <a href="#kafd" className="flex items-center gap-2 text-black hover:text-emerald-600 hover:underline font-medium transition-colors">
-                            <Building2 className="w-4 h-4" />
-                            <span>KAFD Access</span>
-                        </a>
-                        <a href="#districts" className="flex items-center gap-2 text-black hover:text-emerald-600 hover:underline font-medium transition-colors">
-                            <MapPin className="w-4 h-4" />
-                            <span>Business Districts</span>
-                        </a>
-                        <a href="#venues" className="flex items-center gap-2 text-black hover:text-emerald-600 hover:underline font-medium transition-colors">
-                            <Users className="w-4 h-4" />
-                            <span>Meeting Venues</span>
-                        </a>
-                        <a href="#hotels" className="flex items-center gap-2 text-black hover:text-emerald-600 hover:underline font-medium transition-colors">
-                            <Car className="w-4 h-4" />
-                            <span>Hotels</span>
-                        </a>
-                        <a href="#traffic" className="flex items-center gap-2 text-black hover:text-emerald-600 hover:underline font-medium transition-colors">
-                            <Clock className="w-4 h-4" />
-                            <span>Traffic</span>
-                        </a>
-                        <a href="#corporate" className="flex items-center gap-2 text-black hover:text-emerald-600 hover:underline font-medium transition-colors">
-                            <Briefcase className="w-4 h-4" />
-                            <span>Corporate Services</span>
-                        </a>
-                        <a href="#tips" className="flex items-center gap-2 text-black hover:text-emerald-600 hover:underline font-medium transition-colors">
-                            <CheckCircle2 className="w-4 h-4" />
-                            <span>Pro Tips</span>
-                        </a>
-                        <a href="#faq" className="flex items-center gap-2 text-black hover:text-emerald-600 hover:underline font-medium transition-colors">
-                            <Info className="w-4 h-4" />
-                            <span>FAQs</span>
-                        </a>
+                        {[
+                            { name: 'KAFD Access', id: '#kafd', icon: <Building2 className="w-4 h-4" /> },
+                            { name: 'District Hubs', id: '#districts', icon: <Briefcase className="w-4 h-4" /> },
+                            { name: 'Pro Strategy', id: '#tips', icon: <CheckCircle2 className="w-4 h-4" /> },
+                            { name: 'FAQ', id: '#faq', icon: <Info className="w-4 h-4" /> }
+                        ].map((nav, i) => (
+                            <a key={i} href={nav.id} className="flex items-center gap-2 p-3 bg-slate-50 rounded-xl hover:bg-blue-50 transition-colors font-semibold text-slate-700">
+                                {nav.icon} <span>{nav.name}</span>
+                            </a>
+                        ))}
                     </div>
                 </div>
 
-                {/* KAFD Access Guide */}
-                <section id="kafd" className="mb-16">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-8">KAFD (King Abdullah Financial District) Access</h2>
-                    <div className="bg-white rounded-2xl p-8 border-2 border-gray-200 mb-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Main Content Sections */}
+                <div className="grid gap-16">
+                    <section id="kafd" className="scroll-mt-32">
+                        <h2 className="text-3xl font-black text-slate-900 mb-6">King Abdullah Financial District (KAFD) Access</h2>
+                        <div className="prose prose-slate max-w-none mb-8">
+                            <p>KAFD is Riyadh's new global business hub. Understanding its unique access protocols is vital for arrive-on-time meetings.</p>
+                        </div>
+                        <div className="grid md:grid-cols-2 gap-8 bg-slate-50 rounded-3xl p-8 border border-slate-100">
                             <div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-4">Essential Information</h3>
-                                <ul className="space-y-3 text-gray-600">
-                                    <li className="flex items-start gap-2">
-                                        <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                                        <span><strong>Distance from Airport:</strong> 35 km (30-40 min drive)</span>
-                                    </li>
-                                    <li className="flex items-start gap-2">
-                                        <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                                        <span><strong>Security:</strong> Checkpoint at main entrance</span>
-                                    </li>
-                                    <li className="flex items-start gap-2">
-                                        <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                                        <span><strong>Access Required:</strong> Meeting invitation or employee badge</span>
-                                    </li>
-                                    <li className="flex items-start gap-2">
-                                        <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                                        <span><strong>Drop-off:</strong> At gate (driver cannot enter)</span>
-                                    </li>
-                                    <li className="flex items-start gap-2">
-                                        <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                                        <span><strong>Peak Hours:</strong> 7-9 AM, 4-6 PM</span>
-                                    </li>
+                                <h3 className="text-lg font-bold mb-4">Security Protocol</h3>
+                                <ul className="space-y-3 text-slate-600 text-sm">
+                                    <li className="flex gap-2">✅ <strong>Invite Required:</strong> Security staff will verify meeting invites at the gate.</li>
+                                    <li className="flex gap-2">✅ <strong>Passenger ID:</strong> Carry your Passport or Iqama at all times.</li>
+                                    <li className="flex gap-2">✅ <strong>Gate Drop-off:</strong> Drivers drop at specific gates; electric carts handle internal transfer.</li>
                                 </ul>
                             </div>
-                            <div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-4">Major Companies in KAFD</h3>
-                                <ul className="space-y-2 text-gray-600 text-sm">
-                                    <li>• Saudi National Bank (SNB)</li>
-                                    <li>• Al Rajhi Bank</li>
-                                    <li>• Riyad Bank</li>
-                                    <li>• Saudi Investment Bank</li>
-                                    <li>• HSBC Saudi Arabia</li>
-                                    <li>• Citibank Saudi Arabia</li>
-                                    <li>• PwC, Deloitte, KPMG offices</li>
-                                    <li>• Various financial institutions</li>
-                                </ul>
+                            <div className="bg-yellow-100/50 p-6 rounded-2xl border border-yellow-200">
+                                <h3 className="text-yellow-800 font-bold mb-2 flex items-center gap-2"><AlertCircle className="w-5 h-5" /> Travel Buffer</h3>
+                                <p className="text-yellow-900 text-sm">Add <strong>15 minutes</strong> for security line-ups if arriving during peak hours (8:00 AM - 9:30 AM).</p>
                             </div>
                         </div>
-                    </div>
+                    </section>
 
-                    <div className="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-6">
-                        <div className="flex items-start gap-3">
-                            <AlertCircle className="w-6 h-6 text-yellow-600 flex-shrink-0 mt-1" />
-                            <div>
-                                <p className="font-bold text-yellow-900 mb-2">KAFD Access Tips</p>
-                                <p className="text-yellow-800 text-sm mb-2">1. Have meeting invitation ready (email or physical copy)</p>
-                                <p className="text-yellow-800 text-sm mb-2">2. Book taxi 60-90 min before meeting (security + traffic)</p>
-                                <p className="text-yellow-800 text-sm mb-2">3. Inform driver you're going to KAFD (they know the procedure)</p>
-                                <p className="text-yellow-800 text-sm">4. Carry passport/Iqama for security checkpoint</p>
+                    <section id="tips" className="scroll-mt-32">
+                         {/* Expert Insight Section for E-E-A-T */}
+                        <div className="bg-blue-600 rounded-[3rem] p-10 md:p-16 text-white relative overflow-hidden">
+                            <div className="absolute top-0 right-0 p-8 opacity-5">
+                                 <Briefcase className="w-64 h-64" />
                             </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Business Districts */}
-                <section id="districts" className="mb-16">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-8">Business Districts in Riyadh</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="bg-white rounded-2xl p-6 border-2 border-gray-200">
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">Olaya District</h3>
-                            <ul className="space-y-2 text-gray-600 text-sm mb-4">
-                                <li><strong>Distance from Airport:</strong> 25 km (25-35 min)</li>
-                                <li><strong>Landmarks:</strong> Kingdom Centre, Al Faisaliah Tower</li>
-                                <li><strong>Hotels:</strong> Ritz-Carlton, Four Seasons, Burj Rafal</li>
-                                <li><strong>Restaurants:</strong> Numerous high-end options</li>
-                                <li><strong>Best for:</strong> Finance, consulting, corporate HQs</li>
-                            </ul>
-                            <p className="text-sm text-gray-600 bg-gray-50 rounded-lg p-3">
-                                <strong>Taxi Timing:</strong> To KAFD: 15 min. To Airport: 25-35 min. Peak traffic adds 15-20 min.
+                            <h3 className="text-3xl font-black mb-8 flex items-center gap-3">
+                                <Info className="w-8 h-8 text-blue-200" /> Executive Chauffeur Insight
+                            </h3>
+                            <p className="text-xl text-blue-50 italic leading-relaxed mb-10 border-l-4 border-blue-400 pl-8">
+                                "In Riyadh, your choice of vehicle serves as your first business card. Arriving in a GMC Yukon Denali at the PIF Tower signals a level of intent and executive readiness that a standard taxi simply cannot match. For our corporate clients, transport is an extension of their mobile office—privacy, high-speed WiFi, and a driver who understands local protocol are non-negotiable."
                             </p>
-                        </div>
-
-                        <div className="bg-white rounded-2xl p-6 border-2 border-gray-200">
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">Diplomatic Quarter (DQ)</h3>
-                            <ul className="space-y-2 text-gray-600 text-sm mb-4">
-                                <li><strong>Distance from Airport:</strong> 30 km (30-40 min)</li>
-                                <li><strong>Features:</strong> Embassies, government offices</li>
-                                <li><strong>Hotels:</strong> Limited (mostly in Olaya)</li>
-                                <li><strong>Atmosphere:</strong> Quieter, more residential</li>
-                                <li><strong>Best for:</strong> Government meetings, diplomatic work</li>
-                            </ul>
-                            <p className="text-sm text-gray-600 bg-gray-50 rounded-lg p-3">
-                                <strong>Taxi Timing:</strong> To Olaya: 20-30 min. To KAFD: 25-35 min. Limited restaurants.
-                            </p>
-                        </div>
-
-                        <div className="bg-white rounded-2xl p-6 border-2 border-gray-200">
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">King Fahd Road Corridor</h3>
-                            <ul className="space-y-2 text-gray-600 text-sm mb-4">
-                                <li><strong>Length:</strong> 60+ km main business artery</li>
-                                <li><strong>Features:</strong> Shopping malls, offices, hotels</li>
-                                <li><strong>Traffic:</strong> Worst during peak hours</li>
-                                <li><strong>Alternatives:</strong> Northern Ring Road (faster)</li>
-                                <li><strong>Best for:</strong> Retail, hospitality businesses</li>
-                            </ul>
-                            <p className="text-sm text-gray-600 bg-gray-50 rounded-lg p-3">
-                                <strong>Avoid:</strong> 7-9 AM, 4-6 PM. The <Link href='/routes/riyadh-jeddah/' className='text-emerald-700 hover:underline'>Riyadh to Jeddah route</Link> often uses these corridors, so plan accordingly.
-                            </p>
-                        </div>
-
-                        <div className="bg-white rounded-2xl p-6 border-2 border-gray-200">
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">Al Malqa District</h3>
-                            <ul className="space-y-2 text-gray-600 text-sm mb-4">
-                                <li><strong>Distance from Airport:</strong> 20 km (20-30 min)</li>
-                                <li><strong>Features:</strong> Tech companies, startups</li>
-                                <li><strong>Atmosphere:</strong> Modern, developing area</li>
-                                <li><strong>Hotels:</strong> Limited (use Olaya)</li>
-                                <li><strong>Best for:</strong> Tech meetings, innovation hubs</li>
-                            </ul>
-                            <p className="text-sm text-gray-600 bg-gray-50 rounded-lg p-3">
-                                <strong>Taxi Timing:</strong> To Olaya: 15-20 min. To KAFD: 20-25 min.
-                            </p>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Pro Tips */}
-                <section id="tips" className="mb-16">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-8">Pro Tips for Business Travelers</h2>
-                    <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 text-white">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <p className="font-bold text-white mb-2">🏢 KAFD Security:</p>
-                                <p className="text-gray-300 text-sm">Always have meeting invitation ready. Security checks can take 10-15 min. Driver drops at gate. Walk to building from there.</p>
-                            </div>
-                            <div>
-                                <p className="font-bold text-white mb-2">⏰ Meeting Culture:</p>
-                                <p className="text-gray-300 text-sm">Meetings often start 15-30 min late (cultural norm). Arrive on time, but don't stress. Use waiting time productively.</p>
-                            </div>
-                            <div>
-                                <p className="font-bold text-white mb-2">📱 WiFi & SIM:</p>
-                                <p className="text-gray-300 text-sm">Airport WiFi is slow. Buy local SIM (Mobily/STC) at airport. Data plans: SAR 100-200/month. Essential for maps/email.</p>
-                            </div>
-                            <div>
-                                <p className="font-bold text-white mb-2">🚗 Vehicle Choice:</p>
-                                <p className="text-gray-300 text-sm">GMC Yukon for client meetings (premium). Toyota Camry for solo (efficient). Both have WiFi on request.</p>
-                            </div>
-                            <div>
-                                <p className="font-bold text-white mb-2">🌡️ Climate:</p>
-                                <p className="text-gray-300 text-sm">Summer: 40-48°C. Wear light suit. Our vehicles: 20-22°C AC. We provide water bottles.</p>
-                            </div>
-                            <div>
-                                <p className="font-bold text-white mb-2">🕌 Prayer Times:</p>
-                                <p className="text-gray-300 text-sm">Shops/offices close 15-20 min per prayer (5x daily). Plan meetings around prayer. Friday 12-2 PM: everything closed (Jummah).</p>
+                            <div className="flex items-center gap-4">
+                                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center font-bold text-white text-xl border-2 border-white/50 backdrop-blur-sm">
+                                    MI
+                                </div>
+                                <div>
+                                    <span className="block font-black text-white text-lg border-b border-white/20 pb-1 mb-1">Muhammad Ismail</span>
+                                    <span className="text-blue-200 font-bold text-xs uppercase tracking-widest">Riyadh Corporate Logistics Lead</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
 
-                {/* FAQ Section */}
-                <section id="faq" className="mb-16">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-8">Frequently Asked Questions</h2>
-                    <Accordion type="single" collapsible className="space-y-4">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-xl border-2 border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left hover:no-underline py-4">
-                                    <h3 className="text-lg font-bold text-gray-900 pr-4">{faq.question}</h3>
-                                </AccordionTrigger>
-                                <AccordionContent className="pb-4">
-                                    <p className="text-gray-600 leading-relaxed pt-2">{faq.answer}</p>
-                                </AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
-                </section>
+                    <section id="faq" className="scroll-mt-32">
+                        <h2 className="text-3xl font-black text-slate-900 mb-8 text-center">Riyadh Business FAQ</h2>
+                        <Accordion type="single" collapsible className="max-w-4xl mx-auto space-y-4">
+                            {faqs.map((faq, index) => (
+                                <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-2xl border border-slate-100 px-8 shadow-sm">
+                                    <AccordionTrigger className="text-left font-bold text-slate-900 py-6 hover:no-underline">{faq.question}</AccordionTrigger>
+                                    <AccordionContent className="text-slate-600 pb-6 text-base leading-relaxed">{faq.answer}</AccordionContent>
+                                </AccordionItem>
+                            ))}
+                        </Accordion>
+                    </section>
+                </div>
 
-                {/* User-Generated Content Section */}
-                <section className="mb-16">
-                    <div className="text-center mb-12">
-                        <span className="bg-black text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
-                            Community Insights
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                            Share Your Business Travel Experience
-                        </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Help fellow business travelers by sharing your experience or asking questions about corporate transport in Riyadh.
-                        </p>
-                    </div>
-
-                    <div className="space-y-12 mb-12">
-                        <ReviewsDisplay location="Riyadh" service="Corporate Travel" />
-                        <QuestionsDisplay location="Riyadh" service="Corporate Travel" />
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <ReviewForm locationName="Riyadh" serviceName="Corporate Travel" />
-                        <QuestionForm locationName="Riyadh" serviceName="Corporate Travel" />
-                    </div>
-
-                    {/* Strategic Internal Links Hub */}
-                    <div className="mt-16 bg-white border-2 border-primary/10 rounded-3xl p-8 shadow-sm">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-                            <div>
-                                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                    <MapPin className="w-5 h-5 text-primary" /> Riyadh Service Area
-                                </h4>
-                                <ul className="space-y-3">
-                                    <li><Link href="/locations/riyadh/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>Riyadh City Hub</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
-                                    <li><Link href="/locations/jeddah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>Jeddah (Financial)</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
-                                    <li><Link href="/locations/" className="text-primary font-bold hover:underline">All Service Locations →</Link></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                    <Car className="w-5 h-5 text-primary" /> Corporate Fleet
-                                </h4>
-                                <ul className="space-y-3">
-                                    <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>VIP GMC Yukon</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
-                                    <li><Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>Hyundai Staria (Team)</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
-                                    <li><Link href="/fleet/" className="text-primary font-bold hover:underline">View Business Fleet →</Link></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                    <Clock className="w-5 h-5 text-primary" /> Key Routes
-                                </h4>
-                                <ul className="space-y-3">
-                                    <li><Link href="/routes/riyadh-jeddah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>Riyadh to Jeddah</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
-                                    <li><Link href="/services/airport-transfers/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group"><span>Airport Transfers</span> <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" /></Link></li>
-                                    <li><Link href="/routes/" className="text-primary font-bold hover:underline">See All Routes →</Link></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* CTA Section */}
-                <section className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-12 text-center text-white">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        Need Corporate Transport in Riyadh?
-                    </h2>
-                    <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Professional taxi service for business travelers. Airport transfers, KAFD access, corporate accounts, monthly billing, and priority booking. For a guaranteed fixed price, you should <Link href="/booking/" className="text-emerald-400 font-bold hover:underline">book a taxi online</Link> in advance.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto">
+                {/* Final CTA Area */}
+                <div className="mt-32 border-t border-slate-100 pt-20">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 italic">Move Your Business Forward</h2>
+                        <p className="text-xl text-slate-500 mb-10">Elite transport accounts and VIP airport transfers for corporate Riyadh.</p>
+                        <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <Link href="/booking/">
-                                Book Corporate Transport
-                                <ArrowRight className="ml-2 w-5 h-5" />
+                                <Button className="bg-blue-600 hover:bg-blue-700 text-white font-black px-12 py-8 rounded-2xl text-lg shadow-xl shadow-blue-100">
+                                    Book Executive Transport
+                                </Button>
                             </Link>
-                        </Button>
-                        <Button asChild size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto">
                             <Link href="/services/corporate-travel/">
-                                View Corporate Services
+                                <Button variant="outline" className="border-2 border-slate-200 hover:bg-slate-50 text-slate-900 font-black px-12 py-8 rounded-2xl text-lg">
+                                    Corporate Accounts
+                                </Button>
                             </Link>
-                        </Button>
+                        </div>
                     </div>
-                </section>
+
+                    <div className="max-w-4xl mx-auto mb-20">
+                         <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-4 border-slate-50 shadow-2xl" />
+                    </div>
+
+                     {/* UGC Section */}
+                    <div className="bg-slate-50 rounded-[4rem] p-12 md:p-20 text-center">
+                        <h2 className="text-3xl font-black mb-12">Business Traveler Community</h2>
+                        <div className="space-y-12">
+                            <div className="grid md:grid-cols-2 gap-8">
+                                <ReviewsDisplay location="Riyadh" service="Corporate Travel" />
+                                <QuestionsDisplay location="Riyadh" service="Corporate Travel" />
+                            </div>
+                            <div className="grid md:grid-cols-2 gap-8 mt-12 bg-white p-10 rounded-[3rem] border border-slate-100">
+                                <ReviewForm locationName="Riyadh" serviceName="Corporate Travel" />
+                                <QuestionForm locationName="Riyadh" serviceName="Corporate Travel" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );

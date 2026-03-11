@@ -126,7 +126,7 @@ export default function ${route.from.replace(/\s+/g, '')}${route.to.replace(/\s+
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="https://wa.me/923080628195?text=Hello,%20I%20want%20to%20book%20a%20taxi%20from%20${route.from}%20to%20${route.to}">
+                    <a href="https://wa.me/966569487569?text=Hello,%20I%20want%20to%20book%20a%20taxi%20from%20${route.from}%20to%20${route.to}">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             WhatsApp Booking
                         </Button>
@@ -257,7 +257,7 @@ export default function ${route.from.replace(/\s+/g, '')}${route.to.replace(/\s+
 templates.forEach(route => {
     const fromSlug = route.from.toLowerCase().replace(/\s+/g, '-');
     const toSlug = route.to.toLowerCase().replace(/\s+/g, '-');
-    const routeDir = path.join(baseDir, \`\${fromSlug}-\${toSlug}\`);
+    const routeDir = path.join(baseDir, `${fromSlug}-${toSlug}`);
     
     if (!fs.existsSync(routeDir)) {
         fs.mkdirSync(routeDir, { recursive: true });
@@ -265,5 +265,5 @@ templates.forEach(route => {
     
     const filePath = path.join(routeDir, 'page.tsx');
     fs.writeFileSync(filePath, generatePageContent(route), 'utf8');
-    console.log(\`Created \${filePath}\`);
+    console.log(`Created ${filePath}`);
 });

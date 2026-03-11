@@ -46,7 +46,7 @@ export default function JeddahAirportGuidePage() {
         },
         {
             question: "Where can I buy a SIM card at Jeddah Airport?",
-            answer: "Mobily and STC kiosks are located in the arrivals hall (both terminals). Tourist SIM cards cost SAR 50-100 and include data. You'll need your passport for activation. Buy BEFORE exiting customs if you need to contact your taxi driver."
+            answer: "Mobily and STC kiosks are located in the arrivals hall (both terminals). Tourist SIM cards are available at affordable rates and include data. You'll need your passport for activation. Buy BEFORE exiting customs if you need to contact your taxi driver."
         },
         {
             question: "How do I meet my taxi driver at Jeddah Airport?",

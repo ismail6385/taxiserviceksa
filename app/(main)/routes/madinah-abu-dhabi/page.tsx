@@ -6,7 +6,6 @@ import { MapPin, Clock, CheckCircle2, Building2, Globe, ArrowRight } from 'lucid
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
-import RouteBreadcrumb from '@/components/seo/RouteBreadcrumb';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
@@ -25,7 +24,11 @@ export const metadata: Metadata = {
 };
 
 export default function MadinahAbuDhabiRoutePage() {
-    const images = ['/locations/abu-dhabi.webp', '/hero-slide-3.webp', '/hero-slide-2.webp'];
+    const images = [
+        '/hero-slide-3.webp',
+        '/hero-slide-2.webp',
+        '/jeddah-airport.webp'
+    ];
 
     const routeSchema = {
         "@context": "https://schema.org",
@@ -63,10 +66,6 @@ export default function MadinahAbuDhabiRoutePage() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
             />
 
-            
-
-            <RouteBreadcrumb fromCity="Madinah" toCity="Abu Dhabi" fromSlug="madinah" toSlug="abu-dhabi" />
-
             <Hero
                 images={images}
                 h1Text="Taxi Madinah to Abu Dhabi"
@@ -85,7 +84,7 @@ export default function MadinahAbuDhabiRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="https://wa.me/923080628195?text=Hello,%20I%20want%20to%20get%20a%20quote%20for%20a%20taxi%20from%20Madinah%20to%20Abu Dhabi">
+                    <a href="https://wa.me/966569487569?text=Hello,%20I%20want%20to%20get%20a%20quote%20for%20a%20taxi%20from%20Madinah%20to%20Abu Dhabi">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             WhatsApp Quote
                         </Button>
@@ -182,7 +181,7 @@ export default function MadinahAbuDhabiRoutePage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
-                <RelatedLocations currentCity="Abu Dhabi" />
+                <RelatedLocations currentCity="Madinah" />
             </div>
 
             <MicroSemanticFAQ
