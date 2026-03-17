@@ -118,26 +118,40 @@ export default async function AirportTransfersPageUrdu() {
 
     const vehicles = [
         {
-            name: 'ٹویوٹا کیمری (Toyota Camry)',
-            capacity: '4 مسافر',
-            luggage: '2 بڑے بیگ',
-            ideal: 'بزنس مسافر، جوڑے',
-            airports: 'تمام ہوائی اڈے'
+            name: 'Toyota Camry',
+            capacity: '4 passengers',
+            luggage: '2 large bags',
+            ideal: 'Business travelers, couples',
+            airports: 'All airports'
         },
         {
-            name: 'جی ایم سی یوکون (GMC Yukon)',
-            capacity: '7 مسافر',
-            luggage: '5 بڑے بیگ',
-            ideal: 'فیملیز، بڑے گروپس',
-            airports: 'تمام ہوائی اڈے'
+            name: 'GMC Yukon XL / Denali',
+            capacity: '7 passengers',
+            luggage: '5 large bags',
+            ideal: 'Families, group travelers',
+            airports: 'All airports'
         },
         {
-            name: 'ٹویوٹا ہائس (Toyota Hiace)',
-            capacity: '11 مسافر',
-            luggage: '16 بڑے بیگ',
-            ideal: 'بہت بڑے گروپس، ٹور گروپس',
-            airports: 'بڑے ایئرپورٹس (جدہ، ریاض، مدینہ)'
+            name: 'Hyundai Staria VIP',
+            capacity: '7 passengers',
+            luggage: '4 large bags',
+            ideal: 'VIP Family groups',
+            airports: 'All airports'
         },
+        {
+            name: 'Toyota Hiace',
+            capacity: '11 passengers',
+            luggage: '16 large bags',
+            ideal: 'Large groups, tour groups',
+            airports: 'Major airports (JED, RUH, MED)'
+        },
+        {
+            name: 'Mercedes-Benz Sprinter',
+            capacity: '14 passengers',
+            luggage: '4 large bags',
+            ideal: 'VIP Executive groups',
+            airports: 'Jeddah International (JED)'
+        }
     ];
 
     const faqs = [
@@ -482,7 +496,7 @@ export default async function AirportTransfersPageUrdu() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/ur/booking?service=airport-transfer">
                             <Button size="lg" className="bg-white text-sky-950 hover:bg-sky-50 font-black text-lg px-10 py-6 h-auto min-w-[200px] rounded-full shadow-2xl">
-                                ابھی بکنگ کریں
+                                کوٹیشن حاصل کریں
                             </Button>
                         </Link>
                     </div>

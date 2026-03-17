@@ -39,7 +39,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
         "url": "https://taxiserviceksa.com",
         "logo": "https://taxiserviceksa.com/logo.png",
         "image": "https://taxiserviceksa.com/hero-image.jpg",
-        "description": "Premium VIP private transfer and chauffeur service in Saudi Arabia. Specializing in long-distance intercity travel and Umrah transport for payment-secure bookings from the USA, UK, Canada, Indonesia, and Pakistan. Founded by Muhammad Ismail, an expert in Saudi travel logistics and tech-enabled transport solutions.",
+        "description": "Premium VIP private transfer and chauffeur service in Saudi Arabia. Specializing in long-distance intercity travel and Umrah transport for payment-secure quotations from the USA, UK, Canada, Indonesia, and Pakistan. Founded by Muhammad Ismail, an expert in Saudi travel logistics and tech-enabled transport solutions.",
         "brand": {
             "@type": "Brand",
             "name": "VIP Transfer KSA"
@@ -253,7 +253,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
     const faqs = [
         {
             question: "Do you provide airport taxi in Saudi Arabia from Jeddah to Makkah?",
-            answer: "Yes, our airport taxi service from King Abdulaziz International Airport (JED) to Makkah hotels operates 24/7. Unlike standard yellow street taxis, we offer fixed-price booking with no hidden meters. Drivers provide meet-and-greet service at arrivals. Flight tracking monitors delays automatically."
+            answer: "Yes, our airport taxi service from King Abdulaziz International Airport (JED) to Makkah hotels operates 24/7. Unlike standard yellow street taxis, we offer fixed-price quotations with no hidden meters. Drivers provide meet-and-greet service at arrivals. Flight tracking monitors delays automatically."
         },
         {
             question: "Is this service better than Uber, Careem, or Kaiian for Umrah?",
@@ -265,7 +265,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
         },
         {
             question: "Is your taxi service in Saudi Arabia available 24/7?",
-            answer: "Taxi service operates 24 hours daily in Saudi Arabia. Late-night flight arrivals and early morning Ziyarat trips are accommodated. Drivers are available for booking at any time."
+            answer: "Taxi service operates 24 hours daily in Saudi Arabia. Late-night flight arrivals and early morning Ziyarat trips are accommodated. Drivers are available for quotation at any time."
         },
         {
             question: "How do I request a quote for a VIP transfer in Saudi Arabia?",
@@ -617,22 +617,22 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                         Service Route
                                     </th>
                                     <th scope="col" className="px-6 py-4 font-bold text-center whitespace-nowrap">
-                                        Camry<br /><span className="text-[10px] font-normal opacity-80">4 Pax</span>
+                                        Economy Sedan<br /><span className="text-[10px] font-normal opacity-80">Toyota Camry</span>
                                     </th>
                                     <th scope="col" className="px-6 py-4 font-bold text-center whitespace-nowrap">
-                                        Staria<br /><span className="text-[10px] font-normal opacity-80">7 Pax</span>
+                                        Family Van<br /><span className="text-[10px] font-normal opacity-80">Hyundai Staria</span>
                                     </th>
                                     <th scope="col" className="px-6 py-4 font-bold text-center whitespace-nowrap">
-                                        Starex<br /><span className="text-[10px] font-normal opacity-80">7 Pax</span>
+                                        Standard Van<br /><span className="text-[10px] font-normal opacity-80">Hyundai Starex</span>
                                     </th>
                                     <th scope="col" className="px-6 py-4 font-bold text-center whitespace-nowrap">
-                                        GMC<br /><span className="text-[10px] font-normal opacity-80">7 Pax</span>
+                                        VIP SUV<br /><span className="text-[10px] font-normal opacity-80">GMC Yukon XL</span>
                                     </th>
                                     <th scope="col" className="px-6 py-4 font-bold text-center whitespace-nowrap">
-                                        Hiace<br /><span className="text-[10px] font-normal opacity-80">11 Pax</span>
+                                        Group Van<br /><span className="text-[10px] font-normal opacity-80">Toyota Hiace</span>
                                     </th>
                                     <th scope="col" className="px-6 py-4 font-bold text-center whitespace-nowrap">
-                                        Coaster<br /><span className="text-[10px] font-normal opacity-80">17 Pax</span>
+                                        Local Bus<br /><span className="text-[10px] font-normal opacity-80">Toyota Coaster</span>
                                     </th>
                                 </tr>
                             </thead>
@@ -828,7 +828,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             </p>
                             <Link href="/routes/jeddah-makkah/">
                                 <Button className="text-black font-bold border-b-2 border-black rounded-none px-0 py-0 h-auto hover:bg-transparent hover:border-primary transition-colors">
-                                    Book Jeddah to Makkah Taxi
+                                    Get Jeddah to Makkah Quote
                                 </Button>
                             </Link>
                         </div>
@@ -941,10 +941,10 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             < section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-black" >
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 px-4">
-                        Book the Best Online Taxi Service
+                        Get Quote from the Best Online Taxi Service
                     </h2>
                     <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 px-4 max-w-2xl mx-auto">
-                        Secure your booking with the top-rated online taxi service in Saudi Arabia for reliable airport transfers.
+                        Secure your quotation with the top-rated online taxi service in Saudi Arabia for reliable airport transfers.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">

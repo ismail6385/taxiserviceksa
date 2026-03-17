@@ -88,8 +88,8 @@ export default function TaxiFareCalculator() {
                             {/* Sedan */}
                             <div className="bg-gray-50 p-4 rounded-xl border border-gray-200 text-center hover:border-emerald-500 transition-colors cursor-pointer group">
                                 <Car className="w-8 h-8 mx-auto mb-2 text-gray-400 group-hover:text-emerald-600" />
-                                <div className="font-bold text-gray-900">Sedan</div>
-                                <div className="text-xs text-gray-500 mb-2">Camry / Sonata</div>
+                                <div className="font-bold text-gray-900">Economy Sedan</div>
+                                <div className="text-xs text-gray-500 mb-2">Toyota Camry / Sonata</div>
                                 <div className="text-2xl font-black text-emerald-600">
                                     <span className="text-sm align-top text-gray-400 font-medium">SAR</span>
                                     {result.sedan}
@@ -100,8 +100,8 @@ export default function TaxiFareCalculator() {
                             <div className="bg-emerald-50 p-4 rounded-xl border-2 border-emerald-500 text-center relative overflow-hidden">
                                 <div className="absolute top-0 right-0 bg-emerald-600 text-white text-[10px] px-2 py-0.5 rounded-bl-lg font-bold">VIP</div>
                                 <Car className="w-8 h-8 mx-auto mb-2 text-emerald-600" />
-                                <div className="font-bold text-gray-900">GMC Yukon</div>
-                                <div className="text-xs text-gray-500 mb-2">Luxury SUV</div>
+                                <div className="font-bold text-gray-900">VIP Luxury SUV</div>
+                                <div className="text-xs text-gray-500 mb-2">GMC Yukon XL / Denali</div>
                                 <div className="text-2xl font-black text-emerald-600">
                                     <span className="text-sm align-top text-gray-400 font-medium">SAR</span>
                                     {result.suv}
@@ -111,8 +111,8 @@ export default function TaxiFareCalculator() {
                             {/* Van */}
                             <div className="bg-gray-50 p-4 rounded-xl border border-gray-200 text-center hover:border-emerald-500 transition-colors cursor-pointer group">
                                 <Users className="w-8 h-8 mx-auto mb-2 text-gray-400 group-hover:text-emerald-600" />
-                                <div className="font-bold text-gray-900">HiAce Bus</div>
-                                <div className="text-xs text-gray-500 mb-2">Groups (10 pax)</div>
+                                <div className="font-bold text-gray-900">Group Transport</div>
+                                <div className="text-xs text-gray-500 mb-2">Toyota Hiace (11 pax)</div>
                                 <div className="text-2xl font-black text-emerald-600">
                                     <span className="text-sm align-top text-gray-400 font-medium">SAR</span>
                                     {result.van}
@@ -123,7 +123,7 @@ export default function TaxiFareCalculator() {
                         <div className="mt-8 text-center">
                             <Link href="/booking">
                                 <Button className="w-full sm:w-auto bg-black text-white hover:bg-gray-800 font-bold px-8 py-4 rounded-xl">
-                                    Book This Rate Now
+                                    Request Quotation
                                 </Button>
                             </Link>
                         </div>

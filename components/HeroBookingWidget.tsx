@@ -252,7 +252,7 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                     </div>
 
                     <Button type="submit" className="w-full h-14 bg-black hover:bg-gray-800 text-white font-bold text-lg rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
-                        Check Availability & Rates
+                        Get Instant Quotation
                     </Button>
                     <p className="text-[10px] sm:text-xs text-center text-rose-600 font-extrabold uppercase tracking-[0.2em] mt-2 px-4 shadow-sm bg-rose-50/50 py-2 rounded-lg">
                         100% PRIVATE VIP TRANSFERS ONLY • NO SHARED TAXIS • ALL KSA CITIES

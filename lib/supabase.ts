@@ -39,45 +39,87 @@ export type BookingData = {
 
 export const vehicles = [
     {
-        name: 'GMC Yukon',
-        image: '/gmc-yukon.webp',
+        name: "Mercedes S-Class",
+        image: "/fleet/mercedes-s-class-vip-chauffeur-service-saudi.webp",
+        passengers: 3,
+        luggage: 2,
+    },
+    {
+        name: "BMW 7 Series",
+        image: "/fleet/bmw-7-series-luxury-chauffeur-saudi.webp",
+        passengers: 3,
+        luggage: 2,
+    },
+    {
+        name: "Cadillac Escalade",
+        image: "/fleet/cadillac-escalade-chauffeur-service-ksa.webp",
+        passengers: 7,
+        luggage: 4,
+    },
+    {
+        name: "GMC Yukon XL / Denali",
+        image: "/fleet/gmc-yukon-xl-premium-chauffeur-saudi.webp",
         passengers: 7,
         luggage: 5,
-        priceRange: 'SAR 250 - 400'
     },
     {
-        name: 'Toyota Camry',
-        image: '/toyota-camry.webp',
-        passengers: 4,
-        luggage: 3,
-        priceRange: 'SAR 100 - 150'
+        name: "Genesis G80 VIP",
+        image: "/fleet/genesis-g80-luxury-transport-ksa.webp",
+        passengers: 3,
+        luggage: 2,
     },
     {
-        name: 'Hyundai Staria',
-        image: '/hyundai-staria.webp',
+        name: "Mercedes Vito",
+        image: "/fleet/mercedes-vito-vip-shuttle-service-ksa.webp",
         passengers: 7,
-        luggage: 6,
-        priceRange: 'SAR 180 - 250'
+        luggage: 4,
     },
     {
-        name: 'Toyota Hiace',
-        image: '/toyota-hiace.webp',
+        name: "Ford Taurus 2025",
+        image: "/fleet/ford-taurus-executive-sedan-saudi-arabia.webp",
+        passengers: 3,
+        luggage: 2,
+    },
+    {
+        name: "Mercedes Sprinter",
+        image: "/fleet/mercedes-sprinter-luxury-van-transfer-saudi.webp",
+        passengers: 14,
+        luggage: 4,
+    },
+    {
+        name: "Hyundai Staria VIP",
+        image: "/hyundai-staria.webp",
+        passengers: 7,
+        luggage: 4,
+    },
+    {
+        name: "Toyota Hiace",
+        image: "/toyota-hiace.webp",
         passengers: 11,
-        luggage: 10,
-        priceRange: 'SAR 300 - 450'
+        luggage: 16,
     },
     {
-        name: 'Toyota Coaster',
-        image: '/toyota-coaster.webp',
+        name: "Toyota Coaster",
+        image: "/toyota-coaster.webp",
         passengers: 17,
-        luggage: 15,
-        priceRange: 'SAR 400 - 600'
+        luggage: 20,
     },
     {
-        name: 'Hyundai Starex',
-        image: '/hyundai-starex.webp',
+        name: "Toyota Camry",
+        image: "/toyota-camry.webp",
+        passengers: 4,
+        luggage: 2,
+    },
+    {
+        name: "Hyundai Starex",
+        image: "/hyundai-starex.webp",
         passengers: 7,
-        luggage: 5,
-        priceRange: 'SAR 150 - 220'
+        luggage: 10,
+    },
+    {
+        name: "Luxurious Bus",
+        image: "/fleet/luxurious-bus.webp",
+        passengers: 25,
+        luggage: 30,
     }
 ];

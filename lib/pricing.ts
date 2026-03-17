@@ -1,11 +1,19 @@
 
 export type VehicleType =
-    | 'Toyota Camry'
-    | 'GMC Yukon'
-    | 'Hyundai Staria'
-    | 'Toyota Hiace'
-    | 'Toyota Coaster'
-    | 'Hyundai Starex';
+    | "Mercedes S-Class"
+    | "BMW 7 Series"
+    | "Cadillac Escalade"
+    | "GMC Yukon XL / Denali"
+    | "Genesis G80 VIP"
+    | "Mercedes Vito"
+    | "Ford Taurus 2025"
+    | "Mercedes Sprinter"
+    | "Hyundai Staria VIP"
+    | "Toyota Hiace"
+    | "Toyota Coaster"
+    | "Toyota Camry"
+    | "Hyundai Starex"
+    | "Luxurious Bus";
 
 export interface RoutePricing {
     [key: string]: { // key is vehicle name
@@ -20,8 +28,8 @@ export const PRICING_RULES: { [route: string]: RoutePricing } = {
     // Jeddah <-> Makkah
     'jeddah-makkah': {
         'Toyota Camry': { price: 200 },
-        'GMC Yukon': { price: 400 },
-        'Hyundai Staria': { price: 250 },
+        'GMC Yukon XL / Denali': { price: 400 },
+        'Hyundai Staria VIP': { price: 250 },
         'Hyundai Starex': { price: 220 },
         'Toyota Hiace': { price: 350 },
         'Toyota Coaster': { price: 500 },
@@ -29,8 +37,8 @@ export const PRICING_RULES: { [route: string]: RoutePricing } = {
     // Jeddah <-> Madinah
     'jeddah-madinah': {
         'Toyota Camry': { price: 450 },
-        'GMC Yukon': { price: 800 },
-        'Hyundai Staria': { price: 600 },
+        'GMC Yukon XL / Denali': { price: 800 },
+        'Hyundai Staria VIP': { price: 600 },
         'Hyundai Starex': { price: 550 },
         'Toyota Hiace': { price: 700 },
         'Toyota Coaster': { price: 1000 },
@@ -38,8 +46,8 @@ export const PRICING_RULES: { [route: string]: RoutePricing } = {
     // Makkah <-> Madinah
     'makkah-madinah': {
         'Toyota Camry': { price: 400 },
-        'GMC Yukon': { price: 750 },
-        'Hyundai Staria': { price: 550 },
+        'GMC Yukon XL / Denali': { price: 750 },
+        'Hyundai Staria VIP': { price: 550 },
         'Hyundai Starex': { price: 500 },
         'Toyota Hiace': { price: 650 },
         'Toyota Coaster': { price: 900 },
@@ -47,8 +55,8 @@ export const PRICING_RULES: { [route: string]: RoutePricing } = {
     // Taif <-> Makkah
     'makkah-taif': {
         'Toyota Camry': { price: 300 },
-        'GMC Yukon': { price: 500 },
-        'Hyundai Staria': { price: 400 },
+        'GMC Yukon XL / Denali': { price: 500 },
+        'Hyundai Staria VIP': { price: 400 },
         'Hyundai Starex': { price: 350 },
         'Toyota Hiace': { price: 450 },
         'Toyota Coaster': { price: 700 },

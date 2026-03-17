@@ -109,10 +109,17 @@ export default function AirportTransfersPage() {
             airports: 'All airports'
         },
         {
-            name: 'GMC Yukon',
+            name: 'GMC Yukon XL / Denali',
             capacity: '7 passengers',
             luggage: '5 large bags',
             ideal: 'Families, group travelers',
+            airports: 'All airports'
+        },
+        {
+            name: 'Hyundai Staria VIP',
+            capacity: '7 passengers',
+            luggage: '4 large bags',
+            ideal: 'VIP Family groups',
             airports: 'All airports'
         },
         {
@@ -122,6 +129,13 @@ export default function AirportTransfersPage() {
             ideal: 'Large groups, tour groups',
             airports: 'Major airports (JED, RUH, MED)'
         },
+        {
+            name: 'Mercedes-Benz Sprinter',
+            capacity: '14 passengers',
+            luggage: '4 large bags',
+            ideal: 'VIP Executive groups',
+            airports: 'Jeddah International (JED)'
+        }
     ];
 
     const faqs = [
@@ -213,7 +227,7 @@ export default function AirportTransfersPage() {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/booking?service=airport-transfer">
                                 <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
-                                    Request a quote for airport Transfer
+                                    اطلب عرض سعر لنقل المطار
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>

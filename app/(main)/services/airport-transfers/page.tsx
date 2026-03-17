@@ -124,10 +124,17 @@ export default async function AirportTransfersPage() {
             airports: 'All airports'
         },
         {
-            name: 'GMC Yukon',
+            name: 'GMC Yukon XL / Denali',
             capacity: '7 passengers',
             luggage: '5 large bags',
             ideal: 'Families, group travelers',
+            airports: 'All airports'
+        },
+        {
+            name: 'Hyundai Staria VIP',
+            capacity: '7 passengers',
+            luggage: '4 large bags',
+            ideal: 'VIP Family groups',
             airports: 'All airports'
         },
         {
@@ -137,6 +144,13 @@ export default async function AirportTransfersPage() {
             ideal: 'Large groups, tour groups',
             airports: 'Major airports (JED, RUH, MED)'
         },
+        {
+            name: 'Mercedes-Benz Sprinter',
+            capacity: '14 passengers',
+            luggage: '4 large bags',
+            ideal: 'VIP Executive groups',
+            airports: 'Jeddah International (JED)'
+        }
     ];
 
     const faqs = [
