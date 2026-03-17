@@ -60,7 +60,7 @@ export default function ObhurPage() {
             <Hero
                 images={images}
                 h1Text="VIP Private Transfer to Obhur Beach Resorts"
-                bookingFormTitle="Book Resort Transfer"
+                bookingFormTitle="Get Quote for Resort Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Premium Resort Chauffeur
@@ -195,7 +195,7 @@ export default function ObhurPage() {
                         perspectives: []
                     },
                     {
-                        question: "Can I book a round trip?",
+                        question: "Can I Request a quote for a round trip?",
                         shortAnswer: "Highly Recommended",
                         detailedAnswer: "Yes, we strongly recommend booking a round trip. We can drop you off in the morning and pick you up at sunset.",
                         perspectives: []
@@ -211,3 +211,4 @@ export default function ObhurPage() {
         </div>
     );
 }
+

@@ -8,7 +8,7 @@ import {
 const faqs = [
     {
         question: "How do I book a taxi from Jeddah Airport?",
-        answer: "You can easily book a taxi through our website by clicking the 'Book Now' button. Alternatively, you can email us for instant booking confirmation."
+        answer: "You can easily request a quotation through our website by clicking any 'Get Quote' or 'Book Journey' button. Our email-based booking system ensures you receive the most competitive premium rate for your trip."
     },
     {
         question: "What types of vehicles do you offer?",

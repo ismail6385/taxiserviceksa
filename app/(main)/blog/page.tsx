@@ -191,3 +191,4 @@ export default async function BlogIndexPage({ searchParams }: Props) {
         </main>
     );
 }
+

@@ -10,14 +10,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi Doha to Riyadh | VIP Cross-Border Transfer',
-    description: 'Book a premium taxi from Doha to Riyadh. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Doha to Riyadh. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Doha to Riyadh', 'Doha to Riyadh transfer', 'cross border taxi Saudi Arabia', 'VIP transport Doha Riyadh'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/doha-riyadh/',
     },
     openGraph: {
         title: 'Taxi Doha to Riyadh',
-        description: 'Book a premium taxi from Doha to Riyadh. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Doha to Riyadh. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/doha-riyadh/',
         type: 'website',
     },
@@ -82,13 +82,13 @@ export default function DohaRiyadhRoutePage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Doha&dropoff=Riyadh">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book Ride (1500 SAR)
+                            Get Quote (1500 SAR)
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="https://wa.me/966569487569?text=Hello,%20I%20want%20to%20book%20a%20taxi%20from%20Doha%20to%20Riyadh">
+                    <a href="mailto:info@taxiserviceksa.com?text=Hello,%20I%20want%20to%20book%20a%20taxi%20from%20Doha%20to%20Riyadh">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            WhatsApp Booking
+                            Get Quote
                         </Button>
                     </a>
                 </div>
@@ -211,3 +211,6 @@ export default function DohaRiyadhRoutePage() {
         </div>
     );
 }
+
+
+

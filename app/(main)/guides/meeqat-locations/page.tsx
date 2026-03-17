@@ -257,7 +257,7 @@ export default function MeeqatLocationsPage() {
                                             <>
                                                 It is about 75km from Makkah. Our taxi drivers know the exact stop. You can{' '}
                                                 <Link href='/booking/' className='text-primary font-bold hover:underline'>
-                                                    book your Meeqat transfer online
+                                                    Get a quote for your Meeqat transfer online
                                                 </Link>{' '}
                                                 for total peace of mind.
                                             </>
@@ -385,3 +385,4 @@ export default function MeeqatLocationsPage() {
         </div>
     );
 }
+

@@ -131,7 +131,7 @@ export default function TawafGuidePage() {
                                     {
                                         role: "Tip",
                                         icon: "RefreshCw",
-                                        insight: "Use a finger counter or simple tasbeeh to keep track. If you're feeling exhausted after the journey, you can always <Link href='/booking/' className='text-primary font-bold hover:underline'>book a comfortable taxi online</Link> to rest before your next rite."
+                                        insight: "Use a finger counter or simple tasbeeh to keep track. If you're feeling exhausted after the journey, you can always <Link href='/booking/' className='text-primary font-bold hover:underline'>Request a quote for a comfortable taxi online</Link> to rest before your next rite."
                                     }
                                 ]
                             }
@@ -230,3 +230,4 @@ export default function TawafGuidePage() {
         </div>
     );
 }
+

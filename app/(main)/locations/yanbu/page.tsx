@@ -83,7 +83,7 @@ export default function YanbuPage() {
             <Hero
                 images={yanbuImages}
                 h1Text="VIP Private Transfer & Chauffeur Yanbu"
-                bookingFormTitle="Book Premium Transfer in Yanbu"
+                bookingFormTitle="Get Quote for Premium Transfer in Yanbu"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Yanbu
@@ -294,7 +294,7 @@ export default function YanbuPage() {
                                 {
                                     topic: "VIP Service Availability",
                                     commonBelief: "I can hail one on the street.",
-                                    reality: "In the Royal Commission (Industrial City), street taxis are BANNED/non-existent. You MUST book a private VIP transfer or use a licensed app. Street hailing only works in Old Town.",
+                                    reality: "In the Royal Commission (Industrial City), street taxis are BANNED/non-existent. You MUST Request a quote for a private VIP transfer or use a licensed app. Street hailing only works in Old Town.",
                                     truthRange: "Booking Required (RC)",
                                     factors: ["RC Rules", "Zoning"]
                                 },
@@ -483,7 +483,7 @@ export default function YanbuPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your Yanbu VIP Transfer Now
+                        Get a quote for your Yanbu VIP Transfer Now
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                         Professional transport for industrial workers, port access, and Red Sea travel.
@@ -505,3 +505,4 @@ export default function YanbuPage() {
         </div>
     );
 }
+

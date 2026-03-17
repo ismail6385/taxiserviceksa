@@ -63,7 +63,7 @@ export default function AdminSidebar() {
     }
 
     return (
-        <>
+        <div className="print:hidden">
             {/* Mobile Menu Button */}
             <div className="md:hidden fixed top-4 left-4 z-50">
                 <Button
@@ -96,8 +96,6 @@ export default function AdminSidebar() {
                     <nav className="flex-1 overflow-y-auto py-6 px-4 space-y-2">
                         {menuItems.map((item) => {
                             const Icon = item.icon;
-                            // Check if current path starts with the link href (for active state)
-                            // But for dashboard, exact match might be better if sub-routes exist
                             const isActive = pathname === item.href || (item.name !== 'Dashboard' && pathname.startsWith(item.href));
 
                             return (
@@ -140,6 +138,6 @@ export default function AdminSidebar() {
                     onClick={() => setIsMobileMenuOpen(false)}
                 />
             )}
-        </>
+        </div>
     );
 }

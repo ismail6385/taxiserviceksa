@@ -55,7 +55,7 @@ export default function JubailPage() {
             <Hero
                 images={images}
                 h1Text="VIP Private Transfer & Chauffeur Jubail"
-                bookingFormTitle="Book Premium Transfer in Jubail"
+                bookingFormTitle="Get Quote for Premium Transfer in Jubail"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Jubail
@@ -206,3 +206,4 @@ export default function JubailPage() {
         </div>
     );
 }
+

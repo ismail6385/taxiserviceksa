@@ -148,7 +148,7 @@ export default function PilgrimageTransportReportPage() {
 
                         <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Conclusion</h2>
                         <p>
-                            The High-Speed Railway is perfect for the solo business traveler or light packer. However, our 2025 analysis confirms that for the core demographic of Umrah pilgrims—<strong>families with luggage</strong>—the Private Taxi remains the logical, economic, and ergonomic champion. For maximum convenience, you should <Link href="/booking/" className="text-primary font-bold hover:underline">book a taxi online</Link> before your arrival.
+                            The High-Speed Railway is perfect for the solo business traveler or light packer. However, our 2025 analysis confirms that for the core demographic of Umrah pilgrims—<strong>families with luggage</strong>—the Private Taxi remains the logical, economic, and ergonomic champion. For maximum convenience, you should <Link href="/booking/" className="text-primary font-bold hover:underline">Request a quote for a taxi online</Link> before your arrival.
                         </p>
                     </div>
 
@@ -157,7 +157,7 @@ export default function PilgrimageTransportReportPage() {
                         <div className="relative z-10">
                             <h3 className="text-2xl sm:text-3xl font-bold mb-4">Choose The "Touchless" Transfer</h3>
                             <p className="text-gray-300 max-w-xl mx-auto mb-8 text-lg">
-                                Don't let luggage drag you down. Book a GMC Yukon for your family and experience the convenience of door-to-door service.
+                                Don't let luggage drag you down. Request a quote for a GMC Yukon for your family and experience the convenience of door-to-door service.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Link href="/booking/">
@@ -226,3 +226,4 @@ export default function PilgrimageTransportReportPage() {
         </article>
     );
 }
+

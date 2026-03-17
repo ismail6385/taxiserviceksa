@@ -11,7 +11,7 @@ import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
     title: 'Taxi to Yanbu Industrial City (Royal Commission) | Business Transfer',
-    description: 'Book a reliable taxi to Yanbu Industrial City (Royal Commission). Daily transfers from Yanbu Airport (YNB) to major plants (SABIC, Yanpet) and hotels.',
+    description: 'Request a quote for a reliable taxi to Yanbu Industrial City (Royal Commission). Daily transfers from Yanbu Airport (YNB) to major plants (SABIC, Yanpet) and hotels.',
     keywords: ['Yanbu Industrial City taxi', 'Royal Commission Yanbu transport', 'Yanbu Airport to Industrial City', 'Yanbu RC taxi', 'SABIC Yanbu transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/yanbu/industrial-city/',
@@ -154,7 +154,7 @@ export default function YanbuIndustrialPage() {
                     {
                         question: "Are taxis easily available inside Yanbu Industrial City?",
                         shortAnswer: "No, limited",
-                        detailedAnswer: "Street-hailing taxis is rare inside the residential and industrial quarters of the Royal Commission. It is highly recommended to book a ride in advance.",
+                        detailedAnswer: "Street-hailing taxis is rare inside the residential and industrial quarters of the Royal Commission. It is highly recommended to Request a quote for a ride in advance.",
                         perspectives: []
                     },
                     {
@@ -168,3 +168,4 @@ export default function YanbuIndustrialPage() {
         </div>
     );
 }
+

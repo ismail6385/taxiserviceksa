@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'تاكسي الطائف | رحلات الهدا والشفا',
-        description: 'احجز مشوارك للطائف الآن. سيارات عائلية وسائقين محترفين.',
+        description: 'طلب اقتباس مشوارك للطائف الآن. سيارات عائلية وسائقين محترفين.',
         url: 'https://taxiserviceksa.com/ar/locations/taif/',
         locale: 'ar_SA',
         type: 'website',
@@ -80,7 +80,7 @@ export default function TaifPageArabic() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/">
                         <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-primary/90 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl w-full sm:w-auto">
-                            احجز رحلة الطائف
+                            طلب اقتباس رحلة الطائف
                             <ArrowRight className="mr-2 w-5 h-5 rotate-180" />
                         </Button>
                     </Link>
@@ -180,3 +180,4 @@ export default function TaifPageArabic() {
         </div>
     );
 }
+

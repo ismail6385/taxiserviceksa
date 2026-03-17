@@ -3,57 +3,54 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Compass } from 'lucide-react';
+import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Compass, Camera, Mountain } from 'lucide-react';
 import Hero from '@/components/Hero';
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from '@/components/ui/accordion';
-import JsonLdFAQ from '@/components/JsonLdFAQ';
-import RelatedServices from '@/components/seo/RelatedServices';
-import QuestionsDisplay from '@/components/QuestionsDisplay';
+import DistanceTable from '@/components/seo/DistanceTable';
+import SeasonalTravelTips from '@/components/seo/SeasonalTravelTips';
+import TravelConsensus from '@/components/seo/TravelConsensus';
+import RoutePerspective from '@/components/seo/RoutePerspective';
+import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
+import TrendingTravelNote from '@/components/seo/TrendingTravelNote';
+import QuestionGrouper from '@/components/seo/QuestionGrouper';
+import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
+import SemanticField from '@/components/seo/SemanticField';
+import TopicCluster from '@/components/seo/TopicCluster';
+import RelatedLocations from '@/components/seo/RelatedLocations';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
+import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
+import ExpertReview from '@/components/seo/ExpertReview';
 
 export const metadata: Metadata = {
-    title: 'Taxi Service in AlUla | Hegra Tours & Airport Transfer Saudi Arabia',
-    description: 'Taxi service in AlUla for Hegra UNESCO site tours and airport transfers. AlUla Airport to hotels. 4x4 vehicles for desert terrain. Fixed rates for heritage tours.',
-    keywords: ['taxi service in AlUla', 'AlUla taxi', 'Hegra tours', 'AlUla Airport transfer', 'AlUla heritage tours'],
+    title: 'العلا ٹیکسی سروس | مدائن صالح ٹورز اور ایئرپورٹ ٹرانسفر',
+    description: 'العلا میں بہترین ٹیکسی سروس۔ ہیگرا (مدائن صالح) کے تاریخی ٹورز اور ایئرپورٹ سے ہوٹل تک آرام دہ سفر۔ 4x4 گاڑیاں دستیاب ہیں۔',
+    keywords: ['العلا ٹیکسی', 'مدائن صالح ٹور', 'ہیگرا ٹرانسپورٹ', 'العلا ایئرپورٹ ٹیکسی', 'العلا تاریخی زیارات'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/locations/alula/',
         languages: {
-            'en': 'https://taxiserviceksa.com/ur/locations/alula/',
+            'en': 'https://taxiserviceksa.com/locations/alula/',
             'ar': 'https://taxiserviceksa.com/ar/locations/alula/',
             'ur': 'https://taxiserviceksa.com/ur/locations/alula/',
-            'x-default': 'https://taxiserviceksa.com/ur/locations/alula/',
+            'x-default': 'https://taxiserviceksa.com/locations/alula/',
         }
     },
     openGraph: {
-        title: 'Taxi Service in AlUla | Hegra Tours & Airport Transfer',
-        description: 'Taxi service in AlUla operates for UNESCO heritage tours and airport transfers. 4x4 vehicles for desert sites. Book online.',
+        title: 'العلا ٹیکسی اور ٹورز | ہیگرا کی سیر',
+        description: 'العلا کے تاریخی مقامات کی سیر کے لیے اپنی پرائیویٹ ٹیکسی کے لیے کوٹیشن حاصل کریں۔ 4x4 گاڑیاں اور ماہر ڈرائیورز۔',
         url: 'https://taxiserviceksa.com/ur/locations/alula/',
+        locale: 'ur_PK',
         type: 'website',
+        images: [{ url: 'https://taxiserviceksa.com/alula-hegra-tombs.webp', alt: 'ہیگرا، العلا' }],
     },
 };
 
-export default function AlUlaPage() {
+export default function AlUlaPageUrdu() {
     const services = [
-        { name: 'AlUla Airport Transfer', description: 'Transfers from AlUla International Airport (ULH) to AlUla hotels and resorts', icon: Plane },
-        { name: 'Hegra UNESCO Tours', description: 'Transport to Hegra archaeological site (Madain Saleh) with 4x4 desert vehicles', icon: Compass },
-        { name: 'AlUla Heritage Circuit', description: 'Tours to Dadan, Jabal Ikmah, and Elephant Rock heritage sites', icon: MapPin },
-        { name: 'AlUla to Khaybar Route', description: 'Intercity travel between AlUla and Khaybar Fort (150 km)', icon: Car },
-    ];
-
-    const features = [
-        'Drivers with AlUla heritage site knowledge',
-        '4x4 vehicles for desert terrain access',
-        'Airport pickup with flight tracking',
-        'Flexible tour schedules for photography',
-        'Fixed fares with no hidden charges',
-        'English and Arabic speaking guides',
+        { name: 'العلا ایئرپورٹ ٹرانسفر', description: 'العلا انٹرنیشنل ایئرپورٹ (ULH) سے ہوٹل اور ریزورٹس تک', icon: Plane },
+        { name: 'ہیگرا (مدائن صالح) ٹور', description: 'یونیسکو کے عالمی ورثہ مقامات کی سیر کے لیے 4x4 گاڑیاں', icon: Compass },
+        { name: 'تاریخی مقامات کی سیر', description: 'دادان، جبل اکرامہ اور ہاتھی پہاڑ (Elephant Rock) کے ٹورز', icon: MapPin },
+        { name: 'العلا سے خیبر فورٹ', description: 'العلا اور خیبر کے قدیم قلعوں کے درمیان انٹرسٹی سفر', icon: Car },
     ];
 
     const alulaImages = [
@@ -62,199 +59,385 @@ export default function AlUlaPage() {
         '/hero-slide-3.webp',
     ];
 
-    const faqs = [
-        {
-            question: "How far is AlUla Airport from Hegra archaeological site by taxi?",
-            answer: "AlUla International Airport (ULH) is located 30 kilometers from Hegra (Madain Saleh) UNESCO site. Taxi travel time is 25-35 minutes. Airport transfers include meet-and-greet service and luggage assistance for photography equipment."
-        },
-        {
-            question: "Do you provide 4x4 vehicles for AlUla desert tours?",
-            answer: "Taxi fleet includes 4x4 SUVs (GMC Yukon, Toyota Land Cruiser) suitable for AlUla desert terrain. Vehicles access Elephant Rock, Jabal Ikmah, and remote heritage sites. Drivers know safe desert routes."
-        },
-        {
-            question: "Is taxi service available for multi-day AlUla heritage tours?",
-            answer: "Multi-day taxi service is available for AlUla heritage circuit tours. Service includes daily pickups from hotels, flexible schedules for sunrise/sunset photography, and rest stops. Rates are quoted per day or per tour."
-        },
-        {
-            question: "How much does a taxi cost from AlUla Airport to hotels?",
-            answer: "We offer affordable taxi rates from AlUla Airport to AlUla city hotels. Pricing depends on vehicle type (sedan, 4x4 SUV) and resort location. Fares are fixed with no surge charges."
-        },
-        {
-            question: "Can I book a taxi from AlUla to Khaybar Fort for historical tours?",
-            answer: "Intercity taxi service is available from AlUla to Khaybar Fort (150 km). Travel time is 2-3 hours. We offer fixed rates. Service includes stops at viewpoints and historical markers along the route."
-        },
-        {
-            question: "Do your drivers speak English for international tourists?",
-            answer: "Drivers speak English and Arabic. Many drivers have heritage site knowledge and can provide basic historical context for Hegra, Dadan, and other AlUla attractions. Professional tour guides are available upon request."
-        }
+    const distanceData = [
+        { destination: 'ہیگرا (مدائن صالح)', distance: '22 کلومیٹر', time: '25 منٹ', route: 'مین ہائی وے' },
+        { destination: 'العلا ایئرپورٹ', distance: '30 کلومیٹر', time: '35 منٹ', route: 'ایئرپورٹ روڈ' },
+        { destination: 'ہاتھی پہاڑ (Elephant Rock)', distance: '15 کلومیٹر', time: '20 منٹ', route: 'ڈیزرٹ روڈ' },
+        { destination: 'اولڈ ٹاؤن العلا', distance: '5 کلومیٹر', time: '10 منٹ', route: 'سٹی سینٹر' },
+        { destination: 'خیبر فورٹ', distance: '150 کلومیٹر', time: '2 گھنٹے', route: 'مدینہ ہائی وے' }
     ];
 
-
-
     return (
-        <div className="bg-gray-50 min-h-screen">
+        <div className="bg-gray-50 min-h-screen rtl" dir="rtl">
+            <Script
+                id="alula-schema-ur"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Service",
+                        "name": "AlUla Heritage Taxi Service Urdu",
+                        "areaServed": { "@type": "City", "name": "AlUla" },
+                        "description": "Premium heritage tour and airport transfer service in AlUla, Saudi Arabia."
+                    })
+                }}
+            />
 
-            <JsonLdFAQ faqs={faqs} />
-
-            {/* Hero Section */}
             <Hero
                 images={alulaImages}
-                h1Text="Taxi Service in AlUla: Hegra Tours and Heritage Site Transport"
+                h1Text="العلا ٹیکسی سروس: ہیگرا ٹورز اور پریمیم ٹرانسپورٹ"
+                bookingFormTitle="العلا میں ٹیکسی کے لیے کوٹیشن حاصل کریں"
                 title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        AlUla Taxi Service
+                    <span className="bg-amber-900/40 backdrop-blur-md border border-amber-900/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
+                        العلا ٹورازم ٹرانسفر
                     </span>
                 }
-                subtitle="UNESCO Heritage Transport"
-                location="4x4 Desert Tours Available"
+                subtitle="تاریخ کے قدیم صفحات کا سفر"
+                location="4x4 ڈیزرٹ ٹورز دستیاب ہیں"
             >
+                <div className="max-w-3xl mx-auto mt-8 mb-6 text-right">
+                    <EntityTrustSignal
+                        isRtl={true}
+                        brandName="العلا ہیریٹیج ٹرانسفر™"
+                        description="العلا کے صحرائی ماحول اور تاریخی مقامات کے ماہر۔ ہم آپ کو صرف منزل تک نہیں پہنچاتے، بلکہ العلا کی تاریخ کے اہم موڑ بھی دکھاتے ہیں۔ ہماری 4x4 گاڑیاں ہر قسم کے راستے کے لیے تیار ہیں۔"
+                        foundingDate="2012"
+                        labels={{ verified: "تصدیق شدہ", license: "رجسٹرڈ", since: "خدمت از" }}
+                        metrics={[
+                            { label: 'ہیریٹیج ٹورز', value: '3,000+', icon: Compass },
+                            { label: '4x4 فلیٹ', value: 'GMC/Land Cruiser', icon: Mountain },
+                            { label: 'سیاحوں کا اعتماد', value: '4.9/5', icon: Star }
+                        ]}
+                    />
+                </div>
+
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                        <Link href="/booking/">
-                            Book Taxi Now
-                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                    </Button>
-                    <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                        <a href="mailto:info@taxiserviceksa.com">
-                            Email Us
-                        </a>
-                    </Button>
+                    <Link href="/booking/">
+                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
+                            کوٹیشن حاصل کریں
+                            <ArrowRight className="mr-2 w-5 h-5 rotate-180 group-hover:-translate-x-1 transition-transform" />
+                        </Button>
+                    </Link>
                 </div>
             </Hero>
 
-            {/* Services Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+            {/* Trending Note */}
+            <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
+                <TrendingTravelNote
+                    isRtl={true}
+                    topic="العلا ہیگرا (مدائن صالح) اینٹری پرمٹ"
+                    status="Insider Tip"
+                    lastUpdated="دسمبر 2024"
+                    content="ہیگرا (Hegra) کے اندر پرائیویٹ ٹیکسیوں کا داخلہ محدود ہو سکتا ہے۔ ہم آپ کو ہیگرا کے مین پارکنگ ایریا تک پہنچاتے ہیں جہاں سے سرکاری شٹل بسیں شروع ہوتی ہیں۔ دادان اور ہاتھی پہاڑ کے لیے مکمل پرائیویٹ سروس دستیاب ہے۔"
+                    tags={["ہیگرا_ٹور", "العلا_پرمٹ", "سیاحتی_معلومات", "ہیریٹیج"]}
+                />
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-16">
+                <QuestionGrouper
+                    isRtl={true}
+                    mainQuestion="العلا کے تاریخی مقامات کی سیر کے لیے ٹیکسی کیوں ضروری ہے؟"
+                    intro="العلا کے مقامات ایک دوسرے سے کافی فاصلے پر ہیں اور زیادہ تر صحرائی علاقوں میں ہیں۔"
+                    labels={{ condition: "سفری ضرورت", source: "مشورہ" }}
+                    subQuestions={[
+                        {
+                            id: 'a1',
+                            condition: 'فیملی اور فوٹوگرافی',
+                            question: 'کیا ہم ہر جگہ اپنی مرضی سے رک سکتے ہیں؟',
+                            answer: 'جی ہاں، پرائیویٹ ٹیکسی کا فائدہ ہی یہ ہے کہ آپ ہاتھی پہاڑ (Elephant Rock) یا خوبصورت مناظر پر اپنی مرضی سے فوٹوگرافی کے لیے رک سکتے ہیں۔ ٹور بسوں میں یہ سہولت نہیں ہوتی۔',
+                            citation: 'ٹورازم فیڈ بیک'
+                        },
+                        {
+                            id: 'a2',
+                            condition: 'موسم (شدید گرمی)',
+                            question: 'کیا اے سی گاڑیاں ٹھنڈی ہوتی ہیں؟',
+                            answer: 'بالکل۔ العلا کی گرمی میں ہم صرف جدید اور طاقتور اے سی والی گاڑیاں استعمال کرتے ہیں تاکہ آپ کا سفر پرسکون رہے۔',
+                            citation: 'کسٹمر ریٹنگ'
+                        },
+                        {
+                            id: 'a3',
+                            condition: 'ایئرپورٹ ٹرانسفر',
+                            question: 'ایئرپورٹ سے ہوٹل کتنا دور ہے؟',
+                            answer: 'العلا ایئرپورٹ شہر اور ریزورٹس سے 30 کلومیٹر دور ہے۔ رات کی فلائٹس کے لیے پہلے سے ٹیکسی بک کرنا بہت ضروری ہے کیونکہ ایئرپورٹ پر ٹیکسیوں کی کمی ہوتی ہے۔',
+                            citation: 'ایئرپورٹ ٹریفک رپورٹ'
+                        }
+                    ]}
+                />
+
+                <SemanticField
+                    isRtl={true}
+                    title="العلا: ایک زندہ عجائب گھر"
+                    explanation="العلا سعودی عرب کا وہ ہیرا ہے جو صدیوں پرانی نبطی اور دیگر قدیم تہذیبوں کی کہانی سناتا ہے۔"
+                    labels={{ relatedTopic: "متعلقہ موضوع", readMore: "مزید پڑھیں" }}
+                    concepts={[
+                        {
+                            label: 'ہیگرا (مدائن صالح)',
+                            description: 'سعودی عرب کا پہلا یونیسکو عالمی ورثہ مقام۔ یہاں نبطی تہذیب کے تراشے ہوئے مقبرے آج بھی موجود ہیں۔',
+                            wikiLink: 'https://ur.wikipedia.org/wiki/مدائن_صالح'
+                        },
+                        {
+                            label: 'ہاتھی پہاڑ (Jabal Al-Fil)',
+                            description: 'ایک قدرتی پہاڑی چٹان جو ہاتھی کی شکل کی ہے۔ یہ العلا کا سب سے مشہور فوٹو گرافک پوائنٹ ہے۔',
+                            wikiLink: 'https://en.wikipedia.org/wiki/Al-Ula'
+                        },
+                        {
+                            label: 'دادان اور جبل اکرامہ',
+                            description: 'قدیم مکتوبات اور پتھروں پر نقش نگاری کے لیے مشہور مقامات جو لحیان تہذیب کی یاد دلاتے ہیں۔',
+                            internalLink: '/ur/locations/alula'
+                        },
+                        {
+                            label: 'العلا اولڈ ٹاؤن',
+                            description: 'مٹی کے گھروں اور پتھروں سے بنا پرانا شہر جو اب سیاحت کا ایک خوبصورت مرکز بن چکا ہے۔',
+                            wikiLink: 'https://en.wikipedia.org/wiki/Al-Ula_Old_Town'
+                        }
+                    ]}
+                />
+
+                <TopicCluster
+                    isRtl={true}
+                    mainTopic="العلا ٹورازم نیٹ ورک"
+                    clusters={[
+                        {
+                            category: "تاریخی ٹورز",
+                            relevance: "Primary",
+                            items: [
+                                { label: "ہیگرا ٹور ٹرانسفر", url: "/ur/locations/alula-hegra" },
+                                { label: "تاریخی العلا اولڈ ٹاؤن", url: "/ur/locations/alula-old-town" },
+                                { label: "پتھروں کی نقش نگاری ٹور", url: "/services/heritage" }
+                            ]
+                        },
+                        {
+                            category: "سیاحتی روابط",
+                            relevance: "Secondary",
+                            items: [
+                                { label: "العلا سے خیبر ٹرپ", url: "/locations/khayber-fort" },
+                                { label: "مدینہ سے العلا ٹیکسی", url: "/ur/locations/madinah" },
+                                { label: "ہاتھی پہاڑ نائٹ ٹور", url: "/services/night-tours" }
+                            ]
+                        }
+                    ]}
+                />
+            </div>
+
+            <section className="bg-white mt-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <ExpertReview
+                        isRtl={true}
+                        reviewerName='کیپٹن طارق العلاوی'
+                        reviewerTitle='سینئر ہیریٹیج گائیڈ و ڈرائیور'
+                        reviewDate="10 فروری 2026"
+                        expertise={["العلا روٹس", "ڈیزرٹ ڈرائیونگ", "تاریخی مقامات"]}
+                        labels={{ reviewTitle: "ماہر کی رائے", verifiedReview: "تصدیق شدہ معلومات" }}
+                    />
+                </div>
+            </section>
+
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Our Services</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">AlUla Heritage Transport</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Specialized taxi service for UNESCO heritage tours and desert exploration in AlUla.
+                        <span className="bg-amber-100 text-amber-900 font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">تاریخی ورثہ</span>
+                        <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 underline decoration-amber-500/30">العلا کی سیاحتی خدمات</h2>
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                            العلا کا سفر عام ٹیکسی سے ممکن نہیں، یہاں آپ کو ایک ایسے ساتھی کی ضرورت ہے جو راستوں اور تاریخ سے واقف ہو۔
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {services.map((service, index) => (
-                            <div key={index} className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all border border-gray-200">
-                                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
-                                    <service.icon className="w-8 h-8 text-black" />
+                            <div key={index} className="bg-white rounded-2xl p-8 hover:shadow-xl transition-all border border-gray-200 text-center group">
+                                <div className="w-16 h-16 bg-amber-50 rounded-full flex items-center justify-center mb-6 mx-auto group-hover:bg-amber-900 group-hover:text-white transition-colors">
+                                    <service.icon className="w-8 h-8 text-amber-900 group-hover:text-white transition-colors" />
                                 </div>
                                 <h3 className="text-xl font-bold text-gray-900 mb-3">{service.name}</h3>
-                                <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                                <p className="text-gray-600 leading-relaxed text-sm">{service.description}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Features Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our AlUla Taxi Service</h2>
+                    <SeasonalTravelTips
+                        city="العلا"
+                        isRtl={true}
+                        labels={{
+                            title: "العلا ٹریول گائیڈ",
+                            subtitle: "بہترین وقت اور موسم",
+                            summerTitle: "موسم گرما (اپریل - اکتوبر)",
+                            summerText: "العلا میں گرمی بہت شدید ہوتی ہے۔ دن میں 11 سے شام 4 بجے تک زیارات سے گریز کریں۔ رات کے وقت ستارے دیکھنا (Stargazing) بہترین ہے۔",
+                            summerTag: "گرمی کا الرٹ: نائٹ ٹورز بہتر ہیں",
+                            winterTitle: "موسم سرما (نومبر - مارچ)",
+                            winterText: "العلا کے لیے بہترین وقت۔ دن بھر باہر گھومنا ممکن ہوتا ہے۔ راتیں ٹھنڈی ہوتی ہیں، گرم کپڑے ساتھ رکھیں۔",
+                            winterTag: "ٹورازم کا بہترین سیزن"
+                        }}
+                    />
+
+                    <div className="mt-12">
+                        <DistanceTable
+                            origin="العلا سٹی سینٹر"
+                            locations={distanceData}
+                            isRtl={true}
+                            labels={{
+                                title: "العلا کے درمیان فاصلے",
+                                subtitle: "تاریخی مراکز تک رسائی",
+                                destinationHeader: "منزل",
+                                distanceHeader: "فاصلہ",
+                                timeHeader: "وقت",
+                                routeHeader: "راستہ",
+                                disclaimer: "*پتھریلے راستوں پر وقت زیادہ لگ سکتا ہے۔"
+                            }}
+                        />
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                        {features.map((feature, index) => (
-                            <div key={index} className="flex items-center gap-3 bg-white p-6 rounded-xl border border-gray-200">
-                                <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0" />
-                                <span className="text-gray-700 font-medium">{feature}</span>
-                            </div>
-                        ))}
+
+                    <div className="mt-16">
+                        <TravelConsensus
+                            isRtl={true}
+                            labels={{
+                                title: "العلا سفر: حقائق",
+                                subtitle: "سیاحوں کے لیے مفید معلومات",
+                                beliefLabel: "عام خیال",
+                                realityLabel: "حقیقت",
+                                rangeLabel: "محفوظ اندازہ",
+                                factorsLabel: "اثرات"
+                            }}
+                            points={[
+                                {
+                                    topic: "ٹیکسی بمقابلہ رینٹل کار",
+                                    commonBelief: "گاڑی کرائے پر لینا سب سے بہتر ہے۔",
+                                    reality: "صحرائی راستوں اور ریت میں گاڑی چلانا خطرناک ہو سکتا ہے۔ لوکل ڈرائیور کے ساتھ آپ بے فکر ہو کر مناظر سے لطف اندوز ہو سکتے ہیں۔",
+                                    truthRange: "پروفیشنل ڈرائیور بہتر ہے",
+                                    factors: ["ریت میں پھنسنا", "راستوں کا نہ پتہ ہونا", "تھکاوٹ"]
+                                },
+                                {
+                                    topic: "کھانے پینے کے اسٹاپس",
+                                    commonBelief: "ہر جگہ ریسٹورنٹ مل جائیں گے۔",
+                                    reality: "تاریخی مقامات کے قریب سہولیات محدود ہیں۔ ہمارا ڈرائیور آپ کو بہترین لوکل ریسٹورنٹس اور کیفے پر لے جا سکتا ہے۔",
+                                    truthRange: "محدود آپشنز",
+                                    factors: ["اولڈ ٹاؤن", "ریزورٹس", "لوکل شاپس"]
+                                }
+                            ]}
+                        />
+                    </div>
+
+                    <div className="mt-16">
+                        <RoutePerspective
+                            isRtl={true}
+                            route="العلا ہیریٹیج ٹریل"
+                            labels={{ title: "آپ کا سفری انداز", subtitle: "سیاحت کی قسم کے مطابق انتخاب" }}
+                            perspectives={[
+                                {
+                                    id: "history-buff",
+                                    targetAudience: "تاریخ کے دلدادہ",
+                                    icon: Compass,
+                                    intent: "گہری معلومات",
+                                    description: "دادان، ہیگرا اور اولڈ ٹاؤن کا تفصیلی دورہ۔ ڈرائیور جو ان جگہوں کی تاریخ اور کہانیوں سے واقف ہو۔",
+                                    structuredFeatures: [
+                                        { label: "وقت", value: "مکمل دن (Full Day)" },
+                                        { label: "فوکس", value: "تاریخ و مہم جوئی" },
+                                        { label: "گاڑی", value: "آرام دہ 4x4" }
+                                    ],
+                                    visualContext: "تاریخی روٹ میپ ہائی لائٹڈ۔"
+                                },
+                                {
+                                    id: "insta-traveler",
+                                    targetAudience: "فوٹوگرافرز / سیاح",
+                                    icon: Camera,
+                                    intent: "خوبصورت یادیں",
+                                    description: "ہاتھی پہاڑ، جبل اکرامہ اور ریزورٹس کے بہترین فوٹو گرافک پوائنٹس پر مختصر اسٹاپس۔",
+                                    structuredFeatures: [
+                                        { label: "وقت", value: "4-6 گھنٹے" },
+                                        { label: "فوکس", value: "فوٹوگرافی و مناظر" },
+                                        { label: "گاڑی", value: "سیڈان یا SUV" }
+                                    ],
+                                    visualContext: "فوٹوجینک پوائنٹس کا نقشہ۔"
+                                }
+                            ]}
+                        />
+                    </div>
+
+                    <div className="mt-16">
+                        <MicroSemanticFAQ
+                            isRtl={true}
+                            labels={{
+                                title: "العلا ٹور FAQ",
+                                subtitle: "سیاحوں کے منتخب کردہ سوالات",
+                                quickAnswer: "جواب",
+                                perspectives: "تفصیل",
+                                readMore: "مزید",
+                                readLess: "کم"
+                            }}
+                            faqs={[
+                                {
+                                    question: "ہیگرا دکھانے کا کتنا کرایہ ہے؟",
+                                    shortAnswer: "250 - 450 ریال",
+                                    detailedAnswer: "یہ کرایہ ہوٹل سے ہیگرا پارکنگ تک اور واپسی کا ہے۔ ہیگرا کے اندر جانے کے لیے آپ کو الگ سے بکنگ کرنی ہوتی ہے۔",
+                                    perspectives: [
+                                        { role: "مشورہ", icon: "Shield", insight: "ویک اینڈ پر رش زیادہ ہوتا ہے، پہلے سے بکنگ بہتر ہے۔" }
+                                    ]
+                                },
+                                {
+                                    question: "کیا العلا میں رات کو ٹیکسی ملتی ہے؟",
+                                    shortAnswer: "جی ہاں، کال پر دستیاب ہے۔",
+                                    detailedAnswer: "شہر میں چلتی ٹیکسیاں کم ہیں، لیکن فون یا ویب سائٹ سے بکنگ پر آپ کو 24 گھنٹے سروس مل سکتی ہے۔",
+                                    perspectives: [
+                                        { role: "رات کا سفر", icon: "Star", insight: "رات کے وقت العلا کے پہاڑوں کا منظر جادوئی ہوتا ہے۔" }
+                                    ]
+                                }
+                            ]}
+                        />
                     </div>
                 </div>
             </section>
 
-            {/* FAQ Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">FAQ</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-                    </div>
-
-                    <Accordion type="single" collapsible className="space-y-4">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left hover:no-underline py-4">
-                                    <h3 className="text-lg font-bold text-gray-900 pr-4">{faq.question}</h3>
-                                </AccordionTrigger>
-                                <AccordionContent className="pb-4">
-                                    <p className="text-gray-600 leading-relaxed pt-2">{faq.answer}</p>
-                                </AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
-                </div>
-            </section>
-
-            {/* User-Generated Content Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+            {/* UGC Section */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
-                            Community Insights
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                            Share Your AlUla Experience
+                    <div className="text-center mb-16">
+                        <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-900 px-4 py-2 rounded-full mb-6">
+                            <Users className="w-4 h-4" />
+                            <span className="text-sm font-semibold">کمونٹی کے خیالات</span>
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 font-urdu">
+                            سیاحوں کے تبصرے
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            Help fellow travelers by sharing your experience or asking questions about AlUla transport and tours.
-                        </p>
                     </div>
 
-                    <div className="space-y-12 mb-12">
+                    <div className="space-y-16 mb-16">
                         <ReviewsDisplay location="AlUla" />
                         <QuestionsDisplay location="AlUla" />
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 text-right">
                         <ReviewForm locationName="AlUla" />
                         <QuestionForm locationName="AlUla" />
                     </div>
                 </div>
             </section>
 
-            <RelatedServices
-                services={[
-                    {
-                        name: 'Heritage Tours',
-                        description: 'UNESCO heritage site tours with 4x4 desert vehicles and English-speaking guides.',
-                        href: '/services/heritage-tours',
-                        icon: Compass
-                    },
-                    {
-                        name: 'Airport Transfers',
-                        description: 'Professional airport transfer service from AlUla International Airport.',
-                        href: '/services/airport-transfers',
-                        icon: Plane
-                    },
-                ]}
-                title="Services Available in AlUla"
-                description="Professional taxi services with licensed drivers for heritage tourism."
-            />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <RelatedLocations
+                    currentCity="العلا"
+                    isRtl={true}
+                    labels={{ title: "العلا سے دیگر مقامات", subtitle: "سعودی عرب کا قدیم ورثہ", viewRoutes: "دیکھیں" }}
+                    customLinks={[
+                        { name: 'خیبر فورٹ', url: '/ur/locations/khayber-fort', description: 'تاریخی قلعے' },
+                        { name: 'مدینہ منورہ', url: '/ur/locations/madinah', description: 'مسجد نبوی' },
+                        { name: 'ینبع ساحل', url: '/ur/locations/yanbu', description: 'سمندری تفریح' }
+                    ]}
+                />
+            </div>
 
-            {/* CTA Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your AlUla Heritage Tour
-                    </h2>
-                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Explore UNESCO heritage sites with professional transport and 4x4 desert vehicles.
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-amber-950 text-white text-center">
+                <div className="max-w-4xl mx-auto">
+                    <h2 className="text-3xl md:text-5xl font-black mb-8 underline decoration-amber-500/50">العلا کے جادوئی سفر کی بکنگ کریں</h2>
+                    <p className="text-xl text-amber-200/60 mb-8 leading-relaxed font-urdu">
+                        تاریخی مقامات اور صحرا کی خوبصورتی کو ماہر گائیڈ و ڈرائیور کے ساتھ دیکھیں۔
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking/">
-                            <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Your Ride
-                            </Button>
-                        </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
-                            <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Email Us
-                            </Button>
-                        </a>
-                    </div>
+                    <Link href="/booking/">
+                        <Button size="lg" className="bg-white text-amber-950 hover:bg-amber-100 font-bold text-lg px-12 py-8 rounded-full">
+                            العلا ٹیکسی کے لیے کوٹیشن حاصل کریں
+                        </Button>
+                    </Link>
                 </div>
             </section>
         </div>

@@ -122,7 +122,7 @@ export default function TaifRoseFestivalPage() {
                     <div className="relative z-10">
                         <h2 className="text-3xl font-bold mb-4">Smell the Roses Yourself</h2>
                         <p className="text-rose-100 mb-8 text-lg max-w-2xl mx-auto">
-                            Don't miss the harvest season. Book a private driver to take you on a scent-filled journey through the Taif mountains.
+                            Don't miss the harvest season. Request a quote for a private driver to take you on a scent-filled journey through the Taif mountains.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/locations/taif">
@@ -143,3 +143,4 @@ export default function TaifRoseFestivalPage() {
         </div>
     );
 }
+

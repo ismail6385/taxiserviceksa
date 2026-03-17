@@ -188,7 +188,7 @@ export default function KudaiPage() {
                         <AccordionItem value="item-1" className="bg-gray-100 px-8 rounded-3xl border-none">
                             <AccordionTrigger className="font-bold text-lg py-6 hover:no-underline">Where is the best pickup point in Kudai?</AccordionTrigger>
                             <AccordionContent className="text-gray-600 pb-8 text-base">
-                                Most of our clients prefer to be picked up directly from the <strong>Le Meridien Towers lobby</strong> or the <strong>Kudai Transport Hub parking</strong> near the main exit. We coordinate via WhatsApp to find you easily.
+                                Most of our clients prefer to be picked up directly from the <strong>Le Meridien Towers lobby</strong> or the <strong>Kudai Transport Hub parking</strong> near the main exit. We coordinate via email to find you easily.
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-2" className="bg-gray-100 px-8 rounded-3xl border-none">
@@ -216,7 +216,7 @@ export default function KudaiPage() {
                 <div className="max-w-4xl mx-auto px-4 relative z-10">
                     <h2 className="text-4xl font-black text-white mb-8">Ready to Skip the Bus Queue in Kudai?</h2>
                     <p className="text-xl text-emerald-100 mb-12 max-w-2xl mx-auto font-medium">
-                        Book your private taxi now and reach the Haram without the hassle.
+                        Get a quote for your private taxi now and reach the Haram without the hassle.
                     </p>
                     <div className="flex flex-wrap justify-center gap-6">
                         <Link href="/booking/">
@@ -235,3 +235,4 @@ export default function KudaiPage() {
         </div>
     );
 }
+

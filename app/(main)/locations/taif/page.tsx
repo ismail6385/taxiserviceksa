@@ -99,7 +99,7 @@ export default function TaifPage() {
             <Hero
                 images={taifImages}
                 h1Text="VIP Private Transfer & Chauffeur Taif"
-                bookingFormTitle="Book Premium Transfer in Taif"
+                bookingFormTitle="Get Quote for Premium Transfer in Taif"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Taif
@@ -573,3 +573,4 @@ export default function TaifPage() {
         </div>
     );
 }
+

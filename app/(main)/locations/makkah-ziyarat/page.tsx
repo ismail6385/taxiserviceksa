@@ -75,7 +75,7 @@ export default function MakkahZiyaratPage() {
             <Hero
                 images={['/locations/makkah.webp', '/hero-slide-2.webp']}
                 h1Text="VIP Private Ziyarat Tours Makkah"
-                bookingFormTitle="Book Premium Ziyarat"
+                bookingFormTitle="Get Quote for Premium Ziyarat"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Executive Chauffeur Service
@@ -118,7 +118,7 @@ export default function MakkahZiyaratPage() {
             {/* Semantic Hub */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-16">
                 <QuestionGrouper
-                    mainQuestion="Why book a private VIP tour for Makkah Ziyarat?"
+                    mainQuestion="Why Request a quote for a private VIP tour for Makkah Ziyarat?"
                     intro="Group buses are budget options but they often rush through sites. A private executive chauffeur lets you reflect and pray with dignity."
                     subQuestions={[
                         {
@@ -334,3 +334,4 @@ export default function MakkahZiyaratPage() {
         </div>
     );
 }
+

@@ -24,7 +24,7 @@ import {
 
 export const metadata: Metadata = {
     title: 'Saudi Arabia Tours & Sightseeing | Historical & Heritage Trips',
-    description: 'Discover Saudi Arabia with private guided tours. Makkah & Madinah Ziyarat, AlUla Heritage sites, Taif sightseeing, and Jeddah historical tours. Book your private driver today.',
+    description: 'Discover Saudi Arabia with private guided tours. Makkah & Madinah Ziyarat, AlUla Heritage sites, Taif sightseeing, and Jeddah historical tours. Get a quote for your private driver today.',
     keywords: ['Saudi Arabia tours', 'Madinah Ziyarat tour', 'AlUla heritage tour', 'Taif sightseeing', 'Jeddah historical tour', 'Private tour driver KSA'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/tours/',
@@ -127,7 +127,7 @@ export default function ToursPage() {
                     lastUpdated="Spring 2024"
                     content="Experience the blooming of the famous Taif Roses in spring (March-April). Our Taif City Tour includes visits to traditional rose water distilleries during this fragrant season."
                     tags={["TaifRoses", "Nature", "Seasonal"]}
-                    linkText="Book Taif Tour"
+                    linkText="Get Quote for Taif Tour"
                 />
             </div>
 
@@ -253,4 +253,5 @@ function DefaultUserIcon(props: any) {
 }
 
 import { ArrowRight } from 'lucide-react';
+
 

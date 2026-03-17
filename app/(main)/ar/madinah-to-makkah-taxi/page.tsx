@@ -15,7 +15,7 @@ import QuestionForm from '@/components/seo/QuestionForm';
 
 export const metadata: Metadata = {
     title: 'تاكسي من المدينة إلى مكة | رحلة خاصة مع ميقات',
-    description: 'احجز تاكسي خاص من المدينة المنورة إلى مكة المكرمة. سيارات مريحة مع توقف في ميقات ذو الحليفة (أبيار علي) للإحرام. أسعار ثابتة وسائقين محترفين.',
+    description: 'طلب اقتباس تاكسي خاص من المدينة المنورة إلى مكة المكرمة. سيارات مريحة مع توقف في ميقات ذو الحليفة (أبيار علي) للإحرام. أسعار ثابتة وسائقين محترفين.',
     keywords: ['تاكسي المدينة مكة', 'توصيل من المدينة الى مكة', 'تاكسي الميقات', 'سعر التاكسي من المدينة لمكة'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ar/madinah-to-makkah-taxi/',
@@ -113,3 +113,4 @@ export default function MadinahToMakkahPageAr() {
         </div>
     );
 }
+

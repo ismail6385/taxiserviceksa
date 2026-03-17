@@ -16,6 +16,9 @@ export async function GET() {
         { url: '/privacy-policy', priority: 0.3, changefreq: 'yearly' },
         { url: '/terms-conditions', priority: 0.3, changefreq: 'yearly' },
         { url: '/author/muhammad-ismail', priority: 0.4, changefreq: 'monthly' },
+        { url: '/fleet', priority: 0.7, changefreq: 'monthly' },
+        { url: '/locations', priority: 0.8, changefreq: 'monthly' },
+        { url: '/services', priority: 0.8, changefreq: 'monthly' },
         // Direct high-value landing pages in app root
         { url: '/madinah-airport-taxi', priority: 0.8, changefreq: 'monthly' },
         { url: '/makkah-to-madinah-taxi', priority: 0.8, changefreq: 'monthly' },

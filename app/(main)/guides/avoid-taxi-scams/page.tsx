@@ -176,7 +176,7 @@ export default function TaxiScamGuide() {
                         <ShieldCheck className="w-16 h-16 text-emerald-600 mx-auto mb-6" />
                         <h2 className="text-3xl font-black text-gray-900 mb-4">The Smart Way to Travel</h2>
                         <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
-                            Don't gamble with your safety. Book a licensed, fixed-price private transfer. You get a professional driver, a clean car, and 24/7 support.
+                            Don't gamble with your safety. Request a quote for a licensed, fixed-price private transfer. You get a professional driver, a clean car, and 24/7 support.
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <Link href="/booking/">
@@ -211,3 +211,4 @@ export default function TaxiScamGuide() {
         </main>
     );
 }
+

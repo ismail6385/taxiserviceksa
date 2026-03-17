@@ -11,7 +11,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi to Al Soudah (Abha) | Highest Peak Transfer',
-    description: 'Book a taxi from Abha Airport to Al Soudah, the highest peak in Saudi Arabia. Enjoy the cool weather and cable cars. Reliable 4x4 mountain transport.',
+    description: 'Request a quote for a taxi from Abha Airport to Al Soudah, the highest peak in Saudi Arabia. Enjoy the cool weather and cable cars. Reliable 4x4 mountain transport.',
     keywords: ['Taxi to Al Soudah', 'Abha Airport to Soudah taxi', 'Al Soudah mountain taxi', 'Abha local tour taxi', 'Rijal Almaa taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/abha/al-soudah/',
@@ -200,3 +200,4 @@ export default function AlSoudahPage() {
         </div>
     );
 }
+

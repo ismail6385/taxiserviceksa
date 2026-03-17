@@ -164,11 +164,11 @@ export default function GalleryPage() {
                         Ready to Experience Premium Service?
                     </h2>
                     <p className="text-lg text-black/90 mb-6">
-                        Book your ride now and travel in style across Saudi Arabia
+                        Get a quote for your ride now and travel in style across Saudi Arabia
                     </p>
                     <Link href="/booking/">
                         <button className="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-900 transition-all hover:scale-105">
-                            Book Now
+                            Get Quote
                         </button>
                     </Link>
                 </div>
@@ -183,3 +183,4 @@ export default function GalleryPage() {
         </div>
     );
 }
+

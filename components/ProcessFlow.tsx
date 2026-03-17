@@ -26,9 +26,9 @@ export default function ProcessFlow() {
                                 </div>
                             </div>
                             <div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">Booking your airport taxi</h3>
+                                <h3 className="text-xl font-bold text-gray-900 mb-2">Requesting your airport taxi quote</h3>
                                 <p className="text-gray-600 leading-relaxed">
-                                    Confirmation is immediate. If your plans change, you can cancel for free up to 24 hours before your scheduled pickup time.
+                                    Quotation is processed quickly. If your plans change, you can cancel your request for free at any time.
                                 </p>
                             </div>
                         </div>
@@ -69,7 +69,7 @@ export default function ProcessFlow() {
                         <div className="relative w-full max-w-lg">
                             <Image
                                 src="/taxi_process_flow_diagram.png"
-                                alt="Process Flow Diagram: Book, Confirm, Meet Driver, Arrive"
+                                alt="Process Flow Diagram: Request Quote, Review, Meet Driver, Arrive"
                                 width={600}
                                 height={600}
                                 className="object-contain drop-shadow-md rounded-xl"

@@ -1,34 +1,23 @@
+import fs from 'fs';
+import path from 'path';
+
 export async function GET() {
     const baseUrl = 'https://taxiserviceksa.com';
     const lastMod = new Date().toISOString();
 
-    // 0.8 Priority - Main Function
-    const services = [
-        'umrah-transport',
-        'airport-transfers',
-        'corporate-travel',
-        'heritage-tours',
-        'business',
-        'cable-car',
-        'intercity',
-        'madinah-ziyarat',
-        'tours',
-        'wheelchair-taxi',
-        'makkah-ziyarat' // Assuming this exists under /services or /locations? In original sitemap it was /locations/makkah-ziyarat ? No, original list had it mixed. Let's check usually these are /services/ or /locations/.
-        // I'll stick to /services/ for now, except makkah-ziyarat usually sounds like a service "Ziyarat". 
-    ];
-    // Actually, checking file structure, makkah-ziyarat was in `app/locations/makkah-ziyarat` based on `list_dir` earlier?
-    // Step 318 showed "makkah-ziyarat" in "locations" dir. So it belongs in sitemap-locations.xml!
+    // Dynamically list all service directories
+    const servicesDirectory = path.join(process.cwd(), 'app', '(main)', 'services');
+    const services = fs.readdirSync(servicesDirectory).filter(file => {
+        const filePath = path.join(servicesDirectory, file);
+        return fs.statSync(filePath).isDirectory();
+    });
 
-    const serviceUrls = [
-        'umrah-transport', 'airport-transfers', 'corporate-travel', 'heritage-tours',
-        'business', 'cable-car', 'intercity', 'madinah-ziyarat', 'tours', 'wheelchair-taxi'
-    ].map((slug: string) => ({
+    const serviceUrls = services.map((slug: string) => ({
         url: `/services/${slug}/`,
         priority: 0.8
     }));
 
-    // Routes (High intent -> 0.8 or 0.9, User suggested 0.8 for money pages)
+    // Routes (High intent -> 0.8 priority for featured routes)
     const routeUrls = [
         'jeddah-makkah', 'makkah-madinah', 'jeddah-yanbu', 'jeddah-taif',
         'jeddah-alula', 'madinah-jeddah', 'riyadh-jeddah', 'makkah-jeddah',
@@ -43,20 +32,27 @@ export async function GET() {
         priority: 0.8
     }));
 
-    // Fleet (0.6)
-    const fleetUrls = [
-        'gmc-yukon', 'toyota-camry', 'hyundai-staria',
-        'toyota-hiace', 'toyota-coaster', 'hyundai-starex'
-    ].map((slug: string) => ({
+    // Dynamically list all fleet directories
+    const fleetDirectory = path.join(process.cwd(), 'app', '(main)', 'fleet');
+    const fleetSlugs = fs.readdirSync(fleetDirectory).filter(file => {
+        const filePath = path.join(fleetDirectory, file);
+        return fs.statSync(filePath).isDirectory();
+    });
+
+    const fleetUrls = fleetSlugs.map((slug: string) => ({
         url: `/fleet/${slug}/`,
         priority: 0.6
     }));
 
     const allUrls = [...serviceUrls, ...routeUrls, ...fleetUrls];
 
+    // Remove duplicates if any
+    const uniqueUrls = Array.from(new Set(allUrls.map(u => u.url)))
+        .map(url => allUrls.find(u => u.url === url));
+
     const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-        ${allUrls.map((item: any) => `
+        ${uniqueUrls.map((item: any) => `
             <url>
                 <loc>${baseUrl}${item.url}</loc>
                 <lastmod>${lastMod}</lastmod>

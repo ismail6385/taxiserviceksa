@@ -126,7 +126,7 @@ export default function MadinahWeatherPage() {
                                     {
                                         role: "Tip",
                                         icon: "Sun",
-                                        insight: "The marble floor of the Haram is cooled, but courthouse tiles burn at noon. You can <Link href='/booking/' className='text-primary font-bold hover:underline'>book a comfortable GMC Yukon</Link> with powerful AC for all your city movements."
+                                        insight: "The marble floor of the Haram is cooled, but courthouse tiles burn at noon. You can <Link href='/booking/' className='text-primary font-bold hover:underline'>Request a quote for a comfortable GMC Yukon</Link> with powerful AC for all your city movements."
                                     }
                                 ]
                             }
@@ -137,3 +137,4 @@ export default function MadinahWeatherPage() {
         </div>
     );
 }
+

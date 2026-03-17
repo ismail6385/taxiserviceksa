@@ -116,7 +116,7 @@ export default function ServicesPage() {
                     </p>
                     <Link href="/booking/">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold">
-                            Book Any Service
+                            Request a quote for any Service
                         </Button>
                     </Link>
                 </div>
@@ -124,3 +124,4 @@ export default function ServicesPage() {
         </div>
     );
 }
+

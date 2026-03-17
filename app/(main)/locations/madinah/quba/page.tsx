@@ -60,7 +60,7 @@ export default function QubaPage() {
             <Hero
                 images={images}
                 h1Text="VIP Private Transfer to Masjid Quba"
-                bookingFormTitle="Book Heritage Transfer"
+                bookingFormTitle="Get Quote for Heritage Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Premium Chauffeur Heritage
@@ -211,3 +211,4 @@ export default function QubaPage() {
         </div>
     );
 }
+

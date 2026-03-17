@@ -11,7 +11,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi to Dammam Corniche | Seaside & Marjan Island Transfer',
-    description: 'Book a taxi to Dammam Corniche and Marjan Island. Enjoy the sea breeze with our reliable transfers from Dammam Airport (DMM) or Al Khobar.',
+    description: 'Request a quote for a taxi to Dammam Corniche and Marjan Island. Enjoy the sea breeze with our reliable transfers from Dammam Airport (DMM) or Al Khobar.',
     keywords: ['Taxi to Dammam Corniche', 'Dammam waterfront taxi', 'Marjan Island transport', 'Dammam Airport to Corniche', 'Khobar to Dammam Corniche'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/dammam/corniche/',
@@ -200,3 +200,4 @@ export default function DammamCornichePage() {
         </div>
     );
 }
+

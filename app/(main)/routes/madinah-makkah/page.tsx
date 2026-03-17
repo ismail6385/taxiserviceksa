@@ -3,292 +3,248 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { Car, Clock, MapPin, CheckCircle2, Shield, User, ArrowRight, Briefcase, Navigation } from 'lucide-react';
+import { Car, Clock, MapPin, CheckCircle2, Shield, Users, ArrowRight, Briefcase, Navigation, Star, Train, Coffee, User, Compass, DollarSign } from 'lucide-react';
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
-import RelatedServices from '@/components/seo/RelatedServices';
-import ReviewForm from '@/components/seo/ReviewForm';
-import QuestionForm from '@/components/seo/QuestionForm';
-import ReviewsDisplay from '@/components/ReviewsDisplay';
-import QuestionsDisplay from '@/components/QuestionsDisplay';
+import RelatedLocations from '@/components/seo/RelatedLocations';
 import RoutePerspective from '@/components/seo/RoutePerspective';
-import TLDRSummary from '@/components/seo/TLDRSummary';
-import FreshnessStatus from '@/components/seo/FreshnessStatus';
-import ServiceComparison from '@/components/ServiceComparison';
 
 export const metadata: Metadata = {
-    title: 'Best Madinah to Makkah Taxi | Private Transfer with Miqat Stop',
-    description: 'Book private taxi from Madinah to Makkah. Comfortable GMC/Sedan with mandatory stop at Miqat Dhul Hulaifah (Abyar Ali) for Ihram. Fixed rates, licensed drivers.',
-    keywords: ['Madinah to Makkah taxi', 'Madinah to Makkah car hire', 'Taxi with Miqat stop', 'Madinah Makkah transfer', 'Private cab Madinah to Makkah'],
+    title: 'Taxi Madinah to Makkah | Madinah to Makkah Private Car | Miqat Stop',
+    description: 'Book the best online taxi from Madinah to Makkah. Specializing in Hajj/Umrah transfers with a mandatory stop at Miqat Abyar Ali. Door-to-door service and fixed pricing.',
+    keywords: ['Taxi Madinah to Makkah', 'Madinah to Makkah Taxi', 'Madinah to Makkah private car', 'taxi with Miqat stop', 'Madinah to Makkah private transfer', 'How much is taxi from Madinah to Makkah'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/madinah-to-makkah-taxi/',
+        canonical: 'https://taxiserviceksa.com/routes/madinah-makkah/',
     },
 };
 
 export default function MadinahToMakkahPage() {
+    const routeDetails = [
+        { label: 'Distance', value: '450 km', icon: Navigation },
+        { label: 'Travel Time', value: '4.5 - 5 Hours', icon: Clock },
+        { label: 'Miqat Stop', value: 'Abyar Ali (Included)', icon: MapPin },
+        { label: 'Service', value: 'Door-to-Door', icon: CheckCircle2 },
+    ];
+
+    const routeSchema = {
+        "@context": "https://schema.org",
+        "@type": "TravelAction",
+        "name": "Taxi from Madinah to Makkah",
+        "fromLocation": {
+            "@type": "Place",
+            "name": "Madinah",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Madinah",
+                "addressCountry": "SA"
+            }
+        },
+        "toLocation": {
+            "@type": "Place",
+            "name": "Makkah",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Makkah",
+                "addressCountry": "SA"
+            }
+        },
+        "distance": "450 km",
+        "instrument": {
+            "@type": "Car",
+            "name": "GMC Yukon, Mercedes Vito, Toyota Hiace"
+        }
+    };
+
     return (
         <div className="bg-gray-50 min-h-screen">
             <Script
-                id="route-schema"
+                id="route-schema-madinah-makkah"
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Service",
-                        "name": "Madinah to Makkah Taxi Transfer",
-
-                        "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
-                    })
-                }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
             />
 
             <Hero
                 images={['/locations/madinah.webp', '/hero-slide-3.webp']}
-                h1Text="Madinah to Makkah Taxi"
+                h1Text="Taxi Madinah to Makkah"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        The Hijrah Route
+                        Madinah → Makkah Route
                     </span>
                 }
-                subtitle="Private Transfer with Miqat Stop"
-                location="450 km Journey"
+                subtitle="The Spiritual Pilgrimage Journey - 100% Private VIP Only"
+                location="450 km | Private Direct | Mandatory Miqat Stop Included"
             >
-                <div className="max-w-3xl mx-auto mt-8 mb-6">
-                    <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ Intercity"
-                        description="Experience a spiritual journey from the City of the Prophet ﷺ to the Holy Kaaba. Our drivers ensure a respectful, comfortable ride with the essential stop for Ihram."
-                        foundingDate="2012"
-                        metrics={[
-                            { label: 'Trips Completed', value: '50k+', icon: Car },
-                            { label: 'Miqat Stops', value: '100%', icon: MapPin },
-                            { label: 'Travel Time', value: '4.5 Hrs', icon: Clock }
-                        ]}
-                    />
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                    <Link href="/booking/?route=madinah-makkah">
+                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
+                            Book Madinah to Makkah Taxi
+                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                    </Link>
+                    <a href="mailto:info@taxiserviceksa.com">
+                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
+                            Get Custom Quote
+                        </Button>
+                    </a>
                 </div>
             </Hero>
 
-            {/* AI SEO: Early TL;DR for Generative Engine Extraction */}
-            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white border-b border-gray-100">
-                <div className="max-w-7xl mx-auto">
-                    <FreshnessStatus lastVerified="2026-03-06" />
-                    <TLDRSummary 
-                        title="Madinah to Makkah (Hijrah Route) Summary"
-                        summary="The spiritual journey from Madinah to Makkah is 450km. Our private taxi service ensures a seamless experience with a mandatory stop at Miqat Dhul Hulaifah (Abyar Ali) for Ihram."
-                        points={[
-                            "Door-to-door transfer from Madinah hotel to Makkah hotel",
-                            "Stop at Miqat Dhul Hulaifah (Abyar Ali) included (45-60 mins)",
-                            "Professional drivers who know the best rest stops for families",
-                            "Fixed pricing with no hidden charges for Miqat wait time",
-                            "Elite fleet of GMC Yukons and Toyota Hiace for group travel"
-                        ]}
-                        pricing="Fixed Rates"
-                        duration="4 - 5 Hours"
-                    />
-                </div>
-            </section>
-
-            {/* AI SEO: Early TL;DR for Generative Engine Extraction */}
-            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white border-b border-gray-100">
-                <div className="max-w-7xl mx-auto">
-                    <FreshnessStatus lastVerified="2026-03-06" />
-                    <TLDRSummary 
-                        title="Madinah to Makkah (Hijrah Route) Summary"
-                        summary="The spiritual journey from Madinah to Makkah is 450km. Our private taxi service ensures a seamless experience with a mandatory stop at Miqat Dhul Hulaifah (Abyar Ali) for Ihram."
-                        points={[
-                            "Door-to-door transfer from Madinah hotel to Makkah hotel",
-                            "Stop at Miqat Dhul Hulaifah (Abyar Ali) included (45-60 mins)",
-                            "Professional drivers who know the best rest stops for families",
-                            "Fixed pricing with no hidden charges for Miqat wait time",
-                            "Elite fleet of GMC Yukons and Toyota Hiace for group travel"
-                        ]}
-                        pricing="Fixed Rates"
-                        duration="4 - 5 Hours"
-                    />
-                </div>
-            </section>
-
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <RoutePerspective
-                        route="Madinah to Makkah"
-                        perspectives={[
-                            {
-                                id: "pilgrim",
-                                targetAudience: "Umrah Pilgrim",
-                                icon: User,
-                                intent: "Spiritual Preparation",
-                                description: "The most important part of this trip is the stop at Miqat Dhul Hulaifah (Abyar Ali). We pause here for 45-60 minutes, allowing you ample time to shower, wear Ihram, and pray 2 Rakats before continuing the Talbiyah journey to Makkah.",
-                                structuredFeatures: [
-                                    { label: "Miqat Stop", value: "Included" },
-                                    { label: "Duration", value: "4-5 Hours" },
-                                    { label: "Comfort", value: "High" }
-                                ],
-                                visualContext: "Vehicle waiting at Miqat mosque parking."
-                            }
-                        ]}
-                    />
-                </div>
-            </section>
-
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-12">Why Book Best Private Taxi?</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="bg-white p-6 rounded-xl border border-gray-200">
-                            <Clock className="w-10 h-10 text-emerald-600 mb-4" />
-                            <h3 className="font-bold text-xl mb-2">Door-to-Door</h3>
-                            <p className="text-gray-600">Pick up from your Madinah hotel lobby and drop off directly at your Makkah hotel. No hauling luggage to train stations.</p>
-                        </div>
-                        <div className="bg-white p-6 rounded-xl border border-gray-200">
-                            <MapPin className="w-10 h-10 text-emerald-600 mb-4" />
-                            <h3 className="font-bold text-xl mb-2">Miqat Convenience</h3>
-                            <p className="text-gray-600">Unlike the train (which requires you to wear Ihram on board) or buses (limited stop time), our private taxi waits for you as long as you need at the Miqat.</p>
-                        </div>
-                        <div className="bg-white p-6 rounded-xl border border-gray-200">
-                            <Shield className="w-10 h-10 text-emerald-600 mb-4" />
-                            <h3 className="font-bold text-xl mb-2">Private & Safe</h3>
-                            <p className="text-gray-600">Travel with just your family. Clean vehicles, sanitized interiors, and professional drivers.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <MicroSemanticFAQ
-                        faqs={[
-                            {
-                                question: "How long is the journey?",
-                                shortAnswer: "4 to 5 Hours.",
-                                detailedAnswer: "The distance is approximately 450km. Without stops, it takes 4 hours. With the Miqat stop and a rest break, expect ~5 hours.",
-                                perspectives: [
-                                    {
-                                        role: "Family Traveler",
-                                        icon: "Users",
-                                        insight: "With kids, the door-to-door service is much better than the Haramain train because you avoid the 2-hour station logistics on both ends."
-                                    }
-                                ]
-                            },
-                            {
-                                question: "What is the price?",
-                                shortAnswer: "Fixed Rates Available.",
-                                detailedAnswer: "Sedan cars start at an affordable fixed rate. Larger GMC/H1 vans for families are also available at fixed prices per vehicle, not per person.",
-                                perspectives: [
-                                    {
-                                        role: "Pilgrim Advocate",
-                                        icon: "Heart",
-                                        insight: "A private car allows you to keep your luggage safe while you perform the Miqat rituals, unlike public buses where luggage is often exposed."
-                                    }
-                                ]
-                            }
-                        ]}
-                    />
-                </div>
-            </section>
-
-            {/* UGC Section */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="text-2xl font-bold text-center mb-8">Passenger Reviews</h2>
-                    <div className="space-y-12">
-                        <ReviewsDisplay location="MadinahToMakkah" />
-                        <QuestionsDisplay location="MadinahToMakkah" />
-                    </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
-                        <ReviewForm locationName="MadinahToMakkah" />
-                        <QuestionForm locationName="MadinahToMakkah" />
-                    </div>
-                </div>
-            </section>
-            {/* Strategic Internal Links Hub */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
-                <div className="max-w-7xl mx-auto">
-                    <div className="bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-200">
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                            {/* Column 1: Locations */}
-                            <div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                                    <MapPin className="w-5 h-5 text-primary" /> Pilgrimage Hubs
-                                </h3>
-                                <ul className="space-y-4">
-                                    <li>
-                                        <Link href="/locations/makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                            <span>Makkah (Haram Area)</span>
-                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/locations/madinah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                            <span>Madinah (Holy City)</span>
-                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/guides/jeddah-airport-guide/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                            <span>Jeddah Airport Guide</span>
-                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
-                                        </Link>
-                                    </li>
-                                </ul>
+            {/* Route Stats */}
+            <div className="max-w-7xl mx-auto px-4 -mt-10 relative z-10">
+                <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+                    {routeDetails.map((detail, index) => (
+                        <div key={index} className="flex flex-col items-center text-center">
+                            <div className="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center mb-4">
+                                <detail.icon className="w-6 h-6 text-emerald-600" />
                             </div>
+                            <span className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">{detail.label}</span>
+                            <span className="text-lg font-black text-gray-900">{detail.value}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
 
-                            {/* Column 2: Routes */}
-                            <div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                                    <Navigation className="w-5 h-5 text-primary" /> Key Connections
-                                </h3>
-                                <ul className="space-y-4">
-                                    <li>
-                                        <Link href="/routes/makkah-madinah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                            <span>Makkah → Madinah (Return)</span>
-                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/routes/jeddah-makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                            <span>Jeddah Airport → Makkah</span>
-                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/routes/madinah-jeddah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                            <span>Madinah → Jeddah Airport</span>
-                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
-                                        </Link>
-                                    </li>
-                                </ul>
+            <section className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                        <div>
+                            <h2 className="text-3xl font-black text-gray-900 mb-6 font-display">Elite Madinah to Makkah Taxi Service</h2>
+                            <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                                Embark on your Umrah journey with the premier <strong>Madinah to Makkah private car service</strong>. We understand the sanctity of this trip, which is why all our bookings include a mandatory stop at <strong>Miqat Abyar Ali</strong> for prayers and Ihram at no extra cost.
+                            </p>
+                            <p className="text-gray-600 text-lg leading-relaxed mb-8">
+                                Our fleet is meticulously maintained for long-distance desert travel. Choose from the **GMC Yukon XL** for families or the **Mercedes Vito** for business groups, all equipped with high-performance AC systems designed for the Saudi heat.
+                            </p>
+                            
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <EntityTrustSignal 
+                                    brandName="TaxiServiceKSA Madinah"
+                                    description="Officially licensed pilgrimage transport provider for the Madinah-Makkah route."
+                                    metrics={[
+                                        { label: 'Success Rate', value: '100%', icon: Shield },
+                                        { label: 'Punctuality', value: '99%', icon: Clock }
+                                    ]}
+                                />
                             </div>
+                        </div>
 
-                            {/* Column 3: Services */}
-                            <div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                                    <Briefcase className="w-5 h-5 text-primary" /> Best Options
-                                </h3>
-                                <ul className="space-y-4">
-                                    <li>
-                                        <Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                            <span>VIP GMC Yukon (5-7 Pax)</span>
-                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                        <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+                            <h3 className="text-2xl font-black text-gray-900 mb-6">Available Fleet for pilgrims</h3>
+                            <div className="space-y-6">
+                                {[
+                                    { name: 'GMC Yukon 2025', capacity: '7 Pax', luggage: '5 Bags' },
+                                    { name: 'Mercedes Vito VIP', capacity: '7 Pax', luggage: '4 Bags' },
+                                    { name: 'Hyundai Staria Premium', capacity: '7 Pax', luggage: '4 Bags' },
+                                    { name: 'Toyota Hiace Group', capacity: '11 Pax', luggage: '16 Bags' }
+                                ].map((car, i) => (
+                                    <div key={i} className="flex items-center justify-between p-4 rounded-2xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-200">
+                                        <div className="flex gap-4 items-center">
+                                            <div className="bg-emerald-600 text-white p-3 rounded-xl">
+                                                <Car className="w-6 h-6" />
+                                            </div>
+                                            <div>
+                                                <h4 className="font-black text-gray-900">{car.name}</h4>
+                                                <p className="text-xs text-gray-400 font-bold uppercase">{car.capacity} | {car.luggage}</p>
+                                            </div>
+                                        </div>
+                                        <Link href="/fleet/">
+                                            <Button size="sm" variant="ghost" className="text-emerald-600 font-bold">Details</Button>
                                         </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                            <span>Toyota Hiace (Large Group)</span>
-                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
-                                        </Link>
-                                    </li>
-                                    <li>
-                                        <Link href="/booking/" className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primary/90 transition-colors w-full shadow-lg shadow-primary/20">
-                                            Book Your Private Taxi
-                                        </Link>
-                                    </li>
-                                </ul>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <RoutePerspective 
+                route="Madinah to Makkah (Miqat Stop)"
+                perspectives={[
+                    {
+                        id: 'chauffeur-faisal',
+                        targetAudience: 'Captain Faisal',
+                        icon: User,
+                        intent: 'Spiritual Fulfillment',
+                        description: 'The stop at Miqat Abyar Ali is the most important part of this journey. We always ensure my passengers have enough time (45-60 mins) to perform their prayers and enter Ihram comfortably. I drive the GMC Yukon specifically for this route because its wide wheelbase makes the long desert roads feel like a smooth flight.',
+                        structuredFeatures: [
+                            { label: 'Pilgrim Satisfaction', value: '99%' },
+                            { label: 'Experience', value: '12 Years' },
+                            { label: 'On-Time Arrival', value: '100%' }
+                        ],
+                        visualContext: 'The Miqat station background with a clean VIP GMC Yukon.'
+                    }
+                ]}
+            />
+
+            <div className="max-w-4xl mx-auto py-20 px-4">
+                <MicroSemanticFAQ 
+                    faqs={[
+                        {
+                            question: "Does the Madinah to Makkah taxi price include the Miqat stop?",
+                            shortAnswer: "Yes, 100% Included.",
+                            detailedAnswer: "Yes, our fixed rates for Madinah to Makkah transfers include a mandatory 45-60 minute stop at Miqat Abyar Ali. Our chauffeurs will assist you with luggage if you need to access your Ihram.",
+                            perspectives: [
+                                { role: 'Guide', icon: 'MapPin', insight: 'We wait near the main entrance for easy pickup after prayers.' }
+                            ]
+                        },
+                        {
+                            question: "How long does a taxi take from Madinah to Makkah?",
+                            shortAnswer: "Approximately 5 Hours",
+                            detailedAnswer: "The total travel time is usually around 5 hours. This includes the 450km drive and the stop at the Miqat station.",
+                            perspectives: [
+                                { role: 'Driver', icon: 'Clock', insight: 'We avoid midday traffic whenever possible for a faster trip.' }
+                            ]
+                        },
+                        {
+                            question: "Can I Request a quote for a car for more than 7 people?",
+                            shortAnswer: "Yes, Hiace and Buses Available",
+                            detailedAnswer: "Yes, for larger groups we offer the Toyota Hiace (up to 11 Pax) or our Luxurious Bus (up to 25 Pax) for intercity travel between Madinah and Makkah.",
+                            perspectives: [
+                                { role: 'Fleet Manager', icon: 'Users', insight: 'Buses include dedicated luggage compartments for Umrah groups.' }
+                            ]
+                        }
+                    ]}
+                />
+            </div>
+
+            <RelatedLocations 
+                currentCity="Madinah"
+                customLinks={[
+                    { name: 'Makkah to Madinah', url: '/routes/makkah-madinah/', description: 'Direct pilgrimage route back to the Prophet\'s City.' },
+                    { name: 'Jeddah to Madinah', url: '/routes/jeddah-madinah/', description: 'Direct transfer from King Abdulaziz Airport.' },
+                    { name: 'Madinah City Ziyarat', url: '/services/madinah-ziyarat/', description: 'Visit historic sites in the Holy City of Madinah.' }
+                ]}
+            />
+
+            <div className="bg-emerald-950 py-24 text-center px-4 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -ml-32 -mb-32"></div>
+                
+                <div className="max-w-4xl mx-auto relative z-10">
+                    <div className="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-8 animate-pulse">
+                        100% Private VIP Transfers Only • No Shared Taxis
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-black text-white mb-8 leading-tight">Ready for Your Spiritual Journey?</h2>
+                    <p className="text-emerald-100 text-lg mb-10 opacity-80 italic">"Travel in peace, comfort, and absolute privacy on your sacred path."</p>
+                    <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                        <Link href="/booking/?route=madinah-makkah">
+                            <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600 text-white font-black px-12 py-8 text-xl rounded-2xl h-auto transition-all hover:scale-105 shadow-[0_0_40px_rgba(16,185,129,0.3)]">
+                                Reserve Private Car
+                            </Button>
+                        </Link>
+                        <a href="mailto:info@taxiserviceksa.com">
+                            <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 font-black px-12 py-8 text-xl rounded-2xl h-auto">
+                                Email Inquiry
+                            </Button>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
+
+
+

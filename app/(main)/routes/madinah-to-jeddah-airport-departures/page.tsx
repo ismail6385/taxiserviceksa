@@ -86,7 +86,7 @@ export default function MadinahToJeddahAirportPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?destination=Jeddah%20Airport">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book Airport Drop
+                            Request a quote for airport Drop
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
@@ -232,12 +232,12 @@ export default function MadinahToJeddahAirportPage() {
                         Seamless Airport Transfer
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        End your journey with peace of mind. Book your Madinah to Jeddah Airport taxi today.
+                        End your journey with peace of mind. Get a quote for your Madinah to Jeddah Airport taxi today.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/?destination=Jeddah%20Airport">
                             <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Airport Taxi
+                                Request a quote for airport Taxi
                             </Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">
@@ -251,3 +251,6 @@ export default function MadinahToJeddahAirportPage() {
         </div>
     );
 }
+
+
+

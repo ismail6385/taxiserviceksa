@@ -126,7 +126,7 @@ export default function CalculatorPage() {
                                 <Info className="w-5 h-5 text-emerald-600 flex-shrink-0" />
                                 <div className="text-sm">
                                     <span className="font-bold block">Zamzam Policy</span>
-                                    Most private sedans can only fit **one** 5L Zamzam bottle per passenger. If you have more, book a GMC or Van.
+                                    Most private sedans can only fit **one** 5L Zamzam bottle per passenger. If you have more, Request a quote for a GMC or Van.
                                 </div>
                             </div>
                         </div>
@@ -153,7 +153,7 @@ export default function CalculatorPage() {
                         <div className="flex-1">
                             <h3 className="text-xl font-bold text-blue-900 mb-2">Share This Tool</h3>
                             <p className="text-blue-700 text-sm">
-                                Help other pilgrims plan their journey. Share this calculator on WhatsApp or your travel blog.
+                                Help other pilgrims plan their journey. Share this calculator with your group or on your travel blog.
                             </p>
                         </div>
                         <Button variant="outline" className="bg-white text-blue-600 border-blue-200 hover:bg-blue-50 gap-2">
@@ -170,3 +170,4 @@ export default function CalculatorPage() {
         </div>
     );
 }
+

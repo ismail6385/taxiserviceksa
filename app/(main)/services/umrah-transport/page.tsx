@@ -154,7 +154,7 @@ export default async function UmrahTransportPage() {
             answer: "Yes. Our best transfer service operates 24/7 throughout the year, including Ramadan and Hajj season. During peak periods, advance booking (48-72 hours) is strongly recommended due to high demand. Priority is given to pre-booked customers."
         },
         {
-            question: "Can I book a driver for multiple days during Umrah?",
+            question: "Can I Request a quote for a driver for multiple days during Umrah?",
             answer: "Yes. Multi-day driver service is available. Rates are quoted per day or per trip depending on itinerary. Common packages include: 3-day Makkah service, 5-day Makkah + Madinah service, or custom duration. Contact us for multi-day pricing."
         },
         {
@@ -468,7 +468,7 @@ export default async function UmrahTransportPage() {
                     Ready for Your Umrah Journey?
                 </h2>
                 <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto px-4 leading-relaxed">
-                    Book your professional Umrah transport today. Expert drivers, clean vehicles, and guaranteed fixed prices for your peace of mind.
+                    Get a quote for your professional Umrah transport today. Expert drivers, clean vehicles, and guaranteed fixed prices for your peace of mind.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto">
@@ -492,3 +492,4 @@ export default async function UmrahTransportPage() {
         </div>
     );
 }
+

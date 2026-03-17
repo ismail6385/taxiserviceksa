@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Building, Phone, Navigation } from 'lucide-react';
+import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Building, Mail, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
 import {
     Accordion,
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
 export default function RiyadhPage() {
     const services = [
         { name: 'VIP Airport Pickup', description: 'VIP Meet & Greet service at RUH Airport (Terminals 1, 2, 3, 4 & 5).', icon: Plane },
-        { name: 'VIP Corporate Transport', description: 'Professional executive chauffeur service for business meetings and events.', icon: Building },
+        { name: 'Hourly Chauffeur', description: 'Request a quote for a professional chauffeur by the hour for business meetings or city tours.', icon: Clock },
+        { name: 'City-to-City VIP', description: 'Direct private transfers from Riyadh to any city across Saudi Arabia.', icon: Navigation },
         { name: 'Riyadh to Makkah', description: 'Long-distance VIP private transfer from Riyadh to Makkah (9 hours).', icon: Car },
-        { name: 'Riyadh to Dammam', description: 'Premium intercity transfer to Dammam, Khobar, and Bahrain Causeway.', icon: MapPin },
     ];
 
     const riyadhImages = [
@@ -80,7 +80,7 @@ export default function RiyadhPage() {
             answer: "A direct private VIP transfer from Riyadh to Makkah costs between SAR 1200 - 1500, depending on the vehicle type (Premium Sedan vs GMC Yukon)."
         },
         {
-            question: "Can I book a VIP transfer from Riyadh to Dammam?",
+            question: "Can I Request a quote for a VIP transfer from Riyadh to Dammam?",
             answer: "Yes, we provide premium intercity transfers to Dammam and Khobar starting from SAR 800. The journey takes about 4 hours in a comfortable executive vehicle."
         },
         {
@@ -113,7 +113,7 @@ export default function RiyadhPage() {
             <Hero
                 images={riyadhImages}
                 h1Text="VIP Private Transfer & Chauffeur Riyadh"
-                bookingFormTitle="Book Premium Transfer in Riyadh"
+                bookingFormTitle="Get Quote for Premium Transfer in Riyadh"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Riyadh
@@ -127,11 +127,11 @@ export default function RiyadhPage() {
             </Hero>
 
             {/* Premium Service Disclaimer */}
-            <div className="bg-amber-50 border-y border-amber-200 py-3">
+            <div className="bg-rose-50 border-y border-rose-200 py-3">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
+                    <p className="text-center text-rose-800 text-sm font-bold flex items-center justify-center gap-2 uppercase tracking-wide">
                         <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked Airport, Intercity, and VIP Business transfers. We do NOT provide local short-distance hailing.
+                        NO SHARED TAXI: We provide 100% Private VIP transfers only. Pre-booked Airport, Intercity, and Hourly chauffeur services across all of KSA.
                     </p>
                 </div>
             </div>
@@ -165,7 +165,7 @@ export default function RiyadhPage() {
                             Premium Riyadh Transport
                         </h2>
                         <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-                            Reliable VIP transport solutions for Saudi Arabia's capital. From executive airport pickups to premium corporate fleets. Book our <Link href="/fleet/gmc-yukon/" className="text-black font-bold underline decoration-primary">GMC Yukon</Link> for professional business travel.
+                            Reliable **100% Private VIP transport** solutions for Saudi Arabia's capital. From hourly chauffeur-driven tours to nationwide city-to-city transfers. Book our <Link href="/fleet/gmc-yukon/" className="text-black font-bold underline decoration-primary">GMC Yukon</Link> for professional business travel across all KSA regions.
                         </p>
                     </div>
 
@@ -431,7 +431,7 @@ export default function RiyadhPage() {
 
                     <div className="relative z-10 text-center max-w-5xl mx-auto">
                         <div className="inline-flex items-center gap-2 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-                            <Phone className="w-4 h-4 text-black" />
+                            <Clock className="w-4 h-4 text-black" />
                             <span className="text-sm font-semibold text-black">24/7 Booking</span>
                         </div>
 
@@ -451,7 +451,7 @@ export default function RiyadhPage() {
                             </Link>
                             <a href="mailto:info@taxiserviceksa.com">
                                 <Button variant="outline" className="bg-white/20 backdrop-blur-sm text-black border-2 border-black/30 hover:bg-white/30 font-bold px-10 py-7 text-lg rounded-2xl h-auto">
-                                    <Phone className="mr-2 w-5 h-5" />
+                                    <Mail className="mr-2 w-5 h-5" />
                                     Email Us
                                 </Button>
                             </a>
@@ -514,3 +514,4 @@ export default function RiyadhPage() {
         </div>
     );
 }
+

@@ -116,6 +116,18 @@ export default function RoutesPage() {
         },
     ];
 
+    const tabukRoutes = [
+        { name: 'Tabuk → NEOM', href: '/routes/tabuk-neom/', distance: '180 km' },
+        { name: 'Tabuk → AlUla', href: '/routes/tabuk-alula/', distance: '330 km' },
+        { name: 'Tabuk → Madinah', href: '/routes/tabuk-madinah/', distance: '680 km' },
+        { name: 'Tabuk → Makkah', href: '/routes/tabuk-makkah/', distance: '1030 km' },
+        { name: 'Tabuk → Riyadh', href: '/routes/tabuk-riyadh/', distance: '1280 km' },
+        { name: 'Tabuk → Jeddah', href: '/routes/tabuk-jeddah/', distance: '920 km' },
+        { name: 'Tabuk → Duba', href: '/routes/tabuk-duba/', distance: '180 km' },
+        { name: 'Tabuk → Haql', href: '/routes/tabuk-haql/', distance: '230 km' },
+    ];
+
+
     return (
         <div className="bg-gray-50 min-h-screen pt-24 pb-20">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -206,8 +218,30 @@ export default function RoutesPage() {
                         </Link>
                     ))}
                 </div>
+ 
+                {/* Tabuk Routes Section */}
+                <div className="mb-20 bg-white rounded-3xl p-10 shadow-sm border border-gray-100">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+                        <MapPin className="text-primary" /> Popular Routes from Tabuk
+                    </h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                        {tabukRoutes.map((route, idx) => (
+                            <Link key={idx} href={route.href} className="group flex items-center justify-between p-4 bg-gray-50 rounded-xl hover:bg-primary/10 transition-colors border border-transparent hover:border-primary/20">
+                                <div>
+                                    <div className="font-bold text-gray-900 group-hover:text-primary transition-colors">{route.name}</div>
+                                    <div className="text-xs text-gray-500">{route.distance}</div>
+                                </div>
+                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                            </Link>
+                        ))}
+                    </div>
+                    <div className="mt-8 text-center text-sm text-gray-500">
+                        We also offer services from Tabuk to over 70 other cities in Saudi Arabia. <Link href="/booking/" className="text-primary font-bold hover:underline">Contact us for a custom quote</Link>.
+                    </div>
+                </div>
 
                 {/* Booking CTA */}
+
                 <div className="bg-black text-white rounded-3xl p-12 text-center mb-16 shadow-2xl relative overflow-hidden">
                     <div className="relative z-10">
                         <h3 className="text-3xl font-bold mb-4 text-white">Need a Custom Route?</h3>
@@ -276,3 +310,6 @@ export default function RoutesPage() {
         </div>
     );
 }
+
+
+

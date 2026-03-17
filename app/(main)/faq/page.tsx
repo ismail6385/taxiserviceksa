@@ -21,7 +21,7 @@ export default function FAQPage() {
             category: 'Booking & Reservations',
             questions: [
                 {
-                    question: 'How do I book a VIP transfer?',
+                    question: 'How do I Request a quote for a VIP transfer?',
                     answer: 'You can book primarily through our website booking form or by email. Simply provide your pickup location, destination, date, time, and number of passengers. You\'ll receive a confirmation once your booking is processed.'
                 },
                 {
@@ -218,3 +218,4 @@ export default function FAQPage() {
         </div>
     );
 }
+

@@ -8,6 +8,11 @@ interface ExpertReviewProps {
     reviewDate?: string;
     expertise?: string[];
     theme?: 'light' | 'dark';
+    isRtl?: boolean;
+    labels?: {
+        reviewTitle?: string;
+        verifiedReview?: string;
+    };
 }
 
 const ExpertReview: React.FC<ExpertReviewProps> = ({
@@ -15,12 +20,17 @@ const ExpertReview: React.FC<ExpertReviewProps> = ({
     reviewerTitle = "Senior Fleet Manager & Route Specialist",
     reviewDate = "December 2024",
     expertise = ["Haramain Logistics", "Hajj Permits", "VIP Fleet Ops"],
-    theme = 'light'
+    theme = 'light',
+    isRtl = false,
+    labels = {
+        reviewTitle: "Route Analysis",
+        verifiedReview: "Verified Expert Content"
+    }
 }) => {
     const isDark = theme === 'dark';
 
     return (
-        <div className={`${isDark ? 'bg-black border-gray-800' : 'bg-white border-emerald-100'} border text-left rounded-xl p-4 sm:p-6 shadow-sm flex flex-col sm:flex-row gap-4 sm:items-center max-w-4xl mx-auto my-8`}>
+        <div className={`${isDark ? 'bg-black border-gray-800' : 'bg-white border-emerald-100'} border ${isRtl ? 'text-right' : 'text-left'} rounded-xl p-4 sm:p-6 shadow-sm flex flex-col sm:flex-row gap-4 sm:items-center max-w-4xl mx-auto my-8 ${isRtl ? 'rtl' : 'ltr'}`} dir={isRtl ? 'rtl' : 'ltr'}>
             <div className="flex-shrink-0 relative">
                 <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 p-0.5 ${isDark ? 'bg-gray-800 border-emerald-500/50' : 'bg-gray-200 border-emerald-500'}`}>
                     {/* Placeholder for Author Image - using generic avatar if no image */}

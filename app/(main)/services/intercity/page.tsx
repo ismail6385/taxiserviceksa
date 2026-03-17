@@ -61,7 +61,7 @@ export default function IntercityServicePage() {
 
     const faqs = [
         {
-            question: "How do I book an intercity VIP transfer?",
+            question: "How do I Request a quote for an intercity VIP transfer?",
             answer: "You can book easily through our website using the booking form. Simply select your pickup and drop-off cities to get an instant executive quote and confirmation."
         },
         {
@@ -152,7 +152,7 @@ export default function IntercityServicePage() {
                     lastUpdated="December 2025"
                     content="The road network between Makkah and Madinah has recently been upgraded with more rest areas and service stations, making the 450km journey more comfortable than ever by car."
                     tags={["HighwayTravel", "Infrastructure", "Comfort"]}
-                    linkText="Book Intercity Ride"
+                    linkText="Get Quote for Intercity Ride"
                 />
             </div>
 
@@ -212,7 +212,7 @@ export default function IntercityServicePage() {
                                 </div>
                                 <div className="pt-2 border-t mt-2 flex justify-between items-center">
                                     <span className="text-emerald-600 font-bold text-lg">{route.price}</span>
-                                    <Link href="/booking/" className="text-blue-600 text-xs font-semibold hover:underline">Book Now</Link>
+                                    <Link href="/booking/" className="text-blue-600 text-xs font-semibold hover:underline">Get Quote</Link>
                                 </div>
                             </div>
                         </div>
@@ -395,3 +395,4 @@ export default function IntercityServicePage() {
         </div>
     );
 }
+

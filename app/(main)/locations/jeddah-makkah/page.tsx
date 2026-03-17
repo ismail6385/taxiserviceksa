@@ -40,7 +40,7 @@ export default function JeddahMakkahRoutePage() {
             <Hero
                 images={['/jeddah-airport-terminal.webp', '/mecca-royal-clock-tower.png']}
                 h1Text="VIP Private Transfer Jeddah to Makkah"
-                bookingFormTitle="Book Premium Transfer"
+                bookingFormTitle="Get Quote for Premium Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Executive Chauffeur Service
@@ -96,7 +96,7 @@ export default function JeddahMakkahRoutePage() {
             {/* Semantic Hub */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-16">
                 <QuestionGrouper
-                    mainQuestion="Why book a private transfer to Makkah?"
+                    mainQuestion="Why Request a quote for a private transfer to Makkah?"
                     intro="Public transport options exists but have limitations for pilgrims with luggage."
                     subQuestions={[
                         {
@@ -332,3 +332,4 @@ export default function JeddahMakkahRoutePage() {
         </div >
     );
 }
+

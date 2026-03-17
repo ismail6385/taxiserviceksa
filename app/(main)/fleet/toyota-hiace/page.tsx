@@ -1,348 +1,208 @@
+
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { Users, Briefcase, CheckCircle2, Star, Shield, Clock, Car, MapPin, Navigation, ArrowRight } from 'lucide-react';
-import FleetPricing from '@/components/FleetPricing';
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from '@/components/ui/accordion';
-import JsonLdFAQ from '@/components/JsonLdFAQ';
+import { Users, Briefcase, CheckCircle2, Star, Shield, Clock, Car, MapPin, ArrowRight, Navigation, Zap, Award, User, ShieldCheck, DollarSign } from 'lucide-react';
+import Hero from '@/components/Hero';
+import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
+import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
+import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'Toyota Hiace VIP Private Transfer Saudi Arabia | Group Transport',
-    description: 'Premium Toyota Hiace VIP private transfer and group chauffeur service in Saudi Arabia. Professional 11-seater van for Umrah groups, large families, and executive transfers.',
-    keywords: ['Toyota Hiace VIP transfer', 'group transport KSA', 'Umrah van chauffeur', '11 seater Saudi Arabia'],
+    description: 'Book the elite Toyota Hiace VIP private transfer in Saudi Arabia. Professional 11-seater van for Umrah groups, large families, and executive transfers. Reliable and spacious group logistics.',
+    keywords: ['Toyota Hiace VIP transfer', 'group transport KSA', 'Umrah van chauffeur', '11 seater Saudi Arabia', 'Hiace Jeddah Airport'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/fleet/toyota-hiace/',
+    },
 };
 
 export default function ToyotaHiacePage() {
-    const features = [
-        'Spacious interior',
-        '11 passenger capacity',
-        'Large luggage space',
-        'Air conditioning',
-        'Comfortable seats',
-        'Reliable performance',
-        'Group travel ready',
-        'Professional driver',
-    ];
-
     const specifications = [
-        { label: 'Passengers', value: '11' },
-        { label: 'Luggage', value: '16 Bags' },
-        { label: 'Type', value: 'Van' },
-        { label: 'Transmission', value: 'Automatic' },
+        { label: 'Capacity', value: '11 Passengers', icon: Users },
+        { label: 'Luggage', value: '16 Large Bags', icon: Briefcase },
+        { label: 'Class', value: 'Prime Group Van', icon: Award },
+        { label: 'Availability', value: '24/7 Nationwide', icon: Clock },
     ];
 
-    const idealFor = [
-        'Umrah Groups',
-        'Large Families',
-        'Group Tours',
-        'Airport Transfers',
-        'Corporate Events',
-        'School Trips',
-    ];
-
-    const faqs = [
-        {
-            question: "Does the Toyota Hiace VIP transfer include a chauffeur?",
-            answer: "Every Toyota Hiace VIP transfer includes a professional, uniformed chauffeur. We specialize in group logistics and executive transport; we do not offer self-drive options."
+    const vehicleSchema = {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": "Toyota Hiace VIP Chauffeur Service",
+        "image": "https://taxiserviceksa.com/toyota-hiace.webp",
+        "description": "Premium Toyota Hiace VIP transfer service in Saudi Arabia for groups and families.",
+        "brand": {
+            "@type": "Brand",
+            "name": "Toyota"
         },
-        {
-            question: "How many passengers and bags can the Toyota Hiace accommodate?",
-            answer: "The Toyota Hiace comfortably accommodates 11 passengers with 16 large suitcases. It is the gold standard for groups, featuring multi-zone climate control for every row."
-        },
-        {
-            question: "Is road toll and fuel included in the price?",
-            answer: "Yes, our VIP transfer rates are flat and all-inclusive of fuel, road tolls, and airport parking fees for point-to-point transfers."
-        },
-        {
-            question: "Is the Toyota Hiace suitable for family Umrah groups?",
-            answer: "The Toyota Hiace is our most popular vehicle for group Umrah transport between Jeddah, Makkah, and Madinah, offering ample space for both passengers and luggage."
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "SAR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://taxiserviceksa.com/fleet/toyota-hiace"
         }
-    ];
+    };
 
     return (
-        <div className="bg-gray-50 min-h-screen pt-24 pb-20">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <JsonLdFAQ faqs={faqs} />
+        <div className="bg-gray-50 min-h-screen">
+            <Script
+                id="vehicle-schema-hiace"
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(vehicleSchema) }}
+            />
 
-                <div className="bg-white rounded-2xl overflow-hidden shadow-lg mb-12">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <div className="relative h-96 lg:h-auto">
-                            <Image
-                                src="/toyota-hiace.webp"
-                                alt="Toyota Hiace"
-                                width={800}
-                                height={600}
-                                className="w-full h-full object-cover"
-                            />
+            <Hero
+                images={['/toyota-hiace.webp', '/hero-slide-3.webp']}
+                h1Text="Toyota Hiace VIP"
+                title={
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
+                        The Group Workhorse
+                    </span>
+                }
+                subtitle="Reliable & Spacious Group Travel Across the Kingdom"
+                location="11 Passengers | 16 Bags | Multi-Zone AC"
+            >
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                    <Link href="/booking/?vehicle=toyota-hiace">
+                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
+                            Book VIP Hiace
+                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                    </Link>
+                    <a href="mailto:info@taxiserviceksa.com">
+                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
+                            Group Inquiry
+                        </Button>
+                    </a>
+                </div>
+            </Hero>
+
+            {/* Spec Ribbon */}
+            <div className="max-w-7xl mx-auto px-4 -mt-10 relative z-10">
+                <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-8 grid grid-cols-2 md:grid-cols-4 gap-8 transition-all hover:shadow-amber-500/10">
+                    {specifications.map((spec, index) => (
+                        <div key={index} className="flex flex-col items-center text-center">
+                            <div className="w-12 h-12 bg-amber-50 rounded-2xl flex items-center justify-center mb-4">
+                                <spec.icon className="w-6 h-6 text-amber-600" />
+                            </div>
+                            <span className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">{spec.label}</span>
+                            <span className="text-lg font-black text-gray-900">{spec.value}</span>
                         </div>
+                    ))}
+                </div>
+            </div>
 
-                        <div className="p-8 lg:p-12 flex flex-col justify-center">
-                            <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block w-fit mb-4">
-                                Premium Group Transport
-                            </span>
-                            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                                Toyota Hiace VIP Private Transfer
-                            </h1>
-                            <p className="text-xl text-gray-600 mb-6 font-medium">
-                                Step up to <strong>Toyota Hiace VIP transfer</strong> excellence. Designed for large families and corporate delegates, our Hiace fleet features dual-zone climate control and expansive cargo space, ensuring a seamless chauffeur-driven experience across the Kingdom.
+            <section className="py-24 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+                        <div>
+                            <h2 className="text-4xl font-black text-gray-900 mb-8 leading-tight tracking-tighter uppercase">Step Up to Group Travel Excellence</h2>
+                            <p className="text-gray-600 text-xl leading-relaxed mb-6">
+                                The <strong>Toyota Hiace VIP transfer</strong> is our most popular choice for medium-sized groups and large families. Known for its indestructible reliability and expansive interior, it provides a functional and comfortable experience for Umrah groups and corporate event logistics.
                             </p>
-
-                            {/* Specifications */}
-                            <div className="grid grid-cols-2 gap-4 mb-6">
-                                {specifications.map((spec, index) => (
-                                    <div key={index} className="bg-gray-50 p-4 rounded-lg">
-                                        <div className="text-sm text-gray-500">{spec.label}</div>
-                                        <div className="text-lg font-bold text-gray-900">{spec.value}</div>
+                            
+                            <div className="space-y-6 mb-12">
+                                {[
+                                    { title: 'Dedicated Cargo Room', desc: 'No bags on seats. Ample rear space for 16 original large suitcases.' },
+                                    { title: 'Ceiling AC Vents', desc: 'Independent cooling for every passenger row, vital for Saudi summers.' },
+                                    { title: 'Safety First', desc: 'Equipped with multiple airbags and modern stability control systems.' }
+                                ].map((item, i) => (
+                                    <div key={i} className="flex gap-4">
+                                        <div className="bg-amber-600 rounded-full p-1 h-fit mt-1 shadow-lg shadow-amber-600/20">
+                                            <CheckCircle2 className="w-5 h-5 text-white" />
+                                        </div>
+                                        <div>
+                                            <h4 className="font-black text-gray-900 uppercase text-sm tracking-wide">{item.title}</h4>
+                                            <p className="text-gray-500">{item.desc}</p>
+                                        </div>
                                     </div>
                                 ))}
                             </div>
 
-                            <Link href="/booking/?vehicle=Toyota-Hiace">
-                                <Button size="lg" className="w-full bg-black hover:bg-gray-800 text-white font-bold h-14 text-lg">
-                                    Book VIP Hiace Transfer
-                                </Button>
-                            </Link>
+                            <EntityTrustSignal 
+                                brandName="Hiace Group Captains"
+                                description="Expert drivers trained in managing large-group dynamics and airport protocol."
+                                metrics={[
+                                    { label: 'Annual Pax', value: '50k+', icon: Users },
+                                    { label: 'Reliability Index', value: '10/10', icon: ShieldCheck }
+                                ]}
+                            />
                         </div>
-                    </div>
-                </div>
 
-                {/* Premium Service Disclaimer */}
-                <div className="bg-amber-50 border border-amber-200 py-3 rounded-xl mb-12">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                            <Shield className="w-4 h-4" />
-                            OFFICIAL NOTE: We specialize in pre-booked VIP Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
-                        </p>
-                    </div>
-                </div>
-
-                <div className="max-w-3xl mx-auto mb-12">
-                    <FleetPricing
-                        vehicleName="Toyota Hiace"
-                        colorTheme="amber"
-                        prices={[
-                            { route: 'Jeddah Airport → Makkah', price: 'Fixed Rates' },
-                            { route: 'Makkah → Madinah Hotel', price: 'Fixed Rates' },
-                            { route: 'Makkah → Madinah via Badr Ziyarat', price: 'Fixed Rates' },
-                            { route: 'Makkah Ziyarat Tour', price: 'Fixed Rates' },
-                            { route: 'Madinah Hotel → Madinah Airport', price: 'Fixed Rates' },
-                            { route: 'Madinah Ziyarat Tour', price: 'Fixed Rates' },
-                            { route: 'Madinah Hotel → Train Station', price: 'Fixed Rates' },
-                            { route: 'Madinah Hotel → Jeddah Airport', price: 'Fixed Rates' },
-                            { route: 'Makkah Hotel → Train Station', price: 'Fixed Rates' },
-                            { route: 'Makkah Hotel → Jeddah Airport', price: 'Fixed Rates' },
-                            { route: 'Full Day (Fuel + Driver)', price: 'Fixed Rates', highlight: true },
-                            { route: 'Per Hour', price: 'Fixed Rates', highlight: true },
-                        ]}
-                    />
-                </div>
-
-                {/* Experience Layer: Captain's Perspective */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                    <div className="bg-white p-8 rounded-2xl shadow-lg border-l-4 border-amber-500">
-                        <div className="flex items-center gap-4 mb-4">
-                            <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
-                                <Users className="w-6 h-6 text-gray-600" />
+                        <div className="grid grid-cols-1 gap-8">
+                            <div className="bg-white rounded-[3rem] p-10 shadow-xl border border-gray-100 mb-8">
+                                <h3 className="text-2xl font-black text-gray-900 mb-8 uppercase tracking-widest">Why Groups Choose Hiace</h3>
+                                <div className="space-y-4">
+                                    {[
+                                        'Indestructible reliability on long desert roads.',
+                                        'Retractable side step for easy boarding.',
+                                        'High-roof for better passenger headroom.',
+                                        'Fixed all-inclusive per-route pricing.',
+                                        'Professional, uniformed chauffeurs.'
+                                    ].map((use, i) => (
+                                        <div key={i} className="flex items-center gap-4 py-3 border-b border-gray-50 last:border-0">
+                                            <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                                            <span className="font-bold text-gray-700">{use}</span>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
-                            <div>
-                                <h3 className="font-bold text-gray-900">Captain Ibrahim</h3>
-                                <p className="text-xs text-gray-500 uppercase tracking-wider">Group Transport Specialist • 8 Years Exp.</p>
+                            
+                            <div className="bg-gray-900 p-8 rounded-[3rem] text-white">
+                                <div className="flex gap-4 mb-4">
+                                    <div className="w-10 h-10 bg-amber-500 rounded-2xl flex items-center justify-center text-black font-black">!</div>
+                                    <div className="font-black uppercase tracking-widest text-sm self-center">Pro Logistics Tip</div>
+                                </div>
+                                <p className="text-gray-400 text-sm leading-relaxed">"For groups of 10 or 11 with multiple heavy check-in bags, the Hiace is the only vehicle that guarantees everyone sits comfortably while the luggage stays securely in the rear."</p>
                             </div>
                         </div>
-                        <blockquote className="text-gray-600 italic mb-4">
-                            "The #1 complaint in other vans is the heat in the back row. Our 2025 Hiace models have dedicated ceiling vents for every single row, not just the front. I drove a family of 10 from Madinah to Makkah in July (45°C), and the kids in the back were asleep under blankets. That's the Hiace difference."
-                        </blockquote>
-                        <div className="flex flex-wrap gap-2">
-                            <span className="bg-amber-50 text-amber-800 px-3 py-1 rounded-full text-xs font-medium">Climate: Multi-Zone Roof Vents</span>
-                            <span className="bg-amber-50 text-amber-800 px-3 py-1 rounded-full text-xs font-medium">Capacity: 10 Pax + 15 Bags</span>
-                        </div>
-                    </div>
-
-                    <div className="bg-gray-900 text-white p-8 rounded-2xl shadow-lg relative overflow-hidden">
-                        <div className="relative z-10">
-                            <h3 className="text-xl font-bold mb-3 flex items-center gap-2">
-                                <Briefcase className="w-5 h-5 text-amber-500" />
-                                The "Luggage Reality" Check
-                            </h3>
-                            <p className="text-gray-300 text-sm mb-4">
-                                Many providers modify vans to squeeze in 14 seats, leaving ZERO space for bags. We keep the standard <strong>11-seat layout</strong> to guarantee cargo room.
-                            </p>
-                            <ul className="space-y-3 text-gray-300 text-sm">
-                                <li className="flex items-start gap-2">
-                                    <CheckCircle2 className="w-4 h-4 text-amber-500 mt-0.5 shrink-0" />
-                                    <span><strong>Standard Config:</strong> Fits 10-11 Adults + 12-15 Large Suitcases easily.</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <CheckCircle2 className="w-4 h-4 text-amber-500 mt-0.5 shrink-0" />
-                                    <span><strong>High Roof Option:</strong> Available upon request for extra headroom and standing ease for elderly pilgrims.</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <CheckCircle2 className="w-4 h-4 text-amber-500 mt-0.5 shrink-0" />
-                                    <span><strong>Boarding Step:</strong> Retractable side step makes entering in Ihram/Abaya safe and dignified.</span>
-                                </li>
-                            </ul>
-                        </div>
-                        {/* Decorative background element */}
-                        <div className="absolute -bottom-10 -right-10 opacity-10">
-                            <Car className="w-48 h-48" />
-                        </div>
                     </div>
                 </div>
+            </section>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-                    <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-6">Standard Features</h2>
-                        <ul className="space-y-3">
-                            {features.map((feature, index) => (
-                                <li key={index} className="flex items-center text-gray-700">
-                                    <CheckCircle2 className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                                    {feature}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+            <div className="max-w-4xl mx-auto py-24 px-4">
+                <h2 className="text-3xl font-black text-gray-900 mb-12 text-center uppercase tracking-tighter">Toyota Hiace FAQ</h2>
+                <MicroSemanticFAQ 
+                    faqs={[
+                        {
+                            question: "Does the Toyota Hiace include a chauffeur?",
+                            shortAnswer: "Yes, professional group drivers.",
+                            detailedAnswer: "Every Toyota Hiace VIP transfer includes a professional, uniformed chauffeur. We specialize in group logistics and executive transport; we do not offer self-drive options.",
+                            perspectives: [
+                                { role: 'Safety Lead', icon: 'Shield', insight: 'Our drivers are experts at city navigation and highway safety.' }
+                            ]
+                        },
+                        {
+                            question: "How many passengers and bags can it carry?",
+                            shortAnswer: "11 Passengers & 16 Bags.",
+                            detailedAnswer: "The Toyota Hiace comfortably accommodates 11 passengers with 16 large suitcases. It is specifically designed to maximize cargo space without affecting seats.",
+                            perspectives: [
+                                { role: 'Baggage Master', icon: 'Briefcase', insight: 'We ensure all luggage is securely stored to keep the cabin safe.' }
+                            ]
+                        },
+                        {
+                            question: "Is the AC powerful enough for the back row?",
+                            shortAnswer: "Yes, multi-row ceiling vents.",
+                            detailedAnswer: "Our newer Hiace models feature dedicated ceiling vents for every passenger row, ensuring the entire group stays cool even in the extreme Saudi desert heat.",
+                            perspectives: [
+                                { role: 'Climate Ops', icon: 'Zap', insight: 'Tested for maximum comfort in 45°C+ temperatures.' }
+                            ]
+                        }
+                    ]}
+                />
+            </div>
 
-                    <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-                        <h2 className="text-2xl font-bold text-gray-900 mb-6">Best Suited For</h2>
-                        <ul className="space-y-3">
-                            {idealFor.map((use, index) => (
-                                <li key={index} className="flex items-center text-gray-700">
-                                    <Car className="w-5 h-5 text-amber-500 mr-3 flex-shrink-0" />
-                                    {use}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                </div>
+            <RelatedLocations currentCity="VIP Group Fleet" />
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-                    <div className="bg-white p-6 rounded-2xl text-center shadow-sm">
-                        <Star className="w-8 h-8 text-gray-700 mx-auto mb-3" />
-                        <div className="text-3xl font-bold text-gray-900 mb-1">4.9</div>
-                        <div className="text-sm text-gray-600">Rating</div>
-                    </div>
-                    <div className="bg-white p-6 rounded-2xl text-center shadow-sm">
-                        <Users className="w-8 h-8 text-gray-700 mx-auto mb-3" />
-                        <div className="text-3xl font-bold text-gray-900 mb-1">11</div>
-                        <div className="text-sm text-gray-600">Passengers</div>
-                    </div>
-                    <div className="bg-white p-6 rounded-2xl text-center shadow-sm">
-                        <Briefcase className="w-8 h-8 text-gray-700 mx-auto mb-3" />
-                        <div className="text-3xl font-bold text-gray-900 mb-1">16</div>
-                        <div className="text-sm text-gray-600">Bags</div>
-                    </div>
-                    <div className="bg-white p-6 rounded-2xl text-center shadow-sm">
-                        <Shield className="w-8 h-8 text-gray-700 mx-auto mb-3" />
-                        <div className="text-3xl font-bold text-gray-900 mb-1">100%</div>
-                        <div className="text-sm text-gray-600">Safe</div>
-                    </div>
-                </div>
-
-                {/* FAQ Section */}
-                <div className="max-w-4xl mx-auto mb-12">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
-                    <Accordion type="single" collapsible className="space-y-4">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left font-bold text-gray-900 hover:no-underline">{faq.question}</AccordionTrigger>
-                                <AccordionContent className="text-gray-600 pt-2">{faq.answer}</AccordionContent>
-                            </AccordionItem>
-                        ))}
-                    </Accordion>
-                </div>
-
-                {/* Strategic Internal Links Hub */}
-                <div className="mt-16 bg-white border border-gray-100 rounded-3xl p-8 shadow-sm mb-12">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-                        <div>
-                            <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                <MapPin className="w-5 h-5 text-primary" /> Group Service Hubs
-                            </h4>
-                            <ul className="space-y-3">
-                                <li>
-                                    <Link href="/locations/makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                        <span>Makkah (Group Umrah)</span>
-                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/locations/madinah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                        <span>Madinah (Ziyarat Tours)</span>
-                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/locations/jeddah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                        <span>Jeddah (Airport Arrival)</span>
-                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                <Navigation className="w-5 h-5 text-primary" /> Popular Group Routes
-                            </h4>
-                            <ul className="space-y-3">
-                                <li>
-                                    <Link href="/routes/jeddah-makkah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                        <span>Jeddah to Makkah (80km)</span>
-                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/routes/makkah-madinah/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                        <span>Makkah to Madinah (450km)</span>
-                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/routes/" className="text-primary font-bold hover:underline">View All City Routes →</Link>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                <Briefcase className="w-5 h-5 text-primary" /> Specialist Services
-                            </h4>
-                            <ul className="space-y-3">
-                                <li>
-                                    <Link href="/services/airport-transfers/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                        <span>Airport Group Transfer</span>
-                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/services/umrah-transport/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                        <span>Umrah Group Transport</span>
-                                        <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/booking/" className="text-primary font-bold hover:underline">Book Toyota Hiace Now →</Link>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                {/* CTA */}
-                <div className="bg-black rounded-2xl p-8 md:p-12 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                        Secure Your Group VIP Journey
-                    </h2>
-                    <p className="text-lg text-gray-300 mb-8">
-                        Experience the gold standard of group transport with our professional chauffeur-driven Toyota Hiace.
-                    </p>
-                    <Link href="/booking/?vehicle=Toyota-Hiace">
-                        <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto">
-                            Book Your VIP Van
+            <div className="bg-amber-600 py-32 text-center px-4 relative overflow-hidden rounded-[4rem] mx-4 mb-16 shadow-2xl">
+                <div className="absolute inset-0 bg-black/10"></div>
+                <div className="max-w-4xl mx-auto relative z-10">
+                    <h2 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-none uppercase">THE KING OF <br/><span className="text-black">GROUP LOGISTICS</span></h2>
+                    <p className="text-white text-xl mb-12 max-w-2xl mx-auto font-medium">Get Quote for the Kingdom's most reliable and spacious group van. Professional chauffeurs and guaranteed comfort at fixed rates.</p>
+                    <Link href="/booking/?vehicle=toyota-hiace">
+                        <Button size="lg" className="bg-black hover:bg-white hover:text-black text-white font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl transition-all hover:scale-105">
+                            BOOK HIACE NOW
                         </Button>
                     </Link>
                 </div>
@@ -350,3 +210,4 @@ export default function ToyotaHiacePage() {
         </div>
     );
 }
+

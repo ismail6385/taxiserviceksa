@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'مدینہ ٹیکسی سروس | مسجد نبوی کی زیارت',
-        description: 'مدینہ میں سستی اور آرام دہ ٹیکسی بک کریں۔ ہوٹل سے حرم اور ایئرپورٹ ٹرانسفر کے لیے۔',
+        description: 'مدینہ میں سستی اور آرام دہ ٹیکسی کے لیے کوٹیشن حاصل کریں۔ ہوٹل سے حرم اور ایئرپورٹ ٹرانسفر کے لیے۔',
         url: 'https://taxiserviceksa.com/ur/locations/madinah/',
         locale: 'ur_PK',
         type: 'website',
@@ -117,7 +117,7 @@ export default function MadinahPageUrdu() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/">
                         <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-primary/90 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl w-full sm:w-auto">
-                            زیارات بک کریں
+                            زیارات کوٹیشن حاصل کریں
                             <ArrowRight className="mr-2 w-5 h-5 rotate-180" />
                         </Button>
                     </Link>
@@ -132,7 +132,7 @@ export default function MadinahPageUrdu() {
                     lastUpdated="دسمبر ٢٠٢٤"
                     content="بھاری بھیڑ اور دھوپ کی شدت سے بچنے کے لیے، ہمارے مقامی ڈرائیورز نماز فجر کے فوراً بعد (تقریباً ٦:٠٠ بجے) زیارات شروع کرنے کا مشورہ دیتے ہیں۔ اس وقت آپ مسجد قباء میں سکون اور احد پہاڑ پر رش کے بغیر وقت گزار سکتے ہیں۔"
                     tags={["زیارات_مدینہ", "مسجد_قباء", "مقامی_مشورے", "بہترین_وقت"]}
-                    linkText="صبح کی زیارات بک کریں"
+                    linkText="صبح کی زیارات کوٹیشن حاصل کریں"
                 />
             </div>
 
@@ -203,7 +203,7 @@ export default function MadinahPageUrdu() {
                         category: "زیارات اور ٹورز",
                         relevance: "Primary",
                         items: [
-                            { label: "مکمل زیارت پیکج بک کریں", url: "/ur/services/madinah-ziyarat" },
+                            { label: "مکمل زیارت پیکج کوٹیشن حاصل کریں", url: "/ur/services/madinah-ziyarat" },
                             { label: "مدینہ سے مکہ ٹرانسفر", url: "/ur/madinah-to-makkah-taxi" },
                             { label: "مدینہ ایئرپورٹ پک اپ", url: "/ur/madinah-airport-taxi" }
                         ]
@@ -448,9 +448,9 @@ export default function MadinahPageUrdu() {
                         viewRoutes: "تفصیلات دیکھیں"
                     }}
                     customLinks={[
-                        { name: 'مکہ ٹیکسی', url: '/locations/makkah', description: 'عمرہ کے لیے مکہ کا سفر' },
-                        { name: 'جدہ ایئرپورٹ', url: '/locations/jeddah', description: 'واپسی کے لیے ایئرپورٹ ڈراپ' },
-                        { name: 'ینبع ساحل', url: '/locations/yanbu', description: 'ینبع کا تفریحی ٹرپ' },
+                        { name: 'مکہ ٹیکسی', url: '/ur/locations/makkah', description: 'عمرہ کے لیے مکہ کا سفر' },
+                        { name: 'جدہ ایئرپورٹ', url: '/ur/locations/jeddah', description: 'واپسی کے لیے ایئرپورٹ ڈراپ' },
+                        { name: 'ینبع ساحل', url: '/ur/locations/yanbu', description: 'ینبع کا تفریحی ٹرپ' },
                     ]}
                 />
             </div>
@@ -458,3 +458,4 @@ export default function MadinahPageUrdu() {
         </div>
     );
 }
+

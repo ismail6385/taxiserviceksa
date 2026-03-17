@@ -10,14 +10,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi Madinah to Abu Dhabi | VIP Cross-Border Transfer',
-    description: 'Book a premium taxi from Madinah to Abu Dhabi. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Madinah to Abu Dhabi. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Madinah to Abu Dhabi', 'Madinah to Abu Dhabi transfer', 'cross border taxi Saudi Arabia', 'VIP transport Madinah Abu Dhabi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/madinah-abu-dhabi/',
     },
     openGraph: {
         title: 'Taxi Madinah to Abu Dhabi | VIP Cross-Border Transfer',
-        description: 'Book a premium taxi from Madinah to Abu Dhabi. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Madinah to Abu Dhabi. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/madinah-abu-dhabi/',
         type: 'website',
     },
@@ -84,9 +84,9 @@ export default function MadinahAbuDhabiRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="https://wa.me/966569487569?text=Hello,%20I%20want%20to%20get%20a%20quote%20for%20a%20taxi%20from%20Madinah%20to%20Abu Dhabi">
+                    <a href="mailto:info@taxiserviceksa.com?text=Hello,%20I%20want%20to%20get%20a%20quote%20for%20a%20taxi%20from%20Madinah%20to%20Abu Dhabi">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            WhatsApp Quote
+                            Email Inquiry
                         </Button>
                     </a>
                 </div>
@@ -201,7 +201,7 @@ export default function MadinahAbuDhabiRoutePage() {
                     {
                         question: "How can I get a price for this border transfer?",
                         shortAnswer: "Request a Quote",
-                        detailedAnswer: "Prices vary based on the vehicle type, number of passengers, and specific locations. Please use our 'Get Quote' button or contact us via WhatsApp to receive an accurate, all-inclusive quote that covers vehicle crossing insurance and toll fees.",
+                        detailedAnswer: "Prices vary based on the vehicle type, number of passengers, and specific locations. Please use our 'Get Quote' button or contact us via Email to receive an accurate, all-inclusive quote that covers vehicle crossing insurance and toll fees.",
                         perspectives: []
                     }
                 ]}
@@ -209,3 +209,6 @@ export default function MadinahAbuDhabiRoutePage() {
         </div>
     );
 }
+
+
+

@@ -138,7 +138,7 @@ export default function AirportTransfersPage() {
             answer: "Yes. Airport transfer service operates 24/7 for all flight times. Late-night pickups (10 PM - 6 AM) have the same fixed rates as daytime service. Advance booking (24-48 hours) is recommended for flights arriving between midnight and 5 AM."
         },
         {
-            question: "Can I book airport transfer with child seats?",
+            question: "Can I Request a quote for airport transfer with child seats?",
             answer: "Yes. Child seats are available upon request for all airport transfers. Specify child age and weight during booking. Infant seats (0-1 year), toddler seats (1-4 years), and booster seats (4-8 years) are available. No extra charge for child seat provision."
         },
         {
@@ -213,7 +213,7 @@ export default function AirportTransfersPage() {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/booking?service=airport-transfer">
                                 <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
-                                    Book Airport Transfer
+                                    Request a quote for airport Transfer
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>
@@ -376,7 +376,7 @@ export default function AirportTransfersPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your Airport Transfer
+                        Get a quote for your Airport Transfer
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                         Professional drivers, meet-and-greet service, and flight tracking across all major Saudi airports. Fixed rates, no hidden fees.
@@ -384,7 +384,7 @@ export default function AirportTransfersPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking?service=airport-transfer">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Now
+                                Get Quote
                             </Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">
@@ -398,3 +398,4 @@ export default function AirportTransfersPage() {
         </div>
     );
 }
+

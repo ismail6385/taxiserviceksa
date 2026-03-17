@@ -9,14 +9,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
     title: 'Jeddah to Madinah Hilton Taxi | Hotel Transfer - Fixed Price',
-    description: 'Book a taxi from Jeddah Airport (JED) to Madinah Hilton Hotel. 4-5 hour journey. Affordable fixed rates. Door-to-door service near King Fahd Gate.',
+    description: 'Request a quote for a taxi from Jeddah Airport (JED) to Madinah Hilton Hotel. 4-5 hour journey. Affordable fixed rates. Door-to-door service near King Fahd Gate.',
     keywords: ['Jeddah to Madinah Hilton taxi', 'taxi Jeddah airport to Hilton Madinah', 'Madinah Hilton transfer', 'transport Jeddah to Madinah Hilton', 'Madinah hotel taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-hilton-madinah/',
     },
     openGraph: {
         title: 'Jeddah to Madinah Hilton Hotel Transfer - Trusted Service',
-        description: 'Direct private taxi from Jeddah Airport to Madinah Hilton. Located steps from King Fahd Gate. Book your ride now.',
+        description: 'Direct private taxi from Jeddah Airport to Madinah Hilton. Located steps from King Fahd Gate. Get a quote for your ride now.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-hilton-madinah/',
         type: 'website',
     },
@@ -45,7 +45,7 @@ export default function JeddahToHiltonMadinahPage() {
             "@type": "LocalBusiness",
             "name": "VIP Transfer KSA",
             "image": "https://taxiserviceksa.com/logo.png",
-            "telephone": "+966500000000",
+            "telephone": "info@taxiserviceksa.com",
             "priceRange": "$$"
         },
         "areaServed": "Madinah",
@@ -175,3 +175,6 @@ export default function JeddahToHiltonMadinahPage() {
         </div>
     );
 }
+
+
+

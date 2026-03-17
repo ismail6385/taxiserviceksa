@@ -60,7 +60,7 @@ export default function TermsConditionsPage() {
                         <div>
                             <h3 className="text-lg font-semibold text-gray-900 mb-2">2.1 How to Book</h3>
                             <p className="text-gray-700">
-                                Bookings can be made through our website, phone, email, or WhatsApp. All bookings are subject to availability and confirmation.
+                                Bookings can be made through our website or via email. All bookings are subject to availability and confirmation.
                             </p>
                         </div>
 
@@ -363,3 +363,4 @@ export default function TermsConditionsPage() {
         </div>
     );
 }
+

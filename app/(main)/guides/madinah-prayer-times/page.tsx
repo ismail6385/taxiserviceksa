@@ -113,7 +113,7 @@ export default function PrayerTimesPage() {
                                     {
                                         role: "Access",
                                         icon: "AlertCircle",
-                                        insight: "Do not attempt to enter without a permit; security is strict. You can <Link href='/booking/' className='text-primary font-bold hover:underline'>book a reliable taxi service</Link> to ensure you arrive at the designated Rawdah gates on time."
+                                        insight: "Do not attempt to enter without a permit; security is strict. You can <Link href='/booking/' className='text-primary font-bold hover:underline'>Request a quote for a reliable taxi service</Link> to ensure you arrive at the designated Rawdah gates on time."
                                     }
                                 ]
                             }
@@ -124,3 +124,4 @@ export default function PrayerTimesPage() {
         </div>
     );
 }
+

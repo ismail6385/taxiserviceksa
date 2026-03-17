@@ -520,7 +520,7 @@ export default function MakkahUmrahGuidePage() {
                         Need Transport for Your Umrah?
                     </h2>
                     <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Professional taxi service for Umrah pilgrims. Airport transfers, Haram transport, Ziyarat tours. Drivers understand prayer schedules and Haram access routes. We recommend that you <Link href="/booking/" className="text-emerald-400 font-bold hover:underline">book your Umrah taxi online</Link> to secure your slot.
+                        Professional taxi service for Umrah pilgrims. Airport transfers, Haram transport, Ziyarat tours. Drivers understand prayer schedules and Haram access routes. We recommend that you <Link href="/booking/" className="text-emerald-400 font-bold hover:underline">Get a quote for your Umrah taxi online</Link> to secure your slot.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto">
@@ -546,3 +546,4 @@ export default function MakkahUmrahGuidePage() {
         </div>
     );
 }
+

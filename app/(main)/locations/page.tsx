@@ -78,8 +78,15 @@ const locations = [
         description: 'Professional service for Energy and Industrial hubs (Aramco/Ithra).',
         image: '/hero-slide-5.webp',
         href: '/locations/dhahran/'
+    },
+    {
+        name: 'Tabuk',
+        description: 'Giga-project transfers and intercity services to NEOM and AlUla.',
+        image: '/hero-slide-1.webp',
+        href: '/locations/tabuk/'
     }
 ];
+
 
 export default function LocationsPage() {
     return (
@@ -90,7 +97,7 @@ export default function LocationsPage() {
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Service Locations</h1>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                         We serve all major cities and historical sites in Saudi Arabia. Before you travel, check our <Link href="/guides/makkah-umrah-guide/" className="text-gray-900 font-bold hover:underline underline-offset-4 decoration-primary">Makkah Umrah Guide</Link> for local advice.
-                        Choose your destination and book your <Link href="/routes/" className="text-gray-900 font-bold hover:underline underline-offset-4 decoration-primary">intercity route</Link> today.
+                        Choose your destination and Get a quote for your <Link href="/routes/" className="text-gray-900 font-bold hover:underline underline-offset-4 decoration-primary">intercity route</Link> today.
                     </p>
                 </div>
 
@@ -142,7 +149,7 @@ export default function LocationsPage() {
                         <Link href="/booking/">
                             <Button className="bg-primary text-white hover:bg-white hover:text-black font-bold px-10 py-6 text-lg rounded-xl flex items-center gap-2">
                                 <Car className="w-5 h-5" />
-                                Book Your Ride Now
+                                Request Quotation Now
                             </Button>
                         </Link>
                     </div>
@@ -151,3 +158,4 @@ export default function LocationsPage() {
         </div>
     );
 }
+

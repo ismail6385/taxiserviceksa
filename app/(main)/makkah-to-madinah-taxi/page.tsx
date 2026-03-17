@@ -17,7 +17,7 @@ import ServiceComparison from '@/components/ServiceComparison';
 
 export const metadata: Metadata = {
     title: 'Makkah to Madinah Taxi | Direct Hotel-to-Hotel Transfer',
-    description: 'Book a private taxi from Makkah to Madinah. Direct travel with no stops (unless requested). 4.5 hour journey. Comfortable GMCs and sedans.',
+    description: 'Request a quote for a private taxi from Makkah to Madinah. Direct travel with no stops (unless requested). 4.5 hour journey. Comfortable GMCs and sedans.',
     keywords: ['Makkah to Madinah taxi', 'Makkah to Madinah car rental', 'Makkah Madinah transfer', 'Taxi fare Makkah to Madinah', 'Private driver Makkah to Madinah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/makkah-to-madinah-taxi/',
@@ -261,3 +261,4 @@ export default function MakkahToMadinahPage() {
         </div >
     );
 }
+

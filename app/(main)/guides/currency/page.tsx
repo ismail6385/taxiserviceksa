@@ -58,7 +58,7 @@ export default function CurrencyGuidePage() {
                             <Coins className="w-10 h-10 text-emerald-600 mb-4" />
                             <h3 className="text-xl font-bold mb-2">Cash is Still King</h3>
                             <p className="text-gray-600 text-sm">
-                                While cards are widely accepted, small shops, markets, and street taxi drivers often prefer cash. To avoid carrying large amounts of cash for transport, you should <Link href="/booking/" className="text-emerald-700 font-bold underline">book a taxi online with a fixed price</Link> before you arrive.
+                                While cards are widely accepted, small shops, markets, and street taxi drivers often prefer cash. To avoid carrying large amounts of cash for transport, you should <Link href="/booking/" className="text-emerald-700 font-bold underline">Request a quote for a taxi online with a fixed price</Link> before you arrive.
                             </p>
                         </div>
                         <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
@@ -114,3 +114,4 @@ export default function CurrencyGuidePage() {
         </div>
     );
 }
+

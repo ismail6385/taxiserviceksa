@@ -118,7 +118,7 @@ export default function MadinahAirportTaxiPage() {
                                 ]
                             },
                             {
-                                question: "Can I book a van for my family?",
+                                question: "Can I Request a quote for a van for my family?",
                                 shortAnswer: "Yes, GMC/Hiace available.",
                                 detailedAnswer: "We offer 7-seater GMCs and 10-seater H1 vans for larger families with luggage. Please book in advance to ensure availability of large vehicles.",
                                 perspectives: [
@@ -150,3 +150,4 @@ export default function MadinahAirportTaxiPage() {
         </div>
     );
 }
+

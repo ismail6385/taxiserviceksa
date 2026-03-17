@@ -11,7 +11,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi to Al Shafa Taif | Mountain Park & Resort Transfer',
-    description: 'Book a taxi to Al Shafa Mountain (Jabal Shafa) in Taif. Visit scenic parks, horse riding spots, and fruit farms. Reliable mountain drivers.',
+    description: 'Request a quote for a taxi to Al Shafa Mountain (Jabal Shafa) in Taif. Visit scenic parks, horse riding spots, and fruit farms. Reliable mountain drivers.',
     keywords: ['Taxi to Al Shafa', 'Al Shafa Taif taxi', 'Jabal Shafa transport', 'Taif nature tour', 'Al Shafa resorts taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/taif/al-shafa/',
@@ -71,7 +71,7 @@ export default function AlShafaPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Taif%20City&dropoff=Al%20Shafa">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book Al Shafa Trip
+                            Request a quote for al Shafa Trip
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
@@ -200,3 +200,4 @@ export default function AlShafaPage() {
         </div>
     );
 }
+

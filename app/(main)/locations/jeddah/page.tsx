@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { MapPin, Phone, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, Building2, Waves, ArrowRight, User } from 'lucide-react';
+import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, Building2, Waves, ArrowRight, User, Mail } from 'lucide-react';
 import Hero from '@/components/Hero';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
@@ -110,7 +110,7 @@ export default async function JeddahPage() {
             <Hero
                 images={jeddahImages}
                 h1Text="VIP Private Transfer & Chauffeur Jeddah"
-                bookingFormTitle="Book Premium Transfer in Jeddah"
+                bookingFormTitle="Get Quote for Premium Transfer in Jeddah"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Jeddah
@@ -410,7 +410,7 @@ export default async function JeddahPage() {
                                     <Star key={star} className="w-5 h-5 text-yellow-400 fill-yellow-400" />
                                 ))}
                             </div>
-                            <p className="text-gray-700 italic mb-6">"More reliable than the airport taxi queue and much cleaner cars. Will book again."</p>
+                            <p className="text-gray-700 italic mb-6">"More reliable than the airport taxi queue and much cleaner cars. Will Request a quote for again."</p>
                             <div className="font-bold text-gray-900">- Sarah L.</div>
                         </div>
                     </div>
@@ -480,7 +480,7 @@ export default async function JeddahPage() {
 
                     <div className="relative z-10 text-center max-w-5xl mx-auto">
                         <div className="inline-flex items-center gap-2 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-                            <Phone className="w-4 h-4 text-black" />
+                            <Clock className="w-4 h-4 text-black" />
                             <span className="text-sm font-semibold text-black">24/7 Booking</span>
                         </div>
 
@@ -488,19 +488,19 @@ export default async function JeddahPage() {
                             Need a Ride in Jeddah?
                         </h2>
                         <p className="text-lg md:text-xl text-black/90 mb-8 max-w-2xl mx-auto font-medium">
-                            Book your airport transfer or Makkah VIP transfer in under 2 minutes.
+                            Get a quote for your airport transfer or Makkah VIP transfer in under 2 minutes.
                         </p>
 
                         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
                             <Link href="/booking/">
                                 <Button className="bg-black text-white hover:bg-black/90 font-bold px-10 py-7 text-lg rounded-2xl h-auto shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
-                                    Book Now
+                                    Get Quote
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>
                             <a href="mailto:info@taxiserviceksa.com">
                                 <Button variant="outline" className="bg-white/20 backdrop-blur-sm text-black border-2 border-black/30 hover:bg-white/30 font-bold px-10 py-7 text-lg rounded-2xl h-auto">
-                                    <Phone className="mr-2 w-5 h-5" />
+                                    <Mail className="mr-2 w-5 h-5" />
                                     Email Us
                                 </Button>
                             </a>
@@ -571,3 +571,4 @@ export default async function JeddahPage() {
         </div >
     );
 }
+

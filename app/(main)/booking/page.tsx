@@ -17,7 +17,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
             : 'VIP Private Transfer Booking | Premium Chauffeur KSA',
         description: vehicleName
             ? `Secure your VIP ${vehicleName} private transfer in Saudi Arabia. Premium chauffeur service, 2025 fleet, and international standards.`
-            : 'Book your VIP private transfer in Saudi Arabia. Professional chauffeur service for airport transfers, Umrah, and intercity travel. International quality standards.',
+            : 'Get a quote for your VIP private transfer in Saudi Arabia. Professional chauffeur service for airport transfers, Umrah, and intercity travel. International quality standards.',
         alternates: {
             canonical: 'https://taxiserviceksa.com/booking/',
         },
@@ -28,7 +28,7 @@ export default function BookingPage({ searchParams }: { searchParams: { [key: st
     const route = typeof searchParams.route === 'string' ? searchParams.route : null;
 
     const getTitle = (routeSlug: string | null) => {
-        if (!routeSlug) return "Book Your VIP Transfer";
+        if (!routeSlug) return "Get a quote for your VIP Transfer";
         const formatted = routeSlug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
         return `Book VIP Transfer from ${formatted.replace(' To ', ' to ')}`;
     };
@@ -48,9 +48,7 @@ export default function BookingPage({ searchParams }: { searchParams: { [key: st
                         </p>
                     </div>
 
-                    <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                        Fill out the form below to reserve your luxury vehicle. Experience the gold standard of private transport in Saudi Arabia. Our team will verify your details and confirm your VIP transfer via WhatsApp.
-                    </p>
+                        Fill out the form below to reserve your luxury vehicle. Experience the gold standard of private transport in Saudi Arabia. Our team will verify your details and confirm your VIP transfer via email.
                 </div>
 
                 <Suspense fallback={<div className="text-center py-12"><div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div><p className="mt-4 text-gray-600">Loading booking form...</p></div>}>
@@ -60,3 +58,4 @@ export default function BookingPage({ searchParams }: { searchParams: { [key: st
         </div>
     );
 }
+

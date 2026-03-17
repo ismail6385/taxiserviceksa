@@ -11,7 +11,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi to Jubail Industrial City (RC) | SABIC Transport',
-    description: 'Book a taxi to Jubail Industrial City. Daily transfers from Dammam Airport (DMM) to SABIC, Sadara, and Royal Commission. Reliable business service.',
+    description: 'Request a quote for a taxi to Jubail Industrial City. Daily transfers from Dammam Airport (DMM) to SABIC, Sadara, and Royal Commission. Reliable business service.',
     keywords: ['Jubail Industrial City taxi', 'Royal Commission Jubail taxi', 'Dammam Airport to Jubail taxi', 'SABIC Jubail transport', 'Jubail RC transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jubail/industrial-city/',
@@ -190,7 +190,7 @@ export default function JubailIndustrialPage() {
                         perspectives: []
                     },
                     {
-                        question: "Can I book a return ride?",
+                        question: "Can I Request a quote for a return ride?",
                         shortAnswer: "Yes",
                         detailedAnswer: "Yes, we highly recommend booking your return ride in advance as finding a taxi on the street in the Industrial City is nearly impossible.",
                         perspectives: []
@@ -200,3 +200,4 @@ export default function JubailIndustrialPage() {
         </div>
     );
 }
+

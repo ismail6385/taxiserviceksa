@@ -28,7 +28,7 @@ import DiscoveryMap from '@/components/DiscoveryMap';
 
 export const metadata: Metadata = {
     title: 'خدمة تاكسي في مكة | تاكسي العمرة وتوصيل المطار (٢٤/٧)',
-    description: 'احجز خدمة تاكسي موثوقة في مكة للمعتمرين والسياح. تاكسي مطار مكة ٢٤/٧، توصيل من الفندق وجولات الزيارة. سائقين محترفين وآمنين.',
+    description: 'طلب اقتباس خدمة تاكسي موثوقة في مكة للمعتمرين والسياح. تاكسي مطار مكة ٢٤/٧، توصيل من الفندق وجولات الزيارة. سائقين محترفين وآمنين.',
     keywords: ['تاكسي مكة', 'توصيل المطار مكة', 'تاكسي العمرة', 'نقل المعتمرين', 'تاكسي الحرم'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ar/locations/makkah/',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'خدمة تاكسي في مكة | تاكسي العمرة الموثوق',
-        description: 'هل تحتاج تاكسي في مكة؟ نوفر خدمة ٢٤/٧ للمعتمرين وتوصيل مطار جدة والمدينة. احجز الآن.',
+        description: 'هل تحتاج تاكسي في مكة؟ نوفر خدمة ٢٤/٧ للمعتمرين وتوصيل مطار جدة والمدينة. طلب اقتباس.',
         url: 'https://taxiserviceksa.com/ar/locations/makkah/',
         locale: 'ar_SA',
         type: 'website',
@@ -132,7 +132,7 @@ export default function MakkahPageArabic() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/">
                         <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-primary/90 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl w-full sm:w-auto">
-                            احجز الآن
+                            طلب اقتباس
                             <ArrowRight className="mr-2 w-5 h-5 rotate-180" />
                         </Button>
                     </Link>
@@ -145,7 +145,7 @@ export default function MakkahPageArabic() {
                     topic="قطار الحرمين أم التاكسي الخاص: الواقع الحالي"
                     status="High Demand"
                     lastUpdated="ديسمبر ٢٠٢٤"
-                    content="على الرغم من سرعة قطار الحرمين، تشير تجارب المعتمرين الأخيرة إلى أن العائلات (٣ أشخاص فأكثر) مع حقائب تجد خدمة التاكسي 'من الباب للباب' أوفر للجهد والوقت بنسبة ٤٠٪ مقارنة برحلة القطار متعددة المراحل. احجز سيارة جمس خاصة لراحة بالك."
+                    content="على الرغم من سرعة قطار الحرمين، تشير تجارب المعتمرين الأخيرة إلى أن العائلات (٣ أشخاص فأكثر) مع حقائب تجد خدمة التاكسي 'من الباب للباب' أوفر للجهد والوقت بنسبة ٤٠٪ مقارنة برحلة القطار متعددة المراحل. طلب اقتباس سيارة جمس خاصة لراحة بالك."
                     tags={["قطار_الحرمين", "تاكسي_مطار_جدة", "نقل_عائلي", "عمرة_٢٠٢٥"]}
                     linkText="شاهد أسعار التاكسي العائلي"
                 />
@@ -478,3 +478,4 @@ export default function MakkahPageArabic() {
         </div >
     );
 }
+

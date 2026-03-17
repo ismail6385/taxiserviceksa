@@ -13,7 +13,7 @@ import QuestionsDisplay from '@/components/QuestionsDisplay';
 
 export const metadata: Metadata = {
     title: 'مکہ تا مدینہ ٹیکسی | پرائیویٹ ٹرانسفر (ڈور ٹو ڈور)',
-    description: 'مکہ سے مدینہ منورہ کے لیے پرائیویٹ ٹیکسی بک کریں۔ بغیر رکے (الا یہ کہ آپ چاہیں) براہ راست سفر۔ 4.5 گھنٹے کا سفر۔ آرام دہ GMC۔',
+    description: 'مکہ سے مدینہ منورہ کے لیے پرائیویٹ ٹیکسی کے لیے کوٹیشن حاصل کریں۔ بغیر رکے (الا یہ کہ آپ چاہیں) براہ راست سفر۔ 4.5 گھنٹے کا سفر۔ آرام دہ GMC۔',
     keywords: ['مکہ تا مدینہ ٹیکسی', 'مکہ مدینہ کار', 'پرائیویٹ ٹیکسی مکہ مدینہ', 'کرایہ مکہ مدینہ'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/makkah-to-madinah-taxi/',
@@ -135,3 +135,4 @@ export default function MakkahToMadinahPageUr() {
         </div>
     );
 }
+

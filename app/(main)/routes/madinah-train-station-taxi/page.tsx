@@ -9,7 +9,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
     title: 'Madinah Train Station Taxi | Haramain Station to Hotel Transfer',
-    description: 'Book a taxi from Madinah Haramain Train Station to your hotel (Markaziyah / Central Area). Affordable fixed prices. Reliable pickup for train arrivals.',
+    description: 'Request a quote for a taxi from Madinah Haramain Train Station to your hotel (Markaziyah / Central Area). Affordable fixed prices. Reliable pickup for train arrivals.',
     keywords: ['Madinah train station taxi', 'Haramain station Madinah to hotel', 'taxi from Madinah railway station to prophet mosque', 'Madinah station transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/madinah-train-station-taxi/',
@@ -45,7 +45,7 @@ export default function MadinahTrainStationPage() {
             "@type": "TransportationService",
             "name": "VIP Transfer KSA",
             "image": "https://taxiserviceksa.com/logo.png",
-            "telephone": "+966500000000",
+            "telephone": "info@taxiserviceksa.com",
             "priceRange": "$"
         },
         "areaServed": "Madinah",
@@ -184,3 +184,6 @@ export default function MadinahTrainStationPage() {
         </div>
     );
 }
+
+
+

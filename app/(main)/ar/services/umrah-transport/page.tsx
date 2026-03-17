@@ -128,7 +128,7 @@ export default function UmrahTransportPage() {
             answer: "Yes. Taxi service operates 24/7 throughout the year, including Ramadan and Hajj season. During peak periods, advance booking (48-72 hours) is strongly recommended due to high demand. Priority is given to pre-booked customers."
         },
         {
-            question: "Can I book a driver for multiple days during Umrah?",
+            question: "Can I Request a quote for a driver for multiple days during Umrah?",
             answer: "Yes. Multi-day driver service is available. Rates are quoted per day or per trip depending on itinerary. Common packages include: 3-day Makkah service, 5-day Makkah + Madinah service, or custom duration. Contact us for multi-day pricing."
         },
         {
@@ -336,7 +336,7 @@ export default function UmrahTransportPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your Complete Umrah Transport
+                        Get a quote for your Complete Umrah Transport
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                         Professional drivers, fixed rates, and 24/7 service for your entire Umrah journey. From airport arrival to departure.
@@ -344,7 +344,7 @@ export default function UmrahTransportPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking?service=umrah-transport">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Now
+                                Get Quote
                             </Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">
@@ -358,3 +358,4 @@ export default function UmrahTransportPage() {
         </div>
     );
 }
+

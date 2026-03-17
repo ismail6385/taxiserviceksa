@@ -11,7 +11,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi to Al Hada Taif | Cable Car & Mountain Resort Transfer',
-    description: 'Book a taxi to Al Hada Mountain in Taif. Visit the Cable Car (Telefric), Fruit Markets, and Resort Hotels. Reliable mountain driving service.',
+    description: 'Request a quote for a taxi to Al Hada Mountain in Taif. Visit the Cable Car (Telefric), Fruit Markets, and Resort Hotels. Reliable mountain driving service.',
     keywords: ['Al Hada taxi', 'Taif cable car taxi', 'Al Hada mountain transport', 'Taif to Al Hada', 'Al Hada resorts taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/taif/al-hada/',
@@ -71,7 +71,7 @@ export default function AlHadaPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Taif&dropoff=Al%20Hada">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book Al Hada Trip
+                            Request a quote for al Hada Trip
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
@@ -200,3 +200,4 @@ export default function AlHadaPage() {
         </div>
     );
 }
+

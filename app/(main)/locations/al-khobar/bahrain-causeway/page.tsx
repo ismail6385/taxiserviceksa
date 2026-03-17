@@ -11,7 +11,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi Khobar to Bahrain | King Fahd Causeway Transfer',
-    description: 'Book a reliable taxi from Khobar/Dammam to Bahrain. Cross the King Fahd Causeway with experienced drivers. Avoid insurance & permit hassles.',
+    description: 'Request a quote for a reliable taxi from Khobar/Dammam to Bahrain. Cross the King Fahd Causeway with experienced drivers. Avoid insurance & permit hassles.',
     keywords: ['Taxi Khobar to Bahrain', 'Dammam to Bahrain taxi', 'King Fahd Causeway taxi', 'Bahrain airport transfer from Saudi', 'Saudi Bahrain border taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/al-khobar/bahrain-causeway/',
@@ -200,3 +200,4 @@ export default function BahrainCausewayPage() {
         </div>
     );
 }
+

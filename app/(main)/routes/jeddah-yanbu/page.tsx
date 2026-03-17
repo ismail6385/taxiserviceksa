@@ -11,7 +11,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi Jeddah Airport to Yanbu | Industrial & Diving Transfers',
-    description: 'Book a taxi from Jeddah Airport (JED) to Yanbu. Reliable transfers to Yanbu Industrial City, Royal Commission, and Red Sea resorts. 24/7 Service.',
+    description: 'Request a quote for a taxi from Jeddah Airport (JED) to Yanbu. Reliable transfers to Yanbu Industrial City, Royal Commission, and Red Sea resorts. 24/7 Service.',
     keywords: ['Taxi Jeddah to Yanbu', 'Jeddah Airport to Yanbu taxi', 'Yanbu Industrial City transfer', 'Yanbu Royal Commission taxi', 'Jeddah to Yanbu car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-yanbu/',
@@ -220,3 +220,6 @@ export default function JeddahYanbuRoutePage() {
         </div>
     );
 }
+
+
+

@@ -11,7 +11,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi Riyadh to Dammam | Business & Private Transfers',
-    description: 'Book a private taxi from Riyadh to Dammam. Door-to-door luxury transfers for business meetings, airport connections, and family trips. Fixed rates.',
+    description: 'Request a quote for a private taxi from Riyadh to Dammam. Door-to-door luxury transfers for business meetings, airport connections, and family trips. Fixed rates.',
     keywords: ['Taxi Riyadh to Dammam', 'Riyadh to Dammam car', 'Riyadh to Khobar taxi', 'Riyadh to Dammam airport transfer', 'One way taxi Riyadh Dammam'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/riyadh-dammam/',
@@ -85,8 +85,8 @@ export default function RiyadhDammamRoutePage() {
                         The Business Corridor
                     </span>
                 }
-                subtitle="Daily Executive Transfers | 3.5 Hours"
-                location="Door-to-Door Service"
+                subtitle="Daily Executive Transfers | 3.5 Hours | 100% Private VIP"
+                location="Door-to-Door Private Service - Your Schedule, Your Comfort"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Riyadh&dropoff=Dammam">
@@ -191,6 +191,29 @@ export default function RiyadhDammamRoutePage() {
                 </div>
             </section>
 
+            <div className="bg-black py-24 text-center px-4 relative overflow-hidden rounded-3xl mx-4 mb-12">
+                <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
+                <div className="max-w-4xl mx-auto relative z-10">
+                    <div className="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-8 animate-pulse">
+                        100% Private VIP Transfers Only • No Shared Taxis
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-black text-white mb-8 leading-tight">Get a quote for your Executive Riyadh to Dammam Taxi</h2>
+                    <p className="text-gray-400 text-lg mb-10 italic">"The preferred choice for business travelers and families seeking total privacy."</p>
+                    <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                        <Link href="/booking/?route=riyadh-dammam">
+                            <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600 text-white font-black px-12 py-8 text-xl rounded-2xl h-auto transition-all hover:scale-105 shadow-[0_0_40px_rgba(16,185,129,0.3)]">
+                                Reserve Private Car
+                            </Button>
+                        </Link>
+                        <a href="mailto:info@taxiserviceksa.com">
+                            <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 font-black px-12 py-8 text-xl rounded-2xl h-auto">
+                                Email Inquiry
+                            </Button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
                 <RelatedLocations currentCity="Riyadh" />
             </div>
@@ -200,19 +223,19 @@ export default function RiyadhDammamRoutePage() {
                     {
                         question: "How long is the drive from Riyadh to Dammam?",
                         shortAnswer: "3.5 - 4 Hours",
-                        detailedAnswer: "The distance is approximately 400km. On the smooth highway, it takes about 3.5 to 4 hours.",
+                        detailedAnswer: "The distance is approximately 400km. On the smooth highway, it takes about 3.5 to 4 hours in a private car.",
                         perspectives: []
                     },
                     {
                         question: "Why choose a taxi over the train?",
-                        shortAnswer: "Door-to-Door",
-                        detailedAnswer: "The train requires you to get to the station 45 mins early. A taxi picks you up from your home and drops you at your hotel.",
+                        shortAnswer: "Door-to-Door & Private",
+                        detailedAnswer: "The train requires terminals and pre-booked tickets. Our 100% private car picks you up from your home and drops you at your hotel, saving transfer time and providing total isolation.",
                         perspectives: []
                     },
                     {
                         question: "Do you go to Khobar and Jubail too?",
                         shortAnswer: "Yes",
-                        detailedAnswer: "Yes, we serve the entire Eastern Province including Al Khobar, Dammam, Dhahran, and Jubail.",
+                        detailedAnswer: "Yes, we serve the entire Eastern Province including Al Khobar, Dammam, Dhahran, and Jubail with 100% private VIP transfers.",
                         perspectives: []
                     }
                 ]}
@@ -220,3 +243,6 @@ export default function RiyadhDammamRoutePage() {
         </div>
     );
 }
+
+
+

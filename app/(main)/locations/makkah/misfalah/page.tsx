@@ -173,7 +173,7 @@ export default function MisfalahPage() {
                         <AccordionItem value="item-1" className="bg-white px-8 rounded-3xl border border-gray-100 shadow-sm">
                             <AccordionTrigger className="font-bold text-lg py-6 hover:no-underline">Can you pick up from hotels deep inside Misfalah?</AccordionTrigger>
                             <AccordionContent className="text-gray-600 pb-8 text-base leading-relaxed">
-                                Yes. While Misfalah has many narrow streets, our drivers are experienced in navigating them. If a street is too narrow for a large van, we coordinate the nearest possible meeting point via WhatsApp to ensure you don't have to carry your luggage far.
+                                Yes. While Misfalah has many narrow streets, our drivers are experienced in navigating them. If a street is too narrow for a large van, we coordinate the nearest possible meeting point via email to ensure you don't have to carry your luggage far.
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-2" className="bg-white px-8 rounded-3xl border border-gray-100 shadow-sm">
@@ -219,3 +219,4 @@ export default function MisfalahPage() {
         </div>
     );
 }
+

@@ -80,7 +80,7 @@ export default function AlUlaPage() {
             answer: "Taxi rates from AlUla Airport to AlUla city hotels start from SAR 100. Pricing depends on vehicle type (sedan, 4x4 SUV) and resort location. Fares are fixed with no surge charges."
         },
         {
-            question: "Can I book a taxi from AlUla to Khaybar Fort for historical tours?",
+            question: "Can I Request a quote for a taxi from AlUla to Khaybar Fort for historical tours?",
             answer: "Intercity taxi service is available from AlUla to Khaybar Fort (150 km). Travel time is 2-3 hours. Rates start from SAR 350. Service includes stops at viewpoints and historical markers along the route."
         },
         {
@@ -111,7 +111,7 @@ export default function AlUlaPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                         <Link href="/booking/">
-                            Book Taxi Now
+                            Get Quote Taxi Now
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </Button>
@@ -238,7 +238,7 @@ export default function AlUlaPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your AlUla Heritage Tour
+                        Get a quote for your AlUla Heritage Tour
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                         Explore UNESCO heritage sites with professional transport and 4x4 desert vehicles.
@@ -246,7 +246,7 @@ export default function AlUlaPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Your Ride
+                                Request Quotation
                             </Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">
@@ -260,3 +260,4 @@ export default function AlUlaPage() {
         </div>
     );
 }
+

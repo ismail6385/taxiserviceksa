@@ -10,14 +10,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi Abu Dhabi to Riyadh | VIP Cross-Border Transfer',
-    description: 'Book a premium taxi from Abu Dhabi to Riyadh. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Abu Dhabi to Riyadh. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Abu Dhabi to Riyadh', 'Abu Dhabi to Riyadh transfer', 'cross border taxi Saudi Arabia', 'VIP transport Abu Dhabi Riyadh'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/abu-dhabi-riyadh/',
     },
     openGraph: {
         title: 'Taxi Abu Dhabi to Riyadh',
-        description: 'Book a premium taxi from Abu Dhabi to Riyadh. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Abu Dhabi to Riyadh. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/abu-dhabi-riyadh/',
         type: 'website',
     },
@@ -82,13 +82,13 @@ export default function AbuDhabiRiyadhRoutePage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Abu Dhabi&dropoff=Riyadh">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book Ride (2300 SAR)
+                            Get Quote (2300 SAR)
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="https://wa.me/966569487569?text=Hello,%20I%20want%20to%20book%20a%20taxi%20from%20Abu Dhabi%20to%20Riyadh">
+                    <a href="mailto:info@taxiserviceksa.com?text=Hello,%20I%20want%20to%20book%20a%20taxi%20from%20Abu Dhabi%20to%20Riyadh">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            WhatsApp Booking
+                            Get Quote
                         </Button>
                     </a>
                 </div>
@@ -211,3 +211,6 @@ export default function AbuDhabiRiyadhRoutePage() {
         </div>
     );
 }
+
+
+

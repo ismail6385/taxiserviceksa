@@ -113,7 +113,7 @@ export default function MadinahFoodPage() {
                                     {
                                         role: "Option",
                                         icon: "Coffee",
-                                        insight: "Good for a familiar taste. If you need to reach restaurants further from the Haram, you should <Link href='/booking/' className='text-primary font-bold hover:underline'>book a ride in Madinah</Link> in advance."
+                                        insight: "Good for a familiar taste. If you need to reach restaurants further from the Haram, you should <Link href='/booking/' className='text-primary font-bold hover:underline'>Request a quote for a ride in Madinah</Link> in advance."
                                     }
                                 ]
                             }
@@ -124,4 +124,5 @@ export default function MadinahFoodPage() {
         </div>
     );
 }
+
 

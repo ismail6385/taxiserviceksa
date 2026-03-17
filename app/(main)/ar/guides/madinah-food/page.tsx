@@ -126,3 +126,4 @@ export default function MadinahFoodPage() {
 }
 
 import { AlertCircle } from 'lucide-react';
+

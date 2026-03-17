@@ -9,14 +9,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
     title: 'Jeddah Train Station Taxi | Al Sulimaniyah to Airport/Hotel Transfer',
-    description: 'Book a taxi from Jeddah Haramain Train Station (Al Sulimaniyah). Fixed prices to King Abdulaziz Airport (JED) or Jeddah hotels. Avoid long queues. 24/7 Service.',
+    description: 'Request a quote for a taxi from Jeddah Haramain Train Station (Al Sulimaniyah). Fixed prices to King Abdulaziz Airport (JED) or Jeddah hotels. Avoid long queues. 24/7 Service.',
     keywords: ['Jeddah train station taxi', 'Al Sulimaniyah station taxi', 'Haramain train station Jeddah to airport', 'taxi from Jeddah train station', 'Jeddah railway station transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-train-station-taxi/',
     },
     openGraph: {
         title: 'Jeddah Train Station Taxi (Al Sulimaniyah) - Fast & Reliable',
-        description: 'Arriving by Haramain Train? Book your taxi from Jeddah Station to Airport or Hotel. Fixed prices, no waiting.',
+        description: 'Arriving by Haramain Train? Get a quote for your taxi from Jeddah Station to Airport or Hotel. Fixed prices, no waiting.',
         url: 'https://taxiserviceksa.com/routes/jeddah-train-station-taxi/',
         type: 'website',
     },
@@ -45,7 +45,7 @@ export default function JeddahTrainStationPage() {
             "@type": "TransportationService",
             "name": "VIP Transfer KSA",
             "image": "https://taxiserviceksa.com/logo.png",
-            "telephone": "+966500000000",
+            "telephone": "info@taxiserviceksa.com",
             "priceRange": "$$"
         },
         "areaServed": "Jeddah",
@@ -184,3 +184,6 @@ export default function JeddahTrainStationPage() {
         </div>
     );
 }
+
+
+

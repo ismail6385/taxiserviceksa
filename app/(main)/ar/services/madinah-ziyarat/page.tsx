@@ -112,7 +112,7 @@ export default function MadinahZiyaratPage() {
                                     ))}
                                 </ul>
                                 <Link href="/booking?service=ziyarat">
-                                    <Button className="w-full bg-black text-white hover:bg-gray-800">Book Now</Button>
+                                    <Button className="w-full bg-black text-white hover:bg-gray-800">Get Quote</Button>
                                 </Link>
                             </div>
                         ))}
@@ -212,3 +212,4 @@ export default function MadinahZiyaratPage() {
 }
 
 import { Compass } from 'lucide-react';
+

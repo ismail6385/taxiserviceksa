@@ -152,7 +152,7 @@ export default function JeddahToSwissotelPage() {
                     <div className="bg-gray-900 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
                         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                             <div>
-                                <h3 className="text-3xl font-bold mb-6">Why Book a Private Taxi to Swissotel?</h3>
+                                <h3 className="text-3xl font-bold mb-6">Why Request a quote for a Private Taxi to Swissotel?</h3>
                                 <ul className="space-y-4">
                                     <li className="flex items-start gap-3">
                                         <div className="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0 mt-1">
@@ -251,7 +251,7 @@ export default function JeddahToSwissotelPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your Swissotel Transfer
+                        Get a quote for your Swissotel Transfer
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                         Guarantee your ride from Jeddah Airport to the Clock Tower. No haggling, no waiting.
@@ -259,12 +259,12 @@ export default function JeddahToSwissotelPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/?destination=Swissotel%20Makkah">
                             <Button size="lg" className="bg-emerald-600 text-white hover:bg-emerald-700 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Now
+                                Get Quote
                             </Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                WhatsApp / Email
+                            Email for Quote
                             </Button>
                         </a>
                     </div>
@@ -273,3 +273,6 @@ export default function JeddahToSwissotelPage() {
         </div>
     );
 }
+
+
+

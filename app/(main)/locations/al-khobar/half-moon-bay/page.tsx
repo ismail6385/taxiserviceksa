@@ -11,7 +11,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi to Half Moon Bay (Dana Bay) | Beach & Resort Transfer',
-    description: 'Book a taxi to Half Moon Bay (Al Khobar/Dammam). Transfers to Dana Bay, private beach resorts, and amusement parks. Reliable pickup and return.',
+    description: 'Request a quote for a taxi to Half Moon Bay (Al Khobar/Dammam). Transfers to Dana Bay, private beach resorts, and amusement parks. Reliable pickup and return.',
     keywords: ['Half Moon Bay taxi', 'Taxi to Half Moon Beach', 'Dana Beach Resort taxi', 'Khobar beach taxi', 'Half Moon Bay transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/al-khobar/half-moon-bay/',
@@ -200,3 +200,4 @@ export default function HalfMoonBayPage() {
         </div>
     );
 }
+

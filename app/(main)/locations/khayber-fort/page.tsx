@@ -119,7 +119,7 @@ export default function KhayberPage() {
             <Hero
                 images={khayberImages}
                 h1Text="VIP Private Transfer & Chauffeur Khaybar Fort"
-                bookingFormTitle="Book Premium Transfer in Khaybar"
+                bookingFormTitle="Get Quote for Premium Transfer in Khaybar"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Khaybar
@@ -598,7 +598,7 @@ export default function KhayberPage() {
 
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white text-center">
                 <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl md:text-5xl font-black mb-8">Book Your Transfer to Khaybar</h2>
+                    <h2 className="text-3xl md:text-5xl font-black mb-8">Get a quote for your Transfer to Khaybar</h2>
                     <p className="text-xl text-gray-400 mb-8">
                         Private 4x4 and sedan transport available for Khaybar tours.
                     </p>
@@ -612,3 +612,4 @@ export default function KhayberPage() {
         </div>
     );
 }
+

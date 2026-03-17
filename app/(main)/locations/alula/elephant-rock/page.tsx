@@ -11,7 +11,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi to Elephant Rock (Jabal AlFil) AlUla | Sunset View Transfer',
-    description: 'Book a taxi to Elephant Rock (Jabal AlFil) in AlUla. The best spot for sunset views and evening coffee. Reliable pickup and return service.',
+    description: 'Request a quote for a taxi to Elephant Rock (Jabal AlFil) in AlUla. The best spot for sunset views and evening coffee. Reliable pickup and return service.',
     keywords: ['Taxi to Elephant Rock', 'Jabal AlFil taxi', 'AlUla sunset taxi', 'Elephant Rock cafes', 'AlUla sightseeing taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/alula/elephant-rock/',
@@ -200,3 +200,4 @@ export default function ElephantRockPage() {
         </div>
     );
 }
+

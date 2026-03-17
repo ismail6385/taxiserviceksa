@@ -15,7 +15,7 @@ import QuestionForm from '@/components/seo/QuestionForm';
 
 export const metadata: Metadata = {
     title: 'مدینہ سے مکہ ٹیکسی | پرائیویٹ ٹرانسفر (میقات اسٹاپ)',
-    description: 'مدینہ سے مکہ کے لیے پرائیویٹ ٹیکسی بک کریں۔ آرام دہ گاڑیاں اور میقات ذوالحلیفہ (ابیار علی) پر احرام کے لیے لازمی اسٹاپ۔',
+    description: 'مدینہ سے مکہ کے لیے پرائیویٹ ٹیکسی کے لیے کوٹیشن حاصل کریں۔ آرام دہ گاڑیاں اور میقات ذوالحلیفہ (ابیار علی) پر احرام کے لیے لازمی اسٹاپ۔',
     keywords: ['مدینہ سے مکہ ٹیکسی', 'مدینہ مکہ ٹرانسفر', 'میقات ٹیکسی', 'عمرہ ٹیکسی'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/madinah-to-makkah-taxi/',
@@ -113,3 +113,4 @@ export default function MadinahToMakkahPageUr() {
         </div>
     );
 }
+

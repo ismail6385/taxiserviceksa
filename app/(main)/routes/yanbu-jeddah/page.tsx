@@ -9,7 +9,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
     title: 'Yanbu to Jeddah Taxi | Airport Transfer - Fixed Prices',
-    description: 'Book a taxi from Yanbu to Jeddah Airport (JED) or Jeddah City. 3.5 hour journey via Route 5. Fixed rates available. 24/7 Service.',
+    description: 'Request a quote for a taxi from Yanbu to Jeddah Airport (JED) or Jeddah City. 3.5 hour journey via Route 5. Fixed rates available. 24/7 Service.',
     keywords: ['Yanbu to Jeddah taxi', 'taxi from Yanbu to Jeddah Airport', 'Yanbu to Jeddah taxi fare', 'Yanbu industrial city to Jeddah', 'transfer Yanbu Jeddah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/yanbu-jeddah/',
@@ -199,3 +199,6 @@ export default function YanbuToJeddahPage() {
         </div>
     );
 }
+
+
+

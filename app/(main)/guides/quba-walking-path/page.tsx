@@ -137,7 +137,7 @@ export default function QubaWalkingPathPage() {
                 services={[
                     {
                         name: 'Madinah City Taxi',
-                        description: 'Too tired to walk back? You can book a taxi in Madinah for a quick return from Quba.',
+                        description: 'Too tired to walk back? You can Request a quote for a taxi in Madinah for a quick return from Quba.',
                         href: '/booking/',
                         icon: Car
                     },
@@ -154,3 +154,4 @@ export default function QubaWalkingPathPage() {
         </div>
     );
 }
+

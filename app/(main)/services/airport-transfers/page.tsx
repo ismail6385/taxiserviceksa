@@ -142,7 +142,7 @@ export default async function AirportTransfersPage() {
     const faqs = [
         {
             question: "How does the VIP meet-and-greet service work at Saudi airports?",
-            answer: "Driver waits at arrivals hall with name sign displaying passenger name. For Jeddah (JED), we meet at the **Aquarium (Terminal 1)** or **Gate 4 (North Terminal)**. For Madinah (MED), drivers wait at the main international exit barrier. Detailed meeting point photos are sent via WhatsApp."
+            answer: "Driver waits at arrivals hall with name sign displaying passenger name. For Jeddah (JED), we meet at the **Aquarium (Terminal 1)** or **Gate 4 (North Terminal)**. For Madinah (MED), drivers wait at the main international exit barrier. Detailed meeting point photos are sent via email."
         },
         {
             question: "Is it better to use Uber, Careem, or a private transfer from Jeddah Airport?",
@@ -157,7 +157,7 @@ export default async function AirportTransfersPage() {
             answer: "Yes. Our VIP airport transfer service operates 24/7 for all flight times. Late-night pickups (10 PM - 6 AM) have the same competitive fixed rates as daytime service. Advance booking (24-48 hours) is recommended for flights arriving between midnight and 5 AM."
         },
         {
-            question: "Can I book airport transfer with child seats?",
+            question: "Can I Request a quote for airport transfer with child seats?",
             answer: "Yes. Child seats are available upon request for all airport transfers. Specify child age and weight during booking. Infant seats (0-1 year), toddler seats (1-4 years), and booster seats (4-8 years) are available. No extra charge for child seat provision."
         },
         {
@@ -266,7 +266,7 @@ export default async function AirportTransfersPage() {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/booking?service=airport-transfer">
                                 <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
-                                    Book Airport Transfer
+                                    Request a quote for airport Transfer
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>
@@ -532,7 +532,7 @@ export default async function AirportTransfersPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto">
                             <Link href="/booking/">
-                                Book Airport Pickup
+                                Request a quote for airport Pickup
                                 <ArrowRight className="ml-2 w-5 h-5" />
                             </Link>
                         </Button>
@@ -550,7 +550,7 @@ export default async function AirportTransfersPage() {
                 </div>
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your VIP Airport Chauffeur
+                        Get a quote for your VIP Airport Chauffeur
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                         Secure your private transfer with Saudi Arabia's premium executive transport provider. Dedicated to international travelers and business excellence.
@@ -558,7 +558,7 @@ export default async function AirportTransfersPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking?service=airport-transfer">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Now
+                                Get Quote
                             </Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">
@@ -572,3 +572,4 @@ export default async function AirportTransfersPage() {
         </div>
     );
 }
+

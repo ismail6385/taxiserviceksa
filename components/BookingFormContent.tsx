@@ -163,45 +163,6 @@ export default function BookingFormContent({ prefilledData, className }: Booking
         // Let's keep it manual for explicit confirmation, or auto if they click the card.
     };
 
-    // Helper to open WhatsApp with booking details
-    const openWhatsAppBooking = async () => {
-        const vehicle = vehicles.find(v => v.name === formData.vehicle_type);
-        setLoading(true);
-
-        try {
-            // 1. Save to Database as a lead
-            const fullPhoneNumber = `${countryCode}${formData.customer_phone}`;
-            const bookingLeadData = {
-                ...formData,
-                special_requests: (calculatedPrice ? `Please Provide Quote` : '') + ` | Source: WhatsApp Click`,
-                status: 'pending'
-            };
-
-            const { error } = await supabase.from('bookings').insert([bookingLeadData]);
-            if (error) console.error("Failed to save WhatsApp lead:", error);
-
-        } catch (err) {
-            console.error("Error in WhatsApp flow:", err);
-        }
-
-        // 2. Open WhatsApp
-        const message = `Hello, I would like to book a ride using WhatsApp.
-        
-*Booking Details:*
-• Pickup: ${formData.pickup_location}
-• Dropoff: ${formData.destination}
-• Date: ${formData.pickup_date}
-• Time: ${formData.pickup_time}
-${vehicle ? `• Vehicle: ${vehicle.name}` : ''}
-${formData.customer_name ? `• Name: ${formData.customer_name}` : ''}
-${calculatedPrice ? `• Est. Price: Requesting Quote` : ''}
-
-Please confirm availability.`;
-
-        const whatsappUrl = `https://wa.me/966569487569?text=${encodeURIComponent(message)}`;
-        window.open(whatsappUrl, '_blank');
-        setLoading(false);
-    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -237,22 +198,7 @@ Please confirm availability.`;
             setSuccess(true);
             setStep(4);
 
-            // Auto-open WhatsApp with booking reference
-            setTimeout(() => {
-                const message = `Hello, I just made a booking (ID: ${data[0].id?.slice(0, 8)}).
-                
-*Booking Details:*
-• Pickup: ${formData.pickup_location}
-• Dropoff: ${formData.destination}
-• Date: ${formData.pickup_date}
-• Time: ${formData.pickup_time}
-• Vehicle: ${formData.vehicle_type}
-• Name: ${formData.customer_name}
 
-Please confirm my ride.`;
-                const whatsappUrl = `https://wa.me/966569487569?text=${encodeURIComponent(message)}`;
-                window.open(whatsappUrl, '_blank');
-            }, 1500); // Small delay to let user see success screen first
         } catch (error) {
             console.error(error);
             alert('Booking failed. Please try again.');
@@ -317,6 +263,9 @@ Please confirm my ride.`;
                     <div className="space-y-5 animate-fade-in-up">
                         <div className="text-center mb-4">
                             <h2 className="text-2xl font-bold text-gray-900">Plan Your VIP Journey</h2>
+                            <p className="text-[10px] text-rose-600 font-extrabold uppercase tracking-[0.2em] mt-2">
+                                Private Transfers Only • No Shared Taxis
+                            </p>
                         </div>
 
                         {/* Quick Select */}
@@ -448,26 +397,65 @@ Please confirm my ride.`;
                             {vehicles.map((v) => (
                                 <div
                                     key={v.name}
-                                    onClick={() => { selectVehicle(v); setStep(3); }}
-                                    className={`relative group cursor-pointer border-2 rounded-2xl p-4 transition-all hover:shadow-md ${formData.vehicle_type === v.name ? 'border-primary bg-primary/5' : 'border-gray-100 bg-white hover:border-primary/50'}`}
+                                    onClick={() => selectVehicle(v)}
+                                    className={`relative group cursor-pointer border-2 rounded-2xl p-4 transition-all hover:shadow-md ${formData.vehicle_type === v.name ? 'border-primary bg-primary/5 shadow-sm' : 'border-gray-100 bg-white hover:border-primary/50'}`}
                                 >
                                     <div className="flex items-center gap-4">
                                         <div className="flex-1">
-                                            <h3 className="font-bold text-lg text-gray-900">{v.name}</h3>
-                                            <div className="flex items-center gap-3 text-sm text-gray-500 mt-1">
-                                                <span className="flex items-center gap-1"><Users className="w-3 h-3" /> {v.passengers}</span>
-                                                <span className="flex items-center gap-1"><Briefcase className="w-3 h-3" /> {v.luggage}</span>
+                                            <h3 className="font-bold text-lg text-gray-900 leading-tight">{v.name}</h3>
+                                            <div className="flex items-center gap-3 text-xs text-gray-500 mt-1">
+                                                <span className="flex items-center gap-1 font-bold"><Users className="w-3.5 h-3.5 text-primary" /> Max {v.passengers}</span>
+                                                <span className="flex items-center gap-1 font-bold"><Briefcase className="w-3.5 h-3.5 text-primary" /> {v.luggage} Bags</span>
                                             </div>
                                         </div>
                                         {/* Price hint if available */}
                                         {formData.pickup_location && formData.destination && (
                                             <div className="text-right">
-                                                <span className="block font-bold text-lg text-primary">
+                                                <span className="block font-black text-lg text-primary leading-none">
                                                     Get Quote
                                                 </span>
+                                                <span className="text-[9px] text-gray-400 font-bold uppercase tracking-tighter">Private Only</span>
                                             </div>
                                         )}
                                     </div>
+
+                                    {/* Passenger Selector (Only visible for selected card) */}
+                                    {formData.vehicle_type === v.name && (
+                                        <div className="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between animate-fade-in">
+                                            <div className="flex flex-col">
+                                                <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Select Passengers</span>
+                                                <span className="text-xs font-bold text-gray-900">{formData.passengers} Passenger(s)</span>
+                                            </div>
+                                            <div className="flex items-center gap-3 bg-white rounded-lg p-1 border shadow-sm">
+                                                <button 
+                                                    type="button"
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        if (formData.passengers > 1) {
+                                                            setFormData(prev => ({ ...prev, passengers: prev.passengers - 1 }));
+                                                        }
+                                                    }}
+                                                    className="w-8 h-8 rounded-md bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-all active:scale-90"
+                                                >
+                                                    <span className="text-lg font-bold text-gray-900">-</span>
+                                                </button>
+                                                <span className="font-black text-primary min-w-[30px] text-center">{formData.passengers}</span>
+                                                <button 
+                                                    type="button"
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        if (formData.passengers < v.passengers) {
+                                                            setFormData(prev => ({ ...prev, passengers: prev.passengers + 1 }));
+                                                        }
+                                                    }}
+                                                    className="w-8 h-8 rounded-md bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-all active:scale-90"
+                                                >
+                                                    <span className="text-lg font-bold text-gray-900">+</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    )}
+
                                     <div className={`absolute top-4 right-4 w-5 h-5 rounded-full border-2 flex items-center justify-center ${formData.vehicle_type === v.name ? 'border-primary bg-primary text-white' : 'border-gray-300'}`}>
                                         {formData.vehicle_type === v.name && <Check className="w-3 h-3" />}
                                     </div>
@@ -475,8 +463,11 @@ Please confirm my ride.`;
                             ))}
                         </div>
 
-                        <div className="flex gap-3 mt-4">
-                            <Button type="button" onClick={prevStep} variant="outline" className="flex-1 py-4 text-lg rounded-xl">Back</Button>
+                        <div className="flex gap-3 mt-6">
+                            <Button type="button" onClick={prevStep} variant="ghost" className="flex-1 py-4 text-base rounded-xl text-gray-500">Back</Button>
+                            <Button type="button" onClick={() => setStep(3)} disabled={!formData.vehicle_type} className="flex-[2] bg-primary hover:bg-primary/90 text-black font-black py-4 text-lg rounded-xl shadow-lg transform active:scale-[0.98] transition-all">
+                                Continue Trip <ArrowRight className="w-5 h-5 ml-2" />
+                            </Button>
                         </div>
                     </div>
                 )}
@@ -548,7 +539,7 @@ Please confirm my ride.`;
                         <div className="flex gap-3 mt-4">
                             <Button type="button" onClick={prevStep} variant="outline" className="flex-1 py-4 text-lg rounded-xl">Back</Button>
                             <Button type="submit" className="flex-1 bg-primary hover:bg-primary/90 text-black font-bold py-4 text-lg rounded-xl" disabled={loading}>
-                                {loading ? 'Booking...' : 'Secure VIP Reservation'}
+                                {loading ? 'Processing...' : 'Submit Quote Request'}
                             </Button>
                         </div>
 
@@ -560,13 +551,11 @@ Please confirm my ride.`;
 
                         <Button
                             type="button"
-                            onClick={openWhatsAppBooking}
-                            className="w-full h-14 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
+                            onClick={() => window.location.href = 'mailto:info@taxiserviceksa.com'}
+                            className="w-full h-14 bg-gray-900 hover:bg-black text-white font-bold text-lg rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
                         >
-                            <svg viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-                            </svg>
-                            Book via WhatsApp
+                            <Mail className="w-5 h-5" />
+                            Email Inquiry
                         </Button>
                     </div>
                 )}
@@ -575,9 +564,12 @@ Please confirm my ride.`;
                 {step === 4 && success && (
                     <div className="text-center space-y-6 animate-fade-in-up py-8">
                         <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto"><Check className="w-10 h-10 text-black" /></div>
-                        <h3 className="text-2xl font-bold text-gray-900">Booking Confirmed!</h3>
-                        <p className="text-gray-600">We've sent a confirmation to <strong>{formData.customer_email}</strong>. Our team will contact you shortly.</p>
-                        <Button type="button" onClick={() => { setStep(1); setSuccess(false); setCalculatedPrice(null); setFormData(prev => ({ ...prev, pickup_location: '', destination: '', status: 'pending' })); }} className="bg-primary hover:bg-primary/90 text-black font-bold py-4 px-8 rounded-xl">Book Another</Button>
+                        <div className="space-y-2">
+                            <h3 className="text-2xl font-bold text-gray-900">Request Received!</h3>
+                            <p className="text-gray-500 font-medium">Your quotation request has been sent for review.</p>
+                        </div>
+                        <p className="text-gray-600 px-4">We've sent a summary to <strong>{formData.customer_email}</strong>. Our team will contact you with the official quote shortly.</p>
+                        <Button type="button" onClick={() => { setStep(1); setSuccess(false); setCalculatedPrice(null); setFormData(prev => ({ ...prev, pickup_location: '', destination: '', status: 'pending' })); }} className="bg-primary hover:bg-black text-white font-bold py-4 px-8 rounded-xl transition-colors">New Quotation Request</Button>
                     </div>
                 )}
             </form>

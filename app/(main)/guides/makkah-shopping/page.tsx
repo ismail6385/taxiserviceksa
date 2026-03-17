@@ -83,7 +83,7 @@ export default function MakkahShoppingPage() {
                                 </div>
                                 <div className="bg-amber-50 p-6 rounded-xl border border-amber-100">
                                     <h3 className="font-bold text-lg mb-1">Kakia Wholesale Market</h3>
-                                    <p className="text-gray-600 text-sm mb-2">Best place for buying dates and wholesale items in bulk. You can <Link href='/booking/' className='text-primary font-bold hover:underline'>book a GMC Yukon</Link> to transport your rewards and luggage comfortably back to your hotel.</p>
+                                    <p className="text-gray-600 text-sm mb-2">Best place for buying dates and wholesale items in bulk. You can <Link href='/booking/' className='text-primary font-bold hover:underline'>Request a quote for a GMC Yukon</Link> to transport your rewards and luggage comfortably back to your hotel.</p>
                                 </div>
                             </div>
                         </div>
@@ -117,3 +117,4 @@ export default function MakkahShoppingPage() {
         </div>
     );
 }
+

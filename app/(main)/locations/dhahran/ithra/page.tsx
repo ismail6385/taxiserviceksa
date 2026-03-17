@@ -11,7 +11,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi to Ithra (Dhahran) | King Abdulaziz Center for World Culture',
-    description: 'Book a taxi to Ithra (King Abdulaziz Center for World Culture) in Dhahran. Visit the library, museum, and theater. Reliable pickups from Aramco camp.',
+    description: 'Request a quote for a taxi to Ithra (King Abdulaziz Center for World Culture) in Dhahran. Visit the library, museum, and theater. Reliable pickups from Aramco camp.',
     keywords: ['Taxi to Ithra', 'Ithra Dhahran taxi', 'King Abdulaziz Center taxi', 'Aramco visitor taxi', 'Dhahran museums transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/dhahran/ithra/',
@@ -71,7 +71,7 @@ export default function IthraPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Khobar%20City&dropoff=Ithra">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book Ride to Ithra
+                            Get Quote to Ithra
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
@@ -200,3 +200,4 @@ export default function IthraPage() {
         </div>
     );
 }
+

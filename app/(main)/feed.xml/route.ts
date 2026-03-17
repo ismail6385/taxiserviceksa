@@ -18,7 +18,7 @@ export async function GET() {
         {
             title: "Jeddah Airport to Makkah Taxi",
             slug: "jeddah-airport-to-makkah-taxi",
-            excerpt: "Book your reliable transfer from King Abdulaziz Airport to Makkah hotels. 24/7 Service.",
+            excerpt: "Get a quote for your reliable transfer from King Abdulaziz Airport to Makkah hotels. 24/7 Service.",
             date: "2024-01-01"
         },
         {

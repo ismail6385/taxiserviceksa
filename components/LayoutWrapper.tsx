@@ -9,7 +9,6 @@ import SocialSidebar from '@/components/SocialSidebar';
 import JsonLdBreadcrumb from '@/components/JsonLdBreadcrumb';
 import JsonLdService from '@/components/JsonLdService';
 import JsonLdLocalBusiness from '@/components/JsonLdLocalBusiness';
-import WhatsAppButton from '@/components/WhatsAppButton';
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -22,7 +21,6 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
         <>
           <Navbar />
           <SocialSidebar />
-          <WhatsAppButton />
           <JsonLdBreadcrumb />
 
           <JsonLdService />

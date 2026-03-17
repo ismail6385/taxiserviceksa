@@ -12,9 +12,8 @@ export const BRAND = {
     headquarters: "Jeddah, Saudi Arabia",
     contact: {
         email: "info@taxiserviceksa.com",
-        phone: "+966 56 948 7569",
-        whatsapp: "https://wa.me/966569487569"
     },
+    vipOnly: true,
     socialLinks: {
         facebook: "https://facebook.com/viptransferksa",
         instagram: "https://instagram.com/viptransferksa",

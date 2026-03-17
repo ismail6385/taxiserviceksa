@@ -1,3 +1,5 @@
+import fs from 'fs';
+import path from 'path';
 import { blogService } from '@/lib/blogService';
 
 export async function GET() {
@@ -6,21 +8,12 @@ export async function GET() {
     // Fetch Blogs
     const blogs = await blogService.getPublishedBlogs();
 
-    // Guides (Manually curated or could be dynamic if guides became a collection)
-    const guides = [
-        'jeddah-airport-guide',
-        'makkah-umrah-guide',
-        'riyadh-business-guide',
-        'meeqat-locations',
-        'avoid-taxi-scams',
-        'uhud-history',
-        'seven-mosques',
-        'quba-walking-path',
-        'madinah-food',
-        'haram-gates-access',
-        'currency',
-        'makkah-shopping'
-    ];
+    // Dynamically list all guide directories
+    const guidesDirectory = path.join(process.cwd(), 'app', '(main)', 'guides');
+    const guides = fs.readdirSync(guidesDirectory).filter(file => {
+        const filePath = path.join(guidesDirectory, file);
+        return fs.statSync(filePath).isDirectory();
+    });
 
     // Extra Content
     const extras = [

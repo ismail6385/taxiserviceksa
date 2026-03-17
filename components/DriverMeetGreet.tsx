@@ -48,9 +48,9 @@ export default function DriverMeetGreet() {
                             <Phones className="w-6 h-6" />
                         </div>
                         <div className="absolute top-4 right-4 text-xs font-bold text-gray-300">03</div>
-                        <h4 className="font-bold text-gray-900 mb-2">Direct Contact</h4>
+                        <h4 className="font-bold text-gray-900 mb-2">Real-time Updates</h4>
                         <p className="text-sm text-gray-500">
-                            Receive WhatsApp photo of your driver & exact meeting point.
+                            Receive real-time status updates on your driver's location and arrival.
                         </p>
                     </CardContent>
                 </Card>

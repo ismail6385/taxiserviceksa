@@ -126,7 +126,7 @@ export default function HaramGatesPage() {
                                                 </Link>
                                                 , the shoe management system there is different but equally important. You can avoid heat and traffic by choosing to{' '}
                                                 <Link href='/booking/' className='text-primary font-bold hover:underline'>
-                                                    book your taxi online
+                                                    Get a quote for your taxi online
                                                 </Link>{' '}
                                                 for all transfers.
                                             </>
@@ -141,3 +141,4 @@ export default function HaramGatesPage() {
         </div>
     );
 }
+

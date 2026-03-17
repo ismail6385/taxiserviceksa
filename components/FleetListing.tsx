@@ -12,6 +12,7 @@ interface Vehicle {
     luggage: number;
     features: string[];
     href: string;
+    category: string;
 }
 
 interface FleetListingProps {
@@ -20,7 +21,7 @@ interface FleetListingProps {
 
 export default function FleetListing({ fleet }: FleetListingProps) {
     const [filter, setFilter] = useState('All');
-    const filteredFleet = filter === 'All' ? fleet : fleet.filter(v => v.type === filter);
+    const filteredFleet = filter === 'All' ? fleet : fleet.filter(v => v.category === filter);
     const categories = ['All', 'Luxury', 'Economy', 'Group'];
 
     return (

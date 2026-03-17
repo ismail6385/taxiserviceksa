@@ -20,8 +20,8 @@ export default function HowItWorks({ title }: HowItWorksProps) {
         },
         {
             id: 2,
-            title: "Instant Verification",
-            description: "Submit details and get immediate confirmation via <strong>Email</strong>. We track your international flight to ensure the driver waits even if you are delayed.",
+            title: "Request Quotation",
+            description: "Submit details and get your quotation via <strong>Email</strong>. We track your international flight to ensure the driver waits even if you are delayed.",
             icon: <Monitor className="w-12 h-12 text-blue-500" />
         },
         {
@@ -41,10 +41,10 @@ export default function HowItWorks({ title }: HowItWorksProps) {
                 {/* Header */}
                 <div className="text-center mb-16 space-y-4">
                     <h2 className="text-3xl md:text-5xl font-black text-gray-900">
-                        {title || <>Book your taxi in <span className="text-[#FFC107]">3 simple steps</span></>}
+                        {title || <>Get your taxi quote in <span className="text-[#FFC107]">3 simple steps</span></>}
                     </h2>
                     <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        From the first click on the booking form and till the moment you step out the auto at your destination, it couldn't be any simpler:
+                        From the first click on the quote form and till the moment you step out the auto at your destination, it couldn't be any simpler:
                     </p>
                 </div>
 

@@ -9,7 +9,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
     title: 'Taif to Jeddah Taxi | Airport Transfer - Fixed Prices',
-    description: 'Book a taxi from Taif to Jeddah Airport (JED) or Jeddah City. 2.5 hour journey via Al Hada Mountain Road. Fixed rates available. 24/7 service.',
+    description: 'Request a quote for a taxi from Taif to Jeddah Airport (JED) or Jeddah City. 2.5 hour journey via Al Hada Mountain Road. Fixed rates available. 24/7 service.',
     keywords: ['Taif to Jeddah taxi', 'taxi from Taif to Jeddah Airport', 'Taif to Jeddah taxi price', 'Al Hada road taxi', 'Taif to Jeddah cab'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/taif-jeddah/',
@@ -199,3 +199,6 @@ export default function TaifToJeddahPage() {
         </div>
     );
 }
+
+
+

@@ -198,7 +198,7 @@ export default async function BlogPostPage({ params }: Props) {
                                 <div className="space-y-3">
                                     <Link href="/booking/" className="block w-full">
                                         <button className="w-full bg-primary text-black font-bold py-3 px-4 rounded-xl hover:bg-primary/90 transition-all shadow-md shadow-primary/20 flex items-center justify-center gap-2 group">
-                                            Book Your Taxi
+                                            Get a quote for your Taxi
                                             <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                         </button>
                                     </Link>

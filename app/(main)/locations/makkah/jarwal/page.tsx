@@ -195,7 +195,7 @@ export default function JarwalPage() {
             <section className="py-24 bg-blue-600 text-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500 to-blue-700 opacity-50"></div>
                 <div className="max-w-4xl mx-auto px-4 relative z-10">
-                    <h2 className="text-4xl md:text-5xl font-black text-white mb-8">Staying in Jarwal? Book Your Ride to the Haram Today.</h2>
+                    <h2 className="text-4xl md:text-5xl font-black text-white mb-8">Staying in Jarwal? Request Quotation to the Haram Today.</h2>
                     <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto font-medium">
                         Professional, safe, and modern taxi services for Jabal al-Kaaba and Jarwal guests.
                     </p>
@@ -216,3 +216,4 @@ export default function JarwalPage() {
         </div>
     );
 }
+

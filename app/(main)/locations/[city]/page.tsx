@@ -221,7 +221,7 @@ export default function LocationPage({ params }: Props) {
                     <div className="lg:col-span-1 space-y-8">
                         {/* Booking Card */}
                         <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 sticky top-24">
-                            <h3 className="text-2xl font-bold text-gray-900 mb-2">Book VIP Transfer in {city.name}</h3>
+                            <h3 className="text-2xl font-bold text-gray-900 mb-2">Get Quote for VIP Transfer in {city.name}</h3>
                             <p className="text-gray-600 mb-6">Premium, safe & professional chauffeurs.</p>
 
                             {/* Primary CTA (High Intent) */}

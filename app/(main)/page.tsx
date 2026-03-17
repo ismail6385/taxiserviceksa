@@ -3,20 +3,20 @@ import HomeClient from './page-client';
 import { blogService } from '@/lib/blogService';
 
 export const metadata: Metadata = {
-  title: 'VIP Private Transfer Saudi Arabia | Book Executive Chauffeur Service',
-  description: 'Book elite VIP private transfers in Saudi Arabia for Umrah, airport transfers & executive travel. 24/7 premium chauffeur service with professional drivers.',
+  title: 'Taxi Service KSA | Taxi Makkah to Madinah | Jeddah Airport Taxi',
+  description: 'Book the best online taxi in Saudi Arabia. Specializing in Taxi Makkah to Madinah, Jeddah Airport transfers, and VIP private car services for Umrah pilgrims.',
   alternates: {
     canonical: 'https://taxiserviceksa.com/',
   },
   openGraph: {
-    title: 'BEST VIP Private Transfer & Executive Chauffeur Saudi Arabia',
-    description: 'Book elite VIP private transfers in Saudi Arabia for Umrah, airport transfers & executive travel. 24/7 premium chauffeur service with professional drivers.',
+    title: 'Taxi Service KSA | VIP Private Transfer | Taxi Makkah to Madinah',
+    description: 'Book the best online taxi in Saudi Arabia. Specializing in Taxi Makkah to Madinah, Jeddah Airport transfers, and VIP private car services for Umrah pilgrims.',
     url: 'https://taxiserviceksa.com/',
-    siteName: 'VIP Transfer KSA',
+    siteName: 'Taxi Service KSA',
     locale: 'en_US',
     type: 'website',
   },
-  keywords: ['VIP Private Transfer Saudi Arabia', 'Executive Chauffeur Saudi Arabia', 'VIP Umrah Transport', 'Premium Airport Transfer KSA', 'rent a car with driver in saudi arabia', 'jeddah to makkah coaster', 'transport madinah to makkah', 'private luxury transfer for families', 'executive suv for rent in jeddah', 'taxi saudi arabia from uk', 'umrah taxi from usa', 'jeddah airport transfer canada', 'prebook taxi jeddah', 'luxury transport saudi arabia', 'Al Haram Cab alternative', 'Kaiian taxi alternative', 'Umrah Taxi Online', 'Jeddah to Makkah taxi fare', 'GMC Yukon Makkah', 'Toyota Hiace Umrah transport'],
+  keywords: ['Taxi Makkah to Madinah', 'Jeddah Airport Taxi', 'Taxi Service KSA', 'Taxi in Makkah', 'Taxi in Jeddah', 'Taxi Makkah to Jeddah', 'Umrah Taxi Service', 'Private Car Makkah to Madinah'],
 };
 
 export default async function Home() {
@@ -38,3 +38,4 @@ export default async function Home() {
     </>
   );
 }
+

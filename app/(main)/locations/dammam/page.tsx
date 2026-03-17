@@ -81,8 +81,8 @@ export default function DammamPage() {
             answer: "Our private taxi is the fastest way to travel from Dammam to Jubail. The trip takes about 1 hour and is direct, unlike buses."
         },
         {
-            question: "Can I book a taxi to Half Moon Bay?",
-            answer: "Yes, you can book a taxi for a day trip to Half Moon Bay. We can drop you off and pick you up whenever you like."
+            question: "Can I Request a quote for a taxi to Half Moon Bay?",
+            answer: "Yes, you can Request a quote for a taxi for a day trip to Half Moon Bay. We can drop you off and pick you up whenever you like."
         },
         {
             question: "Do you offer corporate car rental in Dammam?",
@@ -123,7 +123,7 @@ export default function DammamPage() {
             <Hero
                 images={dammamImages}
                 h1Text="VIP Private Transfer & Chauffeur Dammam"
-                bookingFormTitle="Book Premium Transfer in Dammam"
+                bookingFormTitle="Get Quote for Premium Transfer in Dammam"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Dammam
@@ -492,7 +492,7 @@ export default function DammamPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your Dammam VIP Transfer Now
+                        Get a quote for your Dammam VIP Transfer Now
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                         Reliable transport for airport transfers, Jubail trips, and city travel.
@@ -514,3 +514,4 @@ export default function DammamPage() {
         </div>
     );
 }
+

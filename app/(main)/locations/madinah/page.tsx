@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { Clock, Star, CheckCircle2, Car, Users, Shield, Compass, MapPin, User, Briefcase, Heart, Plane, Phone, ArrowRight, Landmark } from 'lucide-react';
+import { Clock, Star, CheckCircle2, Car, Users, Shield, Compass, MapPin, User, Briefcase, Heart, Plane, ArrowRight, Landmark, Mail } from 'lucide-react';
 import Hero from '@/components/Hero';
 import HowItWorks from '@/components/HowItWorks';
 import ExpertReview from '@/components/seo/ExpertReview';
@@ -107,7 +107,7 @@ export default async function MadinahPage() {
             <Hero
                 images={madinahImages}
                 h1Text="VIP Private Transfer & Ziyarat Chauffeur Madinah"
-                bookingFormTitle="Book Premium Transfer in Madinah"
+                bookingFormTitle="Get Quote for Premium Transfer in Madinah"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Madinah
@@ -310,7 +310,7 @@ export default async function MadinahPage() {
                             <div className="mt-8 bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded-r-xl">
                                 <p className="text-sm text-gray-900 font-semibold flex items-center gap-2">
                                     <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                                    Book your Ziyarat tour early to visit holy sites during cooler morning hours.
+                                    Get a quote for your Ziyarat tour early to visit holy sites during cooler morning hours.
                                 </p>
                             </div>
                         </div>
@@ -359,7 +359,7 @@ export default async function MadinahPage() {
 
                     <div className="relative z-10 text-center max-w-5xl mx-auto">
                         <div className="inline-flex items-center gap-2 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-                            <Phone className="w-4 h-4 text-black" />
+                            <Clock className="w-4 h-4 text-black" />
                             <span className="text-sm font-semibold text-black">24/7 Booking</span>
                         </div>
 
@@ -379,7 +379,7 @@ export default async function MadinahPage() {
                             </Link>
                             <a href="mailto:info@taxiserviceksa.com">
                                 <Button variant="outline" className="bg-white/20 backdrop-blur-sm text-black border-2 border-black/30 hover:bg-white/30 font-bold px-10 py-7 text-lg rounded-2xl h-auto">
-                                    <Phone className="mr-2 w-5 h-5" />
+                                    <Mail className="mr-2 w-5 h-5" />
                                     Email Us
                                 </Button>
                             </a>
@@ -640,3 +640,4 @@ export default async function MadinahPage() {
         </div >
     );
 }
+

@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'تاكسي المدينة المنورة | زيارات وتوصيل المطار',
-        description: 'احجز تاكسي في المدينة المنورة لزيارة المسجد النبوي والمزارات التاريخية. سيارات حديثة وسائقين محترفين.',
+        description: 'طلب اقتباس تاكسي في المدينة المنورة لزيارة المسجد النبوي والمزارات التاريخية. سيارات حديثة وسائقين محترفين.',
         url: 'https://taxiserviceksa.com/ar/locations/madinah/',
         locale: 'ar_SA',
         type: 'website',
@@ -117,7 +117,7 @@ export default function MadinahPageArabic() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/">
                         <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-primary/90 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl w-full sm:w-auto">
-                            احجز جولات الزيارة
+                            طلب اقتباس جولات الزيارة
                             <ArrowRight className="mr-2 w-5 h-5 rotate-180" />
                         </Button>
                     </Link>
@@ -132,7 +132,7 @@ export default function MadinahPageArabic() {
                     lastUpdated="ديسمبر ٢٠٢٤"
                     content="لتجنب حافلات السياح وحرارة الظهيرة، ينصح سائقونا المحليون ببدء جولة الزيارات مباشرة بعد صلاة الفجر (حوالي ٦:٠٠ صباحاً). ستستمتع بروحانية عالية في مسجد قباء وهدوء في جبل أحد قبل الازدحام."
                     tags={["زيارات_المدينة", "مسجد_قباء", "نصائح_محلية", "أفضل_وقت_للزيارة"]}
-                    linkText="احجز جولة زيارة صباحية"
+                    linkText="طلب اقتباس جولة زيارة صباحية"
                 />
             </div>
 
@@ -458,3 +458,4 @@ export default function MadinahPageArabic() {
         </div>
     );
 }
+

@@ -283,12 +283,12 @@ export default function JeddahAlulaRoutePage() {
                         Experience Al Ula
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Don't let flight schedules dictate your adventure. Book your private ride to Al Ula today.
+                        Don't let flight schedules dictate your adventure. Get a quote for your private ride to Al Ula today.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking?route=jeddah-alula">
                             <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book Now
+                                Get Quote
                             </Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">
@@ -302,3 +302,6 @@ export default function JeddahAlulaRoutePage() {
         </div>
     );
 }
+
+
+

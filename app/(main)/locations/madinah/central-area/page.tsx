@@ -182,7 +182,7 @@ export default function CentralAreaPage() {
                         <AccordionItem value="item-1" className="bg-gray-50 px-8 rounded-3xl border-none">
                             <AccordionTrigger className="font-bold text-lg py-8 hover:no-underline">How do I meet my driver at a Markaziya hotel?</AccordionTrigger>
                             <AccordionContent className="text-gray-600 pb-8 text-base">
-                                Once you book, we coordinate with the hotel valet desk. Your driver will arrive at the main entrance and message you via WhatsApp 10 minutes before pickup.
+                                Once you book, we coordinate with the hotel valet desk. Your driver will arrive at the main entrance and send you a notification via email 10 minutes before pickup.
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-2" className="bg-gray-50 px-8 rounded-3xl border-none">
@@ -228,3 +228,4 @@ export default function CentralAreaPage() {
         </div>
     );
 }
+

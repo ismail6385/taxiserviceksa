@@ -90,7 +90,7 @@ export default function HeritageToursPage() {
             answer: "Yes. All AlUla heritage tours use 4x4 vehicles (Toyota Land Cruiser) suitable for desert terrain. Vehicles are equipped for sand dunes, rocky paths, and off-road access to Hegra, Elephant Rock, and Dadan sites. Drivers have desert driving expertise and heritage site knowledge."
         },
         {
-            question: "Can I book a full-day tour of AlUla UNESCO sites?",
+            question: "Can I Request a quote for a full-day tour of AlUla UNESCO sites?",
             answer: "Yes. Full-day AlUla heritage tour (8-10 hours) covers Hegra (Madain Saleh), Dadan ancient city, Elephant Rock, and Old Town AlUla. Tour includes 4x4 transport, driver, and flexible schedule for photography. Price from SAR 600. English-speaking guide available for additional SAR 200."
         },
         {
@@ -322,7 +322,7 @@ export default function HeritageToursPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your Heritage Tour
+                        Get a quote for your Heritage Tour
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                         Explore Saudi Arabia's UNESCO World Heritage Sites with professional 4x4 transport and knowledgeable drivers.
@@ -344,3 +344,4 @@ export default function HeritageToursPage() {
         </div>
     );
 }
+

@@ -88,7 +88,7 @@ export default function SevenMosquesPage() {
                                     {
                                         role: "Visitor Note",
                                         icon: "Info",
-                                        insight: "You usually visit 4-5 of the small structures which are walkable. To visit all these sites comfortably, you can <Link href='/booking/' className='text-primary font-bold hover:underline'>book a taxi in Madinah</Link> for your personal tour."
+                                        insight: "You usually visit 4-5 of the small structures which are walkable. To visit all these sites comfortably, you can <Link href='/booking/' className='text-primary font-bold hover:underline'>Request a quote for a taxi in Madinah</Link> for your personal tour."
                                     }
                                 ]
                             }
@@ -99,3 +99,4 @@ export default function SevenMosquesPage() {
         </div>
     );
 }
+

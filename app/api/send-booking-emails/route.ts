@@ -10,14 +10,7 @@ function formatBookingId(id: string | number | undefined): string {
     return `#${String(id).slice(0, 8).toUpperCase()}`;
 }
 
-// Helper function to format phone number for WhatsApp
-function formatPhoneForWhatsApp(phone: string | number | undefined): string {
-    if (!phone) return '';
-    const cleaned = String(phone).replace(/\D/g, '');
-    if (cleaned.startsWith('0')) return cleaned.substring(1);
-    if (!cleaned.startsWith('966')) return `966${cleaned}`;
-    return cleaned;
-}
+
 
 // Helper function to format date safely
 function formatDate(date: string | Date | undefined): string {
@@ -46,28 +39,34 @@ export async function POST(request: NextRequest) {
         try {
             await sendMail({
                 to: booking.customer_email,
-                subject: 'Booking Confirmation - Taxi Service KSA',
+                subject: 'Quotation Request Received - VIP Transfer KSA',
                 html: `
                 <div style="font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; color: #333;">
-                    <div style="background-color: #C6FF00; padding: 20px; text-align: center; border-radius: 10px 10px 0 0;">
-                        <h1 style="margin: 0; color: #000;">Booking Confirmed!</h1>
+                    <div style="background-color: #000; padding: 25px; text-align: center; border-radius: 10px 10px 0 0;">
+                        <h1 style="margin: 0; color: #C6FF00; text-transform: uppercase; letter-spacing: 2px;">Quotation Request</h1>
                     </div>
-                    <div style="padding: 20px; border: 1px solid #eee; border-top: none; border-radius: 0 0 10px 10px;">
-                        <p>Dear <strong>${booking.customer_name}</strong>,</p>
-                        <p>Thank you for choosing Taxi Service KSA. Your ride has been successfully booked.</p>
+                    <div style="padding: 30px; border: 1px solid #eee; border-top: none; border-radius: 0 0 10px 10px; background-color: #fff;">
+                        <p style="font-size: 16px;">Dear <strong>${booking.customer_name}</strong>,</p>
+                        <p>Thank you for reaching out to <strong>VIP Transfer KSA</strong>. We have received your request for a quotation for your upcoming journey. Our team is currently reviewing your details and will provide you with our best competitive rates shortly.</p>
                         
-                        <div style="background-color: #f9f9f9; padding: 15px; border-radius: 8px; margin: 20px 0;">
-                            <h3 style="margin-top: 0;">Journey Details</h3>
-                            <p><strong>Booking ID:</strong> ${formatBookingId(booking.id)}</p>
-                            <p><strong>Pickup:</strong> ${booking.pickup_location}</p>
-                            <p><strong>Destination:</strong> ${booking.destination}</p>
-                            <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${booking.pickup_time}</p>
-                            <p><strong>Vehicle:</strong> ${booking.vehicle_type}</p>
-                            ${price ? `<p style="font-size: 1.2em;"><strong>Total Fare:</strong> SAR ${price}</p>` : ''}
+                        <div style="background-color: #f8f9fa; padding: 20px; border-radius: 12px; margin: 25px 0; border: 1px solid #ebedf0;">
+                            <h3 style="margin-top: 0; color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 8px; display: inline-block;">Journey Details</h3>
+                            <p style="margin: 10px 0;"><strong>Request ID:</strong> ${formatBookingId(booking.id)}</p>
+                            <p style="margin: 5px 0;"><strong>Pickup:</strong> ${booking.pickup_location}</p>
+                            <p style="margin: 5px 0;"><strong>Destination:</strong> ${booking.destination}</p>
+                            <p style="margin: 5px 0;"><strong>Date/Time:</strong> ${booking.pickup_date} at ${booking.pickup_time}</p>
+                            <p style="margin: 5px 0;"><strong>Vehicle Type:</strong> ${booking.vehicle_type}</p>
+                            <p style="margin: 5px 0;"><strong>Passengers:</strong> ${booking.passengers} Pax</p>
                         </div>
                         
-                        <p>Our team will contact you shortly with driver details.</p>
-                        <p>Need help? Contact us at <a href="mailto:info@taxiserviceksa.com" style="color: #000; font-weight: bold;">info@taxiserviceksa.com</a></p>
+                        <div style="background-color: #000; color: #fff; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 25px;">
+                            <p style="margin: 0; font-weight: bold;">Our team will reply with your official quote via email/WhatsApp within 15-30 minutes.</p>
+                        </div>
+
+                        <p>If you have any urgent changes, please reply to this email or contact us at <a href="mailto:info@taxiserviceksa.com" style="color: #000; font-weight: bold;">info@taxiserviceksa.com</a></p>
+                        
+                        <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
+                        <p style="font-size: 12px; color: #999; text-align: center;">VIP Transfer KSA • Premium Chauffeur & Private Transport Service</p>
                     </div>
                 </div>
                 `,
@@ -81,18 +80,20 @@ export async function POST(request: NextRequest) {
             await sendMail({
                 to: emailAdmin,
                 replyTo: booking.customer_email,
-                subject: `🚗 New Booking - ${booking.customer_name}`,
+                subject: `📋 New Quote Request - ${booking.customer_name}`,
                 html: `
-                <div style="font-family: Arial, sans-serif;">
-                    <h2>New Booking Received</h2>
-                    <p><strong>Customer:</strong> ${booking.customer_name}</p>
+                <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+                    <h2 style="color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 10px;">New Quotation Request</h2>
+                    <p><strong>Customer Name:</strong> ${booking.customer_name}</p>
                     <p><strong>Email:</strong> ${booking.customer_email}</p>
                     <p><strong>Phone:</strong> ${booking.customer_phone}</p>
                     <p><strong>Route:</strong> ${booking.pickup_location} to ${booking.destination}</p>
+                    <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${booking.pickup_time}</p>
                     <p><strong>Vehicle:</strong> ${booking.vehicle_type}</p>
-                    <p><strong>Price:</strong> ${price ? 'SAR ' + price : 'Pending'}</p>
+                    <p><strong>Passengers:</strong> ${booking.passengers}</p>
+                    <p><strong>Special Requests:</strong> ${booking.special_requests || 'None'}</p>
                     <hr>
-                    <p>Booking ID: ${booking.id || 'N/A'}</p>
+                    <p style="font-size: 12px; color: #666;">View this in the Admin Dashboard to generate a PDF Quotation.</p>
                 </div>
                 `,
             });

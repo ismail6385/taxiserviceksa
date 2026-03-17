@@ -15,14 +15,14 @@ import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
     title: 'VIP Private Transfer Madinah Airport | Premium Chauffeur Pickup',
-    description: 'Premium VIP private transfer and executive chauffeur service at Madinah Airport (MED). Book your professional pickup to Masjid Nabawi and local hotels.',
+    description: 'Premium VIP private transfer and executive chauffeur service at Madinah Airport (MED). Get a quote for your professional pickup to Masjid Nabawi and local hotels.',
     keywords: ['Madinah Airport VIP transfer', 'MED Airport premium chauffeur', 'Madinah Airport executive car', 'Prince Mohammad Airport VIP pickup'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/madinah/madinah-airport/',
     },
     openGraph: {
         title: 'Madinah Airport Taxi Service | Prince Mohammad Bin Abdulaziz Pickup',
-        description: 'Skip the airport queues. Book a professional taxi from Madinah Airport. Fixed pricing and comfortable SUVs for families.',
+        description: 'Skip the airport queues. Request a quote for a professional taxi from Madinah Airport. Fixed pricing and comfortable SUVs for families.',
         url: 'https://taxiserviceksa.com/locations/madinah/madinah-airport/',
         type: 'website',
         images: [{ url: 'https://taxiserviceksa.com/madinah-airport-taxi.png', alt: 'Taxi service at Madinah Airport' }],
@@ -132,7 +132,7 @@ export default function MadinahAirportPage() {
                             <div className="mt-10">
                                 <Link href="/booking/">
                                     <Button className="w-full bg-emerald-600 text-white hover:bg-white hover:text-emerald-900 font-black h-16 rounded-xl text-lg shadow-xl shadow-emerald-900/40">
-                                        Pre-Book Your VIP Transfer
+                                        Pre-Get a quote for your VIP Transfer
                                         <ArrowRight className="ml-2 w-6 h-6" />
                                     </Button>
                                 </Link>
@@ -174,7 +174,7 @@ export default function MadinahAirportPage() {
                         <AccordionItem value="item-2" className="bg-gray-50 px-8 rounded-3xl border-none">
                             <AccordionTrigger className="font-bold text-lg hover:no-underline">Where is the driver meeting point at MED Airport?</AccordionTrigger>
                             <AccordionContent className="text-gray-600 pb-8 text-base leading-relaxed">
-                                For Terminal 1 (International/Domestic), our drivers wait at the **Exit Gate 4** arrivals hall. We will send you the driver's photo and contact details via WhatsApp as soon as you land.
+                                For Terminal 1 (International/Domestic), our drivers wait at the **Exit Gate 4** arrivals hall. We will send you the driver's details and meeting point confirmation via email as soon as you land.
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-3" className="bg-gray-50 px-8 rounded-3xl border-none">
@@ -212,3 +212,4 @@ export default function MadinahAirportPage() {
         </div>
     );
 }
+

@@ -315,7 +315,7 @@ export default function MapClient() {
                             <div className="flex gap-2">
                                 <Link href="/booking" className="flex-1">
                                     <Button className="w-full bg-black text-white hover:bg-gray-800 rounded-xl h-12 text-sm font-bold shadow-lg shadow-black/10">
-                                        Book Now
+                                        Request Quote
                                     </Button>
                                 </Link>
                             </div>

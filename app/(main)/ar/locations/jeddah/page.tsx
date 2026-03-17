@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'تاكسي جدة | توصيل مطار الملك عبدالعزيز',
-        description: 'احجز تاكسي من مطار جدة إلى مكة أو المدينة. سيارات حديثة وسائقين محترفين.',
+        description: 'طلب اقتباس تاكسي من مطار جدة إلى مكة أو المدينة. سيارات حديثة وسائقين محترفين.',
         url: 'https://taxiserviceksa.com/ar/locations/jeddah/',
         locale: 'ar_SA',
         type: 'website',
@@ -93,7 +93,7 @@ export default function JeddahPageArabic() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/">
                         <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-primary/90 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl w-full sm:w-auto">
-                            احجز تاكسي المطار
+                            طلب اقتباس تاكسي المطار
                             <ArrowRight className="mr-2 w-5 h-5 rotate-180" />
                         </Button>
                     </Link>
@@ -124,7 +124,7 @@ export default function JeddahPageArabic() {
                             title: "نصائح السفر في جدة",
                             subtitle: "الطقس والتنقلات",
                             summerTitle: "الصيف والرطوبة",
-                            summerText: "الرطوبة عالية جداً. تجنب الانتظار خارج الصالات. احجز سيارة لتنتظرك بالمكيف.",
+                            summerText: "الرطوبة عالية جداً. تجنب الانتظار خارج الصالات. طلب اقتباس سيارة لتنتظرك بالمكيف.",
                             summerTag: "رطوبة عالية",
                             winterTitle: "الشتاء والربيع",
                             winterText: "أجواء رائعة للكورنيش والبلد. أفضل وقت لزيارة جدة التاريخية.",
@@ -209,3 +209,4 @@ export default function JeddahPageArabic() {
         </div>
     );
 }
+

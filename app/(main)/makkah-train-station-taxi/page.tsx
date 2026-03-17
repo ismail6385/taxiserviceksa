@@ -122,7 +122,7 @@ export default function MakkahTrainStationPage() {
                             {
                                 question: "Where will the driver wait?",
                                 shortAnswer: "Arrivals Exit.",
-                                detailedAnswer: "The driver acts as a meet-and-greet service at the designated pickup point outside the arrival terminal. We share the car plate and location via WhatsApp.",
+                                detailedAnswer: "The driver acts as a meet-and-greet service at the designated pickup point outside the arrival terminal. We share the car plate and location via email.",
                                 perspectives: [
                                     {
                                         role: "Logistics",
@@ -152,3 +152,4 @@ export default function MakkahTrainStationPage() {
         </div>
     );
 }
+

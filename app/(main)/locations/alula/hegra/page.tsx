@@ -11,7 +11,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi to Hegra (Madain Saleh) | UNESCO AlUla Tour Transport',
-    description: 'Book a taxi to Hegra (Madain Saleh) in AlUla. We drop you at Winter Park for the official bus or directly at the gate if you have a permit. Reliable 4x4 service.',
+    description: 'Request a quote for a taxi to Hegra (Madain Saleh) in AlUla. We drop you at Winter Park for the official bus or directly at the gate if you have a permit. Reliable 4x4 service.',
     keywords: ['Taxi to Hegra', 'Madain Saleh taxi', 'AlUla Hegra transport', 'Hegra tour driver', 'AlUla heritage taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/alula/hegra/',
@@ -71,7 +71,7 @@ export default function HegraPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=AlUla%20Hotel&dropoff=Winter%20Park">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book Ride to Winter Park
+                            Get Quote to Winter Park
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
@@ -127,7 +127,7 @@ export default function HegraPage() {
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">1</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Book Taxi to Winter Park</h4>
+                                        <h4 className="font-bold text-gray-900">Get Quote for Taxi to Winter Park</h4>
                                         <p className="text-sm text-gray-500">We pick you up from your hotel and drive you to the Visitor Center.</p>
                                     </div>
                                 </li>
@@ -203,3 +203,4 @@ export default function HegraPage() {
         </div>
     );
 }
+

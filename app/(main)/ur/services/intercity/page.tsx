@@ -1,89 +1,76 @@
-
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { Clock, Star, CheckCircle2, Car, Users, Shield, Compass, MapPin, ArrowRight, Navigation } from 'lucide-react';
-import Hero from '@/components/Hero';
-import ExpertReview from '@/components/seo/ExpertReview';
-import TravelConsensus from '@/components/seo/TravelConsensus';
-import RoutePerspective from '@/components/seo/RoutePerspective';
-import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
-import TrendingTravelNote from '@/components/seo/TrendingTravelNote';
-import QuestionGrouper from '@/components/seo/QuestionGrouper';
-import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
-import SemanticField from '@/components/seo/SemanticField';
-import TopicCluster from '@/components/seo/TopicCluster';
-import RelatedServices from '@/components/seo/RelatedServices';
+import { Clock, Star, CheckCircle2, Car, Users, Shield, Compass, MapPin, ArrowRight, Navigation, Map } from 'lucide-react';
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
 } from '@/components/ui/accordion';
-import QuestionsDisplay from '@/components/QuestionsDisplay';
-import ReviewsDisplay from '@/components/ReviewsDisplay';
-import ReviewForm from '@/components/seo/ReviewForm';
-import QuestionForm from '@/components/seo/QuestionForm';
+import JsonLdFAQ from '@/components/JsonLdFAQ';
 import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
-    title: 'Intercity VIP Transfer KSA | Long Distance Private Transfers',
-    description: 'Reliable intercity taxi service in Saudi Arabia. Private transfers between Jeddah, Makkah, Madinah, Riyadh, and more. Comfortable long-distance travel with fixed rates.',
-    keywords: ['Intercity taxi Saudi Arabia', 'Jeddah to Riyadh taxi', 'Long distance taxi KSA', 'City to city transfer Saudi Arabia', 'Private car hire Saudi cities'],
+    title: 'انٹرسٹی وی آئی پی ٹرانسفر سعودی عرب | لانگ ڈرائیو کے لیے پرائیویٹ ٹرانسپورٹ',
+    description: 'سعودی عرب میں پریمیم انٹرسٹی وی آئی پی ٹرانسفر سروس۔ جدہ، مکہ، مدینہ، ریاض اور دمام کے درمیان ایگزیکٹو پرائیویٹ گاڑیاں۔ فکسڈ ریٹس کے ساتھ آرام دہ سفر۔',
+    keywords: ['انٹرسٹی وی آئی پی ٹرانسفر', 'سعودی عرب پرائیویٹ ٹرانسپورٹ', 'جدہ سے ریاض ٹیکسی', 'مکہ سے مدینہ ٹرانسفر', 'لانگ ڈرائیو وی آئی پی سروس'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/intercity/',
+        canonical: 'https://taxiserviceksa.com/ur/services/intercity/',
     },
     openGraph: {
-        url: 'https://taxiserviceksa.com/services/intercity/',
+        title: 'انٹرسٹی پرائیویٹ ٹرانسفر | ایک شہر سے دوسرے شہر کا سفر',
+        description: 'سعودی عرب کے تمام بڑے شہروں کے درمیان پرائیویٹ اور محفوظ سفری سہولت۔ جدید اور آرام دہ گاڑیاں بمعہ ڈرائیور۔',
+        url: 'https://taxiserviceksa.com/ur/services/intercity/',
+        type: 'website',
     },
 };
 
-export default function IntercityServicePage() {
+export default function IntercityServicePageUrdu() {
     const popularRoutes = [
-        { name: 'Jeddah ↔ Makkah', distance: '85 km', time: '1 hr 15 min', price: 'Fixed Rates' },
-        { name: 'Makkah ↔ Madinah', distance: '450 km', time: '4 hr 30 min', price: 'Fixed Rates' },
-        { name: 'Jeddah ↔ Madinah', distance: '420 km', time: '4 hr', price: 'Fixed Rates' },
-        { name: 'Riyadh ↔ Dammam', distance: '400 km', time: '3 hr 45 min', price: 'Fixed Rates' },
-        { name: 'Jeddah ↔ Taif', distance: '170 km', time: '2 hr', price: 'Fixed Rates' },
-        { name: 'Madinah ↔ AlUla', distance: '330 km', time: '3 hr 30 min', price: 'Fixed Rates' },
+        { name: 'جدہ ↔ مکہ مکرمہ', distance: '85 کلومیٹر', time: '1 گھنٹہ 15 منٹ', price: 'فکسڈ ریٹ' },
+        { name: 'مکہ ↔ مدینہ منورہ', distance: '450 کلومیٹر', time: '4 گھنٹے 30 منٹ', price: 'مارکیٹ کے مطابق' },
+        { name: 'جدہ ↔ مدینہ منورہ', distance: '420 کلومیٹر', time: '4 گھنٹے', price: 'فکسڈ ریٹ' },
+        { name: 'ریاض ↔ دمام', distance: '400 کلومیٹر', time: '3 گھنٹے 45 منٹ', price: 'گروپ ریٹ' },
+        { name: 'جدہ ↔ طائف', distance: '170 کلومیٹر', time: '2 گھنٹے', price: 'ٹور ریٹ' },
+        { name: 'مدینہ ↔ العلا', distance: '330 کلومیٹر', time: '3 گھنٹے 30 منٹ', price: 'اسپیشل ریٹ' },
     ];
 
     const features = [
-        'Door-to-door service',
-        'Fixed upfront pricing',
-        'Professional licensed drivers',
-        'Comfortable long-distance vehicles',
-        'Stops available upon request',
-        'Luggage assistance included',
+        'ڈور ٹو ڈور (گھر سے گھر تک) پک اینڈ ڈراپ سروس',
+        'بکنگ کے وقت طے شدہ اور فکسڈ کرایہ (کوئی پوشیدہ چارجز نہیں)',
+        'پیشہ ور اور باقاعدہ لائسنس یافتہ ڈرائیورز',
+        'طویل سفر کے لیے آرام دہ اور جدید گاڑیاں (Sedans & SUVs)',
+        'راستے میں نماز، کھانے یا آرام کے لیے رکنے کی سہولت',
+        'سامان (Luggage) اٹھانے اور رکھنے میں مکمل مدد',
     ];
 
     const faqs = [
         {
-            question: "How do I book an intercity taxi?",
-            answer: "You can book easily through our website using the booking form. Simply select your pickup and drop-off cities to get an instant quote and confirmation."
+            question: "میں انٹرسٹی وی آئی پی ٹرانسفر کیسے بک کر سکتا ہوں؟",
+            answer: "آپ ہماری ویب سائٹ پر آن لائن بکنگ فارم کے ذریعے باآسانی بکنگ کر سکتے ہیں۔ بس اپنی پک اپ (جہاں سے بیٹھنا ہے) اور ڈراپ آف (جہاں جانا ہے) لوکیشنز منتخب کریں اور فوری ایگزیکٹو کوٹیشن کے ساتھ کنفرمیشن حاصل کریں۔"
         },
         {
-            question: "Are the rates fixed for long-distance trips?",
-            answer: "Yes, all our intercity rates are fixed. The price you see includes fuel, toll charges, and driver fees. There are no hidden costs."
+            question: "کیا لمبے سفر (Long-distance trips) کے لیے کرائے فکس ہیں؟",
+            answer: "جی ہاں، ہمارے تمام انٹرسٹی روٹس کے کرائے پہلے سے طے شدہ اور فکس (Fixed) ہوتے ہیں۔ آپ کو جو قیمت بتائی جائے گی، اس میں پٹرول، ٹول ٹیکس اور ڈرائیور کی فیس شامل ہوتی ہے۔ کوئی پوشیدہ چارجز (Hidden costs) نہیں ہوتے۔"
         },
         {
-            question: "What type of vehicles are used for intercity travel?",
-            answer: "We use well-maintained sedans (Camry/Sonata) for up to 4 passengers and GMC/H-1 vans for families and groups. All vehicles are air-conditioned and suitable for long journeys."
+            question: "ایک شہر سے دوسرے شہر سفر کے لیے کس قسم کی گاڑیاں استعمال ہوتی ہیں؟",
+            answer: "ہم 1 سے 4 مسافروں کے لیے بہترین حالت میں موجود سیڈان گاڑیاں (Camry/Sonata) استعمال کرتے ہیں، جبکہ فیملیز اور بڑے گروپس کے لیے GMC Yukon یا Hyundai H-1 وینز دستیاب ہیں۔ تمام گاڑیاں بہترین اے سی (Air-conditioned) کے ساتھ طویل سفر کے لیے انتہائی موزوں ہیں۔"
         },
         {
-            question: "Can we make stops during the journey?",
-            answer: "Yes, our private transfer service allows for flexibility. You can request rest stops for prayer, food, or restrooms at no extra cost."
+            question: "کیا ہم سفر کے دوران رستے میں رک (Stops) سکتے ہیں؟",
+            answer: "جی ہاں! ہماری سروس چونکہ پرائیویٹ ٹرانسفر ہے، اس لیے اس میں مکمل لچک موجود ہے۔ آپ راستے میں نماز، کھانے پینے یا واش روم کے لیے جتنا چاہیں رک سکتے ہیں، اور اس کا کوئی اضافی چارج نہیں لیا جاتا۔"
         }
     ];
 
     const schemas = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Intercity VIP Transfer KSA",
+        "name": "Intercity VIP Transfer KSA (Urdu)",
         "category": "Intercity Transport",
-        "description": "Professional long-distance intercity taxi service connecting major cities in Saudi Arabia.",
+        "description": "سعودی عرب کے بڑے شہروں کے درمیان پرائیویٹ اور محفوظ سفری سہولت۔ جدید اور آرام دہ گاڑیاں۔",
         "provider": {
             "@type": "Organization",
             "name": "VIP Transfer KSA",
@@ -96,303 +83,208 @@ export default function IntercityServicePage() {
             "url": "https://taxiserviceksa.com/author/muhammad-ismail"
         },
         "areaServed": "Saudi Arabia",
-        "serviceType": "Transport"
+        "serviceType": "VIP Transport"
     };
 
     return (
-        <div className="bg-gray-50 min-h-screen">
+        <div className="bg-slate-50 min-h-screen rtl font-urdu" dir="rtl">
             <Script
                 id="service-schema"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
             />
+            <JsonLdFAQ faqs={faqs} />
 
-            <Hero
-                images={['/hero-slide-1.webp', '/hero-slide-3.webp']}
-                h1Text="Intercity Taxi Service Saudi Arabia"
-                subtitle="Private Transfers Between Major KSA Cities"
-                bookingFormTitle="Professional long-distance travel between Jeddah, Makkah, Madinah, Riyadh, and Dammam. Private vehicles with licensed drivers for a comfortable intercity journey."
-            >
-                <div className="max-w-3xl mx-auto mt-8 mb-6">
-                    <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ Intercity"
-                        description="Connecting the Kingdom's major hubs with reliable, private transportation. From the Red Sea coast of Jeddah to the capital Riyadh and the holy cities."
-                        foundingDate="2012"
-                        metrics={[
-                            { label: 'Cities Covered', value: '20+', icon: MapPin },
-                            { label: 'Trips Completed', value: '15k+', icon: Navigation },
-                            { label: 'Reliability', value: '99.9%', icon: Shield }
-                        ]}
-                    />
+            {/* Premium Hero Section */}
+            <section className="relative bg-gradient-to-tr from-slate-900 via-indigo-950 to-black text-white pt-32 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden z-0">
+                <div className="absolute inset-0 opacity-20 Mix-blend-overlay">
+                    <div className="absolute inset-0 bg-[url('/hero-slide-3.webp')] bg-cover bg-center"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10"></div>
                 </div>
-            </Hero>
 
-            {/* AI SEO: TL;DR Summary Block */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div className="bg-emerald-50 rounded-2xl p-8 border border-emerald-100 shadow-sm mb-12">
-                    <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                        <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-                        TL;DR: KSA Intercity Travel Quick Facts
-                    </h2>
-                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-sm">
-                        <li><strong>Major Routes:</strong> Jeddah-Makkah (85km), Makkah-Madinah (450km), Riyadh-Dammam (400km).</li>
-                        <li><strong>Vehicle Standard:</strong> Air-conditioned Sedans (Camry) and Luxury SUVs (GMC Yukon).</li>
-                        <li><strong>Flexibility:</strong> Private transfers allow unlimited rest/prayer stops at no extra charge.</li>
-                        <li><strong>Pricing:</strong> Guaranteed fixed rates including fuel, tolls, and driver fees.</li>
+                <div className="max-w-7xl mx-auto relative z-20 text-right">
+                    <div className="mb-10 text-center md:text-right">
+                        <span className="bg-indigo-500/20 backdrop-blur border border-indigo-400/40 text-indigo-100 font-bold tracking-wider uppercase text-sm px-5 py-2 rounded-full inline-block mb-6 shadow-[0_0_15px_rgba(99,102,241,0.3)]">
+                            سعودی انٹرسٹی ٹریول
+                        </span>
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight text-white drop-shadow-xl">
+                            سعودی شہروں کے درمیان <br />
+                            <span className="text-indigo-400">پرائیویٹ ٹرانسفر سروس</span>
+                        </h1>
+                        <p className="text-xl md:text-2xl text-indigo-100/90 max-w-3xl leading-relaxed mb-10 font-light mx-auto md:mr-0 md:ml-auto">
+                            جدہ، مکہ، مدینہ، ریاض، اور دمام کے درمیان محفوظ اور آرام دہ سفر۔ آپ کی دہلیز سے منزل تک، پروفیشنل ڈرائیورز اور بہترین ایگزیکٹو گاڑیوں کے ساتھ۔
+                        </p>
+                        
+                        <div className="flex flex-col sm:flex-row gap-4 justify-start">
+                            <Link href="/ur/booking?service=intercity">
+                                <Button size="lg" className="bg-indigo-600 text-white hover:bg-indigo-500 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-indigo-500/30 transition-all transform hover:-translate-y-1 group border border-indigo-400/50 w-full sm:w-auto">
+                                    <ArrowRight className="mr-2 w-5 h-5 group-hover:-translate-x-1 transition-transform rotate-180" />
+                                    انٹرسٹی ٹرانسفر کوٹیشن حاصل کریں
+                                </Button>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             {/* TL;DR Quick Facts Panel */}
+             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-30">
+                <div className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 border border-gray-200 shadow-2xl flex flex-col md:flex-row gap-8 items-center justify-between">
+                    <div className="flex items-center gap-4 text-slate-800">
+                        <div className="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center flex-shrink-0 shadow-inner">
+                             <CheckCircle2 className="w-8 h-8 text-indigo-600" />
+                        </div>
+                        <div>
+                            <h2 className="text-2xl font-black mb-1">انٹرسٹی سفر کے اہم حقائق</h2>
+                            <p className="text-sm text-slate-500 font-medium">سعودی عرب میں لمبے سفر کے لیے ضروری معلومات</p>
+                        </div>
+                    </div>
+                    
+                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-slate-700 text-sm flex-1 mr-0 md:mr-8 border-r-0 md:border-r border-slate-200 pr-0 md:pr-8">
+                        <li className="flex items-start gap-2">
+                            <Navigation className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-1" />
+                            <span><strong>اہم روٹس:</strong> جدہ-مکہ (85km)، مکہ-مدینہ (450km)، ریاض-دمام (400km)</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                            <Car className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-1" />
+                            <span><strong>گاڑیوں کا معیار:</strong> اے سی والی سیڈان کاریں (Camry) اور کشادہ لگژری SUVs (GMC)</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                            <Clock className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-1" />
+                            <span><strong>لچکداری:</strong> راستے میں نماز یا کھانے کے لیے رکنے کی مکمل آزادی بغیر کسی اضافی فیس کے</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                            <Shield className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-1" />
+                            <span><strong>فکسڈ کرایہ:</strong> کوٹیشن میں پٹرول، اور ٹول ٹیکس کی قیمت پہلے سے شامل ہوتی ہے</span>
+                        </li>
                     </ul>
                 </div>
             </div>
 
-            {/* Trending Note */}
-            <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
-                <TrendingTravelNote
-                    topic="New Highway Routes"
-                    status="Seasonal Update"
-
-                    lastUpdated="December 2025"
-                    content="The road network between Makkah and Madinah has recently been upgraded with more rest areas and service stations, making the 450km journey more comfortable than ever by car."
-                    tags={["HighwayTravel", "Infrastructure", "Comfort"]}
-                    linkText="Book Intercity Ride"
-                />
-            </div>
-
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-                <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Popular Intercity Routes</h2>
-                {/* Intercity Routes Comparison Table for AI Extraction */}
-                <div className="mb-16 overflow-x-auto bg-white rounded-2xl border-2 border-gray-100 p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                        <Navigation className="w-5 h-5 text-emerald-600" /> Popular Intercity Routes
-                    </h3>
-                    <table className="min-w-full text-left text-sm">
-                        <thead className="border-b border-gray-200">
-                            <tr>
-                                <th className="py-3 font-bold">Route Name</th>
-                                <th className="py-3 font-bold">Km Distance</th>
-                                <th className="py-3 font-bold">Travel Time</th>
-                                <th className="py-3 font-bold">Route Type</th>
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-100">
-                            <tr>
-                                <td className="py-4 font-bold">Jeddah ↔ Makkah</td>
-                                <td className="py-4">85 km</td>
-                                <td className="py-4 font-medium text-emerald-700">1 hr 15 min</td>
-                                <td className="py-4">Pilgrimage Highway</td>
-                            </tr>
-                            <tr>
-                                <td className="py-4 font-bold">Makkah ↔ Madinah</td>
-                                <td className="py-4">450 km</td>
-                                <td className="py-4 font-medium text-emerald-700">4 hr 30 min</td>
-                                <td className="py-4">Main Express Road</td>
-                            </tr>
-                            <tr>
-                                <td className="py-4 font-bold">Riyadh ↔ Dammam</td>
-                                <td className="py-4">400 km</td>
-                                <td className="py-4 font-medium text-emerald-700">3 hr 45 min</td>
-                                <td className="py-4">Business Highway</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            {/* Popular Routes Grid */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-24 mb-16">
+                <div className="text-center mb-12">
+                    <span className="text-indigo-600 font-bold tracking-wider mb-2 block">سفری فاصلے</span>
+                    <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 underline decoration-indigo-500/30">مشہور انٹرسٹی روٹس</h2>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {popularRoutes.map((route, idx) => (
-                        <div key={idx} className="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-lg transition-shadow">
-                            <div className="flex justify-between items-center mb-4">
-                                <h3 className="font-bold text-lg text-gray-900">{route.name}</h3>
-                                <ArrowRight className="text-gray-400 w-5 h-5" />
+                        <div key={idx} className="bg-white p-8 rounded-2xl border border-slate-200 hover:border-indigo-400 hover:shadow-xl transition-all group">
+                            <div className="flex justify-between items-center mb-6 pb-4 border-b border-slate-100">
+                                <h3 className="font-black text-xl text-slate-900 group-hover:text-indigo-700 transition-colors">{route.name}</h3>
+                                <div className="w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <Map className="text-indigo-400 w-5 h-5" />
+                                </div>
                             </div>
-                            <div className="space-y-2 text-sm text-gray-600">
-                                <div className="flex justify-between">
-                                    <span>Distance:</span>
-                                    <span className="font-medium text-gray-900">{route.distance}</span>
+                            <div className="space-y-4 text-sm text-slate-600 mb-6">
+                                <div className="flex justify-between items-center bg-slate-50 p-2 rounded">
+                                    <span className="font-medium">فاصلہ:</span>
+                                    <span className="font-bold text-slate-900">{route.distance}</span>
                                 </div>
-                                <div className="flex justify-between">
-                                    <span>Est. Time:</span>
-                                    <span className="font-medium text-gray-900">{route.time}</span>
+                                <div className="flex justify-between items-center bg-indigo-50/50 p-2 rounded">
+                                    <span className="font-medium">تخمینہ وقت:</span>
+                                    <span className="font-bold text-slate-900">{route.time}</span>
                                 </div>
-                                <div className="pt-2 border-t mt-2 flex justify-between items-center">
-                                    <span className="text-emerald-600 font-bold text-lg">{route.price}</span>
-                                    <Link href="/booking/" className="text-blue-600 text-xs font-semibold hover:underline">Book Now</Link>
-                                </div>
+                            </div>
+                            <div className="pt-4 border-t border-slate-100 flex justify-between items-center">
+                                <span className="text-emerald-600 font-extrabold text-lg px-2 py-1 bg-emerald-50 rounded">{route.price}</span>
+                                <Link href="/ur/booking/" className="text-indigo-600 font-bold hover:text-indigo-800 flex items-center gap-1">
+                                    کوٹیشن حاصل کریں <ArrowRight className="w-4 h-4 rotate-180" />
+                                </Link>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
 
-            <section className="py-16 px-4 sm:px-6 lg:px-8" id="intercity-details">
+            {/* Travel Perspective / Scenarios */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white border-y border-slate-200">
                 <div className="max-w-7xl mx-auto">
-                    <RoutePerspective
-                        route="Intercity Travel Experience"
-                        perspectives={[
-                            {
-                                id: "business",
-                                targetAudience: "Business Traveler",
-                                icon: Users,
-                                intent: "Efficiency & Comfort",
-                                description: "Travel between Riyadh and Dammam or Jeddah for meetings without the hassle of airports. Use the travel time to work or relax in a private, quiet vehicle.",
-                                structuredFeatures: [
-                                    { label: "Privacy", value: "Guaranteed" },
-                                    { label: "WiFi", value: "On Request" },
-                                    { label: "Receipts", value: "Available" }
-                                ],
-                                visualContext: "Executive sedan on a modern highway."
-                            },
-                            {
-                                id: "family",
-                                targetAudience: "Family Vacation",
-                                icon: Car,
-                                intent: "Convenience & Safety",
-                                description: "Avoid the stress of public transport with children. Our spacious GMCs offer ample luggage space and the freedom to stop whenever needed.",
-                                structuredFeatures: [
-                                    { label: "Capacity", value: "Up to 7 Pax" },
-                                    { label: "Child Seats", value: "Available" },
-                                    { label: "Breaks", value: "Flexible" }
-                                ],
-                                visualContext: "Family enjoying a comfortable ride in a large SUV."
-                            }
-                        ]}
-                    />
-                </div>
-            </section>
+                    <div className="text-center mb-16">
+                        <span className="text-indigo-600 font-bold tracking-wider mb-2 block">سفر کی اقسام</span>
+                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 underline decoration-indigo-500/30">انٹرسٹی ٹریول - کس کے لیے؟</h2>
+                    </div>
 
-            {/* Semantic SEO */}
-            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <TravelConsensus
-                        points={[
-                            {
-                                topic: "Taxi vs Flight (Jeddah to Riyadh)",
-                                commonBelief: "Flight is always faster.",
-                                reality: "While flight time is 1.5 hours, airport procedures (check-in, security, bag claim) add 3-4 hours. A private car takes longer (9-10 hours) but offers door-to-door convenience and privacy, preferred by some for scenery or fear of flying.",
-                                truthRange: "Depends on Preference",
-                                factors: ["Total Travel Time", "Convenience", "Cost for Groups"]
-                            },
-                            {
-                                topic: "Intercity Bus vs Private Taxi",
-                                commonBelief: "Bus is good enough.",
-                                reality: "Buses are cheaper but follow fixed schedules and stations. Private taxis leave on your schedule, pick you up from your door, and save substantial time by going direct.",
-                                truthRange: "Taxi = Time Saver",
-                                factors: ["Schedule", "Privacy", "Door-to-Door"]
-                            }
-                        ]}
-                    />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        {/* Business Card */}
+                        <div className="bg-slate-50 rounded-3xl p-8 md:p-10 border border-slate-200 relative overflow-hidden group hover:border-indigo-300 transition-all">
+                            <div className="absolute top-0 right-0 w-40 h-40 bg-indigo-100 rounded-bl-full -z-10 group-hover:bg-indigo-200 transition-colors"></div>
+                            <Users className="w-12 h-12 text-indigo-700 mb-6" />
+                            <h3 className="text-2xl font-black text-slate-900 mb-4">بزنس ٹریولرز (کاروباری حضرات)</h3>
+                            <p className="text-slate-600 mb-8 leading-relaxed">
+                                ایئرپورٹ کی لمبی لائنوں، سیکیورٹی چیکس اور بورڈنگ کے جھنجھٹ سے بچیں۔ ریاض، دمام یا جدہ کے درمیان سفر کریں اور اپنی پرائیویٹ کار کے پُرسکون ماحول میں لیپ ٹاپ پر کام کریں یا آرام سے سوتے ہوئے جائیں۔
+                            </p>
+                            <ul className="space-y-3">
+                                <li className="flex items-center gap-2 font-medium text-slate-800"><CheckCircle2 className="w-5 h-5 text-indigo-500"/> مکمل پرائیویسی</li>
+                                <li className="flex items-center gap-2 font-medium text-slate-800"><CheckCircle2 className="w-5 h-5 text-indigo-500"/> کارپوریٹ رسیدات دستیاب</li>
+                            </ul>
+                        </div>
 
-                    <div className="mt-12">
-                        <MicroSemanticFAQ
-                            faqs={[
-                                {
-                                    question: "Is it safe to travel between cities by taxi at night?",
-                                    shortAnswer: "Yes, generally safe.",
-                                    detailedAnswer: "Saudi highways are well-lit and patrolled. Our drivers are experienced in night driving. However, for the most scenic views, day travel is recommended.",
-                                    perspectives: [
-                                        {
-                                            role: "Safety Officer",
-                                            icon: "Shield",
-                                            insight: "We monitor all trips. Drivers are mandated to take rest breaks on long journeys to ensure alertness."
-                                        }
-                                    ]
-                                },
-                                {
-                                    question: "How much luggage can we take?",
-                                    shortAnswer: "Depends on vehicle.",
-                                    detailedAnswer: "Sedans hold 2-3 large suitcases. GMCs/SUVs can hold 5-6. Please specify your luggage amount when booking so we send the right car.",
-                                    perspectives: [
-                                        {
-                                            role: "Logistics",
-                                            icon: "Car",
-                                            insight: "Always overestimate luggage. It's better to have extra space than not enough."
-                                        }
-                                    ]
-                                }
-                            ]}
-                        />
+                        {/* Family Card */}
+                        <div className="bg-slate-50 rounded-3xl p-8 md:p-10 border border-slate-200 relative overflow-hidden group hover:border-emerald-300 transition-all">
+                            <div className="absolute top-0 right-0 w-40 h-40 bg-emerald-100 rounded-bl-full -z-10 group-hover:bg-emerald-200 transition-colors"></div>
+                            <Car className="w-12 h-12 text-emerald-700 mb-6" />
+                            <h3 className="text-2xl font-black text-slate-900 mb-4">فیملیز کے لیے سفر</h3>
+                            <p className="text-slate-600 mb-8 leading-relaxed">
+                                بچوں کے ساتھ پبلک ٹرانسپورٹ (بسوں یا ٹرین) کا سفر مشکل ہو سکتا ہے۔ ہماری کشادہ GMC گاڑیاں آپ کے پورے خاندان اور سامان کے لیے بہترین ہیں جس میں جب چاہیں واش روم یا کھانے کے لیے بریک لے سکتے ہیں۔
+                            </p>
+                            <ul className="space-y-3">
+                                <li className="flex items-center gap-2 font-medium text-slate-800"><CheckCircle2 className="w-5 h-5 text-emerald-500"/> 7 مسافروں تک گنجائش</li>
+                                <li className="flex items-center gap-2 font-medium text-slate-800"><CheckCircle2 className="w-5 h-5 text-emerald-500"/> بچوں کے لیے آرام دہ</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
-                    <Accordion type="single" collapsible className="space-y-4 max-w-3xl mx-auto">
+             {/* Features Section */}
+             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 font-urdu text-right">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16">
+                         <span className="text-indigo-600 font-bold tracking-wider mb-2 block">ہماری خصوصیات</span>
+                        <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 underline decoration-indigo-500/30">ملک بھر میں ہماری سروس کا انتخاب کیوں کریں؟</h2>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                        {features.map((feature, index) => (
+                            <div key={index} className="flex items-start gap-4 bg-white p-6 rounded-2xl border border-slate-200 hover:border-indigo-300 transition-colors shadow-sm hover:shadow-md">
+                                <span className="text-slate-700 font-bold leading-relaxed text-base flex-1">{feature}</span>
+                                <div className="bg-indigo-50 p-2 rounded-full">
+                                    <CheckCircle2 className="w-6 h-6 text-indigo-600 flex-shrink-0" />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+             {/* FAQ Section */}
+             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-100 font-urdu text-right">
+                <div className="max-w-4xl mx-auto">
+                    <div className="text-center mb-16">
+                        <span className="bg-indigo-100 text-indigo-900 font-bold tracking-wider uppercase text-sm px-5 py-2 rounded-full inline-block mb-4 border border-indigo-200">سوالات و جوابات</span>
+                        <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 underline decoration-indigo-500/30">اکثر پوچھے جانے والے سوالات</h2>
+                    </div>
+
+                    <Accordion type="single" collapsible className="space-y-4">
                         {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left font-bold text-gray-900 hover:no-underline">{faq.question}</AccordionTrigger>
-                                <AccordionContent className="text-gray-600 pt-2">{faq.answer}</AccordionContent>
+                            <AccordionItem key={index} value={`item-${index}`} className="bg-slate-50 rounded-2xl border border-slate-200 px-6 shadow-sm hover:border-indigo-300 transition-all data-[state=open]:bg-white data-[state=open]:border-indigo-400">
+                                <AccordionTrigger className="text-left hover:no-underline py-5 flex-row-reverse text-right">
+                                    <h3 className="text-lg md:text-xl font-bold text-slate-900 flex-1 pl-4 text-right leading-snug">{faq.question}</h3>
+                                </AccordionTrigger>
+                                <AccordionContent className="pb-6">
+                                    <p className="text-slate-600 leading-relaxed pt-2 text-right md:text-lg border-t border-slate-100 mt-2">{faq.answer}</p>
+                                </AccordionContent>
                             </AccordionItem>
                         ))}
                     </Accordion>
                 </div>
-            </div>
-
-            {/* UGC Section */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Traveler Reviews</h2>
-                    </div>
-                    <div className="space-y-12 mb-12">
-                        <ReviewsDisplay location="Intercity" />
-                        <QuestionsDisplay location="Intercity" />
-                    </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
-                    <ReviewForm locationName="Saudi Arabia" serviceName="Intercity Transfer" />
-                    <QuestionForm locationName="Saudi Arabia" serviceName="Intercity Transfer" />
-                </div>
-
-                {/* Author Section */}
-                <div className="max-w-4xl mx-auto border-t border-gray-100 pt-16 mb-20">
-                    <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-2 border-emerald-50" />
-                </div>
-
-                </div>
             </section>
 
-            <RelatedServices
-                services={[
-                    {
-                        name: 'Airport Transfers',
-                        description: 'Arrive in style. Transfers from all major Saudi airports to your destination city.',
-                        href: '/services/airport-transfers',
-                        icon: Car
-                    },
-                    {
-                        name: 'Umrah Transport',
-                        description: 'Specialized intercity transport for Umrah pilgrims between Makkah and Madinah.',
-                        href: '/services/umrah-transport',
-                        icon: Star
-                    },
-                ]}
-                title="Other Transport Services"
-                description="Comprehensive travel solutions for your journey in Saudi Arabia."
-            />
-
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-                <TopicCluster
-                    mainTopic="Saudi Intercity Travel"
-                    clusters={[
-                        {
-                            category: "Major Routes",
-                            relevance: "Primary",
-                            items: [
-                                { label: "Jeddah to Makkah", url: "/routes/jeddah-makkah" },
-                                { label: "Makkah to Madinah", url: "/routes/makkah-madinah" },
-                                { label: "Riyadh to Jeddah", url: "/routes/riyadh-jeddah" }
-                            ]
-                        },
-                        {
-                            category: "Travel Guides",
-                            relevance: "Secondary",
-                            items: [
-                                { label: "Meqat Locations", url: "/guides/meeqat-locations" },
-                                { label: "Currency Guide", url: "/guides/currency" }
-                            ]
-                        }
-                    ]}
-                />
+            {/* Author Section */}
+            <div className="max-w-4xl mx-auto pb-20 px-4 sm:px-6 lg:px-8 font-urdu mt-10">
+                <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-2 border-indigo-100 bg-white" />
             </div>
-
         </div>
     );
 }

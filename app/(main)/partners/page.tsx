@@ -26,6 +26,7 @@ export default function PartnersPage() {
                 title="Grow Your Business with VIP Transfer KSA"
                 subtitle="Join our elite network of professional drivers and business partners across Saudi Arabia. We bridge the gap between world-class transport and premium clientele."
                 images={["/chauffeur-service.png"]}
+                hideBookingForm={true}
             />
 
             {/* Partnership Options */}
@@ -187,3 +188,4 @@ export default function PartnersPage() {
         </main>
     );
 }
+

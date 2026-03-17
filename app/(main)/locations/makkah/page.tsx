@@ -162,7 +162,7 @@ export default async function MakkahPage() {
             <Hero
                 images={makkahImages}
                 h1Text="VIP Private Transfer & Chauffeur Makkah"
-                bookingFormTitle="Book Premium Umrah Transfer"
+                bookingFormTitle="Get Quote for Premium Umrah Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Makkah
@@ -379,7 +379,7 @@ export default async function MakkahPage() {
                             <div className="mt-8 bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded-r-xl">
                                 <p className="text-sm text-gray-900 font-semibold flex items-center gap-2">
                                     <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                                    Book your taxi before entering Ihram to avoid travel delays during your pilgrimage.
+                                    Get a quote for your taxi before entering Ihram to avoid travel delays during your pilgrimage.
                                 </p>
                             </div>
                         </div>
@@ -431,7 +431,7 @@ export default async function MakkahPage() {
                     {/* Content */}
                     <div className="relative z-10 text-center max-w-5xl mx-auto">
                         <div className="inline-flex items-center gap-2 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-                            <Phone className="w-4 h-4 text-black" />
+                            <Clock className="w-4 h-4 text-black" />
                             <span className="text-sm font-semibold text-black">24/7 Booking Available</span>
                         </div>
 
@@ -453,7 +453,6 @@ export default async function MakkahPage() {
                             </Link>
                             <a href="mailto:info@taxiserviceksa.com">
                                 <Button variant="outline" className="bg-white/20 backdrop-blur-sm text-black border-2 border-black/30 hover:bg-white/30 font-bold px-10 py-7 text-lg rounded-2xl h-auto">
-                                    <Phone className="mr-2 w-5 h-5" />
                                     Email Us
                                 </Button>
                             </a>
@@ -809,9 +808,9 @@ export default async function MakkahPage() {
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-3 border-b">
-                            <AccordionTrigger className="text-lg font-bold text-gray-900 py-6">How can I book an online taxi in Makkah?</AccordionTrigger>
+                            <AccordionTrigger className="text-lg font-bold text-gray-900 py-6">How can I Request a quote for an online taxi in Makkah?</AccordionTrigger>
                             <AccordionContent className="text-gray-600 text-base leading-relaxed pb-6">
-                                You can book directly through our website using the booking form above, or contact us via WhatsApp for instant confirmation. We recommend booking at least 24 hours in advance for airport transfers.
+                                You can book directly through our website using the booking form above, or contact us via email for any queries. We recommend booking at least 24 hours in advance for airport transfers.
                             </AccordionContent>
                         </AccordionItem>
                         <AccordionItem value="item-4">
@@ -931,3 +930,4 @@ export default async function MakkahPage() {
         </div>
     );
 }
+

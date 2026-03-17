@@ -48,8 +48,8 @@ export async function sendMail({ to, subject, html, fromName = 'VIP Transfer KSA
     try {
         console.log(`📧 Attempting to send email to: ${to} using host: ${smtpHost}`);
         
-        // Gmail requires the 'from' address to be the authenticated user or an alias
-        const fromEmail = emailUser.includes('@') ? emailUser : 'info@taxiserviceksa.com';
+        // Gmail requires the 'from' address to be the authenticated user
+        const fromEmail = emailUser;
 
         const info = await transporter.sendMail({
             from: `"${fromName}" <${fromEmail}>`,

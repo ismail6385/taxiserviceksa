@@ -75,7 +75,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             },
             "result": {
                 "@type": "Reservation",
-                "name": "Taxi Booking"
+                "name": "Taxi Quote"
             }
         }
     };
@@ -121,23 +121,71 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
     // Fleet data with Links
     const fleet = [
         {
-            name: "GMC Yukon",
-            image: "/gmc-yukon.webp",
+            name: "Mercedes S-Class",
+            image: "/fleet/mercedes-s-class-vip-chauffeur-service-saudi.webp",
+            passengers: 3,
+            luggage: 2,
+            features: ["VIP Experience", "Leather Interior", "Discreet Service"],
+            link: "/fleet/mercedes-s-class/",
+        },
+        {
+            name: "Cadillac Escalade",
+            image: "/fleet/cadillac-escalade-chauffeur-service-ksa.webp",
+            passengers: 7,
+            luggage: 4,
+            features: ["Premium Audio", "Extra Comfort", "VIP Chauffeur"],
+            link: "/fleet/cadillac-escalade/",
+        },
+        {
+            name: "GMC Yukon XL / Denali",
+            image: "/fleet/gmc-yukon-xl-premium-chauffeur-saudi.webp",
             passengers: 7,
             luggage: 5,
             features: ["VIP Executive SUV", "Extra Legroom", "Premium Interior"],
             link: "/fleet/gmc-yukon/",
         },
         {
-            name: "Toyota Camry",
-            image: "/toyota-camry.webp",
-            passengers: 4,
-            luggage: 2,
-            features: ["Professional Chauffeur", "Climate Controlled", "Efficient Transfer"],
-            link: "/fleet/toyota-camry/",
+            name: "Mercedes Vito",
+            image: "/fleet/mercedes-vito-vip-shuttle-service-ksa.webp",
+            passengers: 7,
+            luggage: 4,
+            features: ["European Luxury", "Conference Seats", "Business Class"],
+            link: "/fleet/mercedes-vito/",
         },
         {
-            name: "Hyundai Staria",
+            name: "BMW 7 Series",
+            image: "/fleet/bmw-7-series-luxury-chauffeur-saudi.webp",
+            passengers: 3,
+            luggage: 2,
+            features: ["Performance", "Luxury Comfort", "Prestige"],
+            link: "/fleet/bmw-7-series/",
+        },
+        {
+            name: "Genesis G80 VIP",
+            image: "/fleet/genesis-g80-luxury-transport-ksa.webp",
+            passengers: 3,
+            luggage: 2,
+            features: ["Silent Cabin", "VIP Rear Seat", "Modern Luxury"],
+            link: "/fleet/genesis-g80/",
+        },
+        {
+            name: "Ford Taurus 2025",
+            image: "/fleet/ford-taurus-executive-sedan-saudi-arabia.webp",
+            passengers: 3,
+            luggage: 2,
+            features: ["Executive Sedan", "Smooth Ride", "Modern Tech"],
+            link: "/fleet/ford-taurus/",
+        },
+        {
+            name: "Mercedes Sprinter",
+            image: "/fleet/mercedes-sprinter-luxury-van-transfer-saudi.webp",
+            passengers: 14,
+            luggage: 4,
+            features: ["Custom Interior", "High Roof", "Corporate Travel"],
+            link: "/fleet/mercedes-sprinter/",
+        },
+        {
+            name: "Hyundai Staria VIP",
             image: "/hyundai-staria.webp",
             passengers: 7,
             luggage: 4,
@@ -161,12 +209,28 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             link: "/fleet/toyota-coaster/",
         },
         {
+            name: "Toyota Camry",
+            image: "/toyota-camry.webp",
+            passengers: 4,
+            luggage: 2,
+            features: ["Professional Chauffeur", "Climate Controlled", "Efficient Transfer"],
+            link: "/fleet/toyota-camry/",
+        },
+        {
             name: "Hyundai Starex",
             image: "/hyundai-starex.webp",
             passengers: 7,
             luggage: 10,
             features: ["Family Hospitality", "Professional Driver", "Airport Specialist"],
             link: "/fleet/hyundai-starex/",
+        },
+        {
+            name: "Luxurious Bus",
+            image: "/fleet/luxurious-bus.webp",
+            passengers: 25,
+            luggage: 30,
+            features: ["On-board Comfort", "Large Groups", "Premium Seating"],
+            link: "/fleet/luxurious-bus/",
         }
     ];
 
@@ -204,16 +268,16 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             answer: "Taxi service operates 24 hours daily in Saudi Arabia. Late-night flight arrivals and early morning Ziyarat trips are accommodated. Drivers are available for booking at any time."
         },
         {
-            question: "How do I book a VIP transfer in Saudi Arabia?",
-            answer: "VIP transfer booking is available through the <a href='/booking/' class='text-primary hover:underline font-bold'>online booking form</a> or email at info@taxiserviceksa.com. Booking requires pickup location, destination, and preferred vehicle type. Confirmation is sent via email."
+            question: "How do I request a quote for a VIP transfer in Saudi Arabia?",
+            answer: "VIP transfer quotes are available through the <a href='/booking/' class='text-primary hover:underline font-bold'>online quote form</a> or email at info@taxiserviceksa.com. Your request requires pickup location, destination, and preferred vehicle type. Quotations are sent via email."
         },
         {
             question: "Is VIP Transfer KSA a licensed company?",
             answer: "Yes, <strong>VIP Transfer KSA</strong> is a fully licensed transport facilitator in Saudi Arabia, operating under Transport General Authority (TGA) regulations. All drivers hold valid licenses and vehicles allow for legal transport of pilgrims and tourists."
         },
         {
-            question: "Can I book a taxi from the UK/USA before my flight?",
-            answer: "Yes, you can <strong>pre-book your taxi online</strong> from the UK, USA, Canada, or anywhere in the world. We track your international flight arrival at Jeddah Airport (KAIA) and ensure your driver is waiting for you at the terminal."
+            question: "Can I request a quote for a taxi from the UK/USA before my flight?",
+            answer: "Yes, you can <strong>pre-request a quote for your taxi online</strong> from the UK, USA, Canada, or anywhere in the world. We track your international flight arrival at Jeddah Airport (KAIA) and ensure your driver is waiting for you at the terminal."
         },
         {
             question: "Do you accept international credit cards?",
@@ -308,7 +372,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                 <Link href="/booking/">
                                     <Button size="lg" className="bg-primary text-white hover:bg-white hover:text-primary font-bold transition-all shadow-lg shadow-primary/20">
-                                        Book Your Driver
+                                        Request Quotation
                                     </Button>
                                 </Link>
                             </div>
@@ -365,7 +429,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             </p>
                             <Link href="/booking/">
                                 <Button className="bg-primary text-white hover:bg-blue-600 rounded-full px-8 py-6 text-lg font-bold min-h-[48px] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/30">
-                                    Book Now <ArrowRight className="ml-2 w-5 h-5" />
+                                    Get Quote <ArrowRight className="ml-2 w-5 h-5" />
                                 </Button>
                             </Link>
                         </div>
@@ -521,7 +585,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                         </div>
                                         <Link href={`/booking?vehicle=${encodeURIComponent(vehicle.name.replace(/\s+/g, '-'))}`} className="w-full">
                                             <Button className="w-full bg-primary text-white hover:bg-blue-600 font-bold transition-all min-h-[48px] hover:scale-[1.02] active:scale-95 shadow-md shadow-primary/20">
-                                                Book {vehicle.name}
+                                                Get {vehicle.name} Quote
                                             </Button>
                                         </Link>
                                     </div>
@@ -887,7 +951,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         {/* Primary CTA */}
                         <Link href="/booking/" className="w-full sm:w-auto">
                             <Button size="lg" className="w-full bg-primary text-white hover:bg-blue-600 font-bold text-lg px-10 py-6 h-auto min-h-[56px] min-w-[200px] transition-all hover:scale-105 active:scale-95 shadow-xl shadow-primary/40">
-                                Book Your Ride
+                                Request Quotation
                             </Button>
                         </Link>
 

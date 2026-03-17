@@ -129,7 +129,7 @@ export default function HiddenMakkahSpotsPage() {
                     <div className="relative z-10">
                         <h2 className="text-3xl font-bold mb-4">Want to Visit These Ziyarat Spots?</h2>
                         <p className="text-gray-300 mb-8 text-lg max-w-2xl mx-auto">
-                            Standard buses won't take you to these hidden gems. Book a private GMC Yukon or Taxi Day Rental to explore Makkah's history at your own pace.
+                            Standard buses won't take you to these hidden gems. Request a quote for a private GMC Yukon or Taxi Day Rental to explore Makkah's history at your own pace.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/locations/makkah">
@@ -159,3 +159,4 @@ export default function HiddenMakkahSpotsPage() {
         </div>
     );
 }
+

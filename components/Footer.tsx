@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import {
     Facebook, Instagram, Twitter, Linkedin, Car, Youtube, Share2,
-    MapPin, Phone, Mail, Clock, ShieldCheck, Globe
+    MapPin, Mail, Clock, ShieldCheck, Globe
 } from 'lucide-react';
 
 export default function Footer() {
@@ -35,14 +35,13 @@ export default function Footer() {
                             Your trusted partner for premium transportation across Saudi Arabia. We specialize in Umrah transfers, corporate logistics, and luxury chauffeur services.
                         </p>
 
-                        <div className="space-y-2">
+                        <div className="space-y-3">
                             <a href="mailto:info@taxiserviceksa.com" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
                                 <Mail className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                                <span className="text-sm font-medium">info@taxiserviceksa.com</span>
-                            </a>
-                            <a href="https://wa.me/966569487569" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
-                                <Phone className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
-                                <span className="text-sm font-medium">+966 56 948 7569</span>
+                                <div className="flex flex-col">
+                                    <span className="text-xs uppercase font-bold text-gray-500 tracking-wider">Email Inquiry</span>
+                                    <span className="text-sm font-medium">info@taxiserviceksa.com</span>
+                                </div>
                             </a>
                         </div>
 
@@ -80,6 +79,7 @@ export default function Footer() {
                         </h3>
                         <ul className="space-y-2">
                             {[
+                                { name: 'Taxi In Makkah', href: '/services/taxi-in-makkah/' },
                                 { name: 'VIP Transfer Makkah', href: '/locations/makkah/' },
                                 { name: 'Makkah Clock Tower Transfer', href: '/locations/makkah/' },
                                 { name: 'Jabal Omar VIP Transfer', href: '/locations/makkah/jabal-omar/' },
@@ -107,6 +107,7 @@ export default function Footer() {
                         </h3>
                         <ul className="space-y-2">
                             {[
+                                { name: 'Taxi In Jeddah', href: '/services/taxi-in-jeddah/' },
                                 { name: 'VIP Transfer Jeddah', href: '/locations/jeddah/' },
                                 { name: 'Jeddah Airport Transfer', href: '/services/airport-transfers/' },
                                 { name: 'Jeddah Port VIP Transfer', href: '/locations/jeddah/islamic-port/' },
@@ -137,6 +138,7 @@ export default function Footer() {
                         </h3>
                         <ul className="space-y-2">
                             {[
+                                { name: 'Taxi In Tabuk', href: '/services/taxi-in-tabuk/' },
                                 { name: 'VIP Transfer AlUla', href: '/locations/alula/' },
                                 { name: 'Hegra VIP Transfer', href: '/locations/alula/hegra/' },
                                 { name: 'VIP Transfer Taif', href: '/locations/taif/' },

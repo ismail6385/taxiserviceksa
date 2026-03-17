@@ -122,7 +122,7 @@ export default function JeddahShoppingGuidePage() {
                     <div className="relative z-10">
                         <h2 className="text-3xl font-bold mb-4">Shop 'til You Drop</h2>
                         <p className="text-emerald-100 mb-8 text-lg max-w-2xl mx-auto">
-                            Need a ride between malls? Book a private driver for the day and leave your shopping bags in the car.
+                            Need a ride between malls? Request a quote for a private driver for the day and leave your shopping bags in the car.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/locations/jeddah">
@@ -143,3 +143,4 @@ export default function JeddahShoppingGuidePage() {
         </div>
     );
 }
+

@@ -21,15 +21,19 @@ export async function POST(request: NextRequest) {
             await sendMail({
                 to: adminEmail,
                 replyTo: driver.email,
-                subject: `🚖 New Driver Application - ${driver.full_name}`,
+                subject: `🚖 Driver Application: ${driver.full_name}`,
                 html: `
-                <div style="font-family: Arial, sans-serif; padding: 20px;">
-                    <h2>New Driver Application</h2>
-                    <p><strong>Name:</strong> ${driver.full_name}</p>
-                    <p><strong>Phone:</strong> ${driver.phone_number}</p>
-                    <p><strong>Email:</strong> ${driver.email}</p>
-                    <p><strong>City:</strong> ${driver.city}</p>
-                    <p><strong>Vehicle:</strong> ${driver.vehicle_model}</p>
+                <div style="font-family: Arial, sans-serif; padding: 25px; border: 1px solid #efefef; border-radius: 12px; max-width: 600px;">
+                  <h2 style="color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 10px; margin-top: 0;">New Partner Application</h2>
+                  <div style="background-color: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                    <p style="margin: 5px 0;"><strong>Driver Name:</strong> ${driver.full_name}</p>
+                    <p style="margin: 5px 0;"><strong>Phone:</strong> ${driver.phone_number}</p>
+                    <p style="margin: 5px 0;"><strong>Email:</strong> ${driver.email}</p>
+                    <p style="margin: 5px 0;"><strong>City:</strong> ${driver.city}</p>
+                    <p style="margin: 5px 0;"><strong>Vehicle:</strong> ${driver.vehicle_model}</p>
+                    <p style="margin: 5px 0;"><strong>Owns Car:</strong> ${driver.owns_car ? 'Yes' : 'No'}</p>
+                  </div>
+                  <p style="font-size: 12px; color: #999;">This driver has agreed to the code of conduct and background checks.</p>
                 </div>
                 `,
             });
@@ -41,13 +45,26 @@ export async function POST(request: NextRequest) {
         try {
             await sendMail({
                 to: driver.email,
-                subject: 'Application Received - VIP Transfer KSA',
+                subject: 'Partnership Application Received - VIP Transfer KSA',
                 html: `
-                <div style="font-family: Arial, sans-serif; padding: 20px;">
-                    <h1>Application Received!</h1>
-                    <p>Dear ${driver.full_name},</p>
-                    <p>We have received your application. Our team will review your details and contact you soon.</p>
-                    <p>Best regards,<br>VIP Transfer KSA Team</p>
+                <div style="font-family: Arial, sans-serif; padding: 25px; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #eee; border-radius: 12px;">
+                    <div style="text-align: center; margin-bottom: 25px;">
+                        <h2 style="color: #000; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Application Received</h2>
+                        <div style="width: 50px; height: 3px; background-color: #C6FF00; margin: 10px auto;"></div>
+                    </div>
+                    
+                    <p>Dear <strong>${driver.full_name}</strong>,</p>
+                    <p>Thank you for your interest in joining the <strong>VIP Transfer KSA</strong> professional network.</p>
+                    <p>We have received your registration details and our partner compliance team is currently reviewing your profile and vehicle information.</p>
+                    
+                    <div style="background-color: #f8f9fa; border-left: 4px solid #C6FF00; padding: 15px; margin: 20px 0;">
+                        <p style="margin: 0; font-weight: bold; color: #000;">What's Next?</p>
+                        <p style="margin: 5px 0; font-size: 14px;">Our team will contact you within 48-72 hours if your profile matches our requirements for your city (${driver.city}).</p>
+                    </div>
+
+                    <p>Please ensure your vehicle remains in top condition and your documents are ready for final verification.</p>
+                    
+                    <p style="margin-top: 30px;">Best regards,<br><strong>Onboarding Team</strong><br>VIP Transfer KSA</p>
                 </div>
                 `,
             });

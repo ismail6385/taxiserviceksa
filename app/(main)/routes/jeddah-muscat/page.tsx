@@ -10,14 +10,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi Jeddah to Muscat | VIP Cross-Border Transfer',
-    description: 'Book a premium taxi from Jeddah to Muscat. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Jeddah to Muscat. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Jeddah to Muscat', 'Jeddah to Muscat transfer', 'cross border taxi Saudi Arabia', 'VIP transport Jeddah Muscat'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-muscat/',
     },
     openGraph: {
         title: 'Taxi Jeddah to Muscat | VIP Cross-Border Transfer',
-        description: 'Book a premium taxi from Jeddah to Muscat. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Jeddah to Muscat. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/jeddah-muscat/',
         type: 'website',
     },
@@ -84,9 +84,9 @@ export default function JeddahMuscatRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="https://wa.me/966569487569?text=Hello,%20I%20want%20to%20get%20a%20quote%20for%20a%20taxi%20from%20Jeddah%20to%20Muscat">
+                    <a href="mailto:info@taxiserviceksa.com?text=Hello,%20I%20want%20to%20get%20a%20quote%20for%20a%20taxi%20from%20Jeddah%20to%20Muscat">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            WhatsApp Quote
+                            Email Inquiry
                         </Button>
                     </a>
                 </div>
@@ -201,7 +201,7 @@ export default function JeddahMuscatRoutePage() {
                     {
                         question: "How can I get a price for this border transfer?",
                         shortAnswer: "Request a Quote",
-                        detailedAnswer: "Prices vary based on the vehicle type, number of passengers, and specific locations. Please use our 'Get Quote' button or contact us via WhatsApp to receive an accurate, all-inclusive quote that covers vehicle crossing insurance and toll fees.",
+                        detailedAnswer: "Prices vary based on the vehicle type, number of passengers, and specific locations. Please use our 'Get Quote' button or contact us via Email to receive an accurate, all-inclusive quote that covers vehicle crossing insurance and toll fees.",
                         perspectives: []
                     }
                 ]}
@@ -209,3 +209,6 @@ export default function JeddahMuscatRoutePage() {
         </div>
     );
 }
+
+
+

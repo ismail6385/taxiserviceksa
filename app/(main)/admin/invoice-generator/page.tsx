@@ -54,7 +54,7 @@ const DEFAULT_PROFILES: Record<string, CompanyProfile> = {
     'taxi-ksa': {
         name: 'Taxi Service KSA',
         address: 'Jeddah, Saudi Arabia',
-        phone: '+92 308 062 8195',
+        phone: 'info@taxiserviceksa.com',
         email: 'info@taxiserviceksa.com',
         website: 'www.taxiserviceksa.com',
         logoUrl: '/logo.svg'
@@ -160,14 +160,23 @@ export default function UniversalInvoiceGenerator() {
                         </button>
                     </div>
 
-                    <Button variant="outline" size="sm" onClick={() => window.print()} className="font-bold border-gray-300">
+                    <Button variant="outline" size="sm" onClick={() => {
+                        const clientName = recipient.name ? recipient.name.replace(/\s+/g, '-') : 'Client';
+                        const refId = meta.number || 'DRAFT';
+                        const dateStr = meta.date || new Date().toISOString().split('T')[0];
+                        const originalTitle = document.title;
+                        document.title = `${mode === 'invoice' ? 'Invoice' : 'Letter'}-${refId}-${clientName}-${dateStr}`;
+                        window.print();
+                        setTimeout(() => { document.title = originalTitle; }, 1000);
+                    }} className="font-bold border-gray-300">
                         <Printer className="w-4 h-4 mr-2" /> Print PDF
                     </Button>
                     <Button variant="outline" size="sm" onClick={() => {
-                        const text = `*${mode.toUpperCase()}* \nFrom: ${profile.name}\nTo: ${recipient.name}\nTotal: ${meta.currency} ${total.toFixed(2)}`;
-                        window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+                        const subject = `${mode.toUpperCase()} from ${profile.name}`;
+                        const body = `${mode.toUpperCase()} \nFrom: ${profile.name}\nTo: ${recipient.name}\nTotal: ${meta.currency} ${total.toFixed(2)}`;
+                        window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                     }} className="font-bold border-gray-300">
-                        <Share2 className="w-4 h-4 mr-2" /> WhatsApp
+                        <Mail className="w-4 h-4 mr-2" /> Email Info
                     </Button>
                 </div>
             </div>
@@ -178,9 +187,9 @@ export default function UniversalInvoiceGenerator() {
                 <div className="w-full lg:w-[400px] space-y-6 print:hidden">
                     
                     {/* Brand */}
-                    <div className="bg-white rounded-xl border p-6 shadow-sm">
-                        <Label className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3 block">Business Profile</Label>
-                        <Select onValueChange={(val) => setProfile(DEFAULT_PROFILES[val])} defaultValue="taxi-ksa">
+                    <div className="bg-white rounded-xl border p-6 shadow-sm space-y-4">
+                        <Label className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1 block">Business Profile</Label>
+                        <Select onValueChange={(val) => setProfile({...DEFAULT_PROFILES[val]})} defaultValue="taxi-ksa">
                             <SelectTrigger className="font-semibold text-gray-900 rounded-lg">
                                 <SelectValue placeholder="Select Business" />
                             </SelectTrigger>
@@ -190,6 +199,28 @@ export default function UniversalInvoiceGenerator() {
                                 ))}
                             </SelectContent>
                         </Select>
+                        <div className="space-y-3 pt-2 border-t">
+                            <div>
+                                <Label className="text-[10px] text-gray-400 uppercase ml-1">Company Name</Label>
+                                <Input placeholder="Company Name" className="h-9 text-sm font-semibold" value={profile.name} onChange={(e) => setProfile({...profile, name: e.target.value})} />
+                            </div>
+                            <div>
+                                <Label className="text-[10px] text-gray-400 uppercase ml-1">Address</Label>
+                                <Input placeholder="Address" className="h-9 text-sm" value={profile.address} onChange={(e) => setProfile({...profile, address: e.target.value})} />
+                            </div>
+                            <div>
+                                <Label className="text-[10px] text-gray-400 uppercase ml-1">Contact Email</Label>
+                                <Input placeholder="Contact Email" className="h-9 text-sm" value={profile.phone} onChange={(e) => setProfile({...profile, phone: e.target.value})} />
+                            </div>
+                            <div>
+                                <Label className="text-[10px] text-gray-400 uppercase ml-1">Email</Label>
+                                <Input placeholder="Email" className="h-9 text-sm" value={profile.email} onChange={(e) => setProfile({...profile, email: e.target.value})} />
+                            </div>
+                            <div>
+                                <Label className="text-[10px] text-gray-400 uppercase ml-1">Website</Label>
+                                <Input placeholder="Website" className="h-9 text-sm" value={profile.website} onChange={(e) => setProfile({...profile, website: e.target.value})} />
+                            </div>
+                        </div>
                     </div>
 
                     {/* Client */}
@@ -396,3 +427,4 @@ export default function UniversalInvoiceGenerator() {
         </div>
     );
 }
+

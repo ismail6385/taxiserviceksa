@@ -14,11 +14,12 @@ interface HeroProps {
     location?: string;
     h1Text?: string; // Custom H1 text for SEO
     bookingFormTitle?: string; // Custom title for the booking widget
+    hideBookingForm?: boolean; // Option to hide the booking widget
     children?: ReactNode;
 }
 
 export default function Hero(props: HeroProps) {
-    const { images, title, subtitle, location, h1Text, bookingFormTitle } = props;
+    const { images, title, subtitle, location, h1Text, bookingFormTitle, hideBookingForm } = props;
 
     // Use custom images if provided, otherwise use default homepage slides
     const slides = images || [
@@ -117,9 +118,11 @@ export default function Hero(props: HeroProps) {
                 </div>
 
                 {/* Booking Widget Container - Lifts up into the hero content */}
-                <div className="w-full animate-fade-in-up delay-200 mt-4">
-                    <HeroBookingWidget title={bookingFormTitle || (h1Text ? `Book ${h1Text}` : undefined)} />
-                </div>
+                {!hideBookingForm && (
+                    <div className="w-full animate-fade-in-up delay-200 mt-4">
+                        <HeroBookingWidget title={bookingFormTitle || (h1Text ? `Get Quote for ${h1Text}` : undefined)} />
+                    </div>
+                )}
             </div>
 
 

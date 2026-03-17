@@ -107,12 +107,12 @@ export default function ContactPage() {
 
                                     <div className="flex items-start gap-4">
                                         <div className="bg-white/10 p-3 rounded-xl mt-1">
-                                            <Phone className="w-6 h-6 text-primary" />
+                                            <Mail className="w-6 h-6 text-primary" />
                                         </div>
                                         <div>
-                                            <p className="text-sm text-gray-400 font-medium mb-1">WhatsApp Support</p>
-                                            <a href="https://wa.me/966569487569" target="_blank" rel="noopener noreferrer" className="text-xl font-bold hover:text-primary transition-colors">
-                                                +966 56 948 7569
+                                            <p className="text-sm text-gray-400 font-medium mb-1">Email Support</p>
+                                            <a href="mailto:info@taxiserviceksa.com" className="text-xl font-bold hover:text-primary transition-colors">
+                                                info@taxiserviceksa.com
                                             </a>
                                             <p className="text-xs text-gray-500 mt-1">Available 24/7</p>
                                         </div>
@@ -133,7 +133,7 @@ export default function ContactPage() {
                                     </div>
                                     <h3 className="text-xl font-bold text-gray-900 mb-2">Message Sent!</h3>
                                     <p className="text-gray-600">
-                                        Thank you for contacting us. We have received your message and will respond to <span className="font-semibold text-gray-900">info@taxiserviceksa.com</span> shortly.
+                                        Thank you for contacting us. We have received your message and our support team will contact you shortly regarding your inquiry.
                                     </p>
                                     <Button
                                         onClick={() => setIsSuccess(false)}
@@ -236,3 +236,4 @@ export default function ContactPage() {
         </div>
     );
 }
+

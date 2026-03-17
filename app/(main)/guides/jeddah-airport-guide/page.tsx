@@ -132,7 +132,7 @@ export default async function JeddahAirportGuidePage() {
                             </div>
                         </div>
                         <div className="flex flex-wrap gap-3">
-                            <Link href="/booking/" className="bg-emerald-600 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-emerald-700 transition-colors">Book Now</Link>
+                            <Link href="/booking/" className="bg-emerald-600 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-emerald-700 transition-colors">Get Quote</Link>
                             <Link href="/routes/jeddah-makkah/" className="bg-white text-emerald-700 border border-emerald-200 px-6 py-2.5 rounded-xl font-bold hover:bg-emerald-50 transition-colors">Jeddah to Makkah Taxi</Link>
                             <Link href="/fleet/gmc-yukon/" className="bg-white text-emerald-700 border border-emerald-200 px-6 py-2.5 rounded-xl font-bold hover:bg-emerald-50 transition-colors">VIP GMC Yukon</Link>
                         </div>
@@ -352,12 +352,12 @@ export default async function JeddahAirportGuidePage() {
                         Need a Taxi from Jeddah Airport?
                     </h2>
                     <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Professional airport transfer service with meet-and-greet, flight tracking, and experienced drivers who know the best routes to Makkah. For a guaranteed fixed price, you should <Link href="/booking/" className="text-emerald-400 font-bold hover:underline">book a taxi online</Link> before you land.
+                        Professional airport transfer service with meet-and-greet, flight tracking, and experienced drivers who know the best routes to Makkah. For a guaranteed fixed price, you should <Link href="/booking/" className="text-emerald-400 font-bold hover:underline">Request a quote for a taxi online</Link> before you land.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto">
                             <Link href="/booking/">
-                                Book Airport Transfer
+                                Request a quote for airport Transfer
                                 <ArrowRight className="ml-2 w-5 h-5" />
                             </Link>
                         </Button>
@@ -374,3 +374,4 @@ export default async function JeddahAirportGuidePage() {
         </div>
     );
 }
+

@@ -20,7 +20,8 @@ import {
     Edit2,
     Save,
     Plus,
-    Printer
+    Printer,
+    FileText
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -301,10 +302,10 @@ export default function BookingsPage() {
     };
 
     const shareB2BOptions = (booking: Booking) => {
-        const text = `*B2B Booking Request* 🚕\n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*From:* ${booking.pickup_location}\n*To:* ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}\n*Vehicle:* ${booking.vehicle_type}\n*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}\n\n*Notes:* ${booking.special_requests || 'N/A'}\n\nPlease confirm if you can cover this.`;
+        const text = `*B2B Booking Request* \n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*From:* ${booking.pickup_location}\n*To:* ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}\n*Vehicle:* ${booking.vehicle_type}\n*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}\n\n*Notes:* ${booking.special_requests || 'N/A'}\n\nPlease confirm if you can cover this.`;
 
         navigator.clipboard.writeText(text).then(() => {
-            alert('B2B details copied to clipboard! You can paste it to your partner.');
+            alert('B2B details copied to clipboard!');
         });
     };
 
@@ -579,10 +580,9 @@ export default function BookingsPage() {
                                             {isEditing ? (
                                                 <Input value={editedBooking.customer_phone} onChange={(e) => setEditedBooking({ ...editedBooking, customer_phone: e.target.value })} className="h-8 text-sm bg-white" />
                                             ) : (
-                                                <a href={`https://wa.me/\${selectedBooking.customer_phone.replace(/\\D/g, '')}`} target="_blank" rel="noreferrer" className="text-sm font-medium text-green-600 hover:text-green-700 flex items-center gap-1">
+                                                <span className="text-sm font-medium text-gray-900">
                                                     {selectedBooking.customer_phone}
-                                                    <span className="text-xs bg-green-100 px-1.5 py-0.5 rounded text-green-700">WhatsApp</span>
-                                                </a>
+                                                </span>
                                             )}
                                         </div>
                                         <div className="sm:col-span-2">
@@ -725,7 +725,7 @@ export default function BookingsPage() {
                                         className="w-full bg-primary text-black hover:bg-black hover:text-white font-bold h-12 shadow-md transition-all"
                                         onClick={() => updateStatus(selectedBooking.id, 'confirmed')}
                                     >
-                                        <CheckCircle className="w-5 h-5 mr-2" /> Confirm Booking & Send Email
+                                        <CheckCircle className="w-5 h-5 mr-2" /> Request Quotation & Send Email
                                     </Button>
                                 )}
 
@@ -740,6 +740,13 @@ export default function BookingsPage() {
 
                                 {!isEditing && (
                                     <div className="mt-4 border-t border-gray-200 pt-3 flex flex-col gap-2">
+                                        <Button 
+                                            variant="outline" 
+                                            className="w-full bg-purple-50 border-purple-200 hover:bg-purple-100 hover:text-purple-900 text-purple-700 transition-all font-semibold" 
+                                            onClick={() => window.open(`/admin/bookings/${selectedBooking.id}/letterhead`, '_blank')}
+                                        >
+                                            <FileText className="w-4 h-4 mr-2" /> View/Print Quotation
+                                        </Button>
                                         <Button 
                                             variant="outline" 
                                             className="w-full bg-blue-50 border-blue-200 hover:bg-blue-100 hover:text-blue-900 text-blue-700 transition-all font-semibold" 
@@ -941,3 +948,4 @@ export default function BookingsPage() {
         </div>
     );
 }
+

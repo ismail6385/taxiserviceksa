@@ -219,7 +219,7 @@ export default function JeddahToFairmontPage() {
                         Start Your Umrah with Comfort
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Book your reliable transfer to the Fairmont Makkah Clock Royal Tower today.
+                        Get a quote for your reliable transfer to the Fairmont Makkah Clock Royal Tower today.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/?destination=Fairmont%20Makkah">
@@ -238,3 +238,6 @@ export default function JeddahToFairmontPage() {
         </div>
     );
 }
+
+
+

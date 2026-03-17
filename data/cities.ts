@@ -727,5 +727,74 @@ export const cities: Record<string, CityData> = {
                 context: "Visiting nearby cities? Seamlessly travel with our"
             }
         }
+    },
+    tabuk: {
+        name: "Tabuk",
+        slug: "tabuk",
+        metaTitle: "Taxi Service in Tabuk | Reliable Intercity Transfers & Airport Taxi",
+        metaDescription: "Book a reliable taxi service in Tabuk. Professional drivers for intercity transfers to NEOM, AlUla, and across KSA. Safe & fixed rates.",
+        primaryAudience: "Tourists, Business, NEOM Commuters",
+        serviceFocus: "Northwestern Intercity Transfers",
+        landmarks: ["Tabuk Castle", "Prince Sultan Bin Abdulaziz Airport", "Prophet's Mosque (Tabuk)", "Souq Twaheen"],
+        nearbyCities: ["neom", "alula", "madinah"],
+        description: "Tabuk is the gateway to the North. We provide reliable intercity taxi services connecting Tabuk to major development projects and cities across the Kingdom.",
+        faqSetA: [
+            {
+                question: "Do you offer taxis from Tabuk to NEOM?",
+                answer: "Yes, we specialize in private transfers from Tabuk to NEOM. It is a reliable way for consultants and tourists to reach the project site safely.",
+                intent: "Transactional",
+                chatbotData: {
+                    userQuestion: "Taxi Tabuk to NEOM?",
+                    botAnswer: "Yes, we provide specialized private transfers from Tabuk to NEOM for consultants and tourists.",
+                    suggestedAction: "Booking"
+                }
+            },
+            {
+                question: "Can I book a ride to AlUla from Tabuk?",
+                answer: "Certainly. We offer direct intercity transfers from Tabuk to AlUla, allowing you to explore the heritage sites without the hassle of public transport.",
+                intent: "Commercial",
+                chatbotData: {
+                    userQuestion: "Ride from Tabuk to AlUla?",
+                    botAnswer: "Yes, we offer direct private transfers to AlUla from Tabuk for a comfortable trip.",
+                    suggestedAction: "Booking"
+                }
+            },
+            {
+                question: "Is there an airport taxi at Prince Sultan Airport?",
+                answer: "Yes, we provide 24/7 pickups and drop-offs at Tabuk Airport. Pre-booking ensures your driver is waiting for you upon arrival.",
+                intent: "Transactional",
+                chatbotData: {
+                    userQuestion: "Airport taxi Tabuk?",
+                    botAnswer: "Yes, we offer 24/7 pre-booked airport transfers at Tabuk Airport.",
+                    suggestedAction: "Booking"
+                }
+            }
+        ],
+        faqSetB: [
+            {
+                question: "How long is the drive from Tabuk to Madinah?",
+                answer: "The drive takes about 6.5 to 7 hours. Our private taxi service provides a comfortable experience with necessary rest stops.",
+                intent: "Informational",
+                chatbotData: {
+                    userQuestion: "Distance Tabuk to Madinah?",
+                    botAnswer: "It is about a 7-hour drive. We provide private transfers with rest stops.",
+                    suggestedAction: "Booking"
+                }
+            }
+        ],
+        howTo: {
+            title: "Booking a Taxi in Tabuk",
+            steps: [
+                { name: "Pick Destination", text: "Select NEOM, AlUla, or any city across Saudi Arabia." },
+                { name: "Choose Car", text: "Select an SUV or sedan suitable for long-distance desert drives." },
+                { name: "Confirm Details", text: "Get your fixed price and driver details instantly." }
+            ]
+        },
+        seoContent: {
+            overview: "Tabuk is a strategic hub for the Saudi Giga-projects. Our <strong>taxi service in Tabuk</strong> serves the growing demand for professional transport to <strong>NEOM</strong> and across the Tabuk region.",
+            services: "We provide <strong>airport taxi in Tabuk</strong> transfers and specialized long-distance routes. Our fleet includes comfortable SUVs like the GMC Yukon, perfect for the vast distances of the northwest.",
+            whyChoose: "Punctuality and safety are critical for the northern routes. Our drivers are well-trained for highway safety and ensure you reach your destination on time, every time."
+        }
     }
 };
+

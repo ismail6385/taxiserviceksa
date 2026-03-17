@@ -226,7 +226,7 @@ export default function AboutPage() {
                     <h2 className="text-3xl font-bold mb-8 text-gray-900">Experience Premium Transportation</h2>
                     <Link href="/booking/">
                         <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg px-12 py-8 rounded-2xl mb-20 shadow-xl shadow-emerald-100">
-                           Book Your Private Transfer
+                           Get a quote for your Private Transfer
                         </Button>
                     </Link>
                     <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-4 border-white shadow-lg" />
@@ -242,3 +242,4 @@ export default function AboutPage() {
         </div>
     );
 }
+

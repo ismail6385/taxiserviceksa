@@ -11,7 +11,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi to Khobar Corniche | Waterfront & Restaurant Transfer',
-    description: 'Book a taxi to Al Khobar Corniche. Visit the Water Tower, Ajdan Walk, and best waterfront restaurants. Reliable family transfers in Eastern Province.',
+    description: 'Request a quote for a taxi to Al Khobar Corniche. Visit the Water Tower, Ajdan Walk, and best waterfront restaurants. Reliable family transfers in Eastern Province.',
     keywords: ['Khobar Corniche taxi', 'Al Khobar waterfront taxi', 'Taxi to Ajdan Walk', 'Khobar Water Tower taxi', 'Eastern Province corniche taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/al-khobar/corniche/',
@@ -200,3 +200,4 @@ export default function KhobarCornichePage() {
         </div>
     );
 }
+

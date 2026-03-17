@@ -117,7 +117,7 @@ export default function CableCarPage() {
                                         <div className="flex items-center gap-1"><Clock className="w-4 h-4" /> {loc.rideTime}</div>
                                     </div>
                                     <Link href="/booking/" className="block mt-6">
-                                        <Button variant="outline" className="w-full border-emerald-600 text-emerald-700 hover:bg-emerald-50">Book Ride Here</Button>
+                                        <Button variant="outline" className="w-full border-emerald-600 text-emerald-700 hover:bg-emerald-50">Get Quote Here</Button>
                                     </Link>
                                 </div>
                             </div>
@@ -133,7 +133,7 @@ export default function CableCarPage() {
                             {
                                 question: "Can the taxi wait for us while we ride the cable car?",
                                 shortAnswer: "Yes, waiting time available.",
-                                detailedAnswer: "The round trip plus time at the destination (e.g., Al Kar water park) can take several hours. You can book a 'Wait and Return' service so the driver is ready when you come back up.",
+                                detailedAnswer: "The round trip plus time at the destination (e.g., Al Kar water park) can take several hours. You can Request a quote for a 'Wait and Return' service so the driver is ready when you come back up.",
                                 perspectives: [
                                     {
                                         role: "Tourist Tip",
@@ -195,3 +195,4 @@ export default function CableCarPage() {
         </div>
     );
 }
+

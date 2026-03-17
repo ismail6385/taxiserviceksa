@@ -1,114 +1,142 @@
-
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { Building2, Briefcase, Clock, Shield, Wifi, FileText, CheckCircle2, Car, Star, MapPin } from 'lucide-react';
+import { Building2, Briefcase, Clock, Shield, Wifi, FileText, CheckCircle2, Car, Star, MapPin, Users, ArrowRight } from 'lucide-react';
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedServices from '@/components/seo/RelatedServices';
-import ReviewForm from '@/components/seo/ReviewForm';
-import QuestionForm from '@/components/seo/QuestionForm';
-import ReviewsDisplay from '@/components/ReviewsDisplay';
-import QuestionsDisplay from '@/components/QuestionsDisplay';
 
 export const metadata: Metadata = {
-    title: 'Business & Corporate VIP Transfer KSA | Executive Transfers',
-    description: 'Premier corporate taxi service in Saudi Arabia for business professionals. Executive cars, monthly invoicing, reliable airport transfers, and event transport.',
-    keywords: ['Corporate taxi Saudi Arabia', 'Business executive transfer KSA', 'Chauffeur service Riyadh', 'Jeddah business taxi', 'VIP transport Saudi Arabia'],
+    title: 'بزنس اور کارپوریٹ وی آئی پی ٹرانسفر KSA | ایگزیکٹو چوفیر (Chauffeur)',
+    description: 'سعودی عرب میں کاروباری شخصیات (Business professionals) کے لیے صفِ اول کی کارپوریٹ وی آئی پی ٹرانسفر سروس۔ ایگزیکٹو گاڑیاں، ایئرپورٹ ٹرانسفرز، اور ماہانہ بلنگ کی سہولت۔',
+    keywords: ['کارپوریٹ وی آئی پی ٹرانسفر سعودی عرب', 'بزنس ایگزیکٹو ٹرانسفر KSA', 'چوفیر سروس ریاض', 'جدہ بزنس ٹرانسفر', 'وی آئی پی ٹرانسپورٹ سعودی عرب'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/business/',
+        canonical: 'https://taxiserviceksa.com/ur/services/business/',
+    },
+    openGraph: {
+        title: 'کارپوریٹ بزنس ٹرانسفرز | ایگزیکٹو گاڑیاں اور ڈرائیورز',
+        description: 'ریاض، جدہ اور دمام میں کاروباری وفود اور ایگزیکٹوز کے لیے انتہائی شاندار اور پرائیویسی پر مبنی سفری سہولیات۔',
+        url: 'https://taxiserviceksa.com/ur/services/business/',
+        type: 'website',
     },
 };
 
-export default function BusinessPage() {
+export default function BusinessPageUrdu() {
     const features = [
         {
             icon: Clock,
-            title: 'Punctuality Guaranteed',
-            desc: 'We understand the value of your time. Our drivers arrive 15 minutes early for all business bookings.'
+            title: 'وقت کی پابندی (Punctuality)',
+            desc: 'ہم آپ کے وقت کی قدر جانتے ہیں۔ ہمارے ڈرائیورز تمام بزنس بکنگز کے لیے مقررہ وقت سے 15 منٹ پہلے پہنچ جاتے ہیں۔'
         },
         {
             icon: Building2,
-            title: 'Corporate Accounts',
-            desc: 'Streamlined billing with monthly invoicing and detailed reporting for registered corporate clients.'
+            title: 'کارپوریٹ اکاؤنٹس',
+            desc: 'رجسٹرڈ کمپنیوں کے لیے ماہانہ انوائسنگ (Invoicing) اور تفصیلی رپورٹس کے ساتھ آسان بلنگ کا طریقہ کار۔'
         },
         {
             icon: Shield,
-            title: 'Confidentiality',
-            desc: 'Professional, discreet drivers trained to respect your privacy during sensitive discussions.'
+            title: 'مکمل رازداری (Confidentiality)',
+            desc: 'پیشہ ور اور سمجھدار ڈرائیورز جنہیں سفر کے دوران آپ کی حساس گفتگو اور پرائیویسی کا احترام کرنے کی خاص تربیت دی گئی ہے۔'
         },
         {
             icon: Wifi,
-            title: 'On-Board WiFi',
-            desc: 'Stay connected on the go with high-speed internet available in our executive fleet (upon request).'
+            title: 'گاڑی میں وائی فائی (WiFi)',
+            desc: 'دورانِ سفر کام جاری رکھنے کے لیے ہماری ایگزیکٹو فلیٹ میں تیز رفتار انٹرنیٹ کی سہولت (درخواست پر) دستیاب ہے۔'
         }
     ];
 
     const fleet = [
-        { name: 'Mercedes S-Class', type: 'First Class', capacity: '3 Pax' },
-        { name: 'BMW 7 Series', type: 'Business Class', capacity: '3 Pax' },
-        { name: 'GMC Yukon', type: 'Executive SUV', capacity: '6 Pax' },
-        { name: 'Lexus ES', type: 'Premium Sedan', capacity: '3 Pax' }
+        { name: 'Mercedes S-Class', type: 'فرسٹ کلاس', capacity: '3 مسافر' },
+        { name: 'BMW 7 Series', type: 'بزنس کلاس', capacity: '3 مسافر' },
+        { name: 'GMC Yukon', type: 'ایگزیکٹو SUV', capacity: '6 مسافر' },
+        { name: 'Lexus ES', type: 'پریمیم سیڈان', capacity: '3 مسافر' }
     ];
 
     const schemas = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Corporate VIP Transfer KSA",
-
-        "description": "Executive transportation services for business travelers in Saudi Arabia.",
+        "name": "Corporate VIP Transfer KSA (Urdu)",
+        "description": "سعودی عرب میں بزنس ٹریولرز کے لیے ایگزیکٹو ٹرانسپورٹ سروسز۔",
         "areaServed": "Saudi Arabia",
-        "serviceType": "Taxis"
+        "serviceType": "VIP Transport"
     };
 
     return (
-        <div className="bg-gray-50 min-h-screen">
+        <div className="bg-slate-50 min-h-screen rtl font-urdu" dir="rtl">
             <Script
                 id="business-schema"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
             />
 
-            <Hero
-                images={['/hero-slide-3.webp', '/hero-slide-1.webp']}
-                h1Text="Executive Corporate Transport Solutions"
-                title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Business Class Travel
-                    </span>
-                }
-                subtitle="Efficiency & Excellence"
-                location="Riyadh - Jeddah - Dammam"
-            >
-                <div className="max-w-3xl mx-auto mt-8 mb-6">
+            {/* Premium Business Hero Theme */}
+            <section className="relative bg-gradient-to-tr from-slate-950 via-gray-900 to-black text-white pt-32 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden z-0 border-b-2 border-slate-800">
+                <div className="absolute inset-0 opacity-20 mix-blend-overlay">
+                    <div className="absolute inset-0 bg-[url('/hero-slide-3.webp')] bg-cover bg-center"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10"></div>
+                </div>
+
+                <div className="max-w-7xl mx-auto relative z-20 text-right">
+                    <div className="mb-10 text-center md:text-right flex flex-col items-center md:items-end">
+                        <span className="bg-gray-100/10 backdrop-blur border border-gray-400/20 text-gray-200 font-bold tracking-wider pt-2 uppercase text-sm px-6 py-1.5 rounded-full inline-flex items-center gap-2 mb-6">
+                            <Briefcase className="w-4 h-4 text-emerald-400" />
+                            بزنس کلاس ٹریول
+                        </span>
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight text-white drop-shadow-2xl">
+                            ایگزیکٹو کارپوریٹ <br />
+                            <span className="text-emerald-500">سفری حل (Transport Solutions)</span>
+                        </h1>
+                        <p className="text-xl md:text-2xl text-gray-300 max-w-3xl leading-relaxed mb-10 font-light mx-auto md:mr-0 md:ml-auto drop-shadow-md text-right md:text-justify font-urdu">
+                            سعودی عرب کے اندر ہموار اور قابلِ اعتماد کاروباری ٹرانسپورٹ۔ ریاض، جدہ اور دمام میں ایک میٹنگ سے دوسری میٹنگ یا ایئرپورٹ تک ہمارے پروفیشنل ڈرائیورز پر بھروسہ کریں۔
+                        </p>
+                        
+                        <div className="flex flex-col sm:flex-row gap-4 justify-start w-full max-w-sm md:max-w-none ml-auto">
+                            <Link href="/ur/booking?service=business" className="w-full sm:w-auto">
+                                <Button size="lg" className="bg-emerald-600 text-white hover:bg-emerald-500 font-bold text-lg px-10 py-7 rounded-xl shadow-xl hover:shadow-emerald-500/30 transition-all transform hover:-translate-y-1 group border border-emerald-400/50 w-full">
+                                    <Car className="mr-3 w-6 h-6" />
+                                    کارپوریٹ گاڑی کوٹیشن حاصل کریں
+                                    <ArrowRight className="mr-2 w-5 h-5 group-hover:-translate-x-1 transition-transform rotate-180" />
+                                </Button>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <div className="max-w-5xl mx-auto -mt-8 relative z-30 px-4 sm:px-6 mb-16">
+                 <div className="bg-white rounded-2xl shadow-2xl p-6 border border-slate-100">
                     <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ Corporate"
-                        description="Powering Saudi business mobility with a fleet of premium vehicles and professional chauffeurs dedicated to your schedule."
+                        brandName="VIP Transfer KSA™ Corporate"
+                        description="آپ کے شیڈول کی پابندی کرتے ہوئے، سعودی کاروباری نقل و حرکت میں پریمیم گاڑیوں اور تربیت یافتہ چوفیرز کے ساتھ صفِ اول کا ادارہ۔"
                         foundingDate="2012"
                         metrics={[
-                            { label: 'Corporate Clients', value: '500+', icon: Building2 },
-                            { label: 'On-Time Rate', value: '99.8%', icon: Clock },
-                            { label: 'Premium Fleet', value: '100+', icon: Car }
+                            { label: 'کارپوریٹ کلائنٹس', value: '500+', icon: Building2 },
+                            { label: 'بروقت رسائی کی شرح', value: '99.8%', icon: Clock },
+                            { label: 'پریمیم گاڑیاں', value: '100+', icon: Car }
                         ]}
                     />
-                </div>
-            </Hero>
+                 </div>
+            </div>
 
             {/* Features Grid */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white font-urdu">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Businesses Choose Us</h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">Dedicated support for the demands of modern corporate travel.</p>
+                        <span className="text-emerald-600 font-bold tracking-wider mb-2 block uppercase text-sm">ہمارا معیار</span>
+                        <h2 className="text-3xl lg:text-5xl font-black text-slate-900 mb-6 underline decoration-emerald-500/30">کاروباری ادارے ہمیں کیوں چنتے ہیں؟</h2>
+                        <p className="text-xl text-slate-600 max-w-2xl mx-auto">جدید کارپوریٹ سفر کے تقاضوں کے عین مطابق مخصوص اور بھرپور سپورٹ۔</p>
                     </div>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {features.map((f, i) => (
-                            <div key={i} className="p-6 bg-gray-50 rounded-xl border border-gray-200 hover:shadow-lg transition-all">
-                                <f.icon className="w-10 h-10 text-emerald-700 mb-4" />
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">{f.title}</h3>
-                                <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
+                            <div key={i} className="p-8 bg-slate-50 rounded-2xl border border-slate-200 hover:border-emerald-400 hover:shadow-xl transition-all group text-right">
+                                <div className="bg-emerald-100 w-16 h-16 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                                    <f.icon className="w-8 h-8 text-emerald-700" />
+                                </div>
+                                <h3 className="text-xl font-bold text-slate-900 mb-3">{f.title}</h3>
+                                <p className="text-slate-600 text-base leading-relaxed">{f.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -116,16 +144,22 @@ export default function BusinessPage() {
             </section>
 
             {/* Fleet Showcase */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900 text-white font-urdu border-y-[6px] border-emerald-600">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl font-bold mb-12 text-center">Executive Fleet</h2>
+                    <div className="text-center mb-16">
+                         <span className="text-emerald-400 font-bold tracking-wider mb-2 block uppercase text-sm">شاندار گاڑیاں</span>
+                        <h2 className="text-3xl lg:text-5xl font-black mb-6">ایگزیکٹو فلیٹ (Executive Fleet)</h2>
+                        <p className="text-slate-400 max-w-2xl mx-auto text-lg">سعودی عرب میں دستیاب بہترین لگژری ماڈلز۔ آپ کے کارپوریٹ مہمانوں کو متاثر کرنے یا وی آئی پی کلائنٹس کے استقبال کے لیے بہترین انتخاب۔</p>
+                    </div>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {fleet.map((car, i) => (
-                            <div key={i} className="bg-gray-800 p-6 rounded-xl border border-gray-700">
-                                <div className="text-emerald-400 text-xs font-bold uppercase trackin-wider mb-2">{car.type}</div>
-                                <h3 className="text-xl font-bold mb-1">{car.name}</h3>
-                                <div className="text-gray-400 text-sm flex items-center gap-2">
-                                    <Users className="w-4 h-4" /> Up to {car.capacity}
+                            <div key={i} className="bg-slate-800/80 p-8 rounded-2xl border border-slate-700 hover:bg-slate-800 hover:border-emerald-500/50 transition-all text-right">
+                                <div className="text-emerald-400 text-sm font-bold uppercase tracking-wider mb-3 bg-emerald-900/40 inline-block px-3 py-1 rounded-sm">{car.type}</div>
+                                <h3 className="text-2xl font-black mb-3">{car.name}</h3>
+                                <div className="text-slate-300 text-sm flex items-center justify-start flex-row-reverse gap-2 bg-slate-900/50 p-2 rounded-lg border border-slate-700">
+                                    <Users className="w-5 h-5 text-emerald-500" /> 
+                                    <span>گنجائش: {car.capacity}</span>
                                 </div>
                             </div>
                         ))}
@@ -133,31 +167,37 @@ export default function BusinessPage() {
                 </div>
             </section>
 
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
+            {/* Semantic FAQ Section */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 font-urdu text-right" dir="rtl">
+                <div className="max-w-5xl mx-auto">
+                    <div className="text-center mb-16">
+                         <span className="text-emerald-600 font-bold tracking-wider mb-2 block uppercase text-sm">اکثر پوچھے گئے سوالات</span>
+                        <h2 className="text-3xl font-black text-slate-900 mb-2">پرائیویٹ بزنس اکاؤنٹس کی معلومات</h2>
+                    </div>
+
                     <MicroSemanticFAQ
                         faqs={[
                             {
-                                question: "How do I open a corporate account?",
-                                shortAnswer: "Contact Sales.",
-                                detailedAnswer: "Please email our corporate sales team at info@taxiserviceksa.com with your company details. We will set up your account with credit terms and a dedicated booking portal.",
+                                question: "میں کارپوریٹ وی آئی پی اکاؤنٹ کیسے کھول سکتا ہوں؟",
+                                shortAnswer: "کارپوریٹ سیلز ٹیم سے رابطہ کریں۔",
+                                detailedAnswer: "براہ کرم اپنی کمپنی کی تفصیلات کے ساتھ ہماری کارپوریٹ سیلز ٹیم کو info@taxiserviceksa.com پر ای میل کریں۔ ہم آپ کی ضروریات کا جائزہ لے کر ایک مختص بکنگ پورٹل اور کریڈٹ ٹرمز (Credit Terms) کے ساتھ آپ کا اکاؤنٹ ترتیب دیں گے۔",
                                 perspectives: [
                                     {
-                                        role: "Account Manager",
+                                        role: "اکاؤنٹ مینیجر کی رائے",
                                         icon: "Briefcase",
-                                        insight: "Corporate accounts get priority dispatch and discounted rates for high volume usage."
+                                        insight: "رجسٹرڈ کارپوریٹ اکاؤنٹس کو بکنگ میں اولیت (Priority dispatch) اور زیادہ استعمال پر رعایتی قیمتیں دی جاتی ہیں۔"
                                     }
                                 ]
                             },
                             {
-                                question: "Do you provide receipts for expense reimbursement?",
-                                shortAnswer: "Yes, instant digital receipts.",
-                                detailedAnswer: "Every trip generates an automatic digital invoice sent to your email. For corporate accounts, we provide a consolidated monthly statement.",
+                                question: "کیا آپ اخراجات (Expense) کلیم کرنے کے لیے رسیدیں فراہم کرتے ہیں؟",
+                                shortAnswer: "جی ہاں، فوری ڈیجیٹل رسیدیں۔",
+                                detailedAnswer: "ہر سفر کے فوراً بعد آپ کے ای میل پر ایک آٹومیٹک ڈیجیٹل انوائس (رسید) بھیجی جاتی ہے۔ کارپوریٹ اکاؤنٹس کے لیے، ہم مہینے کے آخر میں تمام اسفار کی یکجا اور تفصیلی ماہانہ اسٹیٹمنٹ (Statement) فراہم کرتے ہیں۔",
                                 perspectives: [
                                     {
-                                        role: "Finance Dept",
+                                        role: "اکاؤنٹس افسر (Finance)",
                                         icon: "FileText",
-                                        insight: "Correctly formatted tax invoices are essential for VAT reclamation."
+                                        insight: "ہماری تمام انوائسز ٹیکس (VAT) کی واپسی اور آڈٹ کے لیے مکمل طور پر درست فارمیٹ میں بنائی جاتی ہیں۔"
                                     }
                                 ]
                             }
@@ -166,41 +206,24 @@ export default function BusinessPage() {
                 </div>
             </section>
 
-            {/* UGC Section */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="text-2xl font-bold text-center mb-8">Client Feedback</h2>
-                    <div className="space-y-12">
-                        <ReviewsDisplay location="Business" />
-                    </div>
-                    <div className="mt-12">
-                        <ReviewForm locationName="Business" />
-                    </div>
-                </div>
-            </section>
-
             <RelatedServices
                 services={[
                     {
-                        name: 'Airport Transfers',
-                        description: 'Reliable airport pickups for your executives and guests.',
-                        href: '/services/airport-transfers',
+                        name: 'ایئرپورٹ ٹرانسفرز',
+                        description: 'آپ کے ایگزیکٹوز اور مہمانوں کے لیے ایئرپورٹ پر قابل اعتماد استقبال (Meet & Greet)۔',
+                        href: '/ur/services/airport-transfers/',
                         icon: Star
                     },
                     {
-                        name: 'Intercity Travel',
-                        description: 'Travel between branches in different cities comfortably.',
-                        href: '/services/intercity',
+                        name: 'انٹرسٹی ٹریول (دو شہروں کے درمیان)',
+                        description: 'مختلف شہروں میں قائم برانچوں کے درمیان پُرسکون اور آرام دہ سفر۔',
+                        href: '/ur/services/intercity/',
                         icon: MapPin
                     }
                 ]}
-                title="Related Corporate Services"
+                title="متعلقہ کارپوریٹ خدمات"
                 description=""
             />
-
         </div>
     );
 }
-
-import { Users } from 'lucide-react';
-

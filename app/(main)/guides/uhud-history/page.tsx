@@ -106,7 +106,7 @@ export default function UhudHistoryPage() {
                                     {
                                         role: "Safety",
                                         icon: "AlertCircle",
-                                        insight: "Stick to the Archers' Hill for the best view and safety. For a hassle-free visit, you can <Link href='/booking/' className='text-primary font-bold hover:underline'>book a Ziyarat tour online</Link> with our experienced drivers."
+                                        insight: "Stick to the Archers' Hill for the best view and safety. For a hassle-free visit, you can <Link href='/booking/' className='text-primary font-bold hover:underline'>Request a quote for a Ziyarat tour online</Link> with our experienced drivers."
                                     }
                                 ]
                             },
@@ -130,3 +130,4 @@ export default function UhudHistoryPage() {
         </div>
     );
 }
+

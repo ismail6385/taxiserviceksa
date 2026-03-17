@@ -27,7 +27,7 @@ import { User, Briefcase, Compass, Heart } from 'lucide-react';
 
 export const metadata: Metadata = {
     title: 'مکہ میں ٹیکسی سروس | عمرہ ٹیکسی اور ایئرپورٹ ٹرانسفر (٢٤/٧)',
-    description: 'مکہ میں عمرہ زائرین کے لیے قابل اعتماد ٹیکسی بک کریں۔ جدہ ایئرپورٹ سے مکہ، ہوٹل پک اپ اور زیارات۔ محفوظ سفر۔',
+    description: 'مکہ میں عمرہ زائرین کے لیے قابل اعتماد ٹیکسی کے لیے کوٹیشن حاصل کریں۔ جدہ ایئرپورٹ سے مکہ، ہوٹل پک اپ اور زیارات۔ محفوظ سفر۔',
     keywords: ['مکہ ٹیکسی', 'عمرہ ٹیکسی', 'جدہ ایئرپورٹ ٹیکسی', 'حرم ٹرانسپورٹ', 'زیارات مکہ'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/locations/makkah/',
@@ -117,7 +117,7 @@ export default function MakkahPageUrdu() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/">
                         <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-primary/90 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl w-full sm:w-auto">
-                            ابھی بک کریں
+                            کوٹیشن حاصل کریں
                             <ArrowRight className="mr-2 w-5 h-5 rotate-180" />
                         </Button>
                     </Link>
@@ -130,7 +130,7 @@ export default function MakkahPageUrdu() {
                     topic="حرمین ٹرین بمقابلہ پرائیویٹ ٹیکسی: حالیہ صورتحال"
                     status="High Demand"
                     lastUpdated="دسمبر ٢٠٢٤"
-                    content="حرمین ٹرین تیز ضرور ہے، لیکن عمرہ زائرین (خاص طور پر فیملی اور سامان کے ساتھ) کا کہنا ہے کہ 'ڈور ٹو ڈور' ٹیکسی سروس آپ کا ٤٠٪ وقت اور محنت بچاتی ہے۔ اسٹیشنوں پر سامان اٹھانے کی پریشانی سے بچیں۔ جی ایم سی بک کریں۔"
+                    content="حرمین ٹرین تیز ضرور ہے، لیکن عمرہ زائرین (خاص طور پر فیملی اور سامان کے ساتھ) کا کہنا ہے کہ 'ڈور ٹو ڈور' ٹیکسی سروس آپ کا ٤٠٪ وقت اور محنت بچاتی ہے۔ اسٹیشنوں پر سامان اٹھانے کی پریشانی سے بچیں۔ جی ایم سی کوٹیشن حاصل کریں۔"
                     tags={["حرمین_ٹرین", "جدہ_ایئرپورٹ_ٹیکسی", "فیملی_نقل_و_حمل", "عمرہ_٢٠٢٥"]}
                     linkText="فیملی ٹیکسی ریٹس چیک کریں"
                 />
@@ -461,3 +461,4 @@ export default function MakkahPageUrdu() {
         </div>
     );
 }
+

@@ -201,7 +201,7 @@ export default function JabalOmarPage() {
                         perspectives: []
                     },
                     {
-                        question: "Can I book a return to Jeddah Airport?",
+                        question: "Can I Request a quote for a return to Jeddah Airport?",
                         shortAnswer: "Yes",
                         detailedAnswer: "Absolutely. We can pick you up from the same lobby at your designated check-out time.",
                         perspectives: []
@@ -211,3 +211,4 @@ export default function JabalOmarPage() {
         </div>
     );
 }
+
