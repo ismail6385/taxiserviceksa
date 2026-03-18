@@ -7,15 +7,19 @@ export async function GET() {
     const baseUrl = 'https://taxiserviceksa.com';
     
     const servicePages = [
-        '/services/umrah-transport',
         '/services/airport-transfers',
-        '/services/corporate-travel',
-        '/services/heritage-tours',
+        '/services/b2b-solutions',
         '/services/business',
         '/services/cable-car',
+        '/services/corporate-travel',
+        '/services/heritage-tours',
         '/services/intercity',
         '/services/madinah-ziyarat',
+        '/services/taxi-in-jeddah',
+        '/services/taxi-in-makkah',
+        '/services/taxi-in-tabuk',
         '/services/tours',
+        '/services/umrah-transport',
         '/services/wheelchair-taxi',
     ];
 

@@ -9,17 +9,18 @@ export async function GET() {
 
     // Static guides
     const guidePages = [
-        '/guides/jeddah-airport-guide',
-        '/guides/makkah-umrah-guide',
-        '/guides/riyadh-business-guide',
-        '/guides/meeqat-locations',
+        '/guides/avoid-taxi-scams',
         '/guides/currency',
         '/guides/haram-gates-access',
+        '/guides/jeddah-airport-guide',
         '/guides/madinah-food',
         '/guides/madinah-prayer-times',
         '/guides/madinah-weather',
         '/guides/makkah-shopping',
+        '/guides/makkah-umrah-guide',
+        '/guides/meeqat-locations',
         '/guides/quba-walking-path',
+        '/guides/riyadh-business-guide',
         '/guides/seven-mosques',
         '/guides/uhud-history',
         '/guides/umrah-tawaf-guide',

@@ -16,10 +16,35 @@ export async function GET() {
   </url>`;
     }).join('\n');
 
-    // Add static location routes
     const staticLocations = [
-        '/locations/jeddah-makkah',
-        '/locations/makkah-ziyarat',
+        '/locations/jeddah/airport',
+        '/locations/jeddah/kaec-transfer',
+        '/locations/jeddah/obhur',
+        '/locations/jubail/industrial-city',
+        '/locations/madinah/central-area',
+        '/locations/madinah/madinah-airport',
+        '/locations/madinah/qiblatain',
+        '/locations/madinah/quba',
+        '/locations/madinah/sultana',
+        '/locations/madinah/train-station',
+        '/locations/madinah/uhud',
+        '/locations/makkah/aziziyah',
+        '/locations/makkah/jabal-omar',
+        '/locations/makkah/jarwal',
+        '/locations/makkah/kudai',
+        '/locations/makkah/misfalah',
+        '/locations/makkah/train-station',
+        '/locations/riyadh/boulevard-world',
+        '/locations/riyadh/bujairi-terrace',
+        '/locations/riyadh/diplomatic-quarter',
+        '/locations/riyadh/diriyah',
+        '/locations/riyadh/front',
+        '/locations/riyadh/kafd',
+        '/locations/riyadh/olaya',
+        '/locations/taif/al-hada',
+        '/locations/taif/al-shafa',
+        '/locations/taif/miqat-qarn-al-manazil',
+        '/locations/yanbu/industrial-city',
     ];
 
     const staticUrls = staticLocations.map((route) => {
