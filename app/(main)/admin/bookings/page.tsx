@@ -21,8 +21,26 @@ import {
     Save,
     Plus,
     Printer,
-    FileText
+    FileText,
+    ExternalLink,
+    Calculator,
+    CreditCard,
+    ArrowUpDown,
+    Bell,
+    Volume2,
+    Map,
+    AlertTriangle,
+    MapPin,
+    UserCircle,
+    Handshake,
+    Wallet,
+    TrendingUp,
+    CheckSquare,
+    Crown,
+    Activity,
+    Users
 } from 'lucide-react';
+import { getPrice } from '@/lib/pricing';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -65,6 +83,14 @@ interface Booking {
     status: 'pending' | 'confirmed' | 'cancelled' | 'completed';
     special_requests?: string;
     total_price?: number;
+    payment_status?: 'unpaid' | 'paid' | 'partial' | 'refunded';
+    driver_name?: string;
+    flight_number?: string;
+    actual_vehicle?: string;
+    tags?: string; // Comma separated tags e.g. "VIP, Priority"
+    internal_notes?: string;
+    has_return_trip?: boolean;
+    child_seats?: number;
 }
 
 export default function BookingsPage() {
@@ -72,12 +98,60 @@ export default function BookingsPage() {
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState('');
     const [statusFilter, setStatusFilter] = useState('all');
+    const [paymentFilter, setPaymentFilter] = useState('all');
 
     // Sheet State
     const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
     const [isEditing, setIsEditing] = useState(false);
     const [editedBooking, setEditedBooking] = useState<Booking | null>(null);
     const [isCreating, setIsCreating] = useState(false);
+    const [selectedIds, setSelectedIds] = useState<string[]>([]);
+    const [sortConfig, setSortConfig] = useState<{ key: keyof Booking; direction: 'asc' | 'desc' } | null>(null);
+    const [newBookingAlert, setNewBookingAlert] = useState<Booking | null>(null);
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+    
+    // Quick Date filter helper
+    const setQuickDate = (preset: 'today' | 'tomorrow' | 'week' | 'month' | 'all') => {
+        const today = new Date();
+        const todayStr = today.toLocaleDateString('en-CA');
+        
+        switch (preset) {
+            case 'today':
+                setStartDate(todayStr);
+                setEndDate(todayStr);
+                break;
+            case 'tomorrow':
+                const tomorrow = new Date(today);
+                tomorrow.setDate(today.getDate() + 1);
+                const tomorrowStr = tomorrow.toLocaleDateString('en-CA');
+                setStartDate(tomorrowStr);
+                setEndDate(tomorrowStr);
+                break;
+            case 'week':
+                setStartDate(todayStr);
+                const nextWeek = new Date(today);
+                nextWeek.setDate(today.getDate() + 7);
+                setEndDate(nextWeek.toLocaleDateString('en-CA'));
+                break;
+            case 'month':
+                setStartDate(todayStr);
+                const nextMonth = new Date(today);
+                nextMonth.setMonth(today.getMonth() + 1);
+                setEndDate(nextMonth.toLocaleDateString('en-CA'));
+                break;
+            case 'all':
+                setStartDate('');
+                setEndDate('');
+                break;
+        }
+    };
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 10;
+    
+    // Auto-fill & Duplicate State
+    const [duplicateFound, setDuplicateFound] = useState<Booking | null>(null);
+
     const [newBooking, setNewBooking] = useState<Partial<Booking>>({
         customer_name: '',
         customer_email: '',
@@ -89,9 +163,14 @@ export default function BookingsPage() {
         vehicle_type: 'Sedan',
         passengers: 1,
         luggage: 0,
-        status: 'pending',
         total_price: 0,
-        special_requests: ''
+        special_requests: '',
+        internal_notes: '',
+        tags: '',
+        actual_vehicle: '',
+        payment_status: 'unpaid',
+        driver_name: '',
+        flight_number: ''
     });
 
     const router = useRouter();
@@ -106,7 +185,51 @@ export default function BookingsPage() {
             }
         };
         checkSession();
+
+        // Real-time Subscription for New and Updated Bookings
+        const subscription = supabase
+            .channel('public:bookings')
+            .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'bookings' }, (payload) => {
+                const newB = payload.new as Booking;
+                setBookings(prev => [newB, ...prev]);
+                setNewBookingAlert(newB);
+                
+                // Play notification sound
+                const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
+                audio.play().catch(e => console.log("Audio play blocked by browser", e));
+                
+                // Clear notification after 10 seconds
+                setTimeout(() => setNewBookingAlert(null), 10000);
+            })
+            .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'bookings' }, (payload) => {
+                const updatedB = payload.new as Booking;
+                setBookings(prev => prev.map(b => b.id === updatedB.id ? updatedB : b));
+            })
+            .subscribe();
+
+        return () => {
+            supabase.removeChannel(subscription);
+        };
     }, [router]);
+
+    const getTimeSince = (dateStr: string) => {
+        const created = new Date(dateStr);
+        const now = new Date();
+        const diffMs = now.getTime() - created.getTime();
+        const diffMins = Math.floor(diffMs / 60000);
+        const diffHours = Math.floor(diffMins / 60);
+        
+        if (diffMins < 60) return `${diffMins}m ago`;
+        if (diffHours < 24) return `${diffHours}h ago`;
+        return `${Math.floor(diffHours / 24)}d ago`;
+    };
+
+    const getCurrencyTooltip = (sar: number) => {
+        if (!sar) return "Price not set";
+        const usd = (sar / 3.75).toFixed(2);
+        const eur = (sar / 4.1).toFixed(2);
+        return `≈ $${usd} USD | ≈ €${eur} EUR`;
+    };
 
     const fetchBookings = async () => {
         try {
@@ -123,6 +246,36 @@ export default function BookingsPage() {
             setLoading(false);
         }
     };
+
+    // Auto-fill & Duplicate Logic
+    useEffect(() => {
+        if (!isCreating || !newBooking.customer_phone) {
+            setDuplicateFound(null);
+            return;
+        }
+
+        const phone = newBooking.customer_phone.trim();
+        if (phone.length < 5) return;
+
+        // 1. Auto-fill logic
+        const existingCustomer = bookings.find(b => b.customer_phone === phone);
+        if (existingCustomer && !newBooking.customer_name) {
+            setNewBooking(prev => ({
+                ...prev,
+                customer_name: existingCustomer.customer_name,
+                customer_email: existingCustomer.customer_email
+            }));
+        }
+
+        // 2. Duplicate detection (Phone + Date + Time)
+        const duplicate = bookings.find(b => 
+            b.customer_phone === phone && 
+            b.pickup_date === newBooking.pickup_date && 
+            b.pickup_time === newBooking.pickup_time
+        );
+        setDuplicateFound(duplicate || null);
+
+    }, [newBooking.customer_phone, newBooking.pickup_date, newBooking.pickup_time, isCreating, bookings]);
 
     const updateStatus = async (id: string, newStatus: string) => {
         try {
@@ -189,6 +342,17 @@ export default function BookingsPage() {
         }
     };
 
+    // Auto-suggest Price as user fills trip details
+    useEffect(() => {
+        if (!isCreating) return;
+        if (newBooking.pickup_location && newBooking.destination && newBooking.vehicle_type) {
+            const price = getPrice(newBooking.pickup_location, newBooking.destination, newBooking.vehicle_type);
+            if (price && price !== newBooking.total_price) {
+                setNewBooking(prev => ({ ...prev, total_price: price }));
+            }
+        }
+    }, [newBooking.pickup_location, newBooking.destination, newBooking.vehicle_type, isCreating]);
+
     const saveDetails = async () => {
         if (!editedBooking) return;
         try {
@@ -236,7 +400,11 @@ export default function BookingsPage() {
                     luggage: 0,
                     status: 'pending',
                     total_price: 0,
-                    special_requests: ''
+                    special_requests: '',
+                    internal_notes: '',
+                    tags: '',
+                    actual_vehicle: '',
+                    payment_status: 'unpaid'
                 });
                 alert('Booking created successfully!');
             }
@@ -257,39 +425,99 @@ export default function BookingsPage() {
         const matchesSearch =
             booking.customer_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
             booking.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            booking.customer_email?.toLowerCase().includes(searchTerm.toLowerCase());
+            booking.customer_email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            booking.tags?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            booking.customer_phone?.toLowerCase().includes(searchTerm.toLowerCase());
 
-        let matchesStatus = false;
+        // Status Filter
+        let matchesStatus = true;
         const today = new Date().toLocaleDateString('en-CA');
-
-        if (statusFilter === 'all') {
-            matchesStatus = true;
-        } else if (statusFilter === 'today') {
+        if (statusFilter === 'today') {
             matchesStatus = booking.pickup_date === today;
         } else if (statusFilter === 'upcoming') {
             matchesStatus = booking.pickup_date > today;
-        } else {
+        } else if (statusFilter !== 'all') {
             matchesStatus = booking.status === statusFilter;
         }
 
-        return matchesSearch && matchesStatus;
+        // Payment Filter
+        let matchesPayment = true;
+        if (paymentFilter !== 'all') {
+            matchesPayment = booking.payment_status === paymentFilter;
+        }
+
+        const dateInRange = (!startDate || booking.pickup_date >= startDate) && 
+                          (!endDate || booking.pickup_date <= endDate);
+
+        return matchesSearch && matchesStatus && matchesPayment && dateInRange;
+    }).sort((a, b) => {
+        if (!sortConfig) return 0;
+        const { key, direction } = sortConfig;
+        const aVal = a[key] ?? '';
+        const bVal = b[key] ?? '';
+        if (aVal < bVal) return direction === 'asc' ? -1 : 1;
+        if (aVal > bVal) return direction === 'asc' ? 1 : -1;
+        return 0;
     });
 
-    const handleExport = () => {
-        const headers = ["ID", "Date", "Time", "Customer", "Phone", "Email", "Pickup", "Dropoff", "Vehicle", "Status"];
-        const rows = filteredBookings.map(b => [
-            b.id, b.pickup_date, b.pickup_time, `"${b.customer_name}"`, `"${b.customer_phone}"`,
-            `"${b.customer_email}"`, `"${b.pickup_location}"`, `"${b.destination}"`, b.vehicle_type, b.status
-        ]);
-        const csvContent = "data:text/csv;charset=utf-8," + [headers.join(","), ...rows.map(r => r.join(","))].join("\n");
-        const url = encodeURI(csvContent);
-        const link = document.createElement("a");
-        link.setAttribute("href", url);
-        link.setAttribute("download", `bookings_export_${new Date().toISOString().split('T')[0]}.csv`);
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+    const totalPages = Math.ceil(filteredBookings.length / itemsPerPage);
+    const paginatedBookings = filteredBookings.slice(
+        (currentPage - 1) * itemsPerPage,
+        currentPage * itemsPerPage
+    );
+
+    const requestSort = (key: keyof Booking) => {
+        let direction: 'asc' | 'desc' = 'asc';
+        if (sortConfig && sortConfig.key === key && sortConfig.direction === 'asc') {
+            direction = 'desc';
+        }
+        setSortConfig({ key, direction });
     };
+
+    const bulkUpdateStatus = async (newStatus: string) => {
+        if (!selectedIds.length) return;
+        if (!confirm(`Are you sure you want to update ${selectedIds.length} bookings to ${newStatus}?`)) return;
+
+        try {
+            const { error } = await supabase
+                .from('bookings')
+                .update({ status: newStatus })
+                .in('id', selectedIds);
+
+            if (error) throw error;
+
+            setBookings(bookings.map(b => 
+                selectedIds.includes(b.id) ? { ...b, status: newStatus as any } : b
+            ));
+            setSelectedIds([]);
+            alert('Bulk update successful!');
+        } catch (error) {
+            console.error('Error in bulk update:', error);
+            alert('Failed to update bookings.');
+        }
+    };
+
+    const bulkDelete = async () => {
+        if (!selectedIds.length) return;
+        if (!confirm(`CAUTION: Are you sure you want to DELETE ${selectedIds.length} bookings? This cannot be undone.`)) return;
+
+        try {
+            const { error } = await supabase
+                .from('bookings')
+                .delete()
+                .in('id', selectedIds);
+
+            if (error) throw error;
+
+            setBookings(bookings.filter(b => !selectedIds.includes(b.id)));
+            setSelectedIds([]);
+            alert('Bulk delete successful!');
+        } catch (error) {
+            console.error('Error in bulk delete:', error);
+            alert('Failed to delete bookings.');
+        }
+    };
+
 
     const getStatusColor = (status: string) => {
         switch (status) {
@@ -297,6 +525,16 @@ export default function BookingsPage() {
             case 'pending': return 'bg-amber-100 text-amber-800 border-amber-200';
             case 'cancelled': return 'bg-rose-100 text-rose-800 border-rose-200';
             case 'completed': return 'bg-blue-100 text-blue-800 border-blue-200';
+            default: return 'bg-gray-100 text-gray-800 border-gray-200';
+        }
+    };
+
+    const getPaymentStatusColor = (status: string) => {
+        switch (status) {
+            case 'paid': return 'bg-green-100 text-green-800 border-green-200';
+            case 'unpaid': return 'bg-red-100 text-red-800 border-red-200';
+            case 'partial': return 'bg-blue-100 text-blue-800 border-blue-200';
+            case 'refunded': return 'bg-gray-100 text-gray-800 border-gray-200';
             default: return 'bg-gray-100 text-gray-800 border-gray-200';
         }
     };
@@ -309,6 +547,184 @@ export default function BookingsPage() {
         });
     };
 
+    const shareClientDetails = (booking: Booking) => {
+        const text = `*Booking Details (Client)* \n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*Client:* ${booking.customer_name}\n*Phone:* ${booking.customer_phone}\n*Pickup:* ${booking.pickup_location}\n*Dropoff:* ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}\n*Vehicle:* ${booking.vehicle_type}\n*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}\n\n*Fare:* SAR ${booking.total_price || 'Confirming'}\n\n*Notes:* ${booking.special_requests || 'N/A'}\n\nThank you for choosing VIP Transfer KSA.`;
+
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Client details copied to clipboard!');
+        });
+    };
+
+    const shareDriverDetails = (booking: Booking) => {
+        const text = `*NEW TRIP FOR DRIVER* \n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*Client:* ${booking.customer_name}\n*Phone:* ${booking.customer_phone}\n\n*Pickup:* ${booking.pickup_location}\n*Dropoff:* ${booking.destination}\n*Date:* ${booking.pickup_date}\n*Time:* ${booking.pickup_time}\n\n*Vehicle:* ${booking.vehicle_type}\n*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}\n\n*Notes:* ${booking.special_requests || 'None'}`;
+
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Driver details (No Price) copied!');
+        });
+    };
+
+    const sendWhatsAppHello = (booking: Booking) => {
+        const returnText = booking.has_return_trip ? " (Including Round Trip 🔄)" : "";
+        const childSeatText = booking.child_seats ? ` (With ${booking.child_seats} Child Seat(s) 👶)` : "";
+        
+        const text = `Hello ${booking.customer_name}! 🚕 *VIP Transfer KSA* here. 
+        
+We have received your booking request from *${booking.pickup_location}* to *${booking.destination}* on *${booking.pickup_date}*${returnText}${childSeatText}. 
+
+Our team is reviewing the availability and will send you the quotation shortly. Thank you!`;
+        openWhatsApp(booking.customer_phone, text);
+    };
+
+    const sendWhatsAppDriver = (booking: Booking) => {
+        const driverName = booking.driver_name || "[Assign Driver]";
+        const vehicle = booking.actual_vehicle || booking.vehicle_type;
+        const text = `Hi ${booking.customer_name}! Your trip for *${booking.pickup_date} at ${booking.pickup_time}* is confirmed. ✅
+        
+🚗 *Vehicle:* ${vehicle}
+👤 *Driver:* ${driverName}
+📍 *Pickup:* ${booking.pickup_location}
+📦 *Luggage:* ${booking.luggage} Bags
+
+Your professional chauffeur will contact you shortly via WhatsApp/Call. Have a safe journey with *VIP Transfer KSA*!`;
+        openWhatsApp(booking.customer_phone, text);
+    };
+
+    const sendWhatsAppPrice = (booking: Booking) => {
+        const hasReturn = booking.has_return_trip || booking.special_requests?.includes('RETURN TRIP');
+        
+        const text = `Hi ${booking.customer_name}! The total fare for your trip is *SAR ${booking.total_price || 0}* ${hasReturn ? '(Round Trip Included)' : ''}.
+        
+💳 *Payment Status:* ${(booking.payment_status || 'unpaid').toUpperCase()}
+        
+Please let us know if you would like to proceed with the booking. *VIP Transfer KSA*`;
+        openWhatsApp(booking.customer_phone, text);
+    };
+
+    const openInGoogleMaps = (pickup: string, destination: string) => {
+        const url = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(pickup)}&destination=${encodeURIComponent(destination)}`;
+        window.open(url, '_blank');
+    };
+
+    const openWhatsApp = (phone: string, text: string = "") => {
+        if (!phone) return;
+        // Basic phone normalization
+        let cleanPhone = phone.replace(/[^\d]/g, "");
+        if (!cleanPhone.startsWith("966") && cleanPhone.length === 9) {
+            cleanPhone = "966" + cleanPhone;
+        } else if (!cleanPhone.startsWith("966") && cleanPhone.length === 10 && cleanPhone.startsWith("0")) {
+            cleanPhone = "966" + cleanPhone.substring(1);
+        }
+        
+        const url = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(text)}`;
+        window.open(url, '_blank');
+    };
+
+    const suggestPrice = (from: string, to: string, vehicle: any, target: 'new' | 'edit') => {
+        const price = getPrice(from, to, vehicle);
+        if (price) {
+            if (target === 'new') {
+                setNewBooking({ ...newBooking, total_price: price });
+            } else if (editedBooking) {
+                setEditedBooking({ ...editedBooking, total_price: price });
+            }
+        } else {
+            alert("No standard pricing found for this route and vehicle. Please set price manually.");
+        }
+    };
+
+    const resendEmail = async (booking: Booking) => {
+        try {
+            const response = await fetch('/api/send-status-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    bookingId: booking.id,
+                    status: booking.status,
+                    customerEmail: booking.customer_email,
+                    customerName: booking.customer_name
+                })
+            });
+
+            if (response.ok) {
+                alert('Email notification resent successfully!');
+            } else {
+                throw new Error('Failed to send');
+            }
+        } catch (error) {
+            console.error('Error resending email:', error);
+            alert('Failed to resend email. Please check server logs.');
+        }
+    };
+
+    const toggleSelect = (id: string) => {
+        setSelectedIds(prev =>
+            prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]
+        );
+    };
+
+    const toggleSelectAll = () => {
+        if (selectedIds.length === filteredBookings.length) {
+            setSelectedIds([]);
+        } else {
+            setSelectedIds(filteredBookings.map(b => b.id));
+        }
+    };
+
+
+    const handleExport = () => {
+        const dataToExport = selectedIds.length > 0 
+            ? bookings.filter(b => selectedIds.includes(b.id)) 
+            : filteredBookings;
+
+        if (dataToExport.length === 0) return;
+        
+        const headers = ["ID", "Customer", "Phone", "From", "To", "Date", "Time", "Vehicle", "Price", "Status", "Payment"];
+        const rows = dataToExport.map(b => [
+            b.id,
+            b.customer_name,
+            b.customer_phone,
+            b.pickup_location,
+            b.destination,
+            b.pickup_date,
+            b.pickup_time,
+            b.vehicle_type,
+            b.total_price || 0,
+            b.status,
+            b.payment_status
+        ]);
+        
+        const csvContent = [headers, ...rows].map(e => e.join(",")).join("\n");
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.setAttribute("href", url);
+        link.setAttribute("download", `bookings_export_${new Date().toLocaleDateString('en-CA')}.csv`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
+    const todayStr = new Date().toLocaleDateString('en-CA');
+    const todayRevenue = bookings
+        .filter(b => b.pickup_date === todayStr && !['cancelled', 'pending'].includes(b.status))
+        .reduce((sum, b) => sum + (b.total_price || 0), 0);
+    
+    const todayActive = bookings.filter(b => b.pickup_date === todayStr && b.status === 'confirmed').length;
+    
+    const urgentCount = bookings.filter(b => {
+        const isToday = b.pickup_date === todayStr;
+        const currentTime = new Date().getHours().toString().padStart(2, '0') + ":" + new Date().getMinutes().toString().padStart(2, '0');
+        const isOverdue = (b.pickup_date < todayStr || (isToday && b.pickup_time < currentTime)) && b.status === 'pending';
+        return isOverdue || (isToday && b.status === 'pending');
+    }).length;
+
+    const customerStats = bookings.reduce((acc, b) => {
+        if (b.customer_phone) {
+            acc[b.customer_phone] = (acc[b.customer_phone] || 0) + 1;
+        }
+        return acc;
+    }, {} as Record<string, number>);
+
     if (loading) {
         return (
             <div className="flex items-center justify-center h-96">
@@ -319,6 +735,25 @@ export default function BookingsPage() {
 
     return (
         <div className="text-gray-900 p-6 max-w-7xl mx-auto">
+            {/* Real-time New Booking Alert */}
+            {newBookingAlert && (
+                <div className="fixed top-20 right-4 z-50 animate-in fade-in slide-in-from-right-4">
+                    <div className="bg-slate-900 text-white p-4 rounded-xl shadow-2xl border border-primary/30 flex items-center gap-4 max-w-sm">
+                        <div className="bg-primary/20 p-2 rounded-full">
+                            <Bell className="w-5 h-5 text-primary animate-bounce" />
+                        </div>
+                        <div className="flex-1">
+                            <p className="text-sm font-bold">New Booking Received!</p>
+                            <p className="text-xs text-slate-400 truncate">{newBookingAlert.customer_name} - {newBookingAlert.pickup_location}</p>
+                        </div>
+                        <Button size="sm" onClick={() => setNewBookingAlert(null)} variant="ghost" className="h-7 text-slate-400 hover:text-white">
+                            Dismiss
+                        </Button>
+                        <Volume2 className="w-3 h-3 text-slate-600" />
+                    </div>
+                </div>
+            )}
+
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
                 <div>
                     <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 mb-2">
@@ -338,24 +773,33 @@ export default function BookingsPage() {
 
             {/* Stats Overview */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <div className="bg-white border border-gray-200 shadow-sm p-5 rounded-2xl">
-                    <p className="text-gray-500 text-xs font-semibold uppercase tracking-wider mb-1">Total</p>
-                    <p className="text-3xl font-bold text-gray-900">{bookings.length}</p>
+                <div className="bg-white border border-gray-200 shadow-sm p-4 rounded-2xl flex items-center gap-4">
+                    <div className="bg-blue-100 p-3 rounded-xl"><Users className="w-5 h-5 text-blue-600" /></div>
+                    <div>
+                        <p className="text-gray-500 text-[10px] font-bold uppercase tracking-wider">Total Bookings</p>
+                        <p className="text-2xl font-bold text-gray-900">{bookings.length}</p>
+                    </div>
                 </div>
-                <div className="bg-orange-50/50 border border-orange-200 p-5 rounded-2xl relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-4 opacity-10"><Clock className="w-12 h-12 text-orange-500" /></div>
-                    <p className="text-orange-600 text-xs font-semibold uppercase tracking-wider mb-1">Pending</p>
-                    <p className="text-3xl font-bold text-orange-600">{bookings.filter(b => b.status === 'pending').length}</p>
+                <div className="bg-white border border-gray-200 shadow-sm p-4 rounded-2xl flex items-center gap-4">
+                    <div className="bg-emerald-100 p-3 rounded-xl"><TrendingUp className="w-5 h-5 text-emerald-600" /></div>
+                    <div>
+                        <p className="text-emerald-600 text-[10px] font-bold uppercase tracking-wider">Today's Revenue</p>
+                        <p className="text-2xl font-bold text-emerald-700">SAR {todayRevenue}</p>
+                    </div>
                 </div>
-                <div className="bg-emerald-50/50 border border-emerald-200 p-5 rounded-2xl relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-4 opacity-10"><CheckCircle className="w-12 h-12 text-emerald-500" /></div>
-                    <p className="text-emerald-700 text-xs font-semibold uppercase tracking-wider mb-1">Confirmed</p>
-                    <p className="text-3xl font-bold text-emerald-600">{bookings.filter(b => b.status === 'confirmed').length}</p>
+                <div className="bg-white border border-gray-200 shadow-sm p-4 rounded-2xl flex items-center gap-4">
+                    <div className="bg-indigo-100 p-3 rounded-xl"><Activity className="w-5 h-5 text-indigo-600" /></div>
+                    <div>
+                        <p className="text-indigo-600 text-[10px] font-bold uppercase tracking-wider">Active Jobs Today</p>
+                        <p className="text-2xl font-bold text-indigo-700">{todayActive}</p>
+                    </div>
                 </div>
-                <div className="bg-blue-50/50 border border-blue-200 p-5 rounded-2xl relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-4 opacity-10"><Car className="w-12 h-12 text-blue-500" /></div>
-                    <p className="text-blue-700 text-xs font-semibold uppercase tracking-wider mb-1">Completed</p>
-                    <p className="text-3xl font-bold text-blue-600">{bookings.filter(b => b.status === 'completed').length}</p>
+                <div className={`border p-4 rounded-2xl flex items-center gap-4 shadow-sm transition-all ${urgentCount > 0 ? 'bg-red-50 border-red-200 animate-pulse' : 'bg-white border-gray-200'}`}>
+                    <div className={`${urgentCount > 0 ? 'bg-red-200' : 'bg-gray-100'} p-3 rounded-xl`}><AlertTriangle className={`w-5 h-5 ${urgentCount > 0 ? 'text-red-700' : 'text-gray-400'}`} /></div>
+                    <div>
+                        <p className={`${urgentCount > 0 ? 'text-red-700' : 'text-gray-500'} text-[10px] font-bold uppercase tracking-wider`}>Urgent/Pending</p>
+                        <p className={`text-2xl font-bold ${urgentCount > 0 ? 'text-red-700' : 'text-gray-900'}`}>{urgentCount}</p>
+                    </div>
                 </div>
             </div>
 
@@ -364,10 +808,33 @@ export default function BookingsPage() {
                 <div className="relative flex-1">
                     <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                     <Input
-                        placeholder="Search by name, email, or ID..."
+                        placeholder="Search by Name, Phone, Email, or ID..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="pl-10 bg-white border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-primary shadow-sm"
+                        className="pl-10 bg-white border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-primary shadow-sm h-11"
+                    />
+                </div>
+                <div className="flex gap-2 items-center bg-white border border-gray-200 rounded-lg px-3 shadow-sm h-11">
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider mr-1">Quick</span>
+                    <div className="flex gap-1">
+                        <Button variant="ghost" size="sm" onClick={() => setQuickDate('today')} className="h-7 px-1.5 text-[10px] font-bold">Today</Button>
+                        <Button variant="ghost" size="sm" onClick={() => setQuickDate('tomorrow')} className="h-7 px-1.5 text-[10px] font-bold">Tom</Button>
+                        <Button variant="ghost" size="sm" onClick={() => setQuickDate('week')} className="h-7 px-1.5 text-[10px] font-bold">Week</Button>
+                    </div>
+                    <div className="h-6 w-px bg-gray-200 mx-1"></div>
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">From</span>
+                    <input 
+                        type="date" 
+                        value={startDate} 
+                        onChange={(e) => setStartDate(e.target.value)} 
+                        className="text-xs bg-transparent border-none focus:ring-0 cursor-pointer p-0 w-[100px]"
+                    />
+                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider ml-1">To</span>
+                    <input 
+                        type="date" 
+                        value={endDate} 
+                        onChange={(e) => setEndDate(e.target.value)} 
+                        className="text-xs bg-transparent border-none focus:ring-0 cursor-pointer p-0 w-[100px]"
                     />
                 </div>
                 <div className="w-full md:w-[250px]">
@@ -389,45 +856,195 @@ export default function BookingsPage() {
                         </SelectContent>
                     </Select>
                 </div>
+                <div className="w-full md:w-[200px]">
+                    <Select value={paymentFilter} onValueChange={setPaymentFilter}>
+                        <SelectTrigger className="bg-white border-gray-200 text-gray-900 shadow-sm">
+                            <div className="flex items-center gap-2">
+                                <CreditCard className="w-4 h-4" />
+                                <SelectValue placeholder="Payment" />
+                            </div>
+                        </SelectTrigger>
+                        <SelectContent className="bg-white border-gray-200 text-gray-900 shadow-lg">
+                            <SelectItem value="all">All Payments</SelectItem>
+                            <SelectItem value="unpaid">Unpaid</SelectItem>
+                            <SelectItem value="paid">Paid</SelectItem>
+                            <SelectItem value="partial">Partial</SelectItem>
+                            <SelectItem value="refunded">Refunded</SelectItem>
+                        </SelectContent>
+                    </Select>
+                </div>
+                {(searchTerm || statusFilter !== 'all' || paymentFilter !== 'all' || startDate || endDate) && (
+                    <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        onClick={() => {
+                            setSearchTerm('');
+                            setStatusFilter('all');
+                            setPaymentFilter('all');
+                            setStartDate('');
+                            setEndDate('');
+                        }}
+                        className="h-11 px-4 text-rose-600 hover:text-rose-700 hover:bg-rose-50 font-bold"
+                    >
+                        Clear All
+                    </Button>
+                )}
             </div>
 
-            {/* Bookings Table */}
+            {/* Bulk Actions Power Toolbar */}
+            {selectedIds.length > 0 && (
+                <div className="bg-slate-900 text-white p-3 rounded-xl mb-6 flex items-center justify-between animate-in slide-in-from-top-4 shadow-2xl border border-primary/30 sticky top-4 z-40 mx-2">
+                    <div className="flex items-center gap-4">
+                        <div className="bg-primary/20 p-2 rounded-lg">
+                            <CheckSquare className="w-5 h-5 text-primary" />
+                        </div>
+                        <div>
+                            <p className="text-xs font-bold text-white leading-none">{selectedIds.length} Bookings Selected</p>
+                            <p className="text-[10px] text-slate-400">Choose an action to apply to all selected</p>
+                        </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <div className="h-8 w-px bg-slate-700 mx-2 hidden md:block"></div>
+                        <Button size="sm" onClick={() => bulkUpdateStatus('confirmed')} className="bg-emerald-600 hover:bg-emerald-700 text-white h-9 px-4 text-[11px] font-bold rounded-lg border-b-2 border-emerald-800 transition-all active:translate-y-0.5">
+                            <CheckCircle className="w-3.5 h-3.5 mr-1.5" /> Confirm All
+                        </Button>
+                        <Button size="sm" onClick={() => bulkUpdateStatus('completed')} className="bg-blue-600 hover:bg-blue-700 text-white h-9 px-4 text-[11px] font-bold rounded-lg border-b-2 border-blue-800 transition-all active:translate-y-0.5">
+                            <CheckCircle className="w-3.5 h-3.5 mr-1.5" /> Complete All
+                        </Button>
+                        <Button size="sm" onClick={() => bulkUpdateStatus('cancelled')} className="bg-slate-700 hover:bg-slate-800 text-white h-9 px-4 text-[11px] font-bold rounded-lg border-b-2 border-slate-900 transition-all active:translate-y-0.5">
+                            <X className="w-3.5 h-3.5 mr-1.5" /> Cancel All
+                        </Button>
+                        <Button 
+                            variant="destructive" 
+                            size="sm" 
+                            onClick={bulkDelete}
+                            className="bg-red-600 hover:bg-red-700 text-white h-9 px-4 text-[11px] font-bold rounded-lg border-b-2 border-red-800 transition-all active:translate-y-0.5"
+                        >
+                            <Trash2 className="w-3.5 h-3.5 mr-1.5" /> Delete
+                        </Button>
+                        <Button 
+                            variant="ghost" 
+                            size="sm" 
+                            onClick={() => setSelectedIds([])}
+                            className="text-slate-400 hover:text-white h-9 hover:bg-slate-800 transition-all"
+                        >
+                            Deselect
+                        </Button>
+                    </div>
+                </div>
+            )}
             <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
                 <Table>
                     <TableHeader className="bg-gray-50">
                         <TableRow className="border-gray-200 hover:bg-transparent">
+                            <TableHead className="w-[50px]">
+                                <input 
+                                    type="checkbox" 
+                                    className="rounded border-gray-300 text-primary focus:ring-primary h-4 w-4"
+                                    checked={selectedIds.length === filteredBookings.length && filteredBookings.length > 0}
+                                    onChange={toggleSelectAll}
+                                />
+                            </TableHead>
                             <TableHead className="text-gray-500 font-semibold">Booking ID</TableHead>
-                            <TableHead className="text-gray-500 font-semibold">Customer</TableHead>
+                            <TableHead className="text-gray-500 font-semibold cursor-pointer hover:text-black" onClick={() => requestSort('customer_name')}>
+                                <div className="flex items-center gap-1">
+                                    Customer <ArrowUpDown className="w-3 h-3" />
+                                </div>
+                            </TableHead>
                             <TableHead className="text-gray-500 font-semibold">Trip Details</TableHead>
                             <TableHead className="text-gray-500 font-semibold">Vehicle</TableHead>
-                            <TableHead className="text-gray-500 font-semibold">Date & Time</TableHead>
-                            <TableHead className="text-gray-500 font-semibold">Status</TableHead>
+                            <TableHead className="text-gray-500 font-semibold cursor-pointer hover:text-black" onClick={() => requestSort('pickup_date')}>
+                                <div className="flex items-center gap-1">
+                                    Date & Time <ArrowUpDown className="w-3 h-3" />
+                                </div>
+                            </TableHead>
+                            <TableHead className="text-gray-500 font-semibold cursor-pointer hover:text-black" onClick={() => requestSort('total_price')}>
+                                <div className="flex items-center gap-1">
+                                    Price <ArrowUpDown className="w-3 h-3" />
+                                </div>
+                            </TableHead>
+                            <TableHead className="text-gray-500 font-semibold cursor-pointer hover:text-black" onClick={() => requestSort('status')}>
+                                <div className="flex items-center gap-1">
+                                    Status <ArrowUpDown className="w-3 h-3" />
+                                </div>
+                            </TableHead>
                             <TableHead className="text-gray-500 font-semibold text-right">Actions</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {filteredBookings.length === 0 ? (
+                        {paginatedBookings.length === 0 ? (
                             <TableRow>
-                                <TableCell colSpan={7} className="text-center py-12 text-gray-500">
-                                    No bookings found matching your filters.
+                                <TableCell colSpan={8} className="text-center py-20 text-gray-500">
+                                    <div className="flex flex-col items-center gap-3">
+                                        <Search className="w-10 h-10 text-gray-200" />
+                                        <p className="text-lg font-medium text-gray-400">No bookings found</p>
+                                        <Button variant="outline" size="sm" onClick={() => {setSearchTerm(''); setStatusFilter('all'); setStartDate(''); setEndDate('');}}>
+                                            Clear all filters
+                                        </Button>
+                                    </div>
                                 </TableCell>
                             </TableRow>
                         ) : (
-                            filteredBookings.map((booking) => {
-                                const isToday = booking.pickup_date === new Date().toLocaleDateString('en-CA');
+                            paginatedBookings.map((booking) => {
+                                const isSelected = selectedIds.includes(booking.id);
+                                const now = new Date();
+                                const todayStr = now.toLocaleDateString('en-CA');
+                                const currentTime = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
+                                
+                                const isToday = booking.pickup_date === todayStr;
                                 const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
                                 const isTomorrow = booking.pickup_date === tomorrow.toLocaleDateString('en-CA');
-                                const actionNeeded = (isToday || isTomorrow) && booking.status !== 'completed' && booking.status !== 'cancelled';
+                                
+                                const isOverdue = (booking.pickup_date < todayStr || (isToday && booking.pickup_time < currentTime)) && 
+                                                 booking.status === 'pending';
+                                
+                                const actionNeeded = (isToday || isTomorrow || isOverdue) && 
+                                                    booking.status !== 'completed' && booking.status !== 'cancelled';
 
                                 return (
-                                    <TableRow key={booking.id} className={`border-gray-200 hover:bg-gray-50 transition-colors \${actionNeeded ? 'bg-red-50/50' : ''}`}>
+                                    <TableRow key={booking.id} className={`border-gray-200 hover:bg-gray-50 transition-colors ${isOverdue ? 'bg-red-100/50' : actionNeeded ? 'bg-red-50/50' : ''} ${isSelected ? 'bg-primary/5' : ''}`}>
+                                        <TableCell>
+                                            <input 
+                                                type="checkbox" 
+                                                className="rounded border-gray-300 text-primary focus:ring-primary h-4 w-4"
+                                                checked={isSelected}
+                                                onChange={() => toggleSelect(booking.id)}
+                                            />
+                                        </TableCell>
                                         <TableCell className="font-mono text-xs text-gray-500">
-                                            {booking.id.slice(0, 8)}...
+                                            <div className="flex items-center gap-1 group/id cursor-copy" onClick={() => {
+                                                navigator.clipboard.writeText(booking.id);
+                                            }}>
+                                                {booking.id.slice(0, 8)}
+                                                <Copy className="w-3 h-3 opacity-0 group-hover/id:opacity-100 transition-opacity" />
+                                            </div>
                                         </TableCell>
                                         <TableCell>
                                             <div className="flex flex-col">
-                                                <span className="font-medium text-gray-900">{booking.customer_name}</span>
+                                                <div className="flex items-center gap-2">
+                                                    <span className="font-medium text-gray-900">{booking.customer_name}</span>
+                                                    {customerStats[booking.customer_phone] >= 3 && (
+                                                        <span title="Platinum Client (Repeat)">
+                                                            <Crown className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
+                                                        </span>
+                                                    )}
+                                                    {booking.status === 'pending' && (
+                                                        <span className="text-[10px] bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded-full font-bold flex items-center gap-1">
+                                                            <Clock className="w-2.5 h-2.5" />
+                                                            {getTimeSince(booking.created_at)}
+                                                        </span>
+                                                    )}
+                                                </div>
                                                 <span className="text-xs text-gray-500">{booking.customer_email}</span>
+                                                {booking.tags && (
+                                                    <div className="flex gap-1 mt-1 flex-wrap">
+                                                        {booking.tags.split(',').map(tag => (
+                                                            <span key={tag} className="text-[9px] px-1.5 py-0.5 bg-indigo-50 text-indigo-700 border border-indigo-100 rounded-sm font-bold uppercase tracking-tighter">
+                                                                {tag.trim()}
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                )}
                                             </div>
                                         </TableCell>
                                         <TableCell>
@@ -440,55 +1057,108 @@ export default function BookingsPage() {
                                                     <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
                                                     {booking.destination}
                                                 </div>
+                                                <div className="group relative w-fit">
+                                                    <span className="text-xs font-bold text-gray-900 border-b border-dotted border-gray-400 cursor-help">
+                                                        SAR {booking.total_price || 0}
+                                                    </span>
+                                                    <div className="invisible group-hover:visible absolute left-0 -top-8 bg-slate-900 text-white text-[10px] px-2 py-1 rounded-md whitespace-nowrap z-50 shadow-xl">
+                                                       {getCurrencyTooltip(booking.total_price || 0)}
+                                                    </div>
+                                                </div>
                                             </div>
                                         </TableCell>
                                         <TableCell>
-                                            <Badge variant="outline" className="bg-gray-100 border-gray-200 text-gray-800 font-medium whitespace-nowrap">
+                                            <Badge variant="outline" className={`bg-gray-100 border-gray-200 text-gray-800 font-medium whitespace-nowrap ${booking.actual_vehicle && booking.actual_vehicle !== booking.vehicle_type ? 'border-amber-300 ring-1 ring-amber-100' : ''}`}>
                                                 {booking.vehicle_type}
                                             </Badge>
+                                            {booking.actual_vehicle && booking.actual_vehicle !== booking.vehicle_type && (
+                                                <div className="text-[9px] text-amber-600 font-bold uppercase mt-1">
+                                                    Sent: {booking.actual_vehicle}
+                                                </div>
+                                            )}
                                         </TableCell>
                                         <TableCell className="text-sm text-gray-700">
                                             <div className="flex items-center gap-2">
-                                                <span className={actionNeeded ? 'text-red-600 font-bold animate-pulse' : 'text-gray-700'}>{booking.pickup_date}</span>
-                                                {isToday && <Badge className="bg-red-500 hover:bg-red-600 animate-pulse text-[10px] uppercase border-none text-white px-1.5 py-0">Today</Badge>}
+                                                <span className={isOverdue ? 'text-red-700 font-black' : actionNeeded ? 'text-red-600 font-bold animate-pulse' : 'text-gray-700'}>{booking.pickup_date}</span>
+                                                {isOverdue && <Badge className="bg-red-700 text-white border-none animate-pulse text-[10px]">OVERDUE</Badge>}
+                                                {isToday && !isOverdue && <Badge className="bg-red-500 hover:bg-red-600 animate-pulse text-[10px] uppercase border-none text-white px-1.5 py-0">Today</Badge>}
                                                 {isTomorrow && <Badge className="bg-orange-500 hover:bg-orange-600 text-[10px] uppercase border-none text-white px-1.5 py-0">Tomorrow</Badge>}
                                             </div>
-                                            <div className="text-xs text-gray-500">{booking.pickup_time}</div>
+                                            <div className={`text-xs ${isOverdue ? 'text-red-700 font-bold' : 'text-gray-500'}`}>{booking.pickup_time}</div>
                                         </TableCell>
                                         <TableCell>
-                                            <Badge variant="outline" className={`\${getStatusColor(booking.status)} uppercase text-[10px] tracking-wider`}>
-                                                {booking.status}
-                                            </Badge>
+                                            <Select
+                                                defaultValue={booking.status}
+                                                onValueChange={(val) => updateStatus(booking.id, val)}
+                                            >
+                                                <SelectTrigger className={`h-8 w-[110px] ${getStatusColor(booking.status)} uppercase text-[9px] font-bold tracking-widest shadow-sm border-gray-200`}>
+                                                    <SelectValue />
+                                                </SelectTrigger>
+                                                <SelectContent className="bg-white border-gray-200 text-gray-900 shadow-xl">
+                                                    <SelectItem value="pending">Pending</SelectItem>
+                                                    <SelectItem value="confirmed">Confirmed</SelectItem>
+                                                    <SelectItem value="completed">Completed</SelectItem>
+                                                    <SelectItem value="cancelled">Cancelled</SelectItem>
+                                                </SelectContent>
+                                            </Select>
                                         </TableCell>
                                         <TableCell className="text-right">
-                                            <div className="flex items-center justify-end gap-2">
+                                            <div className="flex items-center justify-end gap-1">
+                                                <Button
+                                                    variant="ghost"
+                                                    size="icon"
+                                                    onClick={() => openInGoogleMaps(booking.pickup_location, booking.destination)}
+                                                    className="h-8 w-8 text-rose-600 hover:text-rose-700 hover:bg-rose-50"
+                                                    title="View Map Route"
+                                                >
+                                                    <MapPin className="h-4 w-4" />
+                                                </Button>
+                                                <Button
+                                                    variant="ghost"
+                                                    size="icon"
+                                                    onClick={() => openWhatsApp(booking.customer_phone)}
+                                                    className="h-8 w-8 text-emerald-600 hover:text-emerald-700 hover:bg-emerald-50"
+                                                    title="Open WhatsApp"
+                                                >
+                                                    <MessageSquare className="h-4 w-4" />
+                                                </Button>
+                                                <Button
+                                                    variant="ghost"
+                                                    size="icon"
+                                                    onClick={() => {
+                                                        const url = `https://taxiksa.com/booking/${booking.id}`;
+                                                        navigator.clipboard.writeText(url);
+                                                        alert('Journey link copied to clipboard!');
+                                                    }}
+                                                    className="h-8 w-8 text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50"
+                                                    title="Copy Journey Link"
+                                                >
+                                                    <Copy className="h-4 w-4" />
+                                                </Button>
+                                                <Button
+                                                    variant="ghost"
+                                                    size="icon"
+                                                    onClick={() => router.push(`/admin/bookings/${booking.id}/handover`)}
+                                                    className="h-8 w-8 text-orange-600 hover:text-orange-700 hover:bg-orange-50"
+                                                    title="Driver Handover Sheet"
+                                                >
+                                                    <Printer className="h-4 w-4" />
+                                                </Button>
                                                 <Button
                                                     variant="ghost"
                                                     size="icon"
                                                     onClick={() => openBookingDetails(booking)}
                                                     className="h-8 w-8 text-blue-600 hover:text-blue-700 hover:bg-blue-50"
+                                                    title="View Details"
                                                 >
                                                     <Eye className="h-4 w-4" />
                                                 </Button>
-                                                <Select
-                                                    defaultValue={booking.status}
-                                                    onValueChange={(val) => updateStatus(booking.id, val)}
-                                                >
-                                                    <SelectTrigger className="h-8 w-[130px] bg-white border-gray-200 text-xs shadow-sm focus:ring-1 focus:ring-primary">
-                                                        <SelectValue />
-                                                    </SelectTrigger>
-                                                    <SelectContent className="bg-white border-gray-200 text-gray-900 shadow-lg">
-                                                        <SelectItem value="pending">Pending</SelectItem>
-                                                        <SelectItem value="confirmed">Confirmed</SelectItem>
-                                                        <SelectItem value="completed">Completed</SelectItem>
-                                                        <SelectItem value="cancelled">Cancelled</SelectItem>
-                                                    </SelectContent>
-                                                </Select>
                                                 <Button
                                                     variant="ghost"
                                                     size="icon"
                                                     onClick={() => deleteBooking(booking.id)}
                                                     className="h-8 w-8 text-red-500 hover:text-red-600 hover:bg-red-50"
+                                                    title="Delete"
                                                 >
                                                     <Trash2 className="h-4 w-4" />
                                                 </Button>
@@ -500,6 +1170,54 @@ export default function BookingsPage() {
                         )}
                     </TableBody>
                 </Table>
+                <div className="p-4 border-t border-gray-100 bg-gray-50/50 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <p className="text-sm text-gray-500">
+                        Showing <span className="font-semibold text-gray-900">{paginatedBookings.length > 0 ? (currentPage - 1) * itemsPerPage + 1 : 0}</span> to <span className="font-semibold text-gray-900">{Math.min(currentPage * itemsPerPage, filteredBookings.length)}</span> of <span className="font-semibold text-gray-900">{filteredBookings.length}</span> bookings
+                    </p>
+                    <div className="flex items-center gap-2">
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            disabled={currentPage === 1}
+                            onClick={() => setCurrentPage(prev => prev - 1)}
+                            className="bg-white border-gray-200"
+                        >
+                            Previous
+                        </Button>
+                        <div className="flex items-center gap-1">
+                            {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
+                                let pageNum = i + 1;
+                                // Basic logic to show pages around current if total is large
+                                if (totalPages > 5 && currentPage > 3) {
+                                    pageNum = currentPage - 3 + i;
+                                    if (pageNum > totalPages) pageNum = totalPages - (4 - i);
+                                }
+                                if (pageNum <= 0) pageNum = i + 1;
+
+                                return (
+                                    <Button
+                                        key={pageNum}
+                                        variant={currentPage === pageNum ? "default" : "outline"}
+                                        size="sm"
+                                        onClick={() => setCurrentPage(pageNum)}
+                                        className={currentPage === pageNum ? "bg-primary text-black" : "bg-white"}
+                                    >
+                                        {pageNum}
+                                    </Button>
+                                );
+                            })}
+                        </div>
+                        <Button
+                            variant="outline"
+                            size="sm"
+                            disabled={currentPage === totalPages || totalPages === 0}
+                            onClick={() => setCurrentPage(prev => prev + 1)}
+                            className="bg-white border-gray-200"
+                        >
+                            Next
+                        </Button>
+                    </div>
+                </div>
             </div>
 
             {/* Booking Details Sheet */}
@@ -539,7 +1257,7 @@ export default function BookingsPage() {
                             <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
                                 <label className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2 block">Current Status</label>
                                 <div className="flex items-center justify-between">
-                                    <Badge className={`\${getStatusColor(selectedBooking.status)} text-sm px-3 py-1`}>
+                                    <Badge className={`${getStatusColor(selectedBooking.status)} text-sm px-3 py-1`}>
                                         {selectedBooking.status.toUpperCase()}
                                     </Badge>
                                     <Select
@@ -577,22 +1295,39 @@ export default function BookingsPage() {
                                         </div>
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Phone Number</span>
-                                            {isEditing ? (
-                                                <Input value={editedBooking.customer_phone} onChange={(e) => setEditedBooking({ ...editedBooking, customer_phone: e.target.value })} className="h-8 text-sm bg-white" />
-                                            ) : (
-                                                <span className="text-sm font-medium text-gray-900">
-                                                    {selectedBooking.customer_phone}
-                                                </span>
-                                            )}
+                                            <div className="flex items-center gap-2">
+                                                {isEditing ? (
+                                                    <Input value={editedBooking.customer_phone} onChange={(e) => setEditedBooking({ ...editedBooking, customer_phone: e.target.value })} className="h-8 text-sm bg-white" />
+                                                ) : (
+                                                    <>
+                                                        <span className="text-sm font-medium text-gray-900">
+                                                            {selectedBooking.customer_phone}
+                                                        </span>
+                                                        <Button 
+                                                            variant="ghost" 
+                                                            size="icon" 
+                                                            className="h-6 w-6 text-emerald-600" 
+                                                            onClick={() => openWhatsApp(selectedBooking.customer_phone)}
+                                                        >
+                                                            <MessageSquare className="h-4 w-4" />
+                                                        </Button>
+                                                    </>
+                                                )}
+                                            </div>
                                         </div>
                                         <div className="sm:col-span-2">
                                             <span className="block text-xs text-gray-500 mb-1">Email Address</span>
                                             {isEditing ? (
                                                 <Input value={editedBooking.customer_email} onChange={(e) => setEditedBooking({ ...editedBooking, customer_email: e.target.value })} className="h-8 text-sm bg-white" />
                                             ) : (
-                                                <a href={`mailto:\${selectedBooking.customer_email}`} className="text-sm font-medium text-blue-600 hover:underline">
-                                                    {selectedBooking.customer_email}
-                                                </a>
+                                                <div className="flex items-center justify-between">
+                                                    <a href={`mailto:${selectedBooking.customer_email}`} className="text-sm font-medium text-blue-600 hover:underline">
+                                                        {selectedBooking.customer_email}
+                                                    </a>
+                                                    <Button variant="ghost" size="sm" onClick={() => resendEmail(selectedBooking)} className="h-7 text-[10px] text-gray-500 hover:text-gray-900 border border-gray-100">
+                                                        <Share2 className="w-3 h-3 mr-1" /> Resend Notification
+                                                    </Button>
+                                                </div>
                                             )}
                                         </div>
                                     </div>
@@ -643,6 +1378,28 @@ export default function BookingsPage() {
                                             )}
                                         </div>
                                     </div>
+
+                                    <div className="pl-4 pt-3 mt-1 border-t border-gray-100">
+                                        <span className="block text-xs text-gray-500 mb-1">Flight Number (If applicable)</span>
+                                        <div className="flex items-center gap-2">
+                                            {isEditing ? (
+                                                <Input value={editedBooking.flight_number || ''} onChange={(e) => setEditedBooking({ ...editedBooking, flight_number: e.target.value })} className="h-8 text-sm bg-white w-32" placeholder="e.g. EK803" />
+                                            ) : (
+                                                <>
+                                                    <span className="text-sm font-semibold text-gray-900">{selectedBooking.flight_number || 'N/A'}</span>
+                                                    {selectedBooking.flight_number && (
+                                                        <a 
+                                                            href={`https://www.flightradar24.com/data/flights/${selectedBooking.flight_number}`} 
+                                                            target="_blank" 
+                                                            className="text-[10px] text-blue-600 hover:underline flex items-center gap-1"
+                                                        >
+                                                            <ExternalLink className="w-3 h-3" /> Track Flight
+                                                        </a>
+                                                    )}
+                                                </>
+                                            )}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -677,13 +1434,26 @@ export default function BookingsPage() {
                                         </div>
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Total Quote</span>
-                                            {isEditing ? (
-                                                <Input type="number" value={editedBooking.total_price || ''} onChange={(e) => setEditedBooking({ ...editedBooking, total_price: parseFloat(e.target.value) })} className="h-8 text-sm bg-white font-bold" />
-                                            ) : (
-                                                <span className="text-lg font-bold text-green-600">
-                                                    {selectedBooking.total_price ? `SAR \${selectedBooking.total_price}` : 'Calculating...'}
-                                                </span>
-                                            )}
+                                            <div className="flex items-center gap-2">
+                                                {isEditing ? (
+                                                    <>
+                                                        <Input type="number" value={editedBooking.total_price || ''} onChange={(e) => setEditedBooking({ ...editedBooking, total_price: parseFloat(e.target.value) })} className="h-8 text-sm bg-white font-bold w-24" />
+                                                        <Button 
+                                                            variant="ghost" 
+                                                            size="icon" 
+                                                            className="h-8 w-8 text-primary" 
+                                                            onClick={() => suggestPrice(editedBooking.pickup_location, editedBooking.destination, editedBooking.vehicle_type, 'edit')}
+                                                            title="Suggest Price"
+                                                        >
+                                                            <Calculator className="h-4 w-4" />
+                                                        </Button>
+                                                    </>
+                                                ) : (
+                                                    <span className="text-lg font-bold text-green-600">
+                                                        {selectedBooking.total_price ? `SAR ${selectedBooking.total_price}` : 'Calculating...'}
+                                                    </span>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
 
@@ -706,16 +1476,112 @@ export default function BookingsPage() {
                                         </div>
                                     </div>
 
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <span className="block text-xs text-gray-500 mb-1">Payment Status</span>
+                                            {isEditing ? (
+                                                <Select value={editedBooking.payment_status} onValueChange={(val: any) => setEditedBooking({ ...editedBooking, payment_status: val })}>
+                                                    <SelectTrigger className="h-8 text-sm bg-white">
+                                                        <SelectValue />
+                                                    </SelectTrigger>
+                                                    <SelectContent className="bg-white border-gray-200">
+                                                        <SelectItem value="unpaid">Unpaid</SelectItem>
+                                                        <SelectItem value="paid">Paid</SelectItem>
+                                                        <SelectItem value="partial">Partial</SelectItem>
+                                                        <SelectItem value="refunded">Refunded</SelectItem>
+                                                    </SelectContent>
+                                                </Select>
+                                            ) : (
+                                                <Badge variant="outline" className={`${getPaymentStatusColor(selectedBooking.payment_status || 'unpaid')} text-xs font-bold`}>
+                                                    {(selectedBooking.payment_status || 'unpaid').toUpperCase()}
+                                                </Badge>
+                                            )}
+                                        </div>
+                                        <div>
+                                            <span className="block text-xs text-gray-500 mb-1">Driver Name</span>
+                                            {isEditing ? (
+                                                <Input value={editedBooking.driver_name || ''} onChange={(e) => setEditedBooking({ ...editedBooking, driver_name: e.target.value })} className="h-8 text-sm bg-white" placeholder="Assign Driver" />
+                                            ) : (
+                                                <span className="font-medium text-gray-900">{selectedBooking.driver_name || 'Not Assigned'}</span>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <div className="grid grid-cols-2 gap-4 border-t border-gray-200 pt-4">
+                                        <div>
+                                            <span className="block text-xs text-gray-500 mb-1">Actual Vehicle Sent</span>
+                                            {isEditing ? (
+                                                <Input value={editedBooking.actual_vehicle || ''} onChange={(e) => setEditedBooking({ ...editedBooking, actual_vehicle: e.target.value })} className="h-8 text-sm bg-white" placeholder="e.g. Camry 2024" />
+                                            ) : (
+                                                <span className="font-medium text-gray-900">{selectedBooking.actual_vehicle || 'Matches Booking'}</span>
+                                            )}
+                                        </div>
+                                        <div>
+                                            <span className="block text-xs text-gray-500 mb-1">Internal Management Tags</span>
+                                            {isEditing ? (
+                                                <Input value={editedBooking.tags || ''} onChange={(e) => setEditedBooking({ ...editedBooking, tags: e.target.value })} className="h-8 text-sm bg-white" placeholder="VIP, Urgent, Recurring" />
+                                            ) : (
+                                                <div className="flex gap-1 flex-wrap">
+                                                    {selectedBooking.tags ? (
+                                                        selectedBooking.tags.split(',').map(tag => (
+                                                            <Badge key={tag} variant="secondary" className="text-[9px] bg-indigo-50 text-indigo-700">{tag.trim()}</Badge>
+                                                        ))
+                                                    ) : (
+                                                        <span className="text-gray-400 text-xs italic">No tags</span>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
                                     <div>
                                         <span className="block text-xs text-gray-500 mb-1">Special Requests / Notes</span>
                                         {isEditing ? (
                                             <textarea value={editedBooking.special_requests || ''} onChange={(e) => setEditedBooking({ ...editedBooking, special_requests: e.target.value })} className="w-full min-h-[60px] p-2 text-sm border border-gray-200 rounded-md bg-white text-gray-900" />
                                         ) : (
-                                            <div className="bg-white border border-gray-200 p-3 rounded text-sm text-gray-700 min-h-[60px] whitespace-pre-wrap">
+                                            <div className="bg-white border border-gray-200 p-3 rounded text-sm text-gray-700 min-h-[40px] whitespace-pre-wrap">
                                                 {selectedBooking.special_requests || "No special requests."}
                                             </div>
                                         )}
                                     </div>
+
+                                    <div className="bg-slate-900/5 p-4 rounded-lg border-2 border-slate-200 border-dashed">
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <div className="w-2 h-2 rounded-full bg-slate-900 animate-pulse"></div>
+                                            <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">Internal Admin Notes (Private)</span>
+                                        </div>
+                                        {isEditing ? (
+                                            <textarea 
+                                                value={editedBooking.internal_notes || ''} 
+                                                onChange={(e) => setEditedBooking({ ...editedBooking, internal_notes: e.target.value })} 
+                                                className="w-full min-h-[80px] p-2 text-sm border-2 border-slate-200 rounded-md bg-white text-slate-800 placeholder:text-slate-300"
+                                                placeholder="Write a private note for the team..."
+                                            />
+                                        ) : (
+                                            <div className="text-sm text-slate-700 italic border-l-4 border-slate-300 pl-3 py-1">
+                                                {selectedBooking.internal_notes || "No private notes yet. Team can record internal details here."}
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {!isEditing && (
+                                        <div className="space-y-3">
+                                            <span className="block text-xs font-bold text-gray-400 uppercase tracking-widest text-center mt-6 mb-2">Quick WhatsApp Templates</span>
+                                            <div className="grid grid-cols-3 gap-2">
+                                                <Button size="sm" variant="outline" className="flex flex-col h-16 gap-1 border-emerald-100 hover:bg-emerald-50 text-emerald-700 hover:text-emerald-800" onClick={() => sendWhatsAppHello(selectedBooking)}>
+                                                    <UserCircle className="w-4 h-4" />
+                                                    <span className="text-[10px] font-bold">Hello</span>
+                                                </Button>
+                                                <Button size="sm" variant="outline" className="flex flex-col h-16 gap-1 border-blue-100 hover:bg-blue-50 text-blue-700 hover:text-blue-800" onClick={() => sendWhatsAppDriver(selectedBooking)}>
+                                                    <Handshake className="w-4 h-4" />
+                                                    <span className="text-[10px] font-bold">Driver Info</span>
+                                                </Button>
+                                                <Button size="sm" variant="outline" className="flex flex-col h-16 gap-1 border-purple-100 hover:bg-purple-50 text-purple-700 hover:text-purple-800" onClick={() => sendWhatsAppPrice(selectedBooking)}>
+                                                    <Wallet className="w-4 h-4" />
+                                                    <span className="text-[10px] font-bold">Price Info</span>
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
 
@@ -743,19 +1609,35 @@ export default function BookingsPage() {
                                         <Button 
                                             variant="outline" 
                                             className="w-full bg-purple-50 border-purple-200 hover:bg-purple-100 hover:text-purple-900 text-purple-700 transition-all font-semibold" 
-                                            onClick={() => window.open(`/admin/bookings/${selectedBooking.id}/letterhead`, '_blank')}
+                                            onClick={() => window.open(`/admin/bookings/${selectedBooking.id}/letterhead/`, '_blank')}
                                         >
                                             <FileText className="w-4 h-4 mr-2" /> View/Print Quotation
                                         </Button>
                                         <Button 
                                             variant="outline" 
                                             className="w-full bg-blue-50 border-blue-200 hover:bg-blue-100 hover:text-blue-900 text-blue-700 transition-all font-semibold" 
-                                            onClick={() => window.open(`/admin/bookings/${selectedBooking.id}/invoice`, '_blank')}
+                                            onClick={() => window.open(`/admin/bookings/${selectedBooking.id}/invoice/`, '_blank')}
                                         >
                                             <Printer className="w-4 h-4 mr-2" /> View/Print Invoice
                                         </Button>
                                         <Button variant="outline" className="w-full bg-white border-gray-300 hover:bg-gray-50 hover:text-gray-900 text-gray-700 transition-all font-semibold" onClick={() => shareB2BOptions(selectedBooking)}>
                                             <Copy className="w-4 h-4 mr-2 text-gray-500" /> Copy B2B Message
+                                        </Button>
+                                        <Button variant="outline" className="w-full bg-green-50 border-green-200 hover:bg-green-100 hover:text-green-900 text-green-700 transition-all font-semibold" onClick={() => shareClientDetails(selectedBooking)}>
+                                            <MessageSquare className="w-4 h-4 mr-2 text-green-600" /> Copy Client Details (WhatsApp)
+                                        </Button>
+                                        <Button variant="outline" className="w-full bg-amber-50 border-amber-200 hover:bg-amber-100 hover:text-amber-900 text-amber-700 transition-all font-semibold" onClick={() => shareDriverDetails(selectedBooking)}>
+                                            <Car className="w-4 h-4 mr-2 text-amber-600" /> Copy for Driver (No Price)
+                                        </Button>
+                                        <Button 
+                                            variant="outline" 
+                                            className="w-full bg-slate-50 border-slate-200 hover:bg-slate-100 hover:text-slate-900 text-slate-700 transition-all font-bold" 
+                                            onClick={() => {
+                                                const url = `/admin/bookings/${selectedBooking.id}/handover/`;
+                                                window.open(url, '_blank');
+                                            }}
+                                        >
+                                            <Printer className="w-4 h-4 mr-2 text-slate-600" /> Driver Handover Sheet (PDF)
                                         </Button>
                                     </div>
                                 )}
@@ -785,6 +1667,16 @@ export default function BookingsPage() {
                         {/* Customer Info */}
                         <div className="space-y-4">
                             <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">Customer Details</h3>
+                            {duplicateFound && (
+                                <div className="bg-red-50 border border-red-200 p-3 rounded-lg flex items-center gap-3 animate-pulse">
+                                    <AlertTriangle className="w-5 h-5 text-red-600" />
+                                    <div className="flex-1">
+                                        <p className="text-xs font-bold text-red-700">Possible Duplicate!</p>
+                                        <p className="text-[10px] text-red-600">This client already has a booking at this date/time.</p>
+                                    </div>
+                                    <Button size="sm" variant="outline" className="h-7 text-[10px]" onClick={() => openBookingDetails(duplicateFound)}>View Old</Button>
+                                </div>
+                            )}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Full Name</label>
@@ -792,17 +1684,23 @@ export default function BookingsPage() {
                                         placeholder="John Doe"
                                         value={newBooking.customer_name}
                                         onChange={(e) => setNewBooking({ ...newBooking, customer_name: e.target.value })}
-                                        className="bg-white border-gray-200"
+                                        className="bg-white border-gray-200 focus:border-primary"
                                     />
                                 </div>
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Phone Number</label>
-                                    <Input
-                                        placeholder="+966..."
-                                        value={newBooking.customer_phone}
-                                        onChange={(e) => setNewBooking({ ...newBooking, customer_phone: e.target.value })}
-                                        className="bg-white border-gray-200"
-                                    />
+                                    <div className="relative">
+                                        <Input
+                                            placeholder="+966..."
+                                            value={newBooking.customer_phone}
+                                            onChange={(e) => setNewBooking({ ...newBooking, customer_phone: e.target.value })}
+                                            className="bg-white border-gray-200 focus:border-primary"
+                                        />
+                                        <div className="absolute right-3 top-2.5">
+                                            <div className="w-2 h-2 rounded-full bg-primary/20 animate-ping"></div>
+                                        </div>
+                                    </div>
+                                    <p className="text-[10px] text-gray-400">Searching repeat customer as you type...</p>
                                 </div>
                                 <div className="sm:col-span-2 space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Email Address</label>
@@ -811,7 +1709,7 @@ export default function BookingsPage() {
                                         placeholder="customer@example.com"
                                         value={newBooking.customer_email}
                                         onChange={(e) => setNewBooking({ ...newBooking, customer_email: e.target.value })}
-                                        className="bg-white border-gray-200"
+                                        className="bg-white border-gray-200 focus:border-primary"
                                     />
                                 </div>
                             </div>
@@ -839,26 +1737,35 @@ export default function BookingsPage() {
                                         className="bg-white border-gray-200"
                                     />
                                 </div>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="space-y-1">
-                                        <label className="text-sm font-medium text-gray-700">Pickup Date</label>
-                                        <Input
-                                            type="date"
-                                            value={newBooking.pickup_date}
-                                            onChange={(e) => setNewBooking({ ...newBooking, pickup_date: e.target.value })}
-                                            className="bg-white border-gray-200"
-                                        />
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="space-y-1">
+                                            <label className="text-sm font-medium text-gray-700">Pickup Date</label>
+                                            <Input
+                                                type="date"
+                                                value={newBooking.pickup_date}
+                                                onChange={(e) => setNewBooking({ ...newBooking, pickup_date: e.target.value })}
+                                                className="bg-white border-gray-200"
+                                            />
+                                        </div>
+                                        <div className="space-y-1">
+                                            <label className="text-sm font-medium text-gray-700">Pickup Time</label>
+                                            <Input
+                                                type="time"
+                                                value={newBooking.pickup_time}
+                                                onChange={(e) => setNewBooking({ ...newBooking, pickup_time: e.target.value })}
+                                                className="bg-white border-gray-200"
+                                            />
+                                        </div>
+                                        <div className="space-y-1 sm:col-span-2">
+                                            <label className="text-sm font-medium text-gray-700">Flight Number (If applicable)</label>
+                                            <Input
+                                                placeholder="e.g. SV123 or EK803"
+                                                value={newBooking.flight_number}
+                                                onChange={(e) => setNewBooking({ ...newBooking, flight_number: e.target.value })}
+                                                className="bg-white border-gray-200"
+                                            />
+                                        </div>
                                     </div>
-                                    <div className="space-y-1">
-                                        <label className="text-sm font-medium text-gray-700">Pickup Time</label>
-                                        <Input
-                                            type="time"
-                                            value={newBooking.pickup_time}
-                                            onChange={(e) => setNewBooking({ ...newBooking, pickup_time: e.target.value })}
-                                            className="bg-white border-gray-200"
-                                        />
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
@@ -876,26 +1783,42 @@ export default function BookingsPage() {
                                             <SelectValue />
                                         </SelectTrigger>
                                         <SelectContent className="bg-white border-gray-200">
-                                            <SelectItem value="Sedan">Sedan</SelectItem>
-                                            <SelectItem value="SUV">SUV</SelectItem>
-                                            <SelectItem value="Van">Van</SelectItem>
-                                            <SelectItem value="Minibus">Minibus</SelectItem>
-                                            <SelectItem value="Bus">Bus</SelectItem>
-                                            <SelectItem value="GMC">GMC</SelectItem>
-                                            <SelectItem value="Starex">Starex</SelectItem>
-                                            <SelectItem value="Hiace">Hiace</SelectItem>
+                                            <SelectItem value="Toyota Camry">Toyota Camry</SelectItem>
+                                            <SelectItem value="GMC Yukon XL / Denali">GMC Yukon XL</SelectItem>
+                                            <SelectItem value="Hyundai Staria VIP">Hyundai Staria VIP</SelectItem>
+                                            <SelectItem value="Hyundai Starex">Hyundai Starex</SelectItem>
+                                            <SelectItem value="Toyota Hiace">Toyota Hiace</SelectItem>
+                                            <SelectItem value="Toyota Coaster">Toyota Coaster</SelectItem>
+                                            <SelectItem value="Mercedes S-Class">Mercedes S-Class</SelectItem>
+                                            <SelectItem value="BMW 7 Series">BMW 7 Series</SelectItem>
+                                            <SelectItem value="Cadillac Escalade">Cadillac Escalade</SelectItem>
+                                            <SelectItem value="Genesis G80 VIP">Genesis G80 VIP</SelectItem>
+                                            <SelectItem value="Mercedes Vito">Mercedes Vito</SelectItem>
+                                            <SelectItem value="Ford Taurus 2025">Ford Taurus 2025</SelectItem>
+                                            <SelectItem value="Mercedes Sprinter">Mercedes Sprinter</SelectItem>
+                                            <SelectItem value="Luxurious Bus">Luxurious Bus</SelectItem>
                                         </SelectContent>
                                     </Select>
                                 </div>
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Total Price (SAR)</label>
-                                    <Input
-                                        type="number"
-                                        placeholder="0.00"
-                                        value={newBooking.total_price}
-                                        onChange={(e) => setNewBooking({ ...newBooking, total_price: parseFloat(e.target.value) })}
-                                        className="bg-white border-gray-200 font-bold"
-                                    />
+                                    <div className="flex gap-2">
+                                        <Input
+                                            type="number"
+                                            placeholder="0.00"
+                                            value={newBooking.total_price}
+                                            onChange={(e) => setNewBooking({ ...newBooking, total_price: parseFloat(e.target.value) })}
+                                            className="bg-white border-gray-200 font-bold"
+                                        />
+                                        <Button 
+                                            variant="outline" 
+                                            size="icon" 
+                                            onClick={() => suggestPrice(newBooking.pickup_location || '', newBooking.destination || '', newBooking.vehicle_type, 'new')}
+                                            title="Suggest standard price"
+                                        >
+                                            <Calculator className="h-4 w-4" />
+                                        </Button>
+                                    </div>
                                 </div>
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Passengers</label>
@@ -915,33 +1838,79 @@ export default function BookingsPage() {
                                         className="bg-white border-gray-200"
                                     />
                                 </div>
+                                <div className="space-y-1">
+                                    <label className="text-sm font-medium text-gray-700">Payment Status</label>
+                                    <Select
+                                        value={newBooking.payment_status}
+                                        onValueChange={(val: any) => setNewBooking({ ...newBooking, payment_status: val })}
+                                    >
+                                        <SelectTrigger className="bg-white border-gray-200">
+                                            <SelectValue />
+                                        </SelectTrigger>
+                                        <SelectContent className="bg-white border-gray-200">
+                                            <SelectItem value="unpaid">Unpaid</SelectItem>
+                                            <SelectItem value="paid">Paid</SelectItem>
+                                            <SelectItem value="partial">Partial</SelectItem>
+                                            <SelectItem value="refunded">Refunded</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                                <div className="space-y-1">
+                                    <label className="text-sm font-medium text-gray-700">Driver Name</label>
+                                    <Input
+                                        placeholder="Assign later"
+                                        value={newBooking.driver_name}
+                                        onChange={(e) => setNewBooking({ ...newBooking, driver_name: e.target.value })}
+                                        className="bg-white border-gray-200"
+                                    />
+                                </div>
+                                <div className="space-y-1">
+                                    <label className="text-sm font-medium text-gray-700">Internal Management Tags</label>
+                                    <Input
+                                        placeholder="VIP, Priority, Repeat Buyer..."
+                                        value={newBooking.tags}
+                                        onChange={(e) => setNewBooking({ ...newBooking, tags: e.target.value })}
+                                        className="bg-white border-gray-200"
+                                    />
+                                </div>
                             </div>
-                            <div className="space-y-1">
-                                <label className="text-sm font-medium text-gray-700">Special Requests / Notes</label>
-                                <textarea
-                                    value={newBooking.special_requests}
-                                    onChange={(e) => setNewBooking({ ...newBooking, special_requests: e.target.value })}
-                                    className="w-full min-h-[80px] p-2 text-sm border border-gray-200 rounded-md bg-white text-gray-900"
-                                    placeholder="Enter any additional details..."
-                                />
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div className="space-y-1">
+                                    <label className="text-sm font-medium text-gray-700">Special Requests / Notes (Client Facing)</label>
+                                    <textarea
+                                        value={newBooking.special_requests}
+                                        onChange={(e) => setNewBooking({ ...newBooking, special_requests: e.target.value })}
+                                        className="w-full min-h-[80px] p-2 text-sm border border-gray-200 rounded-md bg-white text-gray-900"
+                                        placeholder="Enter any additional details..."
+                                    />
+                                </div>
+                                <div className="space-y-1">
+                                    <label className="text-sm font-medium text-indigo-700 font-bold">Internal Admin Notes (Private)</label>
+                                    <textarea
+                                        value={newBooking.internal_notes}
+                                        onChange={(e) => setNewBooking({ ...newBooking, internal_notes: e.target.value })}
+                                        className="w-full min-h-[80px] p-2 text-sm border border-indigo-200 rounded-md bg-indigo-50 text-gray-900 focus:ring-1 focus:ring-indigo-300"
+                                        placeholder="Private team-only notes..."
+                                    />
+                                </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div className="pt-6 flex gap-3">
-                            <Button
-                                variant="outline"
-                                className="flex-1"
-                                onClick={() => setIsCreating(false)}
-                            >
-                                Cancel
-                            </Button>
-                            <Button
-                                className="flex-1 bg-primary text-black hover:bg-black hover:text-white font-bold"
-                                onClick={saveNewBooking}
-                            >
-                                <Plus className="w-4 h-4 mr-2" /> Create Booking
-                            </Button>
-                        </div>
+                    <div className="pt-6 flex gap-3 mt-6 border-t pt-6">
+                        <Button
+                            variant="outline"
+                            className="flex-1"
+                            onClick={() => setIsCreating(false)}
+                        >
+                            Cancel
+                        </Button>
+                        <Button
+                            className="flex-1 bg-primary text-black hover:bg-black hover:text-white font-bold"
+                            onClick={saveNewBooking}
+                        >
+                            <Plus className="w-4 h-4 mr-2" /> Create Booking
+                        </Button>
                     </div>
                 </SheetContent>
             </Sheet>

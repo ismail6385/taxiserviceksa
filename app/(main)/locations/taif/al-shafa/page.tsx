@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Mountain, Cloud, ArrowRight, Trees } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -31,30 +32,21 @@ export default function AlShafaPage() {
         '/jeddah-airport.webp',
     ];
 
-    const alShafaSchema = {
-        "@context": "https://schema.org",
-        "@type": "TouristDestination",
-        "name": "Al Shafa (Jabal Shafa)",
-        "description": "Popular mountain resort area in Taif known for its lush greenery, colder climate, and agricultural terraces.",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Taif",
-            "addressRegion": "Makkah Province",
-            "addressCountry": "SA"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "21.1070",
-            "longitude": "40.3553"
-        }
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="alshafa-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(alShafaSchema) }}
+            <JsonLdLocation 
+                cityName="Taif"
+                description="Professional taxi and private car services in Taif. 24/7 reliable transport for residents, business travelers, and tourists."
+                services={[
+                    { name: 'Taif Airport Taxi', description: 'Reliable airport pickups and drop-offs.' },
+                    { name: 'City Chauffeur Service', description: 'Professional drivers for local travel and business.' },
+                    { name: 'Intercity Transfers', description: 'Private long-distance travel to other major cities.' },
+                    { name: 'Family SUW/Van', description: 'Large vehicles for groups and extra luggage.' }
+                ]}
+                priceRange={{ min: 50, max: 2000, currency: "SAR" }}
+                image="https://taxiserviceksa.com/locations/taif.webp"
             />
 
             <Hero

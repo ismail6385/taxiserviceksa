@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 
 import SocialSidebar from '@/components/SocialSidebar';
@@ -29,6 +30,11 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
       )}
 
       <main className={!isAdminRoute ? 'pt-[120px]' : ''}>
+        {!isAdminRoute && pathname !== '/' && (
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Breadcrumbs />
+          </div>
+        )}
         {children}
       </main>
 

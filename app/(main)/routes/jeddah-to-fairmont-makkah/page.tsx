@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, ArrowRight, Navigation, Building2 } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -37,34 +38,21 @@ export default function JeddahToFairmontPage() {
         '/hero-slide-3.webp',
     ];
 
-    const routeSchema = {
-        "@context": "https://schema.org",
-        "@type": "TravelAction",
-        "name": "Taxi from Jeddah Airport to Fairmont Makkah",
-        "fromLocation": {
-            "@type": "Place",
-            "name": "King Abdulaziz International Airport (Jeddah)",
-            "iataCode": "JED"
-        },
-        "toLocation": {
-            "@type": "Hotel",
-            "name": "Makkah Clock Royal Tower, A Fairmont Hotel",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "King Abdul Aziz Endowment, Abraj Al Bait Complex",
-                "addressLocality": "Makkah",
-                "addressCountry": "SA"
-            }
-        },
-        "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="route-schema-fairmont"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
+            <JsonLdLocation 
+                cityName="Jeddah to Fairmont Makkah"
+                description="Professional VIP private car service for Jeddah to Fairmont Makkah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                services={[
+                    { name: 'Jeddah to Fairmont Makkah Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
+                    { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
+                    { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
+                    { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
+                ]}
+                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
             {/* Hero Section */}

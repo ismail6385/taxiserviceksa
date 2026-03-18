@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Factory, Building, ArrowRight } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -31,30 +32,21 @@ export default function JubailIndustrialPage() {
         '/hero-slide-2.webp',
     ];
 
-    const jubailSchema = {
-        "@context": "https://schema.org",
-        "@type": "IndustrialPark",
-        "name": "Jubail Industrial City",
-        "description": "The largest industrial city in the world, home to SADARA, SASREF, and major petrochemical complexes.",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Jubail",
-            "addressRegion": "Eastern Province",
-            "addressCountry": "SA"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "27.0039",
-            "longitude": "49.6606"
-        }
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="jubail-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jubailSchema) }}
+            <JsonLdLocation 
+                cityName="Jubail"
+                description="Professional taxi and private car services in Jubail. 24/7 reliable transport for residents, business travelers, and tourists."
+                services={[
+                    { name: 'Jubail Airport Taxi', description: 'Reliable airport pickups and drop-offs.' },
+                    { name: 'City Chauffeur Service', description: 'Professional drivers for local travel and business.' },
+                    { name: 'Intercity Transfers', description: 'Private long-distance travel to other major cities.' },
+                    { name: 'Family SUW/Van', description: 'Large vehicles for groups and extra luggage.' }
+                ]}
+                priceRange={{ min: 50, max: 2000, currency: "SAR" }}
+                image="https://taxiserviceksa.com/locations/jubail.webp"
             />
 
             <Hero

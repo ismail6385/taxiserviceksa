@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Factory, Building, ArrowRight } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -31,31 +32,21 @@ export default function YanbuIndustrialPage() {
         '/hero-slide-2.webp',
     ];
 
-    const yanbuIndustrialSchema = {
-        "@context": "https://schema.org",
-        "@type": "IndustrialPark",
-        "name": "Yanbu Industrial City",
-        "alternateName": "Royal Commission Yanbu",
-        "description": "Major industrial hub on the Red Sea coast, home to petrochemical refineries and the Royal Commission headquarters.",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Yanbu Al Sinaiyah",
-            "addressRegion": "Madinah Province",
-            "addressCountry": "SA"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "23.9877",
-            "longitude": "38.2163"
-        }
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="yanbu-rc-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(yanbuIndustrialSchema) }}
+            <JsonLdLocation 
+                cityName="Yanbu"
+                description="Professional taxi and private car services in Yanbu. 24/7 reliable transport for residents, business travelers, and tourists."
+                services={[
+                    { name: 'Yanbu Airport Taxi', description: 'Reliable airport pickups and drop-offs.' },
+                    { name: 'City Chauffeur Service', description: 'Professional drivers for local travel and business.' },
+                    { name: 'Intercity Transfers', description: 'Private long-distance travel to other major cities.' },
+                    { name: 'Family SUW/Van', description: 'Large vehicles for groups and extra luggage.' }
+                ]}
+                priceRange={{ min: 50, max: 2000, currency: "SAR" }}
+                image="https://taxiserviceksa.com/locations/yanbu.webp"
             />
 
             <Hero

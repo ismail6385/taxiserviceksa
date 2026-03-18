@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     },
 };
 
+import JsonLdRoute from '@/components/JsonLdRoute';
+
 export default function MadinahToMakkahPage() {
     const routeDetails = [
         { label: 'Distance', value: '450 km', icon: Navigation },
@@ -27,41 +29,14 @@ export default function MadinahToMakkahPage() {
         { label: 'Service', value: 'Door-to-Door', icon: CheckCircle2 },
     ];
 
-    const routeSchema = {
-        "@context": "https://schema.org",
-        "@type": "TravelAction",
-        "name": "Taxi from Madinah to Makkah",
-        "fromLocation": {
-            "@type": "Place",
-            "name": "Madinah",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Madinah",
-                "addressCountry": "SA"
-            }
-        },
-        "toLocation": {
-            "@type": "Place",
-            "name": "Makkah",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Makkah",
-                "addressCountry": "SA"
-            }
-        },
-        "distance": "450 km",
-        "instrument": {
-            "@type": "Car",
-            "name": "GMC Yukon, Mercedes Vito, Toyota Hiace"
-        }
-    };
-
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="route-schema-madinah-makkah"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
+            <JsonLdRoute 
+                from="Madinah"
+                to="Makkah"
+                description="Luxury intercity transfer for Umrah pilgrims from Madinah to Makkah. Includes mandatory stop at Miqat Abyar Ali. 100% private VIP car service."
+                distance="450 km"
+                duration="PT5H"
             />
 
             <Hero

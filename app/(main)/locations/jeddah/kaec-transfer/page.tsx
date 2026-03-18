@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Plane, ArrowRight, Briefcase, Building2, Train, Shield } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -31,29 +32,21 @@ export default function KaecTransferPage() {
         '/hero-slide-2.webp',
     ];
 
-    const kaecSchema = {
-        "@context": "https://schema.org",
-        "@type": "Transport",
-        "name": "Jeddah to KAEC VIP Private Transfer Service",
-        "description": "Premium VIP private transfer from King Abdulaziz International Airport to King Abdullah Economic City.",
-        "provider": {
-            "@type": "Organization",
-            "name": "VIP Transfer KSA"
-        },
-        "areaServed": [
-            { "@type": "Place", "name": "Jeddah Airport" },
-            { "@type": "Place", "name": "King Abdullah Economic City" },
-            { "@type": "Place", "name": "Bay La Sun Hotel" }
-        ],
-        "hasMap": "https://g.page/kaec"
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="kaec-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(kaecSchema) }}
+            <JsonLdLocation 
+                cityName="Jeddah"
+                description="Professional taxi and private car services in Jeddah. 24/7 reliable transport for residents, business travelers, and tourists."
+                services={[
+                    { name: 'Jeddah Airport Taxi', description: 'Reliable airport pickups and drop-offs.' },
+                    { name: 'City Chauffeur Service', description: 'Professional drivers for local travel and business.' },
+                    { name: 'Intercity Transfers', description: 'Private long-distance travel to other major cities.' },
+                    { name: 'Family SUW/Van', description: 'Large vehicles for groups and extra luggage.' }
+                ]}
+                priceRange={{ min: 50, max: 2000, currency: "SAR" }}
+                image="https://taxiserviceksa.com/locations/jeddah.webp"
             />
 
             <Hero

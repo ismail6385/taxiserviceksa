@@ -1,13 +1,13 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Mountain, ArrowRight, Cloud, Shield } from 'lucide-react';
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
+import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
     title: 'VIP Private Transfer & Chauffeur Abha | AHB Airport Pickup',
@@ -31,25 +31,20 @@ export default function AbhaPage() {
         '/hero-slide-3.webp',
     ];
 
-    const abhaSchema = {
-        "@context": "https://schema.org",
-        "@type": "City",
-        "name": "Abha",
-        "description": "The capital of Aseer Province, known for its mild climate, mountains, and heritage.",
-        "url": "https://taxiserviceksa.com/locations/abha/",
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "18.2167",
-            "longitude": "42.5000"
-        }
-    };
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="abha-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(abhaSchema) }}
+            <JsonLdLocation 
+                cityName="Abha"
+                description="Professional VIP high-altitude transfers in Abha. Specializing in Abha Airport (AHB) pickups, Al Soudah mountain trips, and historical Rijal Almaa heritage tours."
+                services={[
+                    { name: 'Abha Airport Pickup', description: 'VIP meet & greet at AHB Airport with flight tracking.' },
+                    { name: 'Al Soudah Mountain Transfer', description: 'Safe transport to the highest peak in Saudi Arabia.' },
+                    { name: 'Rijal Almaa Heritage Tour', description: 'Day trips to the famous historical gingerbread village.' },
+                    { name: 'Khamis Mushait Intercity', description: 'Direct transfers to Khamis Mushait and Aseer province.' }
+                ]}
+                priceRange={{ min: 100, max: 600, currency: "SAR" }}
+                image="https://taxiserviceksa.com/hero-slide-4.webp"
             />
 
             <Hero

@@ -14,11 +14,10 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from '@/components/ui/accordion';
-import Script from 'next/script';
 import DistanceTable from '@/components/seo/DistanceTable';
 import SeasonalTravelTips from '@/components/seo/SeasonalTravelTips';
 import RelatedLocations from '@/components/seo/RelatedLocations';
-
+import JsonLdLocation from '@/components/JsonLdLocation';
 
 
 export const metadata: Metadata = {
@@ -93,18 +92,17 @@ export default async function JeddahPage() {
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="jeddah-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Service",
-                        "name": "Jeddah Airport VIP Transfer & Chauffeur",
-                        "areaServed": { "@type": "City", "name": "Jeddah" },
-                        "description": "Professional 24/7 VIP transfer service for King Abdulaziz International Airport and Makkah transfers."
-                    })
-                }}
+            <JsonLdLocation 
+                cityName="Jeddah"
+                description="Professional VIP transfers in Jeddah. Specializing in King Abdulaziz International Airport (KAIA) pickups, premium Makkah and Madinah transfers, and executive city chauffeur services."
+                services={[
+                    { name: 'KAIA Airport VIP Pickup', description: 'Executive meet & greet at Terminal 1 and North Terminal.' },
+                    { name: 'Jeddah to Makkah VIP', description: 'Premium door-to-door transfers for pilgrims and travelers.' },
+                    { name: 'Jeddah to Madinah Executive', description: 'Long-distance VIP transfers to the Prophet\'s City.' },
+                    { name: 'Full-Day VIP Chauffeur', description: 'Dedicated executive driver for business, shopping, and tours.' }
+                ]}
+                priceRange={{ min: 100, max: 800, currency: "SAR" }}
+                image="https://taxiserviceksa.com/jeddah-airport-terminal.webp"
             />
 
             <Hero
@@ -505,62 +503,6 @@ export default async function JeddahPage() {
                                 </Button>
                             </a>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* UGC Section */}
-            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
-                            <Users className="w-4 h-4" />
-                            <span className="text-sm font-semibold">Community Feedback</span>
-                        </div>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                            Jeddah Travel Insights
-                        </h2>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            Share your experience or ask a question about our VIP transfer services in Jeddah.
-                        </p>
-                    </div>
-
-                    <div className="space-y-16 mb-16">
-                        <ReviewsDisplay location="Jeddah" />
-                        <QuestionsDisplay location="Jeddah" />
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <ReviewForm locationName="Jeddah" />
-                        <QuestionForm locationName="Jeddah" />
-                    </div>
-                </div>
-            </section>
-
-            {/* UGC Section */}
-            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
-                            <Users className="w-4 h-4" />
-                            <span className="text-sm font-semibold">Community Feedback</span>
-                        </div>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                            Jeddah Travel Insights
-                        </h2>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            Share your experience or ask a question about our VIP transfer services in Jeddah.
-                        </p>
-                    </div>
-
-                    <div className="space-y-16 mb-16">
-                        <ReviewsDisplay location="Jeddah" />
-                        <QuestionsDisplay location="Jeddah" />
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <ReviewForm locationName="Jeddah" />
-                        <QuestionForm locationName="Jeddah" />
                     </div>
                 </div>
             </section>

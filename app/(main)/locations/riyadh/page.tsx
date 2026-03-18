@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Building, Mail, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -28,6 +27,7 @@ import ExpertReview from '@/components/seo/ExpertReview';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import ProcessFlow from '@/components/ProcessFlow';
+import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
     title: 'VIP Private Transfer & Executive Chauffeur Riyadh | RUH Airport',
@@ -95,18 +95,12 @@ export default function RiyadhPage() {
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="riyadh-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Service",
-                        "name": "Riyadh VIP Transfer & Chauffeur Service",
-                        "areaServed": { "@type": "City", "name": "Riyadh" },
-                        "description": "Premium VIP private transfer service in Riyadh for airport transfers, corporate travel, and executive intercity trips."
-                    })
-                }}
+            <JsonLdLocation 
+                cityName="Riyadh"
+                description="Premium VIP private transfer and executive chauffeur service in Riyadh. Specialized King Khalid Airport (RUH) pickups, corporate business transport, and long-distance intercity transfers."
+                services={services}
+                priceRange={{ min: 150, max: 1500, currency: "SAR" }}
+                image="https://taxiserviceksa.com/hero-slide-3.webp"
             />
 
             {/* Hero Section */}

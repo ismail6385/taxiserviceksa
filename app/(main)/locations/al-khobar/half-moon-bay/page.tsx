@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Umbrella, Tent, ArrowRight } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -31,30 +32,21 @@ export default function HalfMoonBayPage() {
         '/hero-slide-2.webp',
     ];
 
-    const halfMoonSchema = {
-        "@context": "https://schema.org",
-        "@type": "TouristDestination",
-        "name": "Half Moon Bay",
-        "description": "Crescent-shaped bay area south of Al Khobar, famous for sandy beaches, Dana Bay resort, and water sports.",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Dhahran/Khobar",
-            "addressRegion": "Eastern Province",
-            "addressCountry": "SA"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "26.1529",
-            "longitude": "50.0335"
-        }
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="halfmoon-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(halfMoonSchema) }}
+            <JsonLdLocation 
+                cityName="Al Khobar"
+                description="Professional taxi and private car services in Al Khobar. 24/7 reliable transport for residents, business travelers, and tourists."
+                services={[
+                    { name: 'Al Khobar Airport Taxi', description: 'Reliable airport pickups and drop-offs.' },
+                    { name: 'City Chauffeur Service', description: 'Professional drivers for local travel and business.' },
+                    { name: 'Intercity Transfers', description: 'Private long-distance travel to other major cities.' },
+                    { name: 'Family SUW/Van', description: 'Large vehicles for groups and extra luggage.' }
+                ]}
+                priceRange={{ min: 50, max: 2000, currency: "SAR" }}
+                image="https://taxiserviceksa.com/locations/al-khobar.webp"
             />
 
             <Hero

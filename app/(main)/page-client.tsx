@@ -4,7 +4,7 @@ import Hero from '@/components/Hero';
 import Script from 'next/script';
 import Image from 'next/image';
 import AuthorCard from '@/components/AuthorCard';
-import { Plane, MapPin, Building2, Shield, Clock, Award, Star, CheckCircle2, Users, Car, ArrowRight, Camera, Calendar, User, Sparkles, Quote, Info } from 'lucide-react';
+import { Plane, MapPin, Building2, Shield, Clock, Award, Star, CheckCircle2, Users, Car, ArrowRight, Camera, Calendar, User, Sparkles, Quote, Info, Wallet } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import {
@@ -23,6 +23,7 @@ import HowItWorks from '@/components/HowItWorks';
 import GlobalTrust from '@/components/GlobalTrust';
 import TLDRSummary from '@/components/seo/TLDRSummary';
 import FreshnessStatus from '@/components/seo/FreshnessStatus';
+import { getPrice } from '@/lib/pricing';
 
 interface HomeClientProps {
     latestBlogs?: Blog[];
@@ -462,65 +463,158 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             {/* Semantic Authority Network */}
             <TrustedTransportNetwork />
 
+            {/* Why Choose Us - Premium Differentiation */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white relative overflow-hidden">
+                <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10 animate-pulse"></div>
+                <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl -z-10 animate-pulse delay-700"></div>
+
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16">
+                        <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Premium Standards</span>
+                        <h2 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight">
+                            WHY CHOOSE <span className="text-primary underline decoration-primary/20 decoration-8 underline-offset-8">VIP TRANSFER KSA?</span>
+                        </h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {[
+                            {
+                                icon: Shield,
+                                title: "100% Licensed",
+                                desc: "Fully registered with the Ministry of Transport and TGA for your total security."
+                            },
+                            {
+                                icon: Clock,
+                                title: "Punctual arrivals",
+                                desc: "No delays. Our driver reaches the airport 15 minutes before your flight lands."
+                            },
+                            {
+                                icon: Users,
+                                title: "Expert chauffeurs",
+                                desc: "Professional, English-speaking drivers trained in luxury hospitality standards."
+                            },
+                            {
+                                icon: Wallet,
+                                title: "Fixed Price",
+                                desc: "The price you see is what you pay. No hidden VAT, parking, or tunnel surcharges."
+                            }
+                        ].map((item, idx) => (
+                            <div key={idx} className="group p-8 rounded-[2rem] bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2">
+                                <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary group-hover:text-black transition-all duration-500 transform group-hover:rotate-12">
+                                    <item.icon className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                                <p className="text-gray-500 text-sm leading-relaxed group-hover:text-gray-700 transition-colors">
+                                    {item.desc}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* How It Works - Visual Flow */}
             <HowItWorks />
 
             {/* About Us Preview - Optimized H2 */}
-            <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 overflow-hidden">
+            {/* About Us - The Premium Narrative */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 translate-x-1/2"></div>
+                
                 <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
-                        <div className="relative order-2 lg:order-1">
-                            <div className="absolute -top-6 -left-6 sm:-top-10 sm:-left-10 w-32 h-32 sm:w-40 sm:h-40 bg-primary/20 rounded-full blur-3xl"></div>
-                            <div className="absolute -bottom-6 -right-6 sm:-bottom-10 sm:-right-10 w-32 h-32 sm:w-40 sm:h-40 bg-blue-500/20 rounded-full blur-3xl"></div>
-                            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-4 sm:border-8 border-white">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div className="relative">
+                            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-[12px] border-white z-10 aspect-[4/5]">
                                 <Image
                                     src="/gmc-yukon.webp"
-                                    alt="Best online taxi service in Saudi Arabia - GMC Yukon for airport and umrah transfer"
-                                    width={800}
-                                    height={600}
-                                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
-                                    priority={false}
+                                    alt="VIP Transfer KSA Premium Fleet"
+                                    fill
+                                    className="object-cover transform hover:scale-105 transition-transform duration-1000"
                                 />
-                            </div>
-                            <div className="absolute -bottom-4 -right-4 sm:-bottom-8 sm:-right-8 bg-white p-4 sm:p-6 rounded-lg sm:rounded-xl shadow-xl border border-gray-100">
-                                <div className="flex items-center gap-3 sm:gap-4">
-                                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center shadow-lg shadow-primary/30">
-                                        <Award className="w-5 h-5 sm:w-6 sm:h-6 text-black" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                                <div className="absolute bottom-8 left-8 right-8 text-white">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <div className="w-12 h-0.5 bg-primary"></div>
+                                        <span className="text-xs font-bold uppercase tracking-[0.3em]">Kingdom Wide</span>
                                     </div>
-                                    <div>
-                                        <div className="font-bold text-xl sm:text-2xl text-gray-900">10+ Years</div>
-                                        <div className="text-xs sm:text-sm text-gray-600">Of Reliability</div>
+                                    <h3 className="text-2xl font-black italic">Est. 2014</h3>
+                                </div>
+                            </div>
+                            
+                            {/* Floating Stats Badge */}
+                            <div className="absolute -bottom-6 -right-6 lg:-right-12 bg-white p-8 rounded-3xl shadow-2xl z-20 border border-gray-100 hidden sm:block">
+                                <div className="flex flex-col gap-4">
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
+                                            <Award className="w-6 h-6" />
+                                        </div>
+                                        <div>
+                                            <div className="text-2xl font-black text-gray-900 tracking-tight">10+ Years</div>
+                                            <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none">Market Excellence</div>
+                                        </div>
+                                    </div>
+                                    <div className="h-px bg-gray-100 w-full"></div>
+                                    <div className="flex items-center gap-4">
+                                        <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600">
+                                            <CheckCircle2 className="w-6 h-6" />
+                                        </div>
+                                        <div>
+                                            <div className="text-2xl font-black text-gray-900 tracking-tight">50,000+</div>
+                                            <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none">Trips Completed</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="order-1 lg:order-2">
-                            <span className="bg-primary text-white font-semibold tracking-wider uppercase text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-1.5 rounded-full inline-block mb-4 sm:mb-6 shadow-md shadow-primary/30">Service Information</span>
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-                                Your VIP Connection Across the Kingdom
-                            </h2>
-                            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-4 sm:mb-6 leading-relaxed">
-                                <strong>VIP Transfer KSA</strong> provides a high-end alternative to standard public transport. We focus on pre-booked, private transfers that offer the privacy and punctuality required by international visitors. Whether it's a 400km journey from Makkah to Madinah or a VIP pickup at King Abdulaziz Airport, we ensure your comfort is the priority.
-                            </p>
-                            <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-                                <li className="flex items-center gap-2 sm:gap-3 text-gray-700 font-medium text-sm sm:text-base">
-                                    <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 flex-shrink-0" />
-                                    <span>Licensed by <strong>Ministry of Transport</strong> & TGA</span>
-                                </li>
-                                <li className="flex items-center gap-2 sm:gap-3 text-gray-700 font-medium text-sm sm:text-base">
-                                    <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 flex-shrink-0" />
-                                    <span>Fully Insured (Comprehensive Insurance for Pilgrims)</span>
-                                </li>
-                                <li className="flex items-center gap-2 sm:gap-3 text-gray-700 font-medium text-sm sm:text-base">
-                                    <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-600 flex-shrink-0" />
-                                    <span>VAT Electronic Invoicing Available</span>
-                                </li>
-                            </ul>
-                            <Link href="/about/">
-                                <Button size="lg" className="bg-primary text-white hover:bg-blue-600 font-bold px-6 sm:px-8 py-4 sm:py-5 md:py-6 text-base sm:text-lg rounded-xl shadow-lg shadow-primary/30 transition-all hover:scale-105 active:scale-95">
-                                    More About Us <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-                                </Button>
-                            </Link>
+
+                        <div className="space-y-8">
+                            <div>
+                                <div className="inline-flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-widest mb-6">
+                                    <Info className="w-4 h-4 text-primary" /> Our Story
+                                </div>
+                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] mb-6 tracking-tight">
+                                    YOUR PASSAGE TO <br />
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">PREMIUM MOBILITY</span>
+                                </h2>
+                                <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                                    In the heart of the Kingdom, <strong>VIP Transfer KSA</strong> was born from a simple mission: to redefine the pilgrimage and business travel experience. We moved away from the uncertainty of public transport to provide a guaranteed, luxury door-to-door service.
+                                </p>
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                                    <h4 className="font-black text-gray-900 mb-2 flex items-center gap-2">
+                                        <Shield className="w-4 h-4 text-primary" /> Govt. Authorized
+                                    </h4>
+                                    <p className="text-sm text-gray-500">Fully licensed by Ministry of Transport & TGA for official operation.</p>
+                                </div>
+                                <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+                                    <h4 className="font-black text-gray-900 mb-2 flex items-center gap-2">
+                                        <Wallet className="w-4 h-4 text-primary" /> Tax Compliant
+                                    </h4>
+                                    <p className="text-sm text-gray-500">Full ZATCA VAT invoicing available for all corporate bookings.</p>
+                                </div>
+                            </div>
+
+                            <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
+                                <Link href="/about/" className="w-full sm:w-auto">
+                                    <Button className="w-full bg-slate-900 hover:bg-black text-white px-10 h-16 rounded-2xl text-lg font-black transition-all hover:scale-105 active:scale-95 shadow-xl shadow-slate-900/10">
+                                        Learn More <ArrowRight className="ml-2 w-5 h-5" />
+                                    </Button>
+                                </Link>
+                                <div className="flex items-center gap-3">
+                                    <div className="flex -space-x-4">
+                                        {[1, 2, 3, 4].map((i) => (
+                                            <div key={i} className="w-10 h-10 rounded-full border-4 border-white bg-gray-200 overflow-hidden relative">
+                                                <Image src={`/fleet/mercedes-s-class-vip-chauffeur-service-saudi.webp`} alt="VIP Customer" fill className="object-cover grayscale" />
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className="text-xs font-bold text-gray-400">
+                                        <span className="text-gray-900">4.9/5</span> from 2k+ reviews
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -597,89 +691,131 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             </section>
 
             {/* Pricing Table Section */}
-            <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+            <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50/50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12 sm:mb-16">
                         <span className="bg-primary text-white font-semibold tracking-wider uppercase text-xs sm:text-sm px-4 py-1.5 rounded-full inline-block shadow-md shadow-primary/30">Transparent Pricing</span>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mt-3 sm:mt-4 mb-4 sm:mb-6 px-4">
-                            Exclusive Private Transfer Rates
+                            Premium Transfer Rates 2025
                         </h2>
                         <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-                            Transparent, all-inclusive pricing for all point-to-point VIP transfers and executive chauffeur hire in Saudi Arabia.
+                            Simple, fixed pricing for your VIP journey. No hidden fees or surprise surges.
                         </p>
                     </div>
 
-                    <div className="overflow-x-auto rounded-xl shadow-lg border border-gray-200 w-full relative">
-                        <table className="w-full text-sm text-left text-gray-600 min-w-[800px]">
+                    {/* Desktop View: Table */}
+                    <div className="hidden lg:block overflow-x-auto rounded-3xl shadow-2xl shadow-blue-900/5 border border-gray-100 bg-white relative">
+                        <table className="w-full text-sm text-left text-gray-600">
                             <thead className="text-xs text-white uppercase bg-gray-900">
                                 <tr>
-                                    <th scope="col" className="px-6 py-4 font-bold text-base whitespace-nowrap bg-primary sticky left-0 z-20 border-r border-primary-dark/20 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)]">
-                                        Service Route
+                                    <th scope="col" className="px-8 py-6 font-black text-lg bg-primary sticky left-0 z-20 border-r border-white/10">
+                                        Route / Destination
                                     </th>
-                                    <th scope="col" className="px-6 py-4 font-bold text-center whitespace-nowrap">
-                                        Economy Sedan<br /><span className="text-[10px] font-normal opacity-80">Toyota Camry</span>
-                                    </th>
-                                    <th scope="col" className="px-6 py-4 font-bold text-center whitespace-nowrap">
-                                        Family Van<br /><span className="text-[10px] font-normal opacity-80">Hyundai Staria</span>
-                                    </th>
-                                    <th scope="col" className="px-6 py-4 font-bold text-center whitespace-nowrap">
-                                        Standard Van<br /><span className="text-[10px] font-normal opacity-80">Hyundai Starex</span>
-                                    </th>
-                                    <th scope="col" className="px-6 py-4 font-bold text-center whitespace-nowrap">
-                                        VIP SUV<br /><span className="text-[10px] font-normal opacity-80">GMC Yukon XL</span>
-                                    </th>
-                                    <th scope="col" className="px-6 py-4 font-bold text-center whitespace-nowrap">
-                                        Group Van<br /><span className="text-[10px] font-normal opacity-80">Toyota Hiace</span>
-                                    </th>
-                                    <th scope="col" className="px-6 py-4 font-bold text-center whitespace-nowrap">
-                                        Local Bus<br /><span className="text-[10px] font-normal opacity-80">Toyota Coaster</span>
-                                    </th>
+                                    {[
+                                        { name: 'Toyota Camry', label: 'Economy Sedan' },
+                                        { name: 'Hyundai Staria VIP', label: 'Family VIP' },
+                                        { name: 'Hyundai Starex', label: 'Standard Van' },
+                                        { name: 'GMC Yukon XL / Denali', label: 'VIP SUV' },
+                                        { name: 'Toyota Hiace', label: 'Group Van' },
+                                        { name: 'Toyota Coaster', label: 'Large Bus' }
+                                    ].map((v) => (
+                                        <th key={v.name} scope="col" className="px-6 py-6 font-bold text-center border-l border-white/5">
+                                            {v.label}<br /><span className="text-[10px] font-normal opacity-70 tracking-widest">{v.name}</span>
+                                        </th>
+                                    ))}
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className="divide-y divide-gray-100">
                                 {[
-                                    { route: 'Jeddah Airport → Makkah', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
-                                    { route: 'Makkah → Madinah Hotel', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
-                                    { route: 'Makkah → Madinah via Badr', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
-                                    { route: 'Makkah Ziyarat Tour', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
-                                    { route: 'Madinah Hotel → Madinah Airport', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
-                                    { route: 'Madinah Ziyarat Tour', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
-                                    { route: 'Madinah Hotel → Train Station', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
-                                    { route: 'Madinah Hotel → Jeddah Airport', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
-                                    { route: 'Makkah Hotel → Train Station', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
-                                    { route: 'Makkah Hotel → Jeddah Airport', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate' },
-                                    { route: 'Full Day (Fuel + Driver)', camry: 'Contact Us', staria: 'Contact Us', starex: 'Contact Us', gmc: 'Contact Us', hiace: 'Contact Us', coaster: 'Contact Us', highlight: true },
-                                    { route: 'Per Hour', camry: 'Fixed Rate', staria: 'Fixed Rate', starex: 'Fixed Rate', gmc: 'Fixed Rate', hiace: 'Fixed Rate', coaster: 'Fixed Rate', highlight: true },
+                                    { from: 'Jeddah', to: 'Makkah', label: 'Jeddah Airport → Makkah' },
+                                    { from: 'Makkah', to: 'Madinah', label: 'Makkah → Madinah' },
+                                    { from: 'Madinah', to: 'Jeddah', label: 'Madinah → Jeddah Airport' },
+                                    { from: 'Makkah', to: 'Taif', label: 'Makkah → Taif City' },
+                                    { from: 'Makkah', to: 'Makkah Ziyarat', label: 'Makkah Ziyarat Tour', isTour: true },
+                                    { from: 'Madinah', to: 'Madinah Ziyarat', label: 'Madinah Ziyarat Tour', isTour: true },
                                 ].map((row, index) => (
-                                    <tr key={index} className={`border-b hover:bg-gray-50 transition-colors ${row.highlight ? 'bg-gray-50/50 font-bold' : 'bg-white'}`}>
-                                        <th scope="row" className={`px-6 py-4 font-medium text-gray-900 whitespace-nowrap sticky left-0 z-10 border-r border-gray-100 shadow-[2px_0_5px_-2px_rgba(0,0,0,0.1)] ${row.highlight ? 'bg-gray-50' : 'bg-white'}`}>
-                                            {row.route}
+                                    <tr key={index} className="hover:bg-blue-50/30 transition-colors group">
+                                        <th scope="row" className="px-8 py-6 font-bold text-gray-900 whitespace-nowrap sticky left-0 z-10 bg-white group-hover:bg-blue-50/30 border-r border-gray-50">
+                                            {row.label}
                                         </th>
-                                        <td className="px-6 py-4 text-center font-bold text-gray-700 bg-blue-50/30">
-                                            {row.camry}
-                                        </td>
-                                        <td className="px-6 py-4 text-center">
-                                            {row.staria}
-                                        </td>
-                                        <td className="px-6 py-4 text-center bg-blue-50/30">
-                                            {row.starex}
-                                        </td>
-                                        <td className="px-6 py-4 text-center text-primary font-black bg-primary/5">
-                                            {row.gmc}
-                                        </td>
-                                        <td className="px-6 py-4 text-center">
-                                            {row.hiace}
-                                        </td>
-                                        <td className="px-6 py-4 text-center bg-blue-50/30">
-                                            {row.coaster}
-                                        </td>
+                                        {[
+                                            'Toyota Camry',
+                                            'Hyundai Staria VIP',
+                                            'Hyundai Starex',
+                                            'GMC Yukon XL / Denali',
+                                            'Toyota Hiace',
+                                            'Toyota Coaster'
+                                        ].map((vName) => {
+                                            const price = getPrice(row.from, row.to, vName);
+                                            return (
+                                                <td key={vName} className="px-6 py-4 text-center">
+                                                    <Link 
+                                                        href={`/booking?from=${row.from}&to=${row.to}&vehicle=${encodeURIComponent(vName.replace(/\s+/g, '-'))}`}
+                                                        className="group flex flex-col items-center gap-1"
+                                                    >
+                                                        <span className="text-base font-black text-gray-900 group-hover:text-primary transition-colors">
+                                                            {price ? `${price} SAR` : 'Get Quote'}
+                                                        </span>
+                                                        <span className="text-[10px] font-bold text-gray-400 uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity">
+                                                            Click to Get Quote
+                                                        </span>
+                                                    </Link>
+                                                </td>
+                                            );
+                                        })}
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
                     </div>
-                    <div className="mt-6 text-center text-sm text-gray-500">
-                        * Quality service for all point-to-point VIP transfers and executive chauffeur hire in Saudi Arabia. Contact us for custom quotes.
+
+                    {/* Mobile View: Route Cards */}
+                    <div className="lg:hidden space-y-4">
+                        {[
+                            { from: 'Jeddah', to: 'Makkah', label: 'Jeddah Airport to Makkah' },
+                            { from: 'Makkah', to: 'Madinah', label: 'Makkah to Madinah' },
+                            { from: 'Madinah', to: 'Jeddah', label: 'Madinah to Jeddah' },
+                        ].map((row, idx) => (
+                            <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
+                                <h3 className="text-lg font-black text-gray-900 mb-4 flex items-center gap-2">
+                                    <MapPin className="w-4 h-4 text-primary" /> {row.label}
+                                </h3>
+                                <div className="grid grid-cols-2 gap-3">
+                                    {[
+                                        { name: 'Toyota Camry', label: 'Sedan' },
+                                        { name: 'GMC Yukon XL / Denali', label: 'VIP SUV' },
+                                        { name: 'Hyundai Staria VIP', label: 'VIP Van' },
+                                        { name: 'Toyota Hiace', label: 'Group Van' }
+                                    ].map((v) => {
+                                        const price = getPrice(row.from, row.to, v.name);
+                                        return (
+                                            <Link 
+                                                key={v.name}
+                                                href={`/booking?from=${row.from}&to=${row.to}&vehicle=${encodeURIComponent(v.name.replace(/\s+/g, '-'))}`}
+                                                className="bg-gray-50 p-3 rounded-xl border border-transparent hover:border-primary transition-all active:scale-95"
+                                            >
+                                                <div className="text-[10px] font-bold text-gray-500 uppercase">{v.label}</div>
+                                                <div className="text-sm font-black text-gray-900 mt-1">
+                                                    {price ? `${price} SAR` : 'Get Quote'}
+                                                </div>
+                                            </Link>
+                                        );
+                                    })}
+                                </div>
+                                <Link href="/booking/" className="mt-4 block text-center py-2 text-xs font-bold text-primary hover:underline uppercase tracking-widest">
+                                    View Full Quotation Details →
+                                </Link>
+                            </div>
+                        ))}
+                        <Link href="/booking/">
+                            <Button className="w-full h-14 bg-gray-900 text-white rounded-2xl font-bold mt-4 shadow-lg active:scale-95">
+                                Custom Route Quote Request
+                            </Button>
+                        </Link>
+                    </div>
+
+                    <div className="mt-8 text-center text-xs font-medium text-gray-400 uppercase tracking-[0.2em] px-4">
+                        * All Prices are fixed and inclusive of VAT, fuel & driver. NO SURGE PRICING.
                     </div>
                 </div>
             </section>
@@ -975,6 +1111,17 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             </section >
 
 
+            {/* Bottom Sticky CTA (Mobile Only) */}
+            <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[90%] sm:hidden animate-bounce-subtle">
+                <Button 
+                    onClick={() => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="w-full bg-slate-900 hover:bg-black text-white h-14 rounded-2xl font-black text-lg shadow-2xl flex items-center justify-center gap-2 border border-white/10"
+                >
+                    <Car className="w-5 h-5 text-primary" /> BOOK NOW <ArrowRight className="w-5 h-5" />
+                </Button>
+            </div>
         </div >
     );
 }

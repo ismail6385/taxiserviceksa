@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, BookOpen, Calculator, ArrowRight, Shield } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -31,31 +32,21 @@ export default function QiblatainPage() {
         '/hero-slide-3.webp',
     ];
 
-    const qiblatainSchema = {
-        "@context": "https://schema.org",
-        "@type": "Mosque",
-        "name": "Masjid Al Qiblatain",
-        "alternateName": "The Mosque of the Two Qiblas",
-        "description": "A historically important mosque in Madinah where the direction of prayer (Qibla) was changed from Jerusalem to Makkah.",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Madinah",
-            "addressRegion": "Madinah Province",
-            "addressCountry": "SA"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "24.4842",
-            "longitude": "39.5794"
-        }
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="qiblatain-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(qiblatainSchema) }}
+            <JsonLdLocation 
+                cityName="Madinah"
+                description="Professional taxi and private car services in Madinah. 24/7 reliable transport for residents, business travelers, and tourists."
+                services={[
+                    { name: 'Madinah Airport Taxi', description: 'Reliable airport pickups and drop-offs.' },
+                    { name: 'City Chauffeur Service', description: 'Professional drivers for local travel and business.' },
+                    { name: 'Intercity Transfers', description: 'Private long-distance travel to other major cities.' },
+                    { name: 'Family SUW/Van', description: 'Large vehicles for groups and extra luggage.' }
+                ]}
+                priceRange={{ min: 50, max: 2000, currency: "SAR" }}
+                image="https://taxiserviceksa.com/locations/madinah.webp"
             />
 
             <Hero

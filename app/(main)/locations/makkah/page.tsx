@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/accordion"
 import Hero from '@/components/Hero';
 
-import Script from 'next/script';
+import JsonLdLocation from '@/components/JsonLdLocation';
 import DistanceTable from '@/components/seo/DistanceTable';
 import SeasonalTravelTips from '@/components/seo/SeasonalTravelTips';
 import RelatedLocations from '@/components/seo/RelatedLocations';
@@ -19,8 +19,6 @@ import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
-
-
 
 export const metadata: Metadata = {
     title: 'VIP Private Transfer & Umrah Chauffeur Makkah | Premium Transport',
@@ -45,7 +43,6 @@ export const metadata: Metadata = {
 };
 
 export default async function MakkahPage() {
-
     const services = [
         { name: 'VIP Airport Pickup', description: 'Executive pickup from KAIA Terminal 1 & North Terminal directly to your Hotel.', icon: Plane },
         { name: 'Executive Umrah Transfers', description: 'Premium intercity travel between Makkah, Madinah, and Jeddah with VIP hospitality.', icon: Landmark },
@@ -79,82 +76,12 @@ export default async function MakkahPage() {
 
     return (
         <div className="bg-gray-50 min-h-screen">
-
-            <Script
-                id="breadcrumb-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            {
-                                "@type": "ListItem",
-                                "position": 1,
-                                "name": "Home",
-                                "item": "https://taxiserviceksa.com/"
-                            },
-                            {
-                                "@type": "ListItem",
-                                "position": 2,
-                                "name": "Locations",
-                                "item": "https://taxiserviceksa.com/locations/"
-                            },
-                            {
-                                "@type": "ListItem",
-                                "position": 3,
-                                "name": "Makkah",
-                                "item": "https://taxiserviceksa.com/locations/makkah/"
-                            }
-                        ]
-                    })
-                }}
-            />
-            <Script
-                id="service-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "ItemList",
-                        "itemListElement": [
-                            {
-                                "@type": "Service",
-                                "serviceType": "Umrah VIP Transfer Service",
-                                "areaServed": {
-                                    "@type": "City",
-                                    "name": "Makkah"
-                                },
-                                "description": "Reliable VIP transfer service in Makkah for Umrah pilgrims. Specializing in hotel to Haram transfers and Ziyarat tours."
-                            },
-                            {
-                                "@type": "Service",
-                                "serviceType": "Airport VIP Transfer to Makkah",
-                                "areaServed": [
-                                    {
-                                        "@type": "City",
-                                        "name": "Jeddah"
-                                    },
-                                    {
-                                        "@type": "City",
-                                        "name": "Makkah"
-                                    }
-                                ],
-                                "description": "Direct VIP airport transfer service from King Abdulaziz International Airport (Jeddah) to hotels in Makkah."
-                            },
-                            {
-                                "@type": "Service",
-                                "serviceType": "Hotel to Haram Taxi",
-
-                                "areaServed": {
-                                    "@type": "City",
-                                    "name": "Makkah"
-                                },
-                                "description": "Quick pickup and drop-off service between hotels and Masjid al Haram for daily prayers."
-                            }
-                        ]
-                    })
-                }}
+            <JsonLdLocation 
+                cityName="Makkah" 
+                description="Premium VIP private transfer service in Makkah for Umrah pilgrims. Executive chauffeur service for Makkah, Madinah, and Jeddah Airport pickups. High-end fleet for a dignified journey."
+                services={services}
+                priceRange={{ min: 250, max: 800, currency: "SAR" }}
+                image="https://taxiserviceksa.com/makkah-kaaba-night.webp"
             />
 
 
@@ -924,6 +851,35 @@ export default async function MakkahPage() {
                         </div>
                     </div>
                 </div>
+
+
+            {/* UGC Section */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16">
+                        <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
+                            <Users className="w-4 h-4" />
+                            <span className="text-sm font-semibold">Pilgrim Feedback</span>
+                        </div>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
+                            Makkah Travel Insights
+                        </h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Share your Umrah experience or ask a question about our VIP transfer services in Makkah.
+                        </p>
+                    </div>
+
+                    <div className="space-y-16 mb-16">
+                        <ReviewsDisplay location="Makkah" />
+                        <QuestionsDisplay location="Makkah" />
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <ReviewForm locationName="Makkah" />
+                        <QuestionForm locationName="Makkah" />
+                    </div>
+                </div>
+            </section>
 
                 <RelatedLocations currentCity="Makkah" />
             </div>

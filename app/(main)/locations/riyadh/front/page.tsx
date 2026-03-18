@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Building2, Briefcase, ArrowRight, Shield } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -31,30 +32,21 @@ export default function RiyadhFrontPage() {
         '/hero-slide-2.webp',
     ];
 
-    const frontSchema = {
-        "@context": "https://schema.org",
-        "@type": "ExhibitionEvent",
-        "name": "Riyadh Front",
-        "description": "A major mixed-use destination in Riyadh hosting the Riyadh Exhibition & Convention Center, shopping, and dining.",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Riyadh",
-            "addressRegion": "Riyadh Province",
-            "addressCountry": "SA"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "24.8643",
-            "longitude": "46.7214"
-        }
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="front-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(frontSchema) }}
+            <JsonLdLocation 
+                cityName="Riyadh"
+                description="Professional taxi and private car services in Riyadh. 24/7 reliable transport for residents, business travelers, and tourists."
+                services={[
+                    { name: 'Riyadh Airport Taxi', description: 'Reliable airport pickups and drop-offs.' },
+                    { name: 'City Chauffeur Service', description: 'Professional drivers for local travel and business.' },
+                    { name: 'Intercity Transfers', description: 'Private long-distance travel to other major cities.' },
+                    { name: 'Family SUW/Van', description: 'Large vehicles for groups and extra luggage.' }
+                ]}
+                priceRange={{ min: 50, max: 2000, currency: "SAR" }}
+                image="https://taxiserviceksa.com/locations/riyadh.webp"
             />
 
             <Hero

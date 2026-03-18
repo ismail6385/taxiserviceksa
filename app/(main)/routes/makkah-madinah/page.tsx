@@ -1,14 +1,13 @@
-
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Plane, ArrowRight, Coffee, Navigation, Train, Shield, Briefcase, Compass, User } from 'lucide-react';
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
+import JsonLdRoute from '@/components/JsonLdRoute';
 
 export const metadata: Metadata = {
     title: 'Taxi Makkah to Madinah | Makkah to Madinah Private Car',
@@ -27,41 +26,14 @@ export default function MakkahMadinahRoutePage() {
         { label: 'Service', value: 'Door-to-Door', icon: CheckCircle2 },
     ];
 
-    const routeSchema = {
-        "@context": "https://schema.org",
-        "@type": "TravelAction",
-        "name": "Taxi from Makkah to Madinah",
-        "fromLocation": {
-            "@type": "Place",
-            "name": "Makkah",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Makkah",
-                "addressCountry": "SA"
-            }
-        },
-        "toLocation": {
-            "@type": "Place",
-            "name": "Madinah",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Madinah",
-                "addressCountry": "SA"
-            }
-        },
-        "distance": "450 km",
-        "instrument": {
-            "@type": "Car",
-            "name": "GMC Yukon, Mercedes S-Class, Hyundai Staria"
-        }
-    };
-
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="route-schema-makkah-madinah"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
+            <JsonLdRoute 
+                from="Makkah"
+                to="Madinah"
+                description="Premium intercity transfer from Makkah to Madinah. Direct door-to-door VIP car service for families and pilgrims. 450 km journey on Hijrah Road."
+                distance="450 km"
+                duration="PT5H"
             />
 
             <Hero

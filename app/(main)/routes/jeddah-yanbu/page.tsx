@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Factory, Anchor, ArrowRight } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -31,50 +32,21 @@ export default function JeddahYanbuRoutePage() {
         '/hero-slide-2.webp',
     ];
 
-    const routeSchema = {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Jeddah to Yanbu Taxi",
-        "provider": {
-            "@type": "TransportationService",
-            "name": "TaxiServiceKSA"
-        },
-        "areaServed": {
-            "@type": "City",
-            "name": "Yanbu"
-        },
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Intercity Route",
-            "itemListElement": [
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Standard Sedan",
-                        "description": "Camry/Sonata for up to 3 passengers."
-                    },
-                    "availability": "https://schema.org/InStock"
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "SUV (GMC/Hyundai)",
-                        "description": "Spacious ride for up to 7 passengers."
-                    },
-                    "availability": "https://schema.org/InStock"
-                }
-            ]
-        }
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="route-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
+            <JsonLdLocation 
+                cityName="Jeddah to Yanbu"
+                description="Professional VIP private car service for Jeddah to Yanbu. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                services={[
+                    { name: 'Jeddah to Yanbu Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
+                    { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
+                    { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
+                    { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
+                ]}
+                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
             <Hero

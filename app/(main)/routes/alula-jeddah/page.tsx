@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Plane, ArrowRight, Coffee, Navigation, Mountain } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -37,37 +38,21 @@ export default function AlulaJeddahRoutePage() {
         '/hero-slide-2.webp',
     ];
 
-    const routeSchema = {
-        "@context": "https://schema.org",
-        "@type": "TravelAction",
-        "name": "Taxi from Al Ula to Jeddah",
-        "fromLocation": {
-            "@type": "Place",
-            "name": "Al Ula",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Al Ula",
-                "addressCountry": "SA"
-            }
-        },
-        "toLocation": {
-            "@type": "Place",
-            "name": "Jeddah",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Jeddah",
-                "addressCountry": "SA"
-            }
-        },
-        "distance": "700 km",
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="route-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
+            <JsonLdLocation 
+                cityName="Alula to Jeddah"
+                description="Professional VIP private car service for Alula to Jeddah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                services={[
+                    { name: 'Alula to Jeddah Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
+                    { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
+                    { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
+                    { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
+                ]}
+                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
             {/* Hero Section */}

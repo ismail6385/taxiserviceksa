@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Compass } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -27,6 +26,7 @@ import DistanceTable from '@/components/seo/DistanceTable';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import ExpertReview from '@/components/seo/ExpertReview';
+import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
     title: 'VIP Private Transfer & Chauffeur AlUla | Hegra Heritage Tours',
@@ -78,6 +78,13 @@ export default function AlUlaPage() {
 
     return (
         <div className="bg-gray-50 min-h-screen">
+            <JsonLdLocation 
+                cityName="AlUla"
+                description="Professional VIP transfers in AlUla. Specializing in UNESCO heritage tours to Hegra, AlUla International Airport (ULH) pickups, and high-end desert exploration with 4x4 SUVs."
+                services={services}
+                priceRange={{ min: 100, max: 1000, currency: "SAR" }}
+                image="https://taxiserviceksa.com/alula-hegra-tombs.webp"
+            />
 
 
 

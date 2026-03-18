@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Camera, Mountain, ArrowRight, Coffee } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -31,30 +32,21 @@ export default function ElephantRockPage() {
         '/hero-slide-3.webp',
     ];
 
-    const elephantRockSchema = {
-        "@context": "https://schema.org",
-        "@type": "TouristDestination",
-        "name": "Elephant Rock (Jabal AlFil)",
-        "description": "Information geological rock formation resembling an elephant, popular for sunset viewing and cafes.",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "AlUla",
-            "addressRegion": "Madinah Province",
-            "addressCountry": "SA"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "26.7028",
-            "longitude": "37.9922"
-        }
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="elephant-rock-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(elephantRockSchema) }}
+            <JsonLdLocation 
+                cityName="Alula"
+                description="Professional taxi and private car services in Alula. 24/7 reliable transport for residents, business travelers, and tourists."
+                services={[
+                    { name: 'Alula Airport Taxi', description: 'Reliable airport pickups and drop-offs.' },
+                    { name: 'City Chauffeur Service', description: 'Professional drivers for local travel and business.' },
+                    { name: 'Intercity Transfers', description: 'Private long-distance travel to other major cities.' },
+                    { name: 'Family SUW/Van', description: 'Large vehicles for groups and extra luggage.' }
+                ]}
+                priceRange={{ min: 50, max: 2000, currency: "SAR" }}
+                image="https://taxiserviceksa.com/locations/alula.webp"
             />
 
             <Hero

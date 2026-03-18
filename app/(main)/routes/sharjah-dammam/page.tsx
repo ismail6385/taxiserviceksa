@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, CheckCircle2, Building2, Globe, ArrowRight } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -30,40 +31,21 @@ export default function SharjahDammamRoutePage() {
         '/jeddah-airport.webp'
     ];
 
-    const routeSchema = {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Taxi Sharjah to Dammam",
-        "provider": {
-            "@type": "TransportationService",
-            "name": "TaxiServiceKSA"
-        },
-        "areaServed": [
-            { "@type": "City", "name": "Sharjah" },
-            { "@type": "City", "name": "Dammam" }
-        ],
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Cross-Border Transfers",
-            "itemListElement": [
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "One Way Transfer",
-                        "description": "Direct drop-off from Sharjah to Dammam."
-                    }
-                }
-            ]
-        }
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="route-schema-sharjah-dammam"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
+            <JsonLdLocation 
+                cityName="Sharjah to Dammam"
+                description="Professional VIP private car service for Sharjah to Dammam. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                services={[
+                    { name: 'Sharjah to Dammam Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
+                    { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
+                    { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
+                    { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
+                ]}
+                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
             <Hero

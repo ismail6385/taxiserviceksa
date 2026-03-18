@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Building2, ShoppingBag } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -22,6 +21,7 @@ import DistanceTable from '@/components/seo/DistanceTable';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import ExpertReview from '@/components/seo/ExpertReview';
+import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
     title: 'VIP Private Transfer & Chauffeur Al Khobar | Bahrain Causeway',
@@ -73,6 +73,13 @@ export default function AlKhobarPage() {
 
     return (
         <div className="bg-gray-50 min-h-screen">
+            <JsonLdLocation 
+                cityName="Al Khobar"
+                description="Professional VIP transfers in Al Khobar. Specializing in King Fahd Causeway trips to Bahrain, coastal tours, and executive DMM Airport transfers."
+                services={services}
+                priceRange={{ min: 200, max: 600, currency: "SAR" }}
+                image="https://taxiserviceksa.com/hero-slide-1.webp"
+            />
 
 
 

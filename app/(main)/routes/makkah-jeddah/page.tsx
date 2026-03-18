@@ -1,7 +1,6 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { Car, Clock, MapPin, CheckCircle2, Shield, Users, ArrowRight, Briefcase, Navigation, Star, Plane, Coffee, User, Compass, DollarSign } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -9,6 +8,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
+import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
     title: 'Taxi Makkah to Jeddah | Makkah to Jeddah Private Car',
@@ -27,41 +27,20 @@ export default function MakkahJeddahRoutePage() {
         { label: 'Service', value: 'Door-to-Door', icon: MapPin },
     ];
 
-    const routeSchema = {
-        "@context": "https://schema.org",
-        "@type": "TravelAction",
-        "name": "Taxi from Makkah to Jeddah",
-        "fromLocation": {
-            "@type": "Place",
-            "name": "Makkah",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Makkah",
-                "addressCountry": "SA"
-            }
-        },
-        "toLocation": {
-            "@type": "Place",
-            "name": "Jeddah",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Jeddah",
-                "addressCountry": "SA"
-            }
-        },
-        "distance": "90 km",
-        "instrument": {
-            "@type": "Car",
-            "name": "GMC Yukon, Cadillac Escalade, Mercedes S-Class"
-        }
-    };
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="route-schema-makkah-jeddah"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
+            <JsonLdLocation 
+                cityName="Makkah to Jeddah"
+                description="Professional VIP return transfers from Makkah to Jeddah. Providing door-to-door service to Jeddah Airport (JED) and city hotels using luxury GMC Yukons."
+                services={[
+                    { name: 'Makkah to JED Airport', description: 'VIP transfers for departing flights with luggage assistance.' },
+                    { name: 'Makkah to Jeddah City', description: 'Direct transfers to hotels in Jeddah Corniche and Obhur.' },
+                    { name: 'Makkah to Jeddah Port', description: 'Transfers for cruise passengers and industrial port visitors.' },
+                    { name: 'VIP Hourly Chauffeur', description: 'Dedicated executive driver for business in Jeddah after Makkah stay.' }
+                ]}
+                priceRange={{ min: 250, max: 700, currency: "SAR" }}
+                image="https://taxiserviceksa.com/makkah-kaaba-night.webp"
             />
 
             <Hero

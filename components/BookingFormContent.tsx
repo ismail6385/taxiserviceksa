@@ -25,7 +25,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { MapPin, Phone, User, Clock, Car, Mail, ArrowRight, ArrowLeft, Check, Users, Briefcase, Wallet, ChevronsUpDown, Search, Calendar as CalendarIcon } from 'lucide-react';
+import { MapPin, Phone, User, Clock, Car, Mail, ArrowRight, ArrowLeft, Check, Users, Briefcase, Wallet, ChevronsUpDown, Search, Calendar as CalendarIcon, Info } from 'lucide-react';
 import { supabase, vehicles, type BookingData } from '@/lib/supabase';
 import { getPrice } from '@/lib/pricing';
 import { countryCodes } from '@/data/countryCodes';
@@ -56,7 +56,6 @@ interface BookingFormProps {
 }
 
 export default function BookingFormContent({ prefilledData, className }: BookingFormProps) {
-    // Steps: 1=Locations, 2=Vehicle Selection, 3=Contact Details, 4=Success
     const [step, setStep] = useState(1);
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
@@ -77,21 +76,20 @@ export default function BookingFormContent({ prefilledData, className }: Booking
         passengers: 1,
         luggage: 0,
         special_requests: '',
-        status: 'pending'
+        status: 'pending',
+        has_return_trip: false,
+        child_seats: 0
     });
 
     const searchParams = useSearchParams();
 
-    // Initialize data and determine starting step
     useEffect(() => {
         let updates: Partial<BookingData> = {};
 
-        // 1. Merge Props
         if (prefilledData) {
             updates = { ...updates, ...prefilledData };
         }
 
-        // 2. Merge URL Params
         if (searchParams) {
             const from = searchParams.get('from');
             const to = searchParams.get('to');
@@ -121,11 +119,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
         if (Object.keys(updates).length > 0) {
             setFormData(prev => {
                 const newData = { ...prev, ...updates };
-                // Auto-advance logic:
-                // If we have From, To, Date, and Time -> Go to Step 2 (Vehicles) directly
                 if (newData.pickup_location && newData.destination && newData.pickup_date && newData.pickup_time) {
-                    // Use a timeout to avoid conflicts with render cycle if needed, or simply set state
-                    // We'll setStep(2) here.
                     setStep(2);
                 }
                 return newData;
@@ -133,7 +127,6 @@ export default function BookingFormContent({ prefilledData, className }: Booking
         }
     }, [searchParams, prefilledData]);
 
-    // Calculate price effect
     useEffect(() => {
         if (formData.pickup_location && formData.destination && formData.vehicle_type) {
             setCalculatedPrice(getPrice(formData.pickup_location, formData.destination, formData.vehicle_type));
@@ -158,30 +151,22 @@ export default function BookingFormContent({ prefilledData, className }: Booking
             passengers: vehicle.passengers,
             luggage: vehicle.luggage
         }));
-        // Auto advance to next step after picking vehicle? 
-        // Better to let user click "Continue" or do it automatically. 
-        // Let's keep it manual for explicit confirmation, or auto if they click the card.
     };
-
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
-        // ... (Submit logic same as before, see next chunk) ...
         try {
             const fullPhoneNumber = `${countryCode}${formData.customer_phone}`;
             const finalFormData = {
                 ...formData,
                 customer_phone: fullPhoneNumber,
-                special_requests: calculatedPrice
-                    ? `${formData.special_requests ? formData.special_requests + '. ' : ''}Please Provide Quote`
-                    : formData.special_requests
+                special_requests: `${formData.has_return_trip ? '[RETURN TRIP REQUESTED] ' : ''}${formData.child_seats ? `[CHILD SEATS: ${formData.child_seats}] ` : ''}${calculatedPrice ? (formData.special_requests ? formData.special_requests + '. ' : '') + 'Please Provide Quote' : formData.special_requests}`
             };
 
             const { data, error } = await supabase.from('bookings').insert([finalFormData]).select();
             if (error) throw error;
 
-            // Email API call (fire-and-forget, don't block booking success)
             fetch('/api/send-booking-emails', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -190,15 +175,11 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                 if (!res.ok) {
                     const errorData = await res.json().catch(() => ({}));
                     console.error('Email API error:', res.status, errorData);
-                } else {
-                    console.log('Booking emails sent successfully!');
                 }
             }).catch((err) => console.error('Email fetch failed:', err));
 
             setSuccess(true);
             setStep(4);
-
-
         } catch (error) {
             console.error(error);
             alert('Booking failed. Please try again.');
@@ -215,11 +196,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
         if (step === 1 && !isStep1Valid) return alert('Please fill in all trip details.');
         if (step === 2 && !isStep2Valid) return alert('Please select a vehicle.');
         if (step === 3 && !isStep3Valid) return alert('Please fill in your contact details.');
-        if (step === 3) {
-            // Wait this should be submit button on step 3? usually Step 3 is "Review & Details" then Submit
-            // Let's make Step 3 the final form step with Submit button.
-            return;
-        }
+        if (step === 3) return;
         setStep(val => val + 1);
     };
 
@@ -227,12 +204,9 @@ export default function BookingFormContent({ prefilledData, className }: Booking
 
     return (
         <div className={`bg-white border border-gray-200 p-4 sm:p-8 rounded-3xl shadow-xl w-full mx-auto relative overflow-hidden ${className}`}>
-            {/* Progress Steps Header */}
             <div className="mb-8">
                 <div className="flex justify-between items-center relative">
-                    {/* Progress Bar Background */}
                     <div className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-1 bg-gray-100 -z-10 rounded-full"></div>
-                    {/* Active Progress Bar */}
                     <div
                         className="absolute left-0 top-1/2 -translate-y-1/2 h-1 bg-primary transition-all duration-300 rounded-full"
                         style={{ width: `${((step - 1) / 2) * 100}%` }}
@@ -257,8 +231,6 @@ export default function BookingFormContent({ prefilledData, className }: Booking
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
-
-                {/* STEP 1: TRIP DETAILS */}
                 {step === 1 && (
                     <div className="space-y-5 animate-fade-in-up">
                         <div className="text-center mb-4">
@@ -268,7 +240,6 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             </p>
                         </div>
 
-                        {/* Quick Select */}
                         <div className="bg-gray-50/50 p-3 rounded-xl border border-dashed border-gray-200">
                             <label className="text-xs font-semibold text-gray-500 ml-2 mb-1 block">Quick Select Route</label>
                             <Select onValueChange={(val) => {
@@ -283,7 +254,6 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             </Select>
                         </div>
 
-                        {/* Locations */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="space-y-1.5">
                                 <label className="text-sm font-semibold text-gray-700 ml-1">From</label>
@@ -301,8 +271,6 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             </div>
                         </div>
 
-                        {/* Date & Time */}
-                        {/* Date & Time */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="relative group/input flex flex-col gap-1.5">
                                 <label className="text-sm font-semibold text-gray-700 ml-1">Pickup Date</label>
@@ -379,13 +347,23 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             </div>
                         </div>
 
+                        {/* Return Trip Toggle */}
+                        <div className="flex items-center gap-3 p-4 bg-blue-50/50 rounded-2xl border border-blue-100/50 cursor-pointer transition-all hover:bg-blue-50" onClick={() => setFormData(prev => ({ ...prev, has_return_trip: !prev.has_return_trip }))}>
+                            <div className={`w-10 h-6 rounded-full relative transition-colors ${formData.has_return_trip ? 'bg-primary' : 'bg-gray-200'}`}>
+                                <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${formData.has_return_trip ? 'left-5' : 'left-1'}`}></div>
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="text-sm font-bold text-gray-900">Add Return Trip?</span>
+                                <span className="text-[10px] text-gray-500 font-medium">Book both ways for 10% discount from the total quote.</span>
+                            </div>
+                        </div>
+
                         <Button type="button" onClick={nextStep} className="w-full bg-primary hover:bg-primary/90 text-black font-bold py-4 text-lg rounded-xl mt-4">
                             Select Vehicle <ArrowRight className="w-5 h-5 ml-2" />
                         </Button>
                     </div>
                 )}
 
-                {/* STEP 2: VEHICLE SELECTION */}
                 {step === 2 && (
                     <div className="space-y-6 animate-fade-in-up">
                         <div className="text-center">
@@ -407,55 +385,17 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                                 <span className="flex items-center gap-1 font-bold"><Users className="w-3.5 h-3.5 text-primary" /> Max {v.passengers}</span>
                                                 <span className="flex items-center gap-1 font-bold"><Briefcase className="w-3.5 h-3.5 text-primary" /> {v.luggage} Bags</span>
                                             </div>
+                                            {(v as any).description && (
+                                                <p className="text-[10px] text-gray-400 mt-1.5 font-medium italic line-clamp-1 group-hover:line-clamp-none transition-all">
+                                                    {(v as any).description}
+                                                </p>
+                                            )}
                                         </div>
-                                        {/* Price hint if available */}
-                                        {formData.pickup_location && formData.destination && (
-                                            <div className="text-right">
-                                                <span className="block font-black text-lg text-primary leading-none">
-                                                    Get Quote
-                                                </span>
-                                                <span className="text-[9px] text-gray-400 font-bold uppercase tracking-tighter">Private Only</span>
-                                            </div>
-                                        )}
+                                        <div className="text-right">
+                                            <span className="block font-black text-lg text-primary leading-none">Get Quote</span>
+                                            <span className="text-[9px] text-gray-400 font-bold uppercase tracking-tighter">Private Only</span>
+                                        </div>
                                     </div>
-
-                                    {/* Passenger Selector (Only visible for selected card) */}
-                                    {formData.vehicle_type === v.name && (
-                                        <div className="mt-4 pt-4 border-t border-gray-100 flex items-center justify-between animate-fade-in">
-                                            <div className="flex flex-col">
-                                                <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Select Passengers</span>
-                                                <span className="text-xs font-bold text-gray-900">{formData.passengers} Passenger(s)</span>
-                                            </div>
-                                            <div className="flex items-center gap-3 bg-white rounded-lg p-1 border shadow-sm">
-                                                <button 
-                                                    type="button"
-                                                    onClick={(e) => {
-                                                        e.stopPropagation();
-                                                        if (formData.passengers > 1) {
-                                                            setFormData(prev => ({ ...prev, passengers: prev.passengers - 1 }));
-                                                        }
-                                                    }}
-                                                    className="w-8 h-8 rounded-md bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-all active:scale-90"
-                                                >
-                                                    <span className="text-lg font-bold text-gray-900">-</span>
-                                                </button>
-                                                <span className="font-black text-primary min-w-[30px] text-center">{formData.passengers}</span>
-                                                <button 
-                                                    type="button"
-                                                    onClick={(e) => {
-                                                        e.stopPropagation();
-                                                        if (formData.passengers < v.passengers) {
-                                                            setFormData(prev => ({ ...prev, passengers: prev.passengers + 1 }));
-                                                        }
-                                                    }}
-                                                    className="w-8 h-8 rounded-md bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-all active:scale-90"
-                                                >
-                                                    <span className="text-lg font-bold text-gray-900">+</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    )}
-
                                     <div className={`absolute top-4 right-4 w-5 h-5 rounded-full border-2 flex items-center justify-center ${formData.vehicle_type === v.name ? 'border-primary bg-primary text-white' : 'border-gray-300'}`}>
                                         {formData.vehicle_type === v.name && <Check className="w-3 h-3" />}
                                     </div>
@@ -463,16 +403,47 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             ))}
                         </div>
 
+                        {/* Extras: Child Seats */}
+                        <div className="bg-amber-50/50 p-5 rounded-3xl border border-dashed border-amber-200">
+                             <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-3">
+                                    <div className="p-2 bg-white rounded-xl shadow-sm">
+                                        <Users className="w-5 h-5 text-amber-600" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-black text-gray-900 leading-none">Need Child Seats?</h4>
+                                        <p className="text-[10px] text-gray-500 font-bold uppercase tracking-tight mt-1">Recommended for pilgrims with kids</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-3 bg-white rounded-lg p-1 border shadow-sm h-10">
+                                    <button 
+                                        type="button"
+                                        onClick={(e) => { e.stopPropagation(); formData.child_seats! > 0 && setFormData(prev => ({ ...prev, child_seats: prev.child_seats! - 1 })); }}
+                                        className="w-8 h-8 rounded-md bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-all active:scale-95"
+                                    >
+                                        <span className="text-base font-black text-gray-900">-</span>
+                                    </button>
+                                    <span className="font-black text-amber-600 min-w-[20px] text-center">{formData.child_seats}</span>
+                                    <button 
+                                        type="button"
+                                        onClick={(e) => { e.stopPropagation(); formData.child_seats! < 2 && setFormData(prev => ({ ...prev, child_seats: prev.child_seats! + 1 })); }}
+                                        className="w-8 h-8 rounded-md bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-all active:scale-95"
+                                    >
+                                        <span className="text-base font-black text-gray-900">+</span>
+                                    </button>
+                                </div>
+                             </div>
+                        </div>
+
                         <div className="flex gap-3 mt-6">
                             <Button type="button" onClick={prevStep} variant="ghost" className="flex-1 py-4 text-base rounded-xl text-gray-500">Back</Button>
-                            <Button type="button" onClick={() => setStep(3)} disabled={!formData.vehicle_type} className="flex-[2] bg-primary hover:bg-primary/90 text-black font-black py-4 text-lg rounded-xl shadow-lg transform active:scale-[0.98] transition-all">
+                            <Button type="button" onClick={nextStep} disabled={!formData.vehicle_type} className="flex-[2] bg-primary hover:bg-primary/90 text-black font-black py-4 text-lg rounded-xl shadow-lg transform active:scale-[0.98] transition-all">
                                 Continue Trip <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                         </div>
                     </div>
                 )}
 
-                {/* STEP 3: CUSTOMER DETAILS (FINAL) */}
                 {step === 3 && (
                     <div className="space-y-5 animate-fade-in-up">
                         <div className="text-center">
@@ -480,7 +451,6 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             <p className="text-gray-500 text-sm">Where should we send the booking confirmation?</p>
                         </div>
 
-                        {/* Booking Summary Card */}
                         <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 text-sm space-y-2">
                             <div className="flex justify-between font-medium">
                                 <span className="text-gray-500">Vehicle:</span>
@@ -490,12 +460,10 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                 <span className="text-gray-500">Date:</span>
                                 <span className="text-gray-900">{formData.pickup_date} at {formData.pickup_time}</span>
                             </div>
-                            {calculatedPrice && (
-                                <div className="flex justify-between font-bold text-primary pt-2 border-t border-gray-200 mt-2">
-                                    <span>Total Estimate:</span>
-                                    <span>Get Quote</span>
-                                </div>
-                            )}
+                            <div className="flex justify-between font-bold text-primary pt-2 border-t border-gray-200 mt-2">
+                                <span>Total Estimate:</span>
+                                <span>Get Quote</span>
+                            </div>
                         </div>
 
                         <div className="space-y-4">
@@ -542,7 +510,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                 {loading ? 'Processing...' : 'Submit Quote Request'}
                             </Button>
                         </div>
-
+                        
                         <div className="relative flex py-2 items-center mt-4">
                             <div className="flex-grow border-t border-gray-200"></div>
                             <span className="flex-shrink-0 mx-4 text-gray-400 text-xs uppercase font-bold tracking-wider">Or</span>
@@ -560,7 +528,6 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                     </div>
                 )}
 
-                {/* STEP 4: SUCCESS */}
                 {step === 4 && success && (
                     <div className="text-center space-y-6 animate-fade-in-up py-8">
                         <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto"><Check className="w-10 h-10 text-black" /></div>
@@ -569,7 +536,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             <p className="text-gray-500 font-medium">Your quotation request has been sent for review.</p>
                         </div>
                         <p className="text-gray-600 px-4">We've sent a summary to <strong>{formData.customer_email}</strong>. Our team will contact you with the official quote shortly.</p>
-                        <Button type="button" onClick={() => { setStep(1); setSuccess(false); setCalculatedPrice(null); setFormData(prev => ({ ...prev, pickup_location: '', destination: '', status: 'pending' })); }} className="bg-primary hover:bg-black text-white font-bold py-4 px-8 rounded-xl transition-colors">New Quotation Request</Button>
+                        <Button type="button" onClick={() => { setStep(1); setSuccess(false); setCalculatedPrice(null); setFormData(prev => ({ ...prev, pickup_location: '', destination: '', status: 'pending', has_return_trip: false, child_seats: 0 })); }} className="bg-primary hover:bg-black text-white font-bold py-4 px-8 rounded-xl transition-colors">New Quotation Request</Button>
                     </div>
                 )}
             </form>

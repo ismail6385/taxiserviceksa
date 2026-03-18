@@ -1,7 +1,5 @@
-
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, CheckCircle2, Car, Users, DollarSign, Shield, ArrowRight, Navigation, Calendar, Zap, Heart, User, Compass } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -9,6 +7,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import RoutePerspective from '@/components/seo/RoutePerspective';
+import JsonLdRoute from '@/components/JsonLdRoute';
 
 export const metadata: Metadata = {
     title: 'Taxi Riyadh to Makkah | Riyadh to Makkah Private Car',
@@ -27,41 +26,14 @@ export default function RiyadhMakkahRoutePage() {
         { label: 'Service', value: 'Door-to-Door', icon: CheckCircle2 },
     ];
 
-    const routeSchema = {
-        "@context": "https://schema.org",
-        "@type": "TravelAction",
-        "name": "Taxi from Riyadh to Makkah",
-        "fromLocation": {
-            "@type": "Place",
-            "name": "Riyadh",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Riyadh",
-                "addressCountry": "SA"
-            }
-        },
-        "toLocation": {
-            "@type": "Place",
-            "name": "Makkah",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Makkah",
-                "addressCountry": "SA"
-            }
-        },
-        "distance": "870 km",
-        "instrument": {
-            "@type": "Car",
-            "name": "GMC Yukon, Cadillac Escalade, Mercedes S-Class"
-        }
-    };
-
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="route-schema-riyadh-makkah"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
+            <JsonLdRoute 
+                from="Riyadh"
+                to="Makkah"
+                description="Luxury intercity transfer from Riyadh to Makkah. Premium 8-9 hour journey with professional chauffeurs. 100% private VIP car service."
+                distance="870 km"
+                duration="PT9H"
             />
 
             <Hero

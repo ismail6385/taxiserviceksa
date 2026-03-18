@@ -11,7 +11,9 @@ import {
     MapPin,
     CheckCircle2,
     Search,
-    Filter
+    Filter,
+    ExternalLink,
+    ArrowUpRight
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -34,6 +36,12 @@ import {
 
 interface Booking {
     id: string;
+    pickup_location: string;
+    destination: string;
+    pickup_date: string;
+    pickup_time: string;
+    vehicle_type: string;
+    customer_name: string;
     status: 'pending' | 'confirmed' | 'cancelled' | 'completed';
 }
 
@@ -70,10 +78,11 @@ export default function AdminDashboard() {
         const fetchData = async () => {
             setLoading(true);
             try {
-                // Fetch Bookings solely for high-level stats (just grabbing id and status wrapper)
+                // Fetch Bookings with more details for the schedule
                 const { data: bookingsData } = await supabase
                     .from('bookings')
-                    .select('id, status');
+                    .select('id, status, pickup_location, destination, pickup_date, pickup_time, vehicle_type, customer_name')
+                    .order('pickup_date', { ascending: true });
                 setBookings(bookingsData || []);
 
                 // Fetch Drivers
@@ -178,6 +187,116 @@ export default function AdminDashboard() {
                         <CheckCircle2 className="h-4 w-4 text-emerald-500" />
                     </div>
                     <div className="text-3xl font-bold text-emerald-500">{drivers.filter(d => d.status === 'approved').length}</div>
+                </div>
+            </div>
+
+            {/* Upcoming Journeys Schedule */}
+            <div className="mb-10">
+                <div className="flex items-center justify-between mb-4">
+                    <h2 className="text-2xl font-bold text-gray-900">Today's & Tomorrow's Schedule</h2>
+                    <Button variant="outline" size="sm" onClick={() => router.push('/admin/bookings')} className="text-primary hover:text-black border-primary/20 bg-primary/5">
+                        View All Bookings <ExternalLink className="w-3 h-3 ml-2" />
+                    </Button>
+                </div>
+                
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    <div className="lg:col-span-8">
+                        <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+                            <Table>
+                                <TableHeader className="bg-gray-50/50">
+                                    <TableRow className="border-gray-200 hover:bg-transparent">
+                                        <TableHead className="text-gray-500 font-semibold px-4">Time</TableHead>
+                                        <TableHead className="text-gray-500 font-semibold">Client / Journey</TableHead>
+                                        <TableHead className="text-gray-500 font-semibold">Vehicle</TableHead>
+                                        <TableHead className="text-gray-500 font-semibold text-right px-4">Status</TableHead>
+                                    </TableRow>
+                                </TableHeader>
+                                <TableBody>
+                                    {bookings.filter(b => {
+                                        const date = b.pickup_date;
+                                        const today = new Date().toLocaleDateString('en-CA');
+                                        const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
+                                        const tomorrowStr = tomorrow.toLocaleDateString('en-CA');
+                                        return (date === today || date === tomorrowStr) && (b.status === 'pending' || b.status === 'confirmed');
+                                    }).length === 0 ? (
+                                        <TableRow>
+                                            <TableCell colSpan={4} className="text-center py-8 text-gray-500 italic">No urgent pickups scheduled for today or tomorrow.</TableCell>
+                                        </TableRow>
+                                    ) : (
+                                        bookings
+                                            .filter(b => {
+                                                const date = b.pickup_date;
+                                                const today = new Date().toLocaleDateString('en-CA');
+                                                const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
+                                                const tomorrowStr = tomorrow.toLocaleDateString('en-CA');
+                                                return (date === today || date === tomorrowStr) && (b.status === 'pending' || b.status === 'confirmed');
+                                            })
+                                            .slice(0, 5)
+                                            .map((booking) => (
+                                                <TableRow key={booking.id} className="border-gray-100 hover:bg-gray-50/50">
+                                                    <TableCell className="px-4">
+                                                        <div className="flex flex-col">
+                                                            <span className="text-sm font-bold text-gray-900">{booking.pickup_time}</span>
+                                                            <span className="text-[10px] text-gray-400 uppercase tracking-tighter">
+                                                                {booking.pickup_date === new Date().toLocaleDateString('en-CA') ? 'Today' : 'Tomorrow'}
+                                                            </span>
+                                                        </div>
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        <div className="flex flex-col">
+                                                            <span className="text-sm font-semibold text-gray-800">{booking.customer_name}</span>
+                                                            <div className="flex items-center gap-2 text-[11px] text-gray-500">
+                                                                <span className="truncate max-w-[100px]">{booking.pickup_location}</span>
+                                                                <ExternalLink className="w-2 h-2" />
+                                                                <span className="truncate max-w-[100px]">{booking.destination}</span>
+                                                            </div>
+                                                        </div>
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        <Badge variant="outline" className="text-[10px] bg-gray-50 font-normal">
+                                                            {booking.vehicle_type}
+                                                        </Badge>
+                                                    </TableCell>
+                                                    <TableCell className="text-right px-4">
+                                                        <div className={`w-2 h-2 rounded-full inline-block mr-2 ${booking.status === 'confirmed' ? 'bg-emerald-500 animate-pulse' : 'bg-amber-500'}`}></div>
+                                                        <span className="text-[10px] uppercase font-bold tracking-tight text-gray-600">{booking.status}</span>
+                                                    </TableCell>
+                                                </TableRow>
+                                            ))
+                                    )}
+                                </TableBody>
+                            </Table>
+                        </div>
+                    </div>
+
+                    <div className="lg:col-span-4 space-y-4">
+                        <div className="bg-slate-900 p-5 rounded-2xl text-white shadow-xl relative overflow-hidden h-full flex flex-col justify-between">
+                             <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl"></div>
+                             <div>
+                                <h3 className="text-primary font-bold text-sm mb-4 tracking-widest uppercase">Quick Schedule Summary</h3>
+                                <div className="space-y-4">
+                                    <div className="flex items-center justify-between">
+                                        <span className="text-slate-400 text-xs">Today's Pickups</span>
+                                        <span className="text-xl font-bold">{bookings.filter(b => b.pickup_date === new Date().toLocaleDateString('en-CA')).length}</span>
+                                    </div>
+                                    <div className="flex items-center justify-between border-t border-slate-800 pt-3">
+                                        <span className="text-slate-400 text-xs text-amber-400 font-semibold">• Action Required</span>
+                                        <span className="text-lg font-bold text-amber-400">{bookings.filter(b => b.pickup_date === new Date().toLocaleDateString('en-CA') && b.status === 'pending').length}</span>
+                                    </div>
+                                    <div className="flex items-center justify-between border-t border-slate-800 pt-3">
+                                        <span className="text-slate-400 text-xs">Tomorrow's Pickups</span>
+                                        {(() => {
+                                            const tom = new Date(); tom.setDate(tom.getDate()+1);
+                                            return <span className="text-xl font-bold">{bookings.filter(b => b.pickup_date === tom.toLocaleDateString('en-CA')).length}</span>
+                                        })()}
+                                    </div>
+                                </div>
+                             </div>
+                             <Button onClick={() => router.push('/admin/bookings')} className="w-full mt-6 bg-primary text-black font-bold hover:bg-white hover:text-black transition-all">
+                                Go to Dispatch Board
+                             </Button>
+                        </div>
+                    </div>
                 </div>
             </div>
 

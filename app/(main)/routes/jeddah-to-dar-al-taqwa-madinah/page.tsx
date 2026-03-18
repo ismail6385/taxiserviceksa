@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Building2, ArrowRight } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -36,28 +37,21 @@ export default function JeddahToDarAlTaqwaMadinahPage() {
         '/jeddah-corniche-sunset.webp',
     ];
 
-    const routeSchema = {
-        "@context": "https://schema.org",
-        "@type": "TaxiService",
-        "name": "Jeddah to Dar Al Taqwa Madinah Taxi",
-        "description": "Luxury private taxi transfer from Jeddah King Abdulaziz Airport to Dar Al Taqwa Hotel Madinah.",
-        "provider": {
-            "@type": "LocalBusiness",
-            "name": "VIP Transfer KSA",
-            "image": "https://taxiserviceksa.com/logo.png",
-            "telephone": "info@taxiserviceksa.com",
-            "priceRange": "$$$"
-        },
-        "areaServed": "Madinah",
-        "availableLanguage": ["English", "Arabic", "Urdu"]
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="route-schema-dar-al-taqwa"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
+            <JsonLdLocation 
+                cityName="Jeddah to Dar Al Taqwa Madinah"
+                description="Professional VIP private car service for Jeddah to Dar Al Taqwa Madinah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                services={[
+                    { name: 'Jeddah to Dar Al Taqwa Madinah Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
+                    { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
+                    { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
+                    { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
+                ]}
+                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
             <Hero

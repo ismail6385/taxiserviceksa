@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { Plane, Clock, CheckCircle2, Car, Users, Shield, MapPin, ArrowRight, Navigation, DollarSign } from 'lucide-react';
 import {
@@ -14,6 +13,7 @@ import JsonLdFAQ from '@/components/JsonLdFAQ';
 import AuthorCard from '@/components/AuthorCard';
 import { blogService } from '@/lib/blogService';
 import RelatedGuides from '@/components/RelatedGuides';
+import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
     keywords: ['VIP Airport Transfers Saudi Arabia', 'Premium Chauffeur Service', 'Jeddah Airport VIP Transfer', 'Riyadh Executive Transfer', 'Madinah Private Airport Shuttle', 'Uber alternative Jeddah Airport', 'Careem alternative Riyadh', 'Kaiian airport taxi'],
@@ -200,32 +200,20 @@ export default async function AirportTransfersPage() {
         }
     ];
 
-    const serviceSchema = {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "KSA Airport Transfer Service",
-        "category": "Travel & Transportation",
-        "description": "Professional airport transfer and taxi services across 8 major Saudi Arabian airports including Jeddah, Riyadh, and Madinah.",
-        "provider": {
-            "@type": "Organization",
-            "name": "VIP Transfer KSA",
-            "url": "https://taxiserviceksa.com"
-        },
-        "author": {
-            "@type": "Person",
-            "name": "Muhammad Ismail",
-            "jobTitle": "Founder & Saudi Aviation Logistics Expert",
-            "url": "https://taxiserviceksa.com/author/muhammad-ismail"
-        },
-        "areaServed": ["Jeddah", "Riyadh", "Madinah", "AlUla", "Yanbu", "Taif", "Dammam", "Abha"]
-    };
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="service-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+            <JsonLdLocation 
+                cityName="Saudi Arabia Airport"
+                description="Professional VIP airport transfer and taxi services across 8 major Saudi Arabian airports including Jeddah, Riyadh, Madinah, and AlUla. Reliable 24/7 meet-and-greet service."
+                services={[
+                    { name: 'VIP Airport Transfer', description: 'Premium meet-and-greet service at all major Saudi terminals.' },
+                    { name: 'Flight Tracking Pickup', description: 'Real-time flight monitoring for guaranteed zero-wait arrivals.' },
+                    { name: 'Executive Chauffeur', description: 'Professional drivers for business and luxury group travel.' },
+                    { name: 'Family SUV Shuttle', description: 'Spacious GMC Yukon and Hiace vehicles for groups and luggage.' }
+                ]}
+                priceRange={{ min: 150, max: 2500, currency: "SAR" }}
+                image="https://taxiserviceksa.com/hero-slide-3.webp"
             />
             <JsonLdFAQ faqs={faqs.map(f => ({
                 question: f.question,

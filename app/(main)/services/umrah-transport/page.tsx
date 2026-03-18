@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Navigation, DollarSign } from 'lucide-react';
 import {
@@ -14,6 +13,7 @@ import JsonLdFAQ from '@/components/JsonLdFAQ';
 import { blogService } from '@/lib/blogService';
 import RelatedGuides from '@/components/RelatedGuides';
 import AuthorCard from '@/components/AuthorCard';
+import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
     keywords: ['VIP Umrah Private Transfers', 'Best Umrah Chauffeur', 'Jeddah to Makkah VIP Transfer', 'Madinah Madinah Private Transfer', 'Saudi Arabia Pilgrim Transport'],
@@ -163,36 +163,19 @@ export default async function UmrahTransportPage() {
         }
     ];
 
-    const serviceSchema = {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Umrah VIP Transport Service",
-        "category": "Religious Tourism Transport",
-        "description": "Premium private transport service for Umrah pilgrims in KSA. Specialized in Makkah and Madinah hotel transfers and Ziyarat tours.",
-        "provider": {
-            "@type": "Organization",
-            "name": "VIP Transfer KSA",
-            "url": "https://taxiserviceksa.com"
-        },
-        "author": {
-            "@type": "Person",
-            "name": "Muhammad Ismail",
-            "jobTitle": "Founder & Saudi Pilgrimage Logistics Expert",
-            "url": "https://taxiserviceksa.com/author/muhammad-ismail"
-        },
-        "areaServed": ["Makkah", "Madinah", "Jeddah", "Taif", "Riyadh"],
-        "offers": {
-            "@type": "Offer",
-            "availability": "https://schema.org/InStock"
-        }
-    };
-
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="service-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+            <JsonLdLocation 
+                cityName="Umrah VIP Transport"
+                description="Premium private transport service for Umrah pilgrims in KSA. Specialized in Makkah and Madinah hotel transfers, Meeqat stops, and intercity pilgrimage routes."
+                services={[
+                    { name: 'Jeddah to Makkah Transfer', description: 'Direct VIP pickup from KAIA terminal to your Makkah hotel.' },
+                    { name: 'Makkah to Madinah VIP', description: 'Comfortable 450km private transfer with flexible rest stops.' },
+                    { name: 'Umrah Meeqat Service', description: 'Drivers familiar with all Meeqat locations for احرام (Ihram) rituals.' },
+                    { name: 'Family Group Vans', description: 'Spacious Toyota Hiace and GMC Yukon for large pilgrim groups.' }
+                ]}
+                priceRange={{ min: 200, max: 3500, currency: "SAR" }}
+                image="https://taxiserviceksa.com/makkah-kaaba-night.webp"
             />
             <JsonLdFAQ faqs={faqs.map(f => ({
                 question: f.question,

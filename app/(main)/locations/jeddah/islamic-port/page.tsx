@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Anchor, Ship, ArrowRight, Shield } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -31,30 +32,21 @@ export default function JeddahPortPage() {
         '/hero-slide-3.webp',
     ];
 
-    const portSchema = {
-        "@context": "https://schema.org",
-        "@type": "CivicStructure",
-        "name": "Jeddah Islamic Port",
-        "description": "The largest seaport in Saudi Arabia, handling the majority of pilgrim traffic arriving by sea.",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Jeddah",
-            "addressRegion": "Makkah Province",
-            "addressCountry": "SA"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "21.4858",
-            "longitude": "39.1925"
-        }
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="jeddah-port-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(portSchema) }}
+            <JsonLdLocation 
+                cityName="Jeddah"
+                description="Professional taxi and private car services in Jeddah. 24/7 reliable transport for residents, business travelers, and tourists."
+                services={[
+                    { name: 'Jeddah Airport Taxi', description: 'Reliable airport pickups and drop-offs.' },
+                    { name: 'City Chauffeur Service', description: 'Professional drivers for local travel and business.' },
+                    { name: 'Intercity Transfers', description: 'Private long-distance travel to other major cities.' },
+                    { name: 'Family SUW/Van', description: 'Large vehicles for groups and extra luggage.' }
+                ]}
+                priceRange={{ min: 50, max: 2000, currency: "SAR" }}
+                image="https://taxiserviceksa.com/locations/jeddah.webp"
             />
 
             <Hero

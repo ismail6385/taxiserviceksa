@@ -1,7 +1,8 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Mountain, CloudSun, ArrowRight, User, Compass, Shield, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -27,41 +28,21 @@ export default function JeddahTaifRoutePage() {
         { label: 'Service', value: 'Door-to-Door', icon: CheckCircle2 },
     ];
 
-    const routeSchema = {
-        "@context": "https://schema.org",
-        "@type": "TravelAction",
-        "name": "Taxi from Jeddah to Taif",
-        "fromLocation": {
-            "@type": "Place",
-            "name": "Jeddah",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Jeddah",
-                "addressCountry": "SA"
-            }
-        },
-        "toLocation": {
-            "@type": "Place",
-            "name": "Taif",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Taif",
-                "addressCountry": "SA"
-            }
-        },
-        "distance": "170 km",
-        "instrument": {
-            "@type": "Car",
-            "name": "GMC Yukon, Cadillac Escalade, Mercedes S-Class"
-        }
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="route-schema-jeddah-taif"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
+            <JsonLdLocation 
+                cityName="Jeddah to Taif"
+                description="Professional VIP private car service for Jeddah to Taif. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                services={[
+                    { name: 'Jeddah to Taif Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
+                    { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
+                    { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
+                    { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
+                ]}
+                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
             <Hero

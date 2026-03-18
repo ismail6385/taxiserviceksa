@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Building2, Briefcase, ArrowRight } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -31,50 +32,21 @@ export default function RiyadhDammamRoutePage() {
         '/hero-slide-2.webp',
     ];
 
-    const routeSchema = {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Riyadh to Dammam Taxi",
-        "provider": {
-            "@type": "TransportationService",
-            "name": "TaxiServiceKSA"
-        },
-        "areaServed": {
-            "@type": "Country",
-            "name": "Saudi Arabia"
-        },
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Intercity Transfers",
-            "itemListElement": [
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Standard Sedan",
-                        "description": "Comfortable sedan for up to 3 passengers."
-                    },
-                    "availability": "https://schema.org/InStock"
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "GMC Yukon XL",
-                        "description": "Luxury SUV for up to 7 passengers and luggage."
-                    },
-                    "availability": "https://schema.org/InStock"
-                }
-            ]
-        }
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="route-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
+            <JsonLdLocation 
+                cityName="Riyadh to Dammam"
+                description="Professional VIP private car service for Riyadh to Dammam. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                services={[
+                    { name: 'Riyadh to Dammam Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
+                    { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
+                    { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
+                    { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
+                ]}
+                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
             <Hero

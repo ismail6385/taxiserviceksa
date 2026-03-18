@@ -33,6 +33,8 @@ import { blogService } from '@/lib/blogService';
 import RelatedGuides from '@/components/RelatedGuides';
 
 
+import JsonLdLocation from '@/components/JsonLdLocation';
+
 export const metadata: Metadata = {
     title: 'VIP Private Transfer & Madinah Ziyarat | Premium Chauffeur',
     description: 'Premium VIP private transfer service in Madinah. Specialized Prince Mohammad Airport (MED) pickups and executive Ziyarat tours. Professional intercity transfers to Makkah.',
@@ -72,35 +74,12 @@ export default async function MadinahPage() {
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="breadcrumb-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                            {
-                                "@type": "ListItem",
-                                "position": 1,
-                                "name": "Home",
-                                "item": "https://taxiserviceksa.com"
-                            },
-                            {
-                                "@type": "ListItem",
-                                "position": 2,
-                                "name": "Locations",
-                                "item": "https://taxiserviceksa.com/locations/"
-                            },
-                            {
-                                "@type": "ListItem",
-                                "position": 3,
-                                "name": "Madinah",
-                                "item": "https://taxiserviceksa.com/locations/madinah/"
-                            }
-                        ]
-                    })
-                }}
+            <JsonLdLocation 
+                cityName="Madinah" 
+                description="Premium VIP private transfer service in Madinah. Specialized Prince Mohammad Airport (MED) pickups and executive Ziyarat tours. Professional intercity transfers to Makkah."
+                services={services}
+                priceRange={{ min: 80, max: 600, currency: "SAR" }}
+                image="https://taxiserviceksa.com/madinah-prophets-mosque.webp"
             />
 
             {/* Hero Section */}

@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Camera, Landmark, ArrowRight, Bus } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -31,30 +32,21 @@ export default function HegraPage() {
         '/hero-slide-3.webp',
     ];
 
-    const hegraSchema = {
-        "@context": "https://schema.org",
-        "@type": "landmarkOrHistoricalBuilding",
-        "name": "Hegra (Madain Saleh)",
-        "description": "UNESCO World Heritage site featuring Nabataean tombs carved into sandstone.",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "AlUla",
-            "addressRegion": "Madinah Province",
-            "addressCountry": "SA"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "26.8055",
-            "longitude": "37.9547"
-        }
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="hegra-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(hegraSchema) }}
+            <JsonLdLocation 
+                cityName="Alula"
+                description="Professional taxi and private car services in Alula. 24/7 reliable transport for residents, business travelers, and tourists."
+                services={[
+                    { name: 'Alula Airport Taxi', description: 'Reliable airport pickups and drop-offs.' },
+                    { name: 'City Chauffeur Service', description: 'Professional drivers for local travel and business.' },
+                    { name: 'Intercity Transfers', description: 'Private long-distance travel to other major cities.' },
+                    { name: 'Family SUW/Van', description: 'Large vehicles for groups and extra luggage.' }
+                ]}
+                priceRange={{ min: 50, max: 2000, currency: "SAR" }}
+                image="https://taxiserviceksa.com/locations/alula.webp"
             />
 
             <Hero

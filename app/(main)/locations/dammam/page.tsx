@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Building2, Palmtree } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -22,6 +21,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import ExpertReview from '@/components/seo/ExpertReview';
+import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
     title: 'VIP Private Transfer & Executive Chauffeur Dammam | DMM Airport',
@@ -98,24 +98,12 @@ export default function DammamPage() {
 
     return (
         <div className="bg-gray-50 min-h-screen">
-
-            <Script
-                id="dammam-faq-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "FAQPage",
-                        "mainEntity": faqs.map(faq => ({
-                            "@type": "Question",
-                            "name": faq.question,
-                            "acceptedAnswer": {
-                                "@type": "Answer",
-                                "text": faq.answer
-                            }
-                        }))
-                    })
-                }}
+            <JsonLdLocation 
+                cityName="Dammam"
+                description="Professional VIP transfers in Dammam. Specializing in King Fahd International Airport (DMM) pickups, Jubail industrial commutes, and executive corporate transport."
+                services={services}
+                priceRange={{ min: 200, max: 600, currency: "SAR" }}
+                image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
 

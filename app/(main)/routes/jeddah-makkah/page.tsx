@@ -10,6 +10,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
+import JsonLdRoute from '@/components/JsonLdRoute';
 
 export const metadata: Metadata = {
     title: 'Taxi Jeddah to Makkah | Jeddah to Makkah Private Car',
@@ -28,41 +29,14 @@ export default function JeddahMakkahRoutePage() {
         { label: 'Service', value: 'Door-to-Door', icon: CheckCircle2 },
     ];
 
-    const routeSchema = {
-        "@context": "https://schema.org",
-        "@type": "TravelAction",
-        "name": "Taxi from Jeddah to Makkah",
-        "fromLocation": {
-            "@type": "Place",
-            "name": "Jeddah",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Jeddah",
-                "addressCountry": "SA"
-            }
-        },
-        "toLocation": {
-            "@type": "Place",
-            "name": "Makkah",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Makkah",
-                "addressCountry": "SA"
-            }
-        },
-        "distance": "90 km",
-        "instrument": {
-            "@type": "Car",
-            "name": "GMC Yukon, Cadillac Escalade, Mercedes S-Class"
-        }
-    };
-
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="route-schema-jeddah-makkah"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
+            <JsonLdRoute 
+                from="Jeddah" 
+                to="Makkah" 
+                description="Book the best online taxi from Jeddah to Makkah. Premium intercity transfer with professional chauffeurs. Fixed rates, door-to-door service, and high-end SUVs."
+                distance="90 km"
+                duration="70 mins"
             />
 
             <Hero

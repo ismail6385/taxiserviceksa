@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, CheckCircle2, Car, Users, DollarSign, Shield, ArrowRight, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -31,37 +32,21 @@ export default function TabukBuqayqRoutePage() {
         { label: 'Availability', value: '24/7 Service', icon: CheckCircle2 },
     ];
 
-    const routeSchema = {
-        "@context": "https://schema.org",
-        "@type": "TravelAction",
-        "name": "Taxi from Tabuk to Buqayq",
-        "fromLocation": {
-            "@type": "Place",
-            "name": "Tabuk",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Tabuk",
-                "addressCountry": "SA"
-            }
-        },
-        "toLocation": {
-            "@type": "Place",
-            "name": "Buqayq",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Buqayq",
-                "addressCountry": "SA"
-            }
-        },
-        "distance": "1550 km"
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="route-schema-tabuk-buqayq"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
+            <JsonLdLocation 
+                cityName="Tabuk to Buqayq"
+                description="Professional VIP private car service from Tabuk to Buqayq. Reliable, door-to-door long-distance transport for families and business travelers."
+                services={[
+                    { name: 'Tabuk to Buqayq Taxi', description: 'Direct 24/7 private transfer with professional chauffeurs.' },
+                    { name: 'Family SUV Transfer', description: 'Spacious and safe GMC Yukons for the drive between Tabuk and Buqayq.' },
+                    { name: 'Long-Distance Chauffeur', description: 'Comfortable long-distance travel across Saudi Arabia with luxury vehicles.' },
+                    { name: 'Return Trip Booking', description: 'Book your return journey from Buqayq back to Tabuk at competitive rates.' }
+                ]}
+                priceRange={{ min: 500, max: 4500, currency: "SAR" }}
+                image="https://taxiserviceksa.com/locations/tabuk.webp"
             />
 
             <Hero

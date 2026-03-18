@@ -1,7 +1,5 @@
-
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { Car, Clock, MapPin, CheckCircle2, Shield, Users, ArrowRight, Briefcase, Navigation, Star, Plane, Coffee, Train, User, Compass, DollarSign } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -9,6 +7,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
+import JsonLdRoute from '@/components/JsonLdRoute';
 
 export const metadata: Metadata = {
     title: 'Taxi Madinah to Jeddah | Madinah to Jeddah Private Car',
@@ -27,41 +26,14 @@ export default function MadinahJeddahRoutePage() {
         { label: 'Service', value: 'Door-to-Door', icon: CheckCircle2 },
     ];
 
-    const routeSchema = {
-        "@context": "https://schema.org",
-        "@type": "TravelAction",
-        "name": "Taxi from Madinah to Jeddah",
-        "fromLocation": {
-            "@type": "Place",
-            "name": "Madinah",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Madinah",
-                "addressCountry": "SA"
-            }
-        },
-        "toLocation": {
-            "@type": "Place",
-            "name": "Jeddah",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Jeddah",
-                "addressCountry": "SA"
-            }
-        },
-        "distance": "450 km",
-        "instrument": {
-            "@type": "Car",
-            "name": "GMC Yukon, Hyundai Staria, Mercedes S-Class"
-        }
-    };
-
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="route-schema-madinah-jeddah"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(routeSchema) }}
+            <JsonLdRoute 
+                from="Madinah"
+                to="Jeddah"
+                description="Luxury intercity transfer from Madinah to Jeddah. Comfortable 4-5 hour journey from Madinah hotels to Jeddah. 100% private VIP car service."
+                distance="450 km"
+                duration="PT5H"
             />
 
             <Hero

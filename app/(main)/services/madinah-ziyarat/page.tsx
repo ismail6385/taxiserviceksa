@@ -1,7 +1,6 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { Moon, Sun, Clock, MapPin, CheckCircle2, Car, Users, Star, Compass, ArrowRight, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -13,6 +12,7 @@ import QuestionForm from '@/components/seo/QuestionForm';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 import TravelConsensus from '@/components/seo/TravelConsensus';
+import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
     title: 'Madinah Ziyarat Taxi Service | Holy Sites Tours (Ziyarah)',
@@ -48,22 +48,20 @@ export default function MadinahZiyaratPage() {
         }
     ];
 
-    const schemas = {
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Madinah Ziyarat Service",
-
-        "description": "Guided taxi tours to holy Islamic sites in Madinah.",
-        "areaServed": "Madinah",
-        "serviceType": "ReligiousTour"
-    };
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="ziyarat-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
+            <JsonLdLocation 
+                cityName="Madinah Ziyarat"
+                description="Comprehensive private taxi tours to holy Islamic sites in Madinah. Visit Masjid Quba, Mount Uhud, and the Seven Mosques with experienced local drivers."
+                services={[
+                    { name: 'Standard Ziyarat Tour', description: '2-3 hour guided visit to essential Sunnah sites in Madinah.' },
+                    { name: 'Extended History Tour', description: 'In-depth 5-hour exploration of the Prophet\'s city and historical landmarks.' },
+                    { name: 'Badar Battlefield Trip', description: 'Full-day excursion to the historic site of the Battle of Badar.' },
+                    { name: 'Family Group Transport', description: 'Comfortable SUVs and vans suitable for large groups of pilgrims.' }
+                ]}
+                priceRange={{ min: 150, max: 800, currency: "SAR" }}
+                image="https://taxiserviceksa.com/madinah-prophets-mosque.webp"
             />
 
             <Hero

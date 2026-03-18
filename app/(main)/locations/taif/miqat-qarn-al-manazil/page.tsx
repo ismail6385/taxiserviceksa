@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Plane, ArrowRight, BookOpen, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -31,31 +32,21 @@ export default function MiqatQarnAlManazilPage() {
         '/hero-slide-3.webp',
     ];
 
-    const contentSchema = {
-        "@context": "https://schema.org",
-        "@type": "Place",
-        "name": "Miqat Qarn al-Manazil",
-        "alternateName": "As-Sayl Al-Kabir",
-        "description": "The Miqat for pilgrims travelling from Najd, Taif, and Riyadh.",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "As Sayl Al Kabir",
-            "addressRegion": "Makkah Province",
-            "addressCountry": "SA"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "21.6367",
-            "longitude": "40.4286"
-        }
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="miqat-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(contentSchema) }}
+            <JsonLdLocation 
+                cityName="Taif"
+                description="Professional taxi and private car services in Taif. 24/7 reliable transport for residents, business travelers, and tourists."
+                services={[
+                    { name: 'Taif Airport Taxi', description: 'Reliable airport pickups and drop-offs.' },
+                    { name: 'City Chauffeur Service', description: 'Professional drivers for local travel and business.' },
+                    { name: 'Intercity Transfers', description: 'Private long-distance travel to other major cities.' },
+                    { name: 'Family SUW/Van', description: 'Large vehicles for groups and extra luggage.' }
+                ]}
+                priceRange={{ min: 50, max: 2000, currency: "SAR" }}
+                image="https://taxiserviceksa.com/locations/taif.webp"
             />
 
             <Hero

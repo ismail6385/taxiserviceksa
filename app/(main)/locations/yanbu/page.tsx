@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Anchor } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -26,6 +25,7 @@ import DistanceTable from '@/components/seo/DistanceTable';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import ExpertReview from '@/components/seo/ExpertReview';
+import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
     title: 'VIP Private Transfer & Chauffeur Yanbu | Airport & Industrial Port',
@@ -77,6 +77,13 @@ export default function YanbuPage() {
 
     return (
         <div className="bg-gray-50 min-h-screen">
+            <JsonLdLocation 
+                cityName="Yanbu"
+                description="Professional VIP transfers in Yanbu. Specializing in Yanbu Airport (YNB) pickups, industrial city port transport, and Red Sea waterfront executive travel."
+                services={services}
+                priceRange={{ min: 100, max: 500, currency: "SAR" }}
+                image="https://taxiserviceksa.com/hero-slide-1.webp"
+            />
 
 
             {/* Hero Section */}

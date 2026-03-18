@@ -15,7 +15,6 @@ import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
-import Script from 'next/script';
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 import DistanceTable from '@/components/seo/DistanceTable';
 import SeasonalTravelTips from '@/components/seo/SeasonalTravelTips';
@@ -28,6 +27,7 @@ import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import SemanticField from '@/components/seo/SemanticField';
 import TopicCluster from '@/components/seo/TopicCluster';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
     title: 'VIP Private Transfer & Chauffeur Taif | Al Hada Mountain',
@@ -65,8 +65,6 @@ export default function TaifPage() {
         '/hero-slide-5.webp',
     ];
 
-
-
     const distanceData = [
         { destination: 'Makkah (Haram)', distance: '88 km', time: '1h 10m', route: 'Al Hada Rd' },
         { destination: 'Jeddah Airport', distance: '170 km', time: '2h', route: 'Taif-Jeddah Hwy' },
@@ -75,24 +73,14 @@ export default function TaifPage() {
         { destination: 'Al Shafa Mountains', distance: '25 km (from City)', time: '30 mins', route: 'Shafa Rd' }
     ];
 
-
-
     return (
         <div className="bg-gray-50 min-h-screen">
-
-            <Script
-                id="service-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Service",
-                        "name": "Taif Mountain Transfer",
-
-                        "areaServed": { "@type": "City", "name": "Taif" },
-                        "description": "Professional transport from Makkah to Taif via Al Hada mountain road."
-                    })
-                }}
+            <JsonLdLocation 
+                cityName="Taif"
+                description="Professional VIP mountain transfers in Taif. Specializing in Al Hada road, seasonal rose farm tours, and executive Jeddah Airport pickups."
+                services={services}
+                priceRange={{ min: 250, max: 600, currency: "SAR" }}
+                image="https://taxiserviceksa.com/taif-mountains-view.webp"
             />
 
 

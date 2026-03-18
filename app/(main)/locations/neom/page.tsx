@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
+
+import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Gem, Construction, ArrowRight, Shield } from 'lucide-react';
 import Hero from '@/components/Hero';
@@ -31,29 +32,21 @@ export default function NeomPage() {
         '/hero-slide-2.webp',
     ];
 
-    const neomSchema = {
-        "@context": "https://schema.org",
-        "@type": "Place",
-        "name": "NEOM",
-        "description": "A futuristic region in northwest Saudi Arabia being built from scratch, including The Line, Oxagon, and Trojena.",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Tabuk Province",
-            "addressCountry": "SA"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": "28.0000",
-            "longitude": "35.3000"
-        }
-    };
+    
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="neom-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(neomSchema) }}
+            <JsonLdLocation 
+                cityName="Neom"
+                description="Professional taxi and private car services in Neom. 24/7 reliable transport for residents, business travelers, and tourists."
+                services={[
+                    { name: 'Neom Airport Taxi', description: 'Reliable airport pickups and drop-offs.' },
+                    { name: 'City Chauffeur Service', description: 'Professional drivers for local travel and business.' },
+                    { name: 'Intercity Transfers', description: 'Private long-distance travel to other major cities.' },
+                    { name: 'Family SUW/Van', description: 'Large vehicles for groups and extra luggage.' }
+                ]}
+                priceRange={{ min: 50, max: 2000, currency: "SAR" }}
+                image="https://taxiserviceksa.com/locations/neom.webp"
             />
 
             <Hero
