@@ -26,11 +26,13 @@ import {
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 import { MapPin, Phone, User, Clock, Car, Mail, ArrowRight, ArrowLeft, Check, Users, Briefcase, Wallet, ChevronsUpDown, Search, Calendar as CalendarIcon, Info } from 'lucide-react';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { supabase, vehicles, type BookingData } from '@/lib/supabase';
-import { getPrice } from '@/lib/pricing';
+
 import { countryCodes } from '@/data/countryCodes';
 import { format } from "date-fns";
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
+import { BRAND } from '@/lib/brand-config';
 
 const POPULAR_ROUTES = [
     { id: 'custom', label: 'Custom Location (Enter below)' },
@@ -48,6 +50,10 @@ const POPULAR_ROUTES = [
     { id: 'ruh-kafd', from: 'King Khalid Airport (RUH)', to: 'KAFD Financial District', label: 'RUH Airport → KAFD' },
     { id: 'ruh-dq', from: 'King Khalid Airport (RUH)', to: 'Diplomatic Quarter', label: 'RUH Airport → DQ' },
     { id: 'ruh-diriyah', from: 'King Khalid Airport (RUH)', to: 'Diriyah / Bujairi Terrace', label: 'RUH Airport → Diriyah' },
+    // Border Crossings / GCC
+    { id: 'khobar-bahrain', from: 'Al Khobar / Dammam', to: 'Manama, Bahrain (via Causeway)', label: 'Khobar → Bahrain Border' },
+    { id: 'ruh-uae-border', from: 'Riyadh', to: 'Al Batha (UAE Border)', label: 'Riyadh → UAE Border' },
+    { id: 'jeddah-jordan-border', from: 'Jeddah', to: 'Halat Ammar (Jordan Border)', label: 'Jeddah → Jordan Border' },
 ];
 
 interface BookingFormProps {
@@ -59,7 +65,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
     const [step, setStep] = useState(1);
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
-    const [calculatedPrice, setCalculatedPrice] = useState<number | null>(null);
+
     const [countryCode, setCountryCode] = useState('+966');
     const [open, setOpen] = useState(false);
 
@@ -127,13 +133,6 @@ export default function BookingFormContent({ prefilledData, className }: Booking
         }
     }, [searchParams, prefilledData]);
 
-    useEffect(() => {
-        if (formData.pickup_location && formData.destination && formData.vehicle_type) {
-            setCalculatedPrice(getPrice(formData.pickup_location, formData.destination, formData.vehicle_type));
-        } else {
-            setCalculatedPrice(null);
-        }
-    }, [formData.pickup_location, formData.destination, formData.vehicle_type]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -158,10 +157,11 @@ export default function BookingFormContent({ prefilledData, className }: Booking
         setLoading(true);
         try {
             const fullPhoneNumber = `${countryCode}${formData.customer_phone}`;
+            const { has_return_trip, child_seats, ...insertData } = formData;
             const finalFormData = {
-                ...formData,
+                ...insertData,
                 customer_phone: fullPhoneNumber,
-                special_requests: `${formData.has_return_trip ? '[RETURN TRIP REQUESTED] ' : ''}${formData.child_seats ? `[CHILD SEATS: ${formData.child_seats}] ` : ''}${calculatedPrice ? (formData.special_requests ? formData.special_requests + '. ' : '') + 'Please Provide Quote' : formData.special_requests}`
+                special_requests: `${formData.has_return_trip ? '[RETURN TRIP REQUESTED] ' : ''}${formData.child_seats ? `[CHILD SEATS: ${formData.child_seats}] ` : ''}${(formData.special_requests ? formData.special_requests + '. ' : '') + 'Please Provide Quote'}`
             };
 
             const { data, error } = await supabase.from('bookings').insert([finalFormData]).select();
@@ -180,6 +180,33 @@ export default function BookingFormContent({ prefilledData, className }: Booking
 
             setSuccess(true);
             setStep(4);
+
+            // Construct WhatsApp message
+            const whatsappMsg = `*New Booking Request - ${BRAND.name}*
+*Name:* ${formData.customer_name}
+*Email:* ${formData.customer_email}
+*Phone:* ${fullPhoneNumber}
+*Pickup:* ${formData.pickup_location}
+*Destination:* ${formData.destination}
+*Date:* ${formData.pickup_date}
+*Time:* ${formData.pickup_time}
+*Vehicle:* ${formData.vehicle_type}
+*Passengers:* ${formData.passengers}
+*Luggage:* ${formData.luggage} bags
+*Child Seats:* ${formData.child_seats || 0}
+*Return Trip:* ${formData.has_return_trip ? 'Yes' : 'No'}
+*Special Requests:* ${formData.special_requests || 'None'}
+---
+Please provide a quote for this journey.`;
+
+            const encodedMsg = encodeURIComponent(whatsappMsg);
+            const whatsappUrl = `https://wa.me/${BRAND.contact.whatsapp.replace('+', '')}?text=${encodedMsg}`;
+            
+            // Redirect to WhatsApp after a short delay to let the success UI show
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+            }, 1500);
+
         } catch (error) {
             console.error(error);
             alert('Booking failed. Please try again.');
@@ -354,12 +381,13 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-sm font-bold text-gray-900">Add Return Trip?</span>
-                                <span className="text-[10px] text-gray-500 font-medium">Book both ways for 10% discount from the total quote.</span>
+                                <span className="text-[10px] text-gray-500 font-medium">Book both ways for a VIP chauffeured experience.</span>
                             </div>
                         </div>
 
-                        <Button type="button" onClick={nextStep} className="w-full bg-primary hover:bg-primary/90 text-black font-bold py-4 text-lg rounded-xl mt-4">
-                            Select Vehicle <ArrowRight className="w-5 h-5 ml-2" />
+                        <Button type="button" onClick={nextStep} className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-5 text-xl rounded-2xl mt-4 shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3 transition-all hover:scale-[1.02] active:scale-95">
+                            <WhatsAppIcon className="w-7 h-7 fill-current" />
+                            Book via WhatsApp <ArrowRight className="w-5 h-5 ml-2" />
                         </Button>
                     </div>
                 )}
@@ -367,7 +395,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                 {step === 2 && (
                     <div className="space-y-6 animate-fade-in-up">
                         <div className="text-center">
-                            <h2 className="text-2xl font-bold text-gray-900">Select Your Premium Vehicle</h2>
+                            <h2 className="text-2xl font-bold text-gray-900">Select Your VIP Vehicle</h2>
                             <p className="text-gray-500 text-sm mt-1">{formData.pickup_location} <ArrowRight className="w-3 h-3 inline mx-1" /> {formData.destination}</p>
                         </div>
 
@@ -391,8 +419,11 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                                 </p>
                                             )}
                                         </div>
-                                        <div className="text-right">
-                                            <span className="block font-black text-lg text-primary leading-none">Get Quote</span>
+                                        <div className="text-right flex flex-col items-end gap-1">
+                                            <div className="flex items-center gap-1 text-emerald-600 font-black text-lg leading-none">
+                                                <WhatsAppIcon className="w-4 h-4 fill-current" />
+                                                WhatsApp Booking
+                                            </div>
                                             <span className="text-[9px] text-gray-400 font-bold uppercase tracking-tighter">Private Only</span>
                                         </div>
                                     </div>
@@ -437,8 +468,9 @@ export default function BookingFormContent({ prefilledData, className }: Booking
 
                         <div className="flex gap-3 mt-6">
                             <Button type="button" onClick={prevStep} variant="ghost" className="flex-1 py-4 text-base rounded-xl text-gray-500">Back</Button>
-                            <Button type="button" onClick={nextStep} disabled={!formData.vehicle_type} className="flex-[2] bg-primary hover:bg-primary/90 text-black font-black py-4 text-lg rounded-xl shadow-lg transform active:scale-[0.98] transition-all">
-                                Continue Trip <ArrowRight className="w-5 h-5 ml-2" />
+                             <Button type="button" onClick={nextStep} disabled={!formData.vehicle_type} className="flex-[2] bg-emerald-600 hover:bg-emerald-700 text-white font-black py-5 text-xl rounded-2xl shadow-xl shadow-emerald-500/20 transform active:scale-[0.98] transition-all flex items-center justify-center gap-3">
+                                <WhatsAppIcon className="w-7 h-7 fill-current" />
+                                Continue to WhatsApp Booking <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                         </div>
                     </div>
@@ -462,7 +494,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             </div>
                             <div className="flex justify-between font-bold text-primary pt-2 border-t border-gray-200 mt-2">
                                 <span>Total Estimate:</span>
-                                <span>Get Quote</span>
+                                <span><WhatsAppIcon className="w-4 h-4 mr-2 fill-current inline-block" /> WhatsApp Booking</span>
                             </div>
                         </div>
 
@@ -506,8 +538,8 @@ export default function BookingFormContent({ prefilledData, className }: Booking
 
                         <div className="flex gap-3 mt-4">
                             <Button type="button" onClick={prevStep} variant="outline" className="flex-1 py-4 text-lg rounded-xl">Back</Button>
-                            <Button type="submit" className="flex-1 bg-primary hover:bg-primary/90 text-black font-bold py-4 text-lg rounded-xl" disabled={loading}>
-                                {loading ? 'Processing...' : 'Submit Quote Request'}
+                             <Button type="submit" className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-black py-5 text-xl rounded-2xl shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3" disabled={loading}>
+                                {loading ? 'Processing...' : <><WhatsAppIcon className="w-7 h-7 fill-current" /> Book via WhatsApp</>}
                             </Button>
                         </div>
                         
@@ -517,14 +549,24 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             <div className="flex-grow border-t border-gray-200"></div>
                         </div>
 
-                        <Button
-                            type="button"
-                            onClick={() => window.location.href = 'mailto:info@taxiserviceksa.com'}
-                            className="w-full h-14 bg-gray-900 hover:bg-black text-white font-bold text-lg rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
-                        >
-                            <Mail className="w-5 h-5" />
-                            Email Inquiry
-                        </Button>
+                        <div className="grid grid-cols-2 gap-3 mt-4">
+                            <Button
+                                type="button"
+                                onClick={() => window.location.href = 'mailto:info@taxiserviceksa.com'}
+                                className="w-full h-14 bg-gray-950 hover:bg-black text-white font-bold text-sm lg:text-lg rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
+                            >
+                                <Mail className="w-5 h-5 flex-shrink-0" />
+                                Email
+                            </Button>
+                            <Button
+                                type="button"
+                                onClick={() => window.open('https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20a%20VIP%20transfer.', '_blank')}
+                                className="w-full h-14 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm lg:text-lg rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
+                            >
+                                <WhatsAppIcon className="w-5 h-5 flex-shrink-0" />
+                                WhatsApp
+                            </Button>
+                        </div>
                     </div>
                 )}
 
@@ -536,7 +578,60 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             <p className="text-gray-500 font-medium">Your quotation request has been sent for review.</p>
                         </div>
                         <p className="text-gray-600 px-4">We've sent a summary to <strong>{formData.customer_email}</strong>. Our team will contact you with the official quote shortly.</p>
-                        <Button type="button" onClick={() => { setStep(1); setSuccess(false); setCalculatedPrice(null); setFormData(prev => ({ ...prev, pickup_location: '', destination: '', status: 'pending', has_return_trip: false, child_seats: 0 })); }} className="bg-primary hover:bg-black text-white font-bold py-4 px-8 rounded-xl transition-colors">New Quotation Request</Button>
+                        
+                        <div className="flex flex-col gap-3 max-w-sm mx-auto">
+                            <Button 
+                                type="button" 
+                                onClick={() => {
+                                    const fullPhoneNumber = `${countryCode}${formData.customer_phone}`;
+                                    const whatsappMsg = `*New Booking Request - ${BRAND.name}*
+*Name:* ${formData.customer_name}
+*Email:* ${formData.customer_email}
+*Phone:* ${fullPhoneNumber}
+*Pickup:* ${formData.pickup_location}
+*Destination:* ${formData.destination}
+*Date:* ${formData.pickup_date}
+*Time:* ${formData.pickup_time}
+*Vehicle:* ${formData.vehicle_type}
+*Passengers:* ${formData.passengers}
+*Luggage:* ${formData.luggage} bags
+*Child Seats:* ${formData.child_seats || 0}
+*Return Trip:* ${formData.has_return_trip ? 'Yes' : 'No'}
+*Special Requests:* ${formData.special_requests || 'None'}
+---
+Please provide a quote for this journey.`;
+                                    const encodedMsg = encodeURIComponent(whatsappMsg);
+                                    window.open(`https://wa.me/${BRAND.contact.whatsapp.replace('+', '')}?text=${encodedMsg}`, '_blank');
+                                }}
+                                className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-8 rounded-xl transition-colors flex items-center justify-center gap-2"
+                            >
+                                <WhatsAppIcon className="w-5 h-5" />
+                                Send on WhatsApp Again
+                            </Button>
+
+                            <Button 
+                                type="button" 
+                                variant="outline"
+                                onClick={() => { 
+                                    setStep(1); 
+                                    setSuccess(false); 
+                                    setFormData(prev => ({ 
+                                        ...prev, 
+                                        customer_name: '',
+                                        customer_email: '',
+                                        customer_phone: '',
+                                        pickup_location: '', 
+                                        destination: '', 
+                                        status: 'pending', 
+                                        has_return_trip: false, 
+                                        child_seats: 0 
+                                    })); 
+                                }} 
+                                className="border-2 border-gray-200 hover:bg-gray-50 text-gray-700 font-bold py-4 px-8 rounded-xl transition-colors"
+                            >
+                                New Quotation Request
+                            </Button>
+                        </div>
                     </div>
                 )}
             </form>

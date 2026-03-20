@@ -79,7 +79,7 @@ export default function TaifPage() {
                 cityName="Taif"
                 description="Professional VIP mountain transfers in Taif. Specializing in Al Hada road, seasonal rose farm tours, and executive Jeddah Airport pickups."
                 services={services}
-                priceRange={{ min: 250, max: 600, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/taif-mountains-view.webp"
             />
 
@@ -87,7 +87,7 @@ export default function TaifPage() {
             <Hero
                 images={taifImages}
                 h1Text="VIP Private Transfer & Chauffeur Taif"
-                bookingFormTitle="Get Quote for Premium Transfer in Taif"
+                bookingFormTitle="WhatsApp Booking for Premium Transfer in Taif"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Taif
@@ -98,7 +98,7 @@ export default function TaifPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="VIP Transfer KSA™ Taif"
+                        brandName="Taxi Service KSA™ Taif"
                         description="Professional chauffeur and airport transfer services in Taif. We help travelers and rose festival visitors with luxury vehicles and 24/7 availability for Al Hada mountain road and Jeddah Airport transfers."
                         foundingDate="2012"
                         metrics={[

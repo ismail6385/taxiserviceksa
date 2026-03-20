@@ -12,16 +12,16 @@ import {
 import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
-    title: 'About VIP Transfer KSA | Premium Chauffeur Service Saudi Arabia',
-    description: 'Learn about VIP Transfer KSA, the leading VIP private transfer and chauffeur service in Saudi Arabia. Specializing in luxury airport pickups, Umrah transport, and executive intercity travel.',
-    keywords: ['VIP Private Transfer Saudi Arabia', 'Premium Chauffeur Service', 'Luxury Airport Transport', 'Executive Umrah Transport', 'Professional Driver KSA'],
+    title: 'About Taxi Service KSA | VIP Chauffeur Service Saudi Arabia',
+    description: 'Learn about Taxi Service KSA, the leading VIP private transfer and chauffeur service in Saudi Arabia. Specializing in luxury airport pickups, Umrah transport, and executive intercity travel.',
+    keywords: ['VIP Private Transfer Saudi Arabia', 'Executive Chauffeur Service', 'Luxury Airport Transport', 'Executive Umrah Transport', 'Professional Driver KSA'],
 };
 
 export default function AboutPage() {
     const values = [
         { icon: Shield, title: 'Safety First', description: 'Your safety is paramount. Our vehicles are rigorously maintained and our drivers are vetted professionals.' },
         { icon: Clock, title: 'Punctuality', description: 'We respect your time. Count on us for timely pickups and efficient routes.' },
-        { icon: Star, title: 'Luxury Experience', description: 'Experience the finest fleet of vehicles, offering premium comfort and amenities.' },
+        { icon: Star, title: 'Luxury Experience', description: 'Experience the finest fleet of vehicles, offering elite comfort and amenities.' },
         { icon: Users, title: 'Customer Focus', description: 'We are dedicated to your satisfaction, offering personalized services.' }
     ];
 
@@ -40,14 +40,14 @@ export default function AboutPage() {
     ];
 
     const whyChooseUs = [
-        { icon: Award, title: 'Industry Experience', description: 'Years of expertise in providing premium transportation services across Saudi Arabia.' },
+        { icon: Award, title: 'Industry Experience', description: 'Years of expertise in providing VIP transportation services across Saudi Arabia.' },
         { icon: Car, title: 'Modern Fleet', description: 'Well-maintained luxury vehicles equipped with the latest safety features.' },
         { icon: MapPin, title: 'Wide Coverage', description: 'Serving major cities including Makkah, Madinah, Jeddah, Riyadh, and AlUla.' },
         { icon: Headphones, title: '24/7 Support', description: 'Round-the-clock customer support to assist you anytime.' }
     ];
 
     const faqs = [
-        { question: "Is VIP Transfer KSA a licensed provider?", answer: "VIP Transfer KSA operates under Saudi Public Transport Authority regulations. Service includes commercial vehicle insurance and licensed drivers." },
+        { question: "Is Taxi Service KSA a licensed provider?", answer: "Taxi Service KSA operates under Saudi Public Transport Authority regulations. Service includes commercial vehicle insurance and licensed drivers." },
         { question: "Do you offer corporate accounts?", answer: "Corporate accounts are available for businesses with monthly billing and priority booking." },
         { question: "How do you ensure passenger safety?", answer: "Safety includes driver background verification, vehicle maintenance inspections, and 24/7 trip monitoring." },
         { question: "What areas do you serve?", answer: "Service operates in Jeddah, Makkah, Madinah, Taif, Yanbu, AlUla, Riyadh, and Khaybar." }
@@ -59,13 +59,13 @@ export default function AboutPage() {
         "mainEntity": {
             "@id": "https://taxiserviceksa.com/#organization",
             "@type": "Organization",
-            "name": "VIP Transfer KSA",
+            "name": "Taxi Service KSA",
             "founder": {
                 "@type": "Person",
                 "name": "Muhammad Ismail"
             },
             "foundingDate": "2012",
-            "description": "Premium Chauffeur & VIP Transfer Service in Saudi Arabia.",
+            "description": "Executive Chauffeur & VIP Transfer Service in Saudi Arabia.",
             "url": "https://taxiserviceksa.com"
         }
     };
@@ -177,7 +177,7 @@ export default function AboutPage() {
                             </div>
                             <div>
                                 <span className="block font-black text-gray-900 text-lg">Muhammad Ismail</span>
-                                <span className="text-emerald-600 font-bold text-sm uppercase">Founder & CEO, VIP Transfer KSA</span>
+                                <span className="text-emerald-600 font-bold text-sm uppercase">Founder & CEO, Taxi Service KSA</span>
                             </div>
                         </div>
                     </div>
@@ -191,8 +191,8 @@ export default function AboutPage() {
                 </h3>
                 <div className="space-y-4 text-sm">
                     {[
-                        { label: 'Legal Name', val: 'VIP Transfer KSA Transport' },
-                        { label: 'Brand Name', val: 'VIP Transfer KSA™' },
+                        { label: 'Legal Name', val: 'Taxi Service KSA Transport' },
+                        { label: 'Brand Name', val: 'Taxi Service KSA™' },
                         { label: 'Headquarters', val: 'Jeddah, Saudi Arabia' },
                         { label: 'Contact', val: 'info@taxiserviceksa.com' },
                         { label: 'License Status', val: 'ACTIVE - TGA Registered' }
@@ -223,7 +223,7 @@ export default function AboutPage() {
             {/* Final CTA & Author Card */}
             <div className="bg-gray-50 py-20">
                 <div className="max-w-4xl mx-auto px-4 text-center">
-                    <h2 className="text-3xl font-bold mb-8 text-gray-900">Experience Premium Transportation</h2>
+                    <h2 className="text-3xl font-bold mb-8 text-gray-900">Experience Executive Transportation</h2>
                     <Link href="/booking/">
                         <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg px-12 py-8 rounded-2xl mb-20 shadow-xl shadow-emerald-100">
                            Get a quote for your Private Transfer

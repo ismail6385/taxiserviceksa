@@ -199,7 +199,7 @@ export default function ToyotaHiacePage() {
                 <div className="absolute inset-0 bg-black/10"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <h2 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-none uppercase">THE KING OF <br/><span className="text-black">GROUP LOGISTICS</span></h2>
-                    <p className="text-white text-xl mb-12 max-w-2xl mx-auto font-medium">Get Quote for the Kingdom's most reliable and spacious group van. Professional chauffeurs and guaranteed comfort at fixed rates.</p>
+                    <p className="text-white text-xl mb-12 max-w-2xl mx-auto font-medium">WhatsApp Booking for the Kingdom's most reliable and spacious group van. Professional chauffeurs and guaranteed comfort at fixed rates.</p>
                     <Link href="/booking/?vehicle=toyota-hiace">
                         <Button size="lg" className="bg-black hover:bg-white hover:text-black text-white font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl transition-all hover:scale-105">
                             BOOK HIACE NOW

@@ -9,15 +9,15 @@ import AuthorCard from '@/components/AuthorCard';
 import { Info, CheckCircle2, ShieldCheck, MapPin } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'Taxi Fare Calculator Saudi Arabia | Jeddah, Makkah, Madinah Rates',
-    description: 'Calculate official taxi fares between Jeddah Airport, Makkah, and Madinah. Check fixed prices for Sedan, GMC Yukon, and Bus. No hidden fees.',
+    title: 'Taxi Quote Estimator Saudi Arabia | Jeddah, Makkah, Madinah',
+    description: 'Get an instant private transfer quote for Jeddah Airport, Makkah, and Madinah. Book VIP GMC Yukon or family vans via WhatsApp. Licensed chauffeurs.',
     keywords: ['taxi fare calculator saudi arabia', 'jeddah to makkah taxi price', 'makkah to madinah taxi fare', 'saudi taxi rates', 'umrah taxi cost'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/calculator/',
     },
     openGraph: {
-        title: 'Check Taxi Fares: Jeddah, Makkah & Madinah (Official Rates)',
-        description: 'Plan your Umrah budget. See fixed taxi prices for Jeddah Airport to Makkah and Madinah transfers.',
+        title: 'Check Taxi Transfer Quotes: Jeddah, Makkah & Madinah',
+        description: 'Plan your Umrah transport. Get instant VIP quotes for Jeddah Airport to Makkah and Madinah transfers.',
         url: 'https://taxiserviceksa.com/calculator/',
         type: 'website',
     },
@@ -56,15 +56,15 @@ export default function CalculatorPage() {
                 h1Text="Taxi Fare Calculator"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Official Rates 2025
+                        VIP Quote Estimator
                     </span>
                 }
-                subtitle="Check Fixed Prices for All Major Routes"
+                subtitle="Get Instant Quotations for All Major Routes"
                 location="Jeddah | Makkah | Madinah | Taif"
             >
                 <div className="flex justify-center mt-8">
                     <p className="text-white/80 text-lg max-w-2xl text-center">
-                        Plan your Umrah transport budget with transparency. Our calculator shows the exact fixed rate you will pay—no meters, no surprises.
+                        Plan your Umrah transport with our professional quote estimator. Select your route and vehicle type to receive a custom quote immediately via WhatsApp.
                     </p>
                 </div>
             </Hero>
@@ -77,8 +77,8 @@ export default function CalculatorPage() {
                         TL;DR: Taxi Cost Quick Estimates
                     </h2>
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-sm">
-                        <li><strong>JED Airport → Makkah:</strong> Fixed rates from SAR 250 (Sedan).</li>
-                        <li><strong>Makkah ↔ Madinah:</strong> Market rates from SAR 400 (Pilgrimage Route).</li>
+                        <li><strong>JED Airport → Makkah:</strong> VIP Sedan & SUV Quotes available 24/7.</li>
+                        <li><strong>Makkah ↔ Madinah:</strong> Inter-city pilgrimage transfers with name-board service.</li>
                         <li><strong>Luggage Inclusion:</strong> All fares include standard baggage capacity per vehicle.</li>
                         <li><strong>Booking Time:</strong> We recommend booking <strong>6 hours in advance</strong> for guaranteed pickup.</li>
                     </ul>
@@ -136,7 +136,7 @@ export default function CalculatorPage() {
                         <div>
                             <h3 className="text-xl font-bold text-gray-900 mb-3">Fixed vs. Metered</h3>
                             <p className="text-gray-600 text-base">
-                                While city taxis in Jeddah use meters, <strong>intercity transfers</strong> (like Jeddah to Makkah) are almost always fixed price. Our calculator reflects these standard market rates for private transfers including tolls and fuel.
+                                While city taxis in Jeddah use meters, <strong>intercity transfers</strong> (like Jeddah to Makkah) are professionally quoted before travel. Our estimator reflects standard market quality for VIP private transfers including tolls and fuel.
                             </p>
                         </div>
                         <div>

@@ -80,7 +80,7 @@ export const vehicles = [
         image: "/fleet/mercedes-vito-vip-shuttle-service-ksa.webp",
         passengers: 7,
         luggage: 4,
-        description: "Premium European shuttle for business groups and families."
+        description: "Elite European shuttle for business groups and families."
     },
     {
         name: "Ford Taurus 2025",

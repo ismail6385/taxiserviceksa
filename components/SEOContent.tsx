@@ -3,7 +3,7 @@ export default function SEOContent() {
         <section className="py-20 bg-zinc-950 text-gray-300">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Premium Transportation Services in Saudi Arabia</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">VIP Transportation Services in Saudi Arabia</h2>
                     <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
                 </div>
 
@@ -13,7 +13,7 @@ export default function SEOContent() {
                         <p className="leading-relaxed mb-4">
                             Navigating the bustling streets of Saudi Arabia&apos;s major cities like Riyadh, Jeddah, and Makkah can be challenging for visitors.
                             Opting for a <strong>private chauffeur service</strong> ensures not only comfort but also safety and efficiency. Unlike standard taxis,
-                            our premium service offers fixed rates, professional English-speaking drivers, and luxury vehicles that cater to your specific needs.
+                            our VIP service offers fixed rates, professional English-speaking drivers, and luxury vehicles that cater to your specific needs.
                         </p>
                         <p className="leading-relaxed">
                             Whether you are here for business meetings in the diplomatic quarter of Riyadh or performing religious duties in Makkah,

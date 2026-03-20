@@ -73,7 +73,7 @@ export default function FleetPricing({
                             } ${item.highlight ? 'font-bold' : ''}`}
                     >
                         <span className="text-gray-700 font-medium">{item.route}</span>
-                        <a href={`/booking/?from=${encodeURIComponent(item.route)}&vehicle=${encodeURIComponent(vehicleName)}`} className={`font-bold ${theme.text} bg-primary/10 px-3 py-1 rounded-lg hover:bg-primary/20 transition-colors`}>Get Quote</a>
+                        <a href={`/booking/?from=${encodeURIComponent(item.route)}&vehicle=${encodeURIComponent(vehicleName)}`} className={`font-bold ${theme.text} bg-primary/10 px-3 py-1 rounded-lg hover:bg-primary/20 transition-colors`}>WhatsApp Quote</a>
                     </div>
                 ))}
             </div>

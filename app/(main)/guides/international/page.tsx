@@ -5,16 +5,16 @@ import { internationalGuides } from '@/data/international_guides';
 import { ArrowRight, Globe } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'International Pilgrim Guides | VIP Transfer KSA',
+    title: 'International Pilgrim Guides | Taxi Service KSA',
     description: 'Find dedicated Umrah taxi and transport guides for your country. Comprehensive travel information for pilgrims from over 80 nations visiting Saudi Arabia.',
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/international/',
     },
     openGraph: {
-        title: 'International Pilgrim Guides | VIP Transfer KSA',
+        title: 'International Pilgrim Guides | Taxi Service KSA',
         description: 'Find dedicated Umrah taxi and transport guides for your country. Comprehensive travel information for pilgrims from over 80 nations visiting Saudi Arabia.',
         url: 'https://taxiserviceksa.com/guides/international/',
-        siteName: 'VIP Transfer KSA',
+        siteName: 'Taxi Service KSA',
         type: 'website',
     }
 };

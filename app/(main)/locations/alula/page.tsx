@@ -82,7 +82,7 @@ export default function AlUlaPage() {
                 cityName="AlUla"
                 description="Professional VIP transfers in AlUla. Specializing in UNESCO heritage tours to Hegra, AlUla International Airport (ULH) pickups, and high-end desert exploration with 4x4 SUVs."
                 services={services}
-                priceRange={{ min: 100, max: 1000, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/alula-hegra-tombs.webp"
             />
 
@@ -92,7 +92,7 @@ export default function AlUlaPage() {
             <Hero
                 images={alulaImages}
                 h1Text="VIP Private Transfer & Chauffeur AlUla"
-                bookingFormTitle="Get Quote for Premium Transfer in AlUla"
+                bookingFormTitle="WhatsApp Booking for Premium Transfer in AlUla"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service AlUla
@@ -103,7 +103,7 @@ export default function AlUlaPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="VIP Transfer KSA™ AlUla"
+                        brandName="Taxi Service KSA™ AlUla"
                         description="Professional chauffeur and heritage tour services in AlUla. We help tourists and travelers with luxury 4x4 vehicles and 24/7 availability for Hegra tours, Airport transfers, and desert exploration."
                         foundingDate="2012"
                         metrics={[

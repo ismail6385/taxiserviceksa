@@ -14,6 +14,8 @@ import AuthorCard from '@/components/AuthorCard';
 import { blogService } from '@/lib/blogService';
 import RelatedGuides from '@/components/RelatedGuides';
 import JsonLdLocation from '@/components/JsonLdLocation';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
 
 export const metadata: Metadata = {
     keywords: ['VIP Airport Transfers Saudi Arabia', 'Premium Chauffeur Service', 'Jeddah Airport VIP Transfer', 'Riyadh Executive Transfer', 'Madinah Private Airport Shuttle', 'Uber alternative Jeddah Airport', 'Careem alternative Riyadh', 'Kaiian airport taxi'],
@@ -50,7 +52,7 @@ export default async function AirportTransfersPage() {
                 </>
             ),
             routes: ['Jeddah → Makkah (80km)', 'Jeddah → Taif (90km)', 'Jeddah City Hotels'],
-            price: 'Affordable Rates',
+            price: 'WhatsApp Booking',
             link: '/locations/jeddah/',
             isHub: true
         },
@@ -60,7 +62,7 @@ export default async function AirportTransfersPage() {
             code: 'RUH',
             description: 'Capital city airport. Business travel hub with connections to major Saudi cities.',
             routes: ['RUH → Riyadh Hotels', 'RUH → Business Districts', 'RUH → Diplomatic Quarter'],
-            price: 'Fixed Rates',
+            price: 'WhatsApp Booking',
             link: '/locations/riyadh/',
             isHub: true
         },
@@ -70,7 +72,7 @@ export default async function AirportTransfersPage() {
             code: 'MED',
             description: 'Pilgrimage airport serving Madinah. Direct access to Prophet\'s Mosque area.',
             routes: ['MED → Madinah Hotels', 'MED → Prophet\'s Mosque', 'MED → Quba Mosque'],
-            price: 'Local Rates',
+            price: 'WhatsApp Booking',
             link: '/locations/madinah/',
         },
         {
@@ -79,7 +81,7 @@ export default async function AirportTransfersPage() {
             code: 'ULH',
             description: 'Tourism airport for UNESCO heritage sites. Gateway to Hegra and Dadan.',
             routes: ['ULH → AlUla Hotels', 'ULH → Hegra Site', 'ULH → Khaybar (150km)'],
-            price: 'Competitive Rates',
+            price: 'WhatsApp Booking',
             link: '/locations/alula/',
         },
         {
@@ -88,7 +90,7 @@ export default async function AirportTransfersPage() {
             code: 'YNB',
             description: 'Industrial city airport. Serves port workers and Red Sea coastal access.',
             routes: ['YNB → Yanbu Hotels', 'YNB → Industrial City', 'YNB → Madinah (220km)'],
-            price: 'Local Rates',
+            price: 'WhatsApp Booking',
             link: '/locations/yanbu/',
         },
         {
@@ -97,7 +99,7 @@ export default async function AirportTransfersPage() {
             code: 'TIF',
             description: 'Mountain resort airport. Summer destination with cooler climate.',
             routes: ['TIF → Taif Hotels', 'TIF → Mountain Resorts', 'TIF → Jeddah (90km)'],
-            price: 'Summer Special Rates',
+            price: 'WhatsApp Booking',
             link: '/locations/taif/',
         },
     ];
@@ -212,7 +214,6 @@ export default async function AirportTransfersPage() {
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and luxury group travel.' },
                     { name: 'Family SUV Shuttle', description: 'Spacious GMC Yukon and Hiace vehicles for groups and luggage.' }
                 ]}
-                priceRange={{ min: 150, max: 2500, currency: "SAR" }}
                 image="https://taxiserviceksa.com/hero-slide-3.webp"
             />
             <JsonLdFAQ faqs={faqs.map(f => ({
@@ -472,7 +473,6 @@ export default async function AirportTransfersPage() {
                             <th className="py-3 font-bold">Airport Name</th>
                             <th className="py-3 font-bold">Key Route</th>
                             <th className="py-3 font-bold">Average Distance</th>
-                            <th className="py-3 font-bold">Pricing Type</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-100">
@@ -480,19 +480,16 @@ export default async function AirportTransfersPage() {
                             <td className="py-4 font-bold">Jeddah (JED)</td>
                             <td className="py-4 font-medium text-sky-700">JED → Makkah</td>
                             <td className="py-4">80 km</td>
-                            <td className="py-4">Affordable Rate</td>
                         </tr>
                         <tr>
                             <td className="py-4 font-bold">Riyadh (RUH)</td>
                             <td className="py-4 font-medium text-sky-700">RUH → KAFD</td>
                             <td className="py-4">35 km</td>
-                            <td className="py-4">Fixed Rate</td>
                         </tr>
                         <tr>
                             <td className="py-4 font-bold">Madinah (MED)</td>
                             <td className="py-4 font-medium text-sky-700">MED → Haram</td>
                             <td className="py-4">20 km</td>
-                            <td className="py-4">Local Rate</td>
                         </tr>
                     </tbody>
                 </table>
@@ -559,9 +556,7 @@ export default async function AirportTransfersPage() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking?service=airport-transfer">
-                            <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Get Quote
-                            </Button>
+                            <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">

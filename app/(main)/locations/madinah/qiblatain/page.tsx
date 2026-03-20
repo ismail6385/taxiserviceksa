@@ -9,6 +9,8 @@ import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
 
 export const metadata: Metadata = {
     title: 'VIP Private Transfer to Masjid Al Qiblatain | Madinah Ziyarat',
@@ -45,14 +47,14 @@ export default function QiblatainPage() {
                     { name: 'Intercity Transfers', description: 'Private long-distance travel to other major cities.' },
                     { name: 'Family SUW/Van', description: 'Large vehicles for groups and extra luggage.' }
                 ]}
-                priceRange={{ min: 50, max: 2000, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/locations/madinah.webp"
             />
 
             <Hero
                 images={images}
                 h1Text="VIP Private Transfer to Masjid Al Qiblatain"
-                bookingFormTitle="Get Quote for Heritage Transfer"
+                bookingFormTitle="WhatsApp Booking for Heritage Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Premium Chauffeur Heritage
@@ -116,7 +118,7 @@ export default function QiblatainPage() {
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <DollarSign className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Affordable Rates</span>
+                                    <span className="font-semibold text-gray-800"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current inline-block" /> WhatsApp Booking</span>
                                 </div>
                             </div>
                         </div>

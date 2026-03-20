@@ -45,7 +45,7 @@ export default function JeddahYanbuRoutePage() {
                     { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
                     { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
                 ]}
-                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 

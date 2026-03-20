@@ -1,12 +1,13 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, MapPin, Plane, Building2, Star, MessageCircle } from 'lucide-react';
+import { ArrowRight, MapPin, Plane, Building2, Star } from 'lucide-react';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
-    title: 'Travel Guides | VIP Transfer KSA - Expert Insights for Saudi Arabia',
+    title: 'Travel Guides | Taxi Service KSA - Expert Insights for Saudi Arabia',
     description: 'Comprehensive travel guides for Jeddah Airport, Makkah Umrah, and Riyadh Business Travel. Expert insights from professional drivers with years of local experience.',
-    keywords: ['Jeddah Airport Guide', 'Makkah Umrah Guide', 'Riyadh Business Guide', 'Saudi Arabia Travel', 'VIP Transfer KSA'],
+    keywords: ['Jeddah Airport Guide', 'Makkah Umrah Guide', 'Riyadh Business Guide', 'Saudi Arabia Travel', 'Taxi Service KSA'],
 };
 
 const guides = [
@@ -177,7 +178,7 @@ export default function GuidesPage() {
                         </div>
                         <div className="text-center">
                             <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <MessageCircle className="w-8 h-8 text-black" />
+                                <WhatsAppIcon className="w-8 h-8 text-black" />
                             </div>
                             <h3 className="text-xl font-bold text-gray-900 mb-3">Real Insights</h3>
                             <p className="text-gray-600">
@@ -207,7 +208,7 @@ export default function GuidesPage() {
                     <div className="flex gap-4 justify-center">
                         <Link href="/ask-question">
                             <Button size="lg" className="bg-black text-white hover:bg-gray-800 font-bold">
-                                <MessageCircle className="w-5 h-5 mr-2" />
+                                <WhatsAppIcon className="w-5 h-5 mr-2" />
                                 Ask a Question
                             </Button>
                         </Link>

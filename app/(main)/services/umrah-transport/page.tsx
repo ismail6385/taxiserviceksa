@@ -38,7 +38,7 @@ export default async function UmrahTransportPage() {
             name: 'Jeddah Airport → Makkah',
             distance: '80 km',
             duration: '60-90 minutes',
-            price: 'Affordable Rates',
+            price: 'WhatsApp Booking',
             description: (
                 <>
                     Direct transfer from King Abdulaziz International Airport. Check our{' '}
@@ -55,7 +55,7 @@ export default async function UmrahTransportPage() {
             name: 'Makkah → Madinah',
             distance: '450 km',
             duration: '4-5 hours',
-            price: 'Fixed Rates',
+            price: 'WhatsApp Booking',
             description: 'Complete your Umrah journey with comfortable transfer between the two holy cities. Rest stops included.',
             link: '/routes/makkah-madinah/',
             icon: Navigation
@@ -64,7 +64,7 @@ export default async function UmrahTransportPage() {
             name: 'Makkah City Transport',
             distance: 'Within city',
             duration: '15-30 minutes',
-            price: 'Local Rates',
+            price: 'WhatsApp Booking',
             description: 'Hotel to Haram private transfer service. Available 24/7 for prayers and Ziyarat tours.',
             link: '/locations/makkah/',
             icon: MapPin
@@ -73,7 +73,7 @@ export default async function UmrahTransportPage() {
             name: 'Madinah City Transport',
             distance: 'Within city',
             duration: '15-30 minutes',
-            price: 'Local Rates',
+            price: 'WhatsApp Booking',
             description: 'Hotel to Prophet\'s Mosque and Ziyarat sites. Professional drivers with local knowledge.',
             link: '/locations/madinah/',
             icon: MapPin
@@ -174,7 +174,7 @@ export default async function UmrahTransportPage() {
                     { name: 'Umrah Meeqat Service', description: 'Drivers familiar with all Meeqat locations for احرام (Ihram) rituals.' },
                     { name: 'Family Group Vans', description: 'Spacious Toyota Hiace and GMC Yukon for large pilgrim groups.' }
                 ]}
-                priceRange={{ min: 200, max: 3500, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/makkah-kaaba-night.webp"
             />
             <JsonLdFAQ faqs={faqs.map(f => ({
@@ -214,7 +214,7 @@ export default async function UmrahTransportPage() {
                         <li><strong>Standard Route:</strong> JED Airport to Makkah (80km) is usually 60-90 mins.</li>
                         <li><strong>Pilgrim Pickups:</strong> Drivers wait at the <strong>Arrivals Hall</strong> with name signs.</li>
                         <li><strong>Holy Route:</strong> Makkah to Madinah (450km) private transfers allow unlimited stops.</li>
-                        <li><strong>Pricing:</strong> Guaranteed <strong>Fixed Rates</strong> covering all highway tolls and Zamzam carriers.</li>
+                        <li><strong>Pricing:</strong> Guaranteed <strong>WhatsApp Booking</strong> covering all highway tolls and Zamzam carriers.</li>
                     </ul>
                 </div>
                 </div>

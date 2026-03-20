@@ -8,6 +8,8 @@ import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
 
 export const metadata: Metadata = {
     title: 'Taxi Dubai to Riyadh | VIP Cross-Border Transfer',
@@ -44,7 +46,7 @@ export default function DubaiRiyadhRoutePage() {
                     { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
                     { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
                 ]}
-                priceRange={{ min: 1500, max: 8000, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
@@ -62,14 +64,12 @@ export default function DubaiRiyadhRoutePage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Dubai&dropoff=Riyadh">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Get Quote (2500 SAR)
+                            WhatsApp Booking (2500 SAR)
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
                     <a href="mailto:info@taxiserviceksa.com?text=Hello,%20I%20want%20to%20book%20a%20taxi%20from%20Dubai%20to%20Riyadh">
-                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            Get Quote
-                        </Button>
+                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                     </a>
                 </div>
             </Hero>

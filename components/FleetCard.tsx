@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Users, Briefcase, CheckCircle2, ArrowRight } from 'lucide-react';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 import Link from 'next/link';
 
 interface FleetCardProps {
@@ -73,18 +74,17 @@ export default function FleetCard({ name, image, passengers, luggage, features, 
                     </ul>
 
                     {/* CTA Buttons */}
-                    <div className="space-y-2">
+                                        <div className="grid grid-cols-1 gap-2">
                         <Link href={`/booking?vehicle=${encodeURIComponent(name.replace(/\s+/g, '-'))}`} className="block">
-                            <Button className="w-full bg-primary hover:bg-primary/90 text-black font-bold group-hover:shadow-lg transition-all">
-                                Book {name} <ArrowRight className="w-4 h-4 ml-2" />
-                            </Button>
-                        </Link>
-                        <Link href={href} className="block">
-                            <Button variant="outline" className="w-full border-gray-300 hover:bg-gray-100 hover:text-black text-gray-700 font-semibold">
-                                View Details
-                            </Button>
+                            <Button className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-black h-12 rounded-xl text-sm flex items-center justify-center gap-2">
+                                <WhatsAppIcon className="w-5 h-5 fill-current shrink-0" /><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                         </Link>
                     </div>
+                    <Link href={href} className="block mt-2">
+                        <Button variant="outline" className="w-full border-gray-200 hover:bg-gray-50 text-gray-500 font-bold h-10 text-[11px] uppercase tracking-wider rounded-xl">
+                            Vehicle Details
+                        </Button>
+                    </Link>
                 </div>
             </div>
         </div>

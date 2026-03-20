@@ -8,6 +8,8 @@ import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Plane, Arrow
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
 
 export const metadata: Metadata = {
     title: 'Jeddah to Al Ula Taxi | 700km Heritage Route - Fixed Price',
@@ -55,7 +57,7 @@ export default function JeddahAlulaRoutePage() {
                     { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
                     { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
                 ]}
-                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
@@ -69,7 +71,7 @@ export default function JeddahAlulaRoutePage() {
                     </span>
                 }
                 subtitle="Journey to Hegra & Elephant Rock"
-                location="700 km | ~7.5 Hours | Fixed Rates"
+                location="700 km | ~7.5 Hours | WhatsApp Booking"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?route=jeddah-alula">
@@ -241,7 +243,7 @@ export default function JeddahAlulaRoutePage() {
                     },
                     {
                         question: "What is the price of a taxi from Jeddah to Al Ula?",
-                        shortAnswer: "Affordable Fixed Rates",
+                        shortAnswer: "Affordable WhatsApp Booking",
                         detailedAnswer: "Fixed rates are available for sedans and luxury GMC Yukon SUVs. This price includes fuel, driver service, and taxes.",
                         perspectives: []
                     },
@@ -271,9 +273,7 @@ export default function JeddahAlulaRoutePage() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking?route=jeddah-alula">
-                            <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Get Quote
-                            </Button>
+                            <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto min-w-[200px]"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">

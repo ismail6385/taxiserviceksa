@@ -8,6 +8,8 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import JsonLdRoute from '@/components/JsonLdRoute';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
 
 export const metadata: Metadata = {
     title: 'Taxi Riyadh to Jeddah | Riyadh to Jeddah Private Car (950km)',
@@ -45,7 +47,7 @@ export default function RiyadhJeddahRoutePage() {
                     </span>
                 }
                 subtitle="Trans-Kingdom Private Chauffeur Service"
-                location="950 km | Fixed Rates | Professional Chauffeurs"
+                location="950 km | WhatsApp Booking | Professional Chauffeurs"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?route=riyadh-jeddah">
@@ -164,7 +166,7 @@ export default function RiyadhJeddahRoutePage() {
                         },
                         {
                             question: "What is the price for a Riyadh to Jeddah private car?",
-                            shortAnswer: "Fixed Rates based on Vehicle",
+                            shortAnswer: "WhatsApp Booking based on Vehicle",
                             detailedAnswer: "Our rates for the Riyadh to Jeddah route are fixed. The price covers the entire vehicle, chauffeur, fuel, and all highway tolls. Contact us for a precise quote based on your fleet choice.",
                             perspectives: [
                                 { role: 'Billing', icon: 'DollarSign', insight: 'One fixed price means no surprises even if there are road diversions.' }
@@ -197,9 +199,7 @@ export default function RiyadhJeddahRoutePage() {
                     <h2 className="text-3xl md:text-6xl font-black text-white mb-8 leading-tight">Master the Journey from <br/> Riyadh to Jeddah</h2>
                     <p className="text-emerald-100/60 text-lg mb-10 max-w-2xl mx-auto">Travel the Kingdom in the ultimate luxury. Get a quote for your trans-kingdom private car today.</p>
                     <Link href="/booking/?route=riyadh-jeddah">
-                        <Button size="lg" className="bg-white hover:bg-emerald-50 text-emerald-900 font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl transition-transform hover:scale-110">
-                            Get Quote
-                        </Button>
+                        <Button size="lg" className="bg-white hover:bg-emerald-50 text-emerald-900 font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl transition-transform hover:scale-110"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                     </Link>
                 </div>
             </div>

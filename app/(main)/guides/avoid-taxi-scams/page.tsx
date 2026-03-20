@@ -200,7 +200,7 @@ export default function TaxiScamGuide() {
                     <p className="text-gray-700 leading-relaxed italic border-l-4 border-emerald-500 pl-6 mb-6">
                         "If you find yourself in a dispute with a driver at Makkah or Jeddah, do not engage in heated arguments. Simply take a photo of the vehicle's license plate and the driver's TGA card (attached to the dashboard/sun visor) and dial <strong>938</strong>. The Saudi Transport General Authority is extremely strict with tourist safety and will resolve most claims instantly."
                     </p>
-                    <p className="text-sm font-bold text-gray-500">— Muhammad Ismail, Founder of VIP Transfer KSA</p>
+                    <p className="text-sm font-bold text-gray-500">— Muhammad Ismail, Founder of Taxi Service KSA</p>
                 </div>
 
                  {/* Author Section for E-E-A-T */}

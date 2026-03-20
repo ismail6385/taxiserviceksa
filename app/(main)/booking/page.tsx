@@ -1,8 +1,8 @@
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 import BookingForm from '@/components/BookingForm';
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-
 type Props = {
     searchParams: { [key: string]: string | string[] | undefined };
 };
@@ -49,6 +49,20 @@ export default function BookingPage({ searchParams }: { searchParams: { [key: st
                     </div>
 
                         Fill out the form below to reserve your luxury vehicle. Experience the gold standard of private transport in Saudi Arabia. Our team will verify your details and confirm your VIP transfer via email.
+
+                    <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <div className="flex items-center gap-2 text-gray-500 text-sm font-medium italic">
+                            Prefer instant booking? 
+                        </div>
+                        <a 
+                            href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20book%20a%20VIP%20transfer."
+                            target="_blank"
+                            className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-xl font-bold transition-all shadow-lg shadow-emerald-200"
+                        >
+                            <WhatsAppIcon className="w-5 h-5 fill-white" />
+                            Book via WhatsApp
+                        </a>
+                    </div>
                 </div>
 
                 <Suspense fallback={<div className="text-center py-12"><div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div><p className="mt-4 text-gray-600">Loading booking form...</p></div>}>

@@ -1,7 +1,7 @@
 'use client';
 
 import Script from 'next/script';
-import { getPrice } from '@/lib/pricing';
+
 
 interface JsonLdRouteProps {
     from: string;
@@ -15,8 +15,6 @@ export default function JsonLdRoute({ from, to, description, distance, duration 
     const baseUrl = 'https://taxiserviceksa.com';
     const routeName = `Taxi from ${from} to ${to}`;
     
-    // Attempt to get a sample price for the offer (e.g. Camry price)
-    const samplePrice = getPrice(from, to, "Toyota Camry") || 200; 
 
     const schema = {
         "@context": "https://schema.org",
@@ -35,13 +33,6 @@ export default function JsonLdRoute({ from, to, description, distance, duration 
                     { "@type": "City", "name": from },
                     { "@type": "City", "name": to }
                 ],
-                "offers": {
-                    "@type": "Offer",
-                    "price": samplePrice,
-                    "priceCurrency": "SAR",
-                    "availability": "https://schema.org/InStock",
-                    "url": `${baseUrl}/booking/`
-                },
                 "brand": {
                     "@type": "Brand",
                     "name": "TaxiServiceKSA"

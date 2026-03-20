@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { reviewService } from '@/lib/reviewQuestionService';
 import { Button } from '@/components/ui/button';
 import { Star, Send, CheckCircle } from 'lucide-react';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 import Link from 'next/link';
 
 export default function SubmitReviewPage() {
@@ -63,23 +64,45 @@ export default function SubmitReviewPage() {
                         Help other travelers by sharing your experience with our taxi service
                     </p>
 
-                    {/* Trustpilot CTA */}
-                    <div className="bg-[#00b67a]/10 border-2 border-[#00b67a]/20 rounded-2xl p-6 mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
-                        <div className="text-left">
-                            <h3 className="text-lg font-bold text-gray-900 mb-1">Prefer Trustpilot?</h3>
-                            <p className="text-sm text-gray-600">Review us on the world's most trusted review platform.</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+                        {/* Trustpilot CTA */}
+                        <div className="bg-[#00b67a]/10 border-2 border-[#00b67a]/20 rounded-2xl p-6 flex flex-col items-center justify-center text-center gap-4">
+                            <div>
+                                <h3 className="text-lg font-bold text-gray-900 mb-1">Review on Trustpilot</h3>
+                                <p className="text-xs text-gray-600">Share your feedback on the world's most trusted platform.</p>
+                            </div>
+                            <a
+                                href="https://www.trustpilot.com/review/taxiserviceksa.com?utm_medium=trustbox&utm_source=ReviewCollector"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full"
+                            >
+                                <Button className="w-full bg-[#00b67a] hover:bg-[#00a36c] text-white font-bold h-12 border-none">
+                                    <Star className="w-4 h-4 mr-2 fill-white" />
+                                    Trustpilot
+                                </Button>
+                            </a>
                         </div>
-                        <a
-                            href="https://www.trustpilot.com/review/taxiserviceksa.com?utm_medium=trustbox&utm_source=ReviewCollector"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="shrink-0"
-                        >
-                            <Button className="bg-[#00b67a] hover:bg-[#00a36c] text-white font-bold px-6 py-4 h-auto border-none">
-                                <Star className="w-4 h-4 mr-2 fill-white" />
-                                Review on Trustpilot
-                            </Button>
-                        </a>
+
+                        {/* WhatsApp Support CTA */}
+                        <div className="bg-emerald-50 border-2 border-emerald-100 rounded-2xl p-6 flex flex-col items-center justify-center text-center gap-4 overflow-hidden relative">
+                             <div className="absolute top-0 right-0 -mr-6 -mt-6 w-20 h-20 bg-emerald-500/10 rounded-full blur-xl"></div>
+                            <div>
+                                <h3 className="text-lg font-bold text-emerald-900 mb-1">Direct Feedback?</h3>
+                                <p className="text-xs text-emerald-700/70">Encountered an issue? Talk to us directly on WhatsApp.</p>
+                            </div>
+                            <a
+                                href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20share%20feedback%20about%20my%20recent%20trip."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-full"
+                            >
+                                <Button className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold h-12 border-none shadow-sm shadow-emerald-100">
+                                    <WhatsAppIcon className="w-4 h-4 mr-2 fill-white" />
+                                    WhatsApp
+                                </Button>
+                            </a>
+                        </div>
                     </div>
                 </div>
 

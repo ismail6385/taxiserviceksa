@@ -17,7 +17,7 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 
 
 export const metadata: Metadata = {
-    title: 'Makkah Umrah Complete Guide 2024 | Transport, Tawaf, Ziyarat - VIP Transfer KSA',
+    title: 'Makkah Umrah Complete Guide 2024 | Transport, Tawaf, Ziyarat - Taxi Service KSA',
     description: 'Complete Umrah guide for Makkah: Haram access, Tawaf timing, Ziyarat sites, Zamzam logistics, hotel zones, prayer schedules, and taxi transport. Everything pilgrims need to know.',
     keywords: ['Umrah guide Makkah', 'Tawaf timing', 'Ziyarat sites Makkah', 'Haram access points', 'Makkah hotel zones', 'Jabal al-Nour', 'Zamzam water'],
     alternates: {

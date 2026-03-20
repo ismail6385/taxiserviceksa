@@ -44,7 +44,7 @@ export default function MakkahDohaRoutePage() {
                     { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
                     { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
                 ]}
-                priceRange={{ min: 1500, max: 8000, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
@@ -62,7 +62,7 @@ export default function MakkahDohaRoutePage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Makkah&dropoff=Doha">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Get Quote
+                            WhatsApp Booking
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
@@ -155,7 +155,7 @@ export default function MakkahDohaRoutePage() {
                                 commonBelief: "It's expensive for groups.",
                                 reality: "For families or groups of 4-6 people, a private VIP SUV transfer is often cheaper than buying multiple flight tickets.",
                                 truthRange: "Highly Cost-Effective",
-                                factors: ["Get Quote For Details", "No Luggage Fees"]
+                                factors: ["WhatsApp Booking For Details", "No Luggage Fees"]
                             }
                         ]}
                     />
@@ -183,7 +183,7 @@ export default function MakkahDohaRoutePage() {
                     {
                         question: "How can I get a price for this border transfer?",
                         shortAnswer: "Request a Quote",
-                        detailedAnswer: "Prices vary based on the vehicle type, number of passengers, and specific locations. Please use our 'Get Quote' button or contact us via Email to receive an accurate, all-inclusive quote that covers vehicle crossing insurance and toll fees.",
+                        detailedAnswer: "Prices vary based on the vehicle type, number of passengers, and specific locations. Please use our 'WhatsApp Booking' button or contact us via Email to receive an accurate, all-inclusive quote that covers vehicle crossing insurance and toll fees.",
                         perspectives: []
                     }
                 ]}

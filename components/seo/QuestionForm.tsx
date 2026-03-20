@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { MessageCircle, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { questionService } from '@/lib/reviewQuestionService';
 
 interface QuestionFormProps {
@@ -67,7 +68,7 @@ export default function QuestionForm({ locationName, serviceName }: QuestionForm
             <div className="mb-6">
                 <div className="flex items-center gap-3 mb-3">
                     <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                        <MessageCircle className="w-6 h-6 text-black" />
+                        <WhatsAppIcon className="w-6 h-6 text-black" />
                     </div>
                     <h3 className="text-2xl font-bold text-gray-900">Ask a Question</h3>
                 </div>

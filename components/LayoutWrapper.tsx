@@ -4,6 +4,8 @@ import { usePathname } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import MobileStickyWhatsApp from '@/components/MobileStickyWhatsApp';
 
 
 import SocialSidebar from '@/components/SocialSidebar';
@@ -26,6 +28,8 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
 
           <JsonLdService />
           <JsonLdLocalBusiness />
+          <FloatingWhatsApp />
+          <MobileStickyWhatsApp />
         </>
       )}
 

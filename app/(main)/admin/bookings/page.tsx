@@ -548,7 +548,7 @@ export default function BookingsPage() {
     };
 
     const shareClientDetails = (booking: Booking) => {
-        const text = `*Booking Details (Client)* \n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*Client:* ${booking.customer_name}\n*Phone:* ${booking.customer_phone}\n*Pickup:* ${booking.pickup_location}\n*Dropoff:* ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}\n*Vehicle:* ${booking.vehicle_type}\n*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}\n\n*Fare:* SAR ${booking.total_price || 'Confirming'}\n\n*Notes:* ${booking.special_requests || 'N/A'}\n\nThank you for choosing VIP Transfer KSA.`;
+        const text = `*Booking Details (Client)* \n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*Client:* ${booking.customer_name}\n*Phone:* ${booking.customer_phone}\n*Pickup:* ${booking.pickup_location}\n*Dropoff:* ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}\n*Vehicle:* ${booking.vehicle_type}\n*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}\n\n*Fare:* SAR ${booking.total_price || 'Confirming'}\n\n*Notes:* ${booking.special_requests || 'N/A'}\n\nThank you for choosing Taxi Service KSA.`;
 
         navigator.clipboard.writeText(text).then(() => {
             alert('Client details copied to clipboard!');
@@ -567,7 +567,7 @@ export default function BookingsPage() {
         const returnText = booking.has_return_trip ? " (Including Round Trip 🔄)" : "";
         const childSeatText = booking.child_seats ? ` (With ${booking.child_seats} Child Seat(s) 👶)` : "";
         
-        const text = `Hello ${booking.customer_name}! 🚕 *VIP Transfer KSA* here. 
+        const text = `Hello ${booking.customer_name}! 🚕 *Taxi Service KSA* here. 
         
 We have received your booking request from *${booking.pickup_location}* to *${booking.destination}* on *${booking.pickup_date}*${returnText}${childSeatText}. 
 
@@ -585,7 +585,7 @@ Our team is reviewing the availability and will send you the quotation shortly. 
 📍 *Pickup:* ${booking.pickup_location}
 📦 *Luggage:* ${booking.luggage} Bags
 
-Your professional chauffeur will contact you shortly via WhatsApp/Call. Have a safe journey with *VIP Transfer KSA*!`;
+Your professional chauffeur will contact you shortly via WhatsApp/Call. Have a safe journey with *Taxi Service KSA*!`;
         openWhatsApp(booking.customer_phone, text);
     };
 
@@ -596,7 +596,7 @@ Your professional chauffeur will contact you shortly via WhatsApp/Call. Have a s
         
 💳 *Payment Status:* ${(booking.payment_status || 'unpaid').toUpperCase()}
         
-Please let us know if you would like to proceed with the booking. *VIP Transfer KSA*`;
+Please let us know if you would like to proceed with the booking. *Taxi Service KSA*`;
         openWhatsApp(booking.customer_phone, text);
     };
 
@@ -1591,7 +1591,7 @@ Please let us know if you would like to proceed with the booking. *VIP Transfer 
                                         className="w-full bg-primary text-black hover:bg-black hover:text-white font-bold h-12 shadow-md transition-all"
                                         onClick={() => updateStatus(selectedBooking.id, 'confirmed')}
                                     >
-                                        <CheckCircle className="w-5 h-5 mr-2" /> Request Quotation & Send Email
+                                        <CheckCircle className="w-5 h-5 mr-2" /> WhatsApp Booking & Send Email
                                     </Button>
                                 )}
 

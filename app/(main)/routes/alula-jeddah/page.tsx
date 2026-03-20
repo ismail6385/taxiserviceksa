@@ -51,7 +51,7 @@ export default function AlulaJeddahRoutePage() {
                     { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
                     { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
                 ]}
-                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
@@ -65,7 +65,7 @@ export default function AlulaJeddahRoutePage() {
                     </span>
                 }
                 subtitle="From Heritage Sites to the Red Sea Coast"
-                location="700 km | ~7.5 Hours | Fixed Rates"
+                location="700 km | ~7.5 Hours | WhatsApp Booking"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?route=alula-jeddah">
@@ -243,7 +243,7 @@ export default function AlulaJeddahRoutePage() {
                     },
                     {
                         question: "What is the price for Al Ula to Jeddah taxi?",
-                        shortAnswer: "Affordable Fixed Rates",
+                        shortAnswer: "Affordable WhatsApp Booking",
                         detailedAnswer: "Our prices are competitive and fixed for sedans and GMC Yukons. This is a fixed rate with no hidden charges.",
                         perspectives: []
                     },

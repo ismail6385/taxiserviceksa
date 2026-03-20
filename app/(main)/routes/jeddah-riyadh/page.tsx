@@ -44,7 +44,7 @@ export default function JeddahRiyadhRoutePage() {
                     { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
                     { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
                 ]}
-                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
@@ -57,7 +57,7 @@ export default function JeddahRiyadhRoutePage() {
                     </span>
                 }
                 subtitle="Trans-Kingdom Private Chauffeur Service"
-                location="950 km | Fixed Rates | Door-to-Door"
+                location="950 km | WhatsApp Booking | Door-to-Door"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?route=jeddah-riyadh">
@@ -88,7 +88,7 @@ export default function JeddahRiyadhRoutePage() {
                             "No luggage limits - ideal for moving personal belongings",
                             "Licensed drivers with deep knowledge of the Highway 40 route"
                         ]}
-                        pricing="Fixed Rates"
+                        pricing="WhatsApp Booking"
                         duration="9 - 10 Hours"
                     />
                 </div>
@@ -311,7 +311,7 @@ export default function JeddahRiyadhRoutePage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/?route=jeddah-riyadh">
                             <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Get Quote (Fixed Price)
+                                WhatsApp Booking (Fixed Price)
                             </Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">

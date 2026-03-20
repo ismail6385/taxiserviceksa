@@ -45,7 +45,7 @@ export default function MadinahJeddahRoutePage() {
                     </span>
                 }
                 subtitle="Reliable Private Car Service for Families & Business"
-                location="450 km | Fixed Rates | Professional Chauffeurs"
+                location="450 km | WhatsApp Booking | Professional Chauffeurs"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?route=madinah-jeddah">
@@ -156,7 +156,7 @@ export default function MadinahJeddahRoutePage() {
                     faqs={[
                         {
                             question: "How much is a taxi from Madinah to Jeddah?",
-                            shortAnswer: "Fixed Rates based on Vehicle Class",
+                            shortAnswer: "WhatsApp Booking based on Vehicle Class",
                             detailedAnswer: "The price for a taxi from Madinah to Jeddah is fixed and depends on whether you Request a quote for a standard sedan, a premium SUV (GMC Yukon), or a group van. Our rates are transparent with no hidden costs.",
                             perspectives: [
                                 { role: 'Finance', icon: 'DollarSign', insight: 'Locking in a fixed rate protects you from surge pricing common in on-demand apps.' }

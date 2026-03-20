@@ -53,7 +53,7 @@ export async function GET() {
                 image: "https://taxiserviceksa.com/hero-image.jpg",
                 title: "Have a Blessed Journey",
                 text: "We are here to serve you 24/7.",
-                ctaText: "Book Now",
+                ctaText: "WhatsApp Booking",
                 ctaLink: "https://taxiserviceksa.com/booking"
             }
         ]

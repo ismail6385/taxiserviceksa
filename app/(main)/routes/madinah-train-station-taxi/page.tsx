@@ -50,7 +50,7 @@ export default function MadinahTrainStationPage() {
                     { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
                     { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
                 ]}
-                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
@@ -63,7 +63,7 @@ export default function MadinahTrainStationPage() {
                     </span>
                 }
                 subtitle="From Train Station to Your Hotel (Markaziyah)"
-                location="15-20 Minutes | Affordable Fixed Rates"
+                location="15-20 Minutes | Affordable WhatsApp Booking"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking">

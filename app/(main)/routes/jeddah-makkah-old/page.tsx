@@ -113,7 +113,7 @@ export default function JeddahAirportToMakkahPage() {
                         faqs={[
                             {
                                 question: "How much is the taxi fare?",
-                                shortAnswer: "Affordable Fixed Rates.",
+                                shortAnswer: "Affordable WhatsApp Booking.",
                                 detailedAnswer: "Our fixed rates are competitive for both sedans and larger vehicles like the GMC Yukon. This is a flat rate including waiting time and fuel.",
                                 perspectives: [
                                     {

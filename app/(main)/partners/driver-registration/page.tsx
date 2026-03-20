@@ -91,7 +91,7 @@ export default function DriverRegistration() {
                     </div>
                     <h1 className="text-3xl font-black text-gray-900 mb-4">Registration Submitted!</h1>
                     <p className="text-gray-600 mb-10 leading-relaxed">
-                        Thank you for your interest in joining **VIP Transfer KSA**. Our compliance team will review your application and contact you via email within 48 hours.
+                        Thank you for your interest in joining **Taxi Service KSA**. Our compliance team will review your application and contact you via email within 48 hours.
                     </p>
                     <div className="space-y-4">
                         <Link href="/">

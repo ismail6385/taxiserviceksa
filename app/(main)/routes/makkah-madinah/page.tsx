@@ -8,6 +8,8 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import JsonLdRoute from '@/components/JsonLdRoute';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
 
 export const metadata: Metadata = {
     title: 'Taxi Makkah to Madinah | Makkah to Madinah Private Car',
@@ -94,7 +96,7 @@ export default function MakkahMadinahRoutePage() {
                                     <div className="bg-emerald-100 p-2 rounded-full">
                                         <CheckCircle2 className="w-5 h-5 text-emerald-600" />
                                     </div>
-                                    <span className="font-bold text-gray-800">Fixed Rates - No Hidden Charges</span>
+                                    <span className="font-bold text-gray-800">WhatsApp Booking - No Hidden Charges</span>
                                 </div>
                                 <div className="flex items-center gap-4 p-4 bg-white rounded-2xl border border-gray-100 shadow-sm">
                                     <div className="bg-emerald-100 p-2 rounded-full">
@@ -131,7 +133,7 @@ export default function MakkahMadinahRoutePage() {
                                             </div>
                                         </div>
                                         <Link href="/booking/?route=makkah-madinah">
-                                            <Button size="sm" variant="ghost" className="text-emerald-600 font-bold group-hover:bg-emerald-50">Get Quote</Button>
+                                            <Button size="sm" variant="ghost" className="text-emerald-600 font-bold group-hover:bg-emerald-50"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                                         </Link>
                                     </div>
                                 ))}
@@ -166,7 +168,7 @@ export default function MakkahMadinahRoutePage() {
                     faqs={[
                         {
                             question: "How much is a taxi from Makkah to Madinah?",
-                            shortAnswer: "Fixed Rates based on Vehicle",
+                            shortAnswer: "WhatsApp Booking based on Vehicle",
                             detailedAnswer: "The price for a taxi from Makkah to Madinah depends on the vehicle class. We offer fixed rates starting from competitive prices for standard sedans, up to VIP rates for GMC Yukons and Mercedes Sprinters.",
                             perspectives: [
                                 { role: 'Pricing Expert', icon: 'DollarSign', insight: 'Fixed rates protect you from route changes or traffic delays on the Hijrah Road.' }

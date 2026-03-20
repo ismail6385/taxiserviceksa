@@ -196,7 +196,7 @@ export default function TaxiInTabukPage() {
                                 </div>
                                 
                                 <Link href="/booking/" className="mt-8 relative w-full inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-white transition-all duration-300 bg-primary/20 rounded-xl group-hover:bg-primary group-hover:text-black">
-                                    <span className="relative font-bold">Get Quote for This Vehicle</span>
+                                    <span className="relative font-bold">WhatsApp Booking for This Vehicle</span>
                                 </Link>
                             </div>
                         ))}
@@ -214,7 +214,7 @@ export default function TaxiInTabukPage() {
                             foundingDate="2016"
                             metrics={[
                                 { label: 'Local Drivers', value: '100%', icon: MapPin },
-                                { label: 'Fixed Rates', value: 'Yes', icon: DollarSign }
+                                { label: 'WhatsApp Booking', value: 'Yes', icon: DollarSign }
                             ]}
                         />
                     </div>
@@ -257,7 +257,7 @@ export default function TaxiInTabukPage() {
                     },
                     {
                         question: "Do you offer fixed taxi fares from Tabuk?",
-                        shortAnswer: "Yes, 100% Fixed Rates.",
+                        shortAnswer: "Yes, 100% WhatsApp Booking.",
                         detailedAnswer: "Yes. All our intercity transfers from Tabuk, whether to NEOM, Jeddah, or Makkah, operate on a fixed-fare basis. No hidden changes, no meters. You lock in your price when you book.",
                         perspectives: []
                     }

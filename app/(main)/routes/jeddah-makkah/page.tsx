@@ -11,6 +11,8 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import JsonLdRoute from '@/components/JsonLdRoute';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
 
 export const metadata: Metadata = {
     title: 'Taxi Jeddah to Makkah | Jeddah to Makkah Private Car',
@@ -25,7 +27,7 @@ export default function JeddahMakkahRoutePage() {
     const routeDetails = [
         { label: 'Distance', value: '85-95 km', icon: Navigation },
         { label: 'Travel Time', value: '60-80 minutes', icon: Clock },
-        { label: 'Base Fare', value: 'Fixed Rates', icon: DollarSign },
+        { label: 'Base Fare', value: 'WhatsApp Booking', icon: DollarSign },
         { label: 'Service', value: 'Door-to-Door', icon: CheckCircle2 },
     ];
 
@@ -124,7 +126,7 @@ export default function JeddahMakkahRoutePage() {
                                             </div>
                                         </div>
                                         <Link href="/booking/?route=jeddah-makkah">
-                                            <Button size="sm" variant="ghost" className="text-emerald-600 font-bold group-hover:bg-emerald-50">Get Quote</Button>
+                                            <Button size="sm" variant="ghost" className="text-emerald-600 font-bold group-hover:bg-emerald-50"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                                         </Link>
                                     </div>
                                 ))}

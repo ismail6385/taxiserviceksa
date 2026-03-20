@@ -122,7 +122,7 @@ export default function DhahranPage() {
             <Hero
                 images={dhahranImages}
                 h1Text="VIP Private Transfer & Chauffeur Dhahran"
-                bookingFormTitle="Get Quote for Premium Transfer in Dhahran"
+                bookingFormTitle="WhatsApp Booking for Premium Transfer in Dhahran"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Dhahran
@@ -133,7 +133,7 @@ export default function DhahranPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="VIP Transfer KSA™ Dhahran"
+                        brandName="Taxi Service KSA™ Dhahran"
                         description="Professional chauffeur and corporate transfer services in Dhahran. We help Aramco employees, KFUPM faculty, and visitors with luxury vehicles and 24/7 availability for Dammam Airport transfers."
                         foundingDate="2012"
                         metrics={[

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Star, Shield, Sparkles, Award } from 'lucide-react';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 import HeroBookingWidget from './HeroBookingWidget';
 import { useState, useEffect, ReactNode } from 'react';
 
@@ -117,10 +118,25 @@ export default function Hero(props: HeroProps) {
                     </div>
                 </div>
 
+                {/* Direct WhatsApp CTA - Big & Pulse */}
+                <div className="animate-fade-in-up delay-150 w-full max-w-lg mb-8">
+                    <a 
+                        href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20get%20a%20VIP%20taxi%20quote." 
+                        target="_blank"
+                        className="group flex items-center justify-center gap-4 bg-emerald-600 hover:bg-emerald-700 text-white font-black py-6 px-10 rounded-[2rem] text-xl shadow-2xl shadow-emerald-500/40 transition-all hover:scale-105 active:scale-95 animate-pulse-slow"
+                    >
+                        <div className="relative">
+                            <div className="absolute inset-0 bg-white rounded-full animate-ping opacity-25"></div>
+                            <WhatsAppIcon className="w-8 h-8 fill-current relative z-10" />
+                        </div>
+                        Quick Quote on WhatsApp
+                    </a>
+                </div>
+
                 {/* Booking Widget Container - Lifts up into the hero content */}
                 {!hideBookingForm && (
                     <div className="w-full animate-fade-in-up delay-200 mt-4">
-                        <HeroBookingWidget title={bookingFormTitle || (h1Text ? `Get Quote for ${h1Text}` : undefined)} />
+                        <HeroBookingWidget title={bookingFormTitle || (h1Text ? `WhatsApp Booking for ${h1Text}` : undefined)} />
                     </div>
                 )}
             </div>

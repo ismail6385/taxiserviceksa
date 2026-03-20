@@ -3,6 +3,7 @@ import {
     Facebook, Instagram, Twitter, Linkedin, Car, Youtube, Share2,
     MapPin, Mail, Clock, ShieldCheck, Globe
 } from 'lucide-react';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export default function Footer() {
     return (
@@ -26,21 +27,32 @@ export default function Footer() {
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-2xl font-black text-white tracking-tight leading-none uppercase">
-                                    VIP Transfer <span className="text-primary">KSA</span>
+                                    Taxi Service <span className="text-primary">KSA</span>
                                 </span>
-                                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-2 block">Premium Chauffeur Service</span>
+                                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-2 block">Professional Chauffeur Service</span>
                             </div>
                         </Link>
                         <p className="text-gray-400 leading-relaxed text-sm font-medium pr-4">
                             Your trusted partner for premium transportation across Saudi Arabia. We specialize in Umrah transfers, corporate logistics, and luxury chauffeur services.
                         </p>
 
-                        <div className="space-y-3">
+                        <div className="space-y-4">
                             <a href="mailto:info@taxiserviceksa.com" className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group">
-                                <Mail className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                                <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary transition-all">
+                                    <Mail className="w-5 h-5 text-primary group-hover:text-white" />
+                                </div>
                                 <div className="flex flex-col">
-                                    <span className="text-xs uppercase font-bold text-gray-500 tracking-wider">Email Inquiry</span>
-                                    <span className="text-sm font-medium">info@taxiserviceksa.com</span>
+                                    <span className="text-[10px] uppercase font-black text-gray-500 tracking-[0.2em]">Email Us</span>
+                                    <span className="text-sm font-bold">info@taxiserviceksa.com</span>
+                                </div>
+                            </a>
+                            <a href="https://wa.me/966569487569" target="_blank" className="flex items-center gap-3 text-gray-400 hover:text-emerald-400 transition-colors group">
+                                <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-emerald-500/10 group-hover:bg-emerald-500 transition-all">
+                                    <WhatsAppIcon className="w-5 h-5 text-emerald-500 fill-emerald-500 group-hover:text-white group-hover:fill-white" />
+                                </div>
+                                <div className="flex flex-col">
+                                    <span className="text-[10px] uppercase font-black text-gray-500 tracking-[0.2em]">WhatsApp Us</span>
+                                    <span className="text-sm font-bold">+966 56 948 7569</span>
                                 </div>
                             </a>
                         </div>
@@ -134,7 +146,7 @@ export default function Footer() {
                     <div>
                         <h3 className="text-lg font-black text-white mb-6 flex items-center gap-2">
                             <div className="w-1 h-6 bg-primary rounded-full"></div>
-                            Premium Tourist Transfers
+                            VIP Tourist Transfers
                         </h3>
                         <ul className="space-y-2">
                             {[
@@ -188,10 +200,27 @@ export default function Footer() {
 
                 </div>
 
+                {/* Footer WhatsApp Banner */}
+                <div className="mb-20 bg-gradient-to-r from-emerald-600/20 to-primary/20 border border-emerald-500/30 rounded-[3rem] p-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left overflow-hidden relative">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -mr-32 -mt-32 animate-pulse"></div>
+                    <div>
+                        <h2 className="text-2xl md:text-3xl font-black text-white mb-3">Ready to Start Your Journey?</h2>
+                        <p className="text-gray-400 text-lg">Book your <strong>VIP Private Transfer</strong> directly on WhatsApp for instant confirmation.</p>
+                    </div>
+                    <a 
+                        href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20get%20a%20VIP%20taxi%20quote." 
+                        target="_blank"
+                        className="bg-emerald-600 hover:bg-emerald-700 text-white font-black px-12 py-5 rounded-2xl text-lg shadow-xl shadow-emerald-500/30 transition-all hover:scale-105 active:scale-95 flex items-center gap-3 whitespace-nowrap"
+                    >
+                        <WhatsAppIcon className="w-6 h-6 fill-current" />
+                        Chat with us Now
+                    </a>
+                </div>
+
                 {/* Bottom Bar */}
                 <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
                     <div className="text-sm text-gray-500 font-medium uppercase">
-                        &copy; {new Date().getFullYear()} VIP Transfer KSA. Premium Chauffeur Service.
+                        &copy; {new Date().getFullYear()} Taxi Service KSA. Professional Chauffeur Service.
                     </div>
                     <div className="flex flex-wrap justify-center gap-6">
                         <Link href="/privacy-policy/" className="text-sm text-gray-500 hover:text-primary transition-colors font-medium">Privacy Policy</Link>

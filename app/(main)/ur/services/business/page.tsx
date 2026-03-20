@@ -57,7 +57,7 @@ export default function BusinessPageUrdu() {
     const schemas = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Corporate VIP Transfer KSA (Urdu)",
+        "name": "Corporate Taxi Service KSA (Urdu)",
         "description": "سعودی عرب میں بزنس ٹریولرز کے لیے ایگزیکٹو ٹرانسپورٹ سروسز۔",
         "areaServed": "Saudi Arabia",
         "serviceType": "VIP Transport"
@@ -108,7 +108,7 @@ export default function BusinessPageUrdu() {
              <div className="max-w-5xl mx-auto -mt-8 relative z-30 px-4 sm:px-6 mb-16">
                  <div className="bg-white rounded-2xl shadow-2xl p-6 border border-slate-100">
                     <EntityTrustSignal
-                        brandName="VIP Transfer KSA™ Corporate"
+                        brandName="Taxi Service KSA™ Corporate"
                         description="آپ کے شیڈول کی پابندی کرتے ہوئے، سعودی کاروباری نقل و حرکت میں پریمیم گاڑیوں اور تربیت یافتہ چوفیرز کے ساتھ صفِ اول کا ادارہ۔"
                         foundingDate="2012"
                         metrics={[

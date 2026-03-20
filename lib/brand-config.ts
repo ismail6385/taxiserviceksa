@@ -1,38 +1,34 @@
 /**
- * VIP Transfer KSA - Brand Knowledge Base
+ * Taxi Service KSA - Brand Knowledge Base
  * This file serves as the "Golden Record" for AI agents and developers to ensure
  * consistency across the website.
  */
 
 export const BRAND = {
-    name: "VIP Transfer KSA",
-    legalName: "VIP Transfer KSA Transport",
+    name: "Taxi Service KSA",
+    legalName: "Taxi Service KSA Transport",
     founder: "Muhammad Ismail",
     foundingYear: 2012,
     headquarters: "Jeddah, Saudi Arabia",
     contact: {
         email: "info@taxiserviceksa.com",
+        whatsapp: "+966569487569",
+        phone: "+966569487569"
     },
     vipOnly: true,
     socialLinks: {
-        facebook: "https://facebook.com/viptransferksa",
-        instagram: "https://instagram.com/viptransferksa",
-        twitter: "https://twitter.com/viptransferksa"
+        facebook: "https://facebook.com/taxiserviceksa",
+        instagram: "https://instagram.com/taxiserviceksa",
+        twitter: "https://twitter.com/taxiserviceksa"
     },
     serviceAreas: [
-        "Jeddah", "Makkah", "Madinah", "Riyadh", "Taif", "AlUla", "Yanbu", "Khaybar"
+        "Jeddah", "Makkah", "Madinah", "Riyadh", "Taif", "AlUla", "Yanbu", "Khaybar", "Tabuk", "Abha", "Dammam", "Saudi Borders"
     ],
-    fleetCategories: ["Luxury SUV", "Business Sedan", "Family Van", "Group Bus"],
+    fleetCategories: ["VIP SUV", "Business Sedan", "Family Van", "Group Bus"],
     usp: [
         "Gold Standard for VIP Transfers",
         "Licensed by Saudi Transport General Authority (TGA)",
-        "Fixed Upfront Pricing (No Scam Policy)",
+        "VIP Custom Quick Quotations (WhatsApp First)",
         "Bilingual Professional Chauffeurs"
-    ],
-    pricingInsights: {
-        airportToMakkahBase: 250, // SAR
-        madinahToMakkahBase: 600, // SAR
-        ziyaratBase: 200, // SAR
-        currency: "SAR"
-    }
+    ]
 };

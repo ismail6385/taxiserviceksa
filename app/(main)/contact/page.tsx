@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Mail, Phone, MapPin, Send, Loader2, CheckCircle } from 'lucide-react';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -106,15 +107,15 @@ export default function ContactPage() {
                                     </div>
 
                                     <div className="flex items-start gap-4">
-                                        <div className="bg-white/10 p-3 rounded-xl mt-1">
-                                            <Mail className="w-6 h-6 text-primary" />
+                                        <div className="bg-emerald-500/20 p-3 rounded-xl mt-1">
+                                            <WhatsAppIcon className="w-6 h-6 text-emerald-400 fill-emerald-400" />
                                         </div>
                                         <div>
-                                            <p className="text-sm text-gray-400 font-medium mb-1">Email Support</p>
-                                            <a href="mailto:info@taxiserviceksa.com" className="text-xl font-bold hover:text-primary transition-colors">
-                                                info@taxiserviceksa.com
+                                            <p className="text-sm text-gray-400 font-medium mb-1">WhatsApp Us (Quickest)</p>
+                                            <a href="https://wa.me/966569487569?text=Hello%2C%20I%20have%20an%20inquiry." target="_blank" className="text-xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors">
+                                                +966 56 948 7569
                                             </a>
-                                            <p className="text-xs text-gray-500 mt-1">Available 24/7</p>
+                                            <p className="text-xs text-gray-500 mt-1">Instant reply during business hours</p>
                                         </div>
                                     </div>
                                 </div>

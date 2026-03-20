@@ -14,7 +14,7 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 
 export const metadata: Metadata = {
-    title: 'Business & Corporate VIP Transfer KSA | Executive Transfers',
+    title: 'Business & Corporate Taxi Service KSA | Executive Transfers',
     description: 'Premier corporate taxi service in Saudi Arabia for business professionals. Executive cars, monthly invoicing, reliable airport transfers, and event transport.',
     keywords: ['Corporate taxi Saudi Arabia', 'Business executive transfer KSA', 'Chauffeur service Riyadh', 'Jeddah business taxi', 'VIP transport Saudi Arabia'],
     alternates: {
@@ -56,7 +56,7 @@ export default function BusinessPage() {
     const schemas = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Corporate VIP Transfer KSA",
+        "name": "Corporate Taxi Service KSA",
 
         "description": "Executive transportation services for business travelers in Saudi Arabia.",
         "areaServed": "Saudi Arabia",

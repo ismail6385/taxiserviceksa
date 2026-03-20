@@ -9,6 +9,8 @@ import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
 
 export const metadata: Metadata = {
     title: 'VIP Private Transfer Madinah Train Station | Premium Chauffeur',
@@ -45,7 +47,7 @@ export default function MadinahTrainStationPage() {
                     { name: 'Intercity Transfers', description: 'Private long-distance travel to other major cities.' },
                     { name: 'Family SUW/Van', description: 'Large vehicles for groups and extra luggage.' }
                 ]}
-                priceRange={{ min: 50, max: 2000, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/locations/madinah.webp"
             />
 
@@ -116,7 +118,7 @@ export default function MadinahTrainStationPage() {
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Car className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Fixed Rates</span>
+                                    <span className="font-semibold text-gray-800"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current inline-block" /> WhatsApp Booking</span>
                                 </div>
                             </div>
                         </div>

@@ -22,7 +22,7 @@ export default function RiyadhMakkahRoutePage() {
     const routeDetails = [
         { label: 'Distance', value: '870 km', icon: Navigation },
         { label: 'Travel Time', value: '8-9 Hours', icon: Clock },
-        { label: 'Base Fare', value: 'Fixed Rates', icon: DollarSign },
+        { label: 'Base Fare', value: 'WhatsApp Booking', icon: DollarSign },
         { label: 'Service', value: 'Door-to-Door', icon: CheckCircle2 },
     ];
 
@@ -157,7 +157,7 @@ export default function RiyadhMakkahRoutePage() {
                     faqs={[
                         {
                             question: "How much is a taxi from Riyadh to Makkah?",
-                            shortAnswer: "Fixed Rates based on Vehicle",
+                            shortAnswer: "WhatsApp Booking based on Vehicle",
                             detailedAnswer: "Taxi rates for the 870km trip from Riyadh to Makkah are fixed to avoid price gouging. Prices vary based on whether you choose a sedan, SUV, or VIP van. Contact us for the latest seasonal rates.",
                             perspectives: [
                                 { role: 'Billing', icon: 'DollarSign', insight: 'Our fixed rates include fuel, toll fees, and several refreshment breaks.' }

@@ -5,8 +5,8 @@ import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
     title: 'VIP Private Transfers & Chauffeur Services Saudi Arabia',
-    description: 'Explore premium VIP private transfer services in Saudi Arabia. Specializing in executive airport pickups, long-distance intercity travel, and dedicated Umrah transport.',
-    keywords: ['VIP Private Transfers', 'Executive Chauffeur Service', 'Premium Transfer KSA', 'Long Distance Transfer', 'Umrah Private Transport', 'Business Chauffeur', 'Alternative to Uber KSA', 'Alternative to Careem', 'Kaiian alternative', 'Al Haram Cab alternative'],
+    description: 'Explore elite VIP private transfer services in Saudi Arabia. Specializing in executive airport pickups, long-distance intercity travel, and dedicated Umrah transport.',
+    keywords: ['VIP Private Transfers', 'Executive Chauffeur Service', 'Taxi Service KSA', 'Long Distance Transfer', 'Umrah Private Transport', 'Business Chauffeur', 'Alternative to Uber KSA', 'Alternative to Careem', 'Kaiian alternative', 'Al Haram Cab alternative'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/',
     },
@@ -24,7 +24,7 @@ export default function ServicesPage() {
         },
         {
             name: 'Executive Airport Pickups',
-            description: 'Premium meet-and-greet service at all major Saudi airports. Our chauffeurs wait at the terminal with personalized signage for a VIP arrival experience.',
+            description: 'VIP meet-and-greet service at all major Saudi airports. Our chauffeurs wait at the terminal with personalized signage for a VIP arrival experience.',
             icon: Plane,
             href: '/services/airport-transfers',
             features: ['Personalized name signs', 'Flight tracker integration', 'VIP terminal assistance', 'Luxury sedan & SUV options'],
@@ -32,7 +32,7 @@ export default function ServicesPage() {
         },
         {
             name: 'Corporate VIP Transfers',
-            description: 'Corporate VIP transfer service ensures reliable transport for business executives. Premium booking offers monthly billing and priority allocation.',
+            description: 'Corporate VIP transfer service ensures reliable transport for business executives. VIP booking offers monthly billing and priority allocation.',
             icon: Building2,
             href: '/services/corporate-travel',
             features: ['Executive vehicles', 'Monthly billing', 'Priority booking', 'Business districts'],
@@ -48,10 +48,10 @@ export default function ServicesPage() {
         },
         {
             name: 'Business & Executive Transfers',
-            description: 'Business VIP transfers for corporate travelers in Riyadh and Jeddah. Premium vehicles and professional chauffeurs for executive meetings.',
+            description: 'Business VIP transfers for corporate travelers in Riyadh and Jeddah. VIP vehicles and professional chauffeurs for executive meetings.',
             icon: Building2,
             href: '/services/business/',
-            features: ['KAFD & Business districts', 'Punctual meeting arrivals', 'Premium VIP fleet', 'Hourly booking options'],
+            features: ['KAFD & Business districts', 'Punctual meeting arrivals', 'Elite VIP fleet', 'Hourly booking options'],
             isPopular: false
         },
         {
@@ -93,7 +93,7 @@ export default function ServicesPage() {
                         <span className="text-black">Executive Chauffeur Services</span>
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        VIP Transfer KSA provides a premium alternative to local transport. We specialize in **pre-booked private journeys**, intercity travel, and hourly chauffeur hire for international guests.
+                        Taxi Service KSA provides a VIP alternative to local transport. We specialize in **pre-booked private journeys**, intercity travel, and hourly chauffeur hire for international guests.
                     </p>
                 </div>
 
@@ -145,7 +145,7 @@ export default function ServicesPage() {
 
                 {/* Note Section */}
                 <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 md:p-12 text-white text-center">
-                    <h2 className="text-2xl md:text-3xl font-bold mb-4">Specializing in Premium & Long-Distance Travel</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold mb-4">Specializing in VIP & Long-Distance Travel</h2>
                     <p className="text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed text-lg">
                         We are a dedicated private transfer service. We do **not** provide local street-hail taxi services or short-distance point-to-point city trips. Our fleet is reserved for pre-booked airport transfers, intercity travel, and all-day rentals.
                     </p>

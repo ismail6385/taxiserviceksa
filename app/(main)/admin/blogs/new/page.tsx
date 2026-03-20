@@ -58,7 +58,7 @@ export default function NewBlogPage() {
                 ...formData,
                 status: publish ? 'published' : 'draft',
                 published_at: formData.published_at || (publish ? new Date().toISOString() : undefined),
-                author: 'VIP Transfer KSA',
+                author: 'Taxi Service KSA',
                 featured_image: formData.featured_image
             });
 

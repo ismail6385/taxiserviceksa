@@ -22,6 +22,8 @@ import RoutePerspective from '@/components/seo/RoutePerspective';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import ExpertReview from '@/components/seo/ExpertReview';
 import JsonLdLocation from '@/components/JsonLdLocation';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
 
 export const metadata: Metadata = {
     title: 'VIP Private Transfer & Executive Chauffeur Dammam | DMM Airport',
@@ -102,7 +104,7 @@ export default function DammamPage() {
                 cityName="Dammam"
                 description="Professional VIP transfers in Dammam. Specializing in King Fahd International Airport (DMM) pickups, Jubail industrial commutes, and executive corporate transport."
                 services={services}
-                priceRange={{ min: 200, max: 600, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
@@ -111,7 +113,7 @@ export default function DammamPage() {
             <Hero
                 images={dammamImages}
                 h1Text="VIP Private Transfer & Chauffeur Dammam"
-                bookingFormTitle="Get Quote for Premium Transfer in Dammam"
+                bookingFormTitle="WhatsApp Booking for Premium Transfer in Dammam"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Dammam
@@ -122,7 +124,7 @@ export default function DammamPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="VIP Transfer KSA™ Dammam"
+                        brandName="Taxi Service KSA™ Dammam"
                         description="Professional chauffeur and airport transfer services in Dammam. We help business travelers and families with luxury vehicles and 24/7 availability for King Fahd International Airport (DMM) and Jubail transfers."
                         foundingDate="2012"
                         metrics={[
@@ -415,7 +417,7 @@ export default function DammamPage() {
                     <div className="text-center mb-12">
                         <div className="inline-flex items-center gap-2 bg-yellow-100 px-4 py-2 rounded-full mb-6">
                             <Star className="w-4 h-4 text-yellow-600" />
-                            <span className="text-sm font-semibold text-yellow-900">Fixed Rates</span>
+                            <span className="text-sm font-semibold text-yellow-900"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current inline-block" /> WhatsApp Booking</span>
                         </div>
 
                         <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">

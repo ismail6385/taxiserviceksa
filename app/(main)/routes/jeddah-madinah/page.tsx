@@ -10,6 +10,8 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
 
 export const metadata: Metadata = {
     title: 'Taxi Jeddah to Madinah | Jeddah to Madinah Private Car',
@@ -41,7 +43,7 @@ export default function JeddahMadinahRoutePage() {
                     { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
                     { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
                 ]}
-                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
@@ -54,7 +56,7 @@ export default function JeddahMadinahRoutePage() {
                     </span>
                 }
                 subtitle="The Premium Way to the City of the Prophet"
-                location="415 km | Fixed Rates | Professional Chauffeurs"
+                location="415 km | WhatsApp Booking | Professional Chauffeurs"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?route=jeddah-madinah">
@@ -204,11 +206,9 @@ export default function JeddahMadinahRoutePage() {
                 <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <h2 className="text-3xl md:text-6xl font-black text-white mb-8 leading-tight">Your Direct Path to Madinah</h2>
-                    <p className="text-emerald-100/60 text-lg mb-10 max-w-2xl mx-auto">Get Quote for the most reliable Jeddah to Madinah taxi service. Travel in 2025 model VIP vehicles with professional chauffeurs.</p>
+                    <p className="text-emerald-100/60 text-lg mb-10 max-w-2xl mx-auto">WhatsApp Booking for the most reliable Jeddah to Madinah taxi service. Travel in 2025 model VIP vehicles with professional chauffeurs.</p>
                     <Link href="/booking/?route=jeddah-madinah">
-                        <Button size="lg" className="bg-emerald-500 hover:bg-emerald-400 text-white font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl shadow-emerald-500/30">
-                            Get Quote
-                        </Button>
+                        <Button size="lg" className="bg-emerald-500 hover:bg-emerald-400 text-white font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl shadow-emerald-500/30"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                     </Link>
                 </div>
             </div>

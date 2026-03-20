@@ -99,7 +99,7 @@ export default function RiyadhPage() {
                 cityName="Riyadh"
                 description="Premium VIP private transfer and executive chauffeur service in Riyadh. Specialized King Khalid Airport (RUH) pickups, corporate business transport, and long-distance intercity transfers."
                 services={services}
-                priceRange={{ min: 150, max: 1500, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-3.webp"
             />
 
@@ -107,7 +107,7 @@ export default function RiyadhPage() {
             <Hero
                 images={riyadhImages}
                 h1Text="VIP Private Transfer & Chauffeur Riyadh"
-                bookingFormTitle="Get Quote for Premium Transfer in Riyadh"
+                bookingFormTitle="WhatsApp Booking for Premium Transfer in Riyadh"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Riyadh

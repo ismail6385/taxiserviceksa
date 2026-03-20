@@ -10,6 +10,7 @@ import {
     Camera, Users2
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -257,10 +258,10 @@ export default function Navbar() {
                             <div className="ml-6 flex items-center gap-3">
                                 <Link
                                     href="/booking/"
-                                    className="bg-primary hover:bg-black text-white font-black px-8 py-4 rounded-2xl text-base shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95 group flex items-center justify-center"
+                                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold px-6 py-2.5 rounded-xl text-sm shadow-md shadow-[#25D366]/20 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
                                 >
-                                    Get Quote
-                                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" strokeWidth={3} />
+                                    <WhatsAppIcon className="w-4 h-4 fill-current" />
+                                    WhatsApp Booking
                                 </Link>
                             </div>
                         </nav>
@@ -269,9 +270,10 @@ export default function Navbar() {
                         <div className="xl:hidden flex items-center gap-3">
                             <Link
                                 href="/booking/"
-                                className="bg-primary text-white font-black rounded-xl px-4 py-2 text-sm shadow-lg shadow-primary/20 hover:bg-black transition-colors"
+                                className="bg-[#25D366] text-white font-black rounded-xl px-4 py-2 text-sm shadow-lg shadow-[#25D366]/20 hover:bg-[#128C7E] transition-colors flex items-center gap-1.5"
                             >
-                                Get Quote
+                                <WhatsAppIcon className="w-4 h-4 fill-current" />
+                                Booking
                             </Link>
                             <button
                                 onClick={() => setIsOpen(!isOpen)}

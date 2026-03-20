@@ -158,7 +158,7 @@ export default function CorporateTravelPageUrdu() {
                             <span className="text-blue-400">ایگزیکٹو ٹرانسپورٹ</span>
                         </h1>
                         <p className="text-xl text-gray-300 max-w-3xl leading-relaxed mb-8 font-light text-right">
-                            VIP Transfer KSA کارپوریٹ کلائنٹس کے لیے بہترین ایگزیکٹو ٹرانسفر سروس پیش کرتا ہے۔ ریاض اور جدہ میں لائسنس یافتہ پروفیشنل چوفرز کے ساتھ پرتعیش اور آرام دہ ایگزیکٹو ٹرانسپورٹ۔ وقت کی پابندی ہماری پہچان ہے۔
+                            Taxi Service KSA کارپوریٹ کلائنٹس کے لیے بہترین ایگزیکٹو ٹرانسفر سروس پیش کرتا ہے۔ ریاض اور جدہ میں لائسنس یافتہ پروفیشنل چوفرز کے ساتھ پرتعیش اور آرام دہ ایگزیکٹو ٹرانسپورٹ۔ وقت کی پابندی ہماری پہچان ہے۔
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-start">
                             <Link href="/ur/booking?service=corporate-travel">

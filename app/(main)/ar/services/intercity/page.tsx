@@ -28,7 +28,7 @@ import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 
 export const metadata: Metadata = {
-    title: 'Intercity VIP Transfer KSA | Long Distance Private Transfers',
+    title: 'Intercity Taxi Service KSA | Long Distance Private Transfers',
     description: 'Reliable intercity taxi service in Saudi Arabia. Private transfers between Jeddah, Makkah, Madinah, Riyadh, and more. Comfortable long-distance travel with fixed rates.',
     keywords: ['Intercity taxi Saudi Arabia', 'Jeddah to Riyadh taxi', 'Long distance taxi KSA', 'City to city transfer Saudi Arabia', 'Private car hire Saudi cities'],
     alternates: {
@@ -80,7 +80,7 @@ export default function IntercityServicePage() {
     const schemas = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Intercity VIP Transfer KSA",
+        "name": "Intercity Taxi Service KSA",
 
         "description": "Professional long-distance intercity taxi service connecting major cities in Saudi Arabia.",
         "areaServed": "Saudi Arabia",
@@ -129,7 +129,7 @@ export default function IntercityServicePage() {
                     lastUpdated="December 2024"
                     content="The road network between Makkah and Madinah has recently been upgraded with more rest areas and service stations, making the 450km journey more comfortable than ever by car."
                     tags={["HighwayTravel", "Infrastructure", "Comfort"]}
-                    linkText="Get Quote for Intercity Ride"
+                    linkText="WhatsApp Booking for Intercity Ride"
                 />
             </div>
 
@@ -153,7 +153,7 @@ export default function IntercityServicePage() {
                                 </div>
                                 <div className="pt-2 border-t mt-2 flex justify-between items-center">
                                     <span className="text-emerald-600 font-bold text-lg">{route.price}</span>
-                                    <Link href="/booking/" className="text-blue-600 text-xs font-semibold hover:underline">Get Quote</Link>
+                                    <Link href="/booking/" className="text-blue-600 text-xs font-semibold hover:underline">WhatsApp Booking</Link>
                                 </div>
                             </div>
                         </div>

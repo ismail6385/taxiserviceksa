@@ -50,7 +50,7 @@ export default function YanbuToJeddahPage() {
                     { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
                     { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
                 ]}
-                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
@@ -63,7 +63,7 @@ export default function YanbuToJeddahPage() {
                     </span>
                 }
                 subtitle="From Royal Commission / Industrial City to Jeddah Airport"
-                location="3.5 Hours | Fixed Rates Available"
+                location="3.5 Hours | WhatsApp Booking Available"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking">
@@ -170,7 +170,7 @@ export default function YanbuToJeddahPage() {
                     },
                     {
                         question: "How much is a taxi from Yanbu to Jeddah Airport?",
-                        shortAnswer: "Affordable Fixed Rates",
+                        shortAnswer: "Affordable WhatsApp Booking",
                         detailedAnswer: "Private taxi fares are fixed for sedans and GMC Yukons. Pricing is fixed for any location in Yanbu (Royal Commission or Downtown).",
                         perspectives: []
                     }

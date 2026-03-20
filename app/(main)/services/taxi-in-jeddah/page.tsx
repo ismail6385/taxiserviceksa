@@ -196,7 +196,7 @@ export default function TaxiInJeddahPage() {
                                 </div>
                                 
                                 <Link href="/booking/" className="mt-8 relative w-full inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-white transition-all duration-300 bg-primary/20 rounded-xl group-hover:bg-primary group-hover:text-black">
-                                    <span className="relative font-bold">Get Quote for This Vehicle</span>
+                                    <span className="relative font-bold">WhatsApp Booking for This Vehicle</span>
                                 </Link>
                             </div>
                         ))}

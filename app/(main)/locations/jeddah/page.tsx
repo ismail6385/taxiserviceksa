@@ -18,6 +18,8 @@ import DistanceTable from '@/components/seo/DistanceTable';
 import SeasonalTravelTips from '@/components/seo/SeasonalTravelTips';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import JsonLdLocation from '@/components/JsonLdLocation';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
 
 
 export const metadata: Metadata = {
@@ -101,14 +103,14 @@ export default async function JeddahPage() {
                     { name: 'Jeddah to Madinah Executive', description: 'Long-distance VIP transfers to the Prophet\'s City.' },
                     { name: 'Full-Day VIP Chauffeur', description: 'Dedicated executive driver for business, shopping, and tours.' }
                 ]}
-                priceRange={{ min: 100, max: 800, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/jeddah-airport-terminal.webp"
             />
 
             <Hero
                 images={jeddahImages}
                 h1Text="VIP Private Transfer & Chauffeur Jeddah"
-                bookingFormTitle="Get Quote for Premium Transfer in Jeddah"
+                bookingFormTitle="WhatsApp Booking for Premium Transfer in Jeddah"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Jeddah
@@ -308,7 +310,7 @@ export default async function JeddahPage() {
                     <div className="text-center mb-12">
                         <div className="inline-flex items-center gap-2 bg-yellow-100 px-4 py-2 rounded-full mb-6">
                             <Star className="w-4 h-4 text-yellow-600" />
-                            <span className="text-sm font-semibold text-yellow-900">Fixed Rates</span>
+                            <span className="text-sm font-semibold text-yellow-900"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current inline-block" /> WhatsApp Booking</span>
                         </div>
 
                         <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
@@ -492,7 +494,7 @@ export default async function JeddahPage() {
                         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
                             <Link href="/booking/">
                                 <Button className="bg-black text-white hover:bg-black/90 font-bold px-10 py-7 text-lg rounded-2xl h-auto shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
-                                    Get Quote
+                                    WhatsApp Booking
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>

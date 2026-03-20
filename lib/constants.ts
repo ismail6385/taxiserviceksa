@@ -2,10 +2,10 @@
 export const AUTHORS = [
     {
         id: '1',
-        name: 'VIP Transfer KSA',
-        slug: 'vip-transfer-ksa',
+        name: 'Taxi Service KSA',
+        slug: 'taxi-service-ksa',
         role: 'Official Team',
-        bio: 'Official updates and travel guides from the VIP Transfer KSA team.',
+        bio: 'Official updates and travel guides from the Taxi Service KSA team.',
         avatar: '/logo.png',
         social: {
             twitter: 'https://twitter.com/taxiserviceksa',
@@ -19,7 +19,7 @@ export const AUTHORS = [
         name: 'Muhammad Ismail',
         slug: 'muhammad-ismail',
         role: 'Founder & SEO Logistics Expert',
-        bio: 'Founder of VIP Transfer KSA and a seasoned professional in Saudi travel logistics. With over 12 years of experience in the transport industry and a deep background in SQA and AI Automation, Ismail ensures that every pilgrim and executive receives a world-class, tech-enabled travel experience. He is a recognized authority on Hajj & Umrah transport logistics and AI-driven content strategy.',
+        bio: 'Founder of Taxi Service KSA and a seasoned professional in Saudi travel logistics. With over 12 years of experience in the transport industry and a deep background in SQA and AI Automation, Ismail ensures that every pilgrim and executive receives a world-class, tech-enabled travel experience. He is a recognized authority on Hajj & Umrah transport logistics and AI-driven content strategy.',
         avatar: '/images/authors/ismail.jpg',
         social: {
             twitter: '',

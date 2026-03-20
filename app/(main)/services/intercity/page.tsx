@@ -29,7 +29,7 @@ import QuestionForm from '@/components/seo/QuestionForm';
 import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
-    title: 'Intercity VIP Transfer KSA | Long Distance Private Chauffeur',
+    title: 'Intercity Taxi Service KSA | Long Distance Private Chauffeur',
     description: 'Premium intercity VIP transfer service in Saudi Arabia. Executive private transfers between Jeddah, Makkah, Madinah, Riyadh, and more. Luxury long-distance travel with fixed rates.',
     keywords: ['Intercity VIP transfer Saudi Arabia', 'Jeddah to Riyadh premium transfer', 'Long distance private chauffeur KSA', 'City to city VIP transfer Saudi Arabia', 'Private executive car hire Saudi cities'],
     alternates: {
@@ -42,12 +42,12 @@ export const metadata: Metadata = {
 
 export default function IntercityServicePage() {
     const popularRoutes = [
-        { name: 'Jeddah ↔ Makkah', distance: '85 km', time: '1 hr 15 min', price: 'Fixed Rate' },
-        { name: 'Makkah ↔ Madinah', distance: '450 km', time: '4 hr 30 min', price: 'Market Rate' },
-        { name: 'Jeddah ↔ Madinah', distance: '420 km', time: '4 hr', price: 'Fixed Rate' },
-        { name: 'Riyadh ↔ Dammam', distance: '400 km', time: '3 hr 45 min', price: 'Group Rate' },
-        { name: 'Jeddah ↔ Taif', distance: '170 km', time: '2 hr', price: 'Tour Rate' },
-        { name: 'Madinah ↔ AlUla', distance: '330 km', time: '3 hr 30 min', price: 'Special Rate' },
+        { name: 'Jeddah ↔ Makkah', distance: '85 km', time: '1 hr 15 min', price: 'WhatsApp Booking' },
+        { name: 'Makkah ↔ Madinah', distance: '450 km', time: '4 hr 30 min', price: 'WhatsApp Booking' },
+        { name: 'Jeddah ↔ Madinah', distance: '420 km', time: '4 hr', price: 'WhatsApp Booking' },
+        { name: 'Riyadh ↔ Dammam', distance: '400 km', time: '3 hr 45 min', price: 'WhatsApp Booking' },
+        { name: 'Jeddah ↔ Taif', distance: '170 km', time: '2 hr', price: 'WhatsApp Booking' },
+        { name: 'Madinah ↔ AlUla', distance: '330 km', time: '3 hr 30 min', price: 'WhatsApp Booking' },
     ];
 
     const features = [
@@ -81,12 +81,12 @@ export default function IntercityServicePage() {
     const schemas = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Intercity VIP Transfer KSA",
+        "name": "Intercity Taxi Service KSA",
         "category": "Intercity Transport",
         "description": "Professional executive long-distance intercity transfer service connecting major cities in Saudi Arabia.",
         "provider": {
             "@type": "Organization",
-            "name": "VIP Transfer KSA",
+            "name": "Taxi Service KSA",
             "url": "https://taxiserviceksa.com"
         },
         "author": {
@@ -115,7 +115,7 @@ export default function IntercityServicePage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="VIP Transfer KSA™ Intercity"
+                        brandName="Taxi Service KSA™ Intercity"
                         description="Connecting the Kingdom's major hubs with reliable, private transportation. From the Red Sea coast of Jeddah to the capital Riyadh and the holy cities."
                         foundingDate="2012"
                         metrics={[
@@ -152,7 +152,7 @@ export default function IntercityServicePage() {
                     lastUpdated="December 2025"
                     content="The road network between Makkah and Madinah has recently been upgraded with more rest areas and service stations, making the 450km journey more comfortable than ever by car."
                     tags={["HighwayTravel", "Infrastructure", "Comfort"]}
-                    linkText="Get Quote for Intercity Ride"
+                    linkText="WhatsApp Booking for Intercity Ride"
                 />
             </div>
 
@@ -212,7 +212,7 @@ export default function IntercityServicePage() {
                                 </div>
                                 <div className="pt-2 border-t mt-2 flex justify-between items-center">
                                     <span className="text-emerald-600 font-bold text-lg">{route.price}</span>
-                                    <Link href="/booking/" className="text-blue-600 text-xs font-semibold hover:underline">Get Quote</Link>
+                                    <Link href="/booking/" className="text-blue-600 text-xs font-semibold hover:underline">WhatsApp Booking</Link>
                                 </div>
                             </div>
                         </div>

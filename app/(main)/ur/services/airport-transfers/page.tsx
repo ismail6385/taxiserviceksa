@@ -209,7 +209,7 @@ export default async function AirportTransfersPageUrdu() {
         "description": "سعودی عرب کے 8 بڑے ہوائی اڈوں بشمول جدہ، ریاض، اور مدینہ کے لیے پروفیشنل ایئرپورٹ ٹرانسفر اور ٹیکسی سروسز۔",
         "provider": {
             "@type": "Organization",
-            "name": "VIP Transfer KSA",
+            "name": "Taxi Service KSA",
             "url": "https://taxiserviceksa.com"
         },
         "author": {

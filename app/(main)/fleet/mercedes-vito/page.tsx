@@ -197,7 +197,7 @@ export default function MercedesVitoPage() {
                 <div className="absolute inset-0 bg-blue-600/5"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <h2 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-none uppercase">EFFICIENCY MEETS <br/><span className="text-blue-500">EXECUTIVE COMFORT</span></h2>
-                    <p className="text-blue-100/60 text-xl mb-12 max-w-2xl mx-auto font-medium">Get Quote for the most versatile executive van in the Kingdom. Professional chauffeurs, absolute reliability, and business-class comfort.</p>
+                    <p className="text-blue-100/60 text-xl mb-12 max-w-2xl mx-auto font-medium">WhatsApp Booking for the most versatile executive van in the Kingdom. Professional chauffeurs, absolute reliability, and business-class comfort.</p>
                     <Link href="/booking/?vehicle=mercedes-vito">
                         <Button size="lg" className="bg-white hover:bg-blue-50 text-blue-950 font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl transition-all hover:scale-105">
                             BOOK THE VITO NOW

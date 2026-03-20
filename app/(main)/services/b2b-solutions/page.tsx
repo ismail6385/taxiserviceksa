@@ -17,7 +17,7 @@ import { Button } from '@/components/ui/button';
 import Hero from '@/components/Hero';
 
 export const metadata = {
-    title: 'B2B & Corporate Transport Solutions | VIP Transfer KSA',
+    title: 'B2B & Corporate Transport Solutions | Taxi Service KSA',
     description: 'Premier B2B transportation services in Saudi Arabia. We partner with travel agencies, Umrah operators, and corporate clients for reliable, luxury transfers.',
 };
 

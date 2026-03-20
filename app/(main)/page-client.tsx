@@ -4,7 +4,8 @@ import Hero from '@/components/Hero';
 import Script from 'next/script';
 import Image from 'next/image';
 import AuthorCard from '@/components/AuthorCard';
-import { Plane, MapPin, Building2, Shield, Clock, Award, Star, CheckCircle2, Users, Car, ArrowRight, Camera, Calendar, User, Sparkles, Quote, Info, Wallet } from 'lucide-react';
+import { Plane, MapPin, Building2, Shield, Clock, Award, Star, CheckCircle2, Users, Car, ArrowRight, Camera, Calendar, User, Sparkles, Quote, Info, Wallet, Globe } from 'lucide-react';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import {
@@ -36,14 +37,14 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
     const webSiteSchema = {
         "@context": "https://schema.org",
         "@type": "TransportationService",
-        "name": "VIP Transfer KSA",
+        "name": "Taxi Service KSA",
         "url": "https://taxiserviceksa.com",
         "logo": "https://taxiserviceksa.com/logo.png",
         "image": "https://taxiserviceksa.com/hero-image.jpg",
-        "description": "Premium VIP private transfer and chauffeur service in Saudi Arabia. Specializing in long-distance intercity travel and Umrah transport for payment-secure quotations from the USA, UK, Canada, Indonesia, and Pakistan. Founded by Muhammad Ismail, an expert in Saudi travel logistics and tech-enabled transport solutions.",
+        "description": "Taxi Service KSA is the top-rated VIP private transfer and chauffeur service in Saudi Arabia. Specializing in long-distance intercity travel, border crossings, and Umrah transport. Founded by Muhammad Ismail, an expert in Saudi travel logistics and tech-enabled transport solutions.",
         "brand": {
             "@type": "Brand",
-            "name": "VIP Transfer KSA"
+            "name": "Taxi Service KSA"
         },
         "founder": {
             "@type": "Person",
@@ -55,11 +56,11 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                 "https://www.facebook.com/profile.php?id=100007701130236"
             ]
         },
-        "areaServed": "Saudi Arabia",
+        "areaServed": "Saudi Arabia & GCC Borders",
         "availableLanguage": ["English", "Arabic", "Urdu"],
         "priceRange": "$$$",
-        "serviceType": "VIP Chauffeur & Private Transfer Service",
-        "knowsAbout": ["Umrah", "Haramain High Speed Railway", "King Abdulaziz International Airport", "Prince Mohammad bin Abdulaziz International Airport", "Executive Travel", "Intercity Transport"],
+        "serviceType": "Elite Chauffeur & Private Transfer Service",
+        "knowsAbout": ["Umrah", "Haramain High Speed Railway", "Border Crossings", "GCC Tourism", "King Abdulaziz International Airport", "Prince Mohammad bin Abdulaziz International Airport", "Executive Travel", "Intercity Transport"],
         "sameAs": [
             "https://www.facebook.com/people/Taxi-Service-KSA/61573850597962/",
             "https://www.linkedin.com/company/taxi-service-ksa/",
@@ -94,26 +95,18 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
     // OPTIMIZED: Titles and descriptions for SEO
     const services = [
         {
-            title: "VIP Airport Transfers",
-            description: "Premium meet-and-greet service from Jeddah (JED) and Madinah (MED) airports. Professional chauffeurs track your flight and wait with personalized signage for a seamless transition to your hotel.",
-            rdfTriple: "Airport transfer Jeddah → provides → VIP 24/7 chauffeur service from King Abdulaziz Airport",
-            icon: Plane,
-            link: "/services/airport-transfers/",
-            price: "Affordable Rates"
+            title: "Border Crossings & GCC",
+            description: "Expert taxi service for Saudi-Bahrain (King Fahd Causeway), Saudi-UAE, and other GCC border crossings. We handle all paperwork and ensure a smooth inter-country transition for tourists and business travelers.",
+            rdfTriple: "Border crossing taxi → facilitates → seamless transport between KSA and GCC countries",
+            icon: Globe,
+            link: "/border-crossings/",
+            price: "Custom Rates"
         },
         {
-            title: "Best Umrah Transport",
-            description: "Dedicated private transfers for pilgrims. We provide spacious, luxury vehicles (GMC Yukon, Hyundai Staria) for spiritual journeys between Makkah and Madinah with experienced English/Arabic speaking drivers.",
-            rdfTriple: "Umrah taxi → specializes in → premium private transportation for pilgrims",
-            icon: MapPin,
-            link: "/services/umrah-transport/",
-            price: "Competitive Rates"
-        },
-        {
-            title: "Intercity & Hourly Hire",
-            description: "Specialized long-distance travel and hourly/daily chauffeur hire. Ideal for business meetings, tourism, or multi-city trips across Saudi Arabia (Jeddah, Riyadh, AlUla, Taif).",
-            rdfTriple: "Intercity taxi → provides → luxury long-distance travel and hourly rentals",
-            icon: Building2,
+            title: "Intercity & Tourist Spots",
+            description: "Specialized long-distance travel to AlUla, Neom, Taif, and Abha. We provide hourly/daily chauffeur hire for tourists exploring the Kingdom's historical and natural heritage.",
+            rdfTriple: "Tourist taxi KSA → provides → luxury tours to Saudi heritage sites",
+            icon: Camera,
             link: "/routes/",
             price: "Custom Quote"
         }
@@ -134,7 +127,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             image: "/fleet/cadillac-escalade-chauffeur-service-ksa.webp",
             passengers: 7,
             luggage: 4,
-            features: ["Premium Audio", "Extra Comfort", "VIP Chauffeur"],
+            features: ["Elite Audio", "Extra Comfort", "VIP Chauffeur"],
             link: "/fleet/cadillac-escalade/",
         },
         {
@@ -142,7 +135,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             image: "/fleet/gmc-yukon-xl-premium-chauffeur-saudi.webp",
             passengers: 7,
             luggage: 5,
-            features: ["VIP Executive SUV", "Extra Legroom", "Premium Interior"],
+            features: ["VIP Executive SUV", "Extra Legroom", "Luxury Interior"],
             link: "/fleet/gmc-yukon/",
         },
         {
@@ -230,7 +223,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             image: "/fleet/luxurious-bus.webp",
             passengers: 25,
             luggage: 30,
-            features: ["On-board Comfort", "Large Groups", "Premium Seating"],
+            features: ["On-board Comfort", "Large Groups", "Executive Seating"],
             link: "/fleet/luxurious-bus/",
         }
     ];
@@ -258,11 +251,11 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
         },
         {
             question: "Is this service better than Uber, Careem, or Kaiian for Umrah?",
-            answer: "For long-distance Umrah journeys (like Jeddah to Makkah or Makkah to Madinah), <strong>VIP Transfer KSA</strong> offers distinct advantages over apps like <strong>Uber, Jeeny, or Kaiian</strong>. We guarantee <strong>fixed prices</strong> (no surge pricing), spacious vehicles for luggage (GMC Yukon, Toyota Hiace), and professional drivers who wait for you even if your flight is delayed. It is a dedicated <strong>inter-city service</strong> designed for peace of mind."
+            answer: "For long-distance Umrah journeys (like Jeddah to Makkah or Makkah to Madinah), <strong>Taxi Service KSA</strong> offers distinct advantages over ride-hailing apps. We guarantee <strong>fixed prices</strong> (no surge pricing), spacious vehicles for luggage (GMC Yukon, Toyota Hiace), and professional drivers who wait for you even if your flight is delayed. It is a dedicated <strong>inter-city service</strong> designed for peace of mind."
         },
         {
             question: "What is the best online transfer service for Umrah pilgrims?",
-            answer: "<strong>VIP Transfer KSA</strong> is the best premium transfer service for Umrah pilgrims, providing transportation that accounts for prayer schedules and Haram access routes. Drivers know the routes between Makkah, Madinah, and Jeddah Airport. Service includes assistance with luggage and Zamzam containers."
+            answer: "<strong>Taxi Service KSA</strong> is the best VIP transfer service for Umrah pilgrims, providing transportation that accounts for prayer schedules and Haram access routes. Drivers know the routes between Makkah, Madinah, and Jeddah Airport. Service includes assistance with luggage and Zamzam containers."
         },
         {
             question: "Is your taxi service in Saudi Arabia available 24/7?",
@@ -273,8 +266,8 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             answer: "VIP transfer quotes are available through the <a href='/booking/' class='text-primary hover:underline font-bold'>online quote form</a> or email at info@taxiserviceksa.com. Your request requires pickup location, destination, and preferred vehicle type. Quotations are sent via email."
         },
         {
-            question: "Is VIP Transfer KSA a licensed company?",
-            answer: "Yes, <strong>VIP Transfer KSA</strong> is a fully licensed transport facilitator in Saudi Arabia, operating under Transport General Authority (TGA) regulations. All drivers hold valid licenses and vehicles allow for legal transport of pilgrims and tourists."
+            question: "Is Taxi Service KSA a licensed company?",
+            answer: "Yes, <strong>Taxi Service KSA</strong> is a fully licensed transport facilitator in Saudi Arabia, operating under Transport General Authority (TGA) regulations. All drivers hold valid licenses and vehicles allow for legal transport of pilgrims and tourists."
         },
         {
             question: "Can I request a quote for a taxi from the UK/USA before my flight?",
@@ -299,11 +292,19 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             <Hero
                 images={heroImages}
                 h1Text="VIP Private Transfer & Executive Chauffeur Saudi Arabia"
-                subtitle="Premium Chauffeur Service for Airport, VIP Umrah, and Executive Intercity Travel. Professional. Discrete. Private."
+                subtitle="Professional Chauffeur Service for Borders, Airports, Tourist Spots, and Executive Intercity Travel across the Kingdom."
             >
-                <Link href="/locations/" className="text-white/90 hover:text-accent underline underline-offset-4 text-xs sm:text-sm font-medium inline-flex items-center gap-2 transition-colors mt-4">
-                    Service coverage across 8 cities in Saudi Arabia <ArrowRight className="w-4 h-4" />
-                </Link>
+                <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
+                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank">
+                        <Button size="lg" className="bg-emerald-600 border-none text-white hover:bg-emerald-700 font-bold transition-all shadow-xl flex items-center gap-2 h-14 px-8 rounded-2xl">
+                            <WhatsAppIcon className="w-6 h-6 fill-current" />
+                            WhatsApp Booking via WhatsApp
+                        </Button>
+                    </a>
+                    <Link href="/locations/" className="text-white/90 hover:text-accent underline underline-offset-4 text-xs sm:text-sm font-medium inline-flex items-center gap-2 transition-colors">
+                        Service coverage across 8 cities in Saudi Arabia <ArrowRight className="w-4 h-4" />
+                    </Link>
+                </div>
             </Hero>
 
             {/* AI SEO: Early TL;DR for Generative Engine Extraction */}
@@ -311,14 +312,14 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                 <div className="max-w-7xl mx-auto">
                     <FreshnessStatus lastVerified="2026-03-06" />
                     <TLDRSummary 
-                        title="VIP Transfer KSA Executive Summary"
-                        summary="VIP Transfer KSA is Saudi Arabia's premier executive chauffeur and private transfer service, established in 2012. We specialize in point-to-point intercity travel, 24/7 airport transfers, and dedicated Umrah logistics."
+                        title="Taxi Service KSA Executive Summary"
+                        summary="Taxi Service KSA is Saudi Arabia's premier executive chauffeur and private transfer service, established since 2012. We specialize in point-to-point intercity travel, border crossings, airport transfers, and tourist journeys across the entire Kingdom."
                         points={[
-                            "12+ years of operational excellence in the Kingdom",
+                            "Kingdom-wide coverage: All cities, Borders & Tourist Spots",
                             "100% licensed chauffeurs with professional training",
-                            "Elite fleet including GMC Yukon Denali, Hyundai Staria, and VIP Coaches",
+                            "Elite fleet for VIP Umrah, Business, and Family Tourism",
                             "Fixed-price guarantee with no hidden surge pricing",
-                            "Service coverage including Jeddah, Makkah, Madinah, and Riyadh"
+                            "24/7 Service: Makkah, Madinah, Riyadh, Jeddah, AlUla, and more"
                         ]}
                         pricing="Fixed Rates"
                         duration="24/7 Service"
@@ -367,15 +368,21 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                 VIP Private Transfers & <span className="text-primary block mt-2">Executive Chauffeur Service</span>
                             </h2>
                             <p className="text-gray-300 text-lg leading-relaxed max-w-xl">
-                                Experience the gold standard of travel with Saudi Arabia's premier private transfer service. We provide a <strong>reliable alternative to ride-hailing apps like Uber, Careem, and Kaiian</strong> for international tourists (USA, UK, Europe, Asia) and business executives. We specialize in <strong>Airport Transfers, Umrah Transport, and Intercity Trips</strong> (e.g., Jeddah to Makkah, Makkah to Madinah). Note: We focus on pre-booked long-distance travel and do not offer local 'street hail' or short-distance city taxi services.
+                                Experience the gold standard of travel with Saudi Arabia's premier private transfer service. We provide a <strong>reliable alternative to ride-hailing apps</strong> for international tourists and business executives. We specialize in <strong>Border Crossings, Airport Transfers, Tourist Journeys, and Umrah Transport</strong> across all cities (e.g., Jeddah, Riyadh, Makkah, Madinah, AlUla, Tabuk). Note: We focus on pre-booked long-distance travel and do not offer local 'street hail' services.
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                 <Link href="/booking/">
                                     <Button size="lg" className="bg-primary text-white hover:bg-white hover:text-primary font-bold transition-all shadow-lg shadow-primary/20">
-                                        Request Quotation
+                                        WhatsApp Booking Online
                                     </Button>
                                 </Link>
+                                <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank">
+                                    <Button size="lg" className="bg-emerald-600 border-none text-white hover:bg-emerald-700 font-bold transition-all shadow-lg flex items-center gap-2 h-14 px-8 rounded-2xl">
+                                        <WhatsAppIcon className="w-6 h-6 fill-current" />
+                                        WhatsApp Booking via WhatsApp
+                                    </Button>
+                                </a>
                             </div>
                         </div>
 
@@ -428,11 +435,12 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                                 Specializing in long-distance journeys, VIP airport pickups, and dedicated Umrah transport services for the discerning traveler.
                             </p>
-                            <Link href="/booking/">
-                                <Button className="bg-primary text-white hover:bg-blue-600 rounded-full px-8 py-6 text-lg font-bold min-h-[48px] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/30">
-                                    Get Quote <ArrowRight className="ml-2 w-5 h-5" />
+                             <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank">
+                                <Button className="bg-emerald-600 text-white hover:bg-emerald-700 rounded-full px-8 py-6 text-lg font-bold min-h-[48px] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-emerald-500/30 flex items-center gap-2">
+                                    <WhatsAppIcon className="w-6 h-6 fill-current" />
+                                    WhatsApp Booking via WhatsApp
                                 </Button>
-                            </Link>
+                            </a>
                         </div>
 
                         {/* Right: List Layout */}
@@ -470,9 +478,9 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
 
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Premium Standards</span>
+                        <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">VIP Standards</span>
                         <h2 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight">
-                            WHY CHOOSE <span className="text-primary underline decoration-primary/20 decoration-8 underline-offset-8">VIP TRANSFER KSA?</span>
+                            WHY CHOOSE <span className="text-primary underline decoration-primary/20 decoration-8 underline-offset-8">TAXI SERVICE KSA?</span>
                         </h2>
                     </div>
 
@@ -527,7 +535,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-[12px] border-white z-10 aspect-[4/5]">
                                 <Image
                                     src="/gmc-yukon.webp"
-                                    alt="VIP Transfer KSA Premium Fleet"
+                                    alt="Taxi Service KSA VIP Fleet"
                                     fill
                                     className="object-cover transform hover:scale-105 transition-transform duration-1000"
                                 />
@@ -574,10 +582,10 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                 </div>
                                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] mb-6 tracking-tight">
                                     YOUR PASSAGE TO <br />
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">PREMIUM MOBILITY</span>
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">VIP MOBILITY</span>
                                 </h2>
                                 <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                                    In the heart of the Kingdom, <strong>VIP Transfer KSA</strong> was born from a simple mission: to redefine the pilgrimage and business travel experience. We moved away from the uncertainty of public transport to provide a guaranteed, luxury door-to-door service.
+                                    In the heart of the Kingdom, <strong>Taxi Service KSA</strong> was born from a simple mission: to redefine the pilgrimage and business travel experience. We moved away from the uncertainty of public transport to provide a guaranteed, luxury door-to-door service.
                                 </p>
                             </div>
 
@@ -596,24 +604,18 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                 </div>
                             </div>
 
-                            <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
-                                <Link href="/about/" className="w-full sm:w-auto">
-                                    <Button className="w-full bg-slate-900 hover:bg-black text-white px-10 h-16 rounded-2xl text-lg font-black transition-all hover:scale-105 active:scale-95 shadow-xl shadow-slate-900/10">
-                                        Learn More <ArrowRight className="ml-2 w-5 h-5" />
+                             <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
+                                <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank" className="w-full sm:w-auto">
+                                    <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white px-10 h-16 rounded-2xl text-lg font-black transition-all hover:scale-105 active:scale-95 shadow-xl shadow-emerald-500/20 flex items-center gap-3">
+                                        <WhatsAppIcon className="w-6 h-6 fill-current" />
+                                        WhatsApp Booking via WhatsApp
+                                    </Button>
+                                </a>
+                                <Link href="/booking/" className="w-full sm:w-auto">
+                                    <Button className="w-full bg-slate-900/5 hover:bg-slate-900/10 text-slate-900 border-2 border-slate-900 px-10 h-16 rounded-2xl text-lg font-black transition-all hover:scale-105 active:scale-95">
+                                        Use Online Form <ArrowRight className="ml-2 w-5 h-5" />
                                     </Button>
                                 </Link>
-                                <div className="flex items-center gap-3">
-                                    <div className="flex -space-x-4">
-                                        {[1, 2, 3, 4].map((i) => (
-                                            <div key={i} className="w-10 h-10 rounded-full border-4 border-white bg-gray-200 overflow-hidden relative">
-                                                <Image src={`/fleet/mercedes-s-class-vip-chauffeur-service-saudi.webp`} alt="VIP Customer" fill className="object-cover grayscale" />
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <div className="text-xs font-bold text-gray-400">
-                                        <span className="text-gray-900">4.9/5</span> from 2k+ reviews
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -677,11 +679,21 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                                 </div>
                                             ))}
                                         </div>
-                                        <Link href={`/booking?vehicle=${encodeURIComponent(vehicle.name.replace(/\s+/g, '-'))}`} className="w-full">
-                                            <Button className="w-full bg-primary text-white hover:bg-blue-600 font-bold transition-all min-h-[48px] hover:scale-[1.02] active:scale-95 shadow-md shadow-primary/20">
-                                                Get {vehicle.name} Quote
-                                            </Button>
-                                        </Link>
+                                        <div className="grid grid-cols-2 gap-2 mt-auto">
+                                            <Link href={`/booking?vehicle=${encodeURIComponent(vehicle.name.replace(/\s+/g, '-'))}`} className="w-full">
+                                                <Button className="w-full bg-primary text-white hover:bg-blue-600 font-bold transition-all min-h-[48px] hover:scale-[1.02] active:scale-95 shadow-md shadow-primary/20 text-xs"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
+                                            </Link>
+                                            <a 
+                                                href={`https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20get%20a%20VIP%20quote%20for%20a%20${encodeURIComponent(vehicle.name)}.`}
+                                                target="_blank"
+                                                className="w-full"
+                                            >
+                                                <Button className="w-full bg-emerald-600 text-white hover:bg-emerald-700 font-bold transition-all min-h-[48px] hover:scale-[1.02] active:scale-95 shadow-md shadow-emerald-500/20 text-xs gap-1.5 px-1">
+                                                    <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
+                                                    WhatsApp
+                                                </Button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -690,135 +702,6 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                 </div>
             </section>
 
-            {/* Pricing Table Section */}
-            <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50/50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12 sm:mb-16">
-                        <span className="bg-primary text-white font-semibold tracking-wider uppercase text-xs sm:text-sm px-4 py-1.5 rounded-full inline-block shadow-md shadow-primary/30">Transparent Pricing</span>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mt-3 sm:mt-4 mb-4 sm:mb-6 px-4">
-                            Premium Transfer Rates 2025
-                        </h2>
-                        <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-                            Simple, fixed pricing for your VIP journey. No hidden fees or surprise surges.
-                        </p>
-                    </div>
-
-                    {/* Desktop View: Table */}
-                    <div className="hidden lg:block overflow-x-auto rounded-3xl shadow-2xl shadow-blue-900/5 border border-gray-100 bg-white relative">
-                        <table className="w-full text-sm text-left text-gray-600">
-                            <thead className="text-xs text-white uppercase bg-gray-900">
-                                <tr>
-                                    <th scope="col" className="px-8 py-6 font-black text-lg bg-primary sticky left-0 z-20 border-r border-white/10">
-                                        Route / Destination
-                                    </th>
-                                    {[
-                                        { name: 'Toyota Camry', label: 'Economy Sedan' },
-                                        { name: 'Hyundai Staria VIP', label: 'Family VIP' },
-                                        { name: 'Hyundai Starex', label: 'Standard Van' },
-                                        { name: 'GMC Yukon XL / Denali', label: 'VIP SUV' },
-                                        { name: 'Toyota Hiace', label: 'Group Van' },
-                                        { name: 'Toyota Coaster', label: 'Large Bus' }
-                                    ].map((v) => (
-                                        <th key={v.name} scope="col" className="px-6 py-6 font-bold text-center border-l border-white/5">
-                                            {v.label}<br /><span className="text-[10px] font-normal opacity-70 tracking-widest">{v.name}</span>
-                                        </th>
-                                    ))}
-                                </tr>
-                            </thead>
-                            <tbody className="divide-y divide-gray-100">
-                                {[
-                                    { from: 'Jeddah', to: 'Makkah', label: 'Jeddah Airport → Makkah' },
-                                    { from: 'Makkah', to: 'Madinah', label: 'Makkah → Madinah' },
-                                    { from: 'Madinah', to: 'Jeddah', label: 'Madinah → Jeddah Airport' },
-                                    { from: 'Makkah', to: 'Taif', label: 'Makkah → Taif City' },
-                                    { from: 'Makkah', to: 'Makkah Ziyarat', label: 'Makkah Ziyarat Tour', isTour: true },
-                                    { from: 'Madinah', to: 'Madinah Ziyarat', label: 'Madinah Ziyarat Tour', isTour: true },
-                                ].map((row, index) => (
-                                    <tr key={index} className="hover:bg-blue-50/30 transition-colors group">
-                                        <th scope="row" className="px-8 py-6 font-bold text-gray-900 whitespace-nowrap sticky left-0 z-10 bg-white group-hover:bg-blue-50/30 border-r border-gray-50">
-                                            {row.label}
-                                        </th>
-                                        {[
-                                            'Toyota Camry',
-                                            'Hyundai Staria VIP',
-                                            'Hyundai Starex',
-                                            'GMC Yukon XL / Denali',
-                                            'Toyota Hiace',
-                                            'Toyota Coaster'
-                                        ].map((vName) => {
-                                            const price = getPrice(row.from, row.to, vName);
-                                            return (
-                                                <td key={vName} className="px-6 py-4 text-center">
-                                                    <Link 
-                                                        href={`/booking?from=${row.from}&to=${row.to}&vehicle=${encodeURIComponent(vName.replace(/\s+/g, '-'))}`}
-                                                        className="group flex flex-col items-center gap-1"
-                                                    >
-                                                        <span className="text-base font-black text-gray-900 group-hover:text-primary transition-colors">
-                                                            {price ? `${price} SAR` : 'Get Quote'}
-                                                        </span>
-                                                        <span className="text-[10px] font-bold text-gray-400 uppercase tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity">
-                                                            Click to Get Quote
-                                                        </span>
-                                                    </Link>
-                                                </td>
-                                            );
-                                        })}
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-
-                    {/* Mobile View: Route Cards */}
-                    <div className="lg:hidden space-y-4">
-                        {[
-                            { from: 'Jeddah', to: 'Makkah', label: 'Jeddah Airport to Makkah' },
-                            { from: 'Makkah', to: 'Madinah', label: 'Makkah to Madinah' },
-                            { from: 'Madinah', to: 'Jeddah', label: 'Madinah to Jeddah' },
-                        ].map((row, idx) => (
-                            <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-                                <h3 className="text-lg font-black text-gray-900 mb-4 flex items-center gap-2">
-                                    <MapPin className="w-4 h-4 text-primary" /> {row.label}
-                                </h3>
-                                <div className="grid grid-cols-2 gap-3">
-                                    {[
-                                        { name: 'Toyota Camry', label: 'Sedan' },
-                                        { name: 'GMC Yukon XL / Denali', label: 'VIP SUV' },
-                                        { name: 'Hyundai Staria VIP', label: 'VIP Van' },
-                                        { name: 'Toyota Hiace', label: 'Group Van' }
-                                    ].map((v) => {
-                                        const price = getPrice(row.from, row.to, v.name);
-                                        return (
-                                            <Link 
-                                                key={v.name}
-                                                href={`/booking?from=${row.from}&to=${row.to}&vehicle=${encodeURIComponent(v.name.replace(/\s+/g, '-'))}`}
-                                                className="bg-gray-50 p-3 rounded-xl border border-transparent hover:border-primary transition-all active:scale-95"
-                                            >
-                                                <div className="text-[10px] font-bold text-gray-500 uppercase">{v.label}</div>
-                                                <div className="text-sm font-black text-gray-900 mt-1">
-                                                    {price ? `${price} SAR` : 'Get Quote'}
-                                                </div>
-                                            </Link>
-                                        );
-                                    })}
-                                </div>
-                                <Link href="/booking/" className="mt-4 block text-center py-2 text-xs font-bold text-primary hover:underline uppercase tracking-widest">
-                                    View Full Quotation Details →
-                                </Link>
-                            </div>
-                        ))}
-                        <Link href="/booking/">
-                            <Button className="w-full h-14 bg-gray-900 text-white rounded-2xl font-bold mt-4 shadow-lg active:scale-95">
-                                Custom Route Quote Request
-                            </Button>
-                        </Link>
-                    </div>
-
-                    <div className="mt-8 text-center text-xs font-medium text-gray-400 uppercase tracking-[0.2em] px-4">
-                        * All Prices are fixed and inclusive of VAT, fuel & driver. NO SURGE PRICING.
-                    </div>
-                </div>
-            </section>
 
             {/* Top 5 Contextual Routes - Transactional Gold */}
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
@@ -991,7 +874,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             Top Rated Customer Reviews
                         </h2>
                         <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-                            Passengers evaluate <strong>VIP Transfer KSA</strong> as a professional premium transfer service known for reliability.
+                            Passengers evaluate <strong>Taxi Service KSA</strong> as a professional premium transfer service known for reliability.
                         </p>
                     </div>
 
@@ -1077,7 +960,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             < section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-black" >
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 px-4">
-                        Get Quote from the Best Online Taxi Service
+                        WhatsApp Booking from the Best Online Taxi Service
                     </h2>
                     <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 px-4 max-w-2xl mx-auto">
                         Secure your quotation with the top-rated online taxi service in Saudi Arabia for reliable airport transfers.
@@ -1086,9 +969,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
                         {/* Primary CTA */}
                         <Link href="/booking/" className="w-full sm:w-auto">
-                            <Button size="lg" className="w-full bg-primary text-white hover:bg-blue-600 font-bold text-lg px-10 py-6 h-auto min-h-[56px] min-w-[200px] transition-all hover:scale-105 active:scale-95 shadow-xl shadow-primary/40">
-                                Request Quotation
-                            </Button>
+                            <Button size="lg" className="w-full bg-primary text-white hover:bg-blue-600 font-bold text-lg px-10 py-6 h-auto min-h-[56px] min-w-[200px] transition-all hover:scale-105 active:scale-95 shadow-xl shadow-primary/40"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                         </Link>
 
                         {/* Secondary CTA - Email */}
@@ -1119,7 +1000,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                     }}
                     className="w-full bg-slate-900 hover:bg-black text-white h-14 rounded-2xl font-black text-lg shadow-2xl flex items-center justify-center gap-2 border border-white/10"
                 >
-                    <Car className="w-5 h-5 text-primary" /> BOOK NOW <ArrowRight className="w-5 h-5" />
+                    <Car className="w-5 h-5 text-primary" /> WhatsApp Booking <ArrowRight className="w-5 h-5" />
                 </Button>
             </div>
         </div >

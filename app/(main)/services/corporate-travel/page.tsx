@@ -62,22 +62,22 @@ export default function CorporateTravelPage() {
         {
             name: 'Airport Transfers',
             description: 'Executive airport pickup and drop-off for business travelers. Meet-and-greet service with name sign.',
-            price: 'Executive Rates'
+            price: 'WhatsApp Booking'
         },
         {
             name: 'Meeting Transport',
             description: 'Point-to-point transport between offices, hotels, and meeting venues. Punctual service guaranteed.',
-            price: 'Corporate Rates'
+            price: 'WhatsApp Booking'
         },
         {
             name: 'Conference Transport',
             description: 'Multi-day conference transport with dedicated vehicles. Flexible scheduling for event attendees.',
-            price: 'Custom Quote'
+            price: 'WhatsApp Booking'
         },
         {
             name: 'Intercity Business Travel',
             description: 'Riyadh to Jeddah business corridor (950km). Comfortable long-distance executive transport.',
-            price: 'Corridor Rates'
+            price: 'WhatsApp Booking'
         },
     ];
 
@@ -158,7 +158,7 @@ export default function CorporateTravelPage() {
                             <span className="text-white">In Saudi Arabia</span>
                         </h1>
                         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                            VIP Transfer KSA provides the best executive transfer service for corporate clients. Professional executive transport with licensed chauffeurs in Riyadh and Jeddah.
+                            Taxi Service KSA provides the best executive transfer service for corporate clients. Professional executive transport with licensed chauffeurs in Riyadh and Jeddah.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/booking?service=corporate-travel">

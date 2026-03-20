@@ -8,6 +8,8 @@ import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RecentTrips from '@/components/RecentTrips';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
 
 export const metadata: Metadata = {
     title: 'Madinah to Jeddah Airport (JED) Departures Taxi | 24/7 Transfer',
@@ -51,7 +53,7 @@ export default function MadinahToJeddahAirportPage() {
                     { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
                     { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
                 ]}
-                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
@@ -75,9 +77,7 @@ export default function MadinahToJeddahAirportPage() {
                         </Button>
                     </Link>
                     <a href="mailto:info@taxiserviceksa.com">
-                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            Get Quote
-                        </Button>
+                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                     </a>
                 </div>
             </Hero>
@@ -190,7 +190,7 @@ export default function MadinahToJeddahAirportPage() {
                 faqs={[
                     {
                         question: "How much is a taxi from Madinah to Jeddah Airport?",
-                        shortAnswer: "Affordable Fixed Rates",
+                        shortAnswer: "Affordable WhatsApp Booking",
                         detailedAnswer: "A standard sedan taxi from Madinah to Jeddah Airport is offered at an affordable fixed rate. Larger vehicles like the GMC Yukon are also available.",
                         perspectives: []
                     },

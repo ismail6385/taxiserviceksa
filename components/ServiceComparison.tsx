@@ -22,7 +22,7 @@ export default function ServiceComparison({ persona = 'general' }: { persona?: '
             feature: 'Vehicle Standards',
             icon: Car,
             rideShare: 'Ride-share quality varies. Often personal cars with inconsistent cleanliness.',
-            privateChauffeur: 'Premium Fleet. GMC/BMW/Camry. Daily detailing and smoke-free policy.',
+            privateChauffeur: 'Luxury Fleet. GMC/BMW/Camry. Daily detailing and smoke-free policy.',
             citation: 'Fleet Standards'
         },
         {
@@ -102,7 +102,7 @@ export default function ServiceComparison({ persona = 'general' }: { persona?: '
                 <div className="hidden md:grid grid-cols-12 gap-6 mb-6 text-sm uppercase tracking-wider font-extrabold text-gray-400 border-b border-gray-100 pb-4">
                     <div className="col-span-4 pl-4">Comparison Feature</div>
                     <div className="col-span-4 text-center">Local Ride-Share</div>
-                    <div className="col-span-4 text-center text-emerald-600">VIP Transfer KSA</div>
+                    <div className="col-span-4 text-center text-emerald-600">Taxi Service KSA</div>
                 </div>
 
                 {/* Comparison Rows */}

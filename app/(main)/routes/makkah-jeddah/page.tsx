@@ -39,7 +39,7 @@ export default function MakkahJeddahRoutePage() {
                     { name: 'Makkah to Jeddah Port', description: 'Transfers for cruise passengers and industrial port visitors.' },
                     { name: 'VIP Hourly Chauffeur', description: 'Dedicated executive driver for business in Jeddah after Makkah stay.' }
                 ]}
-                priceRange={{ min: 250, max: 700, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/makkah-kaaba-night.webp"
             />
 
@@ -52,7 +52,7 @@ export default function MakkahJeddahRoutePage() {
                     </span>
                 }
                 subtitle="Direct Intercity Transfers with Premium Chauffeurs"
-                location="85 km | Fixed Rates | 24/7 Availability"
+                location="85 km | WhatsApp Booking | 24/7 Availability"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?route=makkah-jeddah">

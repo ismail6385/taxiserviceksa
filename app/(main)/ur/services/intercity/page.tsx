@@ -68,12 +68,12 @@ export default function IntercityServicePageUrdu() {
     const schemas = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Intercity VIP Transfer KSA (Urdu)",
+        "name": "Intercity Taxi Service KSA (Urdu)",
         "category": "Intercity Transport",
         "description": "سعودی عرب کے بڑے شہروں کے درمیان پرائیویٹ اور محفوظ سفری سہولت۔ جدید اور آرام دہ گاڑیاں۔",
         "provider": {
             "@type": "Organization",
-            "name": "VIP Transfer KSA",
+            "name": "Taxi Service KSA",
             "url": "https://taxiserviceksa.com"
         },
         "author": {

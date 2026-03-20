@@ -8,6 +8,8 @@ import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
 
 export const metadata: Metadata = {
     title: 'Tabuk to Rumah Taxi | Private Car Service 1350 km | Fixed Price',
@@ -45,7 +47,7 @@ export default function TabukRumahRoutePage() {
                     { name: 'Long-Distance Chauffeur', description: 'Comfortable long-distance travel across Saudi Arabia with luxury vehicles.' },
                     { name: 'Return Trip Booking', description: 'Book your return journey from Rumah back to Tabuk at competitive rates.' }
                 ]}
-                priceRange={{ min: 500, max: 4500, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/locations/tabuk.webp"
             />
 
@@ -57,13 +59,13 @@ export default function TabukRumahRoutePage() {
                         Tabuk → Rumah
                     </span>
                 }
-                subtitle="Private Car Service - Request Quotation"
-                location="13 Hours | Fixed Rates | Local Drivers"
+                subtitle="Private Car Service - WhatsApp Booking"
+                location="13 Hours | WhatsApp Booking | Local Drivers"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?route=tabuk-rumah">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Get Quote
+                            WhatsApp Booking
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
@@ -225,9 +227,7 @@ export default function TabukRumahRoutePage() {
                     <h2 className="text-4xl md:text-6xl font-black mb-8 tracking-tighter">Ready to go to Rumah?</h2>
                     <p className="text-gray-400 mb-10 text-lg">Contact us now to get your fixed price and Get a quote for your driver.</p>
                     <Link href="/booking/?route=tabuk-rumah">
-                        <Button size="lg" className="bg-primary text-black hover:bg-white font-black text-xl px-12 py-9 h-auto rounded-[2rem] shadow-2xl transition-all transform hover:-translate-y-1">
-                            Request Quotation
-                        </Button>
+                        <Button size="lg" className="bg-primary text-black hover:bg-white font-black text-xl px-12 py-9 h-auto rounded-[2rem] shadow-2xl transition-all transform hover:-translate-y-1"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                     </Link>
                 </div>
             </section>

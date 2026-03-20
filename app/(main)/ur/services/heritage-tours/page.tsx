@@ -128,7 +128,7 @@ export default function HeritageToursPageUrdu() {
         "description": "سعودی عرب کے تاریخی مقامات جیسے العلا، خیبر اور یونیسکو سائٹس کے لیے خصوصی 4x4 ٹرانسپورٹ بمعہ مقامی ڈرائیور۔",
         "provider": {
             "@type": "Organization",
-            "name": "VIP Transfer KSA",
+            "name": "Taxi Service KSA",
             "url": "https://taxiserviceksa.com"
         },
         "author": {

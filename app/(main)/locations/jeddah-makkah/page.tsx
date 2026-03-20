@@ -40,7 +40,7 @@ export default function JeddahMakkahRoutePage() {
             <Hero
                 images={['/jeddah-airport-terminal.webp', '/mecca-royal-clock-tower.png']}
                 h1Text="VIP Private Transfer Jeddah to Makkah"
-                bookingFormTitle="Get Quote for Premium Transfer"
+                bookingFormTitle="WhatsApp Booking for Premium Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Executive Chauffeur Service
@@ -51,7 +51,7 @@ export default function JeddahMakkahRoutePage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="VIP Transfer KSA™ Route"
+                        brandName="Taxi Service KSA™ Route"
                         description="Professional chauffeur and VIP transfer services between Jeddah and Makkah. We help pilgrims and travelers with reliable door-to-door transport and 24/7 availability."
                         foundingDate="2012"
                         metrics={[

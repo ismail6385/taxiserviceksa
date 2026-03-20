@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import { MapPin, Calendar, Clock, ArrowLeftRight, Plane, Check, Users, Briefcase, User, Mail, Wallet, ChevronsUpDown, Loader2, Car, ArrowRight } from 'lucide-react';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 import {
     Select,
     SelectContent,
@@ -23,7 +24,7 @@ import {
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
 import { supabase, vehicles } from '@/lib/supabase';
-import { getPrice } from '@/lib/pricing';
+
 import { countryCodes } from '@/data/countryCodes';
 import {
     Command,
@@ -33,6 +34,7 @@ import {
     CommandItem,
     CommandList,
 } from "@/components/ui/command";
+import { BRAND } from '@/lib/brand-config';
 
 interface HeroBookingWidgetProps {
     title?: string;
@@ -61,14 +63,6 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
     const [openCountry, setOpenCountry] = useState(false);
 
     const [passengers, setPassengers] = useState(1);
-    const [calculatedPrice, setCalculatedPrice] = useState<number | null>(null);
-
-    // Calculate price when route/vehicle changes
-    useEffect(() => {
-        if (pickup && dropoff && selectedVehicle) {
-            setCalculatedPrice(getPrice(pickup, dropoff, selectedVehicle.name));
-        }
-    }, [pickup, dropoff, selectedVehicle]);
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
@@ -123,7 +117,31 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                 }
             }).catch((err) => console.error('Email fetch failed:', err));
 
+            // Construct WhatsApp message
+            const whatsappMsg = `*New Booking Request - ${BRAND.name}*
+*Name:* ${customerName}
+*Email:* ${customerEmail}
+*Phone:* ${fullPhoneNumber}
+*Pickup:* ${pickup}
+*Destination:* ${dropoff}
+*Date:* ${date}
+*Time:* ${time}
+*Vehicle:* ${selectedVehicle.name}
+*Passengers:* ${passengers}
+*Luggage:* ${selectedVehicle.luggage} bags
+*Return Trip:* ${isRoundTrip ? 'Yes' : 'No'}
+---
+Please provide a quote for this journey.`;
+
+            const encodedMsg = encodeURIComponent(whatsappMsg);
+            const whatsappUrl = `https://wa.me/${BRAND.contact.whatsapp.replace('+', '')}?text=${encodedMsg}`;
+
             setStep(4); // Success
+
+            // Redirect to WhatsApp after a short delay
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+            }, 1500);
         } catch (error) {
             console.error(error);
             alert('Booking failed. Please try again.');
@@ -152,7 +170,7 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                         </div>
                         <div className="flex items-center gap-1.5 bg-amber-50 text-amber-700 px-2 py-1 rounded-md border border-amber-100">
                             <Check className="w-3.5 h-3.5" />
-                            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider">Premium Fleet</span>
+                            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider">Elite Fleet</span>
                         </div>
                     </div>
                 </>
@@ -251,8 +269,9 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                         </div>
                     </div>
 
-                    <Button type="submit" className="w-full h-14 bg-black hover:bg-gray-800 text-white font-bold text-lg rounded-xl shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
-                        Get Instant Quotation
+                    <Button type="submit" className="w-full h-16 bg-[#25D366] hover:bg-[#128C7E] text-white font-black text-lg rounded-2xl shadow-2xl shadow-emerald-500/30 transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3">
+                        <WhatsAppIcon className="w-8 h-8" color="white" />
+                        Send via WhatsApp
                     </Button>
                     <p className="text-[10px] sm:text-xs text-center text-rose-600 font-extrabold uppercase tracking-[0.2em] mt-2 px-4 shadow-sm bg-rose-50/50 py-2 rounded-lg">
                         100% PRIVATE VIP TRANSFERS ONLY • NO SHARED TAXIS • ALL KSA CITIES
@@ -298,7 +317,6 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                             </SelectTrigger>
                             <SelectContent className="max-h-[400px]">
                                 {vehicles.map((v) => {
-                                    const price = getPrice(pickup, dropoff, v.name);
                                     return (
                                         <SelectItem key={v.name} value={v.name} className="py-3 cursor-pointer">
                                             <div className="flex items-center justify-between w-full gap-4">
@@ -309,8 +327,9 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                                                         <span className="flex items-center gap-1"><Briefcase className="w-3 h-3" /> {v.luggage}</span>
                                                     </div>
                                                 </div>
-                                                <div className="font-bold text-primary text-base">
-                                                    Get Quote
+                                                <div className="font-bold text-emerald-600 text-base flex items-center gap-1">
+                                                    <WhatsAppIcon className="w-4 h-4" color="#25D366" />
+                                                    WhatsApp
                                                 </div>
                                             </div>
                                         </SelectItem>
@@ -358,12 +377,13 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                             </div>
                         </div>
 
-                        <Button
+                         <Button
                             onClick={() => setStep(3)}
                             disabled={!selectedVehicle}
-                            className="w-full h-14 bg-primary hover:bg-primary/90 text-black font-bold text-lg rounded-xl shadow-md transition-all transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="w-full h-14 bg-[#25D366] hover:bg-[#128C7E] text-white font-black text-lg rounded-xl shadow-md transition-all transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                         >
-                            Continue to Details
+                            <WhatsAppIcon className="w-7 h-7" color="white" />
+                            Continue to WhatsApp
                         </Button>
                     </div>
                 </div>
@@ -419,13 +439,13 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
 
                             <div className="bg-primary/10 border border-primary/20 rounded-xl p-3 flex justify-between items-center">
                                 <span className="text-sm font-semibold text-gray-700 flex items-center"><Wallet className="w-4 h-4 mr-2" /> Fare Estimate:</span>
-                                <span className="text-xl font-bold text-primary">Get Quote</span>
+                                <span className="text-xl font-bold text-primary">WhatsApp Quote</span>
                             </div>
                         </div>
                     </div>
 
-                    <Button type="submit" disabled={loading} className="w-full h-14 bg-primary hover:bg-primary/90 text-black font-bold text-lg rounded-xl shadow-md">
-                        {loading ? <><Loader2 className="w-5 h-5 mr-2 animate-spin" /> Processing...</> : 'Request Quotation'}
+                     <Button type="submit" disabled={loading} className="w-full h-14 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg rounded-xl shadow-md flex items-center justify-center gap-2">
+                        {loading ? <><Loader2 className="w-5 h-5 mr-2 animate-spin" /> Sending to WhatsApp...</> : <><WhatsAppIcon className="w-6 h-6 " /> Book via WhatsApp</>}
                     </Button>
 
                     <div className="relative flex py-2 items-center">
@@ -434,15 +454,26 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                         <div className="flex-grow border-t border-gray-200"></div>
                     </div>
 
-                    <a href="mailto:info@taxiserviceksa.com" className="block w-full">
-                        <Button
-                            type="button"
-                            className="w-full h-14 bg-gray-100 hover:bg-gray-200 text-gray-900 font-bold text-base rounded-xl shadow-sm transition-all flex items-center justify-center gap-2"
-                        >
-                            <Mail className="w-5 h-5" />
-                            Email Inquiry
-                        </Button>
-                    </a>
+                    <div className="grid grid-cols-2 gap-3">
+                        <a href="mailto:info@taxiserviceksa.com" className="block w-full">
+                            <Button
+                                type="button"
+                                className="w-full h-14 bg-gray-100 hover:bg-gray-200 text-gray-900 font-bold text-sm rounded-xl shadow-sm transition-all flex items-center justify-center gap-2"
+                            >
+                                <Mail className="w-5 h-5 flex-shrink-0" />
+                                Email
+                            </Button>
+                        </a>
+                        <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20a%20VIP%20transfer." target="_blank" className="block w-full">
+                            <Button
+                                type="button"
+                                className="w-full h-14 bg-[#25D366] hover:bg-[#128C7E] text-white font-black text-sm rounded-xl shadow-sm transition-all flex items-center justify-center gap-2"
+                            >
+                                <WhatsAppIcon className="w-5 h-5" color="white" />
+                                Direct WhatsApp
+                            </Button>
+                        </a>
+                    </div>
                 </form>
             )}
 
@@ -459,9 +490,38 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                     <p className="text-gray-600 mb-8 max-w-sm mx-auto leading-relaxed">
                         We've sent a summary to <strong>{customerEmail}</strong>. Our team will contact you with the official quote shortly.
                     </p>
-                    <Button onClick={() => { setStep(1); setPickup(''); setDropoff(''); setDate(''); setTime(''); }} className="bg-primary hover:bg-black text-white font-black py-4 px-8 rounded-xl transition-all">
-                        Request Another
-                    </Button>
+                    
+                    <div className="flex flex-col gap-3 max-w-sm mx-auto">
+                        <Button 
+                            onClick={() => {
+                                const fullPhoneNumber = `${countryCode}${customerPhone}`;
+                                const whatsappMsg = `*New Booking Request - ${BRAND.name}*
+*Name:* ${customerName}
+*Email:* ${customerEmail}
+*Phone:* ${fullPhoneNumber}
+*Pickup:* ${pickup}
+*Destination:* ${dropoff}
+*Date:* ${date}
+*Time:* ${time}
+*Vehicle:* ${selectedVehicle?.name}
+*Passengers:* ${passengers}
+*Luggage:* ${selectedVehicle?.luggage} bags
+*Return Trip:* ${isRoundTrip ? 'Yes' : 'No'}
+---
+Please provide a quote for this journey.`;
+                                const encodedMsg = encodeURIComponent(whatsappMsg);
+                                window.open(`https://wa.me/${BRAND.contact.whatsapp.replace('+', '')}?text=${encodedMsg}`, '_blank');
+                            }}
+                            className="bg-[#25D366] hover:bg-[#128C7E] text-white font-black py-4 px-8 rounded-xl transition-colors flex items-center justify-center gap-2"
+                        >
+                            <WhatsAppIcon className="w-5 h-5" color="white" />
+                            Send on WhatsApp Again
+                        </Button>
+
+                        <Button onClick={() => { setStep(1); setPickup(''); setDropoff(''); setDate(''); setTime(''); setCustomerName(''); setCustomerEmail(''); setCustomerPhone(''); }} className="border-2 border-gray-200 hover:bg-black hover:text-white text-gray-700 font-black py-4 px-8 rounded-xl transition-all">
+                            Request Another
+                        </Button>
+                    </div>
                 </div>
             )}
 

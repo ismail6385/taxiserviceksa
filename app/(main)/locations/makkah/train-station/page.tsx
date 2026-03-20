@@ -45,7 +45,7 @@ export default function MakkahTrainStationPage() {
                     { name: 'Intercity Transfers', description: 'Private long-distance travel to other major cities.' },
                     { name: 'Family SUW/Van', description: 'Large vehicles for groups and extra luggage.' }
                 ]}
-                priceRange={{ min: 50, max: 2000, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/locations/makkah.webp"
             />
 

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Camera, Car, MapPin } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'Gallery | VIP Transfer KSA - Our Fleet & Services',
+    title: 'Gallery | Taxi Service KSA - Our Fleet & Services',
     description: 'View our premium fleet of vehicles and services across Saudi Arabia. Browse photos of our luxury cars, vans, and professional chauffeur services.',
     keywords: ['taxi gallery', 'fleet photos', 'Saudi Arabia taxi', 'luxury vehicles', 'chauffeur service'],
 };
@@ -168,7 +168,7 @@ export default function GalleryPage() {
                     </p>
                     <Link href="/booking/">
                         <button className="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-900 transition-all hover:scale-105">
-                            Get Quote
+                            WhatsApp Booking
                         </button>
                     </Link>
                 </div>

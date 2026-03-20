@@ -1,8 +1,22 @@
 import { Facebook, Instagram, Twitter, Linkedin, Youtube, Star } from 'lucide-react';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export default function SocialSidebar() {
     return (
         <div className="fixed left-0 top-1/2 -translate-y-1/2 z-[100] hidden lg:flex flex-col bg-white/90 backdrop-blur-md shadow-2xl rounded-r-2xl overflow-hidden border border-gray-200/50 py-2">
+            <a
+                href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20transfer%20quote."
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                aria-label="WhatsApp"
+                className="p-3.5 hover:bg-emerald-600 hover:text-white text-emerald-600 transition-all duration-300 flex items-center justify-center group relative hover:scale-110"
+                title="WhatsApp"
+            >
+                <WhatsAppIcon className="w-5 h-5 fill-current" />
+                <span className="absolute left-full ml-3 bg-gray-900 text-white text-[10px] font-bold tracking-wider uppercase px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none translate-x-[-10px] group-hover:translate-x-0 shadow-xl">
+                    WhatsApp Chat
+                </span>
+            </a>
             <a
                 href="https://www.facebook.com/people/Taxi-Service-KSA/61573850597962/"
                 target="_blank"

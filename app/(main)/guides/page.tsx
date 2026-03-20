@@ -1,14 +1,15 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, MapPin, Plane, Building2, Star, MessageCircle, AlertTriangle, Globe } from 'lucide-react';
+import { ArrowRight, MapPin, Plane, Building2, Star, AlertTriangle, Globe } from 'lucide-react';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 import TLDRSummary from '@/components/seo/TLDRSummary';
 import FreshnessStatus from '@/components/seo/FreshnessStatus';
 
 export const metadata: Metadata = {
-    title: 'Travel Guides | VIP Transfer KSA - Expert Insights for Saudi Arabia',
+    title: 'Travel Guides | Taxi Service KSA - Expert Insights for Saudi Arabia',
     description: 'Comprehensive travel guides for Jeddah Airport, Makkah Umrah, and Riyadh Business Travel. Expert insights from professional drivers with years of local experience.',
-    keywords: ['Jeddah Airport Guide', 'Makkah Umrah Guide', 'Riyadh Business Guide', 'Saudi Arabia Travel', 'VIP Transfer KSA'],
+    keywords: ['Jeddah Airport Guide', 'Makkah Umrah Guide', 'Riyadh Business Guide', 'Saudi Arabia Travel', 'Taxi Service KSA'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/',
     },
@@ -93,7 +94,7 @@ export default function GuidesPage() {
                 <div className="max-w-7xl mx-auto mb-16">
                     <FreshnessStatus lastVerified="2026-03-06" />
                     <TLDRSummary 
-                        title="VIP Transfer KSA Travel Insights Hub"
+                        title="Taxi Service KSA Travel Insights Hub"
                         summary="A comprehensive repository of logistical and spiritual travel knowledge for Saudi Arabia, curated by professional chauffeurs. We cover everything from airport navigation to Makkah/Madinah pilgrimage best practices."
                         points={[
                             "Complete guides for King Abdulaziz International Airport (Jeddah)",
@@ -887,7 +888,7 @@ export default function GuidesPage() {
                         </div>
                         <div className="text-center">
                             <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <MessageCircle className="w-8 h-8 text-black" />
+                                <WhatsAppIcon className="w-8 h-8 text-black" />
                             </div>
                             <h3 className="text-xl font-bold text-gray-900 mb-3">Real Insights</h3>
                             <p className="text-gray-600">
@@ -917,7 +918,7 @@ export default function GuidesPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/">
                             <Button size="lg" className="bg-black text-white hover:bg-gray-800 font-bold w-full sm:w-auto">
-                                <MessageCircle className="w-5 h-5 mr-2" />
+                                <WhatsAppIcon className="w-5 h-5 mr-2" />
                                 Book With Expert Driver
                             </Button>
                         </Link>

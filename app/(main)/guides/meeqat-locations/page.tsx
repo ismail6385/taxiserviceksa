@@ -87,7 +87,7 @@ export default function MeeqatLocationsPage() {
         },
         "publisher": {
             "@type": "Organization",
-            "name": "VIP Transfer KSA",
+            "name": "Taxi Service KSA",
             "url": "https://taxiserviceksa.com"
         }
     };

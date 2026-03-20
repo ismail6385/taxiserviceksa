@@ -20,9 +20,9 @@ export default function HowItWorks({ title }: HowItWorksProps) {
         },
         {
             id: 2,
-            title: "Request Quotation",
-            description: "Submit details and get your quotation via <strong>Email</strong>. We track your international flight to ensure the driver waits even if you are delayed.",
-            icon: <Monitor className="w-12 h-12 text-blue-500" />
+            title: "Send WhatsApp Message",
+            description: "Submit details and finalize your booking via <strong>WhatsApp</strong>. We track your international flight to ensure the driver waits even if you are delayed.",
+            icon: <Monitor className="w-12 h-12 text-green-500" />
         },
         {
             id: 3,
@@ -41,10 +41,10 @@ export default function HowItWorks({ title }: HowItWorksProps) {
                 {/* Header */}
                 <div className="text-center mb-16 space-y-4">
                     <h2 className="text-3xl md:text-5xl font-black text-gray-900">
-                        {title || <>Get your taxi quote in <span className="text-[#FFC107]">3 simple steps</span></>}
+                        {title || <>Book your taxi via WhatsApp in <span className="text-[#FFC107]">3 simple steps</span></>}
                     </h2>
                     <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        From the first click on the quote form and till the moment you step out the auto at your destination, it couldn't be any simpler:
+                        From your first WhatsApp message till the moment you step out the auto at your destination, it couldn't be any simpler:
                     </p>
                 </div>
 

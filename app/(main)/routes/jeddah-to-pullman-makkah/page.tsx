@@ -8,6 +8,8 @@ import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RecentTrips from '@/components/RecentTrips';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
 
 export const metadata: Metadata = {
     title: 'Taxi Jeddah Airport to Pullman ZamZam Makkah | Hotel Drop-Off',
@@ -51,7 +53,7 @@ export default function JeddahToPullmanPage() {
                     { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
                     { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
                 ]}
-                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
@@ -75,9 +77,7 @@ export default function JeddahToPullmanPage() {
                         </Button>
                     </Link>
                     <a href="mailto:info@taxiserviceksa.com">
-                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            Get Quote
-                        </Button>
+                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                     </a>
                 </div>
             </Hero>
@@ -215,13 +215,11 @@ export default function JeddahToPullmanPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Request Quotation to Pullman ZamZam
+                        WhatsApp Booking to Pullman ZamZam
                     </h2>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/?destination=Pullman%20ZamZam%20Makkah">
-                            <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Get Quote
-                            </Button>
+                            <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700 font-bold text-lg px-10 py-6 h-auto min-w-[200px]"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">

@@ -21,7 +21,7 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
-    title: 'Riyadh Business Travel Guide 2026 | KAFD, Corporate Transport - VIP Transfer KSA',
+    title: 'Riyadh Business Travel Guide 2026 | KAFD, Corporate Transport - Taxi Service KSA',
     description: 'Complete business travel guide for Riyadh: KAFD access, business districts, meeting venues, corporate facilities, traffic strategies, and professional transport services.',
     keywords: ['Riyadh business travel', 'KAFD taxi', 'corporate transport Riyadh', 'business districts Riyadh', 'Riyadh meeting venues', 'King Khalid Airport'],
     alternates: {
@@ -71,7 +71,7 @@ export default function RiyadhBusinessGuidePage() {
         },
         "publisher": {
             "@type": "Organization",
-            "name": "VIP Transfer KSA",
+            "name": "Taxi Service KSA",
             "logo": {
                 "@type": "ImageObject",
                 "url": "https://taxiserviceksa.com/logo.png"

@@ -35,7 +35,7 @@ export default function HeritageToursPage() {
             description: 'UNESCO World Heritage Site. Hegra (Madain Saleh) Nabataean tombs, Dadan ancient city, and Elephant Rock formations.',
             highlights: ['Hegra UNESCO Site', 'Dadan Ancient City', 'Elephant Rock', 'Old Town AlUla'],
             duration: 'Full day (8-10 hours)',
-            price: 'Affordable Rates',
+            price: 'WhatsApp Booking',
             link: '/locations/alula',
             isUNESCO: true
         },
@@ -44,7 +44,7 @@ export default function HeritageToursPage() {
             description: 'Ancient oasis and fortress ruins. Historical sites from early Islamic period with 4x4 desert terrain access.',
             highlights: ['Khaybar Fort', 'Ancient Oases', 'Desert Terrain', 'Historical Markers'],
             duration: 'Half day (4-6 hours)',
-            price: 'Affordable Rates',
+            price: 'WhatsApp Booking',
             link: '/locations/khayber-fort'
         },
         {
@@ -52,7 +52,7 @@ export default function HeritageToursPage() {
             description: 'Combined heritage tour covering both AlUla UNESCO sites and Khaybar historical areas. 150km desert route.',
             highlights: ['Hegra + Khaybar', 'Desert Route', 'Historical Circuit', 'Photography Stops'],
             duration: '2 days recommended',
-            price: 'Competitive Rates',
+            price: 'WhatsApp Booking',
             link: '/locations/alula'
         },
     ];
@@ -128,7 +128,7 @@ export default function HeritageToursPage() {
         "description": "Professional transport services for AlUla UNESCO sites, Hegra, and Khaybar. Includes 4x4 vehicles with licensed desert drivers.",
         "provider": {
             "@type": "Organization",
-            "name": "VIP Transfer KSA",
+            "name": "Taxi Service KSA",
             "url": "https://taxiserviceksa.com"
         },
         "author": {

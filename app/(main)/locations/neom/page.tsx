@@ -45,14 +45,14 @@ export default function NeomPage() {
                     { name: 'Intercity Transfers', description: 'Private long-distance travel to other major cities.' },
                     { name: 'Family SUW/Van', description: 'Large vehicles for groups and extra luggage.' }
                 ]}
-                priceRange={{ min: 50, max: 2000, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/locations/neom.webp"
             />
 
             <Hero
                 images={images}
                 h1Text="VIP Private Transfer & Chauffeur NEOM"
-                bookingFormTitle="Get Quote for Premium Transfer in NEOM"
+                bookingFormTitle="WhatsApp Booking for Premium Transfer in NEOM"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service NEOM

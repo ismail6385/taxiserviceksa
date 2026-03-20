@@ -8,6 +8,8 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 import JsonLdLocation from '@/components/JsonLdLocation';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
 
 export const metadata: Metadata = {
     title: 'VIP Private Transfer & Chauffeur Abha | AHB Airport Pickup',
@@ -43,14 +45,14 @@ export default function AbhaPage() {
                     { name: 'Rijal Almaa Heritage Tour', description: 'Day trips to the famous historical gingerbread village.' },
                     { name: 'Khamis Mushait Intercity', description: 'Direct transfers to Khamis Mushait and Aseer province.' }
                 ]}
-                priceRange={{ min: 100, max: 600, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-4.webp"
             />
 
             <Hero
                 images={images}
                 h1Text="VIP Private Transfer & Chauffeur Abha"
-                bookingFormTitle="Get Quote for Premium Transfer in Abha"
+                bookingFormTitle="WhatsApp Booking for Premium Transfer in Abha"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Abha
@@ -114,7 +116,7 @@ export default function AbhaPage() {
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <DollarSign className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Fixed Rates</span>
+                                    <span className="font-semibold text-gray-800"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current inline-block" /> WhatsApp Booking</span>
                                 </div>
                             </div>
                         </div>

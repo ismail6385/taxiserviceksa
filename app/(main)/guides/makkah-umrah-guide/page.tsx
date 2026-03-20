@@ -18,7 +18,7 @@ import AuthorCard from '@/components/AuthorCard';
 
 
 export const metadata: Metadata = {
-    title: 'Makkah Umrah Complete Guide 2026 | Transport, Tawaf, Ziyarat - VIP Transfer KSA',
+    title: 'Makkah Umrah Complete Guide 2026 | Transport, Tawaf, Ziyarat - Taxi Service KSA',
     description: 'Complete Umrah guide for Makkah: Haram access, Tawaf timing, Ziyarat sites, Zamzam logistics, hotel zones, prayer schedules, and taxi transport. Everything pilgrims need to know.',
     keywords: ['Umrah guide Makkah', 'Tawaf timing', 'Ziyarat sites Makkah', 'Haram access points', 'Makkah hotel zones', 'Jabal al-Nour', 'Zamzam water'],
     alternates: {
@@ -80,7 +80,7 @@ export default function MakkahUmrahGuidePage() {
         },
         "publisher": {
             "@type": "Organization",
-            "name": "VIP Transfer KSA",
+            "name": "Taxi Service KSA",
             "logo": {
                 "@type": "ImageObject",
                 "url": "https://taxiserviceksa.com/logo.png"

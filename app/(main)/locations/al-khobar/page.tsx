@@ -77,7 +77,7 @@ export default function AlKhobarPage() {
                 cityName="Al Khobar"
                 description="Professional VIP transfers in Al Khobar. Specializing in King Fahd Causeway trips to Bahrain, coastal tours, and executive DMM Airport transfers."
                 services={services}
-                priceRange={{ min: 200, max: 600, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
@@ -87,7 +87,7 @@ export default function AlKhobarPage() {
             <Hero
                 images={khobarImages}
                 h1Text="VIP Private Transfer & Chauffeur Al Khobar"
-                bookingFormTitle="Get Quote for Premium Transfer in Al Khobar"
+                bookingFormTitle="WhatsApp Booking for Premium Transfer in Al Khobar"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Khobar
@@ -98,7 +98,7 @@ export default function AlKhobarPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="VIP Transfer KSA™ Al Khobar"
+                        brandName="Taxi Service KSA™ Al Khobar"
                         description="Professional chauffeur and causeway transfer services in Al Khobar. We help travelers and shoppers with luxury vehicles and 24/7 availability for Bahrain Causeway trips and Corniche visits."
                         foundingDate="2012"
                         metrics={[

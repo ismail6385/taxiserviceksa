@@ -5,10 +5,10 @@ export default function JsonLdLocalBusiness() {
     const schema = {
         "@context": "https://schema.org",
         "@type": "TaxiService",
-        "name": "TaxiServiceKSA",
+        "name": "Taxi Service KSA",
         "image": "https://taxiserviceksa.com/logo.png",
         "url": "https://taxiserviceksa.com",
-        "telephone": "+966 56 073 2928",
+        "telephone": "+966 56 948 7569",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Prince Sultan Road",
@@ -30,6 +30,14 @@ export default function JsonLdLocalBusiness() {
             {
                 "@type": "City",
                 "name": "Madinah"
+            },
+            {
+                "@type": "City",
+                "name": "Riyadh"
+            },
+            {
+                "@type": "City",
+                "name": "Tabuk"
             }
         ],
         "openingHoursSpecification": {
@@ -46,8 +54,8 @@ export default function JsonLdLocalBusiness() {
             "opens": "00:00",
             "closes": "23:59"
         },
-        "description": "24/7 Premium Taxi & Chauffeur Service in Saudi Arabia. Specializing in Umrah transfers, Jeddah Airport pickups, and intercity travel.",
-        "paymentAccepted": "Cash, Credit Card, Apple Pay",
+        "description": "24/7 VIP Taxi & Executive Chauffeur Service in Saudi Arabia. Specializing in Umrah transfers, Jeddah Airport pickups, and all intercity travel across the Kingdom.",
+        "paymentAccepted": "Cash, Credit Card, Apple Pay, Online Transfer",
         "currenciesAccepted": "SAR, USD, EUR, GBP, CAD, AUD, IDR, PKR"
     };
 

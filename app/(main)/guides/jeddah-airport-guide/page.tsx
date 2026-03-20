@@ -18,7 +18,7 @@ import { blogService } from '@/lib/blogService';
 import RelatedGuides from '@/components/RelatedGuides';
 
 export const metadata: Metadata = {
-    title: 'Jeddah Airport Complete Guide 2026 | King Abdulaziz Airport (JED) - VIP Transfer KSA',
+    title: 'Jeddah Airport Complete Guide 2026 | King Abdulaziz Airport (JED) - Taxi Service KSA',
     description: 'Complete guide to King Abdulaziz International Airport (Jeddah). Terminals, prayer rooms, Ihram facilities, SIM cards, currency exchange, taxi meeting points, and transport to Makkah.',
     keywords: ['Jeddah airport guide', 'King Abdulaziz airport', 'JED airport terminals', 'Jeddah airport prayer room', 'Ihram facilities Jeddah', 'Jeddah to Makkah taxi'],
     alternates: {
@@ -60,7 +60,7 @@ export default async function JeddahAirportGuidePage() {
                     <Link href='/services/airport-transfers/' className='text-emerald-700 hover:underline'>
                         premium airport transfer
                     </Link>{' '}
-                    sign with the 'VIP Transfer KSA' logo.
+                    sign with the 'Taxi Service KSA' logo.
                 </>
             )
         },
@@ -132,7 +132,7 @@ export default async function JeddahAirportGuidePage() {
                             </div>
                         </div>
                         <div className="flex flex-wrap gap-3">
-                            <Link href="/booking/" className="bg-emerald-600 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-emerald-700 transition-colors">Get Quote</Link>
+                            <Link href="/booking/" className="bg-emerald-600 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-emerald-700 transition-colors">WhatsApp Booking</Link>
                             <Link href="/routes/jeddah-makkah/" className="bg-white text-emerald-700 border border-emerald-200 px-6 py-2.5 rounded-xl font-bold hover:bg-emerald-50 transition-colors">Jeddah to Makkah Taxi</Link>
                             <Link href="/fleet/gmc-yukon/" className="bg-white text-emerald-700 border border-emerald-200 px-6 py-2.5 rounded-xl font-bold hover:bg-emerald-50 transition-colors">VIP GMC Yukon</Link>
                         </div>

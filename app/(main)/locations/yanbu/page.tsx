@@ -81,7 +81,7 @@ export default function YanbuPage() {
                 cityName="Yanbu"
                 description="Professional VIP transfers in Yanbu. Specializing in Yanbu Airport (YNB) pickups, industrial city port transport, and Red Sea waterfront executive travel."
                 services={services}
-                priceRange={{ min: 100, max: 500, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
@@ -90,7 +90,7 @@ export default function YanbuPage() {
             <Hero
                 images={yanbuImages}
                 h1Text="VIP Private Transfer & Chauffeur Yanbu"
-                bookingFormTitle="Get Quote for Premium Transfer in Yanbu"
+                bookingFormTitle="WhatsApp Booking for Premium Transfer in Yanbu"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Yanbu
@@ -101,7 +101,7 @@ export default function YanbuPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="VIP Transfer KSA™ Yanbu"
+                        brandName="Taxi Service KSA™ Yanbu"
                         description="Professional chauffeur and airport transfer services in Yanbu. We help industrial workers, port personnel, and travelers with luxury vehicles and 24/7 availability for Yanbu Airport and Industrial City transport."
                         foundingDate="2012"
                         metrics={[

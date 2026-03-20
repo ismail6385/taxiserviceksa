@@ -197,7 +197,7 @@ export default function HyundaiStarexPage() {
                 <div className="absolute inset-0 bg-blue-500/5 blur-[120px] rounded-full"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <h2 className="text-4xl md:text-8xl font-black text-white mb-10 leading-none tracking-tighter uppercase">TRUSTED <br/> <span className="text-blue-500">UTILITY</span></h2>
-                    <p className="text-gray-400 text-xl mb-12 max-w-2xl mx-auto font-medium">Get Quote for the most reliable family van in Saudi Arabia. Professional chauffeurs, fixed prices, and massive luggage capacity.</p>
+                    <p className="text-gray-400 text-xl mb-12 max-w-2xl mx-auto font-medium">WhatsApp Booking for the most reliable family van in Saudi Arabia. Professional chauffeurs, fixed prices, and massive luggage capacity.</p>
                     <Link href="/booking/?vehicle=hyundai-starex">
                         <Button size="lg" className="bg-blue-600 hover:bg-blue-500 text-white font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl transition-all hover:scale-105">
                             BOOK STAREX VIP

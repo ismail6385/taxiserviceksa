@@ -45,7 +45,7 @@ export default function BahrainCausewayPage() {
                     { name: 'Intercity Transfers', description: 'Private long-distance travel to other major cities.' },
                     { name: 'Family SUW/Van', description: 'Large vehicles for groups and extra luggage.' }
                 ]}
-                priceRange={{ min: 50, max: 2000, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/locations/al-khobar.webp"
             />
 
@@ -58,7 +58,7 @@ export default function BahrainCausewayPage() {
                     </span>
                 }
                 subtitle="King Fahd Causeway Specialists"
-                location="Door-to-Door to Manama | Fixed Rates"
+                location="Door-to-Door to Manama | WhatsApp Booking"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Khobar&dropoff=Bahrain">

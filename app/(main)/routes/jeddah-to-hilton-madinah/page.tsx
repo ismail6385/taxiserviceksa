@@ -50,7 +50,7 @@ export default function JeddahToHiltonMadinahPage() {
                     { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
                     { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
                 ]}
-                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
@@ -63,7 +63,7 @@ export default function JeddahToHiltonMadinahPage() {
                     </span>
                 }
                 subtitle="Direct Ride to Madinah Hilton (King Fahd Gate)"
-                location="4-5 Hours | Affordable Fixed Rates"
+                location="4-5 Hours | Affordable WhatsApp Booking"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking">
@@ -154,7 +154,7 @@ export default function JeddahToHiltonMadinahPage() {
                 faqs={[
                     {
                         question: "How much is a taxi from Jeddah Airport to Madinah Hilton?",
-                        shortAnswer: "Affordable Fixed Rates",
+                        shortAnswer: "Affordable WhatsApp Booking",
                         detailedAnswer: "Our fixed price for a Sedan (Camry) is highly competitive. A larger family car (GMC Yukon) is also available. Prices include the driver, fuel, and highway tolls.",
                         perspectives: []
                     },

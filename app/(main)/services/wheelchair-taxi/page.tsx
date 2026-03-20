@@ -14,7 +14,7 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 
 export const metadata: Metadata = {
-    title: 'Wheelchair Accessible VIP Transfer KSA | Handicap Transport Service',
+    title: 'Wheelchair Accessible Taxi Service KSA | Handicap Transport Service',
     description: 'Reliable wheelchair VIP transfer service in Saudi Arabia. Vehicles equipped for elderly and disabled passengers. Accessible transport for Umrah, hospital visits, and airport transfers.',
     keywords: ['Wheelchair VIP transfer Saudi Arabia', 'Handicap accessible transport KSA', 'Disabled transfer service', 'Elderly transport Umrah', 'Medical VIP transfer service'],
     alternates: {
@@ -61,7 +61,7 @@ export default function WheelchairTaxiPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="VIP Transfer KSA™ Care"
+                        brandName="Taxi Service KSA™ Care"
                         description="Providing dignified and comfortable mobility solutions for our elders and guests with special needs. Accessible transport for Umrah and daily needs."
                         foundingDate="2012"
                         metrics={[

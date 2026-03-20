@@ -119,7 +119,7 @@ export default function KhayberPage() {
             <Hero
                 images={khayberImages}
                 h1Text="VIP Private Transfer & Chauffeur Khaybar Fort"
-                bookingFormTitle="Get Quote for Premium Transfer in Khaybar"
+                bookingFormTitle="WhatsApp Booking for Premium Transfer in Khaybar"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Khaybar
@@ -130,7 +130,7 @@ export default function KhayberPage() {
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
-                        brandName="VIP Transfer KSA™ Heritage"
+                        brandName="Taxi Service KSA™ Heritage"
                         description="Professional chauffeur and historical tour services to Khaybar. We help history enthusiasts and travelers with luxury 4x4 vehicles and 24/7 availability for Madinah to Khaybar excursion."
                         foundingDate="2012"
                         metrics={[

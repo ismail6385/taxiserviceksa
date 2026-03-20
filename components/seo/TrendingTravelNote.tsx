@@ -19,7 +19,7 @@ const TrendingTravelNote: React.FC<TrendingNoteProps> = ({
     lastUpdated,
     content,
     tags,
-    linkText = "Get Quote for this service",
+    linkText = "WhatsApp Booking for this service",
     linkUrl = "#booking",
     isRtl = false
 }) => {

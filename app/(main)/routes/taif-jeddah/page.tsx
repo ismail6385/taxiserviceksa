@@ -50,7 +50,7 @@ export default function TaifToJeddahPage() {
                     { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
                     { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
                 ]}
-                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
@@ -63,7 +63,7 @@ export default function TaifToJeddahPage() {
                     </span>
                 }
                 subtitle="Door-to-Door Transfer to Jeddah Airport (KAIA)"
-                location="2.5 Hours | Fixed Rates Available"
+                location="2.5 Hours | WhatsApp Booking Available"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking">
@@ -170,7 +170,7 @@ export default function TaifToJeddahPage() {
                     },
                     {
                         question: "How much is a taxi from Taif to Jeddah Airport?",
-                        shortAnswer: "Affordable Fixed Rates",
+                        shortAnswer: "Affordable WhatsApp Booking",
                         detailedAnswer: "A standard sedan from Taif to Jeddah Airport is available at a fixed rate. Larger SUVs for families are also available. Prices are fixed and include fuel/tolls.",
                         perspectives: []
                     }

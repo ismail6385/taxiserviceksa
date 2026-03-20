@@ -78,7 +78,7 @@ export default async function MadinahPage() {
                 cityName="Madinah" 
                 description="Premium VIP private transfer service in Madinah. Specialized Prince Mohammad Airport (MED) pickups and executive Ziyarat tours. Professional intercity transfers to Makkah."
                 services={services}
-                priceRange={{ min: 80, max: 600, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/madinah-prophets-mosque.webp"
             />
 
@@ -86,7 +86,7 @@ export default async function MadinahPage() {
             <Hero
                 images={madinahImages}
                 h1Text="VIP Private Transfer & Ziyarat Chauffeur Madinah"
-                bookingFormTitle="Get Quote for Premium Transfer in Madinah"
+                bookingFormTitle="WhatsApp Booking for Premium Transfer in Madinah"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Madinah

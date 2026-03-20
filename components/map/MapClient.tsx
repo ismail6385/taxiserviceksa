@@ -7,6 +7,8 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { MapPin, Landmark, Utensils, Building, Car, Navigation, X, Layers, Compass, Plane, Briefcase, Locate } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
 import 'leaflet/dist/leaflet.css';
 
 // --- Types ---
@@ -314,9 +316,7 @@ export default function MapClient() {
                             </p>
                             <div className="flex gap-2">
                                 <Link href="/booking" className="flex-1">
-                                    <Button className="w-full bg-black text-white hover:bg-gray-800 rounded-xl h-12 text-sm font-bold shadow-lg shadow-black/10">
-                                        Request Quote
-                                    </Button>
+                                    <Button className="w-full bg-black text-white hover:bg-gray-800 rounded-xl h-12 text-sm font-bold shadow-lg shadow-black/10"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                                 </Link>
                             </div>
                         </div>

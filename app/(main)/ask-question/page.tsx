@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { questionService } from '@/lib/reviewQuestionService';
 import { Button } from '@/components/ui/button';
-import { MessageCircle, Send, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle } from 'lucide-react';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 import Link from 'next/link';
 
 export default function AskQuestionPage() {
@@ -63,15 +64,37 @@ export default function AskQuestionPage() {
                 <div className="text-center mb-12">
                     <div className="flex items-center justify-center gap-3 mb-4">
                         <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
-                            <MessageCircle className="w-8 h-8 text-black" />
+                            <WhatsAppIcon className="w-8 h-8 text-black" />
                         </div>
                     </div>
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                         Ask a Question
                     </h1>
-                    <p className="text-xl text-gray-600">
+                    <p className="text-xl text-gray-600 mb-8">
                         Have a question about our taxi service? Our experienced drivers will answer within 24 hours.
                     </p>
+
+                    {/* WhatsApp CTA */}
+                    <div className="bg-emerald-50 border-2 border-emerald-100 rounded-2xl p-6 mb-8 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative">
+                        <div className="absolute top-0 right-0 -mr-10 -mt-10 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl"></div>
+                        <div className="text-left relative z-10">
+                            <h3 className="text-lg font-bold text-emerald-900 mb-1 flex items-center gap-2">
+                                <WhatsAppIcon className="w-5 h-5 text-emerald-600 fill-emerald-600" />
+                                Need an Instant Answer?
+                            </h3>
+                            <p className="text-sm text-emerald-700/80 font-medium">Chat with our support team directly on WhatsApp for immediate help.</p>
+                        </div>
+                        <a
+                            href="https://wa.me/966569487569?text=Hello%2C%20I%20have%20a%20question%20about%20your%20taxi%20services."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="shrink-0 relative z-10"
+                        >
+                            <Button className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-4 h-auto border-none shadow-lg shadow-emerald-200">
+                                WhatsApp Us Now
+                            </Button>
+                        </a>
+                    </div>
                 </div>
 
                 {submitted ? (

@@ -80,7 +80,7 @@ export default async function MakkahPage() {
                 cityName="Makkah" 
                 description="Premium VIP private transfer service in Makkah for Umrah pilgrims. Executive chauffeur service for Makkah, Madinah, and Jeddah Airport pickups. High-end fleet for a dignified journey."
                 services={services}
-                priceRange={{ min: 250, max: 800, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/makkah-kaaba-night.webp"
             />
 
@@ -89,7 +89,7 @@ export default async function MakkahPage() {
             <Hero
                 images={makkahImages}
                 h1Text="VIP Private Transfer & Chauffeur Makkah"
-                bookingFormTitle="Get Quote for Premium Umrah Transfer"
+                bookingFormTitle="WhatsApp Booking for Premium Umrah Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Chauffeur Service Makkah

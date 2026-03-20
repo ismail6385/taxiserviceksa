@@ -41,7 +41,7 @@ export default function JeddahTaifRoutePage() {
                     { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
                     { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
                 ]}
-                priceRange={{ min: 200, max: 2500, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
@@ -54,7 +54,7 @@ export default function JeddahTaifRoutePage() {
                     </span>
                 }
                 subtitle="The Cool Mountain Escape | Scenic Al Hada Route"
-                location="2 Hours | Fixed Rates | Professional Chauffeurs"
+                location="2 Hours | WhatsApp Booking | Professional Chauffeurs"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?route=jeddah-taif">
@@ -173,7 +173,7 @@ export default function JeddahTaifRoutePage() {
                         },
                         {
                             question: "How much is a taxi from Jeddah to Taif?",
-                            shortAnswer: "Starting from Fixed Rates",
+                            shortAnswer: "Starting from WhatsApp Booking",
                             detailedAnswer: "Our prices for Jeddah to Taif are fixed based on the vehicle type. Whether you're heading to a resort in Al Hada or Taif city, you'll receive a transparent, total price upfront.",
                             perspectives: [
                                 { role: 'Billing', icon: 'DollarSign', insight: 'Our fixed rates include the mountain road toll and the drive up to the resorts.' }

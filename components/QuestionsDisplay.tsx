@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import { questionService, Question } from '@/lib/reviewQuestionService';
-import { MessageCircle, CheckCircle, Calendar, Tag } from 'lucide-react';
+import { CheckCircle, Calendar, Tag } from 'lucide-react';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 interface QuestionsDisplayProps {
     location?: string;
@@ -96,7 +97,7 @@ export default function QuestionsDisplay({ location, service, category, limit = 
                     {/* Question */}
                     <div className="mb-4">
                         <div className="flex items-start gap-3 mb-3">
-                            <MessageCircle className="w-5 h-5 text-gray-400 mt-1 flex-shrink-0" />
+                            <WhatsAppIcon className="w-5 h-5 text-gray-400 mt-1 flex-shrink-0" />
                             <div className="flex-1">
                                 <div className="text-sm font-semibold text-gray-500 mb-1">Question:</div>
                                 <p className="text-lg font-medium text-gray-900">

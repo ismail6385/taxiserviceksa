@@ -37,7 +37,7 @@ export default function ServiceCard({ title, description, icon: Icon }: ServiceC
                 {/* Bottom: CTA Button */}
                 <div className="mt-6 pt-6 border-t border-gray-100 group-hover:border-gray-800 transition-colors duration-300">
                     <Button className="w-full bg-primary hover:bg-primary/90 text-black font-bold group-hover:bg-white group-hover:text-black transition-all">
-                        Get Quote <ArrowRight className="w-4 h-4 ml-2" />
+                        WhatsApp Booking <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
                 </div>
             </div>

@@ -112,7 +112,7 @@ export default function MadinahZiyaratPage() {
                                     ))}
                                 </ul>
                                 <Link href="/booking?service=ziyarat">
-                                    <Button className="w-full bg-black text-white hover:bg-gray-800">Get Quote</Button>
+                                    <Button className="w-full bg-black text-white hover:bg-gray-800"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                                 </Link>
                             </div>
                         ))}
@@ -212,4 +212,6 @@ export default function MadinahZiyaratPage() {
 }
 
 import { Compass } from 'lucide-react';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
 

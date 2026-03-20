@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import { questionService, Question } from '@/lib/reviewQuestionService';
 import { Button } from '@/components/ui/button';
-import { MessageCircle, CheckCircle, XCircle, Calendar, MapPin, Tag } from 'lucide-react';
+import { CheckCircle, XCircle, Calendar, MapPin, Tag } from 'lucide-react';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export default function AdminQuestionsPage() {
     const [questions, setQuestions] = useState<Question[]>([]);
@@ -182,7 +183,7 @@ export default function AdminQuestionsPage() {
                                         {/* Question */}
                                         <div className="mb-4">
                                             <div className="flex items-start gap-2 mb-2">
-                                                <MessageCircle className="w-5 h-5 text-gray-400 mt-1 flex-shrink-0" />
+                                                <WhatsAppIcon className="w-5 h-5 text-gray-400 mt-1 flex-shrink-0" />
                                                 <p className="text-lg font-medium text-gray-900">{question.question}</p>
                                             </div>
                                         </div>
@@ -210,7 +211,7 @@ export default function AdminQuestionsPage() {
                                                 <div className="flex items-center gap-2 mb-2">
                                                     <CheckCircle className="w-4 h-4 text-green-600" />
                                                     <span className="text-sm font-bold text-green-900">
-                                                        Answer by {question.answered_by || 'VIP Transfer KSA'}:
+                                                        Answer by {question.answered_by || 'Taxi Service KSA'}:
                                                     </span>
                                                 </div>
                                                 <p className="text-green-800">{question.answer}</p>

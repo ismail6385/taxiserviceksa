@@ -149,7 +149,7 @@ export default function LocationsPage() {
                         <Link href="/booking/">
                             <Button className="bg-primary text-white hover:bg-white hover:text-black font-bold px-10 py-6 text-lg rounded-xl flex items-center gap-2">
                                 <Car className="w-5 h-5" />
-                                Request Quotation Now
+                                WhatsApp Booking Now
                             </Button>
                         </Link>
                     </div>

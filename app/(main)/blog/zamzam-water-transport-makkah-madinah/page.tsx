@@ -137,7 +137,7 @@ export default function ZamzamTransportGuide() {
                     {/* Sidebar */}
                     <aside className="lg:col-span-4 espacio-y-8">
                         <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-200 sticky top-24">
-                            <h3 className="text-xl font-bold text-gray-900 mb-4">Request Quotation</h3>
+                            <h3 className="text-xl font-bold text-gray-900 mb-4">WhatsApp Booking</h3>
                             <p className="text-gray-600 text-sm mb-6">
                                 Don't risk your Zamzam. Secure a private GMC or Sedan for a stress-free pilgrimage transfer.
                             </p>

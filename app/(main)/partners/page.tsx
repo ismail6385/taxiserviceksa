@@ -15,7 +15,7 @@ import { Button } from '@/components/ui/button';
 import Hero from '@/components/Hero';
 
 export const metadata = {
-    title: 'Partner with Us | VIP Transfer KSA B2B & Driver Registration',
+    title: 'Partner with Us | Taxi Service KSA B2B & Driver Registration',
     description: 'Join Saudi Arabia\'s fastest-growing premium transport network. We offer lucrative opportunities for professional taxi drivers and B2B solutions for travel agencies.',
 };
 
@@ -23,7 +23,7 @@ export default function PartnersPage() {
     return (
         <main className="min-h-screen bg-white">
             <Hero
-                title="Grow Your Business with VIP Transfer KSA"
+                title="Grow Your Business with Taxi Service KSA"
                 subtitle="Join our elite network of professional drivers and business partners across Saudi Arabia. We bridge the gap between world-class transport and premium clientele."
                 images={["/chauffeur-service.png"]}
                 hideBookingForm={true}

@@ -204,7 +204,7 @@ export default function GMCYukonPage() {
                 <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid-pattern.svg')] opacity-10"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <h2 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-none">Experience THE <br/><span className="text-emerald-500 uppercase">KING OF THE ROAD</span></h2>
-                    <p className="text-emerald-100/60 text-xl mb-12 max-w-2xl mx-auto">Get Quote for the most reliable and spacious luxury SUV in Saudi Arabia. Professional chauffeurs and guaranteed comfort.</p>
+                    <p className="text-emerald-100/60 text-xl mb-12 max-w-2xl mx-auto">WhatsApp Booking for the most reliable and spacious luxury SUV in Saudi Arabia. Professional chauffeurs and guaranteed comfort.</p>
                     <Link href="/booking/?vehicle=gmc-yukon">
                         <Button size="lg" className="bg-white hover:bg-emerald-50 text-emerald-950 font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl transition-all hover:scale-105">
                             BOOK GMC YUKON NOW

@@ -13,6 +13,8 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 import JsonLdLocation from '@/components/JsonLdLocation';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+
 
 export const metadata: Metadata = {
     title: 'Madinah Ziyarat Taxi Service | Holy Sites Tours (Ziyarah)',
@@ -28,21 +30,21 @@ export default function MadinahZiyaratPage() {
         {
             name: 'Standard Ziyarat',
             duration: '2-3 Hours',
-            price: 'Ziyarat Rate',
+            price: 'WhatsApp Booking',
             sites: ['Masjid Quba', 'Mount Uhud', 'Masjid Qiblatain', 'Seven Mosques (Khandaq)'],
             desc: 'The essential Sunnah sites visited by millions of pilgrims.'
         },
         {
             name: 'Extended Ziyarat',
             duration: '4-5 Hours',
-            price: 'Extended Rate',
+            price: 'WhatsApp Booking',
             sites: ['Standard Sites +', 'Bir Uthman', 'Dates Market', 'Printing Press', 'Uhud Martyrs Cemetery'],
             desc: 'A deeper dive into the history of Madinah with extra stops.'
         },
         {
             name: 'Badar Ziyarat',
             duration: '5-6 Hours',
-            price: 'Badar Rate',
+            price: 'WhatsApp Booking',
             sites: ['Badar Battlefield', 'Martyrs of Badar', 'Al-Arish Mosque'],
             desc: 'A trip outside Madinah to the site of the first battle of Islam (150km away).'
         }
@@ -60,7 +62,7 @@ export default function MadinahZiyaratPage() {
                     { name: 'Badar Battlefield Trip', description: 'Full-day excursion to the historic site of the Battle of Badar.' },
                     { name: 'Family Group Transport', description: 'Comfortable SUVs and vans suitable for large groups of pilgrims.' }
                 ]}
-                priceRange={{ min: 150, max: 800, currency: "SAR" }}
+                
                 image="https://taxiserviceksa.com/madinah-prophets-mosque.webp"
             />
 
@@ -118,7 +120,7 @@ export default function MadinahZiyaratPage() {
                                     ))}
                                 </ul>
                                 <Link href="/booking?service=ziyarat">
-                                    <Button className="w-full bg-black text-white hover:bg-gray-800">Get Quote</Button>
+                                    <Button className="w-full bg-black text-white hover:bg-gray-800"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                                 </Link>
                             </div>
                         ))}

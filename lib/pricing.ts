@@ -27,39 +27,39 @@ export const LOCATIONS = ['Jeddah', 'Makkah', 'Madinah', 'Taif', 'Riyadh', 'Yanb
 export const PRICING_RULES: { [route: string]: RoutePricing } = {
     // Jeddah <-> Makkah
     'jeddah-makkah': {
-        'Toyota Camry': { price: 200 },
-        'GMC Yukon XL / Denali': { price: 400 },
-        'Hyundai Staria VIP': { price: 250 },
-        'Hyundai Starex': { price: 220 },
-        'Toyota Hiace': { price: 350 },
-        'Toyota Coaster': { price: 500 },
+        'Toyota Camry': { price: 250 },
+        'GMC Yukon XL / Denali': { price: 600 },
+        'Hyundai Staria VIP': { price: 350 },
+        'Hyundai Starex': { price: 300 },
+        'Toyota Hiace': { price: 450 },
+        'Toyota Coaster': { price: 800 },
     },
     // Jeddah <-> Madinah
     'jeddah-madinah': {
-        'Toyota Camry': { price: 450 },
-        'GMC Yukon XL / Denali': { price: 800 },
-        'Hyundai Staria VIP': { price: 600 },
-        'Hyundai Starex': { price: 550 },
-        'Toyota Hiace': { price: 700 },
-        'Toyota Coaster': { price: 1000 },
+        'Toyota Camry': { price: 600 },
+        'GMC Yukon XL / Denali': { price: 1200 },
+        'Hyundai Staria VIP': { price: 850 },
+        'Hyundai Starex': { price: 750 },
+        'Toyota Hiace': { price: 950 },
+        'Toyota Coaster': { price: 1500 },
     },
     // Makkah <-> Madinah
     'makkah-madinah': {
-        'Toyota Camry': { price: 400 },
-        'GMC Yukon XL / Denali': { price: 750 },
-        'Hyundai Staria VIP': { price: 550 },
-        'Hyundai Starex': { price: 500 },
-        'Toyota Hiace': { price: 650 },
-        'Toyota Coaster': { price: 900 },
+        'Toyota Camry': { price: 550 },
+        'GMC Yukon XL / Denali': { price: 1000 },
+        'Hyundai Staria VIP': { price: 750 },
+        'Hyundai Starex': { price: 650 },
+        'Toyota Hiace': { price: 850 },
+        'Toyota Coaster': { price: 1400 },
     },
     // Taif <-> Makkah
     'makkah-taif': {
-        'Toyota Camry': { price: 300 },
-        'GMC Yukon XL / Denali': { price: 500 },
-        'Hyundai Staria VIP': { price: 400 },
-        'Hyundai Starex': { price: 350 },
-        'Toyota Hiace': { price: 450 },
-        'Toyota Coaster': { price: 700 },
+        'Toyota Camry': { price: 350 },
+        'GMC Yukon XL / Denali': { price: 700 },
+        'Hyundai Staria VIP': { price: 500 },
+        'Hyundai Starex': { price: 450 },
+        'Toyota Hiace': { price: 600 },
+        'Toyota Coaster': { price: 1000 },
     },
 };
 
