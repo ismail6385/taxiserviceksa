@@ -23,6 +23,25 @@ export async function GET() {
         { url: '/madinah-airport-taxi', priority: 0.8, changefreq: 'monthly' },
         { url: '/makkah-to-madinah-taxi', priority: 0.8, changefreq: 'monthly' },
         { url: '/makkah-train-station-taxi', priority: 0.8, changefreq: 'monthly' },
+        // Driver Recruitment pages
+        { url: '/join-as-driver/riyadh', priority: 0.8, changefreq: 'monthly' },
+        { url: '/join-as-driver/jeddah', priority: 0.8, changefreq: 'monthly' },
+        { url: '/join-as-driver/makkah', priority: 0.8, changefreq: 'monthly' },
+        { url: '/join-as-driver/madinah', priority: 0.8, changefreq: 'monthly' },
+        { url: '/join-as-driver/dammam', priority: 0.8, changefreq: 'monthly' },
+        { url: '/join-as-driver/khobar', priority: 0.8, changefreq: 'monthly' },
+        { url: '/join-as-driver/dhahran', priority: 0.8, changefreq: 'monthly' },
+        { url: '/join-as-driver/taif', priority: 0.7, changefreq: 'monthly' },
+        { url: '/join-as-driver/tabuk', priority: 0.7, changefreq: 'monthly' },
+        { url: '/join-as-driver/abha', priority: 0.7, changefreq: 'monthly' },
+        { url: '/join-as-driver/khamis-mushait', priority: 0.7, changefreq: 'monthly' },
+        { url: '/join-as-driver/hail', priority: 0.7, changefreq: 'monthly' },
+        { url: '/join-as-driver/buraidah', priority: 0.7, changefreq: 'monthly' },
+        { url: '/join-as-driver/najran', priority: 0.7, changefreq: 'monthly' },
+        { url: '/join-as-driver/jubail', priority: 0.7, changefreq: 'monthly' },
+        { url: '/join-as-driver/yanbu', priority: 0.7, changefreq: 'monthly' },
+        { url: '/join-as-driver/al-qassim', priority: 0.7, changefreq: 'monthly' },
+        { url: '/join-as-driver/al-ahsa', priority: 0.7, changefreq: 'monthly' },
     ];
 
     const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>

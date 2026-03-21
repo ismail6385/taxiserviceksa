@@ -18,7 +18,7 @@ const fleetData = [
     },
     {
         id: '2',
-        name: 'Toyota Camry',
+        name: 'Camry',
         type: 'Sedan',
         passengers: 4,
         luggage: 3,
@@ -38,15 +38,26 @@ const fleetData = [
     },
     {
         id: '4',
-        name: 'Toyota Hiace',
+        name: 'Hiace',
         type: 'Minibus',
         passengers: 12,
         luggage: 10,
         status: 'Maintenance',
         image: '/toyota-hiace.webp',
         price: 'Start from 300 SAR'
+    },
+    {
+        id: '5',
+        name: 'Fortuner',
+        type: 'SUV',
+        passengers: 7,
+        luggage: 4,
+        status: 'Active',
+        image: '/toyota-fortuner.webp',
+        price: 'Start from 200 SAR'
     }
 ];
+
 
 export default function FleetPage() {
     return (

@@ -19,7 +19,8 @@ import {
     MapPin,
     Hash,
     Calendar,
-    ChevronDown
+    ChevronDown,
+    Car
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -75,6 +76,15 @@ const DEFAULT_PROFILES: Record<string, CompanyProfile> = {
     }
 };
 
+const PRESET_VEHICLES = [
+    'Camry',
+    'GMC Yukon',
+    'Hyundai Staria',
+    'Hiace',
+    'Fortuner'
+];
+
+
 export default function UniversalInvoiceGenerator() {
     const [mode, setMode] = useState<'invoice' | 'letterhead'>('invoice');
     const [profile, setProfile] = useState<CompanyProfile>(DEFAULT_PROFILES['taxi-ksa']);
@@ -84,6 +94,12 @@ export default function UniversalInvoiceGenerator() {
         email: '',
         phone: ''
     });
+
+    const [vehicle, setVehicle] = useState({
+        name: 'Toyota Camry',
+        showOnDocument: true
+    });
+
 
     const [isMounted, setIsMounted] = useState(false);
     const [meta, setMeta] = useState({
@@ -279,6 +295,36 @@ export default function UniversalInvoiceGenerator() {
                         </div>
                     )}
 
+                    {/* Vehicle */}
+                    <div className="bg-white rounded-xl border p-6 shadow-sm space-y-4">
+                        <div className="flex justify-between items-center">
+                            <Label className="text-xs font-bold text-gray-500 uppercase tracking-widest block font-sans">Vehicle Details</Label>
+                            <label className="flex items-center gap-2 text-[10px] font-bold text-gray-400 cursor-pointer">
+                                <input 
+                                    type="checkbox" 
+                                    checked={vehicle.showOnDocument} 
+                                    onChange={(e) => setVehicle({...vehicle, showOnDocument: e.target.checked})} 
+                                />
+                                SHOW ON DOC
+                            </label>
+                        </div>
+                        <div className="space-y-3 font-sans">
+                            <Select 
+                                onValueChange={(val) => setVehicle({...vehicle, name: val})} 
+                                value={vehicle.name}
+                            >
+                                <SelectTrigger className="font-semibold text-gray-900 rounded-lg">
+                                    <SelectValue placeholder="Select Vehicle" />
+                                </SelectTrigger>
+                                <SelectContent className="bg-white">
+                                    {PRESET_VEHICLES.map((v) => (
+                                        <SelectItem key={v} value={v} className="font-semibold">{v}</SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
+                        </div>
+                    </div>
+
                     {/* Meta */}
                     <div className="bg-white rounded-xl border p-6 shadow-sm space-y-4">
                         <Label className="text-xs font-bold text-gray-500 uppercase tracking-widest block font-sans">Document Meta</Label>
@@ -329,6 +375,19 @@ export default function UniversalInvoiceGenerator() {
                                     </div>
                                 </div>
                             </div>
+
+                            {/* Vehicle Details (shown if enabled) */}
+                            {vehicle.showOnDocument && (
+                                <div className="mb-8 flex items-center gap-4 bg-gray-50/50 border border-gray-100 p-4 rounded-lg">
+                                    <div className="bg-white p-2.5 rounded-full shadow-sm">
+                                        <Car className="w-5 h-5 text-gray-700" />
+                                    </div>
+                                    <div>
+                                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Confirmed Vehicle</p>
+                                        <p className="font-bold text-gray-900">{vehicle.name || 'NOT SPECIFIED'}</p>
+                                    </div>
+                                </div>
+                            )}
 
                             {/* Recipient */}
                             <div className="mb-12">

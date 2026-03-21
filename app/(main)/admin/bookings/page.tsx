@@ -1424,6 +1424,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                         <SelectItem value="GMC">GMC</SelectItem>
                                                         <SelectItem value="Starex">Starex</SelectItem>
                                                         <SelectItem value="Hiace">Hiace</SelectItem>
+                                                        <SelectItem value="Fortuner">Fortuner</SelectItem>
                                                     </SelectContent>
                                                 </Select>
                                             ) : (
@@ -1783,12 +1784,13 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             <SelectValue />
                                         </SelectTrigger>
                                         <SelectContent className="bg-white border-gray-200">
-                                            <SelectItem value="Toyota Camry">Toyota Camry</SelectItem>
-                                            <SelectItem value="GMC Yukon XL / Denali">GMC Yukon XL</SelectItem>
+                                            <SelectItem value="Camry">Camry</SelectItem>
+                                            <SelectItem value="GMC Yukon XL">GMC Yukon XL / Denali</SelectItem>
+                                            <SelectItem value="Fortuner">Fortuner</SelectItem>
                                             <SelectItem value="Hyundai Staria VIP">Hyundai Staria VIP</SelectItem>
                                             <SelectItem value="Hyundai Starex">Hyundai Starex</SelectItem>
-                                            <SelectItem value="Toyota Hiace">Toyota Hiace</SelectItem>
-                                            <SelectItem value="Toyota Coaster">Toyota Coaster</SelectItem>
+                                            <SelectItem value="Hiace">Hiace</SelectItem>
+                                            <SelectItem value="Coaster">Coaster</SelectItem>
                                             <SelectItem value="Mercedes S-Class">Mercedes S-Class</SelectItem>
                                             <SelectItem value="BMW 7 Series">BMW 7 Series</SelectItem>
                                             <SelectItem value="Cadillac Escalade">Cadillac Escalade</SelectItem>

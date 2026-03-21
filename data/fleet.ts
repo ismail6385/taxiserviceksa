@@ -97,5 +97,28 @@ export const fleet: Record<string, VehicleData> = {
                 }
             }
         ]
+    },
+    "fortuner": {
+        name: "Fortuner",
+        slug: "fortuner",
+        description: "Robust, reliable, and comfortable. The Fortuner is a popular choice for intercity travel and Umrah transfers.",
+        chatbotContext: {
+            capacity: "7 Passengers",
+            luggage: "4 Large Suitcases",
+            bestFor: "Families, Long Distance Tours, Umrah Travels"
+        },
+        faq: [
+            {
+                question: "Is Fortuner suitable for long trips?",
+                answer: "Yes, the Fortuner is known for its durability and comfort on long-distance journeys, making it ideal for Makkah to Madinah transfers.",
+                intent: "Commercial",
+                chatbotData: {
+                    userQuestion: "Is Fortuner good for long trips?",
+                    botAnswer: "Yes, it's very durable and comfortable for long-distance travel.",
+                    suggestedAction: "Booking"
+                }
+            }
+        ]
     }
 };
+
