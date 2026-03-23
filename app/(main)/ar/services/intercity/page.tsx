@@ -201,6 +201,7 @@ export default function IntercityServicePage() {
             <section className="py-12 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Intercity"
                         points={[
                             {
                                 topic: "Taxi vs Flight (Jeddah to Riyadh)",

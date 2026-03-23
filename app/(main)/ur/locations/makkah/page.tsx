@@ -299,6 +299,7 @@ export default function MakkahPageUrdu() {
 
                     <div className="mt-12">
                         <TravelConsensus
+                        contextName="Makkah"
                             isRtl={true}
                             labels={{
                                 title: "سفری حقائق: کیا توقع رکھیں؟",

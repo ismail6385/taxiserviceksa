@@ -151,6 +151,7 @@ export default function JeddahPageArabic() {
 
                     <div className="mt-12">
                         <TravelConsensus
+                        contextName="Jeddah"
                             isRtl={true}
                             labels={{
                                 title: "حقائق النقل في جدة",

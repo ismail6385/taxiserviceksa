@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi to Miqat Qarn al-Manazil (As-Sayl Al-Kabir) | Taif Ziyarat',
+    title: 'Taxi to Miqat Qarn al-Manazil (As-Sayl Al-Kabir) | Taif Ziyarat | Taxi Service KSA',
     description: 'Request a quote for a taxi to Miqat Qarn al-Manazil (As-Sayl Al-Kabir) from Taif or Jeddah. Reliable Ihram stop services for pilgrims. 24/7 availability.',
     keywords: ['Miqat Qarn al-Manazil taxi', 'As-Sayl Al-Kabir taxi', 'Taif Miqat taxi', 'Jeddah to Miqat Taif', 'Umrah taxi Taif'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/taif/miqat-qarn-al-manazil/',
     },
     openGraph: {
-        title: 'Taxi to Miqat Qarn al-Manazil (As-Sayl Al-Kabir)',
+        title: 'Taxi to Miqat Qarn al-Manazil (As-Sayl Al-Kabir) | Taxi Service KSA',
         description: 'Official taxi service to Miqat Qarn al-Manazil. Stop for Ihram on your way to Makkah. Experienced drivers.',
         url: 'https://taxiserviceksa.com/locations/taif/miqat-qarn-al-manazil/',
         type: 'website',
@@ -143,6 +143,7 @@ export default function MiqatQarnAlManazilPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Taif"
                         points={[
                             {
                                 topic: "Proximity to Taif",

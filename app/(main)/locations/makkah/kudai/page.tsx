@@ -14,14 +14,14 @@ import Script from 'next/script';
 import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Kudai Makkah | Premium Hub Chauffeur',
+    title: 'VIP Private Transfer Kudai Makkah | Premium Hub Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service in Kudai Makkah. Professional hotel pickups for Le Meridien Towers and Kudai Hub guests.',
     keywords: ['Kudai VIP transfer', 'Kudai to Haram premium chauffeur', 'Le Meridien Towers VIP transport', 'Makkah Kudai executive car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/makkah/kudai/',
     },
     openGraph: {
-        title: 'Taxi Service in Kudai Makkah | Efficient Haram Transfers',
+        title: 'Taxi Service in Kudai Makkah | Efficient Haram Transfers | Taxi Service KSA',
         description: 'Need a ride from Kudai to the Haram? Our taxis provide 24/7 service from Kudai transport hub and nearby hotels. Avoid the wait and book professional.',
         url: 'https://taxiserviceksa.com/locations/makkah/kudai/',
         type: 'website',

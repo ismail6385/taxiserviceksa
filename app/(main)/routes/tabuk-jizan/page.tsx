@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Jizan Taxi | Private Car Service 1650 km | Fixed Price',
+    title: 'Tabuk to Jizan Taxi | Private Car Service 1650 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Jizan. Reliable 16-17 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Jizan taxi', 'taxi from Tabuk to Jizan', 'private transfer Tabuk to Jizan', 'chauffeur Tabuk to Jizan', 'Tabuk to Jizan car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-jizan/',
     },
     openGraph: {
-        title: 'Tabuk to Jizan Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Jizan Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1650 km drive. Request a quote for a comfortable ride from Tabuk to Jizan. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-jizan/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukJizanRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Jizan"
                 faqs={[
 {
                         question: "How long is the drive from Tabuk to Jizan?",

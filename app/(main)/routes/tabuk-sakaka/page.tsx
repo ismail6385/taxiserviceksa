@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Sakaka Taxi | Private Car Service 440 km | Fixed Price',
+    title: 'Tabuk to Sakaka Taxi | Private Car Service 440 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Sakaka. Reliable 4-4.5 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Sakaka taxi', 'taxi from Tabuk to Sakaka', 'private transfer Tabuk to Sakaka', 'chauffeur Tabuk to Sakaka', 'Tabuk to Sakaka car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-sakaka/',
     },
     openGraph: {
-        title: 'Tabuk to Sakaka Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Sakaka Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 440 km drive. Request a quote for a comfortable ride from Tabuk to Sakaka. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-sakaka/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukSakakaRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Sakaka"
                 faqs={[
 {
                         question: "What vehicles do you have available?",

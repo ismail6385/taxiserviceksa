@@ -1,8 +1,6 @@
 'use client';
-// @ts-ignore
-import html2canvas from 'html2canvas';
-// @ts-ignore
-import { jsPDF } from 'jspdf';
+// html2pdf will be imported dynamically to avoid SSR issues
+
 
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
@@ -46,6 +44,9 @@ export default function InvoicePage() {
     const [booking, setBooking] = useState<Booking | null>(null);
     const [loading, setLoading] = useState(true);
     const [quickNote, setQuickNote] = useState('');
+    const [currency, setCurrency] = useState('SAR');
+    const [paymentStatus, setPaymentStatus] = useState('Unpaid');
+    const [paymentMethod, setPaymentMethod] = useState('Cash to Driver');
 
     useEffect(() => {
         const fetchBooking = async () => {
@@ -74,16 +75,34 @@ export default function InvoicePage() {
         const refId = booking.id.slice(0, 8).toUpperCase();
         const dateStr = booking.pickup_date || new Date().toISOString().split('T')[0];
         const filename = `Invoice-${refId}-${customerName}-${dateStr}.pdf`;
+        
         const element = document.getElementById('invoice-print');
         if (!element) return;
-        // A4 dimensions in mm
-        const a4W = 210;
-        const a4H = 297;
-        const canvas = await html2canvas(element, { scale: 2, useCORS: true, scrollY: 0 });
-        const imgData = canvas.toDataURL('image/jpeg', 0.98);
-        const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
-        pdf.addImage(imgData, 'JPEG', 0, 0, a4W, a4H);
-        pdf.save(filename);
+
+        const opt = {
+            margin: [0, 0, 0, 0] as [number, number, number, number],
+            filename: filename,
+            image: { type: 'jpeg' as const, quality: 0.98 },
+            html2canvas: { 
+                scale: 2, 
+                useCORS: true, 
+                letterRendering: true,
+                windowWidth: 1200, // Important: capture at desktop width
+                scrollY: 0,
+                scrollX: 0
+            },
+            jsPDF: { unit: 'mm' as const, format: 'a4' as const, orientation: 'portrait' as const }
+        };
+
+        try {
+            // @ts-ignore - dynamic import to avoid SSR 'self is not defined'
+            const html2pdf = (await import('html2pdf.js')).default;
+            await html2pdf().set(opt).from(element).save();
+        } catch (error) {
+            console.error('PDF Generation Error:', error);
+            // Fallback to window.print if html2pdf fails
+            window.print();
+        }
     };
 
     if (loading) {
@@ -112,12 +131,66 @@ export default function InvoicePage() {
     return (
         <div className="min-h-screen bg-gray-100 py-6 px-4 print:bg-white print:py-0 print:px-0 print:min-h-0">
             {/* Header Controls */}
-            <div className="max-w-[210mm] mx-auto mb-4 flex justify-between items-center print:hidden">
+            <div className="max-w-[210mm] mx-auto mb-4 flex flex-wrap gap-4 justify-between items-center print:hidden border-b pb-4">
                 <Button variant="outline" onClick={() => router.back()} className="bg-white">
-                    <ArrowLeft className="w-4 h-4 mr-2" /> Back to Dashboard
+                    <ArrowLeft className="w-4 h-4 mr-2" /> Back
                 </Button>
-                <div className="flex gap-2">
-                    <Button onClick={handlePrint} className="bg-primary text-black hover:bg-black hover:text-white font-bold">
+                
+                <div className="flex flex-wrap gap-4 items-center">
+                    {/* Payment Status Toggle */}
+                    <div className="flex items-center gap-2 bg-white rounded-lg border p-1 shadow-sm px-2">
+                        <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest mr-2">Payment:</span>
+                        {['Paid', 'Unpaid'].map((status) => (
+                            <button
+                                key={status}
+                                onClick={() => setPaymentStatus(status)}
+                                className={`px-3 py-1 text-[10px] font-black rounded-md transition-all ${
+                                    paymentStatus === status 
+                                    ? status === 'Paid' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
+                                    : 'text-gray-400 hover:text-gray-900 border border-transparent'
+                                }`}
+                            >
+                                {status}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Payment Method Toggle */}
+                    <div className="flex items-center gap-2 bg-white rounded-lg border p-1 shadow-sm px-2">
+                        <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest mr-2">Method:</span>
+                        {['Cash to Driver', 'Online'].map((method) => (
+                            <button
+                                key={method}
+                                onClick={() => setPaymentMethod(method)}
+                                className={`px-3 py-1 text-[10px] font-black rounded-md transition-all ${
+                                    paymentMethod === method 
+                                    ? 'bg-blue-600 text-white' 
+                                    : 'text-gray-400 hover:text-gray-900 border border-transparent'
+                                }`}
+                            >
+                                {method}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Currency Selector */}
+                    <div className="flex bg-white rounded-lg border p-1 shadow-sm">
+                        {['SAR', 'KWD', 'USD'].map((curr) => (
+                            <button
+                                key={curr}
+                                onClick={() => setCurrency(curr)}
+                                className={`px-3 py-1 text-[10px] font-black rounded-md transition-all ${
+                                    currency === curr 
+                                    ? 'bg-primary text-black' 
+                                    : 'text-gray-400 hover:text-gray-900'
+                                }`}
+                            >
+                                {curr}
+                            </button>
+                        ))}
+                    </div>
+
+                    <Button onClick={handlePrint} className="bg-primary text-black hover:bg-black hover:text-white font-bold h-10 px-6">
                         <Printer className="w-4 h-4 mr-2" /> Download PDF
                     </Button>
                 </div>
@@ -136,55 +209,58 @@ export default function InvoicePage() {
             </div>
 
             {/* Invoice Container — Single A4 Page */}
-            <div id="invoice-print" className="max-w-[210mm] mx-auto bg-white shadow-2xl rounded-xl overflow-hidden print:shadow-none print:rounded-none print:max-w-none print:w-[210mm] print:h-[297mm] print:overflow-hidden">
+            <div id="invoice-print" className="max-w-[210mm] mx-auto bg-white shadow-2xl overflow-hidden print:shadow-none print:max-w-none print:w-[210mm] print:h-[296mm] print:overflow-hidden box-border">
                 {/* Decorative Top Bar */}
-                <div className="h-1.5 bg-primary w-full print:h-1"></div>
+                <div className="h-[4px] bg-primary w-full"></div>
 
-                <div className="p-8 print:p-[12mm] print:pb-[8mm] flex flex-col print:h-[calc(297mm-4px)] print:justify-between">
+                <div className="px-10 py-8 print:px-[12mm] print:py-[10mm] flex flex-col h-[calc(296mm-4px)] print:h-[calc(296mm-4px)] justify-between overflow-hidden bg-white">
                     
                     {/* Top Content */}
                     <div>
                         {/* Invoice Header */}
-                        <div className="flex justify-between items-start mb-6 border-b border-gray-100 pb-5">
+                        <div className="flex justify-between items-start mb-6 border-b-2 border-gray-100 pb-5">
                             <div>
-                                <div className="flex items-center gap-2.5 mb-3">
-                                    <div className="relative w-12 h-12 print:w-10 print:h-10">
-                                        <Image 
+                                <div className="flex items-center gap-2 mb-3">
+                                    <div className="relative w-10 h-10">
+                                        <img 
                                             src="/logo.svg" 
                                             alt="Taxi Service KSA" 
-                                            fill
-                                            className="object-contain"
+                                            className="w-full h-full object-contain"
                                         />
                                     </div>
-                                    <span className="text-xl font-black tracking-tighter text-gray-900 uppercase print:text-lg">
+                                    <span className="text-xl font-black tracking-tighter text-gray-900 uppercase">
                                         Taxi Service <span className="text-lime-600">KSA</span>
                                     </span>
                                 </div>
-                                    <div className="text-[11px] text-gray-500 space-y-0.5 max-w-[250px] leading-tight font-medium">
-                                        <p className="flex items-center gap-1.5"><MapPin className="w-2.5 h-2.5" /> Jeddah, Saudi Arabia</p>
-                                        <p className="flex items-center gap-1.5"><Mail className="w-2.5 h-2.5" /> info@taxiserviceksa.com</p>
-                                        <p className="flex items-center gap-1.5"><Globe className="w-2.5 h-2.5" /> www.taxiserviceksa.com</p>
-                                    </div>
+                                <div className="text-[10px] text-gray-500 space-y-0.5 max-w-[250px] leading-tight font-medium">
+                                    <p className="flex items-center gap-1.5"><MapPin className="w-2.5 h-2.5 text-gray-400" /> Jeddah, Saudi Arabia</p>
+                                    <p className="flex items-center gap-1.5"><Mail className="w-2.5 h-2.5 text-gray-400" /> info@taxiserviceksa.com</p>
+                                    <p className="flex items-center gap-1.5"><Globe className="w-2.5 h-2.5 text-gray-400" /> www.taxiserviceksa.com</p>
+                                </div>
                             </div>
                             <div className="text-right">
-                                <h1 className="text-3xl font-black text-gray-900 uppercase tracking-tighter mb-1 print:text-2xl">Invoice</h1>
-                                <p className="text-gray-500 font-mono text-xs">REF: #{booking.id.slice(0, 8).toUpperCase()}</p>
-                                <p className="text-gray-500 text-xs mt-0.5">Date: {invoiceDate}</p>
-                                <div className={`inline-block mt-2 px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-widest ${
-                                    booking.status === 'confirmed' ? 'bg-green-100 text-green-700' : 
-                                    booking.status === 'completed' ? 'bg-blue-100 text-blue-700' : 
-                                    'bg-orange-100 text-orange-700'
-                                }`}>
-                                    {booking.status}
+                                <h1 className="text-3xl font-black text-gray-900 uppercase tracking-tighter mb-1">Invoice</h1>
+                                <p className="text-gray-400 font-mono text-[10px] tracking-widest">REF: #{booking.id.slice(0, 8).toUpperCase()}</p>
+                                <p className="text-gray-500 text-xs mt-0.5 font-bold">Date: {invoiceDate}</p>
+                                
+                                <div className="flex justify-end gap-2 mt-3">
+                                    <div className={`px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-[0.15em] ${
+                                        paymentStatus === 'Paid' ? 'bg-green-100 text-green-700 border border-green-200' : 'bg-red-100 text-red-700 border border-red-200'
+                                    } shadow-sm`}>
+                                        {paymentStatus}
+                                    </div>
+                                    <div className={`px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-[0.15em] bg-blue-50 text-blue-700 border border-blue-100 shadow-sm`}>
+                                        {paymentMethod}
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         {/* Passenger + Trip in 2 columns */}
-                        <div className="grid grid-cols-2 gap-6 mb-5">
+                        <div className="grid grid-cols-2 gap-4 mb-4">
                             <div>
-                                <h2 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Passenger Details</h2>
-                                <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                                <h2 className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Passenger Details</h2>
+                                <div className="bg-gray-50 rounded-lg p-3 border border-gray-100">
                                     <p className="text-sm font-bold text-gray-900 mb-1.5">{booking.customer_name}</p>
                                     <div className="space-y-1 text-xs text-gray-600">
                                         <p className="flex items-center gap-1.5 font-medium">
@@ -198,8 +274,8 @@ export default function InvoicePage() {
                             </div>
 
                             <div>
-                                <h2 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Trip Schedule</h2>
-                                <div className="space-y-1.5">
+                                <h2 className="text-[9px] font-bold text-gray-400 uppercase tracking-widest mb-1">Trip Schedule</h2>
+                                <div className="space-y-1">
                                     <div className="flex justify-between items-center text-xs">
                                         <span className="text-gray-500 flex items-center gap-1.5">
                                             <Calendar className="w-3 h-3" /> Pickup Date:
@@ -230,88 +306,120 @@ export default function InvoicePage() {
 
                         {/* Route Details */}
                         <div className="mb-5">
-                            <h2 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Journey Details</h2>
-                            <div className="relative pl-6 space-y-4 before:absolute before:left-[9px] before:top-1.5 before:bottom-1.5 before:w-0.5 before:border-l-2 before:border-dashed before:border-gray-200">
+                            <h2 className="text-[10px] font-black text-gray-300 uppercase tracking-[0.2em] mb-3">Journey Route</h2>
+                            <div className="relative pl-6 space-y-4 before:absolute before:left-[9px] before:top-2 before:bottom-2 before:w-0.5 before:border-l-2 before:border-dashed before:border-gray-200">
                                 <div className="relative">
-                                    <div className="absolute -left-6 top-0.5 w-[18px] h-[18px] bg-green-500 rounded-full border-[3px] border-white shadow-sm"></div>
-                                    <p className="text-[10px] text-gray-500 font-bold uppercase mb-0.5">Pickup From</p>
-                                    <p className="text-sm font-bold text-gray-900">{booking.pickup_location}</p>
+                                    <div className="absolute -left-[22px] top-1 w-4 h-4 bg-green-500 rounded-full border-[3px] border-white shadow-sm ring-1 ring-green-100"></div>
+                                    <p className="text-[9px] text-gray-400 font-black uppercase mb-0.5">Pick-up Point</p>
+                                    <p className="text-sm font-bold text-gray-900 leading-tight">{booking.pickup_location}</p>
                                 </div>
                                 <div className="relative">
-                                    <div className="absolute -left-6 top-0.5 w-[18px] h-[18px] bg-red-500 rounded-full border-[3px] border-white shadow-sm"></div>
-                                    <p className="text-[10px] text-gray-500 font-bold uppercase mb-0.5">Destination To</p>
-                                    <p className="text-sm font-bold text-gray-900">{booking.destination}</p>
+                                    <div className="absolute -left-[22px] top-1 w-4 h-4 bg-red-500 rounded-full border-[3px] border-white shadow-sm ring-1 ring-red-100"></div>
+                                    <p className="text-[9px] text-gray-400 font-black uppercase mb-0.5">Final Destination</p>
+                                    <p className="text-sm font-bold text-gray-900 leading-tight">{booking.destination}</p>
                                 </div>
                             </div>
                         </div>
 
                         {/* Service Table */}
-                        <div className="border border-gray-200 rounded-xl overflow-hidden mb-5">
+                        <div className="border-2 border-gray-100 rounded-xl overflow-hidden mb-4 shadow-sm">
                             <table className="w-full text-left">
-                                <thead className="bg-gray-50 text-gray-500 text-[10px] font-bold uppercase tracking-wider">
+                                <thead className="bg-gray-50/50 text-gray-400 text-[9px] font-black uppercase tracking-[0.2em]">
                                     <tr>
-                                        <th className="px-5 py-2.5">Service Description</th>
-                                        <th className="px-5 py-2.5 text-right">Total</th>
+                                        <th className="px-6 py-3">Service Description</th>
+                                        <th className="px-6 py-3 text-right">Total Amount</th>
                                     </tr>
                                 </thead>
-                                <tbody className="divide-y divide-gray-100">
+                                <tbody className="divide-y divide-gray-50">
                                     <tr>
-                                        <td className="px-5 py-4">
-                                            <p className="font-bold text-gray-900 text-sm">Private Transfer Service</p>
-                                            <p className="text-xs text-gray-500 mt-0.5">
-                                                {booking.vehicle_type} route from {booking.pickup_location.split(',')[0]} to {booking.destination.split(',')[0]}
+                                        <td className="px-6 py-4">
+                                            <p className="font-black text-gray-900 text-sm uppercase tracking-tight">Private Transfer Service</p>
+                                            <p className="text-xs text-gray-500 mt-1 font-medium">
+                                                {booking.vehicle_type} • Professional Chauffeur Service
+                                            </p>
+                                            <p className="text-[10px] text-gray-400 mt-0.5 uppercase font-bold">
+                                                Route: {booking.pickup_location.split(',')[0]} to {booking.destination.split(',')[0]}
                                             </p>
                                             {booking.special_requests && (
-                                                <p className="text-[10px] italic text-gray-400 mt-1">Note: {booking.special_requests}</p>
+                                                <div className="mt-2 p-2 bg-gray-50 rounded border border-gray-100 italic text-[10px] text-gray-500">
+                                                    Special Requests: {booking.special_requests}
+                                                </div>
                                             )}
                                             {quickNote.trim() && (
-                                                <div className="mt-2 border-l-2 border-gray-300 px-3 py-1.5">
-                                                    <p className="text-xs text-gray-700 whitespace-pre-wrap">{quickNote.trim()}</p>
+                                                <div className="mt-2 border-l-3 border-primary px-3 py-1.5 bg-primary/5 rounded-r">
+                                                    <p className="text-xs text-gray-700 whitespace-pre-wrap leading-relaxed">{quickNote.trim()}</p>
                                                 </div>
                                             )}
                                         </td>
-                                        <td className="px-5 py-4 text-right align-top">
-                                            <span className="text-sm font-bold text-gray-900">SAR {booking.total_price?.toFixed(2) || '0.00'}</span>
+                                        <td className="px-6 py-4 text-right align-top">
+                                            <span className="text-lg font-black text-gray-900">{currency} {booking.total_price?.toFixed(2) || '0.00'}</span>
                                         </td>
                                     </tr>
                                 </tbody>
-                                <tfoot className="bg-gray-50/50">
+                                <tfoot className="bg-gray-900">
                                     <tr>
-                                        <td className="px-5 py-3 text-right text-xs font-bold text-gray-500">Total Amount</td>
-                                        <td className="px-5 py-3 text-right">
-                                            <span className="text-xl font-black text-primary">SAR {booking.total_price?.toFixed(2) || '0.00'}</span>
+                                        <td className="px-6 py-4 text-right text-[10px] font-black uppercase tracking-widest text-white/50">Total Payable Amount</td>
+                                        <td className="px-6 py-4 text-right border-l border-white/10">
+                                            <span className="text-2xl font-black text-primary">{currency} {booking.total_price?.toFixed(2) || '0.00'}</span>
                                         </td>
                                     </tr>
                                 </tfoot>
                             </table>
                         </div>
+
+                        {/* Payment Info Section */}
+                        <div className="grid grid-cols-2 gap-4 mb-4">
+                            <div className="bg-primary/5 rounded-xl p-4 border border-primary/10">
+                                <h3 className="text-[9px] font-black text-primary uppercase tracking-[0.15em] mb-2">Booking Confirmation</h3>
+                                <p className="text-[10px] text-gray-600 leading-relaxed font-medium">
+                                    Your transport service is fully confirmed for the scheduled date. 
+                                    Please have a digital copy of this invoice ready for your chauffeur. 
+                                </p>
+                            </div>
+                            <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                                <h3 className="text-[9px] font-black text-gray-400 uppercase tracking-[0.15em] mb-2">Payment Instruction</h3>
+                                <p className="text-[10px] text-gray-800 leading-relaxed font-black uppercase italic">
+                                    {paymentMethod === 'Cash to Driver' 
+                                        ? "Important: Payment to be handed to the driver upon journey completion."
+                                        : "Important: Payment has been secured via online transaction."
+                                    }
+                                </p>
+                            </div>
+                        </div>
                     </div>
 
-                    {/* Footer — pushed to bottom on print */}
-                    <div>
-                        <div className="grid grid-cols-2 gap-6 items-end border-t border-gray-100 pt-5">
+                    {/* Footer — pushed to bottom */}
+                    <div className="mt-auto">
+                        <div className="grid grid-cols-2 gap-8 items-end border-t-2 border-gray-100 pt-5">
                             <div className="text-sm text-gray-500">
-                                <p className="font-bold text-gray-900 mb-1.5 font-mono uppercase tracking-tighter text-xs">Terms & Conditions</p>
-                                <ul className="list-disc list-inside space-y-0.5 text-[10px]">
+                                <p className="font-black text-gray-900 mb-1 font-mono uppercase tracking-[0.1em] text-[10px]">Terms & Conditions</p>
+                                <ul className="list-disc list-inside space-y-0.5 text-[9px] font-medium opacity-80">
                                     <li>Price includes fuel, parking, and toll fees.</li>
                                     <li>Free cancellation up to 24 hours before pickup.</li>
-                                    <li>Our driver will wait 60 minutes for airport pickups.</li>
-                                    <li>All services are pre-booked for your convenience.</li>
+                                    <li>Driver will wait 60 minutes for airport pickups.</li>
+                                    <li>This invoice is valid for 30 days from the date issued.</li>
                                 </ul>
                             </div>
                             <div className="text-right">
-                                <div className="inline-block border-2 border-primary/20 p-3 rounded-xl bg-primary/5">
-                                    <p className="text-[9px] font-bold text-primary uppercase tracking-widest mb-0.5">Company Signature</p>
-                                    <div className="mt-2 flex items-center justify-end">
-                                        <img src="/ismail signature.png" alt="Ismail Signature" className="h-14 w-auto max-w-[200px] object-contain select-none mix-blend-multiply" />
+                                <div className="inline-block border-2 border-primary/20 p-4 rounded-xl bg-primary/5">
+                                    <p className="text-[9px] font-black text-primary uppercase tracking-[0.2em] mb-3">Partner Authorizations</p>
+                                    <div className="flex items-center justify-end gap-5 h-12">
+                                        <div className="text-center">
+                                            <img src="/zumer-signature.png" alt="Zumer Signature" className="h-full w-auto max-w-[100px] object-contain select-none" />
+                                            <p className="text-[7px] font-black mt-0.5 text-gray-400 border-t pt-0.5 border-gray-100 italic tracking-widest">Zumer</p>
+                                        </div>
+                                        <div className="text-center">
+                                            <img src="/ismail-signature.png" alt="Ismail Signature" className="h-full w-auto max-w-[100px] object-contain select-none" />
+                                            <p className="text-[7px] font-black mt-0.5 text-gray-400 border-t pt-0.5 border-gray-100 italic tracking-widest">Ismail</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         {/* Bottom Bar */}
-                        <div className="mt-4 py-3 bg-gray-900 text-center text-white text-[10px] -mx-8 -mb-8 print:-mx-[12mm] print:-mb-[8mm] px-8">
-                            <p className="uppercase tracking-widest font-bold opacity-50">Thank you for choosing Taxi Service KSA</p>
+                        <div className="mt-5 py-3 bg-gray-900 text-center text-white text-[10px] font-black -mx-10 -mb-8 print:-mx-[12mm] print:-mb-[10mm] px-10 tracking-[0.3em] uppercase">
+                            <p className="opacity-60">Premium Transport Services • Kingdom of Saudi Arabia</p>
                         </div>
                     </div>
                 </div>
@@ -332,16 +440,26 @@ export default function InvoicePage() {
                         background: white !important;
                         -webkit-print-color-adjust: exact;
                         print-color-adjust: exact;
-                        overflow: hidden !important;
+                        overflow: visible !important;
                     }
                     #invoice-print {
                         width: 210mm !important;
-                        height: 297mm !important;
+                        height: 296mm !important;
                         page-break-after: avoid !important;
+                        page-break-before: avoid !important;
                         page-break-inside: avoid !important;
-                        break-after: avoid !important;
-                        break-inside: avoid !important;
+                        background: white !important;
+                        box-shadow: none !important;
+                        border: none !important;
+                        margin: 0 auto !important;
                         overflow: hidden !important;
+                    }
+                    * {
+                        page-break-inside: avoid !important;
+                    }
+                    * {
+                        -webkit-print-color-adjust: exact !important;
+                        print-color-adjust: exact !important;
                     }
                 }
             `}</style>

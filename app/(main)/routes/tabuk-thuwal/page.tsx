@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Thuwal Taxi | Private Car Service 880 km | Fixed Price',
+    title: 'Tabuk to Thuwal Taxi | Private Car Service 880 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Thuwal. Reliable 8.5 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Thuwal taxi', 'taxi from Tabuk to Thuwal', 'private transfer Tabuk to Thuwal', 'chauffeur Tabuk to Thuwal', 'Tabuk to Thuwal car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-thuwal/',
     },
     openGraph: {
-        title: 'Tabuk to Thuwal Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Thuwal Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 880 km drive. Request a quote for a comfortable ride from Tabuk to Thuwal. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-thuwal/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukThuwalRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Thuwal"
                 faqs={[
 {
                         question: "Do I need to pay extra for luggage?",

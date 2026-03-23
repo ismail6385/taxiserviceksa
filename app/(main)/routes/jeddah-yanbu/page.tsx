@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi Jeddah Airport to Yanbu | Industrial & Diving Transfers',
+    title: 'Jeddah Airport to Yanbu Taxi | Industrial & Diving Transfers | Taxi Service KSA',
     description: 'Request a quote for a taxi from Jeddah Airport (JED) to Yanbu. Reliable transfers to Yanbu Industrial City, Royal Commission, and Red Sea resorts. 24/7 Service.',
     keywords: ['Taxi Jeddah to Yanbu', 'Jeddah Airport to Yanbu taxi', 'Yanbu Industrial City transfer', 'Yanbu Royal Commission taxi', 'Jeddah to Yanbu car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-yanbu/',
     },
     openGraph: {
-        title: 'Taxi Service: Jeddah Airport to Yanbu',
+        title: 'Service: Jeddah Airport to Yanbu Taxi | Taxi Service KSA',
         description: 'Direct transfers from Jeddah to Yanbu Industrial City. Safe, comfortable cars for engineers, executives, and divers.',
         url: 'https://taxiserviceksa.com/routes/jeddah-yanbu/',
         type: 'website',
@@ -51,7 +51,7 @@ export default function JeddahYanbuRoutePage() {
 
             <Hero
                 images={images}
-                h1Text="Taxi Jeddah Airport to Yanbu"
+                h1Text="Jeddah Airport to Yanbu Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         The Industrial Hub
@@ -143,6 +143,7 @@ export default function JeddahYanbuRoutePage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Jeddah to Yanbu"
                         points={[
                             {
                                 topic: "Bus/SAPTCO",

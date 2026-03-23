@@ -290,6 +290,7 @@ export default function KhayberPageUrdu() {
 
                     <div className="mt-16">
                         <TravelConsensus
+                        contextName="Khayber Fort"
                             isRtl={true}
                             labels={{
                                 title: "سیاحوں کی رائے: خیبر ٹرپ",

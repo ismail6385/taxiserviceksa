@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/services/airport-transfers/',
     },
     openGraph: {
-        title: 'VIP Airport Transfer Service Saudi Arabia | Premium Chauffeur - 8 Airports',
+        title: 'VIP Airport Transfer Service Saudi Arabia | Premium Chauffeur - 8 Airports | Taxi Service KSA',
         description: 'Professional VIP airport transfer service across Saudi Arabia. 8 major airports covered. Executive meet-and-greet, flight tracking, 24/7 service.',
         url: 'https://taxiserviceksa.com/services/airport-transfers/',
         type: 'website',
@@ -234,9 +234,9 @@ export default async function AirportTransfersPage() {
                         <span className="bg-black text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4 text-glow">
                             Expert Aviation Logistics
                         </span>
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                        <p className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                             Saudi Arabia Airport Transfer Service
-                        </h2>
+                        </p>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                             Reliable <strong>24/7 airport pickups</strong> and departures across the Kingdom's major travel hubs. We provide <strong>meet-and-greet</strong> services at 8 airports, including the new <strong>Jeddah Terminal 1</strong> and <strong>Riyadh Terminal 3/4</strong>, for zero-wait arrivals.
                         </p>
@@ -244,10 +244,10 @@ export default async function AirportTransfersPage() {
 
                     {/* AI SEO: TL;DR Summary Block */}
                     <div className="bg-sky-50 rounded-2xl p-8 border border-sky-100 shadow-sm mb-12">
-                        <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <p className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                             <Plane className="w-5 h-5 text-sky-700" />
                             TL;DR: KSA Airport Transport Quick Facts
-                        </h2>
+                        </p>
                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-sm">
                             <li><strong>Major Hubs:</strong> JED (Jeddah), RUH (Riyadh), MED (Madinah), ULH (AlUla).</li>
                             <li><strong>Wait Policy:</strong> 60 mins (Domestic) & 90 mins (International) free waiting.</li>

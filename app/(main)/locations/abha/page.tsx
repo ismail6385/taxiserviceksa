@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Chauffeur Abha | AHB Airport Pickup',
+    title: 'VIP Private Transfer & Chauffeur Abha | AHB Airport Pickup | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service in Abha. Specialized Abha Airport (AHB) pickups and mountain transfers to Al Soudah and Rijal Almaa. Professional high-altitude service.',
     keywords: ['Abha VIP private transfer', 'Executive chauffeur Abha', 'AHB Airport VIP pickup', 'Ride to Al Soudah VIP', 'Abha premium driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/abha/',
     },
     openGraph: {
-        title: 'Abha VIP Transfer & Airport Pickups',
+        title: 'Abha VIP Transfer & Airport Pickups | Taxi Service KSA',
         description: 'Need a premium VIP transfer in Abha? We provide comfortable chauffeured trips to Al Soudah, Green Mountain, and Abha Airport.',
         url: 'https://taxiserviceksa.com/locations/abha/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function AbhaPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Abha"
                         points={[
                             {
                                 topic: "Weather",

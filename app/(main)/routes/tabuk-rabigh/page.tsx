@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Rabigh Taxi | Private Car Service 780 km | Fixed Price',
+    title: 'Tabuk to Rabigh Taxi | Private Car Service 780 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Rabigh. Reliable 7.5-8 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Rabigh taxi', 'taxi from Tabuk to Rabigh', 'private transfer Tabuk to Rabigh', 'chauffeur Tabuk to Rabigh', 'Tabuk to Rabigh car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-rabigh/',
     },
     openGraph: {
-        title: 'Tabuk to Rabigh Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Rabigh Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 780 km drive. Request a quote for a comfortable ride from Tabuk to Rabigh. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-rabigh/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukRabighRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Rabigh"
                 faqs={[
 {
                         question: "How long is the drive from Tabuk to Rabigh?",

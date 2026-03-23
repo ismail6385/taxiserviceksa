@@ -10,14 +10,14 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Al Ula to Jeddah Taxi | 700km Return Transfer - Fixed Price',
+    title: 'Al Ula to Jeddah Taxi | 700km Return Transfer - Fixed Price | Taxi Service KSA',
     description: 'Taxi from Al Ula to Jeddah. 700km return journey to Jeddah Airport or Hotel. Affordable fixed rates. 4x4 SUVs available for luggage.',
     keywords: ['Al Ula to Jeddah taxi', 'taxi Al Ula to Jeddah airport', 'Al Ula transport', 'Al Ula to Jeddah price', 'Al Ula car hire'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/alula-jeddah/',
     },
     openGraph: {
-        title: 'Al Ula to Jeddah Taxi | 700km Route - Affordable Fixed Price',
+        title: 'Al Ula to Jeddah Taxi | 700km Route - Affordable Fixed Price | Taxi Service KSA',
         description: 'Comfortable private transfer from Al Ula to Jeddah. 700km journey. Flexible and affordable fixed rates. Door-to-door service.',
         url: 'https://taxiserviceksa.com/routes/alula-jeddah/',
         type: 'website',
@@ -228,6 +228,7 @@ export default function AlulaJeddahRoutePage() {
             </div>
 
             <MicroSemanticFAQ
+                        contextName="Alula to Jeddah"
                 faqs={[
                     {
                         question: "How long is the taxi ride from Al Ula to Jeddah?",

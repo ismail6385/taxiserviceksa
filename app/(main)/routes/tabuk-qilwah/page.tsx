@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Qilwah Taxi | Private Car Service 1280 km | Fixed Price',
+    title: 'Tabuk to Qilwah Taxi | Private Car Service 1280 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Qilwah. Reliable 12-13 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Qilwah taxi', 'taxi from Tabuk to Qilwah', 'private transfer Tabuk to Qilwah', 'chauffeur Tabuk to Qilwah', 'Tabuk to Qilwah car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-qilwah/',
     },
     openGraph: {
-        title: 'Tabuk to Qilwah Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Qilwah Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1280 km drive. Request a quote for a comfortable ride from Tabuk to Qilwah. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-qilwah/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukQilwahRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Qilwah"
                 faqs={[
 {
                         question: "Where do we stop for food on the way to Qilwah?",

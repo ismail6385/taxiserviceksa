@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi Khobar to Bahrain | King Fahd Causeway Transfer',
+    title: 'Khobar to Bahrain Taxi | King Fahd Causeway Transfer | Taxi Service KSA',
     description: 'Request a quote for a reliable taxi from Khobar/Dammam to Bahrain. Cross the King Fahd Causeway with experienced drivers. Avoid insurance & permit hassles.',
     keywords: ['Taxi Khobar to Bahrain', 'Dammam to Bahrain taxi', 'King Fahd Causeway taxi', 'Bahrain airport transfer from Saudi', 'Saudi Bahrain border taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/al-khobar/bahrain-causeway/',
     },
     openGraph: {
-        title: 'Taxi Service: Saudi to Bahrain (Causeway)',
+        title: 'Service: Saudi to Bahrain (Causeway) Taxi | Taxi Service KSA',
         description: 'Direct transfer from your door in Khobar/Dammam to Manama, Bahrain. We handle the causeway driving permit and insurance.',
         url: 'https://taxiserviceksa.com/locations/al-khobar/bahrain-causeway/',
         type: 'website',
@@ -51,7 +51,7 @@ export default function BahrainCausewayPage() {
 
             <Hero
                 images={images}
-                h1Text="Taxi from Khobar to Bahrain"
+                h1Text="from Khobar to Bahrain Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Cross-Border Transfer
@@ -143,6 +143,7 @@ export default function BahrainCausewayPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Al Khobar"
                         points={[
                             {
                                 topic: "Wait Times",

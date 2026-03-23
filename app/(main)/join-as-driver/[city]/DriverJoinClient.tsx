@@ -540,7 +540,7 @@ export default function DriverJoinClient({ cityObj, allCities }: DriverJoinClien
                                 <a 
                                     href={`https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20apply%20as%20a%20VIP%20driver%20in%20${cityObj.name}`} 
                                     target="_blank" 
-                                    rel="noreferrer"
+                                    rel="noopener noreferrer"
                                     className="w-full h-auto flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 bg-[#25D366] hover:bg-[#1ebd5a] text-white font-black py-5 sm:py-7 px-4 rounded-2xl text-[15px] sm:text-lg shadow-2xl shadow-[#25D366]/20 transition-all hover:scale-[1.02] active:scale-[0.98] text-center leading-tight sm:leading-snug"
                                 >
                                     <WhatsAppIcon className="w-7 h-7 fill-white shrink-0 mb-1 sm:mb-0" />

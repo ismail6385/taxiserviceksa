@@ -213,6 +213,7 @@ export default function ToursPageUrdu() {
              <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white border-y border-slate-100 font-urdu text-right" dir="rtl">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Tours"
                         points={[
                             {
                                 topic: "کیا زیارات کے لیے گائیڈڈ ٹور بہتر ہے یا خود سفر کرنا؟ (Guided vs Self)",

@@ -295,7 +295,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                 subtitle="Professional Chauffeur Service for Borders, Airports, Tourist Spots, and Executive Intercity Travel across the Kingdom."
             >
                 <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
-                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank">
+                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank" rel="nofollow noopener noreferrer">
                         <Button size="lg" className="bg-emerald-600 border-none text-white hover:bg-emerald-700 font-bold transition-all shadow-xl flex items-center gap-2 h-14 px-8 rounded-2xl">
                             <WhatsAppIcon className="w-6 h-6 fill-current" />
                             WhatsApp Booking via WhatsApp
@@ -377,7 +377,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                         WhatsApp Booking Online
                                     </Button>
                                 </Link>
-                                <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank">
+                                <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank" rel="nofollow noopener noreferrer">
                                     <Button size="lg" className="bg-emerald-600 border-none text-white hover:bg-emerald-700 font-bold transition-all shadow-lg flex items-center gap-2 h-14 px-8 rounded-2xl">
                                         <WhatsAppIcon className="w-6 h-6 fill-current" />
                                         WhatsApp Booking via WhatsApp
@@ -435,7 +435,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                                 Specializing in long-distance journeys, VIP airport pickups, and dedicated Umrah transport services for the discerning traveler.
                             </p>
-                             <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank">
+                             <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank" rel="nofollow noopener noreferrer">
                                 <Button className="bg-emerald-600 text-white hover:bg-emerald-700 rounded-full px-8 py-6 text-lg font-bold min-h-[48px] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-emerald-500/30 flex items-center gap-2">
                                     <WhatsAppIcon className="w-6 h-6 fill-current" />
                                     WhatsApp Booking via WhatsApp
@@ -605,7 +605,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             </div>
 
                              <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
-                                <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank" className="w-full sm:w-auto">
+                                <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank" rel="nofollow noopener noreferrer" className="w-full sm:w-auto">
                                     <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white px-10 h-16 rounded-2xl text-lg font-black transition-all hover:scale-105 active:scale-95 shadow-xl shadow-emerald-500/20 flex items-center gap-3">
                                         <WhatsAppIcon className="w-6 h-6 fill-current" />
                                         WhatsApp Booking via WhatsApp
@@ -686,6 +686,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                             <a 
                                                 href={`https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20get%20a%20VIP%20quote%20for%20a%20${encodeURIComponent(vehicle.name)}.`}
                                                 target="_blank"
+                                                rel="nofollow noopener noreferrer"
                                                 className="w-full"
                                             >
                                                 <Button className="w-full bg-emerald-600 text-white hover:bg-emerald-700 font-bold transition-all min-h-[48px] hover:scale-[1.02] active:scale-95 shadow-md shadow-emerald-500/20 text-xs gap-1.5 px-1">

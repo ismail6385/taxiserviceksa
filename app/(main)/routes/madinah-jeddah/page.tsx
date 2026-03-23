@@ -10,7 +10,7 @@ import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import JsonLdRoute from '@/components/JsonLdRoute';
 
 export const metadata: Metadata = {
-    title: 'Taxi Madinah to Jeddah | Madinah to Jeddah Private Car',
+    title: 'Madinah to Jeddah Taxi | Madinah to Jeddah Private Car | Taxi Service KSA',
     description: 'Book the best online taxi from Madinah to Jeddah. Comfortable 4-5 hour journey from Madinah hotels to Jeddah. Fixed rates, VIP GMC Yukons, and 24/7 service.',
     keywords: ['Taxi Madinah to Jeddah', 'Madinah to Jeddah Taxi', 'Madinah to Jeddah private car', 'taxi fare Madinah to Jeddah', 'Madinah to Jeddah transport', 'private transfer Madinah to Jeddah'],
     alternates: {
@@ -38,7 +38,7 @@ export default function MadinahJeddahRoutePage() {
 
             <Hero
                 images={['/locations/madinah.webp', '/jeddah-corniche-sunset.webp']}
-                h1Text="Taxi Madinah to Jeddah"
+                h1Text="Madinah to Jeddah Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Madinah → Jeddah Route
@@ -151,8 +151,8 @@ export default function MadinahJeddahRoutePage() {
             />
 
             <div className="max-w-4xl mx-auto py-20 px-4">
-                <h2 className="text-3xl font-black text-gray-900 mb-12 text-center">Madinah to Jeddah Taxi FAQ</h2>
-                <MicroSemanticFAQ 
+                <MicroSemanticFAQ
+                        contextName="Madinah to Jeddah" 
                     faqs={[
                         {
                             question: "How much is a taxi from Madinah to Jeddah?",

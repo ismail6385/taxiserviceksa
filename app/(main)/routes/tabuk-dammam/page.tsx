@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Dammam Taxi | Private Car Service 1530 km | Fixed Price',
+    title: 'Tabuk to Dammam Taxi | Private Car Service 1530 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Dammam. Reliable 14-15 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Dammam taxi', 'taxi from Tabuk to Dammam', 'private transfer Tabuk to Dammam', 'chauffeur Tabuk to Dammam', 'Tabuk to Dammam car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-dammam/',
     },
     openGraph: {
-        title: 'Tabuk to Dammam Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Dammam Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1530 km drive. Request a quote for a comfortable ride from Tabuk to Dammam. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-dammam/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukDammamRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Dammam"
                 faqs={[
 {
                         question: "How long is the drive from Tabuk to Dammam?",

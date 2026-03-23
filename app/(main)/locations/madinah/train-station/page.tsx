@@ -13,14 +13,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Madinah Train Station | Premium Chauffeur',
+    title: 'VIP Private Transfer Madinah Train Station | Premium Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service at Madinah Haramain Train Station. Fast, professional pickup to Masjid Nabawi and local hotels.',
     keywords: ['Madinah train station VIP transfer', 'Haramain railway premium chauffeur', 'Madinah station executive car', 'Madinah railway VIP pickup'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/madinah/train-station/',
     },
     openGraph: {
-        title: 'Taxi from Madinah Train Station (Haramain)',
+        title: 'Taxi from Madinah Train Station (Haramain) | Taxi Service KSA',
         description: 'Direct transfer from Madinah Railway Station to your hotel door. 24/7 service for arriving pilgrims.',
         url: 'https://taxiserviceksa.com/locations/madinah/train-station/',
         type: 'website',
@@ -156,6 +156,7 @@ export default function MadinahTrainStationPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Madinah"
                         points={[
                             {
                                 topic: "Bus Service",

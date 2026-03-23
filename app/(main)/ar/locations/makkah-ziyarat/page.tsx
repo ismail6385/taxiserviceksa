@@ -110,6 +110,7 @@ export default function MakkahZiyaratPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <MicroSemanticFAQ
+                        contextName="Makkah Ziyarat"
                         faqs={[
                             {
                                 question: "Can we climb Cave Hira?",

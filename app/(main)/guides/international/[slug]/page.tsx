@@ -1,4 +1,4 @@
-
+import Image from 'next/image';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -132,7 +132,7 @@ export default function InternationalGuidePage({ params }: PageProps) {
                     <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <h2 className="text-xl font-bold mb-4 flex items-center gap-2 text-indigo-200">
                         <Globe className="w-5 h-5" />
-                        Quick Summary (Travel Checklist)
+                        Quick Summary for {guide.countryName} Pilgrims
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-indigo-50">
                         <ul className="space-y-3">
@@ -147,12 +147,13 @@ export default function InternationalGuidePage({ params }: PageProps) {
                 </div>
 
 
-                {/* Hero Image */}
                 <div className="relative w-full h-64 md:h-96 rounded-3xl overflow-hidden mb-12 shadow-lg">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <Image
                         src={guide.heroImage}
                         alt={guide.title}
+                        width={1200}
+                        height={675}
+                        priority
                         className="w-full h-full object-cover"
                     />
                 </div>
@@ -261,7 +262,7 @@ export default function InternationalGuidePage({ params }: PageProps) {
 
                 {/* FAQs */}
                 <div className="mb-20">
-                    <h2 className="text-3xl font-bold text-center text-gray-900 mb-10">Frequently Asked Questions</h2>
+                    <h2 className="text-3xl font-bold text-center text-gray-900 mb-10">Frequently Asked Questions for {guide.countryName} Pilgrims</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {guide.faqs.map((faq, idx) => (
                             <div key={idx} className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">

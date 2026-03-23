@@ -4,7 +4,7 @@ import { Car, Plane, Building2, Compass, ArrowRight, MapPin } from 'lucide-react
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfers & Chauffeur Services Saudi Arabia',
+    title: 'VIP Private Transfers & Chauffeur Services Saudi Arabia | Taxi Service KSA',
     description: 'Explore elite VIP private transfer services in Saudi Arabia. Specializing in executive airport pickups, long-distance intercity travel, and dedicated Umrah transport.',
     keywords: ['VIP Private Transfers', 'Executive Chauffeur Service', 'Taxi Service KSA', 'Long Distance Transfer', 'Umrah Private Transport', 'Business Chauffeur', 'Alternative to Uber KSA', 'Alternative to Careem', 'Kaiian alternative', 'Al Haram Cab alternative'],
     alternates: {

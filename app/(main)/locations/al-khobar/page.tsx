@@ -24,7 +24,7 @@ import ExpertReview from '@/components/seo/ExpertReview';
 import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Chauffeur Al Khobar | Bahrain Causeway',
+    title: 'VIP Private Transfer & Chauffeur Al Khobar | Bahrain Causeway | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service in Al Khobar. Specialized cross-border King Fahd Causeway trips to Bahrain and DMM Airport transfers. Professional international standards.',
     keywords: ['Al Khobar VIP private transfer', 'Executive chauffeur Khobar', 'Bahrain Causeway VIP pickup', 'Premium Khobar to Bahrain transfer', 'Al Khobar corporate transport'],
     alternates: {
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
         }
     },
     openGraph: {
-        title: 'VIP Transfer in Al Khobar | Corniche & Causeway Trips',
+        title: 'VIP Transfer in Al Khobar | Corniche & Causeway Trips | Taxi Service KSA',
         description: 'Premium VIP transfer service in Al Khobar for local travel & Causeway trips to Bahrain. Reliable, comfortable rides to Dammam Airport and Corniche.',
         url: 'https://taxiserviceksa.com/locations/al-khobar/',
         type: 'website',
@@ -294,6 +294,7 @@ export default function AlKhobarPage() {
 
                     <div className="mb-16">
                         <TravelConsensus
+                        contextName="Al Khobar"
                             points={[
                                 {
                                     topic: "Causeway Visa",

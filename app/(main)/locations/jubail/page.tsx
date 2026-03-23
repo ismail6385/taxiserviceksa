@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Chauffeur Jubail | Industrial City VIP',
+    title: 'VIP Private Transfer & Chauffeur Jubail | Industrial City VIP | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service in Jubail (Al Jubail). Specialized in Jubail Industrial City, Royal Commission, and DMM Airport transfers. Professional corporate excellence.',
     keywords: ['Jubail VIP private transfer', 'Executive chauffeur Jubail', 'Jubail Industrial City VIP taxi', 'Dammam Airport to Jubail VIP', 'Jubail premium driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jubail/',
     },
     openGraph: {
-        title: 'Jubail VIP Transfer: Industrial City & Downtown',
+        title: 'Jubail VIP Transfer: Industrial City & Downtown | Taxi Service KSA',
         description: 'Need a premium VIP transfer in Jubail? We serve the Industrial City, Royal Commission, and provide transfers to Dammam Airport.',
         url: 'https://taxiserviceksa.com/locations/jubail/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function JubailPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Jubail"
                         points={[
                             {
                                 topic: "Distance to DMM",

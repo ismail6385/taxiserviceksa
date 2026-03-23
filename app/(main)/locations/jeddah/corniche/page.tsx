@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Jeddah Corniche | F1 Track VIP Service',
+    title: 'VIP Private Transfer to Jeddah Corniche | F1 Track VIP Service | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service to the New Jeddah Corniche. Visit the F1 Track, Yacht Club, and Red Sea Mall with an professional driver.',
     keywords: ['Jeddah Corniche VIP transfer', 'Jeddah Waterfront premium chauffeur', 'Jeddah F1 Track VIP', 'Red Sea Mall executive transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/corniche/',
     },
     openGraph: {
-        title: 'Taxi to Jeddah Corniche (New Waterfront)',
+        title: 'Taxi to Jeddah Corniche (New Waterfront) | Taxi Service KSA',
         description: 'The #1 leisure destination in Jeddah. Reliable transfers to the F1 Circuit and Yacht Club for international visitors.',
         url: 'https://taxiserviceksa.com/locations/jeddah/corniche/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function JeddahCornichePage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Jeddah"
                         points={[
                             {
                                 topic: "Walking",

@@ -21,7 +21,7 @@ import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Umrah Chauffeur Makkah | Premium Transport',
+    title: 'VIP Private Transfer & Umrah Chauffeur Makkah | Premium Transport | Taxi Service KSA',
     description: 'Premium VIP private transfer service in Makkah for Umrah pilgrims. Executive chauffeur service for Makkah, Madinah, and Jeddah Airport pickups. High-end fleet for a dignified journey.',
     keywords: ['VIP Umrah transport Makkah', 'Premium private transfer Makkah', 'Makkah VIP chauffeur', 'Executive Umrah taxi', 'Jeddah to Makkah VIP transfer'],
     alternates: {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'VIP Private Transfer in Makkah | 24/7 Umrah Transport',
+        title: 'VIP Private Transfer in Makkah | 24/7 Umrah Transport | Taxi Service KSA',
         description: 'Book premium VIP private transfers in Makkah specifically for Umrah pilgrims and families. Direct hotel to Haram transfers and Jeddah Airport pickup.',
         url: 'https://taxiserviceksa.com/locations/makkah/',
         type: 'website',

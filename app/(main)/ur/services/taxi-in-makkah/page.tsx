@@ -262,6 +262,7 @@ export default function TaxiInMakkahPageUrdu() {
                         <h2 className="text-3xl font-black text-slate-900 mb-2">مکہ میں ٹیکسی کی معلومات</h2>
                     </div>
                     <MicroSemanticFAQ
+                        contextName="Taxi In Makkah"
                         faqs={[
                             {
                                 question: "میں مکہ میں پرائیویٹ ٹیکسی کیسے بک کر سکتا ہوں؟",

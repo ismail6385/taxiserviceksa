@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Rumah Taxi | Private Car Service 1350 km | Fixed Price',
+    title: 'Tabuk to Rumah Taxi | Private Car Service 1350 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Rumah. Reliable 13 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Rumah taxi', 'taxi from Tabuk to Rumah', 'private transfer Tabuk to Rumah', 'chauffeur Tabuk to Rumah', 'Tabuk to Rumah car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-rumah/',
     },
     openGraph: {
-        title: 'Tabuk to Rumah Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Rumah Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1350 km drive. Request a quote for a comfortable ride from Tabuk to Rumah. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-rumah/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukRumahRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Rumah"
                 faqs={[
 {
                         question: "Can I Request a quote for a ride at night?",

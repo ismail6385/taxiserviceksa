@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Al-Qunfudhah Taxi | Private Car Service 1200 km | Fixed Price',
+    title: 'Tabuk to Al-Qunfudhah Taxi | Private Car Service 1200 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Al-Qunfudhah. Reliable 11-12 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Al-Qunfudhah taxi', 'taxi from Tabuk to Al-Qunfudhah', 'private transfer Tabuk to Al-Qunfudhah', 'chauffeur Tabuk to Al-Qunfudhah', 'Tabuk to Al-Qunfudhah car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-al-qunfudhah/',
     },
     openGraph: {
-        title: 'Tabuk to Al-Qunfudhah Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Al-Qunfudhah Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1200 km drive. Request a quote for a comfortable ride from Tabuk to Al-Qunfudhah. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-al-qunfudhah/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAlQunfudhahRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Qunfudhah"
                 faqs={[
 {
                         question: "Is the price for the whole car?",

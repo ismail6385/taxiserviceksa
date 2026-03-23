@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Mount Uhud | Madinah Ziyarat',
+    title: 'VIP Private Transfer to Mount Uhud | Madinah Ziyarat | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service to Mount Uhud and Archers Mound. Visit the historic Shuhada cemetery with a professional driver.',
     keywords: ['Mount Uhud VIP transfer', 'Madinah Archers Mound premium chauffeur', 'Shuhada Uhud VIP transport', 'Madinah heritage executive car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/madinah/uhud/',
     },
     openGraph: {
-        title: 'Taxi to Mount Uhud & Archers Mound',
+        title: 'Taxi to Mount Uhud & Archers Mound | Taxi Service KSA',
         description: 'Visit the historic site of the Battle of Uhud. We provide comfortable transport for Ziyarat to Shuhada Uhud.',
         url: 'https://taxiserviceksa.com/locations/madinah/uhud/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function UhudPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Madinah"
                         points={[
                             {
                                 topic: "Climbing",

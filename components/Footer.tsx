@@ -46,7 +46,7 @@ export default function Footer() {
                                     <span className="text-sm font-bold">info@taxiserviceksa.com</span>
                                 </div>
                             </a>
-                            <a href="https://wa.me/966569487569" target="_blank" className="flex items-center gap-3 text-gray-400 hover:text-emerald-400 transition-colors group">
+                            <a href="https://wa.me/966569487569" target="_blank" rel="nofollow noopener noreferrer" className="flex items-center gap-3 text-gray-400 hover:text-emerald-400 transition-colors group">
                                 <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-emerald-500/10 group-hover:bg-emerald-500 transition-all">
                                     <WhatsAppIcon className="w-5 h-5 text-emerald-500 fill-emerald-500 group-hover:text-white group-hover:fill-white" />
                                 </div>
@@ -204,12 +204,13 @@ export default function Footer() {
                 <div className="mb-20 bg-gradient-to-r from-emerald-600/20 to-primary/20 border border-emerald-500/30 rounded-[3rem] p-10 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left overflow-hidden relative">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -mr-32 -mt-32 animate-pulse"></div>
                     <div>
-                        <h2 className="text-2xl md:text-3xl font-black text-white mb-3">Ready to Start Your Journey?</h2>
+                        <div className="text-2xl md:text-3xl font-black text-white mb-3">Ready to Start Your Journey?</div>
                         <p className="text-gray-400 text-lg">Book your <strong>VIP Private Transfer</strong> directly on WhatsApp for instant confirmation.</p>
                     </div>
                     <a 
                         href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20get%20a%20VIP%20taxi%20quote." 
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="bg-emerald-600 hover:bg-emerald-700 text-white font-black px-12 py-5 rounded-2xl text-lg shadow-xl shadow-emerald-500/30 transition-all hover:scale-105 active:scale-95 flex items-center gap-3 whitespace-nowrap"
                     >
                         <WhatsAppIcon className="w-6 h-6 fill-current" />

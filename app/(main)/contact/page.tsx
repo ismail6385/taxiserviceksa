@@ -112,7 +112,7 @@ export default function ContactPage() {
                                         </div>
                                         <div>
                                             <p className="text-sm text-gray-400 font-medium mb-1">WhatsApp Us (Quickest)</p>
-                                            <a href="https://wa.me/966569487569?text=Hello%2C%20I%20have%20an%20inquiry." target="_blank" className="text-xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors">
+                                            <a href="https://wa.me/966569487569?text=Hello%2C%20I%20have%20an%20inquiry." target="_blank" rel="noopener noreferrer" className="text-xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors">
                                                 +966 56 948 7569
                                             </a>
                                             <p className="text-xs text-gray-500 mt-1">Instant reply during business hours</p>
@@ -237,4 +237,3 @@ export default function ContactPage() {
         </div>
     );
 }
-

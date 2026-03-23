@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Wadi ad-Dawasir Taxi | Private Car Service 1550 km | Fixed Price',
+    title: 'Tabuk to Wadi ad-Dawasir Taxi | Private Car Service 1550 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Wadi ad-Dawasir. Reliable 15-16 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Wadi ad-Dawasir taxi', 'taxi from Tabuk to Wadi ad-Dawasir', 'private transfer Tabuk to Wadi ad-Dawasir', 'chauffeur Tabuk to Wadi ad-Dawasir', 'Tabuk to Wadi ad-Dawasir car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-wadi-ad-dawasir/',
     },
     openGraph: {
-        title: 'Tabuk to Wadi ad-Dawasir Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Wadi ad-Dawasir Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1550 km drive. Request a quote for a comfortable ride from Tabuk to Wadi ad-Dawasir. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-wadi-ad-dawasir/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukWadiadDawasirRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Wadi Ad Dawasir"
                 faqs={[
 {
                         question: "How long is the drive from Tabuk to Wadi ad-Dawasir?",

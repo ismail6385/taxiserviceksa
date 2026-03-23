@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi to Al Soudah (Abha) | Highest Peak Transfer',
+    title: 'Taxi to Al Soudah (Abha) | Highest Peak Transfer | Taxi Service KSA',
     description: 'Request a quote for a taxi from Abha Airport to Al Soudah, the highest peak in Saudi Arabia. Enjoy the cool weather and cable cars. Reliable 4x4 mountain transport.',
     keywords: ['Taxi to Al Soudah', 'Abha Airport to Soudah taxi', 'Al Soudah mountain taxi', 'Abha local tour taxi', 'Rijal Almaa taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/abha/al-soudah/',
     },
     openGraph: {
-        title: 'Taxi to Al Soudah Mountain (Abha)',
+        title: 'Taxi to Al Soudah Mountain (Abha) | Taxi Service KSA',
         description: 'Ride to the clouds. Safe mountain transfers from Abha City and Airport to Al Soudah Park and Rijal Almaa.',
         url: 'https://taxiserviceksa.com/locations/abha/al-soudah/',
         type: 'website',
@@ -143,6 +143,7 @@ export default function AlSoudahPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Abha"
                         points={[
                             {
                                 topic: "Weather",

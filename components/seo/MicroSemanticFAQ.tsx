@@ -20,6 +20,7 @@ export interface SemanticFAQItem {
 interface MicroSemanticFAQProps {
     faqs: SemanticFAQItem[];
     isRtl?: boolean;
+    contextName?: string;
     labels?: {
         title: string;
         subtitle: string;
@@ -44,16 +45,20 @@ const iconMap: { [key: string]: any } = {
 const MicroSemanticFAQ: React.FC<MicroSemanticFAQProps> = ({
     faqs,
     isRtl = false,
-    labels = {
-        title: "Expert Answers",
+    contextName,
+    labels: userLabels,
+    theme = 'light'
+}) => {
+    const defaultLabels = {
+        title: contextName ? `Expert Answers: ${contextName}` : "Expert Answers",
         subtitle: "Direct facts followed by role-based insights",
         quickAnswer: "Quick Answer",
         perspectives: "Contextual Perspectives",
         readMore: "Read detailed breakdown",
         readLess: "Show less"
-    },
-    theme = 'light'
-}) => {
+    };
+
+    const labels = { ...defaultLabels, ...userLabels };
     const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
     const isDark = theme === 'dark';
 

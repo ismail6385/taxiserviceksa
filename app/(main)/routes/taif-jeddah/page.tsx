@@ -9,14 +9,14 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Taif to Jeddah Taxi | Airport Transfer - Fixed Prices',
+    title: 'Taif to Jeddah Taxi | Airport Transfer - Fixed Prices | Taxi Service KSA',
     description: 'Request a quote for a taxi from Taif to Jeddah Airport (JED) or Jeddah City. 2.5 hour journey via Al Hada Mountain Road. Fixed rates available. 24/7 service.',
     keywords: ['Taif to Jeddah taxi', 'taxi from Taif to Jeddah Airport', 'Taif to Jeddah taxi price', 'Al Hada road taxi', 'Taif to Jeddah cab'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/taif-jeddah/',
     },
     openGraph: {
-        title: 'Taif to Jeddah Taxi (Airport Transfer) - Reliable & Affordable',
+        title: 'Taif to Jeddah Taxi (Airport Transfer) - Reliable & Affordable | Taxi Service KSA',
         description: 'Need a ride from Taif to Jeddah? Book our private taxi via Al Hada. Fixed prices available. Door-to-door pickup.',
         url: 'https://taxiserviceksa.com/routes/taif-jeddah/',
         type: 'website',
@@ -161,6 +161,7 @@ export default function TaifToJeddahPage() {
             </div>
 
             <MicroSemanticFAQ
+                        contextName="Taif to Jeddah"
                 faqs={[
                     {
                         question: "How long is the taxi ride from Taif to Jeddah?",

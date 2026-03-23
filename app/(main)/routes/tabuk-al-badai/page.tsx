@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Al-Badai Taxi | Private Car Service 860 km | Fixed Price',
+    title: 'Tabuk to Al-Badai Taxi | Private Car Service 860 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Al-Badai. Reliable 8 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Al-Badai taxi', 'taxi from Tabuk to Al-Badai', 'private transfer Tabuk to Al-Badai', 'chauffeur Tabuk to Al-Badai', 'Tabuk to Al-Badai car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-al-badai/',
     },
     openGraph: {
-        title: 'Tabuk to Al-Badai Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Al-Badai Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 860 km drive. Request a quote for a comfortable ride from Tabuk to Al-Badai. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-al-badai/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAlBadaiRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Badai"
                 faqs={[
 {
                         question: "Is the price for the whole car?",

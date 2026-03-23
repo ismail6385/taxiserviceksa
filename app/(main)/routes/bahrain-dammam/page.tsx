@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Taxi Bahrain to Dammam | VIP Cross-Border Transfer',
+    title: 'Bahrain to Dammam Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
     description: 'Request a premium quote from Bahrain to Dammam. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Bahrain to Dammam', 'Bahrain to Dammam transfer', 'cross border taxi Saudi Arabia', 'VIP transport Bahrain Dammam'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/bahrain-dammam/',
     },
     openGraph: {
-        title: 'Taxi Bahrain to Dammam',
+        title: 'Bahrain to Dammam Taxi | Taxi Service KSA',
         description: 'Request a premium quote from Bahrain to Dammam. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/bahrain-dammam/',
         type: 'website',
@@ -52,7 +52,7 @@ export default function BahrainDammamRoutePage() {
 
             <Hero
                 images={images}
-                h1Text="Taxi Bahrain to Dammam"
+                h1Text="Bahrain to Dammam Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         GCC Cross-Border Service
@@ -142,6 +142,7 @@ export default function BahrainDammamRoutePage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Bahrain to Dammam"
                         points={[
                             {
                                 topic: "Visas & ID",

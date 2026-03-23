@@ -123,6 +123,7 @@ export default function MadinahZiyaratPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Madinah Ziyarat"
                         points={[
                             {
                                 topic: "Morning vs Evening Ziyarat",

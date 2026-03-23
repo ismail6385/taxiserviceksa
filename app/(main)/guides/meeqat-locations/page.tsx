@@ -232,6 +232,7 @@ export default function MeeqatLocationsPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <MicroSemanticFAQ
+                        contextName="App"
                         faqs={[
                             {
                                 question: "Can I shower at the Meeqat?",

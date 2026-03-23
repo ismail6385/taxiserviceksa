@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Masjid Quba | Madinah Ziyarat Service',
+    title: 'VIP Private Transfer to Masjid Quba | Madinah Ziyarat Service | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service to Masjid Quba. Perform Sunnah prayers in the first mosque of Islam with a professional driver.',
     keywords: ['Masjid Quba VIP transfer', 'Madinah Quba premium chauffeur', 'First Mosque VIP transport', 'Madinah Ziyarat executive car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/madinah/quba/',
     },
     openGraph: {
-        title: 'Taxi to Masjid Quba (The First Mosque)',
+        title: 'Taxi to Masjid Quba (The First Mosque) | Taxi Service KSA',
         description: 'Visit the historic Quba Mosque. Earn the reward of an Umrah by praying here. Convenient taxi transfer from your hotel.',
         url: 'https://taxiserviceksa.com/locations/madinah/quba/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function QubaPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Madinah"
                         points={[
                             {
                                 topic: "Walking Path",

@@ -146,6 +146,7 @@ export default function TaifPageArabic() {
 
                     <div className="mt-12">
                         <MicroSemanticFAQ
+                        contextName="Taif"
                             isRtl={true}
                             labels={{
                                 title: "أسئلة شائعة",

@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Riyadh Front | Premium Event Chauffeur',
+    title: 'VIP Private Transfer to Riyadh Front | Premium Event Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service for Riyadh Front (Roshn Front). Professional transport for LEAP, Cityscape, and business exhibitions.',
     keywords: ['Riyadh Front VIP transfer', 'Roshn Front premium chauffeur', 'Riyadh Exhibition Center executive car', 'LEAP Riyadh VIP transport', 'Airport to Riyadh Front VIP'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/front/',
     },
     openGraph: {
-        title: 'VIP Private Transfer to Riyadh Front (Exhibition Center)',
+        title: 'VIP Private Transfer to Riyadh Front (Exhibition Center) | Taxi Service KSA',
         description: 'Attending an event at Riyadh Front? Premium VIP private transfer and professional chauffeur service from hotels and King Khalid Airport.',
         url: 'https://taxiserviceksa.com/locations/riyadh/front/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function RiyadhFrontPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Riyadh"
                         points={[
                             {
                                 topic: "Traffic",

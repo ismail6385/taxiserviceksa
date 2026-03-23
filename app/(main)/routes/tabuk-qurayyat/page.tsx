@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Qurayyat Taxi | Private Car Service 400 km | Fixed Price',
+    title: 'Tabuk to Qurayyat Taxi | Private Car Service 400 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Qurayyat. Reliable 4-4.5 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Qurayyat taxi', 'taxi from Tabuk to Qurayyat', 'private transfer Tabuk to Qurayyat', 'chauffeur Tabuk to Qurayyat', 'Tabuk to Qurayyat car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-qurayyat/',
     },
     openGraph: {
-        title: 'Tabuk to Qurayyat Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Qurayyat Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 400 km drive. Request a quote for a comfortable ride from Tabuk to Qurayyat. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-qurayyat/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukQurayyatRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Qurayyat"
                 faqs={[
 {
                         question: "How do I Request a quote for a pickup in Tabuk?",

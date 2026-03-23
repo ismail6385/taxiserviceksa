@@ -285,6 +285,7 @@ export default function AbhaPageUrdu() {
 
                     <div className="mt-16">
                         <TravelConsensus
+                        contextName="Abha"
                             isRtl={true}
                             labels={{
                                 title: "ابہا میں سفر: حقائق",

@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Dhahban Taxi | Private Car Service 980 km | Fixed Price',
+    title: 'Tabuk to Dhahban Taxi | Private Car Service 980 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Dhahban. Reliable 9.5 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Dhahban taxi', 'taxi from Tabuk to Dhahban', 'private transfer Tabuk to Dhahban', 'chauffeur Tabuk to Dhahban', 'Tabuk to Dhahban car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-dhahban/',
     },
     openGraph: {
-        title: 'Tabuk to Dhahban Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Dhahban Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 980 km drive. Request a quote for a comfortable ride from Tabuk to Dhahban. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-dhahban/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukDhahbanRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Dhahban"
                 faqs={[
 {
                         question: "Where do we stop for food on the way to Dhahban?",

@@ -12,7 +12,7 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Taxi Riyadh to Jeddah | Riyadh to Jeddah Private Car (950km)',
+    title: 'Riyadh to Jeddah Taxi | Riyadh to Jeddah Private Car (950km) | Taxi Service KSA',
     description: 'Book the best online taxi from Riyadh to Jeddah. Direct 9-10 hour intercity transfer from Riyadh to the Red Sea coast. Fixed rates, VIP GMC Yukons, and door-to-door service.',
     keywords: ['Taxi Riyadh to Jeddah', 'Riyadh to Jeddah Taxi', 'Riyadh to Jeddah private car', 'taxi from Riyadh to Jeddah', 'Riyadh to Jeddah car hire', 'long distance taxi Saudi Arabia', 'private transfer Riyadh to Jeddah'],
     alternates: {
@@ -40,7 +40,7 @@ export default function RiyadhJeddahRoutePage() {
 
             <Hero
                 images={['/jeddah-corniche-sunset.webp', '/hero-slide-3.webp']}
-                h1Text="Taxi Riyadh to Jeddah"
+                h1Text="Riyadh to Jeddah Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Riyadh → Jeddah VIP
@@ -153,8 +153,8 @@ export default function RiyadhJeddahRoutePage() {
             />
 
             <div className="max-w-4xl mx-auto py-20 px-4">
-                <h2 className="text-3xl font-black text-gray-900 mb-12 text-center uppercase tracking-tight">Riyadh to Jeddah Taxi FAQ</h2>
-                <MicroSemanticFAQ 
+                <MicroSemanticFAQ
+                        contextName="Riyadh to Jeddah" 
                     faqs={[
                         {
                             question: "How long does a taxi from Riyadh to Jeddah take?",

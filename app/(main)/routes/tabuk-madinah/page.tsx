@@ -12,7 +12,7 @@ import FreshnessStatus from '@/components/seo/FreshnessStatus';
 import TLDRSummary from '@/components/seo/TLDRSummary';
 
 export const metadata: Metadata = {
-    title: 'Taxi Tabuk to Madinah | Tabuk to Madinah Private Car',
+    title: 'Tabuk to Madinah Taxi | Tabuk to Madinah Private Car | Taxi Service KSA',
     description: 'Book the best online taxi from Tabuk to Madinah. Direct 6.5-7 hour intercity transfer. Fixed rates, VIP GMC Yukons, and door-to-door service for families.',
     keywords: ['Taxi Tabuk to Madinah', 'Tabuk to Madinah Taxi', 'Tabuk to Madinah private car', 'taxi from Tabuk to Madinah', 'Tabuk to Madinah car hire', 'intercity taxi Saudi Arabia'],
     alternates: {
@@ -49,7 +49,7 @@ export default function TabukMadinahRoutePage() {
 
             <Hero
                 images={routeImages}
-                h1Text="Taxi Tabuk to Madinah"
+                h1Text="Tabuk to Madinah Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Tabuk → Madinah Route
@@ -224,6 +224,7 @@ export default function TabukMadinahRoutePage() {
             </div>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Madinah"
                 faqs={[
                     {
                         question: "How long is the taxi ride from Tabuk to Madinah?",

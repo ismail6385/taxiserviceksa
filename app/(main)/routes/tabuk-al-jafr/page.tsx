@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Al-Jafr Taxi | Private Car Service 1520 km | Fixed Price',
+    title: 'Tabuk to Al-Jafr Taxi | Private Car Service 1520 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Al-Jafr. Reliable 14-15 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Al-Jafr taxi', 'taxi from Tabuk to Al-Jafr', 'private transfer Tabuk to Al-Jafr', 'chauffeur Tabuk to Al-Jafr', 'Tabuk to Al-Jafr car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-al-jafr/',
     },
     openGraph: {
-        title: 'Tabuk to Al-Jafr Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Al-Jafr Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1520 km drive. Request a quote for a comfortable ride from Tabuk to Al-Jafr. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-al-jafr/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAlJafrRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Jafr"
                 faqs={[
 {
                         question: "Can I Request a quote for a ride at night?",

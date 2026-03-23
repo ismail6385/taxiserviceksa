@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Al-Uyun Taxi | Private Car Service 1500 km | Fixed Price',
+    title: 'Tabuk to Al-Uyun Taxi | Private Car Service 1500 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Al-Uyun. Reliable 14 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Al-Uyun taxi', 'taxi from Tabuk to Al-Uyun', 'private transfer Tabuk to Al-Uyun', 'chauffeur Tabuk to Al-Uyun', 'Tabuk to Al-Uyun car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-al-uyun/',
     },
     openGraph: {
-        title: 'Tabuk to Al-Uyun Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Al-Uyun Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1500 km drive. Request a quote for a comfortable ride from Tabuk to Al-Uyun. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-al-uyun/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAlUyunRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Uyun"
                 faqs={[
 {
                         question: "Can I Request a quote for a ride at night?",

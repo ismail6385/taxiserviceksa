@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Dariya Taxi | Private Car Service 1250 km | Fixed Price',
+    title: 'Tabuk to Dariya Taxi | Private Car Service 1250 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Dariya. Reliable 12 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Dariya taxi', 'taxi from Tabuk to Dariya', 'private transfer Tabuk to Dariya', 'chauffeur Tabuk to Dariya', 'Tabuk to Dariya car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-dariya/',
     },
     openGraph: {
-        title: 'Tabuk to Dariya Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Dariya Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1250 km drive. Request a quote for a comfortable ride from Tabuk to Dariya. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-dariya/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukDariyaRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Dariya"
                 faqs={[
 {
                         question: "Do I need to pay extra for luggage?",

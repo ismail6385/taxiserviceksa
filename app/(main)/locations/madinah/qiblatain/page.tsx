@@ -13,14 +13,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Masjid Al Qiblatain | Madinah Ziyarat',
+    title: 'VIP Private Transfer to Masjid Al Qiblatain | Madinah Ziyarat | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service to Masjid Al Qiblatain. Visit the mosque of two Qiblas with a professional driver.',
     keywords: ['Masjid Al Qiblatain VIP transfer', 'Madinah heritage premium chauffeur', 'Masjid Al Qiblatain VIP', 'Madinah Ziyarat executive transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/madinah/qiblatain/',
     },
     openGraph: {
-        title: 'Taxi to Masjid Al Qiblatain (Madinah)',
+        title: 'Taxi to Masjid Al Qiblatain (Madinah) | Taxi Service KSA',
         description: 'Visit the historical site where the direction of prayer was changed. Comfortable family taxis for your Ziyarat tour.',
         url: 'https://taxiserviceksa.com/locations/madinah/qiblatain/',
         type: 'website',
@@ -156,6 +156,7 @@ export default function QiblatainPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Madinah"
                         points={[
                             {
                                 topic: "Bus Tours",

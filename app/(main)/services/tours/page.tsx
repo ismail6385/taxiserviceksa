@@ -23,7 +23,7 @@ import {
 } from '@/components/ui/accordion';
 
 export const metadata: Metadata = {
-    title: 'Saudi Arabia Tours & Sightseeing | Historical & Heritage Trips',
+    title: 'Saudi Arabia Tours & Sightseeing | Historical & Heritage Trips | Taxi Service KSA',
     description: 'Discover Saudi Arabia with private guided tours. Makkah & Madinah Ziyarat, AlUla Heritage sites, Taif sightseeing, and Jeddah historical tours. Get a quote for your private driver today.',
     keywords: ['Saudi Arabia tours', 'Madinah Ziyarat tour', 'AlUla heritage tour', 'Taif sightseeing', 'Jeddah historical tour', 'Private tour driver KSA'],
     alternates: {
@@ -177,6 +177,7 @@ export default function ToursPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Tours"
                         points={[
                             {
                                 topic: "Ziyarat: Guided vs Self-Guided",

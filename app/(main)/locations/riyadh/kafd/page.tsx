@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to KAFD | Executive Chauffeur Service',
+    title: 'VIP Private Transfer to KAFD | Executive Chauffeur Service | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service for King Abdullah Financial District (KAFD). Punctual, professional transport for PIF Tower and corporate meetings.',
     keywords: ['KAFD VIP transfer', 'Riyadh Financial District premium chauffeur', 'KAFD executive transport', 'PIF Tower VIP car service', 'KAFD corporate transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/kafd/',
     },
     openGraph: {
-        title: 'VIP Private Transfer to KAFD (Financial District)',
+        title: 'VIP Private Transfer to KAFD (Financial District) | Taxi Service KSA',
         description: 'Premium VIP private transfer to Riyadh\'s business hub. Professional chauffeur service and executive vehicles for senior leadership.',
         url: 'https://taxiserviceksa.com/locations/riyadh/kafd/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function KAFDPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Riyadh"
                         points={[
                             {
                                 topic: "Access",

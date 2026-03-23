@@ -258,11 +258,18 @@ export default function LetterheadPage() {
                                 • This quotation is valid for 7 days from the date of issue.
                             </p>
                         </div>
-                        <div className="text-center min-w-[200px]">
-                            <div className="border-b-2 border-gray-200 flex items-end justify-center px-4 mb-2 pb-2">
-                                <img src="/ismail signature.png" alt="Ismail Signature" className="h-16 w-auto max-w-full object-contain select-none mix-blend-multiply" />
+                        <div className="text-right min-w-[200px]">
+                            <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Authorized Partners</p>
+                            <div className="flex items-end justify-end gap-6 h-12">
+                                <div className="text-center">
+                                    <img src="/zumer-signature.png" alt="Zumer" className="h-full w-auto object-contain select-none" />
+                                    <p className="text-[7px] font-bold text-gray-300 mt-1 uppercase italic tracking-widest">Zumer</p>
+                                </div>
+                                <div className="text-center">
+                                    <img src="/ismail-signature.png" alt="Ismail" className="h-full w-auto object-contain select-none" />
+                                    <p className="text-[7px] font-bold text-gray-300 mt-1 uppercase italic tracking-widest">Ismail</p>
+                                </div>
                             </div>
-                            <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Official Signature</p>
                         </div>
                     </div>
                 </div>

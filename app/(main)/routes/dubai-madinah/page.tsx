@@ -10,14 +10,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi Dubai to Madinah | VIP Cross-Border Transfer',
+    title: 'Dubai to Madinah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
     description: 'Request a premium quote from Dubai to Madinah. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Dubai to Madinah', 'Dubai to Madinah transfer', 'cross border taxi Saudi Arabia', 'VIP transport Dubai Madinah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/dubai-madinah/',
     },
     openGraph: {
-        title: 'Taxi Dubai to Madinah | VIP Cross-Border Transfer',
+        title: 'Dubai to Madinah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
         description: 'Request a premium quote from Dubai to Madinah. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/dubai-madinah/',
         type: 'website',
@@ -50,7 +50,7 @@ export default function DubaiMadinahRoutePage() {
 
             <Hero
                 images={images}
-                h1Text="Taxi Dubai to Madinah"
+                h1Text="Dubai to Madinah Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         GCC Cross-Border Service
@@ -142,6 +142,7 @@ export default function DubaiMadinahRoutePage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Dubai to Madinah"
                         points={[
                             {
                                 topic: "Visas & ID",

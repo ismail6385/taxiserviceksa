@@ -351,6 +351,7 @@ export default function JeddahPageUrdu() {
 
                     <div className="mt-16">
                         <TravelConsensus
+                        contextName="Jeddah"
                             isRtl={true}
                             labels={{
                                 title: "سفری حقائق اور صارفین کا ڈیٹا",

@@ -352,6 +352,7 @@ export default function TaifPageUrdu() {
 
                     <div className="mt-16">
                         <TravelConsensus
+                        contextName="Taif"
                             isRtl={true}
                             labels={{
                                 title: "سفری حقائق اور عام خیالات",

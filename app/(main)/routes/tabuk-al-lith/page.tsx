@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Al Lith Taxi | Private Car Service 1100 km | Fixed Price',
+    title: 'Tabuk to Al Lith Taxi | Private Car Service 1100 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Al Lith. Reliable 11-12 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Al Lith taxi', 'taxi from Tabuk to Al Lith', 'private transfer Tabuk to Al Lith', 'chauffeur Tabuk to Al Lith', 'Tabuk to Al Lith car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-al-lith/',
     },
     openGraph: {
-        title: 'Tabuk to Al Lith Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Al Lith Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1100 km drive. Request a quote for a comfortable ride from Tabuk to Al Lith. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-al-lith/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAlLithRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Lith"
                 faqs={[
 {
                         question: "What vehicles do you have available?",

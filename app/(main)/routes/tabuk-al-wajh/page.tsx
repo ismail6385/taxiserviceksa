@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Al Wajh Taxi | Private Car Service 330 km | Fixed Price',
+    title: 'Tabuk to Al Wajh Taxi | Private Car Service 330 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Al Wajh. Reliable 3.5 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Al Wajh taxi', 'taxi from Tabuk to Al Wajh', 'private transfer Tabuk to Al Wajh', 'chauffeur Tabuk to Al Wajh', 'Tabuk to Al Wajh car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-al-wajh/',
     },
     openGraph: {
-        title: 'Tabuk to Al Wajh Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Al Wajh Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 330 km drive. Request a quote for a comfortable ride from Tabuk to Al Wajh. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-al-wajh/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAlWajhRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Wajh"
                 faqs={[
 {
                         question: "How do I Request a quote for a pickup in Tabuk?",

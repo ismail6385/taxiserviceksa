@@ -1391,6 +1391,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                         <a 
                                                             href={`https://www.flightradar24.com/data/flights/${selectedBooking.flight_number}`} 
                                                             target="_blank" 
+                                                            rel="noopener noreferrer"
                                                             className="text-[10px] text-blue-600 hover:underline flex items-center gap-1"
                                                         >
                                                             <ExternalLink className="w-3 h-3" /> Track Flight

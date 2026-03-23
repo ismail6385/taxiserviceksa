@@ -24,7 +24,7 @@ export default function TLDRSummary({ title, summary, points, pricing, duration 
                     <div className="p-2 bg-emerald-100 rounded-lg text-emerald-700">
                         <Info className="w-5 h-5" />
                     </div>
-                    <h2 className="text-xl font-bold text-gray-900 tracking-tight">Quick Summary (TL;DR)</h2>
+                    <h2 className="text-xl font-bold text-gray-900 tracking-tight">{title}</h2>
                 </div>
 
                 <p className="text-gray-700 leading-relaxed mb-6 font-medium">

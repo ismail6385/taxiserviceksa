@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Mahad al-Dhahab Taxi | Private Car Service 850 km | Fixed Price',
+    title: 'Tabuk to Mahad al-Dhahab Taxi | Private Car Service 850 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Mahad al-Dhahab. Reliable 8-9 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Mahad al-Dhahab taxi', 'taxi from Tabuk to Mahad al-Dhahab', 'private transfer Tabuk to Mahad al-Dhahab', 'chauffeur Tabuk to Mahad al-Dhahab', 'Tabuk to Mahad al-Dhahab car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-mahad-al-dhahab/',
     },
     openGraph: {
-        title: 'Tabuk to Mahad al-Dhahab Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Mahad al-Dhahab Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 850 km drive. Request a quote for a comfortable ride from Tabuk to Mahad al-Dhahab. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-mahad-al-dhahab/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukMahadalDhahabRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Mahad Al Dhahab"
                 faqs={[
 {
                         question: "Where do we stop for food on the way to Mahad al-Dhahab?",

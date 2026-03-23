@@ -9,14 +9,14 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Yanbu to Jeddah Taxi | Airport Transfer - Fixed Prices',
+    title: 'Yanbu to Jeddah Taxi | Airport Transfer - Fixed Prices | Taxi Service KSA',
     description: 'Request a quote for a taxi from Yanbu to Jeddah Airport (JED) or Jeddah City. 3.5 hour journey via Route 5. Fixed rates available. 24/7 Service.',
     keywords: ['Yanbu to Jeddah taxi', 'taxi from Yanbu to Jeddah Airport', 'Yanbu to Jeddah taxi fare', 'Yanbu industrial city to Jeddah', 'transfer Yanbu Jeddah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/yanbu-jeddah/',
     },
     openGraph: {
-        title: 'Yanbu to Jeddah Taxi (Airport Transfer) - Experienced Drivers',
+        title: 'Yanbu to Jeddah Taxi (Airport Transfer) - Experienced Drivers | Taxi Service KSA',
         description: 'Need a ride from Yanbu (Royal Commission/Industrial) to Jeddah? Book our private taxi. Fixed prices available. 24/7 Pickup.',
         url: 'https://taxiserviceksa.com/routes/yanbu-jeddah/',
         type: 'website',
@@ -161,6 +161,7 @@ export default function YanbuToJeddahPage() {
             </div>
 
             <MicroSemanticFAQ
+                        contextName="Yanbu to Jeddah"
                 faqs={[
                     {
                         question: "How long is the taxi ride from Yanbu to Jeddah?",

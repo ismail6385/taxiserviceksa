@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Sabya Taxi | Private Car Service 1600 km | Fixed Price',
+    title: 'Tabuk to Sabya Taxi | Private Car Service 1600 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Sabya. Reliable 15-17 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Sabya taxi', 'taxi from Tabuk to Sabya', 'private transfer Tabuk to Sabya', 'chauffeur Tabuk to Sabya', 'Tabuk to Sabya car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-sabya/',
     },
     openGraph: {
-        title: 'Tabuk to Sabya Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Sabya Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1600 km drive. Request a quote for a comfortable ride from Tabuk to Sabya. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-sabya/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukSabyaRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Sabya"
                 faqs={[
 {
                         question: "Where do we stop for food on the way to Sabya?",

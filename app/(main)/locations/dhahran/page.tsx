@@ -24,7 +24,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import ExpertReview from '@/components/seo/ExpertReview';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Chauffeur Dhahran | Aramco & Ithra',
+    title: 'VIP Private Transfer & Chauffeur Dhahran | Aramco & Ithra | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service in Dhahran. Specialized Saudi Aramco, KFUPM, and Ithra Center transport. Professional corporate standards.',
     keywords: ['Dhahran VIP private transfer', 'Executive chauffeur Dhahran', 'Aramco VIP pickup', 'Ithra Center VIP transport', 'KFUPM executive taxi'],
     alternates: {
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
         }
     },
     openGraph: {
-        title: 'VIP Transfer in Dhahran | Aramco & Ithra Pickups',
+        title: 'VIP Transfer in Dhahran | Aramco & Ithra Pickups | Taxi Service KSA',
         description: 'Premium VIP transfer service in Dhahran. Transfers to Saudi Aramco, KFUPM, and Ithra Center. Professional chauffeurs for business & city travel.',
         url: 'https://taxiserviceksa.com/locations/dhahran/',
         type: 'website',
@@ -328,6 +328,7 @@ export default function DhahranPage() {
 
                     <div className="mb-16">
                         <TravelConsensus
+                        contextName="Dhahran"
                             points={[
                                 {
                                     topic: "Ithra Parking vs Taxi",

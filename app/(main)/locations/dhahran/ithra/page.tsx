@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi to Ithra (Dhahran) | King Abdulaziz Center for World Culture',
+    title: 'Taxi to Ithra (Dhahran) | King Abdulaziz Center for World Culture | Taxi Service KSA',
     description: 'Request a quote for a taxi to Ithra (King Abdulaziz Center for World Culture) in Dhahran. Visit the library, museum, and theater. Reliable pickups from Aramco camp.',
     keywords: ['Taxi to Ithra', 'Ithra Dhahran taxi', 'King Abdulaziz Center taxi', 'Aramco visitor taxi', 'Dhahran museums transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/dhahran/ithra/',
     },
     openGraph: {
-        title: 'Taxi to Ithra Cultural Center (Dhahran)',
+        title: 'Taxi to Ithra Cultural Center (Dhahran) | Taxi Service KSA',
         description: 'Visit the stunning Ithra building. We provide gate drop-offs for visitors to the library, cinema, and museums.',
         url: 'https://taxiserviceksa.com/locations/dhahran/ithra/',
         type: 'website',
@@ -143,6 +143,7 @@ export default function IthraPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Dhahran"
                         points={[
                             {
                                 topic: "Access",

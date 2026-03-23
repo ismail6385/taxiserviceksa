@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Taif Taxi | Private Car Service 1050 km | Fixed Price',
+    title: 'Tabuk to Taif Taxi | Private Car Service 1050 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Taif. Reliable 10-11 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Taif taxi', 'taxi from Tabuk to Taif', 'private transfer Tabuk to Taif', 'chauffeur Tabuk to Taif', 'Tabuk to Taif car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-taif/',
     },
     openGraph: {
-        title: 'Tabuk to Taif Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Taif Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1050 km drive. Request a quote for a comfortable ride from Tabuk to Taif. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-taif/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukTaifRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Taif"
                 faqs={[
 {
                         question: "Can I Request a quote for a ride at night?",

@@ -159,7 +159,6 @@ export default function FordTaurusPage() {
             </section>
 
             <div className="max-w-4xl mx-auto py-24 px-4">
-                <h2 className="text-3xl font-black text-gray-900 mb-12 text-center uppercase tracking-tighter">Ford Taurus 2025 FAQ</h2>
                 <MicroSemanticFAQ 
                     faqs={[
                         {

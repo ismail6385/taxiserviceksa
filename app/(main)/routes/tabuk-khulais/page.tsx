@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Khulais Taxi | Private Car Service 850 km | Fixed Price',
+    title: 'Tabuk to Khulais Taxi | Private Car Service 850 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Khulais. Reliable 8.5 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Khulais taxi', 'taxi from Tabuk to Khulais', 'private transfer Tabuk to Khulais', 'chauffeur Tabuk to Khulais', 'Tabuk to Khulais car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-khulais/',
     },
     openGraph: {
-        title: 'Tabuk to Khulais Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Khulais Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 850 km drive. Request a quote for a comfortable ride from Tabuk to Khulais. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-khulais/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukKhulaisRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Khulais"
                 faqs={[
 {
                         question: "Can I Request a quote for a ride at night?",

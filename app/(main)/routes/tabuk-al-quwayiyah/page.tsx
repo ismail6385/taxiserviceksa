@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Taxi Tabuk to Al Quwayiyah | Private Car Tabuk to Al Quwayiyah',
+    title: 'Tabuk to Al Quwayiyah Taxi | Private Car Tabuk to Al Quwayiyah | Taxi Service KSA',
     description: 'Book the best online taxi from Tabuk to Al Quwayiyah. Reliable 11-12 hour drive with professional drivers. Fixed rates, door-to-door service, and comfortable cars.',
     keywords: ['Taxi Tabuk to Al Quwayiyah', 'Tabuk to Al Quwayiyah Taxi', 'private transfer Tabuk to Al Quwayiyah', 'Tabuk to Al Quwayiyah car with driver'],
     alternates: {
         canonical: "https://taxiserviceksa.com/routes/tabuk-al-quwayiyah/",
     },
     openGraph: {
-        title: "Tabuk to Al-Quway'iyah Taxi | Private Transfer - Fixed Price",
+        title: "Tabuk to Al-Quway | Taxi Service KSA'iyah Taxi | Private Transfer - Fixed Price",
         description: "Reliable 1200 km drive. Request a quote for a comfortable ride from Tabuk to Al-Quway'iyah. Professional service available 24/7.",
         url: "https://taxiserviceksa.com/routes/tabuk-al-quwayiyah/",
         type: 'website',
@@ -53,7 +53,7 @@ export default function TabukAlQuwayiyahRoutePage() {
 
             <Hero
                 images={['/locations/tabuk.webp', '/hero-slide-3.webp']}
-                h1Text="Taxi Tabuk to Al Quwayiyah"
+                h1Text="Tabuk to Al Quwayiyah Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Tabuk → Al-Quway'iyah
@@ -188,6 +188,7 @@ export default function TabukAlQuwayiyahRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Quwayiyah"
                 faqs={[
 {
                         question: "Is the price for the whole car?",

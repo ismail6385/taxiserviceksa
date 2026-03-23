@@ -9,14 +9,14 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Madinah Train Station Taxi | Haramain Station to Hotel Transfer',
+    title: 'Madinah Train Station Taxi | Haramain Station to Hotel Transfer | Taxi Service KSA',
     description: 'Request a quote for a taxi from Madinah Haramain Train Station to your hotel (Markaziyah / Central Area). Affordable fixed prices. Reliable pickup for train arrivals.',
     keywords: ['Madinah train station taxi', 'Haramain station Madinah to hotel', 'taxi from Madinah railway station to prophet mosque', 'Madinah station transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/madinah-train-station-taxi/',
     },
     openGraph: {
-        title: 'Madinah Train Station Taxi to Hotel (Markaziyah) - Fixed Price',
+        title: 'Madinah Train Station Taxi to Hotel (Markaziyah) - Fixed Price | Taxi Service KSA',
         description: 'Arriving in Madinah by train? Get a direct taxi transfer from the station to your hotel near Masjid Nabawi.',
         url: 'https://taxiserviceksa.com/routes/madinah-train-station-taxi/',
         type: 'website',
@@ -160,6 +160,7 @@ export default function MadinahTrainStationPage() {
             </div>
 
             <MicroSemanticFAQ
+                        contextName="Madinah Train Station Taxi"
                 faqs={[
                     {
                         question: "How far is Madinah Train Station from the Prophet's Mosque?",

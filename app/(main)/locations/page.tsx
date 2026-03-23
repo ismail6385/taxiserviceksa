@@ -5,7 +5,7 @@ import { MapPin, ArrowRight, Car, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-    title: 'Service Locations | VIP Private Transfer KSA',
+    title: 'Service Locations | VIP Private Transfer KSA | Taxi Service KSA',
     description: 'Premium VIP private transfer service across Saudi Arabia. Professional executive chauffeurs for airport transfers & tours in Jeddah, Makkah, Madinah, Riyadh, AlUla & Taif.',
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/',

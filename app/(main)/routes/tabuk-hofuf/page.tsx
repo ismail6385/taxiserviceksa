@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Hofuf Taxi | Private Car Service 1350 km | Fixed Price',
+    title: 'Tabuk to Hofuf Taxi | Private Car Service 1350 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Hofuf. Reliable 13-14 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Hofuf taxi', 'taxi from Tabuk to Hofuf', 'private transfer Tabuk to Hofuf', 'chauffeur Tabuk to Hofuf', 'Tabuk to Hofuf car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-hofuf/',
     },
     openGraph: {
-        title: 'Tabuk to Hofuf Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Hofuf Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1350 km drive. Request a quote for a comfortable ride from Tabuk to Hofuf. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-hofuf/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukHofufRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Hofuf"
                 faqs={[
 {
                         question: "Is the price for the whole car?",

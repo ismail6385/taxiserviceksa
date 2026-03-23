@@ -177,6 +177,7 @@ export default function ToursPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Tours"
                         points={[
                             {
                                 topic: "Ziyarat: Guided vs Self-Guided",

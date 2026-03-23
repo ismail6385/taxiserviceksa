@@ -12,7 +12,7 @@ import RoutePerspective from '@/components/seo/RoutePerspective';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 
 export const metadata: Metadata = {
-    title: 'Taxi Jeddah to Taif | Al Hada Mountain Transfers | Private Car',
+    title: 'Jeddah to Taif Taxi | Al Hada Mountain Transfers | Private Car | Taxi Service KSA',
     description: 'Book the best online taxi from Jeddah to Taif. Enjoy the scenic drive up Al Hada mountain in a private car. Reliable transfers to Taif city, resorts, and historic sites.',
     keywords: ['Taxi Jeddah to Taif', 'Jeddah to Taif Taxi', 'Al Hada mountain taxi service', 'Taif cable car transfer', 'Jeddah to Taif car with driver', 'private transfer Jeddah to Taif'],
     alternates: {
@@ -47,7 +47,7 @@ export default function JeddahTaifRoutePage() {
 
             <Hero
                 images={['/hero-slide-3.webp', '/hero-slide-2.webp']}
-                h1Text="Taxi Jeddah to Taif"
+                h1Text="Jeddah to Taif Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Jeddah → Taif VIP
@@ -160,8 +160,8 @@ export default function JeddahTaifRoutePage() {
             />
 
             <div className="max-w-4xl mx-auto py-20 px-4">
-                <h2 className="text-3xl font-black text-gray-900 mb-12 text-center uppercase tracking-tight">Jeddah to Taif Taxi FAQ</h2>
-                <MicroSemanticFAQ 
+                <MicroSemanticFAQ
+                        contextName="Jeddah to Taif" 
                     faqs={[
                         {
                             question: "How long is the taxi ride from Jeddah to Taif?",

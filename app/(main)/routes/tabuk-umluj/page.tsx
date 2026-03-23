@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Umluj Taxi | Private Car Service 480 km | Fixed Price',
+    title: 'Tabuk to Umluj Taxi | Private Car Service 480 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Umluj. Reliable 4.5-5 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Umluj taxi', 'taxi from Tabuk to Umluj', 'private transfer Tabuk to Umluj', 'chauffeur Tabuk to Umluj', 'Tabuk to Umluj car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-umluj/',
     },
     openGraph: {
-        title: 'Tabuk to Umluj Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Umluj Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 480 km drive. Request a quote for a comfortable ride from Tabuk to Umluj. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-umluj/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukUmlujRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Umluj"
                 faqs={[
 {
                         question: "Is the price for the whole car?",

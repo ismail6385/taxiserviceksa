@@ -14,14 +14,14 @@ import Script from 'next/script';
 import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Madinah Airport | Premium Chauffeur Pickup',
+    title: 'VIP Private Transfer Madinah Airport | Premium Chauffeur Pickup | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service at Madinah Airport (MED). Get a quote for your professional pickup to Masjid Nabawi and local hotels.',
     keywords: ['Madinah Airport VIP transfer', 'MED Airport premium chauffeur', 'Madinah Airport executive car', 'Prince Mohammad Airport VIP pickup'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/madinah/madinah-airport/',
     },
     openGraph: {
-        title: 'Madinah Airport Taxi Service | Prince Mohammad Bin Abdulaziz Pickup',
+        title: 'Madinah Airport Taxi Service | Prince Mohammad Bin Abdulaziz Pickup | Taxi Service KSA',
         description: 'Skip the airport queues. Request a quote for a professional taxi from Madinah Airport. Fixed pricing and comfortable SUVs for families.',
         url: 'https://taxiserviceksa.com/locations/madinah/madinah-airport/',
         type: 'website',

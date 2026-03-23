@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Bishah Taxi | Private Car Service 1400 km | Fixed Price',
+    title: 'Tabuk to Bishah Taxi | Private Car Service 1400 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Bishah. Reliable 13-14 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Bishah taxi', 'taxi from Tabuk to Bishah', 'private transfer Tabuk to Bishah', 'chauffeur Tabuk to Bishah', 'Tabuk to Bishah car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-bishah/',
     },
     openGraph: {
-        title: 'Tabuk to Bishah Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Bishah Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1400 km drive. Request a quote for a comfortable ride from Tabuk to Bishah. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-bishah/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukBishahRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Bishah"
                 faqs={[
 {
                         question: "Is the price for the whole car?",

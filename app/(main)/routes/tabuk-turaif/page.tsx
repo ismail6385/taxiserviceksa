@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Turaif Taxi | Private Car Service 580 km | Fixed Price',
+    title: 'Tabuk to Turaif Taxi | Private Car Service 580 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Turaif. Reliable 5.5-6 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Turaif taxi', 'taxi from Tabuk to Turaif', 'private transfer Tabuk to Turaif', 'chauffeur Tabuk to Turaif', 'Tabuk to Turaif car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-turaif/',
     },
     openGraph: {
-        title: 'Tabuk to Turaif Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Turaif Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 580 km drive. Request a quote for a comfortable ride from Tabuk to Turaif. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-turaif/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukTuraifRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Turaif"
                 faqs={[
 {
                         question: "What vehicles do you have available?",

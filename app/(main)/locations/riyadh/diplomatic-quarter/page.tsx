@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Diplomatic Quarter (DQ) Riyadh | Embassy Chauffeur',
+    title: 'VIP Private Transfer to Diplomatic Quarter (DQ) Riyadh | Embassy Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service for the Diplomatic Quarter. Secure, professional transport for embassies and Oud Square.',
     keywords: ['Diplomatic Quarter VIP transfer', 'Riyadh DQ premium chauffeur', 'Embassy executive transport', 'Oud Square VIP transfer', 'Al Safarat VIP car service'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/diplomatic-quarter/',
     },
     openGraph: {
-        title: 'VIP Private Transfer to Diplomatic Quarter (DQ) Riyadh',
+        title: 'VIP Private Transfer to Diplomatic Quarter (DQ) Riyadh | Taxi Service KSA',
         description: 'Executive VIP private transfer to the Diplomatic Quarter. Professional chauffeur service handling all checkpoint protocols for embassy visits.',
         url: 'https://taxiserviceksa.com/locations/riyadh/diplomatic-quarter/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function DiplomaticQuarterPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Riyadh"
                         points={[
                             {
                                 topic: "Access",

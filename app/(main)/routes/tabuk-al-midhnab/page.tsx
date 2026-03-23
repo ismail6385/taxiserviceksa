@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Al-Midhnab Taxi | Private Car Service 920 km | Fixed Price',
+    title: 'Tabuk to Al-Midhnab Taxi | Private Car Service 920 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Al-Midhnab. Reliable 9 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Al-Midhnab taxi', 'taxi from Tabuk to Al-Midhnab', 'private transfer Tabuk to Al-Midhnab', 'chauffeur Tabuk to Al-Midhnab', 'Tabuk to Al-Midhnab car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-al-midhnab/',
     },
     openGraph: {
-        title: 'Tabuk to Al-Midhnab Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Al-Midhnab Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 920 km drive. Request a quote for a comfortable ride from Tabuk to Al-Midhnab. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-al-midhnab/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAlMidhnabRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Midhnab"
                 faqs={[
 {
                         question: "Is the price for the whole car?",

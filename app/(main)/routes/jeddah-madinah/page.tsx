@@ -14,7 +14,7 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Taxi Jeddah to Madinah | Jeddah to Madinah Private Car',
+    title: 'Jeddah to Madinah Taxi | Jeddah to Madinah Private Car | Taxi Service KSA',
     description: 'Book the best online taxi from Jeddah to Madinah. High-speed 415km transfer from Jeddah to Madinah hotels. Fixed rates, VIP GMC Yukons, and 24/7 airport pickup available.',
     keywords: ['Taxi Jeddah to Madinah', 'Jeddah to Madinah Taxi', 'Jeddah to Madinah private car', 'taxi from Jeddah to Madinah', 'Jeddah to Madinah taxi fare', 'Madinah taxi booking', 'private transfer Jeddah to Madinah'],
     alternates: {
@@ -49,7 +49,7 @@ export default function JeddahMadinahRoutePage() {
 
             <Hero
                 images={['/madinah-prophets-mosque.webp', '/jeddah-corniche-sunset.webp']}
-                h1Text="Taxi Jeddah to Madinah"
+                h1Text="Jeddah to Madinah Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Jeddah → Madinah VIP
@@ -162,8 +162,8 @@ export default function JeddahMadinahRoutePage() {
             />
 
             <div className="max-w-4xl mx-auto py-20 px-4">
-                <h2 className="text-3xl font-black text-gray-900 mb-12 text-center uppercase tracking-tight">Jeddah to Madinah Taxi FAQ</h2>
-                <MicroSemanticFAQ 
+                <MicroSemanticFAQ
+                        contextName="Jeddah to Madinah" 
                     faqs={[
                         {
                             question: "How much is a taxi from Jeddah to Madinah?",

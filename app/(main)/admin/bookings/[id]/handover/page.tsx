@@ -234,10 +234,15 @@ export default function HandoverPage() {
                             <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Client Signature</p>
                         </div>
                         <div className="text-center space-y-2">
-                             <div className="relative h-12 w-auto mx-auto grayscale">
-                                <Image src="/ismail signature.png" alt="Signature" fill className="object-contain" />
+                             <div className="flex gap-4 items-center justify-center h-12">
+                                <div className="h-full relative w-16">
+                                    <Image src="/zumer-signature.png" alt="Zumer" fill className="object-contain grayscale" />
+                                </div>
+                                <div className="h-full relative w-16">
+                                    <Image src="/ismail-signature.png" alt="Ismail" fill className="object-contain grayscale" />
+                                </div>
                             </div>
-                            <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Manager Approval</p>
+                            <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Partner Approvals</p>
                         </div>
                     </div>
                 </div>

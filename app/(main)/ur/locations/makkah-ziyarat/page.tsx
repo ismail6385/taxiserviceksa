@@ -293,6 +293,7 @@ export default function MakkahZiyaratPageUrdu() {
 
                     <div className="mt-16">
                         <TravelConsensus
+                        contextName="Makkah Ziyarat"
                             isRtl={true}
                             labels={{
                                 title: "زائرین کی رائے اور حقائق",

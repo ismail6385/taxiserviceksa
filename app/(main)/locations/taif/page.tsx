@@ -30,7 +30,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Chauffeur Taif | Al Hada Mountain',
+    title: 'VIP Private Transfer & Chauffeur Taif | Al Hada Mountain | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service in Taif. Specialized Makkah to Taif mountain transfers via Al Hada and Jeddah Airport pickups. Professional high-altitude driving expertise.',
     keywords: ['Taif VIP private transfer', 'Executive chauffeur Taif', 'Al Hada VIP transport', 'Premium Makkah to Taif transfer', 'Taif mountain chauffeur service'],
     alternates: {
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
         }
     },
     openGraph: {
-        title: 'VIP Transfer in Taif | Makkah Transfers & Al Hada Tours',
+        title: 'VIP Transfer in Taif | Makkah Transfers & Al Hada Tours | Taxi Service KSA',
         description: 'Premium VIP transfer to Taif via Al Hada mountain road. Service includes stops at cable car and rose factories.',
         url: 'https://taxiserviceksa.com/locations/taif/',
         type: 'website',
@@ -339,6 +339,7 @@ export default function TaifPage() {
 
                     <div className="mt-16">
                         <TravelConsensus
+                        contextName="Taif"
                             points={[
                                 {
                                     topic: "Cable Car Start Point",

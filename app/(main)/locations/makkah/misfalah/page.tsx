@@ -14,14 +14,14 @@ import Script from 'next/script';
 import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Misfalah Makkah | Premium Chauffeur',
+    title: 'VIP Private Transfer Misfalah Makkah | Premium Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service in Misfalah Makkah. Professional hotel pickups and airport transfers for Umrah pilgrims.',
     keywords: ['Misfalah VIP transfer', 'Misfalah to Haram premium chauffeur', 'Misfalah executive car', 'Makkah VIP pilgrim transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/makkah/misfalah/',
     },
     openGraph: {
-        title: 'Taxi Service in Misfalah Makkah | 24/7 Hotel Pickups',
+        title: 'Taxi Service in Misfalah Makkah | 24/7 Hotel Pickups | Taxi Service KSA',
         description: 'Staying in Misfalah? Get a comfortable ride to the Haram or Airport without the stress of street bargaining. Professional drivers specializing in Misfalah routes.',
         url: 'https://taxiserviceksa.com/locations/makkah/misfalah/',
         type: 'website',

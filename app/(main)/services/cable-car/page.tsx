@@ -15,7 +15,7 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 
 export const metadata: Metadata = {
-    title: 'Cable Car Transfers Saudi Arabia | Taif & Abha Telefric Taxi',
+    title: 'Cable Car Transfers Saudi Arabia | Taif & Abha Telefric Taxi | Taxi Service KSA',
     description: 'Taxi service to Cable Car (Telefric) stations in Taif (Al Hada) and Abha. Enjoy the scenic mountain views with reliable transport to and from the terminals.',
     keywords: ['Taif cable car taxi', 'Al Hada telefric transport', 'Abha cable car ride', 'Saudi Arabia cable car', 'Mountain tourism taxi'],
     alternates: {
@@ -129,6 +129,7 @@ export default function CableCarPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <MicroSemanticFAQ
+                        contextName="Cable Car"
                         faqs={[
                             {
                                 question: "Can the taxi wait for us while we ride the cable car?",

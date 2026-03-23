@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Diriyah | At-Turaif Premium Chauffeur',
+    title: 'VIP Private Transfer to Diriyah | At-Turaif Premium Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service for Diriyah Gate and Bujairi Terrace. Professional transport to Riyadh\'s UNESCO heritage site.',
     keywords: ['Diriyah VIP transfer', 'Bujairi Terrace premium chauffeur', 'Diriyah Gate executive transport', 'At-Turaif VIP car', 'Riyadh to Diriyah premium transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/diriyah/',
     },
     openGraph: {
-        title: 'VIP Private Transfer to Diriyah Gate & Bujairi Terrace',
+        title: 'VIP Private Transfer to Diriyah Gate & Bujairi Terrace | Taxi Service KSA',
         description: 'Premium VIP private transfer to Riyadh\'s historical heart. Professional chauffeur service for dining at Bujairi Terrace and At-Turaif tours.',
         url: 'https://taxiserviceksa.com/locations/riyadh/diriyah/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function DiriyahPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Riyadh"
                         points={[
                             {
                                 topic: "Parking",

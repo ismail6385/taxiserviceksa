@@ -120,6 +120,7 @@ export default function KhayberPageArabic() {
 
                     <div className="mt-12">
                         <MicroSemanticFAQ
+                        contextName="Khayber Fort"
                             isRtl={true}
                             labels={{
                                 title: "أسئلة شائعة",

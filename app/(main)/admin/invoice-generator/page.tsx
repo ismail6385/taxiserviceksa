@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+// html2pdf will be imported dynamically to avoid SSR issues
+
 import { 
     Printer, 
     Plus, 
@@ -107,6 +109,8 @@ export default function UniversalInvoiceGenerator() {
         date: '',
         currency: 'SAR',
         taxRate: 0,
+        status: 'Unpaid',
+        paymentMethod: 'Cash to Driver',
         subject: 'Official Confirmation of Transport Services',
         letterBody: 'Dear Client,\n\nWe are pleased to confirm your upcoming transport arrangements. Our professional chauffeur will be prepared at your designated location. \n\nPlease ensure your booking details are correct. Thank you for choosing our services.',
         notes: 'Terms & Conditions:\n• Price includes fuel and toll fees.\n• Cancellation is free up to 24 hours before pickup.',
@@ -176,16 +180,40 @@ export default function UniversalInvoiceGenerator() {
                         </button>
                     </div>
 
-                    <Button variant="outline" size="sm" onClick={() => {
+                    <Button variant="outline" size="sm" onClick={async () => {
                         const clientName = recipient.name ? recipient.name.replace(/\s+/g, '-') : 'Client';
                         const refId = meta.number || 'DRAFT';
                         const dateStr = meta.date || new Date().toISOString().split('T')[0];
-                        const originalTitle = document.title;
-                        document.title = `${mode === 'invoice' ? 'Invoice' : 'Letter'}-${refId}-${clientName}-${dateStr}`;
-                        window.print();
-                        setTimeout(() => { document.title = originalTitle; }, 1000);
+                        const filename = `${mode === 'invoice' ? 'Invoice' : 'Letter'}-${refId}-${clientName}-${dateStr}.pdf`;
+                        
+                        const element = document.getElementById('printable-area');
+                        if (!element) return;
+
+                        const opt = {
+                            margin: [0, 0, 0, 0] as [number, number, number, number],
+                            filename: filename,
+                            image: { type: 'jpeg' as const, quality: 0.98 },
+                            html2canvas: { 
+                                scale: 2, 
+                                useCORS: true, 
+                                letterRendering: true,
+                                windowWidth: 1200,
+                                scrollY: 0,
+                                scrollX: 0
+                            },
+                            jsPDF: { unit: 'mm' as const, format: 'a4' as const, orientation: 'portrait' as const }
+                        };
+
+                        try {
+                            // @ts-ignore - dynamic import to avoid SSR 'self is not defined'
+                            const html2pdf = (await import('html2pdf.js')).default;
+                            await html2pdf().set(opt).from(element).save();
+                        } catch (error) {
+                            console.error('PDF Generation Error:', error);
+                            window.print();
+                        }
                     }} className="font-bold border-gray-300">
-                        <Printer className="w-4 h-4 mr-2" /> Print PDF
+                        <Printer className="w-4 h-4 mr-2" /> Download PDF
                     </Button>
                     <Button variant="outline" size="sm" onClick={() => {
                         const subject = `${mode.toUpperCase()} from ${profile.name}`;
@@ -280,7 +308,19 @@ export default function UniversalInvoiceGenerator() {
                                 ))}
                             </div>
                             <div className="grid grid-cols-2 gap-4 mt-4 pt-4 border-t">
-                                <Input value={meta.currency} onChange={(e) => setMeta({...meta, currency: e.target.value})} className="h-8 uppercase text-center font-bold text-xs" />
+                                <div>
+                                    <Label className="text-[10px] text-gray-400 uppercase ml-1">Currency</Label>
+                                    <Select onValueChange={(val) => setMeta({...meta, currency: val})} defaultValue="SAR">
+                                        <SelectTrigger className="h-8 font-bold text-xs">
+                                            <SelectValue />
+                                        </SelectTrigger>
+                                        <SelectContent className="bg-white">
+                                            <SelectItem value="SAR">SAR</SelectItem>
+                                            <SelectItem value="KWD">KWD</SelectItem>
+                                            <SelectItem value="USD">USD</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
                                 <div className="text-right">
                                     <p className="text-[10px] text-gray-400 uppercase">Subtotal</p>
                                     <p className="font-bold text-gray-900">{meta.currency} {subtotal.toLocaleString()}</p>
@@ -327,8 +367,34 @@ export default function UniversalInvoiceGenerator() {
 
                     {/* Meta */}
                     <div className="bg-white rounded-xl border p-6 shadow-sm space-y-4">
-                        <Label className="text-xs font-bold text-gray-500 uppercase tracking-widest block font-sans">Document Meta</Label>
+                        <Label className="text-xs font-bold text-gray-500 uppercase tracking-widest block font-sans">Payment Details</Label>
                         <div className="grid grid-cols-2 gap-3">
+                            <div>
+                                <Label className="text-[10px] text-gray-400 uppercase ml-1">Status</Label>
+                                <Select value={meta.status} onValueChange={(val) => setMeta({...meta, status: val})}>
+                                    <SelectTrigger className="h-9 text-xs font-semibold">
+                                        <SelectValue />
+                                    </SelectTrigger>
+                                    <SelectContent className="bg-white">
+                                        <SelectItem value="Paid">Paid</SelectItem>
+                                        <SelectItem value="Unpaid">Unpaid</SelectItem>
+                                    </SelectContent>
+                                </Select>
+                            </div>
+                            <div>
+                                <Label className="text-[10px] text-gray-400 uppercase ml-1">Method</Label>
+                                <Select value={meta.paymentMethod} onValueChange={(val) => setMeta({...meta, paymentMethod: val})}>
+                                    <SelectTrigger className="h-9 text-xs font-semibold">
+                                        <SelectValue />
+                                    </SelectTrigger>
+                                    <SelectContent className="bg-white">
+                                        <SelectItem value="Cash to Driver">Cash to Driver</SelectItem>
+                                        <SelectItem value="Online Payment">Online Payment</SelectItem>
+                                    </SelectContent>
+                                </Select>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-3 pt-2">
                             <div>
                                 <Label className="text-[10px] text-gray-400 uppercase ml-1">Ref ID</Label>
                                 <Input value={meta.number} onChange={(e) => setMeta({...meta, number: e.target.value})} className="h-9 text-xs" />
@@ -345,10 +411,9 @@ export default function UniversalInvoiceGenerator() {
                     </div>
                 </div>
 
-                {/* Printable Canvas */}
                 <div className="flex-1 flex justify-center">
-                    <div id="printable-area" className="w-full max-w-[210mm] bg-white aspect-[1/1.414] shadow-xl border border-gray-100 overflow-hidden print:shadow-none print:border-none print:m-0">
-                        <div className="h-full flex flex-col p-12 md:p-16 relative font-sans text-gray-900">
+                    <div id="printable-area" className="w-full max-w-[210mm] h-[296mm] overflow-hidden bg-white shadow-xl border border-gray-100 print:shadow-none print:border-none print:m-0">
+                        <div className="h-full flex flex-col p-12 md:p-16 relative font-sans text-gray-900 justify-between overflow-hidden">
                             
                             {/* Company Header */}
                             <div className="flex justify-between items-start mb-12 border-b-2 border-gray-100 pb-8">
@@ -367,6 +432,16 @@ export default function UniversalInvoiceGenerator() {
                                 </div>
                                 <div className="text-right space-y-1">
                                     <h1 className="text-3xl font-black text-gray-100 uppercase tracking-[0.2em] leading-none mb-4">{mode}</h1>
+                                    <div className="flex gap-2 justify-end mb-4 antialiased">
+                                        <div className={`px-2 py-0.5 rounded text-[9px] font-black uppercase tracking-widest ${
+                                            meta.status === 'Paid' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                                        }`}>
+                                            {meta.status}
+                                        </div>
+                                        <div className="px-2 py-0.5 rounded bg-blue-50 text-blue-700 text-[9px] font-black uppercase tracking-widest">
+                                            {meta.paymentMethod}
+                                        </div>
+                                    </div>
                                     <div className="text-xs space-y-0.5 pt-2">
                                         <p className="font-bold text-gray-400 text-[10px] uppercase">Reference ID</p>
                                         <p className="font-bold text-gray-900 text-sm">#{meta.number}</p>
@@ -412,12 +487,12 @@ export default function UniversalInvoiceGenerator() {
                                                     <th className="px-6 py-4 text-right text-[10px] font-bold text-gray-400 uppercase tracking-widest w-40">Amount ({meta.currency})</th>
                                                 </tr>
                                             </thead>
-                                            <tbody className="divide-y divide-gray-50 text-xs">
+                                            <tbody className="divide-y divide-gray-100 text-[13px]">
                                                 {items.map((item) => (
                                                     <tr key={item.id}>
-                                                        <td className="px-6 py-5 font-bold text-gray-900 uppercase">{item.description || 'SERVICE DESCRIPTION'}</td>
-                                                        <td className="px-6 py-5 text-center font-bold text-gray-500">{item.quantity}</td>
-                                                        <td className="px-6 py-5 text-right font-bold text-gray-900">{(item.quantity * item.price).toFixed(2)}</td>
+                                                        <td className="px-8 py-6 font-black text-gray-900 uppercase tracking-tight">{item.description || 'SERVICE DESCRIPTION'}</td>
+                                                        <td className="px-8 py-6 text-center font-bold text-gray-500">{item.quantity}</td>
+                                                        <td className="px-8 py-6 text-right font-black text-gray-900">{(item.quantity * item.price).toFixed(2)}</td>
                                                     </tr>
                                                 ))}
                                             </tbody>
@@ -446,18 +521,30 @@ export default function UniversalInvoiceGenerator() {
                             )}
 
                             {/* Footer */}
-                            <div className="mt-12 pt-8 border-t border-gray-100 flex justify-between items-end gap-12">
+                            <div className="mt-auto pt-10 border-t-2 border-gray-100 flex justify-between items-end gap-12">
                                 <div className="max-w-md">
-                                    <p className="text-[9px] font-bold text-gray-300 uppercase mb-2 tracking-widest">Important Notes</p>
-                                    <p className="text-[10px] font-semibold text-gray-500 italic leading-relaxed whitespace-pre-wrap opacity-80">
+                                    <p className="text-[10px] font-black text-gray-300 uppercase mb-4 tracking-[0.2em]">Important Notes</p>
+                                    {meta.paymentMethod === 'Cash to Driver' && (
+                                        <p className="text-[10px] font-black text-gray-900 uppercase italic mb-2 tracking-tight">
+                                            Hand over the payment to the driver upon journey completion.
+                                        </p>
+                                    )}
+                                    <p className="text-xs font-semibold text-gray-500 italic leading-relaxed whitespace-pre-wrap opacity-80">
                                         {meta.notes}
                                     </p>
                                 </div>
-                                <div className="text-center min-w-[150px]">
-                                    <div className="border-b-2 border-gray-200 h-12 flex items-end justify-center px-4 mb-2">
-                                        <span className="text-gray-200 font-serif italic text-xl opacity-30 select-none">{profile.name}</span>
+                                <div className="text-right min-w-[200px]">
+                                    <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Authorized Partners</p>
+                                    <div className="flex items-end justify-end gap-6 h-12">
+                                        <div className="text-center">
+                                            <img src="/zumer-signature.png" alt="Zumer" className="h-full w-auto object-contain select-none" />
+                                            <p className="text-[7px] font-bold text-gray-300 mt-1 uppercase italic tracking-widest">Zumer</p>
+                                        </div>
+                                        <div className="text-center">
+                                            <img src="/ismail-signature.png" alt="Ismail" className="h-full w-auto object-contain select-none" />
+                                            <p className="text-[7px] font-bold text-gray-300 mt-1 uppercase italic tracking-widest">Ismail</p>
+                                        </div>
                                     </div>
-                                    <p className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Official Signature</p>
                                 </div>
                             </div>
 
@@ -469,17 +556,30 @@ export default function UniversalInvoiceGenerator() {
 
             <style jsx global>{`
                 @media print {
-                    @page { margin: 0; size: auto; }
-                    body { background: white !important; margin: 0 !important; }
-                    main { margin: 0 !important; padding: 0 !important; }
-                    .md\\:ml-64, header, nav, aside, .print\\:hidden { display: none !important; }
+                    html, body { 
+                        background: white !important; 
+                        margin: 0 !important; 
+                        padding: 0 !important;
+                    }
                     #printable-area {
                         width: 210mm !important;
-                        height: 297mm !important;
+                        height: 296mm !important;
+                        background: white !important;
                         box-shadow: none !important;
                         border: none !important;
-                        margin: 0 !important;
-                        position: static !important;
+                        margin: 0 auto !important;
+                        position: relative !important;
+                        page-break-after: avoid !important;
+                        page-break-before: avoid !important;
+                        page-break-inside: avoid !important;
+                        overflow: hidden !important;
+                    }
+                    * {
+                        page-break-inside: avoid !important;
+                    }
+                    * {
+                        -webkit-print-color-adjust: exact !important;
+                        print-color-adjust: exact !important;
                     }
                 }
             `}</style>

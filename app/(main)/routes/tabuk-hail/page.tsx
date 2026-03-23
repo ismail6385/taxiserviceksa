@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Hail Taxi | Private Car Service 660 km | Fixed Price',
+    title: 'Tabuk to Hail Taxi | Private Car Service 660 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Hail. Reliable 6-7 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Hail taxi', 'taxi from Tabuk to Hail', 'private transfer Tabuk to Hail', 'chauffeur Tabuk to Hail', 'Tabuk to Hail car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-hail/',
     },
     openGraph: {
-        title: 'Tabuk to Hail Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Hail Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 660 km drive. Request a quote for a comfortable ride from Tabuk to Hail. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-hail/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukHailRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Hail"
                 faqs={[
 {
                         question: "How long is the drive from Tabuk to Hail?",

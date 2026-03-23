@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi to Al Shafa Taif | Mountain Park & Resort Transfer',
+    title: 'Taxi to Al Shafa Taif | Mountain Park & Resort Transfer | Taxi Service KSA',
     description: 'Request a quote for a taxi to Al Shafa Mountain (Jabal Shafa) in Taif. Visit scenic parks, horse riding spots, and fruit farms. Reliable mountain drivers.',
     keywords: ['Taxi to Al Shafa', 'Al Shafa Taif taxi', 'Jabal Shafa transport', 'Taif nature tour', 'Al Shafa resorts taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/taif/al-shafa/',
     },
     openGraph: {
-        title: 'Taxi to Al Shafa Mountains (Taif)',
+        title: 'Taxi to Al Shafa Mountains (Taif) | Taxi Service KSA',
         description: 'Private transfer to the stunning peaks of Al Shafa. Enjoy cool weather, horse riding, and nature parks with our reliable taxi service.',
         url: 'https://taxiserviceksa.com/locations/taif/al-shafa/',
         type: 'website',
@@ -143,6 +143,7 @@ export default function AlShafaPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Taif"
                         points={[
                             {
                                 topic: "Al Hada vs Al Shafa",

@@ -11,7 +11,7 @@ import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
-    title: 'Taxi Makkah to Jeddah | Makkah to Jeddah Private Car',
+    title: 'Makkah to Jeddah Taxi | Makkah to Jeddah Private Car | Taxi Service KSA',
     description: 'Book the best online taxi from Makkah to Jeddah. Reliable 24/7 transfer from Makkah hotels to Jeddah city or airport. Fixed rates, VIP GMC Yukons, and door-to-door excellence.',
     keywords: ['Taxi Makkah to Jeddah', 'Makkah to Jeddah Taxi', 'Makkah to Jeddah private car', 'taxi price Makkah to Jeddah', 'Makkah to Jeddah transport', 'private transfer Makkah to Jeddah'],
     alternates: {
@@ -45,7 +45,7 @@ export default function MakkahJeddahRoutePage() {
 
             <Hero
                 images={['/makkah-kaaba-night.webp', '/jeddah-corniche-sunset.webp']}
-                h1Text="Taxi Makkah to Jeddah"
+                h1Text="Makkah to Jeddah Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Makkah → Jeddah VIP
@@ -158,8 +158,8 @@ export default function MakkahJeddahRoutePage() {
             />
 
             <div className="max-w-4xl mx-auto py-20 px-4">
-                <h2 className="text-3xl font-black text-gray-900 mb-12 text-center">Makkah to Jeddah Taxi FAQ</h2>
-                <MicroSemanticFAQ 
+                <MicroSemanticFAQ
+                        contextName="Makkah to Jeddah" 
                     faqs={[
                         {
                             question: "How much is a taxi from Makkah to Jeddah?",

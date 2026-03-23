@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Sultana Road Madinah | Premium Chauffeur',
+    title: 'VIP Private Transfer to Sultana Road Madinah | Premium Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service to Sultana Road (Sultanah) in Madinah. Luxury transport for shopping, dining, and cafes.',
     keywords: ['Sultana Road VIP transfer', 'Madinah shopping premium chauffeur', 'Sultanah VIP transport', 'Madinah executive lifestyle car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/madinah/sultana/',
     },
     openGraph: {
-        title: 'Taxi to Sultana Road (Dining Hub)',
+        title: 'Taxi to Sultana Road (Dining Hub) | Taxi Service KSA',
         description: 'Enjoy the nightlife of Madinah on Sultana Road. We provide reliable transfers from your hotel to the best restaurants and shops.',
         url: 'https://taxiserviceksa.com/locations/madinah/sultana/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function SultanaPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Madinah"
                         points={[
                             {
                                 topic: "Traffic",

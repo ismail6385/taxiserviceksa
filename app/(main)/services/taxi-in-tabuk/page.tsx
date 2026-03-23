@@ -8,14 +8,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 
 export const metadata: Metadata = {
-    title: 'Taxi Tabuk to NEOM | Private Car Service | Taxi in Tabuk',
+    title: 'Tabuk to NEOM Taxi | Private Car Service | Taxi in Tabuk | Taxi Service KSA',
     description: 'Book the best online taxi in Tabuk. We specialize in Tabuk to NEOM taxi services, city transfers, and long-distance private transfers with VIP cars.',
     keywords: ['Taxi Tabuk to NEOM', 'Taxi in Tabuk', 'Tabuk to Neom Taxi', 'Taxi Tabuk to Madinah', 'Tabuk Private Car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/taxi-in-tabuk/',
     },
     openGraph: {
-        title: 'Taxi in Tabuk | Reliable NEOM & City Transfers',
+        title: 'Taxi in Tabuk | Reliable NEOM & City Transfers | Taxi Service KSA',
         description: 'Premium taxi service in Tabuk specializing in long-distance intercity travel uniquely focused on NEOM connectivity.',
         url: 'https://taxiserviceksa.com/services/taxi-in-tabuk/',
         type: 'website',
@@ -236,6 +236,7 @@ export default function TaxiInTabukPage() {
 
             {/* Dedicated MicroSemanticFAQ for "Taxi in Tabuk" */}
             <MicroSemanticFAQ
+                        contextName="Taxi In Tabuk"
                 faqs={[
                     {
                         question: "How long is the taxi ride from Tabuk to NEOM?",

@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi to Khobar Corniche | Waterfront & Restaurant Transfer',
+    title: 'Taxi to Khobar Corniche | Waterfront & Restaurant Transfer | Taxi Service KSA',
     description: 'Request a quote for a taxi to Al Khobar Corniche. Visit the Water Tower, Ajdan Walk, and best waterfront restaurants. Reliable family transfers in Eastern Province.',
     keywords: ['Khobar Corniche taxi', 'Al Khobar waterfront taxi', 'Taxi to Ajdan Walk', 'Khobar Water Tower taxi', 'Eastern Province corniche taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/al-khobar/corniche/',
     },
     openGraph: {
-        title: 'Taxi to Al Khobar Corniche & Waterfront',
+        title: 'Taxi to Al Khobar Corniche & Waterfront | Taxi Service KSA',
         description: 'Enjoy the best views in the Eastern Province. Private taxi drop-off at Khobar Corniche, Ajdan Walk, and new extension.',
         url: 'https://taxiserviceksa.com/locations/al-khobar/corniche/',
         type: 'website',
@@ -143,6 +143,7 @@ export default function KhobarCornichePage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Al Khobar"
                         points={[
                             {
                                 topic: "Traffic",

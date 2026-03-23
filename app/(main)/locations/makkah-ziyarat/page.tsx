@@ -16,7 +16,7 @@ import ExpertReview from '@/components/seo/ExpertReview';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Ziyarat Tours Makkah | Premium Chauffeur Heritage',
+    title: 'VIP Private Ziyarat Tours Makkah | Premium Chauffeur Heritage | Taxi Service KSA',
     description: 'Premium VIP private Ziyarat tours in Makkah. Visit Jabal Al-Nour, Jabal Thawr, Arafat, and Mina with an executive chauffeur. Luxury vehicle options for pilgrims.',
     keywords: ['Makkah VIP Ziyarat', 'Premium Makkah holy sites tour', 'Executive chauffeur Makkah Ziyarat', 'Luxury pilgrim transport Makkah'],
     alternates: {
@@ -192,6 +192,7 @@ export default function MakkahZiyaratPage() {
 
                 <div className="mt-16">
                     <TravelConsensus
+                        contextName="Makkah Ziyarat"
                         points={[
                             {
                                 topic: "Climbing Cave Hira",

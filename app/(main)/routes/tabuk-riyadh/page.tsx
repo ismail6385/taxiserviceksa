@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Riyadh Taxi | Private Car Service 1280 km | Fixed Price',
+    title: 'Tabuk to Riyadh Taxi | Private Car Service 1280 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Riyadh. Reliable 12-13 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Riyadh taxi', 'taxi from Tabuk to Riyadh', 'private transfer Tabuk to Riyadh', 'chauffeur Tabuk to Riyadh', 'Tabuk to Riyadh car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-riyadh/',
     },
     openGraph: {
-        title: 'Tabuk to Riyadh Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Riyadh Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1280 km drive. Request a quote for a comfortable ride from Tabuk to Riyadh. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-riyadh/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukRiyadhRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Riyadh"
                 faqs={[
 {
                         question: "Is the price for the whole car?",

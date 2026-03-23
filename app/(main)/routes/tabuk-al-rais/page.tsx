@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Al Rais Taxi | Private Car Service 650 km | Fixed Price',
+    title: 'Tabuk to Al Rais Taxi | Private Car Service 650 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Al Rais. Reliable 6-7 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Al Rais taxi', 'taxi from Tabuk to Al Rais', 'private transfer Tabuk to Al Rais', 'chauffeur Tabuk to Al Rais', 'Tabuk to Al Rais car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-al-rais/',
     },
     openGraph: {
-        title: 'Tabuk to Al Rais Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Al Rais Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 650 km drive. Request a quote for a comfortable ride from Tabuk to Al Rais. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-al-rais/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAlRaisRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Rais"
                 faqs={[
 {
                         question: "How long is the drive from Tabuk to Al Rais?",

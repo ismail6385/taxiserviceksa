@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Hafar Al Batin Taxi | Private Car Service 1050 km | Fixed Price',
+    title: 'Tabuk to Hafar Al Batin Taxi | Private Car Service 1050 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Hafar Al Batin. Reliable 10-11 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Hafar Al Batin taxi', 'taxi from Tabuk to Hafar Al Batin', 'private transfer Tabuk to Hafar Al Batin', 'chauffeur Tabuk to Hafar Al Batin', 'Tabuk to Hafar Al Batin car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-hafar-al-batin/',
     },
     openGraph: {
-        title: 'Tabuk to Hafar Al Batin Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Hafar Al Batin Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1050 km drive. Request a quote for a comfortable ride from Tabuk to Hafar Al Batin. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-hafar-al-batin/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukHafarAlBatinRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Hafar Al Batin"
                 faqs={[
 {
                         question: "How long is the drive from Tabuk to Hafar Al Batin?",

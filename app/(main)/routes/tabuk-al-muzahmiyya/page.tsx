@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Al-Muzahmiyya Taxi | Private Car Service 1300 km | Fixed Price',
+    title: 'Tabuk to Al-Muzahmiyya Taxi | Private Car Service 1300 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Al-Muzahmiyya. Reliable 12-13 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Al-Muzahmiyya taxi', 'taxi from Tabuk to Al-Muzahmiyya', 'private transfer Tabuk to Al-Muzahmiyya', 'chauffeur Tabuk to Al-Muzahmiyya', 'Tabuk to Al-Muzahmiyya car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-al-muzahmiyya/',
     },
     openGraph: {
-        title: 'Tabuk to Al-Muzahmiyya Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Al-Muzahmiyya Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1300 km drive. Request a quote for a comfortable ride from Tabuk to Al-Muzahmiyya. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-al-muzahmiyya/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAlMuzahmiyyaRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Muzahmiyya"
                 faqs={[
 {
                         question: "What vehicles do you have available?",

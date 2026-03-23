@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Madinah to Jeddah Airport (JED) Departures Taxi | 24/7 Transfer',
+    title: 'Madinah to Jeddah Airport (JED) Departures Taxi | 24/7 Transfer | Taxi Service KSA',
     description: 'Reliable taxi from Madinah to Jeddah Airport Departures (North Terminal & Terminal 1). Flight tracking included to ensure on-time arrival. Affordable fixed prices.',
     keywords: ['Madinah to Jeddah Airport taxi', 'JED airport departure transfer', 'Madinah to Terminal 1', 'taxi to Jeddah North Terminal', 'Madinah Jeddah airport fare'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/madinah-to-jeddah-airport-departures/',
     },
     openGraph: {
-        title: 'Madinah to Jeddah Airport (JED) Departures Taxi',
+        title: 'Madinah to Jeddah Airport (JED) Departures Taxi | Taxi Service KSA',
         description: 'Direct transfer for your return flight. Madinah to JED Terminal 1/North. On-time guarantee.',
         url: 'https://taxiserviceksa.com/madinah-to-jeddah-airport-departures/',
         type: 'website',
@@ -187,6 +187,7 @@ export default function MadinahToJeddahAirportPage() {
             </div>
 
             <MicroSemanticFAQ
+                        contextName="Madinah To Jeddah Airport Departures"
                 faqs={[
                     {
                         question: "How much is a taxi from Madinah to Jeddah Airport?",

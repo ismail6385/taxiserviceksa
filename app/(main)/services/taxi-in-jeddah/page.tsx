@@ -8,14 +8,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 
 export const metadata: Metadata = {
-    title: 'Taxi Jeddah to Makkah | Jeddah Airport Taxi | Taxi in Jeddah',
+    title: 'Jeddah to Makkah Taxi | Jeddah Airport Taxi | Taxi in Jeddah | Taxi Service KSA',
     description: 'Looking for the best online taxi in Jeddah? We provide Jeddah Airport taxi services, VIP chauffeur cars, and direct transfers Jeddah to Makkah or Madinah.',
     keywords: ['Taxi Jeddah to Makkah', 'Jeddah Airport Taxi', 'Taxi in Jeddah', 'Jeddah to Makkah Taxi', 'Taxi Jeddah Airport to Makkah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/taxi-in-jeddah/',
     },
     openGraph: {
-        title: 'Taxi in Jeddah | Premium Chauffeured Cars',
+        title: 'Taxi in Jeddah | Premium Chauffeured Cars | Taxi Service KSA',
         description: 'Elite private taxis and executive SUVs in Jeddah for VIPs, corporate travel, and Umrah pilgrims.',
         url: 'https://taxiserviceksa.com/services/taxi-in-jeddah/',
         type: 'website',
@@ -236,6 +236,7 @@ export default function TaxiInJeddahPage() {
 
             {/* Dedicated MicroSemanticFAQ for "Taxi in Jeddah" */}
             <MicroSemanticFAQ
+                        contextName="Taxi In Jeddah"
                 faqs={[
                     {
                         question: "Can I Request a quote for a VIP taxi from Jeddah Airport?",

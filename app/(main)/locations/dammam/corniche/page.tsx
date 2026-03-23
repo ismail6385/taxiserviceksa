@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi to Dammam Corniche | Seaside & Marjan Island Transfer',
+    title: 'Taxi to Dammam Corniche | Seaside & Marjan Island Transfer | Taxi Service KSA',
     description: 'Request a quote for a taxi to Dammam Corniche and Marjan Island. Enjoy the sea breeze with our reliable transfers from Dammam Airport (DMM) or Al Khobar.',
     keywords: ['Taxi to Dammam Corniche', 'Dammam waterfront taxi', 'Marjan Island transport', 'Dammam Airport to Corniche', 'Khobar to Dammam Corniche'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/dammam/corniche/',
     },
     openGraph: {
-        title: 'Taxi to Dammam Corniche & Marjan Island',
+        title: 'Taxi to Dammam Corniche & Marjan Island | Taxi Service KSA',
         description: 'The best family picnic spot in the Eastern Province. We provide safe rides for families and groups to the Dammam waterfront.',
         url: 'https://taxiserviceksa.com/locations/dammam/corniche/',
         type: 'website',
@@ -143,6 +143,7 @@ export default function DammamCornichePage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Dammam"
                         points={[
                             {
                                 topic: "Humidity",

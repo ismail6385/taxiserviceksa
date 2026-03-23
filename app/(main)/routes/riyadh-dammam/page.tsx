@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi Riyadh to Dammam | Business & Private Transfers',
+    title: 'Riyadh to Dammam Taxi | Business & Private Transfers | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Riyadh to Dammam. Door-to-door luxury transfers for business meetings, airport connections, and family trips. Fixed rates.',
     keywords: ['Taxi Riyadh to Dammam', 'Riyadh to Dammam car', 'Riyadh to Khobar taxi', 'Riyadh to Dammam airport transfer', 'One way taxi Riyadh Dammam'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/riyadh-dammam/',
     },
     openGraph: {
-        title: 'Executive Taxi: Riyadh to Dammam / Khobar',
+        title: 'Executive Taxi: Riyadh to Dammam / Khobar | Taxi Service KSA',
         description: 'Need to travel between Riyadh and Dammam? Skip the flight hassle. Our luxury GMCs provide comfortable 3.5-hour door-to-door service.',
         url: 'https://taxiserviceksa.com/routes/riyadh-dammam/',
         type: 'website',
@@ -51,7 +51,7 @@ export default function RiyadhDammamRoutePage() {
 
             <Hero
                 images={images}
-                h1Text="Taxi Riyadh to Dammam & Khobar"
+                h1Text="Riyadh to Dammam & Khobar Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         The Business Corridor
@@ -143,6 +143,7 @@ export default function RiyadhDammamRoutePage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Riyadh to Dammam"
                         points={[
                             {
                                 topic: "Flying vs Driving",

@@ -61,10 +61,6 @@ export default function Hero(props: HeroProps) {
             'Riyadh cityscape - Premium intercity taxi and chauffeur service from Jeddah to Riyadh, Saudi Arabia'
         ];
 
-
-
-
-
     return (
         <section className="relative bg-white text-gray-900 min-h-[800px] flex flex-col justify-center items-center py-20" aria-label="Hero section">
             {/* Background Image - Static */}
@@ -123,6 +119,7 @@ export default function Hero(props: HeroProps) {
                     <a 
                         href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20get%20a%20VIP%20taxi%20quote." 
                         target="_blank"
+                        rel="nofollow noopener noreferrer"
                         className="group flex items-center justify-center gap-4 bg-emerald-600 hover:bg-emerald-700 text-white font-black py-6 px-10 rounded-[2rem] text-xl shadow-2xl shadow-emerald-500/40 transition-all hover:scale-105 active:scale-95 animate-pulse-slow"
                     >
                         <div className="relative">
@@ -140,7 +137,6 @@ export default function Hero(props: HeroProps) {
                     </div>
                 )}
             </div>
-
 
         </section>
     );

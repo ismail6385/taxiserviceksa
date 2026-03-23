@@ -26,22 +26,22 @@ export default function BusinessPage() {
     const features = [
         {
             icon: Clock,
-            title: 'Punctuality Guaranteed',
+            title: 'Punctuality Guaranteed | Taxi Service KSA',
             desc: 'We understand the value of your time. Our drivers arrive 15 minutes early for all business bookings.'
         },
         {
             icon: Building2,
-            title: 'Corporate Accounts',
+            title: 'Corporate Accounts | Taxi Service KSA',
             desc: 'Streamlined billing with monthly invoicing and detailed reporting for registered corporate clients.'
         },
         {
             icon: Shield,
-            title: 'Confidentiality',
+            title: 'Confidentiality | Taxi Service KSA',
             desc: 'Professional, discreet drivers trained to respect your privacy during sensitive discussions.'
         },
         {
             icon: Wifi,
-            title: 'On-Board WiFi',
+            title: 'On-Board WiFi | Taxi Service KSA',
             desc: 'Stay connected on the go with high-speed internet available in our executive fleet (upon request).'
         }
     ];
@@ -136,6 +136,7 @@ export default function BusinessPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <MicroSemanticFAQ
+                        contextName="Business"
                         faqs={[
                             {
                                 question: "How do I open a corporate VIP account?",

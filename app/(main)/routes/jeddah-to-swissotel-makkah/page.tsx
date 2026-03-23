@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Taxi Jeddah Airport to Swissotel Makkah | Hotel Drop-Off',
+    title: 'Jeddah Airport to Swissotel Makkah Taxi | Hotel Drop-Off | Taxi Service KSA',
     description: 'Book private taxi from Jeddah Airport (KAIA) to Swissotel Makkah (Clock Tower). Door-to-door drop-off at Abraj Al Bait tunnel. Affordable fixed prices. 24/7 Service.',
     keywords: ['Jeddah airport to Swissotel Makkah taxi', 'Swissotel Makkah transfer', 'taxi Jeddah to Clock Tower', 'Abraj Al Bait taxi drop off', 'Jeddah to Makkah taxi fare'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/jeddah-to-swissotel-makkah/',
     },
     openGraph: {
-        title: 'Taxi Jeddah Airport to Swissotel Makkah | Fixed Price Transfer',
+        title: 'Jeddah Airport to Swissotel Makkah Taxi | Fixed Price Transfer | Taxi Service KSA',
         description: 'Direct transfer from KAIA Airport to Swissotel Makkah (Clock Tower). VIP drop-off service.',
         url: 'https://taxiserviceksa.com/jeddah-to-swissotel-makkah/',
         type: 'website',
@@ -213,6 +213,7 @@ export default function JeddahToSwissotelPage() {
             </div>
 
             <MicroSemanticFAQ
+                        contextName="Jeddah To Swissotel Makkah"
                 faqs={[
                     {
                         question: "How much is a taxi from Jeddah Airport to Swissotel Makkah?",

@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
-    title: 'Taxi to Yanbu Industrial City (Royal Commission) | Business Transfer',
+    title: 'Taxi to Yanbu Industrial City (Royal Commission) | Business Transfer | Taxi Service KSA',
     description: 'Request a quote for a reliable taxi to Yanbu Industrial City (Royal Commission). Daily transfers from Yanbu Airport (YNB) to major plants (SABIC, Yanpet) and hotels.',
     keywords: ['Yanbu Industrial City taxi', 'Royal Commission Yanbu transport', 'Yanbu Airport to Industrial City', 'Yanbu RC taxi', 'SABIC Yanbu transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/yanbu/industrial-city/',
     },
     openGraph: {
-        title: 'Taxi to Yanbu Industrial City (Royal Commission)',
+        title: 'Taxi to Yanbu Industrial City (Royal Commission) | Taxi Service KSA',
         description: 'Professional transport services for business travelers in Yanbu Industrial City. Gate drop-offs for major industries.',
         url: 'https://taxiserviceksa.com/locations/yanbu/industrial-city/',
         type: 'website',
@@ -135,6 +135,7 @@ export default function YanbuIndustrialPage() {
             </div>
 
             <MicroSemanticFAQ
+                        contextName="Yanbu"
                 faqs={[
                     {
                         question: "How far is the Industrial City from Yanbu Airport?",

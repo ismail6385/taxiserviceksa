@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import {
     Users,
@@ -151,10 +152,12 @@ export default function PartnersPage() {
                         </div>
                         <div className="relative">
                             <div className="absolute inset-0 bg-primary/5 rounded-[3rem] -rotate-3 transform translate-x-4 translate-y-4"></div>
-                            <img
+                            <Image
                                 src="/makkah-driver-trust.png"
                                 alt="Saudi Taxi Partners"
-                                className="relative z-10 w-full rounded-[3rem] shadow-2xl"
+                                width={800}
+                                height={600}
+                                className="relative z-10 w-full rounded-[3rem] shadow-2xl h-auto"
                             />
                         </div>
                     </div>

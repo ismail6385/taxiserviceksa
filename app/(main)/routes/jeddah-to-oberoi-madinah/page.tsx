@@ -9,14 +9,14 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Jeddah to Oberoi Madinah Taxi | VIP Transfer - Fixed Price',
+    title: 'Jeddah to Oberoi Madinah Taxi | VIP Transfer - Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a VIP luxury taxi from Jeddah Airport to The Oberoi Madinah Hotel. Door-to-door first-class service for executive guests. 24/7 Availability.',
     keywords: ['Jeddah to Oberoi Madinah taxi', 'Jeddah airport to The Oberoi Hotel Madinah', 'VIP transfer Madinah Oberoi', 'luxury taxi Jeddah to Madinah', 'Oberoi Madinah transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-oberoi-madinah/',
     },
     openGraph: {
-        title: 'VIP Transfer: Jeddah Airport to The Oberoi Madinah',
+        title: 'VIP Transfer: Jeddah Airport to The Oberoi Madinah | Taxi Service KSA',
         description: 'First-class private transfer to The Oberoi Madinah. GMC Yukon & luxury options available. Direct drop-off at hotel entrance.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-oberoi-madinah/',
         type: 'website',
@@ -151,6 +151,7 @@ export default function JeddahToOberoiMadinahPage() {
             </div>
 
             <MicroSemanticFAQ
+                        contextName="Jeddah To Oberoi Madinah"
                 faqs={[
                     {
                         question: "How much is a taxi from Jeddah Airport to Oberoi Madinah?",

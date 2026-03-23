@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Al-Balad | Historic Jeddah UNESCO Tour',
+    title: 'VIP Private Transfer to Al-Balad | Historic Jeddah UNESCO Tour | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service to Historic Jeddah (Al-Balad). UNESCO World Heritage site tours with professional heritage-trained drivers.',
     keywords: ['Al-Balad VIP transfer', 'Historic Jeddah executive chauffeur', 'Jeddah Old Town premium transport', 'UNESCO Jeddah tour'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/al-balad/',
     },
     openGraph: {
-        title: 'VIP Private Transfer to Historic Jeddah (Al-Balad)',
+        title: 'VIP Private Transfer to Historic Jeddah (Al-Balad) | Taxi Service KSA',
         description: 'Explore the UNESCO heritage site of Al-Balad in comfort. Premium VIP private transfer and elite chauffeur service for historic tours.',
         url: 'https://taxiserviceksa.com/locations/jeddah/al-balad/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function AlBaladPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Jeddah"
                         points={[
                             {
                                 topic: "Walking",

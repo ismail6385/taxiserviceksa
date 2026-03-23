@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Jeddah Islamic Port | Seaport Chauffeur',
+    title: 'VIP Private Transfer Jeddah Islamic Port | Seaport Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service from Jeddah Islamic Port to Makkah. Reliable terminal pickup for pilgrims arriving by ferry.',
     keywords: ['Jeddah Islamic Port VIP transfer', 'Jeddah seaport premium chauffeur', 'Jeddah port to Makkah VIP', 'Ferry terminal executive transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/islamic-port/',
     },
     openGraph: {
-        title: 'VIP Private Transfer Jeddah Islamic Port | Seaport Chauffeur',
+        title: 'VIP Private Transfer Jeddah Islamic Port | Seaport Chauffeur | Taxi Service KSA',
         description: 'Direct VIP private transfer for sea arrivals. Premier chauffeur service from the passenger terminal to Makkah or Madinah.',
         url: 'https://taxiserviceksa.com/locations/jeddah/islamic-port/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function JeddahPortPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Jeddah"
                         points={[
                             {
                                 topic: "Port Security",

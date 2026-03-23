@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Olaya District Riyadh | Premium Chauffeur',
+    title: 'VIP Private Transfer to Olaya District Riyadh | Premium Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service for Olaya, Riyadh. Professional transport to Kingdom Centre, Al Faisaliah Tower, and Tahlia Street.',
     keywords: ['Olaya VIP transfer', 'Riyadh downtown premium chauffeur', 'Kingdom Centre VIP car', 'Faisaliah Tower executive transport', 'Olaya Street VIP transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/olaya/',
     },
     openGraph: {
-        title: 'VIP Private Transfer to Olaya District (Riyadh Downtown)',
+        title: 'VIP Private Transfer to Olaya District (Riyadh Downtown) | Taxi Service KSA',
         description: 'Elite VIP private transfer and professional chauffeur service for Riyadh\'s financial heart. Serving Kingdom Centre, Faisaliah, and major hotels.',
         url: 'https://taxiserviceksa.com/locations/riyadh/olaya/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function OlayaPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Riyadh"
                         points={[
                             {
                                 topic: "Parking",

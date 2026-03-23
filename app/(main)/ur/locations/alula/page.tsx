@@ -291,6 +291,7 @@ export default function AlUlaPageUrdu() {
 
                     <div className="mt-16">
                         <TravelConsensus
+                        contextName="Alula"
                             isRtl={true}
                             labels={{
                                 title: "العلا سفر: حقائق",

@@ -14,7 +14,7 @@ import Image from 'next/image';
 import DriverMeetGreet from '@/components/DriverMeetGreet';
 
 export const metadata: Metadata = {
-    title: 'Jeddah Airport to Makkah Taxi | JED to Haram Transfer',
+    title: 'Jeddah Airport to Makkah Taxi | JED to Haram Transfer | Taxi Service KSA',
     description: 'Official taxi service from Jeddah Airport (JED) to Makkah hotels. 24/7 Meet & Greet at arrivals. Fixed price private transfers for Umrah pilgrims. 1 hour journey.',
     keywords: ['Jeddah airport to Makkah taxi', 'JED to Makkah transfer', 'Taxi fare Jeddah airport to Haram', 'Jeddah to Makkah cab', 'Umrah taxi Jeddah'],
     alternates: {
@@ -110,6 +110,7 @@ export default function JeddahAirportToMakkahPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <MicroSemanticFAQ
+                        contextName="Jeddah Makkah Old"
                         faqs={[
                             {
                                 question: "How much is the taxi fare?",

@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Taxi Riyadh to Doha | VIP Cross-Border Transfer',
+    title: 'Riyadh to Doha Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
     description: 'Request a premium quote from Riyadh to Doha. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Riyadh to Doha', 'Riyadh to Doha transfer', 'cross border taxi Saudi Arabia', 'VIP transport Riyadh Doha'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/riyadh-doha/',
     },
     openGraph: {
-        title: 'Taxi Riyadh to Doha',
+        title: 'Riyadh to Doha Taxi | Taxi Service KSA',
         description: 'Request a premium quote from Riyadh to Doha. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/riyadh-doha/',
         type: 'website',
@@ -52,7 +52,7 @@ export default function RiyadhDohaRoutePage() {
 
             <Hero
                 images={images}
-                h1Text="Taxi Riyadh to Doha"
+                h1Text="Riyadh to Doha Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         GCC Cross-Border Service
@@ -142,6 +142,7 @@ export default function RiyadhDohaRoutePage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Riyadh to Doha"
                         points={[
                             {
                                 topic: "Visas & ID",

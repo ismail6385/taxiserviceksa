@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Aziziyah to Haram Makkah | Premium Chauffeur',
+    title: 'VIP Private Transfer Aziziyah to Haram Makkah | Premium Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service from Aziziyah to Haram. Exclusive hotel pickups and dedicated pilgrim logistics.',
     keywords: ['Aziziyah VIP transfer', 'Aziziyah to Haram premium chauffeur', 'Aziziyah executive car', 'Makkah VIP pilgrim transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/makkah/aziziyah/',
     },
     openGraph: {
-        title: 'Taxi from Aziziyah to Haram (Makkah)',
+        title: 'from Aziziyah to Haram (Makkah) Taxi | Taxi Service KSA',
         description: 'Staying in Aziziyah? We provide fast 24/7 transfers to King Abdulaziz Gate and the Clock Tower.',
         url: 'https://taxiserviceksa.com/locations/makkah/aziziyah/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function AziziyahPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Makkah"
                         points={[
                             {
                                 topic: "Public Bus",

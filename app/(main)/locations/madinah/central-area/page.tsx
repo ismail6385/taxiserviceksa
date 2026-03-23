@@ -14,14 +14,14 @@ import Script from 'next/script';
 import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Madinah Central Area | Premium Chauffeur',
+    title: 'VIP Private Transfer Madinah Central Area | Premium Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service in the Madinah Central Area (Markaziya). Dedicated pickups for Oberoi and Hilton pilgrims.',
     keywords: ['Madinah Central Area VIP transfer', 'Markaziya premium chauffeur', 'Oberoi Madinah VIP transport', 'Hilton Madinah executive car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/madinah/central-area/',
     },
     openGraph: {
-        title: 'VIP Taxi Service Madinah Central Area | Markaziya Transfers',
+        title: 'VIP Taxi Service Madinah Central Area | Markaziya Transfers | Taxi Service KSA',
         description: 'Elite transportation in the heart of the Holy City. Specialized taxi services for all major hotels in the Madinah Markaziya district.',
         url: 'https://taxiserviceksa.com/locations/madinah/central-area/',
         type: 'website',

@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi to Jubail Industrial City (RC) | SABIC Transport',
+    title: 'Taxi to Jubail Industrial City (RC) | SABIC Transport | Taxi Service KSA',
     description: 'Request a quote for a taxi to Jubail Industrial City. Daily transfers from Dammam Airport (DMM) to SABIC, Sadara, and Royal Commission. Reliable business service.',
     keywords: ['Jubail Industrial City taxi', 'Royal Commission Jubail taxi', 'Dammam Airport to Jubail taxi', 'SABIC Jubail transport', 'Jubail RC transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jubail/industrial-city/',
     },
     openGraph: {
-        title: 'Taxi to Jubail Industrial City',
+        title: 'Taxi to Jubail Industrial City | Taxi Service KSA',
         description: 'Professional transport to the world\'s largest industrial city. Transfers to all major plants and RC camps.',
         url: 'https://taxiserviceksa.com/locations/jubail/industrial-city/',
         type: 'website',
@@ -143,6 +143,7 @@ export default function JubailIndustrialPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Jubail"
                         points={[
                             {
                                 topic: "Distance",

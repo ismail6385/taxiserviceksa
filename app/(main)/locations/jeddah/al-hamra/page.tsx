@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Al Hamra Jeddah | Executive Chauffeur',
+    title: 'VIP Private Transfer to Al Hamra Jeddah | Executive Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service to Al Hamra District, Jeddah. Transfers to Ritz Carlton and InterContinental with professional chauffeurs.',
     keywords: ['Al Hamra VIP transfer', 'Jeddah fountain premium chauffeur', 'Ritz Carlton Jeddah executive transport', 'Al Hamra Corniche VIP'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/al-hamra/',
     },
     openGraph: {
-        title: 'VIP Private Transfer Al Hamra | Executive Chauffeur',
+        title: 'VIP Private Transfer Al Hamra | Executive Chauffeur | Taxi Service KSA',
         description: 'Premium VIP private transfers to Jeddah\'s most prestigious district. Executive chauffeur service for Ritz Carlton and InterContinental guests.',
         url: 'https://taxiserviceksa.com/locations/jeddah/al-hamra/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function AlHamraPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Jeddah"
                         points={[
                             {
                                 topic: "Traffic",

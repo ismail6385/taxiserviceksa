@@ -316,6 +316,7 @@ export default function MakkahPageArabic() {
 
                     <div className="mt-12">
                         <TravelConsensus
+                        contextName="Makkah"
                             isRtl={true}
                             labels={{
                                 title: "حقائق السفر: ماذا تتوقع؟",

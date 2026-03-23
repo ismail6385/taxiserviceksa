@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Taxi Jeddah Airport to Pullman ZamZam Makkah | Hotel Drop-Off',
+    title: 'Jeddah Airport to Pullman ZamZam Makkah Taxi | Hotel Drop-Off | Taxi Service KSA',
     description: 'Direct taxi transfer from Jeddah Airport to Pullman ZamZam Makkah (Clock Tower). Affordable fixed rates. 24/7 Service. Book Online.',
     keywords: ['Jeddah to Pullman ZamZam taxi', 'Pullman Makkah transfer', 'taxi Jeddah to Abraj Al Bait', 'Pullman ZamZam hotel taxi', 'Jeddah to Makkah transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/jeddah-to-pullman-makkah/',
     },
     openGraph: {
-        title: 'Taxi Jeddah Airport to Pullman ZamZam Makkah',
+        title: 'Jeddah Airport to Pullman ZamZam Makkah Taxi | Taxi Service KSA',
         description: 'Reliable transfer from KAIA Airport to Pullman ZamZam Makkah. Door-to-door service.',
         url: 'https://taxiserviceksa.com/jeddah-to-pullman-makkah/',
         type: 'website',
@@ -195,6 +195,7 @@ export default function JeddahToPullmanPage() {
             </div>
 
             <MicroSemanticFAQ
+                        contextName="Jeddah To Pullman Makkah"
                 faqs={[
                     {
                         question: "How much is a taxi to Pullman ZamZam Makkah?",

@@ -43,19 +43,19 @@ export default function B2BSolutions() {
                         {[
                             {
                                 icon: Globe,
-                                title: 'Umrah Agencies',
+                                title: 'Umrah Agencies | Taxi Service KSA',
                                 desc: 'Reliable fleet management for pilgrim groups of all sizes. Makkah, Madinah, and Jeddah coverage.',
                                 color: 'bg-emerald-50 text-emerald-600'
                             },
                             {
                                 icon: Building2,
-                                title: 'Corporate Chauffeur',
+                                title: 'Corporate Chauffeur | Taxi Service KSA',
                                 desc: 'Luxury executive transfers for business travelers, delegations, and VIP guests with high-end SUVs.',
                                 color: 'bg-blue-50 text-blue-600'
                             },
                             {
                                 icon: Users2,
-                                title: 'Group Logistics',
+                                title: 'Group Logistics | Taxi Service KSA',
                                 desc: 'Coordination for large events, conferences, and tour groups using Staria, HiAce, and Coaster buses.',
                                 color: 'bg-indigo-50 text-indigo-600'
                             }
@@ -91,10 +91,10 @@ export default function B2BSolutions() {
                             <h2 className="text-4xl lg:text-5xl font-black text-white mb-8 leading-tight">Why Corporate Leaders <br />Choose Us?</h2>
                             <div className="space-y-8">
                                 {[
-                                    { icon: BarChart3, title: 'Centralized Billing', desc: 'Unified invoicing and reporting for all corporate travel activity.' },
-                                    { icon: ShieldCheck, title: 'Duty of Care', desc: 'Vetted drivers, GPS tracking, and safety protocols for peace of mind.' },
-                                    { icon: Rocket, title: 'API Integration', desc: 'Directly connect your booking engine to our fleet management system.' },
-                                    { icon: FileText, title: 'Monthly Statements', desc: 'Detailed usage reports and simplified expense management.' }
+                                    { icon: BarChart3, title: 'Centralized Billing | Taxi Service KSA', desc: 'Unified invoicing and reporting for all corporate travel activity.' },
+                                    { icon: ShieldCheck, title: 'Duty of Care | Taxi Service KSA', desc: 'Vetted drivers, GPS tracking, and safety protocols for peace of mind.' },
+                                    { icon: Rocket, title: 'API Integration | Taxi Service KSA', desc: 'Directly connect your booking engine to our fleet management system.' },
+                                    { icon: FileText, title: 'Monthly Statements | Taxi Service KSA', desc: 'Detailed usage reports and simplified expense management.' }
                                 ].map((feature) => (
                                     <div key={feature.title} className="flex gap-6">
                                         <div className="bg-white/10 p-4 rounded-2xl h-fit border border-white/5">

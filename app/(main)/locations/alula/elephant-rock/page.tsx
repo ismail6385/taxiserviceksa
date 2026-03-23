@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi to Elephant Rock (Jabal AlFil) AlUla | Sunset View Transfer',
+    title: 'Taxi to Elephant Rock (Jabal AlFil) AlUla | Sunset View Transfer | Taxi Service KSA',
     description: 'Request a quote for a taxi to Elephant Rock (Jabal AlFil) in AlUla. The best spot for sunset views and evening coffee. Reliable pickup and return service.',
     keywords: ['Taxi to Elephant Rock', 'Jabal AlFil taxi', 'AlUla sunset taxi', 'Elephant Rock cafes', 'AlUla sightseeing taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/alula/elephant-rock/',
     },
     openGraph: {
-        title: 'Taxi to Elephant Rock (Jabal AlFil)',
+        title: 'Taxi to Elephant Rock (Jabal AlFil) | Taxi Service KSA',
         description: 'Private transfer to AlUla\'s most iconic geological wonder. Enjoy sunset and return safely to your hotel.',
         url: 'https://taxiserviceksa.com/locations/alula/elephant-rock/',
         type: 'website',
@@ -143,6 +143,7 @@ export default function ElephantRockPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Alula"
                         points={[
                             {
                                 topic: "Getting There",

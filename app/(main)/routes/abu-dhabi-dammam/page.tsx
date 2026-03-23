@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Taxi Abu Dhabi to Dammam | VIP Cross-Border Transfer',
+    title: 'Abu Dhabi to Dammam Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
     description: 'Request a premium quote from Abu Dhabi to Dammam. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Abu Dhabi to Dammam', 'Abu Dhabi to Dammam transfer', 'cross border taxi Saudi Arabia', 'VIP transport Abu Dhabi Dammam'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/abu-dhabi-dammam/',
     },
     openGraph: {
-        title: 'Taxi Abu Dhabi to Dammam',
+        title: 'Abu Dhabi to Dammam Taxi | Taxi Service KSA',
         description: 'Request a premium quote from Abu Dhabi to Dammam. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/abu-dhabi-dammam/',
         type: 'website',
@@ -52,7 +52,7 @@ export default function AbuDhabiDammamRoutePage() {
 
             <Hero
                 images={images}
-                h1Text="Taxi Abu Dhabi to Dammam"
+                h1Text="Abu Dhabi to Dammam Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         GCC Cross-Border Service
@@ -142,6 +142,7 @@ export default function AbuDhabiDammamRoutePage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Abu Dhabi Dammam"
                         points={[
                             {
                                 topic: "Visas & ID",

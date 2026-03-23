@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Makkah Train Station | Premium Chauffeur',
+    title: 'VIP Private Transfer Makkah Train Station | Premium Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service from Makkah Haramain Train Station (Rusaifah). Professional pickup for Umrah pilgrims.',
     keywords: ['Makkah train station VIP transfer', 'Haramain railway premium chauffeur', 'Rusaifah station VIP transport', 'Makkah station executive car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/makkah/train-station/',
     },
     openGraph: {
-        title: 'Taxi from Makkah Train Station (Haramain)',
+        title: 'Taxi from Makkah Train Station (Haramain) | Taxi Service KSA',
         description: 'Direct transfer from Makkah Railway Station to Clock Tower and Haram hotels. Avoid the crowds with pre-booked pickups.',
         url: 'https://taxiserviceksa.com/locations/makkah/train-station/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function MakkahTrainStationPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Makkah"
                         points={[
                             {
                                 topic: "Shuttle Bus",

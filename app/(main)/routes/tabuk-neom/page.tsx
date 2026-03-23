@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Taxi Tabuk to NEOM | Private Car Tabuk to NEOM',
+    title: 'Tabuk to NEOM Taxi | Private Car Tabuk to NEOM | Taxi Service KSA',
     description: 'Book the best online taxi from Tabuk to NEOM. Reliable 2-2.5 hour drive with professional drivers. Fixed rates, door-to-door service, and comfortable cars.',
     keywords: ['Taxi Tabuk to NEOM', 'Tabuk to NEOM Taxi', 'private transfer Tabuk to NEOM', 'Tabuk to NEOM car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-neom/',
     },
     openGraph: {
-        title: 'Tabuk to NEOM Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to NEOM Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 180 km drive. Request a quote for a comfortable ride from Tabuk to NEOM. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-neom/',
         type: 'website',
@@ -53,7 +53,7 @@ export default function TabukNEOMRoutePage() {
 
             <Hero
                 images={['/locations/tabuk.webp', '/hero-slide-3.webp']}
-                h1Text="Taxi Tabuk to NEOM"
+                h1Text="Tabuk to NEOM Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Tabuk → NEOM
@@ -188,6 +188,7 @@ export default function TabukNEOMRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Neom"
                 faqs={[
 {
                         question: "Is the price for the whole car?",

@@ -13,7 +13,7 @@ import TLDRSummary from '@/components/seo/TLDRSummary';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 
 export const metadata: Metadata = {
-    title: 'Taxi Jeddah to Riyadh | Jeddah to Riyadh Private Car (950km)',
+    title: 'Jeddah to Riyadh Taxi | Jeddah to Riyadh Private Car (950km) | Taxi Service KSA',
     description: 'Book the best online taxi from Jeddah to Riyadh. Direct 9-10 hour intercity transfer across Saudi Arabia. Fixed rates, VIP GMC Yukons, and door-to-door service.',
     keywords: ['Taxi Jeddah to Riyadh', 'Jeddah to Riyadh Taxi', 'Jeddah to Riyadh private car', 'taxi from Jeddah to Riyadh', 'Jeddah to Riyadh car hire', 'intercity taxi Saudi Arabia'],
     alternates: {
@@ -50,7 +50,7 @@ export default function JeddahRiyadhRoutePage() {
 
             <Hero
                 images={routeImages}
-                h1Text="Taxi Jeddah to Riyadh"
+                h1Text="Jeddah to Riyadh Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Jeddah → Riyadh Transfer
@@ -278,6 +278,7 @@ export default function JeddahRiyadhRoutePage() {
             </div>
 
             <MicroSemanticFAQ
+                        contextName="Jeddah to Riyadh"
                 faqs={[
                     {
                         question: "How long is the taxi ride from Jeddah to Riyadh?",

@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Al-Mubarraz Taxi | Private Car Service 1480 km | Fixed Price',
+    title: 'Tabuk to Al-Mubarraz Taxi | Private Car Service 1480 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Al-Mubarraz. Reliable 14 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Al-Mubarraz taxi', 'taxi from Tabuk to Al-Mubarraz', 'private transfer Tabuk to Al-Mubarraz', 'chauffeur Tabuk to Al-Mubarraz', 'Tabuk to Al-Mubarraz car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-al-mubarraz/',
     },
     openGraph: {
-        title: 'Tabuk to Al-Mubarraz Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Al-Mubarraz Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1480 km drive. Request a quote for a comfortable ride from Tabuk to Al-Mubarraz. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-al-mubarraz/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAlMubarrazRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Mubarraz"
                 faqs={[
 {
                         question: "Can I Request a quote for a ride at night?",

@@ -187,6 +187,7 @@ export default function CableCarPageUrdu() {
                     </div>
 
                     <MicroSemanticFAQ
+                        contextName="Cable Car"
                         faqs={[
                             {
                                 question: "کیا ٹیکسی (ڈرائیور) ہمارا انتظار کر سکتا ہے جب تک ہم کیبل کار پر سیر کریں؟",

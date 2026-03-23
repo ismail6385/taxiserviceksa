@@ -14,14 +14,14 @@ import Script from 'next/script';
 import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Jarwal Makkah | Premium Expansion Chauffeur',
+    title: 'VIP Private Transfer Jarwal Makkah | Premium Expansion Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service in Jarwal Makkah. Professional hotel pickups for Sheraton and Jarwal Plaza guests.',
     keywords: ['Jarwal VIP transfer', 'Jarwal to Haram premium chauffeur', 'King Abdullah Expansion VIP transport', 'Makkah Jarwal executive car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/makkah/jarwal/',
     },
     openGraph: {
-        title: 'Taxi Service in Jarwal Makkah | King Abdullah Expansion Access',
+        title: 'Taxi Service in Jarwal Makkah | King Abdullah Expansion Access | Taxi Service KSA',
         description: 'Staying near the new expansion in Jarwal? Our taxis provide direct hotel-to-Haram service with professional drivers who know the best Jarwal access points.',
         url: 'https://taxiserviceksa.com/locations/makkah/jarwal/',
         type: 'website',

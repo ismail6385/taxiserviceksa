@@ -26,7 +26,7 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Executive Chauffeur Dammam | DMM Airport',
+    title: 'VIP Private Transfer & Executive Chauffeur Dammam | DMM Airport | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service in Dammam. Specialized King Fahd International Airport (DMM) pickups and industrial hub transfers to Jubail. Professional corporate standards.',
     keywords: ['Dammam VIP private transfer', 'Executive chauffeur Dammam', 'DMM airport VIP pickup', 'Premium Dammam to Jubail transfer', 'Dammam corporate transport'],
     alternates: {
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
         }
     },
     openGraph: {
-        title: 'VIP Transfer in Dammam | Airport & City Travel',
+        title: 'VIP Transfer in Dammam | Airport & City Travel | Taxi Service KSA',
         description: 'Book the premium VIP transfer in Dammam. Fast airport transfers, corniche rides & intercity travel to Khobar/Jubail. 24/7 availability.',
         url: 'https://taxiserviceksa.com/locations/dammam/',
         type: 'website',
@@ -319,6 +319,7 @@ export default function DammamPage() {
 
                     <div className="mb-16">
                         <TravelConsensus
+                        contextName="Dammam"
                             points={[
                                 {
                                     topic: "Dammam vs Khobar Stay",

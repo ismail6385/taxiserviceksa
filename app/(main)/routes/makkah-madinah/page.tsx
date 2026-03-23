@@ -12,7 +12,7 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Taxi Makkah to Madinah | Makkah to Madinah Private Car',
+    title: 'Makkah to Madinah Taxi | Makkah to Madinah Private Car | Taxi Service KSA',
     description: 'Book the best online taxi from Makkah to Madinah. Premium intercity transfer with professional chauffeurs. Fixed rates, door-to-door service, and high-end SUVs for families.',
     keywords: ['Taxi Makkah to Madinah', 'Makkah to Madinah Taxi', 'Makkah to Madinah private car', 'taxi price Makkah Madinah', 'Umrah taxi Makkah Madinah', 'Makkah to Madinah car with driver'],
     alternates: {
@@ -40,7 +40,7 @@ export default function MakkahMadinahRoutePage() {
 
             <Hero
                 images={['/locations/madinah.webp', '/makkah-kaaba-night.webp']}
-                h1Text="Taxi Makkah to Madinah"
+                h1Text="Makkah to Madinah Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Makkah → Madinah VIP
@@ -164,7 +164,8 @@ export default function MakkahMadinahRoutePage() {
 
             {/* FAQ Section */}
             <div className="max-w-4xl mx-auto py-20 px-4">
-                <MicroSemanticFAQ 
+                <MicroSemanticFAQ
+                        contextName="Makkah to Madinah" 
                     faqs={[
                         {
                             question: "How much is a taxi from Makkah to Madinah?",

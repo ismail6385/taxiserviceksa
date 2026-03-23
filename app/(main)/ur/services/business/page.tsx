@@ -176,6 +176,7 @@ export default function BusinessPageUrdu() {
                     </div>
 
                     <MicroSemanticFAQ
+                        contextName="Business"
                         faqs={[
                             {
                                 question: "میں کارپوریٹ وی آئی پی اکاؤنٹ کیسے کھول سکتا ہوں؟",

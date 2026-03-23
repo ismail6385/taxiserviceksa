@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Khafji Taxi | Private Car Service 1350 km | Fixed Price',
+    title: 'Tabuk to Khafji Taxi | Private Car Service 1350 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Khafji. Reliable 13-14 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Khafji taxi', 'taxi from Tabuk to Khafji', 'private transfer Tabuk to Khafji', 'chauffeur Tabuk to Khafji', 'Tabuk to Khafji car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-khafji/',
     },
     openGraph: {
-        title: 'Tabuk to Khafji Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Khafji Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1350 km drive. Request a quote for a comfortable ride from Tabuk to Khafji. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-khafji/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukKhafjiRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Khafji"
                 faqs={[
 {
                         question: "How do I Request a quote for a pickup in Tabuk?",

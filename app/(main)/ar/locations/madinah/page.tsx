@@ -296,6 +296,7 @@ export default function MadinahPageArabic() {
 
                     <div className="mt-12">
                         <TravelConsensus
+                        contextName="Madinah"
                             isRtl={true}
                             labels={{
                                 title: "حقائق سفر المدينة: الواقع",

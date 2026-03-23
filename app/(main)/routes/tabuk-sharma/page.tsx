@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Sharma Taxi | Private Car Service 150 km | Fixed Price',
+    title: 'Tabuk to Sharma Taxi | Private Car Service 150 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Sharma. Reliable 1.5-2 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Sharma taxi', 'taxi from Tabuk to Sharma', 'private transfer Tabuk to Sharma', 'chauffeur Tabuk to Sharma', 'Tabuk to Sharma car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-sharma/',
     },
     openGraph: {
-        title: 'Tabuk to Sharma Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Sharma Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 150 km drive. Request a quote for a comfortable ride from Tabuk to Sharma. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-sharma/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukSharmaRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Sharma"
                 faqs={[
 {
                         question: "Do I need to pay extra for luggage?",

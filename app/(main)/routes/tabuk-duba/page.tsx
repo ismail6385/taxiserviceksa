@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Duba Taxi | Private Car Service 180 km | Fixed Price',
+    title: 'Tabuk to Duba Taxi | Private Car Service 180 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Duba. Reliable 2 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Duba taxi', 'taxi from Tabuk to Duba', 'private transfer Tabuk to Duba', 'chauffeur Tabuk to Duba', 'Tabuk to Duba car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-duba/',
     },
     openGraph: {
-        title: 'Tabuk to Duba Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Duba Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 180 km drive. Request a quote for a comfortable ride from Tabuk to Duba. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-duba/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukDubaRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Duba"
                 faqs={[
 {
                         question: "Where do we stop for food on the way to Duba?",

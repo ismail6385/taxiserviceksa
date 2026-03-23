@@ -28,7 +28,7 @@ const RoutePerspective: React.FC<RoutePerspectiveProps> = ({
     perspectives,
     isRtl = false,
     labels = {
-        title: "Journey Perspectives: Choose Your Travel Style",
+        title: route ? `${route}: Journey Perspectives` : "Journey Perspectives: Choose Your Travel Style",
         subtitle: "Tailored route planning based on your specific travel intent"
     }
 }) => {

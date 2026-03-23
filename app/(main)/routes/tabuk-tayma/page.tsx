@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Tayma Taxi | Private Car Service 260 km | Fixed Price',
+    title: 'Tabuk to Tayma Taxi | Private Car Service 260 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Tayma. Reliable 2.5-3 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Tayma taxi', 'taxi from Tabuk to Tayma', 'private transfer Tabuk to Tayma', 'chauffeur Tabuk to Tayma', 'Tabuk to Tayma car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-tayma/',
     },
     openGraph: {
-        title: 'Tabuk to Tayma Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Tayma Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 260 km drive. Request a quote for a comfortable ride from Tabuk to Tayma. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-tayma/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukTaymaRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Tayma"
                 faqs={[
 {
                         question: "Do I need to pay extra for luggage?",

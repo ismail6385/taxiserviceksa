@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Unaizah Taxi | Private Car Service 850 km | Fixed Price',
+    title: 'Tabuk to Unaizah Taxi | Private Car Service 850 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Unaizah. Reliable 8-9 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Unaizah taxi', 'taxi from Tabuk to Unaizah', 'private transfer Tabuk to Unaizah', 'chauffeur Tabuk to Unaizah', 'Tabuk to Unaizah car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-unaizah/',
     },
     openGraph: {
-        title: 'Tabuk to Unaizah Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Unaizah Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 850 km drive. Request a quote for a comfortable ride from Tabuk to Unaizah. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-unaizah/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukUnaizahRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Unaizah"
                 faqs={[
 {
                         question: "Can I Request a quote for a ride at night?",

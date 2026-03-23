@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Al Namas Taxi | Private Car Service 1350 km | Fixed Price',
+    title: 'Tabuk to Al Namas Taxi | Private Car Service 1350 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Al Namas. Reliable 13-14 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Al Namas taxi', 'taxi from Tabuk to Al Namas', 'private transfer Tabuk to Al Namas', 'chauffeur Tabuk to Al Namas', 'Tabuk to Al Namas car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-al-namas/',
     },
     openGraph: {
-        title: 'Tabuk to Al Namas Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Al Namas Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1350 km drive. Request a quote for a comfortable ride from Tabuk to Al Namas. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-al-namas/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAlNamasRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Namas"
                 faqs={[
 {
                         question: "Is the price for the whole car?",

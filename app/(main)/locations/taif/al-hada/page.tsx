@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi to Al Hada Taif | Cable Car & Mountain Resort Transfer',
+    title: 'Taxi to Al Hada Taif | Cable Car & Mountain Resort Transfer | Taxi Service KSA',
     description: 'Request a quote for a taxi to Al Hada Mountain in Taif. Visit the Cable Car (Telefric), Fruit Markets, and Resort Hotels. Reliable mountain driving service.',
     keywords: ['Al Hada taxi', 'Taif cable car taxi', 'Al Hada mountain transport', 'Taif to Al Hada', 'Al Hada resorts taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/taif/al-hada/',
     },
     openGraph: {
-        title: 'Taxi to Al Hada Mountain & Cable Car',
+        title: 'Taxi to Al Hada Mountain & Cable Car | Taxi Service KSA',
         description: 'Private transfer to Al Hada, Taif. Experience the winding mountain roads and cable car with our experienced drivers.',
         url: 'https://taxiserviceksa.com/locations/taif/al-hada/',
         type: 'website',
@@ -143,6 +143,7 @@ export default function AlHadaPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Taif"
                         points={[
                             {
                                 topic: "The Road (Kara Mountain Rd)",

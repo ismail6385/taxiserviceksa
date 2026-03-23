@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Al-Bad Taxi | Private Car Service 320 km | Fixed Price',
+    title: 'Tabuk to Al-Bad Taxi | Private Car Service 320 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Al-Bad. Reliable 3 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Al-Bad taxi', 'taxi from Tabuk to Al-Bad', 'private transfer Tabuk to Al-Bad', 'chauffeur Tabuk to Al-Bad', 'Tabuk to Al-Bad car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-al-bad/',
     },
     openGraph: {
-        title: 'Tabuk to Al-Bad Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Al-Bad Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 320 km drive. Request a quote for a comfortable ride from Tabuk to Al-Bad. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-al-bad/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAlBadRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Bad"
                 faqs={[
 {
                         question: "Where do we stop for food on the way to Al-Bad?",

@@ -261,6 +261,7 @@ export default function TaxiInTabukPageUrdu() {
                         <h2 className="text-3xl font-black text-slate-900 mb-2">تبوک اور نیوم ٹیکسی سروس</h2>
                     </div>
                     <MicroSemanticFAQ
+                        contextName="Taxi In Tabuk"
                         faqs={[
                             {
                                 question: "تبوک سے نیوم کا ٹیکسی سفر کتنا طویل ہے؟",

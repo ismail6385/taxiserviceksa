@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi to Half Moon Bay (Dana Bay) | Beach & Resort Transfer',
+    title: 'Taxi to Half Moon Bay (Dana Bay) | Beach & Resort Transfer | Taxi Service KSA',
     description: 'Request a quote for a taxi to Half Moon Bay (Al Khobar/Dammam). Transfers to Dana Bay, private beach resorts, and amusement parks. Reliable pickup and return.',
     keywords: ['Half Moon Bay taxi', 'Taxi to Half Moon Beach', 'Dana Beach Resort taxi', 'Khobar beach taxi', 'Half Moon Bay transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/al-khobar/half-moon-bay/',
     },
     openGraph: {
-        title: 'Taxi to Half Moon Bay Beach & Resorts',
+        title: 'Taxi to Half Moon Bay Beach & Resorts | Taxi Service KSA',
         description: 'Reliable transfer to the Eastern Province\'s premier beach destination. Guaranteed return rides from resorts.',
         url: 'https://taxiserviceksa.com/locations/al-khobar/half-moon-bay/',
         type: 'website',
@@ -143,6 +143,7 @@ export default function HalfMoonBayPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Al Khobar"
                         points={[
                             {
                                 topic: "Distance",

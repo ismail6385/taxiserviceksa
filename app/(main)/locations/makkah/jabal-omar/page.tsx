@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Jabal Omar Makkah | Premium Chauffeur',
+    title: 'VIP Private Transfer Jabal Omar Makkah | Premium Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service for Jabal Omar hotels. Professional airport pickups for Hilton, Conrad, and Hyatt Regency.',
     keywords: ['Jabal Omar VIP transfer', 'Makkah Hilton premium chauffeur', 'Conrad Makkah VIP', 'Hyatt Regency Makkah executive car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/makkah/jabal-omar/',
     },
     openGraph: {
-        title: 'VIP Taxi to Jabal Omar Hotels (Makkah)',
+        title: 'VIP Taxi to Jabal Omar Hotels (Makkah) | Taxi Service KSA',
         description: 'Staying at the Hilton, Conrad, or Hyatt in Makkah? We provide luxury GMC transfers directly to the Jabal Omar main entrance.',
         url: 'https://taxiserviceksa.com/locations/makkah/jabal-omar/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function JabalOmarPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Makkah"
                         points={[
                             {
                                 topic: "Drop-off",

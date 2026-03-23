@@ -36,7 +36,7 @@ import RelatedGuides from '@/components/RelatedGuides';
 import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Madinah Ziyarat | Premium Chauffeur',
+    title: 'VIP Private Transfer & Madinah Ziyarat | Premium Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer service in Madinah. Specialized Prince Mohammad Airport (MED) pickups and executive Ziyarat tours. Professional intercity transfers to Makkah.',
     keywords: ['Madinah VIP private transfer', 'Executive chauffeur Madinah', 'Premium Ziyarat tour Madinah', 'Madinah airport VIP pickup', 'VIP transfer Madinah to Makkah'],
     alternates: {

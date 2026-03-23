@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Al-Bukayriyah Taxi | Private Car Service 880 km | Fixed Price',
+    title: 'Tabuk to Al-Bukayriyah Taxi | Private Car Service 880 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Al-Bukayriyah. Reliable 8-9 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Al-Bukayriyah taxi', 'taxi from Tabuk to Al-Bukayriyah', 'private transfer Tabuk to Al-Bukayriyah', 'chauffeur Tabuk to Al-Bukayriyah', 'Tabuk to Al-Bukayriyah car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-al-bukayriyah/',
     },
     openGraph: {
-        title: 'Tabuk to Al-Bukayriyah Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Al-Bukayriyah Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 880 km drive. Request a quote for a comfortable ride from Tabuk to Al-Bukayriyah. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-al-bukayriyah/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAlBukayriyahRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Bukayriyah"
                 faqs={[
 {
                         question: "How do I Request a quote for a pickup in Tabuk?",

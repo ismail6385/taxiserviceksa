@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Al Makhwah Taxi | Private Car Service 1250 km | Fixed Price',
+    title: 'Tabuk to Al Makhwah Taxi | Private Car Service 1250 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Al Makhwah. Reliable 12-13 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Al Makhwah taxi', 'taxi from Tabuk to Al Makhwah', 'private transfer Tabuk to Al Makhwah', 'chauffeur Tabuk to Al Makhwah', 'Tabuk to Al Makhwah car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-al-makhwah/',
     },
     openGraph: {
-        title: 'Tabuk to Al Makhwah Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Al Makhwah Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1250 km drive. Request a quote for a comfortable ride from Tabuk to Al Makhwah. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-al-makhwah/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAlMakhwahRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Makhwah"
                 faqs={[
 {
                         question: "Where do we stop for food on the way to Al Makhwah?",

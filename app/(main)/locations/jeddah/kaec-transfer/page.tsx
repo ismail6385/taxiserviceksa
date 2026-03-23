@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Jeddah to KAEC | Executive Chauffeur Service',
+    title: 'VIP Private Transfer Jeddah to KAEC | Executive Chauffeur Service | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service from Jeddah Airport to KAEC (King Abdullah Economic City). Fixed rates for business and leisure travel.',
     keywords: ['Jeddah to KAEC VIP transfer', 'KAEC executive chauffeur', 'Jeddah Airport to KAEC premium transport', 'KAEC business transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/kaec-transfer/',
     },
     openGraph: {
-        title: 'VIP Private Transfer Jeddah to KAEC | Executive Chauffeur',
+        title: 'VIP Private Transfer Jeddah to KAEC | Executive Chauffeur | Taxi Service KSA',
         description: 'Professional VIP private transfer service from Jeddah to KAEC. Business class luxury vehicles and professional chauffeurs.',
         url: 'https://taxiserviceksa.com/locations/jeddah/kaec-transfer/',
         type: 'website',
@@ -171,6 +171,7 @@ export default function KaecTransferPage() {
             </div>
 
             <MicroSemanticFAQ
+                        contextName="Jeddah"
                 faqs={[
                     {
                         question: "How long does it take from Jeddah Airport to KAEC?",

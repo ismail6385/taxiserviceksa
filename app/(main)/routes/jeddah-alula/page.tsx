@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Jeddah to Al Ula Taxi | 700km Heritage Route - Fixed Price',
+    title: 'Jeddah to Al Ula Taxi | 700km Heritage Route - Fixed Price | Taxi Service KSA',
     description: 'Taxi from Jeddah to Al Ula operates 24/7. 700km scenic journey to Hegra in 7-8 hours. Affordable fixed rates. Luxury SUVs for the long drive.',
     keywords: ['Jeddah to Al Ula taxi', 'taxi Jeddah airport to Al Ula', 'Al Ula transport', 'Jeddah Alula price', 'Hegra taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-alula/',
     },
     openGraph: {
-        title: 'Jeddah to Al Ula Taxi | 700km Route - Affordable Fixed Price',
+        title: 'Jeddah to Al Ula Taxi | 700km Route - Affordable Fixed Price | Taxi Service KSA',
         description: 'Comfortable private transfer from Jeddah to Al Ula. 700km journey. Flexible and affordable fixed rates. Visit the ancient city of Hegra.',
         url: 'https://taxiserviceksa.com/routes/jeddah-alula/',
         type: 'website',
@@ -234,6 +234,7 @@ export default function JeddahAlulaRoutePage() {
             </div>
 
             <MicroSemanticFAQ
+                        contextName="Jeddah to Alula"
                 faqs={[
                     {
                         question: "How long is the taxi ride from Jeddah to Al Ula?",

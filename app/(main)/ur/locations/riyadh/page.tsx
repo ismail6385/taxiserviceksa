@@ -291,6 +291,7 @@ export default function RiyadhPageUrdu() {
 
                     <div className="mt-16">
                         <TravelConsensus
+                        contextName="Riyadh"
                             isRtl={true}
                             labels={{
                                 title: "ریاض میں سفر: حقائق",

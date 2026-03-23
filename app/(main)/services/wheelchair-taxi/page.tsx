@@ -24,10 +24,10 @@ export const metadata: Metadata = {
 
 export default function WheelchairTaxiPage() {
     const features = [
-        { icon: Accessibility, title: "Accessible Vehicles", desc: "Spacious vans (GMC/H-1) with ample room for folded wheelchairs and easy boarding access." },
-        { icon: Heart, title: "Driver Assistance", desc: "Drivers trained to assist passengers with mobility challenges, ensuring safe boarding and alighting." },
-        { icon: Clock, title: "Patient Waiting", desc: "Flexible waiting times for hospital appointments or medical visits." },
-        { icon: Shield, title: "Safety First", desc: "Gentle driving protocols to ensure the comfort of sensitive passengers." }
+        { icon: Accessibility, title: "Accessible Vehicles | Taxi Service KSA", desc: "Spacious vans (GMC/H-1) with ample room for folded wheelchairs and easy boarding access." },
+        { icon: Heart, title: "Driver Assistance | Taxi Service KSA", desc: "Drivers trained to assist passengers with mobility challenges, ensuring safe boarding and alighting." },
+        { icon: Clock, title: "Patient Waiting | Taxi Service KSA", desc: "Flexible waiting times for hospital appointments or medical visits." },
+        { icon: Shield, title: "Safety First | Taxi Service KSA", desc: "Gentle driving protocols to ensure the comfort of sensitive passengers." }
     ];
 
     const schemas = {
@@ -94,6 +94,7 @@ export default function WheelchairTaxiPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <MicroSemanticFAQ
+                        contextName="Wheelchair Taxi"
                         faqs={[
                             {
                                 question: "Do you have ramp-equipped vehicles?",

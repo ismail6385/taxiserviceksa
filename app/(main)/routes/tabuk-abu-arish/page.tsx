@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Abu Arish Taxi | Private Car Service 1630 km | Fixed Price',
+    title: 'Tabuk to Abu Arish Taxi | Private Car Service 1630 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Abu Arish. Reliable 16-17 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Abu Arish taxi', 'taxi from Tabuk to Abu Arish', 'private transfer Tabuk to Abu Arish', 'chauffeur Tabuk to Abu Arish', 'Tabuk to Abu Arish car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-abu-arish/',
     },
     openGraph: {
-        title: 'Tabuk to Abu Arish Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Abu Arish Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1630 km drive. Request a quote for a comfortable ride from Tabuk to Abu Arish. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-abu-arish/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAbuArishRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Abu Arish"
                 faqs={[
 {
                         question: "Do I need to pay extra for luggage?",

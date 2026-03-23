@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Buraidah Taxi | Private Car Service 910 km | Fixed Price',
+    title: 'Tabuk to Buraidah Taxi | Private Car Service 910 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Buraidah. Reliable 9-10 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Buraidah taxi', 'taxi from Tabuk to Buraidah', 'private transfer Tabuk to Buraidah', 'chauffeur Tabuk to Buraidah', 'Tabuk to Buraidah car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-buraidah/',
     },
     openGraph: {
-        title: 'Tabuk to Buraidah Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Buraidah Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 910 km drive. Request a quote for a comfortable ride from Tabuk to Buraidah. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-buraidah/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukBuraidahRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Buraidah"
                 faqs={[
 {
                         question: "Can I Request a quote for a ride at night?",

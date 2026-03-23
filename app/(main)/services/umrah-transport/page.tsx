@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/services/umrah-transport/',
     },
     openGraph: {
-        title: 'Umrah VIP Transfer Service | Private Chauffeur for Makkah & Madinah',
+        title: 'Umrah VIP Transfer Service | Private Chauffeur for Makkah & Madinah | Taxi Service KSA',
         description: 'Complete VIP Umrah transport service with professional chauffeurs. Jeddah Airport to Makkah, Makkah to Madinah best transfer. Fixed rates, 24/7 service.',
         url: 'https://taxiserviceksa.com/services/umrah-transport/',
         type: 'website',

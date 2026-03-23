@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Najran Taxi | Private Car Service 1750 km | Fixed Price',
+    title: 'Tabuk to Najran Taxi | Private Car Service 1750 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Najran. Reliable 17-18 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Najran taxi', 'taxi from Tabuk to Najran', 'private transfer Tabuk to Najran', 'chauffeur Tabuk to Najran', 'Tabuk to Najran car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-najran/',
     },
     openGraph: {
-        title: 'Tabuk to Najran Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Najran Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1750 km drive. Request a quote for a comfortable ride from Tabuk to Najran. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-najran/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukNajranRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Najran"
                 faqs={[
 {
                         question: "How do I Request a quote for a pickup in Tabuk?",

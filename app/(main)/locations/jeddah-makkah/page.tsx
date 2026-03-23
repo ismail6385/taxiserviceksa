@@ -17,7 +17,7 @@ import RoutePerspective from '@/components/seo/RoutePerspective';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Jeddah to Makkah | Premium Chauffeur',
+    title: 'VIP Private Transfer Jeddah to Makkah | Premium Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service from Jeddah to Makkah. Specialized Umrah transfers with luxury SUVs and professional drivers.',
     keywords: ['Jeddah to Makkah VIP transfer', 'Premium chauffeur Jeddah Makkah', 'Executive Makkah transfer', 'Luxury Umrah transport'],
     alternates: {
@@ -297,6 +297,7 @@ export default function JeddahMakkahRoutePage() {
 
                     <div className="mt-16">
                         <TravelConsensus
+                        contextName="Jeddah Makkah"
                             points={[
                                 {
                                     topic: "VIP Transfer vs Train",

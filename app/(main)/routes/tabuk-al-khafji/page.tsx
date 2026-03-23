@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Al Khafji Taxi | Private Car Service 1400 km | Fixed Price',
+    title: 'Tabuk to Al Khafji Taxi | Private Car Service 1400 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Al Khafji. Reliable 14-15 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Al Khafji taxi', 'taxi from Tabuk to Al Khafji', 'private transfer Tabuk to Al Khafji', 'chauffeur Tabuk to Al Khafji', 'Tabuk to Al Khafji car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-al-khafji/',
     },
     openGraph: {
-        title: 'Tabuk to Al Khafji Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Al Khafji Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1400 km drive. Request a quote for a comfortable ride from Tabuk to Al Khafji. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-al-khafji/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAlKhafjiRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Khafji"
                 faqs={[
 {
                         question: "Do I need to pay extra for luggage?",

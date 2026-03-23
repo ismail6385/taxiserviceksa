@@ -285,6 +285,7 @@ export default function TabukPageUrdu() {
 
                     <div className="mt-16 text-right">
                         <TravelConsensus
+                        contextName="Tabuk"
                             isRtl={true}
                             labels={{
                                 title: "تبوک اور نیوم سفر: حقائق",

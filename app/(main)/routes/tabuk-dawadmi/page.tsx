@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Dawadmi Taxi | Private Car Service 1150 km | Fixed Price',
+    title: 'Tabuk to Dawadmi Taxi | Private Car Service 1150 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Dawadmi. Reliable 11-12 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Dawadmi taxi', 'taxi from Tabuk to Dawadmi', 'private transfer Tabuk to Dawadmi', 'chauffeur Tabuk to Dawadmi', 'Tabuk to Dawadmi car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-dawadmi/',
     },
     openGraph: {
-        title: 'Tabuk to Dawadmi Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Dawadmi Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1150 km drive. Request a quote for a comfortable ride from Tabuk to Dawadmi. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-dawadmi/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukDawadmiRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Dawadmi"
                 faqs={[
 {
                         question: "Is the price for the whole car?",

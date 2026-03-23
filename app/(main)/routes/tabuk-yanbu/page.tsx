@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Yanbu Taxi | Private Car Service 600 km | Fixed Price',
+    title: 'Tabuk to Yanbu Taxi | Private Car Service 600 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Yanbu. Reliable 6-6.5 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Yanbu taxi', 'taxi from Tabuk to Yanbu', 'private transfer Tabuk to Yanbu', 'chauffeur Tabuk to Yanbu', 'Tabuk to Yanbu car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-yanbu/',
     },
     openGraph: {
-        title: 'Tabuk to Yanbu Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Yanbu Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 600 km drive. Request a quote for a comfortable ride from Tabuk to Yanbu. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-yanbu/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukYanbuRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Yanbu"
                 faqs={[
 {
                         question: "Where do we stop for food on the way to Yanbu?",

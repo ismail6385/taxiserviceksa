@@ -14,14 +14,14 @@ import JsonLdFAQ from '@/components/JsonLdFAQ';
 import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
-    title: 'Top Rated Heritage Tours In Saudi Arabia | Best 4x4 Desert Transport',
+    title: 'Top Rated Heritage Tours In Saudi Arabia | Best 4x4 Desert Transport | Taxi Service KSA',
     description: 'Best online taxi service for heritage tours in Saudi Arabia. Professional 4x4 transport for AlUla, Hegra & UNESCO sites. Top rated drivers with local knowledge.',
     keywords: ['Top Rated Heritage Tours', 'Best 4x4 Desert Transport KSA', 'AlUla Tours Saudi Arabia', 'Hegra UNESCO Transport', 'Saudi Heritage Sites Taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/heritage-tours/',
     },
     openGraph: {
-        title: 'Heritage Tours Saudi Arabia | UNESCO Sites Transport with 4x4',
+        title: 'Heritage Tours Saudi Arabia | UNESCO Sites Transport with 4x4 | Taxi Service KSA',
         description: 'Professional heritage tour transport for AlUla, Khaybar, and UNESCO sites. 4x4 desert vehicles with licensed drivers.',
         url: 'https://taxiserviceksa.com/services/heritage-tours/',
         type: 'website',

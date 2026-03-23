@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Taxi Tabuk to Al Majmaah | Private Car Tabuk to Al Majmaah',
+    title: 'Tabuk to Al Majmaah Taxi | Private Car Tabuk to Al Majmaah | Taxi Service KSA',
     description: 'Book the best online taxi from Tabuk to Al Majmaah. Reliable 10-11 hour drive with professional drivers. Fixed rates, door-to-door service, and comfortable cars.',
     keywords: ['Taxi Tabuk to Al Majmaah', 'Tabuk to Al Majmaah Taxi', 'private transfer Tabuk to Al Majmaah', 'Tabuk to Al Majmaah car with driver'],
     alternates: {
         canonical: "https://taxiserviceksa.com/routes/tabuk-al-majmaah/",
     },
     openGraph: {
-        title: "Tabuk to Al Majma'ah Taxi | Private Transfer - Fixed Price",
+        title: "Tabuk to Al Majma | Taxi Service KSA'ah Taxi | Private Transfer - Fixed Price",
         description: "Reliable 1100 km drive. Request a quote for a comfortable ride from Tabuk to Al Majma'ah. Professional service available 24/7.",
         url: "https://taxiserviceksa.com/routes/tabuk-al-majmaah/",
         type: 'website',
@@ -53,7 +53,7 @@ export default function TabukAlMajmaahRoutePage() {
 
             <Hero
                 images={['/locations/tabuk.webp', '/hero-slide-3.webp']}
-                h1Text="Taxi Tabuk to Al Majmaah"
+                h1Text="Tabuk to Al Majmaah Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Tabuk → Al Majma'ah
@@ -188,6 +188,7 @@ export default function TabukAlMajmaahRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Majmaah"
                 faqs={[
 {
                         question: "Where do we stop for food on the way to Al Majma'ah?",

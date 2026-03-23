@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to KAEC Taxi | Private Car Service 850 km | Fixed Price',
+    title: 'Tabuk to KAEC Taxi | Private Car Service 850 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to KAEC. Reliable 8 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to KAEC taxi', 'taxi from Tabuk to KAEC', 'private transfer Tabuk to KAEC', 'chauffeur Tabuk to KAEC', 'Tabuk to KAEC car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-kaec/',
     },
     openGraph: {
-        title: 'Tabuk to KAEC Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to KAEC Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 850 km drive. Request a quote for a comfortable ride from Tabuk to KAEC. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-kaec/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukKAECRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Kaec"
                 faqs={[
 {
                         question: "How do I Request a quote for a pickup in Tabuk?",

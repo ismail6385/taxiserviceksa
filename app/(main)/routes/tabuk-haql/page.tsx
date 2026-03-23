@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Haql Taxi | Private Car Service 230 km | Fixed Price',
+    title: 'Tabuk to Haql Taxi | Private Car Service 230 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Haql. Reliable 2.5 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Haql taxi', 'taxi from Tabuk to Haql', 'private transfer Tabuk to Haql', 'chauffeur Tabuk to Haql', 'Tabuk to Haql car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-haql/',
     },
     openGraph: {
-        title: 'Tabuk to Haql Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Haql Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 230 km drive. Request a quote for a comfortable ride from Tabuk to Haql. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-haql/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukHaqlRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Haql"
                 faqs={[
 {
                         question: "Where do we stop for food on the way to Haql?",

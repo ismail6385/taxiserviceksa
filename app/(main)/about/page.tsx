@@ -81,10 +81,10 @@ export default function AboutPage() {
             {/* AI SEO: TL;DR Summary Block for Generative Extraction */}
             <div className="bg-emerald-950 pt-32 pb-16 px-4">
                 <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-xl mb-12">
-                    <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <p className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                         <Sparkles className="w-5 h-5 text-emerald-400" />
                         Executive Summary: Our Journey
-                    </h2>
+                    </p>
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-200 text-sm">
                         <li><strong>Founder-Led:</strong> Owned and operated by <strong>Muhammad Ismail</strong>, a logistics expert.</li>
                         <li><strong>Niche Focus:</strong> Specializing in <strong>VIP Umrah trips</strong> and <strong>Executive airport transfers</strong>.</li>

@@ -10,14 +10,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RecentTrips from '@/components/RecentTrips';
 
 export const metadata: Metadata = {
-    title: 'Taxi Jeddah Airport to Fairmont Makkah Clock Royal Tower',
+    title: 'Jeddah Airport to Fairmont Makkah Clock Royal Tower Taxi | Taxi Service KSA',
     description: 'VIP Transfer from Jeddah Airport (KAIA) to Fairmont Makkah Clock Royal Tower. Direct lobby drop-off. Luxury GMC Yukon available. Fixed Price.',
     keywords: ['Jeddah to Fairmont Makkah Taxi', 'Fairmont Clock Tower Transfer', 'Jeddah airport to Abraj Al Bait', 'Makkah Clock Royal Tower taxi', 'VIP taxi Jeddah Makkah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/jeddah-to-fairmont-makkah/',
     },
     openGraph: {
-        title: 'Taxi Jeddah Airport to Fairmont Makkah | VIP Transfer',
+        title: 'Jeddah Airport to Fairmont Makkah Taxi | VIP Transfer | Taxi Service KSA',
         description: 'Direct transfer to Fairmont Makkah Clock Royal Tower. 24/7 Service.',
         url: 'https://taxiserviceksa.com/jeddah-to-fairmont-makkah/',
         type: 'website',
@@ -178,6 +178,7 @@ export default function JeddahToFairmontPage() {
             </div>
 
             <MicroSemanticFAQ
+                        contextName="Jeddah To Fairmont Makkah"
                 faqs={[
                     {
                         question: "How much is VIP taxi to Fairmont Makkah?",

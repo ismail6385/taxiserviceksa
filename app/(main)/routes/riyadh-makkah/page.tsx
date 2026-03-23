@@ -10,7 +10,7 @@ import RoutePerspective from '@/components/seo/RoutePerspective';
 import JsonLdRoute from '@/components/JsonLdRoute';
 
 export const metadata: Metadata = {
-    title: 'Taxi Riyadh to Makkah | Riyadh to Makkah Private Car',
+    title: 'Riyadh to Makkah Taxi | Riyadh to Makkah Private Car | Taxi Service KSA',
     description: 'Book the best online taxi from Riyadh to Makkah. Premium 8-9 hour journey with professional chauffeurs. Fixed rates, door-to-door service, and high-end SUVs.',
     keywords: ['Taxi Riyadh to Makkah', 'Riyadh to Makkah Taxi', 'private transfer Riyadh to Makkah', 'Riyadh to Makkah car with driver', 'Umrah taxi Riyadh to Makkah', 'Riyadh to Makkah transport'],
     alternates: {
@@ -38,7 +38,7 @@ export default function RiyadhMakkahRoutePage() {
 
             <Hero
                 images={['/locations/makkah.webp', '/hero-slide-3.webp']}
-                h1Text="Taxi Riyadh to Makkah"
+                h1Text="Riyadh to Makkah Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Riyadh → Makkah VIP
@@ -152,8 +152,8 @@ export default function RiyadhMakkahRoutePage() {
             />
 
             <div className="max-w-4xl mx-auto py-20 px-4">
-                <h2 className="text-3xl font-black text-gray-900 mb-12 text-center uppercase tracking-tight">Riyadh to Makkah Taxi FAQ</h2>
-                <MicroSemanticFAQ 
+                <MicroSemanticFAQ
+                        contextName="Riyadh to Makkah" 
                     faqs={[
                         {
                             question: "How much is a taxi from Riyadh to Makkah?",

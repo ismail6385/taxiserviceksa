@@ -285,6 +285,7 @@ export default function DammamPageUrdu() {
 
                     <div className="mt-16">
                         <TravelConsensus
+                        contextName="Dammam"
                             isRtl={true}
                             labels={{
                                 title: "دمام میں ٹیکسی: حقائق",

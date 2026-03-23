@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Sharurah Taxi | Private Car Service 2100 km | Fixed Price',
+    title: 'Tabuk to Sharurah Taxi | Private Car Service 2100 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Sharurah. Reliable 20-22 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Sharurah taxi', 'taxi from Tabuk to Sharurah', 'private transfer Tabuk to Sharurah', 'chauffeur Tabuk to Sharurah', 'Tabuk to Sharurah car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-sharurah/',
     },
     openGraph: {
-        title: 'Tabuk to Sharurah Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Sharurah Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 2100 km drive. Request a quote for a comfortable ride from Tabuk to Sharurah. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-sharurah/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukSharurahRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Sharurah"
                 faqs={[
 {
                         question: "Can I Request a quote for a ride at night?",

@@ -171,7 +171,7 @@ export default function EditBlogPage({ params }: EditBlogPageProps) {
                         </div>
                     </div>
                     <div className="flex gap-2">
-                        <Link href={`/blog/preview/${params.id}`} target="_blank">
+                        <Link href={`/blog/preview/${params.id}`} target="_blank" rel="noopener noreferrer">
                             <Button variant="outline">
                                 <Eye className="w-4 h-4 mr-2" />
                                 Preview

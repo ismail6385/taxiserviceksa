@@ -9,14 +9,14 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Jeddah Train Station Taxi | Al Sulimaniyah to Airport/Hotel Transfer',
+    title: 'Jeddah Train Station Taxi | Al Sulimaniyah to Airport/Hotel Transfer | Taxi Service KSA',
     description: 'Request a quote for a taxi from Jeddah Haramain Train Station (Al Sulimaniyah). Fixed prices to King Abdulaziz Airport (JED) or Jeddah hotels. Avoid long queues. 24/7 Service.',
     keywords: ['Jeddah train station taxi', 'Al Sulimaniyah station taxi', 'Haramain train station Jeddah to airport', 'taxi from Jeddah train station', 'Jeddah railway station transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-train-station-taxi/',
     },
     openGraph: {
-        title: 'Jeddah Train Station Taxi (Al Sulimaniyah) - Fast & Reliable',
+        title: 'Jeddah Train Station Taxi (Al Sulimaniyah) - Fast & Reliable | Taxi Service KSA',
         description: 'Arriving by Haramain Train? Get a quote for your taxi from Jeddah Station to Airport or Hotel. Fixed prices, no waiting.',
         url: 'https://taxiserviceksa.com/routes/jeddah-train-station-taxi/',
         type: 'website',
@@ -160,6 +160,7 @@ export default function JeddahTrainStationPage() {
             </div>
 
             <MicroSemanticFAQ
+                        contextName="Jeddah Train Station Taxi"
                 faqs={[
                     {
                         question: "How far is Jeddah Train Station from the Airport?",

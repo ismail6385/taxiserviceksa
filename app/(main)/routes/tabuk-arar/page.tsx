@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Arar Taxi | Private Car Service 640 km | Fixed Price',
+    title: 'Tabuk to Arar Taxi | Private Car Service 640 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Arar. Reliable 6-6.5 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Arar taxi', 'taxi from Tabuk to Arar', 'private transfer Tabuk to Arar', 'chauffeur Tabuk to Arar', 'Tabuk to Arar car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-arar/',
     },
     openGraph: {
-        title: 'Tabuk to Arar Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Arar Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 640 km drive. Request a quote for a comfortable ride from Tabuk to Arar. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-arar/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukArarRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Arar"
                 faqs={[
 {
                         question: "Is the price for the whole car?",

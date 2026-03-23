@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Bujairi Terrace Diriyah | Premium Dining',
+    title: 'VIP Private Transfer to Bujairi Terrace Diriyah | Premium Dining | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service for Al Bujairi Terrace. Arrive in style for fine dining at Hakkasan, Angelina, and more.',
     keywords: ['Bujairi Terrace VIP transfer', 'Diriyah premium chauffeur', 'Hakkasan Riyadh executive car', 'Bujairi Terrace luxury transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/bujairi-terrace/',
     },
     openGraph: {
-        title: 'VIP Private Transfer to Al Bujairi Terrace (Diriyah)',
+        title: 'VIP Private Transfer to Al Bujairi Terrace (Diriyah) | Taxi Service KSA',
         description: 'Going for fine dining in Diriyah? Premium VIP private transfers and professional chauffeur service to Bujairi Terrace. Elite arrival for elite destinations.',
         url: 'https://taxiserviceksa.com/locations/riyadh/bujairi-terrace/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function BujairiTerracePage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Riyadh"
                         points={[
                             {
                                 topic: "Getting Home",

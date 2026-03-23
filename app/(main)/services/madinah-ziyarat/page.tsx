@@ -17,7 +17,7 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Madinah Ziyarat Taxi Service | Holy Sites Tours (Ziyarah)',
+    title: 'Madinah Ziyarat Taxi Service | Holy Sites Tours (Ziyarah) | Taxi Service KSA',
     description: 'Book comprehensive Ziyarat tours in Madinah. Visit Masjid Quba, Mount Uhud, Seven Mosques, and Qiblatain with knowledgeable local drivers. Fixed price packages.',
     keywords: ['Madinah Ziyarat', 'Ziyarat taxi Madinah', 'Quba mosque taxi', 'Uhud mountain tour', 'Seven mosques visit', 'Madinah holy sites transport'],
     alternates: {
@@ -131,6 +131,7 @@ export default function MadinahZiyaratPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Madinah Ziyarat"
                         points={[
                             {
                                 topic: "Morning vs Evening Ziyarat",

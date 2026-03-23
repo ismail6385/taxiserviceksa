@@ -94,6 +94,7 @@ export default function WheelchairTaxiPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <MicroSemanticFAQ
+                        contextName="Wheelchair Taxi"
                         faqs={[
                             {
                                 question: "Do you have ramp-equipped vehicles?",

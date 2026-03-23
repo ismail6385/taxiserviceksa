@@ -296,6 +296,7 @@ export default function MadinahPageUrdu() {
 
                     <div className="mt-12">
                         <TravelConsensus
+                        contextName="Madinah"
                             isRtl={true}
                             labels={{
                                 title: "مدینہ سفر: حقائق",

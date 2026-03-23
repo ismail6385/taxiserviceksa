@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Al-Nairyah Taxi | Private Car Service 1450 km | Fixed Price',
+    title: 'Tabuk to Al-Nairyah Taxi | Private Car Service 1450 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Al-Nairyah. Reliable 14 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Al-Nairyah taxi', 'taxi from Tabuk to Al-Nairyah', 'private transfer Tabuk to Al-Nairyah', 'chauffeur Tabuk to Al-Nairyah', 'Tabuk to Al-Nairyah car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-al-nairyah/',
     },
     openGraph: {
-        title: 'Tabuk to Al-Nairyah Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Al-Nairyah Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1450 km drive. Request a quote for a comfortable ride from Tabuk to Al-Nairyah. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-al-nairyah/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAlNairyahRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Nairyah"
                 faqs={[
 {
                         question: "Is the price for the whole car?",

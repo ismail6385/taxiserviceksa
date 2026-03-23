@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Al Bahah Taxi | Private Car Service 1180 km | Fixed Price',
+    title: 'Tabuk to Al Bahah Taxi | Private Car Service 1180 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Al Bahah. Reliable 11-12 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Al Bahah taxi', 'taxi from Tabuk to Al Bahah', 'private transfer Tabuk to Al Bahah', 'chauffeur Tabuk to Al Bahah', 'Tabuk to Al Bahah car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-al-bahah/',
     },
     openGraph: {
-        title: 'Tabuk to Al Bahah Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Al Bahah Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1180 km drive. Request a quote for a comfortable ride from Tabuk to Al Bahah. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-al-bahah/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAlBahahRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk Al Bahah"
                 faqs={[
 {
                         question: "Do I need to pay extra for luggage?",

@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Obhur Jeddah | Beach Resort Chauffeur',
+    title: 'VIP Private Transfer to Obhur Jeddah | Beach Resort Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service to Obhur, Jeddah. Reliable luxury transfers to Indigo, Oia, and all private beach resorts.',
     keywords: ['Obhur VIP transfer', 'Jeddah beach premium chauffeur', 'Jeddah to Obhur VIP', 'Indigo resort premium transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/obhur/',
     },
     openGraph: {
-        title: 'VIP Private Transfer to Obhur Beach Resorts | Premium Chauffeur',
+        title: 'VIP Private Transfer to Obhur Beach Resorts | Premium Chauffeur | Taxi Service KSA',
         description: 'Going to the beach? We provide premium VIP private transfers and executive SUVs for families and divers heading to Obhur resorts.',
         url: 'https://taxiserviceksa.com/locations/jeddah/obhur/',
         type: 'website',
@@ -154,6 +154,7 @@ export default function ObhurPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Jeddah"
                         points={[
                             {
                                 topic: "Getting Back",

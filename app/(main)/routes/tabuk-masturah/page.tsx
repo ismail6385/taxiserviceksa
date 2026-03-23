@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Masturah Taxi | Private Car Service 750 km | Fixed Price',
+    title: 'Tabuk to Masturah Taxi | Private Car Service 750 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Masturah. Reliable 7-8 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Masturah taxi', 'taxi from Tabuk to Masturah', 'private transfer Tabuk to Masturah', 'chauffeur Tabuk to Masturah', 'Tabuk to Masturah car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-masturah/',
     },
     openGraph: {
-        title: 'Tabuk to Masturah Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Masturah Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 750 km drive. Request a quote for a comfortable ride from Tabuk to Masturah. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-masturah/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukMasturahRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Masturah"
                 faqs={[
 {
                         question: "Is the price for the whole car?",

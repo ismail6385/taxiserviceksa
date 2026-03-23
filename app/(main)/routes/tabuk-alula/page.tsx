@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to AlUla Taxi | Private Car Service 330 km | Fixed Price',
+    title: 'Tabuk to AlUla Taxi | Private Car Service 330 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to AlUla. Reliable 3.5-4 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to AlUla taxi', 'taxi from Tabuk to AlUla', 'private transfer Tabuk to AlUla', 'chauffeur Tabuk to AlUla', 'Tabuk to AlUla car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-alula/',
     },
     openGraph: {
-        title: 'Tabuk to AlUla Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to AlUla Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 330 km drive. Request a quote for a comfortable ride from Tabuk to AlUla. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-alula/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAlUlaRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Alula"
                 faqs={[
 {
                         question: "How long is the drive from Tabuk to AlUla?",

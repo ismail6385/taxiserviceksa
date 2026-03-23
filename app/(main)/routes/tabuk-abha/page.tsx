@@ -12,14 +12,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Tabuk to Abha Taxi | Private Car Service 1450 km | Fixed Price',
+    title: 'Tabuk to Abha Taxi | Private Car Service 1450 km | Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a private taxi from Tabuk to Abha. Reliable 14-15 Hours drive with professional drivers. Fixed rates, door-to-door service, and comfortable SUVs for families.',
     keywords: ['Tabuk to Abha taxi', 'taxi from Tabuk to Abha', 'private transfer Tabuk to Abha', 'chauffeur Tabuk to Abha', 'Tabuk to Abha car with driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-abha/',
     },
     openGraph: {
-        title: 'Tabuk to Abha Taxi | Private Transfer - Fixed Price',
+        title: 'Tabuk to Abha Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 1450 km drive. Request a quote for a comfortable ride from Tabuk to Abha. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-abha/',
         type: 'website',
@@ -188,6 +188,7 @@ export default function TabukAbhaRoutePage() {
             </section>
 
             <MicroSemanticFAQ
+                        contextName="Tabuk to Abha"
                 faqs={[
 {
                         question: "Is the price for the whole car?",

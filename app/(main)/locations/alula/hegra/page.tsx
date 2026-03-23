@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi to Hegra (Madain Saleh) | UNESCO AlUla Tour Transport',
+    title: 'Taxi to Hegra (Madain Saleh) | UNESCO AlUla Tour Transport | Taxi Service KSA',
     description: 'Request a quote for a taxi to Hegra (Madain Saleh) in AlUla. We drop you at Winter Park for the official bus or directly at the gate if you have a permit. Reliable 4x4 service.',
     keywords: ['Taxi to Hegra', 'Madain Saleh taxi', 'AlUla Hegra transport', 'Hegra tour driver', 'AlUla heritage taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/alula/hegra/',
     },
     openGraph: {
-        title: 'Taxi to Hegra (Madain Saleh) UNESCO Site',
+        title: 'Taxi to Hegra (Madain Saleh) UNESCO Site | Taxi Service KSA',
         description: 'Private transfer to Hegra. Note: Private cars cannot enter the tombs area without a permit. We take you to the Visitor Center.',
         url: 'https://taxiserviceksa.com/locations/alula/hegra/',
         type: 'website',
@@ -146,6 +146,7 @@ export default function HegraPage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Alula"
                         points={[
                             {
                                 topic: "Getting Inside",

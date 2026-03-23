@@ -9,14 +9,14 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Jeddah to Dar Al Taqwa Madinah Taxi | Luxury Hotel Transfer',
+    title: 'Jeddah to Dar Al Taqwa Madinah Taxi | Luxury Hotel Transfer | Taxi Service KSA',
     description: 'Request a quote for a luxury taxi from Jeddah Airport (JED) to Dar Al Taqwa Hotel Madinah. Professional drivers, fixed rates, and VIP service to the Haram doorstep.',
     keywords: ['Jeddah to Dar Al Taqwa Madinah taxi', 'Jeddah airport to Dar Al Taqwa hotel', 'Dar Al Taqwa transfer', 'luxury transport Jeddah Madinah', 'Madinah hotel pickup'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-dar-al-taqwa-madinah/',
     },
     openGraph: {
-        title: 'Jeddah to Dar Al Taqwa Madinah - VIP Hotel Transfer',
+        title: 'Jeddah to Dar Al Taqwa Madinah - VIP Hotel Transfer | Taxi Service KSA',
         description: 'Private, comfortable transfer from Jeddah Airport to Dar Al Taqwa Hotel. Located at the Main Gate of the Prophet Mosque.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-dar-al-taqwa-madinah/',
         type: 'website',
@@ -151,6 +151,7 @@ export default function JeddahToDarAlTaqwaMadinahPage() {
             </div>
 
             <MicroSemanticFAQ
+                        contextName="Jeddah To Dar Al Taqwa Madinah"
                 faqs={[
                     {
                         question: "How long does it take to get from Jeddah Airport to Dar Al Taqwa?",

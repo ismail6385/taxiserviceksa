@@ -30,7 +30,7 @@ import TopicCluster from '@/components/seo/TopicCluster';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Chauffeur Khaybar Fort | Madinah & AlUla',
+    title: 'VIP Private Transfer & Chauffeur Khaybar Fort | Madinah & AlUla | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service to Khaybar Fort. Specialized heritage tours from Madinah and AlUla with luxury 4x4 vehicle options.',
     keywords: ['Khaybar Fort VIP transfer', 'Executive chauffeur Khaybar', 'Madinah to Khaybar VIP', 'AlUla to Khaybar premium transfer', 'Khaybar 4x4 expedition'],
     alternates: {
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
         }
     },
     openGraph: {
-        title: 'VIP Transfer to Khaybar Fort | Madinah & AlUla Transfers',
+        title: 'VIP Transfer to Khaybar Fort | Madinah & AlUla Transfers | Taxi Service KSA',
         description: 'VIP transfer to Khaybar Oasis from Madinah (170km). Premium 4x4 vehicles available for volcanic tours.',
         url: 'https://taxiserviceksa.com/locations/khayber-fort/',
         type: 'website',
@@ -420,6 +420,7 @@ export default function KhayberPage() {
 
                     <div className="mt-16">
                         <TravelConsensus
+                        contextName="Khayber Fort"
                             points={[
                                 {
                                     topic: "Self-Drive vs VIP Chauffeur",

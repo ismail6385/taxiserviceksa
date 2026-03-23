@@ -20,22 +20,27 @@ export interface TravelConsensusLabels {
 
 interface TravelConsensusProps {
     points: ConsensusPoint[];
+    contextName?: string;
     labels?: TravelConsensusLabels;
     isRtl?: boolean;
 }
 
 const TravelConsensus: React.FC<TravelConsensusProps> = ({
     points,
+    contextName,
     isRtl = false,
-    labels = {
-        title: "Travel Reality Check: What to Expect",
+    labels: userLabels
+}) => {
+    const defaultLabels = {
+        title: contextName ? `${contextName} Reality Check: What to Expect` : "Travel Reality Check: What to Expect",
         subtitle: "Expert consensus on travel times and costs based on real pilgrim data",
         beliefLabel: "Common Estimate",
         realityLabel: "Pilgrim Reality",
         rangeLabel: "Safe Truth Range",
         factorsLabel: "Influencing Factors"
-    }
-}) => {
+    };
+
+    const labels = { ...defaultLabels, ...userLabels };
     return (
         <div className={`my-12 ${isRtl ? 'rtl' : 'ltr'}`} dir={isRtl ? 'rtl' : 'ltr'}>
             <div className="text-center mb-10">

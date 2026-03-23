@@ -10,14 +10,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi Doha to Makkah | VIP Cross-Border Transfer',
+    title: 'Doha to Makkah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
     description: 'Request a premium quote from Doha to Makkah. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Doha to Makkah', 'Doha to Makkah transfer', 'cross border taxi Saudi Arabia', 'VIP transport Doha Makkah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/doha-makkah/',
     },
     openGraph: {
-        title: 'Taxi Doha to Makkah | VIP Cross-Border Transfer',
+        title: 'Doha to Makkah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
         description: 'Request a premium quote from Doha to Makkah. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/doha-makkah/',
         type: 'website',
@@ -50,7 +50,7 @@ export default function DohaMakkahRoutePage() {
 
             <Hero
                 images={images}
-                h1Text="Taxi Doha to Makkah"
+                h1Text="Doha to Makkah Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         GCC Cross-Border Service
@@ -142,6 +142,7 @@ export default function DohaMakkahRoutePage() {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
+                        contextName="Doha to Makkah"
                         points={[
                             {
                                 topic: "Visas & ID",

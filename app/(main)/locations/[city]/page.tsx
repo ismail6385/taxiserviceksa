@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!city) {
         return {
-            title: 'City Not Found',
+            title: 'City Not Found | Taxi Service KSA',
         };
     }
 

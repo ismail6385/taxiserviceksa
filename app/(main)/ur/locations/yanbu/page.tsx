@@ -290,6 +290,7 @@ export default function YanbuPageUrdu() {
 
                     <div className="mt-16">
                         <TravelConsensus
+                        contextName="Yanbu"
                             isRtl={true}
                             labels={{
                                 title: "ینبع سفری حقائق",
