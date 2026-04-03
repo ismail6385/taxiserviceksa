@@ -1,6 +1,6 @@
 'use client';
 
-import Script from 'next/script';
+
 
 
 interface JsonLdRouteProps {
@@ -71,7 +71,7 @@ export default function JsonLdRoute({ from, to, description, distance, duration 
     const id = `route-schema-${from.toLowerCase()}-${to.toLowerCase()}`;
 
     return (
-        <Script
+        <script
             id={id}
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}

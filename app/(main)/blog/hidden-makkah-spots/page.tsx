@@ -9,8 +9,20 @@ export const metadata: Metadata = {
     title: '5 Hidden Historical Spots in Makkah | Beyond the Haram',
     description: 'Discover the secret historical Ziyarat spots in Makkah that most pilgrims miss. From the Jinn Mosque to the Prophet\'s Hiding Place. Verified by local experts.',
     keywords: ['Makkah hidden gems', 'Ziyarat Makkah', 'Masjid Al Jinn', 'Jabal Thawr', 'Makkah history'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/blog/hidden-makkah-spots/',
+    },
     openGraph: {
-        images: [{ url: '/makkah-hidden-gems.webp', alt: 'Hidden Historical Spots in Makkah' }],
+        title: '5 Hidden Historical Spots in Makkah | Beyond the Haram',
+        description: 'Discover the secret historical Ziyarat spots in Makkah that most pilgrims miss. From the Jinn Mosque to the Prophet\'s Hiding Place. Verified by local experts.',
+        url: 'https://taxiserviceksa.com/blog/hidden-makkah-spots/',
+        type: 'article',
+        images: [{
+            url: 'https://taxiserviceksa.com/locations/makkah.webp',
+            width: 1200,
+            height: 630,
+            alt: 'Hidden Historical Spots in Makkah - Ziyarat Guide',
+        }],
     },
 };
 

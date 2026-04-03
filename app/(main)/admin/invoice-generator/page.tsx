@@ -310,16 +310,23 @@ export default function UniversalInvoiceGenerator() {
                             <div className="grid grid-cols-2 gap-4 mt-4 pt-4 border-t">
                                 <div>
                                     <Label className="text-[10px] text-gray-400 uppercase ml-1">Currency</Label>
-                                    <Select onValueChange={(val) => setMeta({...meta, currency: val})} defaultValue="SAR">
-                                        <SelectTrigger className="h-8 font-bold text-xs">
-                                            <SelectValue />
-                                        </SelectTrigger>
-                                        <SelectContent className="bg-white">
-                                            <SelectItem value="SAR">SAR</SelectItem>
-                                            <SelectItem value="KWD">KWD</SelectItem>
-                                            <SelectItem value="USD">USD</SelectItem>
-                                        </SelectContent>
-                                    </Select>
+                                    <Input 
+                                        value={meta.currency} 
+                                        onChange={(e) => setMeta({...meta, currency: e.target.value.toUpperCase()})}
+                                        className="h-8 font-bold text-xs w-full mb-1.5"
+                                        placeholder="e.g. SAR"
+                                    />
+                                    <div className="flex gap-1 flex-wrap">
+                                        {['SAR', 'KWD', 'BHD', 'OMR', 'AED', 'USD'].map(c => (
+                                            <span 
+                                                key={c}
+                                                onClick={() => setMeta({...meta, currency: c})}
+                                                className="text-[9px] px-1.5 py-0.5 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded cursor-pointer font-bold"
+                                            >
+                                                {c}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                                 <div className="text-right">
                                     <p className="text-[10px] text-gray-400 uppercase">Subtotal</p>
@@ -349,19 +356,23 @@ export default function UniversalInvoiceGenerator() {
                             </label>
                         </div>
                         <div className="space-y-3 font-sans">
-                            <Select 
-                                onValueChange={(val) => setVehicle({...vehicle, name: val})} 
-                                value={vehicle.name}
-                            >
-                                <SelectTrigger className="font-semibold text-gray-900 rounded-lg">
-                                    <SelectValue placeholder="Select Vehicle" />
-                                </SelectTrigger>
-                                <SelectContent className="bg-white">
-                                    {PRESET_VEHICLES.map((v) => (
-                                        <SelectItem key={v} value={v} className="font-semibold">{v}</SelectItem>
-                                    ))}
-                                </SelectContent>
-                            </Select>
+                            <Input 
+                                placeholder="Type Vehicle Name (e.g. Camry, GMC Yukon)" 
+                                value={vehicle.name} 
+                                onChange={(e) => setVehicle({...vehicle, name: e.target.value})}
+                                className="font-semibold text-gray-900 h-10"
+                            />
+                            <div className="flex flex-wrap gap-1.5 mt-2">
+                                {PRESET_VEHICLES.map((v) => (
+                                    <span 
+                                        key={v} 
+                                        onClick={() => setVehicle({...vehicle, name: v})}
+                                        className="text-[10px] px-2 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded cursor-pointer font-semibold transition-colors"
+                                    >
+                                        {v}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
                     </div>
 
@@ -371,27 +382,30 @@ export default function UniversalInvoiceGenerator() {
                         <div className="grid grid-cols-2 gap-3">
                             <div>
                                 <Label className="text-[10px] text-gray-400 uppercase ml-1">Status</Label>
-                                <Select value={meta.status} onValueChange={(val) => setMeta({...meta, status: val})}>
-                                    <SelectTrigger className="h-9 text-xs font-semibold">
-                                        <SelectValue />
-                                    </SelectTrigger>
-                                    <SelectContent className="bg-white">
-                                        <SelectItem value="Paid">Paid</SelectItem>
-                                        <SelectItem value="Unpaid">Unpaid</SelectItem>
-                                    </SelectContent>
-                                </Select>
+                                <Input 
+                                    value={meta.status} 
+                                    onChange={(e) => setMeta({...meta, status: e.target.value})} 
+                                    className="h-9 text-xs font-semibold" 
+                                    placeholder="e.g. Paid, Unpaid"
+                                />
+                                <div className="flex gap-1 mt-1.5 text-[9px] flex-wrap">
+                                    <span onClick={()=>setMeta({...meta, status: 'Paid'})} className="px-1.5 py-0.5 bg-green-50 text-green-600 rounded cursor-pointer hover:bg-green-100 font-bold uppercase tracking-wider">Paid</span>
+                                    <span onClick={()=>setMeta({...meta, status: 'Unpaid'})} className="px-1.5 py-0.5 bg-red-50 text-red-600 rounded cursor-pointer hover:bg-red-100 font-bold uppercase tracking-wider">Unpaid</span>
+                                    <span onClick={()=>setMeta({...meta, status: 'Pending'})} className="px-1.5 py-0.5 bg-yellow-50 text-yellow-600 rounded cursor-pointer hover:bg-yellow-100 font-bold uppercase tracking-wider">Pending</span>
+                                </div>
                             </div>
                             <div>
                                 <Label className="text-[10px] text-gray-400 uppercase ml-1">Method</Label>
-                                <Select value={meta.paymentMethod} onValueChange={(val) => setMeta({...meta, paymentMethod: val})}>
-                                    <SelectTrigger className="h-9 text-xs font-semibold">
-                                        <SelectValue />
-                                    </SelectTrigger>
-                                    <SelectContent className="bg-white">
-                                        <SelectItem value="Cash to Driver">Cash to Driver</SelectItem>
-                                        <SelectItem value="Online Payment">Online Payment</SelectItem>
-                                    </SelectContent>
-                                </Select>
+                                <Input 
+                                    value={meta.paymentMethod} 
+                                    onChange={(e) => setMeta({...meta, paymentMethod: e.target.value})} 
+                                    className="h-9 text-xs font-semibold" 
+                                    placeholder="e.g. Cash, Card"
+                                />
+                                <div className="flex gap-1 mt-1.5 flex-wrap text-[9px]">
+                                    <span onClick={()=>setMeta({...meta, paymentMethod: 'Cash to Driver'})} className="px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded cursor-pointer hover:bg-gray-200 font-bold uppercase tracking-wider">Cash</span>
+                                    <span onClick={()=>setMeta({...meta, paymentMethod: 'Online Payment'})} className="px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded cursor-pointer hover:bg-gray-200 font-bold uppercase tracking-wider">Online</span>
+                                </div>
                             </div>
                         </div>
                         <div className="grid grid-cols-2 gap-3 pt-2">

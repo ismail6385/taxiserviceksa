@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import Link from 'next/link';
 import { ChevronRight, Home } from 'lucide-react';
 
@@ -40,7 +39,7 @@ export default function RouteBreadcrumb({ fromCity, toCity, fromSlug, toSlug }: 
 
     return (
         <>
-            <Script
+            <script
                 id={`breadcrumb-schema-${fromSlug}-${toSlug}`}
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

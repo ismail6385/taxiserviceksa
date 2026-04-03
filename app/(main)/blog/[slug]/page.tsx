@@ -35,10 +35,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         openGraph: {
             title: blog.seo_title || blog.title,
             description: blog.seo_description || blog.excerpt,
-            images: blog.featured_image ? [{ url: blog.featured_image }] : undefined,
+            url: `https://taxiserviceksa.com/blog/${blog.slug}/`,
             type: 'article',
             publishedTime: blog.published_at || blog.created_at,
             authors: [blog.author],
+            images: blog.featured_image ? [{
+                url: blog.featured_image.startsWith('http') ? blog.featured_image : `https://taxiserviceksa.com${blog.featured_image}`,
+                width: 1200,
+                height: 630,
+                alt: blog.title,
+            }] : [{
+                url: 'https://taxiserviceksa.com/og-image.jpg',
+                width: 1200,
+                height: 630,
+                alt: blog.title,
+            }],
         },
         alternates: {
             canonical: `https://taxiserviceksa.com/blog/${blog.slug}/`,
@@ -68,20 +79,37 @@ export default async function BlogPostPage({ params }: Props) {
         .slice(0, 4); // Take top 4 recent posts
 
 
+    // Ensure dates have timezone for Google byline date precision (Saudi Arabia = +03:00 AST)
+    const publishedDate = (blog.published_at || blog.created_at);
+    const modifiedDate = blog.updated_at;
+    const appendTimezone = (d: string) => d && !d.includes('T') ? `${d}T00:00:00+03:00` : d;
+
     const structuredData = {
         "@context": "https://schema.org",
         "@type": "BlogPosting",
         "headline": blog.seo_title || blog.title,
         "image": blog.featured_image ? [blog.featured_image] : [],
-        "datePublished": blog.published_at || blog.created_at,
-        "dateModified": blog.updated_at,
+        "datePublished": appendTimezone(publishedDate),
+        "dateModified": appendTimezone(modifiedDate),
         "author": {
             "@type": "Person",
             "name": blog.author || "VIP Transfer KSA",
             "url": authorDetails ? `https://taxiserviceksa.com/author/${authorDetails.slug}` : undefined,
             "image": authorDetails?.avatar ? `https://taxiserviceksa.com${authorDetails.avatar}` : undefined
         },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Taxi Service KSA",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://taxiserviceksa.com/logo.png"
+            }
+        },
         "description": blog.seo_description || blog.excerpt,
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://taxiserviceksa.com/blog/${blog.slug}/`
+        },
         "timeRequired": `PT${readingTime}M`
     };
 
@@ -122,12 +150,21 @@ export default async function BlogPostPage({ params }: Props) {
                             </span>
                             <span className="flex items-center gap-2">
                                 <Calendar className="w-4 h-4" />
-                                {new Date(blog.published_at || blog.created_at).toLocaleDateString('en-US', {
+                                Published {new Date(blog.published_at || blog.created_at).toLocaleDateString('en-US', {
                                     year: 'numeric',
                                     month: 'long',
                                     day: 'numeric'
                                 })}
                             </span>
+                            {blog.updated_at && blog.updated_at !== (blog.published_at || blog.created_at) && (
+                                <span className="flex items-center gap-2 text-gray-500">
+                                    Last updated {new Date(blog.updated_at).toLocaleDateString('en-US', {
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: 'numeric'
+                                    })}
+                                </span>
+                            )}
                             <span className="flex items-center gap-2">
                                 <Clock className="w-4 h-4" />
                                 {readingTime} min read
@@ -159,8 +196,49 @@ export default async function BlogPostPage({ params }: Props) {
                                 <ShareButtons title={blog.title} description={blog.excerpt} />
                             </div>
 
+                            {/* Aggressive Top CTA for Immediate Lead Capture */}
+                            <div className="mb-10 p-6 md:p-8 bg-gradient-to-r from-gray-900 via-gray-800 to-black rounded-2xl shadow-xl text-white transform hover:scale-[1.01] transition-all border-l-4 border-primary">
+                                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                                    <div className="flex-1 text-center md:text-left">
+                                        <div className="inline-flex items-center justify-center md:justify-start gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-sm font-semibold mb-3">
+                                            <span className="relative flex h-2.5 w-2.5">
+                                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                                              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+                                            </span>
+                                            24/7 VIP Cars Available Now
+                                        </div>
+                                        <h3 className="text-2xl md:text-3xl font-bold mb-2">Need a Reliable Ride in KSA?</h3>
+                                        <p className="text-gray-300 text-sm md:text-base">
+                                            Skip the wait. Book your Makkah, Madinah, or Airport Transfer with our VIP chauffeurs instantly.
+                                        </p>
+                                    </div>
+                                    <div className="w-full md:w-auto">
+                                        <Link href="/booking/" className="block w-full">
+                                            <button className="w-full md:w-auto bg-primary text-black font-bold py-4 px-8 rounded-xl shadow-[0_0_20px_rgba(var(--color-primary),0.3)] hover:shadow-[0_0_30px_rgba(var(--color-primary),0.5)] transition-all flex items-center justify-center gap-2 whitespace-nowrap text-lg">
+                                                Request Quote Now
+                                                <ChevronRight className="w-5 h-5 flex-shrink-0" />
+                                            </button>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+
                             {/* Content Body */}
                             <BlogContent content={marked.parse(blog.content) as string} />
+
+                            {/* Aggressive Bottom CTA for Readers who finished the article */}
+                            <div className="mt-12 p-8 bg-primary/10 rounded-2xl border border-primary/30 text-center">
+                                <h3 className="text-2xl font-bold text-gray-900 mb-3">Ready to Travel?</h3>
+                                <p className="text-gray-600 mb-6 max-w-xl mx-auto">
+                                    Whether it's an Umrah trip or a quick airport transfer, our pristine fleet and professional drivers are ready for you.
+                                </p>
+                                <Link href="/booking/" className="inline-block w-full sm:w-auto">
+                                    <button className="w-full sm:w-auto bg-gray-950 text-white font-bold py-4 px-10 rounded-xl hover:bg-gray-800 transition-all shadow-lg flex items-center justify-center gap-2 mx-auto">
+                                        Check Fare & Book
+                                        <ChevronRight className="w-5 h-5" />
+                                    </button>
+                                </Link>
+                            </div>
 
                             {/* Tags */}
                             {blog.tags && blog.tags.length > 0 && (

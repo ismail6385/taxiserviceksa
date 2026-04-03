@@ -105,6 +105,51 @@ export default function BlogContent({ content }: BlogContentProps) {
             });
         }
 
+        // --- 1.5 Mid-Article Aggressive CTA ---
+        const headings = Array.from(container.querySelectorAll('h2, h3'));
+        if (headings.length >= 2) {
+            const middleIndex = Math.floor(headings.length / 2);
+            const middleHeading = headings[middleIndex];
+            
+            // Only inject if it's not the very last or very first thing
+            if (middleHeading && middleIndex > 0 && middleIndex < headings.length) {
+                const ctaWrapper = document.createElement('div');
+                middleHeading.parentNode?.insertBefore(ctaWrapper, middleHeading);
+                
+                const MidArticleCTA = (
+                    <div className="not-prose my-10 p-6 md:p-8 rounded-2xl bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-primary/20 shadow-lg block hover:shadow-xl transition-all relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 -mr-4 -mt-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl group-hover:bg-primary/30 transition-all"></div>
+                        <div className="absolute bottom-0 left-0 -ml-4 -mb-4 w-32 h-32 bg-amber-200/20 rounded-full blur-2xl"></div>
+                        
+                        <div className="relative z-10 flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+                            <div className="flex-1">
+                                <span className="inline-block px-3 py-1 bg-white text-gray-800 text-xs font-bold uppercase tracking-wider rounded-lg mb-3 shadow-sm">
+                                    Flash Booking
+                                </span>
+                                <h4 className="text-2xl font-bold text-gray-900 mb-2">Need a lift right now?</h4>
+                                <p className="text-gray-700 text-sm md:text-base max-w-xl">
+                                    Don't delay your journey. Get a premium VIP Chauffeur with instant confirmation anywhere in Saudi Arabia.
+                                </p>
+                            </div>
+                            <div className="w-full md:w-auto flex-shrink-0">
+                                <a href="/booking/" className="inline-flex w-full md:w-auto items-center justify-center gap-2 bg-primary text-black font-extrabold px-8 py-4 rounded-xl shadow-lg hover:-translate-y-1 hover:shadow-primary/40 transition-all">
+                                    Click To Book
+                                    <ArrowRight className="w-5 h-5 flex-shrink-0" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                );
+                
+                const root = createRoot(ctaWrapper);
+                root.render(MidArticleCTA);
+                cleanupFunctions.push(() => {
+                    setTimeout(() => root.unmount(), 0);
+                    if (ctaWrapper.parentNode) ctaWrapper.remove();
+                });
+            }
+        }
+
         // --- 2. Process Pros, Cons, Key Takeaways ---
         const processSection = (headerText: string, icon: React.ElementType, iconColor: string, bgColor: string, borderColor: string) => {
             const header = Array.from(container.querySelectorAll('h2, h3')).find(h =>

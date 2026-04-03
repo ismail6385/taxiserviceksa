@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from 'react';
-import Script from 'next/script';
 import { HelpCircle, Check, ChevronDown, ChevronUp, Shield, Users, User, Briefcase, Heart, Compass } from 'lucide-react';
 
 export interface MicroPerspective {
@@ -84,7 +83,7 @@ const MicroSemanticFAQ: React.FC<MicroSemanticFAQProps> = ({
 
     return (
         <div className={`my-16 ${isRtl ? 'rtl' : 'ltr'}`} dir={isRtl ? 'rtl' : 'ltr'}>
-            <Script
+            <script
                 id={`faq-schema-${faqs[0]?.question?.replace(/\s+/g, '-').substring(0, 30).toLowerCase() || 'default'}`}
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
@@ -130,7 +129,10 @@ const MicroSemanticFAQ: React.FC<MicroSemanticFAQProps> = ({
                         </div>
 
                         {/* Expanded Content: Detail & Perspectives */}
-                        <div className={`overflow-hidden transition-all duration-500 ease-in-out ${expandedIndex === index ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                        {/* NOTE: Content is always in DOM for Google Featured Snippets — only visually toggled */}
+                        <div className={`transition-all duration-500 ease-in-out ${expandedIndex === index ? 'block' : 'hidden'}`}
+                            aria-hidden={expandedIndex !== index}
+                        >
                             <div className={`px-6 pb-6 pt-0 border-t ${isDark ? 'border-gray-800 bg-gray-900/30' : 'border-gray-50 bg-gray-50/50'}`}>
                                 <div className={`py-4 leading-relaxed text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                                     {faq.detailedAnswer}

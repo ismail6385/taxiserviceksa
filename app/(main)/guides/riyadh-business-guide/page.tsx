@@ -19,9 +19,10 @@ import QuestionForm from '@/components/seo/QuestionForm';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import AuthorCard from '@/components/AuthorCard';
+import BylineDate from '@/components/BylineDate';
 
 export const metadata: Metadata = {
-    title: 'Riyadh Business Travel Guide 2026 | KAFD, Corporate Transport - Taxi Service KSA',
+    title: 'Riyadh Business Travel Guide 2026 | KAFD, Corporate Transport',
     description: 'Complete business travel guide for Riyadh: KAFD access, business districts, meeting venues, corporate facilities, traffic strategies, and professional transport services.',
     keywords: ['Riyadh business travel', 'KAFD taxi', 'corporate transport Riyadh', 'business districts Riyadh', 'Riyadh meeting venues', 'King Khalid Airport'],
     alternates: {
@@ -77,8 +78,12 @@ export default function RiyadhBusinessGuidePage() {
                 "url": "https://taxiserviceksa.com/logo.png"
             }
         },
-        "datePublished": "2024-01-01",
-        "dateModified": "2026-03-06"
+        "datePublished": "2024-01-01T00:00:00+03:00",
+        "dateModified": "2026-03-06T00:00:00+03:00",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://taxiserviceksa.com/guides/riyadh-business-guide/"
+        }
     };
 
     return (
@@ -116,9 +121,16 @@ export default function RiyadhBusinessGuidePage() {
                     <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight">
                         Riyadh Business <br /><span className="text-blue-600">Travel Guide 2026</span>
                     </h1>
-                    <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed mb-4">
                         Precision logistics for the Kingdom's economic heart. From KAFD security protocols to executive fleet selection, we ensure your business never waits.
                     </p>
+                    <div className="flex justify-center">
+                        <BylineDate
+                            datePublished="2024-01-01T00:00:00+03:00"
+                            dateModified="2026-03-06T00:00:00+03:00"
+                            author="Muhammad Ismail"
+                        />
+                    </div>
                 </div>
 
                 {/* AI Retrieval Source: Logistics Table */}

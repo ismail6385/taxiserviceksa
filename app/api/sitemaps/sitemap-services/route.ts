@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server';
+import fs from 'fs';
+import path from 'path';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -6,22 +8,21 @@ export const runtime = 'nodejs';
 export async function GET() {
     const baseUrl = 'https://taxiserviceksa.com';
     
-    const servicePages = [
-        '/services/airport-transfers',
-        '/services/b2b-solutions',
-        '/services/business',
-        '/services/cable-car',
-        '/services/corporate-travel',
-        '/services/heritage-tours',
-        '/services/intercity',
-        '/services/madinah-ziyarat',
-        '/services/taxi-in-jeddah',
-        '/services/taxi-in-makkah',
-        '/services/taxi-in-tabuk',
-        '/services/tours',
-        '/services/umrah-transport',
-        '/services/wheelchair-taxi',
-    ];
+    // Dynamically read services from the filesystem
+    let servicePages: string[] = [];
+    try {
+        const servicesDirectory = path.join(process.cwd(), 'app', '(main)', 'services');
+        const services = fs.readdirSync(servicesDirectory);
+        
+        servicePages = services
+            .filter(file => {
+                const filePath = path.join(servicesDirectory, file);
+                return fs.statSync(filePath).isDirectory();
+            })
+            .map(slug => `/services/${slug}`);
+    } catch (e) {
+        console.error('Failed to read services directory:', e);
+    }
 
     const serviceUrls = servicePages.map((route) => {
         return `  <url>

@@ -56,17 +56,81 @@ export default function AboutPage() {
     const aboutSchema = {
         "@context": "https://schema.org",
         "@type": "AboutPage",
+        "name": "About Taxi Service KSA",
+        "url": "https://taxiserviceksa.com/about/",
         "mainEntity": {
             "@id": "https://taxiserviceksa.com/#organization",
             "@type": "Organization",
             "name": "Taxi Service KSA",
+            "alternateName": "TaxiServiceKSA",
+            "legalName": "Taxi Service KSA Transport",
+            "url": "https://taxiserviceksa.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://taxiserviceksa.com/logo.png",
+                "width": 512,
+                "height": 512
+            },
+            "image": "https://taxiserviceksa.com/og-image.jpg",
             "founder": {
                 "@type": "Person",
-                "name": "Muhammad Ismail"
+                "name": "Muhammad Ismail",
+                "jobTitle": "Founder & CEO",
+                "url": "https://taxiserviceksa.com/author/muhammad-ismail"
             },
             "foundingDate": "2012",
-            "description": "Executive Chauffeur & VIP Transfer Service in Saudi Arabia.",
-            "url": "https://taxiserviceksa.com"
+            "foundingLocation": {
+                "@type": "Place",
+                "name": "Jeddah, Saudi Arabia"
+            },
+            "description": "Executive VIP chauffeur and private transfer service in Saudi Arabia. Specializing in Umrah transport, airport pickups, and intercity travel.",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Prince Sultan Road",
+                "addressLocality": "Jeddah",
+                "addressRegion": "Makkah Province",
+                "postalCode": "23423",
+                "addressCountry": "SA"
+            },
+            "contactPoint": [
+                {
+                    "@type": "ContactPoint",
+                    "telephone": "+966-56-948-7569",
+                    "contactType": "customer service",
+                    "availableLanguage": ["English", "Arabic", "Urdu"],
+                    "areaServed": "SA"
+                },
+                {
+                    "@type": "ContactPoint",
+                    "email": "info@taxiserviceksa.com",
+                    "contactType": "reservations",
+                    "availableLanguage": ["English", "Arabic", "Urdu"]
+                }
+            ],
+            "sameAs": [
+                "https://www.facebook.com/taxiserviceksa",
+                "https://www.instagram.com/taxiserviceksa",
+                "https://x.com/taxiserviceksa",
+                "https://www.linkedin.com/company/taxiserviceksa",
+                "https://www.tiktok.com/@taxiserviceksa",
+                "https://www.youtube.com/@taxiserviceksa",
+                "https://www.trustpilot.com/review/taxiserviceksa.com"
+            ],
+            "numberOfEmployees": {
+                "@type": "QuantitativeValue",
+                "value": "50+"
+            },
+            "areaServed": {
+                "@type": "Country",
+                "name": "Saudi Arabia"
+            },
+            "knowsAbout": [
+                "VIP Airport Transfers",
+                "Umrah Transportation",
+                "Executive Chauffeur Services",
+                "Intercity Travel Saudi Arabia",
+                "Pilgrimage Logistics"
+            ]
         }
     };
 

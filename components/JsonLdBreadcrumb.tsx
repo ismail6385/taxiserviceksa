@@ -1,7 +1,6 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import Script from 'next/script';
 
 export default function JsonLdBreadcrumb() {
     const pathname = usePathname();
@@ -42,7 +41,7 @@ export default function JsonLdBreadcrumb() {
     };
 
     return (
-        <Script
+        <script
             id="breadcrumb-schema"
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}

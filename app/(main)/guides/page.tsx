@@ -7,7 +7,7 @@ import TLDRSummary from '@/components/seo/TLDRSummary';
 import FreshnessStatus from '@/components/seo/FreshnessStatus';
 
 export const metadata: Metadata = {
-    title: 'Travel Guides | Taxi Service KSA - Expert Insights for Saudi Arabia',
+    title: 'Travel Guides | Expert Insights for Saudi Arabia',
     description: 'Comprehensive travel guides for Jeddah Airport, Makkah Umrah, and Riyadh Business Travel. Expert insights from professional drivers with years of local experience.',
     keywords: ['Jeddah Airport Guide', 'Makkah Umrah Guide', 'Riyadh Business Guide', 'Saudi Arabia Travel', 'Taxi Service KSA'],
     alternates: {

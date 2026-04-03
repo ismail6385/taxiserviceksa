@@ -83,7 +83,7 @@ interface Booking {
     status: 'pending' | 'confirmed' | 'cancelled' | 'completed';
     special_requests?: string;
     total_price?: number;
-    payment_status?: 'unpaid' | 'paid' | 'partial' | 'refunded';
+    payment_status?: string;
     driver_name?: string;
     flight_number?: string;
     actual_vehicle?: string;
@@ -91,6 +91,8 @@ interface Booking {
     internal_notes?: string;
     has_return_trip?: boolean;
     child_seats?: number;
+    currency?: string;
+    payment_method?: string;
 }
 
 export default function BookingsPage() {
@@ -170,7 +172,9 @@ export default function BookingsPage() {
         actual_vehicle: '',
         payment_status: 'unpaid',
         driver_name: '',
-        flight_number: ''
+        flight_number: '',
+        currency: 'SAR',
+        payment_method: 'Cash to Driver'
     });
 
     const router = useRouter();
@@ -1412,22 +1416,25 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Vehicle Type</span>
                                             {isEditing ? (
-                                                <Select value={editedBooking.vehicle_type} onValueChange={(val) => setEditedBooking({ ...editedBooking, vehicle_type: val })}>
-                                                    <SelectTrigger className="h-8 text-sm bg-white">
-                                                        <SelectValue />
-                                                    </SelectTrigger>
-                                                    <SelectContent className="bg-white border-gray-200">
-                                                        <SelectItem value="Sedan">Sedan</SelectItem>
-                                                        <SelectItem value="SUV">SUV</SelectItem>
-                                                        <SelectItem value="Van">Van</SelectItem>
-                                                        <SelectItem value="Minibus">Minibus</SelectItem>
-                                                        <SelectItem value="Bus">Bus</SelectItem>
-                                                        <SelectItem value="GMC">GMC</SelectItem>
-                                                        <SelectItem value="Starex">Starex</SelectItem>
-                                                        <SelectItem value="Hiace">Hiace</SelectItem>
-                                                        <SelectItem value="Fortuner">Fortuner</SelectItem>
-                                                    </SelectContent>
-                                                </Select>
+                                                <div className="space-y-2">
+                                                    <Input 
+                                                        value={editedBooking.vehicle_type} 
+                                                        onChange={(e) => setEditedBooking({ ...editedBooking, vehicle_type: e.target.value })} 
+                                                        className="h-8 text-sm bg-white" 
+                                                        placeholder="e.g. Sedan, Custom Van"
+                                                    />
+                                                    <div className="flex flex-wrap gap-1">
+                                                        {['Sedan', 'SUV', 'Van', 'Minibus', 'Bus', 'GMC', 'Starex', 'Hiace', 'Fortuner'].map((v) => (
+                                                            <span 
+                                                                key={v}
+                                                                onClick={() => setEditedBooking({ ...editedBooking, vehicle_type: v })}
+                                                                className="text-[10px] px-1.5 py-0.5 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded cursor-pointer transition-colors border border-gray-200"
+                                                            >
+                                                                {v}
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                </div>
                                             ) : (
                                                 <Badge variant="outline" className="text-sm bg-white border-gray-200 text-gray-900 font-medium">
                                                     {selectedBooking.vehicle_type}
@@ -1438,21 +1445,53 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             <span className="block text-xs text-gray-500 mb-1">Total Quote</span>
                                             <div className="flex items-center gap-2">
                                                 {isEditing ? (
-                                                    <>
-                                                        <Input type="number" value={editedBooking.total_price || ''} onChange={(e) => setEditedBooking({ ...editedBooking, total_price: parseFloat(e.target.value) })} className="h-8 text-sm bg-white font-bold w-24" />
-                                                        <Button 
-                                                            variant="ghost" 
-                                                            size="icon" 
-                                                            className="h-8 w-8 text-primary" 
-                                                            onClick={() => suggestPrice(editedBooking.pickup_location, editedBooking.destination, editedBooking.vehicle_type, 'edit')}
-                                                            title="Suggest Price"
-                                                        >
-                                                            <Calculator className="h-4 w-4" />
-                                                        </Button>
-                                                    </>
+                                                    <div className="space-y-2">
+                                                        <div className="flex items-center gap-1">
+                                                            <div className="relative">
+                                                                <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] font-bold text-gray-400">CURR</span>
+                                                                <Input 
+                                                                    value={editedBooking.currency || 'SAR'} 
+                                                                    onChange={(e) => setEditedBooking({ ...editedBooking, currency: e.target.value.toUpperCase() })} 
+                                                                    className="h-8 text-[10px] pl-9 w-20 bg-white font-bold" 
+                                                                    placeholder="SAR"
+                                                                />
+                                                            </div>
+                                                            <Input 
+                                                                type="number" 
+                                                                value={editedBooking.total_price || ''} 
+                                                                onChange={(e) => setEditedBooking({ ...editedBooking, total_price: parseFloat(e.target.value) })} 
+                                                                className="h-8 text-sm bg-white font-bold w-24" 
+                                                                placeholder="Price"
+                                                            />
+                                                            <Button 
+                                                                variant="ghost" 
+                                                                size="icon" 
+                                                                className="h-8 w-8 text-primary" 
+                                                                onClick={() => suggestPrice(editedBooking.pickup_location, editedBooking.destination, editedBooking.vehicle_type, 'edit')}
+                                                                title="Suggest Price"
+                                                            >
+                                                                <Calculator className="h-4 w-4" />
+                                                            </Button>
+                                                        </div>
+                                                        <div className="flex flex-wrap gap-1">
+                                                            {['SAR', 'USD', 'AED', 'KWD', 'OMR', 'BHD'].map((curr) => (
+                                                                <span 
+                                                                    key={curr}
+                                                                    onClick={() => setEditedBooking({ ...editedBooking, currency: curr })}
+                                                                    className={`text-[9px] px-1 py-0.5 rounded cursor-pointer transition-colors border ${
+                                                                        editedBooking.currency === curr 
+                                                                        ? 'bg-primary border-primary text-black font-bold' 
+                                                                        : 'bg-gray-100 border-gray-200 text-gray-600 hover:bg-gray-200'
+                                                                    }`}
+                                                                >
+                                                                    {curr}
+                                                                </span>
+                                                            ))}
+                                                        </div>
+                                                    </div>
                                                 ) : (
                                                     <span className="text-lg font-bold text-green-600">
-                                                        {selectedBooking.total_price ? `SAR ${selectedBooking.total_price}` : 'Calculating...'}
+                                                        {selectedBooking.total_price ? `${selectedBooking.currency || 'SAR'} ${selectedBooking.total_price}` : 'Calculating...'}
                                                     </span>
                                                 )}
                                             </div>
@@ -1482,17 +1521,25 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Payment Status</span>
                                             {isEditing ? (
-                                                <Select value={editedBooking.payment_status} onValueChange={(val: any) => setEditedBooking({ ...editedBooking, payment_status: val })}>
-                                                    <SelectTrigger className="h-8 text-sm bg-white">
-                                                        <SelectValue />
-                                                    </SelectTrigger>
-                                                    <SelectContent className="bg-white border-gray-200">
-                                                        <SelectItem value="unpaid">Unpaid</SelectItem>
-                                                        <SelectItem value="paid">Paid</SelectItem>
-                                                        <SelectItem value="partial">Partial</SelectItem>
-                                                        <SelectItem value="refunded">Refunded</SelectItem>
-                                                    </SelectContent>
-                                                </Select>
+                                                <div className="space-y-2">
+                                                    <Input 
+                                                        value={editedBooking.payment_status || ''} 
+                                                        onChange={(e) => setEditedBooking({ ...editedBooking, payment_status: e.target.value })} 
+                                                        className="h-8 text-sm bg-white" 
+                                                        placeholder="e.g. unpaid, paid, custom state"
+                                                    />
+                                                    <div className="flex flex-wrap gap-1">
+                                                        {['unpaid', 'paid', 'partial', 'refunded'].map((v) => (
+                                                            <span 
+                                                                key={v}
+                                                                onClick={() => setEditedBooking({ ...editedBooking, payment_status: v })}
+                                                                className="text-[10px] px-1.5 py-0.5 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded cursor-pointer transition-colors border border-gray-200 uppercase"
+                                                            >
+                                                                {v}
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                </div>
                                             ) : (
                                                 <Badge variant="outline" className={`${getPaymentStatusColor(selectedBooking.payment_status || 'unpaid')} text-xs font-bold`}>
                                                     {(selectedBooking.payment_status || 'unpaid').toUpperCase()}

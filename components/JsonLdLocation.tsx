@@ -1,4 +1,4 @@
-import Script from 'next/script';
+
 
 interface JsonLdLocationProps {
     cityName: string;
@@ -65,7 +65,7 @@ export default function JsonLdLocation({
     const id = `location-schema-${cityName.toLowerCase().replace(/\s+/g, '-')}`;
 
     return (
-        <Script
+        <script
             id={id}
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}

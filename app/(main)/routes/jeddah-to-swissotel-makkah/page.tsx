@@ -16,12 +16,12 @@ export const metadata: Metadata = {
     description: 'Book private taxi from Jeddah Airport (KAIA) to Swissotel Makkah (Clock Tower). Door-to-door drop-off at Abraj Al Bait tunnel. Affordable fixed prices. 24/7 Service.',
     keywords: ['Jeddah airport to Swissotel Makkah taxi', 'Swissotel Makkah transfer', 'taxi Jeddah to Clock Tower', 'Abraj Al Bait taxi drop off', 'Jeddah to Makkah taxi fare'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/jeddah-to-swissotel-makkah/',
+        canonical: 'https://taxiserviceksa.com/routes/jeddah-to-swissotel-makkah/',
     },
     openGraph: {
         title: 'Jeddah Airport to Swissotel Makkah Taxi | Fixed Price Transfer | Taxi Service KSA',
         description: 'Direct transfer from KAIA Airport to Swissotel Makkah (Clock Tower). VIP drop-off service.',
-        url: 'https://taxiserviceksa.com/jeddah-to-swissotel-makkah/',
+        url: 'https://taxiserviceksa.com/routes/jeddah-to-swissotel-makkah/',
         type: 'website',
     },
 };

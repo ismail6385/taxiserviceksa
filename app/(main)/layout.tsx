@@ -16,18 +16,30 @@ export const metadata = {
       'msvalidate.01': 'DBF10D8E5F51FF80E9121C8FF0A4F0A5',
     },
   },
-  alternates: {
-    canonical: './',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   title: {
     default: 'Taxi Service KSA | #1 Airport Taxi & VIP Private Transfers (Pre-Book)',
-    template: '%s | Taxi Service KSA',
   },
   description: 'Pre-book VIP taxi services in Saudi Arabia. Reliable intercity transfers, border crossings, and Jeddah Airport to Makkah transport. Fixed rates & professional English-speaking drivers.',
   icons: {
-    icon: '/logo.png',
-    shortcut: '/logo.png',
-    apple: '/logo.png',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
   openGraph: {
     title: 'Taxi Service KSA | VIP Jeddah to Makkah Transfers',
@@ -36,10 +48,10 @@ export const metadata = {
     siteName: 'Taxi Service KSA',
     images: [
       {
-        url: '/og-image.jpg',
+        url: 'https://taxiserviceksa.com/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Taxi Service KSA Fleet',
+        alt: 'Taxi Service KSA - Premium Saudi Arabia Transfers',
       },
     ],
     locale: 'en_US',

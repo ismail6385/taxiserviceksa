@@ -5,15 +5,15 @@
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
-import { 
-    Printer, 
-    ArrowLeft, 
-    Mail, 
-    Phone, 
-    Globe, 
-    MapPin, 
-    Calendar, 
-    Clock, 
+import {
+    Printer,
+    ArrowLeft,
+    Mail,
+    Phone,
+    Globe,
+    MapPin,
+    Calendar,
+    Clock,
     Car,
     User
 } from 'lucide-react';
@@ -59,6 +59,11 @@ export default function InvoicePage() {
 
                 if (error) throw error;
                 setBooking(data);
+                // Initialize editable fields from booking data if they exist
+                if (data.currency) setCurrency(data.currency);
+                if (data.payment_status) setPaymentStatus(data.payment_status);
+                // Note: payment_method might not be in the DB yet, but we check just in case
+                if (data.payment_method) setPaymentMethod(data.payment_method);
             } catch (error) {
                 console.error('Error fetching booking:', error);
             } finally {
@@ -75,7 +80,7 @@ export default function InvoicePage() {
         const refId = booking.id.slice(0, 8).toUpperCase();
         const dateStr = booking.pickup_date || new Date().toISOString().split('T')[0];
         const filename = `Invoice-${refId}-${customerName}-${dateStr}.pdf`;
-        
+
         const element = document.getElementById('invoice-print');
         if (!element) return;
 
@@ -83,9 +88,9 @@ export default function InvoicePage() {
             margin: [0, 0, 0, 0] as [number, number, number, number],
             filename: filename,
             image: { type: 'jpeg' as const, quality: 0.98 },
-            html2canvas: { 
-                scale: 2, 
-                useCORS: true, 
+            html2canvas: {
+                scale: 2,
+                useCORS: true,
                 letterRendering: true,
                 windowWidth: 1200, // Important: capture at desktop width
                 scrollY: 0,
@@ -135,59 +140,88 @@ export default function InvoicePage() {
                 <Button variant="outline" onClick={() => router.back()} className="bg-white">
                     <ArrowLeft className="w-4 h-4 mr-2" /> Back
                 </Button>
-                
+
                 <div className="flex flex-wrap gap-4 items-center">
                     {/* Payment Status Toggle */}
-                    <div className="flex items-center gap-2 bg-white rounded-lg border p-1 shadow-sm px-2">
-                        <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest mr-2">Payment:</span>
-                        {['Paid', 'Unpaid'].map((status) => (
-                            <button
-                                key={status}
-                                onClick={() => setPaymentStatus(status)}
-                                className={`px-3 py-1 text-[10px] font-black rounded-md transition-all ${
-                                    paymentStatus === status 
-                                    ? status === 'Paid' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
-                                    : 'text-gray-400 hover:text-gray-900 border border-transparent'
-                                }`}
-                            >
-                                {status}
-                            </button>
-                        ))}
+                    {/* Payment Status Custom Input */}
+                    <div className="flex flex-col gap-1">
+                        <div className="flex items-center gap-2 bg-white rounded-lg border p-1 shadow-sm px-2">
+                            <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest mr-2 whitespace-nowrap">Status:</span>
+                            <input
+                                value={paymentStatus}
+                                onChange={(e) => setPaymentStatus(e.target.value)}
+                                className="h-7 w-24 text-[11px] font-bold outline-none bg-transparent"
+                                placeholder="e.g. Paid, Half"
+                            />
+                        </div>
+                        <div className="flex gap-1 px-1">
+                            {['Paid', 'Unpaid', 'Pending'].map((status) => (
+                                <button
+                                    key={status}
+                                    onClick={() => setPaymentStatus(status)}
+                                    className={`px-2 py-0.5 text-[9px] font-bold rounded transition-all ${paymentStatus === status
+                                            ? 'bg-gray-800 text-white'
+                                            : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+                                        }`}
+                                >
+                                    {status}
+                                </button>
+                            ))}
+                        </div>
                     </div>
 
-                    {/* Payment Method Toggle */}
-                    <div className="flex items-center gap-2 bg-white rounded-lg border p-1 shadow-sm px-2">
-                        <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest mr-2">Method:</span>
-                        {['Cash to Driver', 'Online'].map((method) => (
-                            <button
-                                key={method}
-                                onClick={() => setPaymentMethod(method)}
-                                className={`px-3 py-1 text-[10px] font-black rounded-md transition-all ${
-                                    paymentMethod === method 
-                                    ? 'bg-blue-600 text-white' 
-                                    : 'text-gray-400 hover:text-gray-900 border border-transparent'
-                                }`}
-                            >
-                                {method}
-                            </button>
-                        ))}
+                    {/* Payment Method Custom Input */}
+                    <div className="flex flex-col gap-1">
+                        <div className="flex items-center gap-2 bg-white rounded-lg border p-1 shadow-sm px-2">
+                            <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest mr-2 whitespace-nowrap">Method:</span>
+                            <input
+                                value={paymentMethod}
+                                onChange={(e) => setPaymentMethod(e.target.value)}
+                                className="h-7 w-28 text-[11px] font-bold outline-none bg-transparent"
+                                placeholder="e.g. Cash, Link"
+                            />
+                        </div>
+                        <div className="flex gap-1 px-1">
+                            {['Cash to Driver', 'Online'].map((method) => (
+                                <button
+                                    key={method}
+                                    onClick={() => setPaymentMethod(method)}
+                                    className={`px-2 py-0.5 text-[9px] font-bold rounded transition-all ${paymentMethod === method
+                                            ? 'bg-gray-800 text-white'
+                                            : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+                                        }`}
+                                >
+                                    {method}
+                                </button>
+                            ))}
+                        </div>
                     </div>
 
-                    {/* Currency Selector */}
-                    <div className="flex bg-white rounded-lg border p-1 shadow-sm">
-                        {['SAR', 'KWD', 'USD'].map((curr) => (
-                            <button
-                                key={curr}
-                                onClick={() => setCurrency(curr)}
-                                className={`px-3 py-1 text-[10px] font-black rounded-md transition-all ${
-                                    currency === curr 
-                                    ? 'bg-primary text-black' 
-                                    : 'text-gray-400 hover:text-gray-900'
-                                }`}
-                            >
-                                {curr}
-                            </button>
-                        ))}
+                    {/* Currency Custom Input */}
+                    <div className="flex flex-col gap-1">
+                        <div className="flex items-center gap-2 bg-white rounded-lg border p-1 shadow-sm px-2">
+                            <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest mr-2 whitespace-nowrap">Curr:</span>
+                            <input
+                                value={currency}
+                                onChange={(e) => setCurrency(e.target.value.toUpperCase())}
+                                className="h-7 w-16 text-[11px] font-bold outline-none bg-transparent uppercase"
+                                placeholder="SAR"
+                            />
+                        </div>
+                        <div className="flex gap-1 px-1">
+                            {['SAR', 'KWD', 'AED', 'USD'].map((curr) => (
+                                <button
+                                    key={curr}
+                                    onClick={() => setCurrency(curr)}
+                                    className={`px-2 py-0.5 text-[9px] font-bold rounded transition-all ${currency === curr
+                                            ? 'bg-primary text-black'
+                                            : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
+                                        }`}
+                                >
+                                    {curr}
+                                </button>
+                            ))}
+                        </div>
                     </div>
 
                     <Button onClick={handlePrint} className="bg-primary text-black hover:bg-black hover:text-white font-bold h-10 px-6">
@@ -214,7 +248,7 @@ export default function InvoicePage() {
                 <div className="h-[4px] bg-primary w-full"></div>
 
                 <div className="px-10 py-8 print:px-[12mm] print:py-[10mm] flex flex-col h-[calc(296mm-4px)] print:h-[calc(296mm-4px)] justify-between overflow-hidden bg-white">
-                    
+
                     {/* Top Content */}
                     <div>
                         {/* Invoice Header */}
@@ -222,9 +256,9 @@ export default function InvoicePage() {
                             <div>
                                 <div className="flex items-center gap-2 mb-3">
                                     <div className="relative w-10 h-10">
-                                        <img 
-                                            src="/logo.svg" 
-                                            alt="Taxi Service KSA" 
+                                        <img
+                                            src="/logo.svg"
+                                            alt="Taxi Service KSA"
                                             className="w-full h-full object-contain"
                                         />
                                     </div>
@@ -242,11 +276,10 @@ export default function InvoicePage() {
                                 <h1 className="text-3xl font-black text-gray-900 uppercase tracking-tighter mb-1">Invoice</h1>
                                 <p className="text-gray-400 font-mono text-[10px] tracking-widest">REF: #{booking.id.slice(0, 8).toUpperCase()}</p>
                                 <p className="text-gray-500 text-xs mt-0.5 font-bold">Date: {invoiceDate}</p>
-                                
+
                                 <div className="flex justify-end gap-2 mt-3">
-                                    <div className={`px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-[0.15em] ${
-                                        paymentStatus === 'Paid' ? 'bg-green-100 text-green-700 border border-green-200' : 'bg-red-100 text-red-700 border border-red-200'
-                                    } shadow-sm`}>
+                                    <div className={`px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-[0.15em] ${paymentStatus === 'Paid' ? 'bg-green-100 text-green-700 border border-green-200' : 'bg-red-100 text-red-700 border border-red-200'
+                                        } shadow-sm`}>
                                         {paymentStatus}
                                     </div>
                                     <div className={`px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-[0.15em] bg-blue-50 text-blue-700 border border-blue-100 shadow-sm`}>
@@ -372,14 +405,14 @@ export default function InvoicePage() {
                             <div className="bg-primary/5 rounded-xl p-4 border border-primary/10">
                                 <h3 className="text-[9px] font-black text-primary uppercase tracking-[0.15em] mb-2">Booking Confirmation</h3>
                                 <p className="text-[10px] text-gray-600 leading-relaxed font-medium">
-                                    Your transport service is fully confirmed for the scheduled date. 
-                                    Please have a digital copy of this invoice ready for your chauffeur. 
+                                    Your transport service is fully confirmed for the scheduled date.
+                                    Please have a digital copy of this invoice ready for your chauffeur.
                                 </p>
                             </div>
                             <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
                                 <h3 className="text-[9px] font-black text-gray-400 uppercase tracking-[0.15em] mb-2">Payment Instruction</h3>
                                 <p className="text-[10px] text-gray-800 leading-relaxed font-black uppercase italic">
-                                    {paymentMethod === 'Cash to Driver' 
+                                    {paymentMethod === 'Cash to Driver'
                                         ? "Important: Payment to be handed to the driver upon journey completion."
                                         : "Important: Payment has been secured via online transaction."
                                     }

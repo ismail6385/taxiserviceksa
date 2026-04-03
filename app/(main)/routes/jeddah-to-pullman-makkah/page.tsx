@@ -16,12 +16,12 @@ export const metadata: Metadata = {
     description: 'Direct taxi transfer from Jeddah Airport to Pullman ZamZam Makkah (Clock Tower). Affordable fixed rates. 24/7 Service. Book Online.',
     keywords: ['Jeddah to Pullman ZamZam taxi', 'Pullman Makkah transfer', 'taxi Jeddah to Abraj Al Bait', 'Pullman ZamZam hotel taxi', 'Jeddah to Makkah transport'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/jeddah-to-pullman-makkah/',
+        canonical: 'https://taxiserviceksa.com/routes/jeddah-to-pullman-makkah/',
     },
     openGraph: {
         title: 'Jeddah Airport to Pullman ZamZam Makkah Taxi | Taxi Service KSA',
         description: 'Reliable transfer from KAIA Airport to Pullman ZamZam Makkah. Door-to-door service.',
-        url: 'https://taxiserviceksa.com/jeddah-to-pullman-makkah/',
+        url: 'https://taxiserviceksa.com/routes/jeddah-to-pullman-makkah/',
         type: 'website',
     },
 };

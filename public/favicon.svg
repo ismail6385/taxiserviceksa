@@ -1,22 +1,22 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
-  <rect width="32" height="32" rx="6" fill="url(#grad)"/>
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with brand navy -->
+  <rect width="48" height="48" rx="8" fill="#0A0E27"/>
   
-  <!-- Simple Car Icon -->
-  <g transform="translate(4, 10)">
-    <!-- Car Body -->
-    <path d="M3 5 L5 2 L19 2 L21 5 L23 5 L23 11 L1 11 L1 5 Z" fill="white"/>
+  <!-- Car silhouette in brand gold -->
+  <g transform="translate(6, 14)">
+    <!-- Car body -->
+    <path d="M5 10 L9 3 L27 3 L31 10 L34 10 L34 17 L2 17 L2 10 Z" fill="#FFBF00"/>
+    
+    <!-- Window -->
+    <path d="M11 5 L14 8 L22 8 L25 5 Z" fill="#0A0E27" opacity="0.6"/>
     
     <!-- Wheels -->
-    <circle cx="6" cy="11" r="2" fill="#1a1a1a"/>
-    <circle cx="18" cy="11" r="2" fill="#1a1a1a"/>
+    <circle cx="10" cy="17" r="3" fill="white"/>
+    <circle cx="10" cy="17" r="1.5" fill="#0A0E27"/>
+    <circle cx="26" cy="17" r="3" fill="white"/>
+    <circle cx="26" cy="17" r="1.5" fill="#0A0E27"/>
+    
+    <!-- Headlight -->
+    <circle cx="32" cy="13" r="1.5" fill="white" opacity="0.9"/>
   </g>
-  
-  <!-- Gradient -->
-  <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#84cc16"/>
-      <stop offset="100%" style="stop-color:#fbbf24"/>
-    </linearGradient>
-  </defs>
 </svg>

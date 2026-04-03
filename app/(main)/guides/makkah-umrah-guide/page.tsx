@@ -15,10 +15,11 @@ import QuestionForm from '@/components/seo/QuestionForm';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import AuthorCard from '@/components/AuthorCard';
+import BylineDate from '@/components/BylineDate';
 
 
 export const metadata: Metadata = {
-    title: 'Makkah Umrah Complete Guide 2026 | Transport, Tawaf, Ziyarat - Taxi Service KSA',
+    title: 'Makkah Umrah Complete Guide 2026 | Transport, Tawaf, Ziyarat',
     description: 'Complete Umrah guide for Makkah: Haram access, Tawaf timing, Ziyarat sites, Zamzam logistics, hotel zones, prayer schedules, and taxi transport. Everything pilgrims need to know.',
     keywords: ['Umrah guide Makkah', 'Tawaf timing', 'Ziyarat sites Makkah', 'Haram access points', 'Makkah hotel zones', 'Jabal al-Nour', 'Zamzam water'],
     alternates: {
@@ -29,6 +30,14 @@ export const metadata: Metadata = {
         description: 'Comprehensive Umrah guide: Haram access, Tawaf timing, Ziyarat sites, transport, and practical tips for pilgrims.',
         url: 'https://taxiserviceksa.com/guides/makkah-umrah-guide/',
         type: 'article',
+        images: [
+            {
+                url: 'https://taxiserviceksa.com/locations/makkah.webp',
+                width: 1200,
+                height: 630,
+                alt: 'Makkah Haram Mosque - Umrah Guide for Pilgrims',
+            },
+        ],
     },
 };
 
@@ -73,6 +82,9 @@ export default function MakkahUmrahGuidePage() {
         "@type": "Article",
         "headline": "Makkah Umrah Complete Guide 2026",
         "description": "Comprehensive guide for Umrah pilgrims in Makkah covering Haram access, Tawaf timing, Ziyarat sites, and practical logistics.",
+        "image": [
+            "https://taxiserviceksa.com/locations/makkah.webp"
+        ],
         "author": {
             "@type": "Person",
             "name": "Muhammad Ismail",
@@ -86,8 +98,12 @@ export default function MakkahUmrahGuidePage() {
                 "url": "https://taxiserviceksa.com/logo.png"
             }
         },
-        "datePublished": "2024-01-01",
-        "dateModified": "2026-03-06"
+        "datePublished": "2024-01-01T00:00:00+03:00",
+        "dateModified": "2026-03-28T00:00:00+03:00",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://taxiserviceksa.com/guides/makkah-umrah-guide/"
+        }
     };
 
     return (
@@ -113,9 +129,16 @@ export default function MakkahUmrahGuidePage() {
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                         Makkah Umrah Complete Guide 2026
                     </h1>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-4">
                         Master your pilgrimage with our expert-verified guide to <strong>Makkah (Haram Area)</strong>. We cover everything from early-morning Tawaf timing to specific <strong>Swissotel tunnel drop-offs</strong>.
                     </p>
+                    <div className="flex justify-center">
+                        <BylineDate
+                            datePublished="2024-01-01T00:00:00+03:00"
+                            dateModified="2026-03-28T00:00:00+03:00"
+                            author="Muhammad Ismail"
+                        />
+                    </div>
                 </div>
 
                 {/* AI SEO: TL;DR Summary Block */}

@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import { FC } from 'react';
 
 interface FAQItem {
@@ -25,7 +24,7 @@ const JsonLdFAQ: FC<JsonLdFAQProps> = ({ faqs }) => {
     };
 
     return (
-        <Script
+        <script
             id="faq-schema"
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

@@ -41,12 +41,6 @@ export default function GMCYukonPage() {
             "priceCurrency": "SAR",
             "availability": "https://schema.org/InStock",
             "url": "https://taxiserviceksa.com/fleet/gmc-yukon"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5",
-            "bestRating": "5",
-            "ratingCount": "240"
         }
     };
 

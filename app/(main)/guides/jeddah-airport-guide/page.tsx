@@ -16,9 +16,10 @@ import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import { blogService } from '@/lib/blogService';
 import RelatedGuides from '@/components/RelatedGuides';
+import BylineDate from '@/components/BylineDate';
 
 export const metadata: Metadata = {
-    title: 'Jeddah Airport Complete Guide 2026 | King Abdulaziz Airport (JED) - Taxi Service KSA',
+    title: 'Jeddah Airport Complete Guide 2026 | King Abdulaziz Airport (JED)',
     description: 'Complete guide to King Abdulaziz International Airport (Jeddah). Terminals, prayer rooms, Ihram facilities, SIM cards, currency exchange, taxi meeting points, and transport to Makkah.',
     keywords: ['Jeddah airport guide', 'King Abdulaziz airport', 'JED airport terminals', 'Jeddah airport prayer room', 'Ihram facilities Jeddah', 'Jeddah to Makkah taxi'],
     alternates: {
@@ -29,6 +30,14 @@ export const metadata: Metadata = {
         description: 'Everything you need to know about navigating Jeddah Airport: terminals, facilities, transport to Makkah.',
         url: 'https://taxiserviceksa.com/guides/jeddah-airport-guide/',
         type: 'article',
+        images: [
+            {
+                url: 'https://taxiserviceksa.com/locations/jeddah.webp',
+                width: 1200,
+                height: 630,
+                alt: 'Jeddah King Abdulaziz International Airport Terminal',
+            },
+        ],
     },
 };
 
@@ -87,8 +96,28 @@ export default async function JeddahAirportGuidePage() {
         "@type": "Article",
         "headline": "Jeddah Airport Complete Guide 2026",
         "description": "Comprehensive guide to navigating King Abdulaziz International Airport (Jeddah) with practical information for travelers and pilgrims.",
-        "datePublished": "2024-01-01",
-        "dateModified": "2026-01-01"
+        "image": [
+            "https://taxiserviceksa.com/locations/jeddah.webp"
+        ],
+        "author": {
+            "@type": "Person",
+            "name": "Muhammad Ismail",
+            "url": "https://taxiserviceksa.com/author/muhammad-ismail"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Taxi Service KSA",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://taxiserviceksa.com/logo.png"
+            }
+        },
+        "datePublished": "2024-01-01T00:00:00+03:00",
+        "dateModified": "2026-03-28T00:00:00+03:00",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://taxiserviceksa.com/guides/jeddah-airport-guide/"
+        }
     };
 
     return (
@@ -114,9 +143,16 @@ export default async function JeddahAirportGuidePage() {
                     <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                         Jeddah Airport Complete Guide 2026
                     </h1>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-4">
                         Everything you need to know about King Abdulaziz International Airport (JED): terminals, facilities, transport, and tips for a smooth journey to <Link href="/locations/makkah/" className="text-gray-900 font-semibold underline decoration-primary/30 hover:decoration-primary underline-offset-4 transition-all">Makkah (Haram Area)</Link>.
                     </p>
+                    <div className="flex justify-center">
+                        <BylineDate
+                            datePublished="2024-01-01T00:00:00+03:00"
+                            dateModified="2026-03-28T00:00:00+03:00"
+                            author="Muhammad Ismail"
+                        />
+                    </div>
                 </div>
 
                 {/* Money Page Hub - Strategic Internal Linking */}

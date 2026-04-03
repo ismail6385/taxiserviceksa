@@ -269,9 +269,8 @@ Please provide a quote for this journey.`;
                         </div>
                     </div>
 
-                    <Button type="submit" className="w-full h-16 bg-[#25D366] hover:bg-[#128C7E] text-white font-black text-lg rounded-2xl shadow-2xl shadow-emerald-500/30 transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3">
-                        <WhatsAppIcon className="w-8 h-8" color="white" />
-                        Send via WhatsApp
+                    <Button type="submit" className="w-full h-16 bg-gray-950 hover:bg-black text-white font-black text-lg rounded-2xl shadow-xl transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3">
+                        Get Quote
                     </Button>
                     <p className="text-[10px] sm:text-xs text-center text-rose-600 font-extrabold uppercase tracking-[0.2em] mt-2 px-4 shadow-sm bg-rose-50/50 py-2 rounded-lg">
                         100% PRIVATE VIP TRANSFERS ONLY • NO SHARED TAXIS • ALL KSA CITIES
@@ -327,9 +326,8 @@ Please provide a quote for this journey.`;
                                                         <span className="flex items-center gap-1"><Briefcase className="w-3 h-3" /> {v.luggage}</span>
                                                     </div>
                                                 </div>
-                                                <div className="font-bold text-emerald-600 text-base flex items-center gap-1">
-                                                    <WhatsAppIcon className="w-4 h-4" color="#25D366" />
-                                                    WhatsApp
+                                                <div className="font-bold text-gray-900 text-base flex items-center gap-1">
+                                                    Request Quote
                                                 </div>
                                             </div>
                                         </SelectItem>
@@ -380,10 +378,9 @@ Please provide a quote for this journey.`;
                          <Button
                             onClick={() => setStep(3)}
                             disabled={!selectedVehicle}
-                            className="w-full h-14 bg-[#25D366] hover:bg-[#128C7E] text-white font-black text-lg rounded-xl shadow-md transition-all transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                            className="w-full h-14 bg-gray-950 hover:bg-black text-white font-black text-lg rounded-xl shadow-md transition-all transform hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                         >
-                            <WhatsAppIcon className="w-7 h-7" color="white" />
-                            Continue to WhatsApp
+                            Continue to Details
                         </Button>
                     </div>
                 </div>
@@ -439,13 +436,13 @@ Please provide a quote for this journey.`;
 
                             <div className="bg-primary/10 border border-primary/20 rounded-xl p-3 flex justify-between items-center">
                                 <span className="text-sm font-semibold text-gray-700 flex items-center"><Wallet className="w-4 h-4 mr-2" /> Fare Estimate:</span>
-                                <span className="text-xl font-bold text-primary">WhatsApp Quote</span>
+                                <span className="text-xl font-bold text-primary">Custom Quote</span>
                             </div>
                         </div>
                     </div>
 
-                     <Button type="submit" disabled={loading} className="w-full h-14 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg rounded-xl shadow-md flex items-center justify-center gap-2">
-                        {loading ? <><Loader2 className="w-5 h-5 mr-2 animate-spin" /> Sending to WhatsApp...</> : <><WhatsAppIcon className="w-6 h-6 " /> Book via WhatsApp</>}
+                     <Button type="submit" disabled={loading} className="w-full h-14 bg-gray-950 hover:bg-black text-white font-bold text-lg rounded-xl shadow-md flex items-center justify-center gap-2">
+                        {loading ? <><Loader2 className="w-5 h-5 mr-2 animate-spin" /> Submitting Request...</> : <>Submit Request</>}
                     </Button>
 
                     <div className="relative flex py-2 items-center">

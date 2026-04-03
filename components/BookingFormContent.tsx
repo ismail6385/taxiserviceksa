@@ -385,9 +385,8 @@ Please provide a quote for this journey.`;
                             </div>
                         </div>
 
-                        <Button type="button" onClick={nextStep} className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-5 text-xl rounded-2xl mt-4 shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3 transition-all hover:scale-[1.02] active:scale-95">
-                            <WhatsAppIcon className="w-7 h-7 fill-current" />
-                            Book via WhatsApp <ArrowRight className="w-5 h-5 ml-2" />
+                        <Button type="button" onClick={nextStep} className="w-full bg-gray-950 hover:bg-black text-white font-black py-5 text-xl rounded-2xl mt-4 shadow-lg flex items-center justify-center gap-3 transition-all hover:scale-[1.02] active:scale-95">
+                            Get Quote <ArrowRight className="w-5 h-5 ml-2" />
                         </Button>
                     </div>
                 )}
@@ -420,9 +419,8 @@ Please provide a quote for this journey.`;
                                             )}
                                         </div>
                                         <div className="text-right flex flex-col items-end gap-1">
-                                            <div className="flex items-center gap-1 text-emerald-600 font-black text-lg leading-none">
-                                                <WhatsAppIcon className="w-4 h-4 fill-current" />
-                                                WhatsApp Booking
+                                            <div className="flex items-center gap-1 text-gray-900 font-black text-lg leading-none">
+                                                Request Quote
                                             </div>
                                             <span className="text-[9px] text-gray-400 font-bold uppercase tracking-tighter">Private Only</span>
                                         </div>
@@ -468,9 +466,8 @@ Please provide a quote for this journey.`;
 
                         <div className="flex gap-3 mt-6">
                             <Button type="button" onClick={prevStep} variant="ghost" className="flex-1 py-4 text-base rounded-xl text-gray-500">Back</Button>
-                             <Button type="button" onClick={nextStep} disabled={!formData.vehicle_type} className="flex-[2] bg-emerald-600 hover:bg-emerald-700 text-white font-black py-5 text-xl rounded-2xl shadow-xl shadow-emerald-500/20 transform active:scale-[0.98] transition-all flex items-center justify-center gap-3">
-                                <WhatsAppIcon className="w-7 h-7 fill-current" />
-                                Continue to WhatsApp Booking <ArrowRight className="w-5 h-5 ml-2" />
+                             <Button type="button" onClick={nextStep} disabled={!formData.vehicle_type} className="flex-[2] bg-gray-950 hover:bg-black text-white font-black py-5 text-xl rounded-2xl shadow-lg transform active:scale-[0.98] transition-all flex items-center justify-center gap-3">
+                                Continue to Details <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                         </div>
                     </div>
@@ -494,7 +491,7 @@ Please provide a quote for this journey.`;
                             </div>
                             <div className="flex justify-between font-bold text-primary pt-2 border-t border-gray-200 mt-2">
                                 <span>Total Estimate:</span>
-                                <span><WhatsAppIcon className="w-4 h-4 mr-2 fill-current inline-block" /> WhatsApp Booking</span>
+                                <span>Custom Quote</span>
                             </div>
                         </div>
 
@@ -538,8 +535,8 @@ Please provide a quote for this journey.`;
 
                         <div className="flex gap-3 mt-4">
                             <Button type="button" onClick={prevStep} variant="outline" className="flex-1 py-4 text-lg rounded-xl">Back</Button>
-                             <Button type="submit" className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-black py-5 text-xl rounded-2xl shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3" disabled={loading}>
-                                {loading ? 'Processing...' : <><WhatsAppIcon className="w-7 h-7 fill-current" /> Book via WhatsApp</>}
+                             <Button type="submit" className="flex-1 bg-gray-950 hover:bg-black text-white font-black py-5 text-xl rounded-2xl shadow-lg flex items-center justify-center gap-3" disabled={loading}>
+                                {loading ? 'Processing...' : <>Submit Request</>}
                             </Button>
                         </div>
                         
