@@ -3,7 +3,22 @@ import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
     const requestHeaders = new Headers(request.headers);
-    requestHeaders.set('x-pathname', request.nextUrl.pathname);
+    const pathname = request.nextUrl.pathname;
+    requestHeaders.set('x-pathname', pathname);
+
+    // Markdown content negotiation for AI agents
+    const accept = request.headers.get('accept') || '';
+    if (
+        accept.includes('text/markdown') &&
+        !pathname.startsWith('/api/') &&
+        !pathname.startsWith('/.well-known/') &&
+        !pathname.match(/\.(ico|png|jpg|jpeg|gif|svg|webp|css|js|json|xml|txt|pdf)$/i)
+    ) {
+        const url = request.nextUrl.clone();
+        url.pathname = '/api/markdown';
+        url.search = `?path=${encodeURIComponent(pathname)}`;
+        return NextResponse.rewrite(url);
+    }
 
     const hostname = request.headers.get('host') || '';
     if (hostname.startsWith('www.')) {
@@ -13,7 +28,6 @@ export function middleware(request: NextRequest) {
     }
 
     // Handle WordPress paths - return 410 Gone (permanently removed)
-    const pathname = request.nextUrl.pathname;
     if (pathname.startsWith('/wp-content/') || pathname.startsWith('/wp-admin/') || pathname.startsWith('/wp-includes/')) {
         return new NextResponse(null, { status: 410 });
     }
@@ -42,6 +56,7 @@ export function middleware(request: NextRequest) {
         !pathname.endsWith('/') &&
         !pathname.startsWith('/api/') &&
         !pathname.startsWith('/_next/') &&
+        !pathname.startsWith('/.well-known/') &&
         !pathname.match(/\.(ico|png|jpg|jpeg|gif|svg|webp|css|js|json|xml|txt|pdf|woff|woff2|ttf|eot)$/i)
     ) {
         const url = request.nextUrl.clone();

@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "serverInfo": {
+    "name": "TaxiServiceKSA",
+    "version": "1.0.0",
+    "description": "Airport taxi and transportation service in Saudi Arabia. Book rides between airports, cities, and holy sites including Makkah, Madinah, and Jeddah.",
+    "homepage": "https://taxiserviceksa.com/"
+  },
+  "contact": {
+    "url": "https://taxiserviceksa.com/",
+    "email": "info@taxiserviceksa.com"
+  },
+  "capabilities": {
+    "booking": {
+      "description": "Book taxi and transfer services across Saudi Arabia",
+      "endpoint": "https://taxiserviceksa.com/booking/"
+    },
+    "routes": {
+      "description": "View available routes and pricing between Saudi cities and airports",
+      "endpoint": "https://taxiserviceksa.com/routes/"
+    },
+    "fleet": {
+      "description": "Browse available vehicle types and capacity",
+      "endpoint": "https://taxiserviceksa.com/fleet/"
+    }
+  }
+}

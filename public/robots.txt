@@ -1,0 +1,37 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /wp-content/
+Disallow: /_next/
+Disallow: /2025/
+Disallow: /whatsapp
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: OmgiliBot
+Allow: /
+
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+Sitemap: https://taxiserviceksa.com/sitemap-index.xml
+Sitemap: https://taxiserviceksa.com/sitemap.xml

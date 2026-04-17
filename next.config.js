@@ -18,6 +18,44 @@ const nextConfig = {
   experimental: {
     optimizeCss: true,
   },
+  async headers() {
+    const wellKnownJson = [
+      '/.well-known/ucp',
+      '/.well-known/openid-configuration',
+      '/.well-known/oauth-protected-resource',
+      '/.well-known/http-message-signatures-directory',
+    ];
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Link',
+            value: [
+              '</.well-known/api-catalog>; rel="api-catalog"',
+              '</.well-known/agent-card.json>; rel="https://a2a-protocol.org/rel/agent-card"',
+              '</.well-known/agent-skills/index.json>; rel="https://agentskills.io/rel/skills-index"',
+              '</.well-known/mcp/server-card.json>; rel="https://modelcontextprotocol.io/rel/server-card"',
+            ].join(', '),
+          },
+        ],
+      },
+      {
+        source: '/.well-known/api-catalog',
+        headers: [
+          { key: 'Content-Type', value: 'application/linkset+json' },
+          { key: 'Access-Control-Allow-Origin', value: '*' },
+        ],
+      },
+      ...wellKnownJson.map((source) => ({
+        source,
+        headers: [
+          { key: 'Content-Type', value: 'application/json; charset=utf-8' },
+          { key: 'Access-Control-Allow-Origin', value: '*' },
+        ],
+      })),
+    ];
+  },
   async redirects() {
     return [
       // GMC Yukon redirect

@@ -1,0 +1,20 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://taxiserviceksa.com/",
+      "https://www.iana.org/assignments/link-relations/service-doc": [
+        {
+          "href": "https://taxiserviceksa.com/api/",
+          "type": "text/html"
+        }
+      ],
+      "https://www.iana.org/assignments/link-relations/describedby": [
+        {
+          "href": "https://taxiserviceksa.com/",
+          "type": "text/html",
+          "title": "Taxi Service KSA - Airport Taxi & Transfer Service in Saudi Arabia"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "name": "TaxiServiceKSA",
+  "description": "Agent skills and discovery resources for taxiserviceksa.com — Saudi Arabia taxi booking service",
+  "skills": [
+    {
+      "name": "api-catalog",
+      "type": "api-catalog",
+      "description": "API catalog describing service endpoints for TaxiServiceKSA (RFC 9727)",
+      "url": "https://taxiserviceksa.com/.well-known/api-catalog",
+      "sha256": "60d32d7ee62e9c325cf2d1a6918922eb53536d82a1b779fd79c6a3d4f3bee7c1"
+    },
+    {
+      "name": "mcp-server-card",
+      "type": "mcp-server-card",
+      "description": "MCP server card for agent capability discovery",
+      "url": "https://taxiserviceksa.com/.well-known/mcp/server-card.json",
+      "sha256": "0eef274e2005b1f039e4754b36bf0b5da9eccd76c419aa1fd2e00ab3658a3479"
+    },
+    {
+      "name": "a2a-agent-card",
+      "type": "a2a-agent-card",
+      "description": "A2A Agent Card for agent-to-agent discovery and interaction",
+      "url": "https://taxiserviceksa.com/.well-known/agent-card.json",
+      "sha256": "e9ba6f237bbfbcb6685798a0c87c332537ffd2abb83ba591ad7fe026873bbb92"
+    },
+    {
+      "name": "ucp",
+      "type": "ucp",
+      "description": "Universal Commerce Protocol profile for taxi booking services",
+      "url": "https://taxiserviceksa.com/.well-known/ucp",
+      "sha256": "dede854a3ce4830d5e51dda2646fe28d574609139a3308c45efc7e8ba31fa615"
+    },
+    {
+      "name": "web-bot-auth",
+      "type": "web-bot-auth",
+      "description": "JWKS for HTTP message signatures (Web Bot Auth)",
+      "url": "https://taxiserviceksa.com/.well-known/http-message-signatures-directory",
+      "sha256": "ca4eca5a1d07614052d1f34c53c1c7339b89902454041ea9533674262d9a3d6d"
+    }
+  ]
+}

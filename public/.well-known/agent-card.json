@@ -1,0 +1,47 @@
+{
+  "name": "TaxiServiceKSA",
+  "version": "1.0.0",
+  "description": "AI agent for discovering and booking taxi and transportation services across Saudi Arabia, including airport transfers, intercity routes, and VIP transfers to Makkah and Madinah.",
+  "url": "https://taxiserviceksa.com/",
+  "supportedInterfaces": [
+    {
+      "url": "https://taxiserviceksa.com/booking/",
+      "transport": "http",
+      "protocol": "web",
+      "description": "Online booking form for taxi services"
+    },
+    {
+      "url": "https://taxiserviceksa.com/routes/",
+      "transport": "http",
+      "protocol": "web",
+      "description": "Browse available routes and pricing"
+    }
+  ],
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "skills": [
+    {
+      "id": "book-taxi",
+      "name": "Book Taxi Transfer",
+      "description": "Book a private taxi transfer between Saudi cities, airports (Jeddah, Riyadh, Madinah), and holy sites including Makkah and Madinah"
+    },
+    {
+      "id": "get-quote",
+      "name": "Get Transfer Quote",
+      "description": "Get a price quote for taxi transfers in Saudi Arabia with fixed rates"
+    },
+    {
+      "id": "browse-routes",
+      "name": "Browse Available Routes",
+      "description": "View all available taxi routes, distances, and pricing across Saudi Arabia"
+    },
+    {
+      "id": "browse-fleet",
+      "name": "Browse Vehicle Fleet",
+      "description": "View available vehicle types including sedans, SUVs, and vans with capacity information"
+    }
+  ]
+}

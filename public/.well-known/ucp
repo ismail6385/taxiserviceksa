@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "protocol": "ucp",
+  "provider": {
+    "name": "Taxi Service KSA",
+    "url": "https://taxiserviceksa.com/",
+    "description": "Premium taxi and private transfer service across Saudi Arabia"
+  },
+  "services": [
+    {
+      "id": "taxi-booking",
+      "name": "Taxi Booking",
+      "description": "Book private taxi transfers between Saudi cities, airports, and holy sites",
+      "endpoint": "https://taxiserviceksa.com/booking/",
+      "type": "transportation"
+    }
+  ],
+  "capabilities": ["booking", "inquiry", "pricing"],
+  "paymentMethods": ["bank_transfer", "cash"],
+  "supportedCurrencies": ["SAR", "USD"],
+  "spec": "https://ucp.dev/specification/overview/"
+}

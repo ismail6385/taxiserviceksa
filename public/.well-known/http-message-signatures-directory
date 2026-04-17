@@ -1,0 +1,12 @@
+{
+  "keys": [
+    {
+      "crv": "Ed25519",
+      "x": "xJO-HdVSmBYj0mhC0zZM2YoDVpSjgbtR3WveHKCDc50",
+      "kty": "OKP",
+      "kid": "taxiserviceksa-1",
+      "use": "sig",
+      "alg": "EdDSA"
+    }
+  ]
+}
