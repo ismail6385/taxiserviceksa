@@ -13,8 +13,15 @@ import {
     Search,
     Filter,
     ExternalLink,
-    ArrowUpRight
+    ArrowUpRight,
+    TrendingUp,
+    DollarSign,
+    BarChart2
 } from 'lucide-react';
+import {
+    BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
+    PieChart, Pie, Cell, Legend
+} from 'recharts';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -36,6 +43,7 @@ import {
 
 interface Booking {
     id: string;
+    created_at: string;
     pickup_location: string;
     destination: string;
     pickup_date: string;
@@ -43,6 +51,8 @@ interface Booking {
     vehicle_type: string;
     customer_name: string;
     status: 'pending' | 'confirmed' | 'cancelled' | 'completed';
+    total_price?: number;
+    currency?: string;
 }
 
 interface Driver {
@@ -81,7 +91,7 @@ export default function AdminDashboard() {
                 // Fetch Bookings with more details for the schedule
                 const { data: bookingsData } = await supabase
                     .from('bookings')
-                    .select('id, status, pickup_location, destination, pickup_date, pickup_time, vehicle_type, customer_name')
+                    .select('id, created_at, status, pickup_location, destination, pickup_date, pickup_time, vehicle_type, customer_name, total_price, currency')
                     .order('pickup_date', { ascending: true });
                 setBookings(bookingsData || []);
 
@@ -299,6 +309,144 @@ export default function AdminDashboard() {
                     </div>
                 </div>
             </div>
+
+            {/* ── Analytics Section ── */}
+            {(() => {
+                const totalRevenue = bookings.filter(b => b.status === 'completed').reduce((s, b) => s + (b.total_price || 0), 0);
+                const confirmedRevenue = bookings.filter(b => b.status === 'confirmed').reduce((s, b) => s + (b.total_price || 0), 0);
+
+                // Monthly bookings + revenue — last 6 months
+                const monthlyMap: Record<string, { bookings: number; revenue: number }> = {};
+                const now = new Date();
+                for (let i = 5; i >= 0; i--) {
+                    const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+                    const key = d.toLocaleString('en-US', { month: 'short', year: '2-digit' });
+                    monthlyMap[key] = { bookings: 0, revenue: 0 };
+                }
+                bookings.forEach(b => {
+                    const d = new Date(b.created_at);
+                    const key = d.toLocaleString('en-US', { month: 'short', year: '2-digit' });
+                    if (monthlyMap[key]) {
+                        monthlyMap[key].bookings += 1;
+                        if (b.status === 'completed') monthlyMap[key].revenue += (b.total_price || 0);
+                    }
+                });
+                const monthlyData = Object.entries(monthlyMap).map(([month, v]) => ({ month, ...v }));
+
+                // Status distribution
+                const statusData = [
+                    { name: 'Confirmed', value: bookings.filter(b => b.status === 'confirmed').length, color: '#22c55e' },
+                    { name: 'Pending',   value: bookings.filter(b => b.status === 'pending').length,   color: '#f59e0b' },
+                    { name: 'Completed', value: bookings.filter(b => b.status === 'completed').length, color: '#3b82f6' },
+                    { name: 'Cancelled', value: bookings.filter(b => b.status === 'cancelled').length, color: '#ef4444' },
+                ].filter(d => d.value > 0);
+
+                // Top vehicles
+                const vehicleMap: Record<string, number> = {};
+                bookings.forEach(b => { if (b.vehicle_type) vehicleMap[b.vehicle_type] = (vehicleMap[b.vehicle_type] || 0) + 1; });
+                const vehicleData = Object.entries(vehicleMap).sort((a, b) => b[1] - a[1]).slice(0, 6).map(([name, count]) => ({ name: name.split(' ').slice(0, 2).join(' '), count }));
+
+                return (
+                    <div className="mb-10">
+                        <div className="flex items-center gap-2 mb-5">
+                            <BarChart2 className="w-5 h-5 text-primary" />
+                            <h2 className="text-2xl font-bold text-gray-900">Analytics & Revenue</h2>
+                        </div>
+
+                        {/* Revenue Cards */}
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+                                <div className="flex items-center justify-between mb-1">
+                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Total Revenue</span>
+                                    <DollarSign className="w-4 h-4 text-green-500" />
+                                </div>
+                                <div className="text-2xl font-black text-gray-900">SAR {totalRevenue.toLocaleString()}</div>
+                                <div className="text-[10px] text-gray-400 mt-1">From completed trips</div>
+                            </div>
+                            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+                                <div className="flex items-center justify-between mb-1">
+                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Pipeline</span>
+                                    <TrendingUp className="w-4 h-4 text-blue-500" />
+                                </div>
+                                <div className="text-2xl font-black text-gray-900">SAR {confirmedRevenue.toLocaleString()}</div>
+                                <div className="text-[10px] text-gray-400 mt-1">From confirmed trips</div>
+                            </div>
+                            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+                                <div className="flex items-center justify-between mb-1">
+                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Completion Rate</span>
+                                    <CheckCircle2 className="w-4 h-4 text-primary" />
+                                </div>
+                                <div className="text-2xl font-black text-gray-900">
+                                    {bookings.length ? Math.round((bookings.filter(b => b.status === 'completed').length / bookings.length) * 100) : 0}%
+                                </div>
+                                <div className="text-[10px] text-gray-400 mt-1">Of all bookings</div>
+                            </div>
+                            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+                                <div className="flex items-center justify-between mb-1">
+                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Avg Trip Value</span>
+                                    <Car className="w-4 h-4 text-purple-500" />
+                                </div>
+                                <div className="text-2xl font-black text-gray-900">
+                                    SAR {bookings.filter(b => b.total_price).length ? Math.round(bookings.filter(b => b.total_price).reduce((s, b) => s + (b.total_price || 0), 0) / bookings.filter(b => b.total_price).length) : 0}
+                                </div>
+                                <div className="text-[10px] text-gray-400 mt-1">Per booking</div>
+                            </div>
+                        </div>
+
+                        {/* Charts Row */}
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                            {/* Monthly Bookings Bar Chart */}
+                            <div className="lg:col-span-2 bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+                                <h3 className="text-sm font-bold text-gray-700 mb-4 uppercase tracking-wider">Monthly Bookings (Last 6 Months)</h3>
+                                <ResponsiveContainer width="100%" height={200}>
+                                    <BarChart data={monthlyData} barSize={28}>
+                                        <XAxis dataKey="month" tick={{ fontSize: 11, fill: '#9ca3af' }} axisLine={false} tickLine={false} />
+                                        <YAxis tick={{ fontSize: 11, fill: '#9ca3af' }} axisLine={false} tickLine={false} width={30} />
+                                        <Tooltip
+                                            contentStyle={{ borderRadius: '8px', border: '1px solid #e5e7eb', fontSize: 12 }}
+                                            formatter={(val: any, name: string) => [val, name === 'bookings' ? 'Bookings' : 'Revenue (SAR)']}
+                                        />
+                                        <Bar dataKey="bookings" fill="#C6FF00" radius={[4, 4, 0, 0]} name="bookings" />
+                                    </BarChart>
+                                </ResponsiveContainer>
+                            </div>
+
+                            {/* Status Pie Chart */}
+                            <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+                                <h3 className="text-sm font-bold text-gray-700 mb-4 uppercase tracking-wider">Booking Status</h3>
+                                {statusData.length > 0 ? (
+                                    <ResponsiveContainer width="100%" height={200}>
+                                        <PieChart>
+                                            <Pie data={statusData} cx="50%" cy="45%" innerRadius={50} outerRadius={75} paddingAngle={3} dataKey="value">
+                                                {statusData.map((entry, i) => <Cell key={i} fill={entry.color} />)}
+                                            </Pie>
+                                            <Legend iconType="circle" iconSize={8} wrapperStyle={{ fontSize: 11 }} />
+                                            <Tooltip contentStyle={{ borderRadius: '8px', border: '1px solid #e5e7eb', fontSize: 12 }} />
+                                        </PieChart>
+                                    </ResponsiveContainer>
+                                ) : (
+                                    <div className="h-[200px] flex items-center justify-center text-gray-400 text-sm">No data yet</div>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Top Vehicles */}
+                        {vehicleData.length > 0 && (
+                            <div className="mt-6 bg-white rounded-2xl border border-gray-200 shadow-sm p-5">
+                                <h3 className="text-sm font-bold text-gray-700 mb-4 uppercase tracking-wider">Top Requested Vehicles</h3>
+                                <ResponsiveContainer width="100%" height={160}>
+                                    <BarChart data={vehicleData} layout="vertical" barSize={16}>
+                                        <XAxis type="number" tick={{ fontSize: 11, fill: '#9ca3af' }} axisLine={false} tickLine={false} />
+                                        <YAxis type="category" dataKey="name" tick={{ fontSize: 11, fill: '#374151' }} axisLine={false} tickLine={false} width={110} />
+                                        <Tooltip contentStyle={{ borderRadius: '8px', border: '1px solid #e5e7eb', fontSize: 12 }} />
+                                        <Bar dataKey="count" fill="#000" radius={[0, 4, 4, 0]} name="Bookings" />
+                                    </BarChart>
+                                </ResponsiveContainer>
+                            </div>
+                        )}
+                    </div>
+                );
+            })()}
 
             <div className="mb-6">
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">Driver Applications</h2>

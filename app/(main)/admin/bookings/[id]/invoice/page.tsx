@@ -18,7 +18,6 @@ import {
     User
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Image from 'next/image';
 
 interface Booking {
     id: string;
@@ -36,6 +35,9 @@ interface Booking {
     status: string;
     special_requests?: string;
     total_price?: number;
+    currency?: string;
+    payment_status?: string;
+    payment_method?: string;
 }
 
 export default function InvoicePage() {
@@ -47,6 +49,10 @@ export default function InvoicePage() {
     const [currency, setCurrency] = useState('SAR');
     const [paymentStatus, setPaymentStatus] = useState('Unpaid');
     const [paymentMethod, setPaymentMethod] = useState('Cash to Driver');
+    const [isRoundTrip, setIsRoundTrip] = useState(false);
+    const [returnDestination, setReturnDestination] = useState('');
+    const [sendingEmail, setSendingEmail] = useState(false);
+    const [emailSent, setEmailSent] = useState(false);
 
     useEffect(() => {
         const fetchBooking = async () => {
@@ -64,6 +70,11 @@ export default function InvoicePage() {
                 if (data.payment_status) setPaymentStatus(data.payment_status);
                 // Note: payment_method might not be in the DB yet, but we check just in case
                 if (data.payment_method) setPaymentMethod(data.payment_method);
+                // Auto-detect round trip from booking data
+                if (data.has_return_trip) {
+                    setIsRoundTrip(true);
+                    setReturnDestination(data.pickup_location || '');
+                }
             } catch (error) {
                 console.error('Error fetching booking:', error);
             } finally {
@@ -110,6 +121,68 @@ export default function InvoicePage() {
         }
     };
 
+    const handleSendEmail = async () => {
+        if (!booking) return;
+        setSendingEmail(true);
+        setEmailSent(false);
+
+        try {
+            const customerName = booking.customer_name ? booking.customer_name.replace(/\s+/g, '-') : 'Client';
+            const refId = booking.id.slice(0, 8).toUpperCase();
+            const dateStr = booking.pickup_date || new Date().toISOString().split('T')[0];
+            const filename = `Invoice-${refId}-${customerName}-${dateStr}.pdf`;
+
+            const element = document.getElementById('invoice-print');
+            if (!element) throw new Error('Invoice element not found');
+
+            const opt = {
+                margin: [0, 0, 0, 0] as [number, number, number, number],
+                filename,
+                image: { type: 'jpeg' as const, quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true, letterRendering: true, windowWidth: 1200, scrollY: 0, scrollX: 0 },
+                jsPDF: { unit: 'mm' as const, format: 'a4' as const, orientation: 'portrait' as const },
+            };
+
+            // @ts-ignore
+            const html2pdf = (await import('html2pdf.js')).default;
+            const pdfBlob: Blob = await html2pdf().set(opt).from(element).outputPdf('blob');
+
+            const arrayBuffer = await pdfBlob.arrayBuffer();
+            const bytes = new Uint8Array(arrayBuffer);
+            let binary = '';
+            for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
+            const base64 = btoa(binary);
+
+            // Persist currency, paymentStatus, paymentMethod back to DB
+            await supabase
+                .from('bookings')
+                .update({ currency, payment_status: paymentStatus, payment_method: paymentMethod })
+                .eq('id', booking.id);
+
+            const res = await fetch('/api/send-invoice-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    booking,
+                    pdfBase64: base64,
+                    filename,
+                    currency,
+                    paymentStatus,
+                    paymentMethod,
+                }),
+            });
+
+            if (!res.ok) throw new Error('Email API error');
+            setEmailSent(true);
+            setTimeout(() => setEmailSent(false), 4000);
+        } catch (err) {
+            console.error('Send Invoice Email Error:', err);
+            alert('Failed to send invoice email. Please try again.');
+        } finally {
+            setSendingEmail(false);
+        }
+    };
+
     if (loading) {
         return (
             <div className="flex items-center justify-center min-h-screen">
@@ -142,7 +215,32 @@ export default function InvoicePage() {
                 </Button>
 
                 <div className="flex flex-wrap gap-4 items-center">
-                    {/* Payment Status Toggle */}
+                    {/* Round Trip Toggle */}
+                    <div className="flex flex-col gap-1">
+                        <div
+                            onClick={() => {
+                                setIsRoundTrip(!isRoundTrip);
+                                if (!isRoundTrip && booking) setReturnDestination(booking.pickup_location);
+                            }}
+                            className={`flex items-center gap-2 rounded-lg border p-1 shadow-sm px-3 cursor-pointer transition-all select-none ${
+                                isRoundTrip ? 'bg-blue-600 border-blue-600 text-white' : 'bg-white text-gray-500 border-gray-200'
+                            }`}
+                        >
+                            <span className="text-lg">🔄</span>
+                            <span className="text-[11px] font-black uppercase tracking-widest whitespace-nowrap">
+                                {isRoundTrip ? 'Round Trip ON' : 'Round Trip'}
+                            </span>
+                        </div>
+                        {isRoundTrip && (
+                            <input
+                                value={returnDestination}
+                                onChange={(e) => setReturnDestination(e.target.value)}
+                                className="h-7 w-40 text-[11px] font-bold border rounded px-2 outline-none bg-white"
+                                placeholder="Return destination..."
+                            />
+                        )}
+                    </div>
+
                     {/* Payment Status Custom Input */}
                     <div className="flex flex-col gap-1">
                         <div className="flex items-center gap-2 bg-white rounded-lg border p-1 shadow-sm px-2">
@@ -227,6 +325,15 @@ export default function InvoicePage() {
                     <Button onClick={handlePrint} className="bg-primary text-black hover:bg-black hover:text-white font-bold h-10 px-6">
                         <Printer className="w-4 h-4 mr-2" /> Download PDF
                     </Button>
+
+                    <Button
+                        onClick={handleSendEmail}
+                        disabled={sendingEmail}
+                        className={`font-bold h-10 px-6 ${emailSent ? 'bg-green-500 text-white' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
+                    >
+                        <Mail className="w-4 h-4 mr-2" />
+                        {sendingEmail ? 'Sending...' : emailSent ? '✓ Email Sent!' : 'Send Invoice Email'}
+                    </Button>
                 </div>
             </div>
 
@@ -255,13 +362,6 @@ export default function InvoicePage() {
                         <div className="flex justify-between items-start mb-6 border-b-2 border-gray-100 pb-5">
                             <div>
                                 <div className="flex items-center gap-2 mb-3">
-                                    <div className="relative w-10 h-10">
-                                        <img
-                                            src="/logo.svg"
-                                            alt="Taxi Service KSA"
-                                            className="w-full h-full object-contain"
-                                        />
-                                    </div>
                                     <span className="text-xl font-black tracking-tighter text-gray-900 uppercase">
                                         Taxi Service <span className="text-lime-600">KSA</span>
                                     </span>
@@ -273,7 +373,14 @@ export default function InvoicePage() {
                                 </div>
                             </div>
                             <div className="text-right">
-                                <h1 className="text-3xl font-black text-gray-900 uppercase tracking-tighter mb-1">Invoice</h1>
+                                <div className="flex items-center justify-end gap-2 mb-1">
+                                    <h1 className="text-3xl font-black text-gray-900 uppercase tracking-tighter">Invoice</h1>
+                                    {isRoundTrip && (
+                                        <span className="px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-[0.12em] bg-blue-600 text-white shadow-sm whitespace-nowrap">
+                                            🔄 Round Trip
+                                        </span>
+                                    )}
+                                </div>
                                 <p className="text-gray-400 font-mono text-[10px] tracking-widest">REF: #{booking.id.slice(0, 8).toUpperCase()}</p>
                                 <p className="text-gray-500 text-xs mt-0.5 font-bold">Date: {invoiceDate}</p>
 
@@ -339,7 +446,9 @@ export default function InvoicePage() {
 
                         {/* Route Details */}
                         <div className="mb-5">
-                            <h2 className="text-[10px] font-black text-gray-300 uppercase tracking-[0.2em] mb-3">Journey Route</h2>
+                            <h2 className="text-[10px] font-black text-gray-300 uppercase tracking-[0.2em] mb-3">
+                                Journey Route {isRoundTrip && <span className="text-blue-500 ml-1">(Round Trip)</span>}
+                            </h2>
                             <div className="relative pl-6 space-y-4 before:absolute before:left-[9px] before:top-2 before:bottom-2 before:w-0.5 before:border-l-2 before:border-dashed before:border-gray-200">
                                 <div className="relative">
                                     <div className="absolute -left-[22px] top-1 w-4 h-4 bg-green-500 rounded-full border-[3px] border-white shadow-sm ring-1 ring-green-100"></div>
@@ -348,9 +457,20 @@ export default function InvoicePage() {
                                 </div>
                                 <div className="relative">
                                     <div className="absolute -left-[22px] top-1 w-4 h-4 bg-red-500 rounded-full border-[3px] border-white shadow-sm ring-1 ring-red-100"></div>
-                                    <p className="text-[9px] text-gray-400 font-black uppercase mb-0.5">Final Destination</p>
+                                    <p className="text-[9px] text-gray-400 font-black uppercase mb-0.5">{isRoundTrip ? 'Destination' : 'Final Destination'}</p>
                                     <p className="text-sm font-bold text-gray-900 leading-tight">{booking.destination}</p>
                                 </div>
+                                {isRoundTrip && (
+                                    <div className="relative">
+                                        <div className="absolute -left-[22px] top-1 w-4 h-4 bg-blue-600 rounded-full border-[3px] border-white shadow-sm ring-1 ring-blue-100 flex items-center justify-center">
+                                            <span className="text-white text-[6px] font-black">↩</span>
+                                        </div>
+                                        <p className="text-[9px] text-blue-500 font-black uppercase mb-0.5">Return — Final Destination</p>
+                                        <p className="text-sm font-bold text-gray-900 leading-tight">
+                                            {returnDestination || booking.pickup_location}
+                                        </p>
+                                    </div>
+                                )}
                             </div>
                         </div>
 
@@ -366,12 +486,17 @@ export default function InvoicePage() {
                                 <tbody className="divide-y divide-gray-50">
                                     <tr>
                                         <td className="px-6 py-4">
-                                            <p className="font-black text-gray-900 text-sm uppercase tracking-tight">Private Transfer Service</p>
+                                            <p className="font-black text-gray-900 text-sm uppercase tracking-tight">
+                                                {isRoundTrip ? 'Round Trip Transfer Service 🔄' : 'Private Transfer Service'}
+                                            </p>
                                             <p className="text-xs text-gray-500 mt-1 font-medium">
                                                 {booking.vehicle_type} • Professional Chauffeur Service
                                             </p>
                                             <p className="text-[10px] text-gray-400 mt-0.5 uppercase font-bold">
-                                                Route: {booking.pickup_location.split(',')[0]} to {booking.destination.split(',')[0]}
+                                                {isRoundTrip
+                                                    ? `Route: ${booking.pickup_location.split(',')[0]} ↔ ${booking.destination.split(',')[0]}`
+                                                    : `Route: ${booking.pickup_location.split(',')[0]} → ${booking.destination.split(',')[0]}`
+                                                }
                                             </p>
                                             {booking.special_requests && (
                                                 <div className="mt-2 p-2 bg-gray-50 rounded border border-gray-100 italic text-[10px] text-gray-500">

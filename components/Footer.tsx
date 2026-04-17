@@ -228,6 +228,7 @@ export default function Footer() {
                         <Link href="/terms-conditions/" className="text-sm text-gray-500 hover:text-primary transition-colors font-medium">Terms of Service</Link>
                         <Link href="/sitemap.xml" className="text-sm text-gray-500 hover:text-primary transition-colors font-medium">Sitemap</Link>
                         <Link href="/contact/" className="text-sm text-gray-500 hover:text-primary transition-colors font-medium">Support Center</Link>
+                        <Link href="/track-booking/" className="text-sm text-gray-500 hover:text-primary transition-colors font-medium">Track Booking</Link>
                     </div>
                 </div>
             </div>

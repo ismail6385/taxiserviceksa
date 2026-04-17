@@ -1,0 +1,127 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { sendMail } from '@/lib/mail-server';
+import { supabaseAdmin } from '@/lib/supabase-admin';
+import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
+
+async function appendEmailLog(bookingId: string, entry: string) {
+    const { data } = await supabaseAdmin.from('bookings').select('internal_notes').eq('id', bookingId).single();
+    const existing = data?.internal_notes || '';
+    const updated = existing ? `${existing}\n${entry}` : entry;
+    await supabaseAdmin.from('bookings').update({ internal_notes: updated }).eq('id', bookingId);
+}
+
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
+
+function escapeHtml(str: string | undefined | null): string {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+export async function POST(request: NextRequest) {
+    try {
+        const ip = getClientIp(request);
+        if (!checkRateLimit(`quote-email:${ip}`, 10, 60_000)) {
+            return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
+        }
+
+        const body = await request.json();
+        const { booking, currency } = body;
+
+        if (!booking || !booking.customer_email || !booking.total_price) {
+            return NextResponse.json({ error: 'Missing booking data or price' }, { status: 400 });
+        }
+
+        const emailAdmin = process.env.ADMIN_EMAIL || 'info@taxiserviceksa.com';
+        const refId      = `#${String(booking.id).slice(0, 8).toUpperCase()}`;
+        const curr       = currency || booking.currency || 'SAR';
+        const price      = Number(booking.total_price).toFixed(2);
+
+        const safeName    = escapeHtml(booking.customer_name);
+        const safePickup  = escapeHtml(booking.pickup_location);
+        const safeDest    = escapeHtml(booking.destination);
+        const safeVehicle = escapeHtml(booking.vehicle_type);
+
+        const whatsappMsg = encodeURIComponent(
+            `Hello, I'd like to confirm my booking.\n\n*Quote Ref:* ${refId}\n*Route:* ${booking.pickup_location} → ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}\n*Vehicle:* ${booking.vehicle_type}\n*Quote:* ${curr} ${price}`
+        );
+
+        const quoteHtml = `
+            <div style="font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
+                <div style="background-color: #000; padding: 25px; text-align: center; border-radius: 10px 10px 0 0;">
+                    <h1 style="margin: 0; color: #C6FF00; text-transform: uppercase; letter-spacing: 2px;">Your Quote</h1>
+                    <p style="color: #aaa; margin: 8px 0 0; font-size: 13px;">VIP Transfer KSA</p>
+                </div>
+                <div style="padding: 30px; border: 1px solid #eee; border-top: none; border-radius: 0 0 10px 10px; background-color: #fff;">
+                    <p style="font-size: 16px;">Dear <strong>${safeName}</strong>,</p>
+                    <p>Thank you for choosing <strong>VIP Transfer KSA</strong>. Here is your official quote for the requested journey.</p>
+
+                    <div style="background-color: #f8f9fa; padding: 20px; border-radius: 12px; margin: 25px 0; border: 1px solid #ebedf0;">
+                        <h3 style="margin-top: 0; color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 8px; display: inline-block;">Journey Details</h3>
+                        <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                            <tr><td style="padding: 5px 0; color: #666; width: 40%;">Ref Number</td><td style="font-weight: bold; color: #000;">${refId}</td></tr>
+                            <tr><td style="padding: 5px 0; color: #666;">Pickup</td><td style="font-weight: bold; color: #000;">${safePickup}</td></tr>
+                            <tr><td style="padding: 5px 0; color: #666;">Destination</td><td style="font-weight: bold; color: #000;">${safeDest}</td></tr>
+                            <tr><td style="padding: 5px 0; color: #666;">Date &amp; Time</td><td style="font-weight: bold; color: #000;">${booking.pickup_date} at ${booking.pickup_time}</td></tr>
+                            <tr><td style="padding: 5px 0; color: #666;">Vehicle</td><td style="font-weight: bold; color: #000;">${safeVehicle}</td></tr>
+                            <tr><td style="padding: 5px 0; color: #666;">Passengers</td><td style="font-weight: bold; color: #000;">${booking.passengers} Pax</td></tr>
+                        </table>
+                    </div>
+
+                    <div style="background-color: #000; color: #fff; padding: 20px 25px; border-radius: 12px; margin: 25px 0; text-align: center;">
+                        <p style="margin: 0 0 5px; font-size: 13px; color: #aaa; text-transform: uppercase; letter-spacing: 2px;">Total Quote Price</p>
+                        <p style="margin: 0; font-size: 36px; font-weight: 900; color: #C6FF00; letter-spacing: 1px;">${curr} ${price}</p>
+                        <p style="margin: 8px 0 0; font-size: 11px; color: #777;">Includes fuel, toll, and parking fees</p>
+                    </div>
+
+                    <p style="font-size: 14px; color: #555;">This quote is valid for <strong>48 hours</strong>. To confirm your booking or ask any questions, simply reply to this email or tap the button below.</p>
+
+                    <div style="text-align: center; margin: 30px 0; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                        <a href="https://wa.me/966569487569?text=${whatsappMsg}" style="background-color: #25D366; color: white; padding: 14px 28px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; font-size: 15px;">💬 Confirm on WhatsApp</a>
+                        <a href="mailto:info@taxiserviceksa.com?subject=Confirm%20Booking%20${refId}" style="background-color: #000; color: #C6FF00; padding: 14px 28px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; font-size: 15px;">✉️ Reply to Confirm</a>
+                    </div>
+
+                    <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
+                    <p style="font-size: 12px; color: #999; text-align: center;">VIP Transfer KSA • Premium Chauffeur &amp; Private Transport Service<br>info@taxiserviceksa.com • www.taxiserviceksa.com</p>
+                </div>
+            </div>`;
+
+        // 1. Send quote to customer
+        await sendMail({
+            to: booking.customer_email,
+            subject: `Your Quote ${refId} - VIP Transfer KSA`,
+            html: quoteHtml,
+        });
+
+        // 2. Notify admin that a quote was sent
+        await sendMail({
+            to: emailAdmin,
+            replyTo: booking.customer_email,
+            subject: `💰 Quote Sent — ${safeName} | ${curr} ${price}`,
+            html: `
+            <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+                <h2 style="color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 10px;">Quote Sent to Customer</h2>
+                <p><strong>Customer:</strong> ${safeName} (${escapeHtml(booking.customer_email)})</p>
+                <p><strong>Phone:</strong> ${escapeHtml(booking.customer_phone)}</p>
+                <p><strong>Route:</strong> ${safePickup} → ${safeDest}</p>
+                <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${booking.pickup_time}</p>
+                <p><strong>Vehicle:</strong> ${safeVehicle}</p>
+                <p><strong>Quoted Price:</strong> <span style="font-size:18px; font-weight:900; color:#000;">${curr} ${price}</span></p>
+                <p style="font-size: 12px; color: #666;">Quote ref: ${refId} — valid 48 hours</p>
+            </div>`,
+        });
+
+        // Log email activity to booking
+        const logTime = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Riyadh', day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
+        await appendEmailLog(booking.id, `📧 [${logTime}] Quote sent — ${curr} ${price}`).catch(() => {});
+
+        return NextResponse.json({ success: true });
+    } catch (error: any) {
+        console.error('Send Quote Email Error:', error);
+        return NextResponse.json({ error: 'Failed to send quote email' }, { status: 500 });
+    }
+}

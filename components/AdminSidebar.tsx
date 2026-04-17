@@ -14,7 +14,9 @@ import {
     MapPin,
     FileText,
     Star,
-    HelpCircle
+    HelpCircle,
+    Tag,
+    Calendar
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
@@ -23,6 +25,8 @@ import { cn } from '@/lib/utils'; // Assuming you have a utils file for class me
 const menuItems = [
     { name: 'Dashboard', href: '/admin/dashboard', icon: LayoutDashboard },
     { name: 'Bookings', href: '/admin/bookings', icon: CalendarDays },
+    { name: 'Calendar', href: '/admin/calendar', icon: Calendar },
+    { name: 'Promo Codes', href: '/admin/promo-codes', icon: Tag },
     { name: 'Invoice Creator', href: '/admin/invoice-generator', icon: FileText },
     { name: 'Reviews', href: '/admin/reviews', icon: Star },
     { name: 'Questions', href: '/admin/questions', icon: HelpCircle },

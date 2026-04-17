@@ -74,7 +74,7 @@ export function normalizeLocation(loc: string): string | null {
     return null;
 }
 
-export function getPrice(from: string, to: string, vehicle: string): number | null {
+export function getPrice(from: string, to: string, vehicle: string, isRoundTrip: boolean = false): number | null {
     const loc1 = normalizeLocation(from);
     const loc2 = normalizeLocation(to);
 
@@ -87,8 +87,17 @@ export function getPrice(from: string, to: string, vehicle: string): number | nu
     // Check rules
     const rules = PRICING_RULES[routeKey] || PRICING_RULES[routeKeyDirect];
 
-    if (rules && rules[vehicle]) {
-        return rules[vehicle].price;
+    if (rules) {
+        // Find vehicle with flexible matching
+        const vehicleKey = Object.keys(rules).find(key => 
+            key.toLowerCase().includes(vehicle.toLowerCase()) || 
+            vehicle.toLowerCase().includes(key.toLowerCase())
+        );
+
+        if (vehicleKey && rules[vehicleKey]) {
+            let basePrice = rules[vehicleKey].price;
+            return isRoundTrip ? basePrice * 2 : basePrice;
+        }
     }
 
     return null;

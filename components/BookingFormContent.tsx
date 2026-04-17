@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -67,6 +67,12 @@ export default function BookingFormContent({ prefilledData, className }: Booking
     const [success, setSuccess] = useState(false);
 
     const [countryCode, setCountryCode] = useState('+966');
+    const router = useRouter();
+
+    const [promoInput, setPromoInput] = useState('');
+    const [promoApplied, setPromoApplied] = useState<{ code: string; discount_type: string; discount_value: number } | null>(null);
+    const [promoLoading, setPromoLoading] = useState(false);
+    const [promoError, setPromoError] = useState('');
     const [open, setOpen] = useState(false);
 
     const [formData, setFormData] = useState<BookingData>({
@@ -152,6 +158,29 @@ export default function BookingFormContent({ prefilledData, className }: Booking
         }));
     };
 
+    const validatePromo = async () => {
+        if (!promoInput.trim()) return;
+        setPromoLoading(true);
+        setPromoError('');
+        try {
+            const res = await fetch('/api/validate-promo', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ code: promoInput }),
+            });
+            const data = await res.json();
+            if (data.valid) {
+                setPromoApplied({ code: data.code, discount_type: data.discount_type, discount_value: data.discount_value });
+            } else {
+                setPromoError(data.error || 'Invalid promo code');
+            }
+        } catch {
+            setPromoError('Failed to validate code');
+        } finally {
+            setPromoLoading(false);
+        }
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
@@ -161,7 +190,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
             const finalFormData = {
                 ...insertData,
                 customer_phone: fullPhoneNumber,
-                special_requests: `${formData.has_return_trip ? '[RETURN TRIP REQUESTED] ' : ''}${formData.child_seats ? `[CHILD SEATS: ${formData.child_seats}] ` : ''}${(formData.special_requests ? formData.special_requests + '. ' : '') + 'Please Provide Quote'}`
+                special_requests: `${formData.has_return_trip ? '[RETURN TRIP REQUESTED] ' : ''}${formData.child_seats ? `[CHILD SEATS: ${formData.child_seats}] ` : ''}${promoApplied ? `[PROMO: ${promoApplied.code} - ${promoApplied.discount_value}${promoApplied.discount_type === 'percentage' ? '%' : ' SAR'} off] ` : ''}${(formData.special_requests ? formData.special_requests + '. ' : '') + 'Please Provide Quote'}`
             };
 
             const { data, error } = await supabase.from('bookings').insert([finalFormData]).select();
@@ -181,31 +210,22 @@ export default function BookingFormContent({ prefilledData, className }: Booking
             setSuccess(true);
             setStep(4);
 
-            // Construct WhatsApp message
-            const whatsappMsg = `*New Booking Request - ${BRAND.name}*
-*Name:* ${formData.customer_name}
-*Email:* ${formData.customer_email}
-*Phone:* ${fullPhoneNumber}
-*Pickup:* ${formData.pickup_location}
-*Destination:* ${formData.destination}
-*Date:* ${formData.pickup_date}
-*Time:* ${formData.pickup_time}
-*Vehicle:* ${formData.vehicle_type}
-*Passengers:* ${formData.passengers}
-*Luggage:* ${formData.luggage} bags
-*Child Seats:* ${formData.child_seats || 0}
-*Return Trip:* ${formData.has_return_trip ? 'Yes' : 'No'}
-*Special Requests:* ${formData.special_requests || 'None'}
----
-Please provide a quote for this journey.`;
+            const bookingId = data[0]?.id || '';
+            const confirmParams = new URLSearchParams({
+                ref: bookingId,
+                name: formData.customer_name,
+                email: formData.customer_email,
+                from: formData.pickup_location,
+                to: formData.destination,
+                date: formData.pickup_date,
+                time: formData.pickup_time,
+                vehicle: formData.vehicle_type,
+            });
 
-            const encodedMsg = encodeURIComponent(whatsappMsg);
-            const whatsappUrl = `https://wa.me/${BRAND.contact.whatsapp.replace('+', '')}?text=${encodedMsg}`;
-            
-            // Redirect to WhatsApp after a short delay to let the success UI show
+            // Redirect to confirmation page after brief delay
             setTimeout(() => {
-                window.open(whatsappUrl, '_blank');
-            }, 1500);
+                router.push(`/booking/confirmation?${confirmParams.toString()}`);
+            }, 800);
 
         } catch (error) {
             console.error(error);
@@ -398,35 +418,45 @@ Please provide a quote for this journey.`;
                             <p className="text-gray-500 text-sm mt-1">{formData.pickup_location} <ArrowRight className="w-3 h-3 inline mx-1" /> {formData.destination}</p>
                         </div>
 
-                        <div className="grid grid-cols-1 gap-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+                        <div className="grid grid-cols-1 gap-3 max-h-[420px] overflow-y-auto pr-2 custom-scrollbar">
                             {vehicles.map((v) => (
                                 <div
                                     key={v.name}
                                     onClick={() => selectVehicle(v)}
-                                    className={`relative group cursor-pointer border-2 rounded-2xl p-4 transition-all hover:shadow-md ${formData.vehicle_type === v.name ? 'border-primary bg-primary/5 shadow-sm' : 'border-gray-100 bg-white hover:border-primary/50'}`}
+                                    className={`relative group cursor-pointer border-2 rounded-2xl p-3 transition-all hover:shadow-md ${formData.vehicle_type === v.name ? 'border-primary bg-primary/5 shadow-sm' : 'border-gray-100 bg-white hover:border-primary/50'}`}
                                 >
-                                    <div className="flex items-center gap-4">
-                                        <div className="flex-1">
-                                            <h3 className="font-bold text-lg text-gray-900 leading-tight">{v.name}</h3>
+                                    <div className="flex items-center gap-3">
+                                        {/* Car Image */}
+                                        <div className="w-28 h-16 flex-shrink-0 rounded-xl overflow-hidden bg-gray-50 flex items-center justify-center">
+                                            <img
+                                                src={(v as any).image}
+                                                alt={v.name}
+                                                className="w-full h-full object-contain p-1 group-hover:scale-105 transition-transform duration-200"
+                                                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                                            />
+                                        </div>
+
+                                        {/* Info */}
+                                        <div className="flex-1 min-w-0">
+                                            <h3 className="font-bold text-base text-gray-900 leading-tight">{v.name}</h3>
                                             <div className="flex items-center gap-3 text-xs text-gray-500 mt-1">
-                                                <span className="flex items-center gap-1 font-bold"><Users className="w-3.5 h-3.5 text-primary" /> Max {v.passengers}</span>
-                                                <span className="flex items-center gap-1 font-bold"><Briefcase className="w-3.5 h-3.5 text-primary" /> {v.luggage} Bags</span>
+                                                <span className="flex items-center gap-1 font-bold"><Users className="w-3 h-3 text-primary" /> {v.passengers} Pax</span>
+                                                <span className="flex items-center gap-1 font-bold"><Briefcase className="w-3 h-3 text-primary" /> {v.luggage} Bags</span>
                                             </div>
                                             {(v as any).description && (
-                                                <p className="text-[10px] text-gray-400 mt-1.5 font-medium italic line-clamp-1 group-hover:line-clamp-none transition-all">
+                                                <p className="text-[10px] text-gray-400 mt-1 font-medium italic line-clamp-1 group-hover:line-clamp-none transition-all">
                                                     {(v as any).description}
                                                 </p>
                                             )}
                                         </div>
-                                        <div className="text-right flex flex-col items-end gap-1">
-                                            <div className="flex items-center gap-1 text-gray-900 font-black text-lg leading-none">
-                                                Request Quote
+
+                                        {/* Badge + Checkmark */}
+                                        <div className="flex flex-col items-end gap-1 flex-shrink-0 pr-1">
+                                            <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${formData.vehicle_type === v.name ? 'border-primary bg-primary text-white' : 'border-gray-300'}`}>
+                                                {formData.vehicle_type === v.name && <Check className="w-3 h-3" />}
                                             </div>
-                                            <span className="text-[9px] text-gray-400 font-bold uppercase tracking-tighter">Private Only</span>
+                                            <span className="text-[9px] text-gray-400 font-bold uppercase tracking-tighter mt-1">Quote</span>
                                         </div>
-                                    </div>
-                                    <div className={`absolute top-4 right-4 w-5 h-5 rounded-full border-2 flex items-center justify-center ${formData.vehicle_type === v.name ? 'border-primary bg-primary text-white' : 'border-gray-300'}`}>
-                                        {formData.vehicle_type === v.name && <Check className="w-3 h-3" />}
                                     </div>
                                 </div>
                             ))}
@@ -531,6 +561,39 @@ Please provide a quote for this journey.`;
                                     <Input name="customer_phone" type="tel" placeholder="Mobile Number *" required value={formData.customer_phone} className="flex-1 h-12 bg-gray-50 border-gray-300 rounded-xl" onChange={handleChange} />
                                 </div>
                             </div>
+                        </div>
+
+                        {/* Promo Code */}
+                        <div className="border border-dashed border-gray-300 rounded-xl p-3">
+                            <p className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Have a promo code?</p>
+                            {promoApplied ? (
+                                <div className="flex items-center justify-between bg-green-50 border border-green-200 rounded-lg px-3 py-2">
+                                    <div>
+                                        <span className="font-black text-green-700 text-sm">{promoApplied.code}</span>
+                                        <span className="text-green-600 text-xs ml-2">— {promoApplied.discount_value}{promoApplied.discount_type === 'percentage' ? '%' : ' SAR'} discount applied</span>
+                                    </div>
+                                    <button onClick={() => { setPromoApplied(null); setPromoInput(''); setPromoError(''); }} className="text-green-600 hover:text-green-800 text-lg leading-none font-bold">×</button>
+                                </div>
+                            ) : (
+                                <div className="flex gap-2">
+                                    <Input
+                                        value={promoInput}
+                                        onChange={e => { setPromoInput(e.target.value.toUpperCase()); setPromoError(''); }}
+                                        placeholder="Enter code"
+                                        className="h-9 text-sm font-mono flex-1"
+                                        onKeyDown={e => e.key === 'Enter' && validatePromo()}
+                                    />
+                                    <button
+                                        type="button"
+                                        onClick={validatePromo}
+                                        disabled={promoLoading || !promoInput.trim()}
+                                        className="px-3 h-9 bg-gray-900 text-white text-xs font-bold rounded-lg hover:bg-black disabled:opacity-40 transition-colors shrink-0"
+                                    >
+                                        {promoLoading ? '...' : 'Apply'}
+                                    </button>
+                                </div>
+                            )}
+                            {promoError && <p className="text-red-500 text-xs mt-1.5">{promoError}</p>}
                         </div>
 
                         <div className="flex gap-3 mt-4">

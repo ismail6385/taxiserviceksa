@@ -37,12 +37,18 @@ export const transporter = nodemailer.createTransport({
 /**
  * Send an email using Resend (Primary) or Nodemailer (Fallback)
  */
-export async function sendMail({ to, subject, html, fromName = 'VIP Transfer KSA', replyTo }: {
+interface Attachment {
+    filename: string;
+    content: string; // base64 encoded
+}
+
+export async function sendMail({ to, subject, html, fromName = 'VIP Transfer KSA', replyTo, attachments }: {
     to: string;
     subject: string;
     html: string;
     fromName?: string;
     replyTo?: string;
+    attachments?: Attachment[];
 }) {
     // 1. Try Resend First (Best for Vercel)
     if (resend) {
@@ -54,6 +60,10 @@ export async function sendMail({ to, subject, html, fromName = 'VIP Transfer KSA
                 subject,
                 html,
                 replyTo: replyTo || 'info@taxiserviceksa.com',
+                attachments: attachments?.map(a => ({
+                    filename: a.filename,
+                    content: a.content,
+                })),
             });
 
             if (error) {
@@ -82,6 +92,11 @@ export async function sendMail({ to, subject, html, fromName = 'VIP Transfer KSA
             subject,
             html,
             replyTo: replyTo || emailUser,
+            attachments: attachments?.map(a => ({
+                filename: a.filename,
+                content: Buffer.from(a.content, 'base64'),
+                contentType: 'application/pdf',
+            })),
         });
 
         console.log(`✅ Email sent via SMTP: ${info.messageId}`);

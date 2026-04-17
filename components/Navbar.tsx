@@ -133,6 +133,7 @@ export default function Navbar() {
             href: '#',
             icon: Info,
             children: [
+                { name: 'Track Booking', href: '/track-booking/', desc: 'Check your booking status' },
                 { name: 'Gallery', href: '/gallery/', icon: Camera },
                 { name: 'About Us', href: '/about/', icon: Info },
                 { name: 'Contact', href: '/contact/', icon: Contact },

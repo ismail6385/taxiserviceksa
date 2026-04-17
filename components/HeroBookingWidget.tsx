@@ -298,7 +298,7 @@ Please provide a quote for this journey.`;
                         </Button>
                     </div>
 
-                    <div className="space-y-6">
+                    <div className="space-y-4">
                         <Select
                             value={selectedVehicle?.name || ""}
                             onValueChange={(val) => {
@@ -308,59 +308,82 @@ Please provide a quote for this journey.`;
                         >
                             <SelectTrigger className="w-full h-16 bg-white border-2 border-gray-100 focus:border-primary rounded-xl text-lg relative overflow-hidden">
                                 <div className="flex items-center gap-3 w-full">
-                                    <div className="w-10 h-10 bg-gray-50 rounded-lg flex items-center justify-center shrink-0">
-                                        <Car className="w-5 h-5 text-gray-500" />
+                                    <div className="w-14 h-10 bg-gray-50 rounded-lg flex items-center justify-center shrink-0 overflow-hidden">
+                                        {selectedVehicle ? (
+                                            <img
+                                                src={selectedVehicle.image}
+                                                alt={selectedVehicle.name}
+                                                className="w-full h-full object-contain p-0.5"
+                                            />
+                                        ) : (
+                                            <Car className="w-5 h-5 text-gray-400" />
+                                        )}
                                     </div>
                                     <SelectValue placeholder="Choose your vehicle..." />
                                 </div>
                             </SelectTrigger>
-                            <SelectContent className="max-h-[400px]">
-                                {vehicles.map((v) => {
-                                    return (
-                                        <SelectItem key={v.name} value={v.name} className="py-3 cursor-pointer">
-                                            <div className="flex items-center justify-between w-full gap-4">
-                                                <div className="flex flex-col items-start">
-                                                    <span className="font-bold text-gray-900">{v.name}</span>
-                                                    <div className="flex items-center gap-2 text-xs text-gray-500">
-                                                        <span className="flex items-center gap-1"><Users className="w-3 h-3" /> {v.passengers}</span>
-                                                        <span className="flex items-center gap-1"><Briefcase className="w-3 h-3" /> {v.luggage}</span>
-                                                    </div>
-                                                </div>
-                                                <div className="font-bold text-gray-900 text-base flex items-center gap-1">
-                                                    Request Quote
+                            <SelectContent className="max-h-[420px]">
+                                {vehicles.map((v) => (
+                                    <SelectItem key={v.name} value={v.name} className="py-2 cursor-pointer">
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-16 h-10 bg-gray-50 rounded-lg flex items-center justify-center shrink-0 overflow-hidden">
+                                                <img
+                                                    src={v.image}
+                                                    alt={v.name}
+                                                    className="w-full h-full object-contain p-0.5"
+                                                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                                                />
+                                            </div>
+                                            <div className="flex flex-col items-start">
+                                                <span className="font-bold text-gray-900">{v.name}</span>
+                                                <div className="flex items-center gap-2 text-xs text-gray-500">
+                                                    <span className="flex items-center gap-1"><Users className="w-3 h-3" /> {v.passengers} Pax</span>
+                                                    <span className="flex items-center gap-1"><Briefcase className="w-3 h-3" /> {v.luggage} Bags</span>
                                                 </div>
                                             </div>
-                                        </SelectItem>
-                                    );
-                                })}
+                                        </div>
+                                    </SelectItem>
+                                ))}
                             </SelectContent>
                         </Select>
 
-                        {/* Passenger Selector (Manual Override) */}
+                        {/* Vehicle Image Preview + Passenger Selector */}
                         {selectedVehicle && (
-                            <div className="bg-gray-50/50 border border-gray-100 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4 animate-fade-in shadow-inner">
-                                <div className="flex flex-col">
-                                    <span className="text-sm font-black text-gray-900 uppercase tracking-tighter">Number of Passengers</span>
-                                    <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest leading-none mt-1">
-                                        {selectedVehicle.name} Max Capacity: {selectedVehicle.passengers}
-                                    </span>
+                            <div className="border border-gray-100 rounded-2xl overflow-hidden bg-white shadow-sm animate-fade-in">
+                                {/* Car Image Banner */}
+                                <div className="bg-gray-50 flex items-center justify-center h-36 px-6">
+                                    <img
+                                        src={selectedVehicle.image}
+                                        alt={selectedVehicle.name}
+                                        className="h-full w-full object-contain"
+                                        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                                    />
                                 </div>
-                                <div className="flex items-center bg-white rounded-xl p-1 border shadow-sm">
-                                    <button 
-                                        type="button"
-                                        onClick={() => setPassengers(p => Math.max(1, p - 1))}
-                                        className="w-10 h-10 rounded-lg bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-all active:scale-90"
-                                    >
-                                        <span className="text-xl font-bold text-gray-900">-</span>
-                                    </button>
-                                    <span className="text-2xl font-black text-primary min-w-[50px] text-center">{passengers}</span>
-                                    <button 
-                                        type="button"
-                                        onClick={() => setPassengers(p => Math.min(selectedVehicle.passengers, p + 1))}
-                                        className="w-10 h-10 rounded-lg bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-all active:scale-90"
-                                    >
-                                        <span className="text-xl font-bold text-gray-900">+</span>
-                                    </button>
+                                {/* Passenger Selector */}
+                                <div className="p-4 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-gray-100">
+                                    <div className="flex flex-col">
+                                        <span className="text-sm font-black text-gray-900 uppercase tracking-tighter">Passengers</span>
+                                        <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest leading-none mt-0.5">
+                                            Max {selectedVehicle.passengers} • {selectedVehicle.luggage} Bags
+                                        </span>
+                                    </div>
+                                    <div className="flex items-center bg-gray-50 rounded-xl p-1 border shadow-sm">
+                                        <button
+                                            type="button"
+                                            onClick={() => setPassengers(p => Math.max(1, p - 1))}
+                                            className="w-10 h-10 rounded-lg bg-white hover:bg-gray-100 flex items-center justify-center transition-all active:scale-90 border"
+                                        >
+                                            <span className="text-xl font-bold text-gray-900">-</span>
+                                        </button>
+                                        <span className="text-2xl font-black text-primary min-w-[50px] text-center">{passengers}</span>
+                                        <button
+                                            type="button"
+                                            onClick={() => setPassengers(p => Math.min(selectedVehicle.passengers, p + 1))}
+                                            className="w-10 h-10 rounded-lg bg-white hover:bg-gray-100 flex items-center justify-center transition-all active:scale-90 border"
+                                        >
+                                            <span className="text-xl font-bold text-gray-900">+</span>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         )}

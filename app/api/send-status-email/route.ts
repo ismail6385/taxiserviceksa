@@ -1,11 +1,34 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendMail } from '@/lib/mail-server';
+import { supabaseAdmin } from '@/lib/supabase-admin';
+import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
+
+async function appendEmailLog(bookingId: string, entry: string) {
+    const { data } = await supabaseAdmin.from('bookings').select('internal_notes').eq('id', bookingId).single();
+    const existing = data?.internal_notes || '';
+    const updated = existing ? `${existing}\n${entry}` : entry;
+    await supabaseAdmin.from('bookings').update({ internal_notes: updated }).eq('id', bookingId);
+}
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 
+function escapeHtml(str: string | undefined | null): string {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
 export async function POST(request: NextRequest) {
     try {
+        const ip = getClientIp(request);
+        if (!checkRateLimit(`status-email:${ip}`, 10, 60_000)) {
+            return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
+        }
+
         const body = await request.json();
         const { bookingId, status, customerEmail, customerName } = body;
 
@@ -13,6 +36,7 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
         }
 
+        const safeName = escapeHtml(customerName);
         let subject = '';
         let htmlContent = '';
 
@@ -22,7 +46,7 @@ export async function POST(request: NextRequest) {
                 <h2 style="color: #000; margin: 0; text-transform: uppercase; letter-spacing: 1px;">Status Update</h2>
                 <div style="width: 50px; height: 3px; background-color: #C6FF00; margin: 10px auto;"></div>
             </div>
-            <p>Dear <strong>${customerName}</strong>,</p>
+            <p>Dear <strong>${safeName}</strong>,</p>
         `;
         const wrapperEnd = `
             <p style="margin-top: 30px;">Best regards,<br><strong>Customer Success Team</strong><br>VIP Transfer KSA</p>
@@ -54,7 +78,7 @@ export async function POST(request: NextRequest) {
                     <p>Thank you for choosing <strong>VIP Transfer KSA</strong> for your recent journey.</p>
                     <p>We hope you enjoyed the premium experience. Your feedback helps us maintain our leading standards in Saudi Arabia.</p>
                     <div style="text-align: center; margin: 30px 0;">
-                        <a href="https://taxiserviceksa.com" style="background-color: #000; color: #fff; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block;">Leave a Review</a>
+                        <a href="https://www.trustpilot.com/review/taxiserviceksa.com" style="background-color: #00B67A; color: #fff; padding: 14px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 16px;">⭐ Leave a Review on Trustpilot</a>
                     </div>
                 ${wrapperEnd}`;
                 break;
@@ -67,6 +91,11 @@ export async function POST(request: NextRequest) {
             subject,
             html: htmlContent
         });
+
+        // Log email activity to booking
+        const logTime = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Riyadh', day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
+        const statusLabel = status.charAt(0).toUpperCase() + status.slice(1);
+        await appendEmailLog(bookingId, `📧 [${logTime}] Status email — ${statusLabel}`).catch(() => {});
 
         return NextResponse.json({ success: true });
 

@@ -38,7 +38,9 @@ import {
     CheckSquare,
     Crown,
     Activity,
-    Users
+    Users,
+    Mail,
+    Truck
 } from 'lucide-react';
 import { getPrice } from '@/lib/pricing';
 import { Button } from '@/components/ui/button';
@@ -85,6 +87,8 @@ interface Booking {
     total_price?: number;
     payment_status?: string;
     driver_name?: string;
+    driver_phone?: string;
+    driver_plate?: string;
     flight_number?: string;
     actual_vehicle?: string;
     tags?: string; // Comma separated tags e.g. "VIP, Priority"
@@ -150,7 +154,15 @@ export default function BookingsPage() {
     };
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
+
+    // Reset to page 1 whenever any filter changes
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [searchTerm, statusFilter, paymentFilter, startDate, endDate]);
     
+    const [sendingQuote, setSendingQuote] = useState(false);
+    const [quoteSent, setQuoteSent] = useState(false);
+
     // Auto-fill & Duplicate State
     const [duplicateFound, setDuplicateFound] = useState<Booking | null>(null);
 
@@ -172,9 +184,12 @@ export default function BookingsPage() {
         actual_vehicle: '',
         payment_status: 'unpaid',
         driver_name: '',
+        driver_phone: '',
+        driver_plate: '',
         flight_number: '',
         currency: 'SAR',
-        payment_method: 'Cash to Driver'
+        payment_method: 'Cash to Driver',
+        has_return_trip: false
     });
 
     const router = useRouter();
@@ -186,6 +201,10 @@ export default function BookingsPage() {
                 router.push('/admin/login');
             } else {
                 fetchBookings();
+                // Request browser notification permission
+                if (typeof Notification !== 'undefined' && Notification.permission === 'default') {
+                    Notification.requestPermission();
+                }
             }
         };
         checkSession();
@@ -197,11 +216,19 @@ export default function BookingsPage() {
                 const newB = payload.new as Booking;
                 setBookings(prev => [newB, ...prev]);
                 setNewBookingAlert(newB);
-                
+
                 // Play notification sound
                 const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3');
                 audio.play().catch(e => console.log("Audio play blocked by browser", e));
-                
+
+                // Browser push notification
+                if (typeof Notification !== 'undefined' && Notification.permission === 'granted') {
+                    new Notification('🚖 New Booking!', {
+                        body: `${newB.customer_name} — ${newB.pickup_location} → ${newB.destination}`,
+                        icon: '/favicon.ico'
+                    });
+                }
+
                 // Clear notification after 10 seconds
                 setTimeout(() => setNewBookingAlert(null), 10000);
             })
@@ -350,12 +377,17 @@ export default function BookingsPage() {
     useEffect(() => {
         if (!isCreating) return;
         if (newBooking.pickup_location && newBooking.destination && newBooking.vehicle_type) {
-            const price = getPrice(newBooking.pickup_location, newBooking.destination, newBooking.vehicle_type);
+            const price = getPrice(
+                newBooking.pickup_location, 
+                newBooking.destination, 
+                newBooking.vehicle_type,
+                !!newBooking.has_return_trip
+            );
             if (price && price !== newBooking.total_price) {
                 setNewBooking(prev => ({ ...prev, total_price: price }));
             }
         }
-    }, [newBooking.pickup_location, newBooking.destination, newBooking.vehicle_type, isCreating]);
+    }, [newBooking.pickup_location, newBooking.destination, newBooking.vehicle_type, newBooking.has_return_trip, isCreating]);
 
     const saveDetails = async () => {
         if (!editedBooking) return;
@@ -624,7 +656,8 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
     };
 
     const suggestPrice = (from: string, to: string, vehicle: any, target: 'new' | 'edit') => {
-        const price = getPrice(from, to, vehicle);
+        const isRoundTrip = target === 'new' ? !!newBooking.has_return_trip : !!editedBooking?.has_return_trip;
+        const price = getPrice(from, to, vehicle, isRoundTrip);
         if (price) {
             if (target === 'new') {
                 setNewBooking({ ...newBooking, total_price: price });
@@ -651,12 +684,45 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
 
             if (response.ok) {
                 alert('Email notification resent successfully!');
+                await refreshSelectedBooking(booking.id);
             } else {
                 throw new Error('Failed to send');
             }
         } catch (error) {
             console.error('Error resending email:', error);
             alert('Failed to resend email. Please check server logs.');
+        }
+    };
+
+    const refreshSelectedBooking = async (id: string) => {
+        const { data } = await supabase.from('bookings').select('*').eq('id', id).single();
+        if (data) {
+            setSelectedBooking(data);
+            setBookings(prev => prev.map(b => b.id === id ? data : b));
+        }
+    };
+
+    const sendQuoteEmail = async (booking: Booking) => {
+        if (!booking.total_price) {
+            alert('Please set a price before sending the quote.');
+            return;
+        }
+        setSendingQuote(true);
+        setQuoteSent(false);
+        try {
+            const res = await fetch('/api/send-quote-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ booking, currency: booking.currency || 'SAR' }),
+            });
+            if (!res.ok) throw new Error('Failed');
+            setQuoteSent(true);
+            await refreshSelectedBooking(booking.id);
+            setTimeout(() => setQuoteSent(false), 4000);
+        } catch {
+            alert('Failed to send quote email. Please try again.');
+        } finally {
+            setSendingQuote(false);
         }
     };
 
@@ -760,7 +826,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
 
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
                 <div>
-                    <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 mb-2">
+                    <h1 className="text-2xl md:text-4xl font-extrabold tracking-tight text-gray-900 mb-2">
                         Booking Management
                     </h1>
                     <p className="text-gray-500 text-sm">Monitor and process your transport reservations easily.</p>
@@ -808,7 +874,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
             </div>
 
             {/* Filters */}
-            <div className="flex flex-col md:flex-row gap-4 mb-6">
+            <div className="flex flex-col gap-3 mb-6">
                 <div className="relative flex-1">
                     <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                     <Input
@@ -818,30 +884,33 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                         className="pl-10 bg-white border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-primary shadow-sm h-11"
                     />
                 </div>
-                <div className="flex gap-2 items-center bg-white border border-gray-200 rounded-lg px-3 shadow-sm h-11">
+                <div className="flex flex-wrap gap-2 items-center bg-white border border-gray-200 rounded-lg px-3 py-2 shadow-sm">
                     <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider mr-1">Quick</span>
                     <div className="flex gap-1">
                         <Button variant="ghost" size="sm" onClick={() => setQuickDate('today')} className="h-7 px-1.5 text-[10px] font-bold">Today</Button>
                         <Button variant="ghost" size="sm" onClick={() => setQuickDate('tomorrow')} className="h-7 px-1.5 text-[10px] font-bold">Tom</Button>
                         <Button variant="ghost" size="sm" onClick={() => setQuickDate('week')} className="h-7 px-1.5 text-[10px] font-bold">Week</Button>
                     </div>
-                    <div className="h-6 w-px bg-gray-200 mx-1"></div>
-                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">From</span>
-                    <input 
-                        type="date" 
-                        value={startDate} 
-                        onChange={(e) => setStartDate(e.target.value)} 
-                        className="text-xs bg-transparent border-none focus:ring-0 cursor-pointer p-0 w-[100px]"
-                    />
-                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider ml-1">To</span>
-                    <input 
-                        type="date" 
-                        value={endDate} 
-                        onChange={(e) => setEndDate(e.target.value)} 
-                        className="text-xs bg-transparent border-none focus:ring-0 cursor-pointer p-0 w-[100px]"
-                    />
+                    <div className="h-6 w-px bg-gray-200 mx-1 hidden sm:block"></div>
+                    <div className="flex items-center gap-2 flex-wrap">
+                        <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">From</span>
+                        <input
+                            type="date"
+                            value={startDate}
+                            onChange={(e) => setStartDate(e.target.value)}
+                            className="text-xs bg-transparent border border-gray-200 rounded-md px-2 py-1 focus:ring-0 cursor-pointer w-[130px]"
+                        />
+                        <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">To</span>
+                        <input
+                            type="date"
+                            value={endDate}
+                            onChange={(e) => setEndDate(e.target.value)}
+                            className="text-xs bg-transparent border border-gray-200 rounded-md px-2 py-1 focus:ring-0 cursor-pointer w-[130px]"
+                        />
+                    </div>
                 </div>
-                <div className="w-full md:w-[250px]">
+                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex-1">
                     <Select value={statusFilter} onValueChange={setStatusFilter}>
                         <SelectTrigger className="bg-white border-gray-200 text-gray-900 shadow-sm">
                             <div className="flex items-center gap-2">
@@ -860,7 +929,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                         </SelectContent>
                     </Select>
                 </div>
-                <div className="w-full md:w-[200px]">
+                <div className="flex-1">
                     <Select value={paymentFilter} onValueChange={setPaymentFilter}>
                         <SelectTrigger className="bg-white border-gray-200 text-gray-900 shadow-sm">
                             <div className="flex items-center gap-2">
@@ -877,6 +946,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                         </SelectContent>
                     </Select>
                 </div>
+                </div>
                 {(searchTerm || statusFilter !== 'all' || paymentFilter !== 'all' || startDate || endDate) && (
                     <Button 
                         variant="ghost" 
@@ -887,6 +957,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                             setPaymentFilter('all');
                             setStartDate('');
                             setEndDate('');
+                            setCurrentPage(1);
                         }}
                         className="h-11 px-4 text-rose-600 hover:text-rose-700 hover:bg-rose-50 font-bold"
                     >
@@ -937,8 +1008,8 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                     </div>
                 </div>
             )}
-            <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
-                <Table>
+            <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm overflow-x-auto">
+                <Table className="min-w-[700px]">
                     <TableHeader className="bg-gray-50">
                         <TableRow className="border-gray-200 hover:bg-transparent">
                             <TableHead className="w-[50px]">
@@ -1383,25 +1454,46 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         </div>
                                     </div>
 
-                                    <div className="pl-4 pt-3 mt-1 border-t border-gray-100">
-                                        <span className="block text-xs text-gray-500 mb-1">Flight Number (If applicable)</span>
-                                        <div className="flex items-center gap-2">
+                                    <div className="pl-4 pt-3 mt-1 border-t border-gray-100 flex items-center justify-between">
+                                        <div>
+                                            <span className="block text-xs text-gray-500 mb-1">Flight Number (If applicable)</span>
+                                            <div className="flex items-center gap-2">
+                                                {isEditing ? (
+                                                    <Input value={editedBooking.flight_number || ''} onChange={(e) => setEditedBooking({ ...editedBooking, flight_number: e.target.value })} className="h-8 text-sm bg-white w-32" placeholder="e.g. EK803" />
+                                                ) : (
+                                                    <>
+                                                        <span className="text-sm font-semibold text-gray-900">{selectedBooking.flight_number || 'N/A'}</span>
+                                                        {selectedBooking.flight_number && (
+                                                            <a 
+                                                                href={`https://www.flightradar24.com/data/flights/${selectedBooking.flight_number}`} 
+                                                                target="_blank" 
+                                                                rel="noopener noreferrer"
+                                                                className="text-[10px] text-blue-600 hover:underline flex items-center gap-1"
+                                                            >
+                                                                <ExternalLink className="w-3 h-3" /> Track Flight
+                                                            </a>
+                                                        )}
+                                                    </>
+                                                )}
+                                            </div>
+                                        </div>
+                                        <div className="flex flex-col items-end">
+                                            <span className="block text-xs text-gray-500 mb-1">Round Trip?</span>
                                             {isEditing ? (
-                                                <Input value={editedBooking.flight_number || ''} onChange={(e) => setEditedBooking({ ...editedBooking, flight_number: e.target.value })} className="h-8 text-sm bg-white w-32" placeholder="e.g. EK803" />
+                                                <button
+                                                    onClick={() => setEditedBooking({ ...editedBooking, has_return_trip: !editedBooking.has_return_trip })}
+                                                    className={`h-8 px-3 rounded-md text-[10px] font-black uppercase tracking-widest transition-all ${
+                                                        editedBooking.has_return_trip 
+                                                        ? 'bg-blue-600 text-white border-blue-700 shadow-sm' 
+                                                        : 'bg-white text-gray-400 border border-gray-200'
+                                                    }`}
+                                                >
+                                                    {editedBooking.has_return_trip ? '🔄 Enabled' : 'Disabled'}
+                                                </button>
                                             ) : (
-                                                <>
-                                                    <span className="text-sm font-semibold text-gray-900">{selectedBooking.flight_number || 'N/A'}</span>
-                                                    {selectedBooking.flight_number && (
-                                                        <a 
-                                                            href={`https://www.flightradar24.com/data/flights/${selectedBooking.flight_number}`} 
-                                                            target="_blank" 
-                                                            rel="noopener noreferrer"
-                                                            className="text-[10px] text-blue-600 hover:underline flex items-center gap-1"
-                                                        >
-                                                            <ExternalLink className="w-3 h-3" /> Track Flight
-                                                        </a>
-                                                    )}
-                                                </>
+                                                <Badge className={selectedBooking.has_return_trip ? 'bg-blue-100 text-blue-700 border-blue-200' : 'bg-gray-100 text-gray-400 border-gray-200'}>
+                                                    {selectedBooking.has_return_trip ? '🔄 ROUND TRIP' : 'ONE WAY'}
+                                                </Badge>
                                             )}
                                         </div>
                                     </div>
@@ -1424,13 +1516,17 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                         placeholder="e.g. Sedan, Custom Van"
                                                     />
                                                     <div className="flex flex-wrap gap-1">
-                                                        {['Sedan', 'SUV', 'Van', 'Minibus', 'Bus', 'GMC', 'Starex', 'Hiace', 'Fortuner'].map((v) => (
+                                                        {['Toyota Camry', 'GMC Yukon XL / Denali', 'Hyundai Staria VIP', 'Hyundai Starex', 'Toyota Hiace', 'Toyota Coaster', 'Mercedes S-Class', 'BMW 7 Series', 'Mercedes Sprinter'].map((v) => (
                                                             <span 
                                                                 key={v}
                                                                 onClick={() => setEditedBooking({ ...editedBooking, vehicle_type: v })}
-                                                                className="text-[10px] px-1.5 py-0.5 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded cursor-pointer transition-colors border border-gray-200"
+                                                                className={`text-[10px] px-1.5 py-0.5 rounded cursor-pointer transition-colors border ${
+                                                                    editedBooking.vehicle_type === v 
+                                                                    ? 'bg-primary border-primary text-black font-bold' 
+                                                                    : 'bg-gray-100 border-gray-200 text-gray-700 hover:bg-gray-200'
+                                                                }`}
                                                             >
-                                                                {v}
+                                                                {v.split(' ')[0]} {v.split(' ')[1] || ''}
                                                             </span>
                                                         ))}
                                                     </div>
@@ -1490,9 +1586,21 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                         </div>
                                                     </div>
                                                 ) : (
-                                                    <span className="text-lg font-bold text-green-600">
-                                                        {selectedBooking.total_price ? `${selectedBooking.currency || 'SAR'} ${selectedBooking.total_price}` : 'Calculating...'}
-                                                    </span>
+                                                    <div className="flex items-center gap-2 flex-wrap">
+                                                        <span className="text-lg font-bold text-green-600">
+                                                            {selectedBooking.total_price ? `${selectedBooking.currency || 'SAR'} ${selectedBooking.total_price}` : 'Calculating...'}
+                                                        </span>
+                                                        {selectedBooking.total_price ? (
+                                                            <Button
+                                                                size="sm"
+                                                                disabled={sendingQuote}
+                                                                onClick={() => sendQuoteEmail(selectedBooking)}
+                                                                className={`h-7 text-[10px] font-bold px-3 ${quoteSent ? 'bg-green-500 text-white hover:bg-green-500' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
+                                                            >
+                                                                {sendingQuote ? 'Sending...' : quoteSent ? '✓ Quote Sent!' : '📧 Send Quote Email'}
+                                                            </Button>
+                                                        ) : null}
+                                                    </div>
                                                 )}
                                             </div>
                                         </div>
@@ -1556,6 +1664,31 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         </div>
                                     </div>
 
+                                    {/* Driver Details Row */}
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <span className="block text-xs text-gray-500 mb-1">Driver Phone</span>
+                                            {isEditing ? (
+                                                <Input value={editedBooking.driver_phone || ''} onChange={(e) => setEditedBooking({ ...editedBooking, driver_phone: e.target.value })} className="h-8 text-sm bg-white" placeholder="+966 5XX XXX XXXX" />
+                                            ) : (
+                                                <span className="font-medium text-gray-900">{selectedBooking.driver_phone || '—'}</span>
+                                            )}
+                                        </div>
+                                        <div>
+                                            <span className="block text-xs text-gray-500 mb-1">Vehicle Plate</span>
+                                            {isEditing ? (
+                                                <Input value={editedBooking.driver_plate || ''} onChange={(e) => setEditedBooking({ ...editedBooking, driver_plate: e.target.value })} className="h-8 text-sm bg-white" placeholder="e.g. ABC 1234" />
+                                            ) : (
+                                                <span className="font-medium text-gray-900">{selectedBooking.driver_plate || '—'}</span>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    {/* Assign Driver & Notify Button */}
+                                    {!isEditing && selectedBooking.driver_name && selectedBooking.driver_phone && (
+                                        <DriverNotifyButton booking={selectedBooking} onSuccess={(id) => refreshSelectedBooking(id)} />
+                                    )}
+
                                     <div className="grid grid-cols-2 gap-4 border-t border-gray-200 pt-4">
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Actual Vehicle Sent</span>
@@ -1593,21 +1726,47 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         )}
                                     </div>
 
+                                    {/* Email Activity Log */}
+                                    {(() => {
+                                        const notes = selectedBooking.internal_notes || '';
+                                        const emailLines = notes.split('\n').filter(l => l.startsWith('📧'));
+                                        if (emailLines.length === 0) return null;
+                                        return (
+                                            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                                <div className="flex items-center gap-2 mb-3">
+                                                    <Mail className="w-3.5 h-3.5 text-blue-600" />
+                                                    <span className="text-xs font-bold text-blue-700 uppercase tracking-wider">Email Activity</span>
+                                                </div>
+                                                <div className="space-y-1.5">
+                                                    {emailLines.map((line, i) => (
+                                                        <div key={i} className="flex items-start gap-2 text-xs text-blue-800 bg-white rounded-md px-3 py-1.5 border border-blue-100">
+                                                            <span className="font-medium">{line.replace('📧 ', '')}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        );
+                                    })()}
+
                                     <div className="bg-slate-900/5 p-4 rounded-lg border-2 border-slate-200 border-dashed">
                                         <div className="flex items-center gap-2 mb-2">
                                             <div className="w-2 h-2 rounded-full bg-slate-900 animate-pulse"></div>
                                             <span className="text-xs font-bold text-slate-900 uppercase tracking-wider">Internal Admin Notes (Private)</span>
                                         </div>
                                         {isEditing ? (
-                                            <textarea 
-                                                value={editedBooking.internal_notes || ''} 
-                                                onChange={(e) => setEditedBooking({ ...editedBooking, internal_notes: e.target.value })} 
+                                            <textarea
+                                                value={(editedBooking.internal_notes || '').split('\n').filter(l => !l.startsWith('📧')).join('\n')}
+                                                onChange={(e) => {
+                                                    const emailLines = (editedBooking.internal_notes || '').split('\n').filter(l => l.startsWith('📧'));
+                                                    const combined = [...emailLines, ...e.target.value.split('\n').filter(l => !l.startsWith('📧'))].join('\n');
+                                                    setEditedBooking({ ...editedBooking, internal_notes: combined });
+                                                }}
                                                 className="w-full min-h-[80px] p-2 text-sm border-2 border-slate-200 rounded-md bg-white text-slate-800 placeholder:text-slate-300"
                                                 placeholder="Write a private note for the team..."
                                             />
                                         ) : (
                                             <div className="text-sm text-slate-700 italic border-l-4 border-slate-300 pl-3 py-1">
-                                                {selectedBooking.internal_notes || "No private notes yet. Team can record internal details here."}
+                                                {(selectedBooking.internal_notes || '').split('\n').filter(l => !l.startsWith('📧')).join('\n') || "No private notes yet. Team can record internal details here."}
                                             </div>
                                         )}
                                     </div>
@@ -1832,19 +1991,14 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             <SelectValue />
                                         </SelectTrigger>
                                         <SelectContent className="bg-white border-gray-200">
-                                            <SelectItem value="Camry">Camry</SelectItem>
-                                            <SelectItem value="GMC Yukon XL">GMC Yukon XL / Denali</SelectItem>
-                                            <SelectItem value="Fortuner">Fortuner</SelectItem>
+                                            <SelectItem value="Toyota Camry">Toyota Camry</SelectItem>
+                                            <SelectItem value="GMC Yukon XL / Denali">GMC Yukon XL / Denali</SelectItem>
                                             <SelectItem value="Hyundai Staria VIP">Hyundai Staria VIP</SelectItem>
                                             <SelectItem value="Hyundai Starex">Hyundai Starex</SelectItem>
-                                            <SelectItem value="Hiace">Hiace</SelectItem>
-                                            <SelectItem value="Coaster">Coaster</SelectItem>
+                                            <SelectItem value="Toyota Hiace">Toyota Hiace</SelectItem>
+                                            <SelectItem value="Toyota Coaster">Toyota Coaster</SelectItem>
                                             <SelectItem value="Mercedes S-Class">Mercedes S-Class</SelectItem>
                                             <SelectItem value="BMW 7 Series">BMW 7 Series</SelectItem>
-                                            <SelectItem value="Cadillac Escalade">Cadillac Escalade</SelectItem>
-                                            <SelectItem value="Genesis G80 VIP">Genesis G80 VIP</SelectItem>
-                                            <SelectItem value="Mercedes Vito">Mercedes Vito</SelectItem>
-                                            <SelectItem value="Ford Taurus 2025">Ford Taurus 2025</SelectItem>
                                             <SelectItem value="Mercedes Sprinter">Mercedes Sprinter</SelectItem>
                                             <SelectItem value="Luxurious Bus">Luxurious Bus</SelectItem>
                                         </SelectContent>
@@ -1965,6 +2119,45 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                 </SheetContent>
             </Sheet>
         </div>
+    );
+}
+
+function DriverNotifyButton({ booking, onSuccess }: { booking: any; onSuccess: (id: string) => void }) {
+    const [sending, setSending] = useState(false);
+    const [sent, setSent] = useState(false);
+
+    const handleNotify = async () => {
+        setSending(true);
+        try {
+            const res = await fetch('/api/send-driver-assignment', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ booking }),
+            });
+            if (res.ok) {
+                setSent(true);
+                onSuccess(booking.id);
+                setTimeout(() => setSent(false), 4000);
+            }
+        } catch { /* ignore */ } finally {
+            setSending(false);
+        }
+    };
+
+    return (
+        <button
+            onClick={handleNotify}
+            disabled={sending || sent}
+            className={`flex items-center gap-2 w-full justify-center py-2.5 rounded-xl font-bold text-sm transition-all ${sent ? 'bg-green-100 text-green-700 border border-green-300' : 'bg-blue-600 hover:bg-blue-700 text-white'}`}
+        >
+            {sent ? (
+                <><CheckCircle className="w-4 h-4" /> Driver Details Sent to Customer</>
+            ) : sending ? (
+                <><div className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" /> Sending...</>
+            ) : (
+                <><Truck className="w-4 h-4" /> Notify Customer — Driver Assigned</>
+            )}
+        </button>
     );
 }
 

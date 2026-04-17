@@ -78,6 +78,7 @@ export default function GlobalTrust() {
                                     src={`https://flagcdn.com/w80/${country.code}.png`}
                                     alt={`${country.name} flag`}
                                     fill
+                                    sizes="40px"
                                     className="object-cover"
                                     loading="lazy"
                                 />
@@ -100,6 +101,7 @@ export default function GlobalTrust() {
                                     src={`https://flagcdn.com/w80/${country.code}.png`}
                                     alt={`${country.name} flag`}
                                     fill
+                                    sizes="40px"
                                     className="object-cover"
                                     loading="lazy"
                                 />
