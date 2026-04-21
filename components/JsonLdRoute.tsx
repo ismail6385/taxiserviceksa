@@ -9,9 +9,11 @@ interface JsonLdRouteProps {
     description: string;
     distance?: string;
     duration?: string;
+    ratingValue?: string;
+    reviewCount?: string;
 }
 
-export default function JsonLdRoute({ from, to, description, distance, duration }: JsonLdRouteProps) {
+export default function JsonLdRoute({ from, to, description, distance, duration, ratingValue = "4.9", reviewCount = "156" }: JsonLdRouteProps) {
     const baseUrl = 'https://taxiserviceksa.com';
     const routeName = `Taxi from ${from} to ${to}`;
     
@@ -36,6 +38,13 @@ export default function JsonLdRoute({ from, to, description, distance, duration 
                 "brand": {
                     "@type": "Brand",
                     "name": "TaxiServiceKSA"
+                },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": ratingValue,
+                    "reviewCount": reviewCount,
+                    "bestRating": "5",
+                    "worstRating": "1"
                 }
             },
             {

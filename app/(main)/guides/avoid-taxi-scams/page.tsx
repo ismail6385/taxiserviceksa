@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Metadata } from 'next';
 import AuthorCard from '@/components/AuthorCard';
 import Script from 'next/script';
+import JsonLdArticle from '@/components/seo/JsonLdArticle';
 
 export const metadata: Metadata = {
     title: 'How to Avoid Taxi Scams in Makkah & Jeddah (2025 Safety Guide)',
@@ -15,6 +16,14 @@ export const metadata: Metadata = {
 export default function TaxiScamGuide() {
     return (
         <main className="min-h-screen bg-white">
+            <JsonLdArticle 
+                title="How to Avoid Taxi Scams in Makkah & Jeddah (2025 Safety Guide)"
+                description="Don't get overcharged. Learn the top taxi scams in Saudi Arabia and how to avoid them. Trusted tips for pilgrims and tourists."
+                datePublished="2025-01-15T08:00:00+03:00"
+                dateModified="2026-04-20T10:00:00+03:00"
+                authorName="Muhammad Ismail"
+                url="https://taxiserviceksa.com/guides/avoid-taxi-scams/"
+            />
             {/* Hero Section */}
             <div className="relative bg-gray-900 py-24 text-center overflow-hidden">
                 <div className="absolute inset-0 opacity-20">

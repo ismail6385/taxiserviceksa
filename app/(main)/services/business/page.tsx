@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { Building2, Briefcase, Clock, Shield, Wifi, FileText, CheckCircle2, Car, Star, MapPin } from 'lucide-react';
+import { Building2, Briefcase, Clock, Shield, Wifi, FileText, CheckCircle2, Car, Star, MapPin, ArrowRight } from 'lucide-react';
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
@@ -12,6 +12,7 @@ import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
+import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
     title: 'Business & Corporate Taxi Service KSA | Executive Chauffeur',
@@ -26,23 +27,23 @@ export default function BusinessPage() {
     const features = [
         {
             icon: Clock,
-            title: 'Punctuality Guaranteed | Taxi Service KSA',
+            title: 'Punctuality Guaranteed',
             desc: 'We understand the value of your time. Our drivers arrive 15 minutes early for all business bookings.'
         },
         {
             icon: Building2,
-            title: 'Corporate Accounts | Taxi Service KSA',
+            title: 'Corporate Accounts',
             desc: 'Streamlined billing with monthly invoicing and detailed reporting for registered corporate clients.'
         },
         {
             icon: Shield,
-            title: 'Confidentiality | Taxi Service KSA',
+            title: 'Confidentiality',
             desc: 'Professional, discreet drivers trained to respect your privacy during sensitive discussions.'
         },
         {
             icon: Wifi,
-            title: 'On-Board WiFi | Taxi Service KSA',
-            desc: 'Stay connected on the go with high-speed internet available in our executive fleet (upon request).'
+            title: 'On-Board WiFi',
+            desc: 'Stay connected on the go with high-speed internet available in our executive fleet.'
         }
     ];
 
@@ -57,7 +58,6 @@ export default function BusinessPage() {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Corporate Taxi Service KSA",
-
         "description": "Executive transportation services for business travelers in Saudi Arabia.",
         "areaServed": "Saudi Arabia",
         "serviceType": "VIP Transport"
@@ -71,30 +71,54 @@ export default function BusinessPage() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
             />
 
-            <Hero
-                images={['/hero-slide-3.webp', '/hero-slide-1.webp']}
-                h1Text="Executive Corporate Transport Solutions"
-                title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Business Class Travel
-                    </span>
-                }
-                subtitle="Efficiency & Excellence"
-                location="Riyadh - Jeddah - Dammam"
-            >
-                <div className="max-w-3xl mx-auto mt-8 mb-6">
-                    <EntityTrustSignal
-                        brandName="Taxi Service KSA™ Corporate"
-                        description="Powering Saudi business mobility with a fleet of premium vehicles and professional chauffeurs dedicated to your schedule."
-                        foundingDate="2012"
-                        metrics={[
-                            { label: 'Corporate Clients', value: '500+', icon: Building2 },
-                            { label: 'On-Time Rate', value: '99.8%', icon: Clock },
-                            { label: 'Premium Fleet', value: '100+', icon: Car }
-                        ]}
-                    />
+            {/* Hero Section - Standardized Premium Style */}
+            <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+                <div className="absolute inset-0 opacity-10">
+                    <div className="absolute inset-0 bg-[url('/hero-slide-3.webp')] bg-cover bg-center"></div>
                 </div>
-            </Hero>
+
+                <div className="max-w-7xl mx-auto relative z-10 text-center">
+                    <span className="bg-primary/20 text-primary font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4 backdrop-blur-sm border border-primary/20">
+                        Executive Excellence
+                    </span>
+                    <h1 className="text-4xl md:text-6xl font-black text-white mb-6 px-4 leading-tight">
+                        Corporate Transport Solutions<br />
+                        <span className="text-primary">For Business Professionals</span>
+                    </h1>
+                    <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 mb-10">
+                        Efficiency, discretion, and reliability. Powering Saudi business mobility with a fleet of premium vehicles and professional chauffeurs dedicated to your schedule.
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4 mb-12">
+                        <Button asChild size="lg" className="bg-primary hover:bg-emerald-600 text-white font-black text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
+                            <Link href="https://wa.me/966552202642?text=Hello,%20I%20want%20to%20open%20a%20Corporate%20Account" target="_blank">
+                                Open Account via WhatsApp
+                                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </Button>
+                        <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-md text-white border-white/20 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl transition-all w-full sm:w-auto">
+                            <Link href="/booking/">
+                                Get Corporate Quote
+                            </Link>
+                        </Button>
+                    </div>
+
+                    {/* AI SEO: TL;DR Summary Block - Fixed visibility with dark text */}
+                    <div className="bg-emerald-50 rounded-2xl p-8 border border-emerald-100 shadow-sm mb-12 max-w-4xl mx-auto text-left">
+                        <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <CheckCircle2 className="w-5 h-5 text-emerald-700" />
+                            TL;DR: Corporate Service Quick Facts
+                        </h2>
+                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-sm">
+                            <li><strong className="text-gray-900">Priority:</strong> Corporate clients receive 100% on-time guarantee and priority dispatch.</li>
+                            <li><strong className="text-gray-900">Billing:</strong> Flexible monthly invoicing and automated digital receipts for expenses.</li>
+                            <li><strong className="text-gray-900">Fleet:</strong> Mercedes S-Class, BMW 7 Series, and GMC Yukon XL available.</li>
+                            <li><strong className="text-gray-900">Privacy:</strong> Drivers are trained for discreet, confidential executive service.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
 
             {/* Features Grid */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
@@ -198,11 +222,14 @@ export default function BusinessPage() {
                 title="Related Corporate Services"
                 description=""
             />
+            
+            {/* Author Section */}
+            <div className="max-w-4xl mx-auto border-t border-gray-100 pt-16 mb-20">
+                <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-2 border-emerald-50" />
+            </div>
 
         </div>
     );
 }
 
 import { Users } from 'lucide-react';
-
-

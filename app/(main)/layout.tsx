@@ -2,6 +2,7 @@ import './globals.css';
 import { Poppins } from 'next/font/google';
 import Script from 'next/script';
 import LayoutWrapper from '@/components/LayoutWrapper';
+import JsonLdSiteNavigation from '@/components/seo/JsonLdSiteNavigation';
 
 const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700', '800', '900'],
@@ -73,118 +74,15 @@ export const metadata = {
 
 import { headers } from 'next/headers';
 
-export default function RootLayout({
+export default function MainLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const headersList = headers();
-  const pathname = headersList.get('x-pathname') || '';
-
-  // Detect language and direction
-  let lang = 'en';
-  let dir = 'ltr';
-
-  if (pathname.startsWith('/ar/') || pathname === '/ar') {
-    lang = 'ar';
-    dir = 'rtl';
-  } else if (pathname.startsWith('/ur/') || pathname === '/ur') {
-    lang = 'ur';
-    dir = 'rtl';
-  }
-
   return (
-    <html lang={lang} dir={dir} suppressHydrationWarning>
-      <body className={poppins.className} suppressHydrationWarning>
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-14M4JL9R6T"
-          strategy="lazyOnload"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-14M4JL9R6T');
-          `}
-        </Script>
-
-        {/* Trustpilot Review Collector */}
-        <Script
-          src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
-          strategy="lazyOnload"
-          async
-        />
-
-        {/* WebMCP - expose site tools to AI agents via browser */}
-        <Script id="webmcp" strategy="afterInteractive">
-          {`
-            if (typeof navigator !== 'undefined' && navigator.modelContext && navigator.modelContext.provideContext) {
-              navigator.modelContext.provideContext({
-                tools: [
-                  {
-                    name: 'book_taxi',
-                    description: 'Book a private taxi transfer in Saudi Arabia between airports, cities, and holy sites (Makkah, Madinah). Opens the booking page.',
-                    inputSchema: {
-                      type: 'object',
-                      properties: {
-                        from: { type: 'string', description: 'Pickup location (e.g. Jeddah Airport, Makkah, Riyadh)' },
-                        to: { type: 'string', description: 'Drop-off location (e.g. Makkah, Madinah, Jeddah)' },
-                        date: { type: 'string', format: 'date', description: 'Travel date (YYYY-MM-DD)' },
-                        passengers: { type: 'number', description: 'Number of passengers (1-12)' }
-                      },
-                      required: ['from', 'to']
-                    },
-                    execute: async (params) => {
-                      const url = new URL('https://taxiserviceksa.com/booking/');
-                      if (params.from) url.searchParams.set('from', params.from);
-                      if (params.to) url.searchParams.set('to', params.to);
-                      if (params.date) url.searchParams.set('date', params.date);
-                      if (params.passengers) url.searchParams.set('passengers', String(params.passengers));
-                      window.location.href = url.toString();
-                      return { success: true, url: url.toString() };
-                    }
-                  },
-                  {
-                    name: 'get_routes',
-                    description: 'Browse all available taxi routes and pricing in Saudi Arabia',
-                    inputSchema: { type: 'object', properties: {} },
-                    execute: async () => {
-                      window.location.href = 'https://taxiserviceksa.com/routes/';
-                      return { success: true, url: 'https://taxiserviceksa.com/routes/' };
-                    }
-                  },
-                  {
-                    name: 'browse_fleet',
-                    description: 'View available vehicle types, capacity, and features',
-                    inputSchema: { type: 'object', properties: {} },
-                    execute: async () => {
-                      window.location.href = 'https://taxiserviceksa.com/fleet/';
-                      return { success: true, url: 'https://taxiserviceksa.com/fleet/' };
-                    }
-                  }
-                ]
-              });
-            }
-          `}
-        </Script>
-
-        {/* Microsoft Clarity */}
-        <Script id="microsoft-clarity" strategy="afterInteractive">
-          {`
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "qp7iv7z299");
-          `}
-        </Script>
-
-        <LayoutWrapper>
-          {children}
-        </LayoutWrapper>
-      </body>
-    </html>
+    <>
+      <JsonLdSiteNavigation />
+      {children}
+    </>
   );
 }

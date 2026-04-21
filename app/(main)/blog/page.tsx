@@ -11,7 +11,10 @@ export const metadata: Metadata = {
         title: 'Saudi Arabia Travel Guides 2026 | Taxi Service KSA',
         description: 'Your trusted companion for Umrah, pilgrimage, and Saudi tourism transport information.',
         type: 'website',
-    }
+    },
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/blog/',
+    },
 };
 
 export const revalidate = 0;

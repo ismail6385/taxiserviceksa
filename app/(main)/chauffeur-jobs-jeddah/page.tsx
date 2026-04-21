@@ -1,18 +1,44 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import JsonLdJobPosting from '@/components/seo/JsonLdJobPosting';
+import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 export const metadata: Metadata = {
     title: 'Chauffeur Jobs in Jeddah - Premium Opportunities',
     description: 'Looking for chauffeur jobs in Jeddah? Join as a professional VIP driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Jeddah', 'chauffeur jobs in Jeddah', 'VIP drivers Jeddah'],
     alternates: {
-        canonical: '/chauffeur-jobs-jeddah',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-jeddah',
     }
 };
 
-export default function chauffeurjobsjeddahPage() {
+export default function ChauffeurJobsJeddahPage() {
     return (
         <main className="min-h-screen bg-white">
+            <JsonLdBreadcrumb 
+                items={[
+                    { name: 'Home', item: '/' },
+                    { name: 'Jeddah Jobs', item: '/chauffeur-jobs-jeddah' }
+                ]}
+            />
+            <JsonLdJobPosting 
+                title="VIP Chauffeur - Jeddah"
+                description="Join our elite network of professional chauffeurs in Jeddah. We are looking for drivers with their own 2020+ model cars to serve VIP clients, corporate executives, and international travelers. High income potential with long-distance trips and flexible schedules."
+                datePosted="2025-01-01"
+                validThrough="2025-12-31"
+                employmentType="FULL_TIME"
+                hiringOrganization="Taxi Service KSA"
+                jobLocation={{
+                    addressLocality: "Jeddah",
+                    addressRegion: "Makkah Province",
+                    addressCountry: "SA"
+                }}
+                baseSalary={{
+                    currency: "SAR",
+                    value: 8500,
+                    unitText: "MONTH"
+                }}
+            />
             <div className="bg-gray-950 text-white pt-32 pb-16 px-4">
                 <div className="max-w-3xl mx-auto text-center">
                     <span className="bg-primary/20 text-primary px-4 py-1.5 rounded-full text-sm font-semibold uppercase tracking-wider mb-6 inline-block">

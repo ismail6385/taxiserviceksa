@@ -1,18 +1,44 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import JsonLdJobPosting from '@/components/seo/JsonLdJobPosting';
+import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 export const metadata: Metadata = {
     title: 'Chauffeur Jobs in Yanbu - Premium Opportunities',
     description: 'Looking for chauffeur jobs in Yanbu? Join as a professional VIP driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Yanbu', 'chauffeur jobs in Yanbu', 'VIP drivers Yanbu'],
     alternates: {
-        canonical: '/chauffeur-jobs-yanbu',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-yanbu',
     }
 };
 
-export default function chauffeurjobsyanbuPage() {
+export default function ChauffeurJobsYanbuPage() {
     return (
         <main className="min-h-screen bg-white">
+            <JsonLdBreadcrumb 
+                items={[
+                    { name: 'Home', item: '/' },
+                    { name: 'Yanbu Jobs', item: '/chauffeur-jobs-yanbu' }
+                ]}
+            />
+            <JsonLdJobPosting 
+                title="VIP Chauffeur - Yanbu"
+                description="Join our elite network of professional chauffeurs in Yanbu. We are looking for drivers with their own 2020+ model cars to serve VIP clients, industrial executives, and international travelers. High income potential with specialized port-to-city and long-distance routes."
+                datePosted="2025-01-01"
+                validThrough="2025-12-31"
+                employmentType="FULL_TIME"
+                hiringOrganization="Taxi Service KSA"
+                jobLocation={{
+                    addressLocality: "Yanbu",
+                    addressRegion: "Al Madinah Province",
+                    addressCountry: "SA"
+                }}
+                baseSalary={{
+                    currency: "SAR",
+                    value: 7500,
+                    unitText: "MONTH"
+                }}
+            />
             <div className="bg-gray-950 text-white pt-32 pb-16 px-4">
                 <div className="max-w-3xl mx-auto text-center">
                     <span className="bg-primary/20 text-primary px-4 py-1.5 rounded-full text-sm font-semibold uppercase tracking-wider mb-6 inline-block">

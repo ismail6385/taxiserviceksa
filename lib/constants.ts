@@ -27,5 +27,19 @@ export const AUTHORS = [
             facebook: 'https://www.facebook.com/profile.php?id=100007701130236',
             instagram: ''
         }
+    },
+    {
+        id: '3',
+        name: 'Zumer',
+        slug: 'zumer',
+        role: 'Partner & Co-Founder',
+        bio: 'Co-Founder of Taxi Service KSA and an expert in strategic partnerships and operations. Zumer plays a pivotal role in ensuring the highest standards of service for our VIP and Umrah clients. Her dedication to excellence and detailed understanding of the Saudi hospitality landscape ensures that every traveler enjoys a seamless and premium experience across the Kingdom.',
+        avatar: '/logo.png',
+        social: {
+            twitter: '',
+            linkedin: '',
+            facebook: '',
+            instagram: ''
+        }
     }
 ];

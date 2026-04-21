@@ -5,6 +5,7 @@ import Script from 'next/script';
 import FleetListing from '@/components/FleetListing';
 import AuthorCard from '@/components/AuthorCard';
 import { Sparkles, Shield, User, CheckCircle2, Info, ArrowRight, Car, Users, Briefcase, Ruler } from 'lucide-react';
+import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 export const metadata: Metadata = {
     title: 'VIP Executive Fleet Saudi Arabia | Premium Chauffeur Vehicles',
@@ -174,6 +175,12 @@ export default function FleetPage() {
 
     return (
         <div className="bg-white min-h-screen">
+            <JsonLdBreadcrumb 
+                items={[
+                    { name: 'Home', item: '/' },
+                    { name: 'Fleet', item: '/fleet' }
+                ]}
+            />
             <Script
                 id="fleet-schema"
                 type="application/ld+json"
@@ -312,4 +319,3 @@ export default function FleetPage() {
         </div>
     );
 }
-

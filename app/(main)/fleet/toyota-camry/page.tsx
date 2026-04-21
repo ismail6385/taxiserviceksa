@@ -35,12 +35,6 @@ export default function ToyotaCamryPage() {
         "brand": {
             "@type": "Brand",
             "name": "Toyota"
-        },
-        "offers": {
-            "@type": "Offer",
-            "priceCurrency": "SAR",
-            "availability": "https://schema.org/InStock",
-            "url": "https://taxiserviceksa.com/fleet/toyota-camry"
         }
     };
 
@@ -205,4 +199,3 @@ export default function ToyotaCamryPage() {
         </div>
     );
 }
-

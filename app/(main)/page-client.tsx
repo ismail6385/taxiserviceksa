@@ -291,7 +291,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             {/* Hero Section with Entity-Optimized H1 */}
             <Hero
                 images={heroImages}
-                h1Text="VIP Private Transfer & Executive Chauffeur Saudi Arabia"
+                h1Text="VIP Taxi Service Saudi Arabia"
                 subtitle="Professional Chauffeur Service for Borders, Airports, Tourist Spots, and Executive Intercity Travel across the Kingdom."
             >
                 <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">

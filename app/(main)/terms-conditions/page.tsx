@@ -6,6 +6,9 @@ export const metadata: Metadata = {
     title: 'Terms and Conditions | Taxi Service KSA',
     description: 'Read the terms and conditions for using Taxi Service KSA. Understand your rights and responsibilities when booking our taxi and chauffeur services.',
     keywords: ['terms and conditions', 'service agreement', 'user terms', 'booking terms'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/terms-conditions/',
+    },
 };
 
 export default function TermsConditionsPage() {

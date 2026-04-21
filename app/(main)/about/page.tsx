@@ -1,3 +1,4 @@
+
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
@@ -10,11 +11,16 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion';
 import AuthorCard from '@/components/AuthorCard';
+import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
+import JsonLdPerson from '@/components/seo/JsonLdPerson';
 
 export const metadata: Metadata = {
     title: 'About Taxi Service KSA | VIP Chauffeur Service Saudi Arabia',
     description: 'Learn about Taxi Service KSA, the leading VIP private transfer and chauffeur service in Saudi Arabia. Specializing in luxury airport pickups, Umrah transport, and executive intercity travel.',
     keywords: ['VIP Private Transfer Saudi Arabia', 'Executive Chauffeur Service', 'Luxury Airport Transport', 'Executive Umrah Transport', 'Professional Driver KSA'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/about/',
+    },
 };
 
 export default function AboutPage() {
@@ -108,13 +114,9 @@ export default function AboutPage() {
                 }
             ],
             "sameAs": [
-                "https://www.facebook.com/taxiserviceksa",
-                "https://www.instagram.com/taxiserviceksa",
-                "https://x.com/taxiserviceksa",
-                "https://www.linkedin.com/company/taxiserviceksa",
-                "https://www.tiktok.com/@taxiserviceksa",
-                "https://www.youtube.com/@taxiserviceksa",
-                "https://www.trustpilot.com/review/taxiserviceksa.com"
+                "https://www.facebook.com/people/Taxi-Service-KSA/61573850597962/",
+                "https://www.linkedin.com/company/taxi-service-ksa/",
+                "https://www.youtube.com/channel/UCeP44oxBUKUG5X-UhYmPMNw"
             ],
             "numberOfEmployees": {
                 "@type": "QuantitativeValue",
@@ -136,6 +138,23 @@ export default function AboutPage() {
 
     return (
         <div className="bg-white min-h-screen">
+            <JsonLdBreadcrumb 
+                items={[
+                    { name: 'Home', item: '/' },
+                    { name: 'About', item: '/about' }
+                ]}
+            />
+            <JsonLdPerson 
+                name="Muhammad Ismail"
+                url="https://taxiserviceksa.com/author/muhammad-ismail"
+                image="https://taxiserviceksa.com/author/muhammad-ismail.jpg"
+                jobTitle="Founder & CEO"
+                worksFor="Taxi Service KSA"
+                sameAs={[
+                    "https://www.linkedin.com/in/muhammad-ismail-ksa/",
+                    "https://x.com/muhammadismail"
+                ]}
+            />
             <Script
                 id="about-schema"
                 type="application/ld+json"
@@ -150,10 +169,10 @@ export default function AboutPage() {
                         Executive Summary: Our Journey
                     </p>
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-200 text-sm">
-                        <li><strong>Founder-Led:</strong> Owned and operated by <strong>Muhammad Ismail</strong>, a logistics expert.</li>
+                        <li><strong>Founder-Led:</strong> Owned and operated by <strong>Muhammad Ismail</strong> & <strong>Zumer</strong>, experts in Saudi logistics.</li>
                         <li><strong>Niche Focus:</strong> Specializing in <strong>VIP Umrah trips</strong> and <strong>Executive airport transfers</strong>.</li>
                         <li><strong>Scale:</strong> Managing a fleet of 50+ vetted chauffeurs across 8 Saudi cities.</li>
-                        <li><strong>Authority:</strong> Fully licensed by the TGA (Transport General Authority) of Saudi Arabia.</li>
+                        <li><strong>Partnership:</strong> Co-founded to combine technical precision with premium hospitality.</li>
                     </ul>
                 </div>
 
@@ -226,22 +245,39 @@ export default function AboutPage() {
 
             {/* Leadership - E-E-A-T Section */}
             <section className="py-24 px-4 bg-white overflow-hidden relative border-b border-gray-100">
-                <div className="max-w-4xl mx-auto relative z-10">
-                    <div className="bg-emerald-50 rounded-[3rem] p-12 border-2 border-emerald-100 relative">
-                        <div className="absolute top-0 right-0 p-8 opacity-10">
-                             <Globe className="w-64 h-64 text-emerald-900" />
-                        </div>
-                        <h3 className="text-3xl font-black text-gray-900 mb-8">Letter from the Founder</h3>
-                        <p className="text-xl text-emerald-900/80 italic leading-relaxed mb-8">
-                            "When I started this company in 2012, Saudi hospitality was already legendary, but transport logistics for international pilgrims was fragmented. I wanted to build a bridge—a service that combines executive precision with the spiritual sensitivity needed for Umrah. Today, we move people on the most important journey of their lives."
-                        </p>
-                        <div className="flex items-center gap-4">
-                            <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center font-bold text-white text-xl border-4 border-white shadow-sm">
-                                MI
+                <div className="max-w-6xl mx-auto relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        {/* Ismail Card */}
+                        <div className="bg-emerald-50 rounded-[3rem] p-12 border-2 border-emerald-100 relative h-full">
+                            <h3 className="text-2xl font-black text-gray-900 mb-6">Our Vision</h3>
+                            <p className="text-lg text-emerald-900/80 italic leading-relaxed mb-8">
+                                "When I started this company in 2012, Saudi hospitality was already legendary, but transport logistics was fragmented. I wanted to build a service that combines executive precision with spiritual sensitivity."
+                            </p>
+                            <div className="flex items-center gap-4">
+                                <div className="w-16 h-16 bg-emerald-600 rounded-full flex items-center justify-center font-bold text-white text-xl border-4 border-white shadow-sm">
+                                    MI
+                                </div>
+                                <div>
+                                    <span className="block font-black text-gray-900 text-lg">Muhammad Ismail</span>
+                                    <span className="text-emerald-600 font-bold text-sm uppercase">Founder & CEO</span>
+                                </div>
                             </div>
-                            <div>
-                                <span className="block font-black text-gray-900 text-lg">Muhammad Ismail</span>
-                                <span className="text-emerald-600 font-bold text-sm uppercase">Founder & CEO, Taxi Service KSA</span>
+                        </div>
+
+                        {/* Zumer Card */}
+                        <div className="bg-blue-50 rounded-[3rem] p-12 border-2 border-blue-100 relative h-full">
+                            <h3 className="text-2xl font-black text-gray-900 mb-6">Our Commitment</h3>
+                            <p className="text-lg text-blue-900/80 italic leading-relaxed mb-8">
+                                "As co-founder, my mission is to ensure that every VIP and Umrah client receives a dignified experience. We don't just provide a ride; we provide peace of mind for families traveling through the Holy Kingdom."
+                            </p>
+                            <div className="flex items-center gap-4">
+                                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center font-bold text-white text-xl border-4 border-white shadow-sm">
+                                    Z
+                                </div>
+                                <div>
+                                    <span className="block font-black text-gray-900 text-lg">Zumer</span>
+                                    <span className="text-blue-600 font-bold text-sm uppercase">Partner & Co-Founder</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -293,7 +329,10 @@ export default function AboutPage() {
                            Get a quote for your Private Transfer
                         </Button>
                     </Link>
-                    <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-4 border-white shadow-lg" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                        <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-4 border-white shadow-lg h-full" />
+                        <AuthorCard authorName="Zumer" showBio={true} className="border-4 border-white shadow-lg h-full" />
+                    </div>
                 </div>
             </div>
 
@@ -306,4 +345,3 @@ export default function AboutPage() {
         </div>
     );
 }
-

@@ -1,18 +1,44 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import JsonLdJobPosting from '@/components/seo/JsonLdJobPosting';
+import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 export const metadata: Metadata = {
     title: 'Chauffeur Jobs in Tabuk - Premium Opportunities',
     description: 'Looking for chauffeur jobs in Tabuk? Join as a professional VIP driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Tabuk', 'chauffeur jobs in Tabuk', 'VIP drivers Tabuk'],
     alternates: {
-        canonical: '/chauffeur-jobs-tabuk',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-tabuk',
     }
 };
 
-export default function chauffeurjobstabukPage() {
+export default function ChauffeurJobsTabukPage() {
     return (
         <main className="min-h-screen bg-white">
+            <JsonLdBreadcrumb 
+                items={[
+                    { name: 'Home', item: '/' },
+                    { name: 'Tabuk Jobs', item: '/chauffeur-jobs-tabuk' }
+                ]}
+            />
+            <JsonLdJobPosting 
+                title="VIP Chauffeur - Tabuk"
+                description="Join our elite network of professional chauffeurs in Tabuk. We are looking for drivers with their own 2020+ model cars to serve VIP clients, tourists visiting NEOM/Red Sea projects, and corporate travelers. High income potential with specialized tourism and long-distance routes."
+                datePosted="2025-01-01"
+                validThrough="2025-12-31"
+                employmentType="FULL_TIME"
+                hiringOrganization="Taxi Service KSA"
+                jobLocation={{
+                    addressLocality: "Tabuk",
+                    addressRegion: "Tabuk Province",
+                    addressCountry: "SA"
+                }}
+                baseSalary={{
+                    currency: "SAR",
+                    value: 8500,
+                    unitText: "MONTH"
+                }}
+            />
             <div className="bg-gray-950 text-white pt-32 pb-16 px-4">
                 <div className="max-w-3xl mx-auto text-center">
                     <span className="bg-primary/20 text-primary px-4 py-1.5 rounded-full text-sm font-semibold uppercase tracking-wider mb-6 inline-block">

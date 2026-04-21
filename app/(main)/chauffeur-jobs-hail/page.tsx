@@ -1,18 +1,44 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import JsonLdJobPosting from '@/components/seo/JsonLdJobPosting';
+import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 export const metadata: Metadata = {
     title: 'Chauffeur Jobs in Hail - Premium Opportunities',
     description: 'Looking for chauffeur jobs in Hail? Join as a professional VIP driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Hail', 'chauffeur jobs in Hail', 'VIP drivers Hail'],
     alternates: {
-        canonical: '/chauffeur-jobs-hail',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-hail',
     }
 };
 
-export default function chauffeurjobshailPage() {
+export default function ChauffeurJobsHailPage() {
     return (
         <main className="min-h-screen bg-white">
+            <JsonLdBreadcrumb 
+                items={[
+                    { name: 'Home', item: '/' },
+                    { name: 'Hail Jobs', item: '/chauffeur-jobs-hail' }
+                ]}
+            />
+            <JsonLdJobPosting 
+                title="VIP Chauffeur - Hail"
+                description="Join our elite network of professional chauffeurs in Hail. We are looking for drivers with their own 2020+ model cars to serve VIP clients, tourists, and corporate travelers. High income potential with specialized regional tourism and long-distance transfers."
+                datePosted="2025-01-01"
+                validThrough="2025-12-31"
+                employmentType="FULL_TIME"
+                hiringOrganization="Taxi Service KSA"
+                jobLocation={{
+                    addressLocality: "Hail",
+                    addressRegion: "Hail Province",
+                    addressCountry: "SA"
+                }}
+                baseSalary={{
+                    currency: "SAR",
+                    value: 7000,
+                    unitText: "MONTH"
+                }}
+            />
             <div className="bg-gray-950 text-white pt-32 pb-16 px-4">
                 <div className="max-w-3xl mx-auto text-center">
                     <span className="bg-primary/20 text-primary px-4 py-1.5 rounded-full text-sm font-semibold uppercase tracking-wider mb-6 inline-block">

@@ -35,12 +35,6 @@ export default function HyundaiStariaPage() {
         "brand": {
             "@type": "Brand",
             "name": "Hyundai"
-        },
-        "offers": {
-            "@type": "Offer",
-            "priceCurrency": "SAR",
-            "availability": "https://schema.org/InStock",
-            "url": "https://taxiserviceksa.com/fleet/hyundai-staria"
         }
     };
 
@@ -205,4 +199,3 @@ export default function HyundaiStariaPage() {
         </div>
     );
 }
-

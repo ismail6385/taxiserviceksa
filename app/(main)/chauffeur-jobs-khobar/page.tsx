@@ -1,18 +1,44 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import JsonLdJobPosting from '@/components/seo/JsonLdJobPosting';
+import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 export const metadata: Metadata = {
     title: 'Chauffeur Jobs in Khobar - Premium Opportunities',
     description: 'Looking for chauffeur jobs in Khobar? Join as a professional VIP driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Khobar', 'chauffeur jobs in Khobar', 'VIP drivers Khobar'],
     alternates: {
-        canonical: '/chauffeur-jobs-khobar',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-khobar',
     }
 };
 
-export default function chauffeurjobskhobarPage() {
+export default function ChauffeurJobsKhobarPage() {
     return (
         <main className="min-h-screen bg-white">
+            <JsonLdBreadcrumb 
+                items={[
+                    { name: 'Home', item: '/' },
+                    { name: 'Khobar Jobs', item: '/chauffeur-jobs-khobar' }
+                ]}
+            />
+            <JsonLdJobPosting 
+                title="VIP Chauffeur - Khobar"
+                description="Join our elite network of professional chauffeurs in Khobar. We are looking for drivers with their own 2020+ model cars to serve VIP clients, corporate executives, and international travelers. High income potential with cross-border trips and regional business transfers."
+                datePosted="2025-01-01"
+                validThrough="2025-12-31"
+                employmentType="FULL_TIME"
+                hiringOrganization="Taxi Service KSA"
+                jobLocation={{
+                    addressLocality: "Khobar",
+                    addressRegion: "Eastern Province",
+                    addressCountry: "SA"
+                }}
+                baseSalary={{
+                    currency: "SAR",
+                    value: 8000,
+                    unitText: "MONTH"
+                }}
+            />
             <div className="bg-gray-950 text-white pt-32 pb-16 px-4">
                 <div className="max-w-3xl mx-auto text-center">
                     <span className="bg-primary/20 text-primary px-4 py-1.5 rounded-full text-sm font-semibold uppercase tracking-wider mb-6 inline-block">

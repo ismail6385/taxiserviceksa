@@ -1,75 +1,196 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { 
+    Car, 
+    ShieldCheck, 
+    Star, 
+    TrendingUp, 
+    Clock, 
+    Award, 
+    CheckCircle2, 
+    MapPin, 
+    Smartphone, 
+    UserCheck,
+    MessageCircle,
+    UserPlus
+} from 'lucide-react';
+import EarningsTransparency from '@/components/EarningsTransparency';
+import BookingProcess from '@/components/BookingProcess';
+import JsonLdJobPosting from '@/components/seo/JsonLdJobPosting';
+import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 export const metadata: Metadata = {
-    title: 'Chauffeur Jobs in Riyadh - Premium Opportunities',
-    description: 'Looking for chauffeur jobs in Riyadh? Join as a professional VIP driver. High income, own car (2020+), premium clients, and long trips.',
-    keywords: ['chauffeur jobs Riyadh', 'chauffeur jobs in Riyadh', 'VIP drivers Riyadh'],
+    title: 'High-Income Chauffeur Jobs Riyadh 2026 | VIP Driver Roles',
+    description: 'Elite chauffeur jobs in Riyadh 2026. Earn SAR 15,000 - 25,000 monthly. Requirements: Own car (2020+), professional attitude, and VIP service focus. Apply today.',
+    keywords: ['chauffeur jobs Riyadh 2026', 'VIP driver recruitment Riyadh', 'high paying driving jobs Saudi Arabia', 'Riyadh private chauffeur vacancies'],
     alternates: {
-        canonical: '/chauffeur-jobs-riyadh',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-riyadh/',
     }
 };
 
-export default function chauffeurjobsriyadhPage() {
+export default function ChauffeurJobsRiyadhPage() {
+    const driverSteps = [
+        {
+            title: 'WhatsApp Profile',
+            description: 'Send your vehicle photos (interior/exterior) and driver license via WhatsApp.',
+            icon: MessageCircle,
+            color: 'bg-emerald-500',
+            textColor: 'text-emerald-500'
+        },
+        {
+            title: 'Quality Check',
+            description: 'Our team reviews your profile and schedules a brief vehicle inspection in Riyadh.',
+            icon: ShieldCheck,
+            color: 'bg-blue-600',
+            textColor: 'text-blue-600'
+        },
+        {
+            title: 'Start Earning',
+            description: 'Get access to high-value dispatches, airport runs, and long-distance bookings.',
+            icon: UserPlus,
+            color: 'bg-gray-900',
+            textColor: 'text-gray-900'
+        }
+    ];
+
     return (
         <main className="min-h-screen bg-white">
-            <div className="bg-gray-950 text-white pt-32 pb-16 px-4">
-                <div className="max-w-3xl mx-auto text-center">
-                    <span className="bg-primary/20 text-primary px-4 py-1.5 rounded-full text-sm font-semibold uppercase tracking-wider mb-6 inline-block">
-                        Career Opportunity
-                    </span>
-                    <h1 className="text-3xl md:text-5xl font-black mb-6 leading-tight">
-                        Chauffeur Jobs in Riyadh
-                    </h1>
-                    <p className="text-gray-400 text-lg md:text-xl leading-relaxed">
-                        Are you looking for high-paying <strong>chauffeur jobs in Riyadh</strong>? Discover the premium opportunities available for professional drivers.
-                    </p>
+            <JsonLdBreadcrumb 
+                items={[
+                    { name: 'Home', item: '/' },
+                    { name: 'Riyadh Jobs', item: '/chauffeur-jobs-riyadh' }
+                ]}
+            />
+            <JsonLdJobPosting 
+                title="High-Income Chauffeur Jobs Riyadh 2026"
+                description="Elite chauffeur jobs in Riyadh 2026. Earn SAR 15,000 - 25,000 monthly. Requirements: Own car (2020+), professional attitude, and VIP service focus."
+                datePosted="2026-04-20"
+                validThrough="2026-12-31"
+                employmentType="FULL_TIME"
+                hiringOrganization="Taxi Service KSA"
+                jobLocation={{
+                    addressLocality: "Riyadh",
+                    addressRegion: "Riyadh Province",
+                    addressCountry: "SA"
+                }}
+                baseSalary={{
+                    currency: "SAR",
+                    value: 15000,
+                    unitText: "MONTH"
+                }}
+            />
+            {/* Hero Section */}
+            <div className="bg-gray-950 text-white pt-32 pb-24 px-4 overflow-hidden relative">
+                <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+                    <div className="absolute inset-0 bg-gradient-to-l from-emerald-500/20 to-transparent"></div>
                 </div>
-            </div>
-
-            <div className="max-w-4xl mx-auto px-4 py-16">
-                <div className="prose prose-lg prose-gray max-w-none mb-12">
-                    <p className="text-xl font-medium text-gray-800 leading-relaxed">
-                        The demand for professional transportation in Riyadh has never been higher. With the expansion of regional commerce, tourism, and daily business activities, the traditional ride-hailing market is overflowing. However, the most profitable sub-sector remains private VIP transport. For those seeking <strong>chauffeur jobs in Riyadh</strong>, transitioning to a specialized chauffeur network offers stability, safety, and vastly superior income potential.
+                
+                <div className="max-w-7xl mx-auto text-center relative z-10">
+                    <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 px-4 py-2 rounded-full mb-8">
+                        <Star className="w-4 h-4 text-emerald-400 fill-emerald-400" />
+                        <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">Now Recruiting for 2026</span>
+                    </div>
+                    
+                    <h1 className="text-4xl md:text-7xl font-black mb-8 leading-[1.1] tracking-tight">
+                        Premium Chauffeur <br />
+                        <span className="text-emerald-500">Opportunities in Riyadh</span>
+                    </h1>
+                    
+                    <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12">
+                        Stop chasing low-value app pings. Join Riyadh's most exclusive network of private chauffeurs and capture the city's highest-paying VIP transfers.
                     </p>
 
-                    <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Unmatched Income Potential</h2>
-                    <p>
-                        Unlike standing on a street corner or waiting endlessly for low-value app pings, providing luxury transportation directly scales with your dedication. Drivers who secure top-tier <strong>chauffeur jobs in Riyadh</strong> regularly capture significantly higher monthly revenues. These high incomes are driven by fixed-rate, high-value corporate accounts, lucrative long-distance transfers, and generous tips from highly satisfied premium clientele.
-                    </p>
-                    <p>
-                        Your time is valuable. By focusing on scheduled VIP clients rather than random street flags, your profit per hour increases dramatically, allowing for a structured, successful financial future.
-                    </p>
-
-                    <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Requirements: Using Your Own Premium Car (2020+)</h2>
-                    <p>
-                        Excellence begins with the vehicle. The primary requirement for joining our elite network of chauffeurs is establishing comfort and safety. As such, drivers must operate their own personal vehicle, which must be model year 2020 or newer. Maintaining clean, pristine sedans or spacious SUVs tells your VIP clients that you take their comfort seriously.
-                    </p>
-                    <p>
-                        This "own car (2020+)" standard strictly filters out the saturated, low-quality commercial markets, ensuring that our team maintains a sterling reputation across Riyadh. It places you immediately into the highest category of <strong>chauffeur jobs</strong> available.
-                    </p>
-
-                    <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Handling VIP Clients</h2>
-                    <p>
-                        Our client base focuses heavily on respect, discretion, and reliability. This means avoiding the stress of anonymous app passengers and instead dealing with pre-vetted corporate executives, international tourists, and high-net-worth families. Our focus ensures a professional working environment for our drivers every single day.
-                    </p>
-
-                    <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">The Benefit of Long Trips</h2>
-                    <p>
-                        Why grind through 20 stressful inner-city traffic jams when you can execute two seamless, high-paying intercity runs? Operating in Riyadh gives you extreme priority access to long-distance dispatch routes, airport transfers, and even border runs. These long trips are the absolute backbone of maximizing your monthly take-home income while preserving the condition of your vehicle.
-                    </p>
-
-                    <div className="bg-gray-50 border border-gray-200 p-8 rounded-2xl mt-12 text-center">
-                        <h3 className="text-2xl font-bold mb-4">Start Your Journey Today</h3>
-                        <p className="mb-6 text-gray-600">
-                            Spaces are currently limited as we selectively build our premium fleet. If you have a professional attitude, excellent driving skills, and a qualifying vehicle, we invite you to take the next step.
-                        </p>
-                        <Link href="/join-as-driver/riyadh" className="inline-flex items-center justify-center bg-primary hover:bg-black text-white font-black py-4 px-8 rounded-xl transition-all">
-                            Apply as a driver in Riyadh &rarr;
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <Link href="https://wa.me/966555555555" className="bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-4 rounded-2xl font-black text-lg transition-all shadow-xl shadow-emerald-900/20 flex items-center gap-3">
+                            <MessageCircle className="w-6 h-6" /> Apply via WhatsApp
                         </Link>
+                        <div className="flex items-center gap-3 px-6 py-4 bg-white/5 rounded-2xl border border-white/10">
+                            <TrendingUp className="w-5 h-5 text-emerald-400" />
+                            <span className="font-bold">SAR 15k - 25k / Month</span>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            {/* Earnings Transparency */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+                <div className="max-w-5xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 italic font-display">Earnings Transparency</h2>
+                        <p className="text-gray-500 text-lg">We believe in radical honesty. Here is what you can realistically earn in Riyadh.</p>
+                    </div>
+                    <EarningsTransparency />
+                </div>
+            </section>
+
+            {/* Requirements Grid */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+                <div className="max-w-7xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                            <div className="w-12 h-12 bg-gray-900 rounded-2xl flex items-center justify-center mb-6">
+                                <Car className="w-6 h-6 text-white" />
+                            </div>
+                            <h3 className="text-xl font-black mb-4">Elite Vehicle</h3>
+                            <p className="text-gray-500 text-sm leading-relaxed">
+                                Must own a personal vehicle, model year <strong>2020 or newer</strong>. Sedans (Camry/Sonata) or SUVs (Tahoe/Prado) preferred.
+                            </p>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                            <div className="w-12 h-12 bg-gray-900 rounded-2xl flex items-center justify-center mb-6">
+                                <UserCheck className="w-6 h-6 text-white" />
+                            </div>
+                            <h3 className="text-xl font-black mb-4">Professionalism</h3>
+                            <p className="text-gray-500 text-sm leading-relaxed">
+                                Clean uniform, polite communication, and punctuality are non-negotiable. We serve high-net-worth clients.
+                            </p>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                            <div className="w-12 h-12 bg-gray-900 rounded-2xl flex items-center justify-center mb-6">
+                                <Smartphone className="w-6 h-6 text-white" />
+                            </div>
+                            <h3 className="text-xl font-black mb-4">Digital Literacy</h3>
+                            <p className="text-gray-500 text-sm leading-relaxed">
+                                Proficiency in using Google Maps and WhatsApp for dispatch coordination and client communication.
+                            </p>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                            <div className="w-12 h-12 bg-gray-900 rounded-2xl flex items-center justify-center mb-6">
+                                <ShieldCheck className="w-6 h-6 text-white" />
+                            </div>
+                            <h3 className="text-xl font-black mb-4">Reliable History</h3>
+                            <p className="text-gray-500 text-sm leading-relaxed">
+                                A valid Saudi driving license and a clean traffic record are essential for passenger safety.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Application Process */}
+            <section className="px-4">
+                <BookingProcess 
+                    title="Simple Onboarding Process"
+                    subtitle="Become a certified Riyadh chauffeur in less than 48 hours."
+                    steps={driverSteps}
+                />
+            </section>
+
+            {/* CTA */}
+            <section className="py-24 px-4 bg-emerald-600">
+                <div className="max-w-4xl mx-auto text-center text-white">
+                    <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight italic font-display">Ready to Elevate Your Income?</h2>
+                    <p className="text-emerald-100 text-xl mb-12 font-medium">
+                        Limited slots available for Riyadh's premium 2026 fleet. Apply now and start receiving VIP bookings this week.
+                    </p>
+                    <Link href="https://wa.me/966555555555" className="inline-flex items-center gap-3 bg-white text-emerald-600 px-12 py-5 rounded-2xl font-black text-xl hover:bg-emerald-50 transition-all shadow-2xl">
+                        <MessageCircle className="w-6 h-6" /> Message Recruiter
+                    </Link>
+                </div>
+            </section>
         </main>
     );
 }

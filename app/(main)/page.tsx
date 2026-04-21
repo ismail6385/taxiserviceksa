@@ -3,14 +3,14 @@ import HomeClient from './page-client';
 import { blogService } from '@/lib/blogService';
 
 export const metadata: Metadata = {
-  title: 'Taxi Service KSA | VIP Private Transfers & Border Crossing | Saudi Arabia',
-  description: 'Book executive private transfers across all Saudi Arabia cities including Makkah, Madinah, Riyadh, Jeddah, and AlUla. Expert chauffeur service for border crossings, tourist spots, and Umrah pilgrims.',
+  title: 'VIP Taxi Service Saudi Arabia | Taxi Service KSA',
+  description: 'Book the best VIP Taxi Service Saudi Arabia. Experience elite private transfers, intercity travel, and border crossings with our professional executive chauffeurs.',
   alternates: {
     canonical: 'https://taxiserviceksa.com/',
   },
   openGraph: {
-    title: 'Taxi Service KSA | All Cities & Border Crossing | VIP Transfers',
-    description: 'Book executive private transfers across all Saudi Arabia cities. Specializing in long-distance travel, border crossings, and VIP car services for tourists and pilgrims.',
+    title: 'VIP Taxi Service Saudi Arabia | Taxi Service KSA',
+    description: 'Book the best VIP Taxi Service Saudi Arabia. Experience elite private transfers, intercity travel, and border crossings with our professional executive chauffeurs.',
     url: 'https://taxiserviceksa.com/',
     siteName: 'Taxi Service KSA',
     locale: 'en_US',
@@ -26,6 +26,50 @@ export default async function Home() {
     <>
       <script
         type="application/ld+json"
+        id="website-search-schema"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "url": "https://taxiserviceksa.com/",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://taxiserviceksa.com/routes/?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
+        id="org-schema-home"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Taxi Service KSA",
+            "url": "https://taxiserviceksa.com",
+            "logo": "https://taxiserviceksa.com/logo.png",
+            "sameAs": [
+              "https://www.facebook.com/people/Taxi-Service-KSA/61573850597962/",
+              "https://www.linkedin.com/company/taxi-service-ksa/",
+              "https://www.youtube.com/channel/UCeP44oxBUKUG5X-UhYmPMNw"
+            ],
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "telephone": "+966 56 073 2928",
+                "contactType": "customer service"
+              }
+            ]
+          })
+        }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
@@ -38,4 +82,3 @@ export default async function Home() {
     </>
   );
 }
-

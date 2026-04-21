@@ -1,4 +1,3 @@
-
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -14,12 +13,15 @@ import QuestionsDisplay from '@/components/QuestionsDisplay';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 import JsonLdLocation from '@/components/JsonLdLocation';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import PricingTable from '@/components/PricingTable';
+import BookingProcess from '@/components/BookingProcess';
+import ZiyaratSites from '@/components/ZiyaratSites';
 
 
 export const metadata: Metadata = {
-    title: 'Madinah Ziyarat Taxi Service | Holy Sites Tours (Ziyarah) | Taxi Service KSA',
-    description: 'Book comprehensive Ziyarat tours in Madinah. Visit Masjid Quba, Mount Uhud, Seven Mosques, and Qiblatain with knowledgeable local drivers. Fixed price packages.',
-    keywords: ['Madinah Ziyarat', 'Ziyarat taxi Madinah', 'Quba mosque taxi', 'Uhud mountain tour', 'Seven mosques visit', 'Madinah holy sites transport'],
+    title: 'Madinah Ziyarat Taxi Service 2026 | Holy Sites Tours (Ziyarah) | Taxi Service KSA',
+    description: 'Book comprehensive Ziyarat tours in Madinah 2026. Visit Masjid Quba, Mount Uhud, Seven Mosques, and Qiblatain with knowledgeable local drivers. Fixed price packages.',
+    keywords: ['Madinah Ziyarat 2026', 'Ziyarat taxi Madinah', 'Quba mosque taxi', 'Uhud mountain tour', 'Seven mosques visit', 'Madinah holy sites transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/madinah-ziyarat/',
     },
@@ -68,41 +70,63 @@ export default function MadinahZiyaratPage() {
 
             <Hero
                 images={['/madinah-prophets-mosque.webp', '/hero-slide-2.webp']}
-                h1Text="Madinah Ziyarat Taxi Packages"
+                h1Text="2026 Madinah Ziyarat Taxi Packages"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Spiritual Journey
+                        2026 Spiritual Journey
                     </span>
                 }
                 subtitle="Walk in the Footsteps of History"
                 location="Madinah Al Munawwarah"
             >
-                <div className="max-w-3xl mx-auto mt-8 mb-6">
-                    <EntityTrustSignal
-                        brandName="TaxiServiceKSA™ Ziyarat"
-                        description={(
-                            <>
-                                Facilitating the Sunnah of visiting Quba and the Shuhada of Uhud in{' '}
-                                <Link href='/locations/madinah/' className='text-emerald-700 font-bold hover:underline'>
-                                    Al-Madinah Al-Munawwarah
-                                </Link>
-                                . We provide not just a car, but a respectful environment for your Ibadah.
-                            </>
-                        )}
-                        foundingDate="2012"
-                        metrics={[
-                            { label: 'Ziyarat Trips', value: '25k+', icon: Moon },
-                            { label: 'Sites Covered', value: '15+', icon: MapPin },
-                            { label: 'Driver Knowledge', value: 'Expert', icon: Star }
-                        ]}
-                    />
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20book%20a%20Madinah%20Ziyarat%20tour.">
+                        <Button size="lg" className="bg-emerald-600 hover:bg-emerald-500 text-white font-black py-7 px-10 rounded-2xl text-xl shadow-2xl shadow-emerald-500/30 transition-all hover:scale-105 active:scale-95 animate-pulse-slow">
+                            <WhatsAppIcon className="w-6 h-6 mr-2 fill-current" />
+                            Book Ziyarat Now
+                        </Button>
+                    </a>
                 </div>
             </Hero>
+
+            {/* TL;DR Quick Facts Section */}
+            <div className="max-w-7xl mx-auto px-4 -mt-12 relative z-20 mb-20">
+                <div className="bg-emerald-50 rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-emerald-100 flex flex-col md:flex-row gap-10 items-center justify-between">
+                    <div className="space-y-4">
+                        <div className="inline-flex items-center gap-2 bg-emerald-600 text-white px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest">
+                             Quick Guide
+                        </div>
+                        <h2 className="text-3xl font-black text-gray-900 italic">2026 Ziyarat Essentials</h2>
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+                            {[
+                                "Licensed Local Driver-Guides",
+                                "Fixed Rates (No Hidden Fees)",
+                                "Free Dates & Water Included",
+                                "Family-Size SUV Fleet (Yukon/Hiace)",
+                                "Hotel Pickup & Drop-off Included",
+                                "Flexible Timing & Custom Stops"
+                            ].map((item, i) => (
+                                <li key={i} className="flex items-center gap-2 text-gray-700 font-bold text-sm">
+                                    <CheckCircle2 className="w-4 h-4 text-emerald-600" /> {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="bg-white p-6 rounded-3xl shadow-lg border border-emerald-100 min-w-[280px]">
+                        <div className="text-emerald-600 font-black text-xs uppercase tracking-tighter mb-2">Package Start Price</div>
+                        <div className="text-4xl font-black text-gray-900 flex items-baseline gap-1">
+                            150 <span className="text-sm font-bold text-gray-400 uppercase">SAR</span>
+                        </div>
+                        <p className="text-[10px] text-gray-400 mt-2 font-bold leading-tight">Price covers entire group (up to 4 pax in Sedan). Larger vans available.</p>
+                    </div>
+                </div>
+            </div>
+
 
             {/* Packages */}
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl font-bold text-center mb-12">Our Ziyarat Packages</h2>
+                    <h2 className="text-3xl font-bold text-center mb-12">Our 2026 Ziyarat Packages</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {packages.map((pkg, i) => (
                             <div key={i} className="bg-gray-50 rounded-2xl p-8 border border-gray-200 hover:border-emerald-500 hover:shadow-xl transition-all relative">
@@ -125,6 +149,52 @@ export default function MadinahZiyaratPage() {
                             </div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* Pricing & Process */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 border-y border-gray-100">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-gray-900 tracking-tight">Transparent 2026 Pricing</h2>
+                        <p className="text-gray-600 mt-2">Verified rates for all vehicle types for your Madinah Ziyarat.</p>
+                    </div>
+                    <PricingTable />
+                    <div className="mt-20">
+                        <BookingProcess 
+                            title="How to Book Your Ziyarat"
+                            subtitle="Secure your spiritual tour in three simple steps via WhatsApp."
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* Detailed Site Info Section */}
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+                <div className="max-w-7xl mx-auto">
+                    <ZiyaratSites 
+                        title="Holy Sites & Landmarks"
+                        subtitle="Explore the sacred history of Madinah"
+                        locationSlug="madinah"
+                        sites={[
+                            {
+                                name: "Masjid Quba",
+                                description: "The very first mosque in Islam, located 3.5km from the Prophet's Mosque.",
+                                significance: "Praying 2 rakat here rewards an Umrah. The Prophet (PBUH) visited every Saturday.",
+                                location: "Quba District",
+                                image: "/madinah-quba.webp",
+                                recommendedTime: "1 Hour"
+                            },
+                            {
+                                name: "Mount Uhud",
+                                description: "A massive mountain north of Madinah, site of the famous Battle of Uhud.",
+                                significance: "Contains the Archers' Hill and the graves of the 70 martyrs, including Hamza (RA).",
+                                location: "5km North",
+                                image: "/madinah-uhud.webp",
+                                recommendedTime: "1.5 Hours"
+                            }
+                        ]}
+                    />
                 </div>
             </section>
 
@@ -227,5 +297,3 @@ export default function MadinahZiyaratPage() {
         </div>
     );
 }
-
-

@@ -31,14 +31,18 @@ import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 import { blogService } from '@/lib/blogService';
 import RelatedGuides from '@/components/RelatedGuides';
+import PricingTable from '@/components/PricingTable';
+import TrainComparison from '@/components/TrainComparison';
+import BookingProcess from '@/components/BookingProcess';
+import ZiyaratSites from '@/components/ZiyaratSites';
 
 
 import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Madinah Ziyarat | Premium Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer service in Madinah. Specialized Prince Mohammad Airport (MED) pickups and executive Ziyarat tours. Professional intercity transfers to Makkah.',
-    keywords: ['Madinah VIP private transfer', 'Executive chauffeur Madinah', 'Premium Ziyarat tour Madinah', 'Madinah airport VIP pickup', 'VIP transfer Madinah to Makkah'],
+    title: 'VIP Private Transfer & Madinah Ziyarat 2026 | Premium Chauffeur | Taxi Service KSA',
+    description: 'Premium VIP private transfer service in Madinah 2026. Specialized Prince Mohammad Airport (MED) pickups and executive Ziyarat tours. Professional intercity transfers to Makkah.',
+    keywords: ['Madinah VIP private transfer 2026', 'Executive chauffeur Madinah', 'Premium Ziyarat tour Madinah', 'Madinah airport VIP pickup', 'VIP transfer Madinah to Makkah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/madinah/',
         languages: {
@@ -85,11 +89,11 @@ export default async function MadinahPage() {
             {/* Hero Section */}
             <Hero
                 images={madinahImages}
-                h1Text="VIP Private Transfer & Ziyarat Chauffeur Madinah"
-                bookingFormTitle="WhatsApp Booking for Premium Transfer in Madinah"
+                h1Text="2026 VIP Private Transfer & Ziyarat Chauffeur Madinah"
+                bookingFormTitle="WhatsApp Booking for 2026 Premium Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        VIP Chauffeur Service Madinah
+                        2026 VIP Chauffeur Service Madinah
                     </span>
                 }
                 subtitle="Exclusive Transport for Pilgrims & Families Seeking Excellence"
@@ -157,6 +161,15 @@ export default async function MadinahPage() {
                                 <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
                             </div>
                         ))}
+                    </div>
+
+                    {/* Train vs Taxi Comparison Section */}
+                    <div className="mb-16">
+                        <TrainComparison 
+                            route="Madinah to Makkah"
+                            taxiPrice="400"
+                            trainPrice="150"
+                        />
                     </div>
 
                     {/* Strategic Internal Links Hub */}
@@ -368,141 +381,85 @@ export default async function MadinahPage() {
             </section>
 
             {/* Pricing Information */}
-            <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
                         <div className="inline-flex items-center gap-2 bg-yellow-100 px-4 py-2 rounded-full mb-6">
                             <Star className="w-4 h-4 text-yellow-600" />
-                            <span className="text-sm font-semibold text-yellow-900">Transparent Pricing</span>
+                            <span className="text-sm font-semibold text-yellow-900">2026 Verified Rates</span>
                         </div>
 
                         <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                            Transparent Rates
+                            Transparent Madinah Pricing
                         </h3>
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                            Fixed rates for Madinah airport and city transfers.
+                            Fixed, all-inclusive rates for Madinah airport, city transfers, and Ziyarat tours. No hidden surprises.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all text-center">
-                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                <Plane className="w-6 h-6 text-primary" />
-                            </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">VIP Airport Pickup</div>
-                            <div className="text-4xl font-black text-primary mb-3">
-                                <span className="text-2xl">From</span> SAR 150
-                            </div>
-                            <div className="text-sm text-gray-600 leading-relaxed">
-                                MED Airport to Hotel (All Inclusive)
-                            </div>
-                        </div>
+                    <PricingTable />
 
-                        <div className="bg-white p-8 rounded-2xl border-2 border-primary/30 hover:border-primary hover:shadow-xl transition-all text-center relative">
-                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white hover:text-black px-4 py-1 rounded-full text-xs font-bold">
-                                RECOMMENDED
-                            </div>
-                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                <Compass className="w-6 h-6 text-primary" />
-                            </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">Ziyarat Tour</div>
-                            <div className="text-4xl font-black text-primary mb-3">
-                                <span className="text-2xl">From</span> SAR 200
-                            </div>
-                            <div className="text-sm text-gray-600 leading-relaxed">
-                                Visit Quba, Uhud, Qiblatain
-                            </div>
+                    <div className="mt-20">
+                        <div className="text-center mb-12">
+                            <h4 className="text-2xl font-bold text-gray-900">How to Book Your Madinah Transfer</h4>
+                            <p className="text-gray-600">Three simple steps to secure your premium ride.</p>
                         </div>
-
-                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all text-center">
-                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                <Car className="w-6 h-6 text-primary" />
-                            </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">To Makkah</div>
-                            <div className="text-4xl font-black text-primary mb-3">
-                                <span className="text-2xl">From</span> SAR 400
-                            </div>
-                            <div className="text-sm text-gray-600 leading-relaxed">
-                                VIP Transfer to Makkah Hotel
-                            </div>
-                        </div>
-                    </div>
-                    <div className="bg-gray-100 border-l-4 border-gray-400 p-4 rounded-r-xl text-center">
-                        <p className="text-sm text-gray-700">
-                            <strong>Note:</strong> Prices vary based on vehicle type and season. Contact us for exact quotes.
-                        </p>
+                        <BookingProcess />
                     </div>
                 </div>
             </section>
 
             {/* Holy Sites */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
+            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
+                    <div className="text-center mb-16">
                         <div className="inline-flex items-center gap-2 bg-emerald-100 px-4 py-2 rounded-full mb-6">
                             <Compass className="w-4 h-4 text-emerald-600" />
                             <span className="text-sm font-semibold text-emerald-900">Spiritual Landmarks</span>
                         </div>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                            Holy Sites & Ziyarat
+                            Holy Sites & 2026 Ziyarat Guide
                         </h2>
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                            Sacred places to visit in Madinah.
+                            Comprehensive details on sacred places in Madinah, including historical significance and 2026 visitation tips.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* Site 1: Masjid Nabawi */}
-                        <div className="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition-all border border-gray-100 group">
-                            <div className="h-48 bg-gray-200 relative">
-                                <Image
-                                    src="/madinah-prophets-mosque.webp"
-                                    alt="Al Masjid An Nabawi"
-                                    fill
-                                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                                />
-                                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-gray-900">
-                                    Must Visit
-                                </div>
-                            </div>
-                            <div className="p-6">
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">Al-Masjid An-Nabawi</h3>
-                                <p className="text-gray-600 text-sm mb-4">
-                                    The Prophet's Mosque, housing the Rawdah and the Sacred Chamber.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Site 2: Masjid Quba */}
-                        <div className="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition-all border border-gray-100 group">
-                            <div className="h-48 bg-gray-200 relative">
-                                <div className="w-full h-full bg-slate-200 flex items-center justify-center text-slate-400 font-bold text-xl">
-                                    <Compass className="w-12 h-12 opacity-50" />
-                                </div>
-                            </div>
-                            <div className="p-6">
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">Masjid Quba</h3>
-                                <p className="text-gray-600 text-sm mb-4">
-                                    The first mosque built in Islam. Praying 2 rakat here rewards an Umrah.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Site 3: Mount Uhud */}
-                        <div className="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition-all border border-gray-100 group">
-                            <div className="h-48 bg-gray-200 relative">
-                                <div className="w-full h-full bg-slate-200 flex items-center justify-center text-slate-400 font-bold text-xl">
-                                    <Star className="w-12 h-12 opacity-50" />
-                                </div>
-                            </div>
-                            <div className="p-6">
-                                <h3 className="text-xl font-bold text-gray-900 mb-2">Mount Uhud</h3>
-                                <p className="text-gray-600 text-sm mb-4">
-                                    Site of the Battle of Uhud and the Martyrs' Cemetery (Sayyid al-Shuhada).
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <ZiyaratSites 
+                        locationSlug="madinah"
+                        title="Holy Sites & 2026 Ziyarat Guide"
+                        subtitle="Comprehensive details on sacred places in Madinah, including historical significance and 2026 visitation tips."
+                        sites={[
+                            {
+                                name: "Al-Masjid An-Nabawi",
+                                description: "The Prophet's Mosque is the second holiest site in Islam. It houses the Rawdah ash-Sharifah (a garden from Paradise) and the sacred chamber of Prophet Muhammad (PBUH).",
+                                significance: "A prayer in this mosque is better than a thousand prayers elsewhere, except for the Sacred Mosque in Makkah.",
+                                location: "Central Madinah",
+                                image: "/madinah-prophets-mosque.webp"
+                            },
+                            {
+                                name: "Masjid Quba",
+                                description: "The first mosque ever built in Islam. The Prophet (PBUH) would walk or ride to Quba every Saturday and offer two rak'ahs of prayer.",
+                                significance: "Performing two rak'ahs in Masjid Quba is equivalent to the reward of performing one Umrah.",
+                                location: "3.5km South of Nabawi Mosque",
+                                image: "/madinah-quba.webp"
+                            },
+                            {
+                                name: "Mount Uhud",
+                                description: "The site of the second battle between the Muslims and the Meccan forces. It features the Archers' Hill and the Cemetery of the Martyrs (Sayyid al-Shuhada).",
+                                significance: "The Prophet (PBUH) said: 'Uhud is a mountain that loves us and we love it.'",
+                                location: "5km North of Nabawi Mosque",
+                                image: "/madinah-uhud.webp"
+                            },
+                            {
+                                name: "Masjid al-Qiblatain",
+                                description: "The 'Mosque of the Two Qiblas' is where the Prophet (PBUH) received the revelation to change the direction of prayer (Qibla) from Jerusalem to Makkah.",
+                                significance: "A historic site marking one of the most pivotal moments in Islamic history.",
+                                location: "Northwest of Madinah",
+                                image: "/madinah-qiblatain.webp"
+                            }
+                        ]}
+                    />
                 </div>
             </section>
 

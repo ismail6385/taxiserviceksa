@@ -18,6 +18,9 @@ import Hero from '@/components/Hero';
 export const metadata = {
     title: 'Partner with Us | Taxi Service KSA B2B & Driver Registration',
     description: 'Join Saudi Arabia\'s fastest-growing premium transport network. We offer lucrative opportunities for professional taxi drivers and B2B solutions for travel agencies.',
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/partners/',
+    },
 };
 
 export default function PartnersPage() {

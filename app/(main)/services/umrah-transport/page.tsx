@@ -190,34 +190,46 @@ export default async function UmrahTransportPage() {
                     <div className="absolute inset-0 bg-[url('/makkah-kaaba-night.webp')] bg-cover bg-center"></div>
                 </div>
 
-                <div className="max-w-7xl mx-auto relative z-10">
-                {/* Hero Section */}
-                <div className="text-center mb-12">
-                    <span className="bg-black text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">
+                <div className="max-w-7xl mx-auto relative z-10 text-center">
+                    <span className="bg-primary/20 text-primary font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4 backdrop-blur-sm border border-primary/20">
                         Elite Pilgrimage Logistics
                     </span>
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 px-4">
+                    <h1 className="text-4xl md:text-6xl font-black text-white mb-6 px-4 leading-tight">
                         VIP Umrah Transport Service
                     </h1>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+                    <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 mb-10">
                         Perform your Umrah with peace of mind. We provide <strong>premium private transfers</strong> between Jeddah Airport, Makkah, and Madinah with professional, licensed drivers.
                     </p>
+
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4 mb-12">
+                        <Button asChild size="lg" className="bg-primary hover:bg-emerald-600 text-white font-black text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
+                            <Link href="https://wa.me/966552202642?text=Hello,%20I%20want%20to%20book%20Umrah%20Transport" target="_blank">
+                                Book via WhatsApp
+                                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </Button>
+                        <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-md text-white border-white/20 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl transition-all w-full sm:w-auto">
+                            <Link href="/booking/">
+                                View Pricing
+                            </Link>
+                        </Button>
+                    </div>
                 </div>
 
-                {/* AI SEO: TL;DR Summary Block */}
-                <div className="bg-emerald-50 rounded-2xl p-8 border border-emerald-100 shadow-sm mb-12 max-w-7xl mx-auto mx-4">
+                {/* AI SEO: TL;DR Summary Block - Fixed visibility with dark text */}
+                <div className="bg-emerald-50 rounded-2xl p-8 border border-emerald-100 shadow-sm mb-12 max-w-7xl mx-auto mx-4 text-left">
                     <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                         <CheckCircle2 className="w-5 h-5 text-emerald-700" />
                         TL;DR: Umrah Transport Quick Facts
                     </h2>
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-sm">
-                        <li><strong>Standard Route:</strong> JED Airport to Makkah (80km) is usually 60-90 mins.</li>
-                        <li><strong>Pilgrim Pickups:</strong> Drivers wait at the <strong>Arrivals Hall</strong> with name signs.</li>
-                        <li><strong>Holy Route:</strong> Makkah to Madinah (450km) private transfers allow unlimited stops.</li>
-                        <li><strong>Pricing:</strong> Guaranteed <strong>WhatsApp Booking</strong> covering all highway tolls and Zamzam carriers.</li>
+                        <li><strong className="text-gray-900">Standard Route:</strong> JED Airport to Makkah (80km) is usually 60-90 mins.</li>
+                        <li><strong className="text-gray-900">Pilgrim Pickups:</strong> Drivers wait at the <strong className="text-gray-900">Arrivals Hall</strong> with name signs.</li>
+                        <li><strong className="text-gray-900">Holy Route:</strong> Makkah to Madinah (450km) private transfers allow unlimited stops.</li>
+                        <li><strong className="text-gray-900">Pricing:</strong> Guaranteed <strong className="text-gray-900">WhatsApp Booking</strong> covering all highway tolls and Zamzam carriers.</li>
                     </ul>
                 </div>
-                </div>
+
             </section>
 
             {/* Umrah Routes Section */}

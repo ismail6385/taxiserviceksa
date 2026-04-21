@@ -35,12 +35,6 @@ export default function CadillacEscaladePage() {
         "brand": {
             "@type": "Brand",
             "name": "Cadillac"
-        },
-        "offers": {
-            "@type": "Offer",
-            "priceCurrency": "SAR",
-            "availability": "https://schema.org/InStock",
-            "url": "https://taxiserviceksa.com/fleet/cadillac-escalade"
         }
     };
 
@@ -209,4 +203,3 @@ export default function CadillacEscaladePage() {
         </div>
     );
 }
-

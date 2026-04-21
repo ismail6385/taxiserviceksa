@@ -6,6 +6,9 @@ export const metadata: Metadata = {
     title: 'Privacy Policy | Taxi Service KSA',
     description: 'Learn how Taxi Service KSA collects, uses, and protects your personal information. Your privacy and data security are our top priorities.',
     keywords: ['privacy policy', 'data protection', 'personal information', 'GDPR compliance'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/privacy-policy/',
+    },
 };
 
 export default function PrivacyPolicyPage() {

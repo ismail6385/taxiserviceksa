@@ -35,12 +35,6 @@ export default function GMCYukonPage() {
         "brand": {
             "@type": "Brand",
             "name": "GMC"
-        },
-        "offers": {
-            "@type": "Offer",
-            "priceCurrency": "SAR",
-            "availability": "https://schema.org/InStock",
-            "url": "https://taxiserviceksa.com/fleet/gmc-yukon"
         }
     };
 
@@ -208,4 +202,3 @@ export default function GMCYukonPage() {
         </div>
     );
 }
-

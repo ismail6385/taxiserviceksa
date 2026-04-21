@@ -8,6 +8,7 @@ export const BRAND = {
     name: "Taxi Service KSA",
     legalName: "Taxi Service KSA Transport",
     founder: "Muhammad Ismail",
+    coFounder: "Zumer",
     foundingYear: 2012,
     headquarters: "Jeddah, Saudi Arabia",
     contact: {

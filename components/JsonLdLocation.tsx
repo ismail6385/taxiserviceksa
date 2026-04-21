@@ -6,6 +6,8 @@ interface JsonLdLocationProps {
     services: { name: string; description: string }[];
     priceRange?: { min: number; max: number; currency: string };
     image?: string;
+    ratingValue?: string;
+    reviewCount?: string;
 }
 
 export default function JsonLdLocation({ 
@@ -13,7 +15,9 @@ export default function JsonLdLocation({
     description, 
     services, 
     priceRange,
-    image 
+    image,
+    ratingValue = "4.9",
+    reviewCount = "312"
 }: JsonLdLocationProps) {
     const baseUrl = 'https://taxiserviceksa.com';
     
@@ -37,6 +41,13 @@ export default function JsonLdLocation({
                 "brand": {
                     "@type": "Brand",
                     "name": "TaxiServiceKSA"
+                },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": ratingValue,
+                    "reviewCount": reviewCount,
+                    "bestRating": "5",
+                    "worstRating": "1"
                 },
                 ...(priceRange && {
                     "offers": {

@@ -1,18 +1,44 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import JsonLdJobPosting from '@/components/seo/JsonLdJobPosting';
+import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 export const metadata: Metadata = {
     title: 'Chauffeur Jobs in Khamis Mushait - Premium Opportunities',
     description: 'Looking for chauffeur jobs in Khamis Mushait? Join as a professional VIP driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Khamis Mushait', 'chauffeur jobs in Khamis Mushait', 'VIP drivers Khamis Mushait'],
     alternates: {
-        canonical: '/chauffeur-jobs-khamis-mushait',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-khamis-mushait',
     }
 };
 
-export default function chauffeurjobskhamismushaitPage() {
+export default function ChauffeurJobsKhamisMushaitPage() {
     return (
         <main className="min-h-screen bg-white">
+            <JsonLdBreadcrumb 
+                items={[
+                    { name: 'Home', item: '/' },
+                    { name: 'Khamis Mushait Jobs', item: '/chauffeur-jobs-khamis-mushait' }
+                ]}
+            />
+            <JsonLdJobPosting 
+                title="VIP Chauffeur - Khamis Mushait"
+                description="Join our elite network of professional chauffeurs in Khamis Mushait. We are looking for drivers with their own 2020+ model cars to serve VIP clients, commercial leaders, and travelers. High income potential with regional business transfers and long-distance transfers to Abha and beyond."
+                datePosted="2025-01-01"
+                validThrough="2025-12-31"
+                employmentType="FULL_TIME"
+                hiringOrganization="Taxi Service KSA"
+                jobLocation={{
+                    addressLocality: "Khamis Mushait",
+                    addressRegion: "Asir Province",
+                    addressCountry: "SA"
+                }}
+                baseSalary={{
+                    currency: "SAR",
+                    value: 7500,
+                    unitText: "MONTH"
+                }}
+            />
             <div className="bg-gray-950 text-white pt-32 pb-16 px-4">
                 <div className="max-w-3xl mx-auto text-center">
                     <span className="bg-primary/20 text-primary px-4 py-1.5 rounded-full text-sm font-semibold uppercase tracking-wider mb-6 inline-block">

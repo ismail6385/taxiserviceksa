@@ -36,12 +36,6 @@ export default function MercedesSClassPage() {
         "brand": {
             "@type": "Brand",
             "name": "Mercedes-Benz"
-        },
-        "offers": {
-            "@type": "Offer",
-            "priceCurrency": "SAR",
-            "availability": "https://schema.org/InStock",
-            "url": "https://taxiserviceksa.com/fleet/mercedes-s-class"
         }
     };
 
@@ -232,4 +226,3 @@ export default function MercedesSClassPage() {
         </div>
     );
 }
-

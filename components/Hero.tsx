@@ -62,78 +62,81 @@ export default function Hero(props: HeroProps) {
         ];
 
     return (
-        <section className="relative bg-white text-gray-900 min-h-[800px] flex flex-col justify-center items-center py-20" aria-label="Hero section">
-            {/* Background Image - Static */}
+        <section className="relative bg-gray-900 text-white min-h-[750px] flex flex-col justify-center items-center py-20 overflow-hidden" aria-label="Hero section">
+            {/* Background Image - Static with Premium Overlay */}
             <div className="absolute inset-0 z-0 overflow-hidden">
                 <Image
                     src={slides[0]}
                     alt={slideAltTexts[0] || "Premium taxi service in Saudi Arabia"}
                     fill
                     priority
-                    quality={75}
-                    className="object-cover w-full h-full"
+                    quality={90}
+                    className="object-cover w-full h-full scale-105"
                     sizes="100vw"
                 />
-                {/* Blue Overlay matching the reference */}
-                <div className="absolute inset-0 bg-blue-900/80 mix-blend-multiply" aria-hidden="true" />
-                <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+                {/* Advanced Gradient Overlay for maximum readability */}
+                <div className="absolute inset-0 bg-gray-900/80 backdrop-blur-[2px]" aria-hidden="true" />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-gray-900/50" aria-hidden="true" />
             </div>
 
             {/* Main Content */}
-            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center text-center space-y-8">
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center text-center">
+                
+                {/* Visual Accent */}
+                <div className="mb-8">
+                    <span className="text-primary font-bold tracking-[0.2em] uppercase text-[10px] sm:text-xs">
+                        {location || "Premium Kingdom-Wide Transport"}
+                    </span>
+                </div>
 
                 {/* Title & SEO H1 */}
-                <div className="space-y-4 animate-fade-in-up">
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-white drop-shadow-md">
-                        {h1Text || title || "BEST Online Taxi Service in Saudi Arabia"}
+                <div className="mb-12 max-w-4xl">
+                    <h1 className="text-white tracking-tighter leading-[0.95] mb-8">
+                        {h1Text || title || "BEST Online Taxi Service"}
                     </h1>
                     {subtitle && (
-                        <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto font-medium drop-shadow-sm">
+                        <p className="text-xl sm:text-2xl text-gray-300 max-w-2xl mx-auto font-medium leading-relaxed">
                             {subtitle}
                         </p>
                     )}
                 </div>
 
-                {/* Trust Signals (Icons Row) */}
-                <div className="flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-12 text-white/90 py-6 animate-fade-in-up delay-100">
-                    <div className="flex items-center gap-2">
-                        <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400" />
-                        <span className="text-sm sm:text-base font-semibold">Professional Drivers</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400" />
-                        <span className="text-sm sm:text-base font-semibold">25k+ Happy Pilgrims</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <Award className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400" />
-                        <span className="text-sm sm:text-base font-semibold">Secure Online Payments</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <Star className="w-5 h-5 sm:w-6 sm:h-6 text-yellow-400" />
-                        <span className="text-sm sm:text-base font-semibold">Best Price Guarantee</span>
-                    </div>
-                </div>
-
-                {/* Direct WhatsApp CTA - Big & Pulse */}
-                <div className="animate-fade-in-up delay-150 w-full max-w-lg mb-8">
+                {/* Direct WhatsApp CTA - Clearly Dominant */}
+                <div className="w-full max-w-md mb-16">
                     <a 
                         href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20get%20a%20VIP%20taxi%20quote." 
                         target="_blank"
                         rel="nofollow noopener noreferrer"
-                        className="group flex items-center justify-center gap-4 bg-emerald-600 hover:bg-emerald-700 text-white font-black py-6 px-10 rounded-[2rem] text-xl shadow-2xl shadow-emerald-500/40 transition-all hover:scale-105 active:scale-95 animate-pulse-slow"
+                        className="group flex items-center justify-center gap-4 bg-primary text-white font-black py-8 px-12 rounded-3xl text-2xl shadow-[0_20px_50px_rgba(255,193,7,0.3)] transition-all hover:scale-[1.02] active:scale-95"
                     >
-                        <div className="relative">
-                            <div className="absolute inset-0 bg-white rounded-full animate-ping opacity-25"></div>
-                            <WhatsAppIcon className="w-8 h-8 fill-current relative z-10" />
-                        </div>
-                        Quick Quote on WhatsApp
+                        <WhatsAppIcon className="w-8 h-8 fill-current" />
+                        Book via WhatsApp
                     </a>
                 </div>
 
-                {/* Booking Widget Container - Lifts up into the hero content */}
+                {/* Trust Signals - Subtle & Clean */}
+                <div className="flex flex-wrap justify-center gap-8 text-gray-400 mb-12">
+                    <div className="flex items-center gap-2">
+                        <Shield className="w-4 h-4 text-primary" />
+                        <span className="text-[11px] font-bold uppercase tracking-wider">Licensed Drivers</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-primary" />
+                        <span className="text-[11px] font-bold uppercase tracking-wider">25k+ Happy Pilgrims</span>
+                    </div>
+                </div>
+
+                {/* Custom Content (Buttons, etc.) */}
+                {props.children && (
+                    <div className="relative z-20 w-full mt-8">
+                        {props.children}
+                    </div>
+                )}
+
+                {/* Booking Widget Container - Only show if not hidden */}
                 {!hideBookingForm && (
-                    <div className="w-full animate-fade-in-up delay-200 mt-4">
-                        <HeroBookingWidget title={bookingFormTitle || (h1Text ? `WhatsApp Booking for ${h1Text}` : undefined)} />
+                    <div className="w-full animate-fade-in-up delay-200 mt-4 backdrop-blur-sm p-4 rounded-[2.5rem]">
+                        <HeroBookingWidget title={bookingFormTitle || (h1Text ? `Online Booking for ${h1Text}` : undefined)} />
                     </div>
                 )}
             </div>

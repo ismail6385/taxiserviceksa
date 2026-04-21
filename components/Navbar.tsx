@@ -169,100 +169,106 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Main Header - Always White Background for Consistency */}
-            <header className={`py-4 transition-all duration-300 ${scrolled ? 'bg-white shadow-xl shadow-gray-900/5' : 'bg-white border-b border-gray-100'}`}>
+            {/* Main Header - Premium Styling */}
+            <header className={`py-4 transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_4px_6px_-2px_rgba(0,0,0,0.05)]' : 'bg-white border-b border-gray-50'}`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
                     <div className="flex justify-between h-16 items-center gap-4">
-                        {/* Logo */}
+                        {/* Logo - Refined Branding */}
                         <Link href="/" className="flex items-center gap-3 group shrink-0">
                             <div className="relative">
-                                <div className="bg-gradient-to-br from-primary via-blue-600 to-indigo-700 p-2 rounded-xl group-hover:rotate-[360deg] transition-all duration-700 shadow-lg shadow-primary/20">
+                                <div className="bg-primary p-2.5 rounded-xl shadow-lg shadow-primary/20 transition-transform duration-500 group-hover:scale-110">
                                     <Car className="w-6 h-6 text-white" />
                                 </div>
-                                <div className="absolute -top-1 -right-1 bg-amber-400 p-0.5 rounded-full border-2 border-white">
+                                <div className="absolute -top-1 -right-1 bg-amber-400 p-0.5 rounded-full border-2 border-white animate-pulse">
                                     <Sparkles className="w-2 h-2 text-white" />
                                 </div>
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-xl font-black tracking-tight leading-none text-gray-900 uppercase">
-                                    VIP Transfer <span className="text-primary">KSA</span>
+                                <span className="text-xl font-black tracking-tighter leading-none text-gray-900 uppercase">
+                                    Taxi <span className="text-primary">KSA</span>
                                 </span>
                                 <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Premium Chauffeur Service</span>
                             </div>
                         </Link>
 
-                        {/* Desktop Navigation */}
+                        {/* Desktop Navigation - Elegant States */}
                         <nav className="hidden xl:flex items-center gap-1">
-                            {navLinks.map((link) => (
-                                <div
-                                    key={link.name}
-                                    className="relative group py-2"
-                                    onMouseEnter={() => setActiveDropdown(link.name)}
-                                    onMouseLeave={() => setActiveDropdown(null)}
-                                >
-                                    <Link
-                                        href={link.href}
-                                        className={`flex items-center px-4 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 ${pathname.startsWith(link.href) && link.href !== '#'
-                                            ? 'bg-primary text-white shadow-lg shadow-primary/20'
-                                            : 'text-gray-700 hover:bg-gray-50 hover:text-primary'
-                                            }`}
+                            {navLinks.map((link) => {
+                                const isActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
+                                return (
+                                    <div
+                                        key={link.name}
+                                        className="relative group py-2"
+                                        onMouseEnter={() => setActiveDropdown(link.name)}
+                                        onMouseLeave={() => setActiveDropdown(null)}
                                     >
-                                        {link.name}
-                                        {link.children && <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
-                                    </Link>
-
-                                    {/* Dropdown Logic */}
-                                    {link.children && (
-                                        <div className={`absolute top-full mt-2 transition-all duration-300 ${activeDropdown === link.name ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-4 invisible'} ${link.name === 'Routes' || link.name === 'Locations' ? 'left-1/2 -translate-x-1/2 origin-top' : link.name === 'Company' || link.name === 'Partners' ? 'right-0 origin-top-right' : 'left-0 origin-top-left'}`}>
-                                            {/* Dropdown variant */}
-                                            {link.mega ? (
-                                                <div className="p-8 bg-white rounded-[2.5rem] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] border border-gray-100 min-w-[700px] w-max grid grid-cols-3 xl:grid-cols-4 gap-8">
-                                                    {link.children.map((section: any) => (
-                                                        <div key={section.category}>
-                                                            <div className="text-[10px] font-black uppercase text-gray-400 tracking-[0.2em] mb-6 flex items-center gap-2">
-                                                                <div className="w-1.5 h-1.5 rounded-full bg-primary"></div>
-                                                                {section.category}
-                                                            </div>
-                                                            <div className="space-y-3">
-                                                                {section.items.map((item: any) => (
-                                                                    <Link
-                                                                        key={item.name}
-                                                                        href={item.href}
-                                                                        className="block text-sm font-bold text-gray-600 hover:text-primary hover:translate-x-1 transition-all"
-                                                                    >
-                                                                        {item.name}
-                                                                    </Link>
-                                                                ))}
-                                                            </div>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            ) : (
-                                                <div className="p-3 bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.12)] border border-gray-100 w-64 space-y-1">
-                                                    {link.children.map((child: any) => (
-                                                        <Link
-                                                            key={child.name}
-                                                            href={child.href}
-                                                            className="flex flex-col p-3 rounded-2xl hover:bg-gray-50 transition-all group/item border border-transparent hover:border-gray-100"
-                                                        >
-                                                            <div className="text-sm font-bold text-gray-900 group-hover/item:text-primary transition-colors">{child.name}</div>
-                                                            {child.desc && <div className="text-[11px] text-gray-400 mt-0.5 font-medium">{child.desc}</div>}
-                                                        </Link>
-                                                    ))}
-                                                </div>
+                                        <Link
+                                            href={link.href}
+                                            className={`flex items-center px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 relative ${isActive
+                                                ? 'text-primary bg-primary/5'
+                                                : 'text-gray-600 hover:text-primary hover:bg-gray-50'
+                                                }`}
+                                        >
+                                            {link.name}
+                                            {link.children && <ChevronDown className={`ml-1.5 w-4 h-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />}
+                                            {isActive && (
+                                                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full" />
                                             )}
-                                        </div>
-                                    )}
-                                </div>
-                            ))}
+                                        </Link>
+
+                                        {/* Dropdown Logic - Improved Shadows */}
+                                        {link.children && (
+                                            <div className={`absolute top-full mt-2 transition-all duration-300 ${activeDropdown === link.name ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-4 invisible'} ${link.name === 'Routes' || link.name === 'Locations' ? 'left-1/2 -translate-x-1/2 origin-top' : link.name === 'Company' || link.name === 'Partners' ? 'right-0 origin-top-right' : 'left-0 origin-top-left'}`}>
+                                                {link.mega ? (
+                                                    <div className="p-10 bg-white rounded-[2.5rem] shadow-[0_30px_70px_-15px_rgba(0,0,0,0.15)] border border-gray-100 min-w-[750px] w-max grid grid-cols-3 xl:grid-cols-4 gap-10">
+                                                        {link.children.map((section: any) => (
+                                                            <div key={section.category}>
+                                                                <div className="text-[10px] font-black uppercase text-gray-400 tracking-[0.2em] mb-6 flex items-center gap-2">
+                                                                    <div className="w-1.5 h-1.5 rounded-full bg-primary/30"></div>
+                                                                    {section.category}
+                                                                </div>
+                                                                <div className="space-y-4">
+                                                                    {section.items.map((item: any) => (
+                                                                        <Link
+                                                                            key={item.name}
+                                                                            href={item.href}
+                                                                            className={`block text-sm font-bold transition-all hover:text-primary hover:translate-x-1 ${pathname === item.href ? 'text-primary' : 'text-gray-600'}`}
+                                                                        >
+                                                                            {item.name}
+                                                                        </Link>
+                                                                    ))}
+                                                                </div>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                ) : (
+                                                    <div className="p-3 bg-white rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] border border-gray-100 w-64 space-y-1">
+                                                        {link.children.map((child: any) => (
+                                                            <Link
+                                                                key={child.name}
+                                                                href={child.href}
+                                                                className={`flex flex-col p-3 rounded-2xl transition-all group/item border border-transparent ${pathname === child.href ? 'bg-primary/5 border-primary/10' : 'hover:bg-gray-50 hover:border-gray-100'}`}
+                                                            >
+                                                                <div className={`text-sm font-bold transition-colors ${pathname === child.href ? 'text-primary' : 'text-gray-900 group-hover/item:text-primary'}`}>{child.name}</div>
+                                                                {child.desc && <div className="text-[11px] text-gray-400 mt-0.5 font-medium">{child.desc}</div>}
+                                                            </Link>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        )}
+                                    </div>
+                                );
+                            })}
 
                             <div className="ml-6 flex items-center gap-3">
                                 <Link
-                                    href="/booking/"
-                                    className="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold px-6 py-2.5 rounded-xl text-sm shadow-md shadow-[#25D366]/20 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
+                                    href="https://wa.me/966569487569"
+                                    target="_blank"
+                                    className="bg-emerald-500 hover:bg-emerald-600 text-white font-black px-6 py-3 rounded-xl text-sm shadow-lg shadow-emerald-500/20 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
                                 >
                                     <WhatsAppIcon className="w-4 h-4 fill-current" />
-                                    WhatsApp Booking
+                                    Book Now
                                 </Link>
                             </div>
                         </nav>
@@ -270,17 +276,17 @@ export default function Navbar() {
                         {/* Mobile Toggle */}
                         <div className="xl:hidden flex items-center gap-3">
                             <Link
-                                href="/booking/"
-                                className="bg-[#25D366] text-white font-black rounded-xl px-4 py-2 text-sm shadow-lg shadow-[#25D366]/20 hover:bg-[#128C7E] transition-colors flex items-center gap-1.5"
+                                href="https://wa.me/966569487569"
+                                target="_blank"
+                                className="bg-emerald-500 text-white font-black rounded-xl px-5 py-2.5 text-sm shadow-lg shadow-emerald-500/20 active:scale-95 transition-all flex items-center gap-1.5"
                             >
                                 <WhatsAppIcon className="w-4 h-4 fill-current" />
-                                Booking
+                                <span className="hidden xs:inline">Quick</span> Booking
                             </Link>
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
-                                className="p-3 bg-gray-50 rounded-xl text-gray-900 focus:ring-2 ring-primary/20"
+                                className="p-3 bg-gray-50 rounded-xl text-gray-900 active:scale-95 transition-all"
                                 aria-label={isOpen ? 'Close menu' : 'Open menu'}
-                                aria-expanded={isOpen}
                             >
                                 {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                             </button>
@@ -289,85 +295,92 @@ export default function Navbar() {
                 </div>
             </header>
 
-            {/* Mobile Menu Side Drawer */}
-            <div className={`xl:hidden fixed inset-0 bg-gray-950/20 backdrop-blur-sm transition-all duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`} onClick={() => setIsOpen(false)} />
+            {/* Mobile Menu Side Drawer - Enhanced Active States */}
+            <div className={`xl:hidden fixed inset-0 bg-gray-950/40 backdrop-blur-sm transition-all duration-300 ${isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`} onClick={() => setIsOpen(false)} />
 
-            <aside className={`xl:hidden fixed top-0 right-0 w-[85%] max-w-sm h-full bg-white z-[110] shadow-2xl transition-transform duration-500 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+            <aside className={`xl:hidden fixed top-0 right-0 w-[85%] max-w-sm h-full bg-white z-[110] shadow-2xl transition-transform duration-500 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                 <div className="flex flex-col h-full">
-                    <div className="p-8 border-b flex justify-between items-center bg-gray-50/50">
-                        <span className="text-xl font-black tracking-tight uppercase">VIP Transfer <span className="text-primary">KSA</span></span>
-                        <button onClick={() => setIsOpen(false)} className="p-2 bg-white rounded-lg shadow-sm"><X className="w-5 h-5" /></button>
+                    <div className="p-8 border-b flex justify-between items-center bg-white">
+                        <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
+                            <div className="bg-primary p-1.5 rounded-lg">
+                                <Car className="w-5 h-5 text-white" />
+                            </div>
+                            <span className="text-xl font-black tracking-tight uppercase">Taxi <span className="text-primary">KSA</span></span>
+                        </Link>
+                        <button onClick={() => setIsOpen(false)} className="p-2 bg-gray-50 rounded-lg active:scale-95 transition-all"><X className="w-5 h-5" /></button>
                     </div>
 
-                    <div className="flex-1 overflow-y-auto py-8 px-6">
-                        <div className="space-y-6">
-                            {navLinks.map((link) => (
-                                <div key={link.name} className="space-y-4">
-                                    <div className="text-[10px] font-black uppercase text-gray-400 tracking-[0.2em]">{link.name}</div>
-                                    <div className="grid grid-cols-1 gap-2">
-                                        {link.children ? (
-                                            <>
-                                                {/* Mobile mega-menu flatten */}
-                                                {link.mega ? (
-                                                    // Flat list for mega menu on mobile
-                                                    link.children.map((section: any) => (
-                                                        <div key={section.category} className="space-y-2 mt-2">
-                                                            <div className="text-[10px] font-bold text-primary px-3 uppercase">{section.category}</div>
-                                                            {section.items.map((item: any) => (
+                    <div className="flex-1 overflow-y-auto py-10 px-8">
+                        <div className="space-y-10">
+                            {navLinks.map((link) => {
+                                const isLinkActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
+                                return (
+                                    <div key={link.name} className="space-y-6">
+                                        <div className="flex items-center justify-between">
+                                            <div className="text-[11px] font-black uppercase text-gray-400 tracking-[0.2em]">{link.name}</div>
+                                            {isLinkActive && <div className="w-1.5 h-1.5 rounded-full bg-primary" />}
+                                        </div>
+                                        <div className="grid grid-cols-1 gap-2">
+                                            {link.children ? (
+                                                <>
+                                                    {link.mega ? (
+                                                        link.children.map((section: any) => (
+                                                            <div key={section.category} className="space-y-2 mt-2">
+                                                                <div className="text-[10px] font-black text-gray-400 px-4 uppercase tracking-widest">{section.category}</div>
+                                                                {section.items.map((item: any) => {
+                                                                    const isItemActive = pathname === item.href;
+                                                                    return (
+                                                                        <Link
+                                                                            key={item.name}
+                                                                            href={item.href}
+                                                                            onClick={() => setIsOpen(false)}
+                                                                            className={`flex items-center gap-3 p-4 text-sm font-bold rounded-2xl transition-all ${isItemActive ? 'bg-primary/5 text-primary' : 'text-gray-600 active:bg-gray-50'}`}
+                                                                        >
+                                                                            <div className={`w-1.5 h-1.5 rounded-full ${isItemActive ? 'bg-primary' : 'bg-gray-200'}`} />
+                                                                            {item.name}
+                                                                        </Link>
+                                                                    );
+                                                                })}
+                                                            </div>
+                                                        ))
+                                                    ) : (
+                                                        link.children.map((child: any) => {
+                                                            const isChildActive = pathname === child.href;
+                                                            return (
                                                                 <Link
-                                                                    key={item.name}
-                                                                    href={item.href}
+                                                                    key={child.name}
+                                                                    href={child.href}
                                                                     onClick={() => setIsOpen(false)}
-                                                                    className="flex items-center gap-3 p-3 text-sm font-bold text-gray-600 rounded-xl hover:bg-gray-50"
+                                                                    className={`flex items-center gap-4 p-4 rounded-2xl font-bold transition-all ${isChildActive ? 'bg-primary/5 text-primary' : 'bg-gray-50 text-gray-900 active:bg-gray-100'}`}
                                                                 >
-                                                                    <div className="w-1.5 h-1.5 rounded-full bg-gray-200" />
-                                                                    {item.name}
+                                                                    <div className={`w-2 h-2 rounded-full ${isChildActive ? 'bg-primary' : 'bg-gray-300'}`} />
+                                                                    {child.name}
                                                                 </Link>
-                                                            ))}
-                                                        </div>
-                                                    ))
-                                                ) : (
-                                                    link.children.map((child: any) => (
-                                                        <Link
-                                                            key={child.name}
-                                                            href={child.href}
-                                                            onClick={() => setIsOpen(false)}
-                                                            className="flex items-center gap-4 p-4 rounded-2xl bg-gray-50 font-bold text-gray-900"
-                                                        >
-                                                            <div className="w-2 h-2 rounded-full bg-primary" />
-                                                            {child.name}
-                                                        </Link>
-                                                    ))
-                                                )}
-                                            </>
-                                        ) : (
-                                            <Link
-                                                href={link.href}
-                                                onClick={() => setIsOpen(false)}
-                                                className="flex items-center gap-4 p-4 rounded-2xl bg-gray-50 font-bold text-gray-900"
-                                            >
-                                                {/* Mobile icon link */}
-                                                <link.icon className="w-5 h-5 text-primary" />
-                                                {link.name}
-                                            </Link>
-                                        )}
+                                                            );
+                                                        })
+                                                    )}
+                                                </>
+                                            ) : (
+                                                <Link
+                                                    href={link.href}
+                                                    onClick={() => setIsOpen(false)}
+                                                    className={`flex items-center gap-4 p-5 rounded-2xl font-bold transition-all ${isLinkActive ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'bg-gray-50 text-gray-900 active:bg-gray-100'}`}
+                                                >
+                                                    <link.icon className={`w-5 h-5 ${isLinkActive ? 'text-white' : 'text-primary'}`} />
+                                                    {link.name}
+                                                </Link>
+                                            )}
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
 
                     <div className="p-8 bg-gray-50 border-t space-y-6">
-                        <div className="flex items-center gap-4">
-                            <div className="bg-primary/10 p-3 rounded-xl"><Mail className="w-5 h-5 text-primary" /></div>
-                            <div>
-                                <div className="text-[10px] font-black text-gray-400 uppercase tracking-widest leading-none mb-1">VIP Reservations</div>
-                                <div className="text-sm font-bold text-gray-900">info@taxiserviceksa.com</div>
-                            </div>
-                        </div>
-                        <Link href="/booking/" onClick={() => setIsOpen(false)} className="block w-full">
-                            <div className="w-full bg-primary hover:bg-black text-white font-black h-16 rounded-2xl shadow-xl shadow-primary/20 flex items-center justify-center transition-colors">
-                                Request Quotation
+                        <Link href="https://wa.me/966569487569" onClick={() => setIsOpen(false)} className="block w-full">
+                            <div className="w-full bg-primary hover:bg-black text-white font-black h-16 rounded-2xl shadow-xl shadow-primary/20 flex items-center justify-center transition-all active:scale-95">
+                                Book via WhatsApp
                             </div>
                         </Link>
                     </div>

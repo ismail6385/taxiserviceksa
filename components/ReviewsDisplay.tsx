@@ -57,72 +57,63 @@ export default function ReviewsDisplay({ location, service, limit = 4 }: Reviews
     }
 
     return (
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {reviews.map((review) => (
-                <div key={review.id} className="bg-white rounded-xl p-6 border-2 border-gray-100 hover:border-primary/30 transition-all shadow-sm">
-                    {/* Rating */}
-                    <div className="flex items-center gap-2 mb-3">
-                        <div className="flex">
+                <div key={review.id} className="bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300">
+                    {/* Header: Rating & Date */}
+                    <div className="flex items-center justify-between mb-6">
+                        <div className="flex gap-1">
                             {[1, 2, 3, 4, 5].map((star) => (
                                 <Star
                                     key={star}
-                                    className={`w-5 h-5 ${star <= review.rating
+                                    className={`w-4 h-4 ${star <= review.rating
                                             ? 'fill-primary text-primary'
-                                            : 'text-gray-300'
+                                            : 'text-gray-200'
                                         }`}
                                 />
                             ))}
                         </div>
-                        <span className="text-sm font-semibold text-gray-600">
-                            {review.rating}.0 out of 5
-                        </span>
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
-                        {review.title}
-                    </h3>
-
-                    {/* Review Text */}
-                    <div className="relative mb-4">
-                        <Quote className="absolute -top-2 -left-2 w-8 h-8 text-primary/20" />
-                        <p className="text-gray-700 leading-relaxed pl-6">
-                            {review.review}
-                        </p>
-                    </div>
-
-                    {/* Meta Info */}
-                    <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-4">
-                        <span className="font-semibold text-gray-900">{review.name}</span>
-                        {review.route && (
-                            <span className="flex items-center gap-1">
-                                <MapPin className="w-4 h-4" />
-                                {review.route}
-                            </span>
-                        )}
                         {review.travel_date && (
-                            <span className="flex items-center gap-1">
-                                <Calendar className="w-4 h-4" />
+                            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                                 {new Date(review.travel_date).toLocaleDateString('en-US', {
                                     month: 'short',
                                     year: 'numeric'
                                 })}
                             </span>
                         )}
+                    </div>
+
+                    {/* Review Content */}
+                    <h3 className="text-lg font-bold text-gray-900 mb-3">{review.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-6 italic">
+                        "{review.review}"
+                    </p>
+
+                    {/* Author & Context */}
+                    <div className="flex items-center justify-between pt-6 border-t border-gray-50">
+                        <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-black text-xs">
+                                {review.name.charAt(0)}
+                            </div>
+                            <div>
+                                <span className="text-sm font-bold text-gray-900 block">{review.name}</span>
+                                {review.route && (
+                                    <span className="text-[10px] text-gray-400 uppercase tracking-wider">{review.route}</span>
+                                )}
+                            </div>
+                        </div>
                         {review.location && (
-                            <span className="bg-gray-100 px-2 py-1 rounded text-xs font-medium">
+                            <span className="text-[10px] font-bold text-primary uppercase tracking-widest bg-primary/5 px-2 py-1 rounded">
                                 {review.location}
                             </span>
                         )}
                     </div>
 
-                    {/* Admin Response */}
+                    {/* Admin Response - Elegant Integration */}
                     {review.admin_response && (
-                        <div className="mt-4 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                            <div className="text-sm font-bold text-blue-900 mb-1">
-                                Response from Taxi Service KSA:
-                            </div>
-                            <p className="text-blue-800 text-sm">
+                        <div className="mt-6 p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                            <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest block mb-2">Team Response</span>
+                            <p className="text-xs text-gray-600 leading-relaxed">
                                 {review.admin_response}
                             </p>
                         </div>

@@ -229,59 +229,64 @@ export default async function AirportTransfersPage() {
                     <div className="absolute inset-0 bg-[url('/hero-slide-3.webp')] bg-cover bg-center"></div>
                 </div>
 
-                <div className="max-w-7xl mx-auto relative z-10">
-                    <div className="text-center mb-12">
-                        <span className="bg-black text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4 text-glow">
-                            Expert Aviation Logistics
-                        </span>
-                        <p className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                            Saudi Arabia Airport Transfer Service
-                        </p>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                            Reliable <strong>24/7 airport pickups</strong> and departures across the Kingdom's major travel hubs. We provide <strong>meet-and-greet</strong> services at 8 airports, including the new <strong>Jeddah Terminal 1</strong> and <strong>Riyadh Terminal 3/4</strong>, for zero-wait arrivals.
-                        </p>
+                <div className="max-w-7xl mx-auto relative z-10 text-center">
+                    <span className="bg-primary/20 text-primary font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4 backdrop-blur-sm border border-primary/20">
+                        Expert Aviation Logistics
+                    </span>
+                    <h1 className="text-4xl md:text-6xl font-black text-white mb-6 px-4 leading-tight">
+                        VIP Airport Private Transfers<br />
+                        <span className="text-primary">In Saudi Arabia</span>
+                    </h1>
+                    <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 mb-10">
+                        Reliable <strong>24/7 airport pickups</strong> and departures across the Kingdom's major travel hubs. Experience international standard meet-and-greet services at 8 airports, including <strong>Jeddah Terminal 1</strong> and <strong>Riyadh Terminal 3/4</strong>.
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4 mb-12">
+                        <Button asChild size="lg" className="bg-primary hover:bg-emerald-600 text-white font-black text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
+                            <Link href="https://wa.me/966552202642?text=Hello,%20I%20want%20to%20book%20Airport%20Transfer" target="_blank">
+                                Book via WhatsApp
+                                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </Button>
+                        <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-md text-white border-white/20 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl transition-all w-full sm:w-auto">
+                            <Link href="/booking/">
+                                Get Pricing
+                            </Link>
+                        </Button>
                     </div>
 
                     {/* AI SEO: TL;DR Summary Block */}
-                    <div className="bg-sky-50 rounded-2xl p-8 border border-sky-100 shadow-sm mb-12">
-                        <p className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                            <Plane className="w-5 h-5 text-sky-700" />
+                    <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shadow-2xl mb-12 text-left max-w-4xl mx-auto">
+                        <p className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                            <Plane className="w-5 h-5 text-primary" />
                             TL;DR: KSA Airport Transport Quick Facts
                         </p>
-                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-sm">
-                            <li><strong>Major Hubs:</strong> JED (Jeddah), RUH (Riyadh), MED (Madinah), ULH (AlUla).</li>
-                            <li><strong>Wait Policy:</strong> 60 mins (Domestic) & 90 mins (International) free waiting.</li>
-                            <li><strong>Tracking:</strong> Real-time flight tracking is standard for all bookings.</li>
-                            <li><strong>Pickups:</strong> Professional drivers meet you at the <strong>Arrivals Terminal</strong> with a name sign.</li>
+                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-300 text-sm">
+                            <li><strong className="text-white">Major Hubs:</strong> JED (Jeddah), RUH (Riyadh), MED (Madinah), ULH (AlUla).</li>
+                            <li><strong className="text-white">Wait Policy:</strong> 60 mins (Domestic) & 90 mins (International) free waiting.</li>
+                            <li><strong className="text-white">Tracking:</strong> Real-time flight tracking is standard for all bookings.</li>
+                            <li><strong className="text-white">Pickups:</strong> Professional drivers meet you at the <strong className="text-white">Arrivals Terminal</strong> with a name sign.</li>
                         </ul>
                     </div>
-                    <div className="text-center mb-12">
-                        <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-6">
-                            Airport Transfer Service
-                        </span>
-                        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                            VIP Airport Private Transfers<br />
-                            <span className="text-blue-400">In Saudi Arabia</span>
-                        </h1>
-                        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                            Experience international standard meet-and-greet services. We provide **premium, pre-booked VIP private transfers** from <Link href="/locations/jeddah/" className="text-white underline hover:text-blue-400 transition-colors">Jeddah Airport</Link> to <span className="text-white font-bold">Al-Hamra</span>, <span className="text-white font-bold">Abraj Al-Bait</span>, and all major KSA hubs. Our executive chauffeur service handles complex logistics for **Aziziyah pilgrim hubs** and **Riyadh's KAFD**, ensuring you reach your destination with absolute privacy.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link href="/booking?service=airport-transfer">
-                                <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
-                                    Request a quote for airport Transfer
-                                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </Button>
-                            </Link>
-                            <a href="mailto:info@taxiserviceksa.com">
-                                <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
-                                    Email for Quote
-                                </Button>
-                            </a>
+
+                    {/* New Section: Enterprise SEO & Scale (As requested) */}
+                    <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 shadow-2xl max-w-4xl mx-auto text-left mt-8">
+                        <h2 className="text-2xl font-bold text-white mb-4">Enterprise SEO for Global Aviation Hubs</h2>
+                        <div className="text-gray-300 space-y-4 text-sm md:text-base leading-relaxed">
+                            <p>
+                                Enterprise SEO is the practice of improving search engine rankings for a large, enterprise company. For a logistics provider like <strong>Taxi Service KSA</strong>, scaling content and technical SEO management is essential.
+                            </p>
+                            <p>
+                                With over 8 major airports and hundreds of route variations, our enterprise SEO strategy ensures that every traveler finding us for <strong>Jeddah Airport VIP Transfers</strong> or <strong>Riyadh Executive Shuttles</strong> gets the most relevant, real-time information.
+                            </p>
+                            <p>
+                                Many traditional SEO approaches aren’t going to work all that well on a site with complex transit networks. We adapt key enterprise SEO best practices—including automated schema and entity salience—to optimize thousands of pages for the modern traveler.
+                            </p>
                         </div>
                     </div>
                 </div>
             </section>
+
 
             {/* Airports Coverage Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">

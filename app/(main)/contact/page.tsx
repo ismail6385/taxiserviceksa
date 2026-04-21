@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState } from 'react';
@@ -10,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 // Simplified Validation Schema for Higher Conversion
 const formSchema = z.object({
@@ -113,6 +115,12 @@ export default function ContactPage() {
 
     return (
         <div className="flex flex-col min-h-screen bg-white">
+            <JsonLdBreadcrumb 
+                items={[
+                    { name: 'Home', item: '/' },
+                    { name: 'Contact', item: '/contact' }
+                ]}
+            />
             {/* Structured Data */}
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: faqSchemaCode }} />
             <script

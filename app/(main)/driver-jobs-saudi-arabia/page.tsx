@@ -1,13 +1,14 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { MapPin, ArrowRight, Car, Building2, Plane, Navigation2 } from 'lucide-react';
+import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 export const metadata: Metadata = {
     title: 'Driver Jobs Saudi Arabia: Earn High Income with Your Car',
     description: 'Looking for driver jobs Saudi Arabia? Join our VIP chauffeur network. Find premium taxi driver jobs KSA in Riyadh, Jeddah, Makkah, and 15+ other cities.',
     keywords: ['driver jobs Saudi Arabia', 'taxi driver jobs KSA', 'chauffeur jobs Saudi', 'VIP driver KSA', 'private driver network'],
     alternates: {
-        canonical: '/driver-jobs-saudi-arabia',
+        canonical: 'https://taxiserviceksa.com/driver-jobs-saudi-arabia',
     }
 };
 
@@ -35,6 +36,12 @@ const cities = [
 export default function DriverJobsSaudiHub() {
     return (
         <main className="min-h-screen bg-gray-50">
+            <JsonLdBreadcrumb 
+                items={[
+                    { name: 'Home', item: '/' },
+                    { name: 'Driver Jobs KSA', item: '/driver-jobs-saudi-arabia' }
+                ]}
+            />
             {/* Header Section */}
             <div className="bg-gray-950 text-white pt-32 pb-20 px-4 relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>

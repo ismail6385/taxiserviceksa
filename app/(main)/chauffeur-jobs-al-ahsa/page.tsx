@@ -1,18 +1,44 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import JsonLdJobPosting from '@/components/seo/JsonLdJobPosting';
+import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 export const metadata: Metadata = {
     title: 'Chauffeur Jobs in Al Ahsa - Premium Opportunities',
     description: 'Looking for chauffeur jobs in Al Ahsa? Join as a professional VIP driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Al Ahsa', 'chauffeur jobs in Al Ahsa', 'VIP drivers Al Ahsa'],
     alternates: {
-        canonical: '/chauffeur-jobs-al-ahsa',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-al-ahsa',
     }
 };
 
-export default function chauffeurjobsalahsaPage() {
+export default function ChauffeurJobsAlAhsaPage() {
     return (
         <main className="min-h-screen bg-white">
+            <JsonLdBreadcrumb 
+                items={[
+                    { name: 'Home', item: '/' },
+                    { name: 'Al Ahsa Jobs', item: '/chauffeur-jobs-al-ahsa' }
+                ]}
+            />
+            <JsonLdJobPosting 
+                title="VIP Chauffeur - Al Ahsa"
+                description="Join our elite network of professional chauffeurs in Al Ahsa. We are looking for drivers with their own 2020+ model cars to serve VIP clients, tourists visiting the Oasis, and corporate travelers. High income potential with regional tourism and long-distance transfers to Dammam/Riyadh."
+                datePosted="2025-01-01"
+                validThrough="2025-12-31"
+                employmentType="FULL_TIME"
+                hiringOrganization="Taxi Service KSA"
+                jobLocation={{
+                    addressLocality: "Al Ahsa",
+                    addressRegion: "Eastern Province",
+                    addressCountry: "SA"
+                }}
+                baseSalary={{
+                    currency: "SAR",
+                    value: 7500,
+                    unitText: "MONTH"
+                }}
+            />
             <div className="bg-gray-950 text-white pt-32 pb-16 px-4">
                 <div className="max-w-3xl mx-auto text-center">
                     <span className="bg-primary/20 text-primary px-4 py-1.5 rounded-full text-sm font-semibold uppercase tracking-wider mb-6 inline-block">
