@@ -84,6 +84,444 @@ const locations = [
         description: 'Giga-project transfers and intercity services to NEOM and AlUla.',
         image: '/hero-slide-1.webp',
         href: '/locations/tabuk/'
+    },
+    {
+        name: 'Abha',
+        description: 'Explore the highest peaks and coolest climates of the Aseer region.',
+        image: '/hero-slide-4.webp',
+        href: '/locations/abha/'
+    },
+    {
+        name: 'Jubail',
+        description: 'Executive transport to the largest industrial city in the Middle East.',
+        image: '/hero-slide-5.webp',
+        href: '/locations/jubail/'
+    },
+    {
+        name: 'NEOM',
+        description: 'Professional transfers to the future of urban living and development.',
+        image: '/hero-slide-1.webp',
+        href: '/locations/neom/'
+    },
+    {
+        name: 'Makkah Ziyarat',
+        description: 'Respectful and comprehensive spiritual tours of Makkah\'s holy sites.',
+        image: '/makkah-grand-mosque.webp',
+        href: '/locations/makkah-ziyarat/'
+    },
+    {
+        name: 'Jeddah to Makkah',
+        description: 'Seamless transfers from the airport directly to your hotel in Makkah.',
+        image: '/jeddah_makkah_route_map.png',
+        href: '/locations/jeddah-makkah/'
+    },
+    {
+        name: 'Khamis Mushait',
+        description: 'VIP transfers and corporate transport in the Aseer region commercial hub.',
+        image: '/hero-slide-2.webp',
+        href: '/locations/khamis-mushait/'
+    },
+    {
+        name: 'Hail',
+        description: 'Explore the north with our premium executive transport and tours.',
+        image: '/hero-slide-3.webp',
+        href: '/locations/hail/'
+    },
+    {
+        name: 'Buraidah',
+        description: 'Reliable private transfers in the heart of the Qassim agricultural region.',
+        image: '/hero-slide-1.webp',
+        href: '/locations/buraidah/'
+    },
+    {
+        name: 'Najran',
+        description: 'Secure and comfortable rides to the southern historical border city.',
+        image: '/hero-slide-4.webp',
+        href: '/locations/najran/'
+    },
+    {
+        name: 'Al Qassim',
+        description: 'Professional chauffeur services connecting the towns of Al Qassim.',
+        image: '/hero-slide-5.webp',
+        href: '/locations/al-qassim/'
+    },
+    {
+        name: 'Al Ahsa',
+        description: 'Premium transport to the largest UNESCO world heritage oasis.',
+        image: '/hero-slide-2.webp',
+        href: '/locations/al-ahsa/'
+    },
+    {
+        name: 'Jizan',
+        description: 'Professional intercity transfer and taxi services for Jizan.',
+        image: '/hero-slide-1.webp',
+        href: '/locations/jizan/'
+    },
+    {
+        name: 'Sakaka',
+        description: 'Professional intercity transfer and taxi services for Sakaka.',
+        image: '/hero-slide-2.webp',
+        href: '/locations/sakaka/'
+    },
+    {
+        name: 'Arar',
+        description: 'Professional intercity transfer and taxi services for Arar.',
+        image: '/hero-slide-3.webp',
+        href: '/locations/arar/'
+    },
+    {
+        name: 'Al Bahah',
+        description: 'Professional intercity transfer and taxi services for Al Bahah.',
+        image: '/hero-slide-4.webp',
+        href: '/locations/al-bahah/'
+    },
+    {
+        name: 'Al Majma\'ah',
+        description: 'Professional intercity transfer and taxi services for Al Majma\'ah.',
+        image: '/hero-slide-5.webp',
+        href: '/locations/al-majmaah/'
+    },
+    {
+        name: 'Hofuf',
+        description: 'Professional intercity transfer and taxi services for Hofuf.',
+        image: '/hero-slide-1.webp',
+        href: '/locations/hofuf/'
+    },
+    {
+        name: 'Khafji',
+        description: 'Professional intercity transfer and taxi services for Khafji.',
+        image: '/hero-slide-2.webp',
+        href: '/locations/khafji/'
+    },
+    {
+        name: 'Qurayyat',
+        description: 'Professional intercity transfer and taxi services for Qurayyat.',
+        image: '/hero-slide-3.webp',
+        href: '/locations/qurayyat/'
+    },
+    {
+        name: 'Turaif',
+        description: 'Professional intercity transfer and taxi services for Turaif.',
+        image: '/hero-slide-4.webp',
+        href: '/locations/turaif/'
+    },
+    {
+        name: 'Duba',
+        description: 'Professional intercity transfer and taxi services for Duba.',
+        image: '/hero-slide-5.webp',
+        href: '/locations/duba/'
+    },
+    {
+        name: 'Umluj',
+        description: 'Professional intercity transfer and taxi services for Umluj.',
+        image: '/hero-slide-1.webp',
+        href: '/locations/umluj/'
+    },
+    {
+        name: 'Hafar Al Batin',
+        description: 'Professional intercity transfer and taxi services for Hafar Al Batin.',
+        image: '/hero-slide-2.webp',
+        href: '/locations/hafar-al-batin/'
+    },
+    {
+        name: 'Rabigh',
+        description: 'Professional intercity transfer and taxi services for Rabigh.',
+        image: '/hero-slide-3.webp',
+        href: '/locations/rabigh/'
+    },
+    {
+        name: 'Al Lith',
+        description: 'Professional intercity transfer and taxi services for Al Lith.',
+        image: '/hero-slide-4.webp',
+        href: '/locations/al-lith/'
+    },
+    {
+        name: 'Al Wajh',
+        description: 'Professional intercity transfer and taxi services for Al Wajh.',
+        image: '/hero-slide-5.webp',
+        href: '/locations/al-wajh/'
+    },
+    {
+        name: 'Khulais',
+        description: 'Professional intercity transfer and taxi services for Khulais.',
+        image: '/hero-slide-1.webp',
+        href: '/locations/khulais/'
+    },
+    {
+        name: 'Thadiq',
+        description: 'Professional intercity transfer and taxi services for Thadiq.',
+        image: '/hero-slide-2.webp',
+        href: '/locations/thadiq/'
+    },
+    {
+        name: 'Zulfi',
+        description: 'Professional intercity transfer and taxi services for Zulfi.',
+        image: '/hero-slide-3.webp',
+        href: '/locations/zulfi/'
+    },
+    {
+        name: 'Dariya',
+        description: 'Professional intercity transfer and taxi services for Dariya.',
+        image: '/hero-slide-4.webp',
+        href: '/locations/dariya/'
+    },
+    {
+        name: 'Al-Qunfudhah',
+        description: 'Professional intercity transfer and taxi services for Al-Qunfudhah.',
+        image: '/hero-slide-5.webp',
+        href: '/locations/al-qunfudhah/'
+    },
+    {
+        name: 'Bishah',
+        description: 'Professional intercity transfer and taxi services for Bishah.',
+        image: '/hero-slide-1.webp',
+        href: '/locations/bishah/'
+    },
+    {
+        name: 'Mahad al-Dhahab',
+        description: 'Professional intercity transfer and taxi services for Mahad al-Dhahab.',
+        image: '/hero-slide-2.webp',
+        href: '/locations/mahad-al-dhahab/'
+    },
+    {
+        name: 'Afif',
+        description: 'Professional intercity transfer and taxi services for Afif.',
+        image: '/hero-slide-3.webp',
+        href: '/locations/afif/'
+    },
+    {
+        name: 'Dawadmi',
+        description: 'Professional intercity transfer and taxi services for Dawadmi.',
+        image: '/hero-slide-4.webp',
+        href: '/locations/dawadmi/'
+    },
+    {
+        name: 'Wadi ad-Dawasir',
+        description: 'Professional intercity transfer and taxi services for Wadi ad-Dawasir.',
+        image: '/hero-slide-5.webp',
+        href: '/locations/wadi-ad-dawasir/'
+    },
+    {
+        name: 'Sharurah',
+        description: 'Professional intercity transfer and taxi services for Sharurah.',
+        image: '/hero-slide-1.webp',
+        href: '/locations/sharurah/'
+    },
+    {
+        name: 'Baljurashi',
+        description: 'Professional intercity transfer and taxi services for Baljurashi.',
+        image: '/hero-slide-2.webp',
+        href: '/locations/baljurashi/'
+    },
+    {
+        name: 'Sabya',
+        description: 'Professional intercity transfer and taxi services for Sabya.',
+        image: '/hero-slide-3.webp',
+        href: '/locations/sabya/'
+    },
+    {
+        name: 'Abu Arish',
+        description: 'Professional intercity transfer and taxi services for Abu Arish.',
+        image: '/hero-slide-4.webp',
+        href: '/locations/abu-arish/'
+    },
+    {
+        name: 'Samtah',
+        description: 'Professional intercity transfer and taxi services for Samtah.',
+        image: '/hero-slide-5.webp',
+        href: '/locations/samtah/'
+    },
+    {
+        name: 'Unaizah',
+        description: 'Professional intercity transfer and taxi services for Unaizah.',
+        image: '/hero-slide-1.webp',
+        href: '/locations/unaizah/'
+    },
+    {
+        name: 'Al-Rass',
+        description: 'Professional intercity transfer and taxi services for Al-Rass.',
+        image: '/hero-slide-2.webp',
+        href: '/locations/al-rass/'
+    },
+    {
+        name: 'Al-Kharj',
+        description: 'Professional intercity transfer and taxi services for Al-Kharj.',
+        image: '/hero-slide-3.webp',
+        href: '/locations/al-kharj/'
+    },
+    {
+        name: 'Al-Muzahmiyya',
+        description: 'Professional intercity transfer and taxi services for Al-Muzahmiyya.',
+        image: '/hero-slide-4.webp',
+        href: '/locations/al-muzahmiyya/'
+    },
+    {
+        name: 'Al-Quway\'iyah',
+        description: 'Professional intercity transfer and taxi services for Al-Quway\'iyah.',
+        image: '/hero-slide-5.webp',
+        href: '/locations/al-quwayiyah/'
+    },
+    {
+        name: 'Huraymila',
+        description: 'Professional intercity transfer and taxi services for Huraymila.',
+        image: '/hero-slide-1.webp',
+        href: '/locations/huraymila/'
+    },
+    {
+        name: 'Rumah',
+        description: 'Professional intercity transfer and taxi services for Rumah.',
+        image: '/hero-slide-2.webp',
+        href: '/locations/rumah/'
+    },
+    {
+        name: 'Al-Ghat',
+        description: 'Professional intercity transfer and taxi services for Al-Ghat.',
+        image: '/hero-slide-3.webp',
+        href: '/locations/al-ghat/'
+    },
+    {
+        name: 'Al-Bukayriyah',
+        description: 'Professional intercity transfer and taxi services for Al-Bukayriyah.',
+        image: '/hero-slide-4.webp',
+        href: '/locations/al-bukayriyah/'
+    },
+    {
+        name: 'Al-Badai',
+        description: 'Professional intercity transfer and taxi services for Al-Badai.',
+        image: '/hero-slide-5.webp',
+        href: '/locations/al-badai/'
+    },
+    {
+        name: 'Al-Midhnab',
+        description: 'Professional intercity transfer and taxi services for Al-Midhnab.',
+        image: '/hero-slide-1.webp',
+        href: '/locations/al-midhnab/'
+    },
+    {
+        name: 'Al-Uyun',
+        description: 'Professional intercity transfer and taxi services for Al-Uyun.',
+        image: '/hero-slide-2.webp',
+        href: '/locations/al-uyun/'
+    },
+    {
+        name: 'Al-Jafr',
+        description: 'Professional intercity transfer and taxi services for Al-Jafr.',
+        image: '/hero-slide-3.webp',
+        href: '/locations/al-jafr/'
+    },
+    {
+        name: 'Al-Mubarraz',
+        description: 'Professional intercity transfer and taxi services for Al-Mubarraz.',
+        image: '/hero-slide-4.webp',
+        href: '/locations/al-mubarraz/'
+    },
+    {
+        name: 'Buqayq',
+        description: 'Professional intercity transfer and taxi services for Buqayq.',
+        image: '/hero-slide-5.webp',
+        href: '/locations/buqayq/'
+    },
+    {
+        name: 'Al-Nairyah',
+        description: 'Professional intercity transfer and taxi services for Al-Nairyah.',
+        image: '/hero-slide-1.webp',
+        href: '/locations/al-nairyah/'
+    },
+    {
+        name: 'Tayma',
+        description: 'Professional intercity transfer and taxi services for Tayma.',
+        image: '/hero-slide-2.webp',
+        href: '/locations/tayma/'
+    },
+    {
+        name: 'Al-Bad',
+        description: 'Professional intercity transfer and taxi services for Al-Bad.',
+        image: '/hero-slide-3.webp',
+        href: '/locations/al-bad/'
+    },
+    {
+        name: 'Haql',
+        description: 'Professional intercity transfer and taxi services for Haql.',
+        image: '/hero-slide-4.webp',
+        href: '/locations/haql/'
+    },
+    {
+        name: 'Sharma',
+        description: 'Professional intercity transfer and taxi services for Sharma.',
+        image: '/hero-slide-5.webp',
+        href: '/locations/sharma/'
+    },
+    {
+        name: 'Magna',
+        description: 'Professional intercity transfer and taxi services for Magna.',
+        image: '/hero-slide-1.webp',
+        href: '/locations/magna/'
+    },
+    {
+        name: 'Al Rais',
+        description: 'Professional intercity transfer and taxi services for Al Rais.',
+        image: '/hero-slide-2.webp',
+        href: '/locations/al-rais/'
+    },
+    {
+        name: 'Thuwal',
+        description: 'Professional intercity transfer and taxi services for Thuwal.',
+        image: '/hero-slide-3.webp',
+        href: '/locations/thuwal/'
+    },
+    {
+        name: 'KAEC',
+        description: 'Professional intercity transfer and taxi services for KAEC.',
+        image: '/hero-slide-4.webp',
+        href: '/locations/kaec/'
+    },
+    {
+        name: 'Masturah',
+        description: 'Professional intercity transfer and taxi services for Masturah.',
+        image: '/hero-slide-5.webp',
+        href: '/locations/masturah/'
+    },
+    {
+        name: 'Dhahban',
+        description: 'Professional intercity transfer and taxi services for Dhahban.',
+        image: '/hero-slide-1.webp',
+        href: '/locations/dhahban/'
+    },
+    {
+        name: 'Qilwah',
+        description: 'Professional intercity transfer and taxi services for Qilwah.',
+        image: '/hero-slide-2.webp',
+        href: '/locations/qilwah/'
+    },
+    {
+        name: 'Al Makhwah',
+        description: 'Professional intercity transfer and taxi services for Al Makhwah.',
+        image: '/hero-slide-3.webp',
+        href: '/locations/al-makhwah/'
+    },
+    {
+        name: 'Al Namas',
+        description: 'Professional intercity transfer and taxi services for Al Namas.',
+        image: '/hero-slide-4.webp',
+        href: '/locations/al-namas/'
+    },
+    {
+        name: 'Tanuma',
+        description: 'Professional intercity transfer and taxi services for Tanuma.',
+        image: '/hero-slide-5.webp',
+        href: '/locations/tanuma/'
+    },
+    {
+        name: 'Bareq',
+        description: 'Professional intercity transfer and taxi services for Bareq.',
+        image: '/hero-slide-1.webp',
+        href: '/locations/bareq/'
+    },
+    {
+        name: 'Al Majardah',
+        description: 'Professional intercity transfer and taxi services for Al Majardah.',
+        image: '/hero-slide-2.webp',
+        href: '/locations/al-majardah/'
     }
 ];
 

@@ -294,17 +294,17 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                 h1Text="VIP Taxi Service Saudi Arabia"
                 subtitle="Professional Chauffeur Service for Borders, Airports, Tourist Spots, and Executive Intercity Travel across the Kingdom."
             >
-                <div className="flex flex-col sm:flex-row items-center gap-4 mt-6">
-                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank" rel="nofollow noopener noreferrer">
-                        <Button size="lg" className="bg-emerald-600 border-none text-white hover:bg-emerald-700 font-bold transition-all shadow-xl flex items-center gap-2 h-14 px-8 rounded-2xl">
-                            <WhatsAppIcon className="w-6 h-6 fill-current" />
-                            WhatsApp Booking via WhatsApp
-                        </Button>
-                    </a>
-                    <Link href="/locations/" className="text-white/90 hover:text-accent underline underline-offset-4 text-xs sm:text-sm font-medium inline-flex items-center gap-2 transition-colors">
-                        Service coverage across 8 cities in Saudi Arabia <ArrowRight className="w-4 h-4" />
-                    </Link>
-                </div>
+
+
+
+
+
+
+
+
+
+
+
             </Hero>
 
             {/* AI SEO: Early TL;DR for Generative Engine Extraction */}
