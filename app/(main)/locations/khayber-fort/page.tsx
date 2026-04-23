@@ -418,6 +418,7 @@ export default function KhayberPage() {
                         <DistanceTable origin="Khaybar Welcome Center" locations={distanceData} />
                     </div>
 
+
                     <div className="mt-16">
                         <TravelConsensus
                         contextName="Khayber Fort"
@@ -469,30 +470,6 @@ export default function KhayberPage() {
                                         { label: "Supplies", value: "Full catering provided" }
                                     ],
                                     visualContext: "Satellite map showing the white cinder cones."
-                                }
-                            ]}
-                        />
-                    </div>
-
-                    <div className="mt-16">
-                        <MicroSemanticFAQ
-                            theme="dark"
-                            faqs={[
-                                {
-                                    question: "Can we walk inside the forts?",
-                                    shortAnswer: "Restricted",
-                                    detailedAnswer: "Most forts are unstable and fenced off for safety. There are designated viewing platforms and walkways built by the RCU.",
-                                    perspectives: [
-                                        { role: "Safety Officer", icon: "Shield", insight: "Falling rocks are a real hazard. Stick to the wooden paths." }
-                                    ]
-                                },
-                                {
-                                    question: "Are there restrooms?",
-                                    shortAnswer: "At Welcome Center Only",
-                                    detailedAnswer: "Once you enter the oasis trail, there are NO facilities. Use the restrooms at the Welcome Center before starting the tour.",
-                                    perspectives: [
-                                        { role: "Guide", icon: "MapPin", insight: "Plan ahead. The tour loop can take 2 hours." }
-                                    ]
                                 }
                             ]}
                         />

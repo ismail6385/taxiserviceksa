@@ -34,6 +34,8 @@ interface Booking {
     status: string;
     special_requests?: string;
     total_price?: number;
+    currency?: string;
+    payment_method?: string;
 }
 
 export default function LetterheadPage() {
@@ -42,6 +44,7 @@ export default function LetterheadPage() {
     const [booking, setBooking] = useState<Booking | null>(null);
     const [loading, setLoading] = useState(true);
     const [quickNote, setQuickNote] = useState('');
+    const [sendingEmail, setSendingEmail] = useState(false);
 
     useEffect(() => {
         const fetchBooking = async () => {
@@ -66,20 +69,59 @@ export default function LetterheadPage() {
 
     const handlePrint = async () => {
         if (!booking) return;
-        const customerName = booking.customer_name ? booking.customer_name.replace(/\s+/g, '-') : 'Client';
-        const refId = booking.id.slice(0, 8).toUpperCase();
-        const dateStr = booking.pickup_date || new Date().toISOString().split('T')[0];
-        const filename = `Quotation-${refId}-${customerName}-${dateStr}.pdf`;
-        const element = document.getElementById('printable-area');
-        if (!element) return;
-        // A4 dimensions in mm
-        const a4W = 210;
-        const a4H = 297;
-        const canvas = await html2canvas(element, { scale: 2, useCORS: true, scrollY: 0 });
-        const imgData = canvas.toDataURL('image/jpeg', 0.98);
-        const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
-        pdf.addImage(imgData, 'JPEG', 0, 0, a4W, a4H);
-        pdf.save(filename);
+
+        setSendingEmail(true);
+        try {
+            const element = document.getElementById('printable-area');
+            if (!element) return;
+
+            // 1. Generate PDF (as base64 for email AND as download)
+            const customerName = booking.customer_name ? booking.customer_name.replace(/\s+/g, '-') : 'Client';
+            const refId = booking.id.slice(0, 8).toUpperCase();
+            const dateStr = booking.pickup_date || new Date().toISOString().split('T')[0];
+            const filename = `Quotation-${refId}-${customerName}-${dateStr}.pdf`;
+
+            const a4W = 210;
+            const a4H = 297;
+            const canvas = await html2canvas(element, { scale: 2, useCORS: true, scrollY: 0 });
+            const imgData = canvas.toDataURL('image/jpeg', 0.98);
+            const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+            pdf.addImage(imgData, 'JPEG', 0, 0, a4W, a4H);
+            
+            // Get base64 string (without the "data:application/pdf;base64," prefix)
+            const pdfBase64 = pdf.output('datauristring').split(',')[1];
+
+            // 2. Send Email with PDF attachment
+            const emailRes = await fetch('/api/send-quote-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    booking: { 
+                        ...booking, 
+                        special_requests: quickNote.trim() 
+                            ? `${booking.special_requests || ''}\nNote: ${quickNote}` 
+                            : booking.special_requests 
+                    }, 
+                    currency: booking.currency || 'SAR',
+                    pdfBase64,
+                    pdfFilename: filename,
+                }),
+            });
+
+            if (!emailRes.ok) {
+                console.error('Failed to send quote email');
+            }
+
+            // 3. Also download PDF locally
+            pdf.save(filename);
+            
+            alert("✅ Quotation emailed with PDF attachment & downloaded successfully!");
+        } catch (error) {
+            console.error('Error in handlePrint:', error);
+            alert("An error occurred. Please try again.");
+        } finally {
+            setSendingEmail(false);
+        }
     };
 
     if (loading) {
@@ -113,8 +155,16 @@ export default function LetterheadPage() {
                     <ArrowLeft className="w-4 h-4 mr-2" /> Back to Dashboard
                 </Button>
                 <div className="flex gap-2">
-                    <Button onClick={handlePrint} className="bg-primary text-black hover:bg-black hover:text-white font-bold">
-                        <Printer className="w-4 h-4 mr-2" /> Download PDF
+                    <Button 
+                        onClick={handlePrint} 
+                        disabled={sendingEmail}
+                        className="bg-primary text-black hover:bg-black hover:text-white font-bold"
+                    >
+                        {sendingEmail ? (
+                            <><div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-black mr-2"></div> Sending & Generating...</>
+                        ) : (
+                            <><Printer className="w-4 h-4 mr-2" /> Send & Download Quotation</>
+                        )}
                     </Button>
                 </div>
             </div>
@@ -240,7 +290,7 @@ export default function LetterheadPage() {
                                 <div className="mt-8 flex items-center justify-between border-y border-gray-100 py-4 bg-gray-50/50 px-6 rounded-lg print:border-y-2 print:border-gray-900 print:bg-white">
                                     <span className="text-sm font-bold text-gray-600 uppercase tracking-widest">Total Quoted Price</span>
                                     <span className="text-2xl font-black text-gray-900 underline decoration-blue-500 underline-offset-8">
-                                        SAR {booking.total_price.toFixed(2)}
+                                        {booking.currency || 'SAR'} {booking.total_price.toFixed(2)}
                                     </span>
                                 </div>
                             )}

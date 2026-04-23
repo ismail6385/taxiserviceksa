@@ -20,6 +20,9 @@ interface MicroSemanticFAQProps {
     faqs: SemanticFAQItem[];
     isRtl?: boolean;
     contextName?: string;
+    /** Default: true — emits FAQPage JSON-LD schema.
+     *  Set to FALSE on pages that also use <JsonLdFAQ> to avoid GSC "Duplicate field FAQPage" errors. */
+    emitSchema?: boolean;
     labels?: {
         title: string;
         subtitle: string;
@@ -45,6 +48,7 @@ const MicroSemanticFAQ: React.FC<MicroSemanticFAQProps> = ({
     faqs,
     isRtl = false,
     contextName,
+    emitSchema = true,
     labels: userLabels,
     theme = 'light'
 }) => {
@@ -65,8 +69,8 @@ const MicroSemanticFAQ: React.FC<MicroSemanticFAQProps> = ({
         setExpandedIndex(expandedIndex === index ? null : index);
     };
 
-    // Generate FAQPage JSON-LD schema
-    const faqSchema = {
+    // Build schema only when explicitly requested (no JsonLdFAQ on the page)
+    const faqSchema = emitSchema ? {
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": faqs.map(faq => ({
@@ -76,18 +80,22 @@ const MicroSemanticFAQ: React.FC<MicroSemanticFAQProps> = ({
                 "@type": "Answer",
                 "text": typeof faq.detailedAnswer === 'string'
                     ? faq.detailedAnswer
-                    : faq.shortAnswer // Fallback to shortAnswer if detailed is JSX
+                    : faq.shortAnswer
             }
         }))
-    };
+    } : null;
 
     return (
         <div className={`my-16 ${isRtl ? 'rtl' : 'ltr'}`} dir={isRtl ? 'rtl' : 'ltr'}>
-            <script
-                id={`faq-schema-${faqs[0]?.question?.replace(/\s+/g, '-').substring(0, 30).toLowerCase() || 'default'}`}
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-            />
+            {/* emitSchema=true: emit FAQPage schema when no JsonLdFAQ component is present */}
+            {/* emitSchema=false (default): prevents "Duplicate field FAQPage" GSC errors */}
+            {emitSchema && faqSchema && (
+                <script
+                    id={`faq-schema-${faqs[0]?.question?.replace(/\s+/g, '-').substring(0, 30).toLowerCase() || 'default'}`}
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+                />
+            )}
             <div className="text-center mb-10">
                 <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2 inline-block ${isDark ? 'bg-blue-900/30 text-blue-300' : 'bg-blue-100 text-blue-700'}`}>
                     FAQs

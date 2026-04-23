@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
                 </div>
                 <div style="padding: 30px; border: 1px solid #eee; border-top: none; border-radius: 0 0 10px 10px; background-color: #fff;">
                     <p style="font-size: 16px;">Dear <strong>${safeName}</strong>,</p>
-                    <p>Thank you for choosing <strong>VIP Transfer KSA</strong>. Here is your official quote for the requested journey.</p>
+                    <p>Thank you for choosing <strong>VIP Transfer KSA</strong>. Here is your official quote for the requested journey. <strong>Please find the full quotation PDF attached to this email.</strong></p>
 
                     <div style="background-color: #f8f9fa; padding: 20px; border-radius: 12px; margin: 25px 0; border: 1px solid #ebedf0;">
                         <h3 style="margin-top: 0; color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 8px; display: inline-block;">Journey Details</h3>
@@ -90,11 +90,19 @@ export async function POST(request: NextRequest) {
                 </div>
             </div>`;
 
-        // 1. Send quote to customer
+        // Build attachments array if PDF base64 was provided from the browser
+        const attachments = body.pdfBase64 ? [{
+            filename: body.pdfFilename || `Quotation-${refId}.pdf`,
+            content: body.pdfBase64,
+            encoding: 'base64',
+        }] : undefined;
+
+        // 1. Send quote to customer (with PDF attachment)
         await sendMail({
             to: booking.customer_email,
             subject: `Your Quote ${refId} - VIP Transfer KSA`,
             html: quoteHtml,
+            attachments,
         });
 
         // 2. Notify admin that a quote was sent
