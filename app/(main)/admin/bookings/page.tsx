@@ -82,7 +82,7 @@ interface Booking {
     customer_name: string;
     customer_phone: string;
     customer_email: string;
-    status: 'pending' | 'confirmed' | 'cancelled' | 'completed';
+    status: 'pending' | 'quote_sent' | 'confirmed' | 'in_progress' | 'cancelled' | 'completed';
     special_requests?: string;
     total_price?: number;
     payment_status?: string;
@@ -162,6 +162,8 @@ export default function BookingsPage() {
     
     const [sendingQuote, setSendingQuote] = useState(false);
     const [quoteSent, setQuoteSent] = useState(false);
+    const [sendingReceipt, setSendingReceipt] = useState(false);
+    const [receiptSent, setReceiptSent] = useState(false);
 
     // Auto-fill & Duplicate State
     const [duplicateFound, setDuplicateFound] = useState<Booking | null>(null);
@@ -330,8 +332,7 @@ export default function BookingsPage() {
 
             // Send Email Notification
             const booking = bookings.find(b => b.id === id);
-            if (booking && ['confirmed', 'cancelled', 'completed'].includes(newStatus)) {
-                // Non-blocking fire and forget
+            if (booking && ['quote_sent', 'confirmed', 'in_progress', 'cancelled', 'completed'].includes(newStatus)) {
                 fetch('/api/send-status-email', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -339,7 +340,9 @@ export default function BookingsPage() {
                         bookingId: booking.id,
                         status: newStatus,
                         customerEmail: booking.customer_email,
-                        customerName: booking.customer_name
+                        customerName: booking.customer_name,
+                        totalPrice: booking.total_price,
+                        currency: booking.currency || 'SAR'
                     })
                 }).catch(err => console.error('Failed to send status email:', err));
             }
@@ -557,11 +560,13 @@ export default function BookingsPage() {
 
     const getStatusColor = (status: string) => {
         switch (status) {
-            case 'confirmed': return 'bg-emerald-100 text-emerald-800 border-emerald-200';
-            case 'pending': return 'bg-amber-100 text-amber-800 border-amber-200';
-            case 'cancelled': return 'bg-rose-100 text-rose-800 border-rose-200';
-            case 'completed': return 'bg-blue-100 text-blue-800 border-blue-200';
-            default: return 'bg-gray-100 text-gray-800 border-gray-200';
+            case 'pending':     return 'bg-amber-100 text-amber-800 border-amber-200';
+            case 'quote_sent':  return 'bg-blue-100 text-blue-800 border-blue-200';
+            case 'confirmed':   return 'bg-emerald-100 text-emerald-800 border-emerald-200';
+            case 'in_progress': return 'bg-purple-100 text-purple-800 border-purple-200';
+            case 'completed':   return 'bg-sky-100 text-sky-800 border-sky-200';
+            case 'cancelled':   return 'bg-rose-100 text-rose-800 border-rose-200';
+            default:            return 'bg-gray-100 text-gray-800 border-gray-200';
         }
     };
 
@@ -723,6 +728,46 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
             alert('Failed to send quote email. Please try again.');
         } finally {
             setSendingQuote(false);
+        }
+    };
+
+    const sendReceiptEmail = async (booking: Booking) => {
+        if (!booking.customer_email) {
+            alert('No customer email on this booking.');
+            return;
+        }
+        if (!booking.total_price) {
+            alert('Please set a price before sending the receipt.');
+            return;
+        }
+        setSendingReceipt(true);
+        setReceiptSent(false);
+        try {
+            const curr = booking.currency || 'SAR';
+            const amount = booking.total_price.toFixed(2);
+            const refId = `RCP-${booking.id.slice(0, 8).toUpperCase()}`;
+            const res = await fetch('/api/send-receipt-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    booking,
+                    pdfBase64: null,
+                    filename: `Receipt-${refId}.pdf`,
+                    currency: curr,
+                    paymentMethod: booking.payment_method || 'Cash to Driver',
+                    amountPaid: amount,
+                    textOnly: true,
+                }),
+            });
+            if (!res.ok) throw new Error('Failed');
+            await supabase.from('bookings').update({ payment_status: 'paid' }).eq('id', booking.id);
+            setReceiptSent(true);
+            await refreshSelectedBooking(booking.id);
+            setTimeout(() => setReceiptSent(false), 4000);
+        } catch {
+            alert('Failed to send receipt. Please try again.');
+        } finally {
+            setSendingReceipt(false);
         }
     };
 
@@ -923,7 +968,9 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                             <SelectItem value="today">Today's Pickups</SelectItem>
                             <SelectItem value="upcoming">Upcoming (Tomorrow+)</SelectItem>
                             <SelectItem value="pending">Pending</SelectItem>
+                            <SelectItem value="quote_sent">Quote Sent</SelectItem>
                             <SelectItem value="confirmed">Confirmed</SelectItem>
+                            <SelectItem value="in_progress">In Progress</SelectItem>
                             <SelectItem value="completed">Completed</SelectItem>
                             <SelectItem value="cancelled">Cancelled</SelectItem>
                         </SelectContent>
@@ -1171,7 +1218,9 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 </SelectTrigger>
                                                 <SelectContent className="bg-white border-gray-200 text-gray-900 shadow-xl">
                                                     <SelectItem value="pending">Pending</SelectItem>
+                                                    <SelectItem value="quote_sent">Quote Sent</SelectItem>
                                                     <SelectItem value="confirmed">Confirmed</SelectItem>
+                                                    <SelectItem value="in_progress">In Progress</SelectItem>
                                                     <SelectItem value="completed">Completed</SelectItem>
                                                     <SelectItem value="cancelled">Cancelled</SelectItem>
                                                 </SelectContent>
@@ -1345,7 +1394,9 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         </SelectTrigger>
                                         <SelectContent className="bg-white border-gray-200 text-gray-900">
                                             <SelectItem value="pending">Pending</SelectItem>
+                                            <SelectItem value="quote_sent">Quote Sent</SelectItem>
                                             <SelectItem value="confirmed">Confirmed</SelectItem>
+                                            <SelectItem value="in_progress">In Progress</SelectItem>
                                             <SelectItem value="completed">Completed</SelectItem>
                                             <SelectItem value="cancelled">Cancelled</SelectItem>
                                         </SelectContent>
@@ -1795,20 +1846,64 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
 
                             <div className="pt-6 border-t border-gray-200 space-y-3">
                                 {!isEditing && selectedBooking.status === 'pending' && (
+                                    <>
+                                        <Button
+                                            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold h-12 shadow-md transition-all"
+                                            onClick={() => { sendQuoteEmail(selectedBooking); updateStatus(selectedBooking.id, 'quote_sent'); }}
+                                            disabled={sendingQuote}
+                                        >
+                                            <FileText className="w-5 h-5 mr-2" /> Send Quote to Customer
+                                        </Button>
+                                        <Button
+                                            variant="outline"
+                                            className="w-full border-emerald-300 text-emerald-700 hover:bg-emerald-50 font-bold h-10 transition-all"
+                                            onClick={() => updateStatus(selectedBooking.id, 'confirmed')}
+                                        >
+                                            <CheckCircle className="w-4 h-4 mr-2" /> Confirm Directly (Skip Quote)
+                                        </Button>
+                                    </>
+                                )}
+
+                                {!isEditing && selectedBooking.status === 'quote_sent' && (
                                     <Button
-                                        className="w-full bg-primary text-black hover:bg-black hover:text-white font-bold h-12 shadow-md transition-all"
+                                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold h-12 transition-all"
                                         onClick={() => updateStatus(selectedBooking.id, 'confirmed')}
                                     >
-                                        <CheckCircle className="w-5 h-5 mr-2" /> WhatsApp Booking & Send Email
+                                        <CheckCircle className="w-5 h-5 mr-2" /> Mark as Confirmed
                                     </Button>
                                 )}
 
                                 {!isEditing && selectedBooking.status === 'confirmed' && (
                                     <Button
-                                        className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold h-12 transition-all"
+                                        className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold h-12 transition-all"
+                                        onClick={() => updateStatus(selectedBooking.id, 'in_progress')}
+                                    >
+                                        <Truck className="w-5 h-5 mr-2" /> Start Trip — Driver En Route
+                                    </Button>
+                                )}
+
+                                {!isEditing && selectedBooking.status === 'in_progress' && (
+                                    <Button
+                                        className="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold h-12 transition-all"
                                         onClick={() => updateStatus(selectedBooking.id, 'completed')}
                                     >
                                         <CheckCircle className="w-5 h-5 mr-2" /> Complete Journey
+                                    </Button>
+                                )}
+
+                                {!isEditing && selectedBooking.status === 'completed' && (
+                                    <Button
+                                        className={`w-full font-bold h-12 transition-all ${receiptSent ? 'bg-green-500 text-white' : 'bg-green-600 hover:bg-green-700 text-white'}`}
+                                        onClick={() => sendReceiptEmail(selectedBooking)}
+                                        disabled={sendingReceipt}
+                                    >
+                                        {sendingReceipt ? (
+                                            <span className="flex items-center gap-2"><span className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full inline-block"></span> Sending Receipt...</span>
+                                        ) : receiptSent ? (
+                                            <span>✓ Receipt Sent to Customer!</span>
+                                        ) : (
+                                            <span className="flex items-center gap-2"><Mail className="w-5 h-5" /> Send Payment Receipt</span>
+                                        )}
                                     </Button>
                                 )}
 
@@ -1821,12 +1916,19 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         >
                                             <FileText className="w-4 h-4 mr-2" /> View/Print Quotation
                                         </Button>
-                                        <Button 
-                                            variant="outline" 
-                                            className="w-full bg-blue-50 border-blue-200 hover:bg-blue-100 hover:text-blue-900 text-blue-700 transition-all font-semibold" 
+                                        <Button
+                                            variant="outline"
+                                            className="w-full bg-blue-50 border-blue-200 hover:bg-blue-100 hover:text-blue-900 text-blue-700 transition-all font-semibold"
                                             onClick={() => window.open(`/admin/bookings/${selectedBooking.id}/invoice/`, '_blank')}
                                         >
                                             <Printer className="w-4 h-4 mr-2" /> View/Print Invoice
+                                        </Button>
+                                        <Button
+                                            variant="outline"
+                                            className="w-full bg-green-50 border-green-300 hover:bg-green-100 hover:text-green-900 text-green-700 transition-all font-semibold"
+                                            onClick={() => window.open(`/admin/bookings/${selectedBooking.id}/receipt/`, '_blank')}
+                                        >
+                                            <CheckCircle className="w-4 h-4 mr-2" /> View/Send Receipt
                                         </Button>
                                         <Button variant="outline" className="w-full bg-white border-gray-300 hover:bg-gray-50 hover:text-gray-900 text-gray-700 transition-all font-semibold" onClick={() => shareB2BOptions(selectedBooking)}>
                                             <Copy className="w-4 h-4 mr-2 text-gray-500" /> Copy B2B Message
