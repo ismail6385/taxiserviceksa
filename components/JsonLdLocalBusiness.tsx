@@ -64,8 +64,7 @@ export default function JsonLdLocalBusiness() {
             "https://x.com/taxiserviceksa",
             "https://www.linkedin.com/company/taxiserviceksa",
             "https://www.tiktok.com/@taxiserviceksa",
-            "https://www.youtube.com/@taxiserviceksa",
-            "https://www.trustpilot.com/review/taxiserviceksa.com"
+            "https://www.youtube.com/@taxiserviceksa"
         ]
     };
 

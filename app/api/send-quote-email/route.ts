@@ -30,11 +30,15 @@ export async function POST(request: NextRequest) {
         }
 
         const body = await request.json();
-        const { booking, currency } = body;
+        const { booking, currency, additionalEmails } = body;
 
         if (!booking || !booking.customer_email || !booking.total_price) {
             return NextResponse.json({ error: 'Missing booking data or price' }, { status: 400 });
         }
+
+        const cc: string[] = Array.isArray(additionalEmails)
+            ? additionalEmails.filter((e: string) => e && e.includes('@'))
+            : [];
 
         const emailAdmin = process.env.ADMIN_EMAIL || 'info@taxiserviceksa.com';
         const refId      = `#${String(booking.id).slice(0, 8).toUpperCase()}`;
@@ -81,8 +85,8 @@ export async function POST(request: NextRequest) {
                     <p style="font-size: 14px; color: #555;">This quote is valid for <strong>48 hours</strong>. To confirm your booking or ask any questions, simply reply to this email or tap the button below.</p>
 
                     <div style="text-align: center; margin: 30px 0; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                        <a href="https://taxiserviceksa.com/booking/quote?ref=${booking.id.slice(0, 8)}" style="background-color: #C6FF00; color: #000; padding: 14px 28px; text-decoration: none; font-weight: 900; border-radius: 30px; display: inline-block; font-size: 15px;">✅ Accept Quote Online</a>
                         <a href="https://wa.me/966569487569?text=${whatsappMsg}" style="background-color: #25D366; color: white; padding: 14px 28px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; font-size: 15px;">💬 Confirm on WhatsApp</a>
-                        <a href="mailto:info@taxiserviceksa.com?subject=Confirm%20Booking%20${refId}" style="background-color: #000; color: #C6FF00; padding: 14px 28px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; font-size: 15px;">✉️ Reply to Confirm</a>
                     </div>
 
                     <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
@@ -97,9 +101,10 @@ export async function POST(request: NextRequest) {
             encoding: 'base64',
         }] : undefined;
 
-        // 1. Send quote to customer (with PDF attachment)
+        // 1. Send quote to customer (+ CC additional emails)
         await sendMail({
             to: booking.customer_email,
+            cc: cc.length ? cc : undefined,
             subject: `Your Quote ${refId} - VIP Transfer KSA`,
             html: quoteHtml,
             attachments,

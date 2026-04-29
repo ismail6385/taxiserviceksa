@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
         }
 
         const body = await request.json();
-        const { bookingId, status, customerEmail, customerName } = body;
+        const { bookingId, status, customerEmail, customerName, totalPrice, currency } = body;
 
         if (!bookingId || !status || !customerEmail) {
             return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
@@ -54,6 +54,35 @@ export async function POST(request: NextRequest) {
         `;
 
         switch (status) {
+            case 'quote_sent': {
+                const curr = currency || 'SAR';
+                const price = totalPrice ? `${curr} ${Number(totalPrice).toFixed(2)}` : null;
+                subject = `💰 Your Quote is Ready - VIP Transfer KSA`;
+                htmlContent = `${wrapperStart}
+                    <p>Thank you for choosing <strong>VIP Transfer KSA</strong>. Your official quote for booking <span style="font-family: monospace; background: #f0f0f0; padding: 2px 6px; border-radius: 4px;">#${bookingId.slice(0, 8).toUpperCase()}</span> is ready.</p>
+                    ${price ? `<div style="background-color: #000; color: #fff; padding: 20px; border-radius: 12px; text-align: center; margin: 20px 0;">
+                        <p style="margin: 0 0 4px; font-size: 12px; color: #aaa; text-transform: uppercase; letter-spacing: 2px;">Total Quote Price</p>
+                        <p style="margin: 0; font-size: 32px; font-weight: 900; color: #C6FF00;">${price}</p>
+                        <p style="margin: 8px 0 0; font-size: 11px; color: #777;">Includes fuel, toll &amp; all fees</p>
+                    </div>` : ''}
+                    <p style="font-size: 14px; color: #555;">This quote is valid for <strong>48 hours</strong>. Click below to accept and confirm your booking instantly.</p>
+                    <div style="text-align: center; margin: 25px 0;">
+                        <a href="https://taxiserviceksa.com/booking/quote?ref=${bookingId.slice(0, 8)}" style="background-color: #C6FF00; color: #000; padding: 14px 32px; border-radius: 30px; text-decoration: none; font-weight: 900; display: inline-block; font-size: 16px;">✅ Accept Quote Online</a>
+                    </div>
+                    <p style="font-size: 13px; color: #777; text-align: center;">Or reply to this email / WhatsApp us to confirm.</p>
+                ${wrapperEnd}`;
+                break;
+            }
+            case 'in_progress':
+                subject = '🚗 Your Driver is On the Way - VIP Transfer KSA';
+                htmlContent = `${wrapperStart}
+                    <p>Great news! Your driver for booking <span style="font-family: monospace; background: #f0f0f0; padding: 2px 6px; border-radius: 4px;">#${bookingId.slice(0, 8).toUpperCase()}</span> is on the way to your pickup location.</p>
+                    <div style="background-color: #F6FFF0; border-left: 4px solid #C6FF00; padding: 15px; margin: 20px 0;">
+                        <p style="margin: 0; font-weight: bold; color: #000;">Driver is En Route</p>
+                        <p style="margin: 5px 0 0; font-size: 14px; color: #555;">Please be ready at your pickup point. If you need to contact your driver, reply to this email or contact our support.</p>
+                    </div>
+                ${wrapperEnd}`;
+                break;
             case 'confirmed':
                 subject = '✅ Booking Confirmed - VIP Transfer KSA';
                 htmlContent = `${wrapperStart}

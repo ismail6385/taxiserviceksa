@@ -61,6 +61,16 @@ export default function InvoicePage() {
     const [sendingEmail, setSendingEmail] = useState(false);
     const [emailSent, setEmailSent] = useState(false);
     const [stops, setStops] = useState<Stop[]>([]);
+    const [additionalEmails, setAdditionalEmails] = useState<string[]>([]);
+    const [emailInput, setEmailInput] = useState('');
+
+    const addEmail = () => {
+        const val = emailInput.trim().toLowerCase();
+        if (val && val.includes('@') && !additionalEmails.includes(val)) {
+            setAdditionalEmails(prev => [...prev, val]);
+            setEmailInput('');
+        }
+    };
 
     const addStop = () => setStops(prev => [...prev, { time: '', location: '' }]);
     const removeStop = (i: number) => setStops(prev => prev.filter((_, idx) => idx !== i));
@@ -182,6 +192,7 @@ export default function InvoicePage() {
                     currency,
                     paymentStatus,
                     paymentMethod,
+                    additionalEmails,
                 }),
             });
 
@@ -401,6 +412,42 @@ export default function InvoicePage() {
                                         <Trash2 className="w-4 h-4" />
                                     </button>
                                 </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </div>
+
+            {/* Additional Recipients */}
+            <div className="max-w-[210mm] mx-auto mb-4 print:hidden">
+                <div className="bg-white border-2 border-dashed border-blue-200 rounded-xl p-4">
+                    <p className="text-xs font-black text-blue-600 uppercase tracking-widest mb-1">Additional Recipients</p>
+                    <p className="text-[10px] text-gray-400 mb-3">Invoice email will also be sent (CC) to these addresses</p>
+                    <div className="flex gap-2 mb-2">
+                        <input
+                            type="email"
+                            value={emailInput}
+                            onChange={e => setEmailInput(e.target.value)}
+                            onKeyDown={e => e.key === 'Enter' && addEmail()}
+                            placeholder="email@example.com"
+                            className="flex-1 border border-gray-200 rounded-lg px-3 py-1.5 text-xs outline-none focus:border-blue-400"
+                        />
+                        <button
+                            onClick={addEmail}
+                            className="bg-blue-500 hover:bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-all flex items-center gap-1"
+                        >
+                            <Plus className="w-3.5 h-3.5" /> Add
+                        </button>
+                    </div>
+                    {additionalEmails.length > 0 && (
+                        <div className="flex flex-wrap gap-1.5">
+                            {additionalEmails.map(email => (
+                                <span key={email} className="flex items-center gap-1 bg-blue-50 border border-blue-200 text-blue-700 text-[11px] font-medium px-2 py-0.5 rounded-full">
+                                    {email}
+                                    <button onClick={() => setAdditionalEmails(prev => prev.filter(e => e !== email))} className="text-blue-400 hover:text-red-500 transition-colors ml-0.5">
+                                        <Trash2 className="w-3 h-3" />
+                                    </button>
+                                </span>
                             ))}
                         </div>
                     )}

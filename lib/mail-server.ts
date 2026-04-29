@@ -42,8 +42,9 @@ interface Attachment {
     content: string; // base64 encoded
 }
 
-export async function sendMail({ to, subject, html, fromName = 'VIP Transfer KSA', replyTo, attachments }: {
+export async function sendMail({ to, cc, subject, html, fromName = 'VIP Transfer KSA', replyTo, attachments }: {
     to: string;
+    cc?: string[];
     subject: string;
     html: string;
     fromName?: string;
@@ -53,10 +54,11 @@ export async function sendMail({ to, subject, html, fromName = 'VIP Transfer KSA
     // 1. Try Resend First (Best for Vercel)
     if (resend) {
         try {
-            console.log(`📧 Sending via Resend to: ${to}`);
+            console.log(`📧 Sending via Resend to: ${to}${cc?.length ? ` + CC: ${cc.join(', ')}` : ''}`);
             const { data, error } = await resend.emails.send({
                 from: `${fromName} <info@taxiserviceksa.com>`,
                 to,
+                cc: cc?.length ? cc : undefined,
                 subject,
                 html,
                 replyTo: replyTo || 'info@taxiserviceksa.com',
@@ -85,10 +87,11 @@ export async function sendMail({ to, subject, html, fromName = 'VIP Transfer KSA
     }
 
     try {
-        console.log(`📧 SMTP Fallback to: ${to}`);
+        console.log(`📧 SMTP Fallback to: ${to}${cc?.length ? ` + CC: ${cc.join(', ')}` : ''}`);
         const info = await transporter.sendMail({
             from: `"${fromName}" <${emailUser}>`,
             to,
+            cc: cc?.length ? cc.join(', ') : undefined,
             subject,
             html,
             replyTo: replyTo || emailUser,

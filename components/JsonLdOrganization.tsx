@@ -72,8 +72,7 @@ export default function JsonLdOrganization() {
             "https://x.com/taxiserviceksa",
             "https://www.linkedin.com/company/taxiserviceksa",
             "https://www.tiktok.com/@taxiserviceksa",
-            "https://www.youtube.com/@taxiserviceksa",
-            "https://www.trustpilot.com/review/taxiserviceksa.com"
+            "https://www.youtube.com/@taxiserviceksa"
         ],
         "areaServed": [
             { "@type": "Country", "name": "Saudi Arabia" }

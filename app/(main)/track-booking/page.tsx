@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Search, MapPin, Calendar, Clock, Car, Users, CheckCircle2, XCircle, AlertCircle, Loader2, Phone, Mail } from 'lucide-react';
+import { Search, MapPin, Calendar, Clock, Car, Users, CheckCircle2, XCircle, AlertCircle, Loader2, Phone, Mail, FileText, Truck } from 'lucide-react';
 
 interface Booking {
     id: string;
@@ -23,14 +23,58 @@ interface Booking {
     total_price?: number;
     currency?: string;
     special_requests?: string;
+    driver_name?: string;
+    driver_phone?: string;
+    driver_plate?: string;
 }
 
 const STATUS_CONFIG: Record<string, { label: string; color: string; bg: string; icon: any }> = {
-    pending:   { label: 'Pending Review',   color: 'text-amber-700',  bg: 'bg-amber-50 border-amber-200',  icon: AlertCircle },
-    confirmed: { label: 'Confirmed',        color: 'text-green-700',  bg: 'bg-green-50 border-green-200',  icon: CheckCircle2 },
-    completed: { label: 'Trip Completed',   color: 'text-blue-700',   bg: 'bg-blue-50 border-blue-200',    icon: CheckCircle2 },
-    cancelled: { label: 'Cancelled',        color: 'text-red-700',    bg: 'bg-red-50 border-red-200',      icon: XCircle },
+    pending:     { label: 'Pending Review',   color: 'text-amber-700',   bg: 'bg-amber-50 border-amber-200',   icon: AlertCircle },
+    quote_sent:  { label: 'Quote Sent',       color: 'text-blue-700',    bg: 'bg-blue-50 border-blue-200',     icon: FileText },
+    confirmed:   { label: 'Confirmed',        color: 'text-green-700',   bg: 'bg-green-50 border-green-200',   icon: CheckCircle2 },
+    in_progress: { label: 'Driver En Route',  color: 'text-purple-700',  bg: 'bg-purple-50 border-purple-200', icon: Truck },
+    completed:   { label: 'Trip Completed',   color: 'text-blue-700',    bg: 'bg-blue-50 border-blue-200',     icon: CheckCircle2 },
+    cancelled:   { label: 'Cancelled',        color: 'text-red-700',     bg: 'bg-red-50 border-red-200',       icon: XCircle },
 };
+
+const PIPELINE = [
+    { key: 'pending',     label: 'Submitted' },
+    { key: 'quote_sent',  label: 'Quote Sent' },
+    { key: 'confirmed',   label: 'Confirmed' },
+    { key: 'in_progress', label: 'En Route' },
+    { key: 'completed',   label: 'Completed' },
+];
+
+function getStepIndex(status: string) {
+    if (status === 'cancelled') return -1;
+    return PIPELINE.findIndex(s => s.key === status);
+}
+
+function BookingTimeline({ status }: { status: string }) {
+    if (status === 'cancelled') return null;
+    const current = getStepIndex(status);
+    return (
+        <div className="flex items-center justify-between px-1 mb-5">
+            {PIPELINE.map((step, i) => {
+                const done = i < current;
+                const active = i === current;
+                return (
+                    <div key={step.key} className="flex-1 flex flex-col items-center relative">
+                        {i < PIPELINE.length - 1 && (
+                            <div className={`absolute top-3.5 left-1/2 w-full h-0.5 ${done || active ? 'bg-green-400' : 'bg-gray-200'}`} style={{ zIndex: 0 }} />
+                        )}
+                        <div className={`w-7 h-7 rounded-full flex items-center justify-center z-10 border-2 text-xs font-black transition-all ${done ? 'bg-green-500 border-green-500 text-white' : active ? 'bg-black border-black text-primary' : 'bg-white border-gray-200 text-gray-400'}`}>
+                            {done ? <CheckCircle2 className="w-4 h-4" /> : <span>{i + 1}</span>}
+                        </div>
+                        <p className={`text-[9px] font-bold mt-1 text-center leading-tight ${active ? 'text-black' : done ? 'text-green-600' : 'text-gray-400'}`}>
+                            {step.label}
+                        </p>
+                    </div>
+                );
+            })}
+        </div>
+    );
+}
 
 function TrackBookingContent() {
     const searchParams = useSearchParams();
@@ -133,6 +177,8 @@ function TrackBookingContent() {
                         </div>
 
                         <div className="p-6 space-y-5">
+                            {/* Progress Timeline */}
+                            <BookingTimeline status={booking.status} />
                             {/* Customer */}
                             <div>
                                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Passenger</p>
@@ -190,6 +236,26 @@ function TrackBookingContent() {
                                 <div className="bg-amber-50 border border-amber-100 rounded-xl p-3 text-sm text-amber-800">
                                     <span className="font-bold">Special Request: </span>{booking.special_requests}
                                 </div>
+                            )}
+
+                            {/* Driver Info — shown when in_progress or confirmed with driver */}
+                            {(booking.status === 'in_progress' || booking.status === 'confirmed') && booking.driver_name && (
+                                <div className="bg-black rounded-xl p-4">
+                                    <p className="text-[10px] text-gray-400 uppercase tracking-widest font-bold mb-2">Your Driver</p>
+                                    <p className="font-black text-white">{booking.driver_name}</p>
+                                    {booking.driver_phone && <p className="text-gray-400 text-sm flex items-center gap-1"><Phone className="w-3 h-3" /> {booking.driver_phone}</p>}
+                                    {booking.driver_plate && <p className="text-gray-400 text-sm">Plate: <span className="text-yellow-400 font-bold">{booking.driver_plate}</span></p>}
+                                </div>
+                            )}
+
+                            {/* Accept Quote CTA */}
+                            {booking.status === 'quote_sent' && (
+                                <a
+                                    href={`/booking/quote?ref=${booking.id.slice(0, 8)}`}
+                                    className="flex items-center justify-center gap-2 w-full bg-black text-primary font-bold py-3 rounded-xl hover:bg-gray-900 transition-colors"
+                                >
+                                    ✅ Review &amp; Accept Your Quote
+                                </a>
                             )}
 
                             {/* WhatsApp CTA */}

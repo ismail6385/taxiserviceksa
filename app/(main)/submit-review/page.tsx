@@ -74,7 +74,7 @@ export default function SubmitReviewPage() {
                             <a
                                 href="https://www.trustpilot.com/review/taxiserviceksa.com?utm_medium=trustbox&utm_source=ReviewCollector"
                                 target="_blank"
-                                rel="noopener noreferrer"
+                                rel="nofollow noopener noreferrer"
                                 className="w-full"
                             >
                                 <Button className="w-full bg-[#00b67a] hover:bg-[#00a36c] text-white font-bold h-12 border-none">
@@ -121,7 +121,7 @@ export default function SubmitReviewPage() {
                             <a
                                 href="https://www.trustpilot.com/review/taxiserviceksa.com?utm_medium=trustbox&utm_source=ReviewCollector"
                                 target="_blank"
-                                rel="noopener noreferrer"
+                                rel="nofollow noopener noreferrer"
                             >
                                 <Button className="bg-[#00b67a] hover:bg-[#00a36c] text-white font-bold px-8">
                                     <Star className="w-4 h-4 mr-2 fill-white" />

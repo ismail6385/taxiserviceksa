@@ -16,20 +16,25 @@ export const runtime = 'nodejs';
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json();
-        const { booking, pdfBase64, filename, currency, paymentStatus, paymentMethod } = body;
+        const { booking, pdfBase64, filename, currency, paymentStatus, paymentMethod, additionalEmails } = body;
 
         if (!booking || !pdfBase64) {
             return NextResponse.json({ error: 'Missing booking or PDF data' }, { status: 400 });
         }
+
+        const cc: string[] = Array.isArray(additionalEmails)
+            ? additionalEmails.filter((e: string) => e && e.includes('@'))
+            : [];
 
         const refId = `#${String(booking.id).slice(0, 8).toUpperCase()}`;
         const emailAdmin = process.env.ADMIN_EMAIL || 'info@taxiserviceksa.com';
         const curr = currency || 'SAR';
         const amount = booking.total_price?.toFixed(2) || '0.00';
 
-        // 1. Send invoice to customer
+        // 1. Send invoice to customer (+ CC additional emails)
         await sendMail({
             to: booking.customer_email,
+            cc: cc.length ? cc : undefined,
             subject: `Your Invoice ${refId} - VIP Transfer KSA`,
             html: `
             <div style="font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; color: #333;">

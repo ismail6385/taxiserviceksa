@@ -164,6 +164,7 @@ export default function BookingsPage() {
     const [quoteSent, setQuoteSent] = useState(false);
     const [sendingReceipt, setSendingReceipt] = useState(false);
     const [receiptSent, setReceiptSent] = useState(false);
+    const [ccEmails, setCcEmails] = useState('');
 
     // Auto-fill & Duplicate State
     const [duplicateFound, setDuplicateFound] = useState<Booking | null>(null);
@@ -718,7 +719,11 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
             const res = await fetch('/api/send-quote-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ booking, currency: booking.currency || 'SAR' }),
+                body: JSON.stringify({
+                    booking,
+                    currency: booking.currency || 'SAR',
+                    additionalEmails: ccEmails.split(',').map(e => e.trim()).filter(e => e.includes('@')),
+                }),
             });
             if (!res.ok) throw new Error('Failed');
             setQuoteSent(true);
@@ -1642,14 +1647,23 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                             {selectedBooking.total_price ? `${selectedBooking.currency || 'SAR'} ${selectedBooking.total_price}` : 'Calculating...'}
                                                         </span>
                                                         {selectedBooking.total_price ? (
-                                                            <Button
-                                                                size="sm"
-                                                                disabled={sendingQuote}
-                                                                onClick={() => sendQuoteEmail(selectedBooking)}
-                                                                className={`h-7 text-[10px] font-bold px-3 ${quoteSent ? 'bg-green-500 text-white hover:bg-green-500' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
-                                                            >
-                                                                {sendingQuote ? 'Sending...' : quoteSent ? '✓ Quote Sent!' : '📧 Send Quote Email'}
-                                                            </Button>
+                                                            <div className="flex flex-col gap-1 w-full mt-1">
+                                                                <input
+                                                                    type="text"
+                                                                    value={ccEmails}
+                                                                    onChange={e => setCcEmails(e.target.value)}
+                                                                    placeholder="CC emails (comma separated, optional)"
+                                                                    className="w-full border border-gray-200 rounded px-2 py-1 text-[11px] outline-none focus:border-blue-400"
+                                                                />
+                                                                <Button
+                                                                    size="sm"
+                                                                    disabled={sendingQuote}
+                                                                    onClick={() => sendQuoteEmail(selectedBooking)}
+                                                                    className={`h-7 text-[10px] font-bold px-3 ${quoteSent ? 'bg-green-500 text-white hover:bg-green-500' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
+                                                                >
+                                                                    {sendingQuote ? 'Sending...' : quoteSent ? '✓ Quote Sent!' : '📧 Send Quote Email'}
+                                                                </Button>
+                                                            </div>
                                                         ) : null}
                                                     </div>
                                                 )}

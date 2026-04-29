@@ -16,22 +16,36 @@ import {
     Star,
     HelpCircle,
     Tag,
-    Calendar
+    Calendar,
+    Users,
+    DollarSign,
+    BarChart2,
+    MessageSquare,
+    Bell,
+    Inbox,
+    ClipboardList
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils'; // Assuming you have a utils file for class merging
 
 const menuItems = [
-    { name: 'Dashboard', href: '/admin/dashboard', icon: LayoutDashboard },
-    { name: 'Bookings', href: '/admin/bookings', icon: CalendarDays },
-    { name: 'Calendar', href: '/admin/calendar', icon: Calendar },
-    { name: 'Promo Codes', href: '/admin/promo-codes', icon: Tag },
-    { name: 'Invoice Creator', href: '/admin/invoice-generator', icon: FileText },
-    { name: 'Reviews', href: '/admin/reviews', icon: Star },
-    { name: 'Questions', href: '/admin/questions', icon: HelpCircle },
-    { name: 'Blogs', href: '/admin/blogs', icon: FileText },
-    { name: 'Settings', href: '/admin/settings', icon: Settings },
+    { name: 'Dashboard',      href: '/admin/dashboard',        icon: LayoutDashboard },
+    { name: 'Bookings',       href: '/admin/bookings',         icon: CalendarDays },
+    { name: 'Calendar',       href: '/admin/calendar',         icon: Calendar },
+    { name: 'Customers',      href: '/admin/customers',           icon: Users },
+    { name: 'Reports',        href: '/admin/reports',             icon: BarChart2 },
+    { name: 'Pricing',        href: '/admin/pricing',             icon: DollarSign },
+    { name: 'WA Templates',   href: '/admin/whatsapp-templates',  icon: MessageSquare },
+    { name: 'Notifications',  href: '/admin/notifications',       icon: Bell },
+    { name: 'Promo Codes',    href: '/admin/promo-codes',      icon: Tag },
+    { name: 'Invoice Creator',href: '/admin/invoice-generator',icon: FileText },
+    { name: 'Reviews',        href: '/admin/reviews',          icon: Star },
+    { name: 'Questions',      href: '/admin/questions',        icon: HelpCircle },
+    { name: 'Blogs',          href: '/admin/blogs',            icon: FileText },
+    { name: 'Support',        href: '/admin/support',          icon: Inbox },
+    { name: 'Audit Log',      href: '/admin/audit-log',        icon: ClipboardList },
+    { name: 'Settings',       href: '/admin/settings',         icon: Settings },
 ];
 
 export default function AdminSidebar() {
