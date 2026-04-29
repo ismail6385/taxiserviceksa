@@ -15,8 +15,15 @@ import {
     Calendar,
     Clock,
     Car,
-    User
+    User,
+    Plus,
+    Trash2
 } from 'lucide-react';
+
+interface Stop {
+    time: string;
+    location: string;
+}
 import { Button } from '@/components/ui/button';
 
 interface Booking {
@@ -53,6 +60,12 @@ export default function InvoicePage() {
     const [returnDestination, setReturnDestination] = useState('');
     const [sendingEmail, setSendingEmail] = useState(false);
     const [emailSent, setEmailSent] = useState(false);
+    const [stops, setStops] = useState<Stop[]>([]);
+
+    const addStop = () => setStops(prev => [...prev, { time: '', location: '' }]);
+    const removeStop = (i: number) => setStops(prev => prev.filter((_, idx) => idx !== i));
+    const updateStop = (i: number, field: keyof Stop, value: string) =>
+        setStops(prev => prev.map((s, idx) => idx === i ? { ...s, [field]: value } : s));
 
     useEffect(() => {
         const fetchBooking = async () => {
@@ -338,7 +351,7 @@ export default function InvoicePage() {
             </div>
 
             {/* Quick Note Input — screen only */}
-            <div className="max-w-[210mm] mx-auto mb-4 print:hidden">
+            <div className="max-w-[210mm] mx-auto mb-3 print:hidden">
                 <textarea
                     value={quickNote}
                     onChange={e => setQuickNote(e.target.value)}
@@ -346,7 +359,52 @@ export default function InvoicePage() {
                     rows={2}
                     className="w-full border-2 border-dashed border-primary/20 rounded-xl px-4 py-3 text-sm text-gray-700 focus:outline-none focus:border-primary focus:ring-0 resize-none bg-white/50 backdrop-blur-sm shadow-sm transition-all"
                 />
-                <p className="text-[10px] text-gray-400 mt-1 ml-1 uppercase font-bold tracking-widest">Note: Text entered above will appear directly in the invoice below.</p>
+            </div>
+
+            {/* Multi-Stop Builder — screen only */}
+            <div className="max-w-[210mm] mx-auto mb-4 print:hidden">
+                <div className="bg-white border-2 border-dashed border-orange-200 rounded-xl p-4">
+                    <div className="flex items-center justify-between mb-3">
+                        <div>
+                            <p className="text-xs font-black text-orange-600 uppercase tracking-widest">Multi-Stop Itinerary</p>
+                            <p className="text-[10px] text-gray-400 mt-0.5">Add extra stops between pickup and drop-off</p>
+                        </div>
+                        <button
+                            onClick={addStop}
+                            className="flex items-center gap-1.5 bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-all"
+                        >
+                            <Plus className="w-3.5 h-3.5" /> Add Stop
+                        </button>
+                    </div>
+
+                    {stops.length === 0 ? (
+                        <p className="text-[11px] text-gray-400 italic text-center py-2">No extra stops. Click "Add Stop" to add intermediate locations.</p>
+                    ) : (
+                        <div className="space-y-2">
+                            {stops.map((stop, i) => (
+                                <div key={i} className="flex gap-2 items-center">
+                                    <span className="text-[10px] font-black text-gray-400 w-14 shrink-0">Stop {i + 1}</span>
+                                    <input
+                                        type="time"
+                                        value={stop.time}
+                                        onChange={e => updateStop(i, 'time', e.target.value)}
+                                        className="border border-gray-200 rounded-lg px-2 py-1.5 text-xs font-bold outline-none focus:border-orange-400 w-28 shrink-0"
+                                    />
+                                    <input
+                                        type="text"
+                                        value={stop.location}
+                                        onChange={e => updateStop(i, 'location', e.target.value)}
+                                        placeholder="Location / address..."
+                                        className="flex-1 border border-gray-200 rounded-lg px-3 py-1.5 text-xs outline-none focus:border-orange-400"
+                                    />
+                                    <button onClick={() => removeStop(i)} className="text-red-400 hover:text-red-600 transition-colors shrink-0">
+                                        <Trash2 className="w-4 h-4" />
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
             </div>
 
             {/* Invoice Container — Single A4 Page */}
@@ -429,19 +487,42 @@ export default function InvoicePage() {
                         {/* Route Details */}
                         <div className="mb-3">
                             <h2 className="text-[8px] font-black text-gray-300 uppercase tracking-[0.2em] mb-2">
-                                Journey Route {isRoundTrip && <span className="text-blue-500 ml-1">(Round Trip)</span>}
+                                Journey Route
+                                {stops.length > 0 && <span className="text-orange-500 ml-1">· {stops.length} Stop{stops.length > 1 ? 's' : ''}</span>}
+                                {isRoundTrip && <span className="text-blue-500 ml-1">· Round Trip</span>}
                             </h2>
                             <div className="relative pl-5 space-y-2 before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-0.5 before:border-l-2 before:border-dashed before:border-gray-200">
+
+                                {/* Pickup */}
                                 <div className="relative">
                                     <div className="absolute -left-[18px] top-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white shadow-sm"></div>
-                                    <p className="text-[8px] text-gray-400 font-black uppercase">Pick-up</p>
+                                    <p className="text-[8px] text-gray-400 font-black uppercase">
+                                        Pick-up{booking.pickup_time ? ` · ${booking.pickup_time}` : ''}
+                                    </p>
                                     <p className="text-[12px] font-bold text-gray-900 leading-snug break-words">{booking.pickup_location}</p>
                                 </div>
+
+                                {/* Extra stops */}
+                                {stops.filter(s => s.location.trim()).map((stop, i) => (
+                                    <div key={i} className="relative">
+                                        <div className="absolute -left-[18px] top-1 w-3 h-3 bg-orange-400 rounded-full border-2 border-white shadow-sm flex items-center justify-center">
+                                            <span className="text-white text-[5px] font-black">{i + 1}</span>
+                                        </div>
+                                        <p className="text-[8px] text-orange-500 font-black uppercase">
+                                            Stop {i + 1}{stop.time ? ` · ${stop.time}` : ''}
+                                        </p>
+                                        <p className="text-[12px] font-bold text-gray-900 leading-snug break-words">{stop.location}</p>
+                                    </div>
+                                ))}
+
+                                {/* Drop-off */}
                                 <div className="relative">
                                     <div className="absolute -left-[18px] top-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white shadow-sm"></div>
                                     <p className="text-[8px] text-gray-400 font-black uppercase">{isRoundTrip ? 'Destination' : 'Drop-off'}</p>
                                     <p className="text-[12px] font-bold text-gray-900 leading-snug break-words">{booking.destination}</p>
                                 </div>
+
+                                {/* Return */}
                                 {isRoundTrip && (
                                     <div className="relative">
                                         <div className="absolute -left-[18px] top-1 w-3 h-3 bg-blue-600 rounded-full border-2 border-white shadow-sm flex items-center justify-center">
