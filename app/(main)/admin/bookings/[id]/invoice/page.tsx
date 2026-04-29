@@ -350,11 +350,11 @@ export default function InvoicePage() {
             </div>
 
             {/* Invoice Container — Single A4 Page */}
-            <div id="invoice-print" className="max-w-[210mm] mx-auto bg-white shadow-2xl overflow-hidden print:shadow-none print:max-w-none print:w-[210mm] print:h-[296mm] print:overflow-hidden box-border">
+            <div id="invoice-print" className="max-w-[210mm] mx-auto bg-white shadow-2xl print:shadow-none print:max-w-none print:w-[210mm] box-border">
                 {/* Decorative Top Bar */}
                 <div className="h-[4px] bg-primary w-full"></div>
 
-                <div className="px-10 py-8 print:px-[12mm] print:py-[10mm] flex flex-col h-[calc(296mm-4px)] print:h-[calc(296mm-4px)] justify-between overflow-hidden bg-white">
+                <div className="px-10 py-8 print:px-[12mm] print:py-[10mm] flex flex-col min-h-[calc(296mm-4px)] justify-between bg-white">
 
                     {/* Top Content */}
                     <div>
@@ -453,12 +453,12 @@ export default function InvoicePage() {
                                 <div className="relative">
                                     <div className="absolute -left-[22px] top-1 w-4 h-4 bg-green-500 rounded-full border-[3px] border-white shadow-sm ring-1 ring-green-100"></div>
                                     <p className="text-[9px] text-gray-400 font-black uppercase mb-0.5">Pick-up Point</p>
-                                    <p className="text-sm font-bold text-gray-900 leading-tight">{booking.pickup_location}</p>
+                                    <p className="text-sm font-bold text-gray-900 leading-snug break-words">{booking.pickup_location}</p>
                                 </div>
                                 <div className="relative">
                                     <div className="absolute -left-[22px] top-1 w-4 h-4 bg-red-500 rounded-full border-[3px] border-white shadow-sm ring-1 ring-red-100"></div>
                                     <p className="text-[9px] text-gray-400 font-black uppercase mb-0.5">{isRoundTrip ? 'Destination' : 'Final Destination'}</p>
-                                    <p className="text-sm font-bold text-gray-900 leading-tight">{booking.destination}</p>
+                                    <p className="text-sm font-bold text-gray-900 leading-snug break-words">{booking.destination}</p>
                                 </div>
                                 {isRoundTrip && (
                                     <div className="relative">
@@ -499,12 +499,12 @@ export default function InvoicePage() {
                                                 }
                                             </p>
                                             {booking.special_requests && (
-                                                <div className="mt-2 p-2 bg-gray-50 rounded border border-gray-100 italic text-[10px] text-gray-500">
-                                                    Special Requests: {booking.special_requests}
+                                                <div className="mt-2 p-2 bg-gray-50 rounded border border-gray-100 text-[10px] text-gray-500 whitespace-pre-wrap leading-relaxed">
+                                                    <span className="font-bold not-italic">Special Requests: </span>{booking.special_requests}
                                                 </div>
                                             )}
                                             {quickNote.trim() && (
-                                                <div className="mt-2 border-l-3 border-primary px-3 py-1.5 bg-primary/5 rounded-r">
+                                                <div className="mt-2 border-l-4 border-primary px-3 py-2 bg-primary/5 rounded-r">
                                                     <p className="text-xs text-gray-700 whitespace-pre-wrap leading-relaxed">{quickNote.trim()}</p>
                                                 </div>
                                             )}
@@ -583,7 +583,7 @@ export default function InvoicePage() {
                 </div>
             </div>
 
-            {/* Print Styling — Single A4 Page */}
+            {/* Print Styling */}
             <style jsx global>{`
                 @media print {
                     @page {
@@ -592,7 +592,6 @@ export default function InvoicePage() {
                     }
                     html, body {
                         width: 210mm;
-                        height: 297mm;
                         margin: 0 !important;
                         padding: 0 !important;
                         background: white !important;
@@ -602,18 +601,12 @@ export default function InvoicePage() {
                     }
                     #invoice-print {
                         width: 210mm !important;
-                        height: 296mm !important;
-                        page-break-after: avoid !important;
-                        page-break-before: avoid !important;
-                        page-break-inside: avoid !important;
+                        min-height: 296mm !important;
                         background: white !important;
                         box-shadow: none !important;
                         border: none !important;
                         margin: 0 auto !important;
-                        overflow: hidden !important;
-                    }
-                    * {
-                        page-break-inside: avoid !important;
+                        overflow: visible !important;
                     }
                     * {
                         -webkit-print-color-adjust: exact !important;
