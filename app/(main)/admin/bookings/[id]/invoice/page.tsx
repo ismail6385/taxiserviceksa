@@ -361,7 +361,7 @@ export default function InvoicePage() {
                         {/* Invoice Header */}
                         <div className="flex justify-between items-start mb-3 border-b-2 border-gray-100 pb-3">
                             <div>
-                                <span className="text-base font-black tracking-tighter text-gray-900 uppercase">
+                                <span className="text-[12px] font-black tracking-tighter text-gray-900 uppercase">
                                     Taxi Service <span className="text-lime-600">KSA</span>
                                 </span>
                                 <div className="text-[9px] text-gray-500 space-y-0 mt-1 leading-tight font-medium">
@@ -372,7 +372,7 @@ export default function InvoicePage() {
                             </div>
                             <div className="text-right">
                                 <div className="flex items-center justify-end gap-2 mb-0.5">
-                                    <h1 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">Invoice</h1>
+                                    <h1 className="text-[12px] font-black text-gray-900 uppercase tracking-tighter">Invoice</h1>
                                     {isRoundTrip && (
                                         <span className="px-2 py-0.5 rounded-full text-[8px] font-black uppercase bg-blue-600 text-white whitespace-nowrap">
                                             🔄 Round Trip
@@ -397,7 +397,7 @@ export default function InvoicePage() {
                             <div>
                                 <h2 className="text-[8px] font-bold text-gray-400 uppercase tracking-widest mb-1">Passenger Details</h2>
                                 <div className="bg-gray-50 rounded-lg p-2 border border-gray-100">
-                                    <p className="text-xs font-bold text-gray-900 mb-1">{booking.customer_name}</p>
+                                    <p className="text-[12px] font-bold text-gray-900 mb-1">{booking.customer_name}</p>
                                     <div className="space-y-0.5 text-[10px] text-gray-600">
                                         <p className="flex items-center gap-1 font-medium">
                                             <Phone className="w-2.5 h-2.5 text-gray-400 flex-shrink-0" /> {booking.customer_phone}
@@ -435,12 +435,12 @@ export default function InvoicePage() {
                                 <div className="relative">
                                     <div className="absolute -left-[18px] top-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white shadow-sm"></div>
                                     <p className="text-[8px] text-gray-400 font-black uppercase">Pick-up</p>
-                                    <p className="text-xs font-bold text-gray-900 leading-snug break-words">{booking.pickup_location}</p>
+                                    <p className="text-[12px] font-bold text-gray-900 leading-snug break-words">{booking.pickup_location}</p>
                                 </div>
                                 <div className="relative">
                                     <div className="absolute -left-[18px] top-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white shadow-sm"></div>
                                     <p className="text-[8px] text-gray-400 font-black uppercase">{isRoundTrip ? 'Destination' : 'Drop-off'}</p>
-                                    <p className="text-xs font-bold text-gray-900 leading-snug break-words">{booking.destination}</p>
+                                    <p className="text-[12px] font-bold text-gray-900 leading-snug break-words">{booking.destination}</p>
                                 </div>
                                 {isRoundTrip && (
                                     <div className="relative">
@@ -448,7 +448,7 @@ export default function InvoicePage() {
                                             <span className="text-white text-[5px] font-black">↩</span>
                                         </div>
                                         <p className="text-[8px] text-blue-500 font-black uppercase">Return Drop-off</p>
-                                        <p className="text-xs font-bold text-gray-900 leading-snug break-words">{returnDestination || booking.pickup_location}</p>
+                                        <p className="text-[12px] font-bold text-gray-900 leading-snug break-words">{returnDestination || booking.pickup_location}</p>
                                     </div>
                                 )}
                             </div>
@@ -466,7 +466,7 @@ export default function InvoicePage() {
                                 <tbody>
                                     <tr>
                                         <td className="px-4 py-2.5">
-                                            <p className="font-black text-gray-900 text-xs uppercase tracking-tight">
+                                            <p className="font-black text-gray-900 text-[12px] uppercase tracking-tight">
                                                 {isRoundTrip ? 'Round Trip Transfer Service 🔄' : 'Private Transfer Service'}
                                             </p>
                                             <p className="text-[10px] text-gray-500 mt-0.5">
@@ -489,7 +489,7 @@ export default function InvoicePage() {
                                             )}
                                         </td>
                                         <td className="px-4 py-2.5 text-right align-top">
-                                            <span className="text-base font-black text-gray-900">{currency} {booking.total_price?.toFixed(2) || '0.00'}</span>
+                                            <span className="text-[12px] font-black text-gray-900">{currency} {booking.total_price?.toFixed(2) || '0.00'}</span>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -497,7 +497,7 @@ export default function InvoicePage() {
                                     <tr>
                                         <td className="px-4 py-2.5 text-right text-[9px] font-black uppercase tracking-widest text-white/50">Total Payable Amount</td>
                                         <td className="px-4 py-2.5 text-right border-l border-white/10">
-                                            <span className="text-xl font-black text-primary">{currency} {booking.total_price?.toFixed(2) || '0.00'}</span>
+                                            <span className="text-[12px] font-black text-primary">{currency} {booking.total_price?.toFixed(2) || '0.00'}</span>
                                         </td>
                                     </tr>
                                 </tfoot>
