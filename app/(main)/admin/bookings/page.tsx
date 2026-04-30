@@ -590,7 +590,7 @@ export default function BookingsPage() {
     };
 
     const shareClientDetails = (booking: Booking) => {
-        const text = `*Booking Details (Client)* \n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*Client:* ${booking.customer_name}\n*Phone:* ${booking.customer_phone}\n*Pickup:* ${booking.pickup_location}\n*Dropoff:* ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}\n*Vehicle:* ${booking.vehicle_type}\n*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}\n\n*Fare:* SAR ${booking.total_price || 'Confirming'}\n\n*Notes:* ${booking.special_requests || 'N/A'}\n\nThank you for choosing Taxi Service KSA.`;
+        const text = `*Booking Details (Client)* \n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*Client:* ${booking.customer_name}\n*Phone:* ${booking.customer_phone}\n*Pickup:* ${booking.pickup_location}\n*Dropoff:* ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}\n*Vehicle:* ${booking.vehicle_type}\n*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}\n\n*Fare:* ${booking.currency || 'SAR'} ${booking.total_price || 'Confirming'}\n\n*Notes:* ${booking.special_requests || 'N/A'}\n\nThank you for choosing Taxi Service KSA.`;
 
         navigator.clipboard.writeText(text).then(() => {
             alert('Client details copied to clipboard!');
@@ -634,10 +634,10 @@ Your professional chauffeur will contact you shortly via WhatsApp/Call. Have a s
     const sendWhatsAppPrice = (booking: Booking) => {
         const hasReturn = booking.has_return_trip || booking.special_requests?.includes('RETURN TRIP');
         
-        const text = `Hi ${booking.customer_name}! The total fare for your trip is *SAR ${booking.total_price || 0}* ${hasReturn ? '(Round Trip Included)' : ''}.
-        
+        const text = `Hi ${booking.customer_name}! The total fare for your trip is *${booking.currency || 'SAR'} ${booking.total_price || 0}* ${hasReturn ? '(Round Trip Included)' : ''}.
+
 💳 *Payment Status:* ${(booking.payment_status || 'unpaid').toUpperCase()}
-        
+
 Please let us know if you would like to proceed with the booking. *Taxi Service KSA*`;
         openWhatsApp(booking.customer_phone, text);
     };
@@ -1184,14 +1184,6 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                     <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
                                                     {booking.destination}
                                                 </div>
-                                                <div className="group relative w-fit">
-                                                    <span className="text-xs font-bold text-gray-900 border-b border-dotted border-gray-400 cursor-help">
-                                                        SAR {booking.total_price || 0}
-                                                    </span>
-                                                    <div className="invisible group-hover:visible absolute left-0 -top-8 bg-slate-900 text-white text-[10px] px-2 py-1 rounded-md whitespace-nowrap z-50 shadow-xl">
-                                                       {getCurrencyTooltip(booking.total_price || 0)}
-                                                    </div>
-                                                </div>
                                             </div>
                                         </TableCell>
                                         <TableCell>
@@ -1212,6 +1204,18 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 {isTomorrow && <Badge className="bg-orange-500 hover:bg-orange-600 text-[10px] uppercase border-none text-white px-1.5 py-0">Tomorrow</Badge>}
                                             </div>
                                             <div className={`text-xs ${isOverdue ? 'text-red-700 font-bold' : 'text-gray-500'}`}>{booking.pickup_time}</div>
+                                        </TableCell>
+                                        <TableCell>
+                                            <div className="group relative w-fit">
+                                                <span className="text-sm font-bold text-gray-900 border-b border-dotted border-gray-400 cursor-help whitespace-nowrap">
+                                                    {booking.currency || 'SAR'} {booking.total_price ?? '—'}
+                                                </span>
+                                                {(!booking.currency || booking.currency === 'SAR') && booking.total_price ? (
+                                                    <div className="invisible group-hover:visible absolute left-0 -top-8 bg-slate-900 text-white text-[10px] px-2 py-1 rounded-md whitespace-nowrap z-50 shadow-xl">
+                                                        {getCurrencyTooltip(booking.total_price)}
+                                                    </div>
+                                                ) : null}
+                                            </div>
                                         </TableCell>
                                         <TableCell>
                                             <Select
@@ -1729,6 +1733,38 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         </div>
                                     </div>
 
+                                    {/* Payment Method */}
+                                    <div>
+                                        <span className="block text-xs text-gray-500 mb-1">Payment Method</span>
+                                        {isEditing ? (
+                                            <div className="space-y-2">
+                                                <Input
+                                                    value={editedBooking.payment_method || ''}
+                                                    onChange={(e) => setEditedBooking({ ...editedBooking, payment_method: e.target.value })}
+                                                    className="h-8 text-sm bg-white"
+                                                    placeholder="Cash to Driver"
+                                                />
+                                                <div className="flex flex-wrap gap-1">
+                                                    {['Cash to Driver', 'Credit Card', 'Bank Transfer', 'Online Payment', 'Complimentary'].map((m) => (
+                                                        <span
+                                                            key={m}
+                                                            onClick={() => setEditedBooking({ ...editedBooking, payment_method: m })}
+                                                            className={`text-[10px] px-1.5 py-0.5 rounded cursor-pointer transition-colors border ${
+                                                                editedBooking.payment_method === m
+                                                                ? 'bg-primary border-primary text-black font-bold'
+                                                                : 'bg-gray-100 border-gray-200 text-gray-700 hover:bg-gray-200'
+                                                            }`}
+                                                        >
+                                                            {m}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <span className="font-medium text-gray-900 text-sm">{selectedBooking.payment_method || 'Cash to Driver'}</span>
+                                        )}
+                                    </div>
+
                                     {/* Driver Details Row */}
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
@@ -2121,7 +2157,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     </Select>
                                 </div>
                                 <div className="space-y-1">
-                                    <label className="text-sm font-medium text-gray-700">Total Price (SAR)</label>
+                                    <label className="text-sm font-medium text-gray-700">Total Price</label>
                                     <div className="flex gap-2">
                                         <Input
                                             type="number"
@@ -2130,14 +2166,29 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             onChange={(e) => setNewBooking({ ...newBooking, total_price: parseFloat(e.target.value) })}
                                             className="bg-white border-gray-200 font-bold"
                                         />
-                                        <Button 
-                                            variant="outline" 
-                                            size="icon" 
+                                        <Button
+                                            variant="outline"
+                                            size="icon"
                                             onClick={() => suggestPrice(newBooking.pickup_location || '', newBooking.destination || '', newBooking.vehicle_type, 'new')}
                                             title="Suggest standard price"
                                         >
                                             <Calculator className="h-4 w-4" />
                                         </Button>
+                                    </div>
+                                    <div className="flex gap-1 mt-1 flex-wrap">
+                                        {['SAR', 'USD', 'AED', 'EUR', 'KWD', 'OMR'].map((c) => (
+                                            <span
+                                                key={c}
+                                                onClick={() => setNewBooking({ ...newBooking, currency: c })}
+                                                className={`text-[10px] px-1.5 py-0.5 rounded cursor-pointer border transition-colors ${
+                                                    (newBooking.currency || 'SAR') === c
+                                                    ? 'bg-primary border-primary text-black font-bold'
+                                                    : 'bg-gray-100 border-gray-200 text-gray-600 hover:bg-gray-200'
+                                                }`}
+                                            >
+                                                {c}
+                                            </span>
+                                        ))}
                                     </div>
                                 </div>
                                 <div className="space-y-1">
@@ -2192,6 +2243,38 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         onChange={(e) => setNewBooking({ ...newBooking, tags: e.target.value })}
                                         className="bg-white border-gray-200"
                                     />
+                                </div>
+                                <div className="space-y-1">
+                                    <label className="text-sm font-medium text-gray-700">Payment Method</label>
+                                    <Select
+                                        value={newBooking.payment_method || 'Cash to Driver'}
+                                        onValueChange={(val) => setNewBooking({ ...newBooking, payment_method: val })}
+                                    >
+                                        <SelectTrigger className="bg-white border-gray-200">
+                                            <SelectValue />
+                                        </SelectTrigger>
+                                        <SelectContent className="bg-white border-gray-200">
+                                            <SelectItem value="Cash to Driver">Cash to Driver</SelectItem>
+                                            <SelectItem value="Credit Card">Credit Card</SelectItem>
+                                            <SelectItem value="Bank Transfer">Bank Transfer</SelectItem>
+                                            <SelectItem value="Online Payment">Online Payment</SelectItem>
+                                            <SelectItem value="Complimentary">Complimentary</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                                <div className="space-y-1 sm:col-span-2">
+                                    <label className="text-sm font-medium text-gray-700">Round Trip?</label>
+                                    <button
+                                        type="button"
+                                        onClick={() => setNewBooking({ ...newBooking, has_return_trip: !newBooking.has_return_trip })}
+                                        className={`h-9 px-4 rounded-md text-[11px] font-black uppercase tracking-widest transition-all border ${
+                                            newBooking.has_return_trip
+                                            ? 'bg-blue-600 text-white border-blue-700'
+                                            : 'bg-white text-gray-400 border-gray-200 hover:border-gray-300'
+                                        }`}
+                                    >
+                                        {newBooking.has_return_trip ? '🔄 Round Trip Enabled' : 'One Way Only'}
+                                    </button>
                                 </div>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
