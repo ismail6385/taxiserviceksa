@@ -23,32 +23,41 @@ import {
     MessageSquare,
     Bell,
     Inbox,
-    ClipboardList
+    ClipboardList,
+    ChevronLeft,
+    ChevronRight,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
-import { cn } from '@/lib/utils'; // Assuming you have a utils file for class merging
+import { cn } from '@/lib/utils';
 
 const menuItems = [
-    { name: 'Dashboard',      href: '/admin/dashboard',        icon: LayoutDashboard },
-    { name: 'Bookings',       href: '/admin/bookings',         icon: CalendarDays },
-    { name: 'Calendar',       href: '/admin/calendar',         icon: Calendar },
-    { name: 'Customers',      href: '/admin/customers',           icon: Users },
-    { name: 'Reports',        href: '/admin/reports',             icon: BarChart2 },
-    { name: 'Pricing',        href: '/admin/pricing',             icon: DollarSign },
-    { name: 'WA Templates',   href: '/admin/whatsapp-templates',  icon: MessageSquare },
-    { name: 'Notifications',  href: '/admin/notifications',       icon: Bell },
-    { name: 'Promo Codes',    href: '/admin/promo-codes',      icon: Tag },
-    { name: 'Invoice Creator',href: '/admin/invoice-generator',icon: FileText },
-    { name: 'Reviews',        href: '/admin/reviews',          icon: Star },
-    { name: 'Questions',      href: '/admin/questions',        icon: HelpCircle },
-    { name: 'Blogs',          href: '/admin/blogs',            icon: FileText },
-    { name: 'Support',        href: '/admin/support',          icon: Inbox },
-    { name: 'Audit Log',      href: '/admin/audit-log',        icon: ClipboardList },
-    { name: 'Settings',       href: '/admin/settings',         icon: Settings },
+    { name: 'Dashboard',       href: '/admin/dashboard',           icon: LayoutDashboard },
+    { name: 'Bookings',        href: '/admin/bookings',            icon: CalendarDays },
+    { name: 'Calendar',        href: '/admin/calendar',            icon: Calendar },
+    { name: 'Customers',       href: '/admin/customers',           icon: Users },
+    { name: 'Reports',         href: '/admin/reports',             icon: BarChart2 },
+    { name: 'Pricing',         href: '/admin/pricing',             icon: DollarSign },
+    { name: 'WA Templates',    href: '/admin/whatsapp-templates',  icon: MessageSquare },
+    { name: 'Notifications',   href: '/admin/notifications',       icon: Bell },
+    { name: 'Promo Codes',     href: '/admin/promo-codes',         icon: Tag },
+    { name: 'Invoice Creator', href: '/admin/invoice-generator',   icon: FileText },
+    { name: 'Reviews',         href: '/admin/reviews',             icon: Star },
+    { name: 'Questions',       href: '/admin/questions',           icon: HelpCircle },
+    { name: 'Blogs',           href: '/admin/blogs',               icon: FileText },
+    { name: 'Support',         href: '/admin/support',             icon: Inbox },
+    { name: 'Audit Log',       href: '/admin/audit-log',           icon: ClipboardList },
+    { name: 'Fleet',           href: '/admin/fleet',               icon: Car },
+    { name: 'Locations',       href: '/admin/locations',           icon: MapPin },
+    { name: 'Settings',        href: '/admin/settings',            icon: Settings },
 ];
 
-export default function AdminSidebar() {
+interface AdminSidebarProps {
+    isCollapsed: boolean;
+    onToggle: () => void;
+}
+
+export default function AdminSidebar({ isCollapsed, onToggle }: AdminSidebarProps) {
     const pathname = usePathname();
     const router = useRouter();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -58,12 +67,9 @@ export default function AdminSidebar() {
         const checkAuth = async () => {
             const { data: { session } } = await supabase.auth.getSession();
             setIsAuthenticated(!!session);
-
-            // Listen for auth changes
             const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
                 setIsAuthenticated(!!session);
             });
-
             return () => subscription.unsubscribe();
         };
         checkAuth();
@@ -75,19 +81,16 @@ export default function AdminSidebar() {
         router.push('/admin/login');
     };
 
-    // Do not show the sidebar at all if not authenticated, except during initial load check
-    if (isAuthenticated === false && pathname !== '/admin/login') {
-        return null;
-    }
+    if (isAuthenticated === false && pathname !== '/admin/login') return null;
 
     return (
         <div className="print:hidden">
-            {/* Mobile Menu Button */}
+            {/* Mobile toggle */}
             <div className="md:hidden fixed top-4 left-4 z-50">
                 <Button
                     variant="outline"
                     size="icon"
-                    className="bg-white border-gray-200 text-gray-900"
+                    className="bg-white border-gray-200 text-gray-900 shadow-sm"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X /> : <Menu />}
@@ -96,60 +99,90 @@ export default function AdminSidebar() {
 
             {/* Sidebar */}
             <aside className={cn(
-                "fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200 transition-transform duration-300 ease-in-out md:translate-x-0",
-                isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+                "fixed inset-y-0 left-0 z-40 bg-white border-r border-gray-200 flex flex-col transition-all duration-300 ease-in-out",
+                isCollapsed ? "w-[64px]" : "w-64",
+                isMobileMenuOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
             )}>
-                <div className="flex flex-col h-full">
-                    {/* Logo Section */}
-                    <div className="h-20 flex items-center px-6 border-b border-gray-200">
+                {/* Logo + collapse toggle */}
+                <div className={cn(
+                    "h-16 flex items-center border-b border-gray-200 shrink-0",
+                    isCollapsed ? "justify-center px-2" : "justify-between px-4"
+                )}>
+                    {!isCollapsed ? (
                         <Link href="/admin/dashboard" className="flex items-center gap-2">
-                            <div className="bg-primary/20 p-2 rounded-lg">
-                                <Car className="h-6 w-6 text-primary" />
+                            <div className="bg-primary/20 p-1.5 rounded-lg">
+                                <Car className="h-5 w-5 text-primary" />
                             </div>
-                            <span className="text-xl font-bold text-gray-900">Admin<span className="text-primary">Panel</span></span>
+                            <span className="text-base font-bold text-gray-900 whitespace-nowrap">Admin<span className="text-primary">Panel</span></span>
                         </Link>
-                    </div>
+                    ) : (
+                        <Link href="/admin/dashboard" title="Dashboard">
+                            <div className="bg-primary/20 p-1.5 rounded-lg">
+                                <Car className="h-5 w-5 text-primary" />
+                            </div>
+                        </Link>
+                    )}
+                    <button
+                        onClick={onToggle}
+                        className="hidden md:flex h-7 w-7 items-center justify-center rounded-md hover:bg-gray-100 text-gray-400 hover:text-gray-700 transition-colors shrink-0"
+                        title={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+                    >
+                        {isCollapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+                    </button>
+                </div>
 
-                    {/* Navigation Links */}
-                    <nav className="flex-1 overflow-y-auto py-6 px-4 space-y-2">
-                        {menuItems.map((item) => {
-                            const Icon = item.icon;
-                            const isActive = pathname === item.href || (item.name !== 'Dashboard' && pathname.startsWith(item.href));
+                {/* Nav links */}
+                <nav className="flex-1 overflow-y-auto py-3 px-2 space-y-0.5">
+                    {menuItems.map((item) => {
+                        const Icon = item.icon;
+                        const isActive = pathname === item.href ||
+                            (item.href !== '/admin/dashboard' && pathname.startsWith(item.href));
 
-                            return (
-                                <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    className={cn(
-                                        "flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group",
-                                        isActive
-                                            ? "bg-primary text-black font-semibold shadow-md"
-                                            : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
-                                    )}
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                >
-                                    <Icon className={cn("w-5 h-5", isActive ? "text-black" : "text-gray-400 group-hover:text-gray-900")} />
-                                    {item.name}
-                                </Link>
-                            );
-                        })}
-                    </nav>
+                        return (
+                            <Link
+                                key={item.href}
+                                href={item.href}
+                                title={isCollapsed ? item.name : undefined}
+                                className={cn(
+                                    "flex items-center rounded-xl transition-all duration-150 group",
+                                    isCollapsed
+                                        ? "justify-center px-0 py-2.5 mx-1"
+                                        : "gap-3 px-3 py-2.5",
+                                    isActive
+                                        ? "bg-primary text-black font-semibold shadow-sm"
+                                        : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
+                                )}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                <Icon className={cn(
+                                    "w-4 h-4 shrink-0",
+                                    isActive ? "text-black" : "text-gray-400 group-hover:text-gray-700"
+                                )} />
+                                {!isCollapsed && (
+                                    <span className="text-sm truncate">{item.name}</span>
+                                )}
+                            </Link>
+                        );
+                    })}
+                </nav>
 
-                    {/* Logout Section */}
-                    <div className="p-4 border-t border-gray-200">
-                        <Button
-                            onClick={handleLogout}
-                            className="w-full justify-start bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700 border border-red-100 transition-all"
-                            variant="ghost"
-                        >
-                            <LogOut className="w-5 h-5 mr-2" />
-                            Sign Out
-                        </Button>
-                    </div>
+                {/* Logout */}
+                <div className="p-2 border-t border-gray-200 shrink-0">
+                    <button
+                        onClick={handleLogout}
+                        title={isCollapsed ? 'Sign Out' : undefined}
+                        className={cn(
+                            "w-full flex items-center rounded-xl bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700 transition-all py-2.5",
+                            isCollapsed ? "justify-center px-0" : "gap-2.5 px-3"
+                        )}
+                    >
+                        <LogOut className="w-4 h-4 shrink-0" />
+                        {!isCollapsed && <span className="text-sm font-medium">Sign Out</span>}
+                    </button>
                 </div>
             </aside>
 
-            {/* Overlay for mobile */}
+            {/* Mobile overlay */}
             {isMobileMenuOpen && (
                 <div
                     className="fixed inset-0 bg-black/50 z-30 md:hidden backdrop-blur-sm"
