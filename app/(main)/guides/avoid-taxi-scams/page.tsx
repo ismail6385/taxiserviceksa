@@ -10,7 +10,10 @@ import JsonLdArticle from '@/components/seo/JsonLdArticle';
 export const metadata: Metadata = {
     title: 'How to Avoid Taxi Scams in Makkah & Jeddah (2025 Safety Guide)',
     description: 'Don\'t get overcharged. Learn the top taxi scams in Saudi Arabia and how to avoid them. Trusted tips for pilgrims and tourists.',
-    keywords: ['taxi scams jeddah', 'makkah taxi safety', 'saudi taxi prices', 'avoid taxi fraud ksa'],
+    keywords: ['Avoid Taxi Scams Saudi Arabia'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/guides/avoid-taxi-scams/',
+    },
 };
 
 export default function TaxiScamGuide() {

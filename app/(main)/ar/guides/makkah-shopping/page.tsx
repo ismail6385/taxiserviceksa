@@ -7,11 +7,16 @@ import Hero from '@/components/Hero';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Makkah Shopping Guide | Malls, Souqs & Gifts',
-    description: 'Best places for shopping in Makkah. Guide to Abraj Al Bait Mall, Makkah Mall, and traditional souqs. Where to buy dates, perfumes, gold, and souvenirs.',
-    keywords: ['Makkah shopping malls', 'Abraj Al Bait mall', 'Buy dates Makkah', 'Makkah gold market', 'Souvenirs Makkah'],
+    title: 'دليل تسوق مكة المكرمة | مراكز التسوق والأسواق والهدايا',
+    description: 'أفضل أماكن التسوق في مكة المكرمة. دليل مركز أبراج البيت ومول مكة والأسواق التقليدية. أين تشتري التمور والعطور والذهب والهدايا التذكارية.',
+    keywords: ['مراكز تسوق مكة', 'مول أبراج البيت', 'شراء تمور مكة', 'سوق ذهب مكة', 'هدايا تذكارية مكة'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/makkah-shopping/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/makkah-shopping/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/makkah-shopping/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/makkah-shopping/',
+        },
     },
 };
 

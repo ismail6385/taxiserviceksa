@@ -13,9 +13,9 @@ import {
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Top Rated Corporate VIP Transfer Saudi Arabia | Best Executive Chauffeur | Taxi Service KSA',
-    description: 'Best VIP transfer service for corporate travel in Saudi Arabia. Professional executive transport for business meetings in Riyadh and Jeddah. Monthly billing available.',
-    keywords: ['Top Rated Corporate VIP Transfer', 'Best VIP Transfer Service in Saudi Arabia', 'Executive Transport Riyadh', 'Business Travel Jeddah', 'Corporate Chauffeur Service'],
+    title: 'Corporate Travel Solutions Saudi Arabia | Company Account & Monthly Billing',
+    description: 'Dedicated corporate travel account for businesses in Saudi Arabia. Monthly billing, multi-trip contracts, dedicated account manager, and fleet allocation for your company.',
+    keywords: ['Corporate travel account Saudi Arabia', 'Company taxi account KSA', 'Monthly billing taxi Saudi', 'Business fleet management KSA', 'Corporate transport contract Saudi Arabia'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/corporate-travel/',
     },

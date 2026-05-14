@@ -25,10 +25,57 @@ const nextConfig = {
       '/.well-known/oauth-protected-resource',
       '/.well-known/http-message-signatures-directory',
     ];
+
+    const securityHeaders = [
+      // Force HTTPS for 1 year, include all subdomains
+      {
+        key: 'Strict-Transport-Security',
+        value: 'max-age=31536000; includeSubDomains; preload',
+      },
+      // Prevent MIME type sniffing
+      {
+        key: 'X-Content-Type-Options',
+        value: 'nosniff',
+      },
+      // Block site from being embedded in iframes on other domains
+      {
+        key: 'X-Frame-Options',
+        value: 'SAMEORIGIN',
+      },
+      // Control referrer information sent with requests
+      {
+        key: 'Referrer-Policy',
+        value: 'no-referrer-when-downgrade',
+      },
+      // Disable unused browser features
+      {
+        key: 'Permissions-Policy',
+        value: 'geolocation=(), midi=(), accelerometer=(), gyroscope=(), magnetometer=(), camera=(), microphone=(), payment=(), usb=(), fullscreen=(self)',
+      },
+      // Content Security Policy — upgrade HTTP to HTTPS + restrict sources
+      {
+        key: 'Content-Security-Policy',
+        value: [
+          "default-src 'self'",
+          "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://static.hotjar.com https://script.hotjar.com",
+          "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+          "font-src 'self' https://fonts.gstatic.com",
+          "img-src 'self' data: blob: https: https://www.google-analytics.com https://www.googletagmanager.com https://flagcdn.com",
+          "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://vitals.vercel-insights.com",
+          "frame-src 'self' https://www.google.com https://www.youtube.com",
+          "object-src 'none'",
+          "base-uri 'self'",
+          "form-action 'self'",
+          "upgrade-insecure-requests",
+        ].join('; '),
+      },
+    ];
+
     return [
       {
         source: '/(.*)',
         headers: [
+          ...securityHeaders,
           {
             key: 'Link',
             value: [
@@ -194,6 +241,168 @@ const nextConfig = {
       {
         source: '/madinah-to-makkah-taxi/',
         destination: '/routes/madinah-makkah/',
+        permanent: true,
+      },
+      // URL variant redirects - May 2026
+      {
+        source: '/locations/al-quwayiyah',
+        destination: '/locations/al-quway-iyah/',
+        permanent: true,
+      },
+      {
+        source: '/locations/al-quwayiyah/',
+        destination: '/locations/al-quway-iyah/',
+        permanent: true,
+      },
+      {
+        source: '/locations/al-majmaah',
+        destination: '/locations/al-majma-ah/',
+        permanent: true,
+      },
+      {
+        source: '/locations/al-majmaah/',
+        destination: '/locations/al-majma-ah/',
+        permanent: true,
+      },
+      // 404 Error Fixes - May 2026
+      {
+        source: '/routes/riy',
+        destination: '/routes/riyadh-makkah/',
+        permanent: true,
+      },
+      {
+        source: '/routes/riy/',
+        destination: '/routes/riyadh-makkah/',
+        permanent: true,
+      },
+      {
+        source: '/riyadh-zoo-explore-the-official-saudi/feed',
+        destination: '/blog/',
+        permanent: true,
+      },
+      {
+        source: '/riyadh-zoo-explore-the-official-saudi/feed/',
+        destination: '/blog/',
+        permanent: true,
+      },
+      {
+        source: '/apple-app-site-association',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/apple-app-site-association/',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/.well-known/apple-app-site-association',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/.well-known/apple-app-site-association/',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/blog/maraya-concert-hall-al-ula-guide',
+        destination: '/blog/',
+        permanent: true,
+      },
+      {
+        source: '/blog/maraya-concert-hall-al-ula-guide/',
+        destination: '/blog/',
+        permanent: true,
+      },
+      {
+        source: '/pricing',
+        destination: '/fleet/',
+        permanent: true,
+      },
+      {
+        source: '/pricing/',
+        destination: '/fleet/',
+        permanent: true,
+      },
+      {
+        source: '/services/ziyarat-tours',
+        destination: '/services/madinah-ziyarat/',
+        permanent: true,
+      },
+      {
+        source: '/services/ziyarat-tours/',
+        destination: '/services/madinah-ziyarat/',
+        permanent: true,
+      },
+      {
+        source: '/services/business-executive-transport',
+        destination: '/services/business/',
+        permanent: true,
+      },
+      {
+        source: '/services/business-executive-transport/',
+        destination: '/services/business/',
+        permanent: true,
+      },
+      {
+        source: '/routes/dammam-airport-to-kuwait',
+        destination: '/routes/dammam-kuwait/',
+        permanent: true,
+      },
+      {
+        source: '/routes/dammam-airport-to-kuwait/',
+        destination: '/routes/dammam-kuwait/',
+        permanent: true,
+      },
+      {
+        source: '/jeddah-to-pullman-makkah',
+        destination: '/routes/jeddah-to-pullman-makkah/',
+        permanent: true,
+      },
+      {
+        source: '/jeddah-to-pullman-makkah/',
+        destination: '/routes/jeddah-to-pullman-makkah/',
+        permanent: true,
+      },
+      {
+        source: '/category/uncategorized',
+        destination: '/blog/',
+        permanent: true,
+      },
+      {
+        source: '/category/uncategorized/',
+        destination: '/blog/',
+        permanent: true,
+      },
+      {
+        source: '/jeddah-to-fairmont-makkah',
+        destination: '/routes/jeddah-to-fairmont-makkah/',
+        permanent: true,
+      },
+      {
+        source: '/jeddah-to-fairmont-makkah/',
+        destination: '/routes/jeddah-to-fairmont-makkah/',
+        permanent: true,
+      },
+      {
+        source: '/makkah-taxi/makkah-to-madinah-staria-7-seater',
+        destination: '/routes/makkah-madinah/',
+        permanent: true,
+      },
+      {
+        source: '/makkah-taxi/makkah-to-madinah-staria-7-seater/',
+        destination: '/routes/makkah-madinah/',
+        permanent: true,
+      },
+      {
+        source: '/jeddah-to-swissotel-makkah',
+        destination: '/routes/jeddah-to-swissotel-makkah/',
+        permanent: true,
+      },
+      {
+        source: '/jeddah-to-swissotel-makkah/',
+        destination: '/routes/jeddah-to-swissotel-makkah/',
         permanent: true,
       },
     ];

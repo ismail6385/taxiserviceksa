@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     keywords: ['Makkah shopping malls', 'Abraj Al Bait mall', 'Buy dates Makkah', 'Makkah gold market', 'Souvenirs Makkah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/makkah-shopping/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/makkah-shopping/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/makkah-shopping/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/makkah-shopping/',
+        },
     },
 };
 

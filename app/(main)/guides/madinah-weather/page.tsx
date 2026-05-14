@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     keywords: ['Madinah weather', 'Best time to visit Madinah', 'Madinah temperature by month', 'Umrah weather guide', 'Madinah climate'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/madinah-weather/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/madinah-weather/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/madinah-weather/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/madinah-weather/',
+        },
     },
 };
 

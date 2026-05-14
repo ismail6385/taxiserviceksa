@@ -7,11 +7,16 @@ import Hero from '@/components/Hero';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Makkah Haram Gates Guide | Entrances & Wheelchair Access',
-    description: 'Guide to Masjid Al Haram gates. Find King Abdulaziz Gate, King Fahd Gate, Umrah entrances, and wheelchair accessible gates. Navigate the Haram easily.',
-    keywords: ['Haram gates Makkah', 'King Abdulaziz Gate', 'King Fahd Gate', 'Umrah gate number', 'Wheelchair access Haram gates'],
+    title: 'مکہ حرم دروازوں کی گائیڈ | داخلی راستے اور وہیل چیئر رسائی',
+    description: 'مسجد الحرام کے دروازوں کی گائیڈ۔ شاہ عبدالعزیز گیٹ، شاہ فہد گیٹ، عمرہ داخلی راستے، اور وہیل چیئر قابل رسائی دروازے تلاش کریں۔',
+    keywords: ['حرم مکہ دروازے', 'شاہ عبدالعزیز گیٹ', 'شاہ فہد گیٹ', 'عمرہ گیٹ نمبر', 'حرم وہیل چیئر رسائی'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/haram-gates-access/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/haram-gates-access/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/haram-gates-access/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/haram-gates-access/',
+        },
     },
 };
 

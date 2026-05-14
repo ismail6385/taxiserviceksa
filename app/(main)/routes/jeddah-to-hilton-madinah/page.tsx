@@ -11,7 +11,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 export const metadata: Metadata = {
     title: 'Jeddah to Madinah Hilton Taxi | Hotel Transfer - Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a taxi from Jeddah Airport (JED) to Madinah Hilton Hotel. 4-5 hour journey. Affordable fixed rates. Door-to-door service near King Fahd Gate.',
-    keywords: ['Jeddah to Madinah Hilton taxi', 'taxi Jeddah airport to Hilton Madinah', 'Madinah Hilton transfer', 'transport Jeddah to Madinah Hilton', 'Madinah hotel taxi'],
+    keywords: ['Jeddah to Madinah Hilton taxi', 'KAIA to Hilton Madinah transfer', 'Hilton Madinah hotel pickup', 'Jeddah airport to Hilton Al Madinah', 'Hilton King Fahd Gate taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-hilton-madinah/',
     },

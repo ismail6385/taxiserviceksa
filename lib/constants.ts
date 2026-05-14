@@ -6,6 +6,7 @@ export const AUTHORS = [
         slug: 'taxi-service-ksa',
         role: 'Official Team',
         bio: 'Official updates and travel guides from the Taxi Service KSA team.',
+        metaDescription: 'Read official travel guides, Saudi Arabia transportation tips, and company updates from the expert team at Taxi Service KSA. Your trusted travel partner.',
         avatar: '/logo.png',
         social: {
             twitter: 'https://twitter.com/taxiserviceksa',
@@ -20,6 +21,7 @@ export const AUTHORS = [
         slug: 'muhammad-ismail',
         role: 'Founder & SEO Logistics Expert',
         bio: 'Founder of Taxi Service KSA and a seasoned professional in Saudi travel logistics. With over 12 years of experience in the transport industry and a deep background in SQA and AI Automation, Ismail ensures that every pilgrim and executive receives a world-class, tech-enabled travel experience. He is a recognized authority on Hajj & Umrah transport logistics and AI-driven content strategy.',
+        metaDescription: 'Read expert insights on Saudi travel logistics, VIP transfers, and Umrah transportation by Muhammad Ismail, Founder and CEO of Taxi Service KSA.',
         avatar: '/images/authors/ismail.jpg',
         social: {
             twitter: '',

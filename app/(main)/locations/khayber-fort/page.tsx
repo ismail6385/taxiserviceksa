@@ -572,22 +572,19 @@ export default function KhayberPage() {
                 <RelatedLocations currentCity="Khaybar" />
             </div>
 
-
-
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white text-center">
                 <div className="max-w-4xl mx-auto">
                     <h2 className="text-3xl md:text-5xl font-black mb-8">Get a quote for your Transfer to Khaybar</h2>
                     <p className="text-xl text-gray-400 mb-8">
                         Private 4x4 and sedan transport available for Khaybar tours.
                     </p>
-                    <Link href="/booking/">
-                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-12 py-8 rounded-full">
+                    <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-12 py-8 rounded-full">
+                        <Link href="/booking/">
                             Book VIP Transfer
-                        </Button>
-                    </Link>
+                        </Link>
+                    </Button>
                 </div>
             </section>
         </div>
     );
 }
-

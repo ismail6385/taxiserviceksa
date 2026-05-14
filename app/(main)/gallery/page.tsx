@@ -6,7 +6,10 @@ import { Camera, Car, MapPin } from 'lucide-react';
 export const metadata: Metadata = {
     title: 'Gallery | Taxi Service KSA - Our Fleet & Services',
     description: 'View our premium fleet of vehicles and services across Saudi Arabia. Browse photos of our luxury cars, vans, and professional chauffeur services.',
-    keywords: ['taxi gallery', 'fleet photos', 'Saudi Arabia taxi', 'luxury vehicles', 'chauffeur service'],
+    keywords: ['Taxi Service KSA Gallery'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/gallery/',
+    },
 };
 
 export default function GalleryPage() {

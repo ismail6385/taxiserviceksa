@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     keywords: ['Madinah prayer times', 'Masjid Nabawi salat time', 'Fajr time Madinah', 'Isha time Madinah', 'Prayer schedule Madinah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/madinah-prayer-times/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/madinah-prayer-times/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/madinah-prayer-times/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/madinah-prayer-times/',
+        },
     },
 };
 

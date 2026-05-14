@@ -9,11 +9,16 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 
 export const metadata: Metadata = {
-    title: 'Umrah Tawaf Guide | Step-by-Step Circumambulation Rules',
-    description: 'Learn how to perform Tawaf for Umrah. 7 rounds around the Kaaba, rules of Idtiba and Raml for men, and recommended Duas. Complete beginner guide.',
-    keywords: ['Umrah Tawaf guide', 'How to do Tawaf', 'Tawaf duas', 'Idtiba and Raml', 'Kaaba cicumambulation'],
+    title: 'دليل طواف العمرة | قواعد الطواف خطوة بخطوة',
+    description: 'تعلم كيفية أداء طواف العمرة. 7 أشواط حول الكعبة المشرفة، أحكام الاضطباع والرمل للرجال، والأدعية المستحبة. دليل شامل للمبتدئين.',
+    keywords: ['دليل طواف العمرة', 'كيفية أداء الطواف', 'أدعية الطواف', 'الاضطباع والرمل', 'الطواف حول الكعبة'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/umrah-tawaf-guide/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/umrah-tawaf-guide/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/umrah-tawaf-guide/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/umrah-tawaf-guide/',
+        },
     },
 };
 

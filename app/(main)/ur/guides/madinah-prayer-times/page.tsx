@@ -7,11 +7,16 @@ import Hero from '@/components/Hero';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Madinah Prayer Times | Salat Directions for Masjid Nabawi',
-    description: 'Current prayer (Salah) times in Madinah Al Munawwarah. Importance of praying in the Prophet\'s Mosque. Avoid peak crowds.',
-    keywords: ['Madinah prayer times', 'Masjid Nabawi salat time', 'Fajr time Madinah', 'Isha time Madinah', 'Prayer schedule Madinah'],
+    title: 'مدینہ منورہ نماز کے اوقات | مسجد نبوی میں نماز کا وقت',
+    description: 'مدینہ المنورہ میں نماز کے موجودہ اوقات۔ مسجد نبوی میں نماز کی اہمیت۔ ہجوم کے اوقات سے بچیں۔',
+    keywords: ['مدینہ نماز اوقات', 'مسجد نبوی نماز وقت', 'فجر وقت مدینہ', 'عشاء وقت مدینہ', 'نماز شیڈول مدینہ'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/madinah-prayer-times/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/madinah-prayer-times/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/madinah-prayer-times/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/madinah-prayer-times/',
+        },
     },
 };
 

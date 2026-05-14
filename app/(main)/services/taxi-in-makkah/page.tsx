@@ -9,9 +9,9 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 
 export const metadata: Metadata = {
-    title: 'Makkah to Madinah Taxi | Book Online | Taxi in Makkah | Taxi Service KSA',
-    description: 'Book the best online taxi in Makkah. Private car service Makkah to Madinah, Jeddah Airport, and Ziyarat. Fixed pricing, VIP cars including GMC & Mercedes.',
-    keywords: ['Taxi Makkah to Madinah', 'Taxi in Makkah', 'Makkah Taxi', 'Makkah to Madinah Taxi', 'Makkah to Jeddah Taxi'],
+    title: 'Local Taxi in Makkah | Hotel to Haram & Ziyarat Rides | Taxi Service KSA',
+    description: 'Local taxi service within Makkah for pilgrims. Hotel to Haram shuttles, short Ziyarat trips, and intra-city rides. Available 24/7 during Umrah and Hajj season.',
+    keywords: ['Local taxi Makkah', 'Hotel to Haram taxi', 'Makkah city rides', 'Pilgrims taxi Makkah', 'Intra-city taxi Makkah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/taxi-in-makkah/',
     },

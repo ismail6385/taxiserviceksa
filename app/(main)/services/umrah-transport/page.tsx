@@ -16,7 +16,9 @@ import AuthorCard from '@/components/AuthorCard';
 import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
-    keywords: ['VIP Umrah Private Transfers', 'Best Umrah Chauffeur', 'Jeddah to Makkah VIP Transfer', 'Madinah Madinah Private Transfer', 'Saudi Arabia Pilgrim Transport'],
+    title: 'Umrah VIP Transport Service | Private Chauffeur Makkah & Madinah | Taxi Service KSA',
+    description: 'Complete VIP Umrah transport with professional licensed chauffeurs. Jeddah Airport to Makkah, Makkah to Madinah private transfers. Meeqat stops, Zamzam accommodation, fixed rates, 24/7.',
+    keywords: ['VIP Umrah Transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/umrah-transport/',
     },

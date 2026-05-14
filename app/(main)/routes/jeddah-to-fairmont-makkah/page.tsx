@@ -12,7 +12,7 @@ import RecentTrips from '@/components/RecentTrips';
 export const metadata: Metadata = {
     title: 'Jeddah Airport to Fairmont Makkah Clock Royal Tower Taxi | Taxi Service KSA',
     description: 'VIP Transfer from Jeddah Airport (KAIA) to Fairmont Makkah Clock Royal Tower. Direct lobby drop-off. Luxury GMC Yukon available. Fixed Price.',
-    keywords: ['Jeddah to Fairmont Makkah Taxi', 'Fairmont Clock Tower Transfer', 'Jeddah airport to Abraj Al Bait', 'Makkah Clock Royal Tower taxi', 'VIP taxi Jeddah Makkah'],
+    keywords: ['Jeddah to Fairmont Makkah Taxi', 'Fairmont Clock Royal Tower transfer', 'Fairmont Makkah hotel pickup', 'KAIA to Fairmont Makkah', 'Fairmont Abraj Al Bait taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-fairmont-makkah/',
     },

@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     keywords: ['Madinah restaurants', 'Best food near Masjid Nabawi', 'Al Baik Madinah', 'Mandi Madinah', 'Places to eat Madinah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/madinah-food/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/madinah-food/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/madinah-food/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/madinah-food/',
+        },
     },
 };
 

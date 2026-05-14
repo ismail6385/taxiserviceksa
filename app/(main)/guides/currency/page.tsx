@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     keywords: ['Saudi currency guide', 'Exchange money Makkah', 'SAR exchange rate', 'ATM Madinah', 'Currency exchange Saudi Airport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/currency/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/currency/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/currency/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/currency/',
+        },
     },
 };
 

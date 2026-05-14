@@ -147,7 +147,7 @@ export default function Footer() {
                 <div className="mb-24 bg-gray-900 border border-gray-800 rounded-[2.5rem] p-10 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-10 relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-full h-full bg-[url('/makkah-pattern.png')] opacity-5 pointer-events-none"></div>
                     <div className="relative z-10 text-center lg:text-left">
-                        <h2 className="text-3xl md:text-4xl font-black text-white mb-4 italic">Ready to Book Your VIP Ride?</h2>
+                        <p className="text-3xl md:text-4xl font-black text-white mb-4 italic">Ready to Book Your VIP Ride?</p>
                         <p className="text-gray-400 text-lg max-w-xl">Get an instant quote and booking confirmation via WhatsApp in less than 2 minutes.</p>
                     </div>
                     <a 

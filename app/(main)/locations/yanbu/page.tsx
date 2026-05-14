@@ -490,6 +490,7 @@ export default function YanbuPage() {
             {/* CTA Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
+
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                         Get a quote for your Yanbu VIP Transfer Now
                     </h2>
@@ -497,20 +498,19 @@ export default function YanbuPage() {
                         Professional transport for industrial workers, port access, and Red Sea travel.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking/">
-                            <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
+                        <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
+                            <Link href="/booking/">
                                 Book VIP Transfer
-                            </Button>
-                        </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
-                            <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
+                            </Link>
+                        </Button>
+                        <Button asChild variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
+                            <a href="mailto:info@taxiserviceksa.com">
                                 Email Us
-                            </Button>
-                        </a>
+                            </a>
+                        </Button>
                     </div>
                 </div>
             </section>
         </div>
     );
 }
-

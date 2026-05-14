@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     }
 
     return {
-        title: guide.title,
+        title: `${guide.title} | Taxi Service KSA`,
         description: guide.metaDescription,
         keywords: [
             `${guide.countryName} to makkah taxi`,

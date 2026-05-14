@@ -26,15 +26,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const author = AUTHORS.find(a => a.slug === params.slug);
     if (!author) return { title: 'Author Not Found' };
 
+    const description = (author as any).metaDescription || `${author.bio.slice(0, 155)}...`;
+
     return {
         title: `${author.name} — ${author.role} | Taxi Service KSA`,
-        description: `${author.bio.slice(0, 155)}...`,
+        description: description,
         alternates: {
             canonical: `https://taxiserviceksa.com/author/${author.slug}/`,
         },
         openGraph: {
             title: `${author.name} | Taxi Service KSA`,
-            description: author.bio,
+            description: description,
             images: [{ url: author.avatar, width: 400, height: 400 }],
         },
     };

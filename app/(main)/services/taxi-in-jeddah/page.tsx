@@ -8,9 +8,9 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 
 export const metadata: Metadata = {
-    title: 'Jeddah to Makkah Taxi | Jeddah Airport Taxi | Taxi in Jeddah | Taxi Service KSA',
-    description: 'Looking for the best online taxi in Jeddah? We provide Jeddah Airport taxi services, VIP chauffeur cars, and direct transfers Jeddah to Makkah or Madinah.',
-    keywords: ['Taxi Jeddah to Makkah', 'Jeddah Airport Taxi', 'Taxi in Jeddah', 'Jeddah to Makkah Taxi', 'Taxi Jeddah Airport to Makkah'],
+    title: 'Local Taxi in Jeddah | Same-Day City Rides & Short Transfers | Taxi Service KSA',
+    description: 'Need a local taxi in Jeddah? We cover same-day city rides, hotel pickups, shopping mall transfers, and short trips within Jeddah. Book online, fixed price.',
+    keywords: ['Local taxi Jeddah', 'Taxi within Jeddah city', 'Jeddah city rides', 'Hotel pickup Jeddah', 'Same day taxi Jeddah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/taxi-in-jeddah/',
     },

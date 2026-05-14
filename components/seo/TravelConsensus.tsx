@@ -44,10 +44,10 @@ const TravelConsensus: React.FC<TravelConsensusProps> = ({
     return (
         <div className={`my-12 ${isRtl ? 'rtl' : 'ltr'}`} dir={isRtl ? 'rtl' : 'ltr'}>
             <div className="text-center mb-10">
-                <h2 className="text-3xl font-bold text-gray-900 mb-3 flex items-center justify-center gap-3">
+                <p className="text-3xl font-bold text-gray-900 mb-3 flex items-center justify-center gap-3">
                     <Scale className="w-8 h-8 text-primary" />
                     {labels.title}
-                </h2>
+                </p>
                 <p className="text-gray-600 max-w-2xl mx-auto">
                     {labels.subtitle}
                 </p>

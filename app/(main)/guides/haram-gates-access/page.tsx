@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     keywords: ['Haram gates Makkah', 'King Abdulaziz Gate', 'King Fahd Gate', 'Umrah gate number', 'Wheelchair access Haram gates'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/haram-gates-access/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/haram-gates-access/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/haram-gates-access/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/haram-gates-access/',
+        },
     },
 };
 

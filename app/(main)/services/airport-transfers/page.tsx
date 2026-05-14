@@ -16,9 +16,10 @@ import RelatedGuides from '@/components/RelatedGuides';
 import JsonLdLocation from '@/components/JsonLdLocation';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
-
 export const metadata: Metadata = {
-    keywords: ['VIP Airport Transfers Saudi Arabia', 'Premium Chauffeur Service', 'Jeddah Airport VIP Transfer', 'Riyadh Executive Transfer', 'Madinah Private Airport Shuttle', 'Uber alternative Jeddah Airport', 'Careem alternative Riyadh', 'Kaiian airport taxi'],
+    title: 'VIP Airport Transfer Service Saudi Arabia | 8 Airports | Taxi Service KSA',
+    description: 'Professional VIP airport transfer service across Saudi Arabia. 8 major airports covered including Jeddah, Riyadh & Madinah. Executive meet-and-greet, flight tracking, fixed rates, 24/7 service.',
+    keywords: ['VIP Airport Transfers Saudi Arabia'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/airport-transfers/',
     },
@@ -32,7 +33,6 @@ export const metadata: Metadata = {
 
 export default async function AirportTransfersPage() {
     // Fetch related blogs
-    // Try to get general airport guides or mix of major city guides
     const jeddahBlogs = await blogService.getBlogsByCategory('Jeddah Guide');
     const madinahBlogs = await blogService.getBlogsByCategory('Madinah Guide');
     const displayBlogs = [...jeddahBlogs.slice(0, 2), ...madinahBlogs.slice(0, 1)];
@@ -525,29 +525,6 @@ export default async function AirportTransfersPage() {
 
             {/* CTA Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
-                {/* CTA Section */}
-                <section className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-12 text-center text-white mb-16 px-4">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        Need an Airport Pickup?
-                    </h2>
-                    <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Professional airport transfer service with fixed prices and no surge charging. Your driver will track your flight and wait for you at the arrivals terminal.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto">
-                            <Link href="/booking/">
-                                Request a quote for airport Pickup
-                                <ArrowRight className="ml-2 w-5 h-5" />
-                            </Link>
-                        </Button>
-                        <Button asChild size="lg" variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto">
-                            <Link href="/services/intercity/">
-                                Intercity Travels
-                            </Link>
-                        </Button>
-                    </div>
-                </section>
-
                 {/* Author Section */}
                 <div className="max-w-4xl mx-auto pb-20 px-4 sm:px-6 lg:px-8">
                     <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-2 border-sky-50" />
@@ -560,18 +537,19 @@ export default async function AirportTransfersPage() {
                         Secure your private transfer with Saudi Arabia's premium executive transport provider. Dedicated to international travelers and business excellence.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking?service=airport-transfer">
-                            <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
-                        </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
-                            <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
+                        <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
+                            <Link href="/booking?service=airport-transfer">
+                                <WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking
+                            </Link>
+                        </Button>
+                        <Button asChild variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
+                            <a href="mailto:info@taxiserviceksa.com">
                                 Email for Custom Quote
-                            </Button>
-                        </a>
+                            </a>
+                        </Button>
                     </div>
                 </div>
             </section>
         </div>
     );
 }
-

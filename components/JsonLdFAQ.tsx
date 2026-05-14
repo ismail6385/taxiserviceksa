@@ -9,27 +9,7 @@ interface JsonLdFAQProps {
     faqs: FAQItem[];
 }
 
-const JsonLdFAQ: FC<JsonLdFAQProps> = ({ faqs }) => {
-    const faqSchema = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": faqs.map((faq) => ({
-            "@type": "Question",
-            "name": faq.question,
-            "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.answer,
-            },
-        })),
-    };
-
-    return (
-        <script
-            id="faq-schema"
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-    );
-};
+// FAQ schema intentionally removed — Google deprecated rich results for FAQPage on most pages
+const JsonLdFAQ: FC<JsonLdFAQProps> = ({ faqs: _faqs }) => null;
 
 export default JsonLdFAQ;

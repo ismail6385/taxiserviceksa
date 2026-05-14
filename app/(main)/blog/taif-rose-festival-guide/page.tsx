@@ -8,7 +8,10 @@ import ExpertReview from '@/components/seo/ExpertReview';
 export const metadata: Metadata = {
     title: 'Taif Rose Festival Guide 2025 | Dates, Locations & Tips',
     description: 'Complete guide to the Taif Rose Festival. Learn when to visit, best rose farms to see, and how to buy authentic Taif Rose oil. Taxi transfers available.',
-    keywords: ['Taif Rose Festival', 'Taif Rose Season', 'Rose Factories Taif', 'Taif Tourism', 'Rose Oil Saudi Arabia'],
+    keywords: ['Taif Rose Festival 2025'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/blog/taif-rose-festival-guide/',
+    },
     openGraph: {
         images: [{ url: '/taif-rose-festival.webp', alt: 'Taif Rose Festival' }],
     },

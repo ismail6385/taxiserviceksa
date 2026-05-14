@@ -11,11 +11,16 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedServices from '@/components/seo/RelatedServices';
 
 export const metadata: Metadata = {
-    title: 'Quba Avenue Walking Path | Walk from Masjid Nabawi to Quba',
-    description: 'A complete guide to the pedestrian walkway connecting Al-Masjid an-Nabawi to Masjid Quba. Distance, best time to walk, and amenities along the route.',
-    keywords: ['Quba walking path', 'Masjid Nabawi to Quba walk', 'Quba avenue Madinah', 'Ziyarat walking tour', 'Sunnah walk Madinah'],
+    title: 'قباء ایوینیو پیدل راستہ | مسجد نبوی سے مسجد قباء تک چلنا',
+    description: 'مسجد نبوی سے مسجد قباء کو جوڑنے والے پیدل راستے کی مکمل گائیڈ۔ فاصلہ، چلنے کا بہترین وقت، اور راستے کی سہولیات۔',
+    keywords: ['قباء پیدل راستہ', 'نبوی سے قباء تک چلنا', 'قباء ایوینیو مدینہ', 'زیارت پیدل سفر', 'سنت چلنا مدینہ'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/quba-walking-path/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/quba-walking-path/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/quba-walking-path/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/quba-walking-path/',
+        },
     },
 };
 

@@ -254,10 +254,10 @@ export default function DhahranPage() {
                         }
                     ]}
                 />
-            </div >
+            </div>
 
             {/* Authoritative Signal */}
-            < section className="bg-white mt-16" >
+            <section className="bg-white mt-16">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <ExpertReview
                         reviewerName='Logistics Manager Ali Al-Qahtani'
@@ -266,10 +266,10 @@ export default function DhahranPage() {
                         expertise={["Gate Clearances", "VIP Protocols", "Aramco Logistics"]}
                     />
                 </div>
-            </section >
+            </section>
 
             {/* Services Section */}
-            < section className="py-20 px-4 sm:px-6 lg:px-8 bg-white" >
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Executive Services</span>
@@ -291,10 +291,10 @@ export default function DhahranPage() {
                         ))}
                     </div>
                 </div>
-            </section >
+            </section>
 
             {/* Features Section */}
-            < section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50" >
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Dhahran VIP Service</h2>
@@ -308,10 +308,10 @@ export default function DhahranPage() {
                         ))}
                     </div>
                 </div>
-            </section >
+            </section>
 
             {/* Micro-Semantic FAQ Section */}
-            < section className="py-20 px-4 sm:px-6 lg:px-8 bg-white" >
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="mt-12 mb-16">
                         <DistanceTable
@@ -410,10 +410,10 @@ export default function DhahranPage() {
                         ]}
                     />
                 </div>
-            </section >
+            </section>
 
             {/* Pricing Information */}
-            < section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing" >
+            <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
                         <div className="inline-flex items-center gap-2 bg-yellow-100 px-4 py-2 rounded-full mb-6">
@@ -473,7 +473,7 @@ export default function DhahranPage() {
                         </div>
                     </div>
                 </div>
-            </section >
+            </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <RelatedLocations currentCity="Dhahran" />
@@ -489,20 +489,19 @@ export default function DhahranPage() {
                         Professional transport for Saudi Aramco, KFUPM, and Ithra Center visits.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking/">
-                            <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
+                        <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
+                            <Link href="/booking/">
                                 Book VIP Transfer
-                            </Button>
-                        </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
-                            <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
+                            </Link>
+                        </Button>
+                        <Button asChild variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
+                            <a href="mailto:info@taxiserviceksa.com">
                                 Email Us
-                            </Button>
-                        </a>
+                            </a>
+                        </Button>
                     </div>
                 </div>
             </section>
-        </div >
+        </div>
     );
 }
-

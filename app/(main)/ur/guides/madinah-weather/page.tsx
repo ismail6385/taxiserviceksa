@@ -7,11 +7,16 @@ import Hero from '@/components/Hero';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Madinah Weather Guide | Best Time to Visit & Climate',
-    description: 'Seasonal weather guide for Madinah. Average temperatures, summer heat warnings, and the best months for Umrah. Plan your packing accordingly.',
-    keywords: ['Madinah weather', 'Best time to visit Madinah', 'Madinah temperature by month', 'Umrah weather guide', 'Madinah climate'],
+    title: 'مدینہ منورہ موسم گائیڈ | زیارت کا بہترین وقت اور آب و ہوا',
+    description: 'مدینہ کی موسمی گائیڈ۔ اوسط درجہ حرارت، گرمیوں کی گرمی کی وارننگ، اور عمرہ کے لیے بہترین مہینے۔ اپنا سامان منصوبہ بندی سے پیک کریں۔',
+    keywords: ['مدینہ موسم', 'مدینہ زیارت کا بہترین وقت', 'مدینہ درجہ حرارت ماہانہ', 'عمرہ موسم گائیڈ', 'مدینہ آب و ہوا'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/madinah-weather/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/madinah-weather/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/madinah-weather/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/madinah-weather/',
+        },
     },
 };
 

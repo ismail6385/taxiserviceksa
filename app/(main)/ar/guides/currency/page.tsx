@@ -7,11 +7,16 @@ import Hero from '@/components/Hero';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Saudi Currency Guide for Pilgrims | SAR Exchange Rates & Tips',
-    description: 'Traveler guide to Saudi Riyal (SAR). Where to exchange money in Makkah and Madinah, ATM usage, and accepting credit cards. Avoid high exchange fees.',
-    keywords: ['Saudi currency guide', 'Exchange money Makkah', 'SAR exchange rate', 'ATM Madinah', 'Currency exchange Saudi Airport'],
+    title: 'دليل العملة السعودية للحجاج | أسعار صرف الريال ونصائح',
+    description: 'دليل شامل للريال السعودي (SAR). أماكن صرف العملة في مكة والمدينة، استخدام الصراف الآلي، وقبول بطاقات الائتمان. تجنب رسوم الصرف المرتفعة.',
+    keywords: ['دليل العملة السعودية', 'صرف العملة مكة', 'سعر صرف الريال', 'صراف آلي المدينة', 'صرف العملة مطار السعودية'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/currency/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/currency/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/currency/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/currency/',
+        },
     },
 };
 

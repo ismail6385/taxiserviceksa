@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     keywords: ['Quba walking path', 'Masjid Nabawi to Quba walk', 'Quba avenue Madinah', 'Ziyarat walking tour', 'Sunnah walk Madinah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/quba-walking-path/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/quba-walking-path/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/quba-walking-path/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/quba-walking-path/',
+        },
     },
 };
 

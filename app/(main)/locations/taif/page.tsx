@@ -552,14 +552,13 @@ export default function TaifPage() {
                     <p className="text-xl text-gray-400 mb-8 leading-relaxed">
                         Premium SUVs and professional chauffeurs ready for your Makkah to Taif mountain transfer.
                     </p>
-                    <Link href="/booking/">
-                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-12 py-8 rounded-full">
+                    <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-12 py-8 rounded-full">
+                        <Link href="/booking/">
                             Reserve VIP Transfer
-                        </Button>
-                    </Link>
+                        </Link>
+                    </Button>
                 </div>
             </section>
         </div>
     );
 }
-

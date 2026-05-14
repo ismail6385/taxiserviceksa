@@ -20,8 +20,7 @@ interface MicroSemanticFAQProps {
     faqs: SemanticFAQItem[];
     isRtl?: boolean;
     contextName?: string;
-    /** Default: true — emits FAQPage JSON-LD schema.
-     *  Set to FALSE on pages that also use <JsonLdFAQ> to avoid GSC "Duplicate field FAQPage" errors. */
+    /** FAQ schema disabled — Google deprecated FAQPage rich results for most pages. */
     emitSchema?: boolean;
     labels?: {
         title: string;
@@ -48,7 +47,7 @@ const MicroSemanticFAQ: React.FC<MicroSemanticFAQProps> = ({
     faqs,
     isRtl = false,
     contextName,
-    emitSchema = true,
+    emitSchema = false,
     labels: userLabels,
     theme = 'light'
 }) => {
@@ -100,7 +99,7 @@ const MicroSemanticFAQ: React.FC<MicroSemanticFAQProps> = ({
                 <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2 inline-block ${isDark ? 'bg-blue-900/30 text-blue-300' : 'bg-blue-100 text-blue-700'}`}>
                     FAQs
                 </span>
-                <h2 className={`text-3xl font-bold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>{labels.title}</h2>
+                <p className={`text-3xl font-bold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>{labels.title}</p>
                 <p className={`${isDark ? 'text-gray-400' : 'text-gray-500'} max-w-2xl mx-auto`}>{labels.subtitle}</p>
             </div>
 

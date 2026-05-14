@@ -15,11 +15,15 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Airport Transfer Service Saudi Arabia | Taxi with Driver - 8 Airports',
-    description: 'Professional airport transfer service across Saudi Arabia with licensed drivers. Covers 8 major airports: Jeddah, Riyadh, Madinah, AlUla, Yanbu, Taif. Meet-and-greet, flight tracking, 24/7 service.',
-    keywords: ['airport transfer Saudi Arabia', 'Jeddah Airport taxi', 'Riyadh Airport transfer', 'Madinah Airport taxi', 'airport pickup KSA'],
+    title: 'خدمة التوصيل من المطار في السعودية | سيارة مع سائق - 8 مطارات',
+    description: 'خدمة نقل احترافية من وإلى المطارات في المملكة العربية السعودية. تغطي 8 مطارات رئيسية: جدة، الرياض، المدينة، العُلا، ينبع، الطائف. استقبال في الصالات، تتبع الرحلات، خدمة 24/7.',
+    keywords: ['نقل من المطار السعودية', 'تاكسي مطار جدة', 'توصيل مطار الرياض', 'تاكسي مطار المدينة', 'استقبال مطار السعودية'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/airport-transfers/',
+        canonical: 'https://taxiserviceksa.com/ar/services/airport-transfers/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/airport-transfers/',
+            'ar': 'https://taxiserviceksa.com/ar/services/airport-transfers/',
+        },
     },
     openGraph: {
         title: 'Airport Transfer Service Saudi Arabia | Taxi with Driver - 8 Airports',

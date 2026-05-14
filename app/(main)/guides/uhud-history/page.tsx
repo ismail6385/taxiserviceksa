@@ -13,6 +13,11 @@ export const metadata: Metadata = {
     keywords: ['Mount Uhud history', 'Battle of Uhud guide', 'Archers Hill Madinah', 'Hamza grave Uhud', 'Madinah historical sites'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/uhud-history/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/uhud-history/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/uhud-history/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/uhud-history/',
+        },
     },
 };
 

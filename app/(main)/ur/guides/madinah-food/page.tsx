@@ -7,11 +7,16 @@ import Hero from '@/components/Hero';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Madinah Food Guide | Best Restaurants Near Haram',
-    description: 'Where to eat in Madinah? Guide to the best restaurants near Prophet\'s Mosque. Al Baik locations, traditional Mandi, Bukhari rice, and fine dining.',
-    keywords: ['Madinah restaurants', 'Best food near Masjid Nabawi', 'Al Baik Madinah', 'Mandi Madinah', 'Places to eat Madinah'],
+    title: 'مدینہ منورہ فوڈ گائیڈ | مسجد نبوی کے قریب بہترین ریستوراں',
+    description: 'مدینہ میں کہاں کھائیں؟ مسجد نبوی کے قریب بہترین ریستورانوں کی گائیڈ۔ البیک کے مقامات، روایتی مندی، بخاری چاول، اور عمدہ کھانا۔',
+    keywords: ['مدینہ ریستوراں', 'مسجد نبوی کے قریب کھانا', 'البیک مدینہ', 'مندی مدینہ', 'مدینہ کھانے کی جگہیں'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/madinah-food/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/madinah-food/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/madinah-food/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/madinah-food/',
+        },
     },
 };
 

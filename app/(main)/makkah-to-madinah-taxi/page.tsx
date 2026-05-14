@@ -44,7 +44,7 @@ export default function MakkahToMadinahPage() {
 
             <Hero
                 images={['/locations/makkah.webp', '/hero-slide-3.webp']}
-                h1Text="Makkah to Madinah Taxi"
+                h1Text="Makkah to Madinah Direct Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Direct Journey

@@ -8,11 +8,16 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 
 export const metadata: Metadata = {
-    title: 'History of Mount Uhud & Battle | Madinah Ziyarat Guide',
-    description: 'Explore the history of the Battle of Uhud. Guide to the Archers Hill, Martyrs Cemetery (Sayyidina Hamza), and the significance of Mount Uhud in Islam.',
-    keywords: ['Mount Uhud history', 'Battle of Uhud guide', 'Archers Hill Madinah', 'Hamza grave Uhud', 'Madinah historical sites'],
+    title: 'تاريخ جبل أحد والغزوة | دليل زيارة المدينة المنورة',
+    description: 'استكشف تاريخ غزوة أحد. دليل جبل الرماة ومقبرة الشهداء (سيدنا حمزة) وأهمية جبل أحد في الإسلام.',
+    keywords: ['تاريخ جبل أحد', 'دليل غزوة أحد', 'جبل الرماة المدينة', 'قبر حمزة أحد', 'المواقع التاريخية المدينة'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/uhud-history/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/uhud-history/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/uhud-history/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/uhud-history/',
+        },
     },
 };
 

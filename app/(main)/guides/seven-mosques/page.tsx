@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     keywords: ['Seven mosques Madinah', 'Battle of Trench site', 'Khandaq Madinah', 'Masjid Fath', 'Masjid Salman Farsi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/seven-mosques/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/seven-mosques/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/seven-mosques/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/seven-mosques/',
+        },
     },
 };
 

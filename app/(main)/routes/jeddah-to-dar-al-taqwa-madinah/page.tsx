@@ -11,7 +11,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 export const metadata: Metadata = {
     title: 'Jeddah to Dar Al Taqwa Madinah Taxi | Luxury Hotel Transfer | Taxi Service KSA',
     description: 'Request a quote for a luxury taxi from Jeddah Airport (JED) to Dar Al Taqwa Hotel Madinah. Professional drivers, fixed rates, and VIP service to the Haram doorstep.',
-    keywords: ['Jeddah to Dar Al Taqwa Madinah taxi', 'Jeddah airport to Dar Al Taqwa hotel', 'Dar Al Taqwa transfer', 'luxury transport Jeddah Madinah', 'Madinah hotel pickup'],
+    keywords: ['Jeddah to Dar Al Taqwa Madinah taxi', 'Dar Al Taqwa hotel transfer Jeddah', 'KAIA to Dar Al Taqwa Madinah', 'Dar Al Taqwa main gate taxi', 'Dar Al Taqwa Prophet Mosque taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-dar-al-taqwa-madinah/',
     },

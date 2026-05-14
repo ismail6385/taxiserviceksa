@@ -7,11 +7,16 @@ import Hero from '@/components/Hero';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'The Seven Mosques (Al-Masjid Al-Sab\'a) Guide | Battle of Trench Site',
-    description: 'Guide to the Seven Mosques (Sab\'a Masajid) in Madinah. Site of the Battle of the Trench (Khandaq). History, location, and the new big mosque.',
-    keywords: ['Seven mosques Madinah', 'Battle of Trench site', 'Khandaq Madinah', 'Masjid Fath', 'Masjid Salman Farsi'],
+    title: 'دليل المساجد السبعة (المسجد السبع) | موقع غزوة الخندق',
+    description: 'دليل المساجد السبعة في المدينة المنورة. موقع غزوة الخندق. التاريخ والموقع والمسجد الكبير الجديد.',
+    keywords: ['المساجد السبعة المدينة', 'موقع غزوة الخندق', 'الخندق المدينة', 'مسجد الفتح', 'مسجد سلمان الفارسي'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/seven-mosques/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/seven-mosques/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/seven-mosques/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/seven-mosques/',
+        },
     },
 };
 

@@ -9,7 +9,10 @@ import { CheckCircle2, XCircle, AlertTriangle, Car, Train, Smartphone } from 'lu
 export const metadata: Metadata = {
     title: 'Jeddah Airport to Makkah Taxi Fare 2025: Official vs Private Rates',
     description: 'Updated 2025 pricing guide for Jeddah Airport to Makkah. Compare fares for Uber, Careem, Haramain Train, and Private Taxis. Avoid hidden fees.',
-    keywords: ['Jeddah Airport to Makkah taxi fare 2025', 'taxi price jeddah airport to haram', 'uber cost jeddah to makkah', 'haramain train vs taxi cost'],
+    keywords: ['Jeddah Airport to Makkah Taxi Fare 2025'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/blog/jeddah-airport-makkah-taxi-fare-2025/',
+    },
 };
 
 export default function TaxiFareGuide2025() {

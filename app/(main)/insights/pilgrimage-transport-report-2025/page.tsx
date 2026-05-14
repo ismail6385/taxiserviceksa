@@ -10,6 +10,10 @@ import ShareReportButton from '@/components/blog/ShareReportButton';
 export const metadata: Metadata = {
     title: 'Data Report 2025: Taxi vs Haramain Train for Pilgrim Families | TaxiServiceKSA',
     description: 'New 2025 data study reveals why 70% of Umrah families prefer private taxis over the high-speed train. Detailed analysis of cost, time, and luggage friction.',
+    keywords: ['Pilgrim Transport Data Report 2025'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/insights/pilgrimage-transport-report-2025/',
+    },
     openGraph: {
         title: 'Taxi vs Train 2025: The Efficiency Report',
         description: 'Why do 70% of families choose taxis? The data might surprise you.',

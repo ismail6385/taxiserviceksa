@@ -15,11 +15,15 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'Umrah Transport Service | Taxi with Driver for Makkah & Madinah',
-    description: 'Complete Umrah transport service with professional drivers. Jeddah Airport to Makkah, Makkah to Madinah taxi. Fixed rates, 24/7 service. All vehicles include licensed drivers.',
-    keywords: ['Umrah taxi service', 'Makkah Madinah transport', 'Umrah transport with driver', 'Jeddah Airport Makkah taxi', 'pilgrimage transport KSA'],
+    title: 'خدمة نقل العمرة | سيارة مع سائق لمكة والمدينة',
+    description: 'خدمة نقل عمرة متكاملة مع سائقين محترفين. من مطار جدة إلى مكة، ومن مكة إلى المدينة. أسعار ثابتة، خدمة 24/7. جميع المركبات مع سائقين مرخصين.',
+    keywords: ['خدمة تاكسي العمرة', 'نقل مكة المدينة', 'نقل العمرة مع سائق', 'مطار جدة مكة تاكسي', 'نقل الحجاج السعودية'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/umrah-transport/',
+        canonical: 'https://taxiserviceksa.com/ar/services/umrah-transport/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/umrah-transport/',
+            'ar': 'https://taxiserviceksa.com/ar/services/umrah-transport/',
+        },
     },
     openGraph: {
         title: 'Umrah Transport Service | Taxi with Driver for Makkah & Madinah',

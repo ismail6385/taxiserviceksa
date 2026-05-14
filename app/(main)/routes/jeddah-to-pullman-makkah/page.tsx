@@ -14,7 +14,7 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 export const metadata: Metadata = {
     title: 'Jeddah Airport to Pullman ZamZam Makkah Taxi | Hotel Drop-Off | Taxi Service KSA',
     description: 'Direct taxi transfer from Jeddah Airport to Pullman ZamZam Makkah (Clock Tower). Affordable fixed rates. 24/7 Service. Book Online.',
-    keywords: ['Jeddah to Pullman ZamZam taxi', 'Pullman Makkah transfer', 'taxi Jeddah to Abraj Al Bait', 'Pullman ZamZam hotel taxi', 'Jeddah to Makkah transport'],
+    keywords: ['Jeddah to Pullman ZamZam Makkah taxi', 'Pullman ZamZam hotel transfer', 'KAIA to Pullman Makkah', 'Pullman ZamZam pickup Jeddah', 'Pullman Makkah hotel taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-pullman-makkah/',
     },

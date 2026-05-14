@@ -51,7 +51,7 @@ export default function MakkahMadinahRoutePage() {
 
             <Hero
                 images={['/locations/madinah.webp', '/makkah-kaaba-night.webp']}
-                h1Text="Makkah to Madinah Taxi"
+                h1Text="Premium Makkah to Madinah Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         2026 Hijrah Route VIP
