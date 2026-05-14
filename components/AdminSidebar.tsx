@@ -44,6 +44,7 @@ const menuItems = [
     { name: 'Invoice Creator', href: '/admin/invoice-generator',   icon: FileText },
     { name: 'Reviews',         href: '/admin/reviews',             icon: Star },
     { name: 'Questions',       href: '/admin/questions',           icon: HelpCircle },
+    { name: 'Comments',        href: '/admin/comments',            icon: MessageSquare },
     { name: 'Blogs',           href: '/admin/blogs',               icon: FileText },
     { name: 'Support',         href: '/admin/support',             icon: Inbox },
     { name: 'Audit Log',       href: '/admin/audit-log',           icon: ClipboardList },

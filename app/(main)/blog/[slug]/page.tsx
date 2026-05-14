@@ -9,6 +9,8 @@ import { marked } from 'marked';
 import BlogContent from '@/components/BlogContent';
 import AuthorCard from '@/components/AuthorCard';
 import ShareButtons from '@/components/ShareButtons';
+import BlogCommentsDisplay from '@/components/blog/BlogCommentsDisplay';
+import BlogCommentForm from '@/components/blog/BlogCommentForm';
 import { AUTHORS } from '@/lib/constants';
 
 export const revalidate = 3600; // Revalidate every hour
@@ -258,6 +260,12 @@ export default async function BlogPostPage({ params }: Props) {
                         {/* Author Bio Box */}
                         <div className="mt-8">
                             <AuthorCard authorName={blog.author} />
+                        </div>
+
+                        {/* Comments Section */}
+                        <div className="mt-8 space-y-8">
+                            <BlogCommentsDisplay blogSlug={params.slug} />
+                            <BlogCommentForm blogSlug={params.slug} />
                         </div>
                     </div>
 
