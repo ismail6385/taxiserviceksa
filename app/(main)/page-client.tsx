@@ -95,21 +95,53 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
     // OPTIMIZED: Titles and descriptions for SEO
     const services = [
         {
+            title: "VIP & Luxury Chauffeur",
+            description: "Private chauffeur for royal guests, diplomats, CEOs, and elite visitors. Cadillac Escalade, GMC Yukon, and Mercedes S-Class. Discreet and licensed, 24/7.",
+            rdfTriple: "VIP chauffeur Saudi → serves → royal guests, diplomats, and elite visitors",
+            icon: Star,
+            link: "/services/vip-chauffeur/",
+            price: "Custom Rates"
+        },
+        {
+            title: "Tourism Transport",
+            description: "Private driver for international tourists — city tours, desert trips, AlUla road trips, and shopping tours in Riyadh and Jeddah. English-speaking drivers.",
+            rdfTriple: "Tourist transport Saudi → connects → international visitors to Saudi attractions",
+            icon: Camera,
+            link: "/services/tourism-transport/",
+            price: "Custom Quote"
+        },
+        {
+            title: "Private Driver — Hourly & Daily",
+            description: "Your own dedicated driver by the hour, full day, week, or month. Shopping, business meetings, family outings — fixed rates, no surge pricing.",
+            rdfTriple: "Private driver Saudi → provides → dedicated hourly and daily transport",
+            icon: Clock,
+            link: "/services/private-driver/",
+            price: "Hourly Rate"
+        },
+        {
             title: "Border Crossings & GCC",
-            description: "Expert taxi service for Saudi-Bahrain (King Fahd Causeway), Saudi-UAE, and other GCC border crossings. We handle all paperwork and ensure a smooth inter-country transition for tourists and business travelers.",
+            description: "Expert taxi service for Saudi-Bahrain (King Fahd Causeway), Saudi-UAE, and other GCC border crossings. All paperwork handled for smooth inter-country travel.",
             rdfTriple: "Border crossing taxi → facilitates → seamless transport between KSA and GCC countries",
             icon: Globe,
             link: "/border-crossings/",
             price: "Custom Rates"
         },
         {
-            title: "Intercity & Tourist Spots",
-            description: "Specialized long-distance travel to AlUla, Neom, Taif, and Abha. We provide hourly/daily chauffeur hire for tourists exploring the Kingdom's historical and natural heritage.",
-            rdfTriple: "Tourist taxi KSA → provides → luxury tours to Saudi heritage sites",
-            icon: Camera,
+            title: "Intercity & Long-Distance",
+            description: "Long-distance transfers to AlUla, Neom, Taif, and Abha. Fixed flat rates across all Saudi intercity routes. Comfortable luxury vehicles.",
+            rdfTriple: "Intercity taxi KSA → provides → luxury long-distance transport across Saudi Arabia",
+            icon: MapPin,
             link: "/routes/",
-            price: "Custom Quote"
-        }
+            price: "Fixed Rates"
+        },
+        {
+            title: "Event & Wedding Transport",
+            description: "Coordinated transport for weddings, conferences, and Riyadh Season events. Multi-vehicle logistics with a dedicated coordinator. Groups of any size.",
+            rdfTriple: "Event chauffeur Saudi → manages → wedding and conference guest transport",
+            icon: Calendar,
+            link: "/services/event-transport/",
+            price: "Custom Package"
+        },
     ];
 
     // Fleet data with Links

@@ -22,6 +22,12 @@ export async function GET() {
         { route: '/guides', priority: 0.9 },
         { route: '/submit-review', priority: 0.7 },
         { route: '/ask-question', priority: 0.7 },
+        { route: '/riyadh-airport-taxi', priority: 0.9 },
+        { route: '/riyadh-chauffeur', priority: 0.9 },
+        { route: '/blog/how-to-get-from-riyadh-airport-to-city', priority: 0.85 },
+        { route: '/blog/how-much-is-taxi-from-riyadh-airport', priority: 0.85 },
+        { route: '/blog/should-i-rent-a-car-in-saudi-arabia', priority: 0.85 },
+        { route: '/blog/private-driver-vs-uber-riyadh-tourist', priority: 0.85 },
     ];
 
     const staticUrls = staticPages.map(({ route, priority }) => {

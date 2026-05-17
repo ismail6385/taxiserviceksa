@@ -414,7 +414,7 @@ export default async function AirportTransfersPage() {
             <section className="py-12 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="bg-gray-50 border border-gray-100 rounded-3xl p-8 shadow-sm">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
                             <div>
                                 <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
                                     <Navigation className="w-5 h-5 text-primary" /> Popular Airport Routes
@@ -457,6 +457,18 @@ export default async function AirportTransfersPage() {
                                     <li>
                                         <Link href="/fleet/" className="text-primary font-bold hover:underline">Explore Entire Fleet →</Link>
                                     </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                                    <Car className="w-5 h-5 text-primary" /> Related Services
+                                </h4>
+                                <ul className="space-y-3 text-sm">
+                                    <li><Link href="/services/riyadh-hotel-transfer/" className="text-gray-600 hover:text-primary transition-colors">Riyadh Hotel Transfer</Link></li>
+                                    <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-primary transition-colors">VIP Chauffeur Service</Link></li>
+                                    <li><Link href="/services/bilingual-chauffeur/" className="text-gray-600 hover:text-primary transition-colors">English-Speaking Driver</Link></li>
+                                    <li><Link href="/services/women-transport/" className="text-gray-600 hover:text-primary transition-colors">Women's Private Transport</Link></li>
+                                    <li><Link href="/services/group-hiace-hire/" className="text-gray-600 hover:text-primary transition-colors">Group Van (Hiace) Hire</Link></li>
                                 </ul>
                             </div>
                         </div>

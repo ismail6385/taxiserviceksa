@@ -275,6 +275,39 @@ export default function CorporateTravelPage() {
                 </div>
             </section>
 
+            {/* Related Services */}
+            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
+                <div className="max-w-7xl mx-auto">
+                    <div className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div>
+                            <h4 className="text-base font-bold text-gray-900 mb-4">Executive Services</h4>
+                            <ul className="space-y-2 text-sm">
+                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black transition-colors">VIP Chauffeur Service</Link></li>
+                                <li><Link href="/services/event-transport/" className="text-gray-600 hover:text-black transition-colors">Conference & Event Transport</Link></li>
+                                <li><Link href="/services/private-driver/" className="text-gray-600 hover:text-black transition-colors">Private Driver (Daily/Monthly)</Link></li>
+                                <li><Link href="/services/riyadh-hotel-transfer/" className="text-gray-600 hover:text-black transition-colors">Riyadh Hotel Transfer</Link></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="text-base font-bold text-gray-900 mb-4">International Travelers</h4>
+                            <ul className="space-y-2 text-sm">
+                                <li><Link href="/services/bilingual-chauffeur/" className="text-gray-600 hover:text-black transition-colors">English-Speaking Driver</Link></li>
+                                <li><Link href="/services/tourism-transport/" className="text-gray-600 hover:text-black transition-colors">Tourism Transport</Link></li>
+                                <li><Link href="/services/airport-transfers/" className="text-gray-600 hover:text-black transition-colors">Airport Transfers</Link></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="text-base font-bold text-gray-900 mb-4">Group Transport</h4>
+                            <ul className="space-y-2 text-sm">
+                                <li><Link href="/services/group-hiace-hire/" className="text-gray-600 hover:text-black transition-colors">Toyota Hiace Group Hire</Link></li>
+                                <li><Link href="/fleet/toyota-coaster/" className="text-gray-600 hover:text-black transition-colors">Toyota Coaster (25 seats)</Link></li>
+                                <li><Link href="/fleet/mercedes-sprinter/" className="text-gray-600 hover:text-black transition-colors">Mercedes Sprinter</Link></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* CTA Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
