@@ -28,6 +28,7 @@ export async function GET() {
         { route: '/blog/how-much-is-taxi-from-riyadh-airport', priority: 0.85 },
         { route: '/blog/should-i-rent-a-car-in-saudi-arabia', priority: 0.85 },
         { route: '/blog/private-driver-vs-uber-riyadh-tourist', priority: 0.85 },
+        { route: '/tabuk-airport-taxi', priority: 0.9 },
     ];
 
     const staticUrls = staticPages.map(({ route, priority }) => {
