@@ -29,6 +29,22 @@ export async function GET() {
         { route: '/blog/should-i-rent-a-car-in-saudi-arabia', priority: 0.85 },
         { route: '/blog/private-driver-vs-uber-riyadh-tourist', priority: 0.85 },
         { route: '/tabuk-airport-taxi', priority: 0.9 },
+        { route: '/services/taxi-in-tabuk', priority: 0.9 },
+        { route: '/blog/how-to-get-to-neom-from-tabuk', priority: 0.85 },
+        { route: '/blog/tabuk-to-neom-distance-drive-time', priority: 0.85 },
+        { route: '/blog/private-driver-tabuk-neom-price', priority: 0.85 },
+        { route: '/blog/can-tourists-visit-neom-from-tabuk', priority: 0.85 },
+        { route: '/blog/how-to-get-from-tabuk-to-alula', priority: 0.85 },
+        { route: '/blog/tabuk-to-alula-distance-drive-time', priority: 0.85 },
+        { route: '/blog/hegra-madain-salih-how-to-visit-from-tabuk', priority: 0.85 },
+        { route: '/blog/alula-visitor-guide-from-tabuk', priority: 0.85 },
+        { route: '/blog/tabuk-airport-tuu-arrivals-guide', priority: 0.85 },
+        { route: '/blog/how-to-get-from-tabuk-airport-to-city', priority: 0.85 },
+        { route: '/blog/is-there-uber-in-tabuk', priority: 0.85 },
+        { route: '/blog/car-rental-tabuk-airport-worth-it', priority: 0.85 },
+        { route: '/blog/tabuk-to-haql-transport-guide', priority: 0.85 },
+        { route: '/blog/best-red-sea-beaches-near-tabuk', priority: 0.85 },
+        { route: '/blog/tabuk-to-sharma-beach-how-to-get-there', priority: 0.85 },
     ];
 
     const staticUrls = staticPages.map(({ route, priority }) => {
