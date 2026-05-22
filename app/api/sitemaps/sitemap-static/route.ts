@@ -45,6 +45,9 @@ export async function GET() {
         { route: '/blog/tabuk-to-haql-transport-guide', priority: 0.85 },
         { route: '/blog/best-red-sea-beaches-near-tabuk', priority: 0.85 },
         { route: '/blog/tabuk-to-sharma-beach-how-to-get-there', priority: 0.85 },
+        { route: '/blog/how-to-get-around-tabuk-as-a-tourist', priority: 0.85 },
+        { route: '/blog/tabuk-castle-fort-visitor-guide', priority: 0.85 },
+        { route: '/blog/al-disah-valley-tabuk-how-to-visit', priority: 0.85 },
     ];
 
     const staticUrls = staticPages.map(({ route, priority }) => {
