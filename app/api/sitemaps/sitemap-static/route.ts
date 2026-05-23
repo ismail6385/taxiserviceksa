@@ -48,6 +48,9 @@ export async function GET() {
         { route: '/blog/how-to-get-around-tabuk-as-a-tourist', priority: 0.85 },
         { route: '/blog/tabuk-castle-fort-visitor-guide', priority: 0.85 },
         { route: '/blog/al-disah-valley-tabuk-how-to-visit', priority: 0.85 },
+        { route: '/blog/tabuk-to-riyadh-transport-guide', priority: 0.85 },
+        { route: '/blog/tabuk-to-jeddah-transport-guide', priority: 0.85 },
+        { route: '/blog/tabuk-to-madinah-private-car-guide', priority: 0.85 },
     ];
 
     const staticUrls = staticPages.map(({ route, priority }) => {
