@@ -122,7 +122,7 @@ export default function Hero(props: HeroProps) {
                     </div>
                     <div className="flex items-center gap-2">
                         <Sparkles className="w-4 h-4 text-primary" />
-                        <span className="text-[11px] font-bold uppercase tracking-wider">25k+ Happy Pilgrims</span>
+                        <span className="text-[11px] font-bold uppercase tracking-wider">25k+ Happy Travelers</span>
                     </div>
                 </div>
 

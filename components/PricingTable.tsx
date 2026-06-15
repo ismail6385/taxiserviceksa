@@ -14,6 +14,7 @@ interface PricingTableProps {
     subtitle?: string;
     rows?: PricingRow[];
     disclaimer?: string;
+    currency?: string;
 }
 
 const defaultRows: PricingRow[] = [
@@ -45,11 +46,12 @@ const defaultRows: PricingRow[] = [
     }
 ];
 
-export default function PricingTable({ 
-    title = "Fixed Price Transparency", 
-    subtitle = "2026 Verified Rates", 
-    rows = defaultRows, 
-    disclaimer = "Prices are all-inclusive of tolls, taxes, and fuel. No hidden fees."
+export default function PricingTable({
+    title = "Fixed Price Transparency",
+    subtitle = "2026 Verified Rates",
+    rows = defaultRows,
+    disclaimer = "Prices are all-inclusive of tolls, taxes, and fuel. No hidden fees.",
+    currency = "SAR"
 }: PricingTableProps) {
     return (
         <div className="bg-white rounded-3xl border border-gray-100 shadow-xl overflow-hidden my-12">
@@ -92,7 +94,7 @@ export default function PricingTable({
                                     <td className="py-6 px-4">
                                         <div className="flex flex-col">
                                             <span className="text-2xl font-black text-gray-900">
-                                                {row.price} <span className="text-xs font-bold text-gray-400">SAR</span>
+                                                {row.price} <span className="text-xs font-bold text-gray-400">{currency}</span>
                                             </span>
                                             <span className="text-[10px] text-emerald-600 font-black uppercase tracking-widest mt-1">All-Inclusive Fixed Rate</span>
                                         </div>
