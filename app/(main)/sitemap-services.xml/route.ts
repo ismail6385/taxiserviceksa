@@ -114,6 +114,23 @@ export async function GET() {
         { url: '/blog/madinah-airport-taxi-transfer-guide/', priority: 0.85 },
         { url: '/blog/private-taxi-services-fares-madinah/', priority: 0.85 },
         { url: '/blog/practical-guide-rules-customs-madinah/', priority: 0.85 },
+        { url: '/blog/complete-alula-travel-guide/', priority: 0.85 },
+        { url: '/blog/best-time-to-visit-alula-weather/', priority: 0.85 },
+        { url: '/blog/alula-travel-tips-checklist-safety/', priority: 0.85 },
+        { url: '/blog/alula-budget-luxury-family-solo-travel/', priority: 0.85 },
+        { url: '/blog/alula-travel-itinerary-planning/', priority: 0.85 },
+        { url: '/blog/top-places-visit-things-do-alula/', priority: 0.85 },
+        { url: '/blog/hegra-madain-salih-visitor-guide/', priority: 0.85 },
+        { url: '/blog/elephant-rock-alula-natural-landmarks/', priority: 0.85 },
+        { url: '/blog/alula-old-town-dadan-jabal-ikmah/', priority: 0.85 },
+        { url: '/blog/maraya-concert-hall-art-culture-alula/', priority: 0.85 },
+        { url: '/blog/alula-oasis-heritage-trail-picnic-spots/', priority: 0.85 },
+        { url: '/blog/alula-desert-adventures-safari-activities/', priority: 0.85 },
+        { url: '/blog/stargazing-camping-sunset-spots-alula/', priority: 0.85 },
+        { url: '/blog/alula-photography-instagram-spots/', priority: 0.85 },
+        { url: '/blog/where-to-stay-alula-hotels-resorts/', priority: 0.85 },
+        { url: '/blog/best-restaurants-cafes-food-alula/', priority: 0.85 },
+        { url: '/blog/shopping-guide-souvenirs-markets-alula/', priority: 0.85 },
     ];
 
     const allUrls = [...newServicePages, ...serviceUrls, ...routeUrls, ...fleetUrls];
