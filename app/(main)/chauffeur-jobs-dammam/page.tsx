@@ -24,8 +24,8 @@ export default function ChauffeurJobsDammamPage() {
             <JsonLdJobPosting 
                 title="VIP Chauffeur - Dammam"
                 description="Join our elite network of professional chauffeurs in Dammam. We are looking for drivers with their own 2020+ model cars to serve VIP clients, corporate executives, and international travelers. High income potential with cross-border trips (Bahrain) and long-distance routes."
-                datePosted="2025-01-01"
-                validThrough="2025-12-31"
+                datePosted="2026-01-01"
+                validThrough="2026-12-31"
                 employmentType="FULL_TIME"
                 hiringOrganization="Taxi Service KSA"
                 jobLocation={{

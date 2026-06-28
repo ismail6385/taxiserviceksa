@@ -234,7 +234,7 @@ export default function JeddahPageUrdu() {
                         isRtl={true}
                         reviewerName='کیپٹن سعید الغامدی'
                         reviewerTitle='سینئر فلائٹ کوآرڈینیٹر'
-                        reviewDate="28 دسمبر 2025"
+                        reviewDate="28 دسمبر 2026"
                         expertise={["ایئرپورٹ لاجسٹکس", "وی آئی پی پروٹوکول", "مکہ ٹریفک ماہر"]}
                         labels={{ reviewTitle: "ایکسپرٹ گائیڈ", verifiedReview: "تصدیق شدہ معلومات" }}
                     />

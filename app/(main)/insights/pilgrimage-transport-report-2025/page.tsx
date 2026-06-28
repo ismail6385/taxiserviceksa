@@ -8,19 +8,19 @@ import Link from 'next/link';
 import ShareReportButton from '@/components/blog/ShareReportButton';
 
 export const metadata: Metadata = {
-    title: 'Data Report 2025: Taxi vs Haramain Train for Pilgrim Families | TaxiServiceKSA',
-    description: 'New 2025 data study reveals why 70% of Umrah families prefer private taxis over the high-speed train. Detailed analysis of cost, time, and luggage friction.',
-    keywords: ['Pilgrim Transport Data Report 2025'],
+    title: 'Data Report 2026: Taxi vs Haramain Train for Pilgrim Families | TaxiServiceKSA',
+    description: 'New 2026 data study reveals why 70% of Umrah families prefer private taxis over the high-speed train. Detailed analysis of cost, time, and luggage friction.',
+    keywords: ['Pilgrim Transport Data Report 2026'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/insights/pilgrimage-transport-report-2025/',
+        canonical: 'https://taxiserviceksa.com/insights/pilgrimage-transport-report-2026/',
     },
     openGraph: {
-        title: 'Taxi vs Train 2025: The Efficiency Report',
+        title: 'Taxi vs Train 2026: The Efficiency Report',
         description: 'Why do 70% of families choose taxis? The data might surprise you.',
         type: 'article',
-        publishedTime: '2025-12-28',
+        publishedTime: '2026-12-28',
         authors: ['Taxi Service KSA Data Team'],
-        images: ['/taxi-vs-train-2025.png'], // Generated Infographic
+        images: ['/taxi-vs-train-2026.png'], // Generated Infographic
     }
 };
 
@@ -31,14 +31,14 @@ export default function PilgrimageTransportReportPage() {
             <header className="bg-white border-b border-gray-100 pt-24 pb-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-4xl mx-auto">
                     <Badge variant="secondary" className="mb-6 text-emerald-700 bg-emerald-50 hover:bg-emerald-100 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                        2025 Transport Insights
+                        2026 Transport Insights
                     </Badge>
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-8">
                         The "Door-to-Door" Fallacy: Why Families Are Choosing Taxis Over High-Speed Rail
                     </h1>
                     <div className="relative mb-8 rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
                         <Image
-                            src="/taxi-vs-train-2025.png"
+                            src="/taxi-vs-train-2026.png"
                             alt="Comparison: Taxi vs Train Time and Cost for Families"
                             width={1200}
                             height={630}
@@ -53,7 +53,7 @@ export default function PilgrimageTransportReportPage() {
                         </div>
                         <div className="flex items-center gap-2">
                             <Calendar className="w-4 h-4" />
-                            <span>Dec 28, 2025</span>
+                            <span>Dec 28, 2026</span>
                         </div>
                         <div className="flex items-center gap-2">
                             <Briefcase className="w-4 h-4" />
@@ -69,7 +69,7 @@ export default function PilgrimageTransportReportPage() {
 
                     <div className="prose prose-lg max-w-none text-gray-600">
                         <p className="lead text-xl md:text-2xl text-gray-900 font-medium mb-12">
-                            While the Haramain High-Speed Railway is a technological marvel connecting <Link href="/locations/makkah/" className="text-primary hover:underline font-bold">Makkah (Haram Area)</Link> and Madinah, new data suggests that for families and pilgrims with luggage, private taxi transfer remains the superior choice in 2025.
+                            While the Haramain High-Speed Railway is a technological marvel connecting <Link href="/locations/makkah/" className="text-primary hover:underline font-bold">Makkah (Haram Area)</Link> and Madinah, new data suggests that for families and pilgrims with luggage, private taxi transfer remains the superior choice in 2026.
                         </p>
 
                         <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">The "Last Mile" Problem</h2>
@@ -83,7 +83,7 @@ export default function PilgrimageTransportReportPage() {
 
                         <h3 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Data Breakdown</h3>
                         <p>
-                            Our operations team analyzed 500+ trips in Q4 2025 and found that the <strong>Total Trip Time</strong> (Door-to-Door) tells a different story:
+                            Our operations team analyzed 500+ trips in Q4 2026 and found that the <strong>Total Trip Time</strong> (Door-to-Door) tells a different story:
                         </p>
                         <ul className="space-y-4 my-8">
                             <li className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
@@ -147,12 +147,12 @@ export default function PilgrimageTransportReportPage() {
                         </div>
 
                         <p className="text-sm text-gray-500 italic">
-                            *Prices are estimates based on average 2025 rates. Train prices vary by booking class and time.
+                            *Prices are estimates based on average 2026 rates. Train prices vary by booking class and time.
                         </p>
 
                         <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Conclusion</h2>
                         <p>
-                            The High-Speed Railway is perfect for the solo business traveler or light packer. However, our 2025 analysis confirms that for the core demographic of Umrah pilgrims—<strong>families with luggage</strong>—the Private Taxi remains the logical, economic, and ergonomic champion. For maximum convenience, you should <Link href="/booking/" className="text-primary font-bold hover:underline">Request a quote for a taxi online</Link> before your arrival.
+                            The High-Speed Railway is perfect for the solo business traveler or light packer. However, our 2026 analysis confirms that for the core demographic of Umrah pilgrims—<strong>families with luggage</strong>—the Private Taxi remains the logical, economic, and ergonomic champion. For maximum convenience, you should <Link href="/booking/" className="text-primary font-bold hover:underline">Request a quote for a taxi online</Link> before your arrival.
                         </p>
                     </div>
 

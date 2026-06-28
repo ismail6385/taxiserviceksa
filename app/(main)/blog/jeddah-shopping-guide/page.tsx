@@ -6,7 +6,7 @@ import { MapPin, ShoppingBag, Coffee, Clock, Star, ArrowRight } from 'lucide-rea
 import ExpertReview from '@/components/seo/ExpertReview';
 
 export const metadata: Metadata = {
-    title: 'Jeddah Shopping Guide 2025 | Best Malls & Souqs',
+    title: 'Jeddah Shopping Guide 2026 | Best Malls & Souqs',
     description: 'Ultimate guide to shopping in Jeddah. From luxury brands at Red Sea Mall to traditional bargains in Al-Balad. Taxi transfers available for shopping tours.',
     keywords: ['Jeddah Shopping Malls', 'Red Sea Mall', 'Mall of Arabia', 'Al Balad Souq', 'Jeddah Souvenirs', 'Shopping Taxi Jeddah'],
     openGraph: {
@@ -63,7 +63,7 @@ export default function JeddahShoppingGuidePage() {
                             City Guide
                         </span>
                         <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                            Jeddah Shopping Guide 2025: Malls & Souqs
+                            Jeddah Shopping Guide 2026: Malls & Souqs
                         </h1>
                         <p className="text-xl text-gray-600 leading-relaxed mb-6">
                             Jeddah is the shopping capital of Saudi Arabia. Whether you want glitzy modern malls or the scent of spices in old markets, we have the list for you.
@@ -72,7 +72,7 @@ export default function JeddahShoppingGuidePage() {
                         <ExpertReview
                             reviewerName="Layla Al-Juhani"
                             reviewerTitle="Lifestyle Editor"
-                            reviewDate="Jan 2025"
+                            reviewDate="Jan 2026"
                             expertise={["Fashion", "Local Markets"]}
                         />
                     </div>

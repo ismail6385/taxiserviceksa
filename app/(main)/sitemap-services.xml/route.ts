@@ -26,7 +26,8 @@ export async function GET() {
         'madinah-train-station-taxi', 'taif-jeddah', 'yanbu-jeddah',
         'jeddah-to-dar-al-taqwa-madinah', 'jeddah-to-fairmont-makkah',
         'jeddah-to-hilton-madinah', 'jeddah-to-oberoi-madinah',
-        'jeddah-to-pullman-makkah', 'jeddah-to-swissotel-makkah'
+        'jeddah-to-pullman-makkah', 'jeddah-to-swissotel-makkah', 'madinah-alula', 'tabuk-alula',
+        'makkah-taif', 'riyadh-makkah', 'makkah-riyadh'
     ].map((slug: string) => ({
         url: `/routes/${slug}/`,
         priority: 0.8
@@ -44,7 +45,39 @@ export async function GET() {
         priority: 0.6
     }));
 
-    const allUrls = [...serviceUrls, ...routeUrls, ...fleetUrls];
+    // New high-value service pages (manually added for highest priority)
+    const newServicePages = [
+        { url: '/jeddah-airport-transfer/', priority: 0.9 },
+        { url: '/riyadh-to-jeddah-private-car/', priority: 0.9 },
+        { url: '/riyadh-to-dammam-taxi/', priority: 0.9 },
+        { url: '/vip-chauffeur-jeddah/', priority: 0.9 },
+        { url: '/private-taxi-madinah/', priority: 0.9 },
+        { url: '/makkah-to-jeddah-taxi/', priority: 0.9 },
+        { url: '/vip-transfer-dammam/', priority: 0.9 },
+        { url: '/services/jeddah-port-taxi-transfer/', priority: 0.9 },
+        { url: '/services/jeddah-corniche-hotel-taxi/', priority: 0.9 },
+        { url: '/blog/complete-jeddah-guide/', priority: 0.85 },
+        { url: '/blog/top-15-places-to-visit-in-jeddah/', priority: 0.85 },
+        { url: '/blog/best-beaches-in-jeddah/', priority: 0.85 },
+        { url: '/blog/jeddah-corniche-guide/', priority: 0.85 },
+        { url: '/blog/why-you-should-visit-al-balad-in-jeddah/', priority: 0.85 },
+        { url: '/blog/floating-mosque-al-rahma-mosque-travel-guide/', priority: 0.85 },
+        { url: '/blog/fakieh-aquarium-jeddah-complete-guide/', priority: 0.85 },
+        { url: '/blog/ihram-rules-umrah-pilgrims/', priority: 0.85 },
+        { url: '/blog/tawaf-guide-hajj-umrah/', priority: 0.85 },
+        { url: '/blog/sai-guide-hajj-umrah/', priority: 0.85 },
+        { url: '/blog/halq-vs-taqsir-hair-cutting-umrah/', priority: 0.85 },
+        { url: '/blog/common-umrah-mistakes-to-avoid/', priority: 0.85 },
+        { url: '/blog/ultimate-umrah-packing-list/', priority: 0.85 },
+        { url: '/blog/best-time-to-perform-umrah/', priority: 0.85 },
+        { url: '/blog/ramadan-umrah-guide/', priority: 0.85 },
+        { url: '/blog/womens-umrah-guide/', priority: 0.85 },
+        { url: '/blog/elderly-umrah-guide-tips/', priority: 0.85 },
+        { url: '/blog/zamzam-water-rules-pilgrims/', priority: 0.85 },
+    ];
+
+    const allUrls = [...newServicePages, ...serviceUrls, ...routeUrls, ...fleetUrls];
+
 
     // Remove duplicates if any
     const uniqueUrls = Array.from(new Set(allUrls.map(u => u.url)))

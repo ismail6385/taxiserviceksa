@@ -38,10 +38,6 @@ export default function JsonLdLocation({
                     "@type": "City",
                     "name": cityName
                 },
-                "brand": {
-                    "@type": "Brand",
-                    "name": "TaxiServiceKSA"
-                },
                 "aggregateRating": {
                     "@type": "AggregateRating",
                     "ratingValue": ratingValue,

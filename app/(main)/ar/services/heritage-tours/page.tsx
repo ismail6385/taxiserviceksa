@@ -135,7 +135,7 @@ export default function HeritageToursPage() {
             "priceCurrency": "SAR",
             "lowPrice": "400",
             "highPrice": "1200",
-            "priceValidUntil": "2025-12-31"
+            "priceValidUntil": "2026-12-31"
         }
     };
 

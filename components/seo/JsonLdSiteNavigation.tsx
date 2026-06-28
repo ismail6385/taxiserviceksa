@@ -1,5 +1,3 @@
-'use client';
-
 export default function JsonLdSiteNavigation() {
     const baseUrl = 'https://taxiserviceksa.com';
 
@@ -17,10 +15,13 @@ export default function JsonLdSiteNavigation() {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "itemListElement": navigationItems.map((item, index) => ({
-            "@type": "SiteNavigationElement",
+            "@type": "ListItem",
             "position": index + 1,
-            "name": item.name,
-            "url": item.url
+            "item": {
+                "@type": "SiteNavigationElement",
+                "name": item.name,
+                "url": item.url
+            }
         }))
     };
 

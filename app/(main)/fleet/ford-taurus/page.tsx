@@ -10,9 +10,9 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'Ford Taurus 2025 VIP Transfer Saudi Arabia | Premium Sedan',
-    description: 'Book the all-new Ford Taurus 2025 VIP private transfer in Saudi Arabia. Modern 3-seater sedan with first-class technology and comfort for city and airport transfers.',
-    keywords: ['Ford Taurus 2025 VIP transfer', 'Ford Taurus chauffeur KSA', 'premium sedan transfer Riyadh', 'new Ford Taurus taxi Saudi Arabia', 'Ford Taurus executive car'],
+    title: 'Ford Taurus 2026 VIP Transfer Saudi Arabia | Premium Sedan',
+    description: 'Book the all-new Ford Taurus 2026 VIP private transfer in Saudi Arabia. Modern 3-seater sedan with first-class technology and comfort for city and airport transfers.',
+    keywords: ['Ford Taurus 2026 VIP transfer', 'Ford Taurus chauffeur KSA', 'premium sedan transfer Riyadh', 'new Ford Taurus taxi Saudi Arabia', 'Ford Taurus executive car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/fleet/ford-taurus/',
     },
@@ -22,16 +22,16 @@ export default function FordTaurusPage() {
     const specifications = [
         { label: 'Capacity', value: '3 Passengers', icon: Users },
         { label: 'Luggage', value: '2 standard Bags', icon: Briefcase },
-        { label: 'Model Year', value: '2025 Edition', icon: Award },
+        { label: 'Model Year', value: '2026 Edition', icon: Award },
         { label: 'Air Conditioning', value: 'Premium Climate Control', icon: Zap },
     ];
 
     const vehicleSchema = {
         "@context": "https://schema.org/",
         "@type": "Product",
-        "name": "Ford Taurus 2025 VIP Chauffeur Service",
+        "name": "Ford Taurus 2026 VIP Chauffeur Service",
         "image": "https://taxiserviceksa.com/fleet/ford-taurus-executive-sedan-saudi-arabia.webp",
-        "description": "Modern Ford Taurus 2025 VIP transfer service in Saudi Arabia for premium city travel.",
+        "description": "Modern Ford Taurus 2026 VIP transfer service in Saudi Arabia for premium city travel.",
         "brand": {
             "@type": "Brand",
             "name": "Ford"
@@ -54,14 +54,14 @@ export default function FordTaurusPage() {
 
             <Hero
                 images={['/fleet/ford-taurus-executive-sedan-saudi-arabia.webp', '/hero-slide-3.webp']}
-                h1Text="Ford Taurus 2025"
+                h1Text="Ford Taurus 2026"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Modern Executive Excellence
                     </span>
                 }
                 subtitle="The All-New Standard for Premium Sedan Travel in KSA"
-                location="3 Passengers | 2 Bags | 2025 Model"
+                location="3 Passengers | 2 Bags | 2026 Model"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?vehicle=ford-taurus">
@@ -99,7 +99,7 @@ export default function FordTaurusPage() {
                         <div>
                             <h2 className="text-4xl font-black text-gray-900 mb-8 leading-tight tracking-tighter uppercase">Next-Generation Private Travel</h2>
                             <p className="text-gray-600 text-xl leading-relaxed mb-8">
-                                Step into the future of premium transportation with our <strong>Ford Taurus 2025 VIP private transfer</strong>. Completely redesigned for the modern professional, the new Taurus combines sleek aesthetics with a whisper-quiet interior and cutting-edge technology.
+                                Step into the future of premium transportation with our <strong>Ford Taurus 2026 VIP private transfer</strong>. Completely redesigned for the modern professional, the new Taurus combines sleek aesthetics with a whisper-quiet interior and cutting-edge technology.
                             </p>
                             
                             <div className="space-y-6 mb-12">
@@ -122,7 +122,7 @@ export default function FordTaurusPage() {
 
                             <EntityTrustSignal 
                                 brandName="Ford Premium Fleet"
-                                description="Introducing the 2025 edition to our premium sedan lineup for an unmatched travel experience."
+                                description="Introducing the 2026 edition to our premium sedan lineup for an unmatched travel experience."
                                 metrics={[
                                     { label: 'New Fleet', value: '100%', icon: ShieldCheck },
                                     { label: 'Modern Index', value: 'Elite', icon: Zap }
@@ -150,7 +150,7 @@ export default function FordTaurusPage() {
                                 <Car className="w-10 h-10 text-blue-600" />
                                 <div>
                                     <div className="font-black text-blue-900 text-sm">PRO TIP</div>
-                                    <p className="text-blue-700 text-xs">The 2025 Taurus offers more rear legroom than most luxury sedans in its class.</p>
+                                    <p className="text-blue-700 text-xs">The 2026 Taurus offers more rear legroom than most luxury sedans in its class.</p>
                                 </div>
                             </div>
                         </div>
@@ -162,9 +162,9 @@ export default function FordTaurusPage() {
                 <MicroSemanticFAQ 
                     faqs={[
                         {
-                            question: "Is the Ford Taurus 2025 suitable for long-distance travel?",
+                            question: "Is the Ford Taurus 2026 suitable for long-distance travel?",
                             shortAnswer: "Yes, it is built for comfort.",
-                            detailedAnswer: "The 2025 Ford Taurus features a highly aerodynamic design and advanced suspension that provides a smooth, stable ride even on the long intercity highways of Saudi Arabia.",
+                            detailedAnswer: "The 2026 Ford Taurus features a highly aerodynamic design and advanced suspension that provides a smooth, stable ride even on the long intercity highways of Saudi Arabia.",
                             perspectives: [
                                 { role: 'Comfort Review', icon: 'User', insight: 'The seats are designed for ergonomic support over 4+ hour journeys.' }
                             ]
@@ -195,7 +195,7 @@ export default function FordTaurusPage() {
                 <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <h2 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-none upppercase">THE FUTURE OF <br/> VIP TRANSPORT</h2>
-                    <p className="text-blue-100/60 text-xl mb-12 max-w-2xl mx-auto">Experience the all-new 2025 Ford Taurus today. Professional chauffeurs and modern luxury at fixed rates.</p>
+                    <p className="text-blue-100/60 text-xl mb-12 max-w-2xl mx-auto">Experience the all-new 2026 Ford Taurus today. Professional chauffeurs and modern luxury at fixed rates.</p>
                     <Link href="/booking/?vehicle=ford-taurus">
                         <Button size="lg" className="bg-white hover:bg-blue-100 text-blue-900 font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl transition-all hover:scale-105">
                             BOOK FORD TAURUS NOW

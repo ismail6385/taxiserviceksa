@@ -132,7 +132,7 @@ export default function CorporateTravelPage() {
             "priceCurrency": "SAR",
             "lowPrice": "80",
             "highPrice": "1200",
-            "priceValidUntil": "2025-12-31"
+            "priceValidUntil": "2026-12-31"
         }
     };
 

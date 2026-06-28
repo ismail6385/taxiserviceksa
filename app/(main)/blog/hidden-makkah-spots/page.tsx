@@ -91,7 +91,7 @@ export default function HiddenMakkahSpotsPage() {
                         <ExpertReview
                             reviewerName="Dr. Ahmed Al-Masri"
                             reviewerTitle="Islamic History Researcher"
-                            reviewDate="Jan 2025"
+                            reviewDate="Jan 2026"
                             expertise={["Makkah Heritage", "Archaeological Sites"]}
                         />
                     </div>

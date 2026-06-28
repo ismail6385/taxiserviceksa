@@ -29,7 +29,7 @@ export default function TaxiInJeddahPage() {
         { name: 'BMW', type: 'Luxury Sedan', pax: '3', lugg: '2', img: 'Car' },
         { name: 'Cadillac Escalade', type: 'Premium SUV', pax: '7', lugg: '4', img: 'Car' },
         { name: 'GMC', type: 'Family SUV', pax: '7', lugg: '4', img: 'Car' },
-        { name: 'Ford Taurus 2025', type: 'Executive Sedan', pax: '3', lugg: '2', img: 'Car' },
+        { name: 'Ford Taurus 2026', type: 'Executive Sedan', pax: '3', lugg: '2', img: 'Car' },
         { name: 'Genesis 2023', type: 'Executive Sedan', pax: '3', lugg: '2', img: 'Car' },
         { name: 'Mercedes Vito', type: 'Luxury Van', pax: '7', lugg: '4', img: 'Car' },
         { name: 'Mercedes Sprinter', type: 'Executive Minibus', pax: '14', lugg: '4', img: 'Car' },
@@ -195,9 +195,14 @@ export default function TaxiInJeddahPage() {
                                     </div>
                                 </div>
                                 
-                                <Link href="/booking/" className="mt-8 relative w-full inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-white transition-all duration-300 bg-primary/20 rounded-xl group-hover:bg-primary group-hover:text-black">
+                                <a 
+                                    href={`https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20book%20a%20VIP%20${encodeURIComponent(v.name)}%20in%20Jeddah.`}
+                                    target="_blank"
+                                    rel="nofollow noopener noreferrer"
+                                    className="mt-8 relative w-full inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-white transition-all duration-300 bg-primary/20 rounded-xl group-hover:bg-primary group-hover:text-black text-center"
+                                >
                                     <span className="relative font-bold">WhatsApp Booking for This Vehicle</span>
-                                </Link>
+                                </a>
                             </div>
                         ))}
                     </div>

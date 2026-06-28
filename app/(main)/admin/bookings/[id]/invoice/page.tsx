@@ -63,6 +63,15 @@ export default function InvoicePage() {
     const [stops, setStops] = useState<Stop[]>([]);
     const [additionalEmails, setAdditionalEmails] = useState<string[]>([]);
     const [emailInput, setEmailInput] = useState('');
+    const [bankDetails, setBankDetails] = useState({
+        showOnDocument: false,
+        bankName: 'Al Rajhi Bank',
+        accountName: 'Taxi Service KSA LLC',
+        accountNumber: '123456789012345',
+        iban: 'SA8280000000123456789012',
+        swiftCode: 'RAJHSARIXXX',
+        notes: 'Please send transaction screenshot on WhatsApp once completed.'
+    });
 
     const addEmail = () => {
         const val = emailInput.trim().toLowerCase();
@@ -304,10 +313,15 @@ export default function InvoicePage() {
                             />
                         </div>
                         <div className="flex gap-1 px-1">
-                            {['Cash to Driver', 'Online'].map((method) => (
+                            {['Cash to Driver', 'Online', 'Bank Transfer'].map((method) => (
                                 <button
                                     key={method}
-                                    onClick={() => setPaymentMethod(method)}
+                                    onClick={() => {
+                                        setPaymentMethod(method);
+                                        if (method === 'Bank Transfer') {
+                                            setBankDetails(prev => ({ ...prev, showOnDocument: true }));
+                                        }
+                                    }}
                                     className={`px-2 py-0.5 text-[9px] font-bold rounded transition-all ${paymentMethod === method
                                             ? 'bg-gray-800 text-white'
                                             : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
@@ -449,6 +463,80 @@ export default function InvoicePage() {
                                     </button>
                                 </span>
                             ))}
+                        </div>
+                    )}
+                </div>
+            </div>
+
+            {/* Bank Details Editor Card — screen only */}
+            <div className="max-w-[210mm] mx-auto mb-4 print:hidden">
+                <div className="bg-white border-2 border-dashed border-blue-200 rounded-xl p-4 shadow-sm">
+                    <div className="flex items-center justify-between mb-4 pb-2 border-b">
+                        <div className="flex items-center gap-2">
+                            <span className="text-lg">🏦</span>
+                            <div>
+                                <p className="text-xs font-black text-blue-600 uppercase tracking-widest">Bank Transfer Details</p>
+                                <p className="text-[10px] text-gray-400">Configure bank information shown on the invoice document</p>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <label className="text-[10px] font-black uppercase text-gray-500 tracking-wider">Show On Document</label>
+                            <input 
+                                type="checkbox" 
+                                checked={bankDetails.showOnDocument} 
+                                onChange={(e) => setBankDetails({...bankDetails, showOnDocument: e.target.checked})}
+                                className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 cursor-pointer"
+                            />
+                        </div>
+                    </div>
+
+                    {bankDetails.showOnDocument && (
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                            <div className="flex flex-col gap-1">
+                                <span className="text-[10px] font-bold text-gray-500 uppercase">Bank Name</span>
+                                <input
+                                    value={bankDetails.bankName}
+                                    onChange={(e) => setBankDetails({...bankDetails, bankName: e.target.value})}
+                                    placeholder="e.g. Al Rajhi Bank"
+                                    className="h-8 text-xs font-bold border rounded px-2 outline-none focus:border-blue-400 bg-gray-50/50"
+                                />
+                            </div>
+                            <div className="flex flex-col gap-1">
+                                <span className="text-[10px] font-bold text-gray-500 uppercase">Account Holder</span>
+                                <input
+                                    value={bankDetails.accountName}
+                                    onChange={(e) => setBankDetails({...bankDetails, accountName: e.target.value})}
+                                    placeholder="e.g. Taxi Service KSA"
+                                    className="h-8 text-xs font-bold border rounded px-2 outline-none focus:border-blue-400 bg-gray-50/50"
+                                />
+                            </div>
+                            <div className="flex flex-col gap-1">
+                                <span className="text-[10px] font-bold text-gray-500 uppercase">Account Number</span>
+                                <input
+                                    value={bankDetails.accountNumber}
+                                    onChange={(e) => setBankDetails({...bankDetails, accountNumber: e.target.value})}
+                                    placeholder="e.g. 123456789012345"
+                                    className="h-8 text-xs font-bold border rounded px-2 outline-none focus:border-blue-400 bg-gray-50/50"
+                                />
+                            </div>
+                            <div className="flex flex-col gap-1 md:col-span-2">
+                                <span className="text-[10px] font-bold text-gray-500 uppercase">IBAN Number</span>
+                                <input
+                                    value={bankDetails.iban}
+                                    onChange={(e) => setBankDetails({...bankDetails, iban: e.target.value})}
+                                    placeholder="e.g. SA8280000000..."
+                                    className="h-8 text-xs font-bold border rounded px-2 outline-none focus:border-blue-400 bg-gray-50/50"
+                                />
+                            </div>
+                            <div className="flex flex-col gap-1">
+                                <span className="text-[10px] font-bold text-gray-500 uppercase">SWIFT / BIC Code (Optional)</span>
+                                <input
+                                    value={bankDetails.swiftCode}
+                                    onChange={(e) => setBankDetails({...bankDetails, swiftCode: e.target.value})}
+                                    placeholder="e.g. RAJHSARIXXX"
+                                    className="h-8 text-xs font-bold border rounded px-2 outline-none focus:border-blue-400 bg-gray-50/50"
+                                />
+                            </div>
                         </div>
                     )}
                 </div>
@@ -649,6 +737,55 @@ export default function InvoicePage() {
                                 </p>
                             </div>
                         </div>
+
+                        {/* Printed Bank Details Block */}
+                        {bankDetails.showOnDocument && (
+                            <div className="mb-3 bg-blue-50/30 rounded-lg p-3 border border-blue-100 flex flex-col gap-1.5">
+                                <div className="flex justify-between items-center border-b border-blue-100/50 pb-1">
+                                    <h3 className="text-[9px] font-black text-blue-700 uppercase tracking-wider flex items-center gap-1">
+                                        🏦 Bank Transfer Payment Details
+                                    </h3>
+                                    <span className="text-[8px] font-bold text-blue-500 uppercase">Direct Transfer</span>
+                                </div>
+                                <div className="grid grid-cols-2 gap-x-6 gap-y-1.5 text-[10px]">
+                                    {bankDetails.bankName && (
+                                        <div className="flex justify-between items-center py-0.5 border-b border-gray-100/50">
+                                            <span className="text-gray-500 font-medium">Bank Name:</span>
+                                            <span className="font-bold text-gray-900">{bankDetails.bankName}</span>
+                                        </div>
+                                    )}
+                                    {bankDetails.accountName && (
+                                        <div className="flex justify-between items-center py-0.5 border-b border-gray-100/50">
+                                            <span className="text-gray-500 font-medium">Account Name:</span>
+                                            <span className="font-bold text-gray-900">{bankDetails.accountName}</span>
+                                        </div>
+                                    )}
+                                    {bankDetails.accountNumber && (
+                                        <div className="flex justify-between items-center py-0.5 border-b border-gray-100/50">
+                                            <span className="text-gray-500 font-medium">Account Number:</span>
+                                            <span className="font-bold font-mono text-gray-900">{bankDetails.accountNumber}</span>
+                                        </div>
+                                    )}
+                                    {bankDetails.swiftCode && (
+                                        <div className="flex justify-between items-center py-0.5 border-b border-gray-100/50">
+                                            <span className="text-gray-500 font-medium">SWIFT / BIC:</span>
+                                            <span className="font-bold font-mono text-gray-900">{bankDetails.swiftCode}</span>
+                                        </div>
+                                    )}
+                                    {bankDetails.iban && (
+                                        <div className="col-span-2 flex justify-between items-center py-0.5 border-b border-gray-100/50">
+                                            <span className="text-gray-500 font-medium">IBAN Number:</span>
+                                            <span className="font-bold font-mono text-gray-900 tracking-wide">{bankDetails.iban}</span>
+                                        </div>
+                                    )}
+                                </div>
+                                {bankDetails.notes && (
+                                    <p className="text-[8px] text-blue-600/85 italic font-medium mt-1">
+                                        Note: {bankDetails.notes}
+                                    </p>
+                                )}
+                            </div>
+                        )}
                     </div>
 
                     {/* Footer */}

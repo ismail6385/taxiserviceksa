@@ -17,7 +17,7 @@ import BookingProcess from '@/components/BookingProcess';
 
 export const metadata: Metadata = {
     title: 'Jeddah to Makkah Taxi 2026 | VIP Private Transfers | Fixed Rates',
-    description: 'Book the best Jeddah to Makkah Taxi for 2026. Premium intercity transfer with professional chauffeurs. Fixed rates starting from 200 SAR. Door-to-door VIP service.',
+    description: 'Book the best Jeddah to Makkah Taxi for 2026. Premium intercity transfer with professional chauffeurs. Fixed rates starting from 300 SAR. Door-to-door VIP service.',
     keywords: ['Jeddah to Makkah Taxi 2026', 'Jeddah to Makkah taxi price', 'Jeddah to Makkah private car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-makkah/',
@@ -28,15 +28,15 @@ export default function JeddahMakkahRoutePage() {
     const routeDetails = [
         { label: 'Distance', value: '85-95 km', icon: Navigation },
         { label: 'Travel Time', value: '60-80 minutes', icon: Clock },
-        { label: '2026 Base Fare', value: 'From 200 SAR', icon: DollarSign },
+        { label: '2026 Base Fare', value: 'From 300 SAR', icon: DollarSign },
         { label: 'Service', value: 'Door-to-Door', icon: CheckCircle2 },
     ];
 
     const pricingRows = [
-        { vehicle: 'Standard Sedan', description: 'Toyota Camry or similar. Perfect for solo or couples.', price: '200', capacity: '3 Pax', isPopular: false },
-        { vehicle: 'GMC Yukon XL', description: 'The ultimate VIP experience for families.', price: '350', capacity: '7 Pax', isPopular: true },
-        { vehicle: 'Hyundai Staria VIP', description: 'Modern luxury van with captain seats.', price: '300', capacity: '7 Pax', isPopular: false },
-        { vehicle: 'Toyota Hiace', description: 'For large groups and heavy luggage.', price: '450', capacity: '11 Pax', isPopular: false },
+        { vehicle: 'Standard Sedan', description: 'Toyota Camry or similar. Perfect for solo or couples.', price: '300', capacity: '3 Pax', isPopular: false },
+        { vehicle: 'GMC Yukon XL', description: 'The ultimate VIP experience for families.', price: '600', capacity: '7 Pax', isPopular: true },
+        { vehicle: 'Hyundai Staria VIP', description: 'Modern luxury van with captain seats.', price: '350', capacity: '7 Pax', isPopular: false },
+        { vehicle: 'Toyota Hiace', description: 'For large groups and heavy luggage.', price: '500', capacity: '11 Pax', isPopular: false },
     ];
 
     return (

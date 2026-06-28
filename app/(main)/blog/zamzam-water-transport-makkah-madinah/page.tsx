@@ -6,7 +6,7 @@ import { Clock, MapPin, CheckCircle2, AlertTriangle, Train, Car, Droplets, Arrow
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'How to Transport Zamzam Water Makkah to Madinah | 2025 Guide',
+    title: 'How to Transport Zamzam Water Makkah to Madinah | 2026 Guide',
     description: 'Can you take Zamzam on Haramain Train? Learn the rules for transporting Zamzam water from Makkah to Madinah. Avoid confiscation with our private taxi guide.',
     keywords: ['transport zamzam makkah to madinah', 'zamzam water haramain train', 'taking zamzam to madinah', 'makkah to madinah taxi luggage', 'zamzam water rules saudi arabia'],
     alternates: {
@@ -39,7 +39,7 @@ export default function ZamzamTransportGuide() {
                         <span>Pilgrim Travel Guide</span>
                     </div>
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight">
-                        How to Transport Zamzam Water From Makkah to Madinah (2025 Rules)
+                        How to Transport Zamzam Water From Makkah to Madinah (2026 Rules)
                     </h1>
                     <p className="text-xl text-gray-600 leading-relaxed mb-8">
                         One of the most common questions we receive from Umrah pilgrims is: <em>"Can I take my Zamzam water bottles on the train to Madinah?"</em> The answer might surprise you—and change your travel plans.
@@ -52,7 +52,7 @@ export default function ZamzamTransportGuide() {
                         </div>
                         <div className="flex items-center gap-1">
                             <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                            <span>Updated Jan 2025</span>
+                            <span>Updated Jan 2026</span>
                         </div>
                     </div>
                 </div>

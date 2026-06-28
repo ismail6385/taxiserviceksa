@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge';
 export const metadata: Metadata = {
     title: 'Transport Insights & Data Reports | Taxi Service KSA',
     description: 'Deep dives, data reports, and specialized insights into Saudi Arabian transport and pilgrimage logistics. Strategic analysis for the modern traveler.',
-    keywords: ['Saudi transport reports', 'pilgrimage data analysis', 'taxi vs train data', 'Saudi Arabia transport insights', 'Umrah logistics 2025'],
+    keywords: ['Saudi transport reports', 'pilgrimage data analysis', 'taxi vs train data', 'Saudi Arabia transport insights', 'Umrah logistics 2026'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/insights/',
     },
@@ -17,12 +17,12 @@ export const metadata: Metadata = {
 const INSIGHTS = [
     {
         title: 'The "Door-to-Door" Fallacy: Why Families Are Choosing Taxis Over High-Speed Rail',
-        slug: 'pilgrimage-transport-report-2025',
-        date: 'Dec 28, 2025',
+        slug: 'pilgrimage-transport-report-2026',
+        date: 'Dec 28, 2026',
         readTime: '8 min read',
         category: 'Data Report',
-        excerpt: 'New 2025 data study reveals why 70% of Umrah families prefer private taxis over the high-speed train. Detailed analysis of cost, time, and luggage friction.',
-        image: '/taxi-vs-train-2025.png'
+        excerpt: 'New 2026 data study reveals why 70% of Umrah families prefer private taxis over the high-speed train. Detailed analysis of cost, time, and luggage friction.',
+        image: '/taxi-vs-train-2026.png'
     }
 ];
 

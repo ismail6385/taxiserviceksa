@@ -33,7 +33,7 @@ export default function MakkahTrainStationPage() {
                         "name": "Makkah Train Station Transfer",
 
                         "areaServed": { "@type": "City", "name": "Makkah" },
-                        "offers": { "@type": "Offer", "price": "100", "priceCurrency": "SAR", "priceValidUntil": "2025-12-31" }
+                        "offers": { "@type": "Offer", "price": "100", "priceCurrency": "SAR", "priceValidUntil": "2026-12-31" }
                     })
                 }}
             />

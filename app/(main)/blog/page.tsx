@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     },
 };
 
-export const revalidate = 0;
+export const revalidate = 3600; // Revalidate every hour for better performance
 
 interface Props {
     searchParams?: { [key: string]: string | string[] | undefined };
@@ -260,6 +260,39 @@ export default async function BlogIndexPage({ searchParams }: Props) {
                         ))}
                     </div>
                 )}
+
+                {/* SEO Informational content to boost Crawling & Indexation */}
+                <div className="mt-16 bg-white rounded-3xl p-8 border border-gray-200 prose prose-lg max-w-none">
+                    <h2 className="text-2xl font-black text-gray-900 mb-6 uppercase tracking-tight">Saudi Arabia Transport & Travel Insights</h2>
+                    <div className="grid md:grid-cols-2 gap-8 text-gray-600 text-sm leading-relaxed">
+                        <div>
+                            <h3 className="font-bold text-gray-800 text-base mb-2">1. Navigating KSA: Airport & Intercity Transfers</h3>
+                            <p>
+                                Planning your travel within the Kingdom of Saudi Arabia requires reliable transit solutions. Whether arriving at King Khalid International Airport (RUH) in Riyadh or King Abdulaziz International Airport (JED) in Jeddah, pre-booking a private chauffeur service ensures you avoid long airport queues and unpredictable peak pricing. Our guides cover fares, routes, and terminal details to help you make informed travel plans.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 className="font-bold text-gray-800 text-base mb-2">2. Spiritual Journeys: Umrah & Hajj Travel Tips</h3>
+                            <p>
+                                For millions of pilgrims arriving for Umrah and Hajj, traveling from Jeddah Airport directly to Makkah or transitioning between the Holy Cities of Makkah and Madinah is a sacred journey. Our specialized guides provide step-by-step instructions on Miqat stops, Haramain train connections, luggage tips, and hiring Muslim-certified drivers for private, dignified hotel transfers.
+                            </p>
+                        </div>
+                    </div>
+                    <div className="mt-8 border-t border-gray-100 pt-8 grid md:grid-cols-3 gap-6 text-xs text-gray-500">
+                        <div>
+                            <h4 className="font-bold text-gray-700 mb-1">Riyadh & Central Region</h4>
+                            <p>Discover corporate transport tips, Riyadh Season event transfers, and overland routes connecting the Capital to Dammam and Jeddah.</p>
+                        </div>
+                        <div>
+                            <h4 className="font-bold text-gray-700 mb-1">Jeddah & Western Region</h4>
+                            <p>Find updated 2026 taxi fare estimates, terminal procedures at JED Airport, and tourism itineraries for the beautiful Red Sea coast.</p>
+                        </div>
+                        <div>
+                            <h4 className="font-bold text-gray-700 mb-1">GCC & Cross-Border Logistics</h4>
+                            <p>Read about custom regulations, toll requirements, and booking VIP taxis for causeway crossings between KSA, Bahrain, and the UAE.</p>
+                        </div>
+                    </div>
+                </div>
 
                 {/* Bottom CTA */}
                 <div className="mt-16 bg-gradient-to-r from-emerald-700 to-teal-700 rounded-3xl p-10 text-center text-white shadow-xl">

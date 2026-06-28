@@ -124,7 +124,7 @@ export default function ToursPage() {
                     topic="Taif Rose Season"
                     status="Seasonal Update"
 
-                    lastUpdated="Spring 2025"
+                    lastUpdated="Spring 2026"
                     content="Experience the blooming of the famous Taif Roses in spring (March-April). Our Taif City Tour includes visits to traditional rose water distilleries during this fragrant season."
                     tags={["TaifRoses", "Nature", "Seasonal"]}
                     linkText="WhatsApp Booking for Taif Tour"

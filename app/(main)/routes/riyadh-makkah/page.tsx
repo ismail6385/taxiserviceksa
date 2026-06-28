@@ -22,7 +22,7 @@ export default function RiyadhMakkahRoutePage() {
     const routeDetails = [
         { label: 'Distance', value: '870 km', icon: Navigation },
         { label: 'Travel Time', value: '8-9 Hours', icon: Clock },
-        { label: 'Base Fare', value: 'WhatsApp Booking', icon: DollarSign },
+        { label: 'Base Fare', value: 'Fixed Rate', icon: DollarSign },
         { label: 'Service', value: 'Door-to-Door', icon: CheckCircle2 },
     ];
 
@@ -87,7 +87,7 @@ export default function RiyadhMakkahRoutePage() {
                                 Crossing 870km of the Kingdom requires more than just a car; it requires a professional travel partner. Our <strong>Riyadh to Makkah taxi service</strong> is designed for families and business travelers who value privacy, safety, and comfort.
                             </p>
                             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                                Why fly when you can travel door-to-door in a 2025 model <strong>GMC Yukon</strong> or <strong>Mercedes S-Class</strong>? We handle the long drive while you rest or work, providing a seamless transition from the capital of Riyadh to the Holy City of Makkah.
+                                Why fly when you can travel door-to-door in a 2026 model <strong>GMC Yukon</strong> or <strong>Mercedes S-Class</strong>? We handle the long drive while you rest or work, providing a seamless transition from the capital of Riyadh to the Holy City of Makkah.
                             </p>
                             
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -157,7 +157,7 @@ export default function RiyadhMakkahRoutePage() {
                     faqs={[
                         {
                             question: "How much is a taxi from Riyadh to Makkah?",
-                            shortAnswer: "WhatsApp Booking based on Vehicle",
+                            shortAnswer: "Fixed Rate (Vehicle-Dependent)",
                             detailedAnswer: "Taxi rates for the 870km trip from Riyadh to Makkah are fixed to avoid price gouging. Prices vary based on whether you choose a sedan, SUV, or VIP van. Contact us for the latest seasonal rates.",
                             perspectives: [
                                 { role: 'Billing', icon: 'DollarSign', insight: 'Our fixed rates include fuel, toll fees, and several refreshment breaks.' }
@@ -166,7 +166,7 @@ export default function RiyadhMakkahRoutePage() {
                         {
                             question: "Is it safe to take a car from Riyadh to Makkah?",
                             shortAnswer: "Yes, with professional drivers.",
-                            detailedAnswer: "Yes, it is extremely safe. Our drivers are trained specifically for long-haul desert driving and we use 2024-2025 model vehicles with the highest safety ratings in the Kingdom.",
+                            detailedAnswer: "Yes, it is extremely safe. Our drivers are trained specifically for long-haul desert driving and we use 2024-2026 model vehicles with the highest safety ratings in the Kingdom.",
                             perspectives: [
                                 { role: 'Safety', icon: 'Shield', insight: 'All our Riyadh to Makkah cars are equipped with satellite tracking systems.' }
                             ]

@@ -24,8 +24,8 @@ export default function ChauffeurJobsMadinahPage() {
             <JsonLdJobPosting 
                 title="VIP Chauffeur - Madinah"
                 description="Join our elite network of professional chauffeurs in Madinah. We are looking for drivers with their own 2020+ model cars to serve VIP clients, pilgrims, and corporate travelers. High income potential with specialized Ziyarat and long-distance routes."
-                datePosted="2025-01-01"
-                validThrough="2025-12-31"
+                datePosted="2026-01-01"
+                validThrough="2026-12-31"
                 employmentType="FULL_TIME"
                 hiringOrganization="Taxi Service KSA"
                 jobLocation={{

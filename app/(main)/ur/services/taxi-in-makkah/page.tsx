@@ -30,7 +30,7 @@ export default function TaxiInMakkahPageUrdu() {
         { name: 'BMW', type: 'لگژری سیڈان', pax: '3', lugg: '2', img: 'Car' },
         { name: 'Cadillac Escalade', type: 'پریمیم SUV', pax: '7', lugg: '4', img: 'Car' },
         { name: 'GMC', type: 'فیملی SUV', pax: '7', lugg: '4', img: 'Car' },
-        { name: 'Ford Taurus 2025', type: 'ایگزیکٹو سیڈان', pax: '3', lugg: '2', img: 'Car' },
+        { name: 'Ford Taurus 2026', type: 'ایگزیکٹو سیڈان', pax: '3', lugg: '2', img: 'Car' },
         { name: 'Genesis 2023', type: 'ایگزیکٹو سیڈان', pax: '3', lugg: '2', img: 'Car' },
         { name: 'Mercedes Vito', type: 'لگژری وین', pax: '7', lugg: '4', img: 'Car' },
         { name: 'Mercedes Sprinter', type: 'ایگزیکٹو منی بس', pax: '14', lugg: '4', img: 'Car' },

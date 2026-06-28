@@ -51,6 +51,11 @@ interface CompanyProfile {
     email: string;
     website: string;
     logoUrl?: string;
+    bankName?: string;
+    accountName?: string;
+    accountNumber?: string;
+    iban?: string;
+    swiftCode?: string;
 }
 
 const DEFAULT_PROFILES: Record<string, CompanyProfile> = {
@@ -60,21 +65,36 @@ const DEFAULT_PROFILES: Record<string, CompanyProfile> = {
         phone: 'info@taxiserviceksa.com',
         email: 'info@taxiserviceksa.com',
         website: 'www.taxiserviceksa.com',
-        logoUrl: '/logo.svg'
+        logoUrl: '/logo.svg',
+        bankName: 'Al Rajhi Bank',
+        accountName: 'Taxi Service KSA LLC',
+        accountNumber: '123456789012345',
+        iban: 'SA8280000000123456789012',
+        swiftCode: 'RAJHSARIXXX'
     },
     'airport-travel': {
         name: 'Airport Travel Taxis',
         address: 'Heathrow Airport, London, UK',
         phone: '+44 20 8123 4567',
         email: 'booking@airporttraveltaxis.com',
-        website: 'www.airporttraveltaxis.com'
+        website: 'www.airporttraveltaxis.com',
+        bankName: 'Barclays Bank',
+        accountName: 'Airport Travel Taxis Ltd',
+        accountNumber: '98765432',
+        iban: 'GB29BARC20123498765432',
+        swiftCode: 'BARCGB22XXX'
     },
     'car-ride-arabia': {
         name: 'Car Ride Arabia',
         address: 'Dubai, UAE',
         phone: '+971 4 123 4567',
         email: 'info@carridearabia.com',
-        website: 'www.carridearabia.com'
+        website: 'www.carridearabia.com',
+        bankName: 'Emirates NBD',
+        accountName: 'Car Ride Arabia FZ-LLC',
+        accountNumber: '1012345678901',
+        iban: 'AE1200300001012345678901',
+        swiftCode: 'EIBNDAEADXXX'
     }
 };
 
@@ -100,6 +120,16 @@ export default function UniversalInvoiceGenerator() {
     const [vehicle, setVehicle] = useState({
         name: 'Toyota Camry',
         showOnDocument: true
+    });
+
+    const [bankDetails, setBankDetails] = useState({
+        showOnDocument: false,
+        bankName: DEFAULT_PROFILES['taxi-ksa'].bankName || '',
+        accountName: DEFAULT_PROFILES['taxi-ksa'].accountName || '',
+        accountNumber: DEFAULT_PROFILES['taxi-ksa'].accountNumber || '',
+        iban: DEFAULT_PROFILES['taxi-ksa'].iban || '',
+        swiftCode: DEFAULT_PROFILES['taxi-ksa'].swiftCode || '',
+        notes: 'Please send transaction screenshot on WhatsApp once completed.'
     });
 
 
@@ -233,7 +263,21 @@ export default function UniversalInvoiceGenerator() {
                     {/* Brand */}
                     <div className="bg-white rounded-xl border p-6 shadow-sm space-y-4">
                         <Label className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1 block">Business Profile</Label>
-                        <Select onValueChange={(val) => setProfile({...DEFAULT_PROFILES[val]})} defaultValue="taxi-ksa">
+                        <Select 
+                            onValueChange={(val) => {
+                                const selected = DEFAULT_PROFILES[val];
+                                setProfile({...selected});
+                                setBankDetails(prev => ({
+                                    ...prev,
+                                    bankName: selected.bankName || '',
+                                    accountName: selected.accountName || '',
+                                    accountNumber: selected.accountNumber || '',
+                                    iban: selected.iban || '',
+                                    swiftCode: selected.swiftCode || '',
+                                }));
+                            }} 
+                            defaultValue="taxi-ksa"
+                        >
                             <SelectTrigger className="font-semibold text-gray-900 rounded-lg">
                                 <SelectValue placeholder="Select Business" />
                             </SelectTrigger>
@@ -376,6 +420,78 @@ export default function UniversalInvoiceGenerator() {
                         </div>
                     </div>
 
+                    {/* Bank Details */}
+                    <div className="bg-white rounded-xl border p-6 shadow-sm space-y-4">
+                        <div className="flex justify-between items-center">
+                            <Label className="text-xs font-bold text-gray-500 uppercase tracking-widest block font-sans">Bank Details</Label>
+                            <label className="flex items-center gap-2 text-[10px] font-bold text-gray-400 cursor-pointer">
+                                <input 
+                                    type="checkbox" 
+                                    checked={bankDetails.showOnDocument} 
+                                    onChange={(e) => setBankDetails({...bankDetails, showOnDocument: e.target.checked})} 
+                                    className="accent-blue-600 rounded animate-pulse"
+                                />
+                                SHOW ON DOC
+                            </label>
+                        </div>
+                        <div className="space-y-3 font-sans">
+                            <div>
+                                <Label className="text-[10px] text-gray-400 uppercase ml-1">Bank Name</Label>
+                                <Input 
+                                    placeholder="e.g. Al Rajhi Bank, SNB, Riyadh Bank" 
+                                    value={bankDetails.bankName} 
+                                    onChange={(e) => setBankDetails({...bankDetails, bankName: e.target.value})} 
+                                    className="h-9 text-xs font-semibold focus-visible:ring-blue-500" 
+                                />
+                            </div>
+                            <div>
+                                <Label className="text-[10px] text-gray-400 uppercase ml-1">Account Holder Name</Label>
+                                <Input 
+                                    placeholder="e.g. Taxi Service KSA" 
+                                    value={bankDetails.accountName} 
+                                    onChange={(e) => setBankDetails({...bankDetails, accountName: e.target.value})} 
+                                    className="h-9 text-xs font-semibold focus-visible:ring-blue-500" 
+                                />
+                            </div>
+                            <div>
+                                <Label className="text-[10px] text-gray-400 uppercase ml-1">Account Number</Label>
+                                <Input 
+                                    placeholder="e.g. 123456789012345" 
+                                    value={bankDetails.accountNumber} 
+                                    onChange={(e) => setBankDetails({...bankDetails, accountNumber: e.target.value})} 
+                                    className="h-9 text-xs font-semibold focus-visible:ring-blue-500" 
+                                />
+                            </div>
+                            <div>
+                                <Label className="text-[10px] text-gray-400 uppercase ml-1">IBAN</Label>
+                                <Input 
+                                    placeholder="e.g. SA8280000000123456789012" 
+                                    value={bankDetails.iban} 
+                                    onChange={(e) => setBankDetails({...bankDetails, iban: e.target.value})} 
+                                    className="h-9 text-xs font-semibold tracking-wider focus-visible:ring-blue-500" 
+                                />
+                            </div>
+                            <div>
+                                <Label className="text-[10px] text-gray-400 uppercase ml-1">SWIFT / BIC (Optional)</Label>
+                                <Input 
+                                    placeholder="e.g. RAJHSARIXXX" 
+                                    value={bankDetails.swiftCode} 
+                                    onChange={(e) => setBankDetails({...bankDetails, swiftCode: e.target.value})} 
+                                    className="h-9 text-xs font-semibold focus-visible:ring-blue-500" 
+                                />
+                            </div>
+                            <div>
+                                <Label className="text-[10px] text-gray-400 uppercase ml-1">Transfer Instructions</Label>
+                                <Input 
+                                    placeholder="e.g. Send receipt on WhatsApp" 
+                                    value={bankDetails.notes} 
+                                    onChange={(e) => setBankDetails({...bankDetails, notes: e.target.value})} 
+                                    className="h-9 text-xs italic text-gray-500 focus-visible:ring-blue-500" 
+                                />
+                            </div>
+                        </div>
+                    </div>
+
                     {/* Meta */}
                     <div className="bg-white rounded-xl border p-6 shadow-sm space-y-4">
                         <Label className="text-xs font-bold text-gray-500 uppercase tracking-widest block font-sans">Payment Details</Label>
@@ -405,6 +521,10 @@ export default function UniversalInvoiceGenerator() {
                                 <div className="flex gap-1 mt-1.5 flex-wrap text-[9px]">
                                     <span onClick={()=>setMeta({...meta, paymentMethod: 'Cash to Driver'})} className="px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded cursor-pointer hover:bg-gray-200 font-bold uppercase tracking-wider">Cash</span>
                                     <span onClick={()=>setMeta({...meta, paymentMethod: 'Online Payment'})} className="px-1.5 py-0.5 bg-gray-100 text-gray-600 rounded cursor-pointer hover:bg-gray-200 font-bold uppercase tracking-wider">Online</span>
+                                    <span onClick={()=>{
+                                        setMeta({...meta, paymentMethod: 'Bank Transfer'});
+                                        setBankDetails(prev => ({...prev, showOnDocument: true}));
+                                    }} className="px-1.5 py-0.5 bg-blue-50 text-blue-600 rounded cursor-pointer hover:bg-blue-100 font-bold uppercase tracking-wider">Bank Transfer</span>
                                 </div>
                             </div>
                         </div>
@@ -524,6 +644,50 @@ export default function UniversalInvoiceGenerator() {
                                             </div>
                                         </div>
                                     </div>
+
+                                    {/* Bank Transfer Details on Document */}
+                                    {bankDetails.showOnDocument && (
+                                        <div className="border border-blue-100 bg-blue-50/10 p-5 rounded-lg mb-6">
+                                            <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.25em] mb-3">Bank Transfer Details</p>
+                                            <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-xs">
+                                                {bankDetails.bankName && (
+                                                    <div className="flex justify-between border-b border-gray-100 pb-1.5">
+                                                        <span className="text-[10px] text-gray-400 font-medium">Bank Name</span>
+                                                        <span className="font-bold text-gray-900">{bankDetails.bankName}</span>
+                                                    </div>
+                                                )}
+                                                {bankDetails.accountName && (
+                                                    <div className="flex justify-between border-b border-gray-100 pb-1.5">
+                                                        <span className="text-[10px] text-gray-400 font-medium">Account Name</span>
+                                                        <span className="font-semibold text-gray-800">{bankDetails.accountName}</span>
+                                                    </div>
+                                                )}
+                                                {bankDetails.accountNumber && (
+                                                    <div className="flex justify-between border-b border-gray-100 pb-1.5">
+                                                        <span className="text-[10px] text-gray-400 font-medium">Account No.</span>
+                                                        <span className="font-semibold text-gray-800 break-all">{bankDetails.accountNumber}</span>
+                                                    </div>
+                                                )}
+                                                {bankDetails.iban && (
+                                                    <div className="flex justify-between border-b border-gray-100 pb-1.5 col-span-2">
+                                                        <span className="text-[10px] text-gray-400 font-medium">IBAN</span>
+                                                        <span className="font-bold text-blue-700 tracking-wider break-all">{bankDetails.iban}</span>
+                                                    </div>
+                                                )}
+                                                {bankDetails.swiftCode && (
+                                                    <div className="flex justify-between border-b border-gray-100 pb-1.5">
+                                                        <span className="text-[10px] text-gray-400 font-medium">SWIFT / BIC</span>
+                                                        <span className="font-semibold text-gray-800">{bankDetails.swiftCode}</span>
+                                                    </div>
+                                                )}
+                                                {bankDetails.notes && (
+                                                    <div className="col-span-2 text-[9px] text-gray-500 italic mt-1 leading-snug">
+                                                        * {bankDetails.notes}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             ) : (
                                 <div className="flex-1 space-y-6">

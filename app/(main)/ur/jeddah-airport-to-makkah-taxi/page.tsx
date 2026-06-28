@@ -46,6 +46,16 @@ export default function JeddahAirportToMakkahPageUr() {
                         ]}
                     />
                 </div>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-6">
+                    <a 
+                        href="https://wa.me/966569487569?text=Assalam-o-Alaikum,%20I%20want%20to%20book%20a%20taxi%20from%20Jeddah%20Airport%20to%20Makkah"
+                        target="_blank" 
+                        rel="nofollow noopener noreferrer" 
+                        className="bg-green-500 hover:bg-green-600 text-white font-bold px-8 py-4 rounded-xl flex items-center justify-center gap-2 shadow-lg transition-all hover:scale-105 min-h-[48px]"
+                    >
+                        ابھی واٹس ایپ پر بک کریں
+                    </a>
+                </div>
             </Hero>
 
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">

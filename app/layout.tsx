@@ -13,6 +13,7 @@ const poppins = Poppins({
 export const metadata = {
   metadataBase: new URL('https://taxiserviceksa.com'),
   verification: {
+    google: 'Belm0suIdEZOrTDlLuFKDh04Zjd66lvr6K5LAkPcwIo',
     other: {
       'msvalidate.01': 'DBF10D8E5F51FF80E9121C8FF0A4F0A5',
     },

@@ -30,7 +30,7 @@ export default function TaxiInMakkahPage() {
         { name: 'BMW', type: 'Luxury Sedan', pax: '3', lugg: '2', img: 'Car' },
         { name: 'Cadillac Escalade', type: 'Premium SUV', pax: '7', lugg: '4', img: 'Car' },
         { name: 'GMC', type: 'Family SUV', pax: '7', lugg: '4', img: 'Car' },
-        { name: 'Ford Taurus 2025', type: 'Executive Sedan', pax: '3', lugg: '2', img: 'Car' },
+        { name: 'Ford Taurus 2026', type: 'Executive Sedan', pax: '3', lugg: '2', img: 'Car' },
         { name: 'Genesis 2023', type: 'Executive Sedan', pax: '3', lugg: '2', img: 'Car' },
         { name: 'Mercedes Vito', type: 'Luxury Van', pax: '7', lugg: '4', img: 'Car' },
         { name: 'Mercedes Sprinter', type: 'Executive Minibus', pax: '14', lugg: '4', img: 'Car' },

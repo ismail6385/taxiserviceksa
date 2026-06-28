@@ -144,7 +144,7 @@ export default function AlUlaPage() {
                 <TrendingTravelNote
                     topic="Hegra (Madain Saleh) Access"
                     status="Insider Tip"
-                    lastUpdated="Winter 2025"
+                    lastUpdated="Winter 2026"
                     content="Private vehicles are NOT allowed inside the Hegra archaeological site. Our driver will drop you at the Winter Park Visitor Center or your hotel, where you must board the official RCU bus for the tour."
                     tags={["HegraRules", "WinterPark", "PermitOnly", "BusTransfer"]}
                 />
@@ -232,7 +232,7 @@ export default function AlUlaPage() {
                     <ExpertReview
                         reviewerName='Guide Ibrahim Al-Balawi'
                         reviewerTitle='Heritage Site Specialist'
-                        reviewDate="28 Dec 2025"
+                        reviewDate="28 Dec 2026"
                         expertise={["Desert Navigation", "RCU Permits", "Photography Spots"]}
                     />
                 </div>
@@ -249,6 +249,9 @@ export default function AlUlaPage() {
                                 { destination: 'AlUla Airport (ULH)', distance: '35 km', time: '40 mins', route: 'Airport Rd' },
                                 { destination: 'Elephant Rock', distance: '12 km', time: '15 mins', route: 'Desert Track' },
                                 { destination: 'Maraya Hall', distance: '18 km', time: '20 mins', route: 'Ashar Valley Gate' },
+                                { destination: 'Madinah (City/MED Airport)', distance: '330 km', time: '3.5 Hours', route: 'Route 15 / Route 70' },
+                                { destination: 'Jeddah (City/JED Airport)', distance: '720 km', time: '7.5 Hours', route: 'Highway 15 / Route 60' },
+                                { destination: 'Tabuk (City/TUU Airport)', distance: '340 km', time: '3.5 Hours', route: 'Highway 80 / Route 15' },
                                 { destination: 'Khaybar Fort', distance: '185 km', time: '2h 15m', route: 'Route 70' }
                             ]}
                         />

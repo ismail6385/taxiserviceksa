@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Banknote, TrendingUp, Wallet, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'How Much Do Private Drivers Earn in Saudi Arabia? (2025 Guide)',
+    title: 'How Much Do Private Drivers Earn in Saudi Arabia? (2026 Guide)',
     description: 'An in-depth guide on earnings for driver jobs Saudi Arabia. Understand the salary, tips, and average income for taxi drivers and private chauffeurs.',
     keywords: ['how much do drivers earn in saudi arabia', 'chauffeur jobs Saudi', 'taxi driver jobs KSA', 'driver jobs Saudi Arabia'],
     alternates: {
@@ -23,7 +23,7 @@ export default function DriversEarningsSaudi() {
                         How Much Do Private Drivers Earn in Saudi Arabia?
                     </h1>
                     <p className="text-gray-400 text-lg md:text-xl leading-relaxed">
-                        The definitive breakdown of incomes, trip rates, and profit margins for driver jobs Saudi Arabia in 2025.
+                        The definitive breakdown of incomes, trip rates, and profit margins for driver jobs Saudi Arabia in 2026.
                     </p>
                 </div>
             </div>

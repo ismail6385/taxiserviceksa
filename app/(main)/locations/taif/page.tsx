@@ -139,7 +139,7 @@ export default function TaifPage() {
                 <TrendingTravelNote
                     topic="Al Hada Road Status: Fog Alerts"
                     status="Traffic Alert"
-                    lastUpdated="Winter 2025"
+                    lastUpdated="Winter 2026"
                     content="The Al Hada mountain road frequently closes during heavy rain or dense fog for safety. When closed, the alternative route (As-Sayl) adds 45 minutes to the trip. Our drivers monitor traffic police updates in real-time to choose the open route."
                     tags={["RoadClosure", "AlHada", "FogSafety", "DetourAlert"]}
                 />
@@ -246,7 +246,7 @@ export default function TaifPage() {
                     <ExpertReview
                         reviewerName='Captain Waleed Al-Thaqafi'
                         reviewerTitle='High-Altitude Driving Specialist'
-                        reviewDate="26 Dec 2025"
+                        reviewDate="26 Dec 2026"
                         expertise={["Mountain Safety", "Fog Navigation", "Local Farm Access"]}
                     />
                 </div>

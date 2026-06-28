@@ -97,7 +97,7 @@ export default function JeddahMadinahRoutePage() {
                                 Experience the pinnacle of intercity travel with our <strong>Jeddah to Madinah private car service</strong>. We provide a direct, door-to-door transfer covering the 415km stretch between the coastal commercial hub and the Holy City of Madinah.
                             </p>
                             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                                Why settle for shared transport when you can enjoy the privacy of a 2025 model <strong>GMC Yukon</strong>? Our chauffeurs are experts on the Jeddah-Madinah highway, ensuring a smooth ride with optional stops for refreshments or prayers.
+                                Why settle for shared transport when you can enjoy the privacy of a 2026 model <strong>GMC Yukon</strong>? Our chauffeurs are experts on the Jeddah-Madinah highway, ensuring a smooth ride with optional stops for refreshments or prayers.
                             </p>
                             
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -206,7 +206,7 @@ export default function JeddahMadinahRoutePage() {
                 <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <h2 className="text-3xl md:text-6xl font-black text-white mb-8 leading-tight">Your Direct Path to Madinah</h2>
-                    <p className="text-emerald-100/60 text-lg mb-10 max-w-2xl mx-auto">WhatsApp Booking for the most reliable Jeddah to Madinah taxi service. Travel in 2025 model VIP vehicles with professional chauffeurs.</p>
+                    <p className="text-emerald-100/60 text-lg mb-10 max-w-2xl mx-auto">WhatsApp Booking for the most reliable Jeddah to Madinah taxi service. Travel in 2026 model VIP vehicles with professional chauffeurs.</p>
                     <Link href="/booking/?route=jeddah-madinah">
                         <Button size="lg" className="bg-emerald-500 hover:bg-emerald-400 text-white font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl shadow-emerald-500/30"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                     </Link>

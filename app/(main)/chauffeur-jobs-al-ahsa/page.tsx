@@ -24,8 +24,8 @@ export default function ChauffeurJobsAlAhsaPage() {
             <JsonLdJobPosting 
                 title="VIP Chauffeur - Al Ahsa"
                 description="Join our elite network of professional chauffeurs in Al Ahsa. We are looking for drivers with their own 2020+ model cars to serve VIP clients, tourists visiting the Oasis, and corporate travelers. High income potential with regional tourism and long-distance transfers to Dammam/Riyadh."
-                datePosted="2025-01-01"
-                validThrough="2025-12-31"
+                datePosted="2026-01-01"
+                validThrough="2026-12-31"
                 employmentType="FULL_TIME"
                 hiringOrganization="Taxi Service KSA"
                 jobLocation={{

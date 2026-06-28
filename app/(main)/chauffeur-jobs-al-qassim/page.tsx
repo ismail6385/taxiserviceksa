@@ -24,8 +24,8 @@ export default function ChauffeurJobsAlQassimPage() {
             <JsonLdJobPosting 
                 title="VIP Chauffeur - Al Qassim"
                 description="Join our elite network of professional chauffeurs in Al Qassim. We are looking for drivers with their own 2020+ model cars to serve VIP clients, agricultural business leaders, and travelers. High income potential with specialized regional business and long-distance transfers to Riyadh."
-                datePosted="2025-01-01"
-                validThrough="2025-12-31"
+                datePosted="2026-01-01"
+                validThrough="2026-12-31"
                 employmentType="FULL_TIME"
                 hiringOrganization="Taxi Service KSA"
                 jobLocation={{

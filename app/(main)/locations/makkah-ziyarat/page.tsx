@@ -211,7 +211,7 @@ export default function MakkahZiyaratPage() {
                     <ExpertReview
                         reviewerName='Guide Ahmed Al-Harbi'
                         reviewerTitle='Historical Tour Specialist'
-                        reviewDate="25 Dec 2025"
+                        reviewDate="25 Dec 2026"
                         expertise={["Seerah Sites", "Makkah Geography", "Crowd Management"]}
                     />
                 </div>

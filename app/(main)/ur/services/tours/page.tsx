@@ -150,7 +150,7 @@ export default function ToursPageUrdu() {
                 <TrendingTravelNote
                     topic="موسمِ بہار - طائف کے پھول (Taif Roses)"
                     status="Seasonal Update"
-                    lastUpdated="اسپرنگ 2025"
+                    lastUpdated="اسپرنگ 2026"
                     content="موسم بہار (مارچ سے اپریل) میں طائف کے مشہور گلاب کھلنے کا شاندار نظارہ کریں۔ ہمارے 'طائف سٹی ٹور' میں اس خوشبودار موسم کے دوران روایتی عرقِ گلاب کی فیکٹریوں (Distilleries) کے دورے شامل کیے جا سکتے ہیں۔"
                     tags={["TaifRoses", "Nature", "Seasonal"]}
                     linkText="طائف ٹور کوٹیشن حاصل کریں"

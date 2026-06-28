@@ -24,8 +24,8 @@ export default function ChauffeurJobsYanbuPage() {
             <JsonLdJobPosting 
                 title="VIP Chauffeur - Yanbu"
                 description="Join our elite network of professional chauffeurs in Yanbu. We are looking for drivers with their own 2020+ model cars to serve VIP clients, industrial executives, and international travelers. High income potential with specialized port-to-city and long-distance routes."
-                datePosted="2025-01-01"
-                validThrough="2025-12-31"
+                datePosted="2026-01-01"
+                validThrough="2026-12-31"
                 employmentType="FULL_TIME"
                 hiringOrganization="Taxi Service KSA"
                 jobLocation={{

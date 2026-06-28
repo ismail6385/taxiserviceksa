@@ -175,7 +175,7 @@ export default function GMCYukonPage() {
                         },
                         {
                             question: "Are your GMC Yukons the latest models?",
-                            shortAnswer: "Yes, 2023-2025 Models.",
+                            shortAnswer: "Yes, 2023-2026 Models.",
                             detailedAnswer: "We take pride in maintaining a fresh fleet. All our GMC Yukons are late-model vehicles (2023 or newer) with clean interiors and fully functional premium features.",
                             perspectives: [
                                 { role: 'Fleet Manager', icon: 'Shield', insight: 'Every vehicle undergoes a safety check before every long-distance booking.' }

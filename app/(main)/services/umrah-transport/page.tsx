@@ -44,8 +44,8 @@ export default async function UmrahTransportPage() {
             description: (
                 <>
                     Direct transfer from King Abdulaziz International Airport. Check our{' '}
-                    <Link href="/blog/jeddah-airport-makkah-taxi-fare-2025/" className="text-emerald-700 hover:underline">
-                        2025 Fare Guide
+                    <Link href="/blog/jeddah-airport-makkah-taxi-fare-2026/" className="text-emerald-700 hover:underline">
+                        2026 Fare Guide
                     </Link>{' '}
                     for official vs private price comparisons.
                 </>

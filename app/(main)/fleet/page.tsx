@@ -9,7 +9,7 @@ import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 export const metadata: Metadata = {
     title: 'VIP Executive Fleet Saudi Arabia | Premium Chauffeur Vehicles',
-    description: 'Explore our VIP executive fleet in Saudi Arabia. Luxury Mercedes S-Class, Cadillac Escalade, GMC Yukon, and Luxurious Buses for premium private transfers. 2025 models.',
+    description: 'Explore our VIP executive fleet in Saudi Arabia. Luxury Mercedes S-Class, Cadillac Escalade, GMC Yukon, and Luxurious Buses for premium private transfers. 2026 models.',
     keywords: ['VIP Fleet Saudi Arabia', 'Premium Chauffeur Vehicles', 'Mercedes S-Class Saudi Arabia', 'Cadillac Escalade Chauffeur', 'GMC Yukon VIP Transfer', 'Luxury Van Transfer KSA', 'Executive Car with Driver', 'Umrah Private Fleet', 'Luxurious Bus Saudi Arabia'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/fleet/',
@@ -45,7 +45,7 @@ export default function FleetPage() {
             passengers: 7,
             luggage: 5,
             features: ["Spacious", "Extra Legroom", "Most Popular", "American Comfort"],
-            href: "/fleet/gmc-yukon/",
+            href: "/fleet/gmc-yukon-xl/",
             category: "Luxury"
         },
         {
@@ -79,7 +79,7 @@ export default function FleetPage() {
             category: "Luxury"
         },
         {
-            name: "Ford Taurus 2025",
+            name: "Ford Taurus 2026",
             type: "Executive Sedan",
             image: "/fleet/ford-taurus-executive-sedan-saudi-arabia.webp",
             passengers: 3,
@@ -105,9 +105,10 @@ export default function FleetPage() {
             passengers: 7,
             luggage: 4,
             features: ["Futuristic Design", "Panoramic View", "Easy Access", "Efficient"],
-            href: "/fleet/hyundai-staria/",
+            href: "/fleet/hyundai-staria-vip/",
             category: "Luxury"
         },
+
         {
             name: "Toyota Hiace",
             type: "Standard Van",
@@ -277,7 +278,7 @@ export default function FleetPage() {
                                 <Shield className="w-8 h-8 text-emerald-600" />
                             </div>
                             <h3 className="text-xl font-bold text-gray-900 mb-3">Impeccable Safety</h3>
-                            <p className="text-gray-500 leading-relaxed">Fleet maintained to the highest manufacturer standards with 2024-2025 production models available for VIP bookings.</p>
+                            <p className="text-gray-500 leading-relaxed">Fleet maintained to the highest manufacturer standards with 2024-2026 production models available for VIP bookings.</p>
                         </div>
                         <div className="text-center">
                             <div className="w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-100 flex items-center justify-center mx-auto mb-6">

@@ -188,7 +188,7 @@ export default function KhayberPage() {
                 <TrendingTravelNote
                     topic="The Khaybar Volcano Camp"
                     status="Insider Tip"
-                    lastUpdated="December 2025"
+                    lastUpdated="December 2026"
                     content="The new 'Khaybar Volcano Camp' offers glamping experiences near the White Volcanoes. The access road is rough. Regular sedans will struggle. Our GMC Yukon fleet ensures you reach the camp comfort without damaging the vehicle."
                     tags={["VolcanoTourism", "HarratKhaybar", "Glamping", "4x4Required"]}
                 />
@@ -311,7 +311,7 @@ export default function KhayberPage() {
                     <ExpertReview
                         reviewerName='Dr. Hassan Al-Amri'
                         reviewerTitle='History Researcher & Guide'
-                        reviewDate="24 Dec 2025"
+                        reviewDate="24 Dec 2026"
                         expertise={["Islamic Battles", "Volcanic Geology", "Ancient Irrigation"]}
                         theme="dark"
                     />

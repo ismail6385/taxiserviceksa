@@ -294,7 +294,7 @@ export default async function MadinahPage() {
                                 </p>
 
                                 <p>
-                                    Our executive service specializes in <strong>Prince Mohammad Bin Abdulaziz International Airport (MED) pickups, VIP Ziyarat tours, and intercity transfers to Makkah</strong>. Whether you are visiting holy sites like Masjid Quba and Mount Uhud or require a direct, private journey to your Makkah hotel, our 2025 fleet and professional chauffeurs ensure your travel is as serene as your spiritual visit.
+                                    Our executive service specializes in <strong>Prince Mohammad Bin Abdulaziz International Airport (MED) pickups, VIP Ziyarat tours, and intercity transfers to Makkah</strong>. Whether you are visiting holy sites like Masjid Quba and Mount Uhud or require a direct, private journey to your Makkah hotel, our 2026 fleet and professional chauffeurs ensure your travel is as serene as your spiritual visit.
                                 </p>
                             </div>
 

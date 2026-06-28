@@ -202,7 +202,7 @@ export default function RiyadhPage() {
                                 </p>
 
                                 <p>
-                                    Our executive service focuses exclusively on <strong>King Khalid International Airport (RUH) pickups and long-distance intercity transfers</strong>. Whether you have meetings in the King Abdullah Financial District (KAFD) or require a private chauffeur to Dammam or Makkah, we ensure a punctual, high-end journey. Unlike app-based hailing, we guarantee fixed professional rates and a premium 2025 fleet, ensuring your transportation reflects your professional status.
+                                    Our executive service focuses exclusively on <strong>King Khalid International Airport (RUH) pickups and long-distance intercity transfers</strong>. Whether you have meetings in the King Abdullah Financial District (KAFD) or require a private chauffeur to Dammam or Makkah, we ensure a punctual, high-end journey. Unlike app-based hailing, we guarantee fixed professional rates and a premium 2026 fleet, ensuring your transportation reflects your professional status.
                                 </p>
                             </div>
 

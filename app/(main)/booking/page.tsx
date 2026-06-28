@@ -17,7 +17,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
             ? `Book ${vehicleName} VIP Transfer | Private Chauffeur KSA`
             : 'VIP Private Transfer Booking | Premium Chauffeur KSA',
         description: vehicleName
-            ? `Secure your VIP ${vehicleName} private transfer in Saudi Arabia. Premium chauffeur service, 2025 fleet, and international standards.`
+            ? `Secure your VIP ${vehicleName} private transfer in Saudi Arabia. Premium chauffeur service, 2026 fleet, and international standards.`
             : 'Get a quote for your VIP private transfer in Saudi Arabia. Professional chauffeur service for airport transfers, Umrah, and intercity travel. International quality standards.',
         alternates: {
             canonical: 'https://taxiserviceksa.com/booking/',

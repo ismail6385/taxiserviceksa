@@ -199,7 +199,7 @@ export default function AirportTransfersPage() {
             "priceCurrency": "SAR",
             "lowPrice": "40",
             "highPrice": "400",
-            "priceValidUntil": "2025-12-31"
+            "priceValidUntil": "2026-12-31"
         }
     };
 

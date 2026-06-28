@@ -34,7 +34,7 @@ export default function MadinahAirportTaxiPage() {
                         "name": "Madinah Airport Transfer",
 
                         "areaServed": { "@type": "City", "name": "Madinah" },
-                        "offers": { "@type": "Offer", "price": "100", "priceCurrency": "SAR", "priceValidUntil": "2025-12-31" }
+                        "offers": { "@type": "Offer", "price": "100", "priceCurrency": "SAR", "priceValidUntil": "2026-12-31" }
                     })
                 }}
             />

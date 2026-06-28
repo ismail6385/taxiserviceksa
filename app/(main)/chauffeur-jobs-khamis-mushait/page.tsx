@@ -24,8 +24,8 @@ export default function ChauffeurJobsKhamisMushaitPage() {
             <JsonLdJobPosting 
                 title="VIP Chauffeur - Khamis Mushait"
                 description="Join our elite network of professional chauffeurs in Khamis Mushait. We are looking for drivers with their own 2020+ model cars to serve VIP clients, commercial leaders, and travelers. High income potential with regional business transfers and long-distance transfers to Abha and beyond."
-                datePosted="2025-01-01"
-                validThrough="2025-12-31"
+                datePosted="2026-01-01"
+                validThrough="2026-12-31"
                 employmentType="FULL_TIME"
                 hiringOrganization="Taxi Service KSA"
                 jobLocation={{

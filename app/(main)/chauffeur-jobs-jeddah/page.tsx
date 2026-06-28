@@ -24,8 +24,8 @@ export default function ChauffeurJobsJeddahPage() {
             <JsonLdJobPosting 
                 title="VIP Chauffeur - Jeddah"
                 description="Join our elite network of professional chauffeurs in Jeddah. We are looking for drivers with their own 2020+ model cars to serve VIP clients, corporate executives, and international travelers. High income potential with long-distance trips and flexible schedules."
-                datePosted="2025-01-01"
-                validThrough="2025-12-31"
+                datePosted="2026-01-01"
+                validThrough="2026-12-31"
                 employmentType="FULL_TIME"
                 hiringOrganization="Taxi Service KSA"
                 jobLocation={{

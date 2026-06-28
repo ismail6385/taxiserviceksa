@@ -6,9 +6,9 @@ import { MapPin, Calendar, Clock, Star, ArrowRight } from 'lucide-react';
 import ExpertReview from '@/components/seo/ExpertReview';
 
 export const metadata: Metadata = {
-    title: 'Taif Rose Festival Guide 2025 | Dates, Locations & Tips',
+    title: 'Taif Rose Festival Guide 2026 | Dates, Locations & Tips',
     description: 'Complete guide to the Taif Rose Festival. Learn when to visit, best rose farms to see, and how to buy authentic Taif Rose oil. Taxi transfers available.',
-    keywords: ['Taif Rose Festival 2025'],
+    keywords: ['Taif Rose Festival 2026'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/blog/taif-rose-festival-guide/',
     },
@@ -66,7 +66,7 @@ export default function TaifRoseFestivalPage() {
                             Seasonal Event
                         </span>
                         <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                            Taif Rose Festival 2025: The Ultimate Visitor's Guide
+                            Taif Rose Festival 2026: The Ultimate Visitor's Guide
                         </h1>
                         <p className="text-xl text-gray-600 leading-relaxed mb-6">
                             Every spring, the mountains of Taif turn pink. Discover the scent that perfumes the Holy Kaaba and explore the farms producing the world's most expensive rose oil.
@@ -75,7 +75,7 @@ export default function TaifRoseFestivalPage() {
                         <ExpertReview
                             reviewerName="Sarah Al-Amri"
                             reviewerTitle="Saudi Heritage Guide"
-                            reviewDate="Jan 2025"
+                            reviewDate="Jan 2026"
                             expertise={["Taif Agriculture", "Cultural Festivals"]}
                         />
                     </div>

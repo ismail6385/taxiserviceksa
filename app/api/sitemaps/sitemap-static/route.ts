@@ -51,6 +51,18 @@ export async function GET() {
         { route: '/blog/tabuk-to-riyadh-transport-guide', priority: 0.85 },
         { route: '/blog/tabuk-to-jeddah-transport-guide', priority: 0.85 },
         { route: '/blog/tabuk-to-madinah-private-car-guide', priority: 0.85 },
+        { route: '/dammam-airport-taxi', priority: 0.9 },
+        { route: '/services/taxi-in-dammam', priority: 0.9 },
+        { route: '/privacy', priority: 0.4 },
+        // Dammam cluster blog posts
+        { route: '/blog/is-there-uber-in-dammam', priority: 0.85 },
+        { route: '/blog/how-to-get-from-dammam-airport-to-city', priority: 0.85 },
+        { route: '/blog/how-much-is-taxi-from-dammam-to-al-khobar', priority: 0.85 },
+        { route: '/blog/dammam-to-bahrain-private-car', priority: 0.85 },
+        { route: '/blog/dammam-to-riyadh-transport-guide', priority: 0.85 },
+        // Madinah-AlUla cluster blog posts
+        { route: '/blog/how-long-is-drive-from-madinah-to-alula', priority: 0.85 },
+        { route: '/blog/how-to-get-from-madinah-to-alula', priority: 0.85 },
     ];
 
     const staticUrls = staticPages.map(({ route, priority }) => {

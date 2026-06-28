@@ -15,11 +15,21 @@ import { AUTHORS } from '@/lib/constants';
 
 export const revalidate = 3600; // Revalidate every hour
 
+// Pre-render all published blog posts at build time (Static Site Generation)
+// This is critical for SEO — Google can instantly access all pages
+export async function generateStaticParams() {
+    const blogs = await blogService.getPublishedBlogs();
+    return blogs.map((blog) => ({
+        slug: blog.slug,
+    }));
+}
+
 interface Props {
     params: {
         slug: string;
     }
 }
+
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const blog = await blogService.getBlogBySlug(params.slug);
@@ -114,6 +124,38 @@ export default async function BlogPostPage({ params }: Props) {
         },
         "timeRequired": `PT${readingTime}M`
     };
+
+    // Extract FAQs from markdown body (headings ending in '?')
+    const extractFAQs = (content: string) => {
+        const faqs: any[] = [];
+        const regex = /^(?:##|###)\s+(.*?\?)\s*\r?\n+([\s\S]*?)(?=\r?\n+(?:##|###|#)\s+|\r?\n*$)/gm;
+        let match;
+        const cleanMarkdown = (text: string) => text.replace(/[*#`_\-]/g, '').trim();
+
+        while ((match = regex.exec(content)) !== null) {
+            const question = cleanMarkdown(match[1]);
+            const answer = cleanMarkdown(match[2].split('\n\n')[0]);
+            if (question && answer && question.length < 150 && answer.length > 20) {
+                faqs.push({
+                    "@type": "Question",
+                    "name": question,
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": answer
+                    }
+                });
+            }
+        }
+        return faqs;
+    };
+
+    const faqItems = extractFAQs(blog.content);
+    const faqSchema = faqItems.length > 0 ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqItems
+    } : null;
+
 
     return (
         <div className="min-h-screen bg-gray-50">
@@ -353,7 +395,40 @@ export default async function BlogPostPage({ params }: Props) {
                                     ))}
                                 </div>
                             </div>
+
+                            {/* Quick Service Links — Internal Linking for SEO */}
+                            <div className="bg-emerald-50 border border-emerald-100 p-6 rounded-2xl">
+                                <h3 className="text-lg font-bold mb-1 text-gray-900">Book a Transfer</h3>
+                                <p className="text-xs text-gray-500 mb-4">Popular routes & services</p>
+                                <div className="space-y-2">
+                                    {[
+                                        { href: '/jeddah-airport-transfer/', label: '✈️ Jeddah Airport Transfer' },
+                                        { href: '/riyadh-airport-taxi/', label: '✈️ Riyadh Airport Taxi' },
+                                        { href: '/madinah-airport-taxi/', label: '✈️ Madinah Airport Taxi' },
+                                        { href: '/makkah-to-madinah-taxi/', label: '🕌 Makkah → Madinah' },
+                                        { href: '/makkah-to-jeddah-taxi/', label: '🚗 Makkah → Jeddah' },
+                                        { href: '/riyadh-to-jeddah-private-car/', label: '🚗 Riyadh → Jeddah' },
+                                        { href: '/private-taxi-madinah/', label: '🗺️ Madinah City Taxi' },
+                                        { href: '/vip-chauffeur-jeddah/', label: '⭐ VIP Chauffeur Jeddah' },
+                                    ].map((link) => (
+                                        <Link
+                                            key={link.href}
+                                            href={link.href}
+                                            className="flex items-center justify-between text-sm text-emerald-800 hover:text-emerald-600 hover:bg-white rounded-lg px-3 py-2 transition-colors group"
+                                        >
+                                            <span>{link.label}</span>
+                                            <ChevronRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        </Link>
+                                    ))}
+                                </div>
+                                <div className="mt-4 pt-4 border-t border-emerald-200">
+                                    <Link href="/booking/" className="block w-full bg-emerald-700 text-white text-center text-sm font-bold py-3 rounded-xl hover:bg-emerald-600 transition-colors">
+                                        Get Instant Quote →
+                                    </Link>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -363,6 +438,12 @@ export default async function BlogPostPage({ params }: Props) {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
             />
+            {faqSchema && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+                />
+            )}
         </div>
     );
 }

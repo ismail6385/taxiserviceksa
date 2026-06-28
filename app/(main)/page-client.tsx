@@ -195,7 +195,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             link: "/fleet/genesis-g80/",
         },
         {
-            name: "Ford Taurus 2025",
+            name: "Ford Taurus 2026",
             image: "/fleet/ford-taurus-executive-sedan-saudi-arabia.webp",
             passengers: 3,
             luggage: 2,
@@ -369,10 +369,10 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                     <div className="flex items-center gap-3">
                         <span className="bg-white text-emerald-700 text-xs font-bold px-2 py-1 rounded shadow-sm whitespace-nowrap">NEW REPORT</span>
                         <p className="text-sm sm:text-base font-medium">
-                            <span className="font-bold">2025 Study:</span> Why 70% of Families Choose Taxis Over High-Speed Rail?
+                            <span className="font-bold">2026 Study:</span> Why 70% of Families Choose Taxis Over High-Speed Rail?
                         </p>
                     </div>
-                    <Link href="/insights/pilgrimage-transport-report-2025/" className="flex-shrink-0">
+                    <Link href="/insights/pilgrimage-transport-report-2026/" className="flex-shrink-0">
                         <button className="text-white border-b border-white hover:border-emerald-200 hover:text-emerald-100 transition-colors text-sm font-bold flex items-center gap-1 group">
                             Read the Data <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                         </button>
@@ -736,11 +736,82 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             </section>
 
 
+            {/* Featured Airport & Chauffeur Services — Zipper Expansion */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <span className="text-primary font-bold uppercase tracking-widest text-xs">Featured Services</span>
+                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 mt-2">AIRPORT & CITY TRANSFERS</h2>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <Link href="/jeddah-airport-transfer/" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
+                            <div className="flex justify-between items-center mb-2">
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Jeddah Airport Transfer</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                            <p className="text-sm text-gray-500">Premium 24/7 transfers from JED Airport to hotels, Makkah & Madinah.</p>
+                        </Link>
+                        <Link href="/riyadh-to-jeddah-private-car/" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
+                            <div className="flex justify-between items-center mb-2">
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Riyadh to Jeddah Car</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                            <p className="text-sm text-gray-500">Door-to-door long distance private car. 950 km, professional drivers.</p>
+                        </Link>
+                        <Link href="/riyadh-to-dammam-taxi/" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
+                            <div className="flex justify-between items-center mb-2">
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Riyadh to Dammam Taxi</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                            <p className="text-sm text-gray-500">Comfortable intercity transfers connecting the Capital to the Eastern Province.</p>
+                        </Link>
+                        <Link href="/private-taxi-madinah/" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
+                            <div className="flex justify-between items-center mb-2">
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Private Taxi Madinah</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                            <p className="text-sm text-gray-500">Ziyarat tours, hotel pickups, and transfers near Masjid Nabawi.</p>
+                        </Link>
+                        <Link href="/makkah-to-jeddah-taxi/" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
+                            <div className="flex justify-between items-center mb-2">
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Makkah to Jeddah Taxi</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                            <p className="text-sm text-gray-500">Direct transfers from Al Haram hotels to Jeddah city & airport (JED).</p>
+                        </Link>
+                        <Link href="/vip-chauffeur-jeddah/" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
+                            <div className="flex justify-between items-center mb-2">
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">VIP Chauffeur Jeddah</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                            <p className="text-sm text-gray-500">Premium hourly and daily driver hire in Jeddah for business or leisure.</p>
+                        </Link>
+                        <Link href="/vip-transfer-dammam/" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
+                            <div className="flex justify-between items-center mb-2">
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">VIP Transfer Dammam</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                            <p className="text-sm text-gray-500">Executive car service in Dammam, Al Khobar, Jubail & Bahrain causeway.</p>
+                        </Link>
+                        <Link href="/riyadh-airport-taxi/" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
+                            <div className="flex justify-between items-center mb-2">
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Riyadh Airport Taxi</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                            <p className="text-sm text-gray-500">Meet-and-greet, luxury fleets & flat rates from RUH Airport.</p>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+
             {/* Top 5 Contextual Routes - Transactional Gold */}
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
                         <span className="text-primary font-bold uppercase tracking-widest text-xs">Executive Hub</span>
+
                         <h2 className="text-3xl md:text-4xl font-black text-gray-900 mt-2">POPULAR VIP ROUTES</h2>
                     </div>
 

@@ -230,7 +230,7 @@ export default function YanbuPage() {
                     <ExpertReview
                         reviewerName='Coordinator Saad Al-Juhani'
                         reviewerTitle='Yanbu Fleet Supervisor'
-                        reviewDate="28 Dec 2025"
+                        reviewDate="28 Dec 2026"
                         expertise={["RC Regulations", "Port Security", "Madinah Route"]}
                     />
                 </div>

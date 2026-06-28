@@ -108,7 +108,7 @@ export default function MadinahToMakkahPage() {
                             <h3 className="text-2xl font-black text-gray-900 mb-6">Available Fleet for pilgrims</h3>
                             <div className="space-y-6">
                                 {[
-                                    { name: 'GMC Yukon 2025', capacity: '7 Pax', luggage: '5 Bags' },
+                                    { name: 'GMC Yukon 2026', capacity: '7 Pax', luggage: '5 Bags' },
                                     { name: 'Mercedes Vito VIP', capacity: '7 Pax', luggage: '4 Bags' },
                                     { name: 'Hyundai Staria Premium', capacity: '7 Pax', luggage: '4 Bags' },
                                     { name: 'Toyota Hiace Group', capacity: '11 Pax', luggage: '16 Bags' }

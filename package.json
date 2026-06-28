@@ -112,6 +112,7 @@
   },
   "devDependencies": {
     "critters": "^0.0.23",
+    "dotenv": "^17.4.2",
     "sharp": "^0.34.5"
   }
 }

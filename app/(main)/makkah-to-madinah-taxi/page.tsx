@@ -37,7 +37,7 @@ export default function MakkahToMadinahPage() {
                         "name": "Makkah to Madinah Transfer",
 
                         "areaServed": { "@type": "City", "name": "Madinah" },
-                        "offers": { "@type": "Offer", "price": "450", "priceCurrency": "SAR", "priceValidUntil": "2025-12-31" }
+                        "offers": { "@type": "Offer", "price": "450", "priceCurrency": "SAR", "priceValidUntil": "2026-12-31" }
                     })
                 }}
             />

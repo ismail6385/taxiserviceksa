@@ -52,7 +52,7 @@ export default function MakkahJeddahRoutePage() {
                     </span>
                 }
                 subtitle="Direct Intercity Transfers with Premium Chauffeurs"
-                location="85 km | WhatsApp Booking | 24/7 Availability"
+                location="85 km | Fixed Rates | 24/7 Availability"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?route=makkah-jeddah">
@@ -93,7 +93,7 @@ export default function MakkahJeddahRoutePage() {
                                 Return from your pilgrimage or business trip in the ultimate comfort. Our <strong>Makkah to Jeddah private car service</strong> provides a seamless, stress-free transfer from any hotel in Makkah directly to your destination in Jeddah, including King Abdulaziz Airport or the city center.
                             </p>
                             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                                Why struggle with local taxis or heavy luggage? Pre-Get a quote for your <strong>Makkah to Jeddah taxi</strong> and experience VIP treatment. We specialize in 2025 model <strong>GMC Yukons</strong> and <strong>VIP Vans</strong> for larger families.
+                                Why struggle with local taxis or heavy luggage? Pre-Get a quote for your <strong>Makkah to Jeddah taxi</strong> and experience VIP treatment. We specialize in 2026 model <strong>GMC Yukons</strong> and <strong>VIP Vans</strong> for larger families.
                             </p>
                             
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

@@ -17,8 +17,8 @@ export async function GET() {
 
     // Extra Content
     const extras = [
-        'insights/pilgrimage-transport-report-2025',
-        'web-stories/5-umrah-mistakes-2025'
+        'insights/pilgrimage-transport-report-2026',
+        'web-stories/5-umrah-mistakes-2026'
     ];
 
     const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>

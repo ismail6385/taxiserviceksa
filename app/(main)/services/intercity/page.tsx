@@ -162,7 +162,7 @@ export default function IntercityServicePage() {
                     topic="New Highway Routes"
                     status="Seasonal Update"
 
-                    lastUpdated="December 2025"
+                    lastUpdated="December 2026"
                     content="The road network between Makkah and Madinah has recently been upgraded with more rest areas and service stations, making the 450km journey more comfortable than ever by car."
                     tags={["HighwayTravel", "Infrastructure", "Comfort"]}
                     linkText="WhatsApp Booking for Intercity Ride"

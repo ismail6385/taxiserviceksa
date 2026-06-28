@@ -258,7 +258,7 @@ export default async function JeddahPage() {
                                 </p>
 
                                 <p>
-                                    Our service focuses on <strong>long-distance travel and airport pickups</strong>. Whether you are transferring from King Abdulaziz International Airport (KAIA) to Makkah or need an across-the-Kingdom chauffeur, we ensure absolute comfort via our premium 2025 fleet. We prioritize international guests, providing a seamless, English-speaking, and professional experience from the moment you land.
+                                    Our service focuses on <strong>long-distance travel and airport pickups</strong>. Whether you are transferring from King Abdulaziz International Airport (KAIA) to Makkah or need an across-the-Kingdom chauffeur, we ensure absolute comfort via our premium 2026 fleet. We prioritize international guests, providing a seamless, English-speaking, and professional experience from the moment you land.
                                 </p>
                             </div>
 

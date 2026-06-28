@@ -287,7 +287,7 @@ export default async function MakkahPage() {
                                 </p>
 
                                 <p>
-                                    Our service is dedicated to <strong>high-end intercity travel and airport pickups</strong>. Whether you are arriving at King Abdulaziz International Airport or require a dedicated chauffeur for the journey to Madinah, we offer a specialized 2025 fleet designed for pilgrims and families. We prioritize international guests, providing professional, English-speaking chauffeurs and a level of hospitality that reflects the sanctity of your visit.
+                                    Our service is dedicated to <strong>high-end intercity travel and airport pickups</strong>. Whether you are arriving at King Abdulaziz International Airport or require a dedicated chauffeur for the journey to Madinah, we offer a specialized 2026 fleet designed for pilgrims and families. We prioritize international guests, providing professional, English-speaking chauffeurs and a level of hospitality that reflects the sanctity of your visit.
                                 </p>
                             </div>
 
@@ -491,7 +491,7 @@ export default async function MakkahPage() {
                                     How can I book an online taxi in Makkah?
                                 </AccordionTrigger>
                                 <AccordionContent className="text-gray-600 leading-relaxed text-base pb-6">
-                                    The fastest way to book is via our WhatsApp link at the top of the page. You can also use the booking form or contact us via email. We recommend booking 24 hours in advance.
+                                    The fastest way to book is via our online booking form. You can also contact us via email. We recommend booking 24 hours in advance.
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>

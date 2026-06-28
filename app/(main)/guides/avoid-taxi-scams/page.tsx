@@ -8,7 +8,7 @@ import Script from 'next/script';
 import JsonLdArticle from '@/components/seo/JsonLdArticle';
 
 export const metadata: Metadata = {
-    title: 'How to Avoid Taxi Scams in Makkah & Jeddah (2025 Safety Guide)',
+    title: 'How to Avoid Taxi Scams in Makkah & Jeddah (2026 Safety Guide)',
     description: 'Don\'t get overcharged. Learn the top taxi scams in Saudi Arabia and how to avoid them. Trusted tips for pilgrims and tourists.',
     keywords: ['Avoid Taxi Scams Saudi Arabia'],
     alternates: {
@@ -20,9 +20,9 @@ export default function TaxiScamGuide() {
     return (
         <main className="min-h-screen bg-white">
             <JsonLdArticle 
-                title="How to Avoid Taxi Scams in Makkah & Jeddah (2025 Safety Guide)"
+                title="How to Avoid Taxi Scams in Makkah & Jeddah (2026 Safety Guide)"
                 description="Don't get overcharged. Learn the top taxi scams in Saudi Arabia and how to avoid them. Trusted tips for pilgrims and tourists."
-                datePublished="2025-01-15T08:00:00+03:00"
+                datePublished="2026-01-15T08:00:00+03:00"
                 dateModified="2026-04-20T10:00:00+03:00"
                 authorName="Muhammad Ismail"
                 url="https://taxiserviceksa.com/guides/avoid-taxi-scams/"
@@ -34,7 +34,7 @@ export default function TaxiScamGuide() {
                 </div>
                 <div className="relative z-10 max-w-4xl mx-auto px-4">
                     <div className="inline-flex items-center gap-2 bg-red-500/10 text-red-400 px-4 py-2 rounded-full text-xs font-black uppercase tracking-widest mb-6">
-                        <AlertTriangle className="w-4 h-4" /> Travel Safety Alert 2025
+                        <AlertTriangle className="w-4 h-4" /> Travel Safety Alert 2026
                     </div>
                     <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
                         Don't Let a <span className="text-red-500">Taxi Scam</span> <br />Ruin Your Umrah
@@ -73,7 +73,7 @@ export default function TaxiScamGuide() {
                         <strong>Stop right there.</strong>
                     </p>
                     <p>
-                        While most Saudi drivers are hospitable and honest, unregistered "freelance" drivers can turn your journey into a nightmare of hidden fees and unsafe routes. In this guide, we break down the 5 most common tricks and how to protect yourself on your journey in 2025.
+                        While most Saudi drivers are hospitable and honest, unregistered "freelance" drivers can turn your journey into a nightmare of hidden fees and unsafe routes. In this guide, we break down the 5 most common tricks and how to protect yourself on your journey in 2026.
                     </p>
                 </div>
 

@@ -7,28 +7,28 @@ import { Button } from '@/components/ui/button';
 import { CheckCircle2, XCircle, AlertTriangle, Car, Train, Smartphone } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'Jeddah Airport to Makkah Taxi Fare 2025: Official vs Private Rates',
-    description: 'Updated 2025 pricing guide for Jeddah Airport to Makkah. Compare fares for Uber, Careem, Haramain Train, and Private Taxis. Avoid hidden fees.',
-    keywords: ['Jeddah Airport to Makkah Taxi Fare 2025'],
+    title: 'Jeddah Airport to Makkah Taxi Fare 2026: Official vs Private Rates',
+    description: 'Updated 2026 pricing guide for Jeddah Airport to Makkah. Compare fares for Uber, Careem, Haramain Train, and Private Taxis. Avoid hidden fees.',
+    keywords: ['Jeddah Airport to Makkah Taxi Fare 2026'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/blog/jeddah-airport-makkah-taxi-fare-2025/',
+        canonical: 'https://taxiserviceksa.com/blog/jeddah-airport-makkah-taxi-fare-2026/',
     },
 };
 
-export default function TaxiFareGuide2025() {
+export default function TaxiFareGuide2026() {
     return (
         <main className="min-h-screen bg-white">
             {/* Header */}
             <div className="bg-emerald-900 text-white pt-32 pb-16 px-4">
                 <div className="max-w-3xl mx-auto text-center">
                     <span className="bg-white/10 text-emerald-100 px-4 py-1.5 rounded-full text-sm font-semibold uppercase tracking-wider mb-6 inline-block">
-                        2025 Pricing Update
+                        2026 Pricing Update
                     </span>
                     <h1 className="text-3xl md:text-5xl font-black mb-6 leading-tight">
                         How Much Should You Pay for a Taxi from Jeddah Airport to Makkah?
                     </h1>
                     <p className="text-emerald-100 text-lg md:text-xl leading-relaxed">
-                        Don't get overcharged. We compare the real costs of Airport Taxis, Uber, Careem, and Private Drivers for the 2025 Umrah season.
+                        Don't get overcharged. We compare the real costs of Airport Taxis, Uber, Careem, and Private Drivers for the 2026 Umrah season.
                     </p>
                 </div>
             </div>
@@ -45,13 +45,13 @@ export default function TaxiFareGuide2025() {
                         Get it right, and you start your Umrah with peace of mind. Get it wrong, and you could pay double—or worse, end up in an unsafe, unlicensed car.
                     </p>
                     <p>
-                        In 2025, prices have changed due to fuel adjustments and new airport regulations. Here is the definitive breakdown of costs.
+                        In 2026, prices have changed due to fuel adjustments and new airport regulations. Here is the definitive breakdown of costs.
                     </p>
                 </div>
 
                 {/* Comparison Table */}
                 <div className="my-12">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">Quick Price Comparison (2025)</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-6">Quick Price Comparison (2026)</h2>
                     <div className="border rounded-2xl overflow-hidden shadow-sm">
                         <Table>
                             <TableHeader className="bg-gray-50">
@@ -140,7 +140,7 @@ export default function TaxiFareGuide2025() {
                         </ul>
 
                         <div className="bg-gray-100 p-8 rounded-2xl text-center">
-                            <h3 className="text-xl font-bold mb-4">Check Our Fixed Rates for 2025</h3>
+                            <h3 className="text-xl font-bold mb-4">Check Our Fixed Rates for 2026</h3>
                             <div className="flex justify-center gap-4">
                                 <Link href="/booking/">
                                     <Button className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-6 rounded-xl">
@@ -174,7 +174,7 @@ export default function TaxiFareGuide2025() {
                         If you are a family, elderly, or have luggage, a <strong>Private Taxi</strong> is cheaper and faster overall.
                     </p>
                     <p className="text-sm text-gray-500 italic">
-                        * Prices mentioned are average estimates for regular season 2025 and may vary during Ramadan/Hajj.
+                        * Prices mentioned are average estimates for regular season 2026 and may vary during Ramadan/Hajj.
                     </p>
                 </div>
 

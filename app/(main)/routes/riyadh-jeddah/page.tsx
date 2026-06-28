@@ -88,7 +88,7 @@ export default function RiyadhJeddahRoutePage() {
                                 Crossing the heart of Saudi Arabia from Riyadh to the Red Sea coast in Jeddah (950km) is a journey that deserves the highest standard of travel. Our <strong>Riyadh to Jeddah taxi service</strong> offers a premium alternative to flying, allowing you to travel door-to-door in total privacy and comfort.
                             </p>
                             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                                Avoid the airport crowds and baggage limits. Our 2025 model <strong>GMC Yukon</strong> and <strong>Mercedes S-Class</strong> fleet is perfectly suited for the 10-hour drive, featuring reclining seats, climate control, and expert chauffeurs who know the best rest stops along Highway 40.
+                                Avoid the airport crowds and baggage limits. Our 2026 model <strong>GMC Yukon</strong> and <strong>Mercedes S-Class</strong> fleet is perfectly suited for the 10-hour drive, featuring reclining seats, climate control, and expert chauffeurs who know the best rest stops along Highway 40.
                             </p>
                             
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

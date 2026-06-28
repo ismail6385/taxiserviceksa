@@ -141,7 +141,7 @@ export default function CadillacEscaladePage() {
                 <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
                 <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
                     <div>
-                        <div className="text-5xl font-black text-amber-500 mb-4 tracking-tighter">2025</div>
+                        <div className="text-5xl font-black text-amber-500 mb-4 tracking-tighter">2026</div>
                         <p className="text-gray-400 font-bold uppercase tracking-widest text-sm">Model Year Fleet</p>
                     </div>
                     <div>

@@ -1,6 +1,3 @@
-'use client';
-
-
 
 
 interface JsonLdRouteProps {
@@ -35,10 +32,6 @@ export default function JsonLdRoute({ from, to, description, distance, duration,
                     { "@type": "City", "name": from },
                     { "@type": "City", "name": to }
                 ],
-                "brand": {
-                    "@type": "Brand",
-                    "name": "TaxiServiceKSA"
-                },
                 "aggregateRating": {
                     "@type": "AggregateRating",
                     "ratingValue": ratingValue,

@@ -160,7 +160,7 @@ export default function UmrahTransportPage() {
             "priceCurrency": "SAR",
             "lowPrice": "150",
             "highPrice": "900",
-            "priceValidUntil": "2025-12-31"
+            "priceValidUntil": "2026-12-31"
         }
     };
 
