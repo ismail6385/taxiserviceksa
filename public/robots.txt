@@ -4,6 +4,10 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /wp-content/
 Disallow: /_next/
+Disallow: /booking/*?*
+Disallow: /booking?*
+Disallow: /blog/*?*
+Disallow: /blog?*
 Disallow: /2025/
 Disallow: /whatsapp
 

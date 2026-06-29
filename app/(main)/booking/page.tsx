@@ -11,6 +11,7 @@ type Props = {
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
     const vehicle = searchParams.vehicle;
     const vehicleName = typeof vehicle === 'string' ? vehicle : null;
+    const hasParams = Object.keys(searchParams || {}).length > 0;
 
     return {
         title: vehicleName
@@ -22,6 +23,10 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
         alternates: {
             canonical: 'https://taxiserviceksa.com/booking/',
         },
+        robots: hasParams ? {
+            index: false,
+            follow: false,
+        } : undefined,
     };
 }
 

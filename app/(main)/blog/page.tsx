@@ -4,18 +4,25 @@ import { Metadata } from 'next';
 import { blogService, Blog } from '@/lib/blogService';
 import { Calendar, User, ArrowRight, Tag, MapPin } from 'lucide-react';
 
-export const metadata: Metadata = {
-    title: 'Saudi Arabia Travel Guides 2026 | Transport, Tourism & Umrah',
-    description: 'Expert transport guides, tourist destination tips, and spiritual travel insights for Makkah, Madinah, Riyadh, Jeddah, and across Saudi Arabia.',
-    openGraph: {
-        title: 'Saudi Arabia Travel Guides 2026 | Taxi Service KSA',
-        description: 'Your trusted companion for Umrah, pilgrimage, and Saudi tourism transport information.',
-        type: 'website',
-    },
-    alternates: {
-        canonical: 'https://taxiserviceksa.com/blog/',
-    },
-};
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+    const hasParams = searchParams && Object.keys(searchParams).length > 0;
+    return {
+        title: 'Saudi Arabia Travel Guides 2026 | Transport, Tourism & Umrah',
+        description: 'Expert transport guides, tourist destination tips, and spiritual travel insights for Makkah, Madinah, Riyadh, Jeddah, and across Saudi Arabia.',
+        openGraph: {
+            title: 'Saudi Arabia Travel Guides 2026 | Taxi Service KSA',
+            description: 'Your trusted companion for Umrah, pilgrimage, and Saudi tourism transport information.',
+            type: 'website',
+        },
+        alternates: {
+            canonical: 'https://taxiserviceksa.com/blog/',
+        },
+        robots: hasParams ? {
+            index: false,
+            follow: false,
+        } : undefined,
+    };
+}
 
 export const revalidate = 3600; // Revalidate every hour for better performance
 
@@ -121,6 +128,7 @@ export default async function BlogIndexPage({ searchParams }: Props) {
                                 <Link
                                     key={cat.value || 'all'}
                                     href={cat.value ? `/blog?category=${encodeURIComponent(cat.value)}` : '/blog'}
+                                    rel="nofollow"
                                     className={`flex-shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 border whitespace-nowrap ${
                                         isActive
                                             ? 'bg-emerald-700 text-white border-emerald-700 shadow-md shadow-emerald-200'
