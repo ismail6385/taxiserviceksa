@@ -131,6 +131,20 @@ export async function GET() {
         { url: '/blog/where-to-stay-alula-hotels-resorts/', priority: 0.85 },
         { url: '/blog/best-restaurants-cafes-food-alula/', priority: 0.85 },
         { url: '/blog/shopping-guide-souvenirs-markets-alula/', priority: 0.85 },
+        { url: '/blog/complete-tabuk-travel-guide/', priority: 0.85 },
+        { url: '/blog/best-time-to-visit-tabuk-weather/', priority: 0.85 },
+        { url: '/blog/tabuk-travel-tips-checklist-cost/', priority: 0.85 },
+        { url: '/blog/tabuk-budget-luxury-family-solo-travel/', priority: 0.85 },
+        { url: '/blog/tabuk-travel-itinerary-planning/', priority: 0.85 },
+        { url: '/blog/top-places-visit-things-do-tabuk/', priority: 0.85 },
+        { url: '/blog/tabuk-castle-railway-museum-guide/', priority: 0.85 },
+        { url: '/blog/wadi-al-disah-valley-visit-guide/', priority: 0.85 },
+        { url: '/blog/jabal-al-lawz-hisma-desert-guide/', priority: 0.85 },
+        { url: '/blog/tabuk-red-sea-beaches-magna-tayyib-ism/', priority: 0.85 },
+        { url: '/blog/tabuk-adventure-activities-hiking-camping/', priority: 0.85 },
+        { url: '/blog/tabuk-photography-instagram-spots/', priority: 0.85 },
+        { url: '/blog/best-restaurants-cafes-food-tabuk/', priority: 0.85 },
+        { url: '/blog/shopping-guide-malls-markets-tabuk/', priority: 0.85 },
     ];
 
     const allUrls = [...newServicePages, ...serviceUrls, ...routeUrls, ...fleetUrls];
