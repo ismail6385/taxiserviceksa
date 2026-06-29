@@ -11,15 +11,23 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Chauffeur Jubail | Industrial City VIP | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service in Jubail (Al Jubail). Specialized in Jubail Industrial City, Royal Commission, and DMM Airport transfers. Professional corporate excellence.',
-    keywords: ['Jubail VIP private transfer', 'Executive chauffeur Jubail', 'Jubail Industrial City VIP taxi', 'Dammam Airport to Jubail VIP', 'Jubail premium driver'],
+    title: 'Taxi Service in Jubail 2026 | Private Car & Airport Transfer | Taxi Service KSA',
+    description: 'Book a reliable taxi in Jubail (Al Jubail) for the Industrial City, Royal Commission & King Fahd Airport (DMM). Flat-rate private cars, English-speaking drivers, available 24/7. No surge pricing.',
+    keywords: [
+        'taxi jubail',
+        'jubail taxi service',
+        'taxi service in jubail',
+        'jubail to dammam taxi',
+        'jubail industrial city taxi',
+        'dammam airport to jubail taxi',
+        'private car jubail saudi arabia',
+    ],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jubail/',
     },
     openGraph: {
-        title: 'Jubail VIP Transfer: Industrial City & Downtown | Taxi Service KSA',
-        description: 'Need a premium VIP transfer in Jubail? We serve the Industrial City, Royal Commission, and provide transfers to Dammam Airport.',
+        title: 'Taxi Service in Jubail 2026 | Private Car & Airport Transfer',
+        description: 'Reliable taxi and private car service in Jubail Industrial City. Book online for flat-rate transfers to Dammam Airport, Al Khobar & Riyadh.',
         url: 'https://taxiserviceksa.com/locations/jubail/',
         type: 'website',
     },

@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -11,9 +11,9 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Jeddah Airport to Yanbu Taxi | Industrial & Diving Transfers | Taxi Service KSA',
-    description: 'Request a quote for a taxi from Jeddah Airport (JED) to Yanbu. Reliable transfers to Yanbu Industrial City, Royal Commission, and Red Sea resorts. 24/7 Service.',
-    keywords: ['Taxi Jeddah to Yanbu', 'Jeddah Airport to Yanbu taxi', 'Yanbu Industrial City transfer', 'Yanbu Royal Commission taxi', 'Jeddah to Yanbu car'],
+    title: 'Taxi from Jeddah to Yanbu 2026 | Price, Time & Booking | Taxi Service KSA',
+    description: 'Book a reliable taxi or private car from Jeddah to Yanbu (or Jeddah Airport to Yanbu). Fixed rates, travel time 3.5 hours, professional English-speaking drivers, available 24/7.',
+    keywords: ['from jeddah to yanbu', 'Jeddah to Yanbu taxi', 'Jeddah Airport to Yanbu taxi', 'Yanbu Industrial City transfer', 'Jeddah to Yanbu car service', 'jeddah to yanbu distance'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-yanbu/',
     },

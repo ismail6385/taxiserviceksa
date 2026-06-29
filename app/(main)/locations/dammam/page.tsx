@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -26,9 +26,9 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Executive Chauffeur Dammam | DMM Airport | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service in Dammam. Specialized King Fahd International Airport (DMM) pickups and industrial hub transfers to Jubail. Professional corporate standards.',
-    keywords: ['Dammam VIP private transfer', 'Executive chauffeur Dammam', 'DMM airport VIP pickup', 'Premium Dammam to Jubail transfer', 'Dammam corporate transport'],
+    title: 'Taxi & Chauffeur Service in Dammam 2026 | DMM Airport Transfer | Taxi Service KSA',
+    description: 'Book a professional taxi or chauffeur in Dammam. Private transfers to King Fahd International Airport (DMM), Al Khobar, Jubail & Riyadh. Fixed rates, English-speaking drivers, 24/7 availability.',
+    keywords: ['chauffeur service dammam', 'dammam chauffeur service', 'chauffeur service in dammam', 'taxi dammam', 'dammam taxi service', 'dammam airport transfer', 'dmm airport taxi', 'dammam to jubail taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/dammam/',
         languages: {

@@ -1,4 +1,4 @@
-
+﻿
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -7,9 +7,9 @@ import { Button } from '@/components/ui/button';
 import { CheckCircle2, XCircle, AlertTriangle, Car, Train, Smartphone } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'Jeddah Airport to Makkah Taxi Fare 2026: Official vs Private Rates',
-    description: 'Updated 2026 pricing guide for Jeddah Airport to Makkah. Compare fares for Uber, Careem, Haramain Train, and Private Taxis. Avoid hidden fees.',
-    keywords: ['Jeddah Airport to Makkah Taxi Fare 2026'],
+    title: 'Jeddah to Makkah Taxi Fare 2026: Airport & City | Exact Cost Guide | Taxi Service KSA',
+    description: 'How much does a taxi from Jeddah Airport (KAIA) to Makkah cost in 2026? Compare Uber, Careem, Haramain Train & private car fares. Pre-book to avoid surge pricing during Umrah season.',
+    keywords: ['jeddah to makkah taxi', 'jeddah to mecca taxi', 'jeddah airport to makkah taxi fare', 'jeddah to makkah taxi service', 'makkah taxi service', 'jeddah airport makkah transfer', 'taxi from jeddah to makkah price 2026'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/blog/jeddah-airport-makkah-taxi-fare-2026/',
     },
