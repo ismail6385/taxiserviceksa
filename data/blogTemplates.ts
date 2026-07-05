@@ -7768,6 +7768,336 @@ Scale ancient sandstone cliffs and fly over deep valleys. AlUla is quickly becom
 *   **AlUla Giant Zipline:** Saudi Arabia's longest and fastest zipline (speeds up to 120 km/h).
 *   **Climbing Trails:** Bolted sports routes in canyon zones.
         `
-    }
+    },
+    {
+        title: "Is AlUla Safe for Tourists? Complete Safety Guide 2026",
+        slug: "is-alula-safe-for-tourists",
+        category: "Tourist Guide",
+        excerpt: "Wondering if AlUla is safe for tourists? Get the complete safety guide covering crime rates, solo travel safety, health tips, and cultural etiquette.",
+        seo_title: "Is AlUla Safe for Tourists? Complete Safety Guide 2026",
+        seo_description: "Everything you need to know about safety in AlUla — crime, solo travel, health, and cultural rules.",
+        seo_keywords: ["is AlUla safe for tourists","AlUla safety guide","AlUla travel safety","Saudi Arabia safety"],
+        content: `AlUla is extremely safe for tourists. Saudi Arabia ranks among the lowest crime-rate countries in the world. AlUla specifically is a purpose-built heritage tourism destination with modern infrastructure.
 
+### Key Safety Highlights:
+*   **Low Crime Rate:** Violent crime and theft are extremely rare in AlUla.
+*   **Solo Female Travel:** Safe and welcoming; women do not need a male guardian to travel.
+*   **Road Safety:** High quality roads, but off-road desert tracks require caution and 4WD.`
+    },
+    {
+        title: "How Many Days Do You Need in AlUla? 2026 Itinerary Guide",
+        slug: "how-many-days-alula",
+        category: "Tourist Guide",
+        excerpt: "Planning your AlUla trip? Find out exactly how many days you need — from a quick 2-day weekend to a full 7-day immersive experience.",
+        seo_title: "How Many Days Do You Need in AlUla? 2026 Itinerary Guide",
+        seo_description: "2-day, 3-day, 5-day and 7-day AlUla itineraries to help you plan the perfect trip duration.",
+        seo_keywords: ["how many days in AlUla","AlUla itinerary","AlUla trip duration","AlUla 3 day itinerary"],
+        content: `3 to 5 days is the ideal duration for most tourists visiting AlUla. 3 days covers the main highlights comfortably, while 5 days allows for adventure sports and a relaxed pace.
+
+### Suggested Durations:
+*   **2 Days (Weekend):** Hegra, Dadan, Jabal Ikmah, and Elephant Rock.
+*   **3 Days (Classic):** Hegra, Dadan, Jabal Ikmah, Old Town, and a Hot Air Balloon ride.
+*   **5 Days (Immersive):** All major archaeological sites plus desert hiking and camping.`
+    },
+    {
+        title: "Can You Visit AlUla Without a Tour? Independent Travel Guide",
+        slug: "can-you-visit-alula-without-tour",
+        category: "Tourist Guide",
+        excerpt: "Can you visit AlUla independently without a guided tour? Find out which sites require guides and which you can explore on your own.",
+        seo_title: "Can You Visit AlUla Without a Tour? Independent Travel Guide",
+        seo_description: "Learn which AlUla attractions require guided tours and how to travel independently.",
+        seo_keywords: ["visit AlUla without tour","AlUla self guided","AlUla independent travel","do you need a guide in AlUla"],
+        content: `You can visit many parts of AlUla independently (like Elephant Rock, Old Town, and the Oasis), but certain heritage sites require booking.
+
+### Site Breakdown:
+*   **Hegra:** Mandatory ticketed tour with a guide.
+*   **Dadan & Jabal Ikmah:** Guided tours recommended; self-exploration with audio guides is possible.
+*   **Old Town & Oasis:** Fully open, self-guided exploration.`
+    },
+    {
+        title: "Is Hegra Worth Visiting? Honest Review of AlUla's UNESCO Site",
+        slug: "is-hegra-worth-visiting",
+        category: "Tourist Guide",
+        excerpt: "Is Hegra (Madain Saleh) worth visiting? Read our honest review of Saudi Arabia's first UNESCO World Heritage Site — what to expect and tips.",
+        seo_title: "Is Hegra Worth Visiting? Honest Review of AlUla's UNESCO Site",
+        seo_description: "Detailed review of Hegra — what makes it special and whether it's worth the trip.",
+        seo_keywords: ["is Hegra worth visiting","Hegra review","Madain Saleh worth it","Hegra UNESCO site"],
+        content: `Yes, Hegra is absolutely worth visiting. The 111 royal Nabataean tombs carved into sandstone cliffs are one of the world's most spectacular archaeological wonders.
+
+### Highlights:
+*   **Qasr Al-Fareed:** The iconic 'Lonely Castle' carved from a single isolated rock.
+*   **Jabal Al-Banat:** A mountain cluster of spectacular tombs.
+*   **Fewer Crowds:** Unlike Petra, Hegra offers an intimate, quiet, and exclusive viewing experience.`
+    },
+    {
+        title: "Can Non-Muslims Visit AlUla? Complete Guide for Tourists",
+        slug: "can-non-muslims-visit-alula",
+        category: "Tourist Guide",
+        excerpt: "Can non-Muslims visit AlUla, Saudi Arabia? Yes! Learn about rules, dress codes, visa requirements, and guidelines for non-Muslim tourists.",
+        seo_title: "Can Non-Muslims Visit AlUla? Complete Guide for Tourists",
+        seo_description: "Non-Muslims are warmly welcomed in AlUla. Here is the complete travel guide.",
+        seo_keywords: ["can non-Muslims visit AlUla","non-Muslim tourists Saudi Arabia","AlUla travel rules"],
+        content: `Yes, non-Muslims are completely free to visit AlUla. The holy city restrictions in Saudi Arabia only apply to Makkah and the core parts of Madinah, not AlUla.
+
+### Key Guidelines:
+*   **Attractions:** Full access to Hegra, Dadan, Elephant Rock, and luxury resorts.
+*   **Dress Code:** Modest clothing is expected, but abaya is not mandatory for international tourists.
+*   **Religious Sites:** Non-Muslims generally cannot enter active mosques.`
+    },
+    {
+        title: "Why Is AlUla Famous? 10 Reasons AlUla Is Saudi's Crown Jewel",
+        slug: "why-is-alula-famous",
+        category: "Tourist Guide",
+        excerpt: "Why is AlUla famous? Discover the 10 reasons that make AlUla one of the world's most extraordinary destinations.",
+        seo_title: "Why Is AlUla Famous? 10 Reasons AlUla Is Saudi's Crown Jewel",
+        seo_description: "Discover the heritage, natural landscapes, and mega-developments that make AlUla famous.",
+        seo_keywords: ["why is AlUla famous","what is AlUla known for","AlUla significance","why visit AlUla"],
+        content: `AlUla is famous for its ancient history, unique rock formations, and its new status as a global luxury tourism destination.
+
+### Top Reasons:
+*   **Hegra UNESCO Site:** Ancient Nabataean kingdom tombs.
+*   **Dadan & Jabal Ikmah:** Pre-Nabataean kingdoms and ancient rock inscriptions.
+*   **Elephant Rock:** Majestic naturally carved sandstone structures.
+*   **Modern Art & Luxury:** Mirrored Maraya Concert Hall and high-end eco-resorts.`
+    },
+    {
+        title: "How Much Does an AlUla Trip Cost? Complete Budget Guide 2026",
+        slug: "how-much-does-alula-trip-cost",
+        category: "Tourist Guide",
+        excerpt: "How much does it cost to visit AlUla in 2026? Complete budget breakdown covering flights, hotels, food, transport, and entry fees.",
+        seo_title: "How Much Does an AlUla Trip Cost? Complete Budget Guide 2026",
+        seo_description: "Full cost breakdown for visiting AlUla — from budget travel to luxury splurges.",
+        seo_keywords: ["AlUla trip cost","how much does AlUla cost","AlUla budget guide","AlUla travel expenses"],
+        content: `AlUla is generally a mid-to-high cost destination due to its boutique nature, but can be visited on a budget with careful planning.
+
+### Average Budgets (Per Day):
+*   **Budget:** SAR 300–500 (Guesthouses, local food, self-tours).
+*   **Mid-Range:** SAR 700–1,200 (4-star hotels, private taxis, guided site tours).
+*   **Luxury:** SAR 2,500–8,000+ (5-star eco-resorts, fine dining, private guides).`
+    },
+    {
+        title: "Is AlUla Suitable for Children? Family Travel Guide 2026",
+        slug: "is-alula-suitable-for-children",
+        category: "Tourist Guide",
+        excerpt: "Is AlUla family-friendly and suitable for kids? Discover child-friendly activities, age recommendations, safety tips, and family hotels.",
+        seo_title: "Is AlUla Suitable for Children? Family Travel Guide 2026",
+        seo_description: "Plan a memorable family trip. Read the best activities for kids in AlUla.",
+        seo_keywords: ["AlUla suitable for children","AlUla family travel","AlUla with kids","AlUla family friendly"],
+        content: `Yes, AlUla is suitable for families, especially children who love nature, animals, and outdoor adventures.
+
+### Top Kids Activities:
+*   **Elephant Rock:** Fun, open space with sunken seating.
+*   **Camel Riding:** Supervised desert camel rides.
+*   **Oasis Farm Visits:** Harvesting dates and exploring green fields.
+*   **Stargazing:** Night sky viewing under clear desert skies.`
+    },
+    {
+        title: "Al Hada Mountain Taif: Complete Visitor Guide 2026",
+        slug: "al-hada-mountain-taif-guide",
+        category: "Tourist Guide",
+        excerpt: "Everything you need to know about visiting Al Hada Mountain in Taif — cable car, resorts, waterfalls, hotels, and best times to visit.",
+        seo_title: "Al Hada Mountain Taif: Complete Visitor Guide 2026",
+        seo_description: "Discover Al Hada Mountain — Taif's most scenic mountain resort with cable car, waterfalls, and cool mountain air.",
+        seo_keywords: ["Al Hada Mountain Taif","Al Hada Taif guide","Al Hada cable car","Taif mountain resort"],
+        content: `Al Hada is a spectacular mountain resort town perched on the slopes of the Hejaz Mountains. Famous for its cool climate, green terraced valleys, and the iconic cable car.
+
+### Key Highlights:
+*   **Altitude:** 1,800 meters above sea level.
+*   **Al Hada Cable Car:** Ride over the valley gorge with bird's-eye views.
+*   **Juniper Forests:** Shaded slopes ideal for scenic walks.`
+    },
+    {
+        title: "Al Shafa Mountain Taif: Complete Visitor Guide 2026",
+        slug: "al-shafa-mountain-taif-guide",
+        category: "Tourist Guide",
+        excerpt: "Complete guide to Al Shafa Mountain in Taif — scenic viewpoints, rose farms, cool climate, activities, and hotels.",
+        seo_title: "Al Shafa Mountain Taif: Complete Visitor Guide 2026",
+        seo_description: "Al Shafa — Taif's mountain gem with rose farms, cool air, and cliff-edge viewpoints.",
+        seo_keywords: ["Al Shafa Mountain Taif","Al Shafa Taif guide","Al Shafa rose farms","visiting Al Shafa Taif"],
+        content: `Al Shafa is a high-altitude mountain village perched at around 2,200 metres, making it one of the highest inhabited areas in western Saudi Arabia. It is famous for rose farms and views.
+
+### Key Highlights:
+*   **Altitude:** 2,200 meters.
+*   **Rose Farms:** In season (March-April), hillsides are covered in pink blooms.
+*   **Escarpment Viewpoint:** Overlooks the coastal Tihama plains 2,000m below.`
+    },
+    {
+        title: "Taif Cable Car Guide 2026: Tickets, Views & Tips",
+        slug: "taif-cable-car-guide-2026",
+        category: "Tourist Guide",
+        excerpt: "Complete guide to the Taif Cable Car (Al Hada Gondola) — ticket prices, opening hours, what to expect, and visitor tips.",
+        seo_title: "Taif Cable Car Guide 2026: Tickets, Views & Tips",
+        seo_description: "Everything you need to know before riding the Taif cable car — tickets, timing, and views.",
+        seo_keywords: ["Taif cable car","Al Hada cable car guide","Taif gondola","Taif cable car ticket price"],
+        content: `The Al Hada Cable Car is the highlight of any Taif trip, carrying passengers over the dramatic Hejaz gorge.
+
+### Key Statistics:
+*   **Price:** SAR 30–50 one-way, SAR 50-70 return.
+*   **Duration:** ~10 minutes.
+*   **Drop:** ~300 meters from upper to lower station.`
+    },
+    {
+        title: "Al Rudaf Park Visitor Guide: Taif's Best Family Destination",
+        slug: "al-rudaf-park-visitor-guide",
+        category: "Tourist Guide",
+        excerpt: "A complete guide to Al Rudaf Park in Taif. Find details on the dancing fountain, opening hours, tickets, and family activities.",
+        seo_title: "Al Rudaf Park Visitor Guide: Taif's Best Family Destination",
+        seo_description: "Explore Al Rudaf Park, featuring lush gardens, children's play areas, and the musical dancing fountain in Taif.",
+        seo_keywords: ["Al Rudaf Park Taif","Rudaf Park dancing fountain","parks in Taif","Al Rudaf Park hours"],
+        content: `Al Rudaf Park is the most popular public park in Taif. Spanning over 565,000 square meters, it integrates granite boulder formations, walking tracks, and play fields.
+
+### Key Highlights:
+*   **Dancing Fountain:** A laser-light musical fountain show playing every evening after sunset.
+*   **Green Spaces:** Large manicured lawns perfect for family picnics.
+*   **Admission:** Free entry for all visitors.`
+    },
+    {
+        title: "Shubra Palace Museum Guide: Taif's Historical Masterpiece",
+        slug: "shubra-palace-museum-guide",
+        category: "Tourist Guide",
+        excerpt: "Discover Shubra Palace Museum in Taif. Read about its architectural style, royal history, gallery exhibits, and visitor status.",
+        seo_title: "Shubra Palace Museum Guide: Taif's Historical Masterpiece",
+        seo_description: "Visit Shubra Palace, the historic royal residence in Taif featuring a fusion of Hijazi and Roman architecture.",
+        seo_keywords: ["Shubra Palace Taif","Shubra Palace Museum","historical places Taif","Taif heritage museum"],
+        content: `Built in 1905, Shubra Palace served as a summer residence for King Abdulaziz and King Faisal. It features a unique white facade blending Hijazi wood carving with Roman stone arches.
+
+### Key Highlights:
+*   **Wooden Rowashin:** Beautiful hand-carved bay windows.
+*   **Marble Columns:** Carrara marble pillars in the grand foyer.
+*   **Location:** Shubra Street, central Taif.`
+    },
+    {
+        title: "Taif Rose Gardens & Rose Factory Guide: Complete Visitor Info",
+        slug: "taif-rose-gardens-factory-guide",
+        category: "Tourist Guide",
+        excerpt: "Explore Taif's famous rose gardens and perfume factories. Learn about the Damask rose harvest season (March–April), distillation, and factory tours.",
+        seo_title: "Taif Rose Gardens & Rose Factory Guide: Complete Visitor Info",
+        seo_description: "A complete guide to touring Taif's rose gardens and learning the art of rose oil distillation.",
+        seo_keywords: ["Taif rose gardens","Taif rose factory tour","Al Qadi rose factory","Taif rose perfume"],
+        content: `Taif roses belong to the Damask Rose species. Distilling a single 12-gram vial (tola) of pure rose oil requires tens of thousands of hand-picked blossoms.
+
+### Key Highlights:
+*   **Rose Season:** March to mid-April is the annual harvest and distillation period.
+*   **Distillation:** Copper stills heat petals for 10-12 hours to separate rose oil and rose water.
+*   **Factory Tours:** Visit Bin Salman, Al Qadi, or Al Kamal factories in Al Hada and Al Shafa.`
+    },
+    {
+        title: "Best Parks & Nature Attractions in Taif: Top Green Spots",
+        slug: "best-parks-nature-taif",
+        category: "Tourist Guide",
+        excerpt: "Discover the best parks and nature attractions in Taif, Saudi Arabia. Explore national parks, scenic peaks, and mountain overlooks.",
+        seo_title: "Best Parks & Nature Attractions in Taif: Top Green Spots",
+        seo_description: "A local guide to the most beautiful parks, nature reserves, and valleys in Taif.",
+        seo_keywords: ["best parks in Taif","nature attractions Taif","Saiysad National Park Taif","green spaces Taif"],
+        content: `Taif is Saudi Arabia's summer capital, offering pleasant weather and numerous green public spaces.
+
+### Top Nature Spots:
+*   **Saiysad National Park:** Wild juniper forests and seasonal mountain streams.
+*   **King Fahd Park:** Massive recreational area with lakes and walking paths.
+*   **Al Rudaf Park:** Beautifully landscaped park with rock features and fountains.`
+    },
+    {
+        title: "Wadi Mitna Visitor Guide: Taif's Historical & Sacred Valley",
+        slug: "wadi-mitna-visitor-guide",
+        category: "Tourist Guide",
+        excerpt: "Explore Wadi Mitna in Taif. Read about the historical sanctuary, the story of the Prophet's visit, and Addas Mosque.",
+        seo_title: "Wadi Mitna Visitor Guide: Taif's Historical & Sacred Valley",
+        seo_description: "A guide to the historic Wadi Mitna valley in Taif, home to the Addas Mosque and rich Islamic heritage.",
+        seo_keywords: ["Wadi Mitna Taif","Addas Mosque Taif","historical sites Taif","Prophet Muhammad Taif visit"],
+        content: `Wadi Mitna is the serene valley where Prophet Muhammad (PBUH) sought refuge and rest under the shade of a vineyard after facing rejection in Taif, meeting the Christian youth Addas.
+
+### Key Landmarks:
+*   **Addas Mosque:** A small historical mosque built near the site of the ancient orchard.
+*   **Pomegranate Groves:** Traditional farms lining the valley floor.`
+    },
+    {
+        title: "Taif Zoo & Family Attractions Guide: Best Kids Activities",
+        slug: "taif-zoo-family-attractions",
+        category: "Tourist Guide",
+        excerpt: "Planning a family trip to Taif? Discover the Taif Zoo, amusement parks, Al Kar Tourist Village, and kids activities.",
+        seo_title: "Taif Zoo & Family Attractions Guide: Best Kids Activities",
+        seo_description: "A family-focused guide to the best kids activities, zoos, and amusement parks in Taif.",
+        seo_keywords: ["Taif Zoo","family attractions Taif","kids activities Taif","Al Kar Tourist Village Taif"],
+        content: `Taif Zoo houses lions, tigers, giraffes, monkeys, and native birds. It also contains amusement rides for children.
+
+### Top Family Spots:
+*   **Al Kar Tourist Village:** Water parks, pools, toboggan rides, and shows.
+*   **Al Hada Theme Park:** Ride arcades and restaurants near the cable car.`
+    },
+    {
+        title: "Best Scenic Viewpoints in Taif: Top Mountain Overlooks",
+        slug: "best-scenic-viewpoints-taif",
+        category: "Tourist Guide",
+        excerpt: "Explore the best scenic viewpoints in Taif. Discover Al Shafa cliffs, Al Hada road overlooks, and sunset photography spots.",
+        seo_title: "Best Scenic Viewpoints in Taif: Top Mountain Overlooks",
+        seo_description: "A local guide to the most breathtaking viewpoints and overlooks in Taif's mountains.",
+        seo_keywords: ["best viewpoints in Taif","scenic overlooks Taif","Al Shafa viewpoint","Al Hada road overlook"],
+        content: `The sheer mountain escarpments of Taif drop steeply into the plains below, creating breathtaking vistas.
+
+### Top Overlooks:
+*   **Al Shafa Cliff Edge:** Overlook the coastal plains 2,000m below (great for sunrise clouds).
+*   **Al Hada Winding Highway:** Spectacular night views of spiral highway lights descending the escarpment.
+*   **Dakkah Mountain Peak:** High 360-degree panorama of the Sarawat range.`
+    },
+    {
+        title: "Taif vs Abha: Which Summer Destination Is Better? 2026 Comparison",
+        slug: "taif-vs-abha-comparison",
+        category: "Tourist Guide",
+        excerpt: "Taif vs Abha: Which high-altitude destination is better for your trip? Compare the climate, attractions, mountains, and accessibility.",
+        seo_title: "Taif vs Abha: Which Summer Destination Is Better? 2026 Comparison",
+        seo_description: "A complete head-to-head comparison between Saudi Arabia's two premier mountain retreats: Taif and Abha.",
+        seo_keywords: ["Taif vs Abha","is Taif or Abha better","Taif vs Abha summer travel","Saudi Arabia mountain destinations"],
+        content: `Taif and Abha are Saudi Arabia's two premier mountain escapes. Taif offers easy access from Jeddah/Makkah, historic palaces, and rose gardens, while Abha is famous for cooler temperatures, summer rain, and traditional stone villages.
+
+### Key Comparison Points:
+*   **Altitude:** Abha (2,270m) is higher and cooler than Taif (1,879m).
+*   **Accessibility:** Taif is a 1.5-hour drive from Jeddah. Abha is in the far south and requires a flight.
+*   **Vibe:** Taif is historic and family-focused. Abha is nature-centric with dramatic vistas.`
+    },
+    {
+        title: "Taif vs Al Baha: Which Mountain Destination Is Better? 2026",
+        slug: "taif-vs-al-baha-comparison",
+        category: "Tourist Guide",
+        excerpt: "Taif vs Al Baha: Compare the weather, scenery, historical villages, forests, and activities of Saudi Arabia's two neighboring mountain regions.",
+        seo_title: "Taif vs Al Baha: Which Mountain Destination Is Better? 2026",
+        seo_description: "A detailed comparison of Taif and Al Baha — the two high-altitude retreats in Saudi Arabia's western highlands.",
+        seo_keywords: ["Taif vs Al Baha","is Taif or Al Baha better","Al Baha tourist attractions","Taif vs Al Baha comparison"],
+        content: `Taif and Al Baha are neighboring mountain cities. Taif has developed amusement parks, cable cars, and rose gardens, while Al Baha offers denser forests, heavy fog, and the white marble heritage village of Thee Ayn.
+
+### Key Comparison Points:
+*   **Nature:** Al Baha has dense natural forests (Raghadan). Taif has beautiful public parks (Al Rudaf).
+*   **Heritage:** Al Baha features Thee Ayn white marble village. Taif features early 20th-century royal palaces.
+*   **Vibe:** Taif is bustling. Al Baha is tranquil and rustic.`
+    },
+    {
+        title: "Best Day Trips from Taif: Top Nearby Excursions 2026",
+        slug: "best-day-trips-from-taif",
+        category: "Tourist Guide",
+        excerpt: "Discover the best day trips and excursions from Taif. Explore Thee Ayn Marble Village, Al Baha, Makkah, Jeddah, and local volcanic craters.",
+        seo_title: "Best Day Trips from Taif: Top Nearby Excursions 2026",
+        seo_description: "Explore the top historic villages, holy sites, and coastal retreats accessible via a day trip from Taif.",
+        seo_keywords: ["best day trips from Taif","excursions from Taif","day tours Taif","Thee Ayn village from Taif"],
+        content: `Taif's mountain location makes it an ideal hub for exploring western Saudi Arabia. You can easily travel to holy sites, the coast, or historic villages.
+
+### Top Excursions:
+*   **Thee Ayn Village:** White marble hill stone village (Al Baha).
+*   **Makkah:** 1.5 hours drive for Umrah and prayers.
+*   **Jeddah:** 2.5 hours drive to explore Al-Balad and the Red Sea.
+*   **Wahbah Crater:** Spectacular volcanic bowl hiking.`
+    },
+    {
+        title: "Al Hada vs Al Shafa: Which Mountain Resort to Visit in Taif",
+        slug: "al-hada-vs-al-shafa-comparison",
+        category: "Tourist Guide",
+        excerpt: "Al Hada vs Al Shafa: Compare the altitude, climate, views, cable cars, rose gardens, and activities of Taif's two famous mountain destinations.",
+        seo_title: "Al Hada vs Al Shafa: Which Mountain Resort to Visit in Taif",
+        seo_description: "A complete visitor comparison of Al Hada and Al Shafa — Taif's two premier mountain resort getaways.",
+        seo_keywords: ["Al Hada vs Al Shafa","is Al Hada or Al Shafa better","Taif mountains comparison","Al Shafa visitor guide"],
+        content: `Al Hada and Al Shafa are Taif's two primary peak resorts. Al Hada features cable cars, theme parks, and perfume factories, while Al Shafa offers higher peaks, wild trails, rose farms, and sheer cliffs.
+
+### Key Comparison Points:
+*   **Weather:** Al Shafa (2,200m) is cooler and mistier than Al Hada (1,800m).
+*   **Activities:** Al Hada is built for family theme park fun. Al Shafa is built for nature and views.
+*   **Recommendation:** Both can be visited on the same day as they are 30 minutes apart.`
+    },
 ];
