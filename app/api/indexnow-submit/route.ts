@@ -37,8 +37,8 @@ export async function GET() {
         // 3. Make IndexNow post request to Bing
         const payload = {
             host: "taxiserviceksa.com",
-            key: "a8846de59f464c078b8b477cc3211493",
-            keyLocation: "https://taxiserviceksa.com/a8846de59f464c078b8b477cc3211493.txt",
+            key: "88b0d5a1c86d4e6da275c07ab1aeb952",
+            keyLocation: "https://taxiserviceksa.com/88b0d5a1c86d4e6da275c07ab1aeb952.txt",
             urlList: urls
         };
 
