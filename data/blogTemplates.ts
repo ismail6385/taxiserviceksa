@@ -8191,4 +8191,185 @@ Scale ancient sandstone cliffs and fly over deep valleys. AlUla is quickly becom
 *   **Dress Code:** Modest wear is required (cover shoulders/knees). Abaya is optional.
 *   **Transport:** Taxis and private drivers are the primary way to travel between sites.`
     },
+    {
+        title: "Hiking in Taif: Best Trails & Walking Routes 2026",
+        slug: "hiking-in-taif-best-trails-routes",
+        category: "Tourist Guide",
+        excerpt: "Explore the best hiking trails and walking routes in Taif. Detailed guide to Al Shafa peak trails, Al Hada routes, and Saiysad wilderness hikes.",
+        seo_title: "Hiking in Taif: Best Trails & Walking Routes 2026",
+        seo_description: "A complete guide to mountain hiking and walking trails in the high-altitude resort of Taif.",
+        seo_keywords: ["hiking in Taif","best hiking trails Taif","Al Shafa hiking","Al Hada walking routes"],
+        content: `Taif sits at 1,879 meters with peaks up to 2,200m — the highest and most pleasant hiking destination in western Saudi Arabia.
+
+### Top Trails:
+*   **Al Shafa Peak Trail:** 5.5km round trip, moderate-to-hard, cliff-edge views over the Tihama plains.
+*   **Saiysad Valley Trails:** Easy family-friendly walks (2–8km) through juniper forests and dry riverbeds.
+*   **Al Hada Old Camel Path:** 6km historic descent; original stone camel caravan route.`
+    },
+    {
+        title: "Camping in Taif: Best Campsites & Tips 2026",
+        slug: "camping-in-taif-best-campsites-tips",
+        category: "Tourist Guide",
+        excerpt: "The ultimate guide to camping in Taif. Compare wild camping in Al Shafa, forest campsites in Saiysad, and the best stargazing locations.",
+        seo_title: "Camping in Taif: Best Campsites & Tips 2026",
+        seo_description: "A complete guide to camping under the stars in the mountains and forests of Taif.",
+        seo_keywords: ["camping in Taif","best campsites Taif","Al Shafa camping","stargazing in Taif"],
+        content: `Taif is one of the premier wild camping destinations in Saudi Arabia. Wild camping is generally permitted on public land.
+
+### Top Campsites:
+*   **Al Shafa Ridgeline (2,200m):** For stargazing, sunrise views, and crisp mountain air. Bring cold-rated sleeping gear.
+*   **Saiysad Forest Valley:** Family-friendly sheltered sites under wild juniper trees.
+*   **Wadi Mahram Sand Pockets:** Traditional campfire setting in sandy granite canyon pockets.`
+    },
+    {
+        title: "Best Picnic Spots in Taif: Top Scenic Parks & Gardens",
+        slug: "best-picnic-spots-in-taif",
+        category: "Tourist Guide",
+        excerpt: "A guide to the best picnic spots in Taif. Explore family parks, green mountain viewpoints, rose gardens, and valley retreats.",
+        seo_title: "Best Picnic Spots in Taif: Top Scenic Parks & Gardens",
+        seo_description: "The best public gardens, cliff overlooks, and wadi spots for a scenic family picnic in Taif.",
+        seo_keywords: ["best picnic spots in Taif","picnic areas Taif","Taif family picnic","Al Rudaf Park picnic"],
+        content: `Picnicking is a deeply embedded Saudi cultural tradition. Taif's pleasant altitude makes it a year-round favorite.
+
+### Top Picnic Spots:
+*   **Al Rudaf Park:** Large manicured lawns, play areas, and musical fountain show.
+*   **Al Shafa Ridge Viewpoints:** Bring camp chairs and Arabic coffee to enjoy the cliff-edge vista.
+*   **King Fahd Park:** Winding lakeside paths and shade trees.`
+    },
+    {
+        title: "Family-Friendly Things to Do in Taif: Kids Guide 2026",
+        slug: "family-friendly-things-to-do-in-taif",
+        category: "Tourist Guide",
+        excerpt: "Planning a family vacation to Taif? Explore the top kid-friendly activities, zoo visits, water parks, and cable car rides for 2026.",
+        seo_title: "Family-Friendly Things to Do in Taif: Kids Guide 2026",
+        seo_description: "A complete guide to planning a memorable family vacation with children in the mountain city of Taif.",
+        seo_keywords: ["family friendly things to do in Taif","Taif with kids","kids activities Taif","Al Kar Water Park"],
+        content: `Taif is historically designed as a family retreat. It is the most popular summer weekend destination for families across western Saudi Arabia.
+
+### Top Family Activities:
+*   **Al Hada Cable Car:** Ride the gondola to Al Kar Village water park and toboggan slides.
+*   **Taif Zoo:** Animal encounters with lions, tigers, and native birds plus a mini ride ring.
+*   **Al Rudaf Park:** Musical fountain show and large lawns for kids to run freely.`
+    },
+    {
+        title: "Romantic Places to Visit in Taif: Top Couples Getaways",
+        slug: "romantic-places-to-visit-in-taif",
+        category: "Tourist Guide",
+        excerpt: "Planning a couples getaway to Taif? Discover the most romantic places including Al Shafa sunset overlooks, luxury resorts, and rose farm tours.",
+        seo_title: "Romantic Places to Visit in Taif: Top Couples Getaways",
+        seo_description: "A romantic visitor guide to the best sunsets, high-end resorts, and scenic spots for couples in Taif.",
+        seo_keywords: ["romantic places in Taif","couples getaway Taif","Taif honeymoon guide","Al Shafa romantic sunset"],
+        content: `With its cool mountain mist, rose fragrance, and private villa resorts, Taif is Saudi Arabia's most romantic mountain city.
+
+### Top Romantic Spots:
+*   **Al Shafa Sunset Ridges:** Sip qahwa coffee at 2,200m as golden hour lights the escarpment cliffs.
+*   **Al Hada Mountain Cafes:** Cozy clifftop cafes overlooking the winding highway lights below.
+*   **Rose Garden Walks:** Stroll through pink Damask rose fields during the spring harvest.`
+    },
+    {
+        title: "Adventure Activities in Taif: Top Thrill Seekers Guide 2026",
+        slug: "adventure-activities-in-taif",
+        category: "Tourist Guide",
+        excerpt: "Looking for adventure in Taif? Explore rock climbing, mountain hiking, off-road desert drives, and cable car rides in 2026.",
+        seo_title: "Adventure Activities in Taif: Top Thrill Seekers Guide 2026",
+        seo_description: "A complete guide to adrenaline-fueled activities, climbing, hiking, and off-road sports in Taif.",
+        seo_keywords: ["adventure activities in Taif","extreme sports Taif","rock climbing Taif","off road driving Taif"],
+        content: `Taif's rugged granite peaks and deep wadis provide excellent terrain for adventure sports year-round.
+
+### Top Adventures:
+*   **Granite Rock Climbing:** Scale the solid high-friction cliffs of Al Shafa with local guided tours.
+*   **Al Hada Camel Path Descent:** A 6km steep historic hiking descent with 600m elevation drop.
+*   **4WD Wadi Bashing:** Off-road desert driving through Wadi Mahram rock canyons and sand pockets.`
+    },
+    {
+        title: "Fruit Farms & Seasonal Experiences in Taif: Harvest Guide",
+        slug: "fruit-farms-seasonal-experiences-taif",
+        category: "Tourist Guide",
+        excerpt: "Explore Taif's famous agricultural heritage. Learn about pomegranate, grape, and fig harvests plus honey tasting tours in 2026.",
+        seo_title: "Fruit Farms & Seasonal Experiences in Taif: Harvest Guide",
+        seo_description: "A complete guide to seasonal fruit picking, farm tours, and honey tasting experiences in Taif.",
+        seo_keywords: ["fruit farms Taif","seasonal experiences Taif","Taif pomegranate harvest","Taif honey tour"],
+        content: `Taif's fertile mountain valleys produce some of the sweetest fruits in the Middle East, harvested across distinct seasons.
+
+### Harvest Calendar:
+*   **Damask Roses:** March – April (Al Hada & Al Shafa).
+*   **Figs & Grapes:** July – September.
+*   **Pomegranates:** August – October (highly famous; Al Shafa produces the best).
+*   **Mountain Honey:** Year-round from Sidr and Talh bee farms.`
+    },
+    {
+        title: "History of Taif: Complete Heritage Guide 2026",
+        slug: "history-of-taif-complete-heritage-guide",
+        category: "Tourist Guide",
+        excerpt: "Explore the rich history of Taif. Read about the Banu Thaqif tribe, early Islamic history, and 20th-century royal summer palaces.",
+        seo_title: "History of Taif: Complete Heritage Guide 2026",
+        seo_description: "Journey through millennia of history — from ancient petroglyphs and early Islamic battles to royal summer governance.",
+        seo_keywords: ["history of Taif","Taif heritage guide","Banu Thaqif tribe Taif","Prophet Muhammad visit to Taif"],
+        content: `Taif has been inhabited for thousands of years and holds a revered place in early Islamic history.
+
+### Key Historical Eras:
+*   **Pre-Islamic Banu Thaqif Era:** Agricultural hub and sanctuary for the Thaqif tribe with stone wall defenses.
+*   **Early Islamic History:** The Prophet Muhammad (PBUH) visited Taif in 620 CE before the conquest of Makkah.
+*   **Saudi Royal Summer Hub:** King Abdulaziz established Taif as the summer administrative capital; Shubra Palace was built in 1905.`
+    },
+    {
+        title: "Taif Culture & Local Traditions: Heritage Guide 2026",
+        slug: "taif-culture-local-traditions",
+        category: "Tourist Guide",
+        excerpt: "Discover the unique culture and traditions of Taif. Explore hospitality customs, folkloric dances, honey markets, and rose farming heritage.",
+        seo_title: "Taif Culture & Local Traditions: Heritage Guide 2026",
+        seo_description: "Understand the rich cultural identity, warm hospitality, folklore, and culinary heritage of Taif.",
+        seo_keywords: ["Taif culture","local traditions Taif","traditional dances Taif","Taif hospitality"],
+        content: `Taif's highland culture centers on remarkable hospitality, generations-old rose farming traditions, and vibrant folkloric arts.
+
+### Cultural Highlights:
+*   **Mountain Hospitality:** Guests are greeted with Qahwa (Arabic coffee), fresh dates, and mint tea.
+*   **Al-Majrour Dance:** Rhythmic traditional song and dance unique to Taif's Hejaz highlands.
+*   **Rose Farming Legacy:** Centuries-old family lineages managing the same Al Shafa orchards for generations.`
+    },
+    {
+        title: "Historic Mosques in Taif: Sacred Sites & Visitor Guide 2026",
+        slug: "historic-mosques-in-taif",
+        category: "Tourist Guide",
+        excerpt: "Discover the most historically significant mosques in Taif. A complete guide to Masjid Addas, Masjid Al-Qantara, and other Islamic sacred sites.",
+        seo_title: "Historic Mosques in Taif: Sacred Sites & Visitor Guide 2026",
+        seo_description: "A complete guide to the most historically significant mosques and sacred sites in Taif, Saudi Arabia.",
+        seo_keywords: ["historic mosques in Taif","Masjid Addas Taif","sacred sites Taif","Taif Islamic heritage"],
+        content: `Taif holds a deeply revered place in early Islamic history and features several sacred mosques tied to the Prophet's (PBUH) journey.
+
+### Key Historic Mosques:
+*   **Masjid Addas (Wadi Mitna):** Built where the Prophet (PBUH) rested and met Addas, the Christian youth who embraced Islam.
+*   **Masjid Al-Qantara:** One of the oldest mosque sites in Taif, associated with early Muslim prayers.
+*   **Masjid Al-Wahab (Grand Mosque):** Taif's primary grand mosque with twin minarets and thousands of Friday worshipers.`
+    },
+    {
+        title: "Why Is Taif Called the City of Roses? History & Origins",
+        slug: "why-is-taif-called-city-of-roses",
+        category: "Tourist Guide",
+        excerpt: "Discover why Taif earned the title 'City of Roses'. Learn about the Damask rose, centuries-old cultivation history, and the Kaaba connection.",
+        seo_title: "Why Is Taif Called the City of Roses? History & Origins",
+        seo_description: "The fascinating story behind Taif's iconic title and what makes the rose so central to its culture and identity.",
+        seo_keywords: ["why is Taif called the City of Roses","Taif rose history","Damask rose Taif","city of roses Saudi Arabia"],
+        content: `Taif is called the City of Roses because it produces the world's most prized Rosa damascena (Damask rose) oil on high-altitude farms.
+
+### Key Facts:
+*   One tola (12g) of pure rose oil requires ~60,000 hand-picked blossoms.
+*   Rose water from Taif is used to wash the Holy Kaaba in an annual sacred ceremony.
+*   Rose cultivation began centuries ago through ancient trade routes from Persia to the Hejaz.`
+    },
+    {
+        title: "Taif Rose Festival Guide 2026: Dates, Events & Tips",
+        slug: "taif-rose-festival-guide-2026",
+        category: "Tourist Guide",
+        excerpt: "Your complete guide to the Taif Rose Festival 2026. Learn about dates, locations, distillery tours, farm visits, and how to buy authentic Taif rose products.",
+        seo_title: "Taif Rose Festival Guide 2026: Dates, Events & Tips",
+        seo_description: "Plan your visit to the Taif Rose Festival — the most fragrant annual event in Saudi Arabia.",
+        seo_keywords: ["Taif Rose Festival 2026","rose festival Saudi Arabia","Taif rose season 2026","when is Taif rose festival"],
+        content: `Every spring (March–April), the mountains of Taif turn pink and fill the air with the world's most celebrated floral fragrance.
+
+### Festival Highlights:
+*   **Farm Walks:** Tour the pink rose fields at dawn and watch farmers picking blossoms by hand.
+*   **Distillery Demonstrations:** See copper stills boiling rose petals for 10-12 hours.
+*   **Shopping:** Buy authentic rose water, pure oil, soaps, and lotions directly from the farms.`
+    },
 ];
