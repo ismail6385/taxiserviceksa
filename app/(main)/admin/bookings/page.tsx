@@ -105,6 +105,7 @@ export default function BookingsPage() {
     const [searchTerm, setSearchTerm] = useState('');
     const [statusFilter, setStatusFilter] = useState('all');
     const [paymentFilter, setPaymentFilter] = useState('all');
+    const [dbPrices, setDbPrices] = useState<Record<string, Record<string, number>>>({});
 
     // Sheet State
     const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
@@ -204,6 +205,7 @@ export default function BookingsPage() {
                 router.push('/admin/login');
             } else {
                 fetchBookings();
+                fetchDbPrices();
                 // Request browser notification permission
                 if (typeof Notification !== 'undefined' && Notification.permission === 'default') {
                     Notification.requestPermission();
@@ -245,6 +247,39 @@ export default function BookingsPage() {
             supabase.removeChannel(subscription);
         };
     }, [router]);
+
+    const fetchDbPrices = async () => {
+        try {
+            const { data, error } = await supabase.from('pricing_rules').select('route,vehicle,price');
+            if (!error && data) {
+                const priceMap: Record<string, Record<string, number>> = {};
+                data.forEach(row => {
+                    if (!priceMap[row.route]) priceMap[row.route] = {};
+                    priceMap[row.route][row.vehicle] = row.price;
+                });
+                setDbPrices(priceMap);
+            }
+        } catch (err) {
+            console.error('Failed to load DB pricing rules:', err);
+        }
+    };
+
+    const formatTime12h = (timeStr?: string) => {
+        if (!timeStr) return '—';
+        try {
+            const parts = timeStr.split(':');
+            if (parts.length < 2) return timeStr;
+            let hours = parseInt(parts[0], 10);
+            const minutes = parts[1];
+            if (isNaN(hours)) return timeStr;
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            return `${hours}:${minutes} ${ampm}`;
+        } catch (e) {
+            return timeStr;
+        }
+    };
 
     const getTimeSince = (dateStr: string) => {
         const created = new Date(dateStr);
@@ -310,6 +345,46 @@ export default function BookingsPage() {
         setDuplicateFound(duplicate || null);
 
     }, [newBooking.customer_phone, newBooking.pickup_date, newBooking.pickup_time, isCreating, bookings]);
+
+    const generateReturnTrip = () => {
+        if (!selectedBooking) return;
+        try {
+            const returnPickup = selectedBooking.destination;
+            const returnDestination = selectedBooking.pickup_location;
+            
+            const originalDate = new Date(selectedBooking.pickup_date);
+            const returnDate = new Date(originalDate);
+            returnDate.setDate(originalDate.getDate() + 7);
+            const returnDateStr = returnDate.toISOString().split('T')[0];
+
+            const newB: Partial<Booking> = {
+                customer_name: selectedBooking.customer_name,
+                customer_email: selectedBooking.customer_email || '',
+                customer_phone: selectedBooking.customer_phone || '',
+                pickup_location: returnPickup,
+                destination: returnDestination,
+                pickup_date: returnDateStr,
+                pickup_time: selectedBooking.pickup_time || '12:00',
+                vehicle_type: selectedBooking.vehicle_type || 'Sedan',
+                passengers: selectedBooking.passengers || 1,
+                luggage: selectedBooking.luggage || 0,
+                total_price: selectedBooking.total_price || 0,
+                special_requests: `Return trip for booking #${selectedBooking.id.slice(0, 8)}`,
+                payment_status: 'unpaid',
+                currency: selectedBooking.currency || 'SAR',
+                payment_method: selectedBooking.payment_method || 'Cash to Driver',
+                status: 'pending',
+                has_return_trip: false
+            };
+
+            setNewBooking(newB);
+            setIsCreating(true);
+            setSelectedBooking(null);
+            alert("Return trip draft generated! Please verify the return date/time and click 'Save Booking' to create.");
+        } catch (err) {
+            console.error(err);
+        }
+    };
 
     const updateStatus = async (id: string, newStatus: string) => {
         try {
@@ -381,7 +456,7 @@ export default function BookingsPage() {
     useEffect(() => {
         if (!isCreating) return;
         if (newBooking.pickup_location && newBooking.destination && newBooking.vehicle_type) {
-            const price = getPrice(
+            const price = getResolvedPrice(
                 newBooking.pickup_location, 
                 newBooking.destination, 
                 newBooking.vehicle_type,
@@ -391,7 +466,7 @@ export default function BookingsPage() {
                 setNewBooking(prev => ({ ...prev, total_price: price }));
             }
         }
-    }, [newBooking.pickup_location, newBooking.destination, newBooking.vehicle_type, newBooking.has_return_trip, isCreating]);
+    }, [newBooking.pickup_location, newBooking.destination, newBooking.vehicle_type, newBooking.has_return_trip, isCreating, dbPrices]);
 
     const saveDetails = async () => {
         if (!editedBooking) return;
@@ -661,9 +736,39 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
         window.open(url, '_blank');
     };
 
+    const getResolvedPrice = (from: string, to: string, vehicle: string, isRoundTrip: boolean = false) => {
+        const normalizeLocationLocal = (loc: string) => {
+            const locations = ['Jeddah', 'Makkah', 'Madinah', 'Taif', 'Riyadh', 'Yanbu'];
+            const lower = loc.toLowerCase();
+            for (const city of locations) {
+                if (lower.includes(city.toLowerCase())) return city.toLowerCase();
+            }
+            return null;
+        };
+        const loc1 = normalizeLocationLocal(from);
+        const loc2 = normalizeLocationLocal(to);
+        if (loc1 && loc2 && vehicle) {
+            const routeKey = [loc1, loc2].sort().join('-');
+            const routeKeyDirect = `${loc1}-${loc2}`;
+            
+            const dbRouteRules = dbPrices[routeKey] || dbPrices[routeKeyDirect];
+            if (dbRouteRules) {
+                const matchingVehicle = Object.keys(dbRouteRules).find(key => 
+                    key.toLowerCase().includes(vehicle.toLowerCase()) || 
+                    vehicle.toLowerCase().includes(key.toLowerCase())
+                );
+                if (matchingVehicle && dbRouteRules[matchingVehicle]) {
+                    const basePrice = dbRouteRules[matchingVehicle];
+                    return isRoundTrip ? basePrice * 2 : basePrice;
+                }
+            }
+        }
+        return getPrice(from, to, vehicle, isRoundTrip);
+    };
+
     const suggestPrice = (from: string, to: string, vehicle: any, target: 'new' | 'edit') => {
         const isRoundTrip = target === 'new' ? !!newBooking.has_return_trip : !!editedBooking?.has_return_trip;
-        const price = getPrice(from, to, vehicle, isRoundTrip);
+        const price = getResolvedPrice(from, to, vehicle, isRoundTrip);
         if (price) {
             if (target === 'new') {
                 setNewBooking({ ...newBooking, total_price: price });
@@ -854,7 +959,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
     }
 
     return (
-        <div className="text-gray-900 p-6 max-w-7xl mx-auto">
+        <div className="text-gray-900 p-4 md:p-6 max-w-full xl:max-w-7xl mx-auto w-full">
             {/* Real-time New Booking Alert */}
             {newBookingAlert && (
                 <div className="fixed top-20 right-4 z-50 animate-in fade-in slide-in-from-right-4">
@@ -881,7 +986,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                     </h1>
                     <p className="text-gray-500 text-sm">Monitor and process your transport reservations easily.</p>
                 </div>
-                <div className="flex gap-3">
+                <div className="flex flex-wrap gap-3">
                     <Button onClick={() => setIsCreating(true)} className="bg-primary text-black hover:bg-black hover:text-white font-bold shadow-sm">
                         <Plus className="mr-2 h-4 w-4" /> New Booking
                     </Button>
@@ -923,40 +1028,76 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                 </div>
             </div>
 
+            {/* Status Tabs for Quick Filtering */}
+            <div className="flex gap-2 border-b border-gray-200 pb-px mb-6 overflow-x-auto whitespace-nowrap scrollbar-none bg-white p-2 rounded-xl shadow-sm border">
+                {[
+                    { value: 'all', label: 'All Bookings', count: bookings.length },
+                    { value: 'pending', label: 'Pending', count: bookings.filter(b => b.status === 'pending').length },
+                    { value: 'confirmed', label: 'Confirmed', count: bookings.filter(b => b.status === 'confirmed').length },
+                    { value: 'quote_sent', label: 'Quote Sent', count: bookings.filter(b => b.status === 'quote_sent').length },
+                    { value: 'in_progress', label: 'In Progress', count: bookings.filter(b => b.status === 'in_progress').length },
+                    { value: 'completed', label: 'Completed', count: bookings.filter(b => b.status === 'completed').length },
+                    { value: 'cancelled', label: 'Cancelled', count: bookings.filter(b => b.status === 'cancelled').length },
+                ].map(tab => (
+                    <button
+                        key={tab.value}
+                        onClick={() => setStatusFilter(tab.value)}
+                        className={`pb-2.5 pt-1 px-4 text-xs font-bold transition-all relative border-b-2 rounded-t-lg ${
+                            statusFilter === tab.value
+                                ? 'border-primary text-black bg-primary/5'
+                                : 'border-transparent text-gray-500 hover:text-gray-900 hover:bg-gray-50'
+                        }`}
+                    >
+                        <span className="flex items-center gap-1.5">
+                            {tab.label}
+                            <span className={`px-2 py-0.5 rounded-full text-[10px] ${
+                                statusFilter === tab.value
+                                    ? 'bg-primary text-black font-extrabold'
+                                    : 'bg-gray-100 text-gray-600'
+                            }`}>
+                                {tab.count}
+                            </span>
+                        </span>
+                    </button>
+                ))}
+            </div>
+
             {/* Filters */}
             <div className="flex flex-col gap-3 mb-6">
-                <div className="relative flex-1">
-                    <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
-                    <Input
-                        placeholder="Search by Name, Phone, Email, or ID..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="pl-10 bg-white border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-primary shadow-sm h-11"
-                    />
-                </div>
-                <div className="flex flex-wrap gap-2 items-center bg-white border border-gray-200 rounded-lg px-3 py-2 shadow-sm">
-                    <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider mr-1">Quick</span>
-                    <div className="flex gap-1">
-                        <Button variant="ghost" size="sm" onClick={() => setQuickDate('today')} className="h-7 px-1.5 text-[10px] font-bold">Today</Button>
-                        <Button variant="ghost" size="sm" onClick={() => setQuickDate('tomorrow')} className="h-7 px-1.5 text-[10px] font-bold">Tom</Button>
-                        <Button variant="ghost" size="sm" onClick={() => setQuickDate('week')} className="h-7 px-1.5 text-[10px] font-bold">Week</Button>
+                <div className="flex flex-col lg:flex-row gap-3">
+                    <div className="relative flex-1">
+                        <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
+                        <Input
+                            placeholder="Search by Name, Phone, Email, or ID..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            className="pl-10 bg-white border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-primary shadow-sm h-11"
+                        />
                     </div>
-                    <div className="h-6 w-px bg-gray-200 mx-1 hidden sm:block"></div>
-                    <div className="flex items-center gap-2 flex-wrap">
-                        <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">From</span>
-                        <input
-                            type="date"
-                            value={startDate}
-                            onChange={(e) => setStartDate(e.target.value)}
-                            className="text-xs bg-transparent border border-gray-200 rounded-md px-2 py-1 focus:ring-0 cursor-pointer w-[130px]"
-                        />
-                        <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">To</span>
-                        <input
-                            type="date"
-                            value={endDate}
-                            onChange={(e) => setEndDate(e.target.value)}
-                            className="text-xs bg-transparent border border-gray-200 rounded-md px-2 py-1 focus:ring-0 cursor-pointer w-[130px]"
-                        />
+                    <div className="flex flex-wrap gap-2 items-center bg-white border border-gray-200 rounded-lg px-3 py-2 shadow-sm">
+                        <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider mr-1">Quick</span>
+                        <div className="flex gap-1">
+                            <Button variant="ghost" size="sm" onClick={() => setQuickDate('today')} className="h-7 px-1.5 text-[10px] font-bold">Today</Button>
+                            <Button variant="ghost" size="sm" onClick={() => setQuickDate('tomorrow')} className="h-7 px-1.5 text-[10px] font-bold">Tom</Button>
+                            <Button variant="ghost" size="sm" onClick={() => setQuickDate('week')} className="h-7 px-1.5 text-[10px] font-bold">Week</Button>
+                        </div>
+                        <div className="h-6 w-px bg-gray-200 mx-1 hidden sm:block"></div>
+                        <div className="flex items-center gap-2 flex-wrap">
+                            <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">From</span>
+                            <input
+                                type="date"
+                                value={startDate}
+                                onChange={(e) => setStartDate(e.target.value)}
+                                className="text-xs bg-transparent border border-gray-200 rounded-md px-2 py-1 focus:ring-0 cursor-pointer w-[130px]"
+                            />
+                            <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">To</span>
+                            <input
+                                type="date"
+                                value={endDate}
+                                onChange={(e) => setEndDate(e.target.value)}
+                                className="text-xs bg-transparent border border-gray-200 rounded-md px-2 py-1 focus:ring-0 cursor-pointer w-[130px]"
+                            />
+                        </div>
                     </div>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3">
@@ -1020,7 +1161,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
 
             {/* Bulk Actions Power Toolbar */}
             {selectedIds.length > 0 && (
-                <div className="bg-slate-900 text-white p-3 rounded-xl mb-6 flex items-center justify-between animate-in slide-in-from-top-4 shadow-2xl border border-primary/30 sticky top-4 z-40 mx-2">
+                <div className="bg-slate-900 text-white p-3 rounded-xl mb-6 flex flex-wrap items-center justify-between gap-2 animate-in slide-in-from-top-4 shadow-2xl border border-primary/30 sticky top-4 z-40 mx-2">
                     <div className="flex items-center gap-4">
                         <div className="bg-primary/20 p-2 rounded-lg">
                             <CheckSquare className="w-5 h-5 text-primary" />
@@ -1030,7 +1171,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                             <p className="text-[10px] text-slate-400">Choose an action to apply to all selected</p>
                         </div>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                         <div className="h-8 w-px bg-slate-700 mx-2 hidden md:block"></div>
                         <Button size="sm" onClick={() => bulkUpdateStatus('confirmed')} className="bg-emerald-600 hover:bg-emerald-700 text-white h-9 px-4 text-[11px] font-bold rounded-lg border-b-2 border-emerald-800 transition-all active:translate-y-0.5">
                             <CheckCircle className="w-3.5 h-3.5 mr-1.5" /> Confirm All
@@ -1060,7 +1201,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                     </div>
                 </div>
             )}
-            <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm overflow-x-auto">
+            <div className="bg-white rounded-xl border border-gray-200 overflow-x-auto shadow-sm">
                 <Table className="min-w-[700px]">
                     <TableHeader className="bg-gray-50">
                         <TableRow className="border-gray-200 hover:bg-transparent">
@@ -1203,7 +1344,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 {isToday && !isOverdue && <Badge className="bg-red-500 hover:bg-red-600 animate-pulse text-[10px] uppercase border-none text-white px-1.5 py-0">Today</Badge>}
                                                 {isTomorrow && <Badge className="bg-orange-500 hover:bg-orange-600 text-[10px] uppercase border-none text-white px-1.5 py-0">Tomorrow</Badge>}
                                             </div>
-                                            <div className={`text-xs ${isOverdue ? 'text-red-700 font-bold' : 'text-gray-500'}`}>{booking.pickup_time}</div>
+                                            <div className={`text-xs ${isOverdue ? 'text-red-700 font-bold' : 'text-gray-500'}`}>{formatTime12h(booking.pickup_time)}</div>
                                         </TableCell>
                                         <TableCell>
                                             <div className="group relative w-fit">
@@ -1369,9 +1510,14 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                             </SheetDescription>
                         </SheetHeader>
                         {!isEditing ? (
-                            <Button variant="outline" size="sm" onClick={() => setIsEditing(true)} className="bg-white text-gray-700 hover:bg-gray-50 border-gray-200">
-                                <Edit2 className="w-4 h-4 mr-2" /> Edit Details
-                            </Button>
+                            <div className="flex items-center gap-2">
+                                <Button variant="outline" size="sm" onClick={generateReturnTrip} className="bg-white text-blue-600 hover:bg-blue-50 border-blue-200">
+                                    <ArrowUpDown className="w-4 h-4 mr-2" /> Return Trip
+                                </Button>
+                                <Button variant="outline" size="sm" onClick={() => setIsEditing(true)} className="bg-white text-gray-700 hover:bg-gray-50 border-gray-200">
+                                    <Edit2 className="w-4 h-4 mr-2" /> Edit Details
+                                </Button>
+                            </div>
                         ) : (
                             <div className="flex items-center gap-2">
                                 <Button variant="ghost" size="sm" onClick={() => { setIsEditing(false); setEditedBooking(selectedBooking); }} className="text-gray-500 hover:bg-gray-100">
@@ -1509,7 +1655,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             {isEditing ? (
                                                 <Input type="time" value={editedBooking.pickup_time} onChange={(e) => setEditedBooking({ ...editedBooking, pickup_time: e.target.value })} className="h-8 text-sm bg-white" />
                                             ) : (
-                                                <span className="font-medium bg-white border border-gray-200 px-2 py-1 rounded text-sm block w-fit text-gray-900">{selectedBooking.pickup_time}</span>
+                                                <span className="font-medium bg-white border border-gray-200 px-2 py-1 rounded text-sm block w-fit text-gray-900">{formatTime12h(selectedBooking.pickup_time)}</span>
                                             )}
                                         </div>
                                     </div>

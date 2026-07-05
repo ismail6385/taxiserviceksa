@@ -30,6 +30,19 @@ export default function AdminLayout({
         });
     };
 
+    const darkPages = [
+        '/admin/dashboard',
+        '/admin/locations',
+        '/admin/fleet',
+        '/admin/support',
+        '/admin/settings',
+        '/admin/reports',
+        '/admin/pricing',
+        '/admin/notifications',
+        '/admin/whatsapp-templates'
+    ];
+    const isDarkPage = darkPages.some(page => pathname === page || pathname?.startsWith(page + '/'));
+
     if (isLoginPage) {
         return (
             <div className="min-h-screen bg-gray-50">
@@ -39,7 +52,10 @@ export default function AdminLayout({
     }
 
     return (
-        <div className="flex min-h-screen bg-gray-50 print:bg-white">
+        <div className={cn(
+            "flex min-h-screen print:bg-white transition-colors duration-200",
+            isDarkPage ? "bg-neutral-950 text-white" : "bg-gray-50 text-gray-900"
+        )}>
             <AdminSidebar isCollapsed={isCollapsed} onToggle={toggleSidebar} />
             <main className={cn(
                 "flex-1 transition-all duration-300 print:ml-0",

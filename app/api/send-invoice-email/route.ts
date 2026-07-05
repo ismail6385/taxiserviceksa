@@ -31,6 +31,23 @@ export async function POST(request: NextRequest) {
         const curr = currency || 'SAR';
         const amount = booking.total_price?.toFixed(2) || '0.00';
 
+        const formatTime12h = (timeStr?: string): string => {
+            if (!timeStr) return '—';
+            try {
+                const parts = timeStr.split(':');
+                if (parts.length < 2) return timeStr;
+                let hours = parseInt(parts[0], 10);
+                const minutes = parts[1];
+                if (isNaN(hours)) return timeStr;
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12;
+                hours = hours ? hours : 12;
+                return `${hours}:${minutes} ${ampm}`;
+            } catch (e) {
+                return timeStr;
+            }
+        };
+
         // 1. Send invoice to customer (+ CC additional emails)
         await sendMail({
             to: booking.customer_email,
@@ -50,7 +67,7 @@ export async function POST(request: NextRequest) {
                         <p style="margin: 10px 0;"><strong>Invoice Ref:</strong> ${refId}</p>
                         <p style="margin: 5px 0;"><strong>Pickup:</strong> ${booking.pickup_location}</p>
                         <p style="margin: 5px 0;"><strong>Destination:</strong> ${booking.destination}</p>
-                        <p style="margin: 5px 0;"><strong>Date/Time:</strong> ${booking.pickup_date} at ${booking.pickup_time}</p>
+                        <p style="margin: 5px 0;"><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
                         <p style="margin: 5px 0;"><strong>Vehicle:</strong> ${booking.vehicle_type}</p>
                         <p style="margin: 5px 0;"><strong>Amount:</strong> ${currency || 'SAR'} ${booking.total_price?.toFixed(2) || '0.00'}</p>
                         <p style="margin: 5px 0;"><strong>Payment Status:</strong> ${paymentStatus || 'Unpaid'}</p>
@@ -88,7 +105,7 @@ export async function POST(request: NextRequest) {
                 <p><strong>Email:</strong> ${booking.customer_email}</p>
                 <p><strong>Phone:</strong> ${booking.customer_phone || 'N/A'}</p>
                 <p><strong>Route:</strong> ${booking.pickup_location} → ${booking.destination}</p>
-                <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${booking.pickup_time}</p>
+                <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
                 <p><strong>Vehicle:</strong> ${booking.vehicle_type}</p>
                 <p><strong>Amount:</strong> <span style="font-size:18px; font-weight:900; color:#000;">${curr} ${amount}</span></p>
                 <p><strong>Payment Status:</strong> ${paymentStatus || 'Unpaid'}</p>

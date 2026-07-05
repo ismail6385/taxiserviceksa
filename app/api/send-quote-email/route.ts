@@ -50,8 +50,25 @@ export async function POST(request: NextRequest) {
         const safeDest    = escapeHtml(booking.destination);
         const safeVehicle = escapeHtml(booking.vehicle_type);
 
+        const formatTime12h = (timeStr?: string): string => {
+            if (!timeStr) return '—';
+            try {
+                const parts = timeStr.split(':');
+                if (parts.length < 2) return timeStr;
+                let hours = parseInt(parts[0], 10);
+                const minutes = parts[1];
+                if (isNaN(hours)) return timeStr;
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12;
+                hours = hours ? hours : 12;
+                return `${hours}:${minutes} ${ampm}`;
+            } catch (e) {
+                return timeStr;
+            }
+        };
+
         const whatsappMsg = encodeURIComponent(
-            `Hello, I'd like to confirm my booking.\n\n*Quote Ref:* ${refId}\n*Route:* ${booking.pickup_location} → ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}\n*Vehicle:* ${booking.vehicle_type}\n*Quote:* ${curr} ${price}`
+            `Hello, I'd like to confirm my booking.\n\n*Quote Ref:* ${refId}\n*Route:* ${booking.pickup_location} → ${booking.destination}\n*Date:* ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}\n*Vehicle:* ${booking.vehicle_type}\n*Quote:* ${curr} ${price}`
         );
 
         const quoteHtml = `
@@ -70,7 +87,7 @@ export async function POST(request: NextRequest) {
                             <tr><td style="padding: 5px 0; color: #666; width: 40%;">Ref Number</td><td style="font-weight: bold; color: #000;">${refId}</td></tr>
                             <tr><td style="padding: 5px 0; color: #666;">Pickup</td><td style="font-weight: bold; color: #000;">${safePickup}</td></tr>
                             <tr><td style="padding: 5px 0; color: #666;">Destination</td><td style="font-weight: bold; color: #000;">${safeDest}</td></tr>
-                            <tr><td style="padding: 5px 0; color: #666;">Date &amp; Time</td><td style="font-weight: bold; color: #000;">${booking.pickup_date} at ${booking.pickup_time}</td></tr>
+                            <tr><td style="padding: 5px 0; color: #666;">Date &amp; Time</td><td style="font-weight: bold; color: #000;">${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</td></tr>
                             <tr><td style="padding: 5px 0; color: #666;">Vehicle</td><td style="font-weight: bold; color: #000;">${safeVehicle}</td></tr>
                             <tr><td style="padding: 5px 0; color: #666;">Passengers</td><td style="font-weight: bold; color: #000;">${booking.passengers} Pax</td></tr>
                         </table>
@@ -121,7 +138,7 @@ export async function POST(request: NextRequest) {
                 <p><strong>Customer:</strong> ${safeName} (${escapeHtml(booking.customer_email)})</p>
                 <p><strong>Phone:</strong> ${escapeHtml(booking.customer_phone)}</p>
                 <p><strong>Route:</strong> ${safePickup} → ${safeDest}</p>
-                <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${booking.pickup_time}</p>
+                <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
                 <p><strong>Vehicle:</strong> ${safeVehicle}</p>
                 <p><strong>Quoted Price:</strong> <span style="font-size:18px; font-weight:900; color:#000;">${curr} ${price}</span></p>
                 <p style="font-size: 12px; color: #666;">Quote ref: ${refId} — valid 48 hours</p>

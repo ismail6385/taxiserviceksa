@@ -39,13 +39,30 @@ export async function POST(request: NextRequest) {
         const refId = `#${String(booking.id).slice(0, 8).toUpperCase()}`;
         const cleanPhone = (booking.driver_phone as string).replace(/\s/g, '');
 
+        const formatTime12h = (timeStr?: string): string => {
+            if (!timeStr) return '—';
+            try {
+                const parts = timeStr.split(':');
+                if (parts.length < 2) return timeStr;
+                let hours = parseInt(parts[0], 10);
+                const minutes = parts[1];
+                if (isNaN(hours)) return timeStr;
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12;
+                hours = hours ? hours : 12;
+                return `${hours}:${minutes} ${ampm}`;
+            } catch (e) {
+                return timeStr;
+            }
+        };
+
         const whatsappMsg = encodeURIComponent(
             `Hello, I am your driver for booking ${refId}.\n\nDriver: ${booking.driver_name}\nPhone: ${booking.driver_phone}${booking.driver_plate ? `\nPlate: ${booking.driver_plate}` : ''}`
         );
 
         await sendMail({
             to: booking.customer_email,
-            subject: `🚗 Your Driver is Assigned — ${booking.pickup_date} at ${booking.pickup_time}`,
+            subject: `🚗 Your Driver is Assigned — ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}`,
             html: `
             <div style="font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
                 <div style="background-color: #000; padding: 25px; text-align: center; border-radius: 10px 10px 0 0;">
@@ -74,7 +91,7 @@ export async function POST(request: NextRequest) {
                     <div style="background-color: #f8f9fa; border-radius: 12px; padding: 20px; margin: 20px 0; border: 1px solid #ebedf0;">
                         <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
                             <tr><td style="padding: 5px 0; color: #666; width: 40%;">Booking Ref</td><td style="font-weight: bold; color: #000;">${refId}</td></tr>
-                            <tr><td style="padding: 5px 0; color: #666;">Pickup Time</td><td style="font-weight: bold; color: #000; font-size: 16px;">${escapeHtml(booking.pickup_time)}</td></tr>
+                            <tr><td style="padding: 5px 0; color: #666;">Pickup Time</td><td style="font-weight: bold; color: #000; font-size: 16px;">${formatTime12h(booking.pickup_time)}</td></tr>
                             <tr><td style="padding: 5px 0; color: #666;">Pickup Location</td><td style="font-weight: bold; color: #000;">${safeFrom}</td></tr>
                             <tr><td style="padding: 5px 0; color: #666;">Destination</td><td style="font-weight: bold; color: #000;">${safeTo}</td></tr>
                         </table>

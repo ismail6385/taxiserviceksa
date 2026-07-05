@@ -66,6 +66,23 @@ export default function HandoverPage() {
         if (id) fetchBooking();
     }, [id]);
 
+    const formatTime12h = (timeStr?: string) => {
+        if (!timeStr) return '—';
+        try {
+            const parts = timeStr.split(':');
+            if (parts.length < 2) return timeStr;
+            let hours = parseInt(parts[0], 10);
+            const minutes = parts[1];
+            if (isNaN(hours)) return timeStr;
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            return `${hours}:${minutes} ${ampm}`;
+        } catch (e) {
+            return timeStr;
+        }
+    };
+
     const handlePrint = () => {
         window.print();
     };
@@ -127,7 +144,7 @@ export default function HandoverPage() {
                                         <Calendar className="w-4 h-4 text-slate-400" /> {booking.pickup_date}
                                     </p>
                                     <p className="flex items-center gap-2 text-sm font-bold text-slate-900">
-                                        <Clock className="w-4 h-4 text-slate-400" /> {booking.pickup_time}
+                                        <Clock className="w-4 h-4 text-slate-400" /> {formatTime12h(booking.pickup_time)}
                                     </p>
                                     {booking.flight_number && (
                                         <p className="flex items-center gap-2 text-sm font-bold text-blue-600">

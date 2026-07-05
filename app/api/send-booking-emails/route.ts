@@ -54,6 +54,23 @@ export async function POST(request: NextRequest) {
         const safeVehicle  = escapeHtml(booking.vehicle_type);
         const safeRequests = escapeHtml(booking.special_requests) || 'None';
 
+        const formatTime12h = (timeStr?: string): string => {
+            if (!timeStr) return '—';
+            try {
+                const parts = timeStr.split(':');
+                if (parts.length < 2) return timeStr;
+                let hours = parseInt(parts[0], 10);
+                const minutes = parts[1];
+                if (isNaN(hours)) return timeStr;
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12;
+                hours = hours ? hours : 12;
+                return `${hours}:${minutes} ${ampm}`;
+            } catch (e) {
+                return timeStr;
+            }
+        };
+
         console.log('Sending emails for booking:', booking.id || 'new booking');
 
         // 1. Send email to customer
@@ -74,7 +91,7 @@ export async function POST(request: NextRequest) {
                         <p style="margin: 10px 0;"><strong>Request ID:</strong> ${formatBookingId(booking.id)}</p>
                         <p style="margin: 5px 0;"><strong>Pickup:</strong> ${safePickup}</p>
                         <p style="margin: 5px 0;"><strong>Destination:</strong> ${safeDest}</p>
-                        <p style="margin: 5px 0;"><strong>Date/Time:</strong> ${booking.pickup_date} at ${booking.pickup_time}</p>
+                        <p style="margin: 5px 0;"><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
                         <p style="margin: 5px 0;"><strong>Vehicle Type:</strong> ${safeVehicle}</p>
                         <p style="margin: 5px 0;"><strong>Passengers:</strong> ${booking.passengers} Pax</p>
                     </div>
@@ -108,7 +125,7 @@ export async function POST(request: NextRequest) {
                 <p><strong>Email:</strong> ${escapeHtml(booking.customer_email)}</p>
                 <p><strong>Phone:</strong> ${escapeHtml(booking.customer_phone)}</p>
                 <p><strong>Route:</strong> ${safePickup} to ${safeDest}</p>
-                <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${booking.pickup_time}</p>
+                <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
                 <p><strong>Vehicle:</strong> ${safeVehicle}</p>
                 <p><strong>Passengers:</strong> ${booking.passengers}</p>
                 <p><strong>Special Requests:</strong> ${safeRequests}</p>

@@ -139,52 +139,54 @@ export default function LocationsPage() {
                 </div>
             ) : (
                 <div className="bg-neutral-800 rounded-xl border border-neutral-700 overflow-hidden">
-                    <table className="w-full">
-                        <thead className="bg-neutral-900/50">
-                            <tr className="border-b border-neutral-700">
-                                <th className="text-left px-5 py-3 text-xs text-neutral-400 uppercase tracking-widest font-bold">Location</th>
-                                <th className="text-left px-5 py-3 text-xs text-neutral-400 uppercase tracking-widest font-bold">Type</th>
-                                <th className="text-left px-5 py-3 text-xs text-neutral-400 uppercase tracking-widest font-bold">Status</th>
-                                <th className="text-right px-5 py-3 w-28" />
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {locations.map(loc => (
-                                <tr key={loc.id} className="border-b border-neutral-700/50 hover:bg-neutral-700/20 transition-colors">
-                                    <td className="px-5 py-4">
-                                        <div className="flex items-center gap-3">
-                                            <div className="bg-neutral-900 p-2 rounded-lg shrink-0">
-                                                <MapPin className="w-4 h-4 text-primary" />
-                                            </div>
-                                            <span className="font-bold text-white">{loc.name}</span>
-                                        </div>
-                                    </td>
-                                    <td className="px-5 py-4 text-neutral-300 text-sm">{loc.type}</td>
-                                    <td className="px-5 py-4">
-                                        <button
-                                            onClick={() => toggleStatus(loc)}
-                                            className={`flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-full transition-colors ${loc.status === 'Active' ? 'bg-green-500/15 text-green-400 hover:bg-green-500/25' : 'bg-red-500/15 text-red-400 hover:bg-red-500/25'}`}
-                                        >
-                                            {loc.status === 'Active'
-                                                ? <><ToggleRight className="w-3.5 h-3.5" />Active</>
-                                                : <><ToggleLeft className="w-3.5 h-3.5" />Inactive</>
-                                            }
-                                        </button>
-                                    </td>
-                                    <td className="px-5 py-4 text-right">
-                                        <div className="flex items-center justify-end gap-1">
-                                            <Button variant="ghost" size="icon" onClick={() => openEdit(loc)} className="h-8 w-8 text-neutral-400 hover:text-white hover:bg-neutral-600">
-                                                <Pencil className="h-4 w-4" />
-                                            </Button>
-                                            <Button variant="ghost" size="icon" onClick={() => handleDelete(loc.id)} className="h-8 w-8 text-red-400 hover:text-red-300 hover:bg-red-500/10">
-                                                <Trash2 className="h-4 w-4" />
-                                            </Button>
-                                        </div>
-                                    </td>
+                    <div className="overflow-x-auto">
+                        <table className="w-full">
+                            <thead className="bg-neutral-900/50">
+                                <tr className="border-b border-neutral-700">
+                                    <th className="text-left px-5 py-3 text-xs text-neutral-400 uppercase tracking-widest font-bold">Location</th>
+                                    <th className="text-left px-5 py-3 text-xs text-neutral-400 uppercase tracking-widest font-bold">Type</th>
+                                    <th className="text-left px-5 py-3 text-xs text-neutral-400 uppercase tracking-widest font-bold">Status</th>
+                                    <th className="text-right px-5 py-3 w-28" />
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {locations.map(loc => (
+                                    <tr key={loc.id} className="border-b border-neutral-700/50 hover:bg-neutral-700/20 transition-colors">
+                                        <td className="px-5 py-4">
+                                            <div className="flex items-center gap-3">
+                                                <div className="bg-neutral-900 p-2 rounded-lg shrink-0">
+                                                    <MapPin className="w-4 h-4 text-primary" />
+                                                </div>
+                                                <span className="font-bold text-white">{loc.name}</span>
+                                            </div>
+                                        </td>
+                                        <td className="px-5 py-4 text-neutral-300 text-sm">{loc.type}</td>
+                                        <td className="px-5 py-4">
+                                            <button
+                                                onClick={() => toggleStatus(loc)}
+                                                className={`flex items-center gap-1.5 text-xs font-bold px-2.5 py-1 rounded-full transition-colors ${loc.status === 'Active' ? 'bg-green-500/15 text-green-400 hover:bg-green-500/25' : 'bg-red-500/15 text-red-400 hover:bg-red-500/25'}`}
+                                            >
+                                                {loc.status === 'Active'
+                                                    ? <><ToggleRight className="w-3.5 h-3.5" />Active</>
+                                                    : <><ToggleLeft className="w-3.5 h-3.5" />Inactive</>
+                                                }
+                                            </button>
+                                        </td>
+                                        <td className="px-5 py-4 text-right">
+                                            <div className="flex items-center justify-end gap-1">
+                                                <Button variant="ghost" size="icon" onClick={() => openEdit(loc)} className="h-8 w-8 text-neutral-400 hover:text-white hover:bg-neutral-600">
+                                                    <Pencil className="h-4 w-4" />
+                                                </Button>
+                                                <Button variant="ghost" size="icon" onClick={() => handleDelete(loc.id)} className="h-8 w-8 text-red-400 hover:text-red-300 hover:bg-red-500/10">
+                                                    <Trash2 className="h-4 w-4" />
+                                                </Button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                     {locations.length === 0 && (
                         <div className="text-center py-16 text-neutral-500">
                             No locations yet. Click &quot;Add Location&quot; to start.

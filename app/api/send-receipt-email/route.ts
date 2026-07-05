@@ -29,6 +29,22 @@ export async function POST(request: NextRequest) {
         const curr = currency || 'SAR';
         const amount = amountPaid ?? booking.total_price?.toFixed(2) ?? '0.00';
 
+        const formatTime12h = (timeStr?: string): string => {
+            if (!timeStr) return '—';
+            try {
+                const parts = timeStr.split(':');
+                if (parts.length < 2) return timeStr;
+                let hours = parseInt(parts[0], 10);
+                const minutes = parts[1];
+                if (isNaN(hours)) return timeStr;
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours ? hours : 12;
+                return `${hours}:${minutes} ${ampm}`;
+            } catch (e) {
+                return timeStr;
+            }
+        };
+
         await sendMail({
             to: booking.customer_email,
             subject: `✅ Payment Receipt ${refId} - VIP Transfer KSA`,
@@ -53,7 +69,7 @@ export async function POST(request: NextRequest) {
                         <p style="margin: 10px 0;"><strong>Receipt Ref:</strong> ${refId}</p>
                         <p style="margin: 5px 0;"><strong>Pickup:</strong> ${booking.pickup_location}</p>
                         <p style="margin: 5px 0;"><strong>Destination:</strong> ${booking.destination}</p>
-                        <p style="margin: 5px 0;"><strong>Date/Time:</strong> ${booking.pickup_date} at ${booking.pickup_time}</p>
+                        <p style="margin: 5px 0;"><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
                         <p style="margin: 5px 0;"><strong>Vehicle:</strong> ${booking.vehicle_type}</p>
                         <p style="margin: 5px 0;"><strong>Payment Method:</strong> ${paymentMethod || 'Cash to Driver'}</p>
                     </div>
@@ -85,7 +101,7 @@ export async function POST(request: NextRequest) {
                 <p><strong>Email:</strong> ${booking.customer_email}</p>
                 <p><strong>Phone:</strong> ${booking.customer_phone || 'N/A'}</p>
                 <p><strong>Route:</strong> ${booking.pickup_location} → ${booking.destination}</p>
-                <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${booking.pickup_time}</p>
+                <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
                 <p><strong>Vehicle:</strong> ${booking.vehicle_type}</p>
                 <p><strong>Amount Paid:</strong> <span style="font-size:18px; font-weight:900; color:#15803d;">${curr} ${amount}</span></p>
                 <p><strong>Payment Method:</strong> ${paymentMethod || 'Cash to Driver'}</p>

@@ -117,6 +117,23 @@ export default function InvoicePage() {
         if (id) fetchBooking();
     }, [id]);
 
+    const formatTime12h = (timeStr?: string) => {
+        if (!timeStr) return '—';
+        try {
+            const parts = timeStr.split(':');
+            if (parts.length < 2) return timeStr;
+            let hours = parseInt(parts[0], 10);
+            const minutes = parts[1];
+            if (isNaN(hours)) return timeStr;
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            return `${hours}:${minutes} ${ampm}`;
+        } catch (e) {
+            return timeStr;
+        }
+    };
+
     const handlePrint = async () => {
         if (!booking) return;
         const customerName = booking.customer_name ? booking.customer_name.replace(/\s+/g, '-') : 'Client';
@@ -606,7 +623,7 @@ export default function InvoicePage() {
                                 <div className="space-y-0.5">
                                     {[
                                         { icon: <Calendar className="w-2.5 h-2.5" />, label: 'Date', value: booking.pickup_date },
-                                        { icon: <Clock className="w-2.5 h-2.5" />, label: 'Time', value: booking.pickup_time },
+                                        { icon: <Clock className="w-2.5 h-2.5" />, label: 'Time', value: formatTime12h(booking.pickup_time) },
                                         { icon: <Car className="w-2.5 h-2.5" />, label: 'Vehicle', value: booking.vehicle_type },
                                         { icon: <User className="w-2.5 h-2.5" />, label: 'Pax', value: `${booking.passengers} Pax | ${booking.luggage} Bags` },
                                     ].map(({ icon, label, value }) => (
@@ -632,7 +649,7 @@ export default function InvoicePage() {
                                 <div className="relative">
                                     <div className="absolute -left-[18px] top-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white shadow-sm"></div>
                                     <p className="text-[8px] text-gray-400 font-black uppercase">
-                                        Pick-up{booking.pickup_time ? ` · ${booking.pickup_time}` : ''}
+                                        Pick-up{booking.pickup_time ? ` · ${formatTime12h(booking.pickup_time)}` : ''}
                                     </p>
                                     <p className="text-[12px] font-bold text-gray-900 leading-snug break-words">{booking.pickup_location}</p>
                                 </div>
