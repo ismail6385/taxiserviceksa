@@ -7667,4 +7667,107 @@ AlUla's desert climate dictates two distinct travel seasons. The vibrant, busy, 
         `
     }
 
+,
+
+    {
+        title: "Best Hiking Trails in AlUla 2026: Routes & Maps",
+        slug: "best-hiking-trails-alula-2026",
+        category: "Tourist Guide",
+        excerpt: "Explore the best hiking trails in AlUla. Complete guide to the Oasis Heritage Trail, Adventure Trail, Ridge Walk, and hidden canyon hikes.",
+        seo_title: "Best Hiking Trails in AlUla 2026: Routes & Maps",
+        seo_description: "Discover the spectacular desert and oasis hikes of AlUla with route maps and safety tips.",
+        seo_keywords: ["AlUla hiking trails 2026", "Oasis Heritage Trail AlUla", "AlUla hiking routes", "adventure trail AlUla", "canyon walk AlUla"],
+        content: `
+Explore AlUla's spectacular volcanic plateaus, date palm oases, and ancient sandstone canyons on foot.
+
+### Top Hiking Trails:
+*   **Oasis Heritage Trail (Easy):** 3.0 km flat walk under palm trees.
+*   **The Adventure Trail (Moderate):** 8.0 km rugged canyon walk with rock art.
+*   **Ridge Walk Trail (Hard):** 4.0 km steep climb overlooking Ashar Valley.
+        `
+    },
+    {
+        title: "Camping in AlUla: Complete Guide",
+        slug: "camping-alula-complete-guide",
+        category: "Tourist Guide",
+        excerpt: "The ultimate guide to camping in AlUla. Learn about luxury glamping resorts, traditional desert camping, wild camping rules, gear rentals, and stargazing locations.",
+        seo_title: "Camping in AlUla: Complete Guide",
+        seo_description: "Sleep under a blanket of stars. Discover the best camping and glamping experiences in AlUla.",
+        seo_keywords: ["camping in AlUla", "AlUla luxury glamping", "desert camping Saudi Arabia", "stargazing Gharameel AlUla", "AlUla campsites"],
+        content: `
+Sleep under one of the darkest skies on earth. AlUla offers a range of overnight desert experiences, catering to both rugged adventurers and luxury travelers.
+
+### Camping Options:
+*   **Luxury Glamping:** Caravans or luxury canvas tents at resorts like Caravan by Habitas.
+*   **Traditional Camping:** Guided tours deep into the canyons (Gharameel or Sharaan).
+        `
+    },
+    {
+        title: "Hot Air Balloon in AlUla: Everything You Need to Know",
+        slug: "hot-air-balloon-alula-guide",
+        category: "Tourist Guide",
+        excerpt: "Everything you need to know about hot air balloon flights in AlUla. Compare flight prices, find booking times, learn about the AlUla Skies Festival, and get tips.",
+        seo_title: "Hot Air Balloon in AlUla: Flights, Prices & Booking",
+        seo_description: "Soar above ancient Nabataean tombs and dramatic sandstone canyons in a hot air balloon over AlUla.",
+        seo_keywords: ["hot air balloon AlUla", "AlUla skies festival 2026", "hot air balloon price Saudi Arabia", "Hegra balloon rides", "AlUla balloon festival booking"],
+        content: `
+Float silently over Hegra's tombs and volcanic plains. As the sun rises, the sandstone canyons and Nabataean tombs of Hegra (Mada'in Salih) are painted in shades of orange and gold.
+
+### Flight Details:
+*   **Takeoff:** Sunrise (around 5:30 AM).
+*   **Duration:** Approximately 45 to 60 minutes.
+*   **Price:** Starts from ~990 SAR per person.
+        `
+    },
+    {
+        title: "Best Sunrise & Sunset Spots in AlUla",
+        slug: "best-sunrise-sunset-spots-alula",
+        category: "Tourist Guide",
+        excerpt: "Discover the most spectacular sunrise and sunset spots in AlUla. Complete guide to Harrat Viewpoint, Elephant Rock, Hegra, and Maraya reflection views.",
+        seo_title: "Best Sunrise & Sunset Spots in AlUla",
+        seo_description: "Where to watch the sun rise and set in the ancient desert valleys of AlUla.",
+        seo_keywords: ["AlUla sunrise spots", "best sunset AlUla", "Harrat viewpoint AlUla", "Elephant rock sunset", "Maraya concert hall reflections"],
+        content: `
+Capture the golden hour in the desert. AlUla's canyon landscapes are famous for their changing colors at dawn and dusk.
+
+### Top Locations:
+*   **Harrat Viewpoint (Sunset):** Panoramic views with mountain breeze.
+*   **Elephant Rock (Sunset & Night):** Relax in sunken seating area by fire pits.
+*   **Maraya Concert Hall (Sunrise):** Watch the sun rise over mirrored panels.
+        `
+    },
+    {
+        title: "Wildlife & Nature in AlUla: Reserves & Species",
+        slug: "wildlife-nature-alula",
+        category: "Tourist Guide",
+        excerpt: "Explore the spectacular wildlife and nature of AlUla. Complete guide to Sharaan Nature Reserve, Arabian Leopard breeding program, flora, and desert fauna.",
+        seo_title: "Wildlife & Nature in AlUla: Reserves & Species",
+        seo_description: "Discover the rich flora, fauna, and protective conservation reserves in the historic valley of AlUla.",
+        seo_keywords: ["AlUla wildlife and nature", "Sharaan nature reserve", "Arabian leopard AlUla", "Saudi Arabia desert animals", "AlUla flora fauna"],
+        content: `
+Discover the thriving biodiversity of the desert. AlUla features deep sandstone canyons, volcanic fields, and fertile soil that support diverse wildlife.
+
+### Key Wildlife Projects:
+*   **Arabian Leopard:** Breeding programs to save this critically endangered big cat.
+*   **Sharaan Nature Reserve:** A 1,500 sq km area restoring native flora and fauna.
+        `
+    },
+    {
+        title: "Rock Climbing & Adventure Sports in AlUla",
+        slug: "rock-climbing-adventure-sports-alula",
+        category: "Tourist Guide",
+        excerpt: "The complete guide to rock climbing, via ferrata, zip-lining, and adventure sports in AlUla. Learn about climbing routes, booking tickets, and safety tips.",
+        seo_title: "Rock Climbing & Adventure Sports in AlUla",
+        seo_description: "Scale ancient cliffs and soar over desert canyons. Complete guide to adventure sports in AlUla.",
+        seo_keywords: ["rock climbing AlUla", "via ferrata AlUla", "AlUla zipline price", "adventure sports Saudi Arabia", "AlUla canyon climbing"],
+        content: `
+Scale ancient sandstone cliffs and fly over deep valleys. AlUla is quickly becoming Saudi Arabia's premier hub for adventure sports.
+
+### Top Activities:
+*   **Via Ferrata & Canyon Climb:** Securely scale vertical walls.
+*   **AlUla Giant Zipline:** Saudi Arabia's longest and fastest zipline (speeds up to 120 km/h).
+*   **Climbing Trails:** Bolted sports routes in canyon zones.
+        `
+    }
+
 ];
