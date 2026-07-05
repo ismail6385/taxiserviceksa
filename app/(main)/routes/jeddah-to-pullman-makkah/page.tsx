@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 import Link from 'next/link';
 
 import JsonLdLocation from '@/components/JsonLdLocation';
@@ -9,6 +9,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RecentTrips from '@/components/RecentTrips';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import RouteFleetSection from '@/components/RouteFleetSection';
 
 
 export const metadata: Metadata = {
@@ -193,6 +194,8 @@ export default function JeddahToPullmanPage() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
                 <RecentTrips />
             </div>
+
+            <RouteFleetSection />
 
             <MicroSemanticFAQ
                         contextName="Jeddah To Pullman Makkah"

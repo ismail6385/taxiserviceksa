@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 
 import JsonLdLocation from '@/components/JsonLdLocation';
 import { CheckCircle2, Clock, Shield, Star, ArrowRight, Zap, Users } from 'lucide-react';
@@ -6,6 +6,7 @@ import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import RouteFleetSection from '@/components/RouteFleetSection';
 
 export const metadata: Metadata = {
     title: 'Riyadh to Dubai Taxi | 3500 SAR GMC VIP Transfer | Taxi Service KSA',
@@ -323,7 +324,9 @@ export default function RiyadhDubaiRoutePage() {
             </section>
 
             {/* ─── RELATED LOCATIONS (bottom) ─── */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <RouteFleetSection />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
                 <RelatedLocations currentCity="Riyadh" />
             </div>
         </div>

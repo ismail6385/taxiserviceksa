@@ -1,4 +1,4 @@
-
+﻿
 import { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -11,6 +11,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import RouteFleetSection from '@/components/RouteFleetSection';
 
 
 export const metadata: Metadata = {
@@ -162,7 +163,9 @@ export default function JeddahMadinahRoutePage() {
             />
 
             <div className="max-w-4xl mx-auto py-20 px-4">
-                <MicroSemanticFAQ
+                <RouteFleetSection />
+
+            <MicroSemanticFAQ
                         contextName="Jeddah to Madinah" 
                     faqs={[
                         {

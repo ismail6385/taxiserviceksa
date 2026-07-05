@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
@@ -9,6 +9,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import JsonLdRoute from '@/components/JsonLdRoute';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import RouteFleetSection from '@/components/RouteFleetSection';
 import PricingTable from '@/components/PricingTable';
 import TrainComparison from '@/components/TrainComparison';
 import BookingProcess from '@/components/BookingProcess';
@@ -226,7 +227,9 @@ export default function MakkahMadinahRoutePage() {
             </section>
 
             <div className="max-w-4xl mx-auto py-20 px-4">
-                <MicroSemanticFAQ
+                <RouteFleetSection />
+
+            <MicroSemanticFAQ
                     contextName="Makkah to Madinah 2026" 
                     faqs={[
                         {

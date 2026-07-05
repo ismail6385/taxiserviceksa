@@ -1,8 +1,9 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Car, Clock, MapPin, CheckCircle2, Shield, Users, ArrowRight, Briefcase, Navigation, Star, Plane, Coffee, Train, User, Compass, DollarSign } from 'lucide-react';
 import Hero from '@/components/Hero';
+import RouteFleetSection from '@/components/RouteFleetSection';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
@@ -151,7 +152,9 @@ export default function MadinahJeddahRoutePage() {
             />
 
             <div className="max-w-4xl mx-auto py-20 px-4">
-                <MicroSemanticFAQ
+                <RouteFleetSection />
+
+            <MicroSemanticFAQ
                         contextName="Madinah to Jeddah" 
                     faqs={[
                         {

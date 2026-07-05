@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 
@@ -10,6 +10,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import RouteFleetSection from '@/components/RouteFleetSection';
 import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
@@ -300,7 +301,9 @@ export default function MadinahAlUlaRoutePage() {
                 </div>
             </section>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-20">
+            <RouteFleetSection />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
                 <RelatedLocations currentCity="Madinah" />
             </div>
 

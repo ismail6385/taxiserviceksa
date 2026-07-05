@@ -1,10 +1,11 @@
-
+﻿
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
 import { Car, Clock, MapPin, CheckCircle2, Shield, Users, ArrowRight, Briefcase, Navigation, Star, Train, Coffee, User, Compass, DollarSign } from 'lucide-react';
 import Hero from '@/components/Hero';
+import RouteFleetSection from '@/components/RouteFleetSection';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedLocations from '@/components/seo/RelatedLocations';
@@ -154,7 +155,9 @@ export default function MadinahToMakkahPage() {
             />
 
             <div className="max-w-4xl mx-auto py-20 px-4">
-                <MicroSemanticFAQ
+                <RouteFleetSection />
+
+            <MicroSemanticFAQ
                         contextName="Madinah to Makkah" 
                     faqs={[
                         {

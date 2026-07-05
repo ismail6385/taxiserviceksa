@@ -1,10 +1,11 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 import Link from 'next/link';
 
 import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, CheckCircle2, Building2, Globe, ArrowRight } from 'lucide-react';
 import Hero from '@/components/Hero';
+import RouteFleetSection from '@/components/RouteFleetSection';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
@@ -139,9 +140,11 @@ export default function MakkahAmmanRoutePage() {
                 </div>
             </section>
 
+            <RouteFleetSection />
+
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
-                    <TravelConsensus
+                <TravelConsensus
                         contextName="Makkah to Amman"
                         points={[
                             {

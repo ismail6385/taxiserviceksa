@@ -1,9 +1,10 @@
-
+﻿
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import { Plane, Clock, MapPin, CheckCircle2, Shield, User, ArrowRight } from 'lucide-react';
 import Hero from '@/components/Hero';
+import RouteFleetSection from '@/components/RouteFleetSection';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import ReviewForm from '@/components/seo/ReviewForm';
@@ -109,7 +110,9 @@ export default function JeddahAirportToMakkahPage() {
 
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
-                    <MicroSemanticFAQ
+                    <RouteFleetSection />
+
+            <MicroSemanticFAQ
                         contextName="Jeddah Makkah Old"
                         faqs={[
                             {

@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
@@ -11,6 +11,7 @@ import RoutePerspective from '@/components/seo/RoutePerspective';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import JsonLdRoute from '@/components/JsonLdRoute';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import RouteFleetSection from '@/components/RouteFleetSection';
 import PricingTable from '@/components/PricingTable';
 import TrainComparison from '@/components/TrainComparison';
 import BookingProcess from '@/components/BookingProcess';
@@ -220,7 +221,9 @@ export default function JeddahMakkahRoutePage() {
             />
 
             <div className="max-w-4xl mx-auto py-20 px-4">
-                <MicroSemanticFAQ
+                <RouteFleetSection />
+
+            <MicroSemanticFAQ
                         contextName="Jeddah to Makkah 2026" 
                     faqs={[
                         {

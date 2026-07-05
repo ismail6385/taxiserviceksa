@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -10,6 +10,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import RouteFleetSection from '@/components/RouteFleetSection';
 import TrustSignals from '@/components/TrustSignals';
 import TravelRequirements from '@/components/TravelRequirements';
 import PricingTable from '@/components/PricingTable';
@@ -623,6 +624,8 @@ export default function KuwaitRiyadhRoutePage() {
                     </div>
                 </div>
             </section>
+
+            <RouteFleetSection />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
                 <RelatedLocations currentCity="Riyadh" />

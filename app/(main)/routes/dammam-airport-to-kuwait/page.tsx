@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 import Link from 'next/link';
 
 import JsonLdLocation from '@/components/JsonLdLocation';
@@ -9,6 +9,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import RouteFleetSection from '@/components/RouteFleetSection';
 
 
 export const metadata: Metadata = {
@@ -257,9 +258,11 @@ export default function DammamAirportKuwaitRoutePage() {
                 </div>
             </section>
 
+            <RouteFleetSection />
+
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
-                    <TravelConsensus
+                <TravelConsensus
                         contextName="DMM Airport to Kuwait"
                         points={[
                             {

@@ -1,4 +1,4 @@
-
+﻿
 import { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -6,6 +6,7 @@ import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Mountain, CloudSun, ArrowRight, User, Compass, Shield, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
+import RouteFleetSection from '@/components/RouteFleetSection';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
@@ -160,7 +161,9 @@ export default function JeddahTaifRoutePage() {
             />
 
             <div className="max-w-4xl mx-auto py-20 px-4">
-                <MicroSemanticFAQ
+                <RouteFleetSection />
+
+            <MicroSemanticFAQ
                         contextName="Jeddah to Taif" 
                     faqs={[
                         {

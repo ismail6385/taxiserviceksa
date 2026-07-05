@@ -1,4 +1,4 @@
-
+﻿
 import { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -6,6 +6,7 @@ import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
 import { Car, Clock, MapPin, CheckCircle2, Shield, Users, ArrowRight, Briefcase, Navigation, Star, Plane, Coffee, Building2, User } from 'lucide-react';
 import Hero from '@/components/Hero';
+import RouteFleetSection from '@/components/RouteFleetSection';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import FreshnessStatus from '@/components/seo/FreshnessStatus';
@@ -273,7 +274,9 @@ export default function JeddahRiyadhRoutePage() {
                 </div>
             </section>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-white py-12 border-t border-gray-100">
+            <RouteFleetSection />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
                 <RelatedLocations currentCity="Jeddah" />
             </div>
 

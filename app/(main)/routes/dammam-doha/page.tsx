@@ -9,6 +9,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import RouteFleetSection from '@/components/RouteFleetSection';
 
 
 export const metadata: Metadata = {
@@ -64,11 +65,11 @@ export default function DammamDohaRoutePage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Dammam&dropoff=Doha">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            WhatsApp Booking (1000 SAR)
+                            Book Online
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@taxiserviceksa.com?text=Hello,%20I%20want%20to%20book%20a%20taxi%20from%20Dammam%20to%20Doha">
+                    <a href="https://wa.me/966569487569?text=Hello,%20I%20want%20to%20book%20a%20taxi%20from%20Dammam%20to%20Doha" target="_blank" rel="noopener noreferrer">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                     </a>
                 </div>
@@ -139,6 +140,8 @@ export default function DammamDohaRoutePage() {
                 </div>
             </section>
 
+            <RouteFleetSection />
+
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <TravelConsensus
@@ -164,7 +167,51 @@ export default function DammamDohaRoutePage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
-                <RelatedLocations currentCity="Dammam" />
+                <RelatedLocations 
+                    currentCity="None" 
+                    labels={{
+                        title: "Popular Nearby Routes",
+                        subtitle: "Direct private transfers and cross-border taxi services",
+                        viewRoutes: "View Routes"
+                    }}
+                    customLinks={[
+                        {
+                            name: "Dammam to Riyadh Taxi",
+                            url: "/routes/dammam-riyadh/",
+                            description: "Premium intercity private transfers between Dammam and Riyadh."
+                        },
+                        {
+                            name: "Dammam to Makkah Taxi",
+                            url: "/locations/makkah/",
+                            description: "Long-distance VIP transfers from Dammam to the Holy City of Makkah."
+                        },
+                        {
+                            name: "Dammam to Madinah Taxi",
+                            url: "/locations/madinah/",
+                            description: "Reliable private chauffeur service from Dammam to Madinah."
+                        },
+                        {
+                            name: "Dammam to Bahrain Taxi",
+                            url: "/routes/dammam-bahrain/",
+                            description: "Cross-border transfers over the King Fahd Causeway to Bahrain."
+                        },
+                        {
+                            name: "Dammam to Khobar Taxi",
+                            url: "/locations/al-khobar/",
+                            description: "Quick local and executive transfers between Dammam and Al Khobar."
+                        },
+                        {
+                            name: "Dammam Airport Taxi",
+                            url: "/dammam-airport-taxi/",
+                            description: "24/7 airport pickups and drop-offs at King Fahd International Airport."
+                        },
+                        {
+                            name: "Dammam to Doha Airport Taxi",
+                            url: "/booking?pickup=Dammam&dropoff=Doha+Airport",
+                            description: "Direct cross-border private transfers to Hamad International Airport in Doha."
+                        }
+                    ]}
+                />
             </div>
 
             <MicroSemanticFAQ
@@ -184,7 +231,7 @@ export default function DammamDohaRoutePage() {
                     {
                         question: "Is the border vehicle insurance included in the price?",
                         shortAnswer: "Yes",
-                        detailedAnswer: "Yes, our quoted price of 1000 SAR includes the vehicle crossing insurance and toll fees.",
+                        detailedAnswer: "Yes, our quoted price includes the vehicle crossing insurance and toll fees.",
                         perspectives: []
                     }
                 ]}
@@ -192,6 +239,3 @@ export default function DammamDohaRoutePage() {
         </div>
     );
 }
-
-
-
