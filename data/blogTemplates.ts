@@ -7562,4 +7562,109 @@ Many expat compounds operate internal shuttle buses between the compound gate an
 Welcome to Saudi Arabia — the Kingdom rewards those who organize their logistics professionally.
 `
     }
+,
+
+    {
+        title: "AlUla Winter at Tantora Festival Guide 2026",
+        slug: "alula-winter-at-tantora-festival-guide-2026",
+        category: "Tourist Guide",
+        excerpt: "Complete guide to Winter at Tantora 2026 in AlUla. Event dates, concert schedules, ticket booking tips, heritage site tours, and transport guide.",
+        seo_title: "AlUla Winter at Tantora Festival Guide 2026",
+        seo_description: "Plan your visit to the premier winter arts and heritage festival in AlUla.",
+        seo_keywords: ["Winter at Tantora 2026", "AlUla Tantora festival dates", "Winter at Tantora tickets", "Maraya concert hall events", "AlUla winter festival"],
+        content: `
+**Winter at Tantora** is the flagship cultural festival of the AlUla season. Named after the traditional sundial in AlUla Old Town that marked the start of the winter crop season, this event brings together high-end arts, live music, balloon festivals, and historical storytelling.
+
+### Festival Highlights:
+*   **Maraya Concerts & Shows:** World-class musical performances by Arab and international legends inside the world's largest mirrored building, Maraya.
+*   **Tantora Celebration:** Traditional festivities at the sundial (Tantora) in AlUla Old Town, celebrating the start of the winter planting season.
+*   **Hot Air Balloon Flights:** Witness hundreds of colorful balloons soaring over the ancient rock formations and UNESCO heritage tombs of Hegra.
+        `
+    },
+    {
+        title: "AlUla Events Calendar 2026: Festivals, Concerts & Sports",
+        slug: "alula-events-calendar-2026",
+        category: "Tourist Guide",
+        excerpt: "The complete AlUla events calendar for 2026. Dates and details for Winter at Tantora, AlUla Skies Balloon Festival, Wellness Festival, Desert Polo, and concerts.",
+        seo_title: "AlUla Events Calendar 2026: Festivals, Concerts & Sports",
+        seo_description: "Plan your trip around AlUla's spectacular yearly events and festivals.",
+        seo_keywords: ["AlUla events calendar 2026", "AlUla festival dates", "Maraya concerts 2026", "AlUla hot air balloon festival", "Desert polo AlUla"],
+        content: `
+AlUla organizes its yearly calendar under the "AlUla Moments" umbrella. These festivals feature a mix of local culture, arts, luxury dining, and sports.
+
+### Yearly Festival Seasons:
+*   **Winter (Dec - Jan):** Winter at Tantora
+*   **Late Winter (Feb):** AlUla Wellness Festival
+*   **Spring (Mar - Apr):** AlUla Skies Festival
+*   **All Year Round:** Hegra & Dadan Heritage Tours
+        `
+    },
+    {
+        title: "AlUla Ramadan Travel Guide: Opening Hours & Tips",
+        slug: "alula-ramadan-travel-guide",
+        category: "Tourist Guide",
+        excerpt: "The complete guide to visiting AlUla during Ramadan. Essential tips on restaurant opening times, tour hours at Hegra, cultural behaviors, and transport guidelines.",
+        seo_title: "AlUla Ramadan Travel Guide: Opening Hours & Tips",
+        seo_description: "Discover how to plan a respectful and rewarding trip to AlUla during the holy month of Ramadan.",
+        seo_keywords: ["AlUla Ramadan guide", "Hegra hours during Ramadan", "AlUla restaurants Ramadan", "Ramadan travel Saudi Arabia", "AlUla transport Ramadan"],
+        content: `
+Ramadan is a peaceful, spiritual month in Saudi Arabia. Visiting AlUla during this period offers a unique cultural perspective, characterized by quiet days and lively, celebratory desert nights.
+
+### What to Expect:
+*   **Daytime Quiet:** Most shops, cafes, and restaurants remain closed during the day. Locals rest, and public areas are very quiet.
+*   **Evening Iftar:** At sunset, the city comes alive. Families gather for Iftar, and restaurants stay open until the early morning hours (Suhoor).
+*   **Site Hours:** Heritage site tours at Hegra are scheduled in the morning and late afternoon to bypass mid-day heat.
+        `
+    },
+    {
+        title: "AlUla Eid Holiday Travel Guide: Festivals & Bookings",
+        slug: "alula-eid-holiday-travel-guide",
+        category: "Tourist Guide",
+        excerpt: "The ultimate guide to spending Eid Al-Fitr or Eid Al-Adha in AlUla. Learn about festive events, booking resort stays, holiday transportation, and crowd management.",
+        seo_title: "AlUla Eid Holiday Travel Guide: Festivals & Bookings",
+        seo_description: "Plan a spectacular and festive Eid holiday getaway in the historic desert oasis of AlUla.",
+        seo_keywords: ["AlUla Eid holiday", "Eid in AlUla events", "Eid travel Saudi Arabia", "AlUla hotels Eid", "Eid Al Fitr AlUla"],
+        content: `
+Spending the Eid holidays in AlUla is a magical experience. Luxury desert resorts like Habitas, Banyan Tree, and Shaden host special celebratory dinners, traditional Saudi folkloric sword dances (Ardah), and musical shows, creating a high-class festive atmosphere.
+
+### Key Pillars:
+*   **Festive Dinners:** Most premium restaurants and resorts offer special set menus for Eid dinners, featuring classic Saudi dishes with modern twists.
+*   **Cultural Activities:** Experience live music performances, traditional artisans, and celebratory lights in AlUla Old Town and Al-Jadidah district.
+*   **Advance Booking:** Demand is incredibly high. You must secure your flights, resort rooms, Hegra tickets, and transport well in advance.
+        `
+    },
+    {
+        title: "AlUla National Day Celebration Guide 2026",
+        slug: "alula-national-day-celebration-guide",
+        category: "Tourist Guide",
+        excerpt: "Discover how AlUla celebrates Saudi National Day on September 23rd. Events schedule, light shows at Elephant Rock, traditional dances, and holiday transport tips.",
+        seo_title: "AlUla National Day Celebration Guide 2026",
+        seo_description: "Celebrate Saudi National Day surrounded by AlUla's spectacular ancient heritage.",
+        seo_keywords: ["Saudi National Day AlUla 2026", "AlUla national day events", "September 23 Saudi Arabia", "Elephant rock light show", "AlUla national day activities"],
+        content: `
+Saudi National Day (September 23rd) is a public holiday across the Kingdom. In AlUla, this patriotism blends beautifully with the city's majestic geology, resulting in striking visual projections, musical events, and cultural exhibitions.
+
+### Top Activities & Sights:
+*   **Flag & Decor:** The streets of Al-Jadidah and AlUla Old Town are beautifully decorated with Saudi flags, green lights, and celebratory banners.
+*   **Projection Shows:** Spectacular light and video projection shows featuring the faces of the Royal Family and Saudi history projected onto Elephant Rock.
+*   **Folk Performances:** Watch traditional dances and live Arabic instrumental music in the public squares of the Oasis and Old Town.
+        `
+    },
+    {
+        title: "AlUla Summer vs Winter Travel Comparison: When to Visit",
+        slug: "alula-summer-vs-winter-travel-comparison",
+        category: "Tourist Guide",
+        excerpt: "Detailed comparison of traveling to AlUla in Summer vs. Winter. Compare temperatures, hotel prices, resort rates, festival schedules, and outdoor activities.",
+        seo_title: "AlUla Summer vs Winter Travel Comparison: When to Visit",
+        seo_description: "Decide when to visit AlUla by comparing summer and winter travel experiences.",
+        seo_keywords: ["AlUla summer vs winter", "best season to visit AlUla", "AlUla temperature summer", "AlUla hotel prices winter", "Hegra tours in summer"],
+        content: `
+AlUla's desert climate dictates two distinct travel seasons. The vibrant, busy, cold winter months contrast heavily with the quiet, hot, and highly budget-friendly summer months.
+
+### Highlights:
+*   **Winter (Nov-Mar):** Pleasant weather (12°C-25°C), high prices, active festivals.
+*   **Summer (May-Sep):** Hot weather (35°C-45°C), huge hotel/resort discounts, quiet sights.
+        `
+    }
+
 ];
