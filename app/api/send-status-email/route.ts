@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
         // Called both from the admin browser UI (session cookie) and
         // server-to-server by /api/booking/accept-quote (internal secret).
         if (!isInternalRequest(request)) {
-            const session = await getAdminSession();
+            const session = await getAdminSession(request);
             if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
 

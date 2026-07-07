@@ -1,25 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
-import { createServerClient } from '@supabase/ssr';
-import { cookies } from 'next/headers';
+import { getAdminSession } from '@/lib/admin-auth';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 
-async function getSession() {
-    const cookieStore = cookies();
-    const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-    const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-    const client = createServerClient(url, anonKey, {
-        cookies: { get: (name: string) => cookieStore.get(name)?.value }
-    });
-    const { data: { session } } = await client.auth.getSession();
-    return session;
-}
-
 // GET: list all promo codes
-export async function GET() {
-    const session = await getSession();
+export async function GET(request: NextRequest) {
+    const session = await getAdminSession(request);
     if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     const { data, error } = await supabaseAdmin
@@ -33,7 +21,7 @@ export async function GET() {
 
 // POST: create promo code
 export async function POST(request: NextRequest) {
-    const session = await getSession();
+    const session = await getAdminSession(request);
     if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     const body = await request.json();
@@ -63,7 +51,7 @@ export async function POST(request: NextRequest) {
 
 // PATCH: update promo code
 export async function PATCH(request: NextRequest) {
-    const session = await getSession();
+    const session = await getAdminSession(request);
     if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     const body = await request.json();
@@ -83,7 +71,7 @@ export async function PATCH(request: NextRequest) {
 
 // DELETE: remove promo code
 export async function DELETE(request: NextRequest) {
-    const session = await getSession();
+    const session = await getAdminSession(request);
     if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     const { id } = await request.json();

@@ -3,6 +3,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
+import { adminFetch } from '@/lib/admin-fetch';
 import {
     Mail, Search, RefreshCw, Send, Loader2,
     CheckCircle, FileText, Bell, Filter
@@ -129,7 +130,7 @@ export default function NotificationsPage() {
                 'In_progress':'in_progress',
             };
             const status = statusMap[n.type] || 'confirmed';
-            await fetch('/api/send-status-email', {
+            await adminFetch('/api/send-status-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

@@ -1,25 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { createServerClient } from '@supabase/ssr';
-import { cookies } from 'next/headers';
 import { supabaseAdmin } from '@/lib/supabase-admin';
+import { getAdminSession } from '@/lib/admin-auth';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 
-async function getSession() {
-    const cookieStore = cookies();
-    const supabase = createServerClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-        { cookies: { get: (name) => cookieStore.get(name)?.value } }
-    );
-    const { data: { session } } = await supabase.auth.getSession();
-    return session;
-}
-
 // POST: Insert one or many audit log entries
 export async function POST(request: NextRequest) {
-    const session = await getSession();
+    const session = await getAdminSession(request);
     if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     const body = await request.json();
@@ -49,7 +37,7 @@ export async function POST(request: NextRequest) {
 
 // GET: Fetch audit logs for a booking
 export async function GET(request: NextRequest) {
-    const session = await getSession();
+    const session = await getAdminSession(request);
     if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     const bookingId = new URL(request.url).searchParams.get('booking_id');

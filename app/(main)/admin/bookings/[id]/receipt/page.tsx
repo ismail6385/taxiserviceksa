@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
+import { adminFetch } from '@/lib/admin-fetch';
 import { ArrowLeft, Mail, Printer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -108,7 +109,7 @@ export default function ReceiptPage() {
                 .update({ currency, payment_status: 'paid', payment_method: paymentMethod })
                 .eq('id', booking.id);
 
-            const res = await fetch('/api/send-receipt-email', {
+            const res = await adminFetch('/api/send-receipt-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
+import { adminFetch } from '@/lib/admin-fetch';
 import { useRouter } from 'next/navigation';
 import { Plus, Trash2, ToggleLeft, ToggleRight, Tag, Percent, DollarSign, Copy, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -53,7 +54,7 @@ export default function PromoCodesPage() {
 
     const fetchCodes = async () => {
         setLoading(true);
-        const res = await fetch('/api/admin/promo-codes');
+        const res = await adminFetch('/api/admin/promo-codes');
         if (res.ok) {
             const data = await res.json();
             setCodes(data);
@@ -68,7 +69,7 @@ export default function PromoCodesPage() {
         }
         setSaving(true);
         setError('');
-        const res = await fetch('/api/admin/promo-codes', {
+        const res = await adminFetch('/api/admin/promo-codes', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -92,7 +93,7 @@ export default function PromoCodesPage() {
     };
 
     const toggleActive = async (pc: PromoCode) => {
-        await fetch('/api/admin/promo-codes', {
+        await adminFetch('/api/admin/promo-codes', {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: pc.id, is_active: !pc.is_active }),
@@ -102,7 +103,7 @@ export default function PromoCodesPage() {
 
     const deleteCode = async (id: string) => {
         if (!confirm('Delete this promo code?')) return;
-        await fetch('/api/admin/promo-codes', {
+        await adminFetch('/api/admin/promo-codes', {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id }),

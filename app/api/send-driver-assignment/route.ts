@@ -24,7 +24,7 @@ async function appendEmailLog(bookingId: string, entry: string) {
 
 export async function POST(request: NextRequest) {
     try {
-        const session = await getAdminSession();
+        const session = await getAdminSession(request);
         if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
         const { booking } = await request.json();

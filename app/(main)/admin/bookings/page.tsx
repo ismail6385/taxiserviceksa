@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
+import { adminFetch } from '@/lib/admin-fetch';
 import { useRouter } from 'next/navigation';
 import {
     Calendar,
@@ -409,7 +410,7 @@ export default function BookingsPage() {
             // Send Email Notification
             const booking = bookings.find(b => b.id === id);
             if (booking && ['quote_sent', 'confirmed', 'in_progress', 'cancelled', 'completed'].includes(newStatus)) {
-                fetch('/api/send-status-email', {
+                adminFetch('/api/send-status-email', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -432,7 +433,7 @@ export default function BookingsPage() {
         if (!confirm('Are you sure you want to delete this booking? This action cannot be undone.')) return;
 
         try {
-            const response = await fetch(`/api/admin/bookings/${id}`, {
+            const response = await adminFetch(`/api/admin/bookings/${id}`, {
                 method: 'DELETE',
             });
 
@@ -782,7 +783,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
 
     const resendEmail = async (booking: Booking) => {
         try {
-            const response = await fetch('/api/send-status-email', {
+            const response = await adminFetch('/api/send-status-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -821,7 +822,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
         setSendingQuote(true);
         setQuoteSent(false);
         try {
-            const res = await fetch('/api/send-quote-email', {
+            const res = await adminFetch('/api/send-quote-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -856,7 +857,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
             const curr = booking.currency || 'SAR';
             const amount = booking.total_price.toFixed(2);
             const refId = `RCP-${booking.id.slice(0, 8).toUpperCase()}`;
-            const res = await fetch('/api/send-receipt-email', {
+            const res = await adminFetch('/api/send-receipt-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -2474,7 +2475,7 @@ function DriverNotifyButton({ booking, onSuccess }: { booking: any; onSuccess: (
     const handleNotify = async () => {
         setSending(true);
         try {
-            const res = await fetch('/api/send-driver-assignment', {
+            const res = await adminFetch('/api/send-driver-assignment', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ booking }),

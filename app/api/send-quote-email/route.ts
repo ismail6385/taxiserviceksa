@@ -25,7 +25,7 @@ function escapeHtml(str: string | undefined | null): string {
 
 export async function POST(request: NextRequest) {
     try {
-        const session = await getAdminSession();
+        const session = await getAdminSession(request);
         if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
         const ip = getClientIp(request);

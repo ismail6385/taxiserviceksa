@@ -1,21 +1,9 @@
-import { createServerClient } from '@supabase/ssr';
-import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
+import { getAdminSession } from '@/lib/admin-auth';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
-
-async function getSession() {
-    const cookieStore = cookies();
-    const supabase = createServerClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-        { cookies: { get: (name) => cookieStore.get(name)?.value } }
-    );
-    const { data: { session } } = await supabase.auth.getSession();
-    return session;
-}
 
 // Soft delete — sets deleted_at timestamp instead of removing the row
 export async function DELETE(
@@ -24,7 +12,7 @@ export async function DELETE(
 ) {
     const id = params.id;
     try {
-        const session = await getSession();
+        const session = await getAdminSession(request);
         if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
         const { error } = await supabaseAdmin
@@ -54,7 +42,7 @@ export async function PATCH(
 ) {
     const id = params.id;
     try {
-        const session = await getSession();
+        const session = await getAdminSession(request);
         if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
         const { error } = await supabaseAdmin

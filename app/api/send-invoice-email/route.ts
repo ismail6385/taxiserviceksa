@@ -16,7 +16,7 @@ export const runtime = 'nodejs';
 
 export async function POST(request: NextRequest) {
     try {
-        const session = await getAdminSession();
+        const session = await getAdminSession(request);
         if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
         const body = await request.json();

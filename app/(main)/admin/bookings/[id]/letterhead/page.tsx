@@ -7,6 +7,7 @@ import { jsPDF } from 'jspdf';
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
+import { adminFetch } from '@/lib/admin-fetch';
 import { 
     Printer, 
     ArrowLeft, 
@@ -92,7 +93,7 @@ export default function LetterheadPage() {
             const pdfBase64 = pdf.output('datauristring').split(',')[1];
 
             // 2. Send Email with PDF attachment
-            const emailRes = await fetch('/api/send-quote-email', {
+            const emailRes = await adminFetch('/api/send-quote-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
