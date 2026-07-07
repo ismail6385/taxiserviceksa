@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendMail } from '@/lib/mail-server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
+import { getAdminSession } from '@/lib/admin-auth';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -23,6 +24,9 @@ async function appendEmailLog(bookingId: string, entry: string) {
 
 export async function POST(request: NextRequest) {
     try {
+        const session = await getAdminSession();
+        if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+
         const { booking } = await request.json();
 
         if (!booking?.customer_email || !booking?.driver_name || !booking?.driver_phone) {

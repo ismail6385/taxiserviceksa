@@ -1,7 +1,9 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { supabase } from '@/lib/supabase';
+import { useRouter } from 'next/navigation';
 import { blogService } from '@/lib/blogService';
 import { Button } from '@/components/ui/button';
 import { Check, Loader2, FileText, Sparkles } from 'lucide-react';
@@ -9,9 +11,16 @@ import { Check, Loader2, FileText, Sparkles } from 'lucide-react';
 import { BLOG_TEMPLATES } from '@/data/blogTemplates';
 
 export default function BlogGeneratorPage() {
+    const router = useRouter();
     const [generating, setGenerating] = useState<string | null>(null);
     const [generated, setGenerated] = useState<string[]>([]);
     const [status, setStatus] = useState<string>('');
+
+    useEffect(() => {
+        supabase.auth.getSession().then(({ data: { session } }) => {
+            if (!session) router.push('/admin/login');
+        });
+    }, [router]);
 
     const generateBlog = async (template: typeof BLOG_TEMPLATES[0]) => {
         try {

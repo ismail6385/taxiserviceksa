@@ -1,19 +1,25 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { supabase } from '@/lib/supabase';
+import { useRouter } from 'next/navigation';
 import { commentService, BlogComment } from '@/lib/commentService';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, XCircle, MessageSquare, Calendar, FileText } from 'lucide-react';
 
 export default function AdminCommentsPage() {
+    const router = useRouter();
     const [comments, setComments] = useState<BlogComment[]>([]);
     const [loading, setLoading] = useState(true);
     const [filter, setFilter] = useState<'all' | 'pending' | 'approved' | 'rejected'>('pending');
     const [replyText, setReplyText] = useState<{ [key: string]: string }>({});
 
     useEffect(() => {
-        loadComments();
-    }, []);
+        supabase.auth.getSession().then(({ data: { session } }) => {
+            if (!session) { router.push('/admin/login'); return; }
+            loadComments();
+        });
+    }, [router]);
 
     const loadComments = async () => {
         try {

@@ -1,17 +1,40 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendMail } from '@/lib/mail-server';
+import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 
+function escapeHtml(str: string | undefined | null): string {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
 export async function POST(request: NextRequest) {
     try {
+        const ip = getClientIp(request);
+        if (!checkRateLimit(`driver-email:${ip}`, 5, 60_000)) {
+            return NextResponse.json({ error: 'Too many requests' }, { status: 429 });
+        }
+
         const body = await request.json();
         if (!body || !body.driver) {
             return NextResponse.json({ error: 'Missing driver data' }, { status: 400 });
         }
 
-        const { driver } = body;
+        const rawDriver = body.driver;
+        const driver = {
+            full_name: escapeHtml(rawDriver.full_name),
+            phone_number: escapeHtml(rawDriver.phone_number),
+            email: rawDriver.email, // used as an email address, not interpolated raw into HTML text
+            city: escapeHtml(rawDriver.city),
+            vehicle_model: escapeHtml(rawDriver.vehicle_model),
+            owns_car: rawDriver.owns_car,
+        };
         const adminEmail = process.env.ADMIN_EMAIL || 'info@taxiserviceksa.com';
 
         console.log('Sending driver application emails for:', driver.full_name);
@@ -28,7 +51,7 @@ export async function POST(request: NextRequest) {
                   <div style="background-color: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
                     <p style="margin: 5px 0;"><strong>Driver Name:</strong> ${driver.full_name}</p>
                     <p style="margin: 5px 0;"><strong>Phone:</strong> ${driver.phone_number}</p>
-                    <p style="margin: 5px 0;"><strong>Email:</strong> ${driver.email}</p>
+                    <p style="margin: 5px 0;"><strong>Email:</strong> ${escapeHtml(driver.email)}</p>
                     <p style="margin: 5px 0;"><strong>City:</strong> ${driver.city}</p>
                     <p style="margin: 5px 0;"><strong>Vehicle:</strong> ${driver.vehicle_model}</p>
                     <p style="margin: 5px 0;"><strong>Owns Car:</strong> ${driver.owns_car ? 'Yes' : 'No'}</p>

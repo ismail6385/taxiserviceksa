@@ -1,3 +1,11 @@
+-- ============================================================
+-- SUPERSEDED — do not run as-is. This grants `service_role` FOR SELECT/ALL
+-- with USING(true), which is redundant (service_role already bypasses RLS)
+-- and grants `authenticated` FOR INSERT with no ownership check, meaning
+-- any signed-up user could insert arbitrary bookings. It does not restrict
+-- who can SELECT/UPDATE/DELETE bookings for the anon role, which is the
+-- actual gap. See supabase-rls-hardening.sql for the corrected policy set.
+-- ============================================================
 -- Fix RLS Policy for Bookings Table
 -- Run this in Supabase SQL Editor
 

@@ -50,9 +50,13 @@ export async function POST(request: NextRequest) {
 
     // Fire-and-forget confirmation email
     const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://taxiserviceksa.com';
+    const internalHeaders: Record<string, string> = { 'Content-Type': 'application/json' };
+    if (process.env.INTERNAL_API_SECRET) {
+        internalHeaders['x-internal-secret'] = process.env.INTERNAL_API_SECRET;
+    }
     fetch(`${baseUrl}/api/send-status-email`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: internalHeaders,
         body: JSON.stringify({
             bookingId: booking.id,
             status: 'confirmed',

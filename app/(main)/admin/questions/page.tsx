@@ -1,20 +1,26 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { supabase } from '@/lib/supabase';
+import { useRouter } from 'next/navigation';
 import { questionService, Question } from '@/lib/reviewQuestionService';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, XCircle, Calendar, MapPin, Tag } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export default function AdminQuestionsPage() {
+    const router = useRouter();
     const [questions, setQuestions] = useState<Question[]>([]);
     const [loading, setLoading] = useState(true);
     const [filter, setFilter] = useState<'all' | 'pending' | 'answered' | 'rejected'>('all');
     const [answerText, setAnswerText] = useState<{ [key: string]: string }>({});
 
     useEffect(() => {
-        loadQuestions();
-    }, []);
+        supabase.auth.getSession().then(({ data: { session } }) => {
+            if (!session) { router.push('/admin/login'); return; }
+            loadQuestions();
+        });
+    }, [router]);
 
     const loadQuestions = async () => {
         try {

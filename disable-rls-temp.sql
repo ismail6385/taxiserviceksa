@@ -1,3 +1,11 @@
+-- ============================================================
+-- DO NOT RUN THIS ON PRODUCTION.
+-- This disables Row Level Security on `bookings`, which means ANY
+-- visitor (using only the public anon API key already shipped in the
+-- site's JS bundle) can read every customer's name, phone, and email,
+-- and write/delete rows. Kept here only as a historical record of a
+-- debugging step — see supabase-rls-hardening.sql for the correct fix.
+-- ============================================================
 -- Temporary Fix: Disable RLS for Testing
 -- Run this in Supabase SQL Editor
 -- WARNING: This is for development/testing only!

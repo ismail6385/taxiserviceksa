@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { supabase } from '@/lib/supabase';
+import { useRouter } from 'next/navigation';
 // html2pdf will be imported dynamically to avoid SSR issues
 
 import { 
@@ -108,6 +110,7 @@ const PRESET_VEHICLES = [
 
 
 export default function UniversalInvoiceGenerator() {
+    const router = useRouter();
     const [mode, setMode] = useState<'invoice' | 'letterhead'>('invoice');
     const [profile, setProfile] = useState<CompanyProfile>(DEFAULT_PROFILES['taxi-ksa']);
     const [recipient, setRecipient] = useState({
@@ -116,6 +119,12 @@ export default function UniversalInvoiceGenerator() {
         email: '',
         phone: ''
     });
+
+    useEffect(() => {
+        supabase.auth.getSession().then(({ data: { session } }) => {
+            if (!session) router.push('/admin/login');
+        });
+    }, [router]);
 
     const [vehicle, setVehicle] = useState({
         name: 'Toyota Camry',

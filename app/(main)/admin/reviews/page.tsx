@@ -1,19 +1,25 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { supabase } from '@/lib/supabase';
+import { useRouter } from 'next/navigation';
 import { reviewService, Review } from '@/lib/reviewQuestionService';
 import { Button } from '@/components/ui/button';
 import { Star, CheckCircle, XCircle, MessageSquare, Calendar, MapPin } from 'lucide-react';
 
 export default function AdminReviewsPage() {
+    const router = useRouter();
     const [reviews, setReviews] = useState<Review[]>([]);
     const [loading, setLoading] = useState(true);
     const [filter, setFilter] = useState<'all' | 'pending' | 'approved' | 'rejected'>('all');
     const [responseText, setResponseText] = useState<{ [key: string]: string }>({});
 
     useEffect(() => {
-        loadReviews();
-    }, []);
+        supabase.auth.getSession().then(({ data: { session } }) => {
+            if (!session) { router.push('/admin/login'); return; }
+            loadReviews();
+        });
+    }, [router]);
 
     const loadReviews = async () => {
         try {

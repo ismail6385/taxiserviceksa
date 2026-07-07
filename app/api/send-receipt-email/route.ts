@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendMail } from '@/lib/mail-server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
+import { getAdminSession } from '@/lib/admin-auth';
 
 async function appendEmailLog(bookingId: string, entry: string) {
     const { data } = await supabaseAdmin.from('bookings').select('internal_notes').eq('id', bookingId).single();
@@ -14,6 +15,9 @@ export const runtime = 'nodejs';
 
 export async function POST(request: NextRequest) {
     try {
+        const session = await getAdminSession();
+        if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+
         const body = await request.json();
         const { booking, pdfBase64, filename, currency, paymentMethod, amountPaid, textOnly } = body;
 

@@ -1,19 +1,25 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { supabase } from '@/lib/supabase';
+import { useRouter } from 'next/navigation';
 import { blogService, Blog } from '@/lib/blogService';
 import { Button } from '@/components/ui/button';
 import { Plus, Edit, Trash2, Eye, EyeOff, Calendar, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
 export default function AdminBlogsPage() {
+    const router = useRouter();
     const [blogs, setBlogs] = useState<Blog[]>([]);
     const [loading, setLoading] = useState(true);
     const [filter, setFilter] = useState<'all' | 'published' | 'draft'>('all');
 
     useEffect(() => {
-        loadBlogs();
-    }, []);
+        supabase.auth.getSession().then(({ data: { session } }) => {
+            if (!session) { router.push('/admin/login'); return; }
+            loadBlogs();
+        });
+    }, [router]);
 
     const loadBlogs = async () => {
         try {
