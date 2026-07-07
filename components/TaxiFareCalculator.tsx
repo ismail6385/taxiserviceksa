@@ -5,17 +5,31 @@ import { Button } from '@/components/ui/button';
 import { Car, DollarSign, MapPin, Calculator, CalendarCheck, Info, Users } from 'lucide-react';
 import Link from 'next/link';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import { getPrice } from '@/lib/pricing';
 
+const CITY_LABELS: Record<string, string> = {
+    jeddah: 'Jeddah',
+    makkah: 'Makkah',
+    madinah: 'Madinah',
+    taif: 'Taif',
+};
 
 export default function TaxiFareCalculator() {
     const [from, setFrom] = useState('');
     const [to, setTo] = useState('');
-    const [result, setResult] = useState<null | { sedan: number; suv: number; van: number }>(null);
+    const [result, setResult] = useState<null | { sedan: number | null; suv: number | null; van: number | null }>(null);
+    const [sameCityError, setSameCityError] = useState(false);
 
     const handleCalculate = () => {
-        if (from && to) {
-            setResult({ sedan: 0, suv: 0, van: 0 });
-        }
+        if (!from || !to) return;
+        if (from === to) { setSameCityError(true); setResult(null); return; }
+        setSameCityError(false);
+
+        setResult({
+            sedan: getPrice(from, to, 'Toyota Camry'),
+            suv: getPrice(from, to, 'GMC Yukon XL / Denali'),
+            van: getPrice(from, to, 'Toyota Hiace'),
+        });
     };
 
     return (
@@ -63,9 +77,14 @@ export default function TaxiFareCalculator() {
                     onClick={handleCalculate}
                     className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-6 text-lg rounded-xl mb-8 shadow-lg shadow-emerald-200"
                     disabled={!from || !to}
-                ><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
+                ><Calculator className="w-4 h-4 mr-2" /> Calculate Fare</Button>
 
-                {result ? (
+                {sameCityError ? (
+                    <div className="text-center py-8 bg-amber-50 rounded-2xl border border-dashed border-amber-300">
+                        <Info className="w-8 h-8 mx-auto mb-2 text-amber-500" />
+                        <p className="text-amber-700 text-sm font-medium">Pickup and destination can&apos;t be the same city.</p>
+                    </div>
+                ) : result ? (
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                         <div className="flex items-center gap-2 mb-4 justify-center text-gray-500 text-sm">
                             <CheckCircle2 className="w-4 h-4 text-emerald-500" />
@@ -76,8 +95,11 @@ export default function TaxiFareCalculator() {
                             <div className="bg-gray-50 p-4 rounded-xl border border-gray-200 text-center hover:border-emerald-500 transition-colors cursor-pointer group">
                                 <Car className="w-8 h-8 mx-auto mb-2 text-gray-400 group-hover:text-emerald-600" />
                                 <div className="font-bold text-gray-900">Economy Sedan</div>
-                                <div className="text-xs text-gray-500 mb-4">Toyota Camry / Sonata</div>
-                                <Link href={`https://wa.me/966569487569?text=${encodeURIComponent(`Hello, I want to get a quote for a Sedan from ${from} to ${to}.`)}`}>
+                                <div className="text-xs text-gray-500 mb-2">Toyota Camry / Sonata</div>
+                                <div className="text-xl font-black text-gray-900 mb-4">
+                                    {result.sedan ? `SAR ${result.sedan}` : <span className="text-sm font-semibold text-gray-500">Contact for Quote</span>}
+                                </div>
+                                <Link href={`https://wa.me/966569487569?text=${encodeURIComponent(`Hello, I want to book a Sedan from ${CITY_LABELS[from]} to ${CITY_LABELS[to]}${result.sedan ? ` (quoted SAR ${result.sedan})` : ''}.`)}`}>
                                     <Button size="sm" className="w-full bg-emerald-600 hover:bg-emerald-700">WhatsApp Quote</Button>
                                 </Link>
                             </div>
@@ -87,8 +109,11 @@ export default function TaxiFareCalculator() {
                                 <div className="absolute top-0 right-0 bg-emerald-600 text-white text-[10px] px-2 py-0.5 rounded-bl-lg font-bold">VIP</div>
                                 <Car className="w-8 h-8 mx-auto mb-2 text-emerald-600" />
                                 <div className="font-bold text-gray-900">VIP Luxury SUV</div>
-                                <div className="text-xs text-gray-500 mb-4">GMC Yukon XL / Denali</div>
-                                <Link href={`https://wa.me/966569487569?text=${encodeURIComponent(`Hello, I want to get a quote for a VIP SUV from ${from} to ${to}.`)}`}>
+                                <div className="text-xs text-gray-500 mb-2">GMC Yukon XL / Denali</div>
+                                <div className="text-xl font-black text-gray-900 mb-4">
+                                    {result.suv ? `SAR ${result.suv}` : <span className="text-sm font-semibold text-gray-500">Contact for Quote</span>}
+                                </div>
+                                <Link href={`https://wa.me/966569487569?text=${encodeURIComponent(`Hello, I want to book a VIP SUV from ${CITY_LABELS[from]} to ${CITY_LABELS[to]}${result.suv ? ` (quoted SAR ${result.suv})` : ''}.`)}`}>
                                     <Button size="sm" className="w-full bg-emerald-600 hover:bg-emerald-700">WhatsApp Quote</Button>
                                 </Link>
                             </div>
@@ -97,8 +122,11 @@ export default function TaxiFareCalculator() {
                             <div className="bg-gray-50 p-4 rounded-xl border border-gray-200 text-center hover:border-emerald-500 transition-colors cursor-pointer group">
                                 <Users className="w-8 h-8 mx-auto mb-2 text-gray-400 group-hover:text-emerald-600" />
                                 <div className="font-bold text-gray-900">Group Transport</div>
-                                <div className="text-xs text-gray-500 mb-4">Toyota Hiace (11 pax)</div>
-                                <Link href={`https://wa.me/966569487569?text=${encodeURIComponent(`Hello, I want to get a quote for Group Transport from ${from} to ${to}.`)}`}>
+                                <div className="text-xs text-gray-500 mb-2">Toyota Hiace (11 pax)</div>
+                                <div className="text-xl font-black text-gray-900 mb-4">
+                                    {result.van ? `SAR ${result.van}` : <span className="text-sm font-semibold text-gray-500">Contact for Quote</span>}
+                                </div>
+                                <Link href={`https://wa.me/966569487569?text=${encodeURIComponent(`Hello, I want to book Group Transport from ${CITY_LABELS[from]} to ${CITY_LABELS[to]}${result.van ? ` (quoted SAR ${result.van})` : ''}.`)}`}>
                                     <Button size="sm" className="w-full bg-emerald-600 hover:bg-emerald-700">WhatsApp Quote</Button>
                                 </Link>
                             </div>
