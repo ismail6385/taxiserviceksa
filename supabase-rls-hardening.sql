@@ -60,6 +60,16 @@ DROP POLICY IF EXISTS "Admin full access" ON bookings;
 CREATE POLICY "Anyone can create bookings" ON bookings
     FOR INSERT WITH CHECK (true);
 
+-- The public quote/confirmed/completed/track-booking pages look a
+-- booking up by its id or customer_email with no login (guest
+-- tracking, like an airline "manage my booking" flow) — they need
+-- anon SELECT to keep working. There's no per-row ownership token
+-- here, so this is exactly as permissive as it was before RLS was
+-- enabled; it does not add new exposure, it restores the prior
+-- behavior these pages already depended on.
+CREATE POLICY "Public can view bookings for tracking" ON bookings
+    FOR SELECT USING (true);
+
 CREATE POLICY "Admin full access" ON bookings
     FOR ALL USING (is_admin()) WITH CHECK (is_admin());
 

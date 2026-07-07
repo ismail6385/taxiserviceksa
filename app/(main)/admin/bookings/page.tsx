@@ -1202,7 +1202,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                     </div>
                 </div>
             )}
-            <div className="bg-white rounded-xl border border-gray-200 overflow-x-auto shadow-sm">
+            <div className="hidden md:block bg-white rounded-xl border border-gray-200 overflow-x-auto shadow-sm">
                 <Table className="min-w-[700px]">
                     <TableHeader className="bg-gray-50">
                         <TableRow className="border-gray-200 hover:bg-transparent">
@@ -1445,53 +1445,180 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                         )}
                     </TableBody>
                 </Table>
-                <div className="p-4 border-t border-gray-100 bg-gray-50/50 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p className="text-sm text-gray-500">
-                        Showing <span className="font-semibold text-gray-900">{paginatedBookings.length > 0 ? (currentPage - 1) * itemsPerPage + 1 : 0}</span> to <span className="font-semibold text-gray-900">{Math.min(currentPage * itemsPerPage, filteredBookings.length)}</span> of <span className="font-semibold text-gray-900">{filteredBookings.length}</span> bookings
-                    </p>
-                    <div className="flex items-center gap-2">
-                        <Button
-                            variant="outline"
-                            size="sm"
-                            disabled={currentPage === 1}
-                            onClick={() => setCurrentPage(prev => prev - 1)}
-                            className="bg-white border-gray-200"
-                        >
-                            Previous
-                        </Button>
-                        <div className="flex items-center gap-1">
-                            {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
-                                let pageNum = i + 1;
-                                // Basic logic to show pages around current if total is large
-                                if (totalPages > 5 && currentPage > 3) {
-                                    pageNum = currentPage - 3 + i;
-                                    if (pageNum > totalPages) pageNum = totalPages - (4 - i);
-                                }
-                                if (pageNum <= 0) pageNum = i + 1;
+            </div>
 
-                                return (
-                                    <Button
-                                        key={pageNum}
-                                        variant={currentPage === pageNum ? "default" : "outline"}
-                                        size="sm"
-                                        onClick={() => setCurrentPage(pageNum)}
-                                        className={currentPage === pageNum ? "bg-primary text-black" : "bg-white"}
-                                    >
-                                        {pageNum}
-                                    </Button>
-                                );
-                            })}
-                        </div>
-                        <Button
-                            variant="outline"
-                            size="sm"
-                            disabled={currentPage === totalPages || totalPages === 0}
-                            onClick={() => setCurrentPage(prev => prev + 1)}
-                            className="bg-white border-gray-200"
-                        >
-                            Next
+            {/* Mobile Card List (shown below md breakpoint instead of the table) */}
+            <div className="md:hidden space-y-3">
+                {paginatedBookings.length === 0 ? (
+                    <div className="bg-white rounded-xl border border-gray-200 shadow-sm text-center py-16 px-4">
+                        <Search className="w-10 h-10 text-gray-200 mx-auto mb-3" />
+                        <p className="text-base font-medium text-gray-400 mb-3">No bookings found</p>
+                        <Button variant="outline" size="sm" onClick={() => { setSearchTerm(''); setStatusFilter('all'); setStartDate(''); setEndDate(''); }}>
+                            Clear all filters
                         </Button>
                     </div>
+                ) : (
+                    paginatedBookings.map((booking) => {
+                        const isSelected = selectedIds.includes(booking.id);
+                        const now = new Date();
+                        const todayStr = now.toLocaleDateString('en-CA');
+                        const currentTime = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
+
+                        const isToday = booking.pickup_date === todayStr;
+                        const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
+                        const isTomorrow = booking.pickup_date === tomorrow.toLocaleDateString('en-CA');
+
+                        const isOverdue = (booking.pickup_date < todayStr || (isToday && booking.pickup_time < currentTime)) &&
+                            booking.status === 'pending';
+
+                        return (
+                            <div
+                                key={booking.id}
+                                className={`bg-white rounded-xl border shadow-sm p-4 ${isOverdue ? 'border-red-300 bg-red-50/40' : isSelected ? 'border-primary/40 bg-primary/5' : 'border-gray-200'}`}
+                            >
+                                <div className="flex items-start justify-between gap-2 mb-3">
+                                    <div className="flex items-start gap-2 min-w-0">
+                                        <input
+                                            type="checkbox"
+                                            className="mt-1 rounded border-gray-300 text-primary focus:ring-primary h-4 w-4 shrink-0"
+                                            checked={isSelected}
+                                            onChange={() => toggleSelect(booking.id)}
+                                        />
+                                        <div className="min-w-0">
+                                            <div className="flex items-center gap-1.5 flex-wrap">
+                                                <span className="font-bold text-gray-900 truncate">{booking.customer_name}</span>
+                                                {customerStats[booking.customer_phone] >= 3 && (
+                                                    <Crown className="w-3.5 h-3.5 text-amber-500 fill-amber-500 shrink-0" />
+                                                )}
+                                            </div>
+                                            <p className="text-xs text-gray-500 truncate">{booking.customer_email}</p>
+                                            <div
+                                                className="flex items-center gap-1 text-[10px] font-mono text-gray-400 mt-0.5 cursor-copy"
+                                                onClick={() => navigator.clipboard.writeText(booking.id)}
+                                            >
+                                                #{booking.id.slice(0, 8)} <Copy className="w-2.5 h-2.5" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col items-end gap-1 shrink-0">
+                                        {isOverdue && <Badge className="bg-red-700 text-white border-none text-[9px]">OVERDUE</Badge>}
+                                        {isToday && !isOverdue && <Badge className="bg-red-500 text-white border-none text-[9px] uppercase px-1.5 py-0">Today</Badge>}
+                                        {isTomorrow && <Badge className="bg-orange-500 text-white border-none text-[9px] uppercase px-1.5 py-0">Tomorrow</Badge>}
+                                    </div>
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-2 text-xs mb-3">
+                                    <div className="col-span-2 flex flex-col gap-1 bg-gray-50 rounded-lg p-2 border border-gray-100">
+                                        <div className="flex items-center gap-1.5 text-gray-700">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0"></span>
+                                            <span className="truncate">{booking.pickup_location}</span>
+                                        </div>
+                                        <div className="flex items-center gap-1.5 text-gray-700">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></span>
+                                            <span className="truncate">{booking.destination}</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">Date & Time</p>
+                                        <p className={isOverdue ? 'text-red-700 font-bold' : 'text-gray-800 font-medium'}>{booking.pickup_date}</p>
+                                        <p className="text-gray-500">{formatTime12h(booking.pickup_time)}</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">Price</p>
+                                        <p className="font-bold text-gray-900">{booking.currency || 'SAR'} {booking.total_price ?? '—'}</p>
+                                        <p className="text-gray-500 truncate">{booking.vehicle_type}</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-center gap-2 mb-3">
+                                    <Select
+                                        defaultValue={booking.status}
+                                        onValueChange={(val) => updateStatus(booking.id, val)}
+                                    >
+                                        <SelectTrigger className={`h-9 flex-1 ${getStatusColor(booking.status)} uppercase text-[10px] font-bold tracking-widest shadow-sm border-gray-200`}>
+                                            <SelectValue />
+                                        </SelectTrigger>
+                                        <SelectContent className="bg-white border-gray-200 text-gray-900 shadow-xl">
+                                            <SelectItem value="pending">Pending</SelectItem>
+                                            <SelectItem value="quote_sent">Quote Sent</SelectItem>
+                                            <SelectItem value="confirmed">Confirmed</SelectItem>
+                                            <SelectItem value="in_progress">In Progress</SelectItem>
+                                            <SelectItem value="completed">Completed</SelectItem>
+                                            <SelectItem value="cancelled">Cancelled</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+
+                                <div className="flex items-center justify-between gap-1 border-t border-gray-100 pt-3">
+                                    <Button variant="ghost" size="icon" onClick={() => openInGoogleMaps(booking.pickup_location, booking.destination)} className="h-9 w-9 text-rose-600 hover:bg-rose-50" title="View Map Route">
+                                        <MapPin className="h-4 w-4" />
+                                    </Button>
+                                    <Button variant="ghost" size="icon" onClick={() => openWhatsApp(booking.customer_phone)} className="h-9 w-9 text-emerald-600 hover:bg-emerald-50" title="Open WhatsApp">
+                                        <MessageSquare className="h-4 w-4" />
+                                    </Button>
+                                    <Button variant="ghost" size="icon" onClick={() => router.push(`/admin/bookings/${booking.id}/handover`)} className="h-9 w-9 text-orange-600 hover:bg-orange-50" title="Driver Handover Sheet">
+                                        <Printer className="h-4 w-4" />
+                                    </Button>
+                                    <Button variant="ghost" size="icon" onClick={() => openBookingDetails(booking)} className="h-9 w-9 text-blue-600 hover:bg-blue-50" title="View Details">
+                                        <Eye className="h-4 w-4" />
+                                    </Button>
+                                    <Button variant="ghost" size="icon" onClick={() => deleteBooking(booking.id)} className="h-9 w-9 text-red-500 hover:bg-red-50" title="Delete">
+                                        <Trash2 className="h-4 w-4" />
+                                    </Button>
+                                </div>
+                            </div>
+                        );
+                    })
+                )}
+            </div>
+
+            {/* Pagination (shared by table and mobile card list) */}
+            <div className="bg-white rounded-xl border border-gray-200 shadow-sm mt-3 p-4 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p className="text-sm text-gray-500">
+                    Showing <span className="font-semibold text-gray-900">{paginatedBookings.length > 0 ? (currentPage - 1) * itemsPerPage + 1 : 0}</span> to <span className="font-semibold text-gray-900">{Math.min(currentPage * itemsPerPage, filteredBookings.length)}</span> of <span className="font-semibold text-gray-900">{filteredBookings.length}</span> bookings
+                </p>
+                <div className="flex items-center gap-2">
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        disabled={currentPage === 1}
+                        onClick={() => setCurrentPage(prev => prev - 1)}
+                        className="bg-white border-gray-200"
+                    >
+                        Previous
+                    </Button>
+                    <div className="flex items-center gap-1">
+                        {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
+                            let pageNum = i + 1;
+                            // Basic logic to show pages around current if total is large
+                            if (totalPages > 5 && currentPage > 3) {
+                                pageNum = currentPage - 3 + i;
+                                if (pageNum > totalPages) pageNum = totalPages - (4 - i);
+                            }
+                            if (pageNum <= 0) pageNum = i + 1;
+
+                            return (
+                                <Button
+                                    key={pageNum}
+                                    variant={currentPage === pageNum ? "default" : "outline"}
+                                    size="sm"
+                                    onClick={() => setCurrentPage(pageNum)}
+                                    className={currentPage === pageNum ? "bg-primary text-black" : "bg-white"}
+                                >
+                                    {pageNum}
+                                </Button>
+                            );
+                        })}
+                    </div>
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        disabled={currentPage === totalPages || totalPages === 0}
+                        onClick={() => setCurrentPage(prev => prev + 1)}
+                        className="bg-white border-gray-200"
+                    >
+                        Next
+                    </Button>
                 </div>
             </div>
 
