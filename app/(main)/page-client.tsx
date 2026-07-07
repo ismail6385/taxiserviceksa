@@ -120,7 +120,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
         },
         {
             title: "Border Crossings & GCC",
-            description: "Expert taxi service for Saudi-Bahrain (King Fahd Causeway), Saudi-UAE, and other GCC border crossings. All paperwork handled for smooth inter-country travel.",
+            description: "Expert taxi service across the GCC: Saudi-Bahrain (King Fahd Causeway), plus routes to UAE, Qatar, Kuwait, and Oman. All paperwork handled for smooth inter-country travel.",
             rdfTriple: "Border crossing taxi → facilitates → seamless transport between KSA and GCC countries",
             icon: Globe,
             link: "/border-crossings/",
@@ -266,6 +266,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
         { name: "Makkah", role: "Holy City & Umrah Hub", link: "/locations/makkah/" },
         { name: "Madinah", role: "City of the Prophet", link: "/locations/madinah/" },
         { name: "Riyadh", role: "Business Capital", link: "/locations/riyadh/" },
+        { name: "Dammam", role: "Eastern Province & GCC Border Hub", link: "/locations/dammam/" },
         { name: "Taif", role: "City of Roses", link: "/locations/taif/" },
         { name: "AlUla", role: "Historical Heritage", link: "/locations/alula/" },
         { name: "Yanbu", role: "Industrial Hub", link: "/locations/yanbu/" },
@@ -324,7 +325,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             <Hero
                 images={heroImages}
                 h1Text="VIP Taxi Service Saudi Arabia"
-                subtitle="Professional Chauffeur Service for Borders, Airports, Tourist Spots, and Executive Intercity Travel across the Kingdom."
+                subtitle="Professional Chauffeur Service for Borders, Airports, Tourist Spots, and Executive Intercity Travel across Saudi Arabia and the GCC (UAE, Bahrain, Qatar, Kuwait, Oman)."
             >
 
 
@@ -412,7 +413,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                 <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank" rel="nofollow noopener noreferrer">
                                     <Button size="lg" className="bg-emerald-600 border-none text-white hover:bg-emerald-700 font-bold transition-all shadow-lg flex items-center gap-2 h-14 px-8 rounded-2xl">
                                         <WhatsAppIcon className="w-6 h-6 fill-current" />
-                                        WhatsApp Booking via WhatsApp
+                                        Get a Quote on WhatsApp
                                     </Button>
                                 </a>
                             </div>
@@ -470,7 +471,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                              <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank" rel="nofollow noopener noreferrer">
                                 <Button className="bg-emerald-600 text-white hover:bg-emerald-700 rounded-full px-8 py-6 text-lg font-bold min-h-[48px] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-emerald-500/30 flex items-center gap-2">
                                     <WhatsAppIcon className="w-6 h-6 fill-current" />
-                                    WhatsApp Booking via WhatsApp
+                                    Get a Quote on WhatsApp
                                 </Button>
                             </a>
                         </div>
@@ -640,7 +641,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                 <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank" rel="nofollow noopener noreferrer" className="w-full sm:w-auto">
                                     <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white px-10 h-16 rounded-2xl text-lg font-black transition-all hover:scale-105 active:scale-95 shadow-xl shadow-emerald-500/20 flex items-center gap-3">
                                         <WhatsAppIcon className="w-6 h-6 fill-current" />
-                                        WhatsApp Booking via WhatsApp
+                                        Get a Quote on WhatsApp
                                     </Button>
                                 </a>
                                 <Link href="/booking/" className="w-full sm:w-auto">
@@ -858,6 +859,58 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                 </div>
             </section>
 
+            {/* GCC & Cross-Border Routes Section */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <span className="text-primary font-bold uppercase tracking-widest text-xs">Beyond Saudi Arabia</span>
+                        <h2 className="text-3xl md:text-4xl font-black text-white mt-2">GCC &amp; CROSS-BORDER ROUTES</h2>
+                        <p className="text-gray-400 max-w-2xl mx-auto mt-4">
+                            Licensed executive transfers between Saudi Arabia and neighbouring GCC countries — UAE, Bahrain, Qatar, and Kuwait — with all border paperwork handled for you.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <Link href="/routes/dammam-bahrain/" className="group p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-primary transition-all">
+                            <div className="flex justify-between items-center mb-2">
+                                <h3 className="font-bold text-white group-hover:text-primary transition-colors">Dammam to Bahrain</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-500 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                            <p className="text-sm text-gray-400">King Fahd Causeway crossing with paperwork assistance.</p>
+                        </Link>
+                        <Link href="/routes/riyadh-dubai/" className="group p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-primary transition-all">
+                            <div className="flex justify-between items-center mb-2">
+                                <h3 className="font-bold text-white group-hover:text-primary transition-colors">Riyadh to Dubai</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-500 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                            <p className="text-sm text-gray-400">Executive long-distance transfer to the UAE.</p>
+                        </Link>
+                        <Link href="/routes/riyadh-doha/" className="group p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-primary transition-all">
+                            <div className="flex justify-between items-center mb-2">
+                                <h3 className="font-bold text-white group-hover:text-primary transition-colors">Riyadh to Doha</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-500 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                            <p className="text-sm text-gray-400">Private cross-border transfer to Qatar.</p>
+                        </Link>
+                        <Link href="/routes/riyadh-kuwait/" className="group p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-primary transition-all">
+                            <div className="flex justify-between items-center mb-2">
+                                <h3 className="font-bold text-white group-hover:text-primary transition-colors">Riyadh to Kuwait</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-500 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                            <p className="text-sm text-gray-400">VIP intercountry transfer to Kuwait City.</p>
+                        </Link>
+                    </div>
+
+                    <div className="text-center mt-8">
+                        <Link href="/border-crossings/">
+                            <Button size="lg" className="bg-primary text-black hover:bg-white font-bold px-8 py-6 rounded-xl">
+                                View All Border Crossing Routes <ArrowRight className="ml-2 w-4 h-4" />
+                            </Button>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
             {/* Gallery Preview Section */}
             <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
                 <div className="max-w-7xl mx-auto">
@@ -909,7 +962,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                 Online Taxi Service Coverage Areas
                             </h2>
                             <p className="text-gray-600 max-w-xl">
-                                Our top-rated operations extend to Jeddah, Makkah, Madinah, and Riyadh.
+                                Our top-rated operations extend to Jeddah, Makkah, Madinah, Riyadh, and Dammam — plus cross-border transfers into the wider GCC.
                             </p>
                         </div>
                     </div>

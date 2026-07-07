@@ -16,17 +16,18 @@ const TrustedTransportNetwork = () => {
                             Official Transport Partner
                         </span>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-                            Why <span className="text-primary decoration-primary/30 underline decoration-4 underline-offset-4">TaxiServiceKSA</span> is the Trusted Choice for Umrah
+                            Why <span className="text-primary decoration-primary/30 underline decoration-4 underline-offset-4">TaxiServiceKSA</span> is the Trusted Choice Across Saudi Arabia &amp; the GCC
                         </h2>
                         <p className="text-gray-600 leading-relaxed text-base">
-                            When performing Umrah or Ziyarat, your focus should be on worship, not logistics.
-                            <strong>TaxiServiceKSA</strong> isn't just a generic ride-booking platform; we are a specialized
-                            transport transport network designed specifically for the unique needs of the <Link href="/locations/makkah/" className="text-primary hover:underline font-semibold">Makkah (Haram)</Link> and <Link href="/locations/madinah/" className="text-primary hover:underline font-semibold">Madinah (Prophet's Mosque)</Link> route.
+                            Whether you're performing Umrah, connecting between business hubs, or crossing into a neighbouring
+                            GCC country, <strong>TaxiServiceKSA</strong> isn't just a generic ride-booking platform — we are a
+                            dedicated transport network covering <Link href="/locations/makkah/" className="text-primary hover:underline font-semibold">Makkah</Link>, <Link href="/locations/madinah/" className="text-primary hover:underline font-semibold">Madinah</Link>, <Link href="/locations/riyadh/" className="text-primary hover:underline font-semibold">Riyadh</Link>, <Link href="/locations/dammam/" className="text-primary hover:underline font-semibold">Dammam</Link>, and cross-border routes into the GCC.
                         </p>
                         <p className="text-gray-600 leading-relaxed text-base mt-4">
-                            Unlike standard taxi apps, our drivers understand the <em>Miqat</em> locations, prayer times at the Haram,
-                            and the specific drop-off points closest to the Holy Mosques. We bridge the gap between
-                            <strong>Jeddah Airport</strong> and your spiritual destination with guaranteed precision.
+                            Unlike standard taxi apps, our drivers understand the <em>Miqat</em> locations and Haram drop-off
+                            points for pilgrims, the business districts for executive travel, and the paperwork needed for
+                            <strong> Saudi-Bahrain, Saudi-UAE, and other GCC border crossings</strong> — all with guaranteed
+                            fixed pricing.
                         </p>
 
                         <div className="mt-8 grid grid-cols-2 gap-4">
@@ -109,6 +110,26 @@ const TrustedTransportNetwork = () => {
                                             <div className="text-xs text-gray-500 font-medium">Return Journey</div>
                                             <div className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors">
                                                 Madinah <span className="text-gray-400 mx-2">→</span> Jeddah Airport
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ExternalLink className="w-5 h-5 text-gray-400" />
+                                </Link>
+                            </div>
+
+                            {/* Route 4: Dammam -> Bahrain (GCC) */}
+                            <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-200 hover:border-primary/50 transition-all group cursor-pointer">
+                                <Link href="/routes/dammam-bahrain/" className="flex items-center justify-between">
+                                    <div className="flex items-center gap-4">
+                                        <div className="flex flex-col items-center gap-1">
+                                            <div className="w-3 h-3 bg-gray-300 rounded-full"></div>
+                                            <div className="h-8 w-0.5 bg-gray-200"></div>
+                                            <div className="w-3 h-3 bg-primary rounded-full ring-4 ring-primary/20"></div>
+                                        </div>
+                                        <div>
+                                            <div className="text-xs text-gray-500 font-medium">GCC Border Crossing</div>
+                                            <div className="font-bold text-gray-900 text-lg group-hover:text-primary transition-colors">
+                                                Dammam <span className="text-gray-400 mx-2">→</span> Bahrain
                                             </div>
                                         </div>
                                     </div>
