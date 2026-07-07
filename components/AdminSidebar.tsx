@@ -26,6 +26,7 @@ import {
     ClipboardList,
     ChevronLeft,
     ChevronRight,
+    UserCog,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
@@ -36,6 +37,7 @@ const menuItems = [
     { name: 'Bookings',        href: '/admin/bookings',            icon: CalendarDays },
     { name: 'Calendar',        href: '/admin/calendar',            icon: Calendar },
     { name: 'Customers',       href: '/admin/customers',           icon: Users },
+    { name: 'Drivers',         href: '/admin/drivers',             icon: UserCog },
     { name: 'Reports',         href: '/admin/reports',             icon: BarChart2 },
     { name: 'Pricing',         href: '/admin/pricing',             icon: DollarSign },
     { name: 'WA Templates',    href: '/admin/whatsapp-templates',  icon: MessageSquare },

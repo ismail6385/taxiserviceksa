@@ -28,21 +28,10 @@ interface Inquiry {
     created_at: string;
 }
 
-const SETUP_SQL = `CREATE TABLE IF NOT EXISTS support_inquiries (
-  id          uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-  name        text NOT NULL,
-  email       text NOT NULL,
-  phone       text,
-  subject     text NOT NULL,
-  message     text NOT NULL,
-  status      text NOT NULL DEFAULT 'open',
-  booking_ref text,
-  created_at  timestamptz DEFAULT now()
-);
-ALTER TABLE support_inquiries ENABLE ROW LEVEL SECURITY;
--- Public can insert (contact form), admin can read/update
-CREATE POLICY "Public insert" ON support_inquiries FOR INSERT WITH CHECK (true);
-CREATE POLICY "Admin read/update" ON support_inquiries FOR ALL USING (auth.role() = 'authenticated');`;
+const SETUP_SQL = `See supabase-missing-schema.sql in the project root — it creates
+this table and locks it to the admin_users allowlist from
+supabase-rls-hardening.sql. The contact form at /contact already
+posts to /api/send-contact, which inserts into this table.`;
 
 export default function SupportPage() {
     const router = useRouter();
@@ -148,10 +137,7 @@ export default function SupportPage() {
                     <button onClick={() => setShowSql(!showSql)} className="text-xs text-amber-400 underline mb-2">
                         {showSql ? 'Hide SQL' : 'Show SQL'}
                     </button>
-                    {showSql && <pre className="bg-neutral-900 text-green-400 text-xs p-4 rounded-lg overflow-x-auto">{SETUP_SQL}</pre>}
-                    <p className="text-xs text-amber-400 mt-2">
-                        Also add a contact form on your website that POSTs to <code className="bg-neutral-700 px-1 rounded">/api/support/submit</code>
-                    </p>
+                    {showSql && <pre className="bg-neutral-900 text-green-400 text-xs p-4 rounded-lg overflow-x-auto whitespace-pre-wrap">{SETUP_SQL}</pre>}
                 </div>
             )}
 
