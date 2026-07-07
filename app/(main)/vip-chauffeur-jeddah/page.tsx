@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 const faqs = [
     {
         question: 'How much does a private driver cost in Jeddah?',
-        answer: 'Private driver rates in Jeddah: half-day (4 hours) starts from SAR 250, full-day (8 hours) from SAR 400, and hourly hire from SAR 70–100/hour depending on the vehicle. Airport transfers have fixed one-way rates starting SAR 80. Corporate monthly packages are available. WhatsApp us for a custom quote for your specific needs.',
+        answer: 'Private driver rates in Jeddah: half-day (4 hours) starts from SAR 250, full-day (8 hours) from SAR 400, and hourly hire from SAR 70–100/hour depending on the vehicle. Airport transfers have fixed one-way rates starting SAR 100. Corporate monthly packages are available. WhatsApp us for a custom quote for your specific needs.',
     },
     {
         question: 'Can I hire a car with a driver for a whole day in Jeddah?',
@@ -61,12 +61,12 @@ const faqs = [
 ];
 
 const services = [
-    { icon: '✈️', title: 'Airport Transfer', desc: 'Jeddah JED airport pickup & drop-off. Meet and greet, name sign, free wait.', price: 'From SAR 80' },
+    { icon: '✈️', title: 'Airport Transfer', desc: 'Jeddah JED airport pickup & drop-off. Meet and greet, name sign, free wait.', price: 'From SAR 100' },
     { icon: '🕐', title: 'Hourly Hire', desc: 'Flexible hourly hire — medical, shopping, meetings. Driver stays with you.', price: 'From SAR 70/hr' },
     { icon: '🌅', title: 'Full-Day Hire', desc: '8 hours, unlimited stops. Perfect for tourism or business visits.', price: 'From SAR 400/day' },
-    { icon: '🕌', title: 'Jeddah to Makkah', desc: 'Direct transfer to Al Haram area hotels. Muslim-certified drivers.', price: 'From SAR 180' },
+    { icon: '🕌', title: 'Jeddah to Makkah', desc: 'Direct transfer to Al Haram area hotels. Muslim-certified drivers.', price: 'From SAR 300' },
     { icon: '🏢', title: 'Corporate Travel', desc: 'Monthly packages for businesses. Invoice provided, fixed rates.', price: 'Custom quote' },
-    { icon: '🚗', title: 'Intercity Transfer', desc: 'Jeddah to Riyadh, Madinah, Taif. Door-to-door.', price: 'From SAR 250' },
+    { icon: '🚗', title: 'Intercity Transfer', desc: 'Jeddah to Riyadh, Madinah, Taif. Door-to-door.', price: 'From SAR 400' },
 ];
 
 const serviceSchema = {

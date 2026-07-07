@@ -533,7 +533,7 @@ export default function JeddahCompleteBlogPage() {
                                         { dest: 'Jeddah → Madinah', dist: '420 km', time: '4 hrs', price: 'SAR 600–800' },
                                         { dest: 'Jeddah → Riyadh', dist: '950 km', time: '9 hrs', price: 'SAR 1,400+' },
                                         { dest: 'Jeddah → KAEC', dist: '100 km', time: '1 hr 15 min', price: 'SAR 200–280' },
-                                        { dest: 'Jeddah Port → Makkah', dist: '85 km', time: '1 hr', price: 'SAR 180–240' },
+                                        { dest: 'Jeddah Port → Makkah', dist: '85 km', time: '1 hr', price: 'SAR 300–600' },
                                     ].map((row, i) => (
                                         <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}>
                                             <td className="px-5 py-3 font-medium text-gray-800">{row.dest}</td>

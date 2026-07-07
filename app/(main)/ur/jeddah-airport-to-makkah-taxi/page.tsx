@@ -87,8 +87,8 @@ export default function JeddahAirportToMakkahPageUr() {
                         faqs={[
                             {
                                 question: "ٹیکسی کا کرایہ کتنا ہے؟",
-                                shortAnswer: "200 ریال سے۔",
-                                detailedAnswer: "سیڈان کار کا فکسڈ ریٹ 200 ریال سے شروع ہوتا ہے۔ بڑی فیملی کار (GMC) 350-400 ریال ہے۔ اس میں انتظار اور فیول شامل ہے۔",
+                                shortAnswer: "300 ریال سے۔",
+                                detailedAnswer: "سیڈان کار کا فکسڈ ریٹ 300 ریال سے شروع ہوتا ہے۔ بڑی فیملی کار (GMC) 600 ریال سے ہے۔ اس میں انتظار اور فیول شامل ہے۔",
                                 perspectives: [
                                     {
                                         role: "موازنہ",

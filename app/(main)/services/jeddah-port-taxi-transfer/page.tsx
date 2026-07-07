@@ -32,7 +32,7 @@ const faqs = [
     },
     {
         question: 'What is the price of a taxi from Jeddah Port to Makkah?',
-        answer: 'A standard private transfer in a Toyota Camry starts from SAR 180. A GMC Yukon XL for family groups starts from SAR 300. Round-trip packages (including waiting time for Umrah) are available. All prices are fixed in advance.',
+        answer: 'A standard private transfer in a Toyota Camry starts from SAR 300. A GMC Yukon XL for family groups starts from SAR 600. Round-trip packages (including waiting time for Umrah) are available. All prices are fixed in advance.',
     },
     {
         question: 'How far is Jeddah Islamic Port from the airport?',
@@ -97,9 +97,9 @@ export default function JeddahPortTaxiTransferPage() {
                     <h2 className="text-3xl font-black text-gray-900 mb-8">Popular Port Transfers</h2>
                     <div className="grid md:grid-cols-3 gap-6">
                         {[
-                            { to: 'Makkah Al Haram', price: 'From SAR 180', note: 'Direct Umrah pilgrim transfer. 1 hour drive.' },
+                            { to: 'Makkah Al Haram', price: 'From SAR 300', note: 'Direct Umrah pilgrim transfer. 1 hour drive.' },
                             { to: 'Jeddah Airport (JED)', price: 'From SAR 120', note: 'KAIA flight connection transfers. 35 mins.' },
-                            { to: 'Jeddah City Hotels', price: 'From SAR 80', note: 'Corniche & downtown hotel drops. 20 mins.' },
+                            { to: 'Jeddah City Hotels', price: 'From SAR 100', note: 'Corniche & downtown hotel drops. 20 mins.' },
                         ].map((r, i) => (
                             <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:border-blue-300 transition-all">
                                 <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center mb-4">

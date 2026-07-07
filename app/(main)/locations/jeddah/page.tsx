@@ -68,7 +68,7 @@ export default async function JeddahPage() {
     const faqs = [
         {
             question: "How much is a VIP transfer from Jeddah Airport to Makkah?",
-            answer: "A private sedan starts from SAR 200, while a GMC/SUV for families is around SAR 350. The price is fixed and includes waiting time."
+            answer: "A private sedan starts from SAR 300, while a GMC/SUV for families starts from SAR 600. The price is fixed and includes waiting time."
         },
         {
             question: "Where does the driver meet me at KAIA Terminal 1?",

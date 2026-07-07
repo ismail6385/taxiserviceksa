@@ -39,7 +39,7 @@ export default function UmrahTransportPage() {
             name: 'Jeddah Airport → Makkah',
             distance: '80 km',
             duration: '60-90 minutes',
-            price: 'From SAR 150',
+            price: 'From SAR 300',
             description: 'Direct transfer from King Abdulaziz International Airport to your Makkah hotel. Meet-and-greet service included.',
             link: '/routes/jeddah-makkah',
             icon: Plane
@@ -48,7 +48,7 @@ export default function UmrahTransportPage() {
             name: 'Makkah → Madinah',
             distance: '450 km',
             duration: '4-5 hours',
-            price: 'From SAR 400',
+            price: 'From SAR 550',
             description: 'Complete your Umrah journey with comfortable transfer between the two holy cities. Rest stops included.',
             link: '/routes/makkah-madinah',
             icon: Navigation
@@ -119,7 +119,7 @@ export default function UmrahTransportPage() {
         },
         {
             question: "How much does complete Umrah transport cost (Jeddah to Makkah to Madinah)?",
-            answer: "Complete Umrah transport package: Jeddah Airport to Makkah (SAR 150-400 depending on vehicle), Makkah to Madinah (SAR 400-900), plus local transport in each city (SAR 30-50 per trip). Total cost depends on group size and vehicle type. Advance booking for full package is recommended."
+            answer: "Complete Umrah transport package: Jeddah Airport to Makkah (SAR 300-600 depending on vehicle), Makkah to Madinah (SAR 550-1,400), plus local transport in each city (SAR 30-50 per trip). Total cost depends on group size and vehicle type. Advance booking for full package is recommended."
         },
         {
             question: "Can the driver wait during Umrah or prayers?",

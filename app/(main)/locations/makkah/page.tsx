@@ -475,7 +475,7 @@ export default async function MakkahPage() {
                                     How much is a taxi from Jeddah Airport to Makkah?
                                 </AccordionTrigger>
                                 <AccordionContent className="text-gray-600 leading-relaxed text-base pb-6">
-                                    Our fixed rate for a standard sedan starts from SAR 250. For larger families needing a GMC Yukon or HiAce, prices range from SAR 400-500. There are no hidden fees or surge charges.
+                                    Our fixed rate for a standard sedan starts from SAR 300. For larger families needing a GMC Yukon or HiAce, prices range from SAR 450-600. There are no hidden fees or surge charges.
                                 </AccordionContent>
                             </AccordionItem>
                             <AccordionItem value="item-2" className="border-b border-gray-100 last:border-0">

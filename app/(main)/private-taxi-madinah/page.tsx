@@ -40,7 +40,7 @@ const faqs = [
     },
     {
         question: 'How much is a taxi from Madinah to Makkah?',
-        answer: 'A private taxi from Madinah to Makkah costs approximately SAR 350–650 depending on vehicle type. The journey is approximately 420 km via Highway 15, taking 4–5 hours. A Toyota Camry for 1–3 passengers starts from SAR 350. GMC Yukon XL for families starts from SAR 550. We offer Muslim-certified drivers for this sacred route.',
+        answer: 'A private taxi from Madinah to Makkah costs approximately SAR 550–1,000 depending on vehicle type. The journey is approximately 420 km via Highway 15, taking 4–5 hours. A Toyota Camry for 1–3 passengers starts from SAR 550. GMC Yukon XL for families starts from SAR 1,000. We offer Muslim-certified drivers for this sacred route.',
     },
     {
         question: 'Is there a Ziyarat tour driver in Madinah?',
@@ -127,7 +127,7 @@ export default function PrivateTaxiMadinahPage() {
                             { title: '✈️ Airport Transfer (MED)', desc: 'MED Airport to Masjid Nabawi hotels', price: 'From SAR 70', time: '15–25 min' },
                             { title: '🕌 Ziyarat Tour (Half Day)', desc: '4 hours — Nabawi, Quba, Uhud, Al-Baqi', price: 'From SAR 250', time: '4 hours' },
                             { title: '🌟 Ziyarat Tour (Full Day)', desc: '8 hours — all major sites', price: 'From SAR 400', time: '8 hours' },
-                            { title: '🚌 Madinah to Makkah', desc: 'Direct transfer via Highway 15', price: 'From SAR 350', time: '4–5 hours' },
+                            { title: '🚌 Madinah to Makkah', desc: 'Direct transfer via Highway 15', price: 'From SAR 550', time: '4–5 hours' },
                             { title: '🏨 Hotel to Hotel Transfer', desc: 'Any Madinah address to another', price: 'From SAR 30', time: 'Varies' },
                             { title: '📅 Daily Driver Package', desc: 'Full day exclusive driver hire', price: 'From SAR 350/day', time: '8–10 hours' },
                         ].map((s, i) => (

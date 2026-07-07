@@ -195,8 +195,8 @@ export default function JeddahPortPage() {
                     },
                     {
                         question: "How much is a taxi to Makkah?",
-                        shortAnswer: "SAR 200-300",
-                        detailedAnswer: "Prices vary by season, but typically range between SAR 200-300 for a sedan car.",
+                        shortAnswer: "SAR 300-600",
+                        detailedAnswer: "Prices vary by season, but a sedan car starts from SAR 300 and family SUVs/vans range from SAR 450-600.",
                         perspectives: []
                     }
                 ]}

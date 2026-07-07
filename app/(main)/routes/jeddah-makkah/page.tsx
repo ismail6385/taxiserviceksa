@@ -228,8 +228,8 @@ export default function JeddahMakkahRoutePage() {
                     faqs={[
                         {
                             question: "How much is a taxi from Jeddah to Makkah in 2026?",
-                            shortAnswer: "From 200 SAR (Fixed)",
-                            detailedAnswer: "In 2026, our rates start from 200 SAR for a standard sedan (Toyota Camry) and 350 SAR for a VIP GMC Yukon. These are fixed rates including tolls and airport fees.",
+                            shortAnswer: "From 300 SAR (Fixed)",
+                            detailedAnswer: "In 2026, our rates start from 300 SAR for a standard sedan (Toyota Camry) and 600 SAR for a VIP GMC Yukon. These are fixed rates including tolls and airport fees.",
                             perspectives: [
                                 { role: 'Billing', icon: 'DollarSign', insight: 'Transparency is our core value; what you see is what you pay.' }
                             ]

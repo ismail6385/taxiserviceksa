@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 const faqs = [
     {
         question: 'How much is a taxi from Makkah to Jeddah?',
-        answer: 'A private taxi from Makkah to Jeddah costs SAR 150–350 depending on the vehicle and destination. A Toyota Camry to Jeddah city centre starts from SAR 150. Transfer to King Abdulaziz Airport (JED) starts from SAR 180 (slightly farther north). GMC Yukon XL for families starts from SAR 280. All prices are fixed — no meter running.',
+        answer: 'A private taxi from Makkah to Jeddah costs SAR 300–600 depending on the vehicle and destination. A Toyota Camry to Jeddah city centre or King Abdulaziz Airport (JED) starts from SAR 300. GMC Yukon XL for families starts from SAR 600. All prices are fixed — no meter running.',
     },
     {
         question: 'How long is the drive from Makkah to Jeddah?',
@@ -58,11 +58,11 @@ const faqs = [
 ];
 
 const routes = [
-    { to: 'Jeddah City Centre', dist: '85 km', time: '60–90 min', price: 'From SAR 150' },
-    { to: 'JED Airport (King Abdulaziz)', dist: '100 km', time: '75–105 min', price: 'From SAR 180' },
-    { to: 'Jeddah Corniche', dist: '90 km', time: '65–95 min', price: 'From SAR 160' },
-    { to: 'Al Balad (Old Jeddah)', dist: '88 km', time: '65–90 min', price: 'From SAR 155' },
-    { to: 'Jeddah Port (King Fahd)', dist: '95 km', time: '70–100 min', price: 'From SAR 170' },
+    { to: 'Jeddah City Centre', dist: '85 km', time: '60–90 min', price: 'From SAR 300' },
+    { to: 'JED Airport (King Abdulaziz)', dist: '100 km', time: '75–105 min', price: 'From SAR 300' },
+    { to: 'Jeddah Corniche', dist: '90 km', time: '65–95 min', price: 'From SAR 300' },
+    { to: 'Al Balad (Old Jeddah)', dist: '88 km', time: '65–90 min', price: 'From SAR 300' },
+    { to: 'Jeddah Port (King Fahd)', dist: '95 km', time: '70–100 min', price: 'From SAR 300' },
 ];
 
 const serviceSchema = {
@@ -118,7 +118,7 @@ export default function MakkahToJeddahPage() {
             {/* Quick Stats */}
             <section className="bg-white border-b py-5 px-4">
                 <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-8 text-center">
-                    {[{ v: '85 km', l: 'Distance' }, { v: '~1 hr', l: 'Journey' }, { v: 'SAR 150', l: 'Starting From' }, { v: '24/7', l: 'Available' }, { v: '✅ Muslim', l: 'Drivers' }].map((s) => (
+                    {[{ v: '85 km', l: 'Distance' }, { v: '~1 hr', l: 'Journey' }, { v: 'SAR 300', l: 'Starting From' }, { v: '24/7', l: 'Available' }, { v: '✅ Muslim', l: 'Drivers' }].map((s) => (
                         <div key={s.l}><p className="text-2xl font-black text-teal-700">{s.v}</p><p className="text-xs text-gray-500 uppercase font-semibold">{s.l}</p></div>
                     ))}
                 </div>

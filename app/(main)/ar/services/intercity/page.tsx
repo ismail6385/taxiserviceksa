@@ -41,11 +41,11 @@ export const metadata: Metadata = {
 
 export default function IntercityServicePage() {
     const popularRoutes = [
-        { name: 'Jeddah ↔ Makkah', distance: '85 km', time: '1 hr 15 min', price: 'From SAR 200' },
-        { name: 'Makkah ↔ Madinah', distance: '450 km', time: '4 hr 30 min', price: 'From SAR 450' },
-        { name: 'Jeddah ↔ Madinah', distance: '420 km', time: '4 hr', price: 'From SAR 400' },
+        { name: 'Jeddah ↔ Makkah', distance: '85 km', time: '1 hr 15 min', price: 'From SAR 300' },
+        { name: 'Makkah ↔ Madinah', distance: '450 km', time: '4 hr 30 min', price: 'From SAR 550' },
+        { name: 'Jeddah ↔ Madinah', distance: '420 km', time: '4 hr', price: 'From SAR 600' },
         { name: 'Riyadh ↔ Dammam', distance: '400 km', time: '3 hr 45 min', price: 'From SAR 600' },
-        { name: 'Jeddah ↔ Taif', distance: '170 km', time: '2 hr', price: 'From SAR 300' },
+        { name: 'Jeddah ↔ Taif', distance: '170 km', time: '2 hr', price: 'From SAR 400' },
         { name: 'Madinah ↔ AlUla', distance: '330 km', time: '3 hr 30 min', price: 'From SAR 500' },
     ];
 

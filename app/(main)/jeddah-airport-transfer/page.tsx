@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 const faqs = [
     {
         question: 'How much does a taxi from Jeddah airport cost?',
-        answer: 'A private taxi from King Abdulaziz International Airport (JED) to Jeddah city centre costs approximately SAR 80–150 depending on destination and vehicle. Transfers to Makkah cost SAR 180–350 and transfers to Madinah cost SAR 450–750. Taxi Service KSA offers fixed rates with no surge pricing — you know the exact price before you book.',
+        answer: 'A private taxi from King Abdulaziz International Airport (JED) to Jeddah city centre costs approximately SAR 100–200 depending on destination and vehicle. Transfers to Makkah cost SAR 300–600 and transfers to Madinah cost SAR 600–1,200. Taxi Service KSA offers fixed rates with no surge pricing — you know the exact price before you book.',
     },
     {
         question: 'Is there a taxi from Jeddah airport to Makkah?',
@@ -57,17 +57,17 @@ const faqs = [
     },
     {
         question: 'Can I get a transfer from Jeddah airport to Madinah?',
-        answer: 'Yes. We provide direct intercity transfers from JED Airport to Madinah (approximately 420 km, 4.5–5 hours). This is a popular route for Umrah pilgrims who fly into Jeddah and travel to Madinah first. Prices start from SAR 450 in a standard vehicle. The Haramain High Speed Railway from Jeddah to Madinah is also an option (2 hours).',
+        answer: 'Yes. We provide direct intercity transfers from JED Airport to Madinah (approximately 420 km, 4.5–5 hours). This is a popular route for Umrah pilgrims who fly into Jeddah and travel to Madinah first. Prices start from SAR 600 in a standard vehicle. The Haramain High Speed Railway from Jeddah to Madinah is also an option (2 hours).',
     },
 ];
 
 const routes = [
-    { from: 'JED Airport', to: 'Jeddah City Centre', dist: '19 km', time: '20–30 min', price: 'From SAR 80' },
-    { from: 'JED Airport', to: 'Makkah (Al Haram)', dist: '85 km', time: '60–90 min', price: 'From SAR 180' },
-    { from: 'JED Airport', to: 'Madinah', dist: '420 km', time: '4.5–5 hrs', price: 'From SAR 450' },
-    { from: 'JED Airport', to: 'Jeddah Corniche Hotels', dist: '25 km', time: '25–40 min', price: 'From SAR 90' },
-    { from: 'JED Airport', to: 'Taif', dist: '130 km', time: '90–120 min', price: 'From SAR 250' },
-    { from: 'JED Airport', to: 'Al Balad (Old Jeddah)', dist: '22 km', time: '25–35 min', price: 'From SAR 85' },
+    { from: 'JED Airport', to: 'Jeddah City Centre', dist: '19 km', time: '20–30 min', price: 'From SAR 100' },
+    { from: 'JED Airport', to: 'Makkah (Al Haram)', dist: '85 km', time: '60–90 min', price: 'From SAR 300' },
+    { from: 'JED Airport', to: 'Madinah', dist: '420 km', time: '4.5–5 hrs', price: 'From SAR 600' },
+    { from: 'JED Airport', to: 'Jeddah Corniche Hotels', dist: '25 km', time: '25–40 min', price: 'From SAR 120' },
+    { from: 'JED Airport', to: 'Taif', dist: '130 km', time: '90–120 min', price: 'From SAR 400' },
+    { from: 'JED Airport', to: 'Al Balad (Old Jeddah)', dist: '22 km', time: '25–35 min', price: 'From SAR 110' },
 ];
 
 const serviceSchema = {

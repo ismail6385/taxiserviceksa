@@ -127,7 +127,7 @@ export default function TaifTravelBudgetGuide2026() {
             Because Taif's attractions are scattered between the city center and the mountain villages (30-40km away), transport is a significant portion of the budget.
           </p>
           <ul className="space-y-2 text-gray-700 text-sm">
-            <li>• **Jeddah/Makkah to Taif Transfer:** A one-way private taxi ranges from **SAR 250 to SAR 450**, depending on vehicle size.</li>
+            <li>• **Jeddah/Makkah to Taif Transfer:** A one-way private taxi ranges from **SAR 350 to SAR 700**, depending on vehicle size.</li>
             <li>• **City Taxi Rides:** Short trips within Taif city center cost **SAR 15 to SAR 30**.</li>
             <li>• **Mountain Day Tours:** Hiring a private driver for a full 8-hour day to Al Shafa and Al Hada ranges from **SAR 350 to SAR 500**.</li>
           </ul>

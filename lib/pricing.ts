@@ -27,7 +27,7 @@ export const LOCATIONS = ['Jeddah', 'Makkah', 'Madinah', 'Taif', 'Riyadh', 'Yanb
 export const PRICING_RULES: { [route: string]: RoutePricing } = {
     // Jeddah <-> Makkah
     'jeddah-makkah': {
-        'Toyota Camry': { price: 250 },
+        'Toyota Camry': { price: 300 },
         'GMC Yukon XL / Denali': { price: 600 },
         'Hyundai Staria VIP': { price: 350 },
         'Hyundai Starex': { price: 300 },

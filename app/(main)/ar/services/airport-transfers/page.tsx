@@ -41,7 +41,7 @@ export default function AirportTransfersPage() {
             code: 'JED',
             description: 'Largest airport in Saudi Arabia. Main gateway for Umrah pilgrims arriving to Makkah.',
             routes: ['Jeddah → Makkah (80km)', 'Jeddah → Taif (90km)', 'Jeddah City Hotels'],
-            price: 'From SAR 150',
+            price: 'From SAR 100',
             link: '/locations/jeddah',
             isHub: true
         },
@@ -167,7 +167,7 @@ export default function AirportTransfersPage() {
         },
         {
             question: "Do you provide airport transfer from Jeddah Airport to Makkah?",
-            answer: "Yes. Jeddah Airport (JED) to Makkah is our most popular airport transfer route. Distance is 80 km, travel time 60-90 minutes. Fixed rate from SAR 150 (sedan) to SAR 400 (van). Meet-and-greet service included. See detailed route information at /routes/jeddah-makkah."
+            answer: "Yes. Jeddah Airport (JED) to Makkah is our most popular airport transfer route. Distance is 80 km, travel time 60-90 minutes. Fixed rate from SAR 300 (sedan) to SAR 450 (van). Meet-and-greet service included. See detailed route information at /routes/jeddah-makkah."
         },
         {
             question: "Can I book return airport transfer (hotel to airport)?",

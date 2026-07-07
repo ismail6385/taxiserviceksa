@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const faqSchema = {
     '@context': 'https://schema.org', '@type': 'FAQPage',
     mainEntity: [
-        { '@type': 'Question', name: 'How much is a private taxi from Madinah to Makkah?', acceptedAnswer: { '@type': 'Answer', text: 'Private taxi fares from Madinah to Makkah start around SAR 400 - 450 for a standard sedan (Hyundai Elantra/Toyota Camry) and SAR 600 - 750 for large SUVs (GMC Yukon/Ford Expedition/Hyundai H-1). Fares may rise during peak seasons like Ramadan and Hajj.' } },
+        { '@type': 'Question', name: 'How much is a private taxi from Madinah to Makkah?', acceptedAnswer: { '@type': 'Answer', text: 'Private taxi fares from Madinah to Makkah start around SAR 550 - 650 for a standard sedan (Hyundai Elantra/Toyota Camry) and SAR 750 - 1,000 for large SUVs (GMC Yukon/Ford Expedition/Hyundai H-1). Fares may rise during peak seasons like Ramadan and Hajj.' } },
         { '@type': 'Question', name: 'What is the distance and travel time between Madinah and Makkah by road?', acceptedAnswer: { '@type': 'Answer', text: 'The road distance between Madinah and Makkah is approximately 450 km via the main Route 15 (Haramain Expressway). By taxi, the journey takes around 4 to 4.5 hours under normal conditions.' } },
         { '@type': 'Question', name: 'Can I stop at Meeqat Mosque (Bir Ali) on my way from Madinah to Makkah?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, all private intercity taxis heading to Makkah for Umrah will stop at the Bir Ali Mosque (Meeqat of Madinah) so you can enter Ihram, pray two Rakats, and make intention for Umrah. There is no extra charge for this stop in pre-booked private transfers.' } },
     ],
@@ -21,11 +21,11 @@ const faqSchema = {
 
 export default function MadinahIntercityFaresPage() {
     const routeFares = [
-        { destination: 'Makkah Mukarramah', dist: '450 km', time: '4.5 hours', sedan: 'SAR 400 - 450', suv: 'SAR 600 - 750', stop: 'Bir Ali Meeqat' },
-        { destination: 'Jeddah Airport / City', dist: '410 km', time: '4 hours', sedan: 'SAR 380 - 420', suv: 'SAR 550 - 700', stop: 'Optional rest areas' },
-        { destination: 'Yanbu (Port City)', dist: '230 km', time: '2.5 hours', sedan: 'SAR 250 - 300', suv: 'SAR 400 - 500', stop: 'Historic sites' },
-        { destination: 'Taif (Mountain City)', dist: '480 km', time: '5 hours', sedan: 'SAR 450 - 550', suv: 'SAR 700 - 850', stop: 'Highland route stops' },
-        { destination: 'Badr (Battlefield Site)', dist: '150 km', time: '1.5 hours', sedan: 'SAR 200 - 250', suv: 'SAR 350 - 450', stop: 'Historic wells/battlefield' },
+        { destination: 'Makkah Mukarramah', dist: '450 km', time: '4.5 hours', sedan: 'SAR 550 - 650', suv: 'SAR 750 - 1,000', stop: 'Bir Ali Meeqat' },
+        { destination: 'Jeddah Airport / City', dist: '410 km', time: '4 hours', sedan: 'SAR 600 - 750', suv: 'SAR 850 - 1,200', stop: 'Optional rest areas' },
+        { destination: 'Yanbu (Port City)', dist: '230 km', time: '2.5 hours', sedan: 'SAR 350 - 450', suv: 'SAR 550 - 700', stop: 'Historic sites' },
+        { destination: 'Taif (Mountain City)', dist: '480 km', time: '5 hours', sedan: 'SAR 600 - 700', suv: 'SAR 850 - 1,000', stop: 'Highland route stops' },
+        { destination: 'Badr (Battlefield Site)', dist: '150 km', time: '1.5 hours', sedan: 'SAR 300 - 350', suv: 'SAR 450 - 550', stop: 'Historic wells/battlefield' },
     ];
 
     return (

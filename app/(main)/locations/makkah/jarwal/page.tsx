@@ -184,7 +184,7 @@ export default function JarwalPage() {
                         <AccordionItem value="item-3" className="bg-gray-50 px-8 rounded-[2rem] border-none shadow-sm">
                             <AccordionTrigger className="font-bold text-lg py-8 hover:no-underline">How much is a taxi from Jarwal to Madinah?</AccordionTrigger>
                             <AccordionContent className="text-gray-600 pb-8 text-base leading-relaxed">
-                                Fares for a private taxi to Madinah start from 400 SAR for a standard sedan and 550 SAR for a luxury GMC Yukon. The journey takes approximately 4-5 hours.
+                                Fares for a private taxi to Madinah start from 550 SAR for a standard sedan and 1,000 SAR for a luxury GMC Yukon. The journey takes approximately 4-5 hours.
                             </AccordionContent>
                         </AccordionItem>
                     </Accordion>

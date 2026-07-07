@@ -93,11 +93,11 @@ export default function MakkahToMadinahPage() {
                         summary="The Makkah-to-Madinah journey is the most important intercity link for pilgrims. A private taxi offers door-to-door convenience that the train and bus cannot match, especially for families with heavy luggage."
                         points={[
                             "Door-to-door service from your Makkah hotel to your Madinah hotel.",
-                            "Fixed pricing starting at 450 SAR for standard sedans.",
+                            "Fixed pricing starting at 550 SAR for standard sedans.",
                             "4.5 hours travel time with flexible stops for prayer/food.",
                             "No luggage hauling or station transfers required."
                         ]}
-                        pricing="450 - 650 SAR"
+                        pricing="550 - 1,000 SAR"
                         duration="4.5 Hours"
                     />
                 </div>
