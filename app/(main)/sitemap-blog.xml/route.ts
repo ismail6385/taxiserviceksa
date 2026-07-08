@@ -8,6 +8,20 @@ export async function GET() {
     // Fetch Blogs
     const blogs = await blogService.getPublishedBlogs();
 
+    // Dynamically list all hand-written static blog post directories
+    // (app/(main)/blog/<slug>/page.tsx). Excludes the [slug] catch-all
+    // route and the /preview/ admin preview route.
+    const blogDirectory = path.join(process.cwd(), 'app', '(main)', 'blog');
+    const dbSlugSet = new Set(blogs.map(blog => blog.slug));
+    const staticBlogSlugs = fs.readdirSync(blogDirectory).filter(file => {
+        if (file === '[slug]' || file === 'preview') return false;
+        const filePath = path.join(blogDirectory, file);
+        if (!fs.statSync(filePath).isDirectory() || !fs.existsSync(path.join(filePath, 'page.tsx'))) return false;
+        // A static page always wins over the [slug] catch-all at this URL, so skip
+        // any slug that also exists as a DB row to avoid a duplicate <url> entry.
+        return !dbSlugSet.has(file);
+    });
+
     // Dynamically list all guide directories
     const guidesDirectory = path.join(process.cwd(), 'app', '(main)', 'guides');
     const guides = fs.readdirSync(guidesDirectory).filter(file => {
@@ -58,6 +72,16 @@ export async function GET() {
             <changefreq>weekly</changefreq>
             <priority>0.7</priority>
         </url>
+
+        <!-- Static (hand-written) Blog Posts -->
+        ${staticBlogSlugs.map((slug: string) => `
+            <url>
+                <loc>${baseUrl}/blog/${slug}/</loc>
+                <lastmod>${new Date().toISOString()}</lastmod>
+                <changefreq>monthly</changefreq>
+                <priority>0.6</priority>
+            </url>
+        `).join('')}
 
         <!-- Dynamic Blog Posts -->
         ${blogs.map(blog => {
