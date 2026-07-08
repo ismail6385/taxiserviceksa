@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const otherHotels = [
         { name: 'Sofitel Shahd Al Madinah', url: '/routes/jeddah-to-sofitel-shahd-al-madinah-taxi/' },
         { name: 'Elaf Taiba', url: '/routes/jeddah-to-elaf-taiba-madinah-taxi/' },
-        { name: 'Madinah Hilton', url: '/routes/jeddah-to-hilton-madinah/' },
+        { name: 'Madinah Hilton', url: '/routes/jeddah-to-hilton-madinah-taxi/' },
 ];
 
 export default function CrownePlazaMadinahTaxiPage() {

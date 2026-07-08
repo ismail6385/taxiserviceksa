@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const otherHotels = [
         { name: 'Movenpick Hajar Tower', url: '/routes/jeddah-to-movenpick-hajar-tower-makkah-taxi/' },
         { name: 'Voco Makkah', url: '/routes/jeddah-to-voco-makkah-taxi/' },
-        { name: 'Swissotel Makkah', url: '/routes/jeddah-to-swissotel-makkah/' },
+        { name: 'Swissotel Makkah', url: '/routes/jeddah-to-swissotel-makkah-taxi/' },
 ];
 
 export default function SheratonMakkahTaxiPage() {

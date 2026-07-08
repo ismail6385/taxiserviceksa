@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const otherHotels = [
         { name: 'Marriott Al Aqeeq', url: '/routes/jeddah-to-marriott-al-aqeeq-madinah-taxi/' },
         { name: 'Rua Al Madinah', url: '/routes/jeddah-to-rua-al-madinah-taxi/' },
-        { name: 'The Oberoi Madinah', url: '/routes/jeddah-to-oberoi-madinah/' },
+        { name: 'The Oberoi Madinah', url: '/routes/jeddah-to-oberoi-madinah-taxi/' },
 ];
 
 export default function SofitelShahdAlMadinahTaxiPage() {

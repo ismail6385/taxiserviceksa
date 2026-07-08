@@ -10,32 +10,32 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Jeddah to Dar Al Taqwa Madinah Taxi | Luxury Hotel Transfer | Taxi Service KSA',
-    description: 'Request a quote for a luxury taxi from Jeddah Airport (JED) to Dar Al Taqwa Hotel Madinah. Professional drivers, fixed rates, and VIP service to the Haram doorstep.',
-    keywords: ['Jeddah to Dar Al Taqwa Madinah taxi', 'Dar Al Taqwa hotel transfer Jeddah', 'KAIA to Dar Al Taqwa Madinah', 'Dar Al Taqwa main gate taxi', 'Dar Al Taqwa Prophet Mosque taxi'],
+    title: 'Jeddah to Oberoi Madinah Taxi | VIP Transfer - Fixed Price | Taxi Service KSA',
+    description: 'Request a quote for a VIP luxury taxi from Jeddah Airport to The Oberoi Madinah Hotel. Door-to-door first-class service for executive guests. 24/7 Availability.',
+    keywords: ['Jeddah to Oberoi Madinah taxi', 'The Oberoi Madinah hotel transfer', 'KAIA to Oberoi Madinah', 'luxury Oberoi Madinah pickup', 'Oberoi Al Madinah VIP taxi'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/jeddah-to-dar-al-taqwa-madinah/',
+        canonical: 'https://taxiserviceksa.com/routes/jeddah-to-oberoi-madinah-taxi/',
     },
     openGraph: {
-        title: 'Jeddah to Dar Al Taqwa Madinah - VIP Hotel Transfer | Taxi Service KSA',
-        description: 'Private, comfortable transfer from Jeddah Airport to Dar Al Taqwa Hotel. Located at the Main Gate of the Prophet Mosque.',
-        url: 'https://taxiserviceksa.com/routes/jeddah-to-dar-al-taqwa-madinah/',
+        title: 'VIP Transfer: Jeddah Airport to The Oberoi Madinah | Taxi Service KSA',
+        description: 'First-class private transfer to The Oberoi Madinah. GMC Yukon & luxury options available. Direct drop-off at hotel entrance.',
+        url: 'https://taxiserviceksa.com/routes/jeddah-to-oberoi-madinah-taxi/',
         type: 'website',
     },
 };
 
-export default function JeddahToDarAlTaqwaMadinahPage() {
+export default function JeddahToOberoiMadinahPage() {
     const routeDetails = [
-        { label: 'Destination', value: 'Dar Al Taqwa', icon: Building2 },
-        { label: 'Travel Time', value: '4-5 Hours', icon: Clock },
-        { label: 'Proximity', value: 'Main Gate', icon: MapPin },
+        { label: 'Destination', value: 'The Oberoi', icon: Building2 },
+        { label: 'Travel Time', value: '4 Hours', icon: Clock },
+        { label: 'VIP Service', value: 'GMC Yukon', icon: Car },
         { label: 'Rate', value: 'Fixed Price', icon: DollarSign },
     ];
 
     const routeImages = [
         '/madinah-prophets-mosque.webp',
         '/hero-slide-3.webp',
-        '/jeddah-corniche-sunset.webp',
+        '/makkah-clock-tower.webp',
     ];
 
     
@@ -43,10 +43,10 @@ export default function JeddahToDarAlTaqwaMadinahPage() {
     return (
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
-                cityName="Jeddah to Dar Al Taqwa Madinah"
-                description="Professional VIP private car service for Jeddah to Dar Al Taqwa Madinah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                cityName="Jeddah to Oberoi Madinah"
+                description="Professional VIP private car service for Jeddah to Oberoi Madinah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
-                    { name: 'Jeddah to Dar Al Taqwa Madinah Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
+                    { name: 'Jeddah to Oberoi Madinah Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
                     { name: 'Family Van Service', description: 'Spacious vehicles perfect for groups with luggage.' },
                     { name: 'Airport & Hotel Transfers', description: 'Convenient pickups and drop-offs at all major locations.' }
@@ -57,19 +57,19 @@ export default function JeddahToDarAlTaqwaMadinahPage() {
 
             <Hero
                 images={routeImages}
-                h1Text="Jeddah to Dar Al Taqwa"
+                h1Text="Jeddah to The Oberoi Madinah"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Luxury Hotel Transfer
+                        VIP Hotel Transfer
                     </span>
                 }
-                subtitle="Direct Ride to Dar Al Taqwa Hotel (Main Gate)"
-                location="4-5 Hours | Affordable WhatsApp Booking"
+                subtitle="First Class Transfer from Jeddah to The Oberoi Hotel"
+                location="Luxury GMC Yukon | Direct Hotel Drop-off"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book Hotel Transfer
+                            Book VIP Ride
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
@@ -85,10 +85,10 @@ export default function JeddahToDarAlTaqwaMadinahPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Direct to Haram</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Arrival at Dar Al Taqwa Hotel</h2>
+                        <span className="bg-emerald-100 text-emerald-800 font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">5-Star Experience</span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Arrival at The Oberoi Madinah</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            <strong>Dar Al Taqwa</strong> offers one of the best locations in Madinah, situated right at the main entrance of the Prophet's Mosque. Our drivers are familiar with the specific drop-off zone for this hotel to ensure your luggage is handled smoothly by the bell desk.
+                            <strong>The Oberoi Madinah</strong> is the most exclusive address in the Holy City, located directly adjacent to the Prophet's Mosque. Our drivers are trained to provide a discreet, smooth, and professional arrival experience befitting Oberoi guests.
                         </p>
                     </div>
 
@@ -108,25 +108,25 @@ export default function JeddahToDarAlTaqwaMadinahPage() {
                     <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-sm mb-16">
                         <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                             <CheckCircle2 className="w-6 h-6 text-emerald-600" />
-                            Why Book With Us?
+                            Premium Transfer Features
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             <div>
-                                <h4 className="font-bold text-gray-900 mb-2">Prime Location Access</h4>
+                                <h4 className="font-bold text-gray-900 mb-2">Gate Access</h4>
                                 <p className="text-sm text-gray-600">
-                                    Accessing hotels near the main gate can be tricky during prayer times. Our drivers know the best routes and timing to get you as close as possible.
+                                    The Oberoi has a secured entrance. Our drivers know the exact protocol for dropping you off right at the main lobby steps for luggage service.
                                 </p>
                             </div>
                             <div>
-                                <h4 className="font-bold text-gray-900 mb-2">Luxury Vehicles</h4>
+                                <h4 className="font-bold text-gray-900 mb-2">Luxury Fleet</h4>
                                 <p className="text-sm text-gray-600">
-                                    Match your stay at a 5-star hotel with a 5-star ride. Upgrade to our GMC Yukon for maximum comfort and legroom during the 400km trip.
+                                    We recommend our <strong>GMC Yukon</strong> or <strong>Chevy Tahoe</strong> for this route—spacious, quiet, and perfectly suited for a 4-hour desert highway drive.
                                 </p>
                             </div>
                             <div>
-                                <h4 className="font-bold text-gray-900 mb-2">Flight Tracking</h4>
+                                <h4 className="font-bold text-gray-900 mb-2">Airport Meet & Greet</h4>
                                 <p className="text-sm text-gray-600">
-                                    We track your flight arrival at JED Airport. Even if you are delayed, your driver will be waiting for you.
+                                    Your driver will be waiting inside the Jeddah Airport arrivals hall with a name board, ready to assist with your luggage immediately.
                                 </p>
                             </div>
                         </div>
@@ -136,9 +136,9 @@ export default function JeddahToDarAlTaqwaMadinahPage() {
                     <div className="bg-gray-50 rounded-3xl p-8 border border-gray-200">
                         <h3 className="text-xl font-bold text-gray-900 mb-4">Staying Elsewhere in Madinah?</h3>
                         <div className="flex flex-wrap gap-4">
-                            <Link href="/routes/jeddah-to-oberoi-madinah/" className="text-primary hover:underline font-medium">To The Oberoi</Link>
+                            <Link href="/routes/jeddah-to-hilton-madinah-taxi/" className="text-primary hover:underline font-medium">To Madinah Hilton</Link>
                             <span className="text-gray-300">|</span>
-                            <Link href="/routes/jeddah-to-hilton-madinah/" className="text-primary hover:underline font-medium">To Madinah Hilton</Link>
+                            <Link href="/routes/jeddah-to-dar-al-taqwa-madinah-taxi/" className="text-primary hover:underline font-medium">To Dar Al Taqwa</Link>
                             <span className="text-gray-300">|</span>
                             <Link href="/routes/jeddah-madinah/" className="text-primary hover:underline font-medium">General Madinah Transfer</Link>
                         </div>
@@ -154,18 +154,18 @@ export default function JeddahToDarAlTaqwaMadinahPage() {
             </div>
 
             <MicroSemanticFAQ
-                        contextName="Jeddah To Dar Al Taqwa Madinah"
+                        contextName="Jeddah To Oberoi Madinah"
                 faqs={[
                     {
-                        question: "How long does it take to get from Jeddah Airport to Dar Al Taqwa?",
-                        shortAnswer: "4 - 4.5 Hours",
-                        detailedAnswer: "The journey takes approximately 4 to 4.5 hours depending on traffic exiting Jeddah. Once on the highway, it is a smooth, direct drive to Madinah.",
+                        question: "How much is a taxi from Jeddah Airport to Oberoi Madinah?",
+                        shortAnswer: "Fixed Rate",
+                        detailedAnswer: "We offer fixed rates for Jeddah to Oberoi Madinah transfers. A standard sedan is offered at a competitive rate, while a luxury GMC Yukon is also available. Prices are all-inclusive.",
                         perspectives: []
                     },
                     {
-                        question: "Does Dar Al Taqwa have a drop-off zone?",
-                        shortAnswer: "Yes",
-                        detailedAnswer: "Yes, there is a drop-off point for guests. However, during peak prayer times (Salah), roads may be closed by traffic police. We aim to arrive between prayers for doorstep service.",
+                        question: "How far is The Oberoi from the Prophet's Mosque?",
+                        shortAnswer: "0 Steps",
+                        detailedAnswer: "The Oberoi Madinah is located directly facing the Prophet's Mosque (Masjid Nabawi). It is literally steps away from the Women's Gate (Gate 25).",
                         perspectives: []
                     }
                 ]}

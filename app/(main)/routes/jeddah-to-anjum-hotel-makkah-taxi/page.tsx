@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const otherHotels = [
         { name: 'Al Safwah Royale Orchid', url: '/routes/jeddah-to-al-safwah-royale-orchid-makkah-taxi/' },
         { name: 'Swissôtel Al Maqam', url: '/routes/jeddah-to-swissotel-al-maqam-makkah-taxi/' },
-        { name: 'Pullman ZamZam Makkah', url: '/routes/jeddah-to-pullman-makkah/' },
+        { name: 'Pullman ZamZam Makkah', url: '/routes/jeddah-to-pullman-makkah-taxi/' },
 ];
 
 export default function AnjumHotelMakkahTaxiPage() {

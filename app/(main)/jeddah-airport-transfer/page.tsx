@@ -240,8 +240,8 @@ export default function JeddahAirportTransferPage() {
                     <h2 className="text-2xl font-black text-gray-900 mb-6">Related Services</h2>
                     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                         {[
-                            { href: '/jeddah-to-fairmont-makkah/', label: 'Jeddah to Fairmont Makkah' },
-                            { href: '/jeddah-to-pullman-makkah/', label: 'Jeddah to Pullman Makkah' },
+                            { href: '/routes/jeddah-to-fairmont-makkah-taxi/', label: 'Jeddah to Fairmont Makkah' },
+                            { href: '/routes/jeddah-to-pullman-makkah-taxi/', label: 'Jeddah to Pullman Makkah' },
                             { href: '/makkah-taxi/', label: 'Makkah Taxi Service' },
                             { href: '/makkah-to-madinah-taxi/', label: 'Makkah to Madinah Transfer' },
                             { href: '/madinah-airport-taxi/', label: 'Madinah Airport Taxi' },

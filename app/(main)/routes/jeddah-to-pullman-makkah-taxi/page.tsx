@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     description: 'Direct taxi transfer from Jeddah Airport to Pullman ZamZam Makkah (Clock Tower). Affordable fixed rates. 24/7 Service. Book Online.',
     keywords: ['Jeddah to Pullman ZamZam Makkah taxi', 'Pullman ZamZam hotel transfer', 'KAIA to Pullman Makkah', 'Pullman ZamZam pickup Jeddah', 'Pullman Makkah hotel taxi'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/jeddah-to-pullman-makkah/',
+        canonical: 'https://taxiserviceksa.com/routes/jeddah-to-pullman-makkah-taxi/',
     },
     openGraph: {
         title: 'Jeddah Airport to Pullman ZamZam Makkah Taxi | Taxi Service KSA',
         description: 'Reliable transfer from KAIA Airport to Pullman ZamZam Makkah. Door-to-door service.',
-        url: 'https://taxiserviceksa.com/routes/jeddah-to-pullman-makkah/',
+        url: 'https://taxiserviceksa.com/routes/jeddah-to-pullman-makkah-taxi/',
         type: 'website',
     },
 };
@@ -181,7 +181,7 @@ export default function JeddahToPullmanPage() {
                         Other Popular Hotel Transfers
                     </h4>
                     <div className="flex flex-wrap gap-4">
-                        <Link href="/routes/jeddah-to-swissotel-makkah/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-blue-500 hover:text-blue-700 transition-colors shadow-sm">
+                        <Link href="/routes/jeddah-to-swissotel-makkah-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-blue-500 hover:text-blue-700 transition-colors shadow-sm">
                             Taxi to Swissotel Makkah
                         </Link>
                         <Link href="/routes/jeddah-makkah/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-blue-500 hover:text-blue-700 transition-colors shadow-sm">

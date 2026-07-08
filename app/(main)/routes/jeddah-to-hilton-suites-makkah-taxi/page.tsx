@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const otherHotels = [
         { name: 'Hilton Convention', url: '/routes/jeddah-to-hilton-convention-makkah-taxi/' },
         { name: 'Sheraton Makkah', url: '/routes/jeddah-to-sheraton-makkah-taxi/' },
-        { name: 'Fairmont Clock Tower', url: '/routes/jeddah-to-fairmont-makkah/' },
+        { name: 'Fairmont Clock Tower', url: '/routes/jeddah-to-fairmont-makkah-taxi/' },
 ];
 
 export default function HiltonSuitesMakkahTaxiPage() {

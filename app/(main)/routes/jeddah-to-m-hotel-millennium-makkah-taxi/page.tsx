@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const otherHotels = [
         { name: 'Swissôtel Al Maqam', url: '/routes/jeddah-to-swissotel-al-maqam-makkah-taxi/' },
         { name: 'Hilton Convention', url: '/routes/jeddah-to-hilton-convention-makkah-taxi/' },
-        { name: 'Swissotel Makkah', url: '/routes/jeddah-to-swissotel-makkah/' },
+        { name: 'Swissotel Makkah', url: '/routes/jeddah-to-swissotel-makkah-taxi/' },
 ];
 
 export default function MHotelMillenniumMakkahTaxiPage() {

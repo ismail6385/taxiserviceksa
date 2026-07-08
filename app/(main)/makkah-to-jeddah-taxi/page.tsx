@@ -174,7 +174,7 @@ export default function MakkahToJeddahPage() {
                             { href: '/makkah-taxi/', label: 'Makkah City Taxi' },
                             { href: '/makkah-to-madinah-taxi/', label: 'Makkah to Madinah' },
                             { href: '/jeddah-airport-transfer/', label: 'Jeddah Airport Transfer' },
-                            { href: '/jeddah-to-fairmont-makkah/', label: 'Jeddah to Makkah' },
+                            { href: '/routes/jeddah-to-fairmont-makkah-taxi/', label: 'Jeddah to Makkah' },
                             { href: '/private-taxi-madinah/', label: 'Private Taxi Madinah' },
                             { href: '/routes/', label: 'All Routes' },
                         ].map((link) => (

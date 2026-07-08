@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const otherHotels = [
         { name: 'Millennium Aljawhara', url: '/routes/jeddah-to-millennium-taiba-aljawhara-madinah-taxi/' },
         { name: 'Anwar Al Madinah Mövenpick', url: '/routes/jeddah-to-movenpick-anwar-al-madinah-taxi/' },
-        { name: 'Dar Al Taqwa Madinah', url: '/routes/jeddah-to-dar-al-taqwa-madinah/' },
+        { name: 'Dar Al Taqwa Madinah', url: '/routes/jeddah-to-dar-al-taqwa-madinah-taxi/' },
 ];
 
 export default function MarriottAlAqeeqMadinahTaxiPage() {

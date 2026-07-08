@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const otherHotels = [
         { name: 'Crowne Plaza Madinah', url: '/routes/jeddah-to-crowne-plaza-madinah-taxi/' },
         { name: 'Millennium Aljawhara', url: '/routes/jeddah-to-millennium-taiba-aljawhara-madinah-taxi/' },
-        { name: 'Dar Al Taqwa Madinah', url: '/routes/jeddah-to-dar-al-taqwa-madinah/' },
+        { name: 'Dar Al Taqwa Madinah', url: '/routes/jeddah-to-dar-al-taqwa-madinah-taxi/' },
 ];
 
 export default function IntercontinentalDarAlImanMadinahTaxiPage() {

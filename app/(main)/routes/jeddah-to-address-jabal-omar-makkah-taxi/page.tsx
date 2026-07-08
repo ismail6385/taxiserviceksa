@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const otherHotels = [
         { name: 'Sheraton Makkah', url: '/routes/jeddah-to-sheraton-makkah-taxi/' },
         { name: 'Elaf Kinda', url: '/routes/jeddah-to-elaf-kinda-makkah-taxi/' },
-        { name: 'Pullman ZamZam Makkah', url: '/routes/jeddah-to-pullman-makkah/' },
+        { name: 'Pullman ZamZam Makkah', url: '/routes/jeddah-to-pullman-makkah-taxi/' },
 ];
 
 export default function AddressJabalOmarMakkahTaxiPage() {

@@ -207,13 +207,13 @@ export default function JeddahMadinahRoutePage() {
                         <p className="text-gray-600 max-w-2xl mx-auto">Book a direct transfer to your specific hotel with the exact drop-off point already worked out by our drivers.</p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <Link href="/routes/jeddah-to-hilton-madinah/" className="bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-500 rounded-xl p-4 transition-colors">
+                        <Link href="/routes/jeddah-to-hilton-madinah-taxi/" className="bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-500 rounded-xl p-4 transition-colors">
                             <span className="font-bold text-gray-900">Madinah Hilton</span>
                         </Link>
-                        <Link href="/routes/jeddah-to-oberoi-madinah/" className="bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-500 rounded-xl p-4 transition-colors">
+                        <Link href="/routes/jeddah-to-oberoi-madinah-taxi/" className="bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-500 rounded-xl p-4 transition-colors">
                             <span className="font-bold text-gray-900">The Oberoi Madinah</span>
                         </Link>
-                        <Link href="/routes/jeddah-to-dar-al-taqwa-madinah/" className="bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-500 rounded-xl p-4 transition-colors">
+                        <Link href="/routes/jeddah-to-dar-al-taqwa-madinah-taxi/" className="bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-500 rounded-xl p-4 transition-colors">
                             <span className="font-bold text-gray-900">Dar Al Taqwa Madinah</span>
                         </Link>
                         {madinahHotels.map((hotel) => (

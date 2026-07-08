@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     description: 'Request a quote for a taxi from Jeddah Airport (JED) to Madinah Hilton Hotel. 4-5 hour journey. Affordable fixed rates. Door-to-door service near King Fahd Gate.',
     keywords: ['Jeddah to Madinah Hilton taxi', 'KAIA to Hilton Madinah transfer', 'Hilton Madinah hotel pickup', 'Jeddah airport to Hilton Al Madinah', 'Hilton King Fahd Gate taxi'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/jeddah-to-hilton-madinah/',
+        canonical: 'https://taxiserviceksa.com/routes/jeddah-to-hilton-madinah-taxi/',
     },
     openGraph: {
         title: 'Jeddah to Madinah Hilton Hotel Transfer - Trusted Service | Taxi Service KSA',
         description: 'Direct private taxi from Jeddah Airport to Madinah Hilton. Located steps from King Fahd Gate. Get a quote for your ride now.',
-        url: 'https://taxiserviceksa.com/routes/jeddah-to-hilton-madinah/',
+        url: 'https://taxiserviceksa.com/routes/jeddah-to-hilton-madinah-taxi/',
         type: 'website',
     },
 };
@@ -136,9 +136,9 @@ export default function JeddahToHiltonMadinahPage() {
                     <div className="bg-gray-50 rounded-3xl p-8 border border-gray-200">
                         <h3 className="text-xl font-bold text-gray-900 mb-4">Staying Elsewhere in Madinah?</h3>
                         <div className="flex flex-wrap gap-4">
-                            <Link href="/routes/jeddah-to-oberoi-madinah/" className="text-primary hover:underline font-medium">To The Oberoi</Link>
+                            <Link href="/routes/jeddah-to-oberoi-madinah-taxi/" className="text-primary hover:underline font-medium">To The Oberoi</Link>
                             <span className="text-gray-300">|</span>
-                            <Link href="/routes/jeddah-to-dar-al-taqwa-madinah/" className="text-primary hover:underline font-medium">To Dar Al Taqwa</Link>
+                            <Link href="/routes/jeddah-to-dar-al-taqwa-madinah-taxi/" className="text-primary hover:underline font-medium">To Dar Al Taqwa</Link>
                             <span className="text-gray-300">|</span>
                             <Link href="/routes/jeddah-madinah/" className="text-primary hover:underline font-medium">General Madinah Transfer</Link>
                         </div>

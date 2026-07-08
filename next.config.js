@@ -365,12 +365,22 @@ const nextConfig = {
       },
       {
         source: '/jeddah-to-pullman-makkah',
-        destination: '/routes/jeddah-to-pullman-makkah/',
+        destination: '/routes/jeddah-to-pullman-makkah-taxi/',
         permanent: true,
       },
       {
         source: '/jeddah-to-pullman-makkah/',
-        destination: '/routes/jeddah-to-pullman-makkah/',
+        destination: '/routes/jeddah-to-pullman-makkah-taxi/',
+        permanent: true,
+      },
+      {
+        source: '/routes/jeddah-to-pullman-makkah',
+        destination: '/routes/jeddah-to-pullman-makkah-taxi/',
+        permanent: true,
+      },
+      {
+        source: '/routes/jeddah-to-pullman-makkah/',
+        destination: '/routes/jeddah-to-pullman-makkah-taxi/',
         permanent: true,
       },
       {
@@ -385,12 +395,22 @@ const nextConfig = {
       },
       {
         source: '/jeddah-to-fairmont-makkah',
-        destination: '/routes/jeddah-to-fairmont-makkah/',
+        destination: '/routes/jeddah-to-fairmont-makkah-taxi/',
         permanent: true,
       },
       {
         source: '/jeddah-to-fairmont-makkah/',
-        destination: '/routes/jeddah-to-fairmont-makkah/',
+        destination: '/routes/jeddah-to-fairmont-makkah-taxi/',
+        permanent: true,
+      },
+      {
+        source: '/routes/jeddah-to-fairmont-makkah',
+        destination: '/routes/jeddah-to-fairmont-makkah-taxi/',
+        permanent: true,
+      },
+      {
+        source: '/routes/jeddah-to-fairmont-makkah/',
+        destination: '/routes/jeddah-to-fairmont-makkah-taxi/',
         permanent: true,
       },
       {
@@ -405,12 +425,52 @@ const nextConfig = {
       },
       {
         source: '/jeddah-to-swissotel-makkah',
-        destination: '/routes/jeddah-to-swissotel-makkah/',
+        destination: '/routes/jeddah-to-swissotel-makkah-taxi/',
         permanent: true,
       },
       {
         source: '/jeddah-to-swissotel-makkah/',
-        destination: '/routes/jeddah-to-swissotel-makkah/',
+        destination: '/routes/jeddah-to-swissotel-makkah-taxi/',
+        permanent: true,
+      },
+      {
+        source: '/routes/jeddah-to-swissotel-makkah',
+        destination: '/routes/jeddah-to-swissotel-makkah-taxi/',
+        permanent: true,
+      },
+      {
+        source: '/routes/jeddah-to-swissotel-makkah/',
+        destination: '/routes/jeddah-to-swissotel-makkah-taxi/',
+        permanent: true,
+      },
+      {
+        source: '/routes/jeddah-to-hilton-madinah',
+        destination: '/routes/jeddah-to-hilton-madinah-taxi/',
+        permanent: true,
+      },
+      {
+        source: '/routes/jeddah-to-hilton-madinah/',
+        destination: '/routes/jeddah-to-hilton-madinah-taxi/',
+        permanent: true,
+      },
+      {
+        source: '/routes/jeddah-to-oberoi-madinah',
+        destination: '/routes/jeddah-to-oberoi-madinah-taxi/',
+        permanent: true,
+      },
+      {
+        source: '/routes/jeddah-to-oberoi-madinah/',
+        destination: '/routes/jeddah-to-oberoi-madinah-taxi/',
+        permanent: true,
+      },
+      {
+        source: '/routes/jeddah-to-dar-al-taqwa-madinah',
+        destination: '/routes/jeddah-to-dar-al-taqwa-madinah-taxi/',
+        permanent: true,
+      },
+      {
+        source: '/routes/jeddah-to-dar-al-taqwa-madinah/',
+        destination: '/routes/jeddah-to-dar-al-taqwa-madinah-taxi/',
         permanent: true,
       },
     ];

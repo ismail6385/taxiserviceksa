@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const otherHotels = [
         { name: 'Hyatt Regency Jabal Omar', url: '/routes/jeddah-to-hyatt-regency-jabal-omar-makkah-taxi/' },
         { name: 'Movenpick Hajar Tower', url: '/routes/jeddah-to-movenpick-hajar-tower-makkah-taxi/' },
-        { name: 'Pullman ZamZam Makkah', url: '/routes/jeddah-to-pullman-makkah/' },
+        { name: 'Pullman ZamZam Makkah', url: '/routes/jeddah-to-pullman-makkah-taxi/' },
 ];
 
 export default function HiltonConventionMakkahTaxiPage() {

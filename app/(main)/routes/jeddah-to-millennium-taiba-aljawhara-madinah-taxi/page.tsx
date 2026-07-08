@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const otherHotels = [
         { name: 'Elaf Taiba', url: '/routes/jeddah-to-elaf-taiba-madinah-taxi/' },
         { name: 'Pullman ZamZam Madina', url: '/routes/jeddah-to-pullman-zamzam-madinah-taxi/' },
-        { name: 'Madinah Hilton', url: '/routes/jeddah-to-hilton-madinah/' },
+        { name: 'Madinah Hilton', url: '/routes/jeddah-to-hilton-madinah-taxi/' },
 ];
 
 export default function MillenniumTaibaAljawharaMadinahTaxiPage() {

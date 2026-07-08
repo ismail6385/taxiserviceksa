@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const otherHotels = [
         { name: 'Address Jabal Omar', url: '/routes/jeddah-to-address-jabal-omar-makkah-taxi/' },
         { name: 'Al Safwah Royale Orchid', url: '/routes/jeddah-to-al-safwah-royale-orchid-makkah-taxi/' },
-        { name: 'Fairmont Clock Tower', url: '/routes/jeddah-to-fairmont-makkah/' },
+        { name: 'Fairmont Clock Tower', url: '/routes/jeddah-to-fairmont-makkah-taxi/' },
 ];
 
 export default function MarriottJabalOmarMakkahTaxiPage() {

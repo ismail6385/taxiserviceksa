@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     description: 'Book private taxi from Jeddah Airport (KAIA) to Swissotel Makkah (Clock Tower). Door-to-door drop-off at Abraj Al Bait tunnel. Affordable fixed prices. 24/7 Service.',
     keywords: ['Jeddah airport to Swissotel Makkah taxi', 'Swissotel Makkah hotel transfer', 'Swissotel Clock Tower pickup', 'KAIA to Swissotel Makkah', 'Swissotel Abraj Al Bait taxi'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/jeddah-to-swissotel-makkah/',
+        canonical: 'https://taxiserviceksa.com/routes/jeddah-to-swissotel-makkah-taxi/',
     },
     openGraph: {
         title: 'Jeddah Airport to Swissotel Makkah Taxi | Fixed Price Transfer | Taxi Service KSA',
         description: 'Direct transfer from KAIA Airport to Swissotel Makkah (Clock Tower). VIP drop-off service.',
-        url: 'https://taxiserviceksa.com/routes/jeddah-to-swissotel-makkah/',
+        url: 'https://taxiserviceksa.com/routes/jeddah-to-swissotel-makkah-taxi/',
         type: 'website',
     },
 };
@@ -199,7 +199,7 @@ export default function JeddahToSwissotelPage() {
                         Other Popular Hotel Transfers
                     </h4>
                     <div className="flex flex-wrap gap-4">
-                        <Link href="/routes/jeddah-to-pullman-makkah/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
+                        <Link href="/routes/jeddah-to-pullman-makkah-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
                             Taxi to Pullman ZamZam Makkah
                         </Link>
                         <Link href="/routes/jeddah-makkah/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">

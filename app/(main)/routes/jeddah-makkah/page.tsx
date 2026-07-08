@@ -257,13 +257,13 @@ export default function JeddahMakkahRoutePage() {
                         <p className="text-gray-600 max-w-2xl mx-auto">Book a direct transfer to your specific hotel with the exact drop-off point already worked out by our drivers.</p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <Link href="/routes/jeddah-to-fairmont-makkah/" className="bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-500 rounded-xl p-4 transition-colors">
+                        <Link href="/routes/jeddah-to-fairmont-makkah-taxi/" className="bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-500 rounded-xl p-4 transition-colors">
                             <span className="font-bold text-gray-900">Fairmont Clock Tower</span>
                         </Link>
-                        <Link href="/routes/jeddah-to-pullman-makkah/" className="bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-500 rounded-xl p-4 transition-colors">
+                        <Link href="/routes/jeddah-to-pullman-makkah-taxi/" className="bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-500 rounded-xl p-4 transition-colors">
                             <span className="font-bold text-gray-900">Pullman ZamZam Makkah</span>
                         </Link>
-                        <Link href="/routes/jeddah-to-swissotel-makkah/" className="bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-500 rounded-xl p-4 transition-colors">
+                        <Link href="/routes/jeddah-to-swissotel-makkah-taxi/" className="bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-500 rounded-xl p-4 transition-colors">
                             <span className="font-bold text-gray-900">Swissotel Makkah</span>
                         </Link>
                         {makkahHotels.map((hotel) => (

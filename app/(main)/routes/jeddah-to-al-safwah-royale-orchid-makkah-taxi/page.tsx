@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const otherHotels = [
         { name: 'Elaf Kinda', url: '/routes/jeddah-to-elaf-kinda-makkah-taxi/' },
         { name: 'Raffles Makkah', url: '/routes/jeddah-to-raffles-makkah-palace-taxi/' },
-        { name: 'Swissotel Makkah', url: '/routes/jeddah-to-swissotel-makkah/' },
+        { name: 'Swissotel Makkah', url: '/routes/jeddah-to-swissotel-makkah-taxi/' },
 ];
 
 export default function AlSafwahRoyaleOrchidMakkahTaxiPage() {

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const otherHotels = [
         { name: 'Rua Al Madinah', url: '/routes/jeddah-to-rua-al-madinah-taxi/' },
         { name: 'Dar Al Iman InterContinental', url: '/routes/jeddah-to-intercontinental-dar-al-iman-madinah-taxi/' },
-        { name: 'The Oberoi Madinah', url: '/routes/jeddah-to-oberoi-madinah/' },
+        { name: 'The Oberoi Madinah', url: '/routes/jeddah-to-oberoi-madinah-taxi/' },
 ];
 
 export default function ElafTaibaMadinahTaxiPage() {
