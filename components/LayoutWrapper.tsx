@@ -36,7 +36,7 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
         </>
       )}
 
-      <main className={!isAdminRoute ? 'pt-[90px]' : ''}>
+      <main className={!isAdminRoute ? 'pt-[136px]' : ''}>
         {!isAdminRoute && pathname !== '/' && (
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
             <Breadcrumbs />
