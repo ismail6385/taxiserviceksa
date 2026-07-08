@@ -176,7 +176,7 @@ export default function NeomPage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
-                <RelatedLocations currentCity="Tabuk" />
+                <RelatedLocations currentCity="Tabuk" citySlug="neom" />
             </div>
 
             <MicroSemanticFAQ

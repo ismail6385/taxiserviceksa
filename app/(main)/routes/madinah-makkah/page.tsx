@@ -9,6 +9,7 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedRoutes from '@/components/seo/RelatedRoutes';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 
 export const metadata: Metadata = {
@@ -196,6 +197,7 @@ export default function MadinahToMakkahPage() {
                     { name: 'Madinah City Ziyarat', url: '/services/madinah-ziyarat/', description: 'Visit historic sites in the Holy City of Madinah.' }
                 ]}
             />
+            <RelatedRoutes originSlug="madinah" currentSlug="madinah-makkah" />
 
             <div className="bg-emerald-950 py-24 text-center px-4 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -mr-32 -mt-32"></div>

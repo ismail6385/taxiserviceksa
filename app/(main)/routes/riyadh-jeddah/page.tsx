@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Car, Clock, MapPin, CheckCircle2, Shield, Users, ArrowRight, Briefcase, Navigation, Star, Plane, Coffee, User, Compass, DollarSign } from 'lucide-react';
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedRoutes from '@/components/seo/RelatedRoutes';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
@@ -195,6 +196,7 @@ export default function RiyadhJeddahRoutePage() {
                     { name: 'Riyadh to Dammam', url: '/routes/riyadh-dammam/', description: 'Transfers to the Eastern Province business hub.' }
                 ]}
             />
+            <RelatedRoutes originSlug="riyadh" currentSlug="riyadh-jeddah" />
 
             <div className="bg-emerald-950 py-24 text-center px-4 relative overflow-hidden rounded-[4rem] mx-4 mb-12 shadow-2xl">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>

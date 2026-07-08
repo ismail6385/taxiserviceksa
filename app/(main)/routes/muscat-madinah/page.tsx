@@ -7,6 +7,7 @@ import { MapPin, Clock, CheckCircle2, Building2, Globe, ArrowRight } from 'lucid
 import Hero from '@/components/Hero';
 import RouteFleetSection from '@/components/RouteFleetSection';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedRoutes from '@/components/seo/RelatedRoutes';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
@@ -168,6 +169,7 @@ export default function MuscatMadinahRoutePage() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
                 <RelatedLocations currentCity="Riyadh" />
+                <RelatedRoutes originSlug="muscat" currentSlug="muscat-madinah" />
             </div>
 
             <MicroSemanticFAQ

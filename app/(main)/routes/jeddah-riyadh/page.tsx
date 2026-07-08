@@ -8,6 +8,7 @@ import { Car, Clock, MapPin, CheckCircle2, Shield, Users, ArrowRight, Briefcase,
 import Hero from '@/components/Hero';
 import RouteFleetSection from '@/components/RouteFleetSection';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedRoutes from '@/components/seo/RelatedRoutes';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import FreshnessStatus from '@/components/seo/FreshnessStatus';
 import TLDRSummary from '@/components/seo/TLDRSummary';
@@ -278,6 +279,7 @@ export default function JeddahRiyadhRoutePage() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
                 <RelatedLocations currentCity="Jeddah" />
+                <RelatedRoutes originSlug="jeddah" currentSlug="jeddah-riyadh" />
             </div>
 
             <MicroSemanticFAQ

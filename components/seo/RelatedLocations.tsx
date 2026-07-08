@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { MapPin, ArrowRight } from 'lucide-react';
+import { getRelatedLocationLinks, RelatedLink } from '@/data/locationGraph';
 
 export interface RelatedLocationsLabels {
     title: string;
@@ -7,28 +8,18 @@ export interface RelatedLocationsLabels {
     viewRoutes: string;
 }
 
-export interface RelatedLink {
-    name: string;
-    url: string;
-    description: string;
-}
-
-const defaultLinks: RelatedLink[] = [
-    { name: 'Makkah (Haram Area)', url: '/locations/makkah/', description: '24/7 taxi services for Umrah pilgrims and Haram visitors' },
-    { name: 'Madinah (Prophet\'s Mosque)', url: '/locations/madinah/', description: 'Reliable transport for Ziyarat and Mosque visits' },
-    { name: 'Jeddah International Airport', url: '/locations/jeddah/', description: 'King Abdulaziz Airport (JED) meet & greet transfers' },
-    { name: 'Riyadh (Capital City)', url: '/locations/riyadh/', description: 'Business and intercity transport in the capital' },
-];
+export type { RelatedLink };
 
 interface RelatedLocationsProps {
     currentCity: string;
+    citySlug?: string;
     labels?: RelatedLocationsLabels;
     customLinks?: RelatedLink[];
     isRtl?: boolean;
 }
 
-export default function RelatedLocations({ currentCity, labels, customLinks, isRtl = false }: RelatedLocationsProps) {
-    const activeLinks = customLinks || defaultLinks;
+export default function RelatedLocations({ currentCity, citySlug, labels, customLinks, isRtl = false }: RelatedLocationsProps) {
+    const activeLinks = customLinks || getRelatedLocationLinks(currentCity, citySlug);
     const t: RelatedLocationsLabels = {
         title: `Explore Nearby Destinations from ${currentCity}`,
         subtitle: "Seamless connections across Saudi Arabia",
@@ -36,7 +27,7 @@ export default function RelatedLocations({ currentCity, labels, customLinks, isR
         ...labels
     };
 
-    // Filter out the current city (simple check)
+    // Filter out the current city (simple check, kept as a safety net for customLinks callers)
     const links = activeLinks.filter(link => !link.name.toLowerCase().includes(currentCity.toLowerCase()) && !link.url.toLowerCase().includes(currentCity.toLowerCase()));
 
     return (

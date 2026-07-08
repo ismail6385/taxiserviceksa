@@ -5,6 +5,7 @@ import { Car, Clock, MapPin, CheckCircle2, Shield, Users, ArrowRight, Briefcase,
 import Hero from '@/components/Hero';
 import RouteFleetSection from '@/components/RouteFleetSection';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedRoutes from '@/components/seo/RelatedRoutes';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
@@ -193,6 +194,7 @@ export default function MadinahJeddahRoutePage() {
                     { name: 'Madinah to Yanbu', url: '/routes/madinah-yanbu/', description: 'Scenic drive to the coastal industrial and resort city.' }
                 ]}
             />
+            <RelatedRoutes originSlug="madinah" currentSlug="madinah-jeddah" />
 
             <footer className="bg-black py-24 text-center px-4 relative overflow-hidden rounded-t-[3rem]">
                 <div className="absolute bottom-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -mr-32 -mb-32"></div>

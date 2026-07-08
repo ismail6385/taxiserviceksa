@@ -6,6 +6,7 @@ import { Car, Clock, MapPin, CheckCircle2, Shield, Users, ArrowRight, Briefcase,
 import Hero from '@/components/Hero';
 import RouteFleetSection from '@/components/RouteFleetSection';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedRoutes from '@/components/seo/RelatedRoutes';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
@@ -200,6 +201,7 @@ export default function MakkahJeddahRoutePage() {
                     { name: 'Makkah to Riyadh', url: '/routes/makkah-riyadh/', description: 'Long-distance VIP transfer to the Saudi Capital.' }
                 ]}
             />
+            <RelatedRoutes originSlug="makkah" currentSlug="makkah-jeddah" />
 
             <div className="bg-emerald-950 py-24 text-center px-4 relative overflow-hidden rounded-[3rem] mx-4 mb-20">
                 <div className="absolute top-0 left-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -ml-32 -mt-32"></div>

@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { MapPin, Clock, CheckCircle2, Building2, Globe, ArrowRight, CreditCard, Star, Users, Briefcase, Baby, HeartPulse, UserCheck, Plane, Moon, GraduationCap, ShieldCheck } from 'lucide-react';
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedRoutes from '@/components/seo/RelatedRoutes';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
@@ -629,6 +630,7 @@ export default function KuwaitRiyadhRoutePage() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
                 <RelatedLocations currentCity="Riyadh" />
+                <RelatedRoutes originSlug="kuwait" currentSlug="kuwait-riyadh" />
             </div>
 
             {/* SEO: Kuwait coverage areas */}

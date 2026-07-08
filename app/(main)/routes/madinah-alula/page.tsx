@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { MapPin, Clock, CheckCircle2, Car, Users, DollarSign, Shield, ArrowRight, Navigation, Mountain } from 'lucide-react';
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedRoutes from '@/components/seo/RelatedRoutes';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
@@ -305,6 +306,7 @@ export default function MadinahAlUlaRoutePage() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
                 <RelatedLocations currentCity="Madinah" />
+                <RelatedRoutes originSlug="madinah" currentSlug="madinah-alula" />
             </div>
 
             <div className="max-w-4xl mx-auto px-4 pb-12">

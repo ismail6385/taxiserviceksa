@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Plane, ArrowRight, Coffee, Navigation, Train, Shield, Briefcase, Compass, User, Building2, Landmark } from 'lucide-react';
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedRoutes from '@/components/seo/RelatedRoutes';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import JsonLdRoute from '@/components/JsonLdRoute';
@@ -261,6 +262,7 @@ export default function MakkahMadinahRoutePage() {
                     { name: 'Jeddah to Makkah', url: '/routes/jeddah-makkah/', description: 'The most popular airport-to-city transfer.' }
                 ]}
             />
+            <RelatedRoutes originSlug="makkah" currentSlug="makkah-madinah" />
 
             <div className="bg-black py-20 text-center px-4 rounded-[40px] mx-4 mb-12">
                 <div className="max-w-4xl mx-auto relative z-10">

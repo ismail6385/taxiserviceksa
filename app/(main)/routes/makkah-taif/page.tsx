@@ -7,6 +7,7 @@ import { MapPin, Clock, CheckCircle2, Car, Mountain, ArrowRight, Navigation, Shi
 import Hero from '@/components/Hero';
 import RouteFleetSection from '@/components/RouteFleetSection';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedRoutes from '@/components/seo/RelatedRoutes';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
@@ -162,6 +163,9 @@ export default function MakkahTaifRoutePage() {
 
             <div className="max-w-4xl mx-auto py-24 px-4 bg-white rounded-[3rem] my-20 shadow-sm border border-gray-50">
                 <RouteFleetSection />
+
+                <RelatedLocations currentCity="Makkah" />
+                <RelatedRoutes originSlug="makkah" currentSlug="makkah-taif" />
 
             <MicroSemanticFAQ
                         contextName="Makkah to Taif" 

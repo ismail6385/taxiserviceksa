@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Car, Clock, MapPin, CheckCircle2, Shield, Users, ArrowRight, Briefcase, Navigation, Star, Plane, Train, Coffee, User, Compass, DollarSign } from 'lucide-react';
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedRoutes from '@/components/seo/RelatedRoutes';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
@@ -204,6 +205,7 @@ export default function JeddahMadinahRoutePage() {
                     { name: 'Jeddah City Tour', url: '/services/jeddah-city-tour/', description: 'Explore the historic Al-Balad and Corniche area.' }
                 ]}
             />
+            <RelatedRoutes originSlug="jeddah" currentSlug="jeddah-madinah" />
 
             <div className="bg-emerald-950 py-24 text-center px-4 relative overflow-hidden rounded-[4rem] mx-4 mb-12 shadow-2xl transition-all hover:shadow-emerald-500/20">
                 <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>

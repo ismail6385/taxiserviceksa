@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { MapPin, Clock, CheckCircle2, Building2, Globe, ArrowRight } from 'lucide-react';
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedRoutes from '@/components/seo/RelatedRoutes';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
@@ -212,6 +213,7 @@ export default function DammamDohaRoutePage() {
                         }
                     ]}
                 />
+                <RelatedRoutes originSlug="dammam" currentSlug="dammam-doha" />
             </div>
 
             <MicroSemanticFAQ

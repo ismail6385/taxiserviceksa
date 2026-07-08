@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Plane, ArrowRight, Train, Navigation, Building2, Shield, User, Compass, Info } from 'lucide-react';
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedRoutes from '@/components/seo/RelatedRoutes';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
@@ -253,6 +254,7 @@ export default function JeddahMakkahRoutePage() {
                     { name: 'Jeddah to Taif', url: '/routes/jeddah-taif/', description: 'Escape the heat to the mountain city of Taif.' }
                 ]}
             />
+            <RelatedRoutes originSlug="jeddah" currentSlug="jeddah-makkah" />
 
             <div className="bg-black py-24 text-center px-4 relative overflow-hidden rounded-3xl mx-4 mb-12">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>

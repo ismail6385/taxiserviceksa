@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Plane, ArrowRight, Coffee, Navigation, Mountain } from 'lucide-react';
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedRoutes from '@/components/seo/RelatedRoutes';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import RouteFleetSection from '@/components/RouteFleetSection';
@@ -234,6 +235,7 @@ export default function JeddahAlulaRoutePage() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
                 <RelatedLocations currentCity="Jeddah" />
+                <RelatedRoutes originSlug="jeddah" currentSlug="jeddah-alula" />
             </div>
 
             <MicroSemanticFAQ
