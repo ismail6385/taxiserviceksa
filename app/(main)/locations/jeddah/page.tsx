@@ -19,6 +19,7 @@ import SeasonalTravelTips from '@/components/seo/SeasonalTravelTips';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import JsonLdLocation from '@/components/JsonLdLocation';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import { jeddahHotels } from '@/data/jeddahHotels';
 
 
 
@@ -505,6 +506,28 @@ export default async function JeddahPage() {
                                 </Button>
                             </a>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Hotel-Specific Transfer Directory */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <span className="bg-primary/10 text-primary font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Hotel Directory</span>
+                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Popular Hotel Transfers in Jeddah</h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto">Book a direct transfer from King Abdulaziz International Airport to your specific Jeddah hotel.</p>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {jeddahHotels.map((hotel) => (
+                            <Link
+                                key={hotel.slug}
+                                href={`/routes/jeddah-to-${hotel.slug}/`}
+                                className="bg-gray-50 hover:bg-primary/5 border border-gray-100 hover:border-primary rounded-xl p-4 transition-colors"
+                            >
+                                <span className="font-bold text-gray-900">{hotel.shortName}</span>
+                            </Link>
+                        ))}
                     </div>
                 </div>
             </section>

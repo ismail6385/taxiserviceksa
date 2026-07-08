@@ -13,6 +13,7 @@ import RoutePerspective from '@/components/seo/RoutePerspective';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import RouteFleetSection from '@/components/RouteFleetSection';
+import { madinahHotels } from '@/data/madinahHotels';
 
 
 export const metadata: Metadata = {
@@ -197,7 +198,38 @@ export default function JeddahMadinahRoutePage() {
                 />
             </div>
 
-            <RelatedLocations 
+            {/* Hotel-Specific Transfer Directory */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <span className="bg-emerald-100 text-emerald-800 font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Hotel Directory</span>
+                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">Popular Hotel Transfers in Madinah</h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto">Book a direct transfer to your specific hotel with the exact drop-off point already worked out by our drivers.</p>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <Link href="/routes/jeddah-to-hilton-madinah/" className="bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-500 rounded-xl p-4 transition-colors">
+                            <span className="font-bold text-gray-900">Madinah Hilton</span>
+                        </Link>
+                        <Link href="/routes/jeddah-to-oberoi-madinah/" className="bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-500 rounded-xl p-4 transition-colors">
+                            <span className="font-bold text-gray-900">The Oberoi Madinah</span>
+                        </Link>
+                        <Link href="/routes/jeddah-to-dar-al-taqwa-madinah/" className="bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-500 rounded-xl p-4 transition-colors">
+                            <span className="font-bold text-gray-900">Dar Al Taqwa Madinah</span>
+                        </Link>
+                        {madinahHotels.map((hotel) => (
+                            <Link
+                                key={hotel.slug}
+                                href={`/routes/jeddah-to-${hotel.slug}/`}
+                                className="bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-500 rounded-xl p-4 transition-colors"
+                            >
+                                <span className="font-bold text-gray-900">{hotel.shortName}</span>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <RelatedLocations
                 currentCity="Jeddah"
                 customLinks={[
                     { name: 'Jeddah to Makkah', url: '/routes/jeddah-makkah/', description: 'Direct transfer to the Holy Mosque area.' },

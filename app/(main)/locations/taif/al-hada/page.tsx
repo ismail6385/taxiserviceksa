@@ -164,7 +164,21 @@ export default function AlHadaPage() {
                 </div>
             </section>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-8">
+                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+                    <h4 className="font-bold text-gray-900 mb-4">Related Al Hada &amp; Taif Trips</h4>
+                    <div className="flex flex-wrap gap-4">
+                        <Link href="/routes/jeddah-to-shaza-al-hada-taif/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-primary hover:text-primary transition-colors shadow-sm">
+                            Shaza Al Hada Resort Transfer
+                        </Link>
+                        <Link href="/taif-day-trip/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-primary hover:text-primary transition-colors shadow-sm">
+                            Full Taif Day Trip Tour
+                        </Link>
+                    </div>
+                </div>
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
                 <RelatedLocations currentCity="Taif" />
             </div>
 
