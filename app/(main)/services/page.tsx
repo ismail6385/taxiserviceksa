@@ -135,6 +135,14 @@ export default function ServicesPage() {
             isNew: false,
         },
         {
+            name: 'GCC Chauffeur Service',
+            description: 'Private cross-border transfers from Saudi Arabia to the UAE, Kuwait, Qatar, and Bahrain. Fixed rates, single private vehicle, door-to-door.',
+            icon: Globe,
+            href: '/services/gcc-chauffeur-service/',
+            features: ['Dubai, Kuwait, Doha, Bahrain', 'Fixed cross-border rates', '100% private vehicle', 'One-way or round trip'],
+            isNew: true,
+        },
+        {
             name: 'Sightseeing & Ziyarat Tours',
             description: 'Sightseeing and Ziyarat tours in Makkah, Madinah, and Taif with knowledgeable drivers.',
             icon: MapPin,
@@ -266,7 +274,7 @@ export default function ServicesPage() {
                 <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 md:p-12 text-white text-center">
                     <h2 className="text-2xl md:text-3xl font-bold mb-4">Not Sure Which Service You Need?</h2>
                     <p className="text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed text-lg">
-                        Message us on WhatsApp with your travel dates and destination. We'll recommend the right service and vehicle for your group.
+                        Message us on WhatsApp with your travel dates and destination. We&apos;ll recommend the right service and vehicle for your group.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="https://wa.me/966552202642?text=Hello,%20I%20need%20help%20choosing%20a%20transport%20service" target="_blank">

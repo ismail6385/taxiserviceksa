@@ -114,6 +114,7 @@ export default function Navbar() {
                         { name: 'Jeddah to Amman', href: '/routes/jeddah-amman/' },
                         { name: 'Kuwait to Riyadh', href: '/routes/kuwait-riyadh/' },
                         { name: 'King Fahd Causeway', href: '/border-crossings/taxi-king-fahd-causeway-border-crossing/' },
+                        { name: 'GCC Chauffeur Service', href: '/services/gcc-chauffeur-service/' },
                     ]
                 }
             ]
