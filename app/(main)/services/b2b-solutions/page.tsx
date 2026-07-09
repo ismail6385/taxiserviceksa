@@ -152,7 +152,7 @@ export default function B2BSolutions() {
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Button>
                         </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
+                        <a href="mailto:taxiserviceksa9988@gmail.com">
                             <Button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-900 font-black py-8 rounded-2xl text-lg transition-all">
                                 Email Business Team
                             </Button>

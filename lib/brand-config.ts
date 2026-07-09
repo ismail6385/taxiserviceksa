@@ -12,7 +12,7 @@ export const BRAND = {
     foundingYear: 2012,
     headquarters: "Jeddah, Saudi Arabia",
     contact: {
-        email: "info@taxiserviceksa.com",
+        email: "taxiserviceksa9988@gmail.com",
         whatsapp: "+966569487569",
         phone: "+966569487569"
     },

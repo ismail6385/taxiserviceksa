@@ -141,7 +141,7 @@ export default function BusinessPage() {
                             {
                                 question: "How do I open a corporate account?",
                                 shortAnswer: "Contact Sales.",
-                                detailedAnswer: "Please email our corporate sales team at info@taxiserviceksa.com with your company details. We will set up your account with credit terms and a dedicated booking portal.",
+                                detailedAnswer: "Please email our corporate sales team at taxiserviceksa9988@gmail.com with your company details. We will set up your account with credit terms and a dedicated booking portal.",
                                 perspectives: [
                                     {
                                         role: "Account Manager",

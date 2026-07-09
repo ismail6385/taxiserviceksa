@@ -56,7 +56,7 @@ export default function RiyadhMakkahRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@taxiserviceksa.com">
+                    <a href="mailto:taxiserviceksa9988@gmail.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Get Custom Quote
                         </Button>
@@ -211,7 +211,7 @@ export default function RiyadhMakkahRoutePage() {
                                 Reserve My Ride
                             </Button>
                         </Link>
-                        <a href="mailto:info@taxiserviceksa.com" className="text-white/60 hover:text-white font-bold underline underline-offset-8 transition-colors">
+                        <a href="mailto:taxiserviceksa9988@gmail.com" className="text-white/60 hover:text-white font-bold underline underline-offset-8 transition-colors">
                             Request Custom Quote
                         </a>
                     </div>

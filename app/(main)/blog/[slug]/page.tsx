@@ -105,7 +105,7 @@ export default async function BlogPostPage({ params }: Props) {
         "dateModified": appendTimezone(modifiedDate),
         "author": {
             "@type": "Person",
-            "name": blog.author || "VIP Transfer KSA",
+            "name": blog.author || "Taxi Service KSA",
             "url": authorDetails ? `https://taxiserviceksa.com/author/${authorDetails.slug}` : undefined,
             "image": authorDetails?.avatar ? `https://taxiserviceksa.com${authorDetails.avatar}` : undefined
         },

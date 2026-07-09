@@ -200,7 +200,7 @@ export default function WomenTransportPage() {
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Button>
                         </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
+                        <a href="mailto:taxiserviceksa9988@gmail.com">
                             <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
                                 Email for Enquiry
                             </Button>
@@ -327,7 +327,7 @@ export default function WomenTransportPage() {
                         <Link href="https://wa.me/966552202642?text=Hello,%20I%20need%20private%20transport%20for%20women%20in%20Saudi%20Arabia" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">WhatsApp Booking</Button>
                         </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
+                        <a href="mailto:taxiserviceksa9988@gmail.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">Email for Details</Button>
                         </a>
                     </div>

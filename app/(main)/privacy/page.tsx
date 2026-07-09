@@ -115,7 +115,7 @@ export default function PrivacyPolicyPage() {
                         <p>If you have any questions about this Privacy Policy, please contact us:</p>
                         <div className="mt-3 p-4 bg-gray-50 rounded-xl border border-gray-200 space-y-1">
                             <p><strong>Taxi Service KSA</strong></p>
-                            <p>Email: <a href="mailto:info@taxiserviceksa.com" className="text-primary hover:underline">info@taxiserviceksa.com</a></p>
+                            <p>Email: <a href="mailto:taxiserviceksa9988@gmail.com" className="text-primary hover:underline">taxiserviceksa9988@gmail.com</a></p>
                             <p>WhatsApp: <a href="https://wa.me/966560732928" className="text-primary hover:underline">+966 56 073 2928</a></p>
                             <p>Website: <a href="https://taxiserviceksa.com" className="text-primary hover:underline">taxiserviceksa.com</a></p>
                         </div>

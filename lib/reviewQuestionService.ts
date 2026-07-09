@@ -154,7 +154,7 @@ export const questionService = {
     },
 
     // Answer question (admin)
-    async answerQuestion(id: string, answer: string, answeredBy: string = 'VIP Transfer KSA') {
+    async answerQuestion(id: string, answer: string, answeredBy: string = 'Taxi Service KSA') {
         const { data, error } = await supabase
             .from('questions')
             .update({

@@ -91,7 +91,7 @@ export default function InternationalGuidePage({ params }: PageProps) {
                         },
                         "publisher": {
                             "@type": "Organization",
-                            "name": "VIP Transfer KSA",
+                            "name": "Taxi Service KSA",
                             "url": "https://taxiserviceksa.com",
                             "logo": {
                                 "@type": "ImageObject",

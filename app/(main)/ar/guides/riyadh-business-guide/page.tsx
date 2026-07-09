@@ -51,7 +51,7 @@ export default function RiyadhBusinessGuidePage() {
         },
         {
             question: "Do you offer corporate accounts for Riyadh businesses?",
-            answer: "Yes. Corporate accounts include: monthly billing, invoice via email, payment by bank transfer, priority booking during peak hours, dedicated account manager, 24/7 booking support. Minimum 10 trips/month. Contact info@taxiserviceksa.com for corporate rates and setup."
+            answer: "Yes. Corporate accounts include: monthly billing, invoice via email, payment by bank transfer, priority booking during peak hours, dedicated account manager, 24/7 booking support. Minimum 10 trips/month. Contact taxiserviceksa9988@gmail.com for corporate rates and setup."
         },
         {
             question: "Should I choose GMC Yukon or Toyota Camry for business meetings?",

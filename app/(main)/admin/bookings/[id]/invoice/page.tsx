@@ -577,7 +577,7 @@ export default function InvoicePage() {
                                 </span>
                                 <div className="text-[9px] text-gray-500 space-y-0 mt-1 leading-tight font-medium">
                                     <p className="flex items-center gap-1"><MapPin className="w-2 h-2 text-gray-400" /> Jeddah, Saudi Arabia</p>
-                                    <p className="flex items-center gap-1"><Mail className="w-2 h-2 text-gray-400" /> info@taxiserviceksa.com</p>
+                                    <p className="flex items-center gap-1"><Mail className="w-2 h-2 text-gray-400" /> taxiserviceksa9988@gmail.com</p>
                                     <p className="flex items-center gap-1"><Globe className="w-2 h-2 text-gray-400" /> www.taxiserviceksa.com</p>
                                 </div>
                             </div>

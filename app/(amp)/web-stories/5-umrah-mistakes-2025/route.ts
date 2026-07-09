@@ -5,7 +5,7 @@ export const dynamic = 'force-static';
 export async function GET() {
     const storyData = {
         title: "5 Umrah Mistakes 2025",
-        publisher: "VIP Transfer KSA",
+        publisher: "Taxi Service KSA",
         publisherLogo: "https://taxiserviceksa.com/logo.png",
         poster: "https://taxiserviceksa.com/locations/makkah.webp",
         pages: [

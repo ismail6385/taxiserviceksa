@@ -76,7 +76,7 @@ export async function POST(request: NextRequest) {
         // 1. Send email to customer
         await sendMail({
             to: booking.customer_email,
-            subject: 'Quotation Request Received - VIP Transfer KSA',
+            subject: 'Quotation Request Received - Taxi Service KSA',
             html: `
             <div style="font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; color: #333;">
                 <div style="background-color: #000; padding: 25px; text-align: center; border-radius: 10px 10px 0 0;">
@@ -84,7 +84,7 @@ export async function POST(request: NextRequest) {
                 </div>
                 <div style="padding: 30px; border: 1px solid #eee; border-top: none; border-radius: 0 0 10px 10px; background-color: #fff;">
                     <p style="font-size: 16px;">Dear <strong>${safeName}</strong>,</p>
-                    <p>Thank you for reaching out to <strong>VIP Transfer KSA</strong>. We have received your request for a quotation for your upcoming journey. Our team is currently reviewing your details and will provide you with our best competitive rates shortly.</p>
+                    <p>Thank you for reaching out to <strong>Taxi Service KSA</strong>. We have received your request for a quotation for your upcoming journey. Our team is currently reviewing your details and will provide you with our best competitive rates shortly.</p>
 
                     <div style="background-color: #f8f9fa; padding: 20px; border-radius: 12px; margin: 25px 0; border: 1px solid #ebedf0;">
                         <h3 style="margin-top: 0; color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 8px; display: inline-block;">Journey Details</h3>
@@ -107,7 +107,7 @@ export async function POST(request: NextRequest) {
                     </div>
 
                     <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
-                    <p style="font-size: 12px; color: #999; text-align: center;">VIP Transfer KSA • Premium Chauffeur &amp; Private Transport Service</p>
+                    <p style="font-size: 12px; color: #999; text-align: center;">Taxi Service KSA • Premium Chauffeur &amp; Private Transport Service</p>
                 </div>
             </div>
             `,

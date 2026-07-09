@@ -75,7 +75,7 @@ export default function SalwaBorderPage() {
                 location="24/7 Border Pickups"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <a href="mailto:info@taxiserviceksa.com?subject=Immediate%20Taxi%20Request%20-%20Salwa%20Border">
+                    <a href="mailto:taxiserviceksa9988@gmail.com?subject=Immediate%20Taxi%20Request%20-%20Salwa%20Border">
                         <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                             Email for Immediate Quote
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

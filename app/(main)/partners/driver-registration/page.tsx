@@ -62,7 +62,8 @@ export default function DriverRegistration() {
             }]);
 
             if (error) {
-                console.error("Supabase DB Insert Failed (ignoring to send email):", error);
+                console.error("Supabase DB Insert Failed:", error);
+                throw error;
             }
 
             // Send Email Notification
@@ -76,7 +77,7 @@ export default function DriverRegistration() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } catch (error) {
             console.error('Submission error:', error);
-            alert('There was an error submitting your application. Please try again.');
+            alert('There was an error submitting your application. Please try again or contact us directly on WhatsApp.');
         } finally {
             setLoading(false);
         }
@@ -99,7 +100,7 @@ export default function DriverRegistration() {
                                 Return to Homepage
                             </Button>
                         </Link>
-                        <p className="text-xs text-gray-400">Need immediate help? Email us at info@taxiserviceksa.com</p>
+                        <p className="text-xs text-gray-400">Need immediate help? Email us at taxiserviceksa9988@gmail.com</p>
                     </div>
                 </div>
             </main>
@@ -154,7 +155,7 @@ export default function DriverRegistration() {
                         <div className="bg-primary p-10 rounded-[2.5rem] text-white">
                             <h3 className="text-xl font-black mb-4">Support & Coordination</h3>
                             <p className="text-primary-foreground/80 text-sm mb-6 font-medium leading-relaxed">
-                                Our dedicated partner coordinator is available 24/7 to assist you with onboarding and booking management. We'll contact you via email after reviewing your application.
+                                Our dedicated partner coordinator is available 24/7 to assist you with onboarding and booking management. We&apos;ll contact you via email after reviewing your application.
                             </p>
                         </div>
                     </div>

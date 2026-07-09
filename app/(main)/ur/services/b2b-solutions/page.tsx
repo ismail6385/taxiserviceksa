@@ -212,7 +212,7 @@ export default function B2BSolutionsUrdu() {
                                 <ArrowRight className="ml-0 mr-3 w-6 h-6 rotate-180 group-hover:-translate-x-2 transition-transform" />
                             </Button>
                         </Link>
-                        <a href="mailto:info@taxiserviceksa.com" className="w-full sm:w-auto">
+                        <a href="mailto:taxiserviceksa9988@gmail.com" className="w-full sm:w-auto">
                             <Button size="lg" variant="outline" className="w-full bg-slate-50 border-2 border-slate-200 hover:bg-slate-100 hover:border-slate-300 text-slate-900 font-bold py-8 px-10 rounded-2xl text-xl transition-all font-urdu">
                                 بزنس ٹیم کو ای میل کریں
                             </Button>

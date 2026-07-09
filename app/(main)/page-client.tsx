@@ -296,7 +296,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
         },
         {
             question: "How do I request a quote for a VIP transfer in Saudi Arabia?",
-            answer: "VIP transfer quotes are available through the <a href='/booking/' class='text-primary hover:underline font-bold'>online quote form</a> or email at info@taxiserviceksa.com. Your request requires pickup location, destination, and preferred vehicle type. Quotations are sent via email."
+            answer: "VIP transfer quotes are available through the <a href='/booking/' class='text-primary hover:underline font-bold'>online quote form</a> or email at taxiserviceksa9988@gmail.com. Your request requires pickup location, destination, and preferred vehicle type. Quotations are sent via email."
         },
         {
             question: "Is Taxi Service KSA a licensed company?",
@@ -1130,7 +1130,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         </Link>
 
                         {/* Secondary CTA - Email */}
-                        <a href="mailto:info@taxiserviceksa.com" className="w-full sm:w-auto">
+                        <a href="mailto:taxiserviceksa9988@gmail.com" className="w-full sm:w-auto">
                             <Button variant="outline" className="w-full bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-h-[56px] min-w-[200px] transition-all hover:scale-105 active:scale-95">
                                 Email Us
                             </Button>

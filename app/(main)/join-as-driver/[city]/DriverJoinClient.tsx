@@ -123,7 +123,7 @@ export default function DriverJoinClient({ cityObj, allCities }: DriverJoinClien
                                 Return to Homepage
                             </Button>
                         </Link>
-                        <p className="text-xs text-gray-400">Need immediate help? Email us at info@taxiserviceksa.com</p>
+                        <p className="text-xs text-gray-400">Need immediate help? Email us at taxiserviceksa9988@gmail.com</p>
                     </div>
                 </div>
             </main>

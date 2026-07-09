@@ -160,7 +160,7 @@ export default function PrivateDriverPage() {
         },
         {
             question: 'How do I book a private driver in Saudi Arabia?',
-            answer: 'Booking is done via WhatsApp (+966 552 202 642) or email (info@taxiserviceksa.com). Provide your dates, number of passengers, vehicle preference, and planned destinations. For full-day or multi-day hire, 24–48 hours advance booking is recommended. No Saudi phone number or local account is required — international bookings are accepted.',
+            answer: 'Booking is done via WhatsApp (+966 552 202 642) or email (taxiserviceksa9988@gmail.com). Provide your dates, number of passengers, vehicle preference, and planned destinations. For full-day or multi-day hire, 24–48 hours advance booking is recommended. No Saudi phone number or local account is required — international bookings are accepted.',
         },
     ];
 
@@ -245,7 +245,7 @@ export default function PrivateDriverPage() {
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Button>
                         </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
+                        <a href="mailto:taxiserviceksa9988@gmail.com">
                             <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
                                 Email for Custom Rate
                             </Button>
@@ -453,7 +453,7 @@ export default function PrivateDriverPage() {
                                 WhatsApp Booking
                             </Button>
                         </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
+                        <a href="mailto:taxiserviceksa9988@gmail.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Rate Card
                             </Button>

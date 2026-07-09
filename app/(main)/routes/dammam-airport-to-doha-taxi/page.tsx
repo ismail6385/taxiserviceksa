@@ -64,7 +64,7 @@ export default function DammamAirportToDohaTaxiPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:info@taxiserviceksa.com">
+                    <a href="mailto:taxiserviceksa9988@gmail.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                     </a>
                 </div>
@@ -229,7 +229,7 @@ export default function DammamAirportToDohaTaxiPage() {
                         <Link href="/booking?pickup=Dammam%20Airport&dropoff=Doha">
                             <Button size="lg" className="bg-emerald-600 text-white hover:bg-emerald-700 font-bold text-lg px-10 py-6 h-auto min-w-[200px]"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                         </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
+                        <a href="mailto:taxiserviceksa9988@gmail.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Quote
                             </Button>

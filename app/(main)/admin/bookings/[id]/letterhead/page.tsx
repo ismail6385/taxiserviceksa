@@ -208,7 +208,7 @@ export default function LetterheadPage() {
                                 <div className="space-y-0.5 mt-2">
                                     <div className="text-[11px] text-gray-500 space-y-0.5 max-w-[250px] leading-tight font-medium">
                                         <p className="flex items-center gap-1.5"><MapPin className="w-2.5 h-2.5" /> Jeddah, Saudi Arabia</p>
-                                        <p className="flex items-center gap-1.5"><Mail className="w-2.5 h-2.5" /> info@taxiserviceksa.com</p>
+                                        <p className="flex items-center gap-1.5"><Mail className="w-2.5 h-2.5" /> taxiserviceksa9988@gmail.com</p>
                                         <p className="flex items-center gap-1.5"><Globe className="w-2.5 h-2.5" /> www.taxiserviceksa.com</p>
                                     </div>
                                 </div>

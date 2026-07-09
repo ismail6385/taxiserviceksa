@@ -2,8 +2,8 @@ import { blogService } from '@/lib/blogService';
 
 export async function GET() {
     const siteUrl = "https://taxiserviceksa.com";
-    const authorName = "VIP Transfer KSA";
-    const authorEmail = "info@taxiserviceksa.com";
+    const authorName = "Taxi Service KSA";
+    const authorEmail = "taxiserviceksa9988@gmail.com";
 
     // 1. Fetch Dynamic Blogs
     let posts: any[] = [];
@@ -104,14 +104,14 @@ export async function GET() {
     const rssXml = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
     <channel>
-        <title>VIP Transfer KSA - Travel Insights</title>
+        <title>Taxi Service KSA - Travel Insights</title>
         <link>${siteUrl}</link>
-        <description>Official travel guides, transport reports, and news from VIP Transfer KSA.</description>
+        <description>Official travel guides, transport reports, and news from Taxi Service KSA.</description>
         <language>en</language>
         <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
         <image>
             <url>${siteUrl}/logo.png</url>
-            <title>VIP Transfer KSA</title>
+            <title>Taxi Service KSA</title>
             <link>${siteUrl}</link>
         </image>
         ${itemsXml}

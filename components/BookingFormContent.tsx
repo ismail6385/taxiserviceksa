@@ -612,7 +612,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                         <div className="grid grid-cols-2 gap-3 mt-4">
                             <Button
                                 type="button"
-                                onClick={() => window.location.href = 'mailto:info@taxiserviceksa.com'}
+                                onClick={() => window.location.href = 'mailto:taxiserviceksa9988@gmail.com'}
                                 className="w-full h-14 bg-gray-950 hover:bg-black text-white font-bold text-sm lg:text-lg rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
                             >
                                 <Mail className="w-5 h-5 flex-shrink-0" />

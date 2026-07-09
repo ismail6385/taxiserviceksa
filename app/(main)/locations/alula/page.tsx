@@ -122,7 +122,7 @@ export default function AlUlaPage() {
                         </Link>
                     </Button>
                     <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                        <a href="mailto:info@taxiserviceksa.com">
+                        <a href="mailto:taxiserviceksa9988@gmail.com">
                             Email Us
                         </a>
                     </Button>
@@ -513,7 +513,7 @@ export default function AlUlaPage() {
                             </Link>
                         </Button>
                         <Button asChild variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                            <a href="mailto:info@taxiserviceksa.com">
+                            <a href="mailto:taxiserviceksa9988@gmail.com">
                                 Email Us
                             </a>
                         </Button>

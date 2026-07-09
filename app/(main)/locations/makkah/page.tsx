@@ -369,7 +369,7 @@ export default async function MakkahPage() {
                                     Book VIP Now
                                 </Button>
                             </Link>
-                            <a href="mailto:info@taxiserviceksa.com" className="w-full sm:w-auto">
+                            <a href="mailto:taxiserviceksa9988@gmail.com" className="w-full sm:w-auto">
                                 <Button variant="outline" className="w-full bg-transparent text-white border-2 border-white/20 hover:bg-white/10 font-bold px-12 py-8 h-auto text-xl rounded-2xl">
                                     Contact Support
                                 </Button>

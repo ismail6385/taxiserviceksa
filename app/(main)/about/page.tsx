@@ -108,7 +108,7 @@ export default function AboutPage() {
                 },
                 {
                     "@type": "ContactPoint",
-                    "email": "info@taxiserviceksa.com",
+                    "email": "taxiserviceksa9988@gmail.com",
                     "contactType": "reservations",
                     "availableLanguage": ["English", "Arabic", "Urdu"]
                 }
@@ -294,7 +294,7 @@ export default function AboutPage() {
                         { label: 'Legal Name', val: 'Taxi Service KSA Transport' },
                         { label: 'Brand Name', val: 'Taxi Service KSA™' },
                         { label: 'Headquarters', val: 'Jeddah, Saudi Arabia' },
-                        { label: 'Contact', val: 'info@taxiserviceksa.com' },
+                        { label: 'Contact', val: 'taxiserviceksa9988@gmail.com' },
                         { label: 'License Status', val: 'ACTIVE - TGA Registered' }
                     ].map((item, i) => (
                         <div key={i} className="grid grid-cols-1 sm:grid-cols-3 gap-2">
