@@ -98,7 +98,7 @@ export default function TaxiInDammamPage() {
         { from: 'Dammam City', to: 'Jubail Industrial City', dist: '95 km', time: '1–1.25 hrs', link: '/locations/dammam/' },
         { from: 'Dammam City', to: 'Riyadh', dist: '400 km', time: '4–4.5 hrs', link: '/routes/dammam-riyadh/' },
         { from: 'Dammam City', to: 'Dubai (UAE)', dist: '960 km', time: '9–10 hrs', link: '/routes/dammam-dubai/' },
-        { from: 'Dammam City', to: 'Kuwait City', dist: '600 km', time: '6–7 hrs', link: '/routes/dammam-kuwait/' },
+        { from: 'Dammam City', to: 'Kuwait City', dist: '430 km', time: '4.5–5 hrs', link: '/routes/dammam-kuwait/' },
     ];
 
     const vehicles = [

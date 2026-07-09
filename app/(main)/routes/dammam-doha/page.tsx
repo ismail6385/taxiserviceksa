@@ -167,9 +167,35 @@ export default function DammamDohaRoutePage() {
                 </div>
             </section>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
-                <RelatedLocations 
-                    currentCity="None" 
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-8">
+                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+                    <h4 className="font-bold text-gray-900 mb-4">Specific Qatar Destinations from Dammam Airport</h4>
+                    <div className="flex flex-wrap gap-4">
+                        <Link href="/routes/dammam-airport-to-doha-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
+                            Doha City
+                        </Link>
+                        <Link href="/routes/dammam-airport-to-lusail-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
+                            Lusail
+                        </Link>
+                        <Link href="/routes/dammam-airport-to-the-pearl-qatar-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
+                            The Pearl-Qatar
+                        </Link>
+                        <Link href="/routes/dammam-airport-to-al-wakrah-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
+                            Al Wakrah
+                        </Link>
+                        <Link href="/routes/dammam-airport-to-al-khor-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
+                            Al Khor
+                        </Link>
+                        <Link href="/routes/khobar-to-qatar-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
+                            Al Khobar to Qatar
+                        </Link>
+                    </div>
+                </div>
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+                <RelatedLocations
+                    currentCity="None"
                     labels={{
                         title: "Popular Nearby Routes",
                         subtitle: "Direct private transfers and cross-border taxi services",

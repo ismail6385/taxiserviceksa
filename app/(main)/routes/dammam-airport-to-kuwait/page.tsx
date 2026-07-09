@@ -284,9 +284,35 @@ export default function DammamAirportKuwaitRoutePage() {
                 </div>
             </section>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
-                <RelatedLocations 
-                    currentCity="Dammam" 
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-8">
+                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+                    <h4 className="font-bold text-gray-900 mb-4">Specific Kuwait Destinations from Dammam Airport</h4>
+                    <div className="flex flex-wrap gap-4">
+                        <Link href="/routes/dammam-airport-to-kuwait-city-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
+                            Kuwait City
+                        </Link>
+                        <Link href="/routes/dammam-airport-to-salmiya-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
+                            Salmiya
+                        </Link>
+                        <Link href="/routes/dammam-airport-to-hawally-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
+                            Hawally
+                        </Link>
+                        <Link href="/routes/dammam-airport-to-fahaheel-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
+                            Fahaheel / Al Ahmadi
+                        </Link>
+                        <Link href="/routes/dammam-airport-to-jahra-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
+                            Jahra
+                        </Link>
+                        <Link href="/routes/khobar-to-kuwait-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
+                            Al Khobar to Kuwait
+                        </Link>
+                    </div>
+                </div>
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+                <RelatedLocations
+                    currentCity="Dammam"
                     customLinks={[
                         { name: 'Khobar (Al Khobar)', url: '/routes/dammam-airport-to-khobar/', description: 'Quick and reliable transfers to the Khobar Corniche and business districts.' },
                         { name: 'Dhahran (Aramco)', url: '/locations/dhahran/', description: 'Direct service to Dhahran residential and industrial hubs.' },

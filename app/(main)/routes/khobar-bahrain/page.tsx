@@ -195,7 +195,30 @@ export default function KhobarBahrainRoutePage() {
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-8">
+                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+                    <h4 className="font-bold text-gray-900 mb-4">Specific Bahrain Destinations from the Eastern Province</h4>
+                    <div className="flex flex-wrap gap-4">
+                        <Link href="/routes/dammam-airport-to-bahrain-airport-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-primary hover:text-primary transition-colors shadow-sm">
+                            Dammam Airport to Bahrain Airport
+                        </Link>
+                        <Link href="/routes/dammam-airport-to-manama-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-primary hover:text-primary transition-colors shadow-sm">
+                            Dammam Airport to Manama
+                        </Link>
+                        <Link href="/routes/dammam-airport-to-muharraq-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-primary hover:text-primary transition-colors shadow-sm">
+                            Dammam Airport to Muharraq
+                        </Link>
+                        <Link href="/routes/dammam-airport-to-riffa-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-primary hover:text-primary transition-colors shadow-sm">
+                            Dammam Airport to Riffa
+                        </Link>
+                        <Link href="/routes/dammam-airport-to-amwaj-islands-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-primary hover:text-primary transition-colors shadow-sm">
+                            Dammam Airport to Amwaj Islands
+                        </Link>
+                    </div>
+                </div>
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
                 <RelatedLocations currentCity="Al Khobar" />
                 <RelatedRoutes originSlug="khobar" currentSlug="khobar-bahrain" />
             </div>
