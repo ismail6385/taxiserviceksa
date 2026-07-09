@@ -232,7 +232,7 @@ export default function AlUlaPage() {
                     <ExpertReview
                         reviewerName='Guide Ibrahim Al-Balawi'
                         reviewerTitle='Heritage Site Specialist'
-                        reviewDate="28 Dec 2026"
+                        reviewDate="28 Jun 2026"
                         expertise={["Desert Navigation", "RCU Permits", "Photography Spots"]}
                     />
                 </div>

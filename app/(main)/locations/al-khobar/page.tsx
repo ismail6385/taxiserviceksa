@@ -227,7 +227,7 @@ export default function AlKhobarPage() {
                     <ExpertReview
                         reviewerName='Driver Hussain Al-Ajmi'
                         reviewerTitle='Cross-Border Operations'
-                        reviewDate="27 Dec 2026"
+                        reviewDate="27 Jun 2026"
                         expertise={["Causeway Procedures", "Bahrain Customs", "VIP Handling"]}
                     />
                 </div>

@@ -253,7 +253,7 @@ export default function DammamPage() {
                     <ExpertReview
                         reviewerName='Captain Nasser Al-Dawsari'
                         reviewerTitle='Eastern Province Route Manager'
-                        reviewDate="29 Dec 2026"
+                        reviewDate="29 Jun 2026"
                         expertise={["Dammman-Jubail Hwy", "Airport Logistics", "Industrial Security"]}
                     />
                 </div>

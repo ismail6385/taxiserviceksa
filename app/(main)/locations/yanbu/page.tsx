@@ -208,15 +208,15 @@ export default function YanbuPage() {
                             relevance: "Primary",
                             items: [
                                 { label: "Shift Transport", url: "/services/corporate-travel" },
-                                { label: "Plant Shuttle", url: "/services/industrial" },
-                                { label: "Port Transfer", url: "/services/city-transport" }
+                                { label: "Plant Shuttle", url: "/services/corporate-travel" },
+                                { label: "Port Transfer", url: "/services/corporate-travel" }
                             ]
                         },
                         {
                             category: "Red Sea Tourism",
                             relevance: "Secondary",
                             items: [
-                                { label: "Hotel to Marina", url: "/services/city-transport", description: "Diving Gear Friendly" },
+                                { label: "Hotel to Marina", url: "/services/tourism-transport", description: "Diving Gear Friendly" },
                                 { label: "Yanbu to Madinah", url: "/locations/madinah", description: "Post-Umrah Relax" }
                             ]
                         }
@@ -230,7 +230,7 @@ export default function YanbuPage() {
                     <ExpertReview
                         reviewerName='Coordinator Saad Al-Juhani'
                         reviewerTitle='Yanbu Fleet Supervisor'
-                        reviewDate="28 Dec 2026"
+                        reviewDate="28 Jun 2026"
                         expertise={["RC Regulations", "Port Security", "Madinah Route"]}
                     />
                 </div>

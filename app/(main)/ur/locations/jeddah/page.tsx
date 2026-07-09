@@ -125,7 +125,7 @@ export default function JeddahPageUrdu() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-emerald-800 text-sm font-bold flex items-center justify-center gap-2">
                         <Shield className="w-4 h-4" />
-                        پریمیم الرٹ: ہم ایئرپورٹ ٹرمینل کے اندر 'نام کے بورڈ' کے ساتھ استقبال (Meet & Greet) فراہم کرتے ہیں۔ آپ کو باہر نکل کر ڈرائیور ڈھونڈنے کی ضرورت نہیں۔
+                        پریمیم الرٹ: ہم ایئرپورٹ ٹرمینل کے اندر &apos;نام کے بورڈ&apos; کے ساتھ استقبال (Meet &amp; Greet) فراہم کرتے ہیں۔ آپ کو باہر نکل کر ڈرائیور ڈھونڈنے کی ضرورت نہیں۔
                     </p>
                 </div>
             </div>
@@ -234,7 +234,7 @@ export default function JeddahPageUrdu() {
                         isRtl={true}
                         reviewerName='کیپٹن سعید الغامدی'
                         reviewerTitle='سینئر فلائٹ کوآرڈینیٹر'
-                        reviewDate="28 دسمبر 2026"
+                        reviewDate="28 جون 2026"
                         expertise={["ایئرپورٹ لاجسٹکس", "وی آئی پی پروٹوکول", "مکہ ٹریفک ماہر"]}
                         labels={{ reviewTitle: "ایکسپرٹ گائیڈ", verifiedReview: "تصدیق شدہ معلومات" }}
                     />
@@ -277,7 +277,7 @@ export default function JeddahPageUrdu() {
                                 ہم باہر سے ٹیکسی لینے کا مشورہ کیوں نہیں دیتے؟
                             </h2>
                             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                                جدہ ایئرپورٹ پر غیر لائسنس یافتہ ڈرائیور اکثر مسافروں کو پریشان کرتے ہیں۔ وہ کرایہ کم بتا کر بعد میں پارکنگ یا 'بیگیج فیس' کے نام پر اضافی رقم مانگتے ہیں۔
+                                جدہ ایئرپورٹ پر غیر لائسنس یافتہ ڈرائیور اکثر مسافروں کو پریشان کرتے ہیں۔ وہ کرایہ کم بتا کر بعد میں پارکنگ یا &apos;بیگیج فیس&apos; کے نام پر اضافی رقم مانگتے ہیں۔
                             </p>
                             <p className="text-gray-700 mb-6 leading-relaxed leading-relaxed font-urdu">
                                 ہماری ویب سائٹ پر بکنگ کرنے سے آپ کو **فکسڈ کرایہ** ملتا ہے۔ ڈرائیور ایئرپورٹ کے مقررہ ضابطوں کا پابند ہے اور آپ کی حفاظت ہماری پہلی ترجیح ہے۔

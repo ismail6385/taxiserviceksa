@@ -311,7 +311,7 @@ export default function KhayberPage() {
                     <ExpertReview
                         reviewerName='Dr. Hassan Al-Amri'
                         reviewerTitle='History Researcher & Guide'
-                        reviewDate="24 Dec 2026"
+                        reviewDate="24 Jun 2026"
                         expertise={["Islamic Battles", "Volcanic Geology", "Ancient Irrigation"]}
                         theme="dark"
                     />

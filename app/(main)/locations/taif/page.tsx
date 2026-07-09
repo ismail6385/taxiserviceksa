@@ -246,7 +246,7 @@ export default function TaifPage() {
                     <ExpertReview
                         reviewerName='Captain Waleed Al-Thaqafi'
                         reviewerTitle='High-Altitude Driving Specialist'
-                        reviewDate="26 Dec 2026"
+                        reviewDate="26 Jun 2026"
                         expertise={["Mountain Safety", "Fog Navigation", "Local Farm Access"]}
                     />
                 </div>

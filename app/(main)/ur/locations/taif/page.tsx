@@ -241,7 +241,7 @@ export default function TaifPageUrdu() {
                         isRtl={true}
                         reviewerName='کیپٹن ولید الثقفی'
                         reviewerTitle='پہاڑی ڈرائیونگ کے ماہر'
-                        reviewDate="26 دسمبر 2026"
+                        reviewDate="26 جون 2026"
                         expertise={["پہاڑی حفاظت", "دھند میں نیویگیشن", "مقامی فارمز تک رسائی"]}
                         labels={{ reviewTitle: "ماہر کی رائے", verifiedReview: "تصدیق شدہ تبصرہ" }}
                     />
