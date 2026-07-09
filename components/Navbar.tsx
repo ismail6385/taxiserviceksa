@@ -147,9 +147,9 @@ export default function Navbar() {
             <div className={`bg-gray-900 text-white overflow-hidden transition-all duration-300 ${scrolled ? 'h-0 opacity-0' : 'h-10 opacity-100'}`}>
                 <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between text-[10px] font-black tracking-wide sm:tracking-widest uppercase gap-3">
                     <div className="flex items-center gap-4 sm:gap-6 text-gray-400 min-w-0">
-                        <a href="mailto:info@taxiserviceksa.com" className="flex items-center gap-2 hover:text-primary transition-colors min-w-0">
+                        <a href="mailto:taxiserviceksa9988@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors min-w-0">
                             <Mail className="w-3.5 h-3.5 text-primary shrink-0" />
-                            <span className="hidden sm:inline">info@taxiserviceksa.com</span>
+                            <span className="hidden sm:inline">taxiserviceksa9988@gmail.com</span>
                             <span className="sm:hidden truncate">Email Us</span>
                         </a>
                         <div className="hidden sm:flex items-center gap-2 cursor-default font-black">
@@ -186,7 +186,7 @@ export default function Navbar() {
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-base sm:text-xl font-black tracking-tighter leading-none text-gray-900 uppercase whitespace-nowrap">
-                                    Taxi <span className="text-primary">KSA</span>
+                                    Taxi Service <span className="text-primary">KSA</span>
                                 </span>
                                 <span className="hidden sm:block text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Premium Chauffeur Service</span>
                             </div>
@@ -306,7 +306,7 @@ export default function Navbar() {
                             <div className="bg-primary p-1.5 rounded-lg">
                                 <Car className="w-5 h-5 text-white" />
                             </div>
-                            <span className="text-xl font-black tracking-tight uppercase">Taxi <span className="text-primary">KSA</span></span>
+                            <span className="text-xl font-black tracking-tight uppercase">Taxi Service <span className="text-primary">KSA</span></span>
                         </Link>
                         <button onClick={() => setIsOpen(false)} className="p-2 bg-gray-50 rounded-lg active:scale-95 transition-all"><X className="w-5 h-5" /></button>
                     </div>

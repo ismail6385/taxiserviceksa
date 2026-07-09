@@ -1,14 +1,16 @@
 'use client';
 
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import { useHideNearFooter } from '@/hooks/useHideNearFooter';
 
 export default function FloatingWhatsApp() {
+    const nearFooter = useHideNearFooter();
     return (
         <a
             href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20a%20VIP%20transfer."
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="hidden lg:flex fixed bottom-6 right-6 z-[100] group items-center gap-3"
+            className={`fixed bottom-6 right-6 z-[100] group items-center gap-3 transition-opacity duration-300 ${nearFooter ? 'hidden opacity-0 pointer-events-none' : 'hidden lg:flex opacity-100'}`}
             aria-label="Contact on WhatsApp"
         >
             <div className="bg-white px-4 py-2 rounded-full shadow-xl border border-emerald-100 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-4 group-hover:translate-x-0 pointer-events-none">

@@ -2,10 +2,12 @@
 
 import { Phone, ArrowRight } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import { useHideNearFooter } from '@/hooks/useHideNearFooter';
 
 export default function MobileStickyWhatsApp() {
+    const nearFooter = useHideNearFooter();
     return (
-        <div className="fixed bottom-0 left-0 right-0 z-[90] lg:hidden bg-white/90 backdrop-blur-md border-t border-gray-100 p-4 shadow-[0_-10px_30px_rgba(0,0,0,0.05)]">
+        <div className={`fixed bottom-0 left-0 right-0 z-[90] bg-white/90 backdrop-blur-md border-t border-gray-100 p-4 shadow-[0_-10px_30px_rgba(0,0,0,0.05)] transition-opacity duration-300 ${nearFooter ? 'hidden opacity-0 pointer-events-none' : 'lg:hidden opacity-100'}`}>
             <div className="flex gap-3">
                 <a
                     href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20transfer%20quote."

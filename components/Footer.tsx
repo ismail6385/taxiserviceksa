@@ -7,7 +7,7 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export default function Footer() {
     return (
-        <footer className="bg-gray-950 text-white pt-32 pb-16 border-t border-gray-900 relative overflow-hidden">
+        <footer id="site-footer" className="bg-gray-950 text-white pt-32 pb-16 border-t border-gray-900 relative overflow-hidden">
             {/* Ambient Background Accents */}
             <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none">
                 <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary rounded-full blur-[150px] -translate-y-1/2 translate-x-1/2"></div>
@@ -26,13 +26,13 @@ export default function Footer() {
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-2xl font-black text-white tracking-tight leading-none uppercase">
-                                    Taxi <span className="text-primary">KSA</span>
+                                    Taxi Service <span className="text-primary">KSA</span>
                                 </span>
                                 <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-2 block">Premium Chauffeur Service</span>
                             </div>
                         </Link>
                         <p className="text-gray-400 leading-relaxed text-sm font-medium">
-                            The Kingdom's leading platform for premium intercity transfers and Umrah logistics. Reliable, safe, and dignified transport since 2018.
+                            The Kingdom&apos;s leading platform for premium intercity transfers and Umrah logistics. Reliable, safe, and dignified transport since 2018.
                         </p>
 
                         <div className="space-y-6">
@@ -43,6 +43,15 @@ export default function Footer() {
                                 <div className="flex flex-col">
                                     <span className="text-[10px] uppercase font-black text-gray-500 tracking-widest">WhatsApp 24/7</span>
                                     <span className="text-base font-bold text-gray-200">+966 56 948 7569</span>
+                                </div>
+                            </a>
+                            <a href="mailto:taxiserviceksa9988@gmail.com" className="flex items-center gap-4 group">
+                                <div className="w-12 h-12 flex items-center justify-center rounded-2xl bg-primary/10 group-hover:bg-primary transition-all">
+                                    <Mail className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
+                                </div>
+                                <div className="flex flex-col">
+                                    <span className="text-[10px] uppercase font-black text-gray-500 tracking-widest">Email Us</span>
+                                    <span className="text-base font-bold text-gray-200">taxiserviceksa9988@gmail.com</span>
                                 </div>
                             </a>
                         </div>
@@ -164,7 +173,7 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
                     <div className="text-xs text-gray-600 font-bold uppercase tracking-widest">
-                        &copy; {new Date().getFullYear()} Taxi KSA. All Rights Reserved.
+                        &copy; {new Date().getFullYear()} Taxi Service KSA. All Rights Reserved.
                     </div>
                     <div className="flex flex-wrap justify-center gap-8">
                         <Link href="/privacy-policy/" className="text-[10px] text-gray-500 hover:text-white transition-colors font-black uppercase tracking-widest">Privacy</Link>

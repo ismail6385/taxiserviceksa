@@ -1,9 +1,13 @@
+'use client';
+
 import { Facebook, Instagram, Twitter, Linkedin, Youtube, Star } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import { useHideNearFooter } from '@/hooks/useHideNearFooter';
 
 export default function SocialSidebar() {
+    const nearFooter = useHideNearFooter();
     return (
-        <div className="fixed left-0 top-1/2 -translate-y-1/2 z-[100] hidden lg:flex flex-col bg-white/90 backdrop-blur-md shadow-2xl rounded-r-2xl overflow-hidden border border-gray-200/50 py-2">
+        <div className={`fixed left-0 top-1/2 -translate-y-1/2 z-[100] flex-col bg-white/90 backdrop-blur-md shadow-2xl rounded-r-2xl overflow-hidden border border-gray-200/50 py-2 transition-opacity duration-300 ${nearFooter ? 'hidden opacity-0 pointer-events-none' : 'hidden lg:flex opacity-100'}`}>
             <a
                 href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20transfer%20quote."
                 target="_blank"
