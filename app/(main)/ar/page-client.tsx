@@ -26,11 +26,11 @@ import TLDRSummary from '@/components/seo/TLDRSummary';
 import FreshnessStatus from '@/components/seo/FreshnessStatus';
 import { getPrice } from '@/lib/pricing';
 
-interface HomeClientProps {
+interface HomeClientArabicProps {
     latestBlogs?: Blog[];
 }
 
-export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
+export default function HomeClientArabic({ latestBlogs = [] }: HomeClientArabicProps) {
 
 
     // Enhanced Structured Data with multiple schema types
@@ -41,7 +41,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
         "url": "https://taxiserviceksa.com",
         "logo": "https://taxiserviceksa.com/logo.png",
         "image": "https://taxiserviceksa.com/hero-image.jpg",
-        "description": "Taxi Service KSA is the top-rated VIP private transfer and chauffeur service in Saudi Arabia. Specializing in long-distance intercity travel, border crossings, and Umrah transport. Founded by Muhammad Ismail, an expert in Saudi travel logistics and tech-enabled transport solutions.",
+        "description": "تُعد Taxi Service KSA الخدمة الأعلى تقييماً للنقل الخاص VIP وخدمة الشوفير في السعودية. متخصصون في السفر الطويل بين المدن، وعبور الحدود، ونقل العمرة في جميع أنحاء المملكة. أسسها محمد إسماعيل، الخبير في لوجستيات السفر السعودية وحلول النقل التقنية.",
         "brand": {
             "@type": "Brand",
             "name": "Taxi Service KSA"
@@ -49,17 +49,17 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
         "founder": {
             "@type": "Person",
             "name": "Muhammad Ismail",
-            "jobTitle": "Founder & SEO Logistics Expert",
+            "jobTitle": "المؤسس وخبير لوجستيات السفر وتحسين محركات البحث",
             "url": "https://taxiserviceksa.com/author/muhammad-ismail",
             "sameAs": [
                 "https://www.linkedin.com/in/muhammad-ismail-sqa/",
                 "https://www.facebook.com/profile.php?id=100007701130236"
             ]
         },
-        "areaServed": "Saudi Arabia & GCC Borders",
+        "areaServed": "السعودية وحدود دول الخليج",
         "availableLanguage": ["English", "Arabic", "Urdu"],
         "priceRange": "$$$",
-        "serviceType": "Elite Chauffeur & Private Transfer Service",
+        "serviceType": "خدمة شوفير VIP ونقل خاص متميز",
         "knowsAbout": ["Umrah", "Haramain High Speed Railway", "Border Crossings", "GCC Tourism", "King Abdulaziz International Airport", "Prince Mohammad bin Abdulaziz International Airport", "Executive Travel", "Intercity Transport"],
         "sameAs": [
             "https://www.facebook.com/people/Taxi-Service-KSA/61573850597962/",
@@ -77,7 +77,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             },
             "result": {
                 "@type": "Reservation",
-                "name": "Taxi Quote"
+                "name": "عرض سعر تاكسي"
             }
         }
     };
@@ -92,228 +92,224 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
     ];
 
     // Services data with RDF Triple structure and Correct Links
-    // OPTIMIZED: Titles and descriptions for SEO
     const services = [
         {
-            title: "VIP & Luxury Chauffeur",
-            description: "Private chauffeur for royal guests, diplomats, CEOs, and elite visitors. Cadillac Escalade, GMC Yukon, and Mercedes S-Class. Discreet and licensed, 24/7.",
+            title: "شوفير VIP وفاخر",
+            description: "سائق خاص لضيوف العائلة المالكة والدبلوماسيين والرؤساء التنفيذيين وكبار الزوار. كاديلاك إسكاليد، جمس يوكن، ومرسيدس S-Class. خدمة سرية ومرخصة على مدار الساعة.",
             rdfTriple: "VIP chauffeur Saudi → serves → royal guests, diplomats, and elite visitors",
             icon: Star,
-            link: "/services/vip-chauffeur/",
-            price: "Custom Rates"
+            link: "/ar/services/vip-chauffeur/",
+            price: "أسعار مخصصة"
         },
         {
-            title: "Tourism Transport",
-            description: "Private driver for international tourists — city tours, desert trips, AlUla road trips, and shopping tours in Riyadh and Jeddah. English-speaking drivers.",
+            title: "النقل السياحي",
+            description: "سائق خاص للسياح الدوليين — جولات في المدن، رحلات صحراوية، رحلات برية إلى العلا، وجولات تسوق في الرياض وجدة. سائقون يتحدثون الإنجليزية.",
             rdfTriple: "Tourist transport Saudi → connects → international visitors to Saudi attractions",
             icon: Camera,
-            link: "/services/tourism-transport/",
-            price: "Custom Quote"
+            link: "/ar/services/tourism-transport/",
+            price: "عرض سعر مخصص"
         },
         {
-            title: "Private Driver — Hourly & Daily",
-            description: "Your own dedicated driver by the hour, full day, week, or month. Shopping, business meetings, family outings — fixed rates, no surge pricing.",
+            title: "سائق خاص — بالساعة واليوم",
+            description: "سائقك الخاص المخصص بالساعة، أو اليوم الكامل، أو الأسبوع، أو الشهر. تسوق، اجتماعات عمل، نزهات عائلية — أسعار ثابتة دون أي زيادات مفاجئة.",
             rdfTriple: "Private driver Saudi → provides → dedicated hourly and daily transport",
             icon: Clock,
-            link: "/services/private-driver/",
-            price: "Hourly Rate"
+            link: "/ar/services/private-driver/",
+            price: "سعر الساعة"
         },
         {
-            title: "Border Crossings & GCC",
-            description: "Expert taxi service across the GCC: Saudi-Bahrain (King Fahd Causeway), plus routes to UAE, Qatar, Kuwait, and Oman. All paperwork handled for smooth inter-country travel.",
+            title: "عبور الحدود ودول الخليج",
+            description: "خدمة تاكسي متخصصة عبر دول الخليج: السعودية-البحرين (جسر الملك فهد)، بالإضافة إلى مسارات إلى الإمارات وقطر والكويت وعُمان. نتولى جميع الإجراءات الورقية لضمان سفر سلس بين الدول.",
             rdfTriple: "Border crossing taxi → facilitates → seamless transport between KSA and GCC countries",
             icon: Globe,
             link: "/border-crossings/",
-            price: "Custom Rates"
+            price: "أسعار مخصصة"
         },
         {
-            title: "Intercity & Long-Distance",
-            description: "Long-distance transfers to AlUla, Neom, Taif, and Abha. Fixed flat rates across all Saudi intercity routes. Comfortable luxury vehicles.",
+            title: "النقل بين المدن والمسافات الطويلة",
+            description: "نقل للمسافات الطويلة إلى العلا، نيوم، الطائف، وأبها. أسعار ثابتة موحدة على جميع مسارات النقل بين المدن السعودية. مركبات فاخرة ومريحة.",
             rdfTriple: "Intercity taxi KSA → provides → luxury long-distance transport across Saudi Arabia",
             icon: MapPin,
             link: "/routes/",
-            price: "Fixed Rates"
+            price: "أسعار ثابتة"
         },
         {
-            title: "Event & Wedding Transport",
-            description: "Coordinated transport for weddings, conferences, and Riyadh Season events. Multi-vehicle logistics with a dedicated coordinator. Groups of any size.",
+            title: "نقل الفعاليات والأفراح",
+            description: "نقل منسّق للأفراح والمؤتمرات وفعاليات موسم الرياض. لوجستيات متعددة المركبات مع منسق فعاليات مخصص. لأي حجم من المجموعات.",
             rdfTriple: "Event chauffeur Saudi → manages → wedding and conference guest transport",
             icon: Calendar,
-            link: "/services/event-transport/",
-            price: "Custom Package"
+            link: "/ar/services/event-transport/",
+            price: "باقة مخصصة"
         },
     ];
 
     // Fleet data with Links
     const fleet = [
         {
-            name: "Mercedes S-Class",
+            name: "مرسيدس S-Class",
             image: "/fleet/mercedes-s-class-vip-chauffeur-service-saudi.webp",
             passengers: 3,
             luggage: 2,
-            features: ["VIP Experience", "Leather Interior", "Discreet Service"],
+            features: ["تجربة VIP", "مقصورة جلدية فاخرة", "خدمة سرية"],
             link: "/fleet/mercedes-s-class/",
         },
         {
-            name: "Cadillac Escalade",
+            name: "كاديلاك إسكاليد",
             image: "/fleet/cadillac-escalade-chauffeur-service-ksa.webp",
             passengers: 7,
             luggage: 4,
-            features: ["Elite Audio", "Extra Comfort", "VIP Chauffeur"],
+            features: ["نظام صوتي متميز", "راحة إضافية", "شوفير VIP"],
             link: "/fleet/cadillac-escalade/",
         },
         {
-            name: "GMC Yukon XL / Denali",
+            name: "جمس يوكن XL / دينالي",
             image: "/fleet/gmc-yukon-xl-premium-chauffeur-saudi.webp",
             passengers: 7,
             luggage: 5,
-            features: ["VIP Executive SUV", "Extra Legroom", "Luxury Interior"],
+            features: ["دفع رباعي تنفيذي VIP", "مساحة أرجل إضافية", "مقصورة فاخرة"],
             link: "/fleet/gmc-yukon/",
         },
         {
-            name: "Mercedes Vito",
+            name: "مرسيدس فيتو",
             image: "/fleet/mercedes-vito-vip-shuttle-service-ksa.webp",
             passengers: 7,
             luggage: 4,
-            features: ["European Luxury", "Conference Seats", "Business Class"],
+            features: ["فخامة أوروبية", "مقاعد اجتماعات", "درجة رجال الأعمال"],
             link: "/fleet/mercedes-vito/",
         },
         {
-            name: "BMW 7 Series",
+            name: "بي إم دبليو الفئة 7",
             image: "/fleet/bmw-7-series-luxury-chauffeur-saudi.webp",
             passengers: 3,
             luggage: 2,
-            features: ["Performance", "Luxury Comfort", "Prestige"],
+            features: ["أداء قوي", "راحة فاخرة", "مكانة رفيعة"],
             link: "/fleet/bmw-7-series/",
         },
         {
-            name: "Genesis G80 VIP",
+            name: "جينيسيس G80 VIP",
             image: "/fleet/genesis-g80-luxury-transport-ksa.webp",
             passengers: 3,
             luggage: 2,
-            features: ["Silent Cabin", "VIP Rear Seat", "Modern Luxury"],
+            features: ["مقصورة هادئة", "مقعد خلفي VIP", "فخامة عصرية"],
             link: "/fleet/genesis-g80/",
         },
         {
-            name: "Ford Taurus 2026",
+            name: "فورد توروس 2026",
             image: "/fleet/ford-taurus-executive-sedan-saudi-arabia.webp",
             passengers: 3,
             luggage: 2,
-            features: ["Executive Sedan", "Smooth Ride", "Modern Tech"],
+            features: ["سيدان تنفيذية", "قيادة سلسة", "تقنية عصرية"],
             link: "/fleet/ford-taurus/",
         },
         {
-            name: "Mercedes Sprinter",
+            name: "مرسيدس سبرينتر",
             image: "/fleet/mercedes-sprinter-luxury-van-transfer-saudi.webp",
             passengers: 14,
             luggage: 4,
-            features: ["Custom Interior", "High Roof", "Corporate Travel"],
+            features: ["تصميم داخلي مخصص", "سقف مرتفع", "سفر الشركات"],
             link: "/fleet/mercedes-sprinter/",
         },
         {
-            name: "Hyundai Staria VIP",
+            name: "هيونداي ستاريا VIP",
             image: "/hyundai-staria.webp",
             passengers: 7,
             luggage: 4,
-            features: ["VIP Family Van", "Spacious Interior", "Group Excellence"],
+            features: ["فان عائلي VIP", "مقصورة واسعة", "تميّز للمجموعات"],
             link: "/fleet/hyundai-staria/",
         },
         {
-            name: "Toyota Hiace",
+            name: "تويوتا هايس",
             image: "/toyota-hiace.webp",
             passengers: 11,
             luggage: 16,
-            features: ["Group VIP Transport", "Pilgrim Logistics", "Large Capacity"],
+            features: ["نقل جماعي VIP", "لوجستيات الحجاج", "سعة كبيرة"],
             link: "/fleet/toyota-hiace/",
         },
         {
-            name: "Toyota Coaster",
+            name: "تويوتا كوستر",
             image: "/toyota-coaster.webp",
             passengers: 17,
             luggage: 20,
-            features: ["Corporate Bus", "Delegate Transport", "Large Groups"],
+            features: ["حافلة الشركات", "نقل الوفود", "مجموعات كبيرة"],
             link: "/fleet/toyota-coaster/",
         },
         {
-            name: "Toyota Camry",
+            name: "تويوتا كامري",
             image: "/toyota-camry.webp",
             passengers: 4,
             luggage: 2,
-            features: ["Professional Chauffeur", "Climate Controlled", "Efficient Transfer"],
+            features: ["سائق محترف", "تكييف هواء", "نقل فعّال"],
             link: "/fleet/toyota-camry/",
         },
         {
-            name: "Hyundai Starex",
+            name: "هيونداي ستاريكس",
             image: "/hyundai-starex.webp",
             passengers: 7,
             luggage: 10,
-            features: ["Family Hospitality", "Professional Driver", "Airport Specialist"],
+            features: ["ضيافة عائلية", "سائق محترف", "متخصص بالمطارات"],
             link: "/fleet/hyundai-starex/",
         },
         {
-            name: "Luxurious Bus",
+            name: "حافلة فاخرة",
             image: "/fleet/luxurious-bus.webp",
             passengers: 25,
             luggage: 30,
-            features: ["On-board Comfort", "Large Groups", "Executive Seating"],
+            features: ["راحة على متن الحافلة", "مجموعات كبيرة", "مقاعد تنفيذية"],
             link: "/fleet/luxurious-bus/",
         }
     ];
 
     // Service areas with Entity Context
     const serviceAreas = [
-        { name: "Jeddah", role: "Gateway to Makkah", link: "/locations/jeddah/" },
-        { name: "Makkah", role: "Holy City & Umrah Hub", link: "/locations/makkah/" },
-        { name: "Madinah", role: "City of the Prophet", link: "/locations/madinah/" },
-        { name: "Riyadh", role: "Business Capital", link: "/locations/riyadh/" },
-        { name: "Dammam", role: "Eastern Province & GCC Border Hub", link: "/locations/dammam/" },
-        { name: "Taif", role: "City of Roses", link: "/locations/taif/" },
-        { name: "AlUla", role: "Historical Heritage", link: "/locations/alula/" },
-        { name: "Yanbu", role: "Industrial Hub", link: "/locations/yanbu/" },
-        { name: "Khaybar", role: "Ancient Oasis", link: "/locations/khayber-fort/" }
+        { name: "جدة", role: "بوابة مكة المكرمة", link: "/ar/locations/jeddah/" },
+        { name: "مكة المكرمة", role: "المدينة المقدسة ومركز العمرة", link: "/ar/locations/makkah/" },
+        { name: "المدينة المنورة", role: "مدينة رسول الله ﷺ", link: "/ar/locations/madinah/" },
+        { name: "الرياض", role: "العاصمة الاقتصادية", link: "/locations/riyadh/" },
+        { name: "الدمام", role: "المنطقة الشرقية ومركز حدود الخليج", link: "/locations/dammam/" },
+        { name: "الطائف", role: "مدينة الورد", link: "/ar/locations/taif/" },
+        { name: "العلا", role: "إرث تاريخي عريق", link: "/ar/locations/alula/" },
+        { name: "ينبع", role: "المركز الصناعي", link: "/ar/locations/yanbu/" },
+        { name: "خيبر", role: "واحة أثرية قديمة", link: "/ar/locations/khayber-fort/" }
     ];
-
-    // Testimonials
-
 
     // FAQ data - Entity-optimized answers
     const faqs = [
         {
-            question: "Do you provide airport taxi in Saudi Arabia from Jeddah to Makkah?",
-            answer: "Yes, our airport taxi service from King Abdulaziz International Airport (JED) to Makkah hotels operates 24/7. Unlike standard yellow street taxis, we offer fixed-price quotations with no hidden meters. Drivers provide meet-and-greet service at arrivals. Flight tracking monitors delays automatically."
+            question: "هل تقدمون خدمة تاكسي المطار في السعودية من جدة إلى مكة؟",
+            answer: "نعم، تعمل خدمة تاكسي المطار لدينا من مطار الملك عبدالعزيز الدولي (JED) إلى فنادق مكة المكرمة على مدار الساعة. وخلافاً لسيارات الأجرة الصفراء التقليدية، نقدّم أسعاراً ثابتة معلنة مسبقاً دون عدادات خفية. يقدّم السائقون خدمة استقبال داخل صالة الوصول، مع تتبع تلقائي لرحلتك لمراقبة أي تأخير."
         },
         {
-            question: "Is this service better than Uber, Careem, or Kaiian for Umrah?",
-            answer: "For long-distance Umrah journeys (like Jeddah to Makkah or Makkah to Madinah), <strong>Taxi Service KSA</strong> offers distinct advantages over ride-hailing apps. We guarantee <strong>fixed prices</strong> (no surge pricing), spacious vehicles for luggage (GMC Yukon, Toyota Hiace), and professional drivers who wait for you even if your flight is delayed. It is a dedicated <strong>inter-city service</strong> designed for peace of mind."
+            question: "هل هذه الخدمة أفضل من أوبر أو كريم أو كايان لرحلة العمرة؟",
+            answer: "بالنسبة لرحلات العمرة الطويلة (مثل جدة-مكة أو مكة-المدينة)، تقدّم <strong>Taxi Service KSA</strong> مزايا واضحة مقارنة بتطبيقات النقل التشاركي. نضمن لك <strong>أسعاراً ثابتة</strong> (دون أي زيادة في أوقات الذروة)، ومركبات واسعة لاستيعاب الأمتعة (جمس يوكن، تويوتا هايس)، وسائقين محترفين ينتظرونك حتى في حال تأخر رحلتك. إنها <strong>خدمة نقل مخصصة بين المدن</strong> مصممة لراحة بالك."
         },
         {
-            question: "What is the best online transfer service for Umrah pilgrims?",
-            answer: "<strong>Taxi Service KSA</strong> is the best VIP transfer service for Umrah pilgrims, providing transportation that accounts for prayer schedules and Haram access routes. Drivers know the routes between Makkah, Madinah, and Jeddah Airport. Service includes assistance with luggage and Zamzam containers."
+            question: "ما هي أفضل خدمة نقل أونلاين لمعتمري العمرة؟",
+            answer: "تُعد <strong>Taxi Service KSA</strong> أفضل خدمة نقل VIP لمعتمري العمرة، حيث توفر تنقلاً يراعي مواقيت الصلاة ومسارات الوصول إلى الحرم. يعرف السائقون الطرق بين مكة والمدينة ومطار جدة جيداً. تشمل الخدمة المساعدة في حمل الأمتعة وعبوات ماء زمزم."
         },
         {
-            question: "Is your taxi service in Saudi Arabia available 24/7?",
-            answer: "Taxi service operates 24 hours daily in Saudi Arabia. Late-night flight arrivals and early morning Ziyarat trips are accommodated. Drivers are available for quotation at any time."
+            question: "هل خدمة التاكسي لديكم في السعودية متاحة على مدار الساعة؟",
+            answer: "تعمل خدمة التاكسي على مدار ٢٤ ساعة يومياً في السعودية. نستوعب رحلات الوصول في وقت متأخر من الليل وجولات الزيارة الصباحية الباكرة. السائقون متاحون لتقديم عروض الأسعار في أي وقت."
         },
         {
-            question: "How do I request a quote for a VIP transfer in Saudi Arabia?",
-            answer: "VIP transfer quotes are available through the <a href='/booking/' class='text-primary hover:underline font-bold'>online quote form</a> or email at taxiserviceksa9988@gmail.com. Your request requires pickup location, destination, and preferred vehicle type. Quotations are sent via email."
+            question: "كيف أطلب عرض سعر لنقل VIP في السعودية؟",
+            answer: "يمكنك الحصول على عرض سعر لنقل VIP عبر <a href='/booking/' class='text-primary hover:underline font-bold'>نموذج طلب عرض السعر الإلكتروني</a> أو عبر البريد الإلكتروني taxiserviceksa9988@gmail.com. يتطلب طلبك تحديد موقع الاستلام والوجهة ونوع المركبة المفضل. تُرسل عروض الأسعار عبر البريد الإلكتروني."
         },
         {
-            question: "Is Taxi Service KSA a licensed company?",
-            answer: "Yes, <strong>Taxi Service KSA</strong> is a fully licensed transport facilitator in Saudi Arabia, operating under Transport General Authority (TGA) regulations. All drivers hold valid licenses and vehicles allow for legal transport of pilgrims and tourists."
+            question: "هل Taxi Service KSA شركة مرخصة؟",
+            answer: "نعم، <strong>Taxi Service KSA</strong> شركة تسهيل نقل مرخصة بالكامل في السعودية، وتعمل وفق أنظمة الهيئة العامة للنقل (TGA). يحمل جميع السائقين تراخيص سارية، والمركبات معتمدة للنقل القانوني للحجاج والسياح."
         },
         {
-            question: "Can I request a quote for a taxi from the UK/USA before my flight?",
-            answer: "Yes, you can <strong>pre-request a quote for your taxi online</strong> from the UK, USA, Canada, or anywhere in the world. We track your international flight arrival at Jeddah Airport (KAIA) and ensure your driver is waiting for you at the terminal."
+            question: "هل يمكنني طلب عرض سعر للتاكسي من بريطانيا أو أمريكا قبل رحلتي؟",
+            answer: "نعم، يمكنك <strong>طلب عرض سعر لتاكسيك مسبقاً عبر الإنترنت</strong> من بريطانيا أو أمريكا أو كندا أو من أي مكان في العالم. نتابع موعد وصول رحلتك الدولية إلى مطار جدة (KAIA) ونضمن انتظار سائقك لك عند الصالة."
         },
         {
-            question: "Do you accept international credit cards?",
-            answer: "Yes, we accept major international credit cards (Visa, MasterCard) as well as cash payments in <strong>SAR, USD, GBP, and EUR</strong>. You can choose to pay online or to the driver upon arrival."
+            question: "هل تقبلون بطاقات الائتمان الدولية؟",
+            answer: "نعم، نقبل بطاقات الائتمان الدولية الرئيسية (فيزا، ماستركارد) بالإضافة إلى الدفع النقدي بعملات <strong>الريال السعودي، والدولار الأمريكي، والجنيه الإسترليني، واليورو</strong>. يمكنك اختيار الدفع أونلاين أو للسائق عند الوصول."
         }
     ];
 
     return (
-        <div className="bg-white min-h-screen">
+        <div className="bg-white min-h-screen rtl" dir="rtl">
             <Script
                 id="transportation-schema"
                 type="application/ld+json"
@@ -324,19 +320,9 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             {/* Hero Section with Entity-Optimized H1 */}
             <Hero
                 images={heroImages}
-                h1Text="VIP Taxi Service Saudi Arabia"
-                subtitle="Professional Chauffeur Service for Borders, Airports, Tourist Spots, and Executive Intercity Travel across Saudi Arabia and the GCC (UAE, Bahrain, Qatar, Kuwait, Oman)."
+                h1Text="خدمة تاكسي VIP في السعودية"
+                subtitle="خدمة شوفير احترافية للحدود والمطارات والمواقع السياحية والتنقل التنفيذي بين المدن في جميع أنحاء السعودية ودول الخليج (الإمارات، البحرين، قطر، الكويت، عُمان)."
             >
-
-
-
-
-
-
-
-
-
-
 
             </Hero>
 
@@ -344,18 +330,18 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50 border-y border-gray-100">
                 <div className="max-w-7xl mx-auto">
                     <FreshnessStatus lastVerified="2026-03-06" />
-                    <TLDRSummary 
-                        title="Taxi Service KSA Executive Summary"
-                        summary="Taxi Service KSA is Saudi Arabia's premier executive chauffeur and private transfer service, established since 2012. We specialize in point-to-point intercity travel, border crossings, airport transfers, and tourist journeys across the entire Kingdom."
+                    <TLDRSummary
+                        title="الملخص التنفيذي لـ Taxi Service KSA"
+                        summary="تُعد Taxi Service KSA الشركة الرائدة في خدمات الشوفير التنفيذي والنقل الخاص في السعودية، وتأسست منذ عام ٢٠١٢. نتخصص في النقل المباشر بين المدن، وعبور الحدود، وتوصيل المطارات، والرحلات السياحية في جميع أنحاء المملكة."
                         points={[
-                            "Kingdom-wide coverage: All cities, Borders & Tourist Spots",
-                            "100% licensed chauffeurs with professional training",
-                            "Elite fleet for VIP Umrah, Business, and Family Tourism",
-                            "Fixed-price guarantee with no hidden surge pricing",
-                            "24/7 Service: Makkah, Madinah, Riyadh, Jeddah, AlUla, and more"
+                            "تغطية شاملة للمملكة: جميع المدن والحدود والمواقع السياحية",
+                            "سائقون مرخصون بنسبة ١٠٠% ومدربون تدريباً احترافياً",
+                            "أسطول متميز لرحلات العمرة VIP والأعمال والسياحة العائلية",
+                            "ضمان السعر الثابت دون أي رسوم مفاجئة أو زيادات خفية",
+                            "خدمة على مدار الساعة: مكة، المدينة، الرياض، جدة، العلا، وغيرها"
                         ]}
-                        pricing="Fixed Rates"
-                        duration="24/7 Service"
+                        pricing="أسعار ثابتة"
+                        duration="خدمة على مدار الساعة"
                     />
                 </div>
             </section>
@@ -368,14 +354,14 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
-                        <span className="bg-white text-emerald-700 text-xs font-bold px-2 py-1 rounded shadow-sm whitespace-nowrap">NEW REPORT</span>
+                        <span className="bg-white text-emerald-700 text-xs font-bold px-2 py-1 rounded shadow-sm whitespace-nowrap">تقرير جديد</span>
                         <p className="text-sm sm:text-base font-medium">
-                            <span className="font-bold">2026 Study:</span> Why 70% of Families Choose Taxis Over High-Speed Rail?
+                            <span className="font-bold">دراسة ٢٠٢٦:</span> لماذا تختار ٧٠% من العائلات التاكسي بدلاً من القطار فائق السرعة؟
                         </p>
                     </div>
                     <Link href="/insights/pilgrimage-transport-report-2025/" className="flex-shrink-0">
                         <button className="text-white border-b border-white hover:border-emerald-200 hover:text-emerald-100 transition-colors text-sm font-bold flex items-center gap-1 group">
-                            Read the Data <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                            اطّلع على البيانات <ArrowRight className="w-4 h-4 rotate-180 transform group-hover:-translate-x-1 transition-transform" />
                         </button>
                     </Link>
                 </div>
@@ -395,25 +381,25 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         <div className="space-y-6">
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 text-primary text-xs font-bold uppercase tracking-widest">
                                 <Shield className="w-3 h-3" />
-                                <span>Safety First</span>
+                                <span>الأمان أولاً</span>
                             </div>
                             <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-                                VIP Private Transfers & <span className="text-primary block mt-2">Executive Chauffeur Service</span>
+                                نقل VIP خاص <span className="text-primary block mt-2">وخدمة شوفير تنفيذية</span>
                             </h2>
                             <p className="text-gray-300 text-lg leading-relaxed max-w-xl">
-                                Experience the gold standard of travel with Saudi Arabia's premier private transfer service. We provide a <strong>reliable alternative to ride-hailing apps</strong> for international tourists and business executives. We specialize in <strong>Border Crossings, Airport Transfers, Tourist Journeys, and Umrah Transport</strong> across all cities (e.g., Jeddah, Riyadh, Makkah, Madinah, AlUla, Tabuk). Note: We focus on pre-booked long-distance travel and do not offer local 'street hail' services.
+                                استمتع بأعلى معايير السفر مع خدمة النقل الخاص الأولى في السعودية. نقدّم بديلاً موثوقاً لتطبيقات النقل التشاركي للسياح الدوليين ورجال ورائدات الأعمال. نتخصص في <strong>عبور الحدود، وتوصيل المطارات، والرحلات السياحية، ونقل العمرة</strong> في جميع المدن (مثل جدة، الرياض، مكة، المدينة، العلا، تبوك). ملاحظة: نركّز على الرحلات الطويلة المحجوزة مسبقاً، ولا نقدّم خدمة الاستيقاف من الشارع المحلية.
                             </p>
 
                             <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                 <Link href="/booking/">
                                     <Button size="lg" className="bg-primary text-white hover:bg-white hover:text-primary font-bold transition-all shadow-lg shadow-primary/20">
-                                        WhatsApp Booking Online
+                                        الحجز عبر واتساب أونلاين
                                     </Button>
                                 </Link>
-                                <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank" rel="nofollow noopener noreferrer">
+                                <a href="https://wa.me/966569487569?text=مرحباً،%20أرغب%20في%20الحصول%20على%20عرض%20سعر%20تاكسي%20VIP" target="_blank" rel="nofollow noopener noreferrer">
                                     <Button size="lg" className="bg-emerald-600 border-none text-white hover:bg-emerald-700 font-bold transition-all shadow-lg flex items-center gap-2 h-14 px-8 rounded-2xl">
                                         <WhatsAppIcon className="w-6 h-6 fill-current" />
-                                        Get a Quote on WhatsApp
+                                        احصل على عرض سعر عبر واتساب
                                     </Button>
                                 </a>
                             </div>
@@ -425,7 +411,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
                                 <Image
                                     src="/chauffeur-service.png"
-                                    alt="Best online taxi service chauffeur opening car door in Saudi Arabia"
+                                    alt="أفضل خدمة تاكسي أونلاين - سائق يفتح باب السيارة في السعودية"
                                     width={600}
                                     height={400}
                                     className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
@@ -435,15 +421,15 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                     <div className="grid grid-cols-1 gap-3">
                                         <div className="flex items-center gap-3 text-white/90">
                                             <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
-                                            <span className="font-medium text-sm">Licensed Drivers Included</span>
+                                            <span className="font-medium text-sm">سائقون مرخصون ضمن الخدمة</span>
                                         </div>
                                         <div className="flex items-center gap-3 text-white/90">
                                             <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
-                                            <span className="font-medium text-sm">No Self-Drive Rental</span>
+                                            <span className="font-medium text-sm">لا تأجير سيارات بدون سائق</span>
                                         </div>
                                         <div className="flex items-center gap-3 text-white/90">
                                             <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
-                                            <span className="font-medium text-sm">Chauffeur Service Only</span>
+                                            <span className="font-medium text-sm">خدمة شوفير فقط</span>
                                         </div>
                                     </div>
                                 </div>
@@ -460,18 +446,18 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         {/* Left: Sticky Header */}
                         <div className="lg:col-span-5 lg:sticky lg:top-32">
                             <span className="bg-primary text-white font-semibold tracking-wider uppercase text-xs px-3 py-1 rounded-full mb-4 inline-block shadow-md shadow-primary/30">
-                                Core Capabilities
+                                قدراتنا الأساسية
                             </span>
                             <h2 className="text-4xl md:text-6xl font-black text-gray-900 mb-6 tracking-tight leading-[0.9]">
-                                BEST{' '}<br />PRIVATE{' '}<br />TRANSFERS
+                                أفضل{' '}<br />خدمات{' '}<br />النقل الخاص
                             </h2>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                Specializing in long-distance journeys, VIP airport pickups, and dedicated Umrah transport services for the discerning traveler.
+                                متخصصون في الرحلات الطويلة، واستقبال المطار VIP، وخدمات نقل العمرة المخصصة للمسافر المميز.
                             </p>
-                             <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank" rel="nofollow noopener noreferrer">
+                             <a href="https://wa.me/966569487569?text=مرحباً،%20أرغب%20في%20الحصول%20على%20عرض%20سعر%20تاكسي%20VIP" target="_blank" rel="nofollow noopener noreferrer">
                                 <Button className="bg-emerald-600 text-white hover:bg-emerald-700 rounded-full px-8 py-6 text-lg font-bold min-h-[48px] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-emerald-500/30 flex items-center gap-2">
                                     <WhatsAppIcon className="w-6 h-6 fill-current" />
-                                    Get a Quote on WhatsApp
+                                    احصل على عرض سعر عبر واتساب
                                 </Button>
                             </a>
                         </div>
@@ -479,19 +465,19 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         {/* Right: List Layout */}
                         <div className="lg:col-span-7 space-y-0">
                             {services.map((service, index) => (
-                                <div key={index} className="group relative border-l-4 border-gray-200 hover:border-black pl-8 py-8 transition-colors duration-300">
+                                <div key={index} className="group relative border-r-4 border-gray-200 hover:border-black pr-8 py-8 transition-colors duration-300">
                                     <Link href={service.link} className="block">
                                         <div className="flex items-baseline justify-between mb-2">
                                             <h3 className="text-3xl font-bold text-gray-900 group-hover:text-primary transition-colors">
                                                 {service.title}
                                             </h3>
-                                            <ArrowRight className="w-6 h-6 transform -rotate-45 group-hover:rotate-0 transition-transform duration-500 opacity-0 group-hover:opacity-100" />
+                                            <ArrowRight className="w-6 h-6 transform rotate-[225deg] group-hover:rotate-180 transition-transform duration-500 opacity-0 group-hover:opacity-100" />
                                         </div>
                                         <p className="text-gray-500 text-lg leading-relaxed max-w-xl group-hover:text-gray-900 transition-colors">
                                             {service.description}
                                         </p>
                                         <div className="mt-4 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-400 group-hover:text-black">
-                                            <span>Starting from {service.price}</span>
+                                            <span>يبدأ من {service.price}</span>
                                         </div>
                                     </Link>
                                 </div>
@@ -511,9 +497,9 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
 
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">VIP Standards</span>
+                        <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">معايير VIP</span>
                         <h2 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight">
-                            WHY CHOOSE <span className="text-primary underline decoration-primary/20 decoration-8 underline-offset-8">TAXI SERVICE KSA?</span>
+                            لماذا تختار <span className="text-primary underline decoration-primary/20 decoration-8 underline-offset-8">Taxi Service KSA؟</span>
                         </h2>
                     </div>
 
@@ -521,23 +507,23 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         {[
                             {
                                 icon: Shield,
-                                title: "100% Licensed",
-                                desc: "Fully registered with the Ministry of Transport and TGA for your total security."
+                                title: "مرخصون بنسبة 100%",
+                                desc: "مسجلون رسمياً لدى وزارة النقل والهيئة العامة للنقل (TGA) لضمان أمانك الكامل."
                             },
                             {
                                 icon: Clock,
-                                title: "Punctual arrivals",
-                                desc: "No delays. Our driver reaches the airport 15 minutes before your flight lands."
+                                title: "وصول في الموعد",
+                                desc: "بلا تأخير. يصل سائقنا إلى المطار قبل 15 دقيقة من هبوط رحلتك."
                             },
                             {
                                 icon: Users,
-                                title: "Expert chauffeurs",
-                                desc: "Professional, English-speaking drivers trained in luxury hospitality standards."
+                                title: "سائقون محترفون",
+                                desc: "سائقون محترفون يتحدثون الإنجليزية ومدرّبون وفق معايير الضيافة الفاخرة."
                             },
                             {
                                 icon: Wallet,
-                                title: "Fixed Price",
-                                desc: "The price you see is what you pay. No hidden VAT, parking, or tunnel surcharges."
+                                title: "سعر ثابت",
+                                desc: "السعر الذي تراه هو ما تدفعه فعلياً. بلا ضريبة قيمة مضافة خفية أو رسوم مواقف أو أنفاق إضافية."
                             }
                         ].map((item, idx) => (
                             <div key={idx} className="group p-8 rounded-[2rem] bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2">
@@ -555,20 +541,20 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             </section>
 
             {/* How It Works - Visual Flow */}
-            <HowItWorks />
+            <HowItWorks title={<>احجز تاكسيك عبر واتساب في <span className="text-[#FFC107]">٣ خطوات بسيطة</span></>} />
 
             {/* About Us Preview - Optimized H2 */}
             {/* About Us - The Premium Narrative */}
             <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 -skew-x-12 translate-x-1/2"></div>
-                
+
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="relative">
                             <div className="relative rounded-3xl overflow-hidden shadow-2xl border-[12px] border-white z-10 aspect-[4/5]">
                                 <Image
                                     src="/gmc-yukon.webp"
-                                    alt="Taxi Service KSA VIP Fleet"
+                                    alt="أسطول Taxi Service KSA للنقل VIP"
                                     fill
                                     className="object-cover transform hover:scale-105 transition-transform duration-1000"
                                 />
@@ -576,12 +562,12 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                 <div className="absolute bottom-8 left-8 right-8 text-white">
                                     <div className="flex items-center gap-3 mb-2">
                                         <div className="w-12 h-0.5 bg-primary"></div>
-                                        <span className="text-xs font-bold uppercase tracking-[0.3em]">Kingdom Wide</span>
+                                        <span className="text-xs font-bold uppercase tracking-[0.3em]">على مستوى المملكة</span>
                                     </div>
-                                    <h3 className="text-2xl font-black italic">Est. 2014</h3>
+                                    <h3 className="text-2xl font-black italic">تأسست عام 2014</h3>
                                 </div>
                             </div>
-                            
+
                             {/* Floating Stats Badge */}
                             <div className="absolute -bottom-6 -right-6 lg:-right-12 bg-white p-8 rounded-3xl shadow-2xl z-20 border border-gray-100 hidden sm:block">
                                 <div className="flex flex-col gap-4">
@@ -590,8 +576,8 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                             <Award className="w-6 h-6" />
                                         </div>
                                         <div>
-                                            <div className="text-2xl font-black text-gray-900 tracking-tight">10+ Years</div>
-                                            <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none">Market Excellence</div>
+                                            <div className="text-2xl font-black text-gray-900 tracking-tight">+١٠ سنوات</div>
+                                            <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none">تميّز في السوق</div>
                                         </div>
                                     </div>
                                     <div className="h-px bg-gray-100 w-full"></div>
@@ -600,8 +586,8 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                             <CheckCircle2 className="w-6 h-6" />
                                         </div>
                                         <div>
-                                            <div className="text-2xl font-black text-gray-900 tracking-tight">50,000+</div>
-                                            <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none">Trips Completed</div>
+                                            <div className="text-2xl font-black text-gray-900 tracking-tight">+٥٠٬٠٠٠</div>
+                                            <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest leading-none">رحلة مكتملة</div>
                                         </div>
                                     </div>
                                 </div>
@@ -611,42 +597,42 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                         <div className="space-y-8">
                             <div>
                                 <div className="inline-flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-widest mb-6">
-                                    <Info className="w-4 h-4 text-primary" /> Our Story
+                                    <Info className="w-4 h-4 text-primary" /> قصتنا
                                 </div>
                                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] mb-6 tracking-tight">
-                                    YOUR PASSAGE TO <br />
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">VIP MOBILITY</span>
+                                    بوابتك إلى <br />
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">التنقل VIP الفاخر</span>
                                 </h2>
                                 <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                                    In the heart of the Kingdom, <strong>Taxi Service KSA</strong> was born from a simple mission: to redefine the pilgrimage and business travel experience. We moved away from the uncertainty of public transport to provide a guaranteed, luxury door-to-door service.
+                                    في قلب المملكة، وُلدت <strong>Taxi Service KSA</strong> من مهمة واحدة بسيطة: إعادة تعريف تجربة سفر الحج والعمرة والأعمال. ابتعدنا عن عدم يقين وسائل النقل العامة لنقدّم خدمة فاخرة مضمونة من الباب إلى الباب.
                                 </p>
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                                     <h4 className="font-black text-gray-900 mb-2 flex items-center gap-2">
-                                        <Shield className="w-4 h-4 text-primary" /> Govt. Authorized
+                                        <Shield className="w-4 h-4 text-primary" /> معتمدون حكومياً
                                     </h4>
-                                    <p className="text-sm text-gray-500">Fully licensed by Ministry of Transport & TGA for official operation.</p>
+                                    <p className="text-sm text-gray-500">مرخّصون بالكامل من وزارة النقل والهيئة العامة للنقل (TGA) للتشغيل الرسمي.</p>
                                 </div>
                                 <div className="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                                     <h4 className="font-black text-gray-900 mb-2 flex items-center gap-2">
-                                        <Wallet className="w-4 h-4 text-primary" /> Tax Compliant
+                                        <Wallet className="w-4 h-4 text-primary" /> متوافقون ضريبياً
                                     </h4>
-                                    <p className="text-sm text-gray-500">Full ZATCA VAT invoicing available for all corporate bookings.</p>
+                                    <p className="text-sm text-gray-500">فوترة ضريبة القيمة المضافة الكاملة المعتمدة من هيئة الزكاة والضريبة والجمارك (ZATCA) متاحة لجميع حجوزات الشركات.</p>
                                 </div>
                             </div>
 
                              <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
-                                <a href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20VIP%20taxi%20quote." target="_blank" rel="nofollow noopener noreferrer" className="w-full sm:w-auto">
+                                <a href="https://wa.me/966569487569?text=مرحباً،%20أرغب%20في%20الحصول%20على%20عرض%20سعر%20تاكسي%20VIP" target="_blank" rel="nofollow noopener noreferrer" className="w-full sm:w-auto">
                                     <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white px-10 h-16 rounded-2xl text-lg font-black transition-all hover:scale-105 active:scale-95 shadow-xl shadow-emerald-500/20 flex items-center gap-3">
                                         <WhatsAppIcon className="w-6 h-6 fill-current" />
-                                        Get a Quote on WhatsApp
+                                        احصل على عرض سعر عبر واتساب
                                     </Button>
                                 </a>
                                 <Link href="/booking/" className="w-full sm:w-auto">
                                     <Button className="w-full bg-slate-900/5 hover:bg-slate-900/10 text-slate-900 border-2 border-slate-900 px-10 h-16 rounded-2xl text-lg font-black transition-all hover:scale-105 active:scale-95">
-                                        Use Online Form <ArrowRight className="ml-2 w-5 h-5" />
+                                        استخدم النموذج الإلكتروني <ArrowRight className="mr-2 w-5 h-5 rotate-180" />
                                     </Button>
                                 </Link>
                             </div>
@@ -661,12 +647,12 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12 sm:mb-16">
-                        <span className="bg-primary text-white font-semibold tracking-wider uppercase text-xs sm:text-sm px-4 py-1.5 rounded-full inline-block shadow-md shadow-primary/30">Our Fleet</span>
+                        <span className="bg-primary text-white font-semibold tracking-wider uppercase text-xs sm:text-sm px-4 py-1.5 rounded-full inline-block shadow-md shadow-primary/30">أسطولنا</span>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mt-3 sm:mt-4 mb-4 sm:mb-6 px-4">
-                            Best VIP Fleet Collection
+                            أفضل تشكيلة أسطول VIP
                         </h2>
                         <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-                            Our elite fleet features GMC Yukon, Toyota Camry, Hyundai Staria, and Toyota Hiace vehicles, all meticulously maintained to executive standards.
+                            يضم أسطولنا المتميز مركبات جمس يوكن، وتويوتا كامري، وهيونداي ستاريا، وتويوتا هايس، جميعها بحالة صيانة دقيقة وفق المعايير التنفيذية.
                         </p>
                     </div>
 
@@ -678,7 +664,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                         <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                                             <Image
                                                 src={vehicle.image}
-                                                alt={`${vehicle.name} - Reliable taxi service in Saudi Arabia for ${vehicle.passengers} people`}
+                                                alt={`${vehicle.name} - خدمة تاكسي موثوقة في السعودية لعدد ${vehicle.passengers} أشخاص`}
                                                 width={800}
                                                 height={600}
                                                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
@@ -691,17 +677,17 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                         <Link href={vehicle.link}>
                                             <div className="flex justify-between items-center mb-3 sm:mb-4">
                                                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900">{vehicle.name}</h3>
-                                                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-primary transition-colors transform group-hover:translate-x-1" />
+                                                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-primary transition-colors transform rotate-180 group-hover:-translate-x-1" />
                                             </div>
                                         </Link>
                                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 md:gap-6 mb-3 sm:mb-4 text-gray-600 text-sm sm:text-base">
                                             <div className="flex items-center gap-2">
                                                 <Users className="w-4 h-4 sm:w-5 sm:h-5" />
-                                                <span>{vehicle.passengers} Passengers</span>
+                                                <span>{vehicle.passengers} ركاب</span>
                                             </div>
                                             <div className="flex items-center gap-2">
                                                 <Car className="w-4 h-4 sm:w-5 sm:h-5" />
-                                                <span>{vehicle.luggage} Luggage</span>
+                                                <span>{vehicle.luggage} حقائب</span>
                                             </div>
                                         </div>
                                         <div className="space-y-1.5 sm:space-y-2 mb-4 flex-1">
@@ -714,17 +700,17 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                         </div>
                                         <div className="grid grid-cols-2 gap-2 mt-auto">
                                             <Link href={`/booking?vehicle=${encodeURIComponent(vehicle.name.replace(/\s+/g, '-'))}`} className="w-full">
-                                                <Button className="w-full bg-primary text-white hover:bg-blue-600 font-bold transition-all min-h-[48px] hover:scale-[1.02] active:scale-95 shadow-md shadow-primary/20 text-xs"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
+                                                <Button className="w-full bg-primary text-white hover:bg-blue-600 font-bold transition-all min-h-[48px] hover:scale-[1.02] active:scale-95 shadow-md shadow-primary/20 text-xs"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> حجز واتساب</Button>
                                             </Link>
-                                            <a 
-                                                href={`https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20get%20a%20VIP%20quote%20for%20a%20${encodeURIComponent(vehicle.name)}.`}
+                                            <a
+                                                href={`https://wa.me/966569487569?text=مرحباً،%20أرغب%20في%20الحصول%20على%20عرض%20سعر%20VIP%20لسيارة%20${encodeURIComponent(vehicle.name)}.`}
                                                 target="_blank"
                                                 rel="nofollow noopener noreferrer"
                                                 className="w-full"
                                             >
                                                 <Button className="w-full bg-emerald-600 text-white hover:bg-emerald-700 font-bold transition-all min-h-[48px] hover:scale-[1.02] active:scale-95 shadow-md shadow-emerald-500/20 text-xs gap-1.5 px-1">
                                                     <WhatsAppIcon className="w-4 h-4 fill-current shrink-0" />
-                                                    WhatsApp
+                                                    واتساب
                                                 </Button>
                                             </a>
                                         </div>
@@ -741,66 +727,66 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
-                        <span className="text-primary font-bold uppercase tracking-widest text-xs">Featured Services</span>
-                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 mt-2">AIRPORT & CITY TRANSFERS</h2>
+                        <span className="text-primary font-bold uppercase tracking-widest text-xs">خدمات مميزة</span>
+                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 mt-2">نقل المطارات والمدن</h2>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <Link href="/jeddah-airport-transfer/" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
                             <div className="flex justify-between items-center mb-2">
-                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Jeddah Airport Transfer</h3>
-                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">توصيل مطار جدة</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </div>
-                            <p className="text-sm text-gray-500">Premium 24/7 transfers from JED Airport to hotels, Makkah & Madinah.</p>
+                            <p className="text-sm text-gray-500">نقل مميز على مدار الساعة من مطار جدة (JED) إلى الفنادق ومكة والمدينة.</p>
                         </Link>
                         <Link href="/riyadh-to-jeddah-private-car/" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
                             <div className="flex justify-between items-center mb-2">
-                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Riyadh to Jeddah Car</h3>
-                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">سيارة من الرياض إلى جدة</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </div>
-                            <p className="text-sm text-gray-500">Door-to-door long distance private car. 950 km, professional drivers.</p>
+                            <p className="text-sm text-gray-500">سيارة خاصة للمسافات الطويلة من الباب إلى الباب. 950 كم، سائقون محترفون.</p>
                         </Link>
                         <Link href="/riyadh-to-dammam-taxi/" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
                             <div className="flex justify-between items-center mb-2">
-                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Riyadh to Dammam Taxi</h3>
-                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">تاكسي من الرياض إلى الدمام</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </div>
-                            <p className="text-sm text-gray-500">Comfortable intercity transfers connecting the Capital to the Eastern Province.</p>
+                            <p className="text-sm text-gray-500">نقل مريح بين المدن يربط العاصمة بالمنطقة الشرقية.</p>
                         </Link>
                         <Link href="/private-taxi-madinah/" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
                             <div className="flex justify-between items-center mb-2">
-                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Private Taxi Madinah</h3>
-                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">تاكسي خاص في المدينة</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </div>
-                            <p className="text-sm text-gray-500">Ziyarat tours, hotel pickups, and transfers near Masjid Nabawi.</p>
+                            <p className="text-sm text-gray-500">جولات زيارة، واستقبال من الفنادق، ونقل بالقرب من المسجد النبوي.</p>
                         </Link>
                         <Link href="/makkah-to-jeddah-taxi/" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
                             <div className="flex justify-between items-center mb-2">
-                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Makkah to Jeddah Taxi</h3>
-                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">تاكسي من مكة إلى جدة</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </div>
-                            <p className="text-sm text-gray-500">Direct transfers from Al Haram hotels to Jeddah city & airport (JED).</p>
+                            <p className="text-sm text-gray-500">نقل مباشر من فنادق الحرم إلى مدينة جدة ومطارها (JED).</p>
                         </Link>
                         <Link href="/vip-chauffeur-jeddah/" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
                             <div className="flex justify-between items-center mb-2">
-                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">VIP Chauffeur Jeddah</h3>
-                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">شوفير VIP في جدة</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </div>
-                            <p className="text-sm text-gray-500">Premium hourly and daily driver hire in Jeddah for business or leisure.</p>
+                            <p className="text-sm text-gray-500">استئجار سائق مميز بالساعة أو اليوم في جدة للأعمال أو الترفيه.</p>
                         </Link>
                         <Link href="/vip-transfer-dammam/" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
                             <div className="flex justify-between items-center mb-2">
-                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">VIP Transfer Dammam</h3>
-                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">نقل VIP في الدمام</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </div>
-                            <p className="text-sm text-gray-500">Executive car service in Dammam, Al Khobar, Jubail & Bahrain causeway.</p>
+                            <p className="text-sm text-gray-500">خدمة سيارات تنفيذية في الدمام والخبر والجبيل وجسر البحرين.</p>
                         </Link>
                         <Link href="/riyadh-airport-taxi/" className="group p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
                             <div className="flex justify-between items-center mb-2">
-                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Riyadh Airport Taxi</h3>
-                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">تاكسي مطار الرياض</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </div>
-                            <p className="text-sm text-gray-500">Meet-and-greet, luxury fleets & flat rates from RUH Airport.</p>
+                            <p className="text-sm text-gray-500">استقبال داخل الصالة، أسطول فاخر، وأسعار ثابتة من مطار الرياض (RUH).</p>
                         </Link>
                     </div>
                 </div>
@@ -811,49 +797,49 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
-                        <span className="text-primary font-bold uppercase tracking-widest text-xs">Executive Hub</span>
+                        <span className="text-primary font-bold uppercase tracking-widest text-xs">المحور التنفيذي</span>
 
-                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 mt-2">POPULAR VIP ROUTES</h2>
+                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 mt-2">أشهر مسارات VIP</h2>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <Link href="/routes/jeddah-makkah/" className="group p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
+                        <Link href="/ar/routes/jeddah-makkah/" className="group p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
                             <div className="flex justify-between items-center mb-2">
-                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Jeddah Airport to Makkah</h3>
-                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">من مطار جدة إلى مكة</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </div>
-                            <p className="text-sm text-gray-500">Fastest airport transfer for Umrah pilgrims. 80km direct route.</p>
+                            <p className="text-sm text-gray-500">أسرع نقل من المطار لمعتمري العمرة. مسار مباشر بطول 80 كم.</p>
                         </Link>
-                        <Link href="/routes/makkah-madinah/" className="group p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
+                        <Link href="/ar/routes/makkah-madinah/" className="group p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
                             <div className="flex justify-between items-center mb-2">
-                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Makkah to Madinah</h3>
-                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">من مكة إلى المدينة</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </div>
-                            <p className="text-sm text-gray-500">The historical 450km pilgrimage route between the Holy Cities.</p>
+                            <p className="text-sm text-gray-500">المسار التاريخي للحج والعمرة بطول 450 كم بين الحرمين الشريفين.</p>
                         </Link>
-                        <Link href="/routes/madinah-jeddah/" className="group p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
+                        <Link href="/ar/routes/madinah-jeddah/" className="group p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
                             <div className="flex justify-between items-center mb-2">
-                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Madinah to Jeddah Airport</h3>
-                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">من المدينة إلى مطار جدة</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </div>
-                            <p className="text-sm text-gray-500">Perfect for return flights from Madinah hotels to King Abdulaziz Airport.</p>
+                            <p className="text-sm text-gray-500">مثالي لرحلات العودة من فنادق المدينة إلى مطار الملك عبدالعزيز.</p>
                         </Link>
-                        <Link href="/routes/riyadh-jeddah/" className="group p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
+                        <Link href="/ar/routes/riyadh-jeddah/" className="group p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
                             <div className="flex justify-between items-center mb-2">
-                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Riyadh to Jeddah</h3>
-                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">من الرياض إلى جدة</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </div>
-                            <p className="text-sm text-gray-500">Executive intercity transfer connecting the Capital to the Coast.</p>
+                            <p className="text-sm text-gray-500">نقل تنفيذي بين المدن يربط العاصمة بالساحل.</p>
                         </Link>
-                        <Link href="/routes/jeddah-taif/" className="group p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
+                        <Link href="/ar/routes/jeddah-taif/" className="group p-6 bg-gray-50 rounded-2xl border border-gray-100 hover:border-primary transition-all shadow-sm">
                             <div className="flex justify-between items-center mb-2">
-                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">Jeddah to Taif</h3>
-                                <ArrowRight className="w-4 h-4 text-gray-400 group-hover:translate-x-1 transition-transform" />
+                                <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">من جدة إلى الطائف</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-400 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </div>
-                            <p className="text-sm text-gray-500">Scenic drive to the City of Roses and Sarawat Mountains.</p>
+                            <p className="text-sm text-gray-500">رحلة بمناظر خلابة إلى مدينة الورد وجبال السروات.</p>
                         </Link>
                         <Link href="/routes/" className="group p-6 bg-primary text-white rounded-2xl border border-primary hover:bg-black transition-all shadow-lg flex items-center justify-center font-bold">
-                            View All 50+ Routes →
+                            عرض كل المسارات (+50) ←
                         </Link>
                     </div>
                 </div>
@@ -863,48 +849,48 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
-                        <span className="text-primary font-bold uppercase tracking-widest text-xs">Beyond Saudi Arabia</span>
-                        <h2 className="text-3xl md:text-4xl font-black text-white mt-2">GCC &amp; CROSS-BORDER ROUTES</h2>
+                        <span className="text-primary font-bold uppercase tracking-widest text-xs">خارج حدود السعودية</span>
+                        <h2 className="text-3xl md:text-4xl font-black text-white mt-2">مسارات دول الخليج والعبور الحدودي</h2>
                         <p className="text-gray-400 max-w-2xl mx-auto mt-4">
-                            Licensed executive transfers between Saudi Arabia and neighbouring GCC countries — UAE, Bahrain, Qatar, and Kuwait — with all border paperwork handled for you.
+                            نقل تنفيذي مرخّص بين السعودية ودول الخليج المجاورة — الإمارات، والبحرين، وقطر، والكويت — مع تولّينا جميع إجراءات عبور الحدود نيابة عنك.
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <Link href="/routes/dammam-bahrain/" className="group p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-primary transition-all">
+                        <Link href="/ar/routes/dammam-bahrain/" className="group p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-primary transition-all">
                             <div className="flex justify-between items-center mb-2">
-                                <h3 className="font-bold text-white group-hover:text-primary transition-colors">Dammam to Bahrain</h3>
-                                <ArrowRight className="w-4 h-4 text-gray-500 group-hover:translate-x-1 transition-transform" />
+                                <h3 className="font-bold text-white group-hover:text-primary transition-colors">من الدمام إلى البحرين</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-500 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </div>
-                            <p className="text-sm text-gray-400">King Fahd Causeway crossing with paperwork assistance.</p>
+                            <p className="text-sm text-gray-400">عبور جسر الملك فهد مع المساعدة في الإجراءات الورقية.</p>
                         </Link>
-                        <Link href="/routes/riyadh-dubai/" className="group p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-primary transition-all">
+                        <Link href="/ar/routes/riyadh-dubai/" className="group p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-primary transition-all">
                             <div className="flex justify-between items-center mb-2">
-                                <h3 className="font-bold text-white group-hover:text-primary transition-colors">Riyadh to Dubai</h3>
-                                <ArrowRight className="w-4 h-4 text-gray-500 group-hover:translate-x-1 transition-transform" />
+                                <h3 className="font-bold text-white group-hover:text-primary transition-colors">من الرياض إلى دبي</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-500 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </div>
-                            <p className="text-sm text-gray-400">Executive long-distance transfer to the UAE.</p>
+                            <p className="text-sm text-gray-400">نقل تنفيذي طويل المسافة إلى الإمارات.</p>
                         </Link>
                         <Link href="/routes/riyadh-doha/" className="group p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-primary transition-all">
                             <div className="flex justify-between items-center mb-2">
-                                <h3 className="font-bold text-white group-hover:text-primary transition-colors">Riyadh to Doha</h3>
-                                <ArrowRight className="w-4 h-4 text-gray-500 group-hover:translate-x-1 transition-transform" />
+                                <h3 className="font-bold text-white group-hover:text-primary transition-colors">من الرياض إلى الدوحة</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-500 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </div>
-                            <p className="text-sm text-gray-400">Private cross-border transfer to Qatar.</p>
+                            <p className="text-sm text-gray-400">نقل خاص عابر للحدود إلى قطر.</p>
                         </Link>
                         <Link href="/routes/riyadh-kuwait/" className="group p-6 bg-white/5 rounded-2xl border border-white/10 hover:border-primary transition-all">
                             <div className="flex justify-between items-center mb-2">
-                                <h3 className="font-bold text-white group-hover:text-primary transition-colors">Riyadh to Kuwait</h3>
-                                <ArrowRight className="w-4 h-4 text-gray-500 group-hover:translate-x-1 transition-transform" />
+                                <h3 className="font-bold text-white group-hover:text-primary transition-colors">من الرياض إلى الكويت</h3>
+                                <ArrowRight className="w-4 h-4 text-gray-500 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </div>
-                            <p className="text-sm text-gray-400">VIP intercountry transfer to Kuwait City.</p>
+                            <p className="text-sm text-gray-400">نقل VIP بين الدول إلى مدينة الكويت.</p>
                         </Link>
                     </div>
 
                     <div className="text-center mt-8">
                         <Link href="/border-crossings/">
                             <Button size="lg" className="bg-primary text-black hover:bg-white font-bold px-8 py-6 rounded-xl">
-                                View All Border Crossing Routes <ArrowRight className="ml-2 w-4 h-4" />
+                                عرض جميع مسارات عبور الحدود <ArrowRight className="mr-2 w-4 h-4 rotate-180" />
                             </Button>
                         </Link>
                     </div>
@@ -916,16 +902,16 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
                         <div>
-                            <span className="bg-primary text-white font-semibold tracking-wider uppercase text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-1.5 rounded-full inline-block mb-3 sm:mb-4 shadow-md shadow-primary/30">Our Gallery</span>
+                            <span className="bg-primary text-white font-semibold tracking-wider uppercase text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-1.5 rounded-full inline-block mb-3 sm:mb-4 shadow-md shadow-primary/30">معرض الصور</span>
                             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
-                                Premium Fleet & Destination Gallery
+                                معرض الأسطول الفاخر والوجهات
                             </h2>
                             <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
-                                Visuals display our professional online taxi service vehicles including GMC Yukon and Hyundai Staria in Makkah and Madinah.
+                                صور توضح مركبات خدمة التاكسي الاحترافية لدينا، بما في ذلك جمس يوكن وهيونداي ستاريا في مكة والمدينة.
                             </p>
                             <Link href="/gallery/">
                                 <Button size="lg" className="bg-primary text-white hover:bg-blue-600 font-bold px-6 sm:px-8 py-4 sm:py-5 md:py-6 text-base sm:text-lg rounded-xl shadow-lg shadow-primary/30 transition-all hover:scale-105 active:scale-95">
-                                    View Full Gallery <Camera className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+                                    عرض المعرض الكامل <Camera className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                                 </Button>
                             </Link>
                         </div>
@@ -933,18 +919,18 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4">
                                 <div className="space-y-2 sm:space-y-3 md:space-y-4">
                                     <div className="relative h-40 sm:h-48 md:h-56 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
-                                        <Image src="/makkah-kaaba-night.webp" alt="Umrah pilgrims using best online taxi service in Saudi Arabia at Makkah" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+                                        <Image src="/makkah-kaaba-night.webp" alt="معتمرون يستخدمون أفضل خدمة تاكسي أونلاين في السعودية بمكة المكرمة" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
                                     </div>
                                     <div className="relative h-52 sm:h-60 md:h-64 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
-                                        <Image src="/gmc-yukon.webp" alt="Luxury GMC Yukon - Best Online Taxi Service Saudi Arabia Interior" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+                                        <Image src="/gmc-yukon.webp" alt="جمس يوكن الفاخرة - المقصورة الداخلية لأفضل خدمة تاكسي أونلاين في السعودية" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
                                     </div>
                                 </div>
                                 <div className="space-y-2 sm:space-y-3 md:space-y-4 pt-4 sm:pt-6 md:pt-8">
                                     <div className="relative h-52 sm:h-60 md:h-64 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
-                                        <Image src="/madinah-prophets-mosque.webp" alt="Ziyarat with best online taxi service in Madinah near Prophet's Mosque" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+                                        <Image src="/madinah-prophets-mosque.webp" alt="زيارة مع أفضل خدمة تاكسي أونلاين في المدينة المنورة قرب المسجد النبوي" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
                                     </div>
                                     <div className="relative h-40 sm:h-48 md:h-56 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg">
-                                        <Image src="/hyundai-staria.webp" alt="Family taxi Saudi Arabia - Best Online Taxi Service Hyundai Staria vehicle" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+                                        <Image src="/hyundai-staria.webp" alt="تاكسي عائلي في السعودية - مركبة هيونداي ستاريا لأفضل خدمة تاكسي أونلاين" width={800} height={600} className="w-full h-full object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
                                     </div>
                                 </div>
                             </div>
@@ -959,10 +945,10 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                     <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
                         <div>
                             <h2 className="text-3xl font-black text-gray-900 mb-4">
-                                Online Taxi Service Coverage Areas
+                                مناطق تغطية خدمة التاكسي أونلاين
                             </h2>
                             <p className="text-gray-600 max-w-xl">
-                                Our top-rated operations extend to Jeddah, Makkah, Madinah, Riyadh, and Dammam — plus cross-border transfers into the wider GCC.
+                                تمتد عملياتنا الأعلى تقييماً لتشمل جدة ومكة والمدينة والرياض والدمام — بالإضافة إلى النقل العابر للحدود إلى دول الخليج الأوسع.
                             </p>
                         </div>
                     </div>
@@ -988,7 +974,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                                     </div>
 
                                     <div className="mt-4 pt-4 border-t border-gray-100 flex items-center text-primary font-semibold text-sm opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                                        Explore Routes <ArrowRight className="w-4 h-4 ml-2" />
+                                        استكشف المسارات <ArrowRight className="w-4 h-4 mr-2 rotate-180" />
                                     </div>
                                 </div>
                             </Link>
@@ -998,20 +984,20 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                     {/* Contextual Block: National Infrastructure */}
                     <div className="mt-16 border-t border-gray-200 pt-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                         <div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-4">Jeddah to Makkah Taxi Route</h3>
+                            <h3 className="text-2xl font-bold text-gray-900 mb-4">مسار تاكسي جدة إلى مكة</h3>
                             <p className="text-gray-600 leading-relaxed mb-6">
-                                Direct taxi transfers from King Abdulaziz Airport to Makkah hotels operate 24/7. Fixed rates available for all groups.
+                                نقل تاكسي مباشر من مطار الملك عبدالعزيز إلى فنادق مكة المكرمة على مدار الساعة. أسعار ثابتة متاحة لجميع المجموعات.
                             </p>
-                            <Link href="/routes/jeddah-makkah/">
+                            <Link href="/ar/routes/jeddah-makkah/">
                                 <Button className="text-black font-bold border-b-2 border-black rounded-none px-0 py-0 h-auto hover:bg-transparent hover:border-primary transition-colors">
-                                    Get Jeddah to Makkah Quote
+                                    احصل على عرض سعر جدة إلى مكة
                                 </Button>
                             </Link>
                         </div>
                         <div className="h-64 bg-gray-200 rounded-2xl relative overflow-hidden">
                             <Image
                                 src="/hero-slide-4.webp"
-                                alt="Haramain Railway connection with best online taxi service"
+                                alt="الربط مع قطار الحرمين عبر أفضل خدمة تاكسي أونلاين"
                                 width={1200}
                                 height={800}
                                 className="w-full h-full object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-700"
@@ -1028,10 +1014,10 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                            Top Rated Customer Reviews
+                            آراء العملاء الأعلى تقييماً
                         </h2>
                         <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-                            Passengers evaluate <strong>Taxi Service KSA</strong> as a professional premium transfer service known for reliability.
+                            يقيّم الركاب <strong>Taxi Service KSA</strong> كخدمة نقل احترافية ومميزة معروفة بموثوقيتها.
                         </p>
                     </div>
 
@@ -1061,8 +1047,8 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                     <div className="flex flex-col lg:flex-row gap-4 justify-center items-center">
                         <Link href="/submit-review/">
                             <Button size="lg" className="w-full lg:w-auto bg-black text-white hover:bg-gray-800 font-bold min-h-[56px] px-8">
-                                <Star className="w-5 h-5 mr-2" />
-                                Share Your Experience
+                                <Star className="w-5 h-5 ml-2" />
+                                شاركنا تجربتك
                             </Button>
                         </Link>
                         <a
@@ -1072,13 +1058,13 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
                             className="w-full lg:w-auto"
                         >
                             <Button size="lg" className="w-full lg:w-auto bg-[#00b67a] text-white hover:bg-[#00a36c] font-bold min-h-[56px] px-8 border-none">
-                                <Star className="w-5 h-5 mr-2 fill-white" />
-                                Review on Trustpilot
+                                <Star className="w-5 h-5 ml-2 fill-white" />
+                                قيّمنا على Trustpilot
                             </Button>
                         </a>
                         <Link href="/ask-question/" className="w-full lg:w-auto">
                             <Button size="lg" variant="outline" className="w-full lg:w-auto border-2 border-black text-black hover:bg-black hover:text-white font-bold transition-colors min-h-[56px] px-8">
-                                Have a Question?
+                                لديك سؤال؟
                             </Button>
                         </Link>
                     </div>
@@ -1086,23 +1072,23 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             </section>
 
             {/* Latest Guide Section */}
-            <RelatedGuides blogs={latestBlogs} title="Latest Travel Guides" subtitle="Expert advice for your Umrah and Saudi travel journey." />
+            <RelatedGuides blogs={latestBlogs} title="أحدث أدلة السفر" subtitle="نصائح الخبراء لرحلة العمرة والسفر في السعودية." />
 
             {/* FAQ Section */}
             <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-12 sm:mb-16">
-                        <span className="bg-primary text-white font-semibold tracking-wider uppercase text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-1.5 rounded-full inline-block shadow-md shadow-primary/30">FAQ</span>
+                        <span className="bg-primary text-white font-semibold tracking-wider uppercase text-xs sm:text-sm px-3 sm:px-4 py-1 sm:py-1.5 rounded-full inline-block shadow-md shadow-primary/30">الأسئلة الشائعة</span>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mt-3 sm:mt-4 mb-4 sm:mb-6 px-4">
-                            Frequently Asked Questions
+                            الأسئلة الشائعة
                         </h2>
                     </div>
 
                     <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
                         {faqs.map((faq, index) => (
                             <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-lg sm:rounded-xl border border-gray-200 px-4 sm:px-5 md:px-6 shadow-md hover:shadow-lg transition-shadow duration-300">
-                                <AccordionTrigger className="text-left hover:no-underline py-3 sm:py-4">
-                                    <h3 className="text-base sm:text-lg font-bold text-gray-900 pr-4">{faq.question}</h3>
+                                <AccordionTrigger className="text-right hover:no-underline py-3 sm:py-4">
+                                    <h3 className="text-base sm:text-lg font-bold text-gray-900 pl-4">{faq.question}</h3>
                                 </AccordionTrigger>
                                 <AccordionContent className="pb-3 sm:pb-4">
                                     <p className="text-sm sm:text-base text-gray-600 leading-relaxed pt-2" dangerouslySetInnerHTML={{ __html: faq.answer }} />
@@ -1117,33 +1103,33 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
             < section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-black" >
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 px-4">
-                        WhatsApp Booking from the Best Online Taxi Service
+                        احجز عبر واتساب مع أفضل خدمة تاكسي أونلاين
                     </h2>
                     <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 px-4 max-w-2xl mx-auto">
-                        Secure your quotation with the top-rated online taxi service in Saudi Arabia for reliable airport transfers.
+                        احصل على عرض سعرك الآن مع خدمة التاكسي الأونلاين الأعلى تقييماً في السعودية لنقل موثوق من وإلى المطار.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
                         {/* Primary CTA */}
                         <Link href="/booking/" className="w-full sm:w-auto">
-                            <Button size="lg" className="w-full bg-primary text-white hover:bg-blue-600 font-bold text-lg px-10 py-6 h-auto min-h-[56px] min-w-[200px] transition-all hover:scale-105 active:scale-95 shadow-xl shadow-primary/40"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
+                            <Button size="lg" className="w-full bg-primary text-white hover:bg-blue-600 font-bold text-lg px-10 py-6 h-auto min-h-[56px] min-w-[200px] transition-all hover:scale-105 active:scale-95 shadow-xl shadow-primary/40"><WhatsAppIcon className="w-4 h-4 ml-2 fill-current" /> الحجز عبر واتساب</Button>
                         </Link>
 
                         {/* Secondary CTA - Email */}
                         <a href="mailto:taxiserviceksa9988@gmail.com" className="w-full sm:w-auto">
                             <Button variant="outline" className="w-full bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-h-[56px] min-w-[200px] transition-all hover:scale-105 active:scale-95">
-                                Email Us
+                                راسلنا عبر البريد الإلكتروني
                             </Button>
                         </a>
                     </div>
 
                     {/* Trust Signals */}
                     <div className="flex flex-wrap justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-400 font-medium">
-                        <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-white" /> Instant Confirmation</span>
+                        <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-white" /> تأكيد فوري</span>
                         <span className="hidden sm:inline">•</span>
-                        <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-white" /> Fixed Prices</span>
+                        <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-white" /> أسعار ثابتة</span>
                         <span className="hidden sm:inline">•</span>
-                        <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-white" /> Free Cancellation</span>
+                        <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-white" /> إلغاء مجاني</span>
                     </div>
                 </div>
             </section >
@@ -1151,13 +1137,13 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
 
             {/* Bottom Sticky CTA (Mobile Only) */}
             <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[90%] sm:hidden animate-bounce-subtle">
-                <Button 
+                <Button
                     onClick={() => {
                         window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
                     className="w-full bg-slate-900 hover:bg-black text-white h-14 rounded-2xl font-black text-lg shadow-2xl flex items-center justify-center gap-2 border border-white/10"
                 >
-                    <Car className="w-5 h-5 text-primary" /> WhatsApp Booking <ArrowRight className="w-5 h-5" />
+                    <Car className="w-5 h-5 text-primary" /> الحجز عبر واتساب <ArrowRight className="w-5 h-5 rotate-180" />
                 </Button>
             </div>
         </div >
