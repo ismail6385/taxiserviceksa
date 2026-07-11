@@ -3,14 +3,14 @@ import HomeClient from './page-client';
 import { blogService } from '@/lib/blogService';
 
 export const metadata: Metadata = {
-  title: 'VIP Taxi Service Saudi Arabia | Taxi Service KSA',
-  description: 'Book the best VIP Taxi Service Saudi Arabia. Experience elite private transfers, intercity travel, and border crossings with our professional executive chauffeurs.',
+  title: 'Private Transfers, Day Trips and Hourly Drivers with Taxi Service KSA',
+  description: 'Book private car transfers, round-trip day trips, or hire an hourly driver. Enjoy door-to-door rides and sightseeing in 80+ cities with local drivers.',
   alternates: {
     canonical: 'https://taxiserviceksa.com/',
   },
   openGraph: {
-    title: 'VIP Taxi Service Saudi Arabia | Taxi Service KSA',
-    description: 'Book the best VIP Taxi Service Saudi Arabia. Experience elite private transfers, intercity travel, and border crossings with our professional executive chauffeurs.',
+    title: 'Private Transfers, Day Trips and Hourly Drivers with Taxi Service KSA',
+    description: 'Book private car transfers, round-trip day trips, or hire an hourly driver. Enjoy door-to-door rides and sightseeing in 80+ cities with local drivers.',
     url: 'https://taxiserviceksa.com/',
     siteName: 'Taxi Service KSA',
     locale: 'en_US',

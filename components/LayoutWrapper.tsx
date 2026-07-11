@@ -6,9 +6,6 @@ import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import MobileStickyWhatsApp from '@/components/MobileStickyWhatsApp';
-
-
-import SocialSidebar from '@/components/SocialSidebar';
 import JsonLdBreadcrumb from '@/components/JsonLdBreadcrumb';
 import JsonLdService from '@/components/JsonLdService';
 import JsonLdLocalBusiness from '@/components/JsonLdLocalBusiness';
@@ -25,7 +22,6 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
       {!isAdminRoute && (
         <>
           <Navbar />
-          <SocialSidebar />
           <JsonLdBreadcrumb />
           <JsonLdService />
           <JsonLdLocalBusiness />

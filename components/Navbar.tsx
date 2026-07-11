@@ -145,7 +145,7 @@ export default function Navbar() {
     return (
         <div className="fixed top-0 left-0 right-0 z-[100]">
             {/* Top Info Bar - Refined */}
-            <div className={`bg-gray-900 text-white overflow-hidden transition-all duration-300 ${scrolled ? 'h-0 opacity-0' : 'h-10 opacity-100'}`}>
+            <div className={`bg-[#0a1442] text-white overflow-hidden transition-all duration-300 ${scrolled ? 'h-0 opacity-0' : 'h-10 opacity-100'}`}>
                 <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between text-[10px] font-black tracking-wide sm:tracking-widest uppercase gap-3">
                     <div className="flex items-center gap-4 sm:gap-6 text-gray-400 min-w-0">
                         <a href="mailto:taxiserviceksa9988@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors min-w-0">
@@ -172,7 +172,7 @@ export default function Navbar() {
             </div>
 
             {/* Main Header - Premium Styling */}
-            <header className={`py-4 transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_4px_6px_-2px_rgba(0,0,0,0.05)]' : 'bg-white border-b border-gray-50'}`}>
+            <header className={`py-4 transition-all duration-500 bg-[#0a1442] ${scrolled ? 'backdrop-blur-md shadow-[0_2px_15px_-3px_rgba(0,0,0,0.3)]' : 'border-b border-white/10'}`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
                     <div className="flex justify-between h-16 items-center gap-2 sm:gap-4">
                         {/* Logo - Refined Branding */}
@@ -186,7 +186,7 @@ export default function Navbar() {
                                 </div>
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-base sm:text-xl font-black tracking-tighter leading-none text-gray-900 uppercase whitespace-nowrap">
+                                <span className="text-base sm:text-xl font-black tracking-tighter leading-none text-white uppercase whitespace-nowrap">
                                     Taxi Service <span className="text-primary">KSA</span>
                                 </span>
                                 <span className="hidden sm:block text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Premium Chauffeur Service</span>
@@ -207,8 +207,8 @@ export default function Navbar() {
                                         <Link
                                             href={link.href}
                                             className={`flex items-center px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-300 relative ${isActive
-                                                ? 'text-primary bg-primary/5'
-                                                : 'text-gray-600 hover:text-primary hover:bg-gray-50'
+                                                ? 'text-white bg-white/10'
+                                                : 'text-gray-300 hover:text-white hover:bg-white/5'
                                                 }`}
                                         >
                                             {link.name}
@@ -287,7 +287,7 @@ export default function Navbar() {
                             </Link>
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
-                                className="p-2 sm:p-3 bg-gray-50 rounded-xl text-gray-900 active:scale-95 transition-all shrink-0"
+                                className="p-2 sm:p-3 bg-white/10 rounded-xl text-white active:scale-95 transition-all shrink-0"
                                 aria-label={isOpen ? 'Close menu' : 'Open menu'}
                             >
                                 {isOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
