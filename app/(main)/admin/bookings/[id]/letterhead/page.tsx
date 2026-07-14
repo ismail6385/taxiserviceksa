@@ -46,6 +46,9 @@ export default function LetterheadPage() {
     const [loading, setLoading] = useState(true);
     const [quickNote, setQuickNote] = useState('');
     const [sendingEmail, setSendingEmail] = useState(false);
+    const [isDownloading, setIsDownloading] = useState(false);
+    const [isEmailingOnly, setIsEmailingOnly] = useState(false);
+    const [emailSent, setEmailSent] = useState(false);
 
     useEffect(() => {
         const fetchBooking = async () => {
@@ -68,60 +71,107 @@ export default function LetterheadPage() {
         if (id) fetchBooking();
     }, [id]);
 
+    // Renders the letterhead to a PDF and returns it, without sending or downloading anything.
+    const generateQuotationPdf = async () => {
+        if (!booking) return null;
+        const element = document.getElementById('printable-area');
+        if (!element) return null;
+
+        const customerName = booking.customer_name ? booking.customer_name.replace(/\s+/g, '-') : 'Client';
+        const refId = booking.id.slice(0, 8).toUpperCase();
+        const dateStr = booking.pickup_date || new Date().toISOString().split('T')[0];
+        const filename = `Quotation-${refId}-${customerName}-${dateStr}.pdf`;
+
+        const a4W = 210;
+        const a4H = 297;
+        const canvas = await html2canvas(element, { scale: 2, useCORS: true, scrollY: 0 });
+        const imgData = canvas.toDataURL('image/jpeg', 0.98);
+        const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+        pdf.addImage(imgData, 'JPEG', 0, 0, a4W, a4H);
+
+        // Get base64 string (without the "data:application/pdf;base64," prefix)
+        const pdfBase64 = pdf.output('datauristring').split(',')[1];
+
+        return { pdf, pdfBase64, filename };
+    };
+
+    const emailQuotation = async (pdfBase64: string, filename: string) => {
+        if (!booking) return;
+        const emailRes = await adminFetch('/api/send-quote-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                booking: {
+                    ...booking,
+                    special_requests: quickNote.trim()
+                        ? `${booking.special_requests || ''}\nNote: ${quickNote}`
+                        : booking.special_requests
+                },
+                currency: booking.currency || 'SAR',
+                pdfBase64,
+                pdfFilename: filename,
+            }),
+        });
+
+        if (!emailRes.ok) {
+            throw new Error('Failed to send quote email');
+        }
+    };
+
+    // Combined action: email the quotation AND download a local copy.
     const handlePrint = async () => {
         if (!booking) return;
 
         setSendingEmail(true);
         try {
-            const element = document.getElementById('printable-area');
-            if (!element) return;
+            const result = await generateQuotationPdf();
+            if (!result) return;
 
-            // 1. Generate PDF (as base64 for email AND as download)
-            const customerName = booking.customer_name ? booking.customer_name.replace(/\s+/g, '-') : 'Client';
-            const refId = booking.id.slice(0, 8).toUpperCase();
-            const dateStr = booking.pickup_date || new Date().toISOString().split('T')[0];
-            const filename = `Quotation-${refId}-${customerName}-${dateStr}.pdf`;
+            await emailQuotation(result.pdfBase64, result.filename);
+            result.pdf.save(result.filename);
 
-            const a4W = 210;
-            const a4H = 297;
-            const canvas = await html2canvas(element, { scale: 2, useCORS: true, scrollY: 0 });
-            const imgData = canvas.toDataURL('image/jpeg', 0.98);
-            const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
-            pdf.addImage(imgData, 'JPEG', 0, 0, a4W, a4H);
-            
-            // Get base64 string (without the "data:application/pdf;base64," prefix)
-            const pdfBase64 = pdf.output('datauristring').split(',')[1];
-
-            // 2. Send Email with PDF attachment
-            const emailRes = await adminFetch('/api/send-quote-email', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    booking: { 
-                        ...booking, 
-                        special_requests: quickNote.trim() 
-                            ? `${booking.special_requests || ''}\nNote: ${quickNote}` 
-                            : booking.special_requests 
-                    }, 
-                    currency: booking.currency || 'SAR',
-                    pdfBase64,
-                    pdfFilename: filename,
-                }),
-            });
-
-            if (!emailRes.ok) {
-                console.error('Failed to send quote email');
-            }
-
-            // 3. Also download PDF locally
-            pdf.save(filename);
-            
             alert("✅ Quotation emailed with PDF attachment & downloaded successfully!");
         } catch (error) {
             console.error('Error in handlePrint:', error);
             alert("An error occurred. Please try again.");
         } finally {
             setSendingEmail(false);
+        }
+    };
+
+    // Download-only action: no email is sent.
+    const handleDownloadOnly = async () => {
+        if (!booking) return;
+
+        setIsDownloading(true);
+        try {
+            const result = await generateQuotationPdf();
+            if (!result) return;
+            result.pdf.save(result.filename);
+        } catch (error) {
+            console.error('Error downloading quotation PDF:', error);
+            alert("An error occurred while generating the PDF. Please try again.");
+        } finally {
+            setIsDownloading(false);
+        }
+    };
+
+    // Email-only action: no local download is triggered.
+    const handleSendEmailOnly = async () => {
+        if (!booking) return;
+
+        setIsEmailingOnly(true);
+        try {
+            const result = await generateQuotationPdf();
+            if (!result) return;
+            await emailQuotation(result.pdfBase64, result.filename);
+            setEmailSent(true);
+            setTimeout(() => setEmailSent(false), 4000);
+        } catch (error) {
+            console.error('Error emailing quotation:', error);
+            alert("An error occurred while sending the email. Please try again.");
+        } finally {
+            setIsEmailingOnly(false);
         }
     };
 
@@ -155,9 +205,34 @@ export default function LetterheadPage() {
                 <Button variant="outline" onClick={() => router.back()} className="bg-white">
                     <ArrowLeft className="w-4 h-4 mr-2" /> Back to Dashboard
                 </Button>
-                <div className="flex gap-2">
-                    <Button 
-                        onClick={handlePrint} 
+                <div className="flex flex-wrap gap-2">
+                    <Button
+                        onClick={handleDownloadOnly}
+                        disabled={isDownloading}
+                        variant="outline"
+                        className="bg-white font-bold"
+                    >
+                        {isDownloading ? (
+                            <><div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-gray-900 mr-2"></div> Generating...</>
+                        ) : (
+                            <><Printer className="w-4 h-4 mr-2" /> Download PDF</>
+                        )}
+                    </Button>
+
+                    <Button
+                        onClick={handleSendEmailOnly}
+                        disabled={isEmailingOnly}
+                        className={`font-bold ${emailSent ? 'bg-green-500 text-white hover:bg-green-500' : 'bg-blue-600 text-white hover:bg-blue-700'}`}
+                    >
+                        {isEmailingOnly ? (
+                            <><div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-white mr-2"></div> Sending...</>
+                        ) : (
+                            <><Mail className="w-4 h-4 mr-2" /> {emailSent ? '✓ Email Sent!' : 'Send Email'}</>
+                        )}
+                    </Button>
+
+                    <Button
+                        onClick={handlePrint}
                         disabled={sendingEmail}
                         className="bg-primary text-black hover:bg-black hover:text-white font-bold"
                     >
