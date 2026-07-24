@@ -79,8 +79,10 @@ export default function TabukZulfiRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Zulfi</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Your trip from Tabuk to Zulfi starts with a punctual pickup. We understand that long-distance travel requires a vehicle you can trust. Our fleet is ready to take you across the 1050 km between these cities in complete privacy. No sharing with strangers, just a direct drive from your Tabuk location to your drop-off point in Zulfi.</p>
-                            <p>We take pride in being reliable. A 1050 km drive is quite a distance, so we make sure the cars are in top shape. Our team checks every vehicle before the trip to ensure the AC works perfectly and the tires are good for the highway.</p>
+                            <p>Traveling from Tabuk to Zulfi covers around 1050 km, taking you through to a Sudair-region town in Riyadh province, historically known for agriculture and dates. Instead of dealing with shared transport or fixed bus schedules, our private car service handles the whole distance door-to-door.</p>
+                            <p>Most people booking this route are traveling for a family visit to the Sudair area. The drive takes about 10-11 Hours, and since it's a private vehicle, the pace and stops are set around you, not a fixed timetable.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukZulfiRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">Our professional drivers prioritize your comfort above all else. During the 10-11 Hours drive from Tabuk, you can enjoy a climate-controlled cabin and plenty of legroom. We use modern vehicles that are built for the local heat and long desert stretches. It is far more restful than driving yourself or using a crowded public bus to reach Zulfi.</p>
+                                <p className="text-gray-300 leading-relaxed">The main advantage of booking privately is control: you set the departure time, you decide where to stop on the way to Zulfi, and you're not sharing the vehicle with strangers. We agree the fare upfront, and our drivers are familiar with this route and its rest stops.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukZulfiRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Zulfi"
                 faqs={[
-{
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                {
+                        question: "Is Zulfi part of the same Sudair cluster as Al-Majmaah?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Zulfi.",
+                        detailedAnswer: "Yes, Zulfi sits in the same Sudair region of Riyadh province as Al-Majmaah, Al-Ghat, and Thadiq.",
                         perspectives: []
                     },
-                    {
-                        question: "Do I need to pay extra for luggage?",
+                                    {
+                        question: "Is a fixed price agreed before we travel?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "Yes, the fixed price for the full distance to Zulfi is agreed with you before the trip starts.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Zulfi?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 10-11 Hours. The distance is close to 1050 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Zulfi.",
                         perspectives: []
                     },
-                    {
-                        question: "What vehicles do you have available?",
+                                    {
+                        question: "How long does the drive from Tabuk to Zulfi take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "It usually takes about 10-11 Hours, covering close to 1050 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Zulfi.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Zulfi — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
                 ]}

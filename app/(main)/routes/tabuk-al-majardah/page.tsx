@@ -79,8 +79,10 @@ export default function TabukAlMajardahRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Al Majardah</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Your trip from Tabuk to Al Majardah starts with a punctual pickup. We understand that long-distance travel requires a vehicle you can trust. Our fleet is ready to take you across the 1420 km between these cities in complete privacy. No sharing with strangers, just a direct drive from your Tabuk location to your drop-off point in Al Majardah.</p>
-                            <p>A long journey of 1420 km requires a dependable vehicle. We maintain our fleet specifically for these intercity routes. Every car is cleaned thoroughly before we pick you up in Tabuk, ensuring a fresh environment for your ride to Al Majardah.</p>
+                            <p>The route from Tabuk to Al Majardah runs roughly 1420 km, ending in a town in the southern highlands region. We keep the trip simple: one private vehicle, one driver, and a fixed price agreed before you leave.</p>
+                            <p>This route is popular with travelers going for a family visit in the southern highlands. Figure on roughly 14 Hours in the car, with the driver stopping for meals or prayer whenever you ask, not on a fixed schedule.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukAlMajardahRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">Our professional drivers prioritize your comfort above all else. During the 14 Hours drive from Tabuk, you can enjoy a climate-controlled cabin and plenty of legroom. We use modern vehicles that are built for the local heat and long desert stretches. It is far more restful than driving yourself or using a crowded public bus to reach Al Majardah.</p>
+                                <p className="text-gray-300 leading-relaxed">A private vehicle means the trip runs on your schedule, not a bus timetable. You agree the price with us before leaving Tabuk, so there's nothing to negotiate once you're on the road to Al Majardah. Your luggage stays in the trunk, the AC and tires are checked before departure, and the driver knows this stretch of highway well.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukAlMajardahRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk Al Majardah"
                 faqs={[
-{
-                        question: "What vehicles do you have available?",
+                {
+                        question: "How should we confirm the exact location in Al-Majardah?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "Please share a precise address, landmark, or map pin for Al-Majardah when you book, since it helps the driver plan the final stretch accurately.",
                         perspectives: []
                     },
-                    {
-                        question: "Do I need to pay extra for luggage?",
+                                    {
+                        question: "Do you offer a fixed price for a route this long?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "Yes, the price we quote for the full distance is fixed before you travel — there is no meter running during the trip.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Al Majardah.",
                         perspectives: []
                     },
-                    {
-                        question: "Where do we stop for food on the way to Al Majardah?",
+                                    {
+                        question: "Can I book a pickup in Tabuk at night or very early morning?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 1420 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "Yes. We run this route 24/7, so an early morning or late night departure from Tabuk for Al Majardah can be arranged.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Al Majardah?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 14 Hours. The distance is close to 1420 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Al Majardah.",
                         perspectives: []
                     },
                 ]}

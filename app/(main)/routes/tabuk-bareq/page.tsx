@@ -79,8 +79,10 @@ export default function TabukBareqRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Bareq</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Travel from the northern region of Tabuk down to Bareq with a driver who knows the way. We offer private transfers for people who value their time and space. The drive to Bareq is long, so we make sure the car is comfortable and the AC is cold. Our service is built for locals and visitors who want a simple, direct trip from point A to point B without any hidden fees.</p>
-                            <p>Traveling for 14-15 Hours can be tiring if you aren't in the right car. That is why we use only high-quality sedans and SUVs for our Bareq routes. You will find that our door-to-door service is the most relaxing way to manage this long-distance move.</p>
+                            <p>Tabuk to Bareq is a 1450 km journey to a mountain town in the Asir region. Rather than juggling shared taxis or waiting on a bus timetable, we pick you up directly and take you the whole way in a private vehicle.</p>
+                            <p>Whether you're heading to Bareq for a family or scenic mountain trip, we collect you from your address in Tabuk and take you straight to your exact destination — no transfers, no waiting at a station. Expect around 14-15 Hours on the road, with breaks whenever you need them.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukBareqRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">A private taxi gives you control over your trip. You pick the departure time that works for you. If you need to stop for coffee, a meal, or prayer, just tell the driver. We stop at clean service stations along the way. Your luggage stays safe in the trunk, and you don't have to carry heavy bags through stations. It is a quiet, private way for your family to get to Bareq.</p>
+                                <p className="text-gray-300 leading-relaxed">We check every vehicle before it leaves Tabuk — tires, air conditioning, and fuel — so a long drive to Bareq doesn't turn into a breakdown story. The price you're quoted is the price you pay, and the driver will stop for food, prayer, or a stretch whenever you need it, not on a fixed schedule.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukBareqRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Bareq"
                 faqs={[
-{
-                        question: "Where do we stop for food on the way to Bareq?",
+                {
+                        question: "Is Bareq in a mountainous area like Abha?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 1450 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "Bareq sits within the wider Asir mountain region, so expect a similar cooler, elevated climate to Abha once you arrive.",
                         perspectives: []
                     },
-                    {
-                        question: "Do I need to pay extra for luggage?",
+                                    {
+                        question: "Can we stop overnight partway if the drive is too long?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "If you prefer to break a long trip into two days, let us know when booking and we can discuss options.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "How long does the drive from Tabuk to Bareq take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Bareq.",
+                        detailedAnswer: "It usually takes about 14-15 Hours, covering close to 1450 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Bareq?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 14-15 Hours. The distance is close to 1450 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Bareq — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Bareq.",
                         perspectives: []
                     },
                 ]}

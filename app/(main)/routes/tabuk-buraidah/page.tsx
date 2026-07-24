@@ -79,8 +79,10 @@ export default function TabukBuraidahRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Buraidah</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Your trip from Tabuk to Buraidah starts with a punctual pickup. We understand that long-distance travel requires a vehicle you can trust. Our fleet is ready to take you across the 910 km between these cities in complete privacy. No sharing with strangers, just a direct drive from your Tabuk location to your drop-off point in Buraidah.</p>
-                            <p>Traveling for 9-10 Hours can be tiring if you aren't in the right car. That is why we use only high-quality sedans and SUVs for our Buraidah routes. You will find that our door-to-door service is the most relaxing way to manage this long-distance move.</p>
+                            <p>Traveling from Tabuk to Buraidah covers around 910 km, taking you through to the capital of the Qassim region, known for one of the largest date and livestock markets in the country. Instead of dealing with shared transport or fixed bus schedules, our private car service handles the whole distance door-to-door.</p>
+                            <p>Most people booking this route are traveling for a family visit or business trip to the Qassim capital. The drive takes about 9-10 Hours, and since it's a private vehicle, the pace and stops are set around you, not a fixed timetable.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukBuraidahRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">People pick our service because it is easy. We come to you in Tabuk. There is no need to find a taxi to get to a bus station or airport. You sit in a spacious SUV or sedan and relax until you arrive in Buraidah. For groups of four to seven people, our price is very fair compared to buying several plane tickets. Plus, you get dropped off exactly at your hotel gate.</p>
+                                <p className="text-gray-300 leading-relaxed">The main advantage of booking privately is control: you set the departure time, you decide where to stop on the way to Buraidah, and you're not sharing the vehicle with strangers. We agree the fare upfront, and our drivers are familiar with this route and its rest stops.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukBuraidahRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Buraidah"
                 faqs={[
-{
-                        question: "Can I Request a quote for a ride at night?",
+                {
+                        question: "Is Buraidah known for its markets?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "Yes, Buraidah is well known for its large date market and livestock market, among the biggest in the country.",
                         perspectives: []
                     },
-                    {
-                        question: "Do I need to pay extra for luggage?",
-                        shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
-                        perspectives: []
-                    },
-                    {
-                        question: "Is the price for the whole car?",
-                        shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Buraidah.",
-                        perspectives: []
-                    },
-                    {
+                                    {
                         question: "How long is the drive from Tabuk to Buraidah?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 9-10 Hours. The distance is close to 910 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "The travel time is shown in the trip details above — our driver keeps a steady highway pace and stops for breaks whenever you need one.",
                         perspectives: []
                     },
-                    {
-                        question: "What vehicles do you have available?",
+                                    {
+                        question: "How long does the drive from Tabuk to Buraidah take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "It usually takes about 9-10 Hours, covering close to 910 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
+                        perspectives: []
+                    },
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
+                        shortAnswer: "Verified",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Buraidah — you are not sharing the ride with other passengers.",
+                        perspectives: []
+                    },
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
+                        shortAnswer: "Verified",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Buraidah.",
                         perspectives: []
                     },
                 ]}

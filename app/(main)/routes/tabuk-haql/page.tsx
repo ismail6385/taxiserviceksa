@@ -79,8 +79,10 @@ export default function TabukHaqlRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Haql</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Travel from the northern region of Tabuk down to Haql with a driver who knows the way. We offer private transfers for people who value their time and space. The drive to Haql is long, so we make sure the car is comfortable and the AC is cold. Our service is built for locals and visitors who want a simple, direct trip from point A to point B without any hidden fees.</p>
-                            <p>From the northern borders down towards Haql, our service bridges the gap for those who prefer private travel. We avoid the busy terminals and give you a direct route that saves you hours of waiting and multiple transfers.</p>
+                            <p>Traveling from Tabuk to Haql covers around 230 km, taking you through to Saudi Arabia's northernmost Red Sea town, sitting on the Gulf of Aqaba close to the Jordanian and Egyptian coastlines and known for calm-water diving. Instead of dealing with shared transport or fixed bus schedules, our private car service handles the whole distance door-to-door.</p>
+                            <p>Most people booking this route are traveling for a coastal getaway or diving trip. The drive takes about 2.5 Hours, and since it's a private vehicle, the pace and stops are set around you, not a fixed timetable.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukHaqlRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">People pick our service because it is easy. We come to you in Tabuk. There is no need to find a taxi to get to a bus station or airport. You sit in a spacious SUV or sedan and relax until you arrive in Haql. For groups of four to seven people, our price is very fair compared to buying several plane tickets. Plus, you get dropped off exactly at your hotel gate.</p>
+                                <p className="text-gray-300 leading-relaxed">The main advantage of booking privately is control: you set the departure time, you decide where to stop on the way to Haql, and you're not sharing the vehicle with strangers. We agree the fare upfront, and our drivers are familiar with this route and its rest stops.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukHaqlRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Haql"
                 faqs={[
-{
-                        question: "Where do we stop for food on the way to Haql?",
+                {
+                        question: "Is Haql good for diving or snorkeling?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 230 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "Haql's calm Gulf of Aqaba waters are popular locally for diving and snorkeling, and it's one of the shorter drives from Tabuk.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "Can we see Egypt or Jordan from Haql?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Haql.",
+                        detailedAnswer: "Haql sits close enough to the Gulf of Aqaba that the Jordanian and Egyptian coastlines are visible across the water on a clear day.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Haql.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Haql.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "How long does the drive from Tabuk to Haql take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "It usually takes about 2.5 Hours, covering close to 230 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
-                    {
-                        question: "Do I need to pay extra for luggage?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Haql — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
                 ]}

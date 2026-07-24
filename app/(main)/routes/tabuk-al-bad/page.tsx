@@ -79,8 +79,10 @@ export default function TabukAlBadRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Al-Bad</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Heading out from Tabuk to Al-Bad? Our private car service gets you there reliably. We focus on direct trips across Saudi Arabia for families and professionals. You can skip the crowded buses and long waits. We pick you up right from your door in Tabuk and drive you straight to your destination in Al-Bad. It is a straightforward way to travel without the usual stress of finding transport.</p>
-                            <p>From the northern borders down towards Al-Bad, our service bridges the gap for those who prefer private travel. We avoid the busy terminals and give you a direct route that saves you hours of waiting and multiple transfers.</p>
+                            <p>The route from Tabuk to Al-Bad runs roughly 320 km, ending in a historic town in Tabuk's north-west near the old Madyan oasis area, not far from the Jordanian border. We keep the trip simple: one private vehicle, one driver, and a fixed price agreed before you leave.</p>
+                            <p>This route is popular with travelers going for a visit to the historic Madyan area or a trip toward the northern border. Figure on roughly 3 Hours in the car, with the driver stopping for meals or prayer whenever you ask, not on a fixed schedule.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukAlBadRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">Fixed pricing means you know exactly what you are paying before the trip starts. There are no meters to watch or surge prices to worry about. This transparency is why many residents in Tabuk trust us for their trips to Al-Bad. From the moment we pick you up until we arrive at your Al-Bad destination, we handle all the logistics of the road.</p>
+                                <p className="text-gray-300 leading-relaxed">A private vehicle means the trip runs on your schedule, not a bus timetable. You agree the price with us before leaving Tabuk, so there's nothing to negotiate once you're on the road to Al-Bad. Your luggage stays in the trunk, the AC and tires are checked before departure, and the driver knows this stretch of highway well.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukAlBadRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk Al Bad"
                 faqs={[
-{
-                        question: "Where do we stop for food on the way to Al-Bad?",
+                {
+                        question: "Is Al-Bad close to any historic sites worth visiting?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 320 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "Al-Bad sits near the old Madyan oasis area in the north-west. If you'd like the driver to route you past nearby points of interest, mention it when booking and we'll do our best to accommodate.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "Is this route suitable for an early morning departure?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "Yes, we run this route any time of day, including early morning departures if you want to reach Al-Bad before the midday heat.",
                         perspectives: []
                     },
-                    {
-                        question: "Do I need to pay extra for luggage?",
+                                    {
+                        question: "Can I book a pickup in Tabuk at night or very early morning?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "Yes. We run this route 24/7, so an early morning or late night departure from Tabuk for Al-Bad can be arranged.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Al-Bad.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Al-Bad.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "How long does the drive from Tabuk to Al-Bad take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Al-Bad.",
+                        detailedAnswer: "It usually takes about 3 Hours, covering close to 320 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
                 ]}

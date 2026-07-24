@@ -79,8 +79,10 @@ export default function TabukQurayyatRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Qurayyat</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Heading out from Tabuk to Qurayyat? Our private car service gets you there reliably. We focus on direct trips across Saudi Arabia for families and professionals. You can skip the crowded buses and long waits. We pick you up right from your door in Tabuk and drive you straight to your destination in Qurayyat. It is a straightforward way to travel without the usual stress of finding transport.</p>
-                            <p>From the northern borders down towards Qurayyat, our service bridges the gap for those who prefer private travel. We avoid the busy terminals and give you a direct route that saves you hours of waiting and multiple transfers.</p>
+                            <p>The route from Tabuk to Qurayyat runs roughly 400 km, ending in an Al-Jouf border town, the closest major town to Jordan on this side of the Kingdom and a historic stop on the old trade and pilgrim routes north. We keep the trip simple: one private vehicle, one driver, and a fixed price agreed before you leave.</p>
+                            <p>This route is popular with travelers going for a family visit or a trip toward the northern border. Figure on roughly 4-4.5 Hours in the car, with the driver stopping for meals or prayer whenever you ask, not on a fixed schedule.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukQurayyatRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">Fixed pricing means you know exactly what you are paying before the trip starts. There are no meters to watch or surge prices to worry about. This transparency is why many residents in Tabuk trust us for their trips to Qurayyat. From the moment we pick you up until we arrive at your Qurayyat destination, we handle all the logistics of the road.</p>
+                                <p className="text-gray-300 leading-relaxed">A private vehicle means the trip runs on your schedule, not a bus timetable. You agree the price with us before leaving Tabuk, so there's nothing to negotiate once you're on the road to Qurayyat. Your luggage stays in the trunk, the AC and tires are checked before departure, and the driver knows this stretch of highway well.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukQurayyatRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Qurayyat"
                 faqs={[
-{
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                {
+                        question: "Is Qurayyat close to the Jordanian border?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Qurayyat.",
+                        detailedAnswer: "Yes, Qurayyat is the closest major Saudi town to Jordan in this area, historically used as a stop on routes heading north.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "Is this one of the shorter routes from Tabuk?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "Yes, compared to many of our other Tabuk routes, Qurayyat is a relatively short drive.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Qurayyat?",
+                                    {
+                        question: "Can I book a pickup in Tabuk at night or very early morning?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 4-4.5 Hours. The distance is close to 400 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "Yes. We run this route 24/7, so an early morning or late night departure from Tabuk for Qurayyat can be arranged.",
                         perspectives: []
                     },
-                    {
-                        question: "Where do we stop for food on the way to Qurayyat?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 400 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Qurayyat.",
                         perspectives: []
                     },
-                    {
-                        question: "What vehicles do you have available?",
+                                    {
+                        question: "How long does the drive from Tabuk to Qurayyat take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "It usually takes about 4-4.5 Hours, covering close to 400 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
                 ]}

@@ -79,8 +79,10 @@ export default function TabukAbhaRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Abha</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Travel from the northern region of Tabuk down to Abha with a driver who knows the way. We offer private transfers for people who value their time and space. The drive to Abha is long, so we make sure the car is comfortable and the AC is cold. Our service is built for locals and visitors who want a simple, direct trip from point A to point B without any hidden fees.</p>
-                            <p>A long journey of 1450 km requires a dependable vehicle. We maintain our fleet specifically for these intercity routes. Every car is cleaned thoroughly before we pick you up in Tabuk, ensuring a fresh environment for your ride to Abha.</p>
+                            <p>The route from Tabuk to Abha runs roughly 1450 km, ending in the cool, cloud-wrapped capital of the Asir region, sitting high on the Sarawat mountain range with a well-known cable car over the valley. We keep the trip simple: one private vehicle, one driver, and a fixed price agreed before you leave.</p>
+                            <p>This route is popular with travelers going for a mountain break or a family holiday in the highlands. Figure on roughly 14-15 Hours in the car, with the driver stopping for meals or prayer whenever you ask, not on a fixed schedule.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukAbhaRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">A private taxi gives you control over your trip. You pick the departure time that works for you. If you need to stop for coffee, a meal, or prayer, just tell the driver. We stop at clean service stations along the way. Your luggage stays safe in the trunk, and you don't have to carry heavy bags through stations. It is a quiet, private way for your family to get to Abha.</p>
+                                <p className="text-gray-300 leading-relaxed">A private vehicle means the trip runs on your schedule, not a bus timetable. You agree the price with us before leaving Tabuk, so there's nothing to negotiate once you're on the road to Abha. Your luggage stays in the trunk, the AC and tires are checked before departure, and the driver knows this stretch of highway well.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukAbhaRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Abha"
                 faqs={[
-{
-                        question: "Is the price for the whole car?",
+                {
+                        question: "Is the mountain road into Abha safe for a long drive?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Abha.",
+                        detailedAnswer: "Yes. The highway climbs through the Asir escarpment and our drivers are used to the mountain bends and the fog that sometimes rolls in near Abha. We keep a steady, careful pace on that stretch rather than rushing it.",
                         perspectives: []
                     },
-                    {
-                        question: "What vehicles do you have available?",
+                                    {
+                        question: "Can the driver help us find our hotel in Abha once we arrive?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "Yes. Once we're in Abha the driver will take you directly to your hotel or the address you give us, so you don't need to figure out the city center traffic yourself after a long trip.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Abha?",
+                                    {
+                        question: "Can I book a pickup in Tabuk at night or very early morning?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 14-15 Hours. The distance is close to 1450 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "Yes. We run this route 24/7, so an early morning or late night departure from Tabuk for Abha can be arranged.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Abha.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Abha.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "How long does the drive from Tabuk to Abha take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "It usually takes about 14-15 Hours, covering close to 1450 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
                 ]}

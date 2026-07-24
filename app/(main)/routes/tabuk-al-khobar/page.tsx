@@ -79,8 +79,10 @@ export default function TabukAlKhobarRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Al Khobar</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Booking a private car from Tabuk to Al Khobar is the most convenient way to handle the 1550 km journey. Avoid the hassle of shared taxis or fixed bus routes. We provide a door-to-door service that caters to your specific needs. Whether you are traveling for a family visit or a business commitment in Al Khobar, our chauffeurs ensure a smooth ride on the open road.</p>
-                            <p>Traveling for 14-15 Hours can be tiring if you aren't in the right car. That is why we use only high-quality sedans and SUVs for our Al Khobar routes. You will find that our door-to-door service is the most relaxing way to manage this long-distance move.</p>
+                            <p>Traveling from Tabuk to Al Khobar covers around 1550 km, taking you through to a Gulf coast city known for its corniche and modern business district, sitting right next to Dammam and connected to Bahrain by the King Fahd Causeway. Instead of dealing with shared transport or fixed bus schedules, our private car service handles the whole distance door-to-door.</p>
+                            <p>Most people booking this route are traveling for business travel or a family trip to the Gulf coast. The drive takes about 14-15 Hours, and since it's a private vehicle, the pace and stops are set around you, not a fixed timetable.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukAlKhobarRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">A private taxi gives you control over your trip. You pick the departure time that works for you. If you need to stop for coffee, a meal, or prayer, just tell the driver. We stop at clean service stations along the way. Your luggage stays safe in the trunk, and you don't have to carry heavy bags through stations. It is a quiet, private way for your family to get to Al Khobar.</p>
+                                <p className="text-gray-300 leading-relaxed">The main advantage of booking privately is control: you set the departure time, you decide where to stop on the way to Al Khobar, and you're not sharing the vehicle with strangers. We agree the fare upfront, and our drivers are familiar with this route and its rest stops.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukAlKhobarRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk Al Khobar"
                 faqs={[
-{
-                        question: "Do I need to pay extra for luggage?",
+                {
+                        question: "Can the driver drop us near the Khobar Corniche?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "Yes, we can take you directly to the Corniche area, a hotel, or any business address in Khobar.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "Is it easy to continue to Bahrain from Khobar?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Al Khobar.",
+                        detailedAnswer: "Khobar is close to the King Fahd Causeway into Bahrain, though that crossing needs separate arrangements — let us know if you need guidance on connecting onward.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Al Khobar?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 14-15 Hours. The distance is close to 1550 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Al Khobar.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "How long does the drive from Tabuk to Al Khobar take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Al Khobar.",
+                        detailedAnswer: "It usually takes about 14-15 Hours, covering close to 1550 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Al Khobar — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
                 ]}

@@ -79,8 +79,10 @@ export default function TabukSakakaRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Sakaka</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Heading out from Tabuk to Sakaka? Our private car service gets you there reliably. We focus on direct trips across Saudi Arabia for families and professionals. You can skip the crowded buses and long waits. We pick you up right from your door in Tabuk and drive you straight to your destination in Sakaka. It is a straightforward way to travel without the usual stress of finding transport.</p>
-                            <p>A long journey of 440 km requires a dependable vehicle. We maintain our fleet specifically for these intercity routes. Every car is cleaned thoroughly before we pick you up in Tabuk, ensuring a fresh environment for your ride to Sakaka.</p>
+                            <p>Traveling from Tabuk to Sakaka covers around 440 km, taking you through to capital of the Al-Jouf region, home to the historic Zaabal fort and Qasr Al-Naqah ("Camel Castle"). Instead of dealing with shared transport or fixed bus schedules, our private car service handles the whole distance door-to-door.</p>
+                            <p>Most people booking this route are traveling for a heritage visit or family trip to Al-Jouf. The drive takes about 4-4.5 Hours, and since it's a private vehicle, the pace and stops are set around you, not a fixed timetable.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukSakakaRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">A private taxi gives you control over your trip. You pick the departure time that works for you. If you need to stop for coffee, a meal, or prayer, just tell the driver. We stop at clean service stations along the way. Your luggage stays safe in the trunk, and you don't have to carry heavy bags through stations. It is a quiet, private way for your family to get to Sakaka.</p>
+                                <p className="text-gray-300 leading-relaxed">The main advantage of booking privately is control: you set the departure time, you decide where to stop on the way to Sakaka, and you're not sharing the vehicle with strangers. We agree the fare upfront, and our drivers are familiar with this route and its rest stops.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukSakakaRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Sakaka"
                 faqs={[
-{
-                        question: "What vehicles do you have available?",
+                {
+                        question: "Is Sakaka known for any historic sites?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "Yes, Sakaka is known for the old Zaabal fort on the hill overlooking the city and the nearby Qasr Al-Naqah heritage site.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "Is Sakaka a common stop for travelers heading further into Al-Jouf?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Sakaka.",
+                        detailedAnswer: "Sakaka is the main city in Al-Jouf, so it works well as a base if you're exploring the wider region.",
                         perspectives: []
                     },
-                    {
-                        question: "Where do we stop for food on the way to Sakaka?",
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 440 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Sakaka.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "Can I book a pickup in Tabuk at night or very early morning?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "Yes. We run this route 24/7, so an early morning or late night departure from Tabuk for Sakaka can be arranged.",
                         perspectives: []
                     },
-                    {
-                        question: "Do I need to pay extra for luggage?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Sakaka.",
                         perspectives: []
                     },
                 ]}

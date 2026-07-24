@@ -79,8 +79,10 @@ export default function TabukAlKharjRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Al-Kharj</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Travel from the northern region of Tabuk down to Al-Kharj with a driver who knows the way. We offer private transfers for people who value their time and space. The drive to Al-Kharj is long, so we make sure the car is comfortable and the AC is cold. Our service is built for locals and visitors who want a simple, direct trip from point A to point B without any hidden fees.</p>
-                            <p>Traveling for 13-14 Hours can be tiring if you aren't in the right car. That is why we use only high-quality sedans and SUVs for our Al-Kharj routes. You will find that our door-to-door service is the most relaxing way to manage this long-distance move.</p>
+                            <p>Traveling from Tabuk to Al-Kharj covers around 1350 km, taking you through to an agricultural town south-east of Riyadh known for its dairy farms and natural springs, one of the main food-producing areas near the capital. Instead of dealing with shared transport or fixed bus schedules, our private car service handles the whole distance door-to-door.</p>
+                            <p>Most people booking this route are traveling for business travel tied to the agricultural sector or a family visit. The drive takes about 13-14 Hours, and since it's a private vehicle, the pace and stops are set around you, not a fixed timetable.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukAlKharjRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">Fixed pricing means you know exactly what you are paying before the trip starts. There are no meters to watch or surge prices to worry about. This transparency is why many residents in Tabuk trust us for their trips to Al-Kharj. From the moment we pick you up until we arrive at your Al-Kharj destination, we handle all the logistics of the road.</p>
+                                <p className="text-gray-300 leading-relaxed">The main advantage of booking privately is control: you set the departure time, you decide where to stop on the way to Al-Kharj, and you're not sharing the vehicle with strangers. We agree the fare upfront, and our drivers are familiar with this route and its rest stops.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukAlKharjRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk Al Kharj"
                 faqs={[
-{
-                        question: "Where do we stop for food on the way to Al-Kharj?",
+                {
+                        question: "Is Al-Kharj considered part of greater Riyadh for travel purposes?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 1350 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "Al-Kharj is a separate town south-east of Riyadh city, roughly an hour further on. We take you straight to Al-Kharj without a stop in central Riyadh unless you ask for one.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "Can you take us to a specific farm or facility in Al-Kharj?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Al-Kharj.",
+                        detailedAnswer: "Yes, just give the driver the exact address or facility name and we will route accordingly.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Al-Kharj?",
+                                    {
+                        question: "How long does the drive from Tabuk to Al-Kharj take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 13-14 Hours. The distance is close to 1350 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "It usually takes about 13-14 Hours, covering close to 1350 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Al-Kharj — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Al-Kharj.",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Al-Kharj.",
                         perspectives: []
                     },
                 ]}

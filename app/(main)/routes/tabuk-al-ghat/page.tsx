@@ -79,8 +79,10 @@ export default function TabukAlGhatRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Al-Ghat</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Booking a private car from Tabuk to Al-Ghat is the most convenient way to handle the 1000 km journey. Avoid the hassle of shared taxis or fixed bus routes. We provide a door-to-door service that caters to your specific needs. Whether you are traveling for a family visit or a business commitment in Al-Ghat, our chauffeurs ensure a smooth ride on the open road.</p>
-                            <p>We take pride in being reliable. A 1000 km drive is quite a distance, so we make sure the cars are in top shape. Our team checks every vehicle before the trip to ensure the AC works perfectly and the tires are good for the highway.</p>
+                            <p>Traveling from Tabuk to Al-Ghat covers around 1000 km, taking you through to a small town in the Sudair area of Riyadh province, with a traditional old mudbrick quarter typical of the central Najd region. Instead of dealing with shared transport or fixed bus schedules, our private car service handles the whole distance door-to-door.</p>
+                            <p>Most people booking this route are traveling for a family visit to the Sudair area. The drive takes about 9-10 Hours, and since it's a private vehicle, the pace and stops are set around you, not a fixed timetable.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukAlGhatRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">People pick our service because it is easy. We come to you in Tabuk. There is no need to find a taxi to get to a bus station or airport. You sit in a spacious SUV or sedan and relax until you arrive in Al-Ghat. For groups of four to seven people, our price is very fair compared to buying several plane tickets. Plus, you get dropped off exactly at your hotel gate.</p>
+                                <p className="text-gray-300 leading-relaxed">The main advantage of booking privately is control: you set the departure time, you decide where to stop on the way to Al-Ghat, and you're not sharing the vehicle with strangers. We agree the fare upfront, and our drivers are familiar with this route and its rest stops.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukAlGhatRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk Al Ghat"
                 faqs={[
-{
-                        question: "Is the price for the whole car?",
+                {
+                        question: "Is Al-Ghat close to the other Sudair towns like Al-Majmaah?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Al-Ghat.",
+                        detailedAnswer: "Yes, Al-Ghat sits in the same Sudair cluster as Al-Majmaah and Al-Zulfi, so if your trip involves more than one of these towns, tell us and we can plan the stops.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "What kind of vehicle is best for a family trip to Al-Ghat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "For a family group we usually recommend the Hyundai Staria or GMC Yukon — both give more luggage space than the sedan for a long trip like this.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Al-Ghat.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Al-Ghat.",
                         perspectives: []
                     },
-                    {
-                        question: "What vehicles do you have available?",
+                                    {
+                        question: "How long does the drive from Tabuk to Al-Ghat take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "It usually takes about 9-10 Hours, covering close to 1000 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Al-Ghat?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 9-10 Hours. The distance is close to 1000 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Al-Ghat — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
                 ]}

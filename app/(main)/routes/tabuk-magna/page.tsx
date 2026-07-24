@@ -79,8 +79,10 @@ export default function TabukMagnaRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Magna</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Travel from the northern region of Tabuk down to Magna with a driver who knows the way. We offer private transfers for people who value their time and space. The drive to Magna is long, so we make sure the car is comfortable and the AC is cold. Our service is built for locals and visitors who want a simple, direct trip from point A to point B without any hidden fees.</p>
-                            <p>We take pride in being reliable. A 240 km drive is quite a distance, so we make sure the cars are in top shape. Our team checks every vehicle before the trip to ensure the AC works perfectly and the tires are good for the highway.</p>
+                            <p>The route from Tabuk to Magna runs roughly 240 km, ending in a coastal town on the Gulf of Aqaba, near the NEOM Oxagon industrial and port development. We keep the trip simple: one private vehicle, one driver, and a fixed price agreed before you leave.</p>
+                            <p>This route is popular with travelers going for business travel tied to the NEOM project or a coastal visit. Figure on roughly 2.5 Hours in the car, with the driver stopping for meals or prayer whenever you ask, not on a fixed schedule.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukMagnaRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">People pick our service because it is easy. We come to you in Tabuk. There is no need to find a taxi to get to a bus station or airport. You sit in a spacious SUV or sedan and relax until you arrive in Magna. For groups of four to seven people, our price is very fair compared to buying several plane tickets. Plus, you get dropped off exactly at your hotel gate.</p>
+                                <p className="text-gray-300 leading-relaxed">A private vehicle means the trip runs on your schedule, not a bus timetable. You agree the price with us before leaving Tabuk, so there's nothing to negotiate once you're on the road to Magna. Your luggage stays in the trunk, the AC and tires are checked before departure, and the driver knows this stretch of highway well.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukMagnaRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Magna"
                 faqs={[
-{
-                        question: "Is the price for the whole car?",
+                {
+                        question: "Is Magna close to the NEOM project sites?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Magna.",
+                        detailedAnswer: "Magna sits near the NEOM Oxagon industrial and port zone, so we do get business travelers heading to project sites in the area.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "Is this one of the shorter routes from Tabuk?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Magna.",
+                        detailedAnswer: "Yes, Magna is one of the closer coastal destinations to Tabuk, which keeps the drive relatively short.",
                         perspectives: []
                     },
-                    {
-                        question: "Where do we stop for food on the way to Magna?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 240 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Magna.",
                         perspectives: []
                     },
-                    {
-                        question: "What vehicles do you have available?",
+                                    {
+                        question: "How long does the drive from Tabuk to Magna take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "It usually takes about 2.5 Hours, covering close to 240 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Magna?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 2.5 Hours. The distance is close to 240 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Magna — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
                 ]}

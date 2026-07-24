@@ -79,8 +79,10 @@ export default function TabukKhafjiRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Khafji</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Travel from the northern region of Tabuk down to Khafji with a driver who knows the way. We offer private transfers for people who value their time and space. The drive to Khafji is long, so we make sure the car is comfortable and the AC is cold. Our service is built for locals and visitors who want a simple, direct trip from point A to point B without any hidden fees.</p>
-                            <p>The road to Khafji is straightforward, but it takes time. Our drivers are trained to stay alert and follow all safety speed limits. We prioritize a safe arrival over a fast one, making us a top choice for families moving between Tabuk and the rest of the Kingdom.</p>
+                            <p>Traveling from Tabuk to Khafji covers around 1350 km, taking you through to an oil town on the Gulf coast right at the Saudi–Kuwait border, at the northern end of the Eastern Province. Instead of dealing with shared transport or fixed bus schedules, our private car service handles the whole distance door-to-door.</p>
+                            <p>Most people booking this route are traveling for business travel or a border-area visit. The drive takes about 13-14 Hours, and since it's a private vehicle, the pace and stops are set around you, not a fixed timetable.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukKhafjiRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">Safety is our main focus for every long drive. Our cars are checked often and our drivers are experienced with Saudi highway conditions. We provide a calm environment where you can sleep or handle work while we drive to Khafji. You get a fixed price upfront, so there are no surprises. It is a dependable choice for anyone needing a long-distance transfer starting from the Tabuk area.</p>
+                                <p className="text-gray-300 leading-relaxed">The main advantage of booking privately is control: you set the departure time, you decide where to stop on the way to Khafji, and you're not sharing the vehicle with strangers. We agree the fare upfront, and our drivers are familiar with this route and its rest stops.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukKhafjiRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Khafji"
                 faqs={[
-{
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                {
+                        question: "Is Khafji directly on the Kuwait border?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Khafji.",
+                        detailedAnswer: "Yes, Khafji sits right at the Saudi–Kuwait border on the Gulf coast.",
                         perspectives: []
                     },
-                    {
-                        question: "Where do we stop for food on the way to Khafji?",
+                                    {
+                        question: "Do you provide 24-hour service for this route given the distance?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 1350 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "Yes, we operate this route around the clock, including night departures from Tabuk if needed.",
                         perspectives: []
                     },
-                    {
-                        question: "What vehicles do you have available?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Khafji.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "How long does the drive from Tabuk to Khafji take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Khafji.",
+                        detailedAnswer: "It usually takes about 13-14 Hours, covering close to 1350 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
-                    {
-                        question: "Do I need to pay extra for luggage?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Khafji — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
                 ]}

@@ -79,8 +79,10 @@ export default function TabukAfifRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Afif</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Heading out from Tabuk to Afif? Our private car service gets you there reliably. We focus on direct trips across Saudi Arabia for families and professionals. You can skip the crowded buses and long waits. We pick you up right from your door in Tabuk and drive you straight to your destination in Afif. It is a straightforward way to travel without the usual stress of finding transport.</p>
-                            <p>The road to Afif is straightforward, but it takes time. Our drivers are trained to stay alert and follow all safety speed limits. We prioritize a safe arrival over a fast one, making us a top choice for families moving between Tabuk and the rest of the Kingdom.</p>
+                            <p>Tabuk to Afif is a 1050 km journey to a town on the Riyadh–Makkah highway corridor, historically a stopover point for travelers crossing the Najd plateau between the central and western regions. Rather than juggling shared taxis or waiting on a bus timetable, we pick you up directly and take you the whole way in a private vehicle.</p>
+                            <p>Whether you're heading to Afif for a stopover trip or family visit along the central highway, we collect you from your address in Tabuk and take you straight to your exact destination — no transfers, no waiting at a station. Expect around 10-11 Hours on the road, with breaks whenever you need them.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukAfifRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">A private taxi gives you control over your trip. You pick the departure time that works for you. If you need to stop for coffee, a meal, or prayer, just tell the driver. We stop at clean service stations along the way. Your luggage stays safe in the trunk, and you don't have to carry heavy bags through stations. It is a quiet, private way for your family to get to Afif.</p>
+                                <p className="text-gray-300 leading-relaxed">We check every vehicle before it leaves Tabuk — tires, air conditioning, and fuel — so a long drive to Afif doesn't turn into a breakdown story. The price you're quoted is the price you pay, and the driver will stop for food, prayer, or a stretch whenever you need it, not on a fixed schedule.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukAfifRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Afif"
                 faqs={[
-{
-                        question: "Is the price for the whole car?",
+                {
+                        question: "Is Afif a good midpoint stop if we are continuing further west?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Afif.",
+                        detailedAnswer: "Afif sits on the corridor toward the western region, so if you're continuing past Afif afterward, tell the driver during booking and we can plan the trip accordingly.",
                         perspectives: []
                     },
-                    {
-                        question: "Where do we stop for food on the way to Afif?",
+                                    {
+                        question: "Are there rest breaks planned on the way to Afif?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 1050 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "Yes, the driver will stop at a proper service station along the highway for prayer, food, or a stretch whenever you need it.",
                         perspectives: []
                     },
-                    {
-                        question: "What vehicles do you have available?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Afif — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Afif.",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Afif.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "Can I book a pickup in Tabuk at night or very early morning?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "Yes. We run this route 24/7, so an early morning or late night departure from Tabuk for Afif can be arranged.",
                         perspectives: []
                     },
                 ]}

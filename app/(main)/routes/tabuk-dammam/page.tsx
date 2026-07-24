@@ -79,8 +79,10 @@ export default function TabukDammamRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Dammam</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Heading out from Tabuk to Dammam? Our private car service gets you there reliably. We focus on direct trips across Saudi Arabia for families and professionals. You can skip the crowded buses and long waits. We pick you up right from your door in Tabuk and drive you straight to your destination in Dammam. It is a straightforward way to travel without the usual stress of finding transport.</p>
-                            <p>Traveling for 14-15 Hours can be tiring if you aren't in the right car. That is why we use only high-quality sedans and SUVs for our Dammam routes. You will find that our door-to-door service is the most relaxing way to manage this long-distance move.</p>
+                            <p>The route from Tabuk to Dammam runs roughly 1530 km, ending in the capital of the Eastern Province, a major Gulf coast city and business hub. We keep the trip simple: one private vehicle, one driver, and a fixed price agreed before you leave.</p>
+                            <p>This route is popular with travelers going for business travel or a family trip to the Gulf coast. Figure on roughly 14-15 Hours in the car, with the driver stopping for meals or prayer whenever you ask, not on a fixed schedule.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukDammamRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">People pick our service because it is easy. We come to you in Tabuk. There is no need to find a taxi to get to a bus station or airport. You sit in a spacious SUV or sedan and relax until you arrive in Dammam. For groups of four to seven people, our price is very fair compared to buying several plane tickets. Plus, you get dropped off exactly at your hotel gate.</p>
+                                <p className="text-gray-300 leading-relaxed">A private vehicle means the trip runs on your schedule, not a bus timetable. You agree the price with us before leaving Tabuk, so there's nothing to negotiate once you're on the road to Dammam. Your luggage stays in the trunk, the AC and tires are checked before departure, and the driver knows this stretch of highway well.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukDammamRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Dammam"
                 faqs={[
-{
-                        question: "How long is the drive from Tabuk to Dammam?",
+                {
+                        question: "Can you drop us at a business address or a specific hotel in Dammam?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 14-15 Hours. The distance is close to 1530 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "Yes, we take you directly to your hotel, office, or any specific address in Dammam.",
                         perspectives: []
                     },
-                    {
-                        question: "Where do we stop for food on the way to Dammam?",
+                                    {
+                        question: "Is Dammam connected to Khobar and Dhahran for onward travel?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 1530 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "Dammam, Khobar, and Dhahran form one connected metro area, so onward local travel from Dammam is generally easy once you arrive.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "Can I book a pickup in Tabuk at night or very early morning?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Dammam.",
+                        detailedAnswer: "Yes. We run this route 24/7, so an early morning or late night departure from Tabuk for Dammam can be arranged.",
                         perspectives: []
                     },
-                    {
-                        question: "Do I need to pay extra for luggage?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Dammam.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "How long does the drive from Tabuk to Dammam take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "It usually takes about 14-15 Hours, covering close to 1530 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
                 ]}

@@ -79,8 +79,10 @@ export default function TabukUnaizahRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Unaizah</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Heading out from Tabuk to Unaizah? Our private car service gets you there reliably. We focus on direct trips across Saudi Arabia for families and professionals. You can skip the crowded buses and long waits. We pick you up right from your door in Tabuk and drive you straight to your destination in Unaizah. It is a straightforward way to travel without the usual stress of finding transport.</p>
-                            <p>A long journey of 850 km requires a dependable vehicle. We maintain our fleet specifically for these intercity routes. Every car is cleaned thoroughly before we pick you up in Tabuk, ensuring a fresh environment for your ride to Unaizah.</p>
+                            <p>Tabuk to Unaizah is a 850 km journey to a historic Qassim town nicknamed the "city of scholars," known for its old souq and date farming. Rather than juggling shared taxis or waiting on a bus timetable, we pick you up directly and take you the whole way in a private vehicle.</p>
+                            <p>Whether you're heading to Unaizah for a family visit or trip to the Qassim region, we collect you from your address in Tabuk and take you straight to your exact destination — no transfers, no waiting at a station. Expect around 8-9 Hours on the road, with breaks whenever you need them.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukUnaizahRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">People pick our service because it is easy. We come to you in Tabuk. There is no need to find a taxi to get to a bus station or airport. You sit in a spacious SUV or sedan and relax until you arrive in Unaizah. For groups of four to seven people, our price is very fair compared to buying several plane tickets. Plus, you get dropped off exactly at your hotel gate.</p>
+                                <p className="text-gray-300 leading-relaxed">We check every vehicle before it leaves Tabuk — tires, air conditioning, and fuel — so a long drive to Unaizah doesn't turn into a breakdown story. The price you're quoted is the price you pay, and the driver will stop for food, prayer, or a stretch whenever you need it, not on a fixed schedule.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukUnaizahRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Unaizah"
                 faqs={[
-{
-                        question: "Can I Request a quote for a ride at night?",
+                {
+                        question: "Is Unaizah known for anything specific?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "Unaizah is often called the \"city of scholars\" locally and is known for its old souq and long history of date farming.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "Is Unaizah close to Buraidah?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Unaizah.",
+                        detailedAnswer: "Yes, Unaizah sits close to Buraidah in the Qassim region, and we can arrange onward trips between the two if needed.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Unaizah?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 8-9 Hours. The distance is close to 850 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Unaizah — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Unaizah.",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Unaizah.",
                         perspectives: []
                     },
-                    {
-                        question: "Where do we stop for food on the way to Unaizah?",
+                                    {
+                        question: "Can I book a pickup in Tabuk at night or very early morning?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 850 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "Yes. We run this route 24/7, so an early morning or late night departure from Tabuk for Unaizah can be arranged.",
                         perspectives: []
                     },
                 ]}

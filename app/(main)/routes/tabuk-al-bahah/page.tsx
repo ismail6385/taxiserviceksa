@@ -79,8 +79,10 @@ export default function TabukAlBahahRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Al Bahah</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>If you need a ride from Tabuk to Al Bahah, we have you covered. Our local drivers know the roads well and handle the long stretch of highway for you. We provide clean, modern vehicles for the 1180 km trip. You don't have to worry about schedules or luggage limits. Just Get a quote for your time, and we will show up at your house or hotel in Tabuk to start the drive to Al Bahah.</p>
-                            <p>We take pride in being reliable. A 1180 km drive is quite a distance, so we make sure the cars are in top shape. Our team checks every vehicle before the trip to ensure the AC works perfectly and the tires are good for the highway.</p>
+                            <p>Traveling from Tabuk to Al Bahah covers around 1180 km, taking you through to the capital of the Al-Baha region, a mountain area known for its juniper forests and noticeably cooler weather than the coast. Instead of dealing with shared transport or fixed bus schedules, our private car service handles the whole distance door-to-door.</p>
+                            <p>Most people booking this route are traveling for a cool-climate getaway to the Al-Baha mountains. The drive takes about 11-12 Hours, and since it's a private vehicle, the pace and stops are set around you, not a fixed timetable.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukAlBahahRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">Fixed pricing means you know exactly what you are paying before the trip starts. There are no meters to watch or surge prices to worry about. This transparency is why many residents in Tabuk trust us for their trips to Al Bahah. From the moment we pick you up until we arrive at your Al Bahah destination, we handle all the logistics of the road.</p>
+                                <p className="text-gray-300 leading-relaxed">The main advantage of booking privately is control: you set the departure time, you decide where to stop on the way to Al Bahah, and you're not sharing the vehicle with strangers. We agree the fare upfront, and our drivers are familiar with this route and its rest stops.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukAlBahahRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk Al Bahah"
                 faqs={[
-{
-                        question: "Do I need to pay extra for luggage?",
+                {
+                        question: "Is Al-Bahah much cooler than Tabuk when we arrive?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "Al-Bahah sits high in the Sarawat mountains and its forested areas are usually noticeably cooler than the lowlands, so it can be a nice contrast if you are traveling for the weather.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "Are the mountain roads near Al-Bahah difficult to drive?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Al Bahah.",
+                        detailedAnswer: "The final stretch has mountain curves, but our drivers are experienced on that terrain and take it at a safe, unhurried pace.",
                         perspectives: []
                     },
-                    {
-                        question: "What vehicles do you have available?",
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Al Bahah.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Al Bahah?",
+                                    {
+                        question: "Can I book a pickup in Tabuk at night or very early morning?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 11-12 Hours. The distance is close to 1180 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "Yes. We run this route 24/7, so an early morning or late night departure from Tabuk for Al Bahah can be arranged.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Al Bahah.",
                         perspectives: []
                     },
                 ]}

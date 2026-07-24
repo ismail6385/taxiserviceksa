@@ -79,8 +79,10 @@ export default function TabukAbuArishRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Abu Arish</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Heading out from Tabuk to Abu Arish? Our private car service gets you there reliably. We focus on direct trips across Saudi Arabia for families and professionals. You can skip the crowded buses and long waits. We pick you up right from your door in Tabuk and drive you straight to your destination in Abu Arish. It is a straightforward way to travel without the usual stress of finding transport.</p>
-                            <p>The road to Abu Arish is straightforward, but it takes time. Our drivers are trained to stay alert and follow all safety speed limits. We prioritize a safe arrival over a fast one, making us a top choice for families moving between Tabuk and the rest of the Kingdom.</p>
+                            <p>The route from Tabuk to Abu Arish runs roughly 1630 km, ending in a farming town in the Jazan region, known for its surrounding fields and its position on the road network that links Jazan city to the interior. We keep the trip simple: one private vehicle, one driver, and a fixed price agreed before you leave.</p>
+                            <p>This route is popular with travelers going for a family visit or reaching farmland in the Jazan area. Figure on roughly 16-17 Hours in the car, with the driver stopping for meals or prayer whenever you ask, not on a fixed schedule.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukAbuArishRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">People pick our service because it is easy. We come to you in Tabuk. There is no need to find a taxi to get to a bus station or airport. You sit in a spacious SUV or sedan and relax until you arrive in Abu Arish. For groups of four to seven people, our price is very fair compared to buying several plane tickets. Plus, you get dropped off exactly at your hotel gate.</p>
+                                <p className="text-gray-300 leading-relaxed">A private vehicle means the trip runs on your schedule, not a bus timetable. You agree the price with us before leaving Tabuk, so there's nothing to negotiate once you're on the road to Abu Arish. Your luggage stays in the trunk, the AC and tires are checked before departure, and the driver knows this stretch of highway well.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukAbuArishRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk Abu Arish"
                 faqs={[
-{
-                        question: "Do I need to pay extra for luggage?",
+                {
+                        question: "How far is Abu Arish from Jazan city itself?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "Abu Arish sits close to Jazan city, so if your plans change once you're in the south, our driver can also take you on to Jazan or nearby towns for an adjusted fare.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Abu Arish?",
+                                    {
+                        question: "Do you provide the same service for the return trip to Tabuk?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 16-17 Hours. The distance is close to 1630 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "Yes, we handle the return leg from Abu Arish back to Tabuk as well — just let us know your preferred pickup time in advance.",
                         perspectives: []
                     },
-                    {
-                        question: "What vehicles do you have available?",
+                                    {
+                        question: "How long does the drive from Tabuk to Abu Arish take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "It usually takes about 16-17 Hours, covering close to 1630 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Abu Arish.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Abu Arish — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Abu Arish.",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Abu Arish.",
                         perspectives: []
                     },
                 ]}

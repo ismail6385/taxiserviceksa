@@ -79,8 +79,10 @@ export default function TabukMasturahRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Masturah</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>If you need a ride from Tabuk to Masturah, we have you covered. Our local drivers know the roads well and handle the long stretch of highway for you. We provide clean, modern vehicles for the 750 km trip. You don't have to worry about schedules or luggage limits. Just Get a quote for your time, and we will show up at your house or hotel in Tabuk to start the drive to Masturah.</p>
-                            <p>We take pride in being reliable. A 750 km drive is quite a distance, so we make sure the cars are in top shape. Our team checks every vehicle before the trip to ensure the AC works perfectly and the tires are good for the highway.</p>
+                            <p>Tabuk to Masturah is a 750 km journey to a small coastal town on the road between Jeddah and Yanbu, along the Red Sea coastal highway. Rather than juggling shared taxis or waiting on a bus timetable, we pick you up directly and take you the whole way in a private vehicle.</p>
+                            <p>Whether you're heading to Masturah for a coastal trip or stopover, we collect you from your address in Tabuk and take you straight to your exact destination — no transfers, no waiting at a station. Expect around 7-8 Hours on the road, with breaks whenever you need them.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukMasturahRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">Our professional drivers prioritize your comfort above all else. During the 7-8 Hours drive from Tabuk, you can enjoy a climate-controlled cabin and plenty of legroom. We use modern vehicles that are built for the local heat and long desert stretches. It is far more restful than driving yourself or using a crowded public bus to reach Masturah.</p>
+                                <p className="text-gray-300 leading-relaxed">We check every vehicle before it leaves Tabuk — tires, air conditioning, and fuel — so a long drive to Masturah doesn't turn into a breakdown story. The price you're quoted is the price you pay, and the driver will stop for food, prayer, or a stretch whenever you need it, not on a fixed schedule.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukMasturahRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Masturah"
                 faqs={[
-{
-                        question: "Is the price for the whole car?",
+                {
+                        question: "Is Masturah on the way if we are also planning to visit Yanbu?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Masturah.",
+                        detailedAnswer: "Masturah sits on the Jeddah–Yanbu coastal road, so it can work as a stopover if Yanbu is also on your itinerary.",
                         perspectives: []
                     },
-                    {
-                        question: "What vehicles do you have available?",
+                                    {
+                        question: "Is the road to Masturah coastal for most of the drive?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "The route runs along the Red Sea coastal corridor for a good part of the journey.",
                         perspectives: []
                     },
-                    {
-                        question: "Do I need to pay extra for luggage?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Masturah — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Masturah.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Masturah?",
+                                    {
+                        question: "Can I book a pickup in Tabuk at night or very early morning?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 7-8 Hours. The distance is close to 750 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "Yes. We run this route 24/7, so an early morning or late night departure from Tabuk for Masturah can be arranged.",
                         perspectives: []
                     },
                 ]}

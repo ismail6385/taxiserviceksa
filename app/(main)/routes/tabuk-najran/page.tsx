@@ -79,8 +79,10 @@ export default function TabukNajranRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Najran</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Travel from the northern region of Tabuk down to Najran with a driver who knows the way. We offer private transfers for people who value their time and space. The drive to Najran is long, so we make sure the car is comfortable and the AC is cold. Our service is built for locals and visitors who want a simple, direct trip from point A to point B without any hidden fees.</p>
-                            <p>A long journey of 1750 km requires a dependable vehicle. We maintain our fleet specifically for these intercity routes. Every car is cleaned thoroughly before we pick you up in Tabuk, ensuring a fresh environment for your ride to Najran.</p>
+                            <p>Traveling from Tabuk to Najran covers around 1750 km, taking you through to a historic southern city known for the ancient Al-Ukhdood ruins and traditional mudbrick architecture, close to the Yemen border. Instead of dealing with shared transport or fixed bus schedules, our private car service handles the whole distance door-to-door.</p>
+                            <p>Most people booking this route are traveling for a heritage visit or family trip to the south. The drive takes about 17-18 Hours, and since it's a private vehicle, the pace and stops are set around you, not a fixed timetable.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukNajranRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">Our professional drivers prioritize your comfort above all else. During the 17-18 Hours drive from Tabuk, you can enjoy a climate-controlled cabin and plenty of legroom. We use modern vehicles that are built for the local heat and long desert stretches. It is far more restful than driving yourself or using a crowded public bus to reach Najran.</p>
+                                <p className="text-gray-300 leading-relaxed">The main advantage of booking privately is control: you set the departure time, you decide where to stop on the way to Najran, and you're not sharing the vehicle with strangers. We agree the fare upfront, and our drivers are familiar with this route and its rest stops.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukNajranRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Najran"
                 faqs={[
-{
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                {
+                        question: "Is Najran known for its historic sites?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Najran.",
+                        detailedAnswer: "Yes, Najran is known for the ancient Al-Ukhdood ruins and its traditional mudbrick buildings, some of the most distinctive architecture in the south of the Kingdom.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "Given the distance, how do you plan rest stops on this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Najran.",
+                        detailedAnswer: "On a route this long, the driver plans proper stops for meals, prayer, and rest at recognized service stations along the way.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Najran?",
+                                    {
+                        question: "How long does the drive from Tabuk to Najran take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 17-18 Hours. The distance is close to 1750 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "It usually takes about 17-18 Hours, covering close to 1750 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
-                    {
-                        question: "Do I need to pay extra for luggage?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Najran — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Najran.",
                         perspectives: []
                     },
                 ]}

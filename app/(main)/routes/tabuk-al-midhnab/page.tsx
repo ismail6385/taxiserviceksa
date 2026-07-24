@@ -79,8 +79,10 @@ export default function TabukAlMidhnabRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Al-Midhnab</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>If you need a ride from Tabuk to Al-Midhnab, we have you covered. Our local drivers know the roads well and handle the long stretch of highway for you. We provide clean, modern vehicles for the 920 km trip. You don't have to worry about schedules or luggage limits. Just Get a quote for your time, and we will show up at your house or hotel in Tabuk to start the drive to Al-Midhnab.</p>
-                            <p>A long journey of 920 km requires a dependable vehicle. We maintain our fleet specifically for these intercity routes. Every car is cleaned thoroughly before we pick you up in Tabuk, ensuring a fresh environment for your ride to Al-Midhnab.</p>
+                            <p>The route from Tabuk to Al-Midhnab runs roughly 920 km, ending in a farming town in the Qassim region, part of the same agricultural district as Buraidah and Unaizah. We keep the trip simple: one private vehicle, one driver, and a fixed price agreed before you leave.</p>
+                            <p>This route is popular with travelers going for a family or farming-related visit to Qassim. Figure on roughly 9 Hours in the car, with the driver stopping for meals or prayer whenever you ask, not on a fixed schedule.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukAlMidhnabRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">A private taxi gives you control over your trip. You pick the departure time that works for you. If you need to stop for coffee, a meal, or prayer, just tell the driver. We stop at clean service stations along the way. Your luggage stays safe in the trunk, and you don't have to carry heavy bags through stations. It is a quiet, private way for your family to get to Al-Midhnab.</p>
+                                <p className="text-gray-300 leading-relaxed">A private vehicle means the trip runs on your schedule, not a bus timetable. You agree the price with us before leaving Tabuk, so there's nothing to negotiate once you're on the road to Al-Midhnab. Your luggage stays in the trunk, the AC and tires are checked before departure, and the driver knows this stretch of highway well.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukAlMidhnabRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk Al Midhnab"
                 faqs={[
-{
-                        question: "Is the price for the whole car?",
+                {
+                        question: "Is Al-Midhnab far from Buraidah city center?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Al-Midhnab.",
+                        detailedAnswer: "Al-Midhnab is one of the smaller towns in the Qassim farming belt, a further drive out from Buraidah city center — the driver will take you straight there.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "Can we book a return trip in advance?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "Yes, you can arrange your return trip from Al-Midhnab to Tabuk at the same time as your outbound booking, or later by WhatsApp.",
                         perspectives: []
                     },
-                    {
-                        question: "Do I need to pay extra for luggage?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Al-Midhnab.",
                         perspectives: []
                     },
-                    {
-                        question: "Where do we stop for food on the way to Al-Midhnab?",
+                                    {
+                        question: "How long does the drive from Tabuk to Al-Midhnab take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 920 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "It usually takes about 9 Hours, covering close to 920 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Al-Midhnab?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 9 Hours. The distance is close to 920 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Al-Midhnab — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
                 ]}

@@ -79,8 +79,10 @@ export default function TabukWadiadDawasirRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Wadi ad-Dawasir</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>If you need a ride from Tabuk to Wadi ad-Dawasir, we have you covered. Our local drivers know the roads well and handle the long stretch of highway for you. We provide clean, modern vehicles for the 1550 km trip. You don't have to worry about schedules or luggage limits. Just Get a quote for your time, and we will show up at your house or hotel in Tabuk to start the drive to Wadi ad-Dawasir.</p>
-                            <p>A long journey of 1550 km requires a dependable vehicle. We maintain our fleet specifically for these intercity routes. Every car is cleaned thoroughly before we pick you up in Tabuk, ensuring a fresh environment for your ride to Wadi ad-Dawasir.</p>
+                            <p>Tabuk to Wadi ad-Dawasir is a 1550 km journey to a southern Riyadh-province oasis town on the edge of the Empty Quarter (Rub al-Khali) desert. Rather than juggling shared taxis or waiting on a bus timetable, we pick you up directly and take you the whole way in a private vehicle.</p>
+                            <p>Whether you're heading to Wadi ad-Dawasir for a family visit or trip toward the desert edge, we collect you from your address in Tabuk and take you straight to your exact destination — no transfers, no waiting at a station. Expect around 15-16 Hours on the road, with breaks whenever you need them.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukWadiadDawasirRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">Fixed pricing means you know exactly what you are paying before the trip starts. There are no meters to watch or surge prices to worry about. This transparency is why many residents in Tabuk trust us for their trips to Wadi ad-Dawasir. From the moment we pick you up until we arrive at your Wadi ad-Dawasir destination, we handle all the logistics of the road.</p>
+                                <p className="text-gray-300 leading-relaxed">We check every vehicle before it leaves Tabuk — tires, air conditioning, and fuel — so a long drive to Wadi ad-Dawasir doesn't turn into a breakdown story. The price you're quoted is the price you pay, and the driver will stop for food, prayer, or a stretch whenever you need it, not on a fixed schedule.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukWadiadDawasirRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk Wadi Ad Dawasir"
                 faqs={[
-{
-                        question: "How long is the drive from Tabuk to Wadi ad-Dawasir?",
+                {
+                        question: "Is Wadi ad-Dawasir near the Empty Quarter?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 15-16 Hours. The distance is close to 1550 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "Yes, Wadi ad-Dawasir sits on the edge of the Rub al-Khali (Empty Quarter), one of the largest sand deserts in the world.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "Given the distance, how does the driver manage the trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "On a route this long, the driver plans proper rest stops for meals and prayer along recognized service stations.",
                         perspectives: []
                     },
-                    {
-                        question: "What vehicles do you have available?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Wadi ad-Dawasir — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Wadi ad-Dawasir.",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Wadi ad-Dawasir.",
                         perspectives: []
                     },
-                    {
-                        question: "Do I need to pay extra for luggage?",
+                                    {
+                        question: "Can I book a pickup in Tabuk at night or very early morning?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "Yes. We run this route 24/7, so an early morning or late night departure from Tabuk for Wadi ad-Dawasir can be arranged.",
                         perspectives: []
                     },
                 ]}

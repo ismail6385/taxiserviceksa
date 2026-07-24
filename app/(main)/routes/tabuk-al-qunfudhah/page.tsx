@@ -79,8 +79,10 @@ export default function TabukAlQunfudhahRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Al-Qunfudhah</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Your trip from Tabuk to Al-Qunfudhah starts with a punctual pickup. We understand that long-distance travel requires a vehicle you can trust. Our fleet is ready to take you across the 1200 km between these cities in complete privacy. No sharing with strangers, just a direct drive from your Tabuk location to your drop-off point in Al-Qunfudhah.</p>
-                            <p>Traveling for 11-12 Hours can be tiring if you aren't in the right car. That is why we use only high-quality sedans and SUVs for our Al-Qunfudhah routes. You will find that our door-to-door service is the most relaxing way to manage this long-distance move.</p>
+                            <p>Traveling from Tabuk to Al-Qunfudhah covers around 1200 km, taking you through to a Red Sea coastal town on the road between Makkah and Jazan, known for fishing and its position on the coastal plain. Instead of dealing with shared transport or fixed bus schedules, our private car service handles the whole distance door-to-door.</p>
+                            <p>Most people booking this route are traveling for a coastal trip or family visit. The drive takes about 11-12 Hours, and since it's a private vehicle, the pace and stops are set around you, not a fixed timetable.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukAlQunfudhahRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">People pick our service because it is easy. We come to you in Tabuk. There is no need to find a taxi to get to a bus station or airport. You sit in a spacious SUV or sedan and relax until you arrive in Al-Qunfudhah. For groups of four to seven people, our price is very fair compared to buying several plane tickets. Plus, you get dropped off exactly at your hotel gate.</p>
+                                <p className="text-gray-300 leading-relaxed">The main advantage of booking privately is control: you set the departure time, you decide where to stop on the way to Al-Qunfudhah, and you're not sharing the vehicle with strangers. We agree the fare upfront, and our drivers are familiar with this route and its rest stops.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukAlQunfudhahRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk Al Qunfudhah"
                 faqs={[
-{
-                        question: "Is the price for the whole car?",
+                {
+                        question: "Is the road to Al-Qunfudhah mostly coastal or inland?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Al-Qunfudhah.",
+                        detailedAnswer: "The route follows the Red Sea coastal corridor for a good part of the journey before reaching Al-Qunfudhah.",
                         perspectives: []
                     },
-                    {
-                        question: "Where do we stop for food on the way to Al-Qunfudhah?",
+                                    {
+                        question: "Can the driver take us to a specific neighborhood in Al-Qunfudhah?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 1200 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "Yes, just give us the exact address or area and we will take you straight there.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "How long does the drive from Tabuk to Al-Qunfudhah take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "It usually takes about 11-12 Hours, covering close to 1200 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
-                    {
-                        question: "Do I need to pay extra for luggage?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Al-Qunfudhah — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Al-Qunfudhah.",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Al-Qunfudhah.",
                         perspectives: []
                     },
                 ]}

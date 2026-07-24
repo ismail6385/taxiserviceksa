@@ -79,8 +79,10 @@ export default function TabukThuwalRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Thuwal</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Booking a private car from Tabuk to Thuwal is the most convenient way to handle the 880 km journey. Avoid the hassle of shared taxis or fixed bus routes. We provide a door-to-door service that caters to your specific needs. Whether you are traveling for a family visit or a business commitment in Thuwal, our chauffeurs ensure a smooth ride on the open road.</p>
-                            <p>From the northern borders down towards Thuwal, our service bridges the gap for those who prefer private travel. We avoid the busy terminals and give you a direct route that saves you hours of waiting and multiple transfers.</p>
+                            <p>Tabuk to Thuwal is a 880 km journey to home to KAUST (King Abdullah University of Science and Technology) on the Red Sea coast north of Jeddah. Rather than juggling shared taxis or waiting on a bus timetable, we pick you up directly and take you the whole way in a private vehicle.</p>
+                            <p>Whether you're heading to Thuwal for university-related travel or a family visit, we collect you from your address in Tabuk and take you straight to your exact destination — no transfers, no waiting at a station. Expect around 8.5 Hours on the road, with breaks whenever you need them.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukThuwalRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">Safety is our main focus for every long drive. Our cars are checked often and our drivers are experienced with Saudi highway conditions. We provide a calm environment where you can sleep or handle work while we drive to Thuwal. You get a fixed price upfront, so there are no surprises. It is a dependable choice for anyone needing a long-distance transfer starting from the Tabuk area.</p>
+                                <p className="text-gray-300 leading-relaxed">We check every vehicle before it leaves Tabuk — tires, air conditioning, and fuel — so a long drive to Thuwal doesn't turn into a breakdown story. The price you're quoted is the price you pay, and the driver will stop for food, prayer, or a stretch whenever you need it, not on a fixed schedule.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukThuwalRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Thuwal"
                 faqs={[
-{
-                        question: "Do I need to pay extra for luggage?",
+                {
+                        question: "Do you do drop-offs directly at the KAUST campus?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "Yes, we can take you directly to the KAUST campus or the surrounding Thuwal area — just specify the exact gate or address when booking.",
                         perspectives: []
                     },
-                    {
-                        question: "What vehicles do you have available?",
+                                    {
+                        question: "Is this route commonly used by university staff or students?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "We do get KAUST-related travelers on this route, alongside general visitors to Thuwal.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "How long does the drive from Tabuk to Thuwal take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "It usually takes about 8.5 Hours, covering close to 880 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Thuwal.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Thuwal — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Thuwal.",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Thuwal.",
                         perspectives: []
                     },
                 ]}

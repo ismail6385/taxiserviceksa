@@ -79,8 +79,10 @@ export default function TabukJubailRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Jubail</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Booking a private car from Tabuk to Jubail is the most convenient way to handle the 1500 km journey. Avoid the hassle of shared taxis or fixed bus routes. We provide a door-to-door service that caters to your specific needs. Whether you are traveling for a family visit or a business commitment in Jubail, our chauffeurs ensure a smooth ride on the open road.</p>
-                            <p>Traveling for 14-15 Hours can be tiring if you aren't in the right car. That is why we use only high-quality sedans and SUVs for our Jubail routes. You will find that our door-to-door service is the most relaxing way to manage this long-distance move.</p>
+                            <p>The route from Tabuk to Jubail runs roughly 1500 km, ending in a major industrial and petrochemical port city on the Gulf coast, one of the largest industrial cities in the Eastern Province. We keep the trip simple: one private vehicle, one driver, and a fixed price agreed before you leave.</p>
+                            <p>This route is popular with travelers going for business travel tied to the petrochemical industry. Figure on roughly 14-15 Hours in the car, with the driver stopping for meals or prayer whenever you ask, not on a fixed schedule.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukJubailRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">Our professional drivers prioritize your comfort above all else. During the 14-15 Hours drive from Tabuk, you can enjoy a climate-controlled cabin and plenty of legroom. We use modern vehicles that are built for the local heat and long desert stretches. It is far more restful than driving yourself or using a crowded public bus to reach Jubail.</p>
+                                <p className="text-gray-300 leading-relaxed">A private vehicle means the trip runs on your schedule, not a bus timetable. You agree the price with us before leaving Tabuk, so there's nothing to negotiate once you're on the road to Jubail. Your luggage stays in the trunk, the AC and tires are checked before departure, and the driver knows this stretch of highway well.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukJubailRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Jubail"
                 faqs={[
-{
-                        question: "Can I Request a quote for a ride at night?",
+                {
+                        question: "Can the driver drop us at an industrial site or company gate in Jubail?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "Yes, just provide the site name or gate number in advance and we will confirm the exact drop-off.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "Is this route commonly used for business travel?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Jubail.",
+                        detailedAnswer: "Given Jubail's industrial base, we do get a fair number of business travelers on this route.",
                         perspectives: []
                     },
-                    {
-                        question: "Where do we stop for food on the way to Jubail?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 1500 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Jubail.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "How long does the drive from Tabuk to Jubail take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Jubail.",
+                        detailedAnswer: "It usually takes about 14-15 Hours, covering close to 1500 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
-                    {
-                        question: "Do I need to pay extra for luggage?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Jubail — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
                 ]}

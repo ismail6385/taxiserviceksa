@@ -79,8 +79,10 @@ export default function TabukRumahRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Rumah</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Your trip from Tabuk to Rumah starts with a punctual pickup. We understand that long-distance travel requires a vehicle you can trust. Our fleet is ready to take you across the 1350 km between these cities in complete privacy. No sharing with strangers, just a direct drive from your Tabuk location to your drop-off point in Rumah.</p>
-                            <p>We take pride in being reliable. A 1350 km drive is quite a distance, so we make sure the cars are in top shape. Our team checks every vehicle before the trip to ensure the AC works perfectly and the tires are good for the highway.</p>
+                            <p>Tabuk to Rumah is a 1350 km journey to an agricultural town east of Riyadh, part of the farming areas that ring the capital. Rather than juggling shared taxis or waiting on a bus timetable, we pick you up directly and take you the whole way in a private vehicle.</p>
+                            <p>Whether you're heading to Rumah for a family or farming-related visit, we collect you from your address in Tabuk and take you straight to your exact destination — no transfers, no waiting at a station. Expect around 13 Hours on the road, with breaks whenever you need them.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukRumahRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">A private taxi gives you control over your trip. You pick the departure time that works for you. If you need to stop for coffee, a meal, or prayer, just tell the driver. We stop at clean service stations along the way. Your luggage stays safe in the trunk, and you don't have to carry heavy bags through stations. It is a quiet, private way for your family to get to Rumah.</p>
+                                <p className="text-gray-300 leading-relaxed">We check every vehicle before it leaves Tabuk — tires, air conditioning, and fuel — so a long drive to Rumah doesn't turn into a breakdown story. The price you're quoted is the price you pay, and the driver will stop for food, prayer, or a stretch whenever you need it, not on a fixed schedule.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukRumahRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Rumah"
                 faqs={[
-{
-                        question: "Can I Request a quote for a ride at night?",
+                {
+                        question: "Is Rumah close to Riyadh city?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "Rumah sits east of Riyadh — we take you directly there without a stop in the city center unless requested.",
                         perspectives: []
                     },
-                    {
-                        question: "Where do we stop for food on the way to Rumah?",
+                                    {
+                        question: "Can the vehicle handle a farm address in Rumah?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 1350 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "Our SUVs and vans can generally manage rougher farm access roads — just confirm the exact drop-off point when booking.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Rumah.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Rumah.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Rumah?",
+                                    {
+                        question: "How long does the drive from Tabuk to Rumah take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 13 Hours. The distance is close to 1350 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "It usually takes about 13 Hours, covering close to 1350 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Rumah.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Rumah — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
                 ]}

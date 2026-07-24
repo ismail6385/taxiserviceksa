@@ -79,8 +79,10 @@ export default function TabukSharurahRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Sharurah</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Travel from the northern region of Tabuk down to Sharurah with a driver who knows the way. We offer private transfers for people who value their time and space. The drive to Sharurah is long, so we make sure the car is comfortable and the AC is cold. Our service is built for locals and visitors who want a simple, direct trip from point A to point B without any hidden fees.</p>
-                            <p>From the northern borders down towards Sharurah, our service bridges the gap for those who prefer private travel. We avoid the busy terminals and give you a direct route that saves you hours of waiting and multiple transfers.</p>
+                            <p>Tabuk to Sharurah is a 2100 km journey to a remote far-southern town near the Yemen and Oman borders, on the edge of the Empty Quarter (Rub al-Khali) desert. Rather than juggling shared taxis or waiting on a bus timetable, we pick you up directly and take you the whole way in a private vehicle.</p>
+                            <p>Whether you're heading to Sharurah for a remote business or family trip to the far south, we collect you from your address in Tabuk and take you straight to your exact destination — no transfers, no waiting at a station. Expect around 20-22 Hours on the road, with breaks whenever you need them.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukSharurahRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">Safety is our main focus for every long drive. Our cars are checked often and our drivers are experienced with Saudi highway conditions. We provide a calm environment where you can sleep or handle work while we drive to Sharurah. You get a fixed price upfront, so there are no surprises. It is a dependable choice for anyone needing a long-distance transfer starting from the Tabuk area.</p>
+                                <p className="text-gray-300 leading-relaxed">We check every vehicle before it leaves Tabuk — tires, air conditioning, and fuel — so a long drive to Sharurah doesn't turn into a breakdown story. The price you're quoted is the price you pay, and the driver will stop for food, prayer, or a stretch whenever you need it, not on a fixed schedule.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukSharurahRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Sharurah"
                 faqs={[
-{
-                        question: "Can I Request a quote for a ride at night?",
+                {
+                        question: "Is Sharurah the longest route you offer from Tabuk?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "Yes, given its position near the Yemen and Oman borders on the edge of the Empty Quarter, Sharurah is one of our longest routes.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "How do you handle rest stops on such a long drive?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Sharurah.",
+                        detailedAnswer: "On a trip this long, the driver plans proper breaks at recognized service stations, and we can also discuss splitting the journey over two days if you prefer.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "Can I book a pickup in Tabuk at night or very early morning?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Sharurah.",
+                        detailedAnswer: "Yes. We run this route 24/7, so an early morning or late night departure from Tabuk for Sharurah can be arranged.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Sharurah?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 20-22 Hours. The distance is close to 2100 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Sharurah.",
                         perspectives: []
                     },
-                    {
-                        question: "What vehicles do you have available?",
+                                    {
+                        question: "How long does the drive from Tabuk to Sharurah take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "It usually takes about 20-22 Hours, covering close to 2100 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
                 ]}

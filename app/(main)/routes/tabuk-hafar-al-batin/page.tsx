@@ -79,8 +79,10 @@ export default function TabukHafarAlBatinRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Hafar Al Batin</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Booking a private car from Tabuk to Hafar Al Batin is the most convenient way to handle the 1050 km journey. Avoid the hassle of shared taxis or fixed bus routes. We provide a door-to-door service that caters to your specific needs. Whether you are traveling for a family visit or a business commitment in Hafar Al Batin, our chauffeurs ensure a smooth ride on the open road.</p>
-                            <p>From the northern borders down towards Hafar Al Batin, our service bridges the gap for those who prefer private travel. We avoid the busy terminals and give you a direct route that saves you hours of waiting and multiple transfers.</p>
+                            <p>Tabuk to Hafar Al Batin is a 1050 km journey to a town near the Kuwait border in the northern Eastern Province, historically known as a staging area during the early-1990s Gulf conflict. Rather than juggling shared taxis or waiting on a bus timetable, we pick you up directly and take you the whole way in a private vehicle.</p>
+                            <p>Whether you're heading to Hafar Al Batin for business travel or a family visit near the northern Gulf border, we collect you from your address in Tabuk and take you straight to your exact destination — no transfers, no waiting at a station. Expect around 10-11 Hours on the road, with breaks whenever you need them.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukHafarAlBatinRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">Safety is our main focus for every long drive. Our cars are checked often and our drivers are experienced with Saudi highway conditions. We provide a calm environment where you can sleep or handle work while we drive to Hafar Al Batin. You get a fixed price upfront, so there are no surprises. It is a dependable choice for anyone needing a long-distance transfer starting from the Tabuk area.</p>
+                                <p className="text-gray-300 leading-relaxed">We check every vehicle before it leaves Tabuk — tires, air conditioning, and fuel — so a long drive to Hafar Al Batin doesn't turn into a breakdown story. The price you're quoted is the price you pay, and the driver will stop for food, prayer, or a stretch whenever you need it, not on a fixed schedule.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukHafarAlBatinRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk Hafar Al Batin"
                 faqs={[
-{
-                        question: "How long is the drive from Tabuk to Hafar Al Batin?",
+                {
+                        question: "Is Hafar Al-Batin close to the Kuwait border?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 10-11 Hours. The distance is close to 1050 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "Yes, Hafar Al-Batin sits near the Kuwait border in the northern part of the Eastern Province.",
                         perspectives: []
                     },
-                    {
-                        question: "What vehicles do you have available?",
+                                    {
+                        question: "Do you offer trips at unusual hours for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "Yes, we run this route 24/7 including early morning or late night departures from Tabuk.",
                         perspectives: []
                     },
-                    {
-                        question: "Do I need to pay extra for luggage?",
+                                    {
+                        question: "How long does the drive from Tabuk to Hafar Al Batin take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "It usually takes about 10-11 Hours, covering close to 1050 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
-                    {
-                        question: "Where do we stop for food on the way to Hafar Al Batin?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 1050 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Hafar Al Batin — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Hafar Al Batin.",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Hafar Al Batin.",
                         perspectives: []
                     },
                 ]}

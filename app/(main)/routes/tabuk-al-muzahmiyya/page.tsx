@@ -79,8 +79,10 @@ export default function TabukAlMuzahmiyyaRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Al-Muzahmiyya</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Travel from the northern region of Tabuk down to Al-Muzahmiyya with a driver who knows the way. We offer private transfers for people who value their time and space. The drive to Al-Muzahmiyya is long, so we make sure the car is comfortable and the AC is cold. Our service is built for locals and visitors who want a simple, direct trip from point A to point B without any hidden fees.</p>
-                            <p>We take pride in being reliable. A 1300 km drive is quite a distance, so we make sure the cars are in top shape. Our team checks every vehicle before the trip to ensure the AC works perfectly and the tires are good for the highway.</p>
+                            <p>The route from Tabuk to Al-Muzahmiyya runs roughly 1300 km, ending in a town on Riyadh's south-western edge, on the way toward the Tuwaiq escarpment that rings the capital. We keep the trip simple: one private vehicle, one driver, and a fixed price agreed before you leave.</p>
+                            <p>This route is popular with travelers going for a family visit near Riyadh. Figure on roughly 12-13 Hours in the car, with the driver stopping for meals or prayer whenever you ask, not on a fixed schedule.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukAlMuzahmiyyaRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">Fixed pricing means you know exactly what you are paying before the trip starts. There are no meters to watch or surge prices to worry about. This transparency is why many residents in Tabuk trust us for their trips to Al-Muzahmiyya. From the moment we pick you up until we arrive at your Al-Muzahmiyya destination, we handle all the logistics of the road.</p>
+                                <p className="text-gray-300 leading-relaxed">A private vehicle means the trip runs on your schedule, not a bus timetable. You agree the price with us before leaving Tabuk, so there's nothing to negotiate once you're on the road to Al-Muzahmiyya. Your luggage stays in the trunk, the AC and tires are checked before departure, and the driver knows this stretch of highway well.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukAlMuzahmiyyaRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk Al Muzahmiyya"
                 faqs={[
-{
-                        question: "What vehicles do you have available?",
+                {
+                        question: "Is Al-Muzahmiyya considered part of Riyadh city?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "Al-Muzahmiyya is a separate town on the south-western edge of greater Riyadh — we take you there directly without routing through central Riyadh unless requested.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Al-Muzahmiyya?",
+                                    {
+                        question: "Can you also continue into central Riyadh afterward?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 12-13 Hours. The distance is close to 1300 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "Yes, if you need to continue into Riyadh city after Al-Muzahmiyya, let us know and we can quote that as an extended trip.",
                         perspectives: []
                     },
-                    {
-                        question: "Where do we stop for food on the way to Al-Muzahmiyya?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 1300 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Al-Muzahmiyya — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
-                    {
-                        question: "Do I need to pay extra for luggage?",
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Al-Muzahmiyya.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "Can I book a pickup in Tabuk at night or very early morning?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "Yes. We run this route 24/7, so an early morning or late night departure from Tabuk for Al-Muzahmiyya can be arranged.",
                         perspectives: []
                     },
                 ]}

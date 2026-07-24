@@ -79,8 +79,10 @@ export default function TabukAlBukayriyahRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Al-Bukayriyah</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Heading out from Tabuk to Al-Bukayriyah? Our private car service gets you there reliably. We focus on direct trips across Saudi Arabia for families and professionals. You can skip the crowded buses and long waits. We pick you up right from your door in Tabuk and drive you straight to your destination in Al-Bukayriyah. It is a straightforward way to travel without the usual stress of finding transport.</p>
-                            <p>From the northern borders down towards Al-Bukayriyah, our service bridges the gap for those who prefer private travel. We avoid the busy terminals and give you a direct route that saves you hours of waiting and multiple transfers.</p>
+                            <p>Tabuk to Al-Bukayriyah is a 880 km journey to a Qassim-region town known for agriculture, part of the same farming belt as nearby Unaizah and Buraidah. Rather than juggling shared taxis or waiting on a bus timetable, we pick you up directly and take you the whole way in a private vehicle.</p>
+                            <p>Whether you're heading to Al-Bukayriyah for a family or farm visit in the Qassim region, we collect you from your address in Tabuk and take you straight to your exact destination — no transfers, no waiting at a station. Expect around 8-9 Hours on the road, with breaks whenever you need them.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukAlBukayriyahRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">A private taxi gives you control over your trip. You pick the departure time that works for you. If you need to stop for coffee, a meal, or prayer, just tell the driver. We stop at clean service stations along the way. Your luggage stays safe in the trunk, and you don't have to carry heavy bags through stations. It is a quiet, private way for your family to get to Al-Bukayriyah.</p>
+                                <p className="text-gray-300 leading-relaxed">We check every vehicle before it leaves Tabuk — tires, air conditioning, and fuel — so a long drive to Al-Bukayriyah doesn't turn into a breakdown story. The price you're quoted is the price you pay, and the driver will stop for food, prayer, or a stretch whenever you need it, not on a fixed schedule.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukAlBukayriyahRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk Al Bukayriyah"
                 faqs={[
-{
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                {
+                        question: "Do you also run trips between Al-Bukayriyah and Buraidah or Unaizah?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Al-Bukayriyah.",
+                        detailedAnswer: "We can arrange onward trips between Al-Bukayriyah and other Qassim towns like Buraidah or Unaizah — just mention it when you book.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "Can the car handle unpaved or farm access roads near Al-Bukayriyah?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Al-Bukayriyah.",
+                        detailedAnswer: "Our SUVs and vans can generally handle rougher farm access roads; let the driver know the exact drop-off point in advance so we can confirm the right vehicle.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Al-Bukayriyah?",
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 8-9 Hours. The distance is close to 880 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Al-Bukayriyah.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "Can I book a pickup in Tabuk at night or very early morning?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "Yes. We run this route 24/7, so an early morning or late night departure from Tabuk for Al-Bukayriyah can be arranged.",
                         perspectives: []
                     },
-                    {
-                        question: "Where do we stop for food on the way to Al-Bukayriyah?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 880 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Al-Bukayriyah.",
                         perspectives: []
                     },
                 ]}

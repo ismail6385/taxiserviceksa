@@ -79,8 +79,10 @@ export default function TabukDubaRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Duba</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Travel from the northern region of Tabuk down to Duba with a driver who knows the way. We offer private transfers for people who value their time and space. The drive to Duba is long, so we make sure the car is comfortable and the AC is cold. Our service is built for locals and visitors who want a simple, direct trip from point A to point B without any hidden fees.</p>
-                            <p>Traveling for 2 Hours can be tiring if you aren't in the right car. That is why we use only high-quality sedans and SUVs for our Duba routes. You will find that our door-to-door service is the most relaxing way to manage this long-distance move.</p>
+                            <p>Tabuk to Duba is a 180 km journey to a small Red Sea fishing port with ferry connections, one of the closer coastal towns to Tabuk and a gateway to nearby reefs. Rather than juggling shared taxis or waiting on a bus timetable, we pick you up directly and take you the whole way in a private vehicle.</p>
+                            <p>Whether you're heading to Duba for a short coastal getaway or a ferry connection, we collect you from your address in Tabuk and take you straight to your exact destination — no transfers, no waiting at a station. Expect around 2 Hours on the road, with breaks whenever you need them.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukDubaRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">Safety is our main focus for every long drive. Our cars are checked often and our drivers are experienced with Saudi highway conditions. We provide a calm environment where you can sleep or handle work while we drive to Duba. You get a fixed price upfront, so there are no surprises. It is a dependable choice for anyone needing a long-distance transfer starting from the Tabuk area.</p>
+                                <p className="text-gray-300 leading-relaxed">We check every vehicle before it leaves Tabuk — tires, air conditioning, and fuel — so a long drive to Duba doesn't turn into a breakdown story. The price you're quoted is the price you pay, and the driver will stop for food, prayer, or a stretch whenever you need it, not on a fixed schedule.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukDubaRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Duba"
                 faqs={[
-{
-                        question: "Where do we stop for food on the way to Duba?",
+                {
+                        question: "Is Duba a good day-trip option from Tabuk given the shorter distance?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 180 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "Yes, Duba is one of the closer coastal towns to Tabuk, which makes it realistic as a day trip or a short overnight getaway.",
                         perspectives: []
                     },
-                    {
-                        question: "What vehicles do you have available?",
+                                    {
+                        question: "Does Duba have ferry connections?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "Duba is known locally for its ferry links along the Red Sea coast — if you need help timing your arrival around a ferry, let us know when booking.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Duba.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Duba — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Duba?",
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 2 Hours. The distance is close to 180 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Duba.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "Can I book a pickup in Tabuk at night or very early morning?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "Yes. We run this route 24/7, so an early morning or late night departure from Tabuk for Duba can be arranged.",
                         perspectives: []
                     },
                 ]}

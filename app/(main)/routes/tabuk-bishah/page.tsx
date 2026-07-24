@@ -79,8 +79,10 @@ export default function TabukBishahRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Bishah</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>If you need a ride from Tabuk to Bishah, we have you covered. Our local drivers know the roads well and handle the long stretch of highway for you. We provide clean, modern vehicles for the 1400 km trip. You don't have to worry about schedules or luggage limits. Just Get a quote for your time, and we will show up at your house or hotel in Tabuk to start the drive to Bishah.</p>
-                            <p>Traveling for 13-14 Hours can be tiring if you aren't in the right car. That is why we use only high-quality sedans and SUVs for our Bishah routes. You will find that our door-to-door service is the most relaxing way to manage this long-distance move.</p>
+                            <p>The route from Tabuk to Bishah runs roughly 1400 km, ending in a farming town in the Asir region, known for its agricultural land along one of the area's main wadis. We keep the trip simple: one private vehicle, one driver, and a fixed price agreed before you leave.</p>
+                            <p>This route is popular with travelers going for a family or farming-related visit. Figure on roughly 13-14 Hours in the car, with the driver stopping for meals or prayer whenever you ask, not on a fixed schedule.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukBishahRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">Safety is our main focus for every long drive. Our cars are checked often and our drivers are experienced with Saudi highway conditions. We provide a calm environment where you can sleep or handle work while we drive to Bishah. You get a fixed price upfront, so there are no surprises. It is a dependable choice for anyone needing a long-distance transfer starting from the Tabuk area.</p>
+                                <p className="text-gray-300 leading-relaxed">A private vehicle means the trip runs on your schedule, not a bus timetable. You agree the price with us before leaving Tabuk, so there's nothing to negotiate once you're on the road to Bishah. Your luggage stays in the trunk, the AC and tires are checked before departure, and the driver knows this stretch of highway well.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukBishahRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk to Bishah"
                 faqs={[
-{
-                        question: "Is the price for the whole car?",
+                {
+                        question: "Is Bishah known for agriculture?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Bishah.",
+                        detailedAnswer: "Yes, Bishah sits along a fertile wadi area in the Asir region and is known locally for farming.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Bishah?",
+                                    {
+                        question: "Do you charge extra for a route this long?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 13-14 Hours. The distance is close to 1400 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "No hidden extras — the fixed price quoted covers the full distance from Tabuk to Bishah.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk?",
+                                    {
+                        question: "How long does the drive from Tabuk to Bishah take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. Just provide your location in Tabuk, and our driver will meet you there to take you directly to Bishah.",
+                        detailedAnswer: "It usually takes about 13-14 Hours, covering close to 1400 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
-                    {
-                        question: "Do I need to pay extra for luggage?",
+                                    {
+                        question: "Is the price for the whole vehicle, not per seat?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there are no extra charges for luggage on the trip.",
+                        detailedAnswer: "Yes. The price we quote is for the private vehicle and driver for the full trip to Bishah — you are not sharing the ride with other passengers.",
                         perspectives: []
                     },
-                    {
-                        question: "Can I Request a quote for a ride at night?",
+                                    {
+                        question: "Do I pay extra for luggage on this trip?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. We work 24 hours a day. If you need to leave Tabuk late at night or very early in the morning, we can arrange that for you.",
+                        detailedAnswer: "No. As long as your bags fit in the vehicle you booked, there is no extra charge for luggage on the way to Bishah.",
                         perspectives: []
                     },
                 ]}

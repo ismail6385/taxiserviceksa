@@ -79,8 +79,10 @@ export default function TabukAlMajmaahRoutePage() {
                     <div className="mb-16 text-center">
                         <h2 className="text-3xl font-bold text-gray-900 mb-6 underline decoration-primary decoration-4 underline-offset-8">Travel from Tabuk to Al Majma'ah</h2>
                         <div className="prose prose-lg text-gray-600 max-w-3xl mx-auto">
-                            <p>Booking a private car from Tabuk to Al Majma'ah is the most convenient way to handle the 1100 km journey. Avoid the hassle of shared taxis or fixed bus routes. We provide a door-to-door service that caters to your specific needs. Whether you are traveling for a family visit or a business commitment in Al Majma'ah, our chauffeurs ensure a smooth ride on the open road.</p>
-                            <p>The road to Al Majma'ah is straightforward, but it takes time. Our drivers are trained to stay alert and follow all safety speed limits. We prioritize a safe arrival over a fast one, making us a top choice for families moving between Tabuk and the rest of the Kingdom.</p>
+                            <p>Tabuk to Al Majma'ah is a 1100 km journey to a Sudair-region town in Riyadh province, home to Majmaah University and part of the historic Sudair farming district. Rather than juggling shared taxis or waiting on a bus timetable, we pick you up directly and take you the whole way in a private vehicle.</p>
+                            <p>Whether you're heading to Al Majma'ah for a university-related trip or family visit, we collect you from your address in Tabuk and take you straight to your exact destination — no transfers, no waiting at a station. Expect around 10-11 Hours on the road, with breaks whenever you need them.</p>
+                        
+                        
                         </div>
                     </div>
 
@@ -101,7 +103,7 @@ export default function TabukAlMajmaahRoutePage() {
                         <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
                             <div>
                                 <h3 className="text-2xl font-bold text-primary mb-6">Why Travelers Choose Our Service</h3>
-                                <p className="text-gray-300 leading-relaxed">Fixed pricing means you know exactly what you are paying before the trip starts. There are no meters to watch or surge prices to worry about. This transparency is why many residents in Tabuk trust us for their trips to Al Majma'ah. From the moment we pick you up until we arrive at your Al Majma'ah destination, we handle all the logistics of the road.</p>
+                                <p className="text-gray-300 leading-relaxed">We check every vehicle before it leaves Tabuk — tires, air conditioning, and fuel — so a long drive to Al Majma'ah doesn't turn into a breakdown story. The price you're quoted is the price you pay, and the driver will stop for food, prayer, or a stretch whenever you need it, not on a fixed schedule.</p>
                             </div>
                             <div className="space-y-6">
                                 <div className="flex gap-4 items-start">
@@ -192,34 +194,34 @@ export default function TabukAlMajmaahRoutePage() {
             <MicroSemanticFAQ
                         contextName="Tabuk Al Majmaah"
                 faqs={[
-{
-                        question: "Where do we stop for food on the way to Al Majma'ah?",
+                {
+                        question: "Do you do drop-offs at Majmaah University specifically?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We stop at good service stations like SASCO. During the 1100 km trip, you can ask the driver to stop whenever you need a break for a meal or prayer.",
+                        detailedAnswer: "Yes, we can drop you directly at the university campus or any address in Al-Majmaah — just specify it when booking.",
                         perspectives: []
                     },
-                    {
-                        question: "How do I Request a quote for a pickup in Tabuk for Al Majmaah?",
-                        shortAnswer: "Easy Online Booking",
-                        detailedAnswer: "You can Get a quote for your ride via our online booking form or via email.. Just give us your location in Tabuk, and our driver will meet you there to take you directly to Al Majmaah.",
+                                    {
+                        question: "Is this route popular with students traveling home?",
+                        shortAnswer: "Verified",
+                        detailedAnswer: "We do get students and families traveling between Tabuk and the Sudair area, alongside general Al-Majmaah residents.",
                         perspectives: []
                     },
-                    {
-                        question: "How long is the drive from Tabuk to Al Majma'ah?",
+                                    {
+                        question: "Can I book a pickup in Tabuk at night or very early morning?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "It usually takes about 10-11 Hours. The distance is close to 1100 km. We use the main highways and keep a steady pace to get you there on time.",
+                        detailedAnswer: "Yes. We run this route 24/7, so an early morning or late night departure from Tabuk for Al Majma'ah can be arranged.",
                         perspectives: []
                     },
-                    {
-                        question: "Is the price for the whole car?",
+                                    {
+                        question: "What vehicles are available for this route?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "Yes. The price we give you is for the private vehicle and driver. You don't share the ride with strangers on your way to Al Majma'ah.",
+                        detailedAnswer: "We offer the Toyota Camry for smaller groups, the Hyundai Staria or GMC Yukon for families, and the Toyota Hiace minibus for larger groups heading to Al Majma'ah.",
                         perspectives: []
                     },
-                    {
-                        question: "What vehicles do you have available?",
+                                    {
+                        question: "How long does the drive from Tabuk to Al Majma'ah take?",
                         shortAnswer: "Verified",
-                        detailedAnswer: "We have standard cars like the Camry, family SUVs like the GMC Yukon, and larger vans like the Toyota Hiace for big groups.",
+                        detailedAnswer: "It usually takes about 10-11 Hours, covering close to 1100 km. The driver keeps a steady highway pace and adjusts for traffic or weather where needed.",
                         perspectives: []
                     },
                 ]}
