@@ -233,16 +233,16 @@ export default function ReceiptPage() {
                         <div className="text-center pb-5 border-b-2 border-gray-900">
                             <p className="text-2xl font-black text-gray-900 uppercase tracking-[0.15em]">Taxi Service KSA</p>
                             <p className="text-xs text-gray-500 mt-1">Premium Private Transport — Kingdom of Saudi Arabia</p>
-                            <p className="text-xs text-gray-400">Jeddah · taxiserviceksa9988@gmail.com · www.taxiserviceksa.com</p>
+                            <p className="text-xs text-gray-400">Jeddah · info@taxiserviceksa.com · +966 56 948 7569 · www.taxiserviceksa.com</p>
                         </div>
 
                         {/* OFFICIAL RECEIPT title */}
                         <div className="text-center py-4 border-b border-gray-200">
-                            <p className="text-[11px] font-black text-gray-400 uppercase tracking-[0.4em]">Official Payment Receipt</p>
+                            <p className="text-xs font-black text-gray-400 uppercase tracking-[0.3em]">Official Payment Receipt</p>
                             <div className="flex items-center justify-center gap-6 mt-1">
-                                <p className="text-[11px] text-gray-500 font-mono">No. {receiptNumber}</p>
+                                <p className="text-xs text-gray-500 font-mono">No. {receiptNumber}</p>
                                 <span className="text-gray-300">·</span>
-                                <p className="text-[11px] text-gray-500">Date: {receiptDate}</p>
+                                <p className="text-xs text-gray-500">Date: {receiptDate}</p>
                             </div>
                         </div>
 
@@ -338,17 +338,17 @@ export default function ReceiptPage() {
                             {/* Signatures */}
                             <div className="flex gap-10">
                                 <div className="text-center">
-                                    <img src="/zumer-signature.png" alt="Zumer" className="h-12 w-auto max-w-[90px] object-contain select-none mx-auto" />
+                                    <img src="/ismail-signature.png" alt="Ismail" className="h-10 w-auto max-w-[90px] object-contain select-none mx-auto" />
                                     <div className="border-t border-gray-800 mt-1 pt-1 w-28">
-                                        <p className="text-[9px] font-black text-gray-700 uppercase tracking-widest">Zumer</p>
-                                        <p className="text-[8px] text-gray-400">Authorized Signatory</p>
+                                        <p className="text-xs font-black text-gray-700">Ismail</p>
+                                        <p className="text-[10px] text-gray-400">Director</p>
                                     </div>
                                 </div>
                                 <div className="text-center">
-                                    <img src="/ismail-signature.png" alt="Ismail" className="h-12 w-auto max-w-[90px] object-contain select-none mx-auto" />
+                                    <img src="/zumer-signature.png" alt="Zumer" className="h-10 w-auto max-w-[90px] object-contain select-none mx-auto" />
                                     <div className="border-t border-gray-800 mt-1 pt-1 w-28">
-                                        <p className="text-[9px] font-black text-gray-700 uppercase tracking-widest">Ismail</p>
-                                        <p className="text-[8px] text-gray-400">Authorized Signatory</p>
+                                        <p className="text-xs font-black text-gray-700">Zumer</p>
+                                        <p className="text-[10px] text-gray-400">Partner</p>
                                     </div>
                                 </div>
                             </div>
@@ -388,8 +388,8 @@ export default function ReceiptPage() {
                         </div>
 
                         <div className="mt-5 py-2.5 border-t-2 border-gray-900 flex justify-between items-center">
-                            <p className="text-[9px] text-gray-400 font-mono">{receiptNumber} · Issued {receiptDate}</p>
-                            <p className="text-[9px] text-gray-500 uppercase tracking-widest font-bold">This is an official receipt — Please retain for your records</p>
+                            <p className="text-[10px] text-gray-400 font-mono">{receiptNumber} · Issued {receiptDate}</p>
+                            <p className="text-[10px] text-gray-500 uppercase tracking-wide font-bold">This is an official receipt — Please retain for your records</p>
                         </div>
                     </div>
 

@@ -19,6 +19,7 @@ export function useBookingFlow() {
     const [returnDate, setReturnDate] = useState('');
     const [viaCity, setViaCity] = useState('');
     const [tripType, setTripType] = useState('');
+    const [preferredTimeNote, setPreferredTimeNote] = useState('');
 
     const [selectedVehicle, setSelectedVehicle] = useState<typeof vehicles[0] | null>(null);
     const [customerName, setCustomerName] = useState('');
@@ -38,6 +39,7 @@ export function useBookingFlow() {
         if (tripType) notes.push(`Trip Type: ${tripType}`);
         if (viaCity) notes.push(`Via: ${viaCity}`);
         if (returnDate) notes.push(`Return Date: ${returnDate}`);
+        if (preferredTimeNote.trim()) notes.push(`Preferred Time: ${preferredTimeNote.trim()}`);
         notes.push('Please Provide Quote');
         return notes.join('. ');
     };
@@ -51,6 +53,7 @@ export function useBookingFlow() {
         setReturnDate('');
         setViaCity('');
         setTripType('');
+        setPreferredTimeNote('');
         setCustomerName('');
         setCustomerEmail('');
         setCustomerPhone('');
@@ -160,6 +163,7 @@ Please provide a quote for this journey.`;
         returnDate, setReturnDate,
         viaCity, setViaCity,
         tripType, setTripType,
+        preferredTimeNote, setPreferredTimeNote,
         selectedVehicle, setSelectedVehicle,
         customerName, setCustomerName,
         customerEmail, setCustomerEmail,

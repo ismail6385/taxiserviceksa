@@ -282,46 +282,41 @@ export default function LetterheadPage() {
                 <div className="h-full flex flex-col p-12 md:p-16 relative font-sans text-gray-900 justify-between">
                     <div>
                         {/* Company Header */}
-                        <div className="flex justify-between items-start mb-12 border-b-2 border-gray-100 pb-8">
+                        <div className="flex justify-between items-start mb-10 border-b border-gray-200 pb-6">
                             <div className="space-y-4">
                                 <div className="flex items-center gap-2.5 mb-3">
                                     <div className="relative w-12 h-12 print:w-10 print:h-10">
-                                        <Image 
-                                            src="/logo.svg" 
-                                            alt="Taxi Service KSA" 
+                                        <Image
+                                            src="/logo.svg"
+                                            alt="Taxi Service KSA"
                                             fill
                                             className="object-contain"
                                         />
                                     </div>
-                                    <span className="text-xl font-black tracking-tighter text-gray-900 uppercase print:text-lg">
+                                    <span className="text-xl font-bold tracking-tight text-gray-900">
                                         Taxi Service <span className="text-lime-600">KSA</span>
                                     </span>
                                 </div>
-                                <div className="space-y-0.5 mt-2">
-                                    <div className="text-[11px] text-gray-500 space-y-0.5 max-w-[250px] leading-tight font-medium">
-                                        <p className="flex items-center gap-1.5"><MapPin className="w-2.5 h-2.5" /> Jeddah, Saudi Arabia</p>
-                                        <p className="flex items-center gap-1.5"><Mail className="w-2.5 h-2.5" /> taxiserviceksa9988@gmail.com</p>
-                                        <p className="flex items-center gap-1.5"><Globe className="w-2.5 h-2.5" /> www.taxiserviceksa.com</p>
-                                    </div>
+                                <div className="text-xs text-gray-500 space-y-1 leading-snug">
+                                    <p className="flex items-center gap-1.5"><MapPin className="w-3 h-3 text-gray-400" /> Jeddah, Saudi Arabia</p>
+                                    <p className="flex items-center gap-1.5"><Mail className="w-3 h-3 text-gray-400" /> info@taxiserviceksa.com</p>
+                                    <p className="flex items-center gap-1.5"><Phone className="w-3 h-3 text-gray-400" /> +966 56 948 7569</p>
+                                    <p className="flex items-center gap-1.5"><Globe className="w-3 h-3 text-gray-400" /> www.taxiserviceksa.com</p>
                                 </div>
                             </div>
-                            <div className="text-right space-y-1">
-                                <h1 className="text-3xl font-black text-gray-100 uppercase tracking-[0.2em] leading-none mb-4">QUOTATION</h1>
-                                <div className="text-xs space-y-0.5 pt-2">
-                                    <p className="font-bold text-gray-400 text-[10px] uppercase">Reference ID</p>
-                                    <p className="font-bold text-gray-900 text-sm">#{booking.id.slice(0, 8).toUpperCase()}</p>
-                                    <p className="font-bold text-gray-400 text-[10px] uppercase mt-4 block">Document Date</p>
-                                    <p className="font-bold text-gray-900">{documentDate}</p>
-                                </div>
+                            <div className="text-right">
+                                <h1 className="text-2xl font-bold text-gray-900 tracking-wide">QUOTATION</h1>
+                                <p className="text-gray-500 font-mono text-xs mt-1">Ref: #{booking.id.slice(0, 8).toUpperCase()}</p>
+                                <p className="text-gray-500 text-xs">Date: {documentDate}</p>
                             </div>
                         </div>
 
                         {/* Recipient */}
-                        <div className="mb-10">
-                            <p className="text-[10px] font-bold text-gray-300 uppercase tracking-widest mb-2">Prepared For</p>
-                            <div className="bg-gray-50 border-l-2 border-gray-200 p-6 rounded-r-lg">
-                                <p className="font-bold text-lg text-gray-900">{booking.customer_name || 'CLIENT NAME'}</p>
-                                <div className="text-xs font-semibold text-gray-500 leading-relaxed font-sans mt-2 space-y-1">
+                        <div className="mb-8">
+                            <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">Prepared For</h3>
+                            <div className="bg-gray-50 border border-gray-100 rounded-lg p-4">
+                                <p className="font-bold text-sm text-gray-900">{booking.customer_name || 'Client Name'}</p>
+                                <div className="text-xs text-gray-600 mt-1.5 space-y-1">
                                     {booking.customer_phone && <p>Phone: {booking.customer_phone}</p>}
                                     {booking.customer_email && <p>Email: {booking.customer_email}</p>}
                                 </div>
@@ -329,60 +324,60 @@ export default function LetterheadPage() {
                         </div>
 
                         {/* Letter Content */}
-                        <div className="flex-1 space-y-6">
-                            <h3 className="font-bold text-gray-900 uppercase text-sm border-b pb-2 inline-block">Sub: Official Quotation for Transport Services</h3>
-                            
-                            <p className="text-sm font-semibold text-gray-700 leading-relaxed whitespace-pre-wrap">
-                                Dear {booking.customer_name},<br/><br/>
+                        <div className="flex-1 space-y-5">
+                            <h3 className="font-bold text-gray-900 text-sm border-b border-gray-200 pb-2 inline-block">Sub: Official Quotation for Transport Services</h3>
+
+                            <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">
+                                Dear {booking.customer_name},<br /><br />
                                 Thank you for choosing Taxi Service KSA. We are pleased to provide the following quotation for your requested transportation services. Please review the details of your upcoming journey below:
                             </p>
 
-                            <div className="bg-gray-50 p-6 rounded-lg text-sm space-y-4 my-6">
+                            <div className="bg-gray-50 border border-gray-100 rounded-lg p-4 text-sm">
                                 <div className="grid grid-cols-2 gap-y-4">
                                     <div>
-                                        <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Pickup Date</p>
-                                        <p className="font-bold text-gray-900">{booking.pickup_date}</p>
+                                        <p className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">Pickup Date</p>
+                                        <p className="font-semibold text-gray-900">{booking.pickup_date}</p>
                                     </div>
                                     <div>
-                                        <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Time</p>
-                                        <p className="font-bold text-gray-900">{formatTime12h(booking.pickup_time)}</p>
+                                        <p className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">Time</p>
+                                        <p className="font-semibold text-gray-900">{formatTime12h(booking.pickup_time)}</p>
                                     </div>
                                     <div className="col-span-2">
-                                        <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Route Details</p>
-                                        <p className="font-bold text-gray-900">From: {booking.pickup_location}</p>
-                                        <p className="font-bold text-gray-900 mt-1">To: {booking.destination}</p>
+                                        <p className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">Route Details</p>
+                                        <p className="font-semibold text-gray-900">From: {booking.pickup_location}</p>
+                                        <p className="font-semibold text-gray-900 mt-0.5">To: {booking.destination}</p>
                                     </div>
                                     <div>
-                                        <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Vehicle Requirements</p>
-                                        <p className="font-bold text-gray-900">{booking.vehicle_type}</p>
+                                        <p className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">Vehicle Requirements</p>
+                                        <p className="font-semibold text-gray-900">{booking.vehicle_type}</p>
                                     </div>
                                     <div>
-                                        <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Occupancy</p>
-                                        <p className="font-bold text-gray-900">{booking.passengers} Passengers, {booking.luggage} Bags</p>
+                                        <p className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">Occupancy</p>
+                                        <p className="font-semibold text-gray-900">{booking.passengers} Passengers, {booking.luggage} Bags</p>
                                     </div>
                                     {booking.special_requests && (
                                         <div className="col-span-2">
-                                            <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Special Requests</p>
-                                            <p className="font-bold text-gray-900">{booking.special_requests}</p>
+                                            <p className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">Special Requests</p>
+                                            <p className="font-semibold text-gray-900">{booking.special_requests}</p>
                                         </div>
                                     )}
                                 </div>
                             </div>
 
-                            <p className="text-sm font-semibold text-gray-700">
+                            <p className="text-sm text-gray-700">
                                 This quotation is based on the details provided. For any modifications, please contact our support team. We look forward to providing you with a comfortable and seamless experience.
                             </p>
 
                             {quickNote.trim() && (
-                                <div className="mt-4 border-l-2 border-gray-300 px-4 py-2">
+                                <div className="border-l-2 border-primary px-3 py-1.5 bg-primary/5 rounded-r">
                                     <p className="text-sm text-gray-700 whitespace-pre-wrap">{quickNote.trim()}</p>
                                 </div>
                             )}
-                            
+
                             {booking.total_price !== undefined && booking.total_price !== null && (
-                                <div className="mt-8 flex items-center justify-between border-y border-gray-100 py-4 bg-gray-50/50 px-6 rounded-lg print:border-y-2 print:border-gray-900 print:bg-white">
-                                    <span className="text-sm font-bold text-gray-600 uppercase tracking-widest">Total Quoted Price</span>
-                                    <span className="text-2xl font-black text-gray-900 underline decoration-blue-500 underline-offset-8">
+                                <div className="flex items-center justify-between border border-gray-200 py-3 px-4 rounded-lg bg-gray-50">
+                                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Total Quoted Price</span>
+                                    <span className="text-xl font-bold text-gray-900">
                                         {booking.currency || 'SAR'} {booking.total_price.toFixed(2)}
                                     </span>
                                 </div>
@@ -391,26 +386,27 @@ export default function LetterheadPage() {
                     </div>
 
                     {/* Footer */}
-                    <div className="mt-12 pt-8 border-t border-gray-100 flex justify-between items-end gap-12">
+                    <div className="mt-10 pt-6 border-t border-gray-200 flex justify-between items-end gap-8">
                         <div className="max-w-md">
-                            <p className="text-[9px] font-bold text-gray-300 uppercase mb-2 tracking-widest">Important Notes</p>
-                            <p className="text-[10px] font-semibold text-gray-500 italic leading-relaxed whitespace-pre-wrap opacity-80">
-                                Terms & Conditions:
-                                • Price includes fuel, toll fees, and basic wait times.
-                                • Cancellation is free up to 24 hours before pickup.
-                                • This quotation is valid for 7 days from the date of issue.
-                            </p>
+                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1.5">Terms &amp; Conditions</p>
+                            <ul className="list-disc list-inside space-y-0.5 text-[10px] text-gray-500">
+                                <li>Price includes fuel, toll fees, and basic wait times.</li>
+                                <li>Cancellation is free up to 24 hours before pickup.</li>
+                                <li>This quotation is valid for 7 days from the date of issue.</li>
+                            </ul>
                         </div>
-                        <div className="text-right min-w-[200px]">
-                            <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.3em] mb-4">Authorized Partners</p>
-                            <div className="flex items-end justify-end gap-6 h-12">
+                        <div className="text-right">
+                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-2">Authorized Signature</p>
+                            <div className="flex items-end justify-end gap-6">
                                 <div className="text-center">
-                                    <img src="/zumer-signature.png" alt="Zumer" className="h-full w-auto object-contain select-none" />
-                                    <p className="text-[7px] font-bold text-gray-300 mt-1 uppercase italic tracking-widest">Zumer</p>
+                                    <img src="/ismail-signature.png" alt="Ismail" className="h-8 w-auto object-contain mx-auto" />
+                                    <p className="text-[10px] font-semibold text-gray-700 border-t border-gray-300 pt-1 mt-1 min-w-[70px]">Ismail</p>
+                                    <p className="text-[8px] text-gray-400">Director</p>
                                 </div>
                                 <div className="text-center">
-                                    <img src="/ismail-signature.png" alt="Ismail" className="h-full w-auto object-contain select-none" />
-                                    <p className="text-[7px] font-bold text-gray-300 mt-1 uppercase italic tracking-widest">Ismail</p>
+                                    <img src="/zumer-signature.png" alt="Zumer" className="h-8 w-auto object-contain mx-auto" />
+                                    <p className="text-[10px] font-semibold text-gray-700 border-t border-gray-300 pt-1 mt-1 min-w-[70px]">Zumer</p>
+                                    <p className="text-[8px] text-gray-400">Partner</p>
                                 </div>
                             </div>
                         </div>

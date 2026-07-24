@@ -28,6 +28,7 @@ import {
     ChevronRight,
     UserCog,
     Mail,
+    Building2,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
@@ -39,6 +40,7 @@ const menuItems = [
     { name: 'Calendar',        href: '/admin/calendar',            icon: Calendar },
     { name: 'Customers',       href: '/admin/customers',           icon: Users },
     { name: 'Email Client',    href: '/admin/email-client',        icon: Mail },
+    { name: 'B2B Leads',       href: '/admin/b2b-leads',           icon: Building2 },
     { name: 'Drivers',         href: '/admin/drivers',             icon: UserCog },
     { name: 'Reports',         href: '/admin/reports',             icon: BarChart2 },
     { name: 'Pricing',         href: '/admin/pricing',             icon: DollarSign },

@@ -27,6 +27,7 @@ import {
 import { cn } from "@/lib/utils";
 import { MapPin, Phone, User, Clock, Car, Mail, ArrowRight, ArrowLeft, Check, Users, Briefcase, Wallet, ChevronsUpDown, Search, Calendar as CalendarIcon, Info } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import LocationAutocomplete from '@/components/LocationAutocomplete';
 import { supabase, vehicles, type BookingData } from '@/lib/supabase';
 
 import { countryCodes } from '@/data/countryCodes';
@@ -74,6 +75,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
     const [promoLoading, setPromoLoading] = useState(false);
     const [promoError, setPromoError] = useState('');
     const [open, setOpen] = useState(false);
+    const [preferredTimeNote, setPreferredTimeNote] = useState('');
 
     const [formData, setFormData] = useState<BookingData>({
         customer_name: '',
@@ -193,7 +195,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
             const finalFormData = {
                 ...insertData,
                 customer_phone: fullPhoneNumber,
-                special_requests: `${formData.has_return_trip ? '[RETURN TRIP REQUESTED] ' : ''}${formData.child_seats ? `[CHILD SEATS: ${formData.child_seats}] ` : ''}${promoApplied ? `[PROMO: ${promoApplied.code} - ${promoApplied.discount_value}${promoApplied.discount_type === 'percentage' ? '%' : ' SAR'} off] ` : ''}${(formData.special_requests ? formData.special_requests + '. ' : '') + 'Please Provide Quote'}`
+                special_requests: `${formData.has_return_trip ? '[RETURN TRIP REQUESTED] ' : ''}${formData.child_seats ? `[CHILD SEATS: ${formData.child_seats}] ` : ''}${preferredTimeNote.trim() ? `[PREFERRED TIME: ${preferredTimeNote.trim()}] ` : ''}${promoApplied ? `[PROMO: ${promoApplied.code} - ${promoApplied.discount_value}${promoApplied.discount_type === 'percentage' ? '%' : ' SAR'} off] ` : ''}${(formData.special_requests ? formData.special_requests + '. ' : '') + 'Please Provide Quote'}`
             };
 
             const { data, error } = await supabase.from('bookings').insert([finalFormData]).select();
@@ -308,15 +310,29 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             <div className="space-y-1.5">
                                 <label className="text-sm font-semibold text-gray-700 ml-1">From</label>
                                 <div className="relative group/input">
-                                    <MapPin className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors" />
-                                    <Input name="pickup_location" placeholder="Jeddah Airport, Hotel..." required value={formData.pickup_location} className="pl-10 h-12 bg-gray-50 border-gray-300 rounded-xl" onChange={handleChange} />
+                                    <MapPin className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors z-10" />
+                                    <LocationAutocomplete
+                                        name="pickup_location"
+                                        placeholder="Jeddah Airport, Hotel..."
+                                        required
+                                        value={formData.pickup_location}
+                                        onChange={(val) => setFormData(prev => ({ ...prev, pickup_location: val }))}
+                                        className="w-full pl-10 pr-9 h-12 bg-gray-50 border border-gray-300 rounded-xl text-sm outline-none focus:border-primary"
+                                    />
                                 </div>
                             </div>
                             <div className="space-y-1.5">
                                 <label className="text-sm font-semibold text-gray-700 ml-1">To</label>
                                 <div className="relative group/input">
-                                    <MapPin className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors" />
-                                    <Input name="destination" placeholder="Makkah Hotel, Kaaba..." required value={formData.destination} className="pl-10 h-12 bg-gray-50 border-gray-300 rounded-xl" onChange={handleChange} />
+                                    <MapPin className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors z-10" />
+                                    <LocationAutocomplete
+                                        name="destination"
+                                        placeholder="Makkah Hotel, Kaaba..."
+                                        required
+                                        value={formData.destination}
+                                        onChange={(val) => setFormData(prev => ({ ...prev, destination: val }))}
+                                        className="w-full pl-10 pr-9 h-12 bg-gray-50 border border-gray-300 rounded-xl text-sm outline-none focus:border-primary"
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -377,6 +393,17 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                     />
                                 </div>
                             </div>
+                        </div>
+
+                        {/* Preferred Time Note */}
+                        <div className="space-y-1.5">
+                            <label className="text-sm font-semibold text-gray-700 ml-1">Flexible on time? Leave a note (optional)</label>
+                            <Input
+                                value={preferredTimeNote}
+                                onChange={(e) => setPreferredTimeNote(e.target.value)}
+                                placeholder="e.g. Anytime between 1:00 - 1:30 PM"
+                                className="h-11 bg-gray-50 border-gray-300 rounded-xl text-sm"
+                            />
                         </div>
 
                         {/* Return Trip Toggle */}
@@ -697,21 +724,22 @@ Please provide a quote for this journey.`;
                             <Button 
                                 type="button" 
                                 variant="outline"
-                                onClick={() => { 
-                                    setStep(1); 
-                                    setSuccess(false); 
-                                    setFormData(prev => ({ 
-                                        ...prev, 
+                                onClick={() => {
+                                    setStep(1);
+                                    setSuccess(false);
+                                    setPreferredTimeNote('');
+                                    setFormData(prev => ({
+                                        ...prev,
                                         customer_name: '',
                                         customer_email: '',
                                         customer_phone: '',
-                                        pickup_location: '', 
-                                        destination: '', 
-                                        status: 'pending', 
-                                        has_return_trip: false, 
-                                        child_seats: 0 
-                                    })); 
-                                }} 
+                                        pickup_location: '',
+                                        destination: '',
+                                        status: 'pending',
+                                        has_return_trip: false,
+                                        child_seats: 0
+                                    }));
+                                }}
                                 className="border-2 border-gray-200 hover:bg-gray-50 text-gray-700 font-bold py-4 px-8 rounded-xl transition-colors"
                             >
                                 New Quotation Request

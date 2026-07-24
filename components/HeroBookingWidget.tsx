@@ -15,6 +15,7 @@ import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { cn } from "@/lib/utils";
 import { useBookingFlow } from '@/hooks/useBookingFlow';
 import BookingFlowSteps from '@/components/BookingFlowSteps';
+import LocationAutocomplete from '@/components/LocationAutocomplete';
 
 interface HeroBookingWidgetProps {
     title?: string;
@@ -24,7 +25,7 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
     const flow = useBookingFlow();
     const {
         step, pickup, setPickup, dropoff, setDropoff, date, setDate, time, setTime,
-        isRoundTrip, setIsRoundTrip,
+        isRoundTrip, setIsRoundTrip, preferredTimeNote, setPreferredTimeNote,
     } = flow;
 
     const handleSearch = (e: React.FormEvent) => {
@@ -67,13 +68,13 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 relative">
                         {/* Pickup */}
                         <div className="relative group">
-                            <MapPin className="absolute left-3 top-3.5 w-5 h-5 text-gray-400 group-focus-within:text-primary transition-colors" />
-                            <Input
+                            <MapPin className="absolute left-3 top-3.5 w-5 h-5 text-gray-400 group-focus-within:text-primary transition-colors z-10" />
+                            <LocationAutocomplete
                                 placeholder="Pickup (Airport or City)"
                                 value={pickup}
-                                onChange={(e) => setPickup(e.target.value)}
-                                className="pl-10 h-12 bg-gray-50 border-gray-200 focus:border-primary rounded-xl text-base font-medium"
+                                onChange={setPickup}
                                 required
+                                className="w-full pl-10 pr-9 h-12 bg-gray-50 border border-gray-200 focus:border-primary rounded-xl text-base font-medium outline-none"
                             />
                         </div>
 
@@ -88,13 +89,13 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
 
                         {/* Dropoff */}
                         <div className="relative group">
-                            <MapPin className="absolute left-3 top-3.5 w-5 h-5 text-gray-400 group-focus-within:text-primary transition-colors" />
-                            <Input
+                            <MapPin className="absolute left-3 top-3.5 w-5 h-5 text-gray-400 group-focus-within:text-primary transition-colors z-10" />
+                            <LocationAutocomplete
                                 placeholder="Destination (Hotel or City)"
                                 value={dropoff}
-                                onChange={(e) => setDropoff(e.target.value)}
-                                className="pl-10 h-12 bg-gray-50 border-gray-200 focus:border-primary rounded-xl text-base font-medium"
+                                onChange={setDropoff}
                                 required
+                                className="w-full pl-10 pr-9 h-12 bg-gray-50 border border-gray-200 focus:border-primary rounded-xl text-base font-medium outline-none"
                             />
                         </div>
                     </div>
@@ -145,6 +146,14 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                             <Label htmlFor="round-trip" className="text-sm font-medium text-gray-600 cursor-pointer">Round trip</Label>
                         </div>
                     </div>
+
+                    {/* Preferred Time Note */}
+                    <Input
+                        value={preferredTimeNote}
+                        onChange={(e) => setPreferredTimeNote(e.target.value)}
+                        placeholder="Flexible on time? Leave a note (optional) — e.g. Anytime between 1:00 - 1:30 PM"
+                        className="h-11 bg-gray-50 border-gray-200 focus:border-primary rounded-xl text-sm"
+                    />
 
                     <Button type="submit" className="w-full h-16 bg-gray-950 hover:bg-black text-white font-black text-lg rounded-2xl shadow-xl transition-all transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3">
                         Get Quote
