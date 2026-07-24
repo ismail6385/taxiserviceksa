@@ -28,7 +28,7 @@ import ExpertReview from '@/components/seo/ExpertReview';
 import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Chauffeur Yanbu | Airport & Industrial Port | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service in Yanbu | Airport & Industrial Port | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service in Yanbu. Specialized Prince Abdul Mohsin Airport (YNB) pickups and industrial city port transfers. Professional corporate standards.',
     keywords: ['Yanbu VIP private transfer', 'Executive chauffeur Yanbu', 'YNB Airport VIP pickup', 'Yanbu industrial port transfer', 'Yanbu corporate transport'],
     alternates: {
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         }
     },
     openGraph: {
-        title: 'VIP Transfer in Yanbu | Airport Transfer & Industrial Transport | Taxi Service KSA',
+        title: 'Private Car Transfer, Taxi and Chauffeur Service in Yanbu | Airport Transfer & Industrial Transport | Taxi Service KSA',
         description: 'VIP transfer service in Yanbu operates 24/7. Premium airport transfers and industrial city transport. Fixed rates. Book online.',
         url: 'https://taxiserviceksa.com/locations/yanbu/',
         type: 'website',
@@ -89,7 +89,7 @@ export default function YanbuPage() {
             {/* Hero Section */}
             <Hero
                 images={yanbuImages}
-                h1Text="VIP Private Transfer & Chauffeur Yanbu"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Yanbu"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Yanbu"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
@@ -115,7 +115,7 @@ export default function YanbuPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                         <Link href="/booking/">
-                            Book VIP Transfer
+                            Book Your Yanbu Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </Button>
@@ -500,7 +500,7 @@ export default function YanbuPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                             <Link href="/booking/">
-                                Book VIP Transfer
+                                Book Your Yanbu Transfer
                             </Link>
                         </Button>
                         <Button asChild variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">

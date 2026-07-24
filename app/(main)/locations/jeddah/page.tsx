@@ -24,7 +24,7 @@ import { jeddahHotels } from '@/data/jeddahHotels';
 
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Chauffeur Jeddah | KAIA Airport VIP Pickup | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service in Jeddah | KAIA Airport VIP Pickup | Taxi Service KSA',
     description: 'Premium VIP private transfer service in Jeddah for King Abdulaziz International Airport (KAIA). Executive chauffeur service to Makkah hotels and Madinah. Professional international standards.',
     keywords: ['Jeddah VIP transfer service', 'KAIA premium airport transfer', 'Jeddah to Makkah VIP transfer', 'Executive chauffeur Jeddah', 'Jeddah airport VIP pickup', 'Luxury private driver Jeddah', 'Jeddah to Makkah premium car', 'Jeddah to Madinah VIP transfer'],
     alternates: {
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
         }
     },
     openGraph: {
-        title: 'BEST VIP Transfer Service in Jeddah | Airport & Makkah Transfers | Taxi Service KSA',
+        title: 'Best Private Car Transfer, Taxi and Chauffeur Service in Jeddah | Airport & Makkah Transfers | Taxi Service KSA',
         description: 'Pre-booked premium private transfers from KAIA Terminal 1 & North Terminal directly to hotels. Fixed rates available.',
         url: 'https://taxiserviceksa.com/locations/jeddah/',
         type: 'website',
@@ -110,7 +110,7 @@ export default async function JeddahPage() {
 
             <Hero
                 images={jeddahImages}
-                h1Text="VIP Private Transfer & Chauffeur Jeddah"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Jeddah"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Jeddah"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">

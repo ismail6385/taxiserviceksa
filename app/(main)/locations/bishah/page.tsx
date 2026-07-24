@@ -9,14 +9,14 @@ import JsonLdLocation from '@/components/JsonLdLocation';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
-    title: "VIP Private Transfer & Chauffeur Bishah | Taxi Service KSA",
+    title: "Private Car Transfer, Taxi and Chauffeur Service in Bishah | Taxi Service KSA",
     description: "Premium VIP private transfer and executive chauffeur service in Bishah. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Bishah VIP private transfer", "Executive chauffeur Bishah", "Bishah Airport VIP pickup", "Premium driver Bishah"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/bishah/",
     },
     openGraph: {
-        title: "Bishah VIP Transfer & Pickups | Taxi Service KSA",
+        title: "Private Car Transfer, Taxi and Chauffeur Service in Bishah | Taxi Service KSA",
         description: "Need a premium VIP transfer in Bishah? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/bishah/",
         type: "website",
@@ -45,7 +45,7 @@ export default function BishahLocationPage() {
 
             <Hero
                 images={images}
-                h1Text="VIP Private Transfer & Chauffeur Bishah"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Bishah"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Bishah"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
@@ -58,7 +58,7 @@ export default function BishahLocationPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Bishah&dropoff=Selected%20Hotel">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book VIP Transfer
+                            Book Your Bishah Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

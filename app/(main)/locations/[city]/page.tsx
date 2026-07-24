@@ -124,7 +124,7 @@ export default function LocationPage({ params }: Props) {
 
             {/* Hero Section */}
             <Hero
-                h1Text={`VIP Private Transfer & Chauffeur in ${city.name}`}
+                h1Text={`Private Car Transfer, Taxi and Chauffeur Service in ${city.name}`}
                 title={
                     <span className="bg-primary text-white hover:text-black px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         VIP Transfer {city.name}

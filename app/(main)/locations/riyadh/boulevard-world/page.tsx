@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Boulevard World | Premium Season Chauffeur | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service to Boulevard World | Premium Season Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service to Boulevard World and Boulevard City. Professional door-to-door transport for Riyadh Season.',
     keywords: ['Boulevard World VIP transfer', 'Riyadh Season premium chauffeur', 'Boulevard City executive transport', 'Riyadh entertainment VIP car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/boulevard-world/',
     },
     openGraph: {
-        title: 'VIP Private Transfer to Boulevard World & City (Riyadh) | Taxi Service KSA',
+        title: 'Private Car Transfer, Taxi and Chauffeur Service to Boulevard World & City (Riyadh) | Taxi Service KSA',
         description: 'The elite way to visit Riyadh Season. Premium VIP private transfer and professional chauffeur service to the entrance gate.',
         url: 'https://taxiserviceksa.com/locations/riyadh/boulevard-world/',
         type: 'website',
@@ -51,7 +51,7 @@ export default function BoulevardWorldPage() {
 
             <Hero
                 images={images}
-                h1Text="VIP Private Transfer to Boulevard World"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service to Boulevard World"
                 bookingFormTitle="Request VIP Pickup"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
@@ -64,7 +64,7 @@ export default function BoulevardWorldPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Riyadh%20Hotel&dropoff=Boulevard%20World">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book VIP Transfer
+                            Book Your Boulevard World Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

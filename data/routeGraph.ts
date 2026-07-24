@@ -78,7 +78,7 @@ const ROUTE_SLUGS = [
     'dammam-makkah', 'dammam-muscat', 'dammam-riyadh',
     'dammam-sharjah', 'doha-dammam', 'doha-jeddah', 'doha-madinah', 'doha-makkah', 'doha-riyadh',
     'dubai-dammam', 'dubai-jeddah', 'dubai-madinah', 'dubai-makkah', 'dubai-riyadh',
-    'jeddah-abu-dhabi', 'jeddah-alula', 'jeddah-amman', 'jeddah-bahrain', 'jeddah-dammam', 'jeddah-doha', 'jeddah-dubai',
+    'jeddah-abha', 'jeddah-abu-dhabi', 'jeddah-alula', 'jeddah-amman', 'jeddah-bahrain', 'jeddah-dammam', 'jeddah-doha', 'jeddah-dubai',
     'jeddah-kuwait', 'jeddah-madinah', 'jeddah-makkah', 'jeddah-makkah-old', 'jeddah-muscat', 'jeddah-riyadh',
     'jeddah-sharjah', 'jeddah-taif', 'jeddah-to-dar-al-taqwa-madinah', 'jeddah-to-fairmont-makkah',
     'jeddah-to-hilton-madinah', 'jeddah-to-oberoi-madinah', 'jeddah-to-pullman-makkah',

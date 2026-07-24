@@ -153,7 +153,10 @@ export default function BookingFormContent({ prefilledData, className }: Booking
             ...prev,
             vehicle_type: vehicle.name,
             vehicle_image: vehicle.image,
-            passengers: vehicle.passengers,
+            // Keep whatever passenger count the customer already set, only
+            // clamping it down if it exceeds the newly selected vehicle's
+            // capacity — don't silently overwrite it to the vehicle's max seats.
+            passengers: Math.min(prev.passengers || 1, vehicle.passengers) || 1,
             luggage: vehicle.luggage
         }));
     };
@@ -361,36 +364,18 @@ export default function BookingFormContent({ prefilledData, className }: Booking
 
                             <div className="relative group/input flex flex-col gap-1.5">
                                 <label className="text-sm font-semibold text-gray-700 ml-1">Pickup Time</label>
-                                <Select
-                                    value={formData.pickup_time}
-                                    onValueChange={(value) =>
-                                        setFormData(prev => ({ ...prev, pickup_time: value }))
-                                    }
-                                >
-                                    <SelectTrigger className="w-full h-12 bg-gray-50 border-gray-300 rounded-xl">
-                                        <div className="flex items-center">
-                                            <Clock className="mr-2 h-4 w-4 text-gray-500" />
-                                            <SelectValue placeholder="Select time" />
-                                        </div>
-                                    </SelectTrigger>
-                                    <SelectContent className="max-h-[300px] z-[200]">
-                                        {Array.from({ length: 48 }).map((_, i) => {
-                                            const hour = Math.floor(i / 2);
-                                            const minute = i % 2 === 0 ? '00' : '30';
-                                            const timeString = `${hour.toString().padStart(2, '0')}:${minute}`;
-                                            const date = new Date();
-                                            date.setHours(hour);
-                                            date.setMinutes(parseInt(minute));
-                                            const displayTime = format(date, "h:mm a");
-
-                                            return (
-                                                <SelectItem key={timeString} value={timeString}>
-                                                    {displayTime}
-                                                </SelectItem>
-                                            );
-                                        })}
-                                    </SelectContent>
-                                </Select>
+                                <div className="relative flex items-center h-12 bg-gray-50 border border-gray-300 rounded-xl px-3">
+                                    <Clock className="mr-2 h-4 w-4 text-gray-500 shrink-0" />
+                                    <input
+                                        type="time"
+                                        step={60}
+                                        value={formData.pickup_time}
+                                        onChange={(e) =>
+                                            setFormData(prev => ({ ...prev, pickup_time: e.target.value }))
+                                        }
+                                        className="w-full bg-transparent outline-none text-sm text-gray-900"
+                                    />
+                                </div>
                             </div>
                         </div>
 
@@ -461,6 +446,46 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                 </div>
                             ))}
                         </div>
+
+                        {/* Number of Passengers */}
+                        {formData.vehicle_type && (() => {
+                            const selectedVehicle = vehicles.find(v => v.name === formData.vehicle_type);
+                            const maxPax = selectedVehicle?.passengers || 1;
+                            return (
+                                <div className="bg-primary/5 p-5 rounded-3xl border border-dashed border-primary/30">
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-3">
+                                            <div className="p-2 bg-white rounded-xl shadow-sm">
+                                                <Users className="w-5 h-5 text-primary" />
+                                            </div>
+                                            <div>
+                                                <h4 className="font-black text-gray-900 leading-none">Number of Passengers</h4>
+                                                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-tight mt-1">
+                                                    How many people are traveling? (Max {maxPax} for this vehicle)
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-3 bg-white rounded-lg p-1 border shadow-sm h-10">
+                                            <button
+                                                type="button"
+                                                onClick={(e) => { e.stopPropagation(); formData.passengers > 1 && setFormData(prev => ({ ...prev, passengers: prev.passengers - 1 })); }}
+                                                className="w-8 h-8 rounded-md bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-all active:scale-95"
+                                            >
+                                                <span className="text-base font-black text-gray-900">-</span>
+                                            </button>
+                                            <span className="font-black text-primary min-w-[20px] text-center">{formData.passengers}</span>
+                                            <button
+                                                type="button"
+                                                onClick={(e) => { e.stopPropagation(); formData.passengers < maxPax && setFormData(prev => ({ ...prev, passengers: prev.passengers + 1 })); }}
+                                                className="w-8 h-8 rounded-md bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-all active:scale-95"
+                                            >
+                                                <span className="text-base font-black text-gray-900">+</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })()}
 
                         {/* Extras: Child Seats */}
                         <div className="bg-amber-50/50 p-5 rounded-3xl border border-dashed border-amber-200">

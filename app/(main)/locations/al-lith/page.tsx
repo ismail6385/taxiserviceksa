@@ -9,14 +9,14 @@ import JsonLdLocation from '@/components/JsonLdLocation';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
-    title: "VIP Private Transfer & Chauffeur Al Lith | Taxi Service KSA",
+    title: "Private Car Transfer, Taxi and Chauffeur Service in Al Lith | Taxi Service KSA",
     description: "Premium VIP private transfer and executive chauffeur service in Al Lith. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Al Lith VIP private transfer", "Executive chauffeur Al Lith", "Al Lith Airport VIP pickup", "Premium driver Al Lith"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/al-lith/",
     },
     openGraph: {
-        title: "Al Lith VIP Transfer & Pickups | Taxi Service KSA",
+        title: "Private Car Transfer, Taxi and Chauffeur Service in Al Lith | Taxi Service KSA",
         description: "Need a premium VIP transfer in Al Lith? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/al-lith/",
         type: "website",
@@ -45,7 +45,7 @@ export default function AlLithLocationPage() {
 
             <Hero
                 images={images}
-                h1Text="VIP Private Transfer & Chauffeur Al Lith"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Al Lith"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Al Lith"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
@@ -58,7 +58,7 @@ export default function AlLithLocationPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Al Lith&dropoff=Selected%20Hotel">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book VIP Transfer
+                            Book Your Al Lith Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

@@ -40,7 +40,7 @@ import ZiyaratSites from '@/components/ZiyaratSites';
 import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Madinah Ziyarat 2026 | Premium Chauffeur | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Ziyarat Chauffeur Service in Madinah 2026 | Premium Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer service in Madinah 2026. Specialized Prince Mohammad Airport (MED) pickups and executive Ziyarat tours. Professional intercity transfers to Makkah.',
     keywords: ['Madinah VIP private transfer 2026', 'Executive chauffeur Madinah', 'Premium Ziyarat tour Madinah', 'Madinah airport VIP pickup', 'VIP transfer Madinah to Makkah'],
     alternates: {
@@ -89,7 +89,7 @@ export default async function MadinahPage() {
             {/* Hero Section */}
             <Hero
                 images={madinahImages}
-                h1Text="2026 VIP Private Transfer & Ziyarat Chauffeur Madinah"
+                h1Text="2026 Private Car Transfer, Taxi and Ziyarat Chauffeur Service in Madinah"
                 bookingFormTitle="WhatsApp Booking for 2026 Premium Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
@@ -365,7 +365,7 @@ export default async function MadinahPage() {
                         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
                             <Link href="/booking/">
                                 <Button className="bg-black text-white hover:bg-black/90 font-bold px-10 py-7 text-lg rounded-2xl h-auto shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
-                                    Book VIP Transfer Now
+                                    Book Your Madinah Transfer Now
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>

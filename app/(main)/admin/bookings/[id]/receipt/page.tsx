@@ -64,6 +64,23 @@ export default function ReceiptPage() {
         day: '2-digit', month: 'short', year: 'numeric',
     });
 
+    const formatTime12h = (timeStr?: string) => {
+        if (!timeStr) return '—';
+        try {
+            const parts = timeStr.split(':');
+            if (parts.length < 2) return timeStr;
+            let hours = parseInt(parts[0], 10);
+            const minutes = parts[1];
+            if (isNaN(hours)) return timeStr;
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            return `${hours}:${minutes} ${ampm}`;
+        } catch {
+            return timeStr;
+        }
+    };
+
     const handlePrint = async () => {
         if (!booking) return;
         const element = document.getElementById('receipt-print');
@@ -267,7 +284,7 @@ export default function ReceiptPage() {
                                 </tr>
                                 <tr className="border-b border-gray-100">
                                     <td className="px-4 py-3 text-gray-700 font-medium">Date & Time</td>
-                                    <td className="px-4 py-3 text-gray-600">{booking.pickup_date} at {booking.pickup_time}</td>
+                                    <td className="px-4 py-3 text-gray-600">{booking.pickup_date} at {formatTime12h(booking.pickup_time)}</td>
                                     <td className="px-4 py-3"></td>
                                 </tr>
                                 <tr className="border-b border-gray-100">

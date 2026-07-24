@@ -9,14 +9,14 @@ import JsonLdLocation from '@/components/JsonLdLocation';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
-    title: "VIP Private Transfer & Chauffeur Khulais | Taxi Service KSA",
+    title: "Private Car Transfer, Taxi and Chauffeur Service in Khulais | Taxi Service KSA",
     description: "Premium VIP private transfer and executive chauffeur service in Khulais. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Khulais VIP private transfer", "Executive chauffeur Khulais", "Khulais Airport VIP pickup", "Premium driver Khulais"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/khulais/",
     },
     openGraph: {
-        title: "Khulais VIP Transfer & Pickups | Taxi Service KSA",
+        title: "Private Car Transfer, Taxi and Chauffeur Service in Khulais | Taxi Service KSA",
         description: "Need a premium VIP transfer in Khulais? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/khulais/",
         type: "website",
@@ -45,7 +45,7 @@ export default function KhulaisLocationPage() {
 
             <Hero
                 images={images}
-                h1Text="VIP Private Transfer & Chauffeur Khulais"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Khulais"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Khulais"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
@@ -58,7 +58,7 @@ export default function KhulaisLocationPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Khulais&dropoff=Selected%20Hotel">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book VIP Transfer
+                            Book Your Khulais Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

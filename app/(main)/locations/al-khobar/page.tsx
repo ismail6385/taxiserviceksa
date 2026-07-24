@@ -24,7 +24,7 @@ import ExpertReview from '@/components/seo/ExpertReview';
 import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Chauffeur Al Khobar | Bahrain Causeway | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service in Al Khobar | Bahrain Causeway | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service in Al Khobar. Specialized cross-border King Fahd Causeway trips to Bahrain and DMM Airport transfers. Professional international standards.',
     keywords: ['Al Khobar VIP private transfer', 'Executive chauffeur Khobar', 'Bahrain Causeway VIP pickup', 'Premium Khobar to Bahrain transfer', 'Al Khobar corporate transport'],
     alternates: {
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
         }
     },
     openGraph: {
-        title: 'VIP Transfer in Al Khobar | Corniche & Causeway Trips | Taxi Service KSA',
+        title: 'Private Car Transfer, Taxi and Chauffeur Service in Al Khobar | Corniche & Causeway Trips | Taxi Service KSA',
         description: 'Premium VIP transfer service in Al Khobar for local travel & Causeway trips to Bahrain. Reliable, comfortable rides to Dammam Airport and Corniche.',
         url: 'https://taxiserviceksa.com/locations/al-khobar/',
         type: 'website',
@@ -86,7 +86,7 @@ export default function AlKhobarPage() {
             {/* Hero Section */}
             <Hero
                 images={khobarImages}
-                h1Text="VIP Private Transfer & Chauffeur Al Khobar"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Al Khobar"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Al Khobar"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
@@ -112,7 +112,7 @@ export default function AlKhobarPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                         <Link href="/booking/">
-                            Book VIP Transfer
+                            Book Your Al Khobar Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </Button>
@@ -466,7 +466,7 @@ export default function AlKhobarPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Book VIP Transfer
+                                Book Your Al Khobar Transfer
                             </Button>
                         </Link>
                         <a href="mailto:taxiserviceksa9988@gmail.com">

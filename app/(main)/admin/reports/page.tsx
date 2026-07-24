@@ -100,6 +100,9 @@ export default function ReportsPage() {
     }
     for (const b of filtered) {
         if (!['completed', 'confirmed'].includes(b.status)) continue;
+        // Chart shows one number per month — mixing currencies into that bar
+        // would misreport revenue, so this chart tracks SAR bookings only.
+        if ((b.currency || 'SAR') !== 'SAR') continue;
         const key = new Date(b.pickup_date).toLocaleString('en-US', { month: 'short', year: '2-digit' });
         if (monthlyMap.has(key)) monthlyMap.set(key, (monthlyMap.get(key) || 0) + Number(b.total_price || 0));
     }
@@ -124,10 +127,34 @@ export default function ReportsPage() {
     const vehicleData = Array.from(vehicleMap.entries()).sort((a, b) => b[1] - a[1]).map(([vehicle, count]) => ({ vehicle: vehicle.split(' ')[0], count }));
 
     // --- Summary Stats ---
-    const totalRevenue   = filtered.filter(b => ['completed','confirmed'].includes(b.status)).reduce((s, b) => s + Number(b.total_price || 0), 0);
+    // Group by currency instead of summing everything under one "SAR" label —
+    // a KWD or AED booking's total_price isn't directly comparable to a SAR one.
+    const revenueByCurrency = filtered
+        .filter(b => ['completed', 'confirmed'].includes(b.status))
+        .reduce((acc, b) => {
+            const curr = b.currency || 'SAR';
+            acc[curr] = (acc[curr] || 0) + Number(b.total_price || 0);
+            return acc;
+        }, {} as Record<string, number>);
+    const totalRevenueLabel = Object.keys(revenueByCurrency).length === 0
+        ? 'SAR 0'
+        : Object.entries(revenueByCurrency).map(([curr, amount]) => `${curr} ${amount.toLocaleString()}`).join(' + ');
+
     const completedTrips = filtered.filter(b => b.status === 'completed').length;
     const cancelRate     = filtered.length ? Math.round(filtered.filter(b => b.status === 'cancelled').length / filtered.length * 100) : 0;
-    const avgValue       = completedTrips ? Math.round(totalRevenue / completedTrips) : 0;
+
+    const completedByCurrency = filtered
+        .filter(b => b.status === 'completed')
+        .reduce((acc, b) => {
+            const curr = b.currency || 'SAR';
+            if (!acc[curr]) acc[curr] = { sum: 0, count: 0 };
+            acc[curr].sum += Number(b.total_price || 0);
+            acc[curr].count += 1;
+            return acc;
+        }, {} as Record<string, { sum: number; count: number }>);
+    const avgValueLabel = Object.keys(completedByCurrency).length === 0
+        ? 'SAR 0'
+        : Object.entries(completedByCurrency).map(([curr, { sum, count }]) => `${curr} ${Math.round(sum / count)}`).join(' + ');
 
     const hasDateFilter = !!dateFrom || !!dateTo;
 
@@ -195,9 +222,9 @@ export default function ReportsPage() {
             {/* Summary Cards */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                 {[
-                    { label: 'Total Revenue',    value: `SAR ${totalRevenue.toLocaleString()}`, icon: DollarSign, color: 'text-primary' },
+                    { label: 'Total Revenue',    value: totalRevenueLabel,                      icon: DollarSign, color: 'text-primary' },
                     { label: 'Completed Trips',  value: completedTrips,                         icon: TrendingUp,  color: 'text-emerald-400' },
-                    { label: 'Avg Trip Value',   value: `SAR ${avgValue}`,                      icon: Calendar,    color: 'text-sky-400' },
+                    { label: 'Avg Trip Value',   value: avgValueLabel,                          icon: Calendar,    color: 'text-sky-400' },
                     { label: 'Cancel Rate',      value: `${cancelRate}%`,                       icon: Car,         color: cancelRate > 20 ? 'text-red-400' : 'text-neutral-300' },
                 ].map(({ label, value, icon: Icon, color }) => (
                     <div key={label} className="bg-neutral-800 rounded-xl p-5 border border-neutral-700">
@@ -213,9 +240,10 @@ export default function ReportsPage() {
 
             {/* Monthly Revenue Chart */}
             <div className="bg-neutral-800 rounded-xl border border-neutral-700 p-6 mb-5">
-                <h2 className="text-sm font-bold text-neutral-300 uppercase tracking-widest mb-5">
+                <h2 className="text-sm font-bold text-neutral-300 uppercase tracking-widest mb-1">
                     Monthly Revenue (Last 6 Months)
                 </h2>
+                <p className="text-[11px] text-neutral-500 mb-4">SAR bookings only — other currencies excluded to avoid mixing totals</p>
                 <ResponsiveContainer width="100%" height={220}>
                     <BarChart data={monthlyRevenue} barSize={36}>
                         <XAxis dataKey="month" tick={{ fill: '#9ca3af', fontSize: 12 }} axisLine={false} tickLine={false} />

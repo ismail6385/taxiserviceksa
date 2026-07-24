@@ -14,7 +14,7 @@ import Script from 'next/script';
 import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Kudai Makkah | Premium Hub Chauffeur | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service in Kudai Makkah | Premium Hub Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service in Kudai Makkah. Professional hotel pickups for Le Meridien Towers and Kudai Hub guests.',
     keywords: ['Kudai VIP transfer', 'Kudai to Haram premium chauffeur', 'Le Meridien Towers VIP transport', 'Makkah Kudai executive car'],
     alternates: {
@@ -80,7 +80,7 @@ export default function KudaiPage() {
 
             <Hero
                 images={['/makkah-kudai-transport.png']}
-                h1Text="VIP Private Transfer Kudai Makkah"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Kudai Makkah"
                 bookingFormTitle="Request VIP Pickup"
                 title={
                     <span className="bg-emerald-600 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block shadow-lg">
@@ -221,7 +221,7 @@ export default function KudaiPage() {
                     <div className="flex flex-wrap justify-center gap-6">
                         <Link href="/booking/">
                             <Button className="bg-white text-emerald-900 hover:bg-primary hover:text-white font-black px-12 py-8 text-xl rounded-2xl h-auto shadow-2xl transition-all">
-                                Book VIP Transfer
+                                Book Your Kudai Makkah Transfer
                             </Button>
                         </Link>
                         <Link href="/locations/makkah/">

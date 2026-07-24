@@ -5,6 +5,23 @@ import { sendMail } from '@/lib/mail-server';
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 
+function formatTime12h(timeStr?: string): string {
+    if (!timeStr) return '—';
+    try {
+        const parts = timeStr.split(':');
+        if (parts.length < 2) return timeStr;
+        let hours = parseInt(parts[0], 10);
+        const minutes = parts[1];
+        if (isNaN(hours)) return timeStr;
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        return `${hours}:${minutes} ${ampm}`;
+    } catch {
+        return timeStr;
+    }
+}
+
 export async function GET(request: NextRequest) {
     // Verify cron secret to prevent unauthorized calls
     const authHeader = request.headers.get('authorization');
@@ -39,14 +56,15 @@ export async function GET(request: NextRequest) {
         if (!booking.customer_email) continue;
 
         const refId = `#${String(booking.id).slice(0, 8).toUpperCase()}`;
+        const pickupTimeDisplay = formatTime12h(booking.pickup_time);
         const whatsappMsg = encodeURIComponent(
-            `Hello, I have a booking tomorrow.\n\n*Ref:* ${refId}\n*Route:* ${booking.pickup_location} → ${booking.destination}\n*Time:* ${booking.pickup_time}\n*Vehicle:* ${booking.vehicle_type}`
+            `Hello, I have a booking tomorrow.\n\n*Ref:* ${refId}\n*Route:* ${booking.pickup_location} → ${booking.destination}\n*Time:* ${pickupTimeDisplay}\n*Vehicle:* ${booking.vehicle_type}`
         );
 
         try {
             await sendMail({
                 to: booking.customer_email,
-                subject: `⏰ Reminder: Your Trip Tomorrow — ${booking.pickup_time}`,
+                subject: `⏰ Reminder: Your Trip Tomorrow — ${pickupTimeDisplay}`,
                 html: `
                 <div style="font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
                     <div style="background-color: #000; padding: 25px; text-align: center; border-radius: 10px 10px 0 0;">
@@ -60,7 +78,7 @@ export async function GET(request: NextRequest) {
                         <div style="background-color: #f8f9fa; padding: 20px; border-radius: 12px; margin: 25px 0; border: 1px solid #ebedf0;">
                             <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
                                 <tr><td style="padding: 6px 0; color: #666; width: 40%;">Booking Ref</td><td style="font-weight: bold; color: #000;">${refId}</td></tr>
-                                <tr><td style="padding: 6px 0; color: #666;">Pickup Time</td><td style="font-weight: bold; color: #000; font-size: 18px;">${booking.pickup_time}</td></tr>
+                                <tr><td style="padding: 6px 0; color: #666;">Pickup Time</td><td style="font-weight: bold; color: #000; font-size: 18px;">${pickupTimeDisplay}</td></tr>
                                 <tr><td style="padding: 6px 0; color: #666;">Pickup Location</td><td style="font-weight: bold; color: #000;">${booking.pickup_location}</td></tr>
                                 <tr><td style="padding: 6px 0; color: #666;">Destination</td><td style="font-weight: bold; color: #000;">${booking.destination}</td></tr>
                                 <tr><td style="padding: 6px 0; color: #666;">Vehicle</td><td style="font-weight: bold; color: #000;">${booking.vehicle_type}</td></tr>

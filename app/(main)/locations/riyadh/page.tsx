@@ -30,14 +30,14 @@ import ProcessFlow from '@/components/ProcessFlow';
 import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Executive Chauffeur Riyadh | RUH Airport | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Executive Chauffeur Service in Riyadh | RUH Airport | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service in Riyadh. Specialized King Khalid Airport (RUH) pickups and corporate business transport. Professional international standards.',
     keywords: ['Riyadh VIP private transfer', 'Executive chauffeur service Riyadh', 'Riyadh airport VIP pickup', 'RUH premium airport transfer', 'Riyadh corporate business transport', 'Luxury car with driver Riyadh', 'Riyadh to Makkah VIP transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/',
     },
     openGraph: {
-        title: 'VIP Private Transfer & Executive Chauffeur Riyadh | Taxi Service KSA',
+        title: 'Private Car Transfer, Taxi and Executive Chauffeur Service in Riyadh | Taxi Service KSA',
         description: 'Premium VIP private transfer and professional chauffeur service in Riyadh. Specialized King Khalid Airport (RUH) pickups and elite corporate transport.',
         url: 'https://taxiserviceksa.com/locations/riyadh/',
         type: 'website',
@@ -106,7 +106,7 @@ export default function RiyadhPage() {
             {/* Hero Section */}
             <Hero
                 images={riyadhImages}
-                h1Text="VIP Private Transfer & Chauffeur Riyadh"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Riyadh"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Riyadh"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
@@ -439,7 +439,7 @@ export default function RiyadhPage() {
                         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
                             <Link href="/booking/">
                                 <Button className="bg-black text-white hover:bg-black/90 font-bold px-10 py-7 text-lg rounded-2xl h-auto shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
-                                    Book VIP Transfer
+                                    Book Your Riyadh Transfer
                                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </Button>
                             </Link>

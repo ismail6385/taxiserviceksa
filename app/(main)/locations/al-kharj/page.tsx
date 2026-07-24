@@ -9,14 +9,14 @@ import JsonLdLocation from '@/components/JsonLdLocation';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
-    title: "VIP Private Transfer & Chauffeur Al-Kharj | Taxi Service KSA",
+    title: "Private Car Transfer, Taxi and Chauffeur Service in Al-Kharj | Taxi Service KSA",
     description: "Premium VIP private transfer and executive chauffeur service in Al-Kharj. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Al-Kharj VIP private transfer", "Executive chauffeur Al-Kharj", "Al-Kharj Airport VIP pickup", "Premium driver Al-Kharj"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/al-kharj/",
     },
     openGraph: {
-        title: "Al-Kharj VIP Transfer & Pickups | Taxi Service KSA",
+        title: "Private Car Transfer, Taxi and Chauffeur Service in Al-Kharj | Taxi Service KSA",
         description: "Need a premium VIP transfer in Al-Kharj? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/al-kharj/",
         type: "website",
@@ -45,7 +45,7 @@ export default function AlKharjLocationPage() {
 
             <Hero
                 images={images}
-                h1Text="VIP Private Transfer & Chauffeur Al-Kharj"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Al-Kharj"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Al-Kharj"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
@@ -58,7 +58,7 @@ export default function AlKharjLocationPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Al-Kharj&dropoff=Selected%20Hotel">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book VIP Transfer
+                            Book Your Al-Kharj Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

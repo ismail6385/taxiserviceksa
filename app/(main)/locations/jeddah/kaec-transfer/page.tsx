@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Jeddah to KAEC | Executive Chauffeur Service | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service Jeddah to KAEC | Executive Chauffeur Service | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service from Jeddah Airport to KAEC (King Abdullah Economic City). Fixed rates for business and leisure travel.',
     keywords: ['Jeddah to KAEC VIP transfer', 'KAEC executive chauffeur', 'Jeddah Airport to KAEC premium transport', 'KAEC business transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/kaec-transfer/',
     },
     openGraph: {
-        title: 'VIP Private Transfer Jeddah to KAEC | Executive Chauffeur | Taxi Service KSA',
+        title: 'Private Car Transfer, Taxi and Chauffeur Service Jeddah to KAEC | Executive Chauffeur | Taxi Service KSA',
         description: 'Professional VIP private transfer service from Jeddah to KAEC. Business class luxury vehicles and professional chauffeurs.',
         url: 'https://taxiserviceksa.com/locations/jeddah/kaec-transfer/',
         type: 'website',
@@ -51,7 +51,7 @@ export default function KaecTransferPage() {
 
             <Hero
                 images={images}
-                h1Text="VIP Private Transfer Jeddah to KAEC"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service Jeddah to KAEC"
                 bookingFormTitle="WhatsApp Booking for Executive Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
@@ -64,7 +64,7 @@ export default function KaecTransferPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Jeddah%20Airport&dropoff=KAEC">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book VIP Transfer
+                            Book Your Jeddah to KAEC Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

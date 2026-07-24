@@ -13,7 +13,7 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Masjid Al Qiblatain | Madinah Ziyarat | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service to Masjid Al Qiblatain | Madinah Ziyarat | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service to Masjid Al Qiblatain. Visit the mosque of two Qiblas with a professional driver.',
     keywords: ['Masjid Al Qiblatain VIP transfer', 'Madinah heritage premium chauffeur', 'Masjid Al Qiblatain VIP', 'Madinah Ziyarat executive transport'],
     alternates: {
@@ -53,7 +53,7 @@ export default function QiblatainPage() {
 
             <Hero
                 images={images}
-                h1Text="VIP Private Transfer to Masjid Al Qiblatain"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service to Masjid Al Qiblatain"
                 bookingFormTitle="WhatsApp Booking for Heritage Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
@@ -66,7 +66,7 @@ export default function QiblatainPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Madinah%20Center&dropoff=Masjid%20Qiblatain">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book VIP Transfer
+                            Book Your Masjid Al Qiblatain Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

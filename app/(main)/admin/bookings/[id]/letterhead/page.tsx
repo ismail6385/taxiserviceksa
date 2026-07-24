@@ -198,6 +198,23 @@ export default function LetterheadPage() {
         year: 'numeric'
     });
 
+    const formatTime12h = (timeStr?: string) => {
+        if (!timeStr) return '—';
+        try {
+            const parts = timeStr.split(':');
+            if (parts.length < 2) return timeStr;
+            let hours = parseInt(parts[0], 10);
+            const minutes = parts[1];
+            if (isNaN(hours)) return timeStr;
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            return `${hours}:${minutes} ${ampm}`;
+        } catch {
+            return timeStr;
+        }
+    };
+
     return (
         <div className="min-h-screen bg-gray-100 py-6 px-4 print:bg-white print:py-0 print:px-0 print:min-h-0">
             {/* Header Controls */}
@@ -328,7 +345,7 @@ export default function LetterheadPage() {
                                     </div>
                                     <div>
                                         <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Time</p>
-                                        <p className="font-bold text-gray-900">{booking.pickup_time}</p>
+                                        <p className="font-bold text-gray-900">{formatTime12h(booking.pickup_time)}</p>
                                     </div>
                                     <div className="col-span-2">
                                         <p className="text-gray-500 text-[10px] uppercase font-bold tracking-widest">Route Details</p>

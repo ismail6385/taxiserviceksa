@@ -9,14 +9,14 @@ import JsonLdLocation from '@/components/JsonLdLocation';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
-    title: "VIP Private Transfer & Chauffeur Dariya | Taxi Service KSA",
+    title: "Private Car Transfer, Taxi and Chauffeur Service in Dariya | Taxi Service KSA",
     description: "Premium VIP private transfer and executive chauffeur service in Dariya. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Dariya VIP private transfer", "Executive chauffeur Dariya", "Dariya Airport VIP pickup", "Premium driver Dariya"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/dariya/",
     },
     openGraph: {
-        title: "Dariya VIP Transfer & Pickups | Taxi Service KSA",
+        title: "Private Car Transfer, Taxi and Chauffeur Service in Dariya | Taxi Service KSA",
         description: "Need a premium VIP transfer in Dariya? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/dariya/",
         type: "website",
@@ -45,7 +45,7 @@ export default function DariyaLocationPage() {
 
             <Hero
                 images={images}
-                h1Text="VIP Private Transfer & Chauffeur Dariya"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Dariya"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Dariya"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
@@ -58,7 +58,7 @@ export default function DariyaLocationPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Dariya&dropoff=Selected%20Hotel">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book VIP Transfer
+                            Book Your Dariya Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

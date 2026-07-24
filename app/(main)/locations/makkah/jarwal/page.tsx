@@ -14,7 +14,7 @@ import Script from 'next/script';
 import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Jarwal Makkah | Premium Expansion Chauffeur | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service in Jarwal Makkah | Premium Expansion Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service in Jarwal Makkah. Professional hotel pickups for Sheraton and Jarwal Plaza guests.',
     keywords: ['Jarwal VIP transfer', 'Jarwal to Haram premium chauffeur', 'King Abdullah Expansion VIP transport', 'Makkah Jarwal executive car'],
     alternates: {
@@ -80,7 +80,7 @@ export default function JarwalPage() {
 
             <Hero
                 images={['/makkah-jarwal-area.png']}
-                h1Text="VIP Private Transfer Jarwal Makkah"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Jarwal Makkah"
                 bookingFormTitle="Request VIP Pickup"
                 title={
                     <span className="bg-blue-600 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block shadow-lg">
@@ -202,7 +202,7 @@ export default function JarwalPage() {
                     <div className="flex flex-wrap justify-center gap-6">
                         <Link href="/booking/">
                             <Button className="bg-white text-blue-600 hover:bg-black hover:text-white font-black px-12 py-8 text-xl rounded-2xl h-auto shadow-2xl transition-all">
-                                Book VIP Transfer
+                                Book Your Jarwal Makkah Transfer
                             </Button>
                         </Link>
                         <Link href="/locations/makkah/">

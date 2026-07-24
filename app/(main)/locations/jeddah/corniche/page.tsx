@@ -11,7 +11,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Jeddah Corniche | F1 Track VIP Service | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service to Jeddah Corniche | F1 Track VIP Service | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service to the New Jeddah Corniche. Visit the F1 Track, Yacht Club, and Red Sea Mall with an professional driver.',
     keywords: ['Jeddah Corniche VIP transfer', 'Jeddah Waterfront premium chauffeur', 'Jeddah F1 Track VIP', 'Red Sea Mall executive transport'],
     alternates: {
@@ -51,7 +51,7 @@ export default function JeddahCornichePage() {
 
             <Hero
                 images={images}
-                h1Text="VIP Private Transfer to Jeddah Corniche"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service to Jeddah Corniche"
                 bookingFormTitle="WhatsApp Booking for Premium Visit"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">

@@ -14,7 +14,7 @@ import Script from 'next/script';
 import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Madinah Airport | Premium Chauffeur Pickup | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service in Madinah Airport | Premium Chauffeur Pickup | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service at Madinah Airport (MED). Get a quote for your professional pickup to Masjid Nabawi and local hotels.',
     keywords: ['Madinah Airport VIP transfer', 'MED Airport premium chauffeur', 'Madinah Airport executive car', 'Prince Mohammad Airport VIP pickup'],
     alternates: {
@@ -80,7 +80,7 @@ export default function MadinahAirportPage() {
 
             <Hero
                 images={['/madinah-airport-taxi.png']}
-                h1Text="VIP Private Transfer Madinah Airport"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Madinah Airport"
                 bookingFormTitle="Request Airport Pickup"
                 title={
                     <span className="bg-emerald-700 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block">

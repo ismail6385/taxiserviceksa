@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Olaya District Riyadh | Premium Chauffeur | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service to Olaya District Riyadh | Premium Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service for Olaya, Riyadh. Professional transport to Kingdom Centre, Al Faisaliah Tower, and Tahlia Street.',
     keywords: ['Olaya VIP transfer', 'Riyadh downtown premium chauffeur', 'Kingdom Centre VIP car', 'Faisaliah Tower executive transport', 'Olaya Street VIP transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/olaya/',
     },
     openGraph: {
-        title: 'VIP Private Transfer to Olaya District (Riyadh Downtown) | Taxi Service KSA',
+        title: 'Private Car Transfer, Taxi and Chauffeur Service to Olaya District (Riyadh Downtown) | Taxi Service KSA',
         description: 'Elite VIP private transfer and professional chauffeur service for Riyadh\'s financial heart. Serving Kingdom Centre, Faisaliah, and major hotels.',
         url: 'https://taxiserviceksa.com/locations/riyadh/olaya/',
         type: 'website',
@@ -51,7 +51,7 @@ export default function OlayaPage() {
 
             <Hero
                 images={images}
-                h1Text="VIP Private Transfer to Olaya District"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service to Olaya District"
                 bookingFormTitle="Request VIP Pickup"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
@@ -64,7 +64,7 @@ export default function OlayaPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Riyadh%20Airport&dropoff=Olaya%20District">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book VIP Transfer
+                            Book Your Olaya District Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

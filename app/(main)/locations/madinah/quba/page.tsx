@@ -11,7 +11,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Masjid Quba | Madinah Ziyarat Service | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service to Masjid Quba | Madinah Ziyarat Service | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service to Masjid Quba. Perform Sunnah prayers in the first mosque of Islam with a professional driver.',
     keywords: ['Masjid Quba VIP transfer', 'Madinah Quba premium chauffeur', 'First Mosque VIP transport', 'Madinah Ziyarat executive car'],
     alternates: {
@@ -51,7 +51,7 @@ export default function QubaPage() {
 
             <Hero
                 images={images}
-                h1Text="VIP Private Transfer to Masjid Quba"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service to Masjid Quba"
                 bookingFormTitle="WhatsApp Booking for Heritage Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
@@ -64,7 +64,7 @@ export default function QubaPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Masjid%20Nabawi&dropoff=Masjid%20Quba">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book VIP Transfer
+                            Book Your Masjid Quba Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

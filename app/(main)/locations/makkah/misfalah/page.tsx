@@ -14,7 +14,7 @@ import Script from 'next/script';
 import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Misfalah Makkah | Premium Chauffeur | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service in Misfalah Makkah | Premium Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service in Misfalah Makkah. Professional hotel pickups and airport transfers for Umrah pilgrims.',
     keywords: ['Misfalah VIP transfer', 'Misfalah to Haram premium chauffeur', 'Misfalah executive car', 'Makkah VIP pilgrim transport'],
     alternates: {
@@ -80,7 +80,7 @@ export default function MisfalahPage() {
 
             <Hero
                 images={['/makkah-misfalah-street.png']}
-                h1Text="VIP Private Transfer Misfalah Makkah"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Misfalah Makkah"
                 bookingFormTitle="Request VIP Pickup"
                 title={
                     <span className="bg-orange-600 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block shadow-md">
@@ -204,7 +204,7 @@ export default function MisfalahPage() {
                         <div className="flex flex-wrap justify-center gap-6">
                             <Link href="/booking/">
                                 <Button className="bg-orange-600 text-white hover:bg-white hover:text-orange-600 font-black px-12 py-8 text-xl rounded-2xl h-auto shadow-2xl transition-all">
-                                    Book VIP Transfer
+                                    Book Your Misfalah Makkah Transfer
                                 </Button>
                             </Link>
                             <a href="mailto:taxiserviceksa9988@gmail.com">

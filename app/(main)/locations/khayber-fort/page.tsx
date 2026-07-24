@@ -30,7 +30,7 @@ import TopicCluster from '@/components/seo/TopicCluster';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Chauffeur Khaybar Fort | Madinah & AlUla | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service in Khaybar Fort | Madinah & AlUla | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service to Khaybar Fort. Specialized heritage tours from Madinah and AlUla with luxury 4x4 vehicle options.',
     keywords: ['Khaybar Fort VIP transfer', 'Executive chauffeur Khaybar', 'Madinah to Khaybar VIP', 'AlUla to Khaybar premium transfer', 'Khaybar 4x4 expedition'],
     alternates: {
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
         }
     },
     openGraph: {
-        title: 'VIP Transfer to Khaybar Fort | Madinah & AlUla Transfers | Taxi Service KSA',
+        title: 'Private Car Transfer, Taxi and Chauffeur Service to Khaybar Fort | Madinah & AlUla Transfers | Taxi Service KSA',
         description: 'VIP transfer to Khaybar Oasis from Madinah (170km). Premium 4x4 vehicles available for volcanic tours.',
         url: 'https://taxiserviceksa.com/locations/khayber-fort/',
         type: 'website',
@@ -118,7 +118,7 @@ export default function KhayberPage() {
 
             <Hero
                 images={khayberImages}
-                h1Text="VIP Private Transfer & Chauffeur Khaybar Fort"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Khaybar Fort"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Khaybar"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
@@ -160,7 +160,7 @@ export default function KhayberPage() {
                         </div>
                         <Button asChild size="lg" className="w-full bg-black text-white hover:bg-neutral-800 font-bold text-lg h-16 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-black/20">
                             <Link href="/booking/" className="w-full block">
-                                Book VIP Transfer
+                                Book Your Khaybar Fort Transfer
                                 <ArrowRight className="w-5 h-5 text-primary" />
                             </Link>
                         </Button>
@@ -580,7 +580,7 @@ export default function KhayberPage() {
                     </p>
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-12 py-8 rounded-full">
                         <Link href="/booking/">
-                            Book VIP Transfer
+                            Book Your Khaybar Fort Transfer
                         </Link>
                     </Button>
                 </div>

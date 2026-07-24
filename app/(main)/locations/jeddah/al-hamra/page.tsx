@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Al Hamra Jeddah | Executive Chauffeur | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service to Al Hamra Jeddah | Executive Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service to Al Hamra District, Jeddah. Transfers to Ritz Carlton and InterContinental with professional chauffeurs.',
     keywords: ['Al Hamra VIP transfer', 'Jeddah fountain premium chauffeur', 'Ritz Carlton Jeddah executive transport', 'Al Hamra Corniche VIP'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/al-hamra/',
     },
     openGraph: {
-        title: 'VIP Private Transfer Al Hamra | Executive Chauffeur | Taxi Service KSA',
+        title: 'Private Car Transfer, Taxi and Chauffeur Service in Al Hamra | Executive Chauffeur | Taxi Service KSA',
         description: 'Premium VIP private transfers to Jeddah\'s most prestigious district. Executive chauffeur service for Ritz Carlton and InterContinental guests.',
         url: 'https://taxiserviceksa.com/locations/jeddah/al-hamra/',
         type: 'website',
@@ -51,7 +51,7 @@ export default function AlHamraPage() {
 
             <Hero
                 images={images}
-                h1Text="VIP Private Transfer to Al Hamra (Jeddah)"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service to Al Hamra (Jeddah)"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
@@ -64,7 +64,7 @@ export default function AlHamraPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Jeddah%20Airport&dropoff=Al%20Hamra">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book VIP Transfer
+                            Book Your Al Hamra Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

@@ -113,7 +113,15 @@ export default function AdminDashboard() {
     const todaysTrips    = bookings.filter(b => b.pickup_date === today && b.status !== 'cancelled');
     const confirmedToday = bookings.filter(b => b.pickup_date === today && b.status === 'confirmed');
     const inProgress     = bookings.filter(b => b.status === 'in_progress');
-    const totalRevenue   = bookings.filter(b => b.status === 'completed').reduce((s, b) => s + (b.total_price || 0), 0);
+    // Group by currency — mixing SAR, KWD, AED etc. into one sum under a
+    // single hardcoded "SAR" label would misreport revenue.
+    const revenueByCurrency = bookings
+        .filter(b => b.status === 'completed')
+        .reduce((acc, b) => {
+            const curr = b.currency || 'SAR';
+            acc[curr] = (acc[curr] || 0) + (b.total_price || 0);
+            return acc;
+        }, {} as Record<string, number>);
 
     const upcomingSchedule = bookings
         .filter(b => (b.pickup_date === today || b.pickup_date === tomorrowStr) && !['cancelled','completed'].includes(b.status))
@@ -211,7 +219,13 @@ export default function AdminDashboard() {
                         <p className="text-xs text-neutral-400 uppercase font-bold tracking-widest">Total Revenue</p>
                         <DollarSign className="w-4 h-4 text-primary" />
                     </div>
-                    <p className="text-2xl font-black text-primary">SAR {totalRevenue.toLocaleString()}</p>
+                    {Object.keys(revenueByCurrency).length === 0 ? (
+                        <p className="text-2xl font-black text-primary">SAR 0</p>
+                    ) : (
+                        Object.entries(revenueByCurrency).map(([curr, amount]) => (
+                            <p key={curr} className="text-2xl font-black text-primary">{curr} {amount.toLocaleString()}</p>
+                        ))
+                    )}
                     <p className="text-[10px] text-neutral-500 mt-1">Completed trips only</p>
                 </div>
             </div>
@@ -407,12 +421,30 @@ export default function AdminDashboard() {
 
                 {/* Revenue cards */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-5">
-                    {[
-                        { label: 'Completion Rate', value: bookings.length ? `${Math.round(bookings.filter(b => b.status === 'completed').length / bookings.length * 100)}%` : '0%', icon: CheckCircle2, color: 'text-emerald-400' },
-                        { label: 'Cancel Rate',      value: bookings.length ? `${Math.round(bookings.filter(b => b.status === 'cancelled').length / bookings.length * 100)}%` : '0%', icon: Car, color: 'text-red-400' },
-                        { label: 'Avg Trip Value',   value: `SAR ${bookings.filter(b => b.total_price).length ? Math.round(bookings.filter(b => b.total_price).reduce((s, b) => s + (b.total_price || 0), 0) / bookings.filter(b => b.total_price).length) : 0}`, icon: DollarSign, color: 'text-sky-400' },
-                        { label: 'This Month',       value: (() => { const m = new Date().toLocaleString('en-US', { month: 'short', year: '2-digit' }); return bookings.filter(b => new Date(b.created_at).toLocaleString('en-US', { month: 'short', year: '2-digit' }) === m).length; })(), icon: Calendar, color: 'text-primary' },
-                    ].map(({ label, value, icon: Icon, color }) => (
+                    {(() => {
+                        // Average trip value per currency, since a mixed SAR/KWD/AED
+                        // average under one currency label would be meaningless.
+                        const priced = bookings.filter(b => b.total_price);
+                        const sumByCurrency = priced.reduce((acc, b) => {
+                            const curr = b.currency || 'SAR';
+                            if (!acc[curr]) acc[curr] = { sum: 0, count: 0 };
+                            acc[curr].sum += b.total_price || 0;
+                            acc[curr].count += 1;
+                            return acc;
+                        }, {} as Record<string, { sum: number; count: number }>);
+                        const avgTripValue = Object.keys(sumByCurrency).length === 0
+                            ? 'SAR 0'
+                            : Object.entries(sumByCurrency)
+                                .map(([curr, { sum, count }]) => `${curr} ${Math.round(sum / count)}`)
+                                .join(' + ');
+
+                        return [
+                            { label: 'Completion Rate', value: bookings.length ? `${Math.round(bookings.filter(b => b.status === 'completed').length / bookings.length * 100)}%` : '0%', icon: CheckCircle2, color: 'text-emerald-400' },
+                            { label: 'Cancel Rate',      value: bookings.length ? `${Math.round(bookings.filter(b => b.status === 'cancelled').length / bookings.length * 100)}%` : '0%', icon: Car, color: 'text-red-400' },
+                            { label: 'Avg Trip Value',   value: avgTripValue, icon: DollarSign, color: 'text-sky-400' },
+                            { label: 'This Month',       value: (() => { const m = new Date().toLocaleString('en-US', { month: 'short', year: '2-digit' }); return bookings.filter(b => new Date(b.created_at).toLocaleString('en-US', { month: 'short', year: '2-digit' }) === m).length; })(), icon: Calendar, color: 'text-primary' },
+                        ];
+                    })().map(({ label, value, icon: Icon, color }) => (
                         <div key={label} className="bg-neutral-800 rounded-xl p-5 border border-neutral-700">
                             <div className="flex items-center gap-2 mb-2">
                                 <Icon className={`w-4 h-4 ${color}`} />

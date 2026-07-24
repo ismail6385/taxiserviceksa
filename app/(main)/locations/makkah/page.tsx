@@ -25,7 +25,7 @@ import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer & Umrah Chauffeur Makkah 2026 | Premium Transport | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Umrah Chauffeur Service in Makkah 2026 | Premium Transport | Taxi Service KSA',
     description: 'Premium VIP private transfer service in Makkah 2026 for Umrah pilgrims. Executive chauffeur service for Makkah, Madinah, and Jeddah Airport pickups. High-end fleet for a dignified journey.',
     keywords: ['VIP Umrah transport Makkah 2026', 'Premium private transfer Makkah', 'Makkah VIP chauffeur', 'Executive Umrah taxi', 'Jeddah to Makkah VIP transfer'],
     alternates: {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'VIP Private Transfer in Makkah | 24/7 Umrah Transport | Taxi Service KSA',
+        title: 'Private Car Transfer, Taxi and Chauffeur Service in Makkah | 24/7 Umrah Transport | Taxi Service KSA',
         description: 'Book premium VIP private transfers in Makkah specifically for Umrah pilgrims and families. Direct hotel to Haram transfers and Jeddah Airport pickup.',
         url: 'https://taxiserviceksa.com/locations/makkah/',
         type: 'website',
@@ -92,7 +92,7 @@ export default async function MakkahPage() {
             {/* Hero Section with Makkah-Focused H1 */}
             <Hero
                 images={makkahImages}
-                h1Text="VIP Private Transfer Makkah"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Makkah"
                 bookingFormTitle="2026 Premium Umrah Transfer"
                 title={
                     <span className="bg-primary/20 text-primary font-bold tracking-wider uppercase px-4 py-2 rounded-lg inline-block leading-snug">

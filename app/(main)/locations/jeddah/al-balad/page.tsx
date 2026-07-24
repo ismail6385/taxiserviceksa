@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer to Al-Balad | Historic Jeddah UNESCO Tour | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service to Al-Balad | Historic Jeddah UNESCO Tour | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service to Historic Jeddah (Al-Balad). UNESCO World Heritage site tours with professional heritage-trained drivers.',
     keywords: ['Al-Balad VIP transfer', 'Historic Jeddah executive chauffeur', 'Jeddah Old Town premium transport', 'UNESCO Jeddah tour'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/al-balad/',
     },
     openGraph: {
-        title: 'VIP Private Transfer to Historic Jeddah (Al-Balad) | Taxi Service KSA',
+        title: 'Private Car Transfer, Taxi and Chauffeur Service to Historic Jeddah (Al-Balad) | Taxi Service KSA',
         description: 'Explore the UNESCO heritage site of Al-Balad in comfort. Premium VIP private transfer and elite chauffeur service for historic tours.',
         url: 'https://taxiserviceksa.com/locations/jeddah/al-balad/',
         type: 'website',
@@ -51,7 +51,7 @@ export default function AlBaladPage() {
 
             <Hero
                 images={images}
-                h1Text="VIP Private Transfer to Al-Balad"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service to Al-Balad"
                 bookingFormTitle="WhatsApp Booking for Heritage Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">

@@ -931,10 +931,16 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
     };
 
     const todayStr = new Date().toLocaleDateString('en-CA');
-    const todayRevenue = bookings
+    // Group by currency instead of summing everything as SAR — a KWD or AED
+    // booking's total_price is not directly comparable to a SAR one.
+    const todayRevenueByCurrency = bookings
         .filter(b => b.pickup_date === todayStr && !['cancelled', 'pending'].includes(b.status))
-        .reduce((sum, b) => sum + (b.total_price || 0), 0);
-    
+        .reduce((acc, b) => {
+            const curr = b.currency || 'SAR';
+            acc[curr] = (acc[curr] || 0) + (b.total_price || 0);
+            return acc;
+        }, {} as Record<string, number>);
+
     const todayActive = bookings.filter(b => b.pickup_date === todayStr && b.status === 'confirmed').length;
     
     const urgentCount = bookings.filter(b => {
@@ -1010,7 +1016,13 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                     <div className="bg-emerald-100 p-3 rounded-xl"><TrendingUp className="w-5 h-5 text-emerald-600" /></div>
                     <div>
                         <p className="text-emerald-600 text-[10px] font-bold uppercase tracking-wider">Today's Revenue</p>
-                        <p className="text-2xl font-bold text-emerald-700">SAR {todayRevenue}</p>
+                        {Object.keys(todayRevenueByCurrency).length === 0 ? (
+                            <p className="text-2xl font-bold text-emerald-700">SAR 0</p>
+                        ) : (
+                            Object.entries(todayRevenueByCurrency).map(([curr, amount]) => (
+                                <p key={curr} className="text-2xl font-bold text-emerald-700">{curr} {amount.toLocaleString()}</p>
+                            ))
+                        )}
                     </div>
                 </div>
                 <div className="bg-white border border-gray-200 shadow-sm p-4 rounded-2xl flex items-center gap-4">

@@ -39,7 +39,7 @@ export const metadata: Metadata = {
         }
     },
     openGraph: {
-        title: 'VIP Transfer in Dammam | Airport & City Travel | Taxi Service KSA',
+        title: 'Private Car Transfer, Taxi and Chauffeur Service in Dammam | Airport & City Travel | Taxi Service KSA',
         description: 'Book the premium VIP transfer in Dammam. Fast airport transfers, corniche rides & intercity travel to Khobar/Jubail. 24/7 availability.',
         url: 'https://taxiserviceksa.com/locations/dammam/',
         type: 'website',
@@ -112,7 +112,7 @@ export default function DammamPage() {
             {/* Hero Section */}
             <Hero
                 images={dammamImages}
-                h1Text="VIP Private Transfer & Chauffeur Dammam"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Dammam"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Dammam"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
@@ -138,7 +138,7 @@ export default function DammamPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                         <Link href="/booking/">
-                            Book VIP Transfer
+                            Book Your Dammam Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </Button>
@@ -493,7 +493,7 @@ export default function DammamPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                             <Link href="/booking/">
-                                Book VIP Transfer
+                                Book Your Dammam Transfer
                             </Link>
                         </Button>
                         <Button asChild variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">

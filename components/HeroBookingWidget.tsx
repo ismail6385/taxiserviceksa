@@ -7,13 +7,6 @@ import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import { MapPin, Calendar, Clock, ArrowLeftRight, Check } from 'lucide-react';
 import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
-import {
     Popover,
     PopoverContent,
     PopoverTrigger,
@@ -134,24 +127,16 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                             </Popover>
                         </div>
 
-                        {/* Modern Time Select */}
-                        <div className="relative group">
-                            <Select value={time} onValueChange={setTime}>
-                                <SelectTrigger className="w-full h-12 bg-gray-50 border-gray-200 focus:border-primary rounded-xl text-base px-3">
-                                    <div className="flex items-center text-gray-600">
-                                        <Clock className="mr-2 h-5 w-5 text-gray-400" />
-                                        <SelectValue placeholder="Pickup Time" />
-                                    </div>
-                                </SelectTrigger>
-                                <SelectContent className="max-h-[300px] z-[200]">
-                                    {Array.from({ length: 48 }).map((_, i) => {
-                                        const hour = Math.floor(i / 2); const minute = i % 2 === 0 ? '00' : '30';
-                                        const timeString = `${hour.toString().padStart(2, '0')}:${minute}`;
-                                        const d = new Date(); d.setHours(hour); d.setMinutes(parseInt(minute));
-                                        return <SelectItem key={timeString} value={timeString}>{format(d, "h:mm a")}</SelectItem>;
-                                    })}
-                                </SelectContent>
-                            </Select>
+                        {/* Pickup Time */}
+                        <div className="relative group flex items-center h-12 bg-gray-50 border border-gray-200 focus-within:border-primary rounded-xl px-3">
+                            <Clock className="mr-2 h-5 w-5 text-gray-400 shrink-0" />
+                            <input
+                                type="time"
+                                step={60}
+                                value={time}
+                                onChange={(e) => setTime(e.target.value)}
+                                className="w-full bg-transparent outline-none text-base text-gray-600"
+                            />
                         </div>
 
                         {/* Round Trip Toggle */}

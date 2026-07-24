@@ -14,7 +14,7 @@ import Script from 'next/script';
 import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Madinah Central Area | Premium Chauffeur | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service in Madinah Central Area | Premium Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service in the Madinah Central Area (Markaziya). Dedicated pickups for Oberoi and Hilton pilgrims.',
     keywords: ['Madinah Central Area VIP transfer', 'Markaziya premium chauffeur', 'Oberoi Madinah VIP transport', 'Hilton Madinah executive car'],
     alternates: {
@@ -80,7 +80,7 @@ export default function CentralAreaPage() {
 
             <Hero
                 images={['/madinah-central-area-taxi.png']}
-                h1Text="VIP Private Transfer Madinah Central Area"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Madinah Central Area"
                 bookingFormTitle="Request Premium Transfer"
                 title={
                     <span className="bg-black text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block border border-white/20">
@@ -214,7 +214,7 @@ export default function CentralAreaPage() {
                     <div className="flex flex-wrap justify-center gap-6">
                         <Link href="/booking/">
                             <Button className="bg-primary text-white hover:bg-white hover:text-black font-black px-12 py-8 text-xl rounded-2xl h-auto shadow-2xl transition-all">
-                                Book VIP Transfer
+                                Book Your Madinah Central Area Transfer
                             </Button>
                         </Link>
                         <Link href="/locations/madinah/">

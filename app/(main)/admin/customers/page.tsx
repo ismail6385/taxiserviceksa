@@ -35,6 +35,9 @@ interface Customer {
     email: string;
     totalBookings: number;
     totalSpent: number;
+    // Spend grouped by currency — a customer who paid SAR on one trip and
+    // KWD on another shouldn't have those added together under one label.
+    totalSpentByCurrency: Record<string, number>;
     lastBookingDate: string;
     isVIP: boolean;
     isRepeat: boolean;
@@ -50,6 +53,12 @@ const STATUS_COLORS: Record<string, string> = {
     completed:   'bg-sky-100 text-sky-700',
     cancelled:   'bg-red-100 text-red-700',
 };
+
+function formatSpend(byCurrency: Record<string, number>): string {
+    const entries = Object.entries(byCurrency).filter(([, amount]) => amount > 0);
+    if (entries.length === 0) return '—';
+    return entries.map(([curr, amount]) => `${curr} ${amount.toLocaleString()}`).join(' + ');
+}
 
 const NOTES_SQL = `CREATE TABLE IF NOT EXISTS customer_notes (
   phone      text PRIMARY KEY,
@@ -111,6 +120,7 @@ export default function CustomersPage() {
                     email: b.customer_email,
                     totalBookings: 0,
                     totalSpent: 0,
+                    totalSpentByCurrency: {},
                     lastBookingDate: b.pickup_date,
                     isVIP: false,
                     isRepeat: false,
@@ -121,6 +131,8 @@ export default function CustomersPage() {
             const c = map.get(key)!;
             c.totalBookings++;
             c.totalSpent += Number(b.total_price || 0);
+            const bookingCurrency = b.currency || 'SAR';
+            c.totalSpentByCurrency[bookingCurrency] = (c.totalSpentByCurrency[bookingCurrency] || 0) + Number(b.total_price || 0);
             if (b.pickup_date > c.lastBookingDate) {
                 c.lastBookingDate = b.pickup_date;
                 c.name  = b.customer_name;
@@ -168,9 +180,18 @@ export default function CustomersPage() {
         c.email.toLowerCase().includes(search.toLowerCase())
     );
 
-    const totalRevenue = customers.reduce((s, c) => s + c.totalSpent, 0);
     const vipCount     = customers.filter(c => c.isVIP).length;
     const repeatCount  = customers.filter(c => c.isRepeat).length;
+
+    const revenueByCurrency = customers.reduce((acc, c) => {
+        for (const [curr, amount] of Object.entries(c.totalSpentByCurrency)) {
+            acc[curr] = (acc[curr] || 0) + amount;
+        }
+        return acc;
+    }, {} as Record<string, number>);
+    const totalRevenueLabel = Object.keys(revenueByCurrency).length === 0
+        ? 'SAR 0'
+        : Object.entries(revenueByCurrency).map(([curr, amount]) => `${curr} ${amount.toLocaleString()}`).join(' + ');
 
     return (
         <div className="text-white">
@@ -197,7 +218,7 @@ export default function CustomersPage() {
                     { label: 'Total Customers', value: customers.length,                            icon: Users,  color: 'text-white' },
                     { label: 'VIP Customers',   value: vipCount,                                    icon: Crown,  color: 'text-amber-400' },
                     { label: 'Repeat Clients',  value: repeatCount,                                 icon: Star,   color: 'text-emerald-400' },
-                    { label: 'Total Revenue',   value: `SAR ${totalRevenue.toLocaleString()}`,      icon: Wallet, color: 'text-primary' },
+                    { label: 'Total Revenue',   value: totalRevenueLabel,                           icon: Wallet, color: 'text-primary' },
                 ].map(({ label, value, icon: Icon, color }) => (
                     <div key={label} className="bg-neutral-800 rounded-xl p-5 border border-neutral-700">
                         <div className="flex items-center gap-2 mb-2">
@@ -280,7 +301,7 @@ export default function CustomersPage() {
                                     </td>
                                     <td className="px-5 py-4 text-right">
                                         <span className="font-black text-primary">
-                                            {c.totalSpent > 0 ? `SAR ${c.totalSpent.toLocaleString()}` : '—'}
+                                            {formatSpend(c.totalSpentByCurrency)}
                                         </span>
                                     </td>
                                     <td className="px-5 py-4">
@@ -340,7 +361,7 @@ export default function CustomersPage() {
                                     <div className="bg-white/10 rounded-xl p-3 text-center">
                                         <p className="text-[10px] text-gray-400 uppercase font-bold">Spent</p>
                                         <p className="text-lg font-black text-primary">
-                                            {selected.totalSpent > 0 ? `SAR ${selected.totalSpent.toLocaleString()}` : '—'}
+                                            {formatSpend(selected.totalSpentByCurrency)}
                                         </p>
                                     </div>
                                     <div className="bg-white/10 rounded-xl p-3 text-center">

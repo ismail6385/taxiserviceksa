@@ -11,14 +11,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Transfer Jeddah Islamic Port | Seaport Chauffeur | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service in Jeddah Islamic Port | Seaport Chauffeur | Taxi Service KSA',
     description: 'Premium VIP private transfer and executive chauffeur service from Jeddah Islamic Port to Makkah. Reliable terminal pickup for pilgrims arriving by ferry.',
     keywords: ['Jeddah Islamic Port VIP transfer', 'Jeddah seaport premium chauffeur', 'Jeddah port to Makkah VIP', 'Ferry terminal executive transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/islamic-port/',
     },
     openGraph: {
-        title: 'VIP Private Transfer Jeddah Islamic Port | Seaport Chauffeur | Taxi Service KSA',
+        title: 'Private Car Transfer, Taxi and Chauffeur Service in Jeddah Islamic Port | Seaport Chauffeur | Taxi Service KSA',
         description: 'Direct VIP private transfer for sea arrivals. Premier chauffeur service from the passenger terminal to Makkah or Madinah.',
         url: 'https://taxiserviceksa.com/locations/jeddah/islamic-port/',
         type: 'website',
@@ -51,7 +51,7 @@ export default function JeddahPortPage() {
 
             <Hero
                 images={images}
-                h1Text="VIP Private Transfer Jeddah Islamic Port"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Jeddah Islamic Port"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
@@ -64,7 +64,7 @@ export default function JeddahPortPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Jeddah%20Islamic%20Port&dropoff=Makkah">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book VIP Transfer
+                            Book Your Jeddah Islamic Port Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

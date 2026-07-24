@@ -15,7 +15,7 @@ import ExpertReview from '@/components/seo/ExpertReview';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'VIP Private Ziyarat Tours Makkah | Premium Chauffeur Heritage | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Ziyarat Tour Service in Makkah | Premium Chauffeur Heritage | Taxi Service KSA',
     description: 'Premium VIP private Ziyarat tours in Makkah. Visit Jabal Al-Nour, Jabal Thawr, Arafat, and Mina with an executive chauffeur. Luxury vehicle options for pilgrims.',
     keywords: ['Makkah VIP Ziyarat', 'Premium Makkah holy sites tour', 'Executive chauffeur Makkah Ziyarat', 'Luxury pilgrim transport Makkah'],
     alternates: {
@@ -73,7 +73,7 @@ export default function MakkahZiyaratPage() {
 
             <Hero
                 images={['/locations/makkah.webp', '/hero-slide-2.webp']}
-                h1Text="VIP Private Ziyarat Tours Makkah"
+                h1Text="Private Car Transfer, Taxi and Ziyarat Tour Service in Makkah"
                 bookingFormTitle="WhatsApp Booking for Premium Ziyarat"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
