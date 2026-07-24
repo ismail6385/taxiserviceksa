@@ -20,8 +20,69 @@ import {
     Plus,
     Trash2,
     Repeat,
-    Landmark
+    Landmark,
+    Languages
 } from 'lucide-react';
+
+type DocLang = 'en' | 'ar';
+
+const INVOICE_TEXT: Record<DocLang, Record<string, string>> = {
+    en: {
+        invoice: 'INVOICE', no: 'No.', date: 'Date:', roundTrip: 'Round Trip',
+        billTo: 'Bill To', tripSchedule: 'Trip Schedule',
+        dateLabel: 'Date', timeLabel: 'Time', vehicleLabel: 'Vehicle', passengersLabel: 'Passengers',
+        journeyRoute: 'Journey Route', stop: 'stop', stops: 'stops',
+        pickup: 'Pick-up', dropoff: 'Drop-off', destination: 'Destination', returnDropoff: 'Return Drop-off',
+        description: 'Description', amount: 'Amount',
+        roundTripService: 'Round Trip Transfer Service', privateService: 'Private Transfer Service',
+        chauffeurService: 'Professional Chauffeur Service',
+        specialRequests: 'Special Requests:', totalPayable: 'Total Payable',
+        bookingConfirmation: 'Booking Confirmation',
+        bookingConfirmationText: 'Your transport service is fully confirmed. Please have this invoice ready for your chauffeur.',
+        paymentInstruction: 'Payment Instruction',
+        payCash: 'Payment to be handed to the driver upon journey completion.',
+        payOnline: 'Payment has been secured via online transaction.',
+        bankDetails: 'Bank Transfer Details', bankName: 'Bank Name', accountName: 'Account Name',
+        accountNumber: 'Account Number', swift: 'SWIFT / BIC', iban: 'IBAN', note: 'Note:',
+        terms: 'Terms & Conditions',
+        term1: 'Price includes fuel, parking, and toll fees.',
+        term2: 'Free cancellation up to 24 hours before pickup.',
+        term3: 'Driver will wait 60 minutes for airport pickups.',
+        term4: 'This invoice is valid for 30 days from date issued.',
+        authorizedSignature: 'Authorized Signature', director: 'Director', partner: 'Partner',
+        thankYou: 'Thank you for choosing Taxi Service KSA — www.taxiserviceksa.com',
+        pax: 'Pax', bags: 'Bags', city: 'Jeddah, Saudi Arabia',
+    },
+    ar: {
+        invoice: 'فاتورة', no: 'الرقم', date: 'التاريخ:', roundTrip: 'ذهاب وعودة',
+        billTo: 'فاتورة إلى', tripSchedule: 'جدول الرحلة',
+        dateLabel: 'التاريخ', timeLabel: 'الوقت', vehicleLabel: 'المركبة', passengersLabel: 'الركاب',
+        journeyRoute: 'مسار الرحلة', stop: 'محطة', stops: 'محطات',
+        pickup: 'الانطلاق', dropoff: 'الوصول', destination: 'الوجهة', returnDropoff: 'نقطة العودة',
+        description: 'الوصف', amount: 'المبلغ',
+        roundTripService: 'خدمة نقل ذهاب وعودة', privateService: 'خدمة نقل خاص',
+        chauffeurService: 'خدمة سائق محترف',
+        specialRequests: 'طلبات خاصة:', totalPayable: 'المبلغ الإجمالي المستحق',
+        bookingConfirmation: 'تأكيد الحجز',
+        bookingConfirmationText: 'تم تأكيد خدمة النقل الخاصة بكم بالكامل. يرجى إحضار هذه الفاتورة لسائقكم.',
+        paymentInstruction: 'تعليمات الدفع',
+        payCash: 'يتم تسليم المبلغ للسائق عند انتهاء الرحلة.',
+        payOnline: 'تم تأمين الدفع عبر معاملة إلكترونية.',
+        bankDetails: 'تفاصيل التحويل البنكي', bankName: 'اسم البنك', accountName: 'اسم صاحب الحساب',
+        accountNumber: 'رقم الحساب', swift: 'رمز السويفت', iban: 'رقم الآيبان', note: 'ملاحظة:',
+        terms: 'الشروط والأحكام',
+        term1: 'السعر يشمل الوقود ورسوم الانتظار والرسوم المرورية.',
+        term2: 'إلغاء مجاني حتى 24 ساعة قبل موعد الانطلاق.',
+        term3: 'ينتظر السائق 60 دقيقة عند الاستلام من المطار.',
+        term4: 'هذه الفاتورة صالحة لمدة 30 يوماً من تاريخ الإصدار.',
+        authorizedSignature: 'التوقيع المعتمد', director: 'المدير', partner: 'الشريك',
+        thankYou: 'شكراً لاختياركم تاكسي سيرفس السعودية — www.taxiserviceksa.com',
+        pax: 'راكب', bags: 'حقيبة', city: 'جدة، المملكة العربية السعودية',
+    },
+};
+
+const STATUS_AR: Record<string, string> = { Paid: 'مدفوع', Unpaid: 'غير مدفوع', Pending: 'قيد الانتظار' };
+const METHOD_AR: Record<string, string> = { 'Cash to Driver': 'نقداً للسائق', Online: 'دفع إلكتروني', 'Bank Transfer': 'تحويل بنكي' };
 
 interface Stop {
     time: string;
@@ -55,6 +116,7 @@ export default function InvoicePage() {
     const router = useRouter();
     const [booking, setBooking] = useState<Booking | null>(null);
     const [loading, setLoading] = useState(true);
+    const [lang, setLang] = useState<DocLang>('en');
     const [quickNote, setQuickNote] = useState('');
     const [currency, setCurrency] = useState('SAR');
     const [paymentStatus, setPaymentStatus] = useState('Unpaid');
@@ -259,6 +321,7 @@ export default function InvoicePage() {
         year: 'numeric'
     });
     const invoiceNumber = `INV-${(booking.pickup_date || booking.created_at.slice(0, 10)).replace(/-/g, '')}-${booking.id.slice(0, 6).toUpperCase()}`;
+    const t = INVOICE_TEXT[lang];
 
     return (
         <div className="min-h-screen bg-gray-100 py-6 px-4 print:bg-white print:py-0 print:px-0 print:min-h-0">
@@ -269,6 +332,17 @@ export default function InvoicePage() {
                 </Button>
 
                 <div className="flex flex-wrap gap-4 items-center">
+                    {/* Language Toggle */}
+                    <button
+                        onClick={() => setLang(lang === 'en' ? 'ar' : 'en')}
+                        className="flex items-center gap-2 rounded-lg border p-1 shadow-sm px-3 h-10 bg-white text-gray-700 border-gray-200 hover:bg-gray-50 transition-all"
+                    >
+                        <Languages className="w-4 h-4" />
+                        <span className="text-[11px] font-black uppercase tracking-widest whitespace-nowrap">
+                            {lang === 'en' ? 'English' : 'عربي'}
+                        </span>
+                    </button>
+
                     {/* Round Trip Toggle */}
                     <div className="flex flex-col gap-1">
                         <div
@@ -564,7 +638,7 @@ export default function InvoicePage() {
             </div>
 
             {/* Invoice Container — Single A4 Page */}
-            <div id="invoice-print" className="max-w-[210mm] mx-auto bg-white shadow-2xl print:shadow-none print:max-w-none print:w-[210mm] box-border">
+            <div id="invoice-print" dir={lang === 'ar' ? 'rtl' : 'ltr'} className="max-w-[210mm] mx-auto bg-white shadow-2xl print:shadow-none print:max-w-none print:w-[210mm] box-border">
                 {/* Decorative Top Bar */}
                 <div className="h-2 bg-gray-900 w-full"></div>
 
@@ -579,27 +653,27 @@ export default function InvoicePage() {
                                     Taxi Service <span className="text-lime-600">KSA</span>
                                 </h2>
                                 <div className="text-xs text-gray-500 space-y-1 mt-2 leading-snug">
-                                    <p className="flex items-center gap-1.5"><MapPin className="w-3 h-3 text-gray-400" /> Jeddah, Saudi Arabia</p>
+                                    <p className="flex items-center gap-1.5"><MapPin className="w-3 h-3 text-gray-400" /> {t.city}</p>
                                     <p className="flex items-center gap-1.5"><Mail className="w-3 h-3 text-gray-400" /> info@taxiserviceksa.com</p>
-                                    <p className="flex items-center gap-1.5"><Phone className="w-3 h-3 text-gray-400" /> +966 56 948 7569</p>
+                                    <p className="flex items-center gap-1.5"><Phone className="w-3 h-3 text-gray-400" /> <span dir="ltr">+966 56 948 7569</span></p>
                                     <p className="flex items-center gap-1.5"><Globe className="w-3 h-3 text-gray-400" /> www.taxiserviceksa.com</p>
                                 </div>
                             </div>
-                            <div className="text-right">
-                                <h1 className="text-2xl font-bold text-gray-900 tracking-wide">INVOICE</h1>
-                                <p className="text-gray-500 font-mono text-xs mt-1">No. {invoiceNumber}</p>
-                                <p className="text-gray-500 text-xs">Date: {invoiceDate}</p>
-                                <div className="flex justify-end gap-1.5 mt-2">
+                            <div className={lang === 'ar' ? 'text-left' : 'text-right'}>
+                                <h1 className="text-2xl font-bold text-gray-900 tracking-wide">{t.invoice}</h1>
+                                <p className="text-gray-500 font-mono text-xs mt-1">{t.no} {invoiceNumber}</p>
+                                <p className="text-gray-500 text-xs">{t.date} {invoiceDate}</p>
+                                <div className={`flex gap-1.5 mt-2 ${lang === 'ar' ? 'justify-start' : 'justify-end'}`}>
                                     {isRoundTrip && (
                                         <span className="px-2.5 py-0.5 rounded text-[10px] font-semibold uppercase bg-blue-50 text-blue-700 border border-blue-200 flex items-center gap-1 whitespace-nowrap">
-                                            <Repeat className="w-2.5 h-2.5" /> Round Trip
+                                            <Repeat className="w-2.5 h-2.5" /> {t.roundTrip}
                                         </span>
                                     )}
                                     <span className={`px-2.5 py-0.5 rounded text-[10px] font-semibold uppercase border whitespace-nowrap ${paymentStatus === 'Paid' ? 'bg-green-50 text-green-700 border-green-200' : 'bg-red-50 text-red-700 border-red-200'}`}>
-                                        {paymentStatus}
+                                        {lang === 'ar' ? (STATUS_AR[paymentStatus] || paymentStatus) : paymentStatus}
                                     </span>
                                     <span className="px-2.5 py-0.5 rounded text-[10px] font-semibold uppercase bg-gray-50 text-gray-600 border border-gray-200 whitespace-nowrap">
-                                        {paymentMethod}
+                                        {lang === 'ar' ? (METHOD_AR[paymentMethod] || paymentMethod) : paymentMethod}
                                     </span>
                                 </div>
                             </div>
@@ -608,21 +682,21 @@ export default function InvoicePage() {
                         {/* Bill To + Trip Schedule */}
                         <div className="grid grid-cols-2 gap-6 mb-6">
                             <div>
-                                <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">Bill To</h3>
+                                <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">{t.billTo}</h3>
                                 <p className="text-sm font-bold text-gray-900">{booking.customer_name}</p>
                                 <div className="space-y-1 text-xs text-gray-600 mt-1.5">
-                                    <p className="flex items-center gap-1.5"><Phone className="w-3 h-3 text-gray-400 flex-shrink-0" /> {booking.customer_phone}</p>
+                                    <p className="flex items-center gap-1.5"><Phone className="w-3 h-3 text-gray-400 flex-shrink-0" /> <span dir="ltr">{booking.customer_phone}</span></p>
                                     <p className="flex items-center gap-1.5"><Mail className="w-3 h-3 text-gray-400 flex-shrink-0" /> {booking.customer_email}</p>
                                 </div>
                             </div>
                             <div>
-                                <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">Trip Schedule</h3>
+                                <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">{t.tripSchedule}</h3>
                                 <div className="space-y-1">
                                     {[
-                                        { icon: <Calendar className="w-3 h-3" />, label: 'Date', value: booking.pickup_date },
-                                        { icon: <Clock className="w-3 h-3" />, label: 'Time', value: formatTime12h(booking.pickup_time) },
-                                        { icon: <Car className="w-3 h-3" />, label: 'Vehicle', value: booking.vehicle_type },
-                                        { icon: <User className="w-3 h-3" />, label: 'Passengers', value: `${booking.passengers} Pax · ${booking.luggage} Bags` },
+                                        { icon: <Calendar className="w-3 h-3" />, label: t.dateLabel, value: booking.pickup_date },
+                                        { icon: <Clock className="w-3 h-3" />, label: t.timeLabel, value: formatTime12h(booking.pickup_time) },
+                                        { icon: <Car className="w-3 h-3" />, label: t.vehicleLabel, value: booking.vehicle_type },
+                                        { icon: <User className="w-3 h-3" />, label: t.passengersLabel, value: `${booking.passengers} ${t.pax} · ${booking.luggage} ${t.bags}` },
                                     ].map(({ icon, label, value }) => (
                                         <div key={label} className="flex justify-between items-center text-xs">
                                             <span className="text-gray-500 flex items-center gap-1.5">{icon} {label}</span>
@@ -636,16 +710,16 @@ export default function InvoicePage() {
                         {/* Route Details */}
                         <div className="mb-6">
                             <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2.5">
-                                Journey Route
-                                {stops.length > 0 && <span className="text-orange-500 normal-case font-medium ml-1.5">· {stops.length} stop{stops.length > 1 ? 's' : ''}</span>}
+                                {t.journeyRoute}
+                                {stops.length > 0 && <span className="text-orange-500 normal-case font-medium mx-1.5">· {stops.length} {stops.length > 1 ? t.stops : t.stop}</span>}
                             </h3>
-                            <div className="relative pl-5 space-y-3 before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-0.5 before:border-l-2 before:border-dashed before:border-gray-200">
+                            <div className={`relative space-y-3 before:absolute before:top-2 before:bottom-2 before:w-0.5 before:border-dashed before:border-gray-200 ${lang === 'ar' ? 'pr-5 before:right-[7px] before:border-r-2' : 'pl-5 before:left-[7px] before:border-l-2'}`}>
 
                                 {/* Pickup */}
                                 <div className="relative">
-                                    <div className="absolute -left-[18px] top-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white shadow-sm"></div>
+                                    <div className={`absolute top-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white shadow-sm ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}></div>
                                     <p className="text-[10px] text-gray-400 font-semibold uppercase">
-                                        Pick-up{booking.pickup_time ? ` · ${formatTime12h(booking.pickup_time)}` : ''}
+                                        {t.pickup}{booking.pickup_time ? ` · ${formatTime12h(booking.pickup_time)}` : ''}
                                     </p>
                                     <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{booking.pickup_location}</p>
                                 </div>
@@ -653,11 +727,11 @@ export default function InvoicePage() {
                                 {/* Extra stops */}
                                 {stops.filter(s => s.location.trim()).map((stop, i) => (
                                     <div key={i} className="relative">
-                                        <div className="absolute -left-[18px] top-1 w-3 h-3 bg-orange-400 rounded-full border-2 border-white shadow-sm flex items-center justify-center">
+                                        <div className={`absolute top-1 w-3 h-3 bg-orange-400 rounded-full border-2 border-white shadow-sm flex items-center justify-center ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}>
                                             <span className="text-white text-[6px] font-bold">{i + 1}</span>
                                         </div>
                                         <p className="text-[10px] text-orange-500 font-semibold uppercase">
-                                            Stop {i + 1}{stop.time ? ` · ${stop.time}` : ''}
+                                            {i + 1}. {stop.time ? ` · ${stop.time}` : ''}
                                         </p>
                                         <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{stop.location}</p>
                                     </div>
@@ -665,18 +739,18 @@ export default function InvoicePage() {
 
                                 {/* Drop-off */}
                                 <div className="relative">
-                                    <div className="absolute -left-[18px] top-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white shadow-sm"></div>
-                                    <p className="text-[10px] text-gray-400 font-semibold uppercase">{isRoundTrip ? 'Destination' : 'Drop-off'}</p>
+                                    <div className={`absolute top-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white shadow-sm ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}></div>
+                                    <p className="text-[10px] text-gray-400 font-semibold uppercase">{isRoundTrip ? t.destination : t.dropoff}</p>
                                     <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{booking.destination}</p>
                                 </div>
 
                                 {/* Return */}
                                 {isRoundTrip && (
                                     <div className="relative">
-                                        <div className="absolute -left-[18px] top-1 w-3 h-3 bg-blue-600 rounded-full border-2 border-white shadow-sm flex items-center justify-center">
+                                        <div className={`absolute top-1 w-3 h-3 bg-blue-600 rounded-full border-2 border-white shadow-sm flex items-center justify-center ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}>
                                             <Repeat className="w-2 h-2 text-white" />
                                         </div>
-                                        <p className="text-[10px] text-blue-500 font-semibold uppercase">Return Drop-off</p>
+                                        <p className="text-[10px] text-blue-500 font-semibold uppercase">{t.returnDropoff}</p>
                                         <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{returnDestination || booking.pickup_location}</p>
                                     </div>
                                 )}
@@ -688,18 +762,18 @@ export default function InvoicePage() {
                             <table className="w-full text-left">
                                 <thead className="bg-gray-50 text-gray-500 text-[10px] font-bold uppercase tracking-wider">
                                     <tr>
-                                        <th className="px-4 py-3">Description</th>
-                                        <th className="px-4 py-3 text-right">Amount</th>
+                                        <th className="px-4 py-3">{t.description}</th>
+                                        <th className="px-4 py-3 text-right">{t.amount}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr className="border-t border-gray-100">
                                         <td className="px-4 py-3.5">
                                             <p className="font-bold text-gray-900 text-sm">
-                                                {isRoundTrip ? 'Round Trip Transfer Service' : 'Private Transfer Service'}
+                                                {isRoundTrip ? t.roundTripService : t.privateService}
                                             </p>
                                             <p className="text-xs text-gray-500 mt-0.5">
-                                                {booking.vehicle_type} — Professional Chauffeur Service
+                                                {booking.vehicle_type} — {t.chauffeurService}
                                             </p>
                                             <p className="text-[11px] text-gray-400 mt-1 font-medium">
                                                 {isRoundTrip
@@ -708,7 +782,7 @@ export default function InvoicePage() {
                                             </p>
                                             {booking.special_requests && (
                                                 <div className="mt-2 p-2 bg-gray-50 rounded border border-gray-100 text-[11px] text-gray-500 whitespace-pre-wrap leading-snug">
-                                                    <span className="font-semibold">Special Requests: </span>{booking.special_requests}
+                                                    <span className="font-semibold">{t.specialRequests} </span>{booking.special_requests}
                                                 </div>
                                             )}
                                             {quickNote.trim() && (
@@ -724,7 +798,7 @@ export default function InvoicePage() {
                                 </tbody>
                                 <tfoot>
                                     <tr className="bg-gray-900">
-                                        <td className="px-4 py-3 text-right text-[11px] font-bold uppercase tracking-wide text-white/60">Total Payable</td>
+                                        <td className="px-4 py-3 text-right text-[11px] font-bold uppercase tracking-wide text-white/60">{t.totalPayable}</td>
                                         <td className="px-4 py-3 text-right border-l border-white/10">
                                             <span className="text-base font-bold text-primary">{currency} {booking.total_price?.toFixed(2) || '0.00'}</span>
                                         </td>
@@ -736,17 +810,15 @@ export default function InvoicePage() {
                         {/* Payment Info */}
                         <div className="grid grid-cols-2 gap-4 mb-6">
                             <div className="bg-primary/5 rounded-lg p-3 border border-primary/10">
-                                <h3 className="text-[10px] font-bold text-primary uppercase tracking-wide mb-1">Booking Confirmation</h3>
+                                <h3 className="text-[10px] font-bold text-primary uppercase tracking-wide mb-1">{t.bookingConfirmation}</h3>
                                 <p className="text-xs text-gray-600 leading-snug">
-                                    Your transport service is fully confirmed. Please have this invoice ready for your chauffeur.
+                                    {t.bookingConfirmationText}
                                 </p>
                             </div>
                             <div className="bg-gray-50 rounded-lg p-3 border border-gray-100">
-                                <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1">Payment Instruction</h3>
+                                <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1">{t.paymentInstruction}</h3>
                                 <p className="text-xs text-gray-700 font-medium leading-snug">
-                                    {paymentMethod === 'Cash to Driver'
-                                        ? "Payment to be handed to the driver upon journey completion."
-                                        : "Payment has been secured via online transaction."}
+                                    {paymentMethod === 'Cash to Driver' ? t.payCash : t.payOnline}
                                 </p>
                             </div>
                         </div>
@@ -755,42 +827,42 @@ export default function InvoicePage() {
                         {bankDetails.showOnDocument && (
                             <div className="mb-6 bg-blue-50/40 rounded-lg p-4 border border-blue-100">
                                 <h3 className="text-[11px] font-bold text-blue-700 uppercase tracking-wide flex items-center gap-1.5 mb-3 pb-2 border-b border-blue-100">
-                                    <Landmark className="w-3.5 h-3.5" /> Bank Transfer Details
+                                    <Landmark className="w-3.5 h-3.5" /> {t.bankDetails}
                                 </h3>
                                 <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-xs">
                                     {bankDetails.bankName && (
                                         <div className="flex justify-between border-b border-gray-100 pb-1">
-                                            <span className="text-gray-500">Bank Name</span>
+                                            <span className="text-gray-500">{t.bankName}</span>
                                             <span className="font-semibold text-gray-900">{bankDetails.bankName}</span>
                                         </div>
                                     )}
                                     {bankDetails.accountName && (
                                         <div className="flex justify-between border-b border-gray-100 pb-1">
-                                            <span className="text-gray-500">Account Name</span>
+                                            <span className="text-gray-500">{t.accountName}</span>
                                             <span className="font-semibold text-gray-900">{bankDetails.accountName}</span>
                                         </div>
                                     )}
                                     {bankDetails.accountNumber && (
                                         <div className="flex justify-between border-b border-gray-100 pb-1">
-                                            <span className="text-gray-500">Account Number</span>
+                                            <span className="text-gray-500">{t.accountNumber}</span>
                                             <span className="font-semibold font-mono text-gray-900">{bankDetails.accountNumber}</span>
                                         </div>
                                     )}
                                     {bankDetails.swiftCode && (
                                         <div className="flex justify-between border-b border-gray-100 pb-1">
-                                            <span className="text-gray-500">SWIFT / BIC</span>
+                                            <span className="text-gray-500">{t.swift}</span>
                                             <span className="font-semibold font-mono text-gray-900">{bankDetails.swiftCode}</span>
                                         </div>
                                     )}
                                     {bankDetails.iban && (
                                         <div className="col-span-2 flex justify-between border-b border-gray-100 pb-1">
-                                            <span className="text-gray-500">IBAN</span>
+                                            <span className="text-gray-500">{t.iban}</span>
                                             <span className="font-semibold font-mono text-gray-900 tracking-wide">{bankDetails.iban}</span>
                                         </div>
                                     )}
                                 </div>
                                 {bankDetails.notes && (
-                                    <p className="text-[11px] text-blue-600/80 italic mt-2">Note: {bankDetails.notes}</p>
+                                    <p className="text-[11px] text-blue-600/80 italic mt-2">{t.note} {bankDetails.notes}</p>
                                 )}
                             </div>
                         )}
@@ -800,32 +872,32 @@ export default function InvoicePage() {
                     <div className="mt-auto">
                         <div className="grid grid-cols-2 gap-8 items-end border-t border-gray-200 pt-4">
                             <div>
-                                <p className="font-bold text-gray-900 mb-1.5 uppercase tracking-wide text-[10px]">Terms &amp; Conditions</p>
+                                <p className="font-bold text-gray-900 mb-1.5 uppercase tracking-wide text-[10px]">{t.terms}</p>
                                 <ul className="list-disc list-inside space-y-0.5 text-[10px] text-gray-500">
-                                    <li>Price includes fuel, parking, and toll fees.</li>
-                                    <li>Free cancellation up to 24 hours before pickup.</li>
-                                    <li>Driver will wait 60 minutes for airport pickups.</li>
-                                    <li>This invoice is valid for 30 days from date issued.</li>
+                                    <li>{t.term1}</li>
+                                    <li>{t.term2}</li>
+                                    <li>{t.term3}</li>
+                                    <li>{t.term4}</li>
                                 </ul>
                             </div>
-                            <div className="text-right">
-                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-2">Authorized Signature</p>
-                                <div className="flex items-end justify-end gap-6">
+                            <div className={lang === 'ar' ? 'text-left' : 'text-right'}>
+                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-2">{t.authorizedSignature}</p>
+                                <div className={`flex items-end gap-6 ${lang === 'ar' ? 'justify-start' : 'justify-end'}`}>
                                     <div className="text-center">
                                         <img src="/ismail-signature.png" alt="Ismail" className="h-8 w-auto object-contain mx-auto" />
                                         <p className="text-[10px] font-semibold text-gray-700 border-t border-gray-300 pt-1 mt-1 min-w-[70px]">Ismail</p>
-                                        <p className="text-[8px] text-gray-400">Director</p>
+                                        <p className="text-[8px] text-gray-400">{t.director}</p>
                                     </div>
                                     <div className="text-center">
                                         <img src="/zumer-signature.png" alt="Zumer" className="h-8 w-auto object-contain mx-auto" />
                                         <p className="text-[10px] font-semibold text-gray-700 border-t border-gray-300 pt-1 mt-1 min-w-[70px]">Zumer</p>
-                                        <p className="text-[8px] text-gray-400">Partner</p>
+                                        <p className="text-[8px] text-gray-400">{t.partner}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="mt-4 pt-3 border-t border-gray-100 text-center text-gray-400 text-[10px]">
-                            <p>Thank you for choosing Taxi Service KSA — www.taxiserviceksa.com</p>
+                            <p>{t.thankYou}</p>
                         </div>
                     </div>
                 </div>

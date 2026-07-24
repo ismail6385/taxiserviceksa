@@ -7,11 +7,11 @@ import { adminFetch } from '@/lib/admin-fetch';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Badge } from '@/components/ui/badge';
 import {
     Building2, Upload, Plus, Search, Send, X, Trash2,
-    CheckCircle2, Mail, Loader2
+    CheckCircle2, Mail, Loader2, Pencil, StickyNote, Download, Paperclip
 } from 'lucide-react';
+import EmailTemplatePicker from '@/components/admin/EmailTemplatePicker';
 
 type LeadStatus = 'not_contacted' | 'contacted' | 'responded' | 'not_interested';
 
@@ -56,6 +56,7 @@ ALTER TABLE b2b_leads ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Admin full access" ON b2b_leads FOR ALL USING (auth.role() = 'authenticated');`;
 
 const EMPTY_FORM = { company_name: '', email: '', country: '', group_name: 'General' };
+const EMPTY_EDIT_FORM = { company_name: '', email: '', country: '', group_name: '', notes: '' };
 
 // Minimal CSV parser — handles quoted fields (so a company name with a
 // comma in it doesn't split into two columns).
@@ -110,6 +111,10 @@ export default function B2BLeadsPage() {
     const [form, setForm] = useState(EMPTY_FORM);
     const [saving, setSaving] = useState(false);
 
+    const [editingLead, setEditingLead] = useState<Lead | null>(null);
+    const [editForm, setEditForm] = useState(EMPTY_EDIT_FORM);
+    const [savingEdit, setSavingEdit] = useState(false);
+
     const [importing, setImporting] = useState(false);
     const [importMsg, setImportMsg] = useState('');
 
@@ -117,8 +122,13 @@ export default function B2BLeadsPage() {
     const [showCompose, setShowCompose] = useState(false);
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
+    const [cc, setCc] = useState('');
+    const [attachment, setAttachment] = useState<File | null>(null);
+    const [attachmentError, setAttachmentError] = useState('');
+    const attachmentInputRef = useRef<HTMLInputElement>(null);
     const [sending, setSending] = useState(false);
     const [sendProgress, setSendProgress] = useState({ done: 0, total: 0, failed: 0 });
+    const [bulkDeleting, setBulkDeleting] = useState(false);
 
     useEffect(() => {
         supabase.auth.getSession().then(({ data: { session } }) => {
@@ -200,11 +210,114 @@ export default function B2BLeadsPage() {
         setSaving(false);
     };
 
+    const openComposeForSingle = (lead: Lead) => {
+        setSelected(new Set([lead.id]));
+        setShowCompose(true);
+    };
+
+    const openEdit = (lead: Lead) => {
+        setEditingLead(lead);
+        setEditForm({
+            company_name: lead.company_name,
+            email: lead.email,
+            country: lead.country || '',
+            group_name: lead.group_name,
+            notes: lead.notes || '',
+        });
+    };
+
+    const closeEdit = () => {
+        setEditingLead(null);
+        setEditForm(EMPTY_EDIT_FORM);
+    };
+
+    const handleSaveEdit = async () => {
+        if (!editingLead || !editForm.company_name.trim() || !editForm.email.includes('@')) return;
+        setSavingEdit(true);
+        const payload = {
+            company_name: editForm.company_name.trim(),
+            email: editForm.email.trim().toLowerCase(),
+            country: editForm.country.trim() || null,
+            group_name: editForm.group_name.trim() || 'General',
+            notes: editForm.notes.trim() || null,
+        };
+        const { error } = await supabase.from('b2b_leads').update(payload).eq('id', editingLead.id);
+        if (!error) {
+            setLeads(prev => prev.map(l => l.id === editingLead.id ? { ...l, ...payload } : l));
+            closeEdit();
+        }
+        setSavingEdit(false);
+    };
+
+    const handleStatusChange = async (lead: Lead, newStatus: LeadStatus) => {
+        setLeads(prev => prev.map(l => l.id === lead.id ? { ...l, status: newStatus } : l));
+        await supabase.from('b2b_leads').update({ status: newStatus }).eq('id', lead.id);
+    };
+
     const handleDelete = async (id: string) => {
         if (!confirm('Remove this lead?')) return;
         await supabase.from('b2b_leads').delete().eq('id', id);
         setLeads(prev => prev.filter(l => l.id !== id));
         setSelected(prev => { const next = new Set(prev); next.delete(id); return next; });
+    };
+
+    const handleBulkDelete = async () => {
+        const ids = Array.from(selected);
+        if (ids.length === 0) return;
+        if (!confirm(`Remove ${ids.length} selected compan${ids.length > 1 ? 'ies' : 'y'}?`)) return;
+        setBulkDeleting(true);
+        await supabase.from('b2b_leads').delete().in('id', ids);
+        setLeads(prev => prev.filter(l => !selected.has(l.id)));
+        setSelected(new Set());
+        setBulkDeleting(false);
+    };
+
+    const handleBulkStatusChange = async (newStatus: LeadStatus) => {
+        const ids = Array.from(selected);
+        if (ids.length === 0) return;
+        setLeads(prev => prev.map(l => selected.has(l.id) ? { ...l, status: newStatus } : l));
+        await supabase.from('b2b_leads').update({ status: newStatus }).in('id', ids);
+    };
+
+    const exportCsv = () => {
+        const header = ['company_name', 'email', 'country', 'group', 'status', 'last_contacted_at', 'notes'];
+        const escapeCsv = (val: string) => `"${val.replace(/"/g, '""')}"`;
+        const rows = filtered.map(l => [
+            l.company_name, l.email, l.country || '', l.group_name,
+            STATUS_LABEL[l.status], l.last_contacted_at || '', l.notes || '',
+        ].map(v => escapeCsv(String(v))).join(','));
+        const csv = [header.join(','), ...rows].join('\n');
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `b2b-leads-${new Date().toISOString().slice(0, 10)}.csv`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    };
+
+    const MAX_ATTACHMENT_BYTES = 3 * 1024 * 1024; // 3MB — stays safely under serverless request-body limits once base64-encoded.
+
+    const fileToBase64 = (file: File): Promise<string> => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(String(reader.result).split(',')[1] || '');
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+        });
+    };
+
+    const handleAttachmentPick = (file: File | null) => {
+        setAttachmentError('');
+        if (file && file.size > MAX_ATTACHMENT_BYTES) {
+            setAttachmentError('File is too large — please keep attachments under 3MB.');
+            setAttachment(null);
+            if (attachmentInputRef.current) attachmentInputRef.current.value = '';
+            return;
+        }
+        setAttachment(file);
     };
 
     const handleImportFile = async (file: File) => {
@@ -247,6 +360,11 @@ export default function B2BLeadsPage() {
         setSending(true);
         setSendProgress({ done: 0, total: selectedLeads.length, failed: 0 });
 
+        const ccList = cc.split(',').map(e => e.trim()).filter(Boolean);
+        const attachmentPayload = attachment
+            ? { filename: attachment.name, content: await fileToBase64(attachment) }
+            : null;
+
         let done = 0;
         let failed = 0;
         for (const lead of selectedLeads) {
@@ -258,9 +376,11 @@ export default function B2BLeadsPage() {
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         to: lead.email,
+                        cc: ccList,
                         companyName: lead.company_name,
                         subject: personalizedSubject,
                         message: personalizedMessage,
+                        attachment: attachmentPayload,
                     }),
                 });
                 if (!res.ok) throw new Error('send failed');
@@ -289,6 +409,10 @@ export default function B2BLeadsPage() {
         setShowCompose(false);
         setSubject('');
         setMessage('');
+        setCc('');
+        setAttachment(null);
+        setAttachmentError('');
+        if (attachmentInputRef.current) attachmentInputRef.current.value = '';
         setSendProgress({ done: 0, total: 0, failed: 0 });
     };
 
@@ -361,6 +485,9 @@ export default function B2BLeadsPage() {
                 <Button variant="outline" onClick={() => setShowAddForm(!showAddForm)} className="bg-white gap-2">
                     <Plus className="w-4 h-4" /> Add Company
                 </Button>
+                <Button variant="outline" onClick={exportCsv} disabled={filtered.length === 0} className="bg-white gap-2">
+                    <Download className="w-4 h-4" /> Export CSV
+                </Button>
             </div>
 
             {importMsg && (
@@ -391,9 +518,22 @@ export default function B2BLeadsPage() {
 
             {/* Selection bar */}
             {selected.size > 0 && (
-                <div className="sticky top-2 z-20 flex items-center justify-between bg-gray-900 text-white rounded-xl px-4 py-3 mb-4 shadow-lg">
+                <div className="sticky top-2 z-20 flex flex-wrap items-center justify-between gap-2 bg-gray-900 text-white rounded-xl px-4 py-3 mb-4 shadow-lg">
                     <span className="text-sm font-bold">{selected.size} compan{selected.size > 1 ? 'ies' : 'y'} selected</span>
-                    <div className="flex gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
+                        <select
+                            defaultValue=""
+                            onChange={e => { if (e.target.value) { handleBulkStatusChange(e.target.value as LeadStatus); e.target.value = ''; } }}
+                            className="h-8 rounded-lg bg-white/10 border border-white/20 text-white text-xs px-2 outline-none"
+                        >
+                            <option value="" disabled>Change status to...</option>
+                            {(Object.keys(STATUS_LABEL) as LeadStatus[]).map(s => (
+                                <option key={s} value={s} className="text-gray-900">{STATUS_LABEL[s]}</option>
+                            ))}
+                        </select>
+                        <Button size="sm" variant="ghost" onClick={handleBulkDelete} disabled={bulkDeleting} className="text-red-300 hover:bg-red-500/10 hover:text-red-200 gap-1.5">
+                            <Trash2 className="w-3.5 h-3.5" /> Delete
+                        </Button>
                         <Button size="sm" variant="ghost" onClick={() => setSelected(new Set())} className="text-white hover:bg-white/10">
                             Clear
                         </Button>
@@ -435,7 +575,14 @@ export default function B2BLeadsPage() {
                                             <input type="checkbox" checked={selected.has(l.id)} onChange={() => toggleSelect(l.id)} />
                                         </td>
                                         <td className="px-4 py-3">
-                                            <p className="font-bold text-gray-900">{l.company_name}</p>
+                                            <div className="flex items-center gap-1.5">
+                                                <p className="font-bold text-gray-900">{l.company_name}</p>
+                                                {l.notes && (
+                                                    <span title={l.notes}>
+                                                        <StickyNote className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                                                    </span>
+                                                )}
+                                            </div>
                                             <p className="text-xs text-gray-500 flex items-center gap-1"><Mail className="w-3 h-3" />{l.email}</p>
                                         </td>
                                         <td className="px-4 py-3 text-gray-600">{l.country || '—'}</td>
@@ -443,15 +590,39 @@ export default function B2BLeadsPage() {
                                             <span className="text-xs font-medium bg-gray-100 text-gray-700 px-2 py-0.5 rounded">{l.group_name}</span>
                                         </td>
                                         <td className="px-4 py-3">
-                                            <Badge className={STATUS_COLOR[l.status]}>{STATUS_LABEL[l.status]}</Badge>
+                                            <select
+                                                value={l.status}
+                                                onChange={e => handleStatusChange(l, e.target.value as LeadStatus)}
+                                                className={`text-xs font-bold rounded-full px-2 py-1 border outline-none cursor-pointer ${STATUS_COLOR[l.status]}`}
+                                            >
+                                                {(Object.keys(STATUS_LABEL) as LeadStatus[]).map(s => (
+                                                    <option key={s} value={s}>{STATUS_LABEL[s]}</option>
+                                                ))}
+                                            </select>
                                         </td>
                                         <td className="px-4 py-3 text-xs text-gray-500">
                                             {l.last_contacted_at ? new Date(l.last_contacted_at).toLocaleDateString() : '—'}
                                         </td>
                                         <td className="px-4 py-3 text-right">
-                                            <button onClick={() => handleDelete(l.id)} className="p-1.5 rounded-lg hover:bg-red-50 transition-colors text-gray-400 hover:text-red-600">
-                                                <Trash2 className="w-4 h-4" />
-                                            </button>
+                                            <div className="flex items-center justify-end gap-1">
+                                                <button
+                                                    onClick={() => openComposeForSingle(l)}
+                                                    title="Email this company"
+                                                    className="p-1.5 rounded-lg hover:bg-primary/10 transition-colors text-gray-400 hover:text-primary"
+                                                >
+                                                    <Mail className="w-4 h-4" />
+                                                </button>
+                                                <button
+                                                    onClick={() => openEdit(l)}
+                                                    title="Edit company"
+                                                    className="p-1.5 rounded-lg hover:bg-gray-100 transition-colors text-gray-400 hover:text-gray-700"
+                                                >
+                                                    <Pencil className="w-4 h-4" />
+                                                </button>
+                                                <button onClick={() => handleDelete(l.id)} className="p-1.5 rounded-lg hover:bg-red-50 transition-colors text-gray-400 hover:text-red-600">
+                                                    <Trash2 className="w-4 h-4" />
+                                                </button>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))}
@@ -475,8 +646,19 @@ export default function B2BLeadsPage() {
                                 {groupFilter !== 'all' ? ` in "${groupFilter}"` : ''}. Use <code className="bg-gray-200 px-1 rounded">{'{{company}}'}</code> anywhere to insert each company's name automatically.
                             </p>
                             <div>
+                                <EmailTemplatePicker
+                                    subject={subject}
+                                    message={message}
+                                    onLoad={(s, b) => { setSubject(s); setMessage(b); }}
+                                />
+                            </div>
+                            <div>
                                 <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Subject *</label>
                                 <Input value={subject} onChange={e => setSubject(e.target.value)} placeholder="Partnership Opportunity — Ground Transport in Saudi Arabia" disabled={sending} />
+                            </div>
+                            <div>
+                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">CC (optional, comma separated)</label>
+                                <Input value={cc} onChange={e => setCc(e.target.value)} placeholder="teammate@taxiserviceksa.com" disabled={sending} />
                             </div>
                             <div>
                                 <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Message *</label>
@@ -487,6 +669,30 @@ export default function B2BLeadsPage() {
                                     rows={10}
                                     disabled={sending}
                                 />
+                            </div>
+                            <div>
+                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Attachment (optional, max 3MB)</label>
+                                <input
+                                    ref={attachmentInputRef}
+                                    type="file"
+                                    className="hidden"
+                                    onChange={e => handleAttachmentPick(e.target.files?.[0] || null)}
+                                    disabled={sending}
+                                />
+                                {attachment ? (
+                                    <div className="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm">
+                                        <span className="flex items-center gap-1.5 text-gray-700 truncate"><Paperclip className="w-3.5 h-3.5 shrink-0" /> {attachment.name}</span>
+                                        <button type="button" onClick={() => handleAttachmentPick(null)} disabled={sending} className="text-gray-400 hover:text-red-500 shrink-0">
+                                            <X className="w-4 h-4" />
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <Button type="button" variant="outline" size="sm" onClick={() => attachmentInputRef.current?.click()} disabled={sending} className="bg-white gap-1.5">
+                                        <Paperclip className="w-3.5 h-3.5" /> Attach File
+                                    </Button>
+                                )}
+                                {attachmentError && <p className="text-xs text-red-500 mt-1">{attachmentError}</p>}
+                                <p className="text-[11px] text-gray-400 mt-1">Same file is attached to every email in this campaign.</p>
                             </div>
 
                             {sendProgress.total > 0 && (
@@ -517,6 +723,57 @@ export default function B2BLeadsPage() {
                                     className="bg-primary text-black hover:bg-black hover:text-white font-bold gap-2"
                                 >
                                     {sending ? <><Loader2 className="w-4 h-4 animate-spin" /> Sending...</> : <><Send className="w-4 h-4" /> Send Campaign</>}
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Edit Company Panel */}
+            {editingLead && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50" onClick={closeEdit}>
+                    <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto" onClick={e => e.stopPropagation()}>
+                        <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+                            <h2 className="font-black text-gray-900">Edit Company</h2>
+                            <button onClick={closeEdit} className="text-gray-400 hover:text-gray-700"><X className="w-5 h-5" /></button>
+                        </div>
+                        <div className="p-6 space-y-4">
+                            <div>
+                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Company Name *</label>
+                                <Input value={editForm.company_name} onChange={e => setEditForm(f => ({ ...f, company_name: e.target.value }))} />
+                            </div>
+                            <div>
+                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Email *</label>
+                                <Input type="email" value={editForm.email} onChange={e => setEditForm(f => ({ ...f, email: e.target.value }))} />
+                            </div>
+                            <div className="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Country</label>
+                                    <Input value={editForm.country} onChange={e => setEditForm(f => ({ ...f, country: e.target.value }))} />
+                                </div>
+                                <div>
+                                    <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Group</label>
+                                    <Input value={editForm.group_name} onChange={e => setEditForm(f => ({ ...f, group_name: e.target.value }))} />
+                                </div>
+                            </div>
+                            <div>
+                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Notes</label>
+                                <Textarea
+                                    value={editForm.notes}
+                                    onChange={e => setEditForm(f => ({ ...f, notes: e.target.value }))}
+                                    placeholder="e.g. Spoke on phone 20 Jul, interested in group Umrah packages..."
+                                    rows={4}
+                                />
+                            </div>
+                            <div className="flex justify-end gap-3 pt-2">
+                                <Button variant="outline" onClick={closeEdit} disabled={savingEdit}>Cancel</Button>
+                                <Button
+                                    onClick={handleSaveEdit}
+                                    disabled={savingEdit || !editForm.company_name.trim() || !editForm.email.includes('@')}
+                                    className="bg-primary text-black hover:bg-black hover:text-white font-bold"
+                                >
+                                    {savingEdit ? 'Saving...' : 'Save Changes'}
                                 </Button>
                             </div>
                         </div>

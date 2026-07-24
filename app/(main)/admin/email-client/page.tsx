@@ -1,13 +1,25 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { adminFetch } from '@/lib/admin-fetch';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Send, Search, User, CheckCircle2, X } from 'lucide-react';
+import { Mail, Send, Search, User, CheckCircle2, X, Paperclip } from 'lucide-react';
+import EmailTemplatePicker from '@/components/admin/EmailTemplatePicker';
+
+const MAX_ATTACHMENT_BYTES = 3 * 1024 * 1024; // 3MB — stays safely under serverless request-body limits once base64-encoded.
+
+function fileToBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(String(reader.result).split(',')[1] || '');
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+    });
+}
 
 interface RecentClient {
     bookingId: string;
@@ -28,9 +40,23 @@ export default function EmailClientPage() {
     const [cc, setCc] = useState('');
     const [subject, setSubject] = useState('');
     const [message, setMessage] = useState('');
+    const [attachment, setAttachment] = useState<File | null>(null);
+    const [attachmentError, setAttachmentError] = useState('');
+    const attachmentInputRef = useRef<HTMLInputElement>(null);
 
     const [sending, setSending] = useState(false);
     const [result, setResult] = useState<{ ok: boolean; text: string } | null>(null);
+
+    const handleAttachmentPick = (file: File | null) => {
+        setAttachmentError('');
+        if (file && file.size > MAX_ATTACHMENT_BYTES) {
+            setAttachmentError('File is too large — please keep attachments under 3MB.');
+            setAttachment(null);
+            if (attachmentInputRef.current) attachmentInputRef.current.value = '';
+            return;
+        }
+        setAttachment(file);
+    };
 
     useEffect(() => {
         supabase.auth.getSession().then(({ data: { session } }) => {
@@ -86,6 +112,9 @@ export default function EmailClientPage() {
         setSending(true);
         try {
             const ccList = cc.split(',').map(e => e.trim()).filter(Boolean);
+            const attachmentPayload = attachment
+                ? { filename: attachment.name, content: await fileToBase64(attachment) }
+                : null;
             const res = await adminFetch('/api/send-client-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -96,6 +125,7 @@ export default function EmailClientPage() {
                     message,
                     bookingId: selected?.bookingId,
                     customerName: selected?.name,
+                    attachment: attachmentPayload,
                 }),
             });
             if (!res.ok) {
@@ -105,6 +135,8 @@ export default function EmailClientPage() {
             setResult({ ok: true, text: `Email sent to ${to}` });
             setSubject('');
             setMessage('');
+            setAttachment(null);
+            if (attachmentInputRef.current) attachmentInputRef.current.value = '';
         } catch (err: any) {
             setResult({ ok: false, text: err.message || 'Something went wrong.' });
         } finally {
@@ -214,6 +246,13 @@ export default function EmailClientPage() {
                                 />
                             </div>
                             <div>
+                                <EmailTemplatePicker
+                                    subject={subject}
+                                    message={message}
+                                    onLoad={(s, b) => { setSubject(s); setMessage(b); }}
+                                />
+                            </div>
+                            <div>
                                 <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Subject *</label>
                                 <Input
                                     value={subject}
@@ -230,6 +269,28 @@ export default function EmailClientPage() {
                                     rows={10}
                                 />
                                 <p className="text-xs text-gray-400 mt-1">Sent inside the standard Taxi Service KSA branded email template.</p>
+                            </div>
+                            <div>
+                                <label className="block text-xs font-bold text-gray-500 uppercase mb-1">Attachment (optional, max 3MB)</label>
+                                <input
+                                    ref={attachmentInputRef}
+                                    type="file"
+                                    className="hidden"
+                                    onChange={e => handleAttachmentPick(e.target.files?.[0] || null)}
+                                />
+                                {attachment ? (
+                                    <div className="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm">
+                                        <span className="flex items-center gap-1.5 text-gray-700 truncate"><Paperclip className="w-3.5 h-3.5 shrink-0" /> {attachment.name}</span>
+                                        <button type="button" onClick={() => handleAttachmentPick(null)} className="text-gray-400 hover:text-red-500 shrink-0">
+                                            <X className="w-4 h-4" />
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <Button type="button" variant="outline" size="sm" onClick={() => attachmentInputRef.current?.click()} className="bg-white gap-1.5">
+                                        <Paperclip className="w-3.5 h-3.5" /> Attach File
+                                    </Button>
+                                )}
+                                {attachmentError && <p className="text-xs text-red-500 mt-1">{attachmentError}</p>}
                             </div>
                         </div>
 

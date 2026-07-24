@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
         if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
         const body = await request.json();
-        const { to, cc, subject, message, bookingId, customerName } = body;
+        const { to, cc, subject, message, bookingId, customerName, attachment } = body;
 
         if (!to || !subject || !message) {
             return NextResponse.json({ error: 'To, subject, and message are required' }, { status: 400 });
@@ -47,9 +47,20 @@ export async function POST(request: NextRequest) {
             <div style="padding: 30px; border: 1px solid #eee; border-top: none; border-radius: 0 0 10px 10px; background-color: #fff;">
                 ${greetingName ? `<p style="font-size: 16px; margin-top: 0;">Dear <strong>${greetingName}</strong>,</p>` : ''}
                 ${paragraphs}
-                <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
+
+                <table role="presentation" style="margin-top: 28px; border-top: 1px solid #eee; padding-top: 18px;">
+                    <tr>
+                        <td style="padding-right: 16px;">
+                            <img src="https://taxiserviceksa.com/ismail-signature.png" alt="Ismail" style="height: 36px; display: block;" />
+                            <p style="margin: 4px 0 0; font-size: 13px; font-weight: bold; color: #111;">Ismail</p>
+                            <p style="margin: 0; font-size: 11px; color: #888;">Director, Taxi Service KSA</p>
+                        </td>
+                    </tr>
+                </table>
+
+                <hr style="border: none; border-top: 1px solid #eee; margin: 24px 0 14px;">
                 <p style="font-size: 12px; color: #999; text-align: center;">
-                    Taxi Service KSA &bull; info@taxiserviceksa.com &bull; +966 56 948 7569
+                    Taxi Service KSA &bull; info@taxiserviceksa.com &bull; +966 56 948 7569 &bull; www.taxiserviceksa.com
                 </p>
             </div>
         </div>`;
@@ -60,6 +71,9 @@ export async function POST(request: NextRequest) {
             subject,
             html,
             replyTo: 'info@taxiserviceksa.com',
+            attachments: attachment?.filename && attachment?.content
+                ? [{ filename: attachment.filename, content: attachment.content }]
+                : undefined,
         });
 
         if (bookingId) {
