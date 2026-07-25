@@ -46,10 +46,10 @@ export const metadata: Metadata = {
 
 export default function AlKhobarPage() {
     const services = [
-        { name: 'VIP Bahrain Causeway', description: 'Premium cross-border transfers via King Fahd Causeway to Bahrain.', icon: Car },
-        { name: 'Executive Coastal Tour', description: 'VIP tours of Al Khobar Corniche and the Eastern Province waterfront.', icon: MapPin },
-        { name: 'Full-Day VIP Chauffeur', description: 'Dedicated executive driver for business meetings and shopping at Al Rashid Mall.', icon: ShoppingBag },
-        { name: 'Executive Airport Pickup', description: 'VIP meet & greet at King Fahd International Airport (DMM) to Khobar.', icon: Plane },
+        { name: 'Bahrain Causeway', description: 'Premium cross-border transfers via King Fahd Causeway to Bahrain.', icon: Car },
+        { name: 'Executive Coastal Tour', description: 'Tours of Al Khobar Corniche and the Eastern Province waterfront.', icon: MapPin },
+        { name: 'Full-Day Chauffeur', description: 'Dedicated executive driver for business meetings and shopping at Al Rashid Mall.', icon: ShoppingBag },
+        { name: 'Executive Airport Pickup', description: 'Meet & greet at King Fahd International Airport (DMM) to Khobar.', icon: Plane },
     ];
 
     const features = [
@@ -75,7 +75,7 @@ export default function AlKhobarPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Al Khobar"
-                description="Professional VIP transfers in Al Khobar. Specializing in King Fahd Causeway trips to Bahrain, coastal tours, and executive DMM Airport transfers."
+                description="Professional transfers in Al Khobar. Specializing in King Fahd Causeway trips to Bahrain, coastal tours, and executive DMM Airport transfers."
                 services={services}
                 
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
@@ -89,12 +89,11 @@ export default function AlKhobarPage() {
                 h1Text="Private Car Transfer, Taxi and Chauffeur Service in Al Khobar"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Al Khobar"
                 title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        VIP Chauffeur Service Khobar
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> Chauffeur Service Khobar
                     </span>
                 }
                 subtitle="Business & International Leisure Transport"
-                location="Bahrain Causeway • DMM Airport • VIP"
+                location="Bahrain Causeway • DMM Airport •"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
@@ -128,8 +127,7 @@ export default function AlKhobarPage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked Airport, Intercity, and VIP Causeway transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Airport, Intercity, and Causeway transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -262,7 +260,7 @@ export default function AlKhobarPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Khobar VIP Transfer</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Khobar Transfer</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                         {features.map((feature, index) => (
@@ -350,9 +348,9 @@ export default function AlKhobarPage() {
                     <MicroSemanticFAQ
                         faqs={[
                             {
-                                question: "Is there a VIP transfer service from Al Khobar to Bahrain?",
-                                shortAnswer: "Yes, VIP Causeway Trips",
-                                detailedAnswer: "We specialize in cross-border VIP transfers via King Fahd Causeway. Ensure you have your passport/ID and visa ready. We handle the vehicle insurance paperwork for the bridge.",
+                                question: "Is there a transfer service from Al Khobar to Bahrain?",
+                                shortAnswer: "Yes, Causeway Trips",
+                                detailedAnswer: "We specialize in cross-border transfers via King Fahd Causeway. Ensure you have your passport/ID and visa ready. We handle the vehicle insurance paperwork for the bridge.",
                                 perspectives: [
                                     { role: "Driver", icon: "Car", insight: "Thursday evenings are busy; weekday mornings are fastest." },
                                     { role: "Business", icon: "Briefcase", insight: "Direct hotel-to-hotel (Khobar to Manama) service is seamless." }
@@ -396,8 +394,7 @@ export default function AlKhobarPage() {
                             <span className="text-sm font-semibold text-yellow-900">Fixed Fares</span>
                         </div>
 
-                        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                            Khobar VIP Transfer Fares
+                        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6"> Khobar Transfer Fares
                         </h3>
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                             Transparent rates for Bahrain Causeway and Airport transfers.
@@ -413,8 +410,7 @@ export default function AlKhobarPage() {
                             <div className="text-4xl font-black text-primary mb-3">
                                 <span className="text-2xl">From</span> SAR 350
                             </div>
-                            <div className="text-sm text-gray-600 leading-relaxed">
-                                VIP Causeway Transfer
+                            <div className="text-sm text-gray-600 leading-relaxed"> Causeway Transfer
                             </div>
                         </div>
 
@@ -438,7 +434,7 @@ export default function AlKhobarPage() {
                             <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                                 <ShoppingBag className="w-6 h-6 text-primary" />
                             </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">VIP City Disposal</div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">City Disposal</div>
                             <div className="text-4xl font-black text-primary mb-3">
                                 <span className="text-2xl">From</span> SAR 600
                             </div>
@@ -457,8 +453,7 @@ export default function AlKhobarPage() {
             {/* CTA Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Get a quote for your Al Khobar VIP Transfer
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6"> Get a quote for your Al Khobar Transfer
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                         Professional transport for Causeway trips, Corniche visits, and Airport transfers.

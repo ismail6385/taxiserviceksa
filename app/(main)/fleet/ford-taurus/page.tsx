@@ -10,7 +10,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'Ford Taurus 2026 VIP Transfer Saudi Arabia | Premium Sedan',
+    title: 'Ford Taurus 2026 Transfer Saudi Arabia | Premium Sedan',
     description: 'Book the all-new Ford Taurus 2026 private transfer in Saudi Arabia. Modern 3-seater sedan with first-class technology and comfort for city and airport transfers.',
     keywords: ['Ford Taurus 2026 VIP transfer', 'Ford Taurus chauffeur KSA', 'premium sedan transfer Riyadh', 'new Ford Taurus taxi Saudi Arabia', 'Ford Taurus executive car'],
     alternates: {
@@ -99,7 +99,7 @@ export default function FordTaurusPage() {
                         <div>
                             <h2 className="text-4xl font-black text-gray-900 mb-8 leading-tight tracking-tighter uppercase">Next-Generation Private Travel</h2>
                             <p className="text-gray-600 text-xl leading-relaxed mb-8">
-                                Step into the future of premium transportation with our <strong>Ford Taurus 2026 VIP private transfer</strong>. Completely redesigned for the modern professional, the new Taurus combines sleek aesthetics with a whisper-quiet interior and cutting-edge technology.
+                                Step into the future of premium transportation with our <strong>Ford Taurus 2026 private transfer</strong>. Completely redesigned for the modern professional, the new Taurus combines sleek aesthetics with a whisper-quiet interior and cutting-edge technology.
                             </p>
                             
                             <div className="space-y-6 mb-12">
@@ -194,7 +194,7 @@ export default function FordTaurusPage() {
             <div className="bg-blue-900 py-32 text-center px-4 relative overflow-hidden rounded-t-[5rem]">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
-                    <h2 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-none upppercase">THE FUTURE OF <br/> VIP TRANSPORT</h2>
+                    <h2 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-none upppercase">THE FUTURE OF <br/> TRANSPORT</h2>
                     <p className="text-blue-100/60 text-xl mb-12 max-w-2xl mx-auto">Experience the all-new 2026 Ford Taurus today. Professional chauffeurs and modern luxury at fixed rates.</p>
                     <Link href="/booking/?vehicle=ford-taurus">
                         <Button size="lg" className="bg-white hover:bg-blue-100 text-blue-900 font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl transition-all hover:scale-105">

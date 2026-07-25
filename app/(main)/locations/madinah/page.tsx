@@ -56,10 +56,10 @@ export const metadata: Metadata = {
 
 export default async function MadinahPage() {
     const services = [
-        { name: 'VIP Airport Pickup', description: 'VIP meet & greet at Prince Mohammad Bin Abdulaziz Airport (MED) to your Hotel.', icon: Plane },
-        { name: 'VIP Ziyarat Tours', description: 'Visit Quba Mosque, Mount Uhud, and Seven Mosques with a professional English-speaking chauffeur.', icon: Compass },
-        { name: 'Madinah to Makkah VIP', description: 'Luxury intercity transfer for Umrah pilgrims. Direct, private, and comfortable.', icon: Car },
-        { name: 'Full-Day VIP Chauffeur', description: 'Dedicated private chauffeur for your entire stay in Madinah. Available 24/7.', icon: Briefcase },
+        { name: 'Airport Pickup', description: 'Meet & greet at Prince Mohammad Bin Abdulaziz Airport (MED) to your Hotel.', icon: Plane },
+        { name: 'Ziyarat Tours', description: 'Visit Quba Mosque, Mount Uhud, and Seven Mosques with a professional English-speaking chauffeur.', icon: Compass },
+        { name: 'Madinah to Makkah', description: 'Luxury intercity transfer for Umrah pilgrims. Direct, private, and comfortable.', icon: Car },
+        { name: 'Full-Day Chauffeur', description: 'Dedicated private chauffeur for your entire stay in Madinah. Available 24/7.', icon: Briefcase },
     ];
 
     const madinahImages = [
@@ -80,7 +80,7 @@ export default async function MadinahPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Madinah" 
-                description="Premium VIP private transfer service in Madinah. Specialized Prince Mohammad Airport (MED) pickups and executive Ziyarat tours. Professional intercity transfers to Makkah."
+                description="Premium private transfer service in Madinah. Specialized Prince Mohammad Airport (MED) pickups and executive Ziyarat tours. Professional intercity transfers to Makkah."
                 services={services}
                 
                 image="https://taxiserviceksa.com/madinah-prophets-mosque.webp"
@@ -92,8 +92,7 @@ export default async function MadinahPage() {
                 h1Text="2026 Private Car Transfer, Taxi and Ziyarat Chauffeur Service in Madinah"
                 bookingFormTitle="WhatsApp Booking for 2026 Premium Transfer"
                 title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        2026 VIP Chauffeur Service Madinah
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> 2026 Chauffeur Service Madinah
                     </span>
                 }
                 subtitle="Exclusive Transport for Pilgrims & Families Seeking Excellence"
@@ -107,8 +106,7 @@ export default async function MadinahPage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked VIP Ziyarat, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Ziyarat, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -139,8 +137,7 @@ export default async function MadinahPage() {
                         <span className="bg-primary/10 text-gray-900 font-semibold tracking-wider uppercase text-sm px-4 py-2 rounded-full inline-block border border-primary/20">
                             Services in Madinah
                         </span>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mt-6 mb-4">
-                            Madinah VIP Transfer Services
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mt-6 mb-4"> Madinah Transfer Services
                         </h2>
                         <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
                             From Prince Mohammad Airport transfers to Ziyarat tours, we offer valid and reliable transport in the City of the Prophet.
@@ -204,7 +201,7 @@ export default async function MadinahPage() {
                                 <ul className="space-y-3">
                                     <li>
                                         <Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                            <span>VIP GMC Yukon (7 Seater)</span>
+                                            <span>GMC Yukon (7 Seater)</span>
                                             <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
                                         </Link>
                                     </li>
@@ -245,7 +242,7 @@ export default async function MadinahPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         {[
                             { name: 'Madinah Airport', slug: 'madinah-airport', desc: 'Stress-free Prince Mohammad Airport pickups.', icon: Plane },
-                            { name: 'Central Area', slug: 'central-area', desc: 'VIP hotel transfers in the Markaziya heart.', icon: Star },
+                            { name: 'Central Area', slug: 'central-area', desc: 'Hotel transfers in the Markaziya heart.', icon: Star },
                             { name: 'Quba Mosque', slug: 'quba', desc: 'Reliable service around the first mosque.', icon: Landmark },
                             { name: 'Uhud Area', slug: 'uhud', desc: 'Transport for Ziyarat and Uhud hotels.', icon: Compass },
                         ].map((district, idx) => (
@@ -284,8 +281,7 @@ export default async function MadinahPage() {
                                 <span className="text-sm font-semibold text-gray-900">For Ziyarat & Umrah</span>
                             </div>
 
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                                VIP Executive Transfer Service Madinah
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6"> Executive Transfer Service Madinah
                             </h2>
 
                             <div className="space-y-4 text-gray-700 leading-relaxed text-lg">
@@ -294,7 +290,7 @@ export default async function MadinahPage() {
                                 </p>
 
                                 <p>
-                                    Our executive service specializes in <strong>Prince Mohammad Bin Abdulaziz International Airport (MED) pickups, VIP Ziyarat tours, and intercity transfers to Makkah</strong>. Whether you are visiting holy sites like Masjid Quba and Mount Uhud or require a direct, private journey to your Makkah hotel, our 2026 fleet and professional chauffeurs ensure your travel is as serene as your spiritual visit.
+                                    Our executive service specializes in <strong>Prince Mohammad Bin Abdulaziz International Airport (MED) pickups, Ziyarat tours, and intercity transfers to Makkah</strong>. Whether you are visiting holy sites like Masjid Quba and Mount Uhud or require a direct, private journey to your Makkah hotel, our 2026 fleet and professional chauffeurs ensure your travel is as serene as your spiritual visit.
                                 </p>
                             </div>
 
@@ -355,8 +351,7 @@ export default async function MadinahPage() {
                             <span className="text-sm font-semibold text-black">24/7 Booking</span>
                         </div>
 
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-black mb-4">
-                            Need a Reliable VIP Transfer in Madinah?
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-black mb-4"> Need a Reliable Transfer in Madinah?
                         </h2>
                         <p className="text-lg md:text-xl text-black/90 mb-8 max-w-2xl mx-auto font-medium">
                             Book safe transport for Airport Pickup, Ziyarat Tours, and Makkah Transfers.
@@ -515,13 +510,12 @@ export default async function MadinahPage() {
             <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                            Madinah VIP Transfer FAQ
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6"> Madinah Transfer FAQ
                         </h2>
                     </div>
                     <Accordion type="single" collapsible className="w-full">
                         <AccordionItem value="item-1">
-                            <AccordionTrigger className="text-lg font-bold text-gray-900">How much is a VIP transfer from Madinah Airport to Masjid Nabawi?</AccordionTrigger>
+                            <AccordionTrigger className="text-lg font-bold text-gray-900">How much is a transfer from Madinah Airport to Masjid Nabawi?</AccordionTrigger>
                             <AccordionContent className="text-gray-600 text-base leading-relaxed">
                                 Our private transfer starts from SAR 80 to SAR 120 depending on the vehicle. This includes meet and greet service.
                             </AccordionContent>
@@ -553,8 +547,7 @@ export default async function MadinahPage() {
                         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
                             Madinah Travel Insights
                         </h2>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            Share your experience or ask a question about our VIP transfer services in Madinah.
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto"> Share your experience or ask a question about our transfer services in Madinah.
                         </p>
                     </div>
 

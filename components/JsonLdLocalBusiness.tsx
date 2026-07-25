@@ -68,7 +68,7 @@ export default function JsonLdLocalBusiness() {
             "opens": "00:00",
             "closes": "23:59"
         },
-        "description": "24/7 VIP Taxi & Executive Chauffeur Service in Saudi Arabia. Specializing in Umrah transfers, Jeddah Airport pickups, and all intercity travel across the Kingdom.",
+        "description": "24/7 Private Car, Taxi & Executive Chauffeur Service in Saudi Arabia. Specializing in Umrah transfers, Jeddah Airport pickups, and all intercity travel across the Kingdom.",
         "founder": {
             "@type": "Person",
             "name": "Muhammad Ismail"

@@ -10,7 +10,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'Mercedes Vito VIP Van Saudi Arabia | Executive Group Travel',
+    title: 'Mercedes Vito Van Saudi Arabia | Executive Group Travel',
     description: 'Book the elite Mercedes Vito private transfer in Saudi Arabia. Premium 7-seater executive van for business teams, families, and luxury tours. Professional chauffeurs and fixed rates.',
     keywords: ['Mercedes Vito VIP transfer', 'luxury van chauffeur KSA', 'Mercedes Vito Riyadh transfer', 'executive van service Saudi Arabia', 'VIP Mercedes van hire', 'Vito airport transfer'],
     alternates: {
@@ -99,7 +99,7 @@ export default function MercedesVitoPage() {
                         <div>
                             <h2 className="text-4xl font-black text-gray-900 mb-8 leading-tight uppercase tracking-tighter">Business Efficiency on the Move</h2>
                             <p className="text-gray-600 text-xl leading-relaxed mb-6">
-                                Seamlessly connect your business team with our <strong>Mercedes Vito VIP private transfer</strong>. Combining world-class German engineering with a versatile executive cabin, the Vito is the professional choice for medium-sized groups traveling in Saudi Arabia.
+                                Seamlessly connect your business team with our <strong>Mercedes Vito private transfer</strong>. Combining world-class German engineering with a versatile executive cabin, the Vito is the professional choice for medium-sized groups traveling in Saudi Arabia.
                             </p>
                             
                             <div className="space-y-6 mb-12">
@@ -181,7 +181,7 @@ export default function MercedesVitoPage() {
                         {
                             question: "Are your Vito vans equipped with WiFi?",
                             shortAnswer: "Yes, complimentary on-board WiFi.",
-                            detailedAnswer: "To support our business travelers, all Mercedes Vito VIP transfers come with high-speed 5G WiFi and charging ports at every seat to ensure productivity during the journey.",
+                            detailedAnswer: "To support our business travelers, all Mercedes Vito transfers come with high-speed 5G WiFi and charging ports at every seat to ensure productivity during the journey.",
                             perspectives: [
                                 { role: 'Tech Support', icon: 'Zap', insight: 'Stay connected even during long intercity transfers.' }
                             ]

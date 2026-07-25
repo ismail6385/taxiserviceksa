@@ -413,7 +413,7 @@ export default function TabukAirportTaxiPage() {
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black">GMC Yukon XL (recommended)</Link></li>
                                 <li><Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-black">Toyota Hiace (groups)</Link></li>
-                                <li><Link href="/fleet/cadillac-escalade/" className="text-gray-600 hover:text-black">Cadillac Escalade (VIP)</Link></li>
+                                <li><Link href="/fleet/cadillac-escalade/" className="text-gray-600 hover:text-black">Cadillac Escalade</Link></li>
                                 <li><Link href="/fleet/" className="text-black font-bold hover:underline">All Fleet →</Link></li>
                             </ul>
                         </div>
@@ -421,7 +421,7 @@ export default function TabukAirportTaxiPage() {
                             <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Shield className="w-4 h-4" /> Related Services</h4>
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/services/taxi-in-tabuk/" className="text-gray-600 hover:text-black">Taxi in Tabuk</Link></li>
-                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black">VIP Chauffeur</Link></li>
+                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black">Chauffeur</Link></li>
                                 <li><Link href="/services/bilingual-chauffeur/" className="text-gray-600 hover:text-black">English-Speaking Driver</Link></li>
                                 <li><Link href="/services/tourism-transport/" className="text-gray-600 hover:text-black">Tourist Transport</Link></li>
                             </ul>

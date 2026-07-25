@@ -114,7 +114,7 @@ export default function InsightsPage() {
                         </div>
                         <h3 className="text-xl font-bold text-gray-900 mb-4">Operational Data</h3>
                         <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                            Internal performance metrics and service quality reports ensuring transparency in our VIP transfer operations.
+                            Internal performance metrics and service quality reports ensuring transparency in our transfer operations.
                         </p>
                         <Link href="/about/" className="text-emerald-600 font-bold text-xs uppercase tracking-widest hover:underline">Learn More →</Link>
                     </div>

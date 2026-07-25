@@ -14,7 +14,7 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 
 
 export const metadata: Metadata = {
-    title: 'تاكسي الدمام إلى الدوحة | نقل VIP عبر الحدود | Taxi Service KSA',
+    title: 'تاكسي الدمام إلى الدوحة | نقل عبر الحدود | Taxi Service KSA',
     description: 'اطلب عرض سعر مميز لرحلة من الدمام إلى الدوحة. نقل موثوق عبر الحدود، سيارات دفع رباعي مريحة، وخدمة من الباب إلى الباب في جميع أنحاء الخليج.',
     keywords: ['تاكسي الدمام إلى الدوحة', 'نقل الدمام الدوحة', 'تاكسي عبور الحدود السعودية', 'نقل VIP الدمام الدوحة'],
     alternates: {
@@ -45,7 +45,7 @@ export default function DammamDohaRoutePageArabic() {
         <div className="bg-gray-50 min-h-screen rtl" dir="rtl">
             <JsonLdLocation
                 cityName="Dammam to Doha"
-                description="Professional VIP private car service for Dammam to Doha. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Dammam to Doha. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Dammam to Doha Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -63,7 +63,7 @@ export default function DammamDohaRoutePageArabic() {
                         خدمة عبور الحدود الخليجية
                     </span>
                 }
-                subtitle="نقل VIP سلس: من الدمام إلى الدوحة"
+                subtitle="نقل سلس: من الدمام إلى الدوحة"
                 location="خدمة من الباب إلى الباب"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -109,7 +109,7 @@ export default function DammamDohaRoutePageArabic() {
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <CheckCircle2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">راحة VIP</span>
+                                    <span className="font-semibold text-gray-800">راحة</span>
                                 </div>
                             </div>
                         </div>

@@ -247,7 +247,7 @@ export default function KuwaitRiyadhRoutePage() {
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <CheckCircle2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">VIP Comfort</span>
+                                    <span className="font-semibold text-gray-800">Comfort</span>
                                 </div>
                             </div>
                         </div>
@@ -272,7 +272,7 @@ export default function KuwaitRiyadhRoutePage() {
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center shrink-0 shadow-sm text-white font-bold"><CheckCircle2 className="w-5 h-5" /></div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Enjoy the VIP Ride</h4>
+                                        <h4 className="font-bold text-gray-900">Enjoy the Ride</h4>
                                         <p className="text-sm text-gray-500">Your premium SUV arrives at your doorstep. Sit back, relax, and enjoy the 650km journey.</p>
                                     </div>
                                 </li>
@@ -305,7 +305,7 @@ export default function KuwaitRiyadhRoutePage() {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
                                 <div>
                                     <span className="bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">Most Popular</span>
-                                    <h4 className="text-xl font-bold text-white">GMC / Chevrolet VIP SUV</h4>
+                                    <h4 className="text-xl font-bold text-white">GMC / Chevrolet SUV</h4>
                                     <p className="text-gray-300 text-sm">Perfect for families of 4-7 members.</p>
                                 </div>
                             </div>
@@ -436,7 +436,7 @@ export default function KuwaitRiyadhRoutePage() {
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="text-center mb-12">
                         <h2 className="text-3xl font-bold text-gray-900">What Our Cross-Border Clients Say</h2>
-                        <p className="text-gray-600 mt-4 max-w-2xl mx-auto">Real reviews from passengers who traveled between Kuwait and Riyadh with our VIP SUV service.</p>
+                        <p className="text-gray-600 mt-4 max-w-2xl mx-auto">Real reviews from passengers who traveled between Kuwait and Riyadh with our SUV service.</p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {[
@@ -645,7 +645,7 @@ export default function KuwaitRiyadhRoutePage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                         <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-md transition-shadow">
                             <h3 className="text-xl font-bold text-gray-900 mb-3">Taxi from Salmiya to Riyadh</h3>
-                            <p className="text-gray-600 text-sm">Enjoy direct VIP pick-ups from anywhere in Salmiya. Our chauffeurs come to your doorstep, handle your luggage, and prepare all border paperwork in advance. The journey from Salmiya to central Riyadh typically takes 7–8 hours via the Nuwaiseeb border crossing, with fixed rates starting from 170 KD.</p>
+                            <p className="text-gray-600 text-sm">Enjoy direct pick-ups from anywhere in Salmiya. Our chauffeurs come to your doorstep, handle your luggage, and prepare all border paperwork in advance. The journey from Salmiya to central Riyadh typically takes 7–8 hours via the Nuwaiseeb border crossing, with fixed rates starting from 170 KD.</p>
                         </div>
                         <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-md transition-shadow">
                             <h3 className="text-xl font-bold text-gray-900 mb-3">Taxi from Jabriya to Riyadh</h3>
@@ -661,7 +661,7 @@ export default function KuwaitRiyadhRoutePage() {
                         </div>
                         <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-md transition-shadow">
                             <h3 className="text-xl font-bold text-gray-900 mb-3">Taxi from Mahboula to Riyadh</h3>
-                            <p className="text-gray-600 text-sm">Traveling from Mahboula? Reserve our premium fleet for the entire 650 km journey in VIP comfort. Mahboula is one of our most frequently served areas, particularly popular with South Asian expats relocating between Kuwait and Riyadh. Our SUVs accommodate large families with multiple suitcases at no extra luggage fee.</p>
+                            <p className="text-gray-600 text-sm">Traveling from Mahboula? Reserve our premium fleet for the entire 650 km journey in comfort. Mahboula is one of our most frequently served areas, particularly popular with South Asian expats relocating between Kuwait and Riyadh. Our SUVs accommodate large families with multiple suitcases at no extra luggage fee.</p>
                         </div>
                         <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover:shadow-md transition-shadow">
                             <h3 className="text-xl font-bold text-gray-900 mb-3">Taxi from Salwa Kuwait to Riyadh</h3>

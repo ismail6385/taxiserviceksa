@@ -13,7 +13,7 @@ import RoutePerspective from '@/components/seo/RoutePerspective';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 
 export const metadata: Metadata = {
-    title: 'Makkah to Taif Taxi | Scenic Mountain Transfers | VIP Private Car | Taxi Service KSA',
+    title: 'Makkah to Taif Taxi | Scenic Mountain Transfers | Private Car | Taxi Service KSA',
     description: 'Book a premium private taxi from Makkah to Taif. Experience the scenic Al Hada mountain ascent in comfort. Fixed rates for hotel-to-hotel transfers and summer tours.',
     keywords: ['Taxi Makkah to Taif', 'Makkah to Taif Taxi', 'Makkah to Taif private car', 'Taif mountain transfer', 'Haram to Taif taxi', 'Umrah to Taif trip'],
     alternates: {
@@ -33,7 +33,7 @@ export default function MakkahTaifRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Makkah to Taif"
-                description="Luxury private car service from the Holy City of Makkah to the mountain city of Taif. Reliable VIP transfers for pilgrims and families."
+                description="Luxury private car service from the Holy City of Makkah to the mountain city of Taif. Reliable transfers for pilgrims and families."
                 services={[
                     { name: 'Makkah to Taif Taxi', description: 'Premium door-to-door transfer with professional chauffeurs.' },
                     { name: 'Taif Summer Tours', description: 'Full-day and half-day sightseeing trips to Taif attractions.' },
@@ -48,7 +48,7 @@ export default function MakkahTaifRoutePage() {
                 h1Text="Makkah to Taif Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Makkah → Taif VIP
+                        Makkah → Taif
                     </span>
                 }
                 subtitle="From the Holy City to the City of Roses"
@@ -88,7 +88,7 @@ export default function MakkahTaifRoutePage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                         <div className="prose prose-lg max-w-none">
-                            <h2 className="text-3xl font-black text-gray-900 mb-6 uppercase tracking-tight">Luxury Makkah to Taif VIP Transfers</h2>
+                            <h2 className="text-3xl font-black text-gray-900 mb-6 uppercase tracking-tight">Luxury Makkah to Taif Transfers</h2>
                             <p className="text-gray-600 leading-relaxed mb-6">
                                 After completing your Umrah in Makkah, there is no better way to relax than a trip to the cool mountains of Taif. Our <strong>Makkah to Taif taxi service</strong> offers a premium solution for pilgrims who value comfort and safety.
                             </p>
@@ -118,7 +118,7 @@ export default function MakkahTaifRoutePage() {
                                         { name: 'GMC Yukon Denali', type: 'V8 Power - Perfect for Ascent', cap: '7 Pax' },
                                         { name: 'Hyundai Staria VIP', type: 'Luxury Cabin - Panoramic Views', cap: '7 Pax' },
                                         { name: 'Toyota Camry', type: 'Efficient Executive Sedan', cap: '3 Pax' },
-                                        { name: 'Ford Taurus VIP', type: 'Premium Comfort', cap: '3 Pax' }
+                                        { name: 'Ford Taurus', type: 'Premium Comfort', cap: '3 Pax' }
                                     ].map((car, idx) => (
                                         <div key={idx} className="bg-white p-5 rounded-2xl flex items-center justify-between border border-gray-200 hover:border-primary transition-all">
                                             <div>

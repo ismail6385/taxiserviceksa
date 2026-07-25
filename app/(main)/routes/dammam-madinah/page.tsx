@@ -61,7 +61,7 @@ export default function DammamMadinahRoutePage() {
                         Direct Private Transfer for Ziyarat & Family Travel
                     </span>
                 }
-                subtitle="Eastern Province to the City of the Prophet | 9-10 Hours | 100% Private VIP"
+                subtitle="Eastern Province to the City of the Prophet | 9-10 Hours | 100% Private"
                 location="Door-to-Door Private Service - Your Schedule, Your Comfort"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -186,7 +186,7 @@ export default function DammamMadinahRoutePage() {
                 <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <div className="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-8 animate-pulse">
-                        100% Private VIP Transfers Only • No Shared Taxis
+                        100% Private Transfers Only • No Shared Taxis
                     </div>
                     <h2 className="text-3xl md:text-5xl font-black text-white mb-8 leading-tight">Get a quote for your Dammam to Madinah Taxi</h2>
                     <p className="text-gray-400 text-lg mb-10 italic">&quot;The preferred choice for Ziyarat visitors and families seeking total privacy on the journey to the Prophet&apos;s Mosque.&quot;</p>

@@ -61,7 +61,7 @@ export default function IntercityServicePage() {
 
     const faqs = [
         {
-            question: "How do I Request a quote for an intercity VIP transfer?",
+            question: "How do I Request a quote for an intercity transfer?",
             answer: "You can book easily through our website using the booking form. Simply select your pickup and drop-off cities to get an instant executive quote and confirmation."
         },
         {
@@ -118,7 +118,7 @@ export default function IntercityServicePage() {
                         Seamless Kingdom-Wide Travel
                     </span>
                     <h1 className="text-4xl md:text-6xl font-black text-white mb-6 px-4 leading-tight">
-                        Intercity VIP Transfer Service<br />
+Intercity Transfer Service<br />
                         <span className="text-primary">Across Saudi Arabia</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 mb-10">
@@ -296,7 +296,7 @@ export default function IntercityServicePage() {
                         <MicroSemanticFAQ
                             faqs={[
                                 {
-                                    question: "Is it safe to travel between cities by VIP transfer at night?",
+                                    question: "Is it safe to travel between cities by transfer at night?",
                                     shortAnswer: "Yes, generally safe.",
                                     detailedAnswer: "Saudi highways are well-lit and patrolled. Our drivers are experienced in night driving. However, for the most scenic views, day travel is recommended.",
                                     perspectives: [

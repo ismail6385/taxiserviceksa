@@ -169,7 +169,7 @@ export default function RiyadhChauffeurPage() {
     const serviceSchema = {
         '@context': 'https://schema.org',
         '@type': 'Service',
-        name: 'Private Chauffeur Service Riyadh — Corporate & VIP',
+        name: 'Private Chauffeur Service Riyadh — Corporate',
         serviceType: 'Private Chauffeur & Corporate Car with Driver',
         provider: {
             '@type': 'Organization',
@@ -183,7 +183,7 @@ export default function RiyadhChauffeurPage() {
             { '@type': 'City', name: 'Dammam' },
             { '@type': 'Country', name: 'Saudi Arabia' },
         ],
-        description: 'Premium private chauffeur and corporate car with driver service in Riyadh. Business meetings, airport transfers, tourism, VIP transport. Fixed rates, 24/7, Ministry of Transport licensed drivers.',
+        description: 'Premium private chauffeur and corporate car with driver service in Riyadh. Business meetings, airport transfers, tourism, transport. Fixed rates, 24/7, Ministry of Transport licensed drivers.',
         availableLanguage: [
             { '@type': 'Language', name: 'English' },
             { '@type': 'Language', name: 'Arabic' },
@@ -238,7 +238,7 @@ export default function RiyadhChauffeurPage() {
                     </span>
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
                         Private Chauffeur Riyadh<br />
-                        <span className="text-white/80">Corporate &amp; VIP Car with Driver</span>
+                        <span className="text-white/80">Corporate &amp; Car with Driver</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-4">
                         The best private chauffeur service in Riyadh — for executives, diplomats, business visitors, and international tourists. Professional drivers, luxury fleet, fixed rates 24/7.
@@ -503,7 +503,7 @@ export default function RiyadhChauffeurPage() {
                         <div>
                             <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Shield className="w-4 h-4" /> Related Services</h4>
                             <ul className="space-y-2 text-sm">
-                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black">VIP Chauffeur</Link></li>
+                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black">Chauffeur</Link></li>
                                 <li><Link href="/services/corporate-travel/" className="text-gray-600 hover:text-black">Corporate Travel</Link></li>
                                 <li><Link href="/services/private-driver/" className="text-gray-600 hover:text-black">Private Driver Hire</Link></li>
                                 <li><Link href="/services/bilingual-chauffeur/" className="text-gray-600 hover:text-black">English-Speaking Driver</Link></li>
@@ -574,7 +574,7 @@ export default function RiyadhChauffeurPage() {
                     <p className="text-gray-500 text-sm mt-6">
                         <Link href="/riyadh-airport-taxi/" className="text-gray-400 hover:text-white underline">RUH Airport Transfer</Link>
                         {' · '}
-                        <Link href="/services/vip-chauffeur/" className="text-gray-400 hover:text-white underline">VIP Chauffeur</Link>
+                        <Link href="/services/vip-chauffeur/" className="text-gray-400 hover:text-white underline">Chauffeur</Link>
                         {' · '}
                         <Link href="/services/corporate-travel/" className="text-gray-400 hover:text-white underline">Corporate Travel</Link>
                         {' · '}

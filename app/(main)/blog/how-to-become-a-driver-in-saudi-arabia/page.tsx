@@ -39,7 +39,7 @@ export default function HowToBecomeDriver() {
 
                     <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">1. Understanding the Market for Chauffeur Jobs Saudi</h2>
                     <p>
-                        Saudi Arabia isn't just about standard taxis anymore. The market has evolved into specialized segments: ride-hailing apps, corporate chauffeurs, and private VIP transport. The highest-paying opportunities lie in the VIP private transport sector, where drivers handle premium clients, airport transfers, and inter-city travel.
+                        Saudi Arabia isn't just about standard taxis anymore. The market has evolved into specialized segments: ride-hailing apps, corporate chauffeurs, and private transport. The highest-paying opportunities lie in the private transport sector, where drivers handle premium clients, airport transfers, and inter-city travel.
                     </p>
 
                     <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">2. Basic Requirements to Get Started</h2>
@@ -96,7 +96,7 @@ export default function HowToBecomeDriver() {
 
                     <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">4. Communication and Professionalism</h2>
                     <p>
-                        To truly succeed in <strong>taxi driver jobs KSA</strong>, you need more than just good driving skills. Arabic and English fluency is generally required for VIP services. Being courteous, maintaining a clean car, and assisting with luggage will guarantee high ratings and generous tips from premium clients.
+                        To truly succeed in <strong>taxi driver jobs KSA</strong>, you need more than just good driving skills. Arabic and English fluency is generally required for services. Being courteous, maintaining a clean car, and assisting with luggage will guarantee high ratings and generous tips from premium clients.
                     </p>
 
                     <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Conclusion</h2>

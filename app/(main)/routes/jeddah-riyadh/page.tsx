@@ -39,7 +39,7 @@ export default function JeddahRiyadhRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Jeddah to Riyadh"
-                description="Professional VIP private car service for Jeddah to Riyadh. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Jeddah to Riyadh. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Jeddah to Riyadh Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -311,8 +311,7 @@ export default function JeddahRiyadhRoutePage() {
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                         Get a quote for your Taxi Jeddah to Riyadh
                     </h2>
-                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Experience the trans-kingdom transfer with premium comfort. Professional chauffeurs, VIP vehicles, and fixed rates for your 950km journey.
+                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto"> Experience the trans-kingdom transfer with premium comfort. Professional chauffeurs, vehicles, and fixed rates for your 950km journey.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/?route=jeddah-riyadh">

@@ -20,7 +20,7 @@ const recentTrips = [
         route: "Madinah -> Jeddah Airport",
         date: "3 Days Ago",
         passenger: "Business Group from Malaysia",
-        vehicle: "HiAce VIP Bus",
+        vehicle: "HiAce Bus",
         highlight: "Direct transfer for Friday Prayer",
         rating: 5,
         image: "/madinah-prophets-mosque.webp"

@@ -26,24 +26,24 @@ export default function JsonLdLocation({
         "@graph": [
             {
                 "@type": "TaxiService",
-                "name": `VIP Taxi & Chauffeur Service in ${cityName}`,
+                "name": `Private Car, Taxi and Chauffeur Service in ${cityName}`,
                 "description": description,
                 "provider": {
                     "@type": "LocalBusiness",
                     "name": "TaxiServiceKSA",
                     "image": image || `${baseUrl}/logo.png`,
-                    "url": baseUrl
+                    "url": baseUrl,
+                    "aggregateRating": {
+                        "@type": "AggregateRating",
+                        "ratingValue": ratingValue,
+                        "reviewCount": reviewCount,
+                        "bestRating": "5",
+                        "worstRating": "1"
+                    }
                 },
                 "areaServed": {
                     "@type": "City",
                     "name": cityName
-                },
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": ratingValue,
-                    "reviewCount": reviewCount,
-                    "bestRating": "5",
-                    "worstRating": "1"
                 },
                 ...(priceRange && {
                     "offers": {

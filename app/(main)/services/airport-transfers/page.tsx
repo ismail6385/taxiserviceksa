@@ -17,14 +17,14 @@ import JsonLdLocation from '@/components/JsonLdLocation';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
-    title: 'VIP Airport Transfer Service Saudi Arabia | 8 Airports | Taxi Service KSA',
+    title: 'Airport Transfer Service Saudi Arabia | 8 Airports | Taxi Service KSA',
     description: 'Professional airport transfer service across Saudi Arabia. 8 major airports covered including Jeddah, Riyadh & Madinah. Executive meet-and-greet, flight tracking, fixed rates, 24/7 service.',
     keywords: ['VIP Airport Transfers Saudi Arabia'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/airport-transfers/',
     },
     openGraph: {
-        title: 'VIP Airport Transfer Service Saudi Arabia | Premium Chauffeur - 8 Airports | Taxi Service KSA',
+        title: 'Airport Transfer Service Saudi Arabia | Premium Chauffeur - 8 Airports | Taxi Service KSA',
         description: 'Professional airport transfer service across Saudi Arabia. 8 major airports covered. Executive meet-and-greet, flight tracking, 24/7 service.',
         url: 'https://taxiserviceksa.com/services/airport-transfers/',
         type: 'website',
@@ -157,7 +157,7 @@ export default async function AirportTransfersPage() {
 
     const faqs = [
         {
-            question: "How does the VIP meet-and-greet service work at Saudi airports?",
+            question: "How does the meet-and-greet service work at Saudi airports?",
             answer: "Driver waits at arrivals hall with name sign displaying passenger name. For Jeddah (JED), we meet at the **Aquarium (Terminal 1)** or **Gate 4 (North Terminal)**. For Madinah (MED), drivers wait at the main international exit barrier. Detailed meeting point photos are sent via email."
         },
         {
@@ -169,7 +169,7 @@ export default async function AirportTransfersPage() {
             answer: "Flight tracking is included for all airport pickups. Driver monitors real-time flight status via airline systems. No extra charges for delays up to 3 hours. For early arrivals, driver adjusts pickup time automatically. For delays over 3 hours, notify us via email for driver rescheduling."
         },
         {
-            question: "Do you provide airport transfer service for late-night or early-morning VIP flights?",
+            question: "Do you provide airport transfer service for late-night or early-morning flights?",
             answer: "Yes. Our VIP airport transfer service operates 24/7 for all flight times. Late-night pickups (10 PM - 6 AM) have the same competitive fixed rates as daytime service. Advance booking (24-48 hours) is recommended for flights arriving between midnight and 5 AM."
         },
         {
@@ -207,9 +207,9 @@ export default async function AirportTransfersPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Saudi Arabia Airport"
-                description="Professional VIP airport transfer and taxi services across 8 major Saudi Arabian airports including Jeddah, Riyadh, Madinah, and AlUla. Reliable 24/7 meet-and-greet service."
+                description="Professional airport transfer and taxi services across 8 major Saudi Arabian airports including Jeddah, Riyadh, Madinah, and AlUla. Reliable 24/7 meet-and-greet service."
                 services={[
-                    { name: 'VIP Airport Transfer', description: 'Premium meet-and-greet service at all major Saudi terminals.' },
+                    { name: 'Airport Transfer', description: 'Premium meet-and-greet service at all major Saudi terminals.' },
                     { name: 'Flight Tracking Pickup', description: 'Real-time flight monitoring for guaranteed zero-wait arrivals.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and luxury group travel.' },
                     { name: 'Family SUV Shuttle', description: 'Spacious GMC Yukon and Hiace vehicles for groups and luggage.' }
@@ -234,7 +234,7 @@ export default async function AirportTransfersPage() {
                         Expert Aviation Logistics
                     </span>
                     <h1 className="text-4xl md:text-6xl font-black text-white mb-6 px-4 leading-tight">
-                        VIP Airport Private Transfers<br />
+Airport Private Transfers<br />
                         <span className="text-primary">In Saudi Arabia</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 mb-10">
@@ -277,7 +277,7 @@ export default async function AirportTransfersPage() {
                                 Enterprise SEO is the practice of improving search engine rankings for a large, enterprise company. For a logistics provider like <strong>Taxi Service KSA</strong>, scaling content and technical SEO management is essential.
                             </p>
                             <p>
-                                With over 8 major airports and hundreds of route variations, our enterprise SEO strategy ensures that every traveler finding us for <strong>Jeddah Airport VIP Transfers</strong> or <strong>Riyadh Executive Shuttles</strong> gets the most relevant, real-time information.
+                                With over 8 major airports and hundreds of route variations, our enterprise SEO strategy ensures that every traveler finding us for <strong>Jeddah Airport Transfers</strong> or <strong>Riyadh Executive Shuttles</strong> gets the most relevant, real-time information.
                             </p>
                             <p>
                                 Many traditional SEO approaches aren’t going to work all that well on a site with complex transit networks. We adapt key enterprise SEO best practices—including automated schema and entity salience—to optimize thousands of pages for the modern traveler.
@@ -465,7 +465,7 @@ export default async function AirportTransfersPage() {
                                 </h4>
                                 <ul className="space-y-3 text-sm">
                                     <li><Link href="/services/riyadh-hotel-transfer/" className="text-gray-600 hover:text-primary transition-colors">Riyadh Hotel Transfer</Link></li>
-                                    <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-primary transition-colors">VIP Chauffeur Service</Link></li>
+                                    <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-primary transition-colors">Chauffeur Service</Link></li>
                                     <li><Link href="/services/bilingual-chauffeur/" className="text-gray-600 hover:text-primary transition-colors">English-Speaking Driver</Link></li>
                                     <li><Link href="/services/women-transport/" className="text-gray-600 hover:text-primary transition-colors">Women's Private Transport</Link></li>
                                     <li><Link href="/services/group-hiace-hire/" className="text-gray-600 hover:text-primary transition-colors">Group Van (Hiace) Hire</Link></li>
@@ -543,7 +543,7 @@ export default async function AirportTransfersPage() {
                 </div>
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Get a quote for your VIP Airport Chauffeur
+                        Get a quote for your Airport Chauffeur
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                         Secure your private transfer with Saudi Arabia's premium executive transport provider. Dedicated to international travelers and business excellence.

@@ -276,7 +276,7 @@ export default function WomenTransportPageArabic() {
                             <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Car className="w-4 h-4" /> الأسطول</h4>
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black">جمس يوكن (للعائلات)</Link></li>
-                                <li><Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-black">هيونداي ستاريا VIP</Link></li>
+                                <li><Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-black">هيونداي ستاريا</Link></li>
                                 <li><Link href="/fleet/toyota-camry/" className="text-gray-600 hover:text-black">تويوتا كامري (فردي)</Link></li>
                                 <li><Link href="/fleet/" className="text-black font-bold hover:underline">جميع السيارات ←</Link></li>
                             </ul>

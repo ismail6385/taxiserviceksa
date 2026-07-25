@@ -36,7 +36,7 @@ export default function KhobarToQatarTaxiPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation
                 cityName="Al Khobar to Qatar"
-                description="Professional VIP private car service from Al Khobar to Qatar via the Abu Samra/Salwa border. Reliable 24/7 door-to-door transfers with luxury vehicles."
+                description="Professional private car service from Al Khobar to Qatar via the Abu Samra/Salwa border. Reliable 24/7 door-to-door transfers with luxury vehicles."
                 services={[
                     { name: 'Al Khobar to Qatar Taxi', description: 'Premium private transfer via the Abu Samra border.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -54,7 +54,7 @@ export default function KhobarToQatarTaxiPage() {
                         Abu Samra Border Route
                     </span>
                 }
-                subtitle="Daily Transfers via the Border | 4-4.75 Hours | 100% Private VIP"
+                subtitle="Daily Transfers via the Border | 4-4.75 Hours | 100% Private"
                 location="Door-to-Door Private Service - Khobar to Doha"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">

@@ -49,7 +49,7 @@ export default function EventTransportPage() {
     const eventTypes = [
         {
             title: 'Wedding Guest Transport',
-            description: 'Coordinated guest transport for wedding ceremonies and receptions in Riyadh and Jeddah. Multiple vehicles assigned for arrival and departure waves. VIP bridal party transfers available.',
+            description: 'Coordinated guest transport for wedding ceremonies and receptions in Riyadh and Jeddah. Multiple vehicles assigned for arrival and departure waves. Bridal party transfers available.',
             icon: Heart,
             details: ['Hotel to venue guest shuttles', 'Bridal party private chauffeur', 'Multi-pickup coordination', 'Late-night return transfers'],
         },
@@ -125,7 +125,7 @@ export default function EventTransportPage() {
             answer: 'For weddings and large events, 2–4 weeks advance booking is recommended to ensure sufficient vehicle availability. For conferences and expos, 1–2 weeks notice is usually sufficient for groups under 50 people. For Riyadh Season events and major public shows, book as early as possible — demand peaks significantly during October to February.',
         },
         {
-            question: 'Can I book a private chauffeur for VIP guests at a corporate event?',
+            question: 'Can I book a private chauffeur for guests at a corporate event?',
             answer: 'Yes. Named private chauffeur assignments for VIP guests and speakers are available. Each VIP receives a dedicated driver for the duration of their visit — including airport pickup, hotel, venue, and return. The driver is briefed on the guest\'s schedule and remains on standby throughout the event day.',
         },
         {
@@ -157,7 +157,7 @@ export default function EventTransportPage() {
             { '@type': 'City', name: 'Jeddah' },
             { '@type': 'AdministrativeArea', name: 'Saudi Arabia' },
         ],
-        description: 'Professional event and wedding transport in Saudi Arabia. Private chauffeur for guests, VIP arrivals, conference delegates, and group logistics for events in Riyadh and Jeddah.',
+        description: 'Professional event and wedding transport in Saudi Arabia. Private chauffeur for guests, arrivals, conference delegates, and group logistics for events in Riyadh and Jeddah.',
         offers: {
             '@type': 'Offer',
             availability: 'https://schema.org/InStock',
@@ -268,7 +268,7 @@ export default function EventTransportPage() {
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Event Fleet</h2>
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                            Scalable fleet for events of any size — from a single VIP transfer to a 200-guest wedding shuttle operation.
+                            Scalable fleet for events of any size — from a single transfer to a 200-guest wedding shuttle operation.
                         </p>
                     </div>
                     <div className="overflow-x-auto">
@@ -327,7 +327,7 @@ export default function EventTransportPage() {
                                 <li><Link href="/fleet/toyota-coaster/" className="text-gray-600 hover:text-black transition-colors">Toyota Coaster (25 seats)</Link></li>
                                 <li><Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-black transition-colors">Toyota Hiace (11 seats)</Link></li>
                                 <li><Link href="/fleet/mercedes-sprinter/" className="text-gray-600 hover:text-black transition-colors">Mercedes Sprinter (14 seats)</Link></li>
-                                <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black transition-colors">GMC Yukon (VIP groups)</Link></li>
+                                <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black transition-colors">GMC Yukon ( groups)</Link></li>
                                 <li><Link href="/fleet/" className="text-black font-bold hover:underline">All Vehicles →</Link></li>
                             </ul>
                         </div>
@@ -347,7 +347,7 @@ export default function EventTransportPage() {
                                 <Users className="w-4 h-4" /> Related Services
                             </h4>
                             <ul className="space-y-2 text-sm">
-                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black transition-colors">VIP Chauffeur Service</Link></li>
+                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black transition-colors">Chauffeur Service</Link></li>
                                 <li><Link href="/services/corporate-travel/" className="text-gray-600 hover:text-black transition-colors">Corporate Travel</Link></li>
                                 <li><Link href="/services/private-driver/" className="text-gray-600 hover:text-black transition-colors">Private Driver (Daily)</Link></li>
                                 <li><Link href="/services/airport-transfers/" className="text-gray-600 hover:text-black transition-colors">Airport Transfers</Link></li>
@@ -403,7 +403,7 @@ export default function EventTransportPage() {
                     </div>
                     <p className="text-gray-500 text-sm mt-6">
                         Also available:{' '}
-                        <Link href="/services/vip-chauffeur/" className="text-gray-400 hover:text-white underline">VIP Chauffeur</Link>
+                        <Link href="/services/vip-chauffeur/" className="text-gray-400 hover:text-white underline">Chauffeur</Link>
                         {' · '}
                         <Link href="/services/private-driver/" className="text-gray-400 hover:text-white underline">Private Driver</Link>
                         {' · '}

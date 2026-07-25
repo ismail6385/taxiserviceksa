@@ -34,7 +34,7 @@ export default function AlBadLocationPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Al-Bad"
-                description="Professional VIP transfers in Al-Bad. Specializing in airport pickups, corporate travel, and comfortable intercity transfers."
+                description="Professional transfers in Al-Bad. Specializing in airport pickups, corporate travel, and comfortable intercity transfers."
                 services={[
                     { name: "Al-Bad Airport Pickup", description: "VIP meet & greet at the airport with flight tracking." },
                     { name: "Intercity Transfers", description: "Safe, direct transport to major Saudi cities." },
@@ -49,7 +49,7 @@ export default function AlBadLocationPage() {
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Al-Bad"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        VIP Chauffeur Service Al-Bad
+                        Chauffeur Service Al-Bad
                     </span>
                 }
                 subtitle="Premium Executive Transport Excellence"
@@ -70,7 +70,7 @@ export default function AlBadLocationPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
                         <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked long-distance and VIP Airport transfers. We do NOT provide local short-distance hailing.
+                        OFFICIAL NOTE: We specialize in pre-booked long-distance and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -81,13 +81,13 @@ export default function AlBadLocationPage() {
                         <div>
                             <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">Professional Transport</span>
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                                VIP Transfer Services in Al-Bad
+                                Transfer Services in Al-Bad
                             </h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                                 Navigating Al-Bad requires a reliable and comfortable mode of transport. Whether you are traveling for business, visiting family, or heading out for a long-distance intercity journey, our premium fleet is ready to serve you.
                             </p>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                We prioritize safety, punctuality, and discretion. Avoid the hassle of public transport or standard ride-hailing apps by pre-booking a dedicated VIP chauffeur.
+                                We prioritize safety, punctuality, and discretion. Avoid the hassle of public transport or standard ride-hailing apps by pre-booking a dedicated chauffeur.
                             </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

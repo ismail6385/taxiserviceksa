@@ -80,8 +80,7 @@ export default function AlHamraPage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked VIP Diplomtic, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Diplomtic, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -196,7 +195,7 @@ export default function AlHamraPage() {
                     {
                         question: "Do you have business cars?",
                         shortAnswer: "Yes",
-                        detailedAnswer: "We offer BMW, Mercedes, and Lexus options for VIP transfers to Al Hamra hotels.",
+                        detailedAnswer: "We offer BMW, Mercedes, and Lexus options for transfers to Al Hamra hotels.",
                         perspectives: []
                     }
                 ]}

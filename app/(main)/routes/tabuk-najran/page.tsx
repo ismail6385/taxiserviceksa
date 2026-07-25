@@ -42,7 +42,7 @@ export default function TabukNajranRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Tabuk to Najran"
-                description="Professional VIP private car service from Tabuk to Najran. Reliable, door-to-door long-distance transport for families and business travelers."
+                description="Professional private car service from Tabuk to Najran. Reliable, door-to-door long-distance transport for families and business travelers."
                 services={[
                     { name: 'Tabuk to Najran Taxi', description: 'Direct 24/7 private transfer with professional chauffeurs.' },
                     { name: 'Family SUV Transfer', description: 'Spacious and safe GMC Yukons for the drive between Tabuk and Najran.' },

@@ -13,7 +13,7 @@ import PricingTable from '@/components/PricingTable';
 import BookingProcess from '@/components/BookingProcess';
 
 export const metadata: Metadata = {
-    title: 'Taxi King Fahd Causeway Border Crossing 2026 | VIP Cross-Border',
+    title: 'Taxi King Fahd Causeway Border Crossing 2026 | Cross-Border Transfer',
     description: 'Book the best Taxi at King Fahd Causeway Border for 2026. Reliable cross-border transfers between Saudi Arabia and Bahrain. Fixed rates and expert drivers.',
     keywords: ['Taxi King Fahd Causeway border crossing 2026', 'Saudi to Bahrain taxi price', 'cross border taxi KSA Bahrain'],
     alternates: {
@@ -25,10 +25,10 @@ export default function KingFahdCausewayBorderPage() {
     const images = ['/hero-slide-3.webp', '/hero-slide-2.webp', '/jeddah-airport.webp'];
 
     const pricingRows = [
-        { vehicle: 'VIP GMC Yukon XL', description: 'Most stable for the 400km Riyadh-Bahrain run.', price: '1200', capacity: '7 Pax', isPopular: true },
+        { vehicle: 'GMC Yukon XL', description: 'Most stable for the 400km Riyadh-Bahrain run.', price: '1200', capacity: '7 Pax', isPopular: true },
         { vehicle: 'Standard Sedan', description: 'Toyota Camry or similar. Door-to-door.', price: '800', capacity: '3 Pax', isPopular: false },
         { vehicle: 'Hyundai Staria VIP', description: 'Luxury van for larger groups.', price: '1000', capacity: '7 Pax', isPopular: false },
-        { vehicle: 'VIP Sprinter', description: 'For corporate teams and big families.', price: '1800', capacity: '11 Pax', isPopular: false },
+        { vehicle: 'Mercedes Sprinter', description: 'For corporate teams and big families.', price: '1800', capacity: '11 Pax', isPopular: false },
     ];
 
     return (
@@ -38,7 +38,7 @@ export default function KingFahdCausewayBorderPage() {
                 h1Text="Taxi at King Fahd Causeway Border"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        2026 VIP Cross-Border
+                        2026 Cross-Border
                     </span>
                 }
                 subtitle="The Gold Standard for Saudi-Bahrain Transfers"
@@ -107,7 +107,7 @@ export default function KingFahdCausewayBorderPage() {
                         
                         <div className="space-y-4">
                             <EntityTrustSignal 
-                                brandName="TaxiServiceKSA Causeway VIP"
+                                brandName="TaxiServiceKSA Causeway"
                                 description="Specialized cross-border fleet with 10+ years of bridge experience."
                                 metrics={[
                                     { label: 'Weekly Crossings', value: '200+', icon: Navigation },
@@ -161,7 +161,7 @@ export default function KingFahdCausewayBorderPage() {
                             <span className="text-emerald-500 font-black uppercase tracking-widest text-xs mb-4 inline-block">Wait Time Strategy</span>
                             <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight italic">How We Handle Causeway Congestion</h2>
                             <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                                The bridge can be unpredictable. Unlike city taxis that might cancel if they see a long queue, our VIP drivers are committed to your journey.
+                                The bridge can be unpredictable. Unlike city taxis that might cancel if they see a long queue, our drivers are committed to your journey.
                             </p>
                             <ul className="space-y-4">
                                 <li className="flex items-center gap-3">
@@ -195,7 +195,7 @@ export default function KingFahdCausewayBorderPage() {
                         {
                             topic: "Crossing with Luggage",
                             commonBelief: "Customs check takes hours for luggage.",
-                            reality: "For private VIP cars, the luggage check is usually swift unless you have restricted items. Our drivers assist with unloading/loading if a scan is required.",
+                            reality: "For private cars, the luggage check is usually swift unless you have restricted items. Our drivers assist with unloading/loading if a scan is required.",
                             truthRange: "10-15 Mins for Private Cars",
                             factors: ["Vehicle Type", "Passenger Profile"]
                         },
@@ -235,7 +235,7 @@ export default function KingFahdCausewayBorderPage() {
                         {
                             question: "How much is a taxi from Riyadh to Bahrain in 2026?",
                             shortAnswer: "From 800 - 1200 SAR",
-                            detailedAnswer: "In 2026, a private sedan to Bahrain from Riyadh starts at 800 SAR, while our VIP GMC Yukon is 1200 SAR. This includes all bridge tolls and door-to-door service.",
+                            detailedAnswer: "In 2026, a private sedan to Bahrain from Riyadh starts at 800 SAR, while our GMC Yukon is 1200 SAR. This includes all bridge tolls and door-to-door service.",
                             perspectives: []
                         },
                         {

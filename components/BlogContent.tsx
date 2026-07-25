@@ -128,7 +128,7 @@ export default function BlogContent({ content }: BlogContentProps) {
                                 </span>
                                 <h4 className="text-2xl font-bold text-gray-900 mb-2">Need a lift right now?</h4>
                                 <p className="text-gray-700 text-sm md:text-base max-w-xl">
-                                    Don't delay your journey. Get a premium VIP Chauffeur with instant confirmation anywhere in Saudi Arabia.
+                                    Don't delay your journey. Get a premium chauffeur with instant confirmation anywhere in Saudi Arabia.
                                 </p>
                             </div>
                             <div className="w-full md:w-auto flex-shrink-0">

@@ -48,7 +48,7 @@ export default function JeddahTaifRoutePageArabic() {
         <div className="bg-gray-50 min-h-screen rtl" dir="rtl">
             <JsonLdLocation
                 cityName="Jeddah to Taif"
-                description="Professional VIP private car service for Jeddah to Taif. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Jeddah to Taif. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Jeddah to Taif Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -64,7 +64,7 @@ export default function JeddahTaifRoutePageArabic() {
                 h1Text="تاكسي جدة إلى الطائف"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        جدة ← الطائف VIP
+                        جدة ← الطائف
                     </span>
                 }
                 subtitle="الهروب إلى برودة الجبل | طريق الهدا الخلاب"
@@ -109,7 +109,7 @@ export default function JeddahTaifRoutePageArabic() {
                                 اهرب من رطوبة جدة إلى هواء الطائف الجبلي المنعش. تُعد <strong>خدمة تاكسي جدة إلى الطائف</strong> الخيار المفضل للعائلات الباحثة عن صعود آمن ومريح عبر طريق جبل الهدا المذهل.
                             </p>
                             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                                لماذا تقود الطرق المتعرجة بنفسك بينما يمكنك الاسترخاء في <strong>جمس يوكن VIP</strong>؟ سائقونا ذوو خبرة عالية بالتضاريس الجبلية، مما يضمن أن تكون رحلتك إلى مدينة الورد ممتعة بقدر متعة الوجهة نفسها.
+                                لماذا تقود الطرق المتعرجة بنفسك بينما يمكنك الاسترخاء في <strong>جمس يوكن</strong>؟ سائقونا ذوو خبرة عالية بالتضاريس الجبلية، مما يضمن أن تكون رحلتك إلى مدينة الورد ممتعة بقدر متعة الوجهة نفسها.
                             </p>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -129,9 +129,9 @@ export default function JeddahTaifRoutePageArabic() {
                             <div className="space-y-6">
                                 {[
                                     { name: 'جمس يوكن دينالي', capacity: '٧ ركاب', luggage: '٥ حقائب' },
-                                    { name: 'كاديلاك إسكاليد VIP', capacity: '٧ ركاب', luggage: '٤ حقائب' },
-                                    { name: 'مرسيدس S-Class VIP', capacity: '٣ ركاب', luggage: '٢ حقيبة' },
-                                    { name: 'هيونداي ستاريا VIP', capacity: '٧ ركاب', luggage: '٤ حقائب' }
+                                    { name: 'كاديلاك إسكاليد', capacity: '٧ ركاب', luggage: '٤ حقائب' },
+                                    { name: 'مرسيدس S-Class', capacity: '٣ ركاب', luggage: '٢ حقيبة' },
+                                    { name: 'هيونداي ستاريا', capacity: '٧ ركاب', luggage: '٤ حقائب' }
                                 ].map((car, i) => (
                                     <div key={i} className="flex items-center justify-between p-4 rounded-2xl bg-white hover:bg-emerald-50 transition-colors border border-gray-100">
                                         <div className="flex gap-4 items-center">
@@ -241,7 +241,7 @@ export default function JeddahTaifRoutePageArabic() {
                 <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <h2 className="text-3xl md:text-6xl font-black text-white mb-8 leading-tight">اهرب إلى الجبال</h2>
-                    <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">استمتع بأجمل رحلة برية في المملكة مع خدمة تاكسي VIP من جدة إلى الطائف.</p>
+                    <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">استمتع بأجمل رحلة برية في المملكة مع خدمة تاكسي من جدة إلى الطائف.</p>
                     <Link href="/booking/?route=jeddah-taif">
                         <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600 text-white font-black px-12 py-8 text-xl rounded-2xl h-auto shadow-2xl transition-all hover:scale-105">
                             احصل على عرض سعر لرحلتك إلى الطائف

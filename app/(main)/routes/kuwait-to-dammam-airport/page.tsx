@@ -12,7 +12,7 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 import RouteFleetSection from '@/components/RouteFleetSection';
 
 export const metadata: Metadata = {
-    title: 'Kuwait to Dammam Airport Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
+    title: 'Kuwait to Dammam Airport Taxi | Cross-Border Transfer | Taxi Service KSA',
     description: 'Book a premium taxi from Kuwait to King Fahd International Airport (DMM) Dammam. Reliable cross-border transfers, comfortable SUVs, and door-to-door service.',
     keywords: ['Kuwait to Dammam Airport Taxi', 'Kuwait to DMM transfer', 'Kuwait Dammam airport cross border taxi', 'VIP transport Kuwait Dammam'],
     alternates: {
@@ -37,7 +37,7 @@ export default function KuwaitDammamAirportRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Kuwait to Dammam Airport"
-                description="Professional VIP private car service from Kuwait to Dammam Airport (DMM). Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service from Kuwait to Dammam Airport (DMM). Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Kuwait to Dammam Airport Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -55,7 +55,7 @@ export default function KuwaitDammamAirportRoutePage() {
                         DMM Airport Transfer
                     </span>
                 }
-                subtitle="VIP Cross-Border Service: Kuwait to DMM Airport"
+                subtitle="Cross-Border Service: Kuwait to DMM Airport"
                 location="Door-to-Door to DMM Airport"
             />
 
@@ -162,7 +162,7 @@ export default function KuwaitDammamAirportRoutePage() {
                                         <span className="font-bold text-gray-900">GMC Yukon/Suburban</span>
                                         <span className="text-lg font-black text-blue-600">180 KWD</span>
                                     </div>
-                                    <p className="text-xs text-gray-500">Premium VIP SUV with extra luggage space</p>
+                                    <p className="text-xs text-gray-500">Premium SUV with extra luggage space</p>
                                 </div>
                             </div>
                             <div className="space-y-3 mb-8">
@@ -224,7 +224,7 @@ export default function KuwaitDammamAirportRoutePage() {
                         { name: 'DMM Airport to Kuwait', url: '/routes/dammam-airport-to-kuwait/', description: 'Book your arrival transfer from Dammam Airport back to Kuwait.' },
                         { name: 'Dammam City', url: '/locations/dammam/', description: 'Direct taxi service from Kuwait to Dammam city center.' },
                         { name: 'Khobar Corniche', url: '/locations/khobar/', description: 'Travel comfortably from Kuwait to the beautiful Khobar waterfront.' },
-                        { name: 'Riyadh (Long Distance)', url: '/locations/riyadh/', description: 'VIP intercity transport from Kuwait to the Saudi Capital.' },
+                        { name: 'Riyadh (Long Distance)', url: '/locations/riyadh/', description: 'Intercity transport from Kuwait to the Saudi Capital.' },
                     ]}
                 />
             </div>
@@ -276,7 +276,7 @@ export default function KuwaitDammamAirportRoutePage() {
                     {
                         question: "Are your cars cleaned and sanitized?",
                         shortAnswer: "Yes, after every trip.",
-                        detailedAnswer: "All our vehicles undergo thorough cleaning and sanitization after each journey to ensure a hygienic environment for our VIP guests.",
+                        detailedAnswer: "All our vehicles undergo thorough cleaning and sanitization after each journey to ensure a hygienic environment for our guests.",
                         perspectives: []
                     },
                     {

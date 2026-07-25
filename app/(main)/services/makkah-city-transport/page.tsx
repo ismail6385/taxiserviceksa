@@ -7,7 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Makkah VIP Transport Service | Private Chauffeur & Family Transfer | Taxi Service KSA',
+    title: 'Makkah Transport Service | Private Chauffeur & Family Transfer | Taxi Service KSA',
     description: 'Private transport and family chauffeur in Makkah. Hotel to Haram transfers, Ziyarat tours, Jeddah airport to Makkah, and luxury family transport. Licensed drivers 24/7.',
     keywords: [
         'Makkah VIP transport service',
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/services/makkah-city-transport/',
     },
     openGraph: {
-        title: 'Makkah VIP Transport | Private Family Chauffeur | Taxi Service KSA',
-        description: 'And family transport in Makkah. Hotel to Haram, Ziyarat tours, airport transfers, and Makkah to Madinah. Licensed drivers, luxury fleet, 24/7.',
+        title: 'Makkah Transport | Private Family Chauffeur | Taxi Service KSA',
+        description: 'Family transport in Makkah. Hotel to Haram, Ziyarat tours, airport transfers, and Makkah to Madinah. Licensed drivers, luxury fleet, 24/7.',
         url: 'https://taxiserviceksa.com/services/makkah-city-transport/',
         type: 'website',
     },
@@ -67,7 +67,7 @@ export default function MakkahCityTransportPage() {
 
     const faqs = [
         {
-            question: 'Is there a VIP transport service in Makkah?',
+            question: 'Is there a transport service in Makkah?',
             answer: 'Yes. Taxi Service KSA provides VIP private transport in Makkah including hotel-to-Haram transfers, Ziyarat tours, and intercity transfers to Madinah and Jeddah. All drivers are Muslim and can access all areas of Makkah. Vehicles include GMC Yukon XL and Toyota Hiace for families and groups.',
         },
         {
@@ -95,14 +95,14 @@ export default function MakkahCityTransportPage() {
     const serviceSchema = {
         '@context': 'https://schema.org',
         '@type': 'Service',
-        name: 'Makkah VIP & Family Transport Service',
+        name: 'Makkah Family Transport Service',
         serviceType: 'Private Transport in Makkah',
         provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com' },
         areaServed: [
             { '@type': 'City', name: 'Makkah' },
             { '@type': 'AdministrativeArea', name: 'Makkah Province' },
         ],
-        description: 'Private VIP and family transport in Makkah. Hotel to Haram, Ziyarat tours, airport transfers, and Makkah to Madinah. All-Muslim drivers with full city access.',
+        description: 'Private and family transport in Makkah. Hotel to Haram, Ziyarat tours, airport transfers, and Makkah to Madinah. All-Muslim drivers with full city access.',
         offers: { '@type': 'Offer', availability: 'https://schema.org/InStock' },
     };
 
@@ -118,7 +118,7 @@ export default function MakkahCityTransportPage() {
                 <div className="max-w-7xl mx-auto relative z-10 text-center">
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-6">Makkah Transport</span>
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        VIP & Family Transport<br /><span className="text-white/80">in Makkah</span>
+Family Transport<br /><span className="text-white/80">in Makkah</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
                         Private hotel-to-Haram transfers, Ziyarat tours, Jeddah airport pickups, and Makkah–Madinah intercity transport. All-Muslim drivers with full access to Makkah's sacred areas.
@@ -228,7 +228,7 @@ export default function MakkahCityTransportPage() {
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black">GMC Yukon (Families)</Link></li>
                                 <li><Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-black">Toyota Hiace (Groups)</Link></li>
-                                <li><Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-black">Hyundai Staria VIP</Link></li>
+                                <li><Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-black">Hyundai Staria</Link></li>
                                 <li><Link href="/fleet/" className="text-black font-bold hover:underline">All Vehicles →</Link></li>
                             </ul>
                         </div>

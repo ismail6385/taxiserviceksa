@@ -36,7 +36,7 @@ export default function KhobarBahrainRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation
                 cityName="Al Khobar to Bahrain"
-                description="Professional VIP private car service from Al Khobar to Bahrain via King Fahd Causeway. Reliable 24/7 door-to-door transfers with luxury vehicles."
+                description="Professional private car service from Al Khobar to Bahrain via King Fahd Causeway. Reliable 24/7 door-to-door transfers with luxury vehicles."
                 services={[
                     { name: 'Al Khobar to Bahrain Taxi', description: 'Premium private transfer via King Fahd Causeway.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -54,7 +54,7 @@ export default function KhobarBahrainRoutePage() {
                         King Fahd Causeway Route
                     </span>
                 }
-                subtitle="Daily Transfers via Causeway | 1.5 Hours | 100% Private VIP"
+                subtitle="Daily Transfers via Causeway | 1.5 Hours | 100% Private"
                 location="Door-to-Door Private Service - Khobar to Manama"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -176,7 +176,7 @@ export default function KhobarBahrainRoutePage() {
                 <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <div className="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-8 animate-pulse">
-                        100% Private VIP Transfers Only • No Shared Taxis
+                        100% Private Transfers Only • No Shared Taxis
                     </div>
                     <h2 className="text-3xl md:text-5xl font-black text-white mb-8 leading-tight">Get a quote for your Al Khobar to Bahrain Taxi</h2>
                     <p className="text-gray-400 text-lg mb-10 italic">"The easiest way to cross the causeway — private, comfortable, and on your schedule."</p>

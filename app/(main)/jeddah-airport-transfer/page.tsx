@@ -92,7 +92,7 @@ const serviceSchema = {
             addressCountry: 'SA',
         },
     },
-    description: 'Private VIP airport transfer at King Abdulaziz International Airport (JED), Jeddah. Meet-and-greet, fixed rates, 24/7 service to Makkah, Madinah, and Jeddah hotels.',
+    description: 'Private airport transfer at King Abdulaziz International Airport (JED), Jeddah. Meet-and-greet, fixed rates, 24/7 service to Makkah, Madinah, and Jeddah hotels.',
     offers: {
         '@type': 'Offer',
         priceCurrency: 'SAR',

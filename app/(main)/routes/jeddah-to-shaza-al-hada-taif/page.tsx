@@ -101,7 +101,7 @@ export default function JeddahToShazaAlHadaPage() {
                     <ul className="space-y-3 text-gray-700">
                         <li><strong>Distance &amp; Time:</strong> Approximately 190 kilometers. The drive takes 2.5 to 3 hours from JED Airport, including the winding Al Hada mountain ascent.</li>
                         <li><strong>Drop-off Point:</strong> Direct to the Shaza Al Hada resort entrance, high in the Taif mountains.</li>
-                        <li><strong>Vehicle Types:</strong> Sedans (Toyota Camry) and VIP SUVs (GMC Yukon) suited to steep mountain roads with luggage.</li>
+                        <li><strong>Vehicle Types:</strong> Sedans (Toyota Camry) and SUVs (GMC Yukon) suited to steep mountain roads with luggage.</li>
                         <li><strong>Pricing:</strong> Affordable, fixed rates with no hidden surge fees, agreed before travel.</li>
                     </ul>
                 </div>
@@ -214,7 +214,7 @@ export default function JeddahToShazaAlHadaPage() {
                     {
                         question: 'How much is a taxi from Jeddah Airport to Shaza Al Hada?',
                         shortAnswer: 'WhatsApp Booking',
-                        detailedAnswer: 'A private sedan (like a Toyota Camry) from Jeddah Airport to Shaza Al Hada is offered at an affordable fixed rate. A VIP SUV (like a GMC Yukon) is also available for larger families or groups with extensive luggage. All prices are fixed and pre-agreed before you travel.',
+                        detailedAnswer: 'A private sedan (like a Toyota Camry) from Jeddah Airport to Shaza Al Hada is offered at an affordable fixed rate. A SUV (like a GMC Yukon) is also available for larger families or groups with extensive luggage. All prices are fixed and pre-agreed before you travel.',
                         perspectives: [],
                     },
                     {

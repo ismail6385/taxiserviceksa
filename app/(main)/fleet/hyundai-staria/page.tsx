@@ -10,7 +10,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'Hyundai Staria VIP Private Transfer Saudi Arabia | Premium Van',
+    title: 'Hyundai Staria Private Transfer Saudi Arabia | Premium Van',
     description: 'Book the elite Hyundai Staria private transfer in Saudi Arabia. Premium 7-seater "Business Class" van for families and groups. Panoramic views and superior comfort.',
     keywords: ['Hyundai Staria VIP transfer', 'premium van chauffeur KSA', 'Hyundai Staria Riyadh transfer', 'executive group transport Saudi Arabia', 'VIP van Jeddah airport'],
     alternates: {
@@ -66,7 +66,7 @@ export default function HyundaiStariaPage() {
                     </Link>
                     <a href="mailto:taxiserviceksa9988@gmail.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            VIP Request
+                            Request
                         </Button>
                     </a>
                 </div>
@@ -91,9 +91,9 @@ export default function HyundaiStariaPage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
                         <div>
-                            <h2 className="text-4xl font-black text-gray-900 mb-8 leading-tight tracking-tighter uppercase">Step into the Future of VIP Vans</h2>
+                            <h2 className="text-4xl font-black text-gray-900 mb-8 leading-tight tracking-tighter uppercase">Step into the Future of Vans</h2>
                             <p className="text-gray-600 text-xl leading-relaxed mb-6">
-                                The <strong>Hyundai Staria VIP transfer</strong> is often called "The Spaceship" of our fleet. With its ultra-modern design and massive panoramic windows, it provides an airy, lounge-like atmosphere that is perfect for families touring Makkah, Madinah, or Riyadh.
+                                The <strong>Hyundai Staria transfer</strong> is often called "The Spaceship" of our fleet. With its ultra-modern design and massive panoramic windows, it provides an airy, lounge-like atmosphere that is perfect for families touring Makkah, Madinah, or Riyadh.
                             </p>
                             
                             <div className="space-y-6 mb-12">
@@ -115,7 +115,7 @@ export default function HyundaiStariaPage() {
                             </div>
 
                             <EntityTrustSignal 
-                                brandName="Staria VIP Shield"
+                                brandName="Staria Shield"
                                 description="Hyundai's flagship multi-purpose vehicle, awarded for safety and innovation."
                                 metrics={[
                                     { label: 'Safety Index', value: 'Elite', icon: ShieldCheck },
@@ -171,11 +171,11 @@ export default function HyundaiStariaPage() {
                             ]
                         },
                         {
-                            question: "Do you offer the VIP model with pilot seats?",
+                            question: "Does the Staria come with pilot seats?",
                             shortAnswer: "Yes, our fleet is Premium Spec.",
-                            detailedAnswer: "Our Staria fleet is specifically curated for VIP transfers, featuring the high-spec interior with reclining middle-row 'Pilot' chairs for maximum comfort.",
+                            detailedAnswer: "Our Staria fleet is specifically curated for transfers, featuring the high-spec interior with reclining middle-row 'Pilot' chairs for maximum comfort.",
                             perspectives: [
-                                { role: 'VIP Desk', icon: 'Award', insight: 'We ensure your vehicle is the premium business-class variant.' }
+                                { role: 'Desk', icon: 'Award', insight: 'We ensure your vehicle is the premium business-class variant.' }
                             ]
                         }
                     ]}
@@ -191,7 +191,7 @@ export default function HyundaiStariaPage() {
                     <p className="text-gray-400 text-xl mb-12 max-w-2xl mx-auto font-medium">Elevate your group travel experience with the Hyundai Staria. Modern luxury, panoramic views, and professional service.</p>
                     <Link href="/booking/?vehicle=hyundai-staria">
                         <Button size="lg" className="bg-indigo-600 hover:bg-indigo-500 text-white font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl transition-all hover:scale-105">
-                            BOOK STARIA VIP
+                            BOOK STARIA
                         </Button>
                     </Link>
                 </div>

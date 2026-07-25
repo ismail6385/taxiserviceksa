@@ -91,7 +91,7 @@ const ZiyaratSites: React.FC<ZiyaratSitesProps> = ({ title, subtitle, sites, loc
           <div className="relative z-10 max-w-3xl mx-auto">
             <h3 className="text-3xl md:text-4xl font-black text-white mb-6">Full Day Ziyarat Package</h3>
             <p className="text-gray-400 text-lg mb-12 leading-relaxed">
-                Visit all the major sites listed above in a single 6-hour VIP tour. Includes bottled water, private chauffeur, and door-to-door pickup.
+                Visit all the major sites listed above in a single 6-hour private tour. Includes bottled water, private chauffeur, and door-to-door pickup.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Link href={`/booking/?service=ziyarat-full-day&location=${locationSlug}`} className="w-full sm:w-auto">

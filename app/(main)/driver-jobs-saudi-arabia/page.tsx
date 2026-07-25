@@ -53,7 +53,7 @@ export default function DriverJobsSaudiHub() {
                         Driver Jobs Saudi Arabia
                     </h1>
                     <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-                        We are actively recruiting professional chauffeurs across the Kingdom. Operate your own 2020+ vehicle and earn premium rates handling VIP corporate and tourism clients.
+                        We are actively recruiting professional chauffeurs across the Kingdom. Operate your own 2020+ vehicle and earn premium rates handling corporate and tourism clients.
                     </p>
                 </div>
             </div>
@@ -64,7 +64,7 @@ export default function DriverJobsSaudiHub() {
                 {/* Intro SEO Text */}
                 <div className="max-w-3xl mx-auto text-center mb-16 prose prose-lg prose-gray">
                     <p className="text-xl font-medium text-gray-800 leading-relaxed max-w-none">
-                        The demand for high-end transportation is rapidly growing. If you are seeking lucrative <strong>taxi driver jobs KSA</strong>, graduating from standard ride-hailing apps to a private VIP network is the smartest career move. 
+                        The demand for high-end transportation is rapidly growing. If you are seeking lucrative <strong>taxi driver jobs KSA</strong>, graduating from standard ride-hailing apps to a private network is the smartest career move. 
                     </p>
                     <p className="text-gray-600 max-w-none">
                         Our network supplies <strong>driver jobs Saudi Arabia</strong> with consistent, high-paying bookings completely insulated from the unpredictable street-hailing market. Whether you focus on long-distance corporate trips in Riyadh or managing Umrah passengers in Makkah, your vehicle is your key to financial independence.
@@ -106,7 +106,7 @@ export default function DriverJobsSaudiHub() {
                 <div className="mt-24 bg-gradient-to-r from-gray-900 to-black rounded-[2.5rem] p-10 md:p-14 text-center text-white border border-gray-800 shadow-2xl">
                     <h2 className="text-3xl font-black mb-4">Ready to upgrade your earning potential?</h2>
                     <p className="text-gray-400 mb-8 max-w-2xl mx-auto text-lg">
-                        You've seen the opportunities. If you hold a valid license and operate a pristine vehicle (2020+), don't settle for standard taxi driver jobs KSA. Join our highly-rated VIP network today.
+                        You've seen the opportunities. If you hold a valid license and operate a pristine vehicle (2020+), don't settle for standard taxi driver jobs KSA. Join our highly-rated network today.
                     </p>
                     <Link href="/join-as-driver/riyadh" className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-white hover:text-black text-white font-black py-4 px-8 rounded-xl transition-all shadow-lg hover:shadow-xl">
                         Start Operating Now <ArrowRight className="w-5 h-5 ml-1" />

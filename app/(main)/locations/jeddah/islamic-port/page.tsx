@@ -59,7 +59,7 @@ export default function JeddahPortPage() {
                     </span>
                 }
                 subtitle="Direct to Holy Sites for Sea Arrivals"
-                location="Passenger Terminal VIP Pickup"
+                location="Passenger Terminal Pickup"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Jeddah%20Islamic%20Port&dropoff=Makkah">
@@ -70,7 +70,7 @@ export default function JeddahPortPage() {
                     </Link>
                     <a href="mailto:taxiserviceksa9988@gmail.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            Group VIP Quote
+                            Group Quote
                         </Button>
                     </a>
                 </div>
@@ -81,7 +81,7 @@ export default function JeddahPortPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
                         <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked VIP Seaport, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
+                        OFFICIAL NOTE: We specialize in pre-booked Seaport, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -142,7 +142,7 @@ export default function JeddahPortPage() {
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">3</div>
                                     <div>
                                         <h4 className="font-bold text-gray-900">Port to Jeddah City</h4>
-                                        <p className="text-sm text-gray-500">20-30 mins. VIP transfer to hotels or Red Sea Mall.</p>
+                                        <p className="text-sm text-gray-500">20-30 mins. Transfer to hotels or Red Sea Mall.</p>
                                     </div>
                                 </li>
                             </ul>

@@ -84,7 +84,7 @@ export default function GccChauffeurServicePageArabic() {
         <div className="bg-gray-50 min-h-screen rtl" dir="rtl">
             <JsonLdLocation
                 cityName="خدمة شوفير دول الخليج"
-                description="خدمة شوفير VIP خاصة من السعودية إلى الإمارات والكويت وقطر والبحرين. نقل عبر الحدود من الباب إلى الباب بأسعار ثابتة وسائقين محترفين."
+                description="خدمة شوفير خاصة من السعودية إلى الإمارات والكويت وقطر والبحرين. نقل عبر الحدود من الباب إلى الباب بأسعار ثابتة وسائقين محترفين."
                 services={[
                     { name: 'نقل من السعودية إلى الإمارات', description: 'خدمة شوفير خاصة إلى دبي وأبوظبي والشارقة.' },
                     { name: 'نقل من السعودية إلى الكويت', description: 'نقل مباشر عبر الحدود إلى مدينة الكويت والمناطق المحيطة.' },
@@ -103,7 +103,7 @@ export default function GccChauffeurServicePageArabic() {
                     </span>
                 }
                 subtitle="نقل خاص عبر الحدود إلى الإمارات والكويت وقطر والبحرين"
-                location="100% خاص VIP — بدون مشاركة الركاب"
+                location="100% خاص — بدون مشاركة الركاب"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/">
@@ -242,7 +242,7 @@ export default function GccChauffeurServicePageArabic() {
                 <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <div className="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-8 animate-pulse">
-                        نقل VIP خاص 100% فقط • بدون تاكسي مشترك
+                        نقل خاص 100% فقط • بدون تاكسي مشترك
                     </div>
                     <h2 className="text-3xl md:text-5xl font-black text-white mb-8 leading-tight">احصل على عرض سعر لرحلة شوفير الخليج الخاصة بك</h2>
                     <p className="text-gray-400 text-lg mb-10 italic">&quot;الخيار الموثوق لرجال ورائدات الأعمال والعائلات العابرة للخليج بخصوصية تامة.&quot;</p>

@@ -102,8 +102,8 @@ export default function Navbar() {
                     category: 'Executive & Pilgrimage',
                     items: [
                         { name: 'Corporate Business Travel', href: '/services/business/' },
-                        { name: 'Makkah to Madinah VIP', href: '/routes/makkah-madinah/' },
-                        { name: 'VIP Umrah Transfers', href: '/services/umrah-transport/' },
+                        { name: 'Makkah to Madinah Transfer', href: '/routes/makkah-madinah/' },
+                        { name: 'Umrah Transfers', href: '/services/umrah-transport/' },
                     ]
                 },
                 {
@@ -155,7 +155,7 @@ export default function Navbar() {
                         </a>
                         <div className="hidden sm:flex items-center gap-2 cursor-default font-black">
                             <Clock className="w-3.5 h-3.5 text-primary" />
-                            <span>Private VIP Transfers 24/7</span>
+                            <span>Private Transfers 24/7</span>
                         </div>
                     </div>
                     <div className="flex items-center gap-4 sm:gap-6 shrink-0">

@@ -81,7 +81,7 @@ export default function MakkahZiyaratPage() {
                     </span>
                 }
                 subtitle="A Premium Spiritual & Historical Journey"
-                location="Makkah Al Mukarramah | VIP"
+                location="Makkah Al Mukarramah |"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
@@ -98,7 +98,7 @@ export default function MakkahZiyaratPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
                         <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked VIP Private Tours and Heritage transfers. We do NOT provide local short-distance hailing.
+                        OFFICIAL NOTE: We specialize in pre-booked Private Tours and Heritage transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -239,7 +239,7 @@ export default function MakkahZiyaratPage() {
                             {
                                 question: "Can we climb Cave Hira?",
                                 shortAnswer: "Yes, but it's demanding.",
-                                detailedAnswer: "The chauffeur drops you at the base of Jabal Al-Nour. The climb takes 45-90 minutes depending on fitness. Most standard VIP Ziyarat tours stop at the base for photos and history unless you specifically request a 'Climbing Tour' which requires extra waiting time.",
+                                detailedAnswer: "The chauffeur drops you at the base of Jabal Al-Nour. The climb takes 45-90 minutes depending on fitness. Most standard Ziyarat tours stop at the base for photos and history unless you specifically request a 'Climbing Tour' which requires extra waiting time.",
                                 perspectives: [
                                     {
                                         role: "Advice",
@@ -275,7 +275,7 @@ export default function MakkahZiyaratPage() {
                         </div>
 
                         <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
-                            VIP Private Tour Pricing
+                            Private Tour Pricing
                         </h3>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                             Comprehensive 3-4 hour tour of all holy sites. Price is per vehicle, not per person.

@@ -133,7 +133,7 @@ export default function PilgrimageTransportReportPage() {
 
                             <div className="bg-emerald-600 text-white p-6 rounded-xl shadow-lg ring-4 ring-emerald-100">
                                 <div className="absolute top-0 right-0 bg-white text-emerald-700 text-xs font-bold px-3 py-1 rounded-bl-lg">RECOMMENDED</div>
-                                <h4 className="font-bold text-white mb-4 text-lg">🚕 Private <Link href="/fleet/gmc-yukon/" className="text-white underline hover:text-emerald-200 transition-colors">VIP GMC Yukon</Link></h4>
+                                <h4 className="font-bold text-white mb-4 text-lg">🚕 Private <Link href="/fleet/gmc-yukon/" className="text-white underline hover:text-emerald-200 transition-colors">GMC Yukon</Link></h4>
                                 <ul className="space-y-2 text-emerald-100 mb-6 text-sm">
                                     <li className="flex justify-between"><span>Door-to-Door Rates</span> <span>450 SAR</span></li>
                                     <li className="flex justify-between"><span>Luggage Handling</span> <span>Included</span></li>

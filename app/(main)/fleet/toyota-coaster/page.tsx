@@ -10,7 +10,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'Toyota Coaster VIP Private Transfer Saudi Arabia | 17-Seater Bus',
+    title: 'Toyota Coaster Private Transfer Saudi Arabia | 17-Seater Bus',
     description: 'Book the elite Toyota Coaster private transfer in Saudi Arabia. Premium 17-seater executive bus for corporate events, tour groups, and large families. Professional chauffeur service.',
     keywords: ['Toyota Coaster VIP transfer', 'group bus KSA', 'corporate transport Saudi Arabia', '17 seater executive bus', 'VIP bus Riyadh'],
     alternates: {
@@ -61,7 +61,7 @@ export default function ToyotaCoasterPage() {
                     </span>
                 }
                 subtitle="The Trusted Standard for Executive Group Mobility in the Kingdom"
-                location="17 Passengers | 20 Bags | VIP Chauffeur"
+                location="17 Passengers | 20 Bags | Chauffeur"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?vehicle=toyota-coaster">
@@ -99,7 +99,7 @@ export default function ToyotaCoasterPage() {
                         <div>
                             <h2 className="text-4xl font-black text-gray-900 mb-8 leading-tight tracking-tighter uppercase">The Versatile Executive Choice</h2>
                             <p className="text-gray-600 text-xl leading-relaxed mb-6">
-                                Experience the pinnacle of group mobility with our <strong>Toyota Coaster VIP private transfer</strong>. Tailored for corporate delegates and large families, this 17-seater executive bus offers an unmatched chauffeur-driven journey with dedicated luggage capacity.
+                                Experience the pinnacle of group mobility with our <strong>Toyota Coaster private transfer</strong>. Tailored for corporate delegates and large families, this 17-seater executive bus offers an unmatched chauffeur-driven journey with dedicated luggage capacity.
                             </p>
                             
                             <div className="space-y-6 mb-12">
@@ -121,7 +121,7 @@ export default function ToyotaCoasterPage() {
                             </div>
 
                             <EntityTrustSignal 
-                                brandName="Toyota VIP Logistics"
+                                brandName="Toyota Logistics"
                                 description="The workhorse of Saudi group tourism and corporate transport."
                                 metrics={[
                                     { label: 'Trips Completed', value: '15k+', icon: Navigation },
@@ -160,7 +160,7 @@ export default function ToyotaCoasterPage() {
                 <MicroSemanticFAQ 
                     faqs={[
                         {
-                            question: "Does the Toyota Coaster VIP transfer include a chauffeur?",
+                            question: "Does the Toyota Coaster transfer include a chauffeur?",
                             shortAnswer: "Yes, licensed professional bus captains.",
                             detailedAnswer: "Every Toyota Coaster booking includes a professional, licensed chauffeur experienced in group group dynamics and Saudi road protocol. We do not offer self-drive rentals.",
                             perspectives: [
@@ -195,8 +195,7 @@ export default function ToyotaCoasterPage() {
                     <h2 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-none uppercase">GROUP EFFICIENCY <br/><span className="text-blue-400">WITHOUT COMPROMISE</span></h2>
                     <p className="text-blue-100/60 text-xl mb-12 max-w-2xl mx-auto font-medium">Secure the Kingdom's most reliable executive minibus. Professional chauffeurs, absolute punctuality, and group comfort at fixed rates.</p>
                     <Link href="/booking/?vehicle=toyota-coaster">
-                        <Button size="lg" className="bg-white hover:bg-blue-50 text-blue-950 font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl transition-all hover:scale-105">
-                            BOOK VIP COASTER NOW
+                        <Button size="lg" className="bg-white hover:bg-blue-50 text-blue-950 font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl transition-all hover:scale-105"> BOOK COASTER NOW
                         </Button>
                     </Link>
                 </div>

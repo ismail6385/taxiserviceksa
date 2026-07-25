@@ -248,12 +248,10 @@ export default async function BlogPostPage({ params }: Props) {
                                             <span className="relative flex h-2.5 w-2.5">
                                               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                                               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
-                                            </span>
-                                            24/7 VIP Cars Available Now
+                                            </span> 24/7 Cars Available Now
                                         </div>
                                         <h3 className="text-2xl md:text-3xl font-bold mb-2">Need a Reliable Ride in KSA?</h3>
-                                        <p className="text-gray-300 text-sm md:text-base">
-                                            Skip the wait. Book your Makkah, Madinah, or Airport Transfer with our VIP chauffeurs instantly.
+                                        <p className="text-gray-300 text-sm md:text-base"> Skip the wait. Book your Makkah, Madinah, or Airport Transfer with our chauffeurs instantly.
                                         </p>
                                     </div>
                                     <div className="w-full md:w-auto">
@@ -409,7 +407,7 @@ export default async function BlogPostPage({ params }: Props) {
                                         { href: '/makkah-to-jeddah-taxi/', label: '🚗 Makkah → Jeddah' },
                                         { href: '/riyadh-to-jeddah-private-car/', label: '🚗 Riyadh → Jeddah' },
                                         { href: '/private-taxi-madinah/', label: '🗺️ Madinah City Taxi' },
-                                        { href: '/vip-chauffeur-jeddah/', label: '⭐ VIP Chauffeur Jeddah' },
+                                        { href: '/vip-chauffeur-jeddah/', label: '⭐ Chauffeur Jeddah' },
                                     ].map((link) => (
                                         <Link
                                             key={link.href}

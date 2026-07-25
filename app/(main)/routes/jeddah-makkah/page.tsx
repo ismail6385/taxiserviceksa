@@ -19,7 +19,7 @@ import BookingProcess from '@/components/BookingProcess';
 import { makkahHotels } from '@/data/makkahHotels';
 
 export const metadata: Metadata = {
-    title: 'Jeddah to Makkah Taxi 2026 | VIP Private Transfers | Fixed Rates',
+    title: 'Jeddah to Makkah Taxi 2026 | Private Transfers | Fixed Rates',
     description: 'Book the best Jeddah to Makkah Taxi for 2026. Premium intercity transfer with professional chauffeurs. Fixed rates starting from 300 SAR. Door-to-door service.',
     keywords: ['Jeddah to Makkah Taxi 2026', 'Jeddah to Makkah taxi price', 'Jeddah to Makkah private car'],
     alternates: {
@@ -37,7 +37,7 @@ export default function JeddahMakkahRoutePage() {
 
     const pricingRows = [
         { vehicle: 'Standard Sedan', description: 'Toyota Camry or similar. Perfect for solo or couples.', price: '300', capacity: '3 Pax', isPopular: false },
-        { vehicle: 'GMC Yukon XL', description: 'The ultimate VIP experience for families.', price: '600', capacity: '7 Pax', isPopular: true },
+        { vehicle: 'GMC Yukon XL', description: 'The ultimate experience for families.', price: '600', capacity: '7 Pax', isPopular: true },
         { vehicle: 'Hyundai Staria VIP', description: 'Modern luxury van with captain seats.', price: '350', capacity: '7 Pax', isPopular: false },
         { vehicle: 'Toyota Hiace', description: 'For large groups and heavy luggage.', price: '500', capacity: '11 Pax', isPopular: false },
     ];
@@ -57,7 +57,7 @@ export default function JeddahMakkahRoutePage() {
                 h1Text="Jeddah to Makkah Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        2026 VIP Transfers
+                        2026 Transfers
                     </span>
                 }
                 subtitle="Exclusive Private Transfers for Pilgrims & Families"
@@ -111,7 +111,7 @@ export default function JeddahMakkahRoutePage() {
                                 description="Providing luxury intercity transfers since 2015 with a 99% satisfaction rate."
                                 metrics={[
                                     { label: 'Jeddah Reach', value: '100%', icon: MapPin },
-                                    { label: 'Verified VIP', value: 'Yes', icon: Shield }
+                                    { label: 'Verified', value: 'Yes', icon: Shield }
                                 ]}
                             />
                         </div>
@@ -122,8 +122,8 @@ export default function JeddahMakkahRoutePage() {
                         <div className="space-y-6">
                             {[
                                 { name: 'GMC Yukon XL 2026', capacity: '7 Pax', luggage: '5 Bags' },
-                                { name: 'Mercedes S-Class VIP', capacity: '3 Pax', luggage: '2 Bags' },
-                                { name: 'VIP Hyundai Staria', capacity: '7 Pax', luggage: '4 Bags' }
+                                { name: 'Mercedes S-Class', capacity: '3 Pax', luggage: '2 Bags' },
+                                { name: 'Hyundai Staria', capacity: '7 Pax', luggage: '4 Bags' }
                             ].map((car, i) => (
                                 <div key={i} className="flex items-center justify-between p-4 rounded-2xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-200">
                                     <div className="flex gap-4 items-center">
@@ -213,7 +213,7 @@ export default function JeddahMakkahRoutePage() {
                         intent: 'Efficiency & Speed',
                         description: 'The 90km drive between Jeddah and Makkah is the busiest intercity route in the world during peak season. We use advanced real-time traffic monitoring to avoid the main highway congestion, often using the Old Makkah Road for a smooth, uninterrupted entry into the city.',
                         structuredFeatures: [
-                            { label: 'VIP Bookings', value: '5000+' },
+                            { label: 'Bookings', value: '5000+' },
                             { label: 'Experience', value: '15 Years' },
                             { label: 'Safety Rating', value: 'Master Class' }
                         ],
@@ -231,7 +231,7 @@ export default function JeddahMakkahRoutePage() {
                         {
                             question: "How much is a taxi from Jeddah to Makkah in 2026?",
                             shortAnswer: "From 300 SAR (Fixed)",
-                            detailedAnswer: "In 2026, our rates start from 300 SAR for a standard sedan (Toyota Camry) and 600 SAR for a VIP GMC Yukon. These are fixed rates including tolls and airport fees.",
+                            detailedAnswer: "In 2026, our rates start from 300 SAR for a standard sedan (Toyota Camry) and 600 SAR for a GMC Yukon. These are fixed rates including tolls and airport fees.",
                             perspectives: [
                                 { role: 'Billing', icon: 'DollarSign', insight: 'Transparency is our core value; what you see is what you pay.' }
                             ]
@@ -292,9 +292,9 @@ export default function JeddahMakkahRoutePage() {
                 <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <div className="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-8 animate-pulse">
-                        100% Private VIP Transfers Only • No Shared Taxis
+                        100% Private Transfers Only • No Shared Taxis
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-black text-white mb-8">Ready for Your VIP 2026 Makkah Journey?</h2>
+                    <h2 className="text-3xl md:text-5xl font-black text-white mb-8">Ready for Your 2026 Makkah Journey?</h2>
                     <p className="text-gray-400 text-lg mb-10 italic">"Travel with dignity, comfort, and complete privacy."</p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center">
                         <Link href="/booking/?route=jeddah-makkah">

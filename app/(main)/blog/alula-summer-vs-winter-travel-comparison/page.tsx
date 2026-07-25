@@ -133,7 +133,7 @@ export default function AlUlaSummerWinterPage() {
                     <Info className="w-12 h-12 text-amber-400 mx-auto mb-4" />
                     <h2 className="text-3xl font-black mb-4">Book Your AlUla Chauffeur</h2>
                     <p className="text-gray-300 max-w-xl mx-auto mb-8">
-                        Whether visiting in hot summer or cool winter, travel in air-conditioned VIP comfort. Pre-book a dedicated private taxi in AlUla.
+                        Whether visiting in hot summer or cool winter, travel in air-conditioned comfort. Pre-book a dedicated private taxi in AlUla.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
                         <a href="https://wa.me/966569487569?text=Hi,%20I%20want%20to%20book%20a%20private%20taxi%20in%20AlUla.%20Please%20send%20rates." target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"><Phone className="w-5 h-5" /> WhatsApp Booking</a>

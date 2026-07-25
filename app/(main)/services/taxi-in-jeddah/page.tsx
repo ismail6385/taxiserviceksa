@@ -74,7 +74,7 @@ export default function TaxiInJeddahPage() {
                         Executive Transport Hub
                     </span>
                 }
-                subtitle="VIP Airport Transfers, Corporate Travel, and Premium Chauffeurs."
+                subtitle="Airport Transfers, Corporate Travel, and Premium Chauffeurs."
                 location="24/7 Service | KAIA Pickups | Fixed Pricing"
             />
 
@@ -95,7 +95,7 @@ export default function TaxiInJeddahPage() {
                     <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-primary/5 p-8 rounded-3xl border border-primary/10">
                         <div>
                             <h2 className="text-2xl font-bold text-gray-900 mb-2">Popular Jeddah Routes</h2>
-                            <p className="text-gray-600">Select your destination from Jeddah for VIP transport.</p>
+                            <p className="text-gray-600">Select your destination from Jeddah for transport.</p>
                         </div>
                         <div className="flex flex-wrap gap-3">
                             <Link href="/routes/jeddah-makkah/">
@@ -127,8 +127,8 @@ export default function TaxiInJeddahPage() {
                             Premium Taxi Service in Jeddah
                         </h2>
                         <div className="prose prose-lg text-gray-600 max-w-4xl">
-                            <p>Arriving at **King Abdulaziz International Airport (KAIA)** and need immediate, VIP transport? Or perhaps you are an executive needing a reliable chauffeur for a full day of meetings along the Jeddah Corniche? Finding a premium **taxi in Jeddah** is no longer a hassle with our pre-booked chauffeur service.</p>
-                            <p>We provide a strictly high-end alternative to rideshare apps and standard green street taxis. Our fleet includes the latest Mercedes, BMW, and Cadillac models. We specialize in seamless airport pickups (where our driver waits with a sign), intercity trips to Makkah for Umrah, and executive VIP car rentals with a driver.</p>
+                            <p>Arriving at **King Abdulaziz International Airport (KAIA)** and need immediate, transport? Or perhaps you are an executive needing a reliable chauffeur for a full day of meetings along the Jeddah Corniche? Finding a premium **taxi in Jeddah** is no longer a hassle with our pre-booked chauffeur service.</p>
+                            <p>We provide a strictly high-end alternative to rideshare apps and standard green street taxis. Our fleet includes the latest Mercedes, BMW, and Cadillac models. We specialize in seamless airport pickups (where our driver waits with a sign), intercity trips to Makkah for Umrah, and executive car rentals with a driver.</p>
                         </div>
                     </div>
 
@@ -144,7 +144,7 @@ export default function TaxiInJeddahPage() {
                             <div className="w-12 h-12 bg-black/5 rounded-xl flex items-center justify-center mb-6">
                                 <Users className="w-6 h-6 text-black" />
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">VIP Group Logistics</h3>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">Group Logistics</h3>
                             <p className="text-gray-600 text-sm">From luxury Mercedes Vito vans to 25-seater executive buses, we handle transport for large groups, diplomats, and families.</p>
                         </div>
                         <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:border-black/5 transition-colors">
@@ -230,8 +230,7 @@ export default function TaxiInJeddahPage() {
                             <p className="text-gray-700 leading-relaxed mb-6 relative z-10">
                                 Using local ride apps at Jeddah Airport during peak arrival times usually means long waits, unpredictable surge pricing, and smaller cars not suited for heavy luggage. 
                             </p>
-                            <p className="text-gray-700 leading-relaxed text-sm relative z-10">
-                                With us, you get a **confirmed VIP vehicle**. Our chauffeur greets you inside the terminal. You get exactly the luxury car you requested (like an S-Class or Escalade), and your price never changes, creating a completely seamless travel experience.
+                            <p className="text-gray-700 leading-relaxed text-sm relative z-10"> With us, you get a **confirmed vehicle**. Our chauffeur greets you inside the terminal. You get exactly the luxury car you requested (like an S-Class or Escalade), and your price never changes, creating a completely seamless travel experience.
                             </p>
                         </div>
                     </div>
@@ -244,7 +243,7 @@ export default function TaxiInJeddahPage() {
                         contextName="Taxi In Jeddah"
                 faqs={[
                     {
-                        question: "Can I Request a quote for a VIP taxi from Jeddah Airport?",
+                        question: "Can I Request a quote for a taxi from Jeddah Airport?",
                         shortAnswer: "Yes, 24/7 Meet & Greet.",
                         detailedAnswer: "Yes, airport transfers from KAIA are our specialty. Our driver will meet you at the arrivals hall with a name board, assist with your luggage, and take you directly to your hotel in Jeddah or Makkah.",
                         perspectives: []

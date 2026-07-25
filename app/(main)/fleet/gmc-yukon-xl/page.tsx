@@ -9,7 +9,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'GMC Yukon XL VIP Private Transfer Saudi Arabia | Premium Chauffeur',
+    title: 'GMC Yukon XL Private Transfer Saudi Arabia | Premium Chauffeur',
     description: 'Book the premium GMC Yukon XL private transfer in Saudi Arabia. Luxury 7-seater SUV with extended wheelbase (XL) for extra luggage space, airport transfers, and family Umrah.',
     keywords: ['GMC Yukon XL VIP transfer', 'GMC Yukon XL Saudi Arabia', 'luxury SUV chauffeur KSA', 'GMC Yukon XL Riyadh transfer', 'family SUV transfer Makkah', 'Jeddah to Makkah GMC Yukon XL'],
     alternates: {
@@ -92,7 +92,7 @@ export default function GMCYukonXLPage() {
                         <div>
                             <h2 className="text-4xl font-black text-gray-900 mb-8 leading-tight uppercase tracking-tighter">The Ultimate XL SUV for Family Transfers</h2>
                             <p className="text-gray-600 text-xl leading-relaxed mb-6">
-                                The <strong>GMC Yukon XL VIP transfer</strong> is our premium extended-length SUV service. Unlike standard SUVs, the XL model features an extended wheelbase that dramatically increases rear cargo capacity, ensuring that all 7 passengers can travel together with their full luggage complement.
+                                The <strong>GMC Yukon XL transfer</strong> is our premium extended-length SUV service. Unlike standard SUVs, the XL model features an extended wheelbase that dramatically increases rear cargo capacity, ensuring that all 7 passengers can travel together with their full luggage complement.
                             </p>
                             <p className="text-gray-600 text-xl leading-relaxed mb-8">
                                 Whether you are arriving at Jeddah Airport (JED) with large suitcases for Umrah, or traveling between Riyadh and Dammam for business, the GMC Yukon XL offers whisper-quiet cabin acoustics, multi-zone automatic climate control, and superior luxury seating.

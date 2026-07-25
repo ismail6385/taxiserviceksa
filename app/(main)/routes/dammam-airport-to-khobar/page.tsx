@@ -12,7 +12,7 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 import RouteFleetSection from '@/components/RouteFleetSection';
 
 export const metadata: Metadata = {
-    title: 'Dammam Airport to Khobar Taxi | VIP Airport Transfer | Taxi Service KSA',
+    title: 'Dammam Airport to Khobar Taxi | Airport Transfer | Taxi Service KSA',
     description: 'Book a premium taxi from King Fahd International Airport (DMM) Dammam to Khobar. Reliable transfers, comfortable SUVs, and professional door-to-door service.',
     keywords: ['Dammam Airport to Khobar Taxi', 'DMM to Khobar transfer', 'Dammam airport taxi service', 'VIP transport Khobar'],
     alternates: {
@@ -37,7 +37,7 @@ export default function DammamAirportKhobarRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Dammam Airport to Khobar"
-                description="Professional VIP private car service from Dammam Airport (DMM) to Al Khobar. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service from Dammam Airport (DMM) to Al Khobar. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Dammam Airport to Khobar Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -52,7 +52,7 @@ export default function DammamAirportKhobarRoutePage() {
                 h1Text="Dammam Airport to Khobar Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        VIP Airport Transfer
+                        Airport Transfer
                     </span>
                 }
                 subtitle="Reliable & Comfortable: DMM Airport to Al Khobar"
@@ -68,7 +68,7 @@ export default function DammamAirportKhobarRoutePage() {
                                 Premium Way from DMM Airport to Khobar
                             </h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                                Avoid the long taxi queues and the stress of navigating after a flight. Our pre-booked VIP service from King Fahd International Airport (DMM) to Khobar guarantees a professional driver waiting for you.
+                                Avoid the long taxi queues and the stress of navigating after a flight. Our pre-booked service from King Fahd International Airport (DMM) to Khobar guarantees a professional driver waiting for you.
                             </p>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                                 Whether you are traveling for business to the Khobar Corniche or arriving for a family visit, our luxury sedans and spacious SUVs provide the perfect start to your trip in the Eastern Province.
@@ -159,7 +159,7 @@ export default function DammamAirportKhobarRoutePage() {
                                 </div>
                                 <div className="bg-white/60 backdrop-blur-sm p-4 rounded-xl border border-emerald-100">
                                     <div className="flex justify-between items-center mb-1">
-                                        <span className="font-bold text-gray-900">VIP SUV (GMC/Suburbun)</span>
+                                        <span className="font-bold text-gray-900">SUV (GMC/Suburbun)</span>
                                         <span className="text-lg font-black text-emerald-600">300 SAR</span>
                                     </div>
                                     <p className="text-xs text-gray-500">Premium experience with extra luggage capacity</p>
@@ -234,7 +234,7 @@ export default function DammamAirportKhobarRoutePage() {
                     {
                         question: "What is the taxi fare from Dammam Airport to Khobar?",
                         shortAnswer: "150 SAR (Sedan) / 300 SAR (SUV).",
-                        detailedAnswer: "Our fixed rates are 150 SAR for a standard sedan and 300 SAR for a premium VIP SUV. This includes meet and greet service.",
+                        detailedAnswer: "Our fixed rates are 150 SAR for a standard sedan and 300 SAR for a premium SUV. This includes meet and greet service.",
                         perspectives: []
                     },
                     {

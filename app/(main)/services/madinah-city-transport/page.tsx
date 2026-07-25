@@ -222,7 +222,7 @@ export default function MadinahCityTransportPage() {
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black">GMC Yukon (Families)</Link></li>
                                 <li><Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-black">Toyota Hiace (Groups)</Link></li>
-                                <li><Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-black">Hyundai Staria VIP</Link></li>
+                                <li><Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-black">Hyundai Staria</Link></li>
                                 <li><Link href="/fleet/" className="text-black font-bold hover:underline">All Vehicles →</Link></li>
                             </ul>
                         </div>

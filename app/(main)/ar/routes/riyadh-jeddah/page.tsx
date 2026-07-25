@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'تاكسي الرياض إلى جدة ٢٠٢٦ | سيارة خاصة VIP',
+        title: 'تاكسي الرياض إلى جدة ٢٠٢٦ | سيارة خاصة',
         description: 'رحلة مباشرة بين المدن مع سائقين محترفين. أسعار ثابتة وخدمة من الباب إلى الباب.',
         url: 'https://taxiserviceksa.com/ar/routes/riyadh-jeddah/',
         locale: 'ar_SA',
@@ -47,7 +47,7 @@ export default function RiyadhJeddahRoutePageArabic() {
             <JsonLdRoute
                 from="Riyadh"
                 to="Jeddah"
-                description="Luxury intercity transfer from Riyadh to Jeddah. Direct 9-10 hour trans-Kingdom journey on Highway 40. 100% private VIP car service."
+                description="Luxury intercity transfer from Riyadh to Jeddah. Direct 9-10 hour trans-Kingdom journey on Highway 40. 100% private car service."
                 distance="950 km"
                 duration="PT10H"
             />
@@ -57,7 +57,7 @@ export default function RiyadhJeddahRoutePageArabic() {
                 h1Text="تاكسي الرياض إلى جدة"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        الرياض ← جدة VIP
+                        الرياض ← جدة
                     </span>
                 }
                 subtitle="خدمة سائق خاص عبر المملكة"
@@ -122,9 +122,9 @@ export default function RiyadhJeddahRoutePageArabic() {
                             <div className="space-y-6">
                                 {[
                                     { name: 'جمس يوكن دينالي', capacity: '٧ ركاب', luggage: '٥ حقائب' },
-                                    { name: 'كاديلاك إسكاليد VIP', capacity: '٧ ركاب', luggage: '٤ حقائب' },
-                                    { name: 'مرسيدس S-Class VIP', capacity: '٣ ركاب', luggage: '٢ حقيبة' },
-                                    { name: 'هيونداي ستاريا VIP', capacity: '٧ ركاب', luggage: '٤ حقائب' }
+                                    { name: 'كاديلاك إسكاليد', capacity: '٧ ركاب', luggage: '٤ حقائب' },
+                                    { name: 'مرسيدس S-Class', capacity: '٣ ركاب', luggage: '٢ حقيبة' },
+                                    { name: 'هيونداي ستاريا', capacity: '٧ ركاب', luggage: '٤ حقائب' }
                                 ].map((car, i) => (
                                     <div key={i} className="flex items-center justify-between p-4 rounded-2xl bg-white hover:bg-emerald-50 transition-colors border border-gray-100">
                                         <div className="flex gap-4 items-center">
@@ -207,7 +207,7 @@ export default function RiyadhJeddahRoutePageArabic() {
                 isRtl={true}
                 customLinks={[
                     { name: 'الرياض إلى مكة', url: '/routes/riyadh-makkah/', description: 'نقل حج مباشر إلى المدينة المقدسة.' },
-                    { name: 'جدة إلى الرياض', url: '/routes/jeddah-riyadh/', description: 'رحلة عودة VIP إلى العاصمة السعودية.' },
+                    { name: 'جدة إلى الرياض', url: '/routes/jeddah-riyadh/', description: 'رحلة عودة إلى العاصمة السعودية.' },
                     { name: 'الرياض إلى الدمام', url: '/routes/riyadh-dammam/', description: 'نقل إلى مركز الأعمال في المنطقة الشرقية.' }
                 ]}
             />

@@ -52,7 +52,7 @@ export default function JeddahAlulaRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Jeddah to Alula"
-                description="Professional VIP private car service for Jeddah to Alula. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Jeddah to Alula. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Jeddah to Alula Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -208,7 +208,7 @@ export default function JeddahAlulaRoutePage() {
                             </div>
                             <div className="text-xl font-bold text-gray-900 mb-3">GMC Yukon (SUV)</div>
                             <div className="text-4xl font-black text-emerald-600 mb-3">
-                                <span className="text-2xl text-emerald-600">VIP Rate</span>
+                                <span className="text-2xl text-emerald-600">Rate</span>
                             </div>
                             <div className="text-sm text-gray-600 leading-relaxed">
                                 6 Passengers / 5 Bags

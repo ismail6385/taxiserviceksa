@@ -58,8 +58,8 @@ export default function BujairiTerracePage() {
                         Elite Dining Chauffeur
                     </span>
                 }
-                subtitle="VIP Drop-off at Hakkasan, Angelina & Tatel"
-                location="Diriyah Gate | Riyadh VIP Transport"
+                subtitle="Drop-off at Hakkasan, Angelina & Tatel"
+                location="Diriyah Gate | Riyadh Transport"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Riyadh%20Hotel&dropoff=Bujairi%20Terrace">
@@ -80,8 +80,7 @@ export default function BujairiTerracePage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked VIP Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -112,7 +111,7 @@ export default function BujairiTerracePage() {
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Car className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">VIP Drop-off</span>
+                                    <span className="font-semibold text-gray-800">Drop-off</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Star className="w-6 h-6 text-primary" />

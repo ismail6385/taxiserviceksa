@@ -16,7 +16,7 @@ interface BookingProcessProps {
 }
 
 export default function BookingProcess({ 
-    title = "3 Steps to Your VIP Transfer",
+    title = "3 Steps to Your Transfer",
     subtitle = "No complex forms. No payment upfront. Just professional service via WhatsApp.",
     steps: customSteps 
 }: BookingProcessProps) {

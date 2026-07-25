@@ -20,7 +20,7 @@ import JsonLdJobPosting from '@/components/seo/JsonLdJobPosting';
 import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 export const metadata: Metadata = {
-    title: 'High-Income Chauffeur Jobs Riyadh 2026 | VIP Driver Roles',
+    title: 'High-Income Chauffeur Jobs Riyadh 2026 | Driver Roles',
     description: 'Elite chauffeur jobs in Riyadh 2026. Earn SAR 15,000 - 25,000 monthly. Requirements: Own car (2020+), professional attitude, and service focus. Apply today.',
     keywords: ['chauffeur jobs Riyadh 2026', 'VIP driver recruitment Riyadh', 'high paying driving jobs Saudi Arabia', 'Riyadh private chauffeur vacancies'],
     alternates: {
@@ -63,7 +63,7 @@ export default function ChauffeurJobsRiyadhPage() {
             />
             <JsonLdJobPosting 
                 title="High-Income Chauffeur Jobs Riyadh 2026"
-                description="Elite chauffeur jobs in Riyadh 2026. Earn SAR 15,000 - 25,000 monthly. Requirements: Own car (2020+), professional attitude, and VIP service focus."
+                description="Elite chauffeur jobs in Riyadh 2026. Earn SAR 15,000 - 25,000 monthly. Requirements: Own car (2020+), professional attitude, and service focus."
                 datePosted="2026-04-20"
                 validThrough="2026-12-31"
                 employmentType="FULL_TIME"
@@ -97,7 +97,7 @@ export default function ChauffeurJobsRiyadhPage() {
                     </h1>
                     
                     <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12">
-                        Stop chasing low-value app pings. Join Riyadh's most exclusive network of private chauffeurs and capture the city's highest-paying VIP transfers.
+                        Stop chasing low-value app pings. Join Riyadh's most exclusive network of private chauffeurs and capture the city's highest-paying transfers.
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -184,7 +184,7 @@ export default function ChauffeurJobsRiyadhPage() {
                 <div className="max-w-4xl mx-auto text-center text-white">
                     <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight italic font-display">Ready to Elevate Your Income?</h2>
                     <p className="text-emerald-100 text-xl mb-12 font-medium">
-                        Limited slots available for Riyadh's premium 2026 fleet. Apply now and start receiving VIP bookings this week.
+                        Limited slots available for Riyadh's premium 2026 fleet. Apply now and start receiving bookings this week.
                     </p>
                     <Link href="https://wa.me/966555555555" className="inline-flex items-center gap-3 bg-white text-emerald-600 px-12 py-5 rounded-2xl font-black text-xl hover:bg-emerald-50 transition-all shadow-2xl">
                         <MessageCircle className="w-6 h-6" /> Message Recruiter

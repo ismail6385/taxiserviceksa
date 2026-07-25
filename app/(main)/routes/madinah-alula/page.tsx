@@ -87,7 +87,7 @@ export default function MadinahAlUlaRoutePage() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingSchema) }} />
             <JsonLdLocation
                 cityName="Madinah to Alula"
-                description="Professional VIP private car service from Madinah to Alula. Reliable, door-to-door long-distance transport for families and international tourists visiting Hegra."
+                description="Professional private car service from Madinah to Alula. Reliable, door-to-door long-distance transport for families and international tourists visiting Hegra."
                 services={[
                     { name: 'Madinah to Alula Taxi', description: 'Direct 24/7 private transfer with professional chauffeurs.' },
                     { name: 'Family SUV Transfer', description: 'Spacious and safe GMC Yukons for the drive between Madinah and Alula.' },

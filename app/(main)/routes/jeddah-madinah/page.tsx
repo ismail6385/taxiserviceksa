@@ -39,7 +39,7 @@ export default function JeddahMadinahRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Jeddah to Madinah"
-                description="Professional VIP private car service for Jeddah to Madinah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Jeddah to Madinah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Jeddah to Madinah Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -54,8 +54,7 @@ export default function JeddahMadinahRoutePage() {
                 images={['/madinah-prophets-mosque.webp', '/jeddah-corniche-sunset.webp']}
                 h1Text="Jeddah to Madinah Taxi"
                 title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Jeddah → Madinah VIP
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> Jeddah → Madinah
                     </span>
                 }
                 subtitle="The Premium Way to the City of the Prophet"
@@ -119,9 +118,9 @@ export default function JeddahMadinahRoutePage() {
                             <h3 className="text-2xl font-black text-gray-900 mb-6 font-display">Premium Long-Distance Fleet</h3>
                             <div className="space-y-6">
                                 {[
-                                    { name: 'GMC Yukon VIP', capacity: '7 Pax', luggage: '5 Bags' },
-                                    { name: 'Mercedes S-Class VIP', capacity: '3 Pax', luggage: '2 Bags' },
-                                    { name: 'VIP Hyundai Staria', capacity: '7 Pax', luggage: '4 Bags' },
+                                    { name: 'GMC Yukon', capacity: '7 Pax', luggage: '5 Bags' },
+                                    { name: 'Mercedes S-Class', capacity: '3 Pax', luggage: '2 Bags' },
+                                    { name: 'Hyundai Staria', capacity: '7 Pax', luggage: '4 Bags' },
                                     { name: 'Toyota Hiace Group', capacity: '11 Pax', luggage: '16 Bags' }
                                 ].map((car, i) => (
                                     <div key={i} className="flex items-center justify-between p-4 rounded-2xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-200">
@@ -188,7 +187,7 @@ export default function JeddahMadinahRoutePage() {
                         },
                         {
                             question: "Do you offer airport pickup in Jeddah for Madinah trips?",
-                            shortAnswer: "Yes, VIP Meet & Greet Included.",
+                            shortAnswer: "Yes, Meet & Greet Included.",
                             detailedAnswer: "Yes. We offer seamless airport pickup at King Abdulaziz International Airport (JED). Our driver will wait in the arrivals hall with a nameplate and escort you directly to your private car for the journey to Madinah.",
                             perspectives: [
                                 { role: 'Logistics', icon: 'Plane', insight: 'We monitor flight arrivals and adjust pickup times for any delays.' }
@@ -243,7 +242,7 @@ export default function JeddahMadinahRoutePage() {
                 <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <h2 className="text-3xl md:text-6xl font-black text-white mb-8 leading-tight">Your Direct Path to Madinah</h2>
-                    <p className="text-emerald-100/60 text-lg mb-10 max-w-2xl mx-auto">WhatsApp Booking for the most reliable Jeddah to Madinah taxi service. Travel in 2026 model VIP vehicles with professional chauffeurs.</p>
+                    <p className="text-emerald-100/60 text-lg mb-10 max-w-2xl mx-auto">WhatsApp Booking for the most reliable Jeddah to Madinah taxi service. Travel in 2026 model vehicles with professional chauffeurs.</p>
                     <Link href="/booking/?route=jeddah-madinah">
                         <Button size="lg" className="bg-emerald-500 hover:bg-emerald-400 text-white font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl shadow-emerald-500/30"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                     </Link>

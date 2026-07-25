@@ -262,7 +262,7 @@ export default function FakiehAquariumGuidePage() {
                     <Compass className="w-12 h-12 text-cyan-400 mx-auto mb-4" />
                     <h2 className="text-3xl font-black mb-4">Book Your Family Transfer to Fakieh Aquarium</h2>
                     <p className="text-gray-300 max-w-xl mx-auto mb-8 leading-relaxed">
-                        Arrive comfortably and stress-free. Book a spacious family car or VIP chauffeur to Fakieh Aquarium with door-to-door meet and greet service.
+                        Arrive comfortably and stress-free. Book a spacious family car or chauffeur to Fakieh Aquarium with door-to-door meet and greet service.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
                         <a href="https://wa.me/966569487569?text=Hi,%20I%20want%20to%20book%20a%20family%20transfer%20to%20Fakieh%20Aquarium%20in%20Jeddah" target="_blank" rel="noopener noreferrer"

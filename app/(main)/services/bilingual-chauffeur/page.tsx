@@ -327,7 +327,7 @@ export default function BilingualChauffeurPage() {
                                 <li><Link href="/services/tourism-transport/" className="text-gray-600 hover:text-black transition-colors">Tourist Transport</Link></li>
                                 <li><Link href="/services/airport-transfers/" className="text-gray-600 hover:text-black transition-colors">Airport Transfers</Link></li>
                                 <li><Link href="/services/private-driver/" className="text-gray-600 hover:text-black transition-colors">Private Driver (Daily/Hourly)</Link></li>
-                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black transition-colors">VIP Chauffeur</Link></li>
+                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black transition-colors">Chauffeur</Link></li>
                             </ul>
                         </div>
                         <div>
@@ -337,7 +337,7 @@ export default function BilingualChauffeurPage() {
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black transition-colors">GMC Yukon (Families & Groups)</Link></li>
                                 <li><Link href="/fleet/toyota-camry/" className="text-gray-600 hover:text-black transition-colors">Toyota Camry (Executive)</Link></li>
-                                <li><Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-black transition-colors">Hyundai Staria (VIP MPV)</Link></li>
+                                <li><Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-black transition-colors">Hyundai Staria ( MPV)</Link></li>
                                 <li><Link href="/fleet/" className="text-black font-bold hover:underline">All Vehicles →</Link></li>
                             </ul>
                         </div>
@@ -393,7 +393,7 @@ export default function BilingualChauffeurPage() {
                         Also available:{' '}
                         <Link href="/services/tourism-transport/" className="text-gray-400 hover:text-white underline">Tourism Transport</Link>
                         {' · '}
-                        <Link href="/services/vip-chauffeur/" className="text-gray-400 hover:text-white underline">VIP Chauffeur</Link>
+                        <Link href="/services/vip-chauffeur/" className="text-gray-400 hover:text-white underline">Chauffeur</Link>
                         {' · '}
                         <Link href="/services/private-driver/" className="text-gray-400 hover:text-white underline">Private Driver</Link>
                     </p>

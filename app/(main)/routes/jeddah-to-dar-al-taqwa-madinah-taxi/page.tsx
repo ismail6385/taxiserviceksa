@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-dar-al-taqwa-madinah-taxi/',
     },
     openGraph: {
-        title: 'Jeddah to Dar Al Taqwa Madinah - VIP Hotel Transfer | Taxi Service KSA',
+        title: 'Jeddah to Dar Al Taqwa Madinah - Hotel Transfer | Taxi Service KSA',
         description: 'Private, comfortable transfer from Jeddah Airport to Dar Al Taqwa Hotel. Located at the Main Gate of the Prophet Mosque.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-dar-al-taqwa-madinah-taxi/',
         type: 'website',
@@ -44,7 +44,7 @@ export default function JeddahToDarAlTaqwaMadinahPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Jeddah to Dar Al Taqwa Madinah"
-                description="Professional VIP private car service for Jeddah to Dar Al Taqwa Madinah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Jeddah to Dar Al Taqwa Madinah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Jeddah to Dar Al Taqwa Madinah Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },

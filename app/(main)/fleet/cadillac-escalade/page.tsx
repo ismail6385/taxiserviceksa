@@ -10,7 +10,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'Cadillac Escalade VIP Chauffeur Saudi Arabia | Luxury SUV',
+    title: 'Cadillac Escalade Chauffeur Saudi Arabia | Luxury SUV',
     description: 'Elite Cadillac Escalade private transfer and luxury SUV chauffeur service in Saudi Arabia. Premium 7-seater SUV for high-profile business and travel. Fixed rates and expert drivers.',
     keywords: ['Cadillac Escalade VIP transfer', 'luxury SUV chauffeur KSA', 'Escalade Riyadh transfer', 'executive SUV service Saudi Arabia', 'VIP Cadillac car hire', 'Jeddah to Makkah Cadillac Escalade'],
     alternates: {
@@ -55,7 +55,7 @@ export default function CadillacEscaladePage() {
                     </span>
                 }
                 subtitle="The Ultimate American Luxury SUV Experience in KSA"
-                location="7 Passengers | 4 Bags | Ultra-VIP Status"
+                location="7 Passengers | 4 Bags | Ultra- Status"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?vehicle=cadillac-escalade">
@@ -66,7 +66,7 @@ export default function CadillacEscaladePage() {
                     </Link>
                     <a href="mailto:taxiserviceksa9988@gmail.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            VIP Concierge Inquiry
+                            Concierge Inquiry
                         </Button>
                     </a>
                 </div>
@@ -93,7 +93,7 @@ export default function CadillacEscaladePage() {
                         <div>
                             <h2 className="text-4xl font-black text-gray-900 mb-8 leading-tight mb-6 uppercase tracking-tighter">Command the Road in Luxury</h2>
                             <p className="text-gray-600 text-xl leading-relaxed mb-6">
-                                Our <strong>Cadillac Escalade VIP private transfer</strong> is designed for high-profile travelers who require both space and undeniable prestige. With its imposing design and handcrafted interior, the Escalade is the flagship SUV of our Saudi Arabian fleet.
+                                Our <strong>Cadillac Escalade private transfer</strong> is designed for high-profile travelers who require both space and undeniable prestige. With its imposing design and handcrafted interior, the Escalade is the flagship SUV of our Saudi Arabian fleet.
                             </p>
                             <p className="text-gray-600 text-xl leading-relaxed mb-8">
                                 Whether you are traveling for a high-stakes board meeting in Riyadh or a family pilgrimage to Makkah, the Escalade provides a first-class cabin experience equipped with the latest OLED technology and premium leather seating.
@@ -101,7 +101,7 @@ export default function CadillacEscaladePage() {
                             
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
                                 <EntityTrustSignal 
-                                    brandName="Escalade VIP Concierge"
+                                    brandName="Escalade Concierge"
                                     description="Serving royals, diplomats, and industry leaders with absolute precision."
                                     metrics={[
                                         { label: 'Excellence Score', value: '100%', icon: ShieldCheck },
@@ -168,8 +168,8 @@ export default function CadillacEscaladePage() {
                         },
                         {
                             question: "Does the Escalade include a professional chauffeur?",
-                            shortAnswer: "Yes, VIP Protocol Driver.",
-                            detailedAnswer: "Every Escalade booking comes with our most experienced chauffeurs, trained in executive protocol, defensive driving, and specialized VIP service standards.",
+                            shortAnswer: "Yes, Protocol Driver.",
+                            detailedAnswer: "Every Escalade booking comes with our most experienced chauffeurs, trained in executive protocol, defensive driving, and specialized service standards.",
                             perspectives: [
                                 { role: 'Protocol Lead', icon: 'User', insight: 'Our drivers act as your personal concierge during the trip.' }
                             ]

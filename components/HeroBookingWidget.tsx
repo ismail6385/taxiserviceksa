@@ -43,7 +43,7 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
             {step === 1 && (
                 <>
                     <h3 className="text-xl sm:text-2xl font-black text-gray-900 text-center mb-2 animate-fade-in uppercase tracking-tight">
-                        {title || "VIP Private Transfer & Chauffeur Service"}
+                        {title || "Private Transfer & Chauffeur Service"}
                     </h3>
                     <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
                         <div className="flex items-center gap-1.5 bg-emerald-50 text-emerald-700 px-2 py-1 rounded-md border border-emerald-100">
@@ -159,7 +159,7 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                         Get Quote
                     </Button>
                     <p className="text-[10px] sm:text-xs text-center text-rose-600 font-extrabold uppercase tracking-[0.2em] mt-2 px-4 shadow-sm bg-rose-50/50 py-2 rounded-lg">
-                        100% PRIVATE VIP TRANSFERS ONLY • NO SHARED TAXIS • ALL KSA CITIES
+                        100% PRIVATE TRANSFERS ONLY • NO SHARED TAXIS • ALL KSA CITIES
                     </p>
                     <p className="text-[9px] sm:text-[10px] text-center text-gray-400 mt-2 px-4 italic leading-tight">
                         * Authorized intercity transfers, hourly chauffeur service, and airport pickups. We do NOT provide local short-hailing or sharing.

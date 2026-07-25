@@ -253,7 +253,7 @@ export default function RiyadhBusinessGuidePage() {
                 <div className="mt-32 border-t border-slate-100 pt-20">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 italic">Move Your Business Forward</h2>
-                        <p className="text-xl text-slate-500 mb-10">Elite transport accounts and VIP airport transfers for corporate Riyadh.</p>
+                        <p className="text-xl text-slate-500 mb-10">Elite transport accounts and airport transfers for corporate Riyadh.</p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <Link href="/booking/">
                                 <Button className="bg-blue-600 hover:bg-blue-700 text-white font-black px-12 py-8 rounded-2xl text-lg shadow-xl shadow-blue-100">

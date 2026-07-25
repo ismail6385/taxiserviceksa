@@ -10,7 +10,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'GMC Yukon VIP Private Transfer Saudi Arabia | Premium Chauffeur',
+    title: 'GMC Yukon Private Transfer Saudi Arabia | Premium Chauffeur',
     description: 'Book the elite GMC Yukon private transfer in Saudi Arabia. Premium 7-seater SUV for airport transfers, business travel, and Umrah journeys. Best-in-class comfort and reliability.',
     keywords: ['GMC Yukon VIP transfer', 'luxury SUV chauffeur KSA', 'GMC Yukon Riyadh transfer', 'executive chauffeur service Saudi Arabia', 'GMC Yukon VIP car', 'Jeddah to Makkah GMC Yukon'],
     alternates: {
@@ -93,7 +93,7 @@ export default function GMCYukonPage() {
                         <div>
                             <h2 className="text-4xl font-black text-gray-900 mb-8 leading-tight uppercase tracking-tighter">Engineered for the Road to Makkah</h2>
                             <p className="text-gray-600 text-xl leading-relaxed mb-6">
-                                The <strong>GMC Yukon VIP private transfer</strong> is our most requested service for a reason. Its massive interior space, superior road stability, and advanced dual AC system make it the perfect vehicle for the long-distance Saudi highways.
+                                The <strong>GMC Yukon private transfer</strong> is our most requested service for a reason. Its massive interior space, superior road stability, and advanced dual AC system make it the perfect vehicle for the long-distance Saudi highways.
                             </p>
                             <p className="text-gray-600 text-xl leading-relaxed mb-8">
                                 Ideal for both executive delegations and large families performing Umrah/Hajj, the Yukon provides a quiet, refined cabin that allows you to relax or work while our professional chauffeurs manage the 950km journey across the desert.

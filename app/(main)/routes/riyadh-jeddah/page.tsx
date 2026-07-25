@@ -35,7 +35,7 @@ export default function RiyadhJeddahRoutePage() {
             <JsonLdRoute 
                 from="Riyadh"
                 to="Jeddah"
-                description="Luxury intercity transfer from Riyadh to Jeddah. Direct 9-10 hour trans-Kingdom journey on Highway 40. 100% private VIP car service."
+                description="Luxury intercity transfer from Riyadh to Jeddah. Direct 9-10 hour trans-Kingdom journey on Highway 40. 100% private car service."
                 distance="950 km"
                 duration="PT10H"
             />
@@ -44,8 +44,7 @@ export default function RiyadhJeddahRoutePage() {
                 images={['/jeddah-corniche-sunset.webp', '/hero-slide-3.webp']}
                 h1Text="Riyadh to Jeddah Taxi"
                 title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Riyadh → Jeddah VIP
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> Riyadh → Jeddah
                     </span>
                 }
                 subtitle="Trans-Kingdom Private Chauffeur Service"
@@ -110,9 +109,9 @@ export default function RiyadhJeddahRoutePage() {
                             <div className="space-y-6">
                                 {[
                                     { name: 'GMC Yukon Denali', capacity: '7 Pax', luggage: '5 Bags' },
-                                    { name: 'Cadillac Escalade VIP', capacity: '7 Pax', luggage: '4 Bags' },
-                                    { name: 'Mercedes S-Class VIP', capacity: '3 Pax', luggage: '2 Bags' },
-                                    { name: 'VIP Hyundai Staria', capacity: '7 Pax', luggage: '4 Bags' }
+                                    { name: 'Cadillac Escalade', capacity: '7 Pax', luggage: '4 Bags' },
+                                    { name: 'Mercedes S-Class', capacity: '3 Pax', luggage: '2 Bags' },
+                                    { name: 'Hyundai Staria', capacity: '7 Pax', luggage: '4 Bags' }
                                 ].map((car, i) => (
                                     <div key={i} className="flex items-center justify-between p-4 rounded-2xl bg-white hover:bg-emerald-50 transition-colors border border-gray-100">
                                         <div className="flex gap-4 items-center">
@@ -192,7 +191,7 @@ export default function RiyadhJeddahRoutePage() {
                 currentCity="Riyadh"
                 customLinks={[
                     { name: 'Riyadh to Makkah', url: '/routes/riyadh-makkah/', description: 'Direct pilgrimage transfer to the Holy City.' },
-                    { name: 'Jeddah to Riyadh', url: '/routes/jeddah-riyadh/', description: 'Return VIP transfer back to the Saudi Capital.' },
+                    { name: 'Jeddah to Riyadh', url: '/routes/jeddah-riyadh/', description: 'Return transfer back to the Saudi Capital.' },
                     { name: 'Riyadh to Dammam', url: '/routes/riyadh-dammam/', description: 'Transfers to the Eastern Province business hub.' }
                 ]}
             />

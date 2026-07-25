@@ -20,9 +20,9 @@ const FEATURES = [
     },
     {
         image: '/gmc-yukon.webp',
-        alt: 'Comfortable GMC Yukon VIP fleet vehicle used for private transfers',
+        alt: 'Comfortable GMC Yukon fleet vehicle used for private transfers',
         title: 'Comfortable vehicles',
-        description: 'Choose the vehicle that suits you best, from business sedans to VIP SUVs.',
+        description: 'Choose the vehicle that suits you best, from business sedans to premium SUVs.',
     },
     {
         image: '/jeddah-airport-terminal.webp',

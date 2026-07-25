@@ -16,7 +16,7 @@ import TrainComparison from '@/components/TrainComparison';
 import BookingProcess from '@/components/BookingProcess';
 
 export const metadata: Metadata = {
-    title: 'Makkah to Madinah Taxi 2026 | VIP Private Transfers | Fixed Rates',
+    title: 'Makkah to Madinah Taxi 2026 | Private Transfers | Fixed Rates',
     description: 'Book the best Makkah to Madinah Taxi for 2026. Premium intercity transfer with professional chauffeurs. Fixed rates starting from 550 SAR. Door-to-door service.',
     keywords: ['Taxi Makkah to Madinah 2026', 'Makkah to Madinah Taxi price', 'Makkah to Madinah private car'],
     alternates: {
@@ -44,7 +44,7 @@ export default function MakkahMadinahRoutePage() {
             <JsonLdRoute 
                 from="Makkah"
                 to="Madinah"
-                description="Premium intercity transfer from Makkah to Madinah. Direct door-to-door VIP car service for families and pilgrims. 450 km journey on Hijrah Road."
+                description="Premium intercity transfer from Makkah to Madinah. Direct door-to-door car service for families and pilgrims. 450 km journey on Hijrah Road."
                 distance="450 km"
                 duration="PT5H"
                 ratingValue="4.9"
@@ -56,11 +56,11 @@ export default function MakkahMadinahRoutePage() {
                 h1Text="Premium Makkah to Madinah Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        2026 Hijrah Route VIP
+                        2026 Hijrah Route
                     </span>
                 }
                 subtitle="Premium Intercity Transfers for Pilgrims & Families"
-                location="450 km | 100% Private VIP Only | 2026 Rates Verified"
+                location="450 km | 100% Private Only | 2026 Rates Verified"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?route=makkah-madinah">
@@ -101,7 +101,7 @@ export default function MakkahMadinahRoutePage() {
                             Traveling between the Holy Cities requires reliability and comfort. Our <strong>Makkah to Madinah private car service</strong> offers a seamless door-to-door experience, allowing you to focus on your spiritual journey without worrying about transportation logistics.
                         </p>
                         <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                            Whether you're traveling solo or with a large family, our 2026 fleet includes everything from the flagship <strong>GMC Yukon</strong> to <strong>VIP Mercedes Sprinters</strong>, all driven by professional, uniformed chauffeurs.
+                            Whether you're traveling solo or with a large family, our 2026 fleet includes everything from the flagship <strong>GMC Yukon</strong> to <strong>Mercedes Sprinters</strong>, all driven by professional, uniformed chauffeurs.
                         </p>
                         
                         <div className="space-y-4">
@@ -124,9 +124,9 @@ export default function MakkahMadinahRoutePage() {
                         <h3 className="text-2xl font-black text-gray-900 mb-6 font-display italic underline decoration-emerald-500 decoration-4">Recommended Fleet</h3>
                         <div className="space-y-6">
                             {[
-                                { name: 'GMC Yukon VIP 2026', capacity: '7 Pax', luggage: '5 Bags' },
+                                { name: 'GMC Yukon 2026', capacity: '7 Pax', luggage: '5 Bags' },
                                 { name: 'Mercedes S-Class 2026', capacity: '3 Pax', luggage: '2 Bags' },
-                                { name: 'VIP Hyundai Staria', capacity: '7 Pax', luggage: '4 Bags' }
+                                { name: 'Hyundai Staria', capacity: '7 Pax', luggage: '4 Bags' }
                             ].map((car, i) => (
                                 <div key={i} className="flex items-center justify-between p-4 rounded-2xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-200">
                                     <div className="flex gap-4 items-center">
@@ -236,7 +236,7 @@ export default function MakkahMadinahRoutePage() {
                         {
                             question: "How much is a taxi from Makkah to Madinah in 2026?",
                             shortAnswer: "Starting from 550 SAR",
-                            detailedAnswer: "In 2026, the fixed rate for a standard sedan is 550 SAR, and for a VIP GMC Yukon, it is 1,000 SAR. These rates cover the entire 450km journey door-to-door.",
+                            detailedAnswer: "In 2026, the fixed rate for a standard sedan is 550 SAR, and for a GMC Yukon, it is 1,000 SAR. These rates cover the entire 450km journey door-to-door.",
                             perspectives: [
                                 { role: 'Pricing Expert', icon: 'DollarSign', insight: 'Fixed rates protect you from route changes or traffic delays on the Hijrah Road.' },
                                 { role: 'Ops Manager', icon: 'Shield', insight: 'Our enterprise pricing model ensures no fuel or toll surcharges ever.' }
@@ -267,7 +267,7 @@ export default function MakkahMadinahRoutePage() {
             <div className="bg-black py-20 text-center px-4 rounded-[40px] mx-4 mb-12">
                 <div className="max-w-4xl mx-auto relative z-10">
                     <div className="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-8 animate-pulse">
-                        100% Private VIP Transfers Only • No Shared Taxis
+                        100% Private Transfers Only • No Shared Taxis
                     </div>
                     <h2 className="text-3xl md:text-5xl font-black text-white mb-8">Get a quote for your 2026 Journey Today</h2>
                     <p className="text-gray-400 text-lg mb-10 italic">"The most trusted way to travel between the Holy Cities."</p>

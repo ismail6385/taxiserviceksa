@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
     const featuredServices = [
         {
-            name: 'VIP & Luxury Chauffeur',
+            name: 'Luxury Chauffeur',
             description: 'Private chauffeur for royal guests, diplomats, CEOs, and elite visitors. Discreet, licensed drivers with Cadillac Escalade, GMC Yukon, and Mercedes S-Class fleet.',
             icon: Crown,
             href: '/services/vip-chauffeur/',
@@ -64,7 +64,7 @@ export default function ServicesPage() {
         },
         {
             name: 'Makkah City Transport',
-            description: 'VIP and family transport in Makkah. Hotel to Haram, Ziyarat tours, JED airport transfers, and Makkah to Madinah. All-Muslim drivers with full city access.',
+            description: 'Family transport in Makkah. Hotel to Haram, Ziyarat tours, JED airport transfers, and Makkah to Madinah. All-Muslim drivers with full city access.',
             icon: MapPin,
             href: '/services/makkah-city-transport/',
             features: ['Hotel to Haram transfers', 'Makkah Ziyarat tours', 'JED → Makkah airport run', 'All prayer times'],
@@ -95,7 +95,7 @@ export default function ServicesPage() {
             isNew: true,
         },
         {
-            name: 'VIP Umrah Transfers',
+            name: 'Umrah Transfers',
             description: 'Exclusive private transport for pilgrims between Jeddah Airport, Makkah, and Madinah. Luxury family transfers with ample luggage space.',
             icon: Car,
             href: '/services/umrah-transport/',
@@ -104,7 +104,7 @@ export default function ServicesPage() {
         },
         {
             name: 'Executive Airport Pickups',
-            description: 'VIP meet-and-greet service at all major Saudi airports. Chauffeurs wait at the terminal with personalized signage.',
+            description: 'Meet-and-greet service at all major Saudi airports. Chauffeurs wait at the terminal with personalized signage.',
             icon: Plane,
             href: '/services/airport-transfers/',
             features: ['Personalized name signs', 'Flight tracker integration', 'VIP terminal assistance', 'Luxury sedan & SUV'],
@@ -127,7 +127,7 @@ export default function ServicesPage() {
             isNew: false,
         },
         {
-            name: 'Intercity VIP Transfers',
+            name: 'Intercity Transfers',
             description: 'Intercity transfers connecting all major Saudi cities. Fixed flat rates for Riyadh to Jeddah, Jeddah to Madinah, and all long-distance routes.',
             icon: Compass,
             href: '/services/intercity/',
@@ -185,8 +185,7 @@ export default function ServicesPage() {
                         Private Chauffeur &<br />
                         <span className="text-black">Transport Services in Saudi Arabia</span>
                     </h1>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Pre-booked private journeys across the Kingdom — from VIP chauffeur and tourist transport to Umrah transfers and group hire. No street-hail, no surge pricing.
+                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"> Pre-booked private journeys across the Kingdom — from chauffeur and tourist transport to Umrah transfers and group hire. No street-hail, no surge pricing.
                     </p>
                 </div>
 

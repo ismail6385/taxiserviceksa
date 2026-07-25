@@ -36,7 +36,7 @@ export default function DammamAirportToLusailTaxiPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation
                 cityName="Dammam Airport to Lusail"
-                description="Professional VIP private car service from Dammam Airport to Lusail, Qatar via the Abu Samra/Salwa border. Reliable 24/7 door-to-door transfers."
+                description="Professional private car service from Dammam Airport to Lusail, Qatar via the Abu Samra/Salwa border. Reliable 24/7 door-to-door transfers."
                 services={[
                     { name: 'Dammam Airport to Lusail Taxi', description: 'Private transfer to Lusail via the border.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and event travel.' },
@@ -196,7 +196,7 @@ export default function DammamAirportToLusailTaxiPage() {
                     {
                         question: 'How much is a taxi from Dammam Airport to Lusail?',
                         shortAnswer: 'WhatsApp Booking',
-                        detailedAnswer: 'A private sedan or VIP SUV (like a GMC Yukon) is available at a fixed rate for the Dammam Airport to Lusail route. Contact us on WhatsApp for a fixed quote based on your vehicle and group size.',
+                        detailedAnswer: 'A private sedan or SUV (like a GMC Yukon) is available at a fixed rate for the Dammam Airport to Lusail route. Contact us on WhatsApp for a fixed quote based on your vehicle and group size.',
                         perspectives: [],
                     },
                     {

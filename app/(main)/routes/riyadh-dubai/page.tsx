@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 import RouteFleetSection from '@/components/RouteFleetSection';
 
 export const metadata: Metadata = {
-    title: 'Riyadh to Dubai Taxi | 3500 SAR GMC VIP Transfer | Taxi Service KSA',
+    title: 'Riyadh to Dubai Taxi | 3500 SAR GMC Transfer | Taxi Service KSA',
     description: 'Book a private taxi from Riyadh to Dubai. GMC Yukon / Chevy Tahoe from 3500 SAR. Door-to-door, border assistance included. WhatsApp booking available 24/7.',
     keywords: ['Taxi Riyadh to Dubai', 'Riyadh to Dubai transfer', 'Riyadh Dubai price 3500 SAR', 'cross border taxi Saudi Arabia', 'VIP transport Riyadh Dubai GMC'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/riyadh-dubai/',
     },
     openGraph: {
-        title: 'Riyadh to Dubai Taxi | 3500 SAR VIP GMC Transfer',
+        title: 'Riyadh to Dubai Taxi | 3500 SAR GMC Transfer',
         description: 'Book a private taxi from Riyadh to Dubai. GMC Yukon / Chevy Tahoe from 3500 SAR. Door-to-door, border assistance included.',
         url: 'https://taxiserviceksa.com/routes/riyadh-dubai/',
         type: 'website',
@@ -37,7 +37,7 @@ export default function RiyadhDubaiRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation
                 cityName="Riyadh to Dubai"
-                description="Professional VIP private car service for Riyadh to Dubai. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Riyadh to Dubai. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Riyadh to Dubai Taxi', description: 'Premium private GMC/Tahoe transfer from 3500 SAR.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -53,7 +53,7 @@ export default function RiyadhDubaiRoutePage() {
                 h1Text="Riyadh to Dubai Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-3 py-2 rounded-lg inline-block leading-snug text-xs sm:text-sm">
-                        GCC Cross-Border VIP Transfer
+                        GCC Cross-Border Transfer
                     </span>
                 }
                 subtitle="Riyadh to Dubai — Private SUV from 3500 SAR"
@@ -144,7 +144,7 @@ export default function RiyadhDubaiRoutePage() {
                             <div className="absolute top-0 right-0 bg-emerald-500 text-white text-xs font-black px-3 py-1.5 rounded-bl-xl">MOST POPULAR</div>
                             <div className="flex sm:flex-col gap-3 sm:gap-0 items-center sm:items-start">
                                 <div className="flex-1">
-                                    <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">Premium VIP</p>
+                                    <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">Premium</p>
                                     <h3 className="text-lg font-bold text-gray-900">GMC / Tahoe</h3>
                                     <p className="text-xs text-gray-600">Full-size SUV · Up to 7 passengers</p>
                                 </div>

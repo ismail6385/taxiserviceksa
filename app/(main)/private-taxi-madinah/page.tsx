@@ -74,7 +74,7 @@ const serviceSchema = {
     serviceType: 'Private Taxi & Ziyarat Tours',
     provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: '+966552202642' },
     areaServed: { '@type': 'City', name: 'Madinah' },
-    description: 'Private taxi and VIP chauffeur in Madinah. Ziyarat tours, airport transfers, Makkah connections. Fixed rates, Muslim-certified drivers.',
+    description: 'Private taxi and chauffeur in Madinah. Ziyarat tours, airport transfers, Makkah connections. Fixed rates, Muslim-certified drivers.',
     offers: { '@type': 'Offer', priceCurrency: 'SAR', price: '70', availability: 'https://schema.org/InStock' },
 };
 

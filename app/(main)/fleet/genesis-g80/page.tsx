@@ -10,7 +10,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'Genesis G80 VIP Transfer Saudi Arabia | Luxury Executive Transport',
+    title: 'Genesis G80 Transfer Saudi Arabia | Luxury Executive Transport',
     description: 'Book the elite Genesis G80 private transfer in Saudi Arabia. Premium executive sedan with sophisticated design and first-class comfort for city and airport transfers.',
     keywords: ['Genesis G80 VIP transfer', 'Genesis chauffeur KSA', 'luxury sedan Riyadh', 'Genesis executive car Saudi Arabia', 'VIP Genesis G80 taxi'],
     alternates: {
@@ -61,7 +61,7 @@ export default function GenesisG80Page() {
                     </span>
                 }
                 subtitle="The Pinnacle of Modern Sophistication in Saudi Arabia"
-                location="3 Passengers | 2 Bags | Executive VIP"
+                location="3 Passengers | 2 Bags | Executive"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?vehicle=genesis-g80">
@@ -71,8 +71,7 @@ export default function GenesisG80Page() {
                         </Button>
                     </Link>
                     <a href="mailto:taxiserviceksa9988@gmail.com">
-                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            VIP Details
+                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto"> Details
                         </Button>
                     </a>
                 </div>
@@ -99,7 +98,7 @@ export default function GenesisG80Page() {
                         <div>
                             <h2 className="text-4xl font-black text-gray-900 mb-8 leading-tight tracking-tighter uppercase">Quiet Power & Refined Comfort</h2>
                             <p className="text-gray-600 text-xl leading-relaxed mb-8">
-                                For the discerning traveler who seeks a unique blend of modern design and traditional luxury, the <strong>Genesis G80 VIP private transfer</strong> is an exceptional choice. Known for its whisper-quiet cabin and premium materials, the G80 provides a serene environment for city commutes and intercity tours.
+                                For the discerning traveler who seeks a unique blend of modern design and traditional luxury, the <strong>Genesis G80 private transfer</strong> is an exceptional choice. Known for its whisper-quiet cabin and premium materials, the G80 provides a serene environment for city commutes and intercity tours.
                             </p>
                             
                             <div className="space-y-6 mb-12">
@@ -121,7 +120,7 @@ export default function GenesisG80Page() {
                             </div>
 
                             <EntityTrustSignal 
-                                brandName="Genesis VIP Shield"
+                                brandName="Genesis Shield"
                                 description="Winner of multiple international safety and design awards."
                                 metrics={[
                                     { label: 'Safety Rating', value: 'Top Pick', icon: ShieldCheck },
@@ -154,7 +153,7 @@ export default function GenesisG80Page() {
 
             <div className="max-w-4xl mx-auto py-24 px-4">
                 <center>
-                    <h2 className="text-3xl font-black text-gray-900 mb-12 uppercase tracking-tighter">Genesis G80 VIP FAQ</h2>
+                    <h2 className="text-3xl font-black text-gray-900 mb-12 uppercase tracking-tighter">Genesis G80 FAQ</h2>
                 </center>
                 <MicroSemanticFAQ 
                     faqs={[
@@ -175,7 +174,7 @@ export default function GenesisG80Page() {
                             ]
                         },
                         {
-                            question: "What amenities are provided in the Genesis VIP fleet?",
+                            question: "What amenities are provided in the Genesis fleet?",
                             shortAnswer: "First-Class Amenities.",
                             detailedAnswer: "Our Genesis fleet includes bottled water, high-speed WiFi, phone charging cables, and climate-controlled sessions to ensure you arrive refreshed.",
                             perspectives: [

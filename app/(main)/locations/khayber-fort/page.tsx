@@ -121,8 +121,7 @@ export default function KhayberPage() {
                 h1Text="Private Car Transfer, Taxi and Chauffeur Service in Khaybar Fort"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Khaybar"
                 title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        VIP Chauffeur Service Khaybar
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> Chauffeur Service Khaybar
                     </span>
                 }
                 subtitle="Historical Heritage & Volcanic Expeditions"
@@ -177,8 +176,7 @@ export default function KhayberPage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked Heritage Tours, Intercity, and VIP 4x4 transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Heritage Tours, Intercity, and 4x4 transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -275,7 +273,7 @@ export default function KhayberPage() {
                         category: "Nearby Hubs",
                         relevance: "Primary",
                         items: [
-                            { label: "Madinah VIP Transfer", url: "/locations/madinah" },
+                            { label: "Madinah Transfer", url: "/locations/madinah" },
                             { label: "AlUla Tour Transfer", url: "/locations/alula" },
                             { label: "Prince Mohammad Airport", url: "/locations/madinah" }
                         ]
@@ -486,8 +484,7 @@ export default function KhayberPage() {
                             <span className="text-sm font-semibold text-white">Expedition Rates</span>
                         </div>
 
-                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
-                            VIP Khaybar Expedition Rates
+                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6"> Khaybar Expedition Rates
                         </h3>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                             Comprehensive transport including waiting time and off-road capabilities.
@@ -551,8 +548,7 @@ export default function KhayberPage() {
                         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
                             Khaybar Travel Insights
                         </h2>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            Share your experience or ask a question about our VIP transfer services to Khaybar Fort.
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto"> Share your experience or ask a question about our transfer services to Khaybar Fort.
                         </p>
                     </div>
 

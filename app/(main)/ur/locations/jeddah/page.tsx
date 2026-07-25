@@ -23,7 +23,7 @@ import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 
 export const metadata: Metadata = {
-    title: 'جدہ ٹیکسی سروس | ایئرپورٹ ٹرانسفر اور مکہ زیارت (VIP)',
+    title: 'جدہ ٹیکسی سروس | ایئرپورٹ ٹرانسفر اور مکہ زیارت',
     description: 'جدہ میں بہترین ٹیکسی سروس۔ کنگ عبدالعزیز ایئرپورٹ سے مکہ اور مدینہ کے لیے آرام دہ سفر۔ فیملی کاریں (GMC) اور وی آئی پی استقبال دستیاب ہے۔',
     keywords: ['جدہ ٹیکسی', 'جدہ ایئرپورٹ پک اپ', 'مکہ ٹیکسی', 'عمرہ ٹرانسپورٹ', 'جدہ سے مدینہ', 'VIP ٹیپسی جدہ'],
     alternates: {
@@ -50,7 +50,7 @@ export default function JeddahPageUrdu() {
         { name: 'ایئرپورٹ استقبال (Meet & Greet)', description: 'ٹرمینل 1 اور نارتھ ٹرمینل میں نام کے بورڈ کے ساتھ استقبال', icon: Plane },
         { name: 'مکہ ڈائریکٹ ٹرانسفر', description: 'ایئرپورٹ سے سیدھا ہوٹل یا حرم تک (75 منٹ)', icon: Car },
         { name: 'جدہ سٹی ٹور', description: 'بلد، کورنیش اور فوارہ شاہ فہد کی مکمل سیر', icon: Waves },
-        { name: 'بزنس اور فیملی VIP', description: 'GMC یوکون اور لگژری سیڈان دستیاب ہیں', icon: Building2 },
+        { name: 'بزنس اور فیملی', description: 'GMC یوکون اور لگژری سیڈان دستیاب ہیں', icon: Building2 },
     ];
 
     const jeddahImages = [
@@ -212,7 +212,7 @@ export default function JeddahPageUrdu() {
                             items: [
                                 { label: "جدہ ایئرپورٹ سے مکہ ڈراپ", url: "/ur/locations/makkah" },
                                 { label: "ایئرپورٹ سے مدینہ ٹرانسفر", url: "/ur/locations/madinah" },
-                                { label: "جدہ ایئرپورٹ VIP استقبال", url: "/booking" }
+                                { label: "جدہ ایئرپورٹ استقبال", url: "/booking" }
                             ]
                         },
                         {

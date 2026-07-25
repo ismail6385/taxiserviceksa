@@ -10,14 +10,14 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
-    title: 'Jeddah to Oberoi Madinah Taxi | VIP Transfer - Fixed Price | Taxi Service KSA',
+    title: 'Jeddah to Oberoi Madinah Taxi | Transfer - Fixed Price | Taxi Service KSA',
     description: 'Request a quote for a luxury taxi from Jeddah Airport to The Oberoi Madinah Hotel. Door-to-door first-class service for executive guests. 24/7 Availability.',
     keywords: ['Jeddah to Oberoi Madinah taxi', 'The Oberoi Madinah hotel transfer', 'KAIA to Oberoi Madinah', 'luxury Oberoi Madinah pickup', 'Oberoi Al Madinah VIP taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-oberoi-madinah-taxi/',
     },
     openGraph: {
-        title: 'VIP Transfer: Jeddah Airport to The Oberoi Madinah | Taxi Service KSA',
+        title: 'Transfer: Jeddah Airport to The Oberoi Madinah | Taxi Service KSA',
         description: 'First-class private transfer to The Oberoi Madinah. GMC Yukon & luxury options available. Direct drop-off at hotel entrance.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-oberoi-madinah-taxi/',
         type: 'website',
@@ -28,7 +28,7 @@ export default function JeddahToOberoiMadinahPage() {
     const routeDetails = [
         { label: 'Destination', value: 'The Oberoi', icon: Building2 },
         { label: 'Travel Time', value: '4 Hours', icon: Clock },
-        { label: 'VIP Service', value: 'GMC Yukon', icon: Car },
+        { label: 'Service', value: 'GMC Yukon', icon: Car },
         { label: 'Rate', value: 'Fixed Price', icon: DollarSign },
     ];
 
@@ -44,7 +44,7 @@ export default function JeddahToOberoiMadinahPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Jeddah to Oberoi Madinah"
-                description="Professional VIP private car service for Jeddah to Oberoi Madinah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Jeddah to Oberoi Madinah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Jeddah to Oberoi Madinah Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -59,8 +59,7 @@ export default function JeddahToOberoiMadinahPage() {
                 images={routeImages}
                 h1Text="Jeddah to The Oberoi Madinah"
                 title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        VIP Hotel Transfer
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> Hotel Transfer
                     </span>
                 }
                 subtitle="First Class Transfer from Jeddah to The Oberoi Hotel"

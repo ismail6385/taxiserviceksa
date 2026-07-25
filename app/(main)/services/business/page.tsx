@@ -163,7 +163,7 @@ export default function BusinessPage() {
                         contextName="Business"
                         faqs={[
                             {
-                                question: "How do I open a corporate VIP account?",
+                                question: "How do I open a corporate account?",
                                 shortAnswer: "Contact Sales.",
                                 detailedAnswer: "Please email our corporate sales team at taxiserviceksa9988@gmail.com with your company details. We will set up your account with credit terms and a dedicated booking portal.",
                                 perspectives: [

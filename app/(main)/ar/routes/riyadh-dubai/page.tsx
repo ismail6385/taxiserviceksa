@@ -10,7 +10,7 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 import RouteFleetSection from '@/components/RouteFleetSection';
 
 export const metadata: Metadata = {
-    title: 'تاكسي الرياض إلى دبي | نقل VIP بجمس من ٣٬٥٠٠ ريال | Taxi Service KSA',
+    title: 'تاكسي الرياض إلى دبي | نقل بجمس من ٣٬٥٠٠ ريال | Taxi Service KSA',
     description: 'احجز تاكسي خاص من الرياض إلى دبي. جمس يوكن / شيفروليه تاهو بسعر يبدأ من ٣٥٠٠ ريال. خدمة من الباب إلى الباب، مع مساعدة كاملة عند الحدود. الحجز متاح عبر واتساب على مدار الساعة.',
     keywords: ['تاكسي الرياض إلى دبي', 'نقل الرياض دبي', 'سعر الرياض دبي ٣٥٠٠ ريال', 'تاكسي عبور الحدود السعودية', 'نقل VIP الرياض دبي جمس'],
     alternates: {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'تاكسي الرياض إلى دبي | نقل VIP بجمس ٣٬٥٠٠ ريال',
+        title: 'تاكسي الرياض إلى دبي | نقل بجمس ٣٬٥٠٠ ريال',
         description: 'احجز تاكسي خاص من الرياض إلى دبي. جمس يوكن / شيفروليه تاهو بسعر يبدأ من ٣٥٠٠ ريال. خدمة من الباب إلى الباب، مع مساعدة كاملة عند الحدود.',
         url: 'https://taxiserviceksa.com/ar/routes/riyadh-dubai/',
         locale: 'ar_SA',
@@ -43,7 +43,7 @@ export default function RiyadhDubaiRoutePageArabic() {
         <div className="bg-gray-50 min-h-screen rtl" dir="rtl">
             <JsonLdLocation
                 cityName="Riyadh to Dubai"
-                description="Professional VIP private car service for Riyadh to Dubai. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Riyadh to Dubai. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Riyadh to Dubai Taxi', description: 'Premium private GMC/Tahoe transfer from 3500 SAR.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -59,7 +59,7 @@ export default function RiyadhDubaiRoutePageArabic() {
                 h1Text="تاكسي الرياض إلى دبي"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-3 py-2 rounded-lg inline-block leading-snug text-xs sm:text-sm">
-                        نقل VIP عبر حدود دول الخليج
+                        نقل عبر حدود دول الخليج
                     </span>
                 }
                 subtitle="الرياض إلى دبي — سيارة دفع رباعي خاصة من ٣٬٥٠٠ ريال"
@@ -150,7 +150,7 @@ export default function RiyadhDubaiRoutePageArabic() {
                             <div className="absolute top-0 right-0 bg-emerald-500 text-white text-xs font-black px-3 py-1.5 rounded-bl-xl">الأكثر طلباً</div>
                             <div className="flex sm:flex-col gap-3 sm:gap-0 items-center sm:items-start">
                                 <div className="flex-1">
-                                    <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">VIP فاخرة</p>
+                                    <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">فاخرة</p>
                                     <h3 className="text-lg font-bold text-gray-900">جمس / تاهو</h3>
                                     <p className="text-xs text-gray-600">دفع رباعي كامل الحجم · حتى ٧ ركاب</p>
                                 </div>

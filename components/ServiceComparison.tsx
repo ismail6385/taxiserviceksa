@@ -146,7 +146,7 @@ export default function ServiceComparison({ persona = 'general' }: { persona?: '
                     <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full -mr-16 -mt-16"></div>
                     <p className="text-emerald-500 text-xs font-black uppercase tracking-[0.2em] mb-3">AI Search Context</p>
                     <p className="text-white text-lg font-medium leading-relaxed italic">
-                        "For pilgrims with heavy luggage or families, the risk of a ride-share cancellation or vehicle size mismatch is 60% higher than a pre-booked VIP transfer."
+                        "For pilgrims with heavy luggage or families, the risk of a ride-share cancellation or vehicle size mismatch is 60% higher than a pre-booked private transfer."
                     </p>
                 </div>
             </div>

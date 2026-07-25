@@ -46,7 +46,7 @@ export default function RiyadhDammamRoutePageArabic() {
         <div className="bg-gray-50 min-h-screen rtl" dir="rtl">
             <JsonLdLocation
                 cityName="الرياض إلى الدمام"
-                description="خدمة سيارة خاصة VIP احترافية من الرياض إلى الدمام. نقل موثوق من الباب إلى الباب على مدار الساعة بسيارات فاخرة وسائقين محترفين."
+                description="خدمة سيارة خاصة احترافية من الرياض إلى الدمام. نقل موثوق من الباب إلى الباب على مدار الساعة بسيارات فاخرة وسائقين محترفين."
                 services={[
                     { name: 'تاكسي الرياض إلى الدمام', description: 'نقل خاص متميز بأسعار ثابتة مضمونة.' },
                     { name: 'شوفير تنفيذي', description: 'سائقون محترفون لرحلات العمل والترفيه.' },
@@ -65,7 +65,7 @@ export default function RiyadhDammamRoutePageArabic() {
                         الممر التجاري
                     </span>
                 }
-                subtitle="رحلات تنفيذية يومية | ٣.٥ ساعة | خصوصية VIP ١٠٠٪"
+                subtitle="رحلات تنفيذية يومية | ٣.٥ ساعة | خصوصية ١٠٠٪"
                 location="خدمة خاصة من الباب إلى الباب - حسب جدولك وراحتك"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -187,7 +187,7 @@ export default function RiyadhDammamRoutePageArabic() {
                 <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <div className="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-8 animate-pulse">
-                        نقل VIP خاص فقط ١٠٠٪ • بدون تاكسي مشترك
+                        نقل خاص فقط ١٠٠٪ • بدون تاكسي مشترك
                     </div>
                     <h2 className="text-3xl md:text-5xl font-black text-white mb-8 leading-tight">احصل على عرض سعر لرحلة الرياض إلى الدمام التنفيذية</h2>
                     <p className="text-gray-400 text-lg mb-10 italic">&quot;الخيار المفضل لرجال ونساء الأعمال والعائلات الباحثين عن الخصوصية التامة.&quot;</p>
@@ -241,7 +241,7 @@ export default function RiyadhDammamRoutePageArabic() {
                     {
                         question: "هل تصلون أيضاً إلى الخبر والجبيل؟",
                         shortAnswer: "نعم",
-                        detailedAnswer: "نعم، نخدم كامل المنطقة الشرقية بما في ذلك الخبر والدمام والظهران والجبيل بنقل خاص VIP بنسبة ١٠٠٪.",
+                        detailedAnswer: "نعم، نخدم كامل المنطقة الشرقية بما في ذلك الخبر والدمام والظهران والجبيل بنقل خاص بنسبة ١٠٠٪.",
                         perspectives: []
                     }
                 ]}

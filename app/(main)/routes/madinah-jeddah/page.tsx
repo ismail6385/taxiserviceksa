@@ -12,7 +12,7 @@ import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import JsonLdRoute from '@/components/JsonLdRoute';
 
 export const metadata: Metadata = {
-    title: 'Madinah to Jeddah Taxi | VIP Private Transfers | Taxi Service KSA',
+    title: 'Madinah to Jeddah Taxi | Private Transfers | Taxi Service KSA',
     description: 'Book the best Madinah to Jeddah Taxi. Comfortable 4-5 hour journey from Madinah hotels to Jeddah. Fixed rates, GMC Yukons, and 24/7 service.',
     keywords: ['Taxi Madinah to Jeddah', 'Madinah to Jeddah Taxi', 'Madinah to Jeddah private car', 'taxi fare Madinah to Jeddah', 'Madinah to Jeddah transport', 'private transfer Madinah to Jeddah'],
     alternates: {
@@ -33,7 +33,7 @@ export default function MadinahJeddahRoutePage() {
             <JsonLdRoute 
                 from="Madinah"
                 to="Jeddah"
-                description="Luxury intercity transfer from Madinah to Jeddah. Comfortable 4-5 hour journey from Madinah hotels to Jeddah. 100% private VIP car service."
+                description="Luxury intercity transfer from Madinah to Jeddah. Comfortable 4-5 hour journey from Madinah hotels to Jeddah. 100% private car service."
                 distance="450 km"
                 duration="PT5H"
             />
@@ -88,7 +88,7 @@ export default function MadinahJeddahRoutePage() {
                                 Traveling from the Prophet's City to the Coastal City requires a vehicle built for the long desert stretches. Our <strong>Madinah to Jeddah private car service</strong> provides a direct, door-to-door experience that avoids the hassle of train station transfers or airport check-ins.
                             </p>
                             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                                Whether you're heading to a business meeting in the Jeddah Corniche or catching an international departure, our <strong>Madinah to Jeddah taxi</strong> service ensures you arrive refreshed. Choose from our VIP <strong>GMC Yukon Denali</strong> or <strong>Mercedes Vito</strong> for group travel.
+                                Whether you're heading to a business meeting in the Jeddah Corniche or catching an international departure, our <strong>Madinah to Jeddah taxi</strong> service ensures you arrive refreshed. Choose from our <strong>GMC Yukon Denali</strong> or <strong>Mercedes Vito</strong> for group travel.
                             </p>
                             
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -107,9 +107,9 @@ export default function MadinahJeddahRoutePage() {
                             <h3 className="text-2xl font-black text-gray-900 mb-6">Recommended Fleet</h3>
                             <div className="space-y-6">
                                 {[
-                                    { name: 'GMC Yukon VIP', capacity: '7 Pax', luggage: '5 Bags' },
-                                    { name: 'Mercedes Vito VIP', capacity: '7 Pax', luggage: '4 Bags' },
-                                    { name: 'VIP Hyundai Staria', capacity: '7 Pax', luggage: '4 Bags' },
+                                    { name: 'GMC Yukon', capacity: '7 Pax', luggage: '5 Bags' },
+                                    { name: 'Mercedes Vito', capacity: '7 Pax', luggage: '4 Bags' },
+                                    { name: 'Hyundai Staria', capacity: '7 Pax', luggage: '4 Bags' },
                                     { name: 'Toyota Hiace Group', capacity: '11 Pax', luggage: '16 Bags' }
                                 ].map((car, i) => (
                                     <div key={i} className="flex items-center justify-between p-4 rounded-2xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-200">

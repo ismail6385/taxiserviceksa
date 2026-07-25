@@ -32,8 +32,7 @@ export default function InternationalGuidesIndex() {
                     <h1 className="text-3xl md:text-5xl font-black text-gray-900 mb-6">
                         International Pilgrim Guides
                     </h1>
-                    <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        We welcome pilgrims from every corner of the globe. Select your country below to find tailored advice on visas, flights, and VIP transport from Jeddah Airport to Makkah & Madinah.
+                    <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"> We welcome pilgrims from every corner of the globe. Select your country below to find tailored advice on visas, flights, and transport from Jeddah Airport to Makkah & Madinah.
                     </p>
                 </div>
 

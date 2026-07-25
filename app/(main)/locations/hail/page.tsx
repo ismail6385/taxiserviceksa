@@ -34,9 +34,9 @@ export default function HailLocationPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation
                 cityName="Hail"
-                description="Professional VIP transfers in Hail. Specializing in airport pickups, corporate travel, and comfortable intercity transfers across Saudi Arabia."
+                description="Professional transfers in Hail. Specializing in airport pickups, corporate travel, and comfortable intercity transfers across Saudi Arabia."
                 services={[
-                    { name: 'Hail Airport Pickup', description: 'VIP meet & greet at Hail Regional Airport with flight tracking.' },
+                    { name: 'Hail Airport Pickup', description: 'Meet & greet at Hail Regional Airport with flight tracking.' },
                     { name: 'Intercity Transfers', description: 'Safe, direct transport to Riyadh, Madinah, and Tabuk.' },
                     { name: 'Corporate Travel', description: 'Executive chauffeur services for business meetings.' }
                 ]}
@@ -49,7 +49,7 @@ export default function HailLocationPage() {
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Hail"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        VIP Chauffeur Service Hail
+                        Chauffeur Service Hail
                     </span>
                 }
                 subtitle="Premium Executive Transport Excellence"
@@ -69,7 +69,7 @@ export default function HailLocationPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
                         <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked long-distance and VIP Airport transfers. We do NOT provide local short-distance hailing.
+                        OFFICIAL NOTE: We specialize in pre-booked long-distance and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -80,13 +80,13 @@ export default function HailLocationPage() {
                         <div>
                             <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">Professional Transport</span>
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                                VIP Transfer Services in Hail
+                                Transfer Services in Hail
                             </h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                                 Hail is a major city in the northern region of Saudi Arabia, known as the gateway between Riyadh and Tabuk. Whether you are a business traveler, tourist, or family, our premium fleet is ready to serve you with comfort and reliability.
                             </p>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                We prioritize safety, punctuality, and discretion. Avoid the hassle of public transport by pre-booking a dedicated VIP chauffeur from Hail to Riyadh, Madinah, or anywhere across Saudi Arabia.
+                                We prioritize safety, punctuality, and discretion. Avoid the hassle of public transport by pre-booking a dedicated chauffeur from Hail to Riyadh, Madinah, or anywhere across Saudi Arabia.
                             </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

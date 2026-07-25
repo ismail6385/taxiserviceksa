@@ -12,7 +12,7 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 import RouteFleetSection from '@/components/RouteFleetSection';
 
 export const metadata: Metadata = {
-    title: 'Khobar to Dammam Airport Taxi | VIP Airport Transfer | Taxi Service KSA',
+    title: 'Khobar to Dammam Airport Taxi | Airport Transfer | Taxi Service KSA',
     description: 'Book a premium taxi from Khobar to King Fahd International Airport (DMM) Dammam. Reliable transfers, punctual pickups, and professional door-to-door service.',
     keywords: ['Khobar to Dammam Airport Taxi', 'Khobar to DMM transfer', 'Al Khobar airport taxi service', 'VIP transport DMM'],
     alternates: {
@@ -37,7 +37,7 @@ export default function KhobarDammamAirportRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Khobar to Dammam Airport"
-                description="Professional VIP private car service from Al Khobar to Dammam Airport (DMM). Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service from Al Khobar to Dammam Airport (DMM). Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Khobar to Dammam Airport Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -52,7 +52,7 @@ export default function KhobarDammamAirportRoutePage() {
                 h1Text="Khobar to Dammam Airport Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        VIP Airport Transfer
+                        Airport Transfer
                     </span>
                 }
                 subtitle="Punctual & Stress-Free: Khobar to DMM Airport"
@@ -159,7 +159,7 @@ export default function KhobarDammamAirportRoutePage() {
                                 </div>
                                 <div className="bg-white/60 backdrop-blur-sm p-4 rounded-xl border border-blue-100">
                                     <div className="flex justify-between items-center mb-1">
-                                        <span className="font-bold text-gray-900">VIP SUV (GMC/Suburbun)</span>
+                                        <span className="font-bold text-gray-900">SUV (GMC/Suburbun)</span>
                                         <span className="text-lg font-black text-blue-600">300 SAR</span>
                                     </div>
                                     <p className="text-xs text-gray-500">Premium experience with extra luggage capacity</p>
@@ -224,7 +224,7 @@ export default function KhobarDammamAirportRoutePage() {
                         { name: 'Kuwait to DMM Airport', url: '/routes/kuwait-to-dammam-airport/', description: 'Book a long-distance cross-border transfer from Kuwait.' },
                         { name: 'Khobar to Bahrain', url: '/routes/khobar-to-bahrain/', description: 'Direct taxi service across the Causeway to Manama.' },
                         { name: 'Khobar to Riyadh', url: '/routes/khobar-riyadh/', description: 'Premium intercity transport from Khobar to the Capital.' },
-                        { name: 'DMM Airport to Kuwait', url: '/routes/dammam-airport-to-kuwait/', description: 'VIP transfers from DMM Airport to Kuwait City.' },
+                        { name: 'DMM Airport to Kuwait', url: '/routes/dammam-airport-to-kuwait/', description: 'Transfers from DMM Airport to Kuwait City.' },
                     ]}
                 />
             </div>
@@ -240,7 +240,7 @@ export default function KhobarDammamAirportRoutePage() {
                     {
                         question: "What is the fare for a taxi from Khobar to the airport?",
                         shortAnswer: "150 SAR (Sedan) / 300 SAR (SUV).",
-                        detailedAnswer: "We offer a fixed rate of 150 SAR for a premium sedan and 300 SAR for a VIP SUV like a GMC Yukon.",
+                        detailedAnswer: "We offer a fixed rate of 150 SAR for a premium sedan and 300 SAR for a SUV like a GMC Yukon.",
                         perspectives: []
                     },
                     {

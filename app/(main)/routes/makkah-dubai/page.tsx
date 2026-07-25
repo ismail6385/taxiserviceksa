@@ -12,14 +12,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Makkah to Dubai Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
+    title: 'Makkah to Dubai Taxi | Cross-Border Transfer | Taxi Service KSA',
     description: 'Request a premium quote from Makkah to Dubai. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Makkah to Dubai', 'Makkah to Dubai transfer', 'cross border taxi Saudi Arabia', 'VIP transport Makkah Dubai'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/makkah-dubai/',
     },
     openGraph: {
-        title: 'Makkah to Dubai Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
+        title: 'Makkah to Dubai Taxi | Cross-Border Transfer | Taxi Service KSA',
         description: 'Request a premium quote from Makkah to Dubai. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/makkah-dubai/',
         type: 'website',
@@ -39,7 +39,7 @@ export default function MakkahDubaiRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Makkah to Dubai"
-                description="Professional VIP private car service for Makkah to Dubai. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Makkah to Dubai. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Makkah to Dubai Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -58,7 +58,7 @@ export default function MakkahDubaiRoutePage() {
                         GCC Cross-Border Service
                     </span>
                 }
-                subtitle="Seamless VIP Transfers: Makkah to Dubai"
+                subtitle="Seamless Transfers: Makkah to Dubai"
                 location="Door-to-Door Service"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -106,7 +106,7 @@ export default function MakkahDubaiRoutePage() {
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <CheckCircle2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">VIP Comfort</span>
+                                    <span className="font-semibold text-gray-800">Comfort</span>
                                 </div>
                             </div>
                         </div>

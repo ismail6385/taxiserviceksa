@@ -36,7 +36,7 @@ export default function DammamAirportToThePearlQatarTaxiPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation
                 cityName="Dammam Airport to The Pearl-Qatar"
-                description="Professional VIP private car service from Dammam Airport to The Pearl-Qatar via the Abu Samra/Salwa border. Reliable 24/7 door-to-door transfers."
+                description="Professional private car service from Dammam Airport to The Pearl-Qatar via the Abu Samra/Salwa border. Reliable 24/7 door-to-door transfers."
                 services={[
                     { name: 'Dammam Airport to The Pearl-Qatar Taxi', description: 'Private transfer to the island via the border.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -196,7 +196,7 @@ export default function DammamAirportToThePearlQatarTaxiPage() {
                     {
                         question: 'How much is a taxi from Dammam Airport to The Pearl-Qatar?',
                         shortAnswer: 'WhatsApp Booking',
-                        detailedAnswer: 'A private sedan or VIP SUV (like a GMC Yukon) is available at a fixed rate for the Dammam Airport to The Pearl-Qatar route. Contact us on WhatsApp for a fixed quote based on your vehicle and group size.',
+                        detailedAnswer: 'A private sedan or SUV (like a GMC Yukon) is available at a fixed rate for the Dammam Airport to The Pearl-Qatar route. Contact us on WhatsApp for a fixed quote based on your vehicle and group size.',
                         perspectives: [],
                     },
                     {

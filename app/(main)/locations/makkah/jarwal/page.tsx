@@ -87,8 +87,8 @@ export default function JarwalPage() {
                         Premium Expansion Chauffeur
                     </span>
                 }
-                subtitle="The Exclusive VIP Link to the King Abdullah Expansion"
-                location="Sheraton | Jarwal Plaza | Al-Taysir VIP"
+                subtitle="The Exclusive Link to the King Abdullah Expansion"
+                location="Sheraton | Jarwal Plaza | Al-Taysir"
             />
 
             {/* Premium Service Disclaimer */}
@@ -96,7 +96,7 @@ export default function JarwalPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
                         <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked VIP Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
+                        OFFICIAL NOTE: We specialize in pre-booked Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -108,7 +108,7 @@ export default function JarwalPage() {
                         <div className="flex-1 prose max-w-none text-gray-700">
                             <h2 className="text-3xl font-black text-gray-900 mb-8 leading-tight">Accessing the Haram from Modern Jarwal</h2>
                             <p className="text-lg leading-relaxed mb-8">
-                                Jarwal is the rising star of Makkah's hospitality, offering modern hotels and direct access to the spectacular <strong>King Abdullah Expansion</strong> of Masjid al-Haram. Our <strong>Jarwal Makkah VIP Transfer Service</strong> is optimized for the wide boulevards and modern logistics of this district.
+                                Jarwal is the rising star of Makkah's hospitality, offering modern hotels and direct access to the spectacular <strong>King Abdullah Expansion</strong> of Masjid al-Haram. Our <strong>Jarwal Makkah Transfer Service</strong> is optimized for the wide boulevards and modern logistics of this district.
                             </p>
                             <p className="mb-10 leading-relaxed">
                                 Whether you're staying at the <strong>Sheraton Makkah Jabal Al Kaaba</strong>, <strong>Jarwal Plaza</strong>, or any of the premium residences in Al-Taysir, we provide a fleet of high-end SUVs and sedans to make your journey to the Grand Mosque effortless. Our drivers are experts at navigating the Jabal al-Kaaba tunnels, ensuring you arrive for Salah with time to spare.

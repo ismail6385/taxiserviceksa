@@ -52,7 +52,7 @@ export default function YanbuPage() {
     const services = [
         { name: 'Yanbu Airport Transfer', description: 'Transfers from Prince Abdul Mohsin bin Abdulaziz Airport (YNB) to Yanbu hotels', icon: Plane },
         { name: 'Industrial City Transport', description: 'Transport to Yanbu Industrial City, petrochemical facilities, and port areas', icon: Anchor },
-        { name: 'Yanbu to Madinah VIP Transfer', description: 'Intercity travel between Yanbu and Madinah (220 km, 2.5-3 hours)', icon: Car },
+        { name: 'Yanbu to Madinah Transfer', description: 'Intercity travel between Yanbu and Madinah (220 km, 2.5-3 hours)', icon: Car },
         { name: 'Red Sea Waterfront Tours', description: 'Transport to Yanbu Corniche, diving centers, and Red Sea beaches', icon: MapPin },
     ];
 
@@ -79,7 +79,7 @@ export default function YanbuPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Yanbu"
-                description="Professional VIP transfers in Yanbu. Specializing in Yanbu Airport (YNB) pickups, industrial city port transport, and Red Sea waterfront executive travel."
+                description="Professional transfers in Yanbu. Specializing in Yanbu Airport (YNB) pickups, industrial city port transport, and Red Sea waterfront executive travel."
                 services={services}
                 
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
@@ -92,12 +92,11 @@ export default function YanbuPage() {
                 h1Text="Private Car Transfer, Taxi and Chauffeur Service in Yanbu"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Yanbu"
                 title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        VIP Chauffeur Service Yanbu
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> Chauffeur Service Yanbu
                     </span>
                 }
                 subtitle="Industrial Hub & Red Sea Executive Gateway"
-                location="24/7 VIP Airport & Port Service"
+                location="24/7 Airport & Port Service"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
@@ -131,8 +130,7 @@ export default function YanbuPage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked Airport, Port, and VIP Industrial transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Airport, Port, and Industrial transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -242,8 +240,7 @@ export default function YanbuPage() {
                     <div className="text-center mb-16">
                         <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Executive Services</span>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Yanbu Transport Solutions</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                            Professional VIP chauffeur service for industrial executives, port personnel, and Red Sea travelers.
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"> Professional chauffeur service for industrial executives, port personnel, and Red Sea travelers.
                         </p>
                     </div>
 
@@ -265,7 +262,7 @@ export default function YanbuPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Yanbu VIP Transfer</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Yanbu Transfer</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                         {features.map((feature, index) => (
@@ -361,7 +358,7 @@ export default function YanbuPage() {
                                 ]
                             },
                             {
-                                question: "How much is a VIP transfer from Yanbu to Madinah?",
+                                question: "How much is a transfer from Yanbu to Madinah?",
                                 shortAnswer: "400 - 500 SAR",
                                 detailedAnswer: "The 220km trip via Route 60 takes about 2.5 hours. We use reliable sedans or SUVs. We can drop you at the Haramain Train Station or your hotel in Madinah.",
                                 perspectives: [
@@ -399,8 +396,7 @@ export default function YanbuPage() {
                             <span className="text-sm font-semibold text-yellow-900">Industrial & City Fares</span>
                         </div>
 
-                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
-                            VIP Yanbu Transfer Rates
+                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6"> Yanbu Transfer Rates
                         </h3>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                             Flat rates for Royal Commission, Airport, and Intercity trips.
@@ -464,8 +460,7 @@ export default function YanbuPage() {
                         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
                             Yanbu Travel Insights
                         </h2>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            Share your experience or ask a question about our VIP transfer services in Yanbu.
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto"> Share your experience or ask a question about our transfer services in Yanbu.
                         </p>
                     </div>
 
@@ -491,8 +486,7 @@ export default function YanbuPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
 
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Get a quote for your Yanbu VIP Transfer Now
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6"> Get a quote for your Yanbu Transfer Now
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                         Professional transport for industrial workers, port access, and Red Sea travel.

@@ -87,16 +87,15 @@ export default function MisfalahPage() {
                         Premium Chauffeur Service
                     </span>
                 }
-                subtitle="The Elite VIP Link for Makkah's Most Vibrant Neighborhood"
-                location="Ibrahim Al Khalil Rd | Misfalah VIP Hotel Pickup"
+                subtitle="The Elite Link for Makkah's Most Vibrant Neighborhood"
+                location="Ibrahim Al Khalil Rd | Misfalah Hotel Pickup"
             />
 
             {/* Premium Service Disclaimer */}
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked VIP Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -111,7 +110,7 @@ export default function MisfalahPage() {
                                 Misfalah is known for its vibrance, its crowds, and its proximity to the Grand Mosque. But finding a taxi on Ibrahim al-Khalil road can be a challenge.
                             </p>
                             <p className="mb-6 leading-relaxed">
-                                Our <strong>VIP Private Transfer Service in Misfalah Makkah</strong> takes the stress out of the equation. No more standing on the curb bargaining with street drivers. We offer fixed rates, professional chauffeurs, and a fleet of clean, air-conditioned luxury vehicles that can pick you up directly from your hotel lobby.
+                                Our <strong>Private Transfer Service in Misfalah Makkah</strong> takes the stress out of the equation. No more standing on the curb bargaining with street drivers. We offer fixed rates, professional chauffeurs, and a fleet of clean, air-conditioned luxury vehicles that can pick you up directly from your hotel lobby.
                             </p>
                             <p className="mb-8 leading-relaxed">
                                 Whether you're staying at one of the large towers or a smaller hotel tucked away in the Misfalah side-streets, our drivers know the shortcuts and access points better than anyone. We specialize in group transport, offering spacious vans for families performing Umrah together.
@@ -136,8 +135,7 @@ export default function MisfalahPage() {
                                 <DistanceTable origin="Misfalah" locations={distanceData} />
                                 <div className="mt-12">
                                     <Link href="/booking/">
-                                        <Button className="w-full bg-orange-600 text-white hover:bg-white hover:text-orange-600 font-bold h-16 rounded-2xl text-lg transition-all shadow-xl shadow-orange-500/20">
-                                            Request VIP Transfer
+                                        <Button className="w-full bg-orange-600 text-white hover:bg-white hover:text-orange-600 font-bold h-16 rounded-2xl text-lg transition-all shadow-xl shadow-orange-500/20"> Request Transfer
                                             <ArrowRight className="ml-2 w-6 h-6" />
                                         </Button>
                                     </Link>

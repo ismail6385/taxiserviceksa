@@ -21,7 +21,7 @@ export default function FAQPage() {
             category: 'Booking & Reservations',
             questions: [
                 {
-                    question: 'How do I Request a quote for a VIP transfer?',
+                    question: 'How do I Request a quote for a transfer?',
                     answer: 'You can book primarily through our website booking form or by email. Simply provide your pickup location, destination, date, time, and number of passengers. You\'ll receive a confirmation once your booking is processed.'
                 },
                 {
@@ -92,7 +92,7 @@ export default function FAQPage() {
                     answer: 'Yes, we specialize in airport transfers to/from all major airports including Jeddah (KAIA), Madinah, and Taif airports with flight tracking and meet & greet services.'
                 },
                 {
-                    question: 'Can you arrange VIP Umrah transportation?',
+                    question: 'Can you arrange Umrah transportation?',
                     answer: 'Yes, we offer specialized VIP Umrah transfer services including Makkah to Madinah transfers, Ziyarat tours, and premium hotel transfers.'
                 },
                 {

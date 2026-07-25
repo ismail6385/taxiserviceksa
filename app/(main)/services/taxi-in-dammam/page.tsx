@@ -501,7 +501,7 @@ export default function TaxiInDammamPage() {
                             <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Shield className="w-4 h-4" /> Related Services</h4>
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/dammam-airport-taxi/" className="text-gray-600 hover:text-black">Dammam Airport Taxi (DMM)</Link></li>
-                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black">VIP Chauffeur</Link></li>
+                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black">Chauffeur</Link></li>
                                 <li><Link href="/services/corporate-travel/" className="text-gray-600 hover:text-black">Corporate Travel</Link></li>
                                 <li><Link href="/services/private-driver/" className="text-gray-600 hover:text-black">Private Driver Hire</Link></li>
                             </ul>
@@ -509,7 +509,7 @@ export default function TaxiInDammamPage() {
                         <div>
                             <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Navigation className="w-4 h-4" /> Eastern Province</h4>
                             <ul className="space-y-2 text-sm">
-                                <li><Link href="/locations/dammam/" className="text-gray-600 hover:text-black">Dammam VIP Transfer</Link></li>
+                                <li><Link href="/locations/dammam/" className="text-gray-600 hover:text-black">Dammam Transfer</Link></li>
                                 <li><Link href="/routes/dammam-airport-to-khobar/" className="text-gray-600 hover:text-black">DMM Airport → Al Khobar</Link></li>
                                 <li><Link href="/services/intercity/" className="text-gray-600 hover:text-black">Intercity Transfers KSA</Link></li>
                                 <li><Link href="/locations/" className="text-black font-bold hover:underline">All Locations →</Link></li>

@@ -338,8 +338,7 @@ export default function LocationPage({ params }: Props) {
                 <div className="max-w-7xl mx-auto px-4">
                     <h3 className="text-lg font-bold text-gray-900 mb-6">Explore Other Locations</h3>
                     <div className="flex flex-wrap gap-4">
-                        <Link href="/" className="text-gray-600 hover:text-primary transition-colors">
-                            VIP Transfer Saudi Arabia
+                        <Link href="/" className="text-gray-600 hover:text-primary transition-colors"> Transfer Saudi Arabia
                         </Link>
                         <span className="text-gray-300">|</span>
                         {city.nearbyCities.map((slug, idx) => (

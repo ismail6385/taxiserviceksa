@@ -14,7 +14,7 @@ import PricingTable from '@/components/PricingTable';
 import BookingProcess from '@/components/BookingProcess';
 
 export const metadata: Metadata = {
-    title: 'Ziyarat in Makkah 2026 | Full Holy Sites Tour | VIP Taxi Service',
+    title: 'Ziyarat in Makkah 2026 | Full Holy Sites Tour | Taxi Service',
     description: 'Book the best Makkah Ziyarat tour for 2026. Visit Jabal al-Nour, Jabal Thawr, Mina, Arafat, and more with professional chauffeurs. Fixed rates and premium cars.',
     keywords: ['Ziyarat in Makkah 2026', 'Makkah holy sites tour taxi', 'Jabal al-Nour taxi price', 'Makkah ziyarah guide'],
     alternates: {
@@ -58,7 +58,7 @@ export default function ZiyaratInMakkahPage() {
 
     const pricingRows = [
         { vehicle: 'Standard Sedan', description: 'Up to 3 pax. Best for small families.', price: '150', capacity: '3 Pax', isPopular: false },
-        { vehicle: 'GMC Yukon XL', description: 'Up to 7 pax. Ultimate VIP comfort.', price: '250', capacity: '7 Pax', isPopular: true },
+        { vehicle: 'GMC Yukon XL', description: 'Up to 7 pax. Ultimate comfort.', price: '250', capacity: '7 Pax', isPopular: true },
         { vehicle: 'Hyundai Staria VIP', description: 'Up to 7 pax. Luxury captain seats.', price: '220', capacity: '7 Pax', isPopular: false },
         { vehicle: 'Toyota Hiace', description: 'Up to 11 pax. For large Umrah groups.', price: '350', capacity: '11 Pax', isPopular: false },
     ];
@@ -85,7 +85,7 @@ export default function ZiyaratInMakkahPage() {
                     </span>
                 }
                 subtitle="Walk through the history of the Prophet (PBUH)"
-                location="Makkah Al-Mukarramah | VIP Private Cars"
+                location="Makkah Al-Mukarramah | Private Cars"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?service=ziyarat">

@@ -24,7 +24,7 @@ import { jeddahHotels } from '@/data/jeddahHotels';
 
 
 export const metadata: Metadata = {
-    title: 'Private Car Transfer, Taxi and Chauffeur Service in Jeddah | KAIA Airport VIP Pickup | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service in Jeddah | KAIA Airport Pickup | Taxi Service KSA',
     description: 'Premium private transfer service in Jeddah for King Abdulaziz International Airport (KAIA). Executive chauffeur service to Makkah hotels and Madinah. Professional international standards.',
     keywords: ['Jeddah VIP transfer service', 'KAIA premium airport transfer', 'Jeddah to Makkah VIP transfer', 'Executive chauffeur Jeddah', 'Jeddah airport VIP pickup', 'Luxury private driver Jeddah', 'Jeddah to Makkah premium car', 'Jeddah to Madinah VIP transfer'],
     alternates: {
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
 
 export default async function JeddahPage() {
     const services = [
-        { name: 'VIP Airport Pickup', description: 'Executive Meet & Greet at KAIA (Terminal 1 & North). Flight tracking included.', icon: Plane },
-        { name: 'Jeddah to Makkah VIP', description: 'Premium private transfer for pilgrims. Guaranteed comfort directly to your hotel.', icon: Car },
-        { name: 'Jeddah to Madinah VIP', description: 'Executive long-distance transfer to the Prophet\'s City. Spacious & reliable.', icon: MapPin },
+        { name: 'Airport Pickup', description: 'Executive Meet & Greet at KAIA (Terminal 1 & North). Flight tracking included.', icon: Plane },
+        { name: 'Jeddah to Makkah', description: 'Premium private transfer for pilgrims. Guaranteed comfort directly to your hotel.', icon: Car },
+        { name: 'Jeddah to Madinah', description: 'Executive long-distance transfer to the Prophet\'s City. Spacious & reliable.', icon: MapPin },
         { name: 'Full-Day Chauffeur', description: 'Exclusive hourly or daily hire for business meetings, shopping, or tours.', icon: User },
     ];
 
@@ -68,7 +68,7 @@ export default async function JeddahPage() {
 
     const faqs = [
         {
-            question: "How much is a VIP transfer from Jeddah Airport to Makkah?",
+            question: "How much is a transfer from Jeddah Airport to Makkah?",
             answer: "A private sedan starts from SAR 300, while a GMC/SUV for families starts from SAR 600. The price is fixed and includes waiting time."
         },
         {
@@ -76,7 +76,7 @@ export default async function JeddahPage() {
             answer: "For Terminal 1 (New Airport), the meeting point is usually near the Aquarium in the arrival hall. Our driver will hold a name sign."
         },
         {
-            question: "Is it better to take the train or a VIP transfer to Makkah?",
+            question: "Is it better to take the train or a transfer to Makkah?",
             answer: "The train is faster but requires transfers to/from stations. A VIP transfer offers door-to-door service from the airport directly to your hotel lobby, which is much better for families with luggage."
         },
         {
@@ -97,12 +97,12 @@ export default async function JeddahPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Jeddah"
-                description="Professional VIP transfers in Jeddah. Specializing in King Abdulaziz International Airport (KAIA) pickups, premium Makkah and Madinah transfers, and executive city chauffeur services."
+                description="Professional transfers in Jeddah. Specializing in King Abdulaziz International Airport (KAIA) pickups, premium Makkah and Madinah transfers, and executive city chauffeur services."
                 services={[
-                    { name: 'KAIA Airport VIP Pickup', description: 'Executive meet & greet at Terminal 1 and North Terminal.' },
-                    { name: 'Jeddah to Makkah VIP', description: 'Premium door-to-door transfers for pilgrims and travelers.' },
-                    { name: 'Jeddah to Madinah Executive', description: 'Long-distance VIP transfers to the Prophet\'s City.' },
-                    { name: 'Full-Day VIP Chauffeur', description: 'Dedicated executive driver for business, shopping, and tours.' }
+                    { name: 'KAIA Airport Pickup', description: 'Executive meet & greet at Terminal 1 and North Terminal.' },
+                    { name: 'Jeddah to Makkah', description: 'Premium door-to-door transfers for pilgrims and travelers.' },
+                    { name: 'Jeddah to Madinah Executive', description: 'Long-distance transfers to the Prophet\'s City.' },
+                    { name: 'Full-Day Chauffeur', description: 'Dedicated executive driver for business, shopping, and tours.' }
                 ]}
                 
                 image="https://taxiserviceksa.com/jeddah-airport-terminal.webp"
@@ -114,7 +114,7 @@ export default async function JeddahPage() {
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Jeddah"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        VIP Chauffeur Service Jeddah
+                        Chauffeur Service Jeddah
                     </span>
                 }
                 subtitle="Premium KAIA Airport Transfers & Executive Makkah Transport"
@@ -160,7 +160,7 @@ export default async function JeddahPage() {
                             Available Services
                         </span>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mt-6 mb-4">
-                            Jeddah VIP Transfer Services
+                            Jeddah Transfer Services
                         </h2>
                         <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
                             From King Abdulaziz Airport (KAIA) pickups to intercity transfers to Makkah and Madinah.
@@ -218,7 +218,7 @@ export default async function JeddahPage() {
                                 <ul className="space-y-3">
                                     <li>
                                         <Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
-                                            <span>Elite VIP GMC Yukon</span>
+                                            <span>Elite GMC Yukon</span>
                                             <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
                                         </Link>
                                     </li>
@@ -250,12 +250,12 @@ export default async function JeddahPage() {
                             </div>
 
                             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                                VIP Private Transfer Service Jeddah
+                                Private Transfer Service Jeddah
                             </h2>
 
                             <div className="space-y-4 text-gray-700 leading-relaxed text-lg">
                                 <p>
-                                    Experience the highest standard of <strong>VIP private transfers in Jeddah</strong>. We provide an executive alternative to standard airport taxis, offering a dedicated chauffeur service for international travelers, business executives, and pilgrims.
+                                    Experience the highest standard of <strong>Private transfers in Jeddah</strong>. We provide an executive alternative to standard airport taxis, offering a dedicated chauffeur service for international travelers, business executives, and pilgrims.
                                 </p>
 
                                 <p>
@@ -423,7 +423,7 @@ export default async function JeddahPage() {
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                            Jeddah VIP Transfer FAQ
+                            Jeddah Transfer FAQ
                         </h2>
                     </div>
                     <Accordion type="single" collapsible className="w-full">
@@ -453,7 +453,7 @@ export default async function JeddahPage() {
                             Jeddah Travel Insights
                         </h2>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            Share your experience or ask a question about our VIP transfer services in Jeddah.
+                            Share your experience or ask a question about our transfer services in Jeddah.
                         </p>
                     </div>
 
@@ -489,7 +489,7 @@ export default async function JeddahPage() {
                             Need a Ride in Jeddah?
                         </h2>
                         <p className="text-lg md:text-xl text-black/90 mb-8 max-w-2xl mx-auto font-medium">
-                            Get a quote for your airport transfer or Makkah VIP transfer in under 2 minutes.
+                            Get a quote for your airport transfer or Makkah transfer in under 2 minutes.
                         </p>
 
                         <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">

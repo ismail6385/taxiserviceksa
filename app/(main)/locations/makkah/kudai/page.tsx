@@ -87,16 +87,15 @@ export default function KudaiPage() {
                         Premium Hub Chauffeur
                     </span>
                 }
-                subtitle="The Exclusive VIP Gateway Between Kudai and the Grand Mosque"
-                location="Le Meridien Towers | Kudai VIP Parking Access"
+                subtitle="The Exclusive Gateway Between Kudai and the Grand Mosque"
+                location="Le Meridien Towers | Kudai Parking Access"
             />
 
             {/* Premium Service Disclaimer */}
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked VIP Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -111,7 +110,7 @@ export default function KudaiPage() {
                                     <Info className="w-6 h-6" /> Specialized for Kudai Logisitcs
                                 </h2>
                                 <p className="text-emerald-800 leading-relaxed font-medium">
-                                    Kudai is the primary gateway for thousands of pilgrims arriving by car or shuttle. Our <strong>VIP Private Transfer Service in Kudai</strong> eliminates the long wait times for public buses, offering you a private, air-conditioned ride directly to your destination.
+                                    Kudai is the primary gateway for thousands of pilgrims arriving by car or shuttle. Our <strong>Private Transfer Service in Kudai</strong> eliminates the long wait times for public buses, offering you a private, air-conditioned ride directly to your destination.
                                 </p>
                             </div>
 
@@ -151,8 +150,7 @@ export default function KudaiPage() {
                                 <DistanceTable origin="Kudai" locations={distanceData} />
                                 <div className="mt-10">
                                     <Link href="/booking/">
-                                        <Button className="w-full bg-emerald-600 text-white hover:bg-white hover:text-emerald-600 font-bold h-16 rounded-2xl text-lg transition-all shadow-xl shadow-emerald-500/20">
-                                            Request VIP Transfer
+                                        <Button className="w-full bg-emerald-600 text-white hover:bg-white hover:text-emerald-600 font-bold h-16 rounded-2xl text-lg transition-all shadow-xl shadow-emerald-500/20"> Request Transfer
                                             <ArrowRight className="ml-2 w-6 h-6" />
                                         </Button>
                                     </Link>

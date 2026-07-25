@@ -289,7 +289,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                 {step === 1 && (
                     <div className="space-y-5 animate-fade-in-up">
                         <div className="text-center mb-4">
-                            <h2 className="text-2xl font-bold text-gray-900">Plan Your VIP Journey</h2>
+                            <h2 className="text-2xl font-bold text-gray-900">Plan Your Journey</h2>
                             <p className="text-[10px] text-rose-600 font-extrabold uppercase tracking-[0.2em] mt-2">
                                 Private Transfers Only • No Shared Taxis
                             </p>
@@ -478,7 +478,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                 {step === 2 && (
                     <div className="space-y-6 animate-fade-in-up">
                         <div className="text-center">
-                            <h2 className="text-2xl font-bold text-gray-900">Select Your VIP Vehicle</h2>
+                            <h2 className="text-2xl font-bold text-gray-900">Select Your Vehicle</h2>
                             <p className="text-gray-500 text-sm mt-1">{formData.pickup_location} <ArrowRight className="w-3 h-3 inline mx-1" /> {formData.destination}</p>
                         </div>
 
@@ -764,7 +764,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             </Button>
                             <Button
                                 type="button"
-                                onClick={() => window.open('https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20a%20VIP%20transfer.', '_blank')}
+                                onClick={() => window.open('https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20inquire%20about%20a%20transfer.', '_blank')}
                                 className="w-full h-14 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm lg:text-lg rounded-xl shadow-md transition-all flex items-center justify-center gap-2"
                             >
                                 <WhatsAppIcon className="w-5 h-5 flex-shrink-0" />

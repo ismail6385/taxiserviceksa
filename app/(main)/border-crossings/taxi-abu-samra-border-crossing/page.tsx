@@ -9,7 +9,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi Abu Samra Border Crossing (Qatar) | 24/7 VIP Transfers',
+    title: 'Taxi Abu Samra Border Crossing (Qatar) | 24/7 Transfers',
     description: 'Need a taxi at Abu Samra Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Qatar. Get a quote now.',
     keywords: ['Taxi Abu Samra border crossing', 'Abu Samra border to Saudi Arabia taxi', 'Taxi from Abu Samra to Riyadh', 'Cross border taxi Qatar', 'Abu Samra immigration taxi'],
     alternates: {
@@ -71,7 +71,7 @@ export default function AbuSamraBorderPage() {
                         Saudi & Qatar Border Service
                     </span>
                 }
-                subtitle="Stranded at Abu Samra? We provide immediate VIP transfers."
+                subtitle="Stranded at Abu Samra? We provide immediate transfers."
                 location="24/7 Border Pickups"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -94,8 +94,7 @@ export default function AbuSamraBorderPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
                             <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">Cross-Border Transport</span>
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                                VIP Taxi Services at Abu Samra
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6"> Taxi Services at Abu Samra
                             </h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                                 Arriving at the Abu Samra border crossing between Saudi Arabia and Qatar can be stressful, especially if you lack onward transportation. Whether your previous driver couldn't cross, or you're walking through passport control, our premium taxis are ready to pick you up directly from either side of the border.
@@ -119,7 +118,7 @@ export default function AbuSamraBorderPage() {
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <CheckCircle2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">VIP SUV Fleet</span>
+                                    <span className="font-semibold text-gray-800">SUV Fleet</span>
                                 </div>
                             </div>
                         </div>

@@ -16,14 +16,14 @@ import AuthorCard from '@/components/AuthorCard';
 import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
-    title: 'Umrah VIP Transport Service | Private Chauffeur Makkah & Madinah | Taxi Service KSA',
+    title: 'Umrah Transport Service | Private Chauffeur Makkah & Madinah | Taxi Service KSA',
     description: 'Complete Umrah transport with professional licensed chauffeurs. Jeddah Airport to Makkah, Makkah to Madinah private transfers. Meeqat stops, Zamzam accommodation, fixed rates, 24/7.',
     keywords: ['VIP Umrah Transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/umrah-transport/',
     },
     openGraph: {
-        title: 'Umrah VIP Transfer Service | Private Chauffeur for Makkah & Madinah | Taxi Service KSA',
+        title: 'Umrah Transfer Service | Private Chauffeur for Makkah & Madinah | Taxi Service KSA',
         description: 'Complete Umrah transport service with professional chauffeurs. Jeddah Airport to Makkah, Makkah to Madinah best transfer. Fixed rates, 24/7 service.',
         url: 'https://taxiserviceksa.com/services/umrah-transport/',
         type: 'website',
@@ -152,7 +152,7 @@ export default async function UmrahTransportPage() {
             answer: "Yes. All drivers speak English and Arabic. Many drivers also speak Urdu for Pakistani and Indian pilgrims. Drivers are trained to assist international pilgrims with basic Umrah guidance and local directions."
         },
         {
-            question: "Is VIP transfer service available 24/7 during Ramadan and Hajj season?",
+            question: "Is transfer service available 24/7 during Ramadan and Hajj season?",
             answer: "Yes. Our best transfer service operates 24/7 throughout the year, including Ramadan and Hajj season. During peak periods, advance booking (48-72 hours) is strongly recommended due to high demand. Priority is given to pre-booked customers."
         },
         {
@@ -171,8 +171,8 @@ export default async function UmrahTransportPage() {
                 cityName="Umrah VIP Transport"
                 description="Premium private transport service for Umrah pilgrims in KSA. Specialized in Makkah and Madinah hotel transfers, Meeqat stops, and intercity pilgrimage routes."
                 services={[
-                    { name: 'Jeddah to Makkah Transfer', description: 'Direct VIP pickup from KAIA terminal to your Makkah hotel.' },
-                    { name: 'Makkah to Madinah VIP', description: 'Comfortable 450km private transfer with flexible rest stops.' },
+                    { name: 'Jeddah to Makkah Transfer', description: 'Direct pickup from KAIA terminal to your Makkah hotel.' },
+                    { name: 'Makkah to Madinah', description: 'Comfortable 450km private transfer with flexible rest stops.' },
                     { name: 'Umrah Meeqat Service', description: 'Drivers familiar with all Meeqat locations for احرام (Ihram) rituals.' },
                     { name: 'Family Group Vans', description: 'Spacious Toyota Hiace and GMC Yukon for large pilgrim groups.' }
                 ]}
@@ -196,8 +196,7 @@ export default async function UmrahTransportPage() {
                     <span className="bg-primary/20 text-primary font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4 backdrop-blur-sm border border-primary/20">
                         Elite Pilgrimage Logistics
                     </span>
-                    <h1 className="text-4xl md:text-6xl font-black text-white mb-6 px-4 leading-tight">
-                        VIP Umrah Transport Service
+                    <h1 className="text-4xl md:text-6xl font-black text-white mb-6 px-4 leading-tight"> Umrah Transport Service
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 mb-10">
                         Perform your Umrah with peace of mind. We provide <strong>premium private transfers</strong> between Jeddah Airport, Makkah, and Madinah with professional, licensed drivers.
@@ -238,7 +237,7 @@ export default async function UmrahTransportPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Best VIP Umrah Transfers</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Best Umrah Transfers</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                             Comprehensive and reliable transport packages for every stage of your pilgrimage.
                         </p>
@@ -323,7 +322,7 @@ export default async function UmrahTransportPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">VIP Executive Fleet</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Executive Fleet</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                             Modern, air-conditioned vehicles dedicated to private transfers. We do not provide local street hail services—only pre-booked executive transportation.
                         </p>

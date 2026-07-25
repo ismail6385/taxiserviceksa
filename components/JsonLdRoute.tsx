@@ -20,25 +20,25 @@ export default function JsonLdRoute({ from, to, description, distance, duration,
         "@graph": [
             {
                 "@type": "TaxiService",
-                "name": `${routeName} VIP Transfer`,
+                "name": `${routeName} Private Transfer`,
                 "description": description,
                 "provider": {
                     "@type": "LocalBusiness",
                     "name": "TaxiServiceKSA",
                     "url": baseUrl,
-                    "telephone": "+966 56 073 2928"
+                    "telephone": "+966 56 073 2928",
+                    "aggregateRating": {
+                        "@type": "AggregateRating",
+                        "ratingValue": ratingValue,
+                        "reviewCount": reviewCount,
+                        "bestRating": "5",
+                        "worstRating": "1"
+                    }
                 },
                 "areaServed": [
                     { "@type": "City", "name": from },
                     { "@type": "City", "name": to }
-                ],
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": ratingValue,
-                    "reviewCount": reviewCount,
-                    "bestRating": "5",
-                    "worstRating": "1"
-                }
+                ]
             },
             {
                 "@type": "TravelAction",

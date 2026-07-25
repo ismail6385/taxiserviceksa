@@ -36,7 +36,7 @@ export default function DammamAirportToAlKhorTaxiPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation
                 cityName="Dammam Airport to Al Khor"
-                description="Professional VIP private car service from Dammam Airport to Al Khor, Qatar via the Abu Samra/Salwa border. Reliable 24/7 door-to-door transfers."
+                description="Professional private car service from Dammam Airport to Al Khor, Qatar via the Abu Samra/Salwa border. Reliable 24/7 door-to-door transfers."
                 services={[
                     { name: 'Dammam Airport to Al Khor Taxi', description: 'Private transfer to Al Khor via the border.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for industrial and business travel.' },
@@ -196,7 +196,7 @@ export default function DammamAirportToAlKhorTaxiPage() {
                     {
                         question: 'How much is a taxi from Dammam Airport to Al Khor?',
                         shortAnswer: 'WhatsApp Booking',
-                        detailedAnswer: 'A private sedan or VIP SUV (like a GMC Yukon) is available at a fixed rate for the Dammam Airport to Al Khor route. Contact us on WhatsApp for a fixed quote based on your vehicle and group size.',
+                        detailedAnswer: 'A private sedan or SUV (like a GMC Yukon) is available at a fixed rate for the Dammam Airport to Al Khor route. Contact us on WhatsApp for a fixed quote based on your vehicle and group size.',
                         perspectives: [],
                     },
                     {

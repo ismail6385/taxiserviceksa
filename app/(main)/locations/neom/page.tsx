@@ -54,12 +54,11 @@ export default function NeomPage() {
                 h1Text="Private Car Transfer, Taxi and Chauffeur Service in NEOM"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in NEOM"
                 title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        VIP Chauffeur Service NEOM
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> Chauffeur Service NEOM
                     </span>
                 }
                 subtitle="Future-Ready Executive Logistics"
-                location="Tabuk & NEOM Bay VIP Pickup"
+                location="Tabuk & NEOM Bay Pickup"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Tabuk%20Airport&dropoff=NEOM%20Community%201">
@@ -80,8 +79,7 @@ export default function NeomPage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked Project, Intercity, and VIP Airport transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Project, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -182,7 +180,7 @@ export default function NeomPage() {
             <MicroSemanticFAQ
                 faqs={[
                     {
-                        question: "How much is a VIP transfer from Tabuk to NEOM?",
+                        question: "How much is a transfer from Tabuk to NEOM?",
                         shortAnswer: "SAR 400-600",
                         detailedAnswer: "Due to the long distance (3-4 hour round trip for the driver), rates typically range from SAR 400 to SAR 600.",
                         perspectives: []

@@ -26,8 +26,8 @@ const SPECIALISTS = [
     },
     {
         icon: ShieldCheck,
-        role: 'VIP Chauffeur',
-        description: 'Trained in luxury hospitality for executives, diplomats, and VIP guests.',
+        role: 'Executive Chauffeur',
+        description: 'Trained in luxury hospitality for executives, diplomats, and distinguished guests.',
     },
 ];
 

@@ -8,6 +8,13 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import PricingTable from '@/components/PricingTable';
+
+const pricingRows = [
+    { vehicle: 'Standard Sedan', description: 'Toyota Camry or similar. Door-to-door.', price: '400', capacity: '3 Pax' },
+    { vehicle: 'Toyota Fortuner', description: 'Comfortable SUV for small groups and extra luggage.', price: '450', capacity: '5 Pax', isPopular: true },
+    { vehicle: 'GMC Yukon', description: 'Spacious SUV for families and executive travel.', price: '600', capacity: '7 Pax' },
+];
 
 export const metadata: Metadata = {
     title: 'Private Car, Taxi and Chauffeur Service from Dammam Airport to Riffa | Taxi Service KSA',
@@ -36,7 +43,7 @@ export default function DammamToRiffaTaxiPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation
                 cityName="Dammam Airport to Riffa"
-                description="Professional VIP private car service from Dammam Airport to Riffa, Bahrain via King Fahd Causeway. Reliable 24/7 door-to-door transfers."
+                description="Professional private car service from Dammam Airport to Riffa, Bahrain via King Fahd Causeway. Reliable 24/7 door-to-door transfers."
                 services={[
                     { name: 'Dammam Airport to Riffa Taxi', description: 'Private transfer to Bahrain\'s second-largest city via the causeway.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and family travel.' },
@@ -158,6 +165,15 @@ export default function DammamToRiffaTaxiPage() {
                 </div>
             </section>
 
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <PricingTable
+                    title="Fixed Rates: Dammam Airport to Riffa"
+                    subtitle="2026 Verified Rates"
+                    rows={pricingRows}
+                    disclaimer="Rates are for door-to-door service and include the King Fahd Causeway toll. Prices may vary slightly during public holidays in KSA or Bahrain."
+                />
+            </div>
+
             <RouteFleetSection />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
@@ -198,8 +214,8 @@ export default function DammamToRiffaTaxiPage() {
                 faqs={[
                     {
                         question: 'How much is a taxi from Dammam Airport to Riffa?',
-                        shortAnswer: 'WhatsApp Booking',
-                        detailedAnswer: 'A private sedan (like a Toyota Camry) or VIP SUV (like a GMC Yukon) is available at a fixed rate for the Dammam Airport to Riffa route. Contact us on WhatsApp for a fixed quote based on your vehicle and group size.',
+                        shortAnswer: 'From 400 SAR',
+                        detailedAnswer: 'Fixed rates start at 400 SAR for a standard sedan (like a Toyota Camry), 450 SAR for a Toyota Fortuner, and 600 SAR for a GMC Yukon SUV — all inclusive of the King Fahd Causeway toll. Message us on WhatsApp to confirm your vehicle and book.',
                         perspectives: [],
                     },
                     {

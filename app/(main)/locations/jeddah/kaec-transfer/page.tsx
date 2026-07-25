@@ -69,8 +69,7 @@ export default function KaecTransferPage() {
                         </Button>
                     </Link>
                     <a href="mailto:taxiserviceksa9988@gmail.com">
-                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            Business VIP Quote
+                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto"> Business Quote
                         </Button>
                     </a>
                 </div>
@@ -80,8 +79,7 @@ export default function KaecTransferPage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked VIP Intercity, Corporate, and Airport transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Intercity, Corporate, and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -97,8 +95,7 @@ export default function KaecTransferPage() {
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                                 King Abdullah Economic City (KAEC) is located approximately 100km north of Jeddah. It is a major hub for business, international manufacturing, and world-class leisure.
                             </p>
-                            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                Our private VIP transfer service offers the most convenient, door-to-door solution from Jeddah Airport or hotels directly to your destination in KAEC. We provide professional chauffeurs for international standards.
+                            <p className="text-lg text-gray-600 mb-8 leading-relaxed"> Our private transfer service offers the most convenient, door-to-door solution from Jeddah Airport or hotels directly to your destination in KAEC. We provide professional chauffeurs for international standards.
                             </p>
 
                             <div className="space-y-4">
@@ -182,7 +179,7 @@ export default function KaecTransferPage() {
                     {
                         question: "Is there a train from Jeddah Airport to KAEC?",
                         shortAnswer: "Yes, but schedule varies",
-                        detailedAnswer: "Yes, the Haramain High-Speed Railway connects Jeddah Airport to KAEC. However, trains run on a specific schedule. A private VIP transfer offers flexibility if your flight time doesn't match the train schedule.",
+                        detailedAnswer: "Yes, the Haramain High-Speed Railway connects Jeddah Airport to KAEC. However, trains run on a specific schedule. A private transfer offers flexibility if your flight time doesn't match the train schedule.",
                         perspectives: []
                     },
                     {

@@ -341,7 +341,7 @@ export default function TourismTransportPage() {
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black transition-colors">GMC Yukon (Groups)</Link></li>
                                 <li><Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-black transition-colors">Toyota Hiace (Large Groups)</Link></li>
-                                <li><Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-black transition-colors">Hyundai Staria VIP</Link></li>
+                                <li><Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-black transition-colors">Hyundai Staria</Link></li>
                                 <li><Link href="/fleet/" className="text-black font-bold hover:underline">Full Fleet →</Link></li>
                             </ul>
                         </div>
@@ -352,7 +352,7 @@ export default function TourismTransportPage() {
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/services/airport-transfers/" className="text-gray-600 hover:text-black transition-colors">Airport Transfers</Link></li>
                                 <li><Link href="/services/private-driver/" className="text-gray-600 hover:text-black transition-colors">Private Driver (Hourly/Daily)</Link></li>
-                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black transition-colors">VIP Chauffeur Service</Link></li>
+                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black transition-colors">Chauffeur Service</Link></li>
                                 <li><Link href="/services/heritage-tours/" className="text-gray-600 hover:text-black transition-colors">Heritage Tours</Link></li>
                             </ul>
                         </div>
@@ -406,7 +406,7 @@ export default function TourismTransportPage() {
                     </div>
                     <p className="text-gray-500 text-sm mt-6">
                         Also available:{' '}
-                        <Link href="/services/vip-chauffeur/" className="text-gray-400 hover:text-white underline">VIP Chauffeur</Link>
+                        <Link href="/services/vip-chauffeur/" className="text-gray-400 hover:text-white underline">Chauffeur</Link>
                         {' · '}
                         <Link href="/services/private-driver/" className="text-gray-400 hover:text-white underline">Private Driver (Hourly)</Link>
                         {' · '}

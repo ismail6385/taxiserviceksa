@@ -12,7 +12,7 @@ import RoutePerspective from '@/components/seo/RoutePerspective';
 import JsonLdRoute from '@/components/JsonLdRoute';
 
 export const metadata: Metadata = {
-    title: 'تاكسي الرياض إلى مكة ٢٠٢٦ | نقل VIP خاص | أسعار ثابتة',
+    title: 'تاكسي الرياض إلى مكة ٢٠٢٦ | نقل خاص | أسعار ثابتة',
     description: 'احجز أفضل تاكسي من الرياض إلى مكة لعام ٢٠٢٦. رحلة فاخرة تستغرق ٨-٩ ساعات مع سائقين محترفين. أسعار ثابتة وخدمة من الباب إلى الباب.',
     keywords: ['تاكسي الرياض مكة', 'سعر تاكسي الرياض مكة', 'سيارة خاصة من الرياض إلى مكة', 'تاكسي عمرة الرياض مكة', 'نقل الرياض مكة'],
     alternates: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'تاكسي الرياض إلى مكة ٢٠٢٦ | نقل VIP خاص',
+        title: 'تاكسي الرياض إلى مكة ٢٠٢٦ | نقل خاص',
         description: 'رحلة فاخرة من الرياض إلى مكة مع سائقين محترفين. أسعار ثابتة، خدمة من الباب إلى الباب.',
         url: 'https://taxiserviceksa.com/ar/routes/riyadh-makkah/',
         locale: 'ar_SA',
@@ -45,7 +45,7 @@ export default function RiyadhMakkahRoutePageArabic() {
             <JsonLdRoute
                 from="Riyadh"
                 to="Makkah"
-                description="Luxury intercity transfer from Riyadh to Makkah. Premium 8-9 hour journey with professional chauffeurs. 100% private VIP car service."
+                description="Luxury intercity transfer from Riyadh to Makkah. Premium 8-9 hour journey with professional chauffeurs. 100% private car service."
                 distance="870 km"
                 duration="PT9H"
             />
@@ -55,10 +55,10 @@ export default function RiyadhMakkahRoutePageArabic() {
                 h1Text="تاكسي الرياض إلى مكة"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        الرياض ← مكة VIP
+                        الرياض ← مكة
                     </span>
                 }
-                subtitle="الطريقة المتميزة إلى المدينة المقدسة - نقل VIP خاص ومباشر ١٠٠٪"
+                subtitle="الطريقة المتميزة إلى المدينة المقدسة - نقل خاص ومباشر ١٠٠٪"
                 location="٨-٩ ساعات | خاص فقط | سائقون محترفون"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -121,7 +121,7 @@ export default function RiyadhMakkahRoutePageArabic() {
                             <div className="space-y-6">
                                 {[
                                     { name: 'جمس يوكن دينالي', capacity: '٧ ركاب', luggage: '٥ حقائب' },
-                                    { name: 'مرسيدس S-Class VIP', capacity: '٣ ركاب', luggage: '٢ حقيبة' },
+                                    { name: 'مرسيدس S-Class', capacity: '٣ ركاب', luggage: '٢ حقيبة' },
                                     { name: 'حافلة فاخرة', capacity: '٢٥ راكباً', luggage: '١٠ حقائب' },
                                     { name: 'مرسيدس سبرينتر', capacity: '١٤ راكباً', luggage: '٦ حقائب' }
                                 ].map((car, i) => (
@@ -176,7 +176,7 @@ export default function RiyadhMakkahRoutePageArabic() {
                         {
                             question: "كم سعر التاكسي من الرياض إلى مكة؟",
                             shortAnswer: "سعر ثابت (حسب نوع المركبة)",
-                            detailedAnswer: "أسعار التاكسي لرحلة ٨٧٠ كم من الرياض إلى مكة ثابتة لتجنب استغلال الأسعار. تختلف الأسعار حسب اختيارك بين سيدان أو SUV أو فان VIP. تواصل معنا للحصول على أحدث الأسعار الموسمية.",
+                            detailedAnswer: "أسعار التاكسي لرحلة ٨٧٠ كم من الرياض إلى مكة ثابتة لتجنب استغلال الأسعار. تختلف الأسعار حسب اختيارك بين سيدان أو SUV أو فان. تواصل معنا للحصول على أحدث الأسعار الموسمية.",
                             perspectives: [
                                 { role: 'الفوترة', icon: 'DollarSign', insight: 'تشمل أسعارنا الثابتة الوقود ورسوم الطرق وعدة استراحات للراحة.' }
                             ]
@@ -207,7 +207,7 @@ export default function RiyadhMakkahRoutePageArabic() {
                 customLinks={[
                     { name: 'الرياض إلى المدينة المنورة', url: '/routes/riyadh-madinah/', description: 'نقل مباشر من العاصمة إلى المدينة المنورة.' },
                     { name: 'الرياض إلى الدمام', url: '/routes/riyadh-dammam/', description: 'ربط العاصمة بالمنطقة الشرقية.' },
-                    { name: 'مكة إلى الرياض', url: '/routes/makkah-riyadh/', description: 'رحلة عودة VIP من المدينة المقدسة إلى الرياض.' }
+                    { name: 'مكة إلى الرياض', url: '/routes/makkah-riyadh/', description: 'رحلة عودة من المدينة المقدسة إلى الرياض.' }
                 ]}
             />
             <RelatedRoutes originSlug="riyadh" currentSlug="riyadh-makkah" title="مسارات أخرى شائعة" />
@@ -216,7 +216,7 @@ export default function RiyadhMakkahRoutePageArabic() {
                 <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -mr-48 -mt-48 animate-pulse"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <div className="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-1.5 rounded-full mb-8 animate-pulse">
-                        نقل VIP خاص فقط ١٠٠٪ • بدون مشاركة الرحلة
+                        نقل خاص فقط ١٠٠٪ • بدون مشاركة الرحلة
                     </div>
                     <h2 className="text-3xl md:text-6xl font-black text-white mb-8 leading-tight">احصل على عرض سعر لرحلتك التنفيذية <br/> من الرياض إلى مكة</h2>
                     <p className="text-emerald-100/60 text-lg mb-12 max-w-2xl mx-auto italic">&quot;نوفر لك ملاذاً استثنائياً للسفر الطويل في رحلتك الروحية.&quot;</p>

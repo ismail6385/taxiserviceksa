@@ -54,8 +54,7 @@ export default function AlBaladPage() {
                 h1Text="Private Car Transfer, Taxi and Chauffeur Service to Al-Balad"
                 bookingFormTitle="WhatsApp Booking for Heritage Transfer"
                 title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        UNESCO Heritage VIP Chauffeur
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> UNESCO Heritage Chauffeur
                     </span>
                 }
                 subtitle="Premium Access to the Heart of Old Jeddah"
@@ -69,8 +68,7 @@ export default function AlBaladPage() {
                         </Button>
                     </Link>
                     <a href="mailto:taxiserviceksa9988@gmail.com">
-                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            VIP Daily Rental
+                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto"> Daily Rental
                         </Button>
                     </a>
                 </div>
@@ -80,8 +78,7 @@ export default function AlBaladPage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked VIP Heritage Tours, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Heritage Tours, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -97,8 +94,7 @@ export default function AlBaladPage() {
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                                 Al-Balad is the historic center of Jeddah, famous for its ancient coral stone buildings and intricate wooden lattice windows (Roshan). It is a UNESCO World Heritage site and a bustling marketplace.
                             </p>
-                            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                Parking in Al-Balad is notoriously difficult. Our VIP chauffeur service is the most seamless way to visit—we drop you right at the historic gates (Baab Makkah or Baab Jadid) so you can explore on foot without parking stress.
+                            <p className="text-lg text-gray-600 mb-8 leading-relaxed"> Parking in Al-Balad is notoriously difficult. Our chauffeur service is the most seamless way to visit—we drop you right at the historic gates (Baab Makkah or Baab Jadid) so you can explore on foot without parking stress.
                             </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

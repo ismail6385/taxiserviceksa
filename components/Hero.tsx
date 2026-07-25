@@ -56,7 +56,7 @@ export default function Hero(props: HeroProps) {
         : [
             'Makkah Kaaba at night - Premium Umrah taxi service from Jeddah Airport to Makkah, Saudi Arabia',
             'Prophet\'s Mosque in Madinah - Professional Ziyarat tour service and Umrah taxi from Makkah to Madinah',
-            'Luxury GMC Yukon chauffeur vehicle - VIP transportation and premium taxi service in Saudi Arabia',
+            'Luxury GMC Yukon chauffeur vehicle - premium transportation and taxi service in Saudi Arabia',
             'Jeddah city view - Airport transfer service from King Abdulaziz International Airport to Makkah and Madinah',
             'Riyadh cityscape - Premium intercity taxi and chauffeur service from Jeddah to Riyadh, Saudi Arabia'
         ];
@@ -104,7 +104,7 @@ export default function Hero(props: HeroProps) {
                 {/* Direct WhatsApp CTA - Clearly Dominant */}
                 <div className="w-full max-w-md mb-16">
                     <a 
-                        href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20get%20a%20VIP%20taxi%20quote." 
+                        href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20get%20a%20taxi%20quote."
                         target="_blank"
                         rel="nofollow noopener noreferrer"
                         className="group flex items-center justify-center gap-4 bg-primary text-white font-black py-8 px-12 rounded-3xl text-2xl shadow-[0_20px_50px_rgba(255,193,7,0.3)] transition-all hover:scale-[1.02] active:scale-95"

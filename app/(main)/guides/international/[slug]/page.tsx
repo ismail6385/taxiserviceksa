@@ -123,7 +123,7 @@ export default function InternationalGuidePage({ params }: PageProps) {
                         {guide.title}
                     </h1>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-                        Comprehensive logistics for your Umrah journey from <strong>{guide.countryName}</strong>. Master your flight details, visa entry, and secure your <strong>VIP private transfer</strong> before landing in Jeddah.
+                        Comprehensive logistics for your Umrah journey from <strong>{guide.countryName}</strong>. Master your flight details, visa entry, and secure your <strong>Private transfer</strong> before landing in Jeddah.
                     </p>
                 </div>
 

@@ -105,7 +105,7 @@ export default function EventTransportPageArabic() {
     const vehicles = [
         { name: 'تويوتا كامري', seats: 4, ideal: 'ضيف فردي VIP، متحدثون' },
         { name: 'جمس يوكن إكس إل', seats: 7, ideal: 'موكب العروسين، مجموعات صغيرة' },
-        { name: 'هيونداي ستاريا VIP', seats: 7, ideal: 'عائلات VIP، مندوبون' },
+        { name: 'هيونداي ستاريا', seats: 7, ideal: 'عائلات VIP، مندوبون' },
         { name: 'تويوتا هاياس', seats: 11, ideal: 'دفعات ضيوف، مجموعات طاقم العمل' },
         { name: 'تويوتا كوستر', seats: 25, ideal: 'نقل جماعي كبير للضيوف، الوفود' },
         { name: 'مرسيدس سبرينتر', seats: 14, ideal: 'مجموعات الشركات، حفلات الأفراح' },
@@ -331,7 +331,7 @@ export default function EventTransportPageArabic() {
                                 <li><Link href="/fleet/toyota-coaster/" className="text-gray-600 hover:text-black transition-colors">تويوتا كوستر (25 مقعداً)</Link></li>
                                 <li><Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-black transition-colors">تويوتا هاياس (11 مقعداً)</Link></li>
                                 <li><Link href="/fleet/mercedes-sprinter/" className="text-gray-600 hover:text-black transition-colors">مرسيدس سبرينتر (14 مقعداً)</Link></li>
-                                <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black transition-colors">جمس يوكن (مجموعات VIP)</Link></li>
+                                <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black transition-colors">جمس يوكن (مجموعات )</Link></li>
                                 <li><Link href="/fleet/" className="text-black font-bold hover:underline">جميع السيارات ←</Link></li>
                             </ul>
                         </div>

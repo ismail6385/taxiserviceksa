@@ -36,7 +36,7 @@ export default function DammamAirportToHawallyTaxiPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation
                 cityName="Dammam Airport to Hawally"
-                description="Professional VIP private car service from Dammam Airport to Hawally, Kuwait via the Nuwaiseeb border. Reliable 24/7 door-to-door transfers."
+                description="Professional private car service from Dammam Airport to Hawally, Kuwait via the Nuwaiseeb border. Reliable 24/7 door-to-door transfers."
                 services={[
                     { name: 'Dammam Airport to Hawally Taxi', description: 'Private transfer to Hawally via the border.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -196,7 +196,7 @@ export default function DammamAirportToHawallyTaxiPage() {
                     {
                         question: 'How much is a taxi from Dammam Airport to Hawally?',
                         shortAnswer: 'WhatsApp Booking',
-                        detailedAnswer: 'A private sedan or VIP SUV (like a GMC Yukon) is available at a fixed rate for the Dammam Airport to Hawally route. Contact us on WhatsApp for a fixed quote based on your vehicle and group size.',
+                        detailedAnswer: 'A private sedan or SUV (like a GMC Yukon) is available at a fixed rate for the Dammam Airport to Hawally route. Contact us on WhatsApp for a fixed quote based on your vehicle and group size.',
                         perspectives: [],
                     },
                     {

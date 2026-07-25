@@ -156,7 +156,7 @@ export default function UniversalInvoiceGenerator() {
     });
 
     const [items, setItems] = useState<InvoiceItem[]>([
-        { id: '1', description: 'VIP Airport Transfer Service', quantity: 1, price: 350 }
+        { id: '1', description: 'Airport Transfer Service', quantity: 1, price: 350 }
     ]);
 
     useEffect(() => {

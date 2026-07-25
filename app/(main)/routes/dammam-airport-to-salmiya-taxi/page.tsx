@@ -36,7 +36,7 @@ export default function DammamAirportToSalmiyaTaxiPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation
                 cityName="Dammam Airport to Salmiya"
-                description="Professional VIP private car service from Dammam Airport to Salmiya, Kuwait via the Nuwaiseeb border. Reliable 24/7 door-to-door transfers."
+                description="Professional private car service from Dammam Airport to Salmiya, Kuwait via the Nuwaiseeb border. Reliable 24/7 door-to-door transfers."
                 services={[
                     { name: 'Dammam Airport to Salmiya Taxi', description: 'Private transfer to Salmiya via the border.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -196,7 +196,7 @@ export default function DammamAirportToSalmiyaTaxiPage() {
                     {
                         question: 'How much is a taxi from Dammam Airport to Salmiya?',
                         shortAnswer: 'WhatsApp Booking',
-                        detailedAnswer: 'A private sedan or VIP SUV (like a GMC Yukon) is available at a fixed rate for the Dammam Airport to Salmiya route. Contact us on WhatsApp for a fixed quote based on your vehicle and group size.',
+                        detailedAnswer: 'A private sedan or SUV (like a GMC Yukon) is available at a fixed rate for the Dammam Airport to Salmiya route. Contact us on WhatsApp for a fixed quote based on your vehicle and group size.',
                         perspectives: [],
                     },
                     {

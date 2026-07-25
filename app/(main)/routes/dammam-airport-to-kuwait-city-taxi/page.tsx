@@ -36,7 +36,7 @@ export default function DammamAirportToKuwaitCityTaxiPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation
                 cityName="Dammam Airport to Kuwait City"
-                description="Professional VIP private car service from Dammam Airport to Kuwait City via the Nuwaiseeb border. Reliable 24/7 door-to-door transfers."
+                description="Professional private car service from Dammam Airport to Kuwait City via the Nuwaiseeb border. Reliable 24/7 door-to-door transfers."
                 services={[
                     { name: 'Dammam Airport to Kuwait City Taxi', description: 'Private transfer to downtown Kuwait City via the border.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business meetings in Kuwait City.' },
@@ -199,7 +199,7 @@ export default function DammamAirportToKuwaitCityTaxiPage() {
                     {
                         question: 'How much is a taxi from Dammam Airport to Kuwait City?',
                         shortAnswer: 'WhatsApp Booking',
-                        detailedAnswer: 'A private sedan or VIP SUV (like a GMC Yukon) is available at a fixed rate for the Dammam Airport to Kuwait City route. Contact us on WhatsApp for a fixed quote based on your vehicle and group size.',
+                        detailedAnswer: 'A private sedan or SUV (like a GMC Yukon) is available at a fixed rate for the Dammam Airport to Kuwait City route. Contact us on WhatsApp for a fixed quote based on your vehicle and group size.',
                         perspectives: [],
                     },
                     {

@@ -184,7 +184,7 @@ export default function TaifDayTripPage() {
                     {
                         question: 'How much does a Taif day trip from Makkah cost?',
                         shortAnswer: 'WhatsApp Booking',
-                        detailedAnswer: 'Pricing depends on the vehicle and how long the driver waits at each stop. A standard sedan (Toyota Camry) or a VIP SUV (GMC Yukon) are both available. Contact us on WhatsApp with your preferred stops and group size for a fixed quote.',
+                        detailedAnswer: 'Pricing depends on the vehicle and how long the driver waits at each stop. A standard sedan (Toyota Camry) or a SUV (GMC Yukon) are both available. Contact us on WhatsApp with your preferred stops and group size for a fixed quote.',
                         perspectives: [],
                     },
                     {

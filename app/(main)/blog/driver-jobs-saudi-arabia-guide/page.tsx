@@ -68,12 +68,12 @@ export default function DriverJobsGuide() {
                         <li><strong>Vehicle Upkeep:</strong> A flawless 2020+ vehicle is non-negotiable.</li>
                         <li><strong>Punctuality:</strong> Being 10 minutes early is "on time" for VIPs.</li>
                         <li><strong>Bilingualism:</strong> Speaking conversational English and Arabic opens doors to international tourists.</li>
-                        <li><strong>Navigation Mastery:</strong> Know the roads better than the GPS. VIP clients despise wrong turns.</li>
+                        <li><strong>Navigation Mastery:</strong> Know the roads better than the GPS. Clients despise wrong turns.</li>
                     </ul>
 
                     <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">The Future of Chauffeur Jobs Saudi</h2>
                     <p>
-                        With the 2030 Vision bringing mega-projects like NEOM, Qiddiya, and Red Sea Global, the reliance on high-quality terrestrial transport is only increasing. Establishing yourself now within a reputable VIP Taxi Service network builds a client base and reputation that will pay dividends for years to come.
+                        With the 2030 Vision bringing mega-projects like NEOM, Qiddiya, and Red Sea Global, the reliance on high-quality terrestrial transport is only increasing. Establishing yourself now within a reputable Taxi Service network builds a client base and reputation that will pay dividends for years to come.
                     </p>
                 </div>
             </div>

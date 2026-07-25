@@ -49,7 +49,7 @@ export default function DriversEarningsSaudi() {
                         <ul className="space-y-3">
                             <li className="flex gap-2 items-start"><CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"/> <span><strong>Part-time (20-30 hours/week):</strong> 3,000 - 5,000 SAR</span></li>
                             <li className="flex gap-2 items-start"><CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"/> <span><strong>Full-time Standard (40-50 hours/week):</strong> 6,000 - 9,000 SAR</span></li>
-                            <li className="flex gap-2 items-start"><CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"/> <span><strong>Full-time VIP / SUV Drivers:</strong> 10,000 - 15,000+ SAR</span></li>
+                            <li className="flex gap-2 items-start"><CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5"/> <span><strong>Full-time / SUV Drivers:</strong> 10,000 - 15,000+ SAR</span></li>
                         </ul>
                     </div>
 
@@ -62,12 +62,12 @@ export default function DriversEarningsSaudi() {
 
                     <h3 className="text-2xl font-bold text-gray-800 mt-8 mb-4">2. Vehicle Type</h3>
                     <p>
-                        A standard sedan will fetch standard rates. If you own a large SUV like a GMC Yukon, you can handle families of 5-7 people with massive luggage. These VIP trips command much higher fares, accelerating your monthly figures significantly.
+                        A standard sedan will fetch standard rates. If you own a large SUV like a GMC Yukon, you can handle families of 5-7 people with massive luggage. These trips command much higher fares, accelerating your monthly figures significantly.
                     </p>
 
                     <h3 className="text-2xl font-bold text-gray-800 mt-8 mb-4">3. Tips and Premium Service</h3>
                     <p>
-                        The hallmark of <strong>driver jobs Saudi Arabia</strong> is Saudi hospitality. Providing water, phone chargers, keeping a spotless car, and wearing professional attire often results in generous tips from VIP clients, directly boosting your take-home pay by 15-20%.
+                        The hallmark of <strong>driver jobs Saudi Arabia</strong> is Saudi hospitality. Providing water, phone chargers, keeping a spotless car, and wearing professional attire often results in generous tips from clients, directly boosting your take-home pay by 15-20%.
                     </p>
 
                     <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Managing Expenses to Maximize Profits</h2>
@@ -77,7 +77,7 @@ export default function DriversEarningsSaudi() {
 
                     <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Conclusion</h2>
                     <p>
-                        Professional driving is one of the most accessible and high-paying independent careers in the Kingdom today for those with newer cars and excellent customer service skills. By targeting VIP clients instead of random street hails, you guarantee yourself a high minimum revenue stream.
+                        Professional driving is one of the most accessible and high-paying independent careers in the Kingdom today for those with newer cars and excellent customer service skills. By targeting clients instead of random street hails, you guarantee yourself a high minimum revenue stream.
                     </p>
                 </div>
             </div>

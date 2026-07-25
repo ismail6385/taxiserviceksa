@@ -11,7 +11,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'Mercedes S-Class VIP Chauffeur Saudi Arabia | Executive Car',
+    title: 'Mercedes S-Class Chauffeur Saudi Arabia | Executive Car',
     description: 'Book the elite Mercedes S-Class private transfer in Saudi Arabia. Premium executive chauffeur service for business travel and intercity transfers. Fixed rates and professional service.',
     keywords: ['Mercedes S-Class VIP transfer', 'luxury sedan chauffeur KSA', 'Mercedes S-Class Riyadh transfer', 'executive chauffeur service Saudi Arabia', 'Mercedes VIP car', 'Makkah to Madinah Mercedes S-Class'],
     alternates: {
@@ -52,11 +52,11 @@ export default function MercedesSClassPage() {
                 h1Text="Mercedes S-Class VIP"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        The Gold Standard of VIP Travel
+                        The Gold Standard of Travel
                     </span>
                 }
                 subtitle="Flagship Executive Chauffeur Service in Saudi Arabia"
-                location="3 Passengers | 2 Bags | VIP Protocol"
+                location="3 Passengers | 2 Bags | Protocol"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?vehicle=mercedes-s-class">
@@ -67,7 +67,7 @@ export default function MercedesSClassPage() {
                     </Link>
                     <a href="mailto:taxiserviceksa9988@gmail.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            Custom VIP Quote
+                            Custom Quote
                         </Button>
                     </a>
                 </div>
@@ -94,13 +94,13 @@ export default function MercedesSClassPage() {
                         <div>
                             <h2 className="text-4xl font-black text-gray-900 mb-8 leading-tight uppercase tracking-tighter">Pure Executive Refinement</h2>
                             <p className="text-gray-600 text-xl leading-relaxed mb-8">
-                                The <strong>Mercedes S-Class VIP private transfer</strong> is more than just a ride; it is a statement of success. Engineered for maximum silence and passenger comfort, it serves as your mobile office or sanctuary between Riyadh, Jeddah, and the Holy Cities.
+                                The <strong>Mercedes S-Class private transfer</strong> is more than just a ride; it is a statement of success. Engineered for maximum silence and passenger comfort, it serves as your mobile office or sanctuary between Riyadh, Jeddah, and the Holy Cities.
                             </p>
                             
                             <div className="space-y-6 mb-12">
                                 {[
                                     { title: 'Privacy Focused', desc: 'Tinted acoustic glass and rear privacy blinds.' },
-                                    { title: 'Executive Chauffeurs', desc: 'Professionally trained in VIP protocol and discretion.' },
+                                    { title: 'Executive Chauffeurs', desc: 'Professionally trained in executive protocol and discretion.' },
                                     { title: 'Airport Meet & Greet', desc: 'Personalized gate-to-car service at all major airports.' }
                                 ].map((item, i) => (
                                     <div key={i} className="flex gap-4">
@@ -119,7 +119,7 @@ export default function MercedesSClassPage() {
                                 brandName="S-Class Executive Service"
                                 description="The Kingdom's premier high-end sedan fleet, serving over 500+ corporate clients yearly."
                                 metrics={[
-                                    { label: 'VIP Trips', value: '10k+', icon: ShieldCheck },
+                                    { label: 'Trips', value: '10k+', icon: ShieldCheck },
                                     { label: 'Rating', value: '4.9/5', icon: Star }
                                 ]}
                             />
@@ -188,13 +188,13 @@ export default function MercedesSClassPage() {
                         {
                             question: "What is the luggage capacity of the S-Class?",
                             shortAnswer: "2 Large Suitcases",
-                            detailedAnswer: "The trunk is designed to accommodate 2 large suitcases. For travelers with more luggage, we recommend our GMC Yukon or Mercedes Vito VIP options.",
+                            detailedAnswer: "The trunk is designed to accommodate 2 large suitcases. For travelers with more luggage, we recommend our GMC Yukon or Mercedes Vito options.",
                             perspectives: [
                                 { role: 'Baggage Expert', icon: 'Briefcase', insight: 'We always recommend bringing hard-shell suitcases for a perfect fit.' }
                             ]
                         },
                         {
-                            question: "Are the chauffeurs trained for VIP protocol?",
+                            question: "Are the chauffeurs trained for executive protocol?",
                             shortAnswer: "Yes, fully professional chauffeurs.",
                             detailedAnswer: "All our Mercedes S-Class drivers undergo rigorous training in executive etiquette, pathfinding, and defensive driving to ensure a world-class experience.",
                             perspectives: [

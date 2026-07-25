@@ -109,7 +109,7 @@ export default function PrivateDriverPageArabic() {
     const vehicles = [
         { name: 'تويوتا كامري', slug: 'toyota-camry', type: 'سيدان تنفيذية', seats: '٤', ideal: 'فردي أو ثنائي، للاستخدام التجاري' },
         { name: 'جمس يوكن XL', slug: 'gmc-yukon-xl', type: 'إس يو في فاخرة', seats: '٧', ideal: 'العائلات والمجموعات والتسوق' },
-        { name: 'هيونداي ستاريا VIP', slug: 'hyundai-staria-vip', type: 'فان فاخر', seats: '٧', ideal: 'عائلات VIP والرحلات الطبية' },
+        { name: 'هيونداي ستاريا', slug: 'hyundai-staria-vip', type: 'فان فاخر', seats: '٧', ideal: 'عائلات VIP والرحلات الطبية' },
         { name: 'تويوتا هايس', slug: 'toyota-hiace', type: 'ميني فان', seats: '١١', ideal: 'المجموعات الكبيرة والتسوق بكميات' },
         { name: 'كاديلاك إسكاليد', slug: 'cadillac-escalade', type: 'إس يو في فائقة الفخامة', seats: '٧', ideal: 'الاستخدام التنفيذي وضيوف VIP' },
     ];
@@ -407,7 +407,7 @@ export default function PrivateDriverPageArabic() {
                                 <Shield className="w-4 h-4" /> خدمات ذات صلة
                             </h4>
                             <ul className="space-y-2 text-sm">
-                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black transition-colors">سائق VIP فاخر</Link></li>
+                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black transition-colors">سائق فاخر</Link></li>
                                 <li><Link href="/services/tourism-transport/" className="text-gray-600 hover:text-black transition-colors">النقل السياحي</Link></li>
                                 <li><Link href="/services/corporate-travel/" className="text-gray-600 hover:text-black transition-colors">نقل الشركات</Link></li>
                                 <li><Link href="/services/airport-transfers/" className="text-gray-600 hover:text-black transition-colors">توصيل المطار</Link></li>
@@ -463,7 +463,7 @@ export default function PrivateDriverPageArabic() {
                     </div>
                     <p className="text-gray-500 text-sm mt-6">
                         متوفر أيضاً:{' '}
-                        <Link href="/services/vip-chauffeur/" className="text-gray-400 hover:text-white underline">سائق VIP فاخر</Link>
+                        <Link href="/services/vip-chauffeur/" className="text-gray-400 hover:text-white underline">سائق فاخر</Link>
                         {' · '}
                         <Link href="/services/tourism-transport/" className="text-gray-400 hover:text-white underline">النقل السياحي</Link>
                         {' · '}

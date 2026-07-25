@@ -47,12 +47,12 @@ export default function JeddahMakkahRoutePage() {
                     </span>
                 }
                 subtitle="The Premium Link for Pilgrims & Professionals"
-                location="Jeddah ➔ Makkah | VIP"
+                location="Jeddah ➔ Makkah |"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
                         brandName="Taxi Service KSA™ Route"
-                        description="Professional chauffeur and VIP transfer services between Jeddah and Makkah. We help pilgrims and travelers with reliable door-to-door transport and 24/7 availability."
+                        description="Professional chauffeur and transfer services between Jeddah and Makkah. We help pilgrims and travelers with reliable door-to-door transport and 24/7 availability."
                         foundingDate="2012"
                         metrics={[
                             { label: 'Route Trips', value: '25k+', icon: Car },
@@ -76,8 +76,7 @@ export default function JeddahMakkahRoutePage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked VIP Intercity and Airport transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Intercity and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -233,8 +232,7 @@ export default function JeddahMakkahRoutePage() {
                             <span className="text-sm font-semibold text-emerald-900">Route Fares</span>
                         </div>
 
-                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
-                            VIP Jeddah to Makkah Rates
+                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6"> Jeddah to Makkah Rates
                         </h3>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
                             Flat rates from Jeddah Airport to your Makkah hotel.
@@ -262,7 +260,7 @@ export default function JeddahMakkahRoutePage() {
                             <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mx-auto mb-4">
                                 <Shield className="w-6 h-6 text-emerald-600" />
                             </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">GMC VIP (SUV)</div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">GMC (SUV)</div>
                             <div className="text-4xl font-black text-emerald-600 mb-3">
                                 <span className="text-2xl text-gray-500">SAR</span> 350
                             </div>

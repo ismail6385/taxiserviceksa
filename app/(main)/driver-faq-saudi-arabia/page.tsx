@@ -25,7 +25,7 @@ export default function DriverFAQSudiArabia() {
                         Driver Jobs FAQ <br className="hidden md:block"/> Saudi Arabia
                     </h1>
                     <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
-                        Your complete guide to navigating driver requirements, earnings, and application processes for VIP chauffeur positions across the Kingdom.
+                        Your complete guide to navigating driver requirements, earnings, and application processes for chauffeur positions across the Kingdom.
                     </p>
                 </div>
             </div>
@@ -49,7 +49,7 @@ export default function DriverFAQSudiArabia() {
                             How to become a driver in Saudi Arabia?
                         </h3>
                         <p className="text-gray-600 leading-relaxed ml-9">
-                            Becoming a professional driver requires a valid Saudi driving license, a clean background check, and an approved vehicle. Once you meet the legal requirements, the best path to high income is joining a VIP private transport network rather than standard street taxis. You simply submit your application online, pass a quick interview, and get your vehicle approved for dispatch. 
+                            Becoming a professional driver requires a valid Saudi driving license, a clean background check, and an approved vehicle. Once you meet the legal requirements, the best path to high income is joining a private transport network rather than standard street taxis. You simply submit your application online, pass a quick interview, and get your vehicle approved for dispatch.
                         </p>
                     </div>
 
@@ -71,7 +71,7 @@ export default function DriverFAQSudiArabia() {
                             How much do drivers earn?
                         </h3>
                         <p className="text-gray-600 leading-relaxed ml-9">
-                            Earnings scale directly according to your availability and the regions you serve. An active VIP private driver handling corporate clients and airport runs typically earns between <strong>7,000 to 12,000+ SAR per month</strong>. Longer inter-city trips, such as VIP transfers between Makkah and Madinah, can accelerate these earnings significantly compared to standard inner-city driving.
+Earnings scale directly according to your availability and the regions you serve. An active private driver handling corporate clients and airport runs typically earns between <strong>7,000 to 12,000+ SAR per month</strong>. Longer inter-city trips, such as transfers between Makkah and Madinah, can accelerate these earnings significantly compared to standard inner-city driving.
                         </p>
                     </div>
 
@@ -82,7 +82,7 @@ export default function DriverFAQSudiArabia() {
                             Is this better than Uber or Careem?
                         </h3>
                         <p className="text-gray-600 leading-relaxed ml-9">
-                            For professional chauffeurs, yes. While Uber and Careem are excellent for casual, part-time work, they suffer from high commission rates and unpredictable small-fare trips. Our VIP transport network strictly focuses on high-ticket, long-distance, and corporate clients. This means fewer trips overall, but significantly higher revenue per trip, resulting in less wear-and-tear on your vehicle and higher net profits.
+                            For professional chauffeurs, yes. While Uber and Careem are excellent for casual, part-time work, they suffer from high commission rates and unpredictable small-fare trips. Our transport network strictly focuses on high-ticket, long-distance, and corporate clients. This means fewer trips overall, but significantly higher revenue per trip, resulting in less wear-and-tear on your vehicle and higher net profits.
                         </p>
                     </div>
 
@@ -93,7 +93,7 @@ export default function DriverFAQSudiArabia() {
                             What car is required?
                         </h3>
                         <p className="text-gray-600 leading-relaxed ml-9">
-                            To ensure our VIP clients receive the ultimate in safety and comfort, all vehicles must be <strong>model year 2020 or newer</strong>. We heavily prioritize mid-size to full-size sedans for corporate travel, and large SUVs (like GMC Yukons or Chevrolet Tahoes) for family and border trips. All vehicles must have flawless air conditioning and be immaculately clean.
+To ensure our clients receive the ultimate in safety and comfort, all vehicles must be <strong>model year 2020 or newer</strong>. We heavily prioritize mid-size to full-size sedans for corporate travel, and large SUVs (like GMC Yukons or Chevrolet Tahoes) for family and border trips. All vehicles must have flawless air conditioning and be immaculately clean.
                         </p>
                     </div>
 
@@ -116,7 +116,7 @@ export default function DriverFAQSudiArabia() {
                     <div className="relative z-10">
                         <h2 className="text-3xl font-black mb-4">Ready to Maximize Your Earnings?</h2>
                         <p className="text-gray-400 mb-8 max-w-xl mx-auto text-lg">
-                            We are actively recruiting VIP drivers in targeted major cities. Select your region below to apply directly.
+                            We are actively recruiting drivers in targeted major cities. Select your region below to apply directly.
                         </p>
                         
                         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">

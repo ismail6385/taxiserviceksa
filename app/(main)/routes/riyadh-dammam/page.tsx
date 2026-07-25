@@ -40,7 +40,7 @@ export default function RiyadhDammamRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Riyadh to Dammam"
-                description="Professional VIP private car service for Riyadh to Dammam. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Riyadh to Dammam. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Riyadh to Dammam Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -59,7 +59,7 @@ export default function RiyadhDammamRoutePage() {
                         The Business Corridor
                     </span>
                 }
-                subtitle="Daily Executive Transfers | 3.5 Hours | 100% Private VIP"
+                subtitle="Daily Executive Transfers | 3.5 Hours | 100% Private"
                 location="Door-to-Door Private Service - Your Schedule, Your Comfort"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -171,8 +171,7 @@ export default function RiyadhDammamRoutePage() {
             <div className="bg-black py-24 text-center px-4 relative overflow-hidden rounded-3xl mx-4 mb-12">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
-                    <div className="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-8 animate-pulse">
-                        100% Private VIP Transfers Only • No Shared Taxis
+                    <div className="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-8 animate-pulse"> 100% Private Transfers Only • No Shared Taxis
                     </div>
                     <h2 className="text-3xl md:text-5xl font-black text-white mb-8 leading-tight">Get a quote for your Executive Riyadh to Dammam Taxi</h2>
                     <p className="text-gray-400 text-lg mb-10 italic">"The preferred choice for business travelers and families seeking total privacy."</p>
@@ -213,7 +212,7 @@ export default function RiyadhDammamRoutePage() {
                     {
                         question: "Do you go to Khobar and Jubail too?",
                         shortAnswer: "Yes",
-                        detailedAnswer: "Yes, we serve the entire Eastern Province including Al Khobar, Dammam, Dhahran, and Jubail with 100% private VIP transfers.",
+                        detailedAnswer: "Yes, we serve the entire Eastern Province including Al Khobar, Dammam, Dhahran, and Jubail with 100% private transfers.",
                         perspectives: []
                     }
                 ]}

@@ -34,12 +34,12 @@ export default function MakkahJeddahRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Makkah to Jeddah"
-                description="Professional VIP return transfers from Makkah to Jeddah. Providing door-to-door service to Jeddah Airport (JED) and city hotels using luxury GMC Yukons."
+                description="Professional return transfers from Makkah to Jeddah. Providing door-to-door service to Jeddah Airport (JED) and city hotels using luxury GMC Yukons."
                 services={[
-                    { name: 'Makkah to JED Airport', description: 'VIP transfers for departing flights with luggage assistance.' },
+                    { name: 'Makkah to JED Airport', description: 'Transfers for departing flights with luggage assistance.' },
                     { name: 'Makkah to Jeddah City', description: 'Direct transfers to hotels in Jeddah Corniche and Obhur.' },
                     { name: 'Makkah to Jeddah Port', description: 'Transfers for cruise passengers and industrial port visitors.' },
-                    { name: 'VIP Hourly Chauffeur', description: 'Dedicated executive driver for business in Jeddah after Makkah stay.' }
+                    { name: 'Hourly Chauffeur', description: 'Dedicated executive driver for business in Jeddah after Makkah stay.' }
                 ]}
                 
                 image="https://taxiserviceksa.com/makkah-kaaba-night.webp"
@@ -49,8 +49,7 @@ export default function MakkahJeddahRoutePage() {
                 images={['/makkah-kaaba-night.webp', '/jeddah-corniche-sunset.webp']}
                 h1Text="Makkah to Jeddah Taxi"
                 title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Makkah → Jeddah VIP
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> Makkah → Jeddah
                     </span>
                 }
                 subtitle="Direct Intercity Transfers with Premium Chauffeurs"
@@ -95,7 +94,7 @@ export default function MakkahJeddahRoutePage() {
                                 Return from your pilgrimage or business trip in the ultimate comfort. Our <strong>Makkah to Jeddah private car service</strong> provides a seamless, stress-free transfer from any hotel in Makkah directly to your destination in Jeddah, including King Abdulaziz Airport or the city center.
                             </p>
                             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                                Why struggle with local taxis or heavy luggage? Pre-Get a quote for your <strong>Makkah to Jeddah taxi</strong> and experience VIP treatment. We specialize in 2026 model <strong>GMC Yukons</strong> and <strong>VIP Vans</strong> for larger families.
+                                Why struggle with local taxis or heavy luggage? Pre-Get a quote for your <strong>Makkah to Jeddah taxi</strong> and experience treatment. We specialize in 2026 model <strong>GMC Yukons</strong> and <strong>Vans</strong> for larger families.
                             </p>
                             
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -114,10 +113,10 @@ export default function MakkahJeddahRoutePage() {
                             <h3 className="text-2xl font-black text-gray-900 mb-6">Return Trip Fleet</h3>
                             <div className="space-y-6">
                                 {[
-                                    { name: 'Cadillac Escalade VIP', capacity: '7 Pax', luggage: '4 Bags' },
+                                    { name: 'Cadillac Escalade', capacity: '7 Pax', luggage: '4 Bags' },
                                     { name: 'GMC Yukon Denali', capacity: '7 Pax', luggage: '5 Bags' },
-                                    { name: 'VIP Hyundai Staria', capacity: '7 Pax', luggage: '4 Bags' },
-                                    { name: 'Mercedes S-Class VIP', capacity: '3 Pax', luggage: '2 Bags' }
+                                    { name: 'Hyundai Staria', capacity: '7 Pax', luggage: '4 Bags' },
+                                    { name: 'Mercedes S-Class', capacity: '3 Pax', luggage: '2 Bags' }
                                 ].map((car, i) => (
                                     <div key={i} className="flex items-center justify-between p-4 rounded-2xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-200">
                                         <div className="flex gap-4 items-center">
@@ -198,7 +197,7 @@ export default function MakkahJeddahRoutePage() {
                 customLinks={[
                     { name: 'Makkah to Madinah', url: '/routes/makkah-madinah/', description: 'Continue your pilgrimage journey to the Prophet\'s City.' },
                     { name: 'Jeddah to Makkah', url: '/routes/jeddah-makkah/', description: 'Direct transfer from King Abdulaziz Airport to Makkah.' },
-                    { name: 'Makkah to Riyadh', url: '/routes/makkah-riyadh/', description: 'Long-distance VIP transfer to the Saudi Capital.' }
+                    { name: 'Makkah to Riyadh', url: '/routes/makkah-riyadh/', description: 'Long-distance transfer to the Saudi Capital.' }
                 ]}
             />
             <RelatedRoutes originSlug="makkah" currentSlug="makkah-jeddah" />
@@ -207,7 +206,7 @@ export default function MakkahJeddahRoutePage() {
                 <div className="absolute top-0 left-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -ml-32 -mt-32"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <h2 className="text-3xl md:text-5xl font-black text-white mb-8">Ready to Reserve Your Return?</h2>
-                    <p className="text-emerald-100/60 text-lg mb-10">Get a quote for your Makkah to Jeddah taxi today for a guaranteed on-time, VIP experience.</p>
+                    <p className="text-emerald-100/60 text-lg mb-10">Get a quote for your Makkah to Jeddah taxi today for a guaranteed on-time, experience.</p>
                     <Link href="/booking/?route=makkah-jeddah">
                         <Button size="lg" className="bg-white hover:bg-emerald-50 text-emerald-900 font-black px-12 py-8 text-xl rounded-2xl h-auto transition-transform hover:scale-110">
                             Book Makkah to Jeddah Now

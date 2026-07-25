@@ -206,7 +206,7 @@ export default function RiyadhHotelTransferPage() {
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/fleet/toyota-camry/" className="text-gray-600 hover:text-black">Toyota Camry (Solo/Couple)</Link></li>
                                 <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black">GMC Yukon (Families)</Link></li>
-                                <li><Link href="/fleet/cadillac-escalade/" className="text-gray-600 hover:text-black">Cadillac Escalade (VIP)</Link></li>
+                                <li><Link href="/fleet/cadillac-escalade/" className="text-gray-600 hover:text-black">Cadillac Escalade</Link></li>
                                 <li><Link href="/fleet/" className="text-black font-bold hover:underline">All Vehicles →</Link></li>
                             </ul>
                         </div>
@@ -222,7 +222,7 @@ export default function RiyadhHotelTransferPage() {
                         <div>
                             <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Shield className="w-4 h-4" /> Related Services</h4>
                             <ul className="space-y-2 text-sm">
-                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black">VIP Chauffeur Service</Link></li>
+                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black">Chauffeur Service</Link></li>
                                 <li><Link href="/services/private-driver/" className="text-gray-600 hover:text-black">Private Driver (Hourly)</Link></li>
                                 <li><Link href="/services/corporate-travel/" className="text-gray-600 hover:text-black">Corporate Travel</Link></li>
                                 <li><Link href="/services/tourism-transport/" className="text-gray-600 hover:text-black">Tourism Transport</Link></li>

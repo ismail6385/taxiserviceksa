@@ -36,7 +36,7 @@ export default function MadinahToMakkahPage() {
             <JsonLdRoute 
                 from="Madinah"
                 to="Makkah"
-                description="Luxury intercity transfer for Umrah pilgrims from Madinah to Makkah. Includes mandatory stop at Miqat Abyar Ali. 100% private VIP car service."
+                description="Luxury intercity transfer for Umrah pilgrims from Madinah to Makkah. Includes mandatory stop at Miqat Abyar Ali. 100% private car service."
                 distance="450 km"
                 duration="PT5H"
             />
@@ -49,7 +49,7 @@ export default function MadinahToMakkahPage() {
                         Madinah → Makkah Route
                     </span>
                 }
-                subtitle="The Spiritual Pilgrimage Journey - 100% Private VIP Only"
+                subtitle="The Spiritual Pilgrimage Journey - 100% Private Only"
                 location="450 km | Private Direct | Mandatory Miqat Stop Included"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -111,7 +111,7 @@ export default function MadinahToMakkahPage() {
                             <div className="space-y-6">
                                 {[
                                     { name: 'GMC Yukon 2026', capacity: '7 Pax', luggage: '5 Bags' },
-                                    { name: 'Mercedes Vito VIP', capacity: '7 Pax', luggage: '4 Bags' },
+                                    { name: 'Mercedes Vito', capacity: '7 Pax', luggage: '4 Bags' },
                                     { name: 'Hyundai Staria Premium', capacity: '7 Pax', luggage: '4 Bags' },
                                     { name: 'Toyota Hiace Group', capacity: '11 Pax', luggage: '16 Bags' }
                                 ].map((car, i) => (
@@ -204,8 +204,7 @@ export default function MadinahToMakkahPage() {
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -ml-32 -mb-32"></div>
                 
                 <div className="max-w-4xl mx-auto relative z-10">
-                    <div className="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-8 animate-pulse">
-                        100% Private VIP Transfers Only • No Shared Taxis
+                    <div className="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-8 animate-pulse"> 100% Private Transfers Only • No Shared Taxis
                     </div>
                     <h2 className="text-3xl md:text-5xl font-black text-white mb-8 leading-tight">Ready for Your Spiritual Journey?</h2>
                     <p className="text-emerald-100 text-lg mb-10 opacity-80 italic">"Travel in peace, comfort, and absolute privacy on your sacred path."</p>

@@ -38,9 +38,9 @@ export default function AbhaPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Abha"
-                description="Professional VIP high-altitude transfers in Abha. Specializing in Abha Airport (AHB) pickups, Al Soudah mountain trips, and historical Rijal Almaa heritage tours."
+                description="Professional high-altitude transfers in Abha. Specializing in Abha Airport (AHB) pickups, Al Soudah mountain trips, and historical Rijal Almaa heritage tours."
                 services={[
-                    { name: 'Abha Airport Pickup', description: 'VIP meet & greet at AHB Airport with flight tracking.' },
+                    { name: 'Abha Airport Pickup', description: 'Meet & greet at AHB Airport with flight tracking.' },
                     { name: 'Al Soudah Mountain Transfer', description: 'Safe transport to the highest peak in Saudi Arabia.' },
                     { name: 'Rijal Almaa Heritage Tour', description: 'Day trips to the famous historical gingerbread village.' },
                     { name: 'Khamis Mushait Intercity', description: 'Direct transfers to Khamis Mushait and Aseer province.' }
@@ -54,8 +54,7 @@ export default function AbhaPage() {
                 h1Text="Private Car Transfer, Taxi and Chauffeur Service in Abha"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Abha"
                 title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        VIP Chauffeur Service Abha
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> Chauffeur Service Abha
                     </span>
                 }
                 subtitle="High-Altitude Excellence in the High City"
@@ -80,8 +79,7 @@ export default function AbhaPage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked Mountain, Intercity, and VIP Airport transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Mountain, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -91,8 +89,7 @@ export default function AbhaPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
                             <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">Mountain Transport</span>
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                                VIP Transfer Services in Aseer
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6"> Transfer Services in Aseer
                             </h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                                 Abha's terrain is mountainous and beautiful, but it requires skilled drivers. Whether you are heading up to Al Soudah park, visiting the heritage village of Rijal Almaa, or need a transfer to Khamis Mushait, we have you covered.

@@ -36,7 +36,7 @@ export default function JeddahTaifRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Jeddah to Taif"
-                description="Professional VIP private car service for Jeddah to Taif. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Jeddah to Taif. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Jeddah to Taif Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -51,8 +51,7 @@ export default function JeddahTaifRoutePage() {
                 images={['/hero-slide-3.webp', '/hero-slide-2.webp']}
                 h1Text="Jeddah to Taif Taxi"
                 title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Jeddah → Taif VIP
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> Jeddah → Taif
                     </span>
                 }
                 subtitle="The Cool Mountain Escape | Scenic Al Hada Route"
@@ -97,7 +96,7 @@ export default function JeddahTaifRoutePage() {
                                 Escape the humidity of Jeddah for the cool mountain air of Taif. Our <strong>Jeddah to Taif taxi service</strong> is the preferred choice for families looking for a safe, comfortable ascent up the spectacular Al Hada mountain road.
                             </p>
                             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                                Why drive the winding roads yourself when you can relax in a <strong>VIP GMC Yukon</strong>? Our chauffeurs are highly experienced with mountain terrain, ensuring your trip to the City of Roses is as enjoyable as the destination itself.
+                                Why drive the winding roads yourself when you can relax in a <strong>GMC Yukon</strong>? Our chauffeurs are highly experienced with mountain terrain, ensuring your trip to the City of Roses is as enjoyable as the destination itself.
                             </p>
                             
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -117,9 +116,9 @@ export default function JeddahTaifRoutePage() {
                             <div className="space-y-6">
                                 {[
                                     { name: 'GMC Yukon Denali', capacity: '7 Pax', luggage: '5 Bags' },
-                                    { name: 'Cadillac Escalade VIP', capacity: '7 Pax', luggage: '4 Bags' },
-                                    { name: 'Mercedes S-Class VIP', capacity: '3 Pax', luggage: '2 Bags' },
-                                    { name: 'VIP Hyundai Staria', capacity: '7 Pax', luggage: '4 Bags' }
+                                    { name: 'Cadillac Escalade', capacity: '7 Pax', luggage: '4 Bags' },
+                                    { name: 'Mercedes S-Class', capacity: '3 Pax', luggage: '2 Bags' },
+                                    { name: 'Hyundai Staria', capacity: '7 Pax', luggage: '4 Bags' }
                                 ].map((car, i) => (
                                     <div key={i} className="flex items-center justify-between p-4 rounded-2xl bg-white hover:bg-emerald-50 transition-colors border border-gray-100">
                                         <div className="flex gap-4 items-center">
@@ -209,7 +208,7 @@ export default function JeddahTaifRoutePage() {
                 <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <h2 className="text-3xl md:text-6xl font-black text-white mb-8 leading-tight">Escape to the Mountains</h2>
-                    <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">Experience the most scenic drive in the Kingdom with our VIP Jeddah to Taif taxi service.</p>
+                    <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">Experience the most scenic drive in the Kingdom with our Jeddah to Taif taxi service.</p>
                     <Link href="/booking/?route=jeddah-taif">
                         <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600 text-white font-black px-12 py-8 text-xl rounded-2xl h-auto shadow-2xl transition-all hover:scale-105">
                             Get a quote for your Taif Ride

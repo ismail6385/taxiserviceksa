@@ -36,7 +36,7 @@ export default function KhobarToKuwaitTaxiPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation
                 cityName="Al Khobar to Kuwait"
-                description="Professional VIP private car service from Al Khobar to Kuwait via the Nuwaiseeb border. Reliable 24/7 door-to-door transfers with luxury vehicles."
+                description="Professional private car service from Al Khobar to Kuwait via the Nuwaiseeb border. Reliable 24/7 door-to-door transfers with luxury vehicles."
                 services={[
                     { name: 'Al Khobar to Kuwait Taxi', description: 'Premium private transfer via the Nuwaiseeb border.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -54,7 +54,7 @@ export default function KhobarToKuwaitTaxiPage() {
                         Nuwaiseeb Border Route
                     </span>
                 }
-                subtitle="Daily Transfers via the Border | 4.5-5.25 Hours | 100% Private VIP"
+                subtitle="Daily Transfers via the Border | 4.5-5.25 Hours | 100% Private"
                 location="Door-to-Door Private Service - Khobar to Kuwait"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">

@@ -75,7 +75,7 @@ export default function TaxiInMakkahPage() {
                         Premium Chauffeur Service
                     </span>
                 }
-                subtitle="Pre-book Reliable Private Cars & VIP SUVs for Hajj, Umrah, and Intercity Routes."
+                subtitle="Pre-book Reliable Private Cars & SUVs for Hajj, Umrah, and Intercity Routes."
                 location="24/7 Availability | Local Drivers | Fixed Fares"
             />
 
@@ -128,8 +128,8 @@ export default function TaxiInMakkahPage() {
                             The Most Trusted Taxi in Makkah
                         </h2>
                         <div className="prose prose-lg text-gray-600 max-w-4xl">
-                            <p>Finding a reliable <strong>taxi in Makkah</strong> during high pilgrimage seasons can be incredibly challenging. Whether you need a quick VIP pickup from your hotel near the Haram (such as Jabal Omar) or a comfortable long-distance ride to Madinah, we provide a pre-booked, private chauffeur service that eliminates the stress of street-hailing.</p>
-                            <p>We do not operate as a standard metered street taxi. We are a dedicated private transport provider specializing in premium, comfortable travel for Umrah groups, families, and VIP individuals. Our transparent fixed-pricing means you never have to negotiate fares with drivers during rush hour.</p>
+                            <p>Finding a reliable <strong>taxi in Makkah</strong> during high pilgrimage seasons can be incredibly challenging. Whether you need a quick pickup from your hotel near the Haram (such as Jabal Omar) or a comfortable long-distance ride to Madinah, we provide a pre-booked, private chauffeur service that eliminates the stress of street-hailing.</p>
+                            <p>We do not operate as a standard metered street taxi. We are a dedicated private transport provider specializing in premium, comfortable travel for Umrah groups, families, and individuals. Our transparent fixed-pricing means you never have to negotiate fares with drivers during rush hour.</p>
                         </div>
                     </div>
 
@@ -164,7 +164,7 @@ export default function TaxiInMakkahPage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Premium Vehicles</span>
-                        <h2 className="text-4xl md:text-5xl font-black mb-6">Our Makkah VIP Fleet</h2>
+                        <h2 className="text-4xl md:text-5xl font-black mb-6">Our Makkah Fleet</h2>
                         <p className="text-gray-400 max-w-2xl mx-auto text-lg">
                             From state-of-the-art sedans to spacious group transport, carefully selected for comfort during long journeys across Saudi Arabia.
                         </p>
@@ -242,7 +242,7 @@ export default function TaxiInMakkahPage() {
                     {
                         question: "How do I Request a quote for a private taxi in Makkah?",
                         shortAnswer: "Pre-book online via Email.",
-                        detailedAnswer: "You can book our Makkah taxi service directly through our website booking form or by sending us an email. Let us know your pickup location in Makkah, your destination, the date, and the size of your group. We will confirm your VIP vehicle immediately.",
+                        detailedAnswer: "You can book our Makkah taxi service directly through our website booking form or by sending us an email. Let us know your pickup location in Makkah, your destination, the date, and the size of your group. We will confirm your vehicle immediately.",
                         perspectives: []
                     },
                     {

@@ -14,7 +14,7 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 
 
 export const metadata: Metadata = {
-    title: 'Dubai to Riyadh Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
+    title: 'Dubai to Riyadh Taxi | Cross-Border Transfer | Taxi Service KSA',
     description: 'Request a premium quote from Dubai to Riyadh. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Dubai to Riyadh', 'Dubai to Riyadh transfer', 'cross border taxi Saudi Arabia', 'VIP transport Dubai Riyadh'],
     alternates: {
@@ -41,7 +41,7 @@ export default function DubaiRiyadhRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Dubai to Riyadh"
-                description="Professional VIP private car service for Dubai to Riyadh. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Dubai to Riyadh. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Dubai to Riyadh Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -60,7 +60,7 @@ export default function DubaiRiyadhRoutePage() {
                         GCC Cross-Border Service
                     </span>
                 }
-                subtitle="Seamless VIP Transfers: Dubai to Riyadh"
+                subtitle="Seamless Transfers: Dubai to Riyadh"
                 location="Door-to-Door Service"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -106,7 +106,7 @@ export default function DubaiRiyadhRoutePage() {
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <CheckCircle2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">VIP Comfort</span>
+                                    <span className="font-semibold text-gray-800">Comfort</span>
                                 </div>
                             </div>
                         </div>

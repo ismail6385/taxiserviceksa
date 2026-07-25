@@ -40,7 +40,7 @@ export default function JeddahAbhaRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation
                 cityName="Jeddah to Abha"
-                description="Professional VIP private car service from Jeddah to Abha. Reliable 24/7 door-to-door long-distance transport for families and business travelers through the Asir mountains."
+                description="Professional private car service from Jeddah to Abha. Reliable 24/7 door-to-door long-distance transport for families and business travelers through the Asir mountains."
                 services={[
                     { name: 'Jeddah to Abha Taxi', description: 'Direct private transfer with professional chauffeurs.' },
                     { name: 'Family SUV Transfer', description: 'Spacious and safe GMC Yukons for the long drive to Abha.' },
@@ -55,7 +55,7 @@ export default function JeddahAbhaRoutePage() {
                 h1Text="Jeddah to Abha Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Jeddah → Abha VIP
+                        Jeddah → Abha
                     </span>
                 }
                 subtitle="Cool Mountain Escape Through the Asir Highlands"
@@ -121,7 +121,7 @@ export default function JeddahAbhaRoutePage() {
                                 {[
                                     { name: 'GMC Yukon Denali', capacity: '7 Pax', luggage: '5 Bags' },
                                     { name: 'Toyota Camry', capacity: '3 Pax', luggage: '2 Bags' },
-                                    { name: 'VIP Hyundai Staria', capacity: '7 Pax', luggage: '4 Bags' },
+                                    { name: 'Hyundai Staria', capacity: '7 Pax', luggage: '4 Bags' },
                                     { name: 'Toyota Hiace', capacity: '11 Pax', luggage: 'Group Luggage' }
                                 ].map((car, i) => (
                                     <div key={i} className="flex items-center justify-between p-4 rounded-2xl bg-white hover:bg-emerald-50 transition-colors border border-gray-100">
@@ -218,7 +218,7 @@ export default function JeddahAbhaRoutePage() {
                 <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <h2 className="text-3xl md:text-6xl font-black text-white mb-8 leading-tight">Ready for the Asir Highlands?</h2>
-                    <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">Experience a safe, comfortable long-distance ride with our VIP Jeddah to Abha taxi service.</p>
+                    <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">Experience a safe, comfortable long-distance ride with our Jeddah to Abha taxi service.</p>
                     <Link href="/booking/?route=jeddah-abha">
                         <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600 text-white font-black px-12 py-8 text-xl rounded-2xl h-auto shadow-2xl transition-all hover:scale-105">
                             <WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> Get a Quote for Your Abha Ride

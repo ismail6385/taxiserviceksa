@@ -47,7 +47,7 @@ export default function JeddahToSwissotelPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Jeddah to Swissotel Makkah"
-                description="Professional VIP private car service for Jeddah to Swissotel Makkah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Jeddah to Swissotel Makkah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Jeddah to Swissotel Makkah Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -107,7 +107,7 @@ export default function JeddahToSwissotelPage() {
                     <ul className="space-y-3 text-gray-700">
                         <li><strong>Distance & Time:</strong> 95 kilometers. The drive takes 75 to 90 minutes from JED Airport.</li>
                         <li><strong>Drop-off Point:</strong> Direct to the Swissotel Makkah reception lobby via the exclusive Abraj Al Bait tunnel.</li>
-                        <li><strong>Vehicle Types:</strong> Sedans (Toyota Camry) and VIP SUVs (GMC Yukon) accommodating up to 7 passengers and heavy luggage.</li>
+                        <li><strong>Vehicle Types:</strong> Sedans (Toyota Camry) and SUVs (GMC Yukon) accommodating up to 7 passengers and heavy luggage.</li>
                         <li><strong>Pricing:</strong> Affordable, fixed rates with no hidden surge fees. Bookings include meet-and-greet at the airport arrivals terminal.</li>
                     </ul>
                 </div>
@@ -221,7 +221,7 @@ export default function JeddahToSwissotelPage() {
                     {
                         question: "How much is a taxi from Jeddah Airport to Swissotel Makkah?",
                         shortAnswer: "WhatsApp Booking",
-                        detailedAnswer: "A private sedan (like a Toyota Camry) from Jeddah Airport to Swissotel Makkah is offered at an affordable fixed rate. A VIP SUV (like a GMC Yukon) is also available for larger families or groups with extensive luggage. All prices are fixed, pre-agreed, and include the toll fees for the Abraj Al Bait tunnel drop-off.",
+                        detailedAnswer: "A private sedan (like a Toyota Camry) from Jeddah Airport to Swissotel Makkah is offered at an affordable fixed rate. A SUV (like a GMC Yukon) is also available for larger families or groups with extensive luggage. All prices are fixed, pre-agreed, and include the toll fees for the Abraj Al Bait tunnel drop-off.",
                         perspectives: []
                     },
                     {

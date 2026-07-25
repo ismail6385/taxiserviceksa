@@ -53,7 +53,7 @@ export const metadata: Metadata = {
 
 export default function TaifPage() {
     const services = [
-        { name: 'Makkah to Taif VIP Transfer', description: 'Cool mountain escape (1 hr) - Luxury SUV', icon: Car },
+        { name: 'Makkah to Taif Transfer', description: 'Cool mountain escape (1 hr) - Luxury SUV', icon: Car },
         { name: 'Jeddah Airport to Taif', description: 'Direct transfer (2 hrs)', icon: MapPin },
         { name: 'Al Hada & Cable Car', description: 'Drop-off at top station', icon: CloudFog },
         { name: 'Rose Farm Tours', description: 'Seasonal factory visits (Mar-Apr)', icon: Flower2 },
@@ -77,7 +77,7 @@ export default function TaifPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Taif"
-                description="Professional VIP mountain transfers in Taif. Specializing in Al Hada road, seasonal rose farm tours, and executive Jeddah Airport pickups."
+                description="Professional mountain transfers in Taif. Specializing in Al Hada road, seasonal rose farm tours, and executive Jeddah Airport pickups."
                 services={services}
                 
                 image="https://taxiserviceksa.com/taif-mountains-view.webp"
@@ -89,12 +89,11 @@ export default function TaifPage() {
                 h1Text="Private Car Transfer, Taxi and Chauffeur Service in Taif"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Taif"
                 title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        VIP Chauffeur Service Taif
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> Chauffeur Service Taif
                     </span>
                 }
                 subtitle="High-Altitude Excellence & Mountain Comfort"
-                location="Al Hada • Shafa • VIP Tours"
+                location="Al Hada • Shafa • Tours"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
                     <EntityTrustSignal
@@ -117,8 +116,7 @@ export default function TaifPage() {
                         </Link>
                     </Button>
                     <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                        <Link href="#pricing">
-                            View VIP Rates
+                        <Link href="#pricing"> View Rates
                         </Link>
                     </Button>
                 </div>
@@ -128,8 +126,7 @@ export default function TaifPage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked Mountain, Intercity, and VIP Airport transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Mountain, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -397,7 +394,7 @@ export default function TaifPage() {
                         <MicroSemanticFAQ
                             faqs={[
                                 {
-                                    question: "How much is a VIP transfer from Makkah to Taif?",
+                                    question: "How much is a transfer from Makkah to Taif?",
                                     shortAnswer: "200-300 SAR",
                                     detailedAnswer: "Standard sedan rates for the one-way drop to Taif city start from 200 SAR. Visiting Al Hada (Cable car point) or Al Shafa requires a different rate due to the steep ascent.",
                                     perspectives: [
@@ -460,8 +457,7 @@ export default function TaifPage() {
                             <span className="text-sm font-semibold text-yellow-900">Fixed Fares</span>
                         </div>
 
-                        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                            VIP Taif Transfer Rates
+                        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6"> Taif Transfer Rates
                         </h3>
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
                             Transparent pricing for mountain journeys and executive city disposal.
@@ -525,8 +521,7 @@ export default function TaifPage() {
                         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
                             Taif Travel Insights
                         </h2>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            Share your experience or ask a question about our VIP transfer services in Taif.
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto"> Share your experience or ask a question about our transfer services in Taif.
                         </p>
                     </div>
 
@@ -570,8 +565,7 @@ export default function TaifPage() {
                         Premium SUVs and professional chauffeurs ready for your Makkah to Taif mountain transfer.
                     </p>
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-12 py-8 rounded-full">
-                        <Link href="/booking/">
-                            Reserve VIP Transfer
+                        <Link href="/booking/"> Reserve Transfer
                         </Link>
                     </Button>
                 </div>

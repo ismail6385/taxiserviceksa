@@ -347,7 +347,7 @@ export default function TourismTransportPageArabic() {
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black transition-colors">جمس يوكن (مجموعات)</Link></li>
                                 <li><Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-black transition-colors">تويوتا هاياس (مجموعات كبيرة)</Link></li>
-                                <li><Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-black transition-colors">هيونداي ستاريا VIP</Link></li>
+                                <li><Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-black transition-colors">هيونداي ستاريا</Link></li>
                                 <li><Link href="/fleet/" className="text-black font-bold hover:underline">الأسطول الكامل ←</Link></li>
                             </ul>
                         </div>
@@ -358,7 +358,7 @@ export default function TourismTransportPageArabic() {
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/services/airport-transfers/" className="text-gray-600 hover:text-black transition-colors">توصيل المطار</Link></li>
                                 <li><Link href="/services/private-driver/" className="text-gray-600 hover:text-black transition-colors">سائق خاص (بالساعة/يومي)</Link></li>
-                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black transition-colors">خدمة الشوفير VIP</Link></li>
+                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black transition-colors">خدمة الشوفير</Link></li>
                                 <li><Link href="/services/heritage-tours/" className="text-gray-600 hover:text-black transition-colors">الجولات التراثية</Link></li>
                             </ul>
                         </div>
@@ -412,7 +412,7 @@ export default function TourismTransportPageArabic() {
                     </div>
                     <p className="text-gray-500 text-sm mt-6">
                         متوفر أيضاً:{' '}
-                        <Link href="/services/vip-chauffeur/" className="text-gray-400 hover:text-white underline">خدمة الشوفير VIP</Link>
+                        <Link href="/services/vip-chauffeur/" className="text-gray-400 hover:text-white underline">خدمة الشوفير</Link>
                         {' · '}
                         <Link href="/services/private-driver/" className="text-gray-400 hover:text-white underline">سائق خاص (بالساعة)</Link>
                         {' · '}

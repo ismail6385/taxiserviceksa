@@ -216,7 +216,7 @@ export default function CustomersPage() {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                 {[
                     { label: 'Total Customers', value: customers.length,                            icon: Users,  color: 'text-white' },
-                    { label: 'VIP Customers',   value: vipCount,                                    icon: Crown,  color: 'text-amber-400' },
+                    { label: 'Customers',   value: vipCount,                                    icon: Crown,  color: 'text-amber-400' },
                     { label: 'Repeat Clients',  value: repeatCount,                                 icon: Star,   color: 'text-emerald-400' },
                     { label: 'Total Revenue',   value: totalRevenueLabel,                           icon: Wallet, color: 'text-primary' },
                 ].map(({ label, value, icon: Icon, color }) => (
@@ -279,7 +279,7 @@ export default function CustomersPage() {
                                                 </div>
                                                 <span className="text-[10px] font-bold">
                                                     {c.isVIP
-                                                        ? <span className="text-amber-400">VIP Customer</span>
+                                                        ? <span className="text-amber-400">Customer</span>
                                                         : c.isRepeat
                                                         ? <span className="text-emerald-400">Repeat Customer</span>
                                                         : null

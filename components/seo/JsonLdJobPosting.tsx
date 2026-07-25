@@ -45,7 +45,7 @@ export default function JsonLdJobPosting({
       "@type": "Place",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "VIP Transport Hub",
+        "streetAddress": "Prince Sultan Road",
         "addressLocality": jobLocation.addressLocality,
         "addressRegion": jobLocation.addressRegion,
         "addressCountry": jobLocation.addressCountry

@@ -6,7 +6,7 @@ import Hero from '@/components/Hero';
 import BookingProcess from '@/components/BookingProcess';
 
 export const metadata: Metadata = {
-    title: 'Border Crossing Taxi 2026 | Saudi Arabia VIP International Transfers',
+    title: 'Border Crossing Taxi 2026 | Saudi Arabia International Transfers',
     description: 'Professional cross-border taxi services for 2026. transfers to Bahrain, UAE, Qatar, Kuwait, and Jordan. Fixed rates, GCC-licensed drivers, and premium SUVs.',
     keywords: ['Saudi border taxi 2026', 'King Fahd Causeway taxi', 'cross border taxi KSA', 'Salwa border transfer'],
     alternates: {
@@ -68,7 +68,7 @@ export default function BorderCrossingsPage() {
                         2026 GCC Crossings
                     </span>
                 }
-                subtitle="Seamless Private VIP Transfers Across Borders"
+                subtitle="Seamless Private Transfers Across Borders"
                 location="KSA → Bahrain, UAE, Qatar, Kuwait, Jordan"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">

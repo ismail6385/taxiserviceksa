@@ -131,7 +131,7 @@ export default function AlUlaNationalDayPage() {
                     <Flag className="w-12 h-12 text-amber-400 mx-auto mb-4" />
                     <h2 className="text-3xl font-black mb-4">Book Your National Day Transport</h2>
                     <p className="text-gray-300 max-w-xl mx-auto mb-8">
-                        Celebrate National Day with ultimate style. Book a private VIP taxi with a dedicated driver to navigate the festive streets of AlUla.
+                        Celebrate National Day with ultimate style. Book a private taxi with a dedicated driver to navigate the festive streets of AlUla.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
                         <a href="https://wa.me/966569487569?text=Hi,%20I%20want%20to%20book%20a%20private%20taxi%20in%20AlUla%20for%20Saudi%20National%20Day%20Celebrations" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"><Phone className="w-5 h-5" /> WhatsApp Booking</a>

@@ -19,7 +19,7 @@ import BookingProcess from '@/components/BookingProcess';
 import { makkahHotels } from '@/data/makkahHotels';
 
 export const metadata: Metadata = {
-    title: 'تاكسي جدة إلى مكة ٢٠٢٦ | نقل VIP خاص | أسعار ثابتة',
+    title: 'تاكسي جدة إلى مكة ٢٠٢٦ | نقل خاص | أسعار ثابتة',
     description: 'احجز أفضل تاكسي من جدة إلى مكة لعام ٢٠٢٦. نقل متميز بين المدن مع سائقين محترفين. أسعار ثابتة تبدأ من ٣٠٠ ريال. خدمة من الباب إلى الباب.',
     keywords: ['تاكسي جدة مكة ٢٠٢٦', 'سعر تاكسي جدة مكة', 'سيارة خاصة جدة مكة'],
     alternates: {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'تاكسي جدة إلى مكة ٢٠٢٦ | نقل VIP خاص',
+        title: 'تاكسي جدة إلى مكة ٢٠٢٦ | نقل خاص',
         description: 'نقل متميز بين المدن مع سائقين محترفين. أسعار ثابتة، خدمة من الباب إلى الباب.',
         url: 'https://taxiserviceksa.com/ar/routes/jeddah-makkah/',
         locale: 'ar_SA',
@@ -49,7 +49,7 @@ export default function JeddahMakkahRoutePageArabic() {
 
     const pricingRows = [
         { vehicle: 'Standard Sedan', description: 'Toyota Camry or similar. Perfect for solo or couples.', price: '300', capacity: '3 Pax', isPopular: false },
-        { vehicle: 'GMC Yukon XL', description: 'The ultimate VIP experience for families.', price: '600', capacity: '7 Pax', isPopular: true },
+        { vehicle: 'GMC Yukon XL', description: 'The ultimate experience for families.', price: '600', capacity: '7 Pax', isPopular: true },
         { vehicle: 'Hyundai Staria VIP', description: 'Modern luxury van with captain seats.', price: '350', capacity: '7 Pax', isPopular: false },
         { vehicle: 'Toyota Hiace', description: 'For large groups and heavy luggage.', price: '500', capacity: '11 Pax', isPopular: false },
     ];
@@ -69,7 +69,7 @@ export default function JeddahMakkahRoutePageArabic() {
                 h1Text="تاكسي جدة إلى مكة"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        نقل VIP لعام ٢٠٢٦
+                        نقل لعام ٢٠٢٦
                     </span>
                 }
                 subtitle="نقل خاص حصري للحجاج والعائلات"
@@ -123,7 +123,7 @@ export default function JeddahMakkahRoutePageArabic() {
                                 description="Providing luxury intercity transfers since 2015 with a 99% satisfaction rate."
                                 metrics={[
                                     { label: 'Jeddah Reach', value: '100%', icon: MapPin },
-                                    { label: 'Verified VIP', value: 'Yes', icon: Shield }
+                                    { label: 'Verified', value: 'Yes', icon: Shield }
                                 ]}
                             />
                         </div>
@@ -134,8 +134,8 @@ export default function JeddahMakkahRoutePageArabic() {
                         <div className="space-y-6">
                             {[
                                 { name: 'جمس يوكن XL 2026', capacity: '٧ ركاب', luggage: '٥ حقائب' },
-                                { name: 'مرسيدس S-Class VIP', capacity: '٣ ركاب', luggage: '٢ حقيبة' },
-                                { name: 'هيونداي ستاريا VIP', capacity: '٧ ركاب', luggage: '٤ حقائب' }
+                                { name: 'مرسيدس S-Class', capacity: '٣ ركاب', luggage: '٢ حقيبة' },
+                                { name: 'هيونداي ستاريا', capacity: '٧ ركاب', luggage: '٤ حقائب' }
                             ].map((car, i) => (
                                 <div key={i} className="flex items-center justify-between p-4 rounded-2xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-200">
                                     <div className="flex gap-4 items-center">
@@ -226,7 +226,7 @@ export default function JeddahMakkahRoutePageArabic() {
                         intent: 'الكفاءة والسرعة',
                         description: 'تُعد رحلة ٩٠ كم بين جدة ومكة أكثر المسارات ازدحاماً بين المدن في العالم خلال موسم الذروة. نستخدم مراقبة مرورية متقدمة في الوقت الفعلي لتجنب ازدحام الطريق السريع الرئيسي، وغالباً ما نستخدم طريق مكة القديم للدخول السلس دون انقطاع إلى المدينة.',
                         structuredFeatures: [
-                            { label: 'حجوزات VIP', value: '+٥٠٠٠' },
+                            { label: 'حجوزات', value: '+٥٠٠٠' },
                             { label: 'الخبرة', value: '١٥ عاماً' },
                             { label: 'تصنيف السلامة', value: 'فئة الخبراء' }
                         ],
@@ -245,7 +245,7 @@ export default function JeddahMakkahRoutePageArabic() {
                         {
                             question: "كم سعر التاكسي من جدة إلى مكة في ٢٠٢٦؟",
                             shortAnswer: "من ٣٠٠ ريال (ثابت)",
-                            detailedAnswer: "في عام ٢٠٢٦، تبدأ أسعارنا من ٣٠٠ ريال للسيدان القياسية (تويوتا كامري) و٦٠٠ ريال لجمس يوكن VIP. هذه أسعار ثابتة تشمل الرسوم ورسوم المطار.",
+                            detailedAnswer: "في عام ٢٠٢٦، تبدأ أسعارنا من ٣٠٠ ريال للسيدان القياسية (تويوتا كامري) و٦٠٠ ريال لجمس يوكن. هذه أسعار ثابتة تشمل الرسوم ورسوم المطار.",
                             perspectives: [
                                 { role: 'الفوترة', icon: 'DollarSign', insight: 'الشفافية قيمتنا الأساسية؛ ما تراه هو ما تدفعه.' }
                             ]
@@ -307,9 +307,9 @@ export default function JeddahMakkahRoutePageArabic() {
                 <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <div className="inline-block bg-rose-600 text-white text-[10px] font-black tracking-[0.3em] px-4 py-2 rounded-full mb-8 animate-pulse">
-                        نقل VIP خاص فقط ١٠٠٪ • بدون مشاركة الرحلة
+                        نقل خاص فقط ١٠٠٪ • بدون مشاركة الرحلة
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-black text-white mb-8">هل أنت مستعد لرحلة مكة VIP لعام ٢٠٢٦؟</h2>
+                    <h2 className="text-3xl md:text-5xl font-black text-white mb-8">هل أنت مستعد لرحلة مكة لعام ٢٠٢٦؟</h2>
                     <p className="text-gray-400 text-lg mb-10 italic">&quot;سافر بكرامة وراحة وخصوصية تامة.&quot;</p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center">
                         <Link href="/booking/?route=jeddah-makkah">

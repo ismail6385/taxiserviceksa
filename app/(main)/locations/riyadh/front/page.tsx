@@ -58,7 +58,7 @@ export default function RiyadhFrontPage() {
                         Premium Event Chauffeur
                     </span>
                 }
-                subtitle="VIP Transfers for LEAP, Cityscape & Major Business Events"
+                subtitle="Transfers for LEAP, Cityscape & Major Business Events"
                 location="Roshn Front | Exhibition & Convention Center"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -69,8 +69,7 @@ export default function RiyadhFrontPage() {
                         </Button>
                     </Link>
                     <a href="mailto:taxiserviceksa9988@gmail.com">
-                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            Corporate VIP Quote
+                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto"> Corporate Quote
                         </Button>
                     </a>
                 </div>
@@ -80,8 +79,7 @@ export default function RiyadhFrontPage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked VIP Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -112,7 +110,7 @@ export default function RiyadhFrontPage() {
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Car className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">VIP Transfers</span>
+                                    <span className="font-semibold text-gray-800">Transfers</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Clock className="w-6 h-6 text-primary" />
@@ -128,7 +126,7 @@ export default function RiyadhFrontPage() {
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">1</div>
                                     <div>
                                         <h4 className="font-bold text-gray-900">The Exhibition Center</h4>
-                                        <p className="text-sm text-gray-500">Direct drop-off at the VIP or main visitor entrances.</p>
+                                        <p className="text-sm text-gray-500">Direct drop-off at the or main visitor entrances.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">

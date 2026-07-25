@@ -176,7 +176,7 @@ export default function HegraPage() {
                     {
                         question: "Can you drop us directly at the tombs?",
                         shortAnswer: "No, Winter Park Only",
-                        detailedAnswer: "Unless you have a very specific VIP 'Private Range Rover' tour booked directly with ExperienceAlUla, all standard ticket holders must go to Winter Park first.",
+                        detailedAnswer: "Unless you have a very specific 'Private Range Rover' tour booked directly with ExperienceAlUla, all standard ticket holders must go to Winter Park first.",
                         perspectives: []
                     },
                     {

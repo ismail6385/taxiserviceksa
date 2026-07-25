@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/madinah/central-area/',
     },
     openGraph: {
-        title: 'VIP Taxi Service Madinah Central Area | Markaziya Transfers | Taxi Service KSA',
+        title: 'Taxi Service Madinah Central Area | Markaziya Transfers | Taxi Service KSA',
         description: 'Elite transportation in the heart of the Holy City. Specialized taxi services for all major hotels in the Madinah Markaziya district.',
         url: 'https://taxiserviceksa.com/locations/madinah/central-area/',
         type: 'website',
@@ -31,10 +31,10 @@ export const metadata: Metadata = {
 
 export default function CentralAreaPage() {
     const services = [
-        { name: 'Hotel Doorstep VIP Pickup', description: 'Discrete service for Markaziya hotels like Oberoi and Pullman.', icon: ShieldCheck },
-        { name: 'Airport VIP Transfer', description: 'Premium meet-and-greet at Madinah International Airport (MED).', icon: Plane },
+        { name: 'Hotel Doorstep Pickup', description: 'Discrete service for Markaziya hotels like Oberoi and Pullman.', icon: ShieldCheck },
+        { name: 'Airport Transfer', description: 'Premium meet-and-greet at Madinah International Airport (MED).', icon: Plane },
         { name: 'Direct Makkah Transfer', description: 'Luxury intercity transfers from your hotel to Makkah Haram area.', icon: Car },
-        { name: 'Full Day VIP Ziyarat', description: 'Private chauffeur for visiting Uhud, Quba, and historical sites.', icon: Landmark },
+        { name: 'Full Day Ziyarat', description: 'Private chauffeur for visiting Uhud, Quba, and historical sites.', icon: Landmark },
     ];
 
     const distanceData = [
@@ -87,16 +87,15 @@ export default function CentralAreaPage() {
                         Markaziya Elite
                     </span>
                 }
-                subtitle="Premium VIP Logistics for Madinah's Most Exclusive Hotel District"
-                location="Doorstep VIP Service for All Markaziya Hotels"
+                subtitle="Premium Logistics for Madinah's Most Exclusive Hotel District"
+                location="Doorstep Service for All Markaziya Hotels"
             />
 
             {/* Premium Service Disclaimer */}
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked VIP Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -114,7 +113,7 @@ export default function CentralAreaPage() {
                                 Luxury Chauffeur in the Markaziya District
                             </h2>
                             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                                The Central Area (Markaziya) of Madinah is the spiritual and logistical core of the city. Our <strong>VIP Taxi Service in the Madinah Central Area</strong> is designed to complement the world-class hospitality of its premium hotels.
+                                The Central Area (Markaziya) of Madinah is the spiritual and logistical core of the city. Our <strong>Taxi Service in the Madinah Central Area</strong> is designed to complement the world-class hospitality of its premium hotels.
                             </p>
                             <p className="text-gray-600 mb-10 leading-relaxed font-medium">
                                 We provide specialized transport for guests staying at the <strong>Oberoi Madinah</strong>, <strong>Pullman Zamzam</strong>, <strong>Hilton Madinah</strong>, and <strong>Anwar Al Madinah Movenpick</strong>. From the moment you arrive at the airport to your departure for Makkah, we ensure your journey is discrete, punctual, and safe.
@@ -128,7 +127,7 @@ export default function CentralAreaPage() {
                                     <CheckCircle2 className="w-5 h-5 text-emerald-600" /> Luxury SUV Fleet
                                 </li>
                                 <li className="flex items-center gap-3 text-gray-900 font-bold bg-gray-50 p-4 rounded-xl border border-gray-100 italic">
-                                    <CheckCircle2 className="w-5 h-5 text-emerald-600" /> Airport VIP Meet
+                                    <CheckCircle2 className="w-5 h-5 text-emerald-600" /> Airport Meet
                                 </li>
                                 <li className="flex items-center gap-3 text-gray-900 font-bold bg-gray-50 p-4 rounded-xl border border-gray-100 italic">
                                     <CheckCircle2 className="w-5 h-5 text-emerald-600" /> Prayer-Time Synergy
@@ -207,9 +206,8 @@ export default function CentralAreaPage() {
                     <Image src="/madinah-central-area-taxi.png" alt="Madinah background" fill className="object-cover" />
                 </div>
                 <div className="max-w-4xl mx-auto px-4 relative z-10">
-                    <h2 className="text-4xl md:text-5xl font-black text-white mb-8">Experience Premium VIP Transport in Markaziya.</h2>
-                    <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-                        Don't settle for regular transport. Choose our VIP executive chauffeur service in the heart of Madinah.
+                    <h2 className="text-4xl md:text-5xl font-black text-white mb-8">Experience Premium Transport in Markaziya.</h2>
+                    <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto"> Don't settle for regular transport. Choose our executive chauffeur service in the heart of Madinah.
                     </p>
                     <div className="flex flex-wrap justify-center gap-6">
                         <Link href="/booking/">

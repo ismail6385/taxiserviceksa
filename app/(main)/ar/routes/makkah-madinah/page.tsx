@@ -16,7 +16,7 @@ import TrainComparison from '@/components/TrainComparison';
 import BookingProcess from '@/components/BookingProcess';
 
 export const metadata: Metadata = {
-    title: 'تاكسي مكة إلى المدينة ٢٠٢٦ | نقل VIP خاص | أسعار ثابتة',
+    title: 'تاكسي مكة إلى المدينة ٢٠٢٦ | نقل خاص | أسعار ثابتة',
     description: 'احجز أفضل تاكسي من مكة إلى المدينة لعام ٢٠٢٦. نقل متميز بين المدن مع سائقين محترفين. أسعار ثابتة تبدأ من ٥٥٠ ريال. خدمة من الباب إلى الباب.',
     keywords: ['تاكسي مكة المدينة ٢٠٢٦', 'سعر تاكسي مكة المدينة', 'سيارة خاصة مكة المدينة'],
     alternates: {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'تاكسي مكة إلى المدينة ٢٠٢٦ | نقل VIP خاص',
+        title: 'تاكسي مكة إلى المدينة ٢٠٢٦ | نقل خاص',
         description: 'نقل متميز بين المدن المقدسة مع سائقين محترفين. أسعار ثابتة، خدمة من الباب إلى الباب.',
         url: 'https://taxiserviceksa.com/ar/routes/makkah-madinah/',
         locale: 'ar_SA',
@@ -56,7 +56,7 @@ export default function MakkahMadinahRoutePageArabic() {
             <JsonLdRoute
                 from="Makkah"
                 to="Madinah"
-                description="Premium intercity transfer from Makkah to Madinah. Direct door-to-door VIP car service for families and pilgrims. 450 km journey on Hijrah Road."
+                description="Premium intercity transfer from Makkah to Madinah. Direct door-to-door car service for families and pilgrims. 450 km journey on Hijrah Road."
                 distance="450 km"
                 duration="PT5H"
                 ratingValue="4.9"
@@ -68,7 +68,7 @@ export default function MakkahMadinahRoutePageArabic() {
                 h1Text="تاكسي مكة إلى المدينة المتميز"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        طريق الهجرة VIP لعام ٢٠٢٦
+                        طريق الهجرة لعام ٢٠٢٦
                     </span>
                 }
                 subtitle="نقل متميز بين المدن للحجاج والعائلات"
@@ -112,7 +112,7 @@ export default function MakkahMadinahRoutePageArabic() {
                             يتطلب السفر بين المدينتين المقدستين موثوقية وراحة. توفر خدمة <strong>السيارة الخاصة من مكة إلى المدينة</strong> تجربة سلسة من الباب إلى الباب، مما يتيح لك التركيز على رحلتك الروحية دون القلق بشأن لوجستيات النقل.
                         </p>
                         <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                            سواء كنت تسافر بمفردك أو مع عائلة كبيرة، يشمل أسطولنا لعام ٢٠٢٦ كل شيء من <strong>جمس يوكن</strong> الرائدة إلى <strong>مرسيدس سبرينتر VIP</strong>، جميعها يقودها سائقون محترفون بزي رسمي.
+                            سواء كنت تسافر بمفردك أو مع عائلة كبيرة، يشمل أسطولنا لعام ٢٠٢٦ كل شيء من <strong>جمس يوكن</strong> الرائدة إلى <strong>مرسيدس سبرينتر</strong>، جميعها يقودها سائقون محترفون بزي رسمي.
                         </p>
 
                         <div className="space-y-4">
@@ -135,9 +135,9 @@ export default function MakkahMadinahRoutePageArabic() {
                         <h3 className="text-2xl font-black text-gray-900 mb-6 italic underline decoration-emerald-500 decoration-4">الأسطول الموصى به</h3>
                         <div className="space-y-6">
                             {[
-                                { name: 'جمس يوكن VIP 2026', capacity: '٧ ركاب', luggage: '٥ حقائب' },
+                                { name: 'جمس يوكن 2026', capacity: '٧ ركاب', luggage: '٥ حقائب' },
                                 { name: 'مرسيدس S-Class 2026', capacity: '٣ ركاب', luggage: '٢ حقيبة' },
-                                { name: 'هيونداي ستاريا VIP', capacity: '٧ ركاب', luggage: '٤ حقائب' }
+                                { name: 'هيونداي ستاريا', capacity: '٧ ركاب', luggage: '٤ حقائب' }
                             ].map((car, i) => (
                                 <div key={i} className="flex items-center justify-between p-4 rounded-2xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-200">
                                     <div className="flex gap-4 items-center">
@@ -245,7 +245,7 @@ export default function MakkahMadinahRoutePageArabic() {
                         {
                             question: "كم سعر التاكسي من مكة إلى المدينة في ٢٠٢٦؟",
                             shortAnswer: "يبدأ من ٥٥٠ ريال",
-                            detailedAnswer: "في عام ٢٠٢٦، السعر الثابت للسيدان القياسية ٥٥٠ ريال، ولجمس يوكن VIP ١٠٠٠ ريال. تغطي هذه الأسعار الرحلة الكاملة البالغة ٤٥٠ كم من الباب إلى الباب.",
+                            detailedAnswer: "في عام ٢٠٢٦، السعر الثابت للسيدان القياسية ٥٥٠ ريال، ولجمس يوكن ١٠٠٠ ريال. تغطي هذه الأسعار الرحلة الكاملة البالغة ٤٥٠ كم من الباب إلى الباب.",
                             perspectives: [
                                 { role: 'خبير التسعير', icon: 'DollarSign', insight: 'تحميك الأسعار الثابتة من تغييرات المسار أو تأخيرات المرور على طريق الهجرة.' },
                                 { role: 'مدير العمليات', icon: 'Shield', insight: 'يضمن نموذج تسعيرنا عدم وجود رسوم وقود أو رسوم إضافية أبداً.' }
@@ -277,7 +277,7 @@ export default function MakkahMadinahRoutePageArabic() {
             <div className="bg-black py-20 text-center px-4 rounded-[40px] mx-4 mb-12">
                 <div className="max-w-4xl mx-auto relative z-10">
                     <div className="inline-block bg-rose-600 text-white text-[10px] font-black tracking-[0.3em] px-4 py-2 rounded-full mb-8 animate-pulse">
-                        نقل VIP خاص فقط ١٠٠٪ • بدون مشاركة الرحلة
+                        نقل خاص فقط ١٠٠٪ • بدون مشاركة الرحلة
                     </div>
                     <h2 className="text-3xl md:text-5xl font-black text-white mb-8">احصل على عرض سعر لرحلتك لعام ٢٠٢٦ اليوم</h2>
                     <p className="text-gray-400 text-lg mb-10 italic">&quot;الطريقة الأكثر ثقة للسفر بين المدينتين المقدستين.&quot;</p>

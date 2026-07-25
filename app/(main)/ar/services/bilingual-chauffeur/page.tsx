@@ -339,7 +339,7 @@ export default function BilingualChauffeurPageArabic() {
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black transition-colors">جمس يوكن (للعائلات والمجموعات)</Link></li>
                                 <li><Link href="/fleet/toyota-camry/" className="text-gray-600 hover:text-black transition-colors">تويوتا كامري (تنفيذي)</Link></li>
-                                <li><Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-black transition-colors">هيونداي ستاريا (فان VIP)</Link></li>
+                                <li><Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-black transition-colors">هيونداي ستاريا (فان )</Link></li>
                                 <li><Link href="/fleet/" className="text-black font-bold hover:underline">جميع السيارات ←</Link></li>
                             </ul>
                         </div>

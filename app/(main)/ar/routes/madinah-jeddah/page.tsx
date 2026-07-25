@@ -12,7 +12,7 @@ import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import JsonLdRoute from '@/components/JsonLdRoute';
 
 export const metadata: Metadata = {
-    title: 'تاكسي المدينة المنورة إلى جدة ٢٠٢٦ | نقل VIP خاص | أسعار ثابتة',
+    title: 'تاكسي المدينة المنورة إلى جدة ٢٠٢٦ | نقل خاص | أسعار ثابتة',
     description: 'احجز أفضل تاكسي من المدينة المنورة إلى جدة لعام ٢٠٢٦. رحلة مريحة تستغرق ٤-٥ ساعات من فنادق المدينة إلى جدة. أسعار ثابتة، جمس يوكن، وخدمة على مدار الساعة.',
     keywords: ['تاكسي المدينة جدة', 'سعر تاكسي المدينة المنورة جدة', 'سيارة خاصة من المدينة إلى جدة', 'نقل المدينة المنورة جدة', 'تاكسي المدينة إلى مطار جدة'],
     alternates: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'تاكسي المدينة المنورة إلى جدة ٢٠٢٦ | نقل VIP خاص',
+        title: 'تاكسي المدينة المنورة إلى جدة ٢٠٢٦ | نقل خاص',
         description: 'رحلة مريحة من المدينة المنورة إلى جدة مع سائقين محترفين. أسعار ثابتة وخدمة من الباب إلى الباب.',
         url: 'https://taxiserviceksa.com/ar/routes/madinah-jeddah/',
         locale: 'ar_SA',
@@ -45,7 +45,7 @@ export default function MadinahJeddahRoutePageArabic() {
             <JsonLdRoute
                 from="Madinah"
                 to="Jeddah"
-                description="Luxury intercity transfer from Madinah to Jeddah. Comfortable 4-5 hour journey from Madinah hotels to Jeddah. 100% private VIP car service."
+                description="Luxury intercity transfer from Madinah to Jeddah. Comfortable 4-5 hour journey from Madinah hotels to Jeddah. 100% private car service."
                 distance="450 km"
                 duration="PT5H"
             />
@@ -100,7 +100,7 @@ export default function MadinahJeddahRoutePageArabic() {
                                 السفر من مدينة الرسول ﷺ إلى المدينة الساحلية يتطلب سيارة مصممة لتحمل المسافات الصحراوية الطويلة. توفر <strong>خدمة السيارة الخاصة من المدينة المنورة إلى جدة</strong> تجربة مباشرة من الباب إلى الباب، تتجنب متاعب التنقل عبر محطات القطار أو إجراءات تسجيل الوصول في المطار.
                             </p>
                             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                                سواء كنت متجهاً إلى اجتماع عمل في كورنيش جدة أو للحاق برحلة دولية، تضمن لك خدمة <strong>تاكسي المدينة المنورة إلى جدة</strong> الوصول بنشاط وراحة. اختر من بين <strong>جمس يوكن دينالي</strong> VIP أو <strong>مرسيدس فيتو</strong> للسفر الجماعي.
+                                سواء كنت متجهاً إلى اجتماع عمل في كورنيش جدة أو للحاق برحلة دولية، تضمن لك خدمة <strong>تاكسي المدينة المنورة إلى جدة</strong> الوصول بنشاط وراحة. اختر من بين <strong>جمس يوكن دينالي</strong> أو <strong>مرسيدس فيتو</strong> للسفر الجماعي.
                             </p>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -119,9 +119,9 @@ export default function MadinahJeddahRoutePageArabic() {
                             <h3 className="text-2xl font-black text-gray-900 mb-6">الأسطول الموصى به</h3>
                             <div className="space-y-6">
                                 {[
-                                    { name: 'جمس يوكن VIP', capacity: '٧ ركاب', luggage: '٥ حقائب' },
-                                    { name: 'مرسيدس فيتو VIP', capacity: '٧ ركاب', luggage: '٤ حقائب' },
-                                    { name: 'هيونداي ستاريا VIP', capacity: '٧ ركاب', luggage: '٤ حقائب' },
+                                    { name: 'جمس يوكن', capacity: '٧ ركاب', luggage: '٥ حقائب' },
+                                    { name: 'مرسيدس فيتو', capacity: '٧ ركاب', luggage: '٤ حقائب' },
+                                    { name: 'هيونداي ستاريا', capacity: '٧ ركاب', luggage: '٤ حقائب' },
                                     { name: 'تويوتا هايس الجماعية', capacity: '١١ راكباً', luggage: '١٦ حقيبة' }
                                 ].map((car, i) => (
                                     <div key={i} className="flex items-center justify-between p-4 rounded-2xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-200">

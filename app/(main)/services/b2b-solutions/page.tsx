@@ -40,7 +40,7 @@ export default function B2BSolutions() {
                     <div className="text-center mb-16">
                         <span className="text-primary font-black uppercase tracking-widest text-sm mb-4 block">B2B Specializations</span>
                         <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6">Designed for Service Excellence</h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">Our B2B model is built on reliability, transparency, and premium service delivery for your VIP clients.</p>
+                        <p className="text-gray-600 max-w-2xl mx-auto">Our B2B model is built on reliability, transparency, and premium service delivery for your clients.</p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
@@ -54,7 +54,7 @@ export default function B2BSolutions() {
                             {
                                 icon: Building2,
                                 title: 'Corporate Chauffeur | Taxi Service KSA',
-                                desc: 'Luxury executive transfers for business travelers, delegations, and VIP guests with high-end SUVs.',
+                                desc: 'Luxury executive transfers for business travelers, delegations, and guests with high-end SUVs.',
                                 color: 'bg-blue-50 text-blue-600'
                             },
                             {
@@ -130,7 +130,7 @@ export default function B2BSolutions() {
                                 </div>
                                 <div className="bg-white/5 p-8 rounded-[2rem] border border-white/10 backdrop-blur-sm">
                                     <div className="text-4xl font-black text-primary mb-2">5/5</div>
-                                    <div className="text-gray-400 text-sm font-bold uppercase tracking-widest">Average VIP Rating</div>
+                                    <div className="text-gray-400 text-sm font-bold uppercase tracking-widest">Average Rating</div>
                                 </div>
                             </div>
                         </div>

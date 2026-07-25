@@ -59,7 +59,7 @@ export default function DiriyahPage() {
                     </span>
                 }
                 subtitle="Exclusive Access to the Birthplace of the Kingdom"
-                location="At-Turaif | Bujairi Terrace VIP Arrivals"
+                location="At-Turaif | Bujairi Terrace Arrivals"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Riyadh%20Hotel&dropoff=Diriyah">
@@ -69,8 +69,7 @@ export default function DiriyahPage() {
                         </Button>
                     </Link>
                     <a href="mailto:taxiserviceksa9988@gmail.com">
-                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            VIP Event Logistics
+                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto"> Event Logistics
                         </Button>
                     </a>
                 </div>
@@ -80,8 +79,7 @@ export default function DiriyahPage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked VIP Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Intercity, Airport, and Full-Day transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -97,8 +95,7 @@ export default function DiriyahPage() {
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                                 Diriyah is the jewel of Riyadh tourism. It combines the ancient mud-brick city of At-Turaif (UNESCO site) with the ultra-modern luxury dining district of Bujairi Terrace.
                             </p>
-                            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                Parking at Diriyah can be expensive and distant (Valet is often mandatory/pricey). Our VIP chauffeurs drop you right at the visitor reception center, ready for your reservation at Tatsu, Hakkasan, or Takya.
+                            <p className="text-lg text-gray-600 mb-8 leading-relaxed"> Parking at Diriyah can be expensive and distant (Valet is often mandatory/pricey). Our chauffeurs drop you right at the visitor reception center, ready for your reservation at Tatsu, Hakkasan, or Takya.
                             </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

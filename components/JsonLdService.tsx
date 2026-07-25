@@ -25,10 +25,10 @@ export default function JsonLdService() {
             {
                 "@type": "TaxiService",
                 "name": "Luxury Chauffeur Service",
-                "description": "VIP and corporate chauffeur services with luxury vehicles like GMC Yukon and BMW.",
+                "description": "Executive and corporate chauffeur services with luxury vehicles like GMC Yukon and BMW.",
 
                 "areaServed": "Saudi Arabia",
-                "serviceType": "VIP Transport",
+                "serviceType": "Executive Transport",
                 "url": "https://taxiserviceksa.com/fleet"
             }
         ]

@@ -10,7 +10,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'Mercedes Sprinter VIP Minibus Saudi Arabia | Luxury Group Travel',
+    title: 'Mercedes Sprinter Minibus Saudi Arabia | Luxury Group Travel',
     description: 'Book the elite Mercedes Sprinter private transfer in Saudi Arabia. Premium 14-seater for executive groups, tours, and corporate events. High-spec luxury and professional service.',
     keywords: ['Mercedes Sprinter VIP transfer', 'luxury minibus chauffeur KSA', 'Mercedes Sprinter Riyadh transfer', 'executive group service Saudi Arabia', 'VIP Sprinter hire', 'Umrah group transport'],
     alternates: {
@@ -61,7 +61,7 @@ export default function MercedesSprinterPage() {
                     </span>
                 }
                 subtitle="The Gold Standard for Luxury Group Logistics in Saudi Arabia"
-                location="14 Passengers | 16+ Bags | High-Roof VIP"
+                location="14 Passengers | 16+ Bags | High-Roof"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?vehicle=mercedes-sprinter">
@@ -99,7 +99,7 @@ export default function MercedesSprinterPage() {
                         <div>
                             <h2 className="text-4xl font-black text-gray-900 mb-8 leading-tight uppercase tracking-tighter">Large Scale Luxury Redefined</h2>
                             <p className="text-gray-600 text-xl leading-relaxed mb-8">
-                                Move your entire executive delegation or large family in unparalleled comfort with the <strong>Mercedes Sprinter VIP private transfer</strong>. Tailored for those who value both space and extreme refinement, it is the ultimate solution for large-scale VIP logistics across the Kingdom.
+                                Move your entire executive delegation or large family in unparalleled comfort with the <strong>Mercedes Sprinter private transfer</strong>. Tailored for those who value both space and extreme refinement, it is the ultimate solution for large-scale logistics across the Kingdom.
                             </p>
                             
                             <div className="space-y-6 mb-12">
@@ -121,7 +121,7 @@ export default function MercedesSprinterPage() {
                             </div>
 
                             <EntityTrustSignal 
-                                brandName="Mercedes VIP Logistics"
+                                brandName="Mercedes Logistics"
                                 description="The preferred transport partner for corporate delegations and diplomatic tours since 2015."
                                 metrics={[
                                     { label: 'Group Trips', value: '8k+', icon: Users },
@@ -160,9 +160,9 @@ export default function MercedesSprinterPage() {
                 <MicroSemanticFAQ 
                     faqs={[
                         {
-                            question: "How many passengers can travel in a VIP Sprinter?",
+                            question: "How many passengers can travel in a Sprinter?",
                             shortAnswer: "Up to 14 Passengers.",
-                            detailedAnswer: "Our VIP Mercedes Sprinter configurations are designed for maximum comfort, typically seating up to 14 passengers in a luxury layout that provides ample legroom and reclining capabilities.",
+                            detailedAnswer: "Our Mercedes Sprinter configurations are designed for maximum comfort, typically seating up to 14 passengers in a luxury layout that provides ample legroom and reclining capabilities.",
                             perspectives: [
                                 { role: 'Logostics Lead', icon: 'Users', insight: 'This vehicle replaces the need for 3-4 separate cars for large groups.' }
                             ]

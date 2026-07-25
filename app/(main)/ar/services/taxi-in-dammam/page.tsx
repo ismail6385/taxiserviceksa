@@ -106,7 +106,7 @@ export default function TaxiInDammamPageArabic() {
         { name: 'تويوتا كامري', seats: 3, luggage: 'حقيبتان', ideal: 'مسافر أعمال فردي، تنقلات المدينة', link: '/fleet/toyota-camry/' },
         { name: 'جينيسيس G80', seats: 3, luggage: 'حقيبتان', ideal: 'زائر تنفيذي، اجتماعات أرامكو', link: '/fleet/genesis-g80/' },
         { name: 'جمس يوكن إكس إل', seats: 7, luggage: '5 حقائب', ideal: 'فرق الشركات والعائلات ورحلات البحرين', link: '/fleet/gmc-yukon/' },
-        { name: 'هيونداي ستاريا VIP', seats: 7, luggage: '4 حقائب', ideal: 'عائلات VIP والوفود', link: '/fleet/hyundai-staria/' },
+        { name: 'هيونداي ستاريا', seats: 7, luggage: '4 حقائب', ideal: 'عائلات VIP والوفود', link: '/fleet/hyundai-staria/' },
         { name: 'تويوتا هايس', seats: 11, luggage: '16 حقيبة', ideal: 'المجموعات الكبيرة وفرق الجبيل', link: '/fleet/toyota-hiace/' },
         { name: 'كاديلاك إسكاليد', seats: 6, luggage: '4 حقائب', ideal: 'الاستخدام الدبلوماسي والتنفيذي الأول', link: '/fleet/cadillac-escalade/' },
     ];
@@ -502,7 +502,7 @@ export default function TaxiInDammamPageArabic() {
                             <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Shield className="w-4 h-4" /> خدمات ذات صلة</h4>
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/dammam-airport-taxi/" className="text-gray-600 hover:text-black">تاكسي مطار الدمام (DMM)</Link></li>
-                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black">سائق VIP فاخر</Link></li>
+                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black">سائق فاخر</Link></li>
                                 <li><Link href="/services/corporate-travel/" className="text-gray-600 hover:text-black">نقل الشركات</Link></li>
                                 <li><Link href="/services/private-driver/" className="text-gray-600 hover:text-black">استئجار سائق خاص</Link></li>
                             </ul>
@@ -510,7 +510,7 @@ export default function TaxiInDammamPageArabic() {
                         <div>
                             <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Navigation className="w-4 h-4" /> المنطقة الشرقية</h4>
                             <ul className="space-y-2 text-sm">
-                                <li><Link href="/locations/dammam/" className="text-gray-600 hover:text-black">توصيل VIP في الدمام</Link></li>
+                                <li><Link href="/locations/dammam/" className="text-gray-600 hover:text-black">توصيل في الدمام</Link></li>
                                 <li><Link href="/routes/dammam-airport-to-khobar/" className="text-gray-600 hover:text-black">مطار DMM ← الخبر</Link></li>
                                 <li><Link href="/services/intercity/" className="text-gray-600 hover:text-black">التنقل بين المدن في السعودية</Link></li>
                                 <li><Link href="/locations/" className="text-black font-bold hover:underline">جميع المدن ←</Link></li>

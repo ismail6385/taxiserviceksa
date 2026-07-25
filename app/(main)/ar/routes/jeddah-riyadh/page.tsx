@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'تاكسي جدة إلى الرياض ٢٠٢٦ | سيارة خاصة VIP',
+        title: 'تاكسي جدة إلى الرياض ٢٠٢٦ | سيارة خاصة',
         description: 'رحلة مباشرة بين المدن مع سائقين محترفين. أسعار ثابتة وخدمة من الباب إلى الباب.',
         url: 'https://taxiserviceksa.com/ar/routes/jeddah-riyadh/',
         locale: 'ar_SA',
@@ -51,7 +51,7 @@ export default function JeddahRiyadhRoutePageArabic() {
         <div className="bg-gray-50 min-h-screen rtl" dir="rtl">
             <JsonLdLocation
                 cityName="Jeddah to Riyadh"
-                description="Professional VIP private car service for Jeddah to Riyadh. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Jeddah to Riyadh. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Jeddah to Riyadh Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -67,7 +67,7 @@ export default function JeddahRiyadhRoutePageArabic() {
                 h1Text="تاكسي جدة إلى الرياض"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        جدة ← الرياض VIP
+                        جدة ← الرياض
                     </span>
                 }
                 subtitle="خدمة سائق خاص عبر المملكة"
@@ -326,7 +326,7 @@ export default function JeddahRiyadhRoutePageArabic() {
                         احصل على عرض سعر لتاكسي جدة إلى الرياض
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        استمتع بتجربة النقل بين المدن براحة متميزة. سائقون محترفون، سيارات VIP، وأسعار ثابتة لرحلتك البالغة ٩٥٠ كم.
+                        استمتع بتجربة النقل بين المدن براحة متميزة. سائقون محترفون، سيارات، وأسعار ثابتة لرحلتك البالغة ٩٥٠ كم.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/?route=jeddah-riyadh">

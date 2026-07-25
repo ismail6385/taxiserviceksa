@@ -25,7 +25,7 @@ export default function DriverFAQ() {
         },
         {
             q: "When do I get paid?",
-            a: "We provide weekly or fast payouts for all our approved VIP chauffeurs."
+            a: "We provide weekly or fast payouts for all our approved chauffeurs."
         }
     ];
 
@@ -34,7 +34,7 @@ export default function DriverFAQ() {
             <div className="max-w-3xl mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-black text-gray-900">FAQ</h2>
-                    <p className="text-gray-500 mt-4 text-lg">Common questions about joining as a VIP chauffeur.</p>
+                    <p className="text-gray-500 mt-4 text-lg">Common questions about joining as a chauffeur.</p>
                 </div>
                 <div className="space-y-4">
                     {faqs.map((faq, i) => (

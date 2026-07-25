@@ -12,7 +12,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'تاكسي الدمام إلى البحرين | نقل VIP عبر الحدود | Taxi Service KSA',
+    title: 'تاكسي الدمام إلى البحرين | نقل عبر الحدود | Taxi Service KSA',
     description: 'اطلب عرض سعر مميز لرحلة من الدمام إلى البحرين. نقل موثوق عبر الحدود، سيارات دفع رباعي مريحة، وخدمة من الباب إلى الباب في جميع أنحاء الخليج.',
     keywords: ['تاكسي الدمام إلى البحرين', 'نقل الدمام البحرين', 'تاكسي عبور الحدود السعودية', 'نقل VIP الدمام البحرين'],
     alternates: {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'تاكسي الدمام إلى البحرين | نقل VIP عبر الحدود | Taxi Service KSA',
+        title: 'تاكسي الدمام إلى البحرين | نقل عبر الحدود | Taxi Service KSA',
         description: 'اطلب عرض سعر مميز لرحلة من الدمام إلى البحرين. نقل موثوق عبر الحدود، سيارات دفع رباعي مريحة، وخدمة من الباب إلى الباب في جميع أنحاء الخليج.',
         url: 'https://taxiserviceksa.com/ar/routes/dammam-bahrain/',
         locale: 'ar_SA',
@@ -43,7 +43,7 @@ export default function DammamBahrainRoutePageArabic() {
         <div className="bg-gray-50 min-h-screen rtl" dir="rtl">
             <JsonLdLocation
                 cityName="Dammam to Bahrain"
-                description="Professional VIP private car service for Dammam to Bahrain. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Dammam to Bahrain. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Dammam to Bahrain Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -61,7 +61,7 @@ export default function DammamBahrainRoutePageArabic() {
                         خدمة عبور الحدود الخليجية
                     </span>
                 }
-                subtitle="نقل VIP سلس: من الدمام إلى البحرين"
+                subtitle="نقل سلس: من الدمام إلى البحرين"
                 location="خدمة من الباب إلى الباب"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -109,7 +109,7 @@ export default function DammamBahrainRoutePageArabic() {
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <CheckCircle2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">راحة VIP</span>
+                                    <span className="font-semibold text-gray-800">راحة</span>
                                 </div>
                             </div>
                         </div>

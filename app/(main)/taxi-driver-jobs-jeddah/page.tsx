@@ -30,7 +30,7 @@ export default function taxidriverjobsjeddahPage() {
             <div className="max-w-4xl mx-auto px-4 py-16">
                 <div className="prose prose-lg prose-gray max-w-none mb-12">
                     <p className="text-xl font-medium text-gray-800 leading-relaxed">
-                        The demand for professional transportation in Jeddah has never been higher. With the expansion of regional commerce, tourism, and daily business activities, the traditional ride-hailing market is overflowing. However, the most profitable sub-sector remains private VIP transport. For those seeking <strong>taxi driver jobs in Jeddah</strong>, transitioning to a specialized chauffeur network offers stability, safety, and vastly superior income potential.
+The demand for professional transportation in Jeddah has never been higher. With the expansion of regional commerce, tourism, and daily business activities, the traditional ride-hailing market is overflowing. However, the most profitable sub-sector remains private transport. For those seeking <strong>taxi driver jobs in Jeddah</strong>, transitioning to a specialized chauffeur network offers stability, safety, and vastly superior income potential.
                     </p>
 
                     <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Unmatched Income Potential</h2>
@@ -38,18 +38,18 @@ export default function taxidriverjobsjeddahPage() {
                         Unlike standing on a street corner or waiting endlessly for low-value app pings, providing luxury transportation directly scales with your dedication. Drivers who secure top-tier <strong>taxi driver jobs in Jeddah</strong> regularly capture significantly higher monthly revenues. These high incomes are driven by fixed-rate, high-value corporate accounts, lucrative long-distance transfers, and generous tips from highly satisfied premium clientele.
                     </p>
                     <p>
-                        Your time is valuable. By focusing on scheduled VIP clients rather than random street flags, your profit per hour increases dramatically, allowing for a structured, successful financial future.
+                        Your time is valuable. By focusing on scheduled clients rather than random street flags, your profit per hour increases dramatically, allowing for a structured, successful financial future.
                     </p>
 
                     <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Requirements: Using Your Own Premium Car (2020+)</h2>
                     <p>
-                        Excellence begins with the vehicle. The primary requirement for joining our elite network of chauffeurs is establishing comfort and safety. As such, drivers must operate their own personal vehicle, which must be model year 2020 or newer. Maintaining clean, pristine sedans or spacious SUVs tells your VIP clients that you take their comfort seriously.
+                        Excellence begins with the vehicle. The primary requirement for joining our elite network of chauffeurs is establishing comfort and safety. As such, drivers must operate their own personal vehicle, which must be model year 2020 or newer. Maintaining clean, pristine sedans or spacious SUVs tells your clients that you take their comfort seriously.
                     </p>
                     <p>
                         This "own car (2020+)" standard strictly filters out the saturated, low-quality commercial markets, ensuring that our team maintains a sterling reputation across Jeddah. It places you immediately into the highest category of <strong>taxi driver jobs</strong> available.
                     </p>
 
-                    <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Handling VIP Clients</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 mt-12 mb-6">Handling Clients</h2>
                     <p>
                         Our client base focuses heavily on respect, discretion, and reliability. This means avoiding the stress of anonymous app passengers and instead dealing with pre-vetted corporate executives, international tourists, and high-net-worth families. Our focus ensures a professional working environment for our drivers every single day.
                     </p>

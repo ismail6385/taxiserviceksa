@@ -14,7 +14,7 @@ const SERVICES = [
     { name: 'Day Trips', href: '/services/tours/' },
     { name: 'Hourly Driver', href: '/services/private-driver/' },
     { name: 'Airport Transfers', href: '/services/airport-transfers/' },
-    { name: 'VIP Chauffeur', href: '/services/vip-chauffeur/' },
+    { name: 'Chauffeur', href: '/services/vip-chauffeur/' },
     { name: 'Umrah Transport', href: '/services/umrah-transport/' },
     { name: 'Heritage Tours', href: '/services/heritage-tours/' },
     { name: 'GCC Chauffeur Service', href: '/services/gcc-chauffeur-service/' },

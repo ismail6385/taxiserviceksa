@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/services/corporate-travel/',
     },
     openGraph: {
-        title: 'Corporate VIP Transfer Service Saudi Arabia | Executive Chauffeur with Driver | Taxi Service KSA',
+        title: 'Corporate Transfer Service Saudi Arabia | Executive Chauffeur with Driver | Taxi Service KSA',
         description: 'Professional corporate transfer service for business executives. Monthly billing, priority booking, executive vehicles.',
         url: 'https://taxiserviceksa.com/services/corporate-travel/',
         type: 'website',
@@ -218,7 +218,7 @@ export default function CorporateTravelPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Corporate VIP Transfer Services in KSA</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Corporate Transfer Services in KSA</h2>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -282,7 +282,7 @@ export default function CorporateTravelPage() {
                         <div>
                             <h4 className="text-base font-bold text-gray-900 mb-4">Executive Services</h4>
                             <ul className="space-y-2 text-sm">
-                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black transition-colors">VIP Chauffeur Service</Link></li>
+                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black transition-colors">Chauffeur Service</Link></li>
                                 <li><Link href="/services/event-transport/" className="text-gray-600 hover:text-black transition-colors">Conference & Event Transport</Link></li>
                                 <li><Link href="/services/private-driver/" className="text-gray-600 hover:text-black transition-colors">Private Driver (Daily/Monthly)</Link></li>
                                 <li><Link href="/services/riyadh-hotel-transfer/" className="text-gray-600 hover:text-black transition-colors">Riyadh Hotel Transfer</Link></li>
@@ -314,8 +314,7 @@ export default function CorporateTravelPage() {
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                         Book The Best Corporate Transport in Saudi Arabia
                     </h2>
-                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Secure your business travel with the top rated VIP transfer service in Saudi Arabia. Monthly billing and priority booking available.
+                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto"> Secure your business travel with the top rated transfer service in Saudi Arabia. Monthly billing and priority booking available.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking?service=corporate-travel">

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-fairmont-makkah-taxi/',
     },
     openGraph: {
-        title: 'Jeddah Airport to Fairmont Makkah Taxi | VIP Transfer | Taxi Service KSA',
+        title: 'Jeddah Airport to Fairmont Makkah Taxi | Transfer | Taxi Service KSA',
         description: 'Direct transfer to Fairmont Makkah Clock Royal Tower. 24/7 Service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-fairmont-makkah-taxi/',
         type: 'website',
@@ -45,7 +45,7 @@ export default function JeddahToFairmontPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Jeddah to Fairmont Makkah"
-                description="Professional VIP private car service for Jeddah to Fairmont Makkah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Jeddah to Fairmont Makkah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Jeddah to Fairmont Makkah Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -76,8 +76,7 @@ export default function JeddahToFairmontPage() {
                         </Button>
                     </Link>
                     <a href="mailto:taxiserviceksa9988@gmail.com">
-                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            Get VIP Quote
+                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto"> Get Quote
                         </Button>
                     </a>
                 </div>
@@ -136,7 +135,7 @@ export default function JeddahToFairmontPage() {
                                         <div className="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center flex-shrink-0 mt-1">
                                             <CheckCircle2 className="w-4 h-4 text-white" />
                                         </div>
-                                        <p><strong className="text-amber-400">VIP GMC Fleet:</strong> For Fairmont guests, we recommend our GMC Yukon XL for maximum comfort and luggage capacity.</p>
+                                        <p><strong className="text-amber-400">GMC Fleet:</strong> For Fairmont guests, we recommend our GMC Yukon XL for maximum comfort and luggage capacity.</p>
                                     </li>
                                     <li className="flex items-start gap-3">
                                         <div className="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center flex-shrink-0 mt-1">
@@ -184,7 +183,7 @@ export default function JeddahToFairmontPage() {
                         contextName="Jeddah To Fairmont Makkah"
                 faqs={[
                     {
-                        question: "How much is VIP taxi to Fairmont Makkah?",
+                        question: "How much is taxi to Fairmont Makkah?",
                         shortAnswer: "Executive Rates",
                         detailedAnswer: "A luxury GMC Yukon XL transfer to the Fairmont Makkah is available at an executive rate. Standard sedans (Camry) are also available.",
                         perspectives: []
@@ -220,8 +219,7 @@ export default function JeddahToFairmontPage() {
                             </Button>
                         </Link>
                         <a href="mailto:taxiserviceksa9988@gmail.com">
-                            <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Email for VIP Quote
+                            <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]"> Email for Quote
                             </Button>
                         </a>
                     </div>

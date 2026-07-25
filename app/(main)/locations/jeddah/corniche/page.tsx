@@ -11,7 +11,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Private Car Transfer, Taxi and Chauffeur Service to Jeddah Corniche | F1 Track VIP Service | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service to Jeddah Corniche | F1 Track Service | Taxi Service KSA',
     description: 'Premium private transfer and executive chauffeur service to the New Jeddah Corniche. Visit the F1 Track, Yacht Club, and Red Sea Mall with an professional driver.',
     keywords: ['Jeddah Corniche VIP transfer', 'Jeddah Waterfront premium chauffeur', 'Jeddah F1 Track VIP', 'Red Sea Mall executive transport'],
     alternates: {
@@ -69,8 +69,7 @@ export default function JeddahCornichePage() {
                         </Button>
                     </Link>
                     <a href="mailto:taxiserviceksa9988@gmail.com">
-                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            VIP Custom City Tour
+                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto"> Custom City Tour
                         </Button>
                     </a>
                 </div>
@@ -80,8 +79,7 @@ export default function JeddahCornichePage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked VIP Leisure, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Leisure, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>

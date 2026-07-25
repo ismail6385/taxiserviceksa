@@ -12,14 +12,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Doha to Jeddah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
+    title: 'Doha to Jeddah Taxi | Cross-Border Transfer | Taxi Service KSA',
     description: 'Request a premium quote from Doha to Jeddah. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Doha to Jeddah', 'Doha to Jeddah transfer', 'cross border taxi Saudi Arabia', 'VIP transport Doha Jeddah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/doha-jeddah/',
     },
     openGraph: {
-        title: 'Doha to Jeddah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
+        title: 'Doha to Jeddah Taxi | Cross-Border Transfer | Taxi Service KSA',
         description: 'Request a premium quote from Doha to Jeddah. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/doha-jeddah/',
         type: 'website',
@@ -39,7 +39,7 @@ export default function DohaJeddahRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Doha to Jeddah"
-                description="Professional VIP private car service for Doha to Jeddah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Doha to Jeddah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Doha to Jeddah Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -58,7 +58,7 @@ export default function DohaJeddahRoutePage() {
                         GCC Cross-Border Service
                     </span>
                 }
-                subtitle="Seamless VIP Transfers: Doha to Jeddah"
+                subtitle="Seamless Transfers: Doha to Jeddah"
                 location="Door-to-Door Service"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -106,7 +106,7 @@ export default function DohaJeddahRoutePage() {
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <CheckCircle2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">VIP Comfort</span>
+                                    <span className="font-semibold text-gray-800">Comfort</span>
                                 </div>
                             </div>
                         </div>

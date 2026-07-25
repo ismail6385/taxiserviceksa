@@ -48,9 +48,9 @@ export const metadata: Metadata = {
 
 export default async function MakkahPage() {
     const services = [
-        { name: 'VIP Airport Pickup', description: 'Executive pickup from KAIA Terminal 1 & North Terminal directly to your Hotel.', icon: Plane },
-        { name: 'Executive Umrah Transfers', description: 'Premium intercity travel between Makkah, Madinah, and Jeddah with VIP hospitality.', icon: Landmark },
-        { name: 'VIP Makkah Ziyarat', description: 'Explore historical sites (Arafat, Mina, Jabal Al-Nour) in a luxury SUV with a professional driver.', icon: Compass },
+        { name: 'Airport Pickup', description: 'Executive pickup from KAIA Terminal 1 & North Terminal directly to your Hotel.', icon: Plane },
+        { name: 'Executive Umrah Transfers', description: 'Premium intercity travel between Makkah, Madinah, and Jeddah with hospitality.', icon: Landmark },
+        { name: 'Makkah Ziyarat', description: 'Explore historical sites (Arafat, Mina, Jabal Al-Nour) in a luxury SUV with a professional driver.', icon: Compass },
         { name: 'Full-Day Chauffeur', description: 'Dedicated private chauffeur for your entire stay in Makkah. Punctual & Professional.', icon: Briefcase },
     ];
 
@@ -82,7 +82,7 @@ export default async function MakkahPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Makkah" 
-                description="Premium VIP private transfer service in Makkah for Umrah pilgrims. Executive chauffeur service for Makkah, Madinah, and Jeddah Airport pickups. High-end fleet for a dignified journey."
+                description="Premium private transfer service in Makkah for Umrah pilgrims. Executive chauffeur service for Makkah, Madinah, and Jeddah Airport pickups. High-end fleet for a dignified journey."
                 services={services}
                 
                 image="https://taxiserviceksa.com/makkah-kaaba-night.webp"
@@ -96,7 +96,7 @@ export default async function MakkahPage() {
                 bookingFormTitle="2026 Premium Umrah Transfer"
                 title={
                     <span className="bg-primary/20 text-primary font-bold tracking-wider uppercase px-4 py-2 rounded-lg inline-block leading-snug">
-                        2026 VIP Chauffeur Service
+                        2026 Chauffeur Service
                     </span>
                 }
                 subtitle="Dignified & Reliable Transport for Pilgrims"
@@ -108,7 +108,7 @@ export default async function MakkahPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
                         <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked VIP Umrah, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
+                        OFFICIAL NOTE: We specialize in pre-booked Umrah, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -151,7 +151,7 @@ export default async function MakkahPage() {
                             Our Services
                         </span>
                         <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-                            VIP Transport Services
+                            Transport Services
                         </h2>
                         <p className="text-gray-600 text-lg max-w-2xl mx-auto">
                             Experience the <Link href="/" className="text-primary font-semibold hover:underline">Best Online Taxi Service in Saudi Arabia</Link>. We offer specialized vehicles for every pilgrim group size.
@@ -278,12 +278,12 @@ export default async function MakkahPage() {
                         <div className="order-2 lg:order-1">
                             <span className="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">Premium Experience</span>
                             <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-8 leading-tight">
-                                VIP Private Transfer for Umrah Pilgrims
+                                Private Transfer for Umrah Pilgrims
                             </h2>
 
                             <div className="space-y-4 text-gray-700 leading-relaxed text-lg">
                                 <p>
-                                    Experience a <strong>dignified and premium Umrah journey</strong> with our VIP private transfer service. We provide an executive alternative to standard city transport, ensuring that your spiritual focus remains uninterrupted by logistical challenges.
+                                    Experience a <strong>dignified and premium Umrah journey</strong> with our private transfer service. We provide an executive alternative to standard city transport, ensuring that your spiritual focus remains uninterrupted by logistical challenges.
                                 </p>
 
                                 <p>

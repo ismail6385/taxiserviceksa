@@ -48,7 +48,7 @@ export default function DhahranPage() {
     const services = [
         { name: 'Saudi Aramco Transfers', description: 'Secure transport to Saudi Aramco residential camp and office zones (permit required areas subject to clearance)', icon: Building2 },
         { name: 'Ithra Center Visits', description: 'Comfortable rides to King Abdulaziz Center for World Culture for events and exhibitions', icon: Star },
-        { name: 'University Transport', description: 'Reliable VIP transfer to KFUPM (King Fahd University of Petroleum and Minerals)', icon: GraduationCap },
+        { name: 'University Transport', description: 'Reliable transfer to KFUPM (King Fahd University of Petroleum and Minerals)', icon: GraduationCap },
         { name: 'Airport Transfers', description: 'Transfers to King Fahd International Airport (DMM) - 45 mins away', icon: Plane },
     ];
 
@@ -125,7 +125,7 @@ export default function DhahranPage() {
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Dhahran"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        VIP Chauffeur Service Dhahran
+                        Chauffeur Service Dhahran
                     </span>
                 }
                 subtitle="The Energy Capital's Executive Standard"
@@ -164,7 +164,7 @@ export default function DhahranPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
                         <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked Corporate, Intercity, and VIP Airport transfers. We do NOT provide local short-distance hailing.
+                        OFFICIAL NOTE: We specialize in pre-booked Corporate, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -275,7 +275,7 @@ export default function DhahranPage() {
                         <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Executive Services</span>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Dhahran Transport Solutions</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                            Professional VIP chauffeur service for the energy sector, academic institutions, and cultural centers.
+                            Professional chauffeur service for the energy sector, academic institutions, and cultural centers.
                         </p>
                     </div>
 
@@ -297,7 +297,7 @@ export default function DhahranPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Dhahran VIP Service</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Dhahran Service</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                         {features.map((feature, index) => (
@@ -400,7 +400,7 @@ export default function DhahranPage() {
                                 ]
                             },
                             {
-                                question: "VIP transfer fare from Airport to Dhahran?",
+                                question: "Transfer fare from Airport to Dhahran?",
                                 shortAnswer: "180-220 SAR",
                                 detailedAnswer: "The fare is fixed for quality service. This includes waiting time at the terminal and luggage handling.",
                                 perspectives: [
@@ -422,7 +422,7 @@ export default function DhahranPage() {
                         </div>
 
                         <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                            VIP Dhahran Transfer Rates
+                            Dhahran Transfer Rates
                         </h3>
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                             Transparent rates for Aramco, KFUPM, and Airport transfers.
@@ -483,7 +483,7 @@ export default function DhahranPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Get a quote for your Dhahran VIP Transfer Now
+                        Get a quote for your Dhahran Transfer Now
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                         Professional transport for Saudi Aramco, KFUPM, and Ithra Center visits.

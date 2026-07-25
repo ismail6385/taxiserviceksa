@@ -88,7 +88,7 @@ export default function B2BSolutionsUrdu() {
                     <div className="text-center mb-16">
                         <span className="text-blue-600 font-bold tracking-wider mb-2 block uppercase text-sm">ہماری مہارت</span>
                         <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6 underline decoration-blue-500/30">کارپوریٹ خدمات</h2>
-                        <p className="text-lg text-slate-600 max-w-2xl mx-auto">ہمارا B2B ماڈل شفافیت، بروقت فراہمی اور آپ کے VIP کلائنٹس کو اعلیٰ ترین سفری تجربہ دینے کی بنیاد پر بنایا گیا ہے۔</p>
+                        <p className="text-lg text-slate-600 max-w-2xl mx-auto">ہمارا B2B ماڈل شفافیت، بروقت فراہمی اور آپ کے کلائنٹس کو اعلیٰ ترین سفری تجربہ دینے کی بنیاد پر بنایا گیا ہے۔</p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
@@ -190,7 +190,7 @@ export default function B2BSolutionsUrdu() {
                                 </div>
                                 <div className="bg-slate-900/80 p-8 py-12 rounded-[2rem] border border-slate-700/50 backdrop-blur-md shadow-2xl flex flex-col items-center justify-center text-center">
                                     <div className="text-5xl font-black text-indigo-400 mb-3 drop-shadow-[0_0_10px_rgba(129,140,248,0.5)]">5/5</div>
-                                    <div className="text-slate-300 text-sm font-bold tracking-wider">اوسط VIP ریٹنگ</div>
+                                    <div className="text-slate-300 text-sm font-bold tracking-wider">اوسط ریٹنگ</div>
                                 </div>
                             </div>
                         </div>

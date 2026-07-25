@@ -8,7 +8,7 @@ import { Sparkles, Shield, User, CheckCircle2, Info, ArrowRight, Car, Users, Bri
 import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 export const metadata: Metadata = {
-    title: 'VIP Executive Fleet Saudi Arabia | Premium Chauffeur Vehicles',
+    title: 'Executive Fleet Saudi Arabia | Premium Chauffeur Vehicles',
     description: 'Explore our executive fleet in Saudi Arabia. Luxury Mercedes S-Class, Cadillac Escalade, GMC Yukon, and Luxurious Buses for premium private transfers. 2026 models.',
     keywords: ['VIP Fleet Saudi Arabia', 'Premium Chauffeur Vehicles', 'Mercedes S-Class Saudi Arabia', 'Cadillac Escalade Chauffeur', 'GMC Yukon VIP Transfer', 'Luxury Van Transfer KSA', 'Executive Car with Driver', 'Umrah Private Fleet', 'Luxurious Bus Saudi Arabia'],
     alternates: {
@@ -199,10 +199,10 @@ export default function FleetPage() {
                         <Sparkles className="w-3 h-3" /> Premium Selection
                     </div>
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-                        VIP & Executive Fleet Saudi Arabia
+                        Executive Fleet Saudi Arabia
                     </h1>
                     <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                        The ultimate choice for luxury ground transportation. Featuring the <strong>Mercedes S-Class</strong>, <strong>Cadillac Escalade</strong>, and specialized <strong>VIP GMC Yukons</strong> for discerning travelers.
+                        The ultimate choice for luxury ground transportation. Featuring the <strong>Mercedes S-Class</strong>, <strong>Cadillac Escalade</strong>, and specialized <strong>GMC Yukons</strong> for discerning travelers.
                     </p>
                     <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm font-bold uppercase tracking-widest text-gray-500">
                         <span>PREMIUM ROUTES:</span>
@@ -223,9 +223,9 @@ export default function FleetPage() {
                         Fleet Capabilities & Recommendations
                     </h2>
                     <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-gray-700 text-sm">
-                        <li className="flex gap-2"><Briefcase className="w-4 h-4 text-emerald-600 shrink-0" /> <strong>Executive VIP:</strong> Mercedes S-Class & BMW. Best for 1-3 Pax.</li>
+                        <li className="flex gap-2"><Briefcase className="w-4 h-4 text-emerald-600 shrink-0" /> <strong>Executive :</strong> Mercedes S-Class & BMW. Best for 1-3 Pax.</li>
                         <li className="flex gap-2"><Car className="w-4 h-4 text-emerald-600 shrink-0" /> <strong>Luxury SUVs:</strong> Escalade & Yukon. Best for high-capacity luxury.</li>
-                        <li className="flex gap-2"><Users className="w-4 h-4 text-emerald-600 shrink-0" /> <strong>VIP Vans:</strong> Mercedes Vito & Staria. Ideal for families and business groups.</li>
+                        <li className="flex gap-2"><Users className="w-4 h-4 text-emerald-600 shrink-0" /> <strong>Vans:</strong> Mercedes Vito & Staria. Ideal for families and business groups.</li>
                         <li className="flex gap-2"><Sparkles className="w-4 h-4 text-emerald-600 shrink-0" /> <strong>Large Groups:</strong> Sprinters & Premium Coaches up to 25 seats.</li>
                     </ul>
                 </div>
@@ -266,7 +266,7 @@ export default function FleetPage() {
             <div className="bg-gray-50 py-24 border-t border-gray-200">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Pre-Book Our VIP Fleet?</h2>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Why Pre-Book Our Fleet?</h2>
                         <div className="w-20 h-1 bg-emerald-500 mx-auto rounded-full"></div>
                         <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
                             Unlike standard taxi apps, our fleet specializes in pre-arranged, high-standard intercity transfers across the Kingdom of Saudi Arabia.
@@ -278,13 +278,13 @@ export default function FleetPage() {
                                 <Shield className="w-8 h-8 text-emerald-600" />
                             </div>
                             <h3 className="text-xl font-bold text-gray-900 mb-3">Impeccable Safety</h3>
-                            <p className="text-gray-500 leading-relaxed">Fleet maintained to the highest manufacturer standards with 2024-2026 production models available for VIP bookings.</p>
+                            <p className="text-gray-500 leading-relaxed">Fleet maintained to the highest manufacturer standards with 2024-2026 production models available for bookings.</p>
                         </div>
                         <div className="text-center">
                             <div className="w-16 h-16 bg-white rounded-2xl shadow-lg border border-gray-100 flex items-center justify-center mx-auto mb-6">
                                 <Sparkles className="w-8 h-8 text-emerald-600" />
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">VIP Amenities</h3>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">Amenities</h3>
                             <p className="text-gray-500 leading-relaxed">On-board Wi-Fi (on request), complimentary water, and professional multilingual chauffeurs in uniform.</p>
                         </div>
                         <div className="text-center">

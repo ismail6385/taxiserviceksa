@@ -170,7 +170,7 @@ export default async function JeddahAirportGuidePage() {
                         <div className="flex flex-wrap gap-3">
                             <Link href="/booking/" className="bg-emerald-600 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-emerald-700 transition-colors">WhatsApp Booking</Link>
                             <Link href="/routes/jeddah-makkah/" className="bg-white text-emerald-700 border border-emerald-200 px-6 py-2.5 rounded-xl font-bold hover:bg-emerald-50 transition-colors">Jeddah to Makkah Taxi</Link>
-                            <Link href="/fleet/gmc-yukon/" className="bg-white text-emerald-700 border border-emerald-200 px-6 py-2.5 rounded-xl font-bold hover:bg-emerald-50 transition-colors">VIP GMC Yukon</Link>
+                            <Link href="/fleet/gmc-yukon/" className="bg-white text-emerald-700 border border-emerald-200 px-6 py-2.5 rounded-xl font-bold hover:bg-emerald-50 transition-colors">GMC Yukon</Link>
                         </div>
                     </div>
                 </div>

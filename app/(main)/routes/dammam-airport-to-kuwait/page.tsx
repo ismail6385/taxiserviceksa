@@ -13,7 +13,7 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 
 
 export const metadata: Metadata = {
-    title: 'Dammam Airport to Kuwait Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
+    title: 'Dammam Airport to Kuwait Taxi | Cross-Border Transfer | Taxi Service KSA',
     description: 'Book a premium taxi from King Fahd International Airport (DMM) Dammam to Kuwait. Reliable cross-border transfers, comfortable SUVs, and door-to-door service.',
     keywords: ['Dammam Airport to Kuwait Taxi', 'DMM to Kuwait transfer', 'Dammam airport cross border taxi', 'VIP transport Dammam Kuwait'],
     alternates: {
@@ -38,7 +38,7 @@ export default function DammamAirportKuwaitRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Dammam Airport to Kuwait"
-                description="Professional VIP private car service from Dammam Airport (DMM) to Kuwait. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service from Dammam Airport (DMM) to Kuwait. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Dammam Airport to Kuwait Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -56,7 +56,7 @@ export default function DammamAirportKuwaitRoutePage() {
                         DMM Airport Transfer
                     </span>
                 }
-                subtitle="VIP Cross-Border Service: DMM Airport to Kuwait"
+                subtitle="Cross-Border Service: DMM Airport to Kuwait"
                 location="King Fahd International Airport (DMM)"
             />
 
@@ -129,7 +129,7 @@ export default function DammamAirportKuwaitRoutePage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-12">
                         <span className="text-emerald-600 font-bold uppercase tracking-widest text-sm">Experience the Quality</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">VIP Taxi Journey from DMM Airport to Kuwait</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-4">Taxi Journey from DMM Airport to Kuwait</h2>
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                             Watch our detailed video guide to see the comfort of our premium fleet and the professional chauffeur service we provide.
                         </p>
@@ -226,7 +226,7 @@ export default function DammamAirportKuwaitRoutePage() {
                                             <span className="font-bold">GMC Yukon/Suburban</span>
                                             <span className="text-lg font-black text-emerald-300">180 KWD</span>
                                         </div>
-                                        <p className="text-xs text-emerald-100">Premium VIP SUV for 6-7 passengers</p>
+                                        <p className="text-xs text-emerald-100">Premium SUV for 6-7 passengers</p>
                                     </div>
                                 </div>
                                 <div className="space-y-3 mb-8">
@@ -317,7 +317,7 @@ export default function DammamAirportKuwaitRoutePage() {
                         { name: 'Khobar (Al Khobar)', url: '/routes/dammam-airport-to-khobar/', description: 'Quick and reliable transfers to the Khobar Corniche and business districts.' },
                         { name: 'Dhahran (Aramco)', url: '/locations/dhahran/', description: 'Direct service to Dhahran residential and industrial hubs.' },
                         { name: 'Jubail Industrial City', url: '/locations/jubail/', description: 'Professional chauffeur service for business travel to Jubail.' },
-                        { name: 'Bahrain (Cross-Border)', url: '/routes/dammam-bahrain/', description: 'Seamless VIP transfers across the King Fahd Causeway to Manama.' },
+                        { name: 'Bahrain (Cross-Border)', url: '/routes/dammam-bahrain/', description: 'Seamless transfers across the King Fahd Causeway to Manama.' },
                         { name: 'Qatif City', url: '/locations/qatif/', description: 'Reliable taxi services for Qatif and surrounding areas.' },
                         { name: 'Al Ahsa (Hofuf)', url: '/locations/al-ahsa/', description: 'Intercity transfers to the historic Oasis city of Al Ahsa.' },
                         { name: 'Ras Tanura', url: '/locations/ras-tanura/', description: 'Professional transport to the Ras Tanura industrial zone.' },

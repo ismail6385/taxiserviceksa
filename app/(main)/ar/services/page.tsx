@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function ServicesPageArabic() {
     const featuredServices = [
         {
-            name: 'سائق VIP وفاخر',
+            name: 'سائق وفاخر',
             description: 'سائق خاص لضيوف الشرف والدبلوماسيين والرؤساء التنفيذيين وكبار الزوار. سائقون مرخصون وسريون مع أسطول كاديلاك إسكاليد وجمس يوكن ومرسيدس S-Class.',
             icon: Crown,
             href: '/ar/services/vip-chauffeur/',
@@ -87,14 +87,14 @@ export default function ServicesPageArabic() {
             href: '/ar/services/riyadh-hotel-transfer/',
         },
         {
-            name: 'نقل العمرة VIP',
+            name: 'نقل العمرة',
             description: 'حل نقل متكامل لرحلة العمرة مع سائقين محترفين. من مطار جدة إلى مكة، ومن مكة إلى المدينة وجميع مواقع الزيارة.',
             icon: Car,
             href: '/ar/services/umrah-transport/',
         },
         {
             name: 'استقبال المطار التنفيذي',
-            description: 'خدمة استقبال VIP في جميع مطارات السعودية الرئيسية. تتبع الرحلة واستقبال داخل الصالة.',
+            description: 'خدمة استقبال في جميع مطارات السعودية الرئيسية. تتبع الرحلة واستقبال داخل الصالة.',
             icon: Plane,
             href: '/ar/services/airport-transfers/',
         },
@@ -111,7 +111,7 @@ export default function ServicesPageArabic() {
             href: '/ar/services/heritage-tours/',
         },
         {
-            name: 'نقل بين المدن VIP',
+            name: 'نقل بين المدن',
             description: 'نقل بين جميع المدن السعودية الرئيسية. أسعار ثابتة للرياض-جدة، جدة-المدينة، وجميع الرحلات الطويلة.',
             icon: Navigation,
             href: '/ar/services/intercity/',

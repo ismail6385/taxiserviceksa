@@ -42,7 +42,7 @@ export default function TabukJizanRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Tabuk to Jizan"
-                description="Professional VIP private car service from Tabuk to Jizan. Reliable, door-to-door long-distance transport for families and business travelers."
+                description="Professional private car service from Tabuk to Jizan. Reliable, door-to-door long-distance transport for families and business travelers."
                 services={[
                     { name: 'Tabuk to Jizan Taxi', description: 'Direct 24/7 private transfer with professional chauffeurs.' },
                     { name: 'Family SUV Transfer', description: 'Spacious and safe GMC Yukons for the drive between Tabuk and Jizan.' },

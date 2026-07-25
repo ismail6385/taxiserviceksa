@@ -10,7 +10,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'Hyundai Starex VIP Private Transfer Saudi Arabia | Family Van',
+    title: 'Hyundai Starex Private Transfer Saudi Arabia | Family Van',
     description: 'Book the reliable Hyundai Starex private transfer in Saudi Arabia. Premium 7-seater van with extra luggage space for families and airport transfers. Professional chauffeur service.',
     keywords: ['Hyundai Starex VIP transfer', 'family van chauffeur KSA', 'Hyundai Starex Riyadh', 'airport transfer Saudi Arabia', 'VIP van Jeddah'],
     alternates: {
@@ -99,7 +99,7 @@ export default function HyundaiStarexPage() {
                         <div>
                             <h2 className="text-4xl font-black text-gray-900 mb-8 leading-tight tracking-tighter uppercase">Reliable Comfort for Your Entourage</h2>
                             <p className="text-gray-600 text-xl leading-relaxed mb-6">
-                                The <strong>Hyundai Starex VIP transfer</strong> remains one of the most trusted vehicles for premium family travel in Saudi Arabia. Known for its indestructible build and massive luggage capability, it provides a functional and spacious chauffeur-driven experience for pilgrims and groups.
+                                The <strong>Hyundai Starex transfer</strong> remains one of the most trusted vehicles for premium family travel in Saudi Arabia. Known for its indestructible build and massive luggage capability, it provides a functional and spacious chauffeur-driven experience for pilgrims and groups.
                             </p>
                             
                             <div className="space-y-6 mb-12">
@@ -199,8 +199,7 @@ export default function HyundaiStarexPage() {
                     <h2 className="text-4xl md:text-8xl font-black text-white mb-10 leading-none tracking-tighter uppercase">TRUSTED <br/> <span className="text-blue-500">UTILITY</span></h2>
                     <p className="text-gray-400 text-xl mb-12 max-w-2xl mx-auto font-medium">WhatsApp Booking for the most reliable family van in Saudi Arabia. Professional chauffeurs, fixed prices, and massive luggage capacity.</p>
                     <Link href="/booking/?vehicle=hyundai-starex">
-                        <Button size="lg" className="bg-blue-600 hover:bg-blue-500 text-white font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl transition-all hover:scale-105">
-                            BOOK STAREX VIP
+                        <Button size="lg" className="bg-blue-600 hover:bg-blue-500 text-white font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl transition-all hover:scale-105"> BOOK STAREX
                         </Button>
                     </Link>
                 </div>

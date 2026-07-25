@@ -429,14 +429,14 @@ export default function RiyadhAirportTaxiPage() {
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black">GMC Yukon XL</Link></li>
                                 <li><Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-black">Toyota Hiace (groups)</Link></li>
-                                <li><Link href="/fleet/cadillac-escalade/" className="text-gray-600 hover:text-black">Cadillac Escalade (VIP)</Link></li>
+                                <li><Link href="/fleet/cadillac-escalade/" className="text-gray-600 hover:text-black">Cadillac Escalade</Link></li>
                                 <li><Link href="/fleet/" className="text-black font-bold hover:underline">All Fleet →</Link></li>
                             </ul>
                         </div>
                         <div>
                             <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Shield className="w-4 h-4" /> Related Services</h4>
                             <ul className="space-y-2 text-sm">
-                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black">VIP Chauffeur</Link></li>
+                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black">Chauffeur</Link></li>
                                 <li><Link href="/services/bilingual-chauffeur/" className="text-gray-600 hover:text-black">English-Speaking Driver</Link></li>
                                 <li><Link href="/services/women-transport/" className="text-gray-600 hover:text-black">Women's Transport</Link></li>
                                 <li><Link href="/services/tourism-transport/" className="text-gray-600 hover:text-black">Tourist Driver Riyadh</Link></li>
@@ -506,7 +506,7 @@ export default function RiyadhAirportTaxiPage() {
                     <p className="text-gray-500 text-sm mt-6">
                         <Link href="/services/airport-transfers/" className="text-gray-400 hover:text-white underline">All Saudi Airports</Link>
                         {' · '}
-                        <Link href="/services/vip-chauffeur/" className="text-gray-400 hover:text-white underline">VIP Chauffeur</Link>
+                        <Link href="/services/vip-chauffeur/" className="text-gray-400 hover:text-white underline">Chauffeur</Link>
                         {' · '}
                         <Link href="/services/riyadh-hotel-transfer/" className="text-gray-400 hover:text-white underline">Riyadh Hotel Transfer</Link>
                         {' · '}

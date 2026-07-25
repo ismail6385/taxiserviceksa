@@ -34,9 +34,9 @@ export default function KhamisMushaitLocationPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation
                 cityName="Khamis Mushait"
-                description="Professional VIP transfers in Khamis Mushait. Specializing in airport pickups, corporate travel, and comfortable intercity transfers across Saudi Arabia."
+                description="Professional transfers in Khamis Mushait. Specializing in airport pickups, corporate travel, and comfortable intercity transfers across Saudi Arabia."
                 services={[
-                    { name: 'Khamis Mushait Airport Pickup', description: 'VIP meet & greet at Abha Regional Airport with flight tracking.' },
+                    { name: 'Khamis Mushait Airport Pickup', description: 'Meet & greet at Abha Regional Airport with flight tracking.' },
                     { name: 'Intercity Transfers', description: 'Safe, direct transport to Abha, Jeddah, and Jizan.' },
                     { name: 'Corporate Travel', description: 'Executive chauffeur services for business meetings.' }
                 ]}
@@ -49,7 +49,7 @@ export default function KhamisMushaitLocationPage() {
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Khamis Mushait"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        VIP Chauffeur Service Khamis Mushait
+                        Chauffeur Service Khamis Mushait
                     </span>
                 }
                 subtitle="Premium Executive Transport Excellence"
@@ -69,7 +69,7 @@ export default function KhamisMushaitLocationPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
                         <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked long-distance and VIP Airport transfers. We do NOT provide local short-distance hailing.
+                        OFFICIAL NOTE: We specialize in pre-booked long-distance and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -80,13 +80,13 @@ export default function KhamisMushaitLocationPage() {
                         <div>
                             <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">Professional Transport</span>
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                                VIP Transfer Services in Khamis Mushait
+                                Transfer Services in Khamis Mushait
                             </h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                                 Khamis Mushait is a twin city of Abha in the Asir region, one of the most scenic and temperate areas of Saudi Arabia. Located at 2,000m above sea level, it is a popular destination for domestic tourism. Our premium fleet is ready to serve you with comfort.
                             </p>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                We prioritize safety, punctuality, and discretion. Pre-book a dedicated VIP chauffeur from Khamis Mushait to Abha, Jizan, or anywhere across Saudi Arabia.
+                                We prioritize safety, punctuality, and discretion. Pre-book a dedicated chauffeur from Khamis Mushait to Abha, Jizan, or anywhere across Saudi Arabia.
                             </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/makkah/jabal-omar/',
     },
     openGraph: {
-        title: 'VIP Taxi to Jabal Omar Hotels (Makkah) | Taxi Service KSA',
+        title: 'Taxi to Jabal Omar Hotels (Makkah) | Taxi Service KSA',
         description: 'Staying at the Hilton, Conrad, or Hyatt in Makkah? We provide luxury GMC transfers directly to the Jabal Omar main entrance.',
         url: 'https://taxiserviceksa.com/locations/makkah/jabal-omar/',
         type: 'website',
@@ -59,7 +59,7 @@ export default function JabalOmarPage() {
                     </span>
                 }
                 subtitle="The Premier Chauffeur Service for Jabal Omar Hotels"
-                location="Hilton | Conrad | Hyatt | Marriott VIP Entrance"
+                location="Hilton | Conrad | Hyatt | Marriott Entrance"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Jeddah%20Airport&dropoff=Jabal%20Omar%20Makkah">
@@ -80,8 +80,7 @@ export default function JabalOmarPage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked VIP Airport, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Airport, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -108,7 +107,7 @@ export default function JabalOmarPage() {
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Crown className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">VIP Service</span>
+                                    <span className="font-semibold text-gray-800">Service</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Car className="w-6 h-6 text-primary" />

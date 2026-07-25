@@ -10,7 +10,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'BMW 7-Series VIP Chauffeur Saudi Arabia | Luxury Sedan',
+    title: 'BMW 7-Series Chauffeur Saudi Arabia | Luxury Sedan',
     description: 'Book the elite BMW 7-Series private transfer in Saudi Arabia. Ultimate luxury sedan with professional chauffeur service for business and travel. Experience German engineering at its finest.',
     keywords: ['BMW 7-Series VIP transfer', 'BMW chauffeur KSA', 'luxury sedan Riyadh', 'BMW executive car Saudi Arabia', 'VIP BMW 7-Series taxi'],
     alternates: {
@@ -61,7 +61,7 @@ export default function BMW7SeriesPage() {
                     </span>
                 }
                 subtitle="The Ultimate Dynamic Luxury Sedan Experience in KSA"
-                location="3 Passengers | 2 Bags | VIP Chauffeur"
+                location="3 Passengers | 2 Bags | Chauffeur"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?vehicle=bmw-7-series">
@@ -71,8 +71,7 @@ export default function BMW7SeriesPage() {
                         </Button>
                     </Link>
                     <a href="mailto:taxiserviceksa9988@gmail.com">
-                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            VIP Request
+                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto"> Request
                         </Button>
                     </a>
                 </div>
@@ -99,7 +98,7 @@ export default function BMW7SeriesPage() {
                         <div>
                             <h2 className="text-4xl font-black text-gray-900 mb-8 leading-tight uppercase tracking-tighter">The Pinnacle of German Luxury</h2>
                             <p className="text-gray-600 text-xl leading-relaxed mb-8">
-                                For those who appreciate both dynamic performance and rear-seat luxury, our <strong>BMW 7-Series VIP private transfer</strong> is the perfect choice. Whether navigating the bustling business districts of Riyadh or cruising to Jeddah, the 7-Series offers an unparalleled lounge-like experience.
+                                For those who appreciate both dynamic performance and rear-seat luxury, our <strong>BMW 7-Series private transfer</strong> is the perfect choice. Whether navigating the bustling business districts of Riyadh or cruising to Jeddah, the 7-Series offers an unparalleled lounge-like experience.
                             </p>
                             
                             <div className="space-y-6 mb-12">
@@ -121,7 +120,7 @@ export default function BMW7SeriesPage() {
                             </div>
 
                             <EntityTrustSignal 
-                                brandName="BMW VIP Excellence"
+                                brandName="BMW Excellence"
                                 description="The preferred choice for high-tech executives and diplomatic traveling."
                                 metrics={[
                                     { label: 'Precision Rating', value: '10/10', icon: ShieldCheck },
@@ -162,7 +161,7 @@ export default function BMW7SeriesPage() {
 
             <div className="max-w-4xl mx-auto py-24 px-4">
                 <center>
-                    <h2 className="text-3xl font-black text-gray-900 mb-12 uppercase tracking-tighter">BMW 7-Series VIP FAQ</h2>
+                    <h2 className="text-3xl font-black text-gray-900 mb-12 uppercase tracking-tighter">BMW 7-Series FAQ</h2>
                 </center>
                 <MicroSemanticFAQ 
                     faqs={[
@@ -176,7 +175,7 @@ export default function BMW7SeriesPage() {
                         },
                         {
                             question: "Do you offer BMW 7-Series transfers from Riyadh Airport?",
-                            shortAnswer: "Yes, VIP Meet & Greet Included.",
+                            shortAnswer: "Yes, Meet & Greet Included.",
                             detailedAnswer: "Yes. We offer premium pickup at King Khalid International Airport (RUH). Our chauffeur will meet you at the terminal and escort you to your 7-Series for a seamless transfer to your hotel or office.",
                             perspectives: [
                                 { role: 'Arrivals', icon: 'Plane', insight: 'We track your flight in real-time to ensure zero wait time.' }

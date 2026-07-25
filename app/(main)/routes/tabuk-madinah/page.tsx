@@ -38,7 +38,7 @@ export default function TabukMadinahRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Tabuk to Madinah"
-                description="Professional VIP private car service from Tabuk to Madinah. Reliable, door-to-door long-distance transport for families and business travelers."
+                description="Professional private car service from Tabuk to Madinah. Reliable, door-to-door long-distance transport for families and business travelers."
                 services={[
                     { name: 'Tabuk to Madinah Taxi', description: 'Direct 24/7 private transfer with professional chauffeurs.' },
                     { name: 'Family SUV Transfer', description: 'Spacious and safe GMC Yukons for the drive between Tabuk and Madinah.' },
@@ -257,8 +257,7 @@ export default function TabukMadinahRoutePage() {
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
                         Get a quote for your Taxi Tabuk to Madinah
                     </h2>
-                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Safe, comfortable, and reliable intercity transfers. Professional drivers and VIP vehicles ready to take you from Tabuk to the Holy City.
+                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto"> Safe, comfortable, and reliable intercity transfers. Professional drivers and vehicles ready to take you from Tabuk to the Holy City.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking/?route=tabuk-madinah">

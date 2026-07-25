@@ -59,7 +59,7 @@ export default function UhudPage() {
                     </span>
                 }
                 subtitle="The Historic Site of the Battle of Uhud"
-                location="Archers' Mound | Martyrs Cemetery | VIP Pickup"
+                location="Archers' Mound | Martyrs Cemetery | Pickup"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Masjid%20Nabawi&dropoff=Mount%20Uhud">
@@ -80,8 +80,7 @@ export default function UhudPage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked VIP Heritage Tours, intercity, and Airport transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Heritage Tours, intercity, and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>

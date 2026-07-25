@@ -106,7 +106,7 @@ export default async function BlogIndexPage({ searchParams }: Props) {
                         <span className="text-emerald-300">Like Never Before</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                        Expert transport guides, tourist destination tips, and VIP chauffeur insights for every city in the Kingdom.
+                        Expert transport guides, tourist destination tips, and chauffeur insights for every city in the Kingdom.
                     </p>
                     <div className="flex flex-wrap gap-3 justify-center mt-8 text-sm">
                         <span className="bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/20">🕌 Umrah Guides</span>
@@ -297,7 +297,7 @@ export default async function BlogIndexPage({ searchParams }: Props) {
                         </div>
                         <div>
                             <h4 className="font-bold text-gray-700 mb-1">GCC & Cross-Border Logistics</h4>
-                            <p>Read about custom regulations, toll requirements, and booking VIP taxis for causeway crossings between KSA, Bahrain, and the UAE.</p>
+                            <p>Read about custom regulations, toll requirements, and booking taxis for causeway crossings between KSA, Bahrain, and the UAE.</p>
                         </div>
                     </div>
                 </div>
@@ -305,7 +305,7 @@ export default async function BlogIndexPage({ searchParams }: Props) {
                 {/* Bottom CTA */}
                 <div className="mt-16 bg-gradient-to-r from-emerald-700 to-teal-700 rounded-3xl p-10 text-center text-white shadow-xl">
                     <h2 className="text-3xl font-black mb-3">Ready to Travel Saudi Arabia in Style?</h2>
-                    <p className="text-emerald-100 text-lg mb-6 max-w-xl mx-auto">Get an instant quote for your private VIP chauffeur — airports, intercity, Umrah tours, and border crossings.</p>
+                    <p className="text-emerald-100 text-lg mb-6 max-w-xl mx-auto">Get an instant quote for your private chauffeur — airports, intercity, Umrah tours, and border crossings.</p>
                     <Link href="/booking/">
                         <button className="bg-white text-emerald-700 font-black px-8 py-4 rounded-xl text-lg hover:bg-emerald-50 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                             Get Free Quote →

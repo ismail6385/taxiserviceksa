@@ -38,7 +38,7 @@ export default function HotelTransferPage({ hotel, otherHotels }: HotelTransferP
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation
                 cityName={`Jeddah to ${hotel.shortName}`}
-                description={`Professional VIP private car service for Jeddah to ${hotel.name}. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs.`}
+                description={`Professional private car service for Jeddah to ${hotel.name}. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs.`}
                 services={[
                     { name: `Jeddah to ${hotel.shortName} Taxi`, description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -96,7 +96,7 @@ export default function HotelTransferPage({ hotel, otherHotels }: HotelTransferP
                     <ul className="space-y-3 text-gray-700">
                         <li><strong>Distance & Time:</strong> {hotel.distanceKm} kilometers. The drive takes {hotel.driveTimeMin} minutes from JED Airport.</li>
                         <li><strong>Drop-off Point:</strong> {hotel.dropOffNote}.</li>
-                        <li><strong>Vehicle Types:</strong> Sedans (Toyota Camry) and VIP SUVs (GMC Yukon) accommodating up to 7 passengers and heavy luggage.</li>
+                        <li><strong>Vehicle Types:</strong> Sedans (Toyota Camry) and SUVs (GMC Yukon) accommodating up to 7 passengers and heavy luggage.</li>
                         <li><strong>Pricing:</strong> Affordable, fixed rates with no hidden surge fees. Bookings include meet-and-greet at the airport arrivals terminal.</li>
                     </ul>
                 </div>
@@ -215,7 +215,7 @@ export default function HotelTransferPage({ hotel, otherHotels }: HotelTransferP
                     {
                         question: `How much is a taxi from Jeddah Airport to ${hotel.name}?`,
                         shortAnswer: 'WhatsApp Booking',
-                        detailedAnswer: `A private sedan (like a Toyota Camry) from Jeddah Airport to ${hotel.shortName} is offered at an affordable fixed rate. A VIP SUV (like a GMC Yukon) is also available for larger families or groups with extensive luggage. All prices are fixed and pre-agreed before you travel.`,
+                        detailedAnswer: `A private sedan (like a Toyota Camry) from Jeddah Airport to ${hotel.shortName} is offered at an affordable fixed rate. An SUV (like a GMC Yukon) is also available for larger families or groups with extensive luggage. All prices are fixed and pre-agreed before you travel.`,
                         perspectives: [],
                     },
                     {

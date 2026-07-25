@@ -34,9 +34,9 @@ export default function BuraidahLocationPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation
                 cityName="Buraidah"
-                description="Professional VIP transfers in Buraidah, the capital of Al-Qassim region. Specializing in airport pickups, corporate travel, and comfortable intercity transfers."
+                description="Professional transfers in Buraidah, the capital of Al-Qassim region. Specializing in airport pickups, corporate travel, and comfortable intercity transfers."
                 services={[
-                    { name: 'Buraidah Airport Pickup', description: 'VIP meet & greet at Prince Nayef bin Abdulaziz Airport with flight tracking.' },
+                    { name: 'Buraidah Airport Pickup', description: 'Meet & greet at Prince Nayef bin Abdulaziz Airport with flight tracking.' },
                     { name: 'Intercity Transfers', description: 'Safe, direct transport to Riyadh, Madinah, and Jeddah.' },
                     { name: 'Corporate Travel', description: 'Executive chauffeur services for business meetings.' }
                 ]}
@@ -49,7 +49,7 @@ export default function BuraidahLocationPage() {
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Buraidah"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        VIP Chauffeur Service Buraidah
+                        Chauffeur Service Buraidah
                     </span>
                 }
                 subtitle="Premium Executive Transport Excellence"
@@ -69,7 +69,7 @@ export default function BuraidahLocationPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
                         <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked long-distance and VIP Airport transfers. We do NOT provide local short-distance hailing.
+                        OFFICIAL NOTE: We specialize in pre-booked long-distance and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -80,13 +80,13 @@ export default function BuraidahLocationPage() {
                         <div>
                             <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">Professional Transport</span>
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                                VIP Transfer Services in Buraidah
+                                Transfer Services in Buraidah
                             </h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                                 Buraidah is the capital of Al-Qassim region and one of the largest cities in central Saudi Arabia. Known for its dates markets and cultural heritage, it is a major hub between Riyadh and Madinah. Our premium fleet is ready to serve you.
                             </p>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                We prioritize safety, punctuality, and discretion. Pre-book a dedicated VIP chauffeur from Buraidah to Riyadh, Madinah, or anywhere across Saudi Arabia.
+                                We prioritize safety, punctuality, and discretion. Pre-book a dedicated chauffeur from Buraidah to Riyadh, Madinah, or anywhere across Saudi Arabia.
                             </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

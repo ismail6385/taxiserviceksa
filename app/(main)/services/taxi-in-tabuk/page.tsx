@@ -468,7 +468,7 @@ export default function TaxiInTabukPage() {
                             <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Shield className="w-4 h-4" /> Related Services</h4>
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/tabuk-airport-taxi/" className="text-gray-600 hover:text-black">Tabuk Airport Taxi (TUU)</Link></li>
-                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black">VIP Chauffeur</Link></li>
+                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black">Chauffeur</Link></li>
                                 <li><Link href="/services/tourism-transport/" className="text-gray-600 hover:text-black">Tourist Transport</Link></li>
                                 <li><Link href="/services/private-driver/" className="text-gray-600 hover:text-black">Private Driver Hire</Link></li>
                             </ul>
@@ -476,7 +476,7 @@ export default function TaxiInTabukPage() {
                         <div>
                             <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Navigation className="w-4 h-4" /> Tabuk Locations</h4>
                             <ul className="space-y-2 text-sm">
-                                <li><Link href="/locations/tabuk/" className="text-gray-600 hover:text-black">Tabuk City VIP Transfer</Link></li>
+                                <li><Link href="/locations/tabuk/" className="text-gray-600 hover:text-black">Tabuk City Transfer</Link></li>
                                 <li><Link href="/locations/neom/" className="text-gray-600 hover:text-black">NEOM Transport</Link></li>
                                 <li><Link href="/services/intercity/" className="text-gray-600 hover:text-black">Intercity Transfers KSA</Link></li>
                                 <li><Link href="/locations/" className="text-black font-bold hover:underline">All Locations →</Link></li>

@@ -12,14 +12,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Dammam to Sharjah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
+    title: 'Dammam to Sharjah Taxi | Cross-Border Transfer | Taxi Service KSA',
     description: 'Request a premium quote from Dammam to Sharjah. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Dammam to Sharjah', 'Dammam to Sharjah transfer', 'cross border taxi Saudi Arabia', 'VIP transport Dammam Sharjah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/dammam-sharjah/',
     },
     openGraph: {
-        title: 'Dammam to Sharjah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
+        title: 'Dammam to Sharjah Taxi | Cross-Border Transfer | Taxi Service KSA',
         description: 'Request a premium quote from Dammam to Sharjah. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/dammam-sharjah/',
         type: 'website',
@@ -39,7 +39,7 @@ export default function DammamSharjahRoutePage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Dammam to Sharjah"
-                description="Professional VIP private car service for Dammam to Sharjah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
+                description="Professional private car service for Dammam to Sharjah. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
                     { name: 'Dammam to Sharjah Taxi', description: 'Premium private transfer with guaranteed fixed rates.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
@@ -58,7 +58,7 @@ export default function DammamSharjahRoutePage() {
                         GCC Cross-Border Service
                     </span>
                 }
-                subtitle="Seamless VIP Transfers: Dammam to Sharjah"
+                subtitle="Seamless Transfers: Dammam to Sharjah"
                 location="Door-to-Door Service"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -106,7 +106,7 @@ export default function DammamSharjahRoutePage() {
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <CheckCircle2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">VIP Comfort</span>
+                                    <span className="font-semibold text-gray-800">Comfort</span>
                                 </div>
                             </div>
                         </div>

@@ -18,7 +18,7 @@ const fleet = [
         image: "/fleet/gmc-yukon-xl-premium-chauffeur-saudi.webp",
         passengers: 7,
         luggage: 5,
-        features: ["VIP Executive SUV", "Extra Legroom", "Luxury Interior"],
+        features: ["Executive SUV", "Extra Legroom", "Luxury Interior"],
         link: "/fleet/gmc-yukon/",
     },
     {
@@ -26,7 +26,7 @@ const fleet = [
         image: "/fleet/cadillac-escalade-chauffeur-service-ksa.webp",
         passengers: 7,
         luggage: 4,
-        features: ["Elite Audio", "Extra Comfort", "VIP Chauffeur"],
+        features: ["Elite Audio", "Extra Comfort", "Professional Chauffeur"],
         link: "/fleet/cadillac-escalade/",
     },
     {
@@ -34,7 +34,7 @@ const fleet = [
         image: "/fleet/mercedes-s-class-vip-chauffeur-service-saudi.webp",
         passengers: 3,
         luggage: 2,
-        features: ["VIP Experience", "Leather Interior", "Discreet Service"],
+        features: ["Premium Experience", "Leather Interior", "Discreet Service"],
         link: "/fleet/mercedes-s-class/",
     },
     {
@@ -42,7 +42,7 @@ const fleet = [
         image: "/hyundai-staria.webp",
         passengers: 7,
         luggage: 4,
-        features: ["VIP Family Van", "Spacious Interior", "Group Excellence"],
+        features: ["Premium Family Van", "Spacious Interior", "Group Excellence"],
         link: "/fleet/hyundai-staria/",
     },
     {
@@ -81,7 +81,7 @@ export default function RouteFleetSection() {
                                 <div className="relative h-52 overflow-hidden bg-gray-100">
                                     <Image
                                         src={vehicle.image}
-                                        alt={`${vehicle.name} - VIP transfer vehicle for this route`}
+                                        alt={`${vehicle.name} - transfer vehicle for this route`}
                                         width={600}
                                         height={400}
                                         className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"

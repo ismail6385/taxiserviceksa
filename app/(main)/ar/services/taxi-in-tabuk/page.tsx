@@ -469,7 +469,7 @@ export default function TaxiInTabukPageArabic() {
                             <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Shield className="w-4 h-4" /> خدمات ذات صلة</h4>
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/tabuk-airport-taxi/" className="text-gray-600 hover:text-black">تاكسي مطار تبوك (TUU)</Link></li>
-                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black">سائق VIP خاص</Link></li>
+                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black">سائق خاص</Link></li>
                                 <li><Link href="/services/tourism-transport/" className="text-gray-600 hover:text-black">نقل سياحي</Link></li>
                                 <li><Link href="/services/private-driver/" className="text-gray-600 hover:text-black">تأجير سائق خاص</Link></li>
                             </ul>
@@ -477,7 +477,7 @@ export default function TaxiInTabukPageArabic() {
                         <div>
                             <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Navigation className="w-4 h-4" /> مواقع تبوك</h4>
                             <ul className="space-y-2 text-sm">
-                                <li><Link href="/locations/tabuk/" className="text-gray-600 hover:text-black">توصيل VIP داخل تبوك</Link></li>
+                                <li><Link href="/locations/tabuk/" className="text-gray-600 hover:text-black">توصيل داخل تبوك</Link></li>
                                 <li><Link href="/locations/neom/" className="text-gray-600 hover:text-black">نقل نيوم</Link></li>
                                 <li><Link href="/services/intercity/" className="text-gray-600 hover:text-black">نقل بين المدن في السعودية</Link></li>
                                 <li><Link href="/locations/" className="text-black font-bold hover:underline">كل المواقع ←</Link></li>

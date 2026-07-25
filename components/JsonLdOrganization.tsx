@@ -26,7 +26,7 @@ export default function JsonLdOrganization() {
             "height": 512
         },
         "image": "https://taxiserviceksa.com/og-image.jpg",
-        "description": "Executive VIP chauffeur and private transfer service in Saudi Arabia. Specializing in Umrah transport, airport pickups, and intercity travel across the Kingdom.",
+        "description": "Executive chauffeur and private transfer service in Saudi Arabia. Specializing in Umrah transport, airport pickups, and intercity travel across the Kingdom.",
         "foundingDate": "2012",
         "founder": {
             "@type": "Person",
@@ -78,7 +78,7 @@ export default function JsonLdOrganization() {
             { "@type": "Country", "name": "Saudi Arabia" }
         ],
         "knowsAbout": [
-            "VIP Airport Transfers",
+            "Airport Transfers",
             "Umrah Transportation",
             "Executive Chauffeur Services",
             "Intercity Travel Saudi Arabia",

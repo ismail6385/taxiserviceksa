@@ -53,7 +53,7 @@ export default function TaxiScamGuide() {
                         Quick Safety Checklist
                     </h2>
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-sm">
-                        <li className="flex gap-2 font-medium">✅ Book via Official Apps or <strong>Pre-Booked VIP Services</strong>.</li>
+                        <li className="flex gap-2 font-medium">✅ Book via Official Apps or <strong>Pre-Booked Services</strong>.</li>
                         <li className="flex gap-2 font-medium">✅ Always insist on the <strong>Meter (Mishwar)</strong> for street taxis.</li>
                         <li className="flex gap-2 font-medium">✅ Report scams to <strong>938</strong> (Transport General Authority).</li>
                         <li className="flex gap-2 font-medium">✅ Confirm total price <strong>INC luggage</strong> before luggage is loaded.</li>

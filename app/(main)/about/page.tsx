@@ -15,7 +15,7 @@ import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 import JsonLdPerson from '@/components/seo/JsonLdPerson';
 
 export const metadata: Metadata = {
-    title: 'About Taxi Service KSA | VIP Chauffeur Service Saudi Arabia',
+    title: 'About Taxi Service KSA | Chauffeur Service Saudi Arabia',
     description: 'Learn about Taxi Service KSA, the leading private transfer and chauffeur service in Saudi Arabia. Specializing in luxury airport pickups, Umrah transport, and executive intercity travel.',
     keywords: ['VIP Private Transfer Saudi Arabia', 'Executive Chauffeur Service', 'Luxury Airport Transport', 'Executive Umrah Transport', 'Professional Driver KSA'],
     alternates: {
@@ -46,7 +46,7 @@ export default function AboutPage() {
     ];
 
     const whyChooseUs = [
-        { icon: Award, title: 'Industry Experience', description: 'Years of expertise in providing VIP transportation services across Saudi Arabia.' },
+        { icon: Award, title: 'Industry Experience', description: 'Years of expertise in providing transportation services across Saudi Arabia.' },
         { icon: Car, title: 'Modern Fleet', description: 'Well-maintained luxury vehicles equipped with the latest safety features.' },
         { icon: MapPin, title: 'Wide Coverage', description: 'Serving major cities including Makkah, Madinah, Jeddah, Riyadh, and AlUla.' },
         { icon: Headphones, title: '24/7 Support', description: 'Round-the-clock customer support to assist you anytime.' }
@@ -170,7 +170,7 @@ export default function AboutPage() {
                     </p>
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-200 text-sm">
                         <li><strong>Founder-Led:</strong> Owned and operated by <strong>Muhammad Ismail</strong> & <strong>Zumer</strong>, experts in Saudi logistics.</li>
-                        <li><strong>Niche Focus:</strong> Specializing in <strong>VIP Umrah trips</strong> and <strong>Executive airport transfers</strong>.</li>
+                        <li><strong>Niche Focus:</strong> Specializing in <strong>Umrah trips</strong> and <strong>Executive airport transfers</strong>.</li>
                         <li><strong>Scale:</strong> Managing a fleet of 50+ vetted chauffeurs across 8 Saudi cities.</li>
                         <li><strong>Partnership:</strong> Co-founded to combine technical precision with premium hospitality.</li>
                     </ul>
@@ -179,7 +179,7 @@ export default function AboutPage() {
                 <div className="text-center">
                      <h1 className="text-4xl md:text-5xl font-black text-white mb-6">
                         Saudi Arabia's Premier<br />
-                        <span className="text-emerald-400 text-3xl md:text-4xl">VIP Chauffeur Service Since 2012</span>
+                        <span className="text-emerald-400 text-3xl md:text-4xl">Chauffeur Service Since 2012</span>
                     </h1>
                 </div>
             </div>
@@ -268,7 +268,7 @@ export default function AboutPage() {
                         <div className="bg-blue-50 rounded-[3rem] p-12 border-2 border-blue-100 relative h-full">
                             <h3 className="text-2xl font-black text-gray-900 mb-6">Our Commitment</h3>
                             <p className="text-lg text-blue-900/80 italic leading-relaxed mb-8">
-                                "As co-founder, my mission is to ensure that every VIP and Umrah client receives a dignified experience. We don't just provide a ride; we provide peace of mind for families traveling through the Holy Kingdom."
+                                "As co-founder, my mission is to ensure that every client and Umrah pilgrim receives a dignified experience. We don't just provide a ride; we provide peace of mind for families traveling through the Holy Kingdom."
                             </p>
                             <div className="flex items-center gap-4">
                                 <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center font-bold text-white text-xl border-4 border-white shadow-sm">

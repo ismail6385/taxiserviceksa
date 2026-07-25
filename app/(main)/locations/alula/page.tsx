@@ -80,7 +80,7 @@ export default function AlUlaPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="AlUla"
-                description="Professional VIP transfers in AlUla. Specializing in UNESCO heritage tours to Hegra, AlUla International Airport (ULH) pickups, and high-end desert exploration with 4x4 SUVs."
+                description="Professional transfers in AlUla. Specializing in UNESCO heritage tours to Hegra, AlUla International Airport (ULH) pickups, and high-end desert exploration with 4x4 SUVs."
                 services={services}
                 
                 image="https://taxiserviceksa.com/alula-hegra-tombs.webp"
@@ -94,8 +94,7 @@ export default function AlUlaPage() {
                 h1Text="Private Car Transfer, Taxi and Chauffeur Service in AlUla"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in AlUla"
                 title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        VIP Chauffeur Service AlUla
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> Chauffeur Service AlUla
                     </span>
                 }
                 subtitle="UNESCO Heritage & Desert Excellence"
@@ -133,8 +132,7 @@ export default function AlUlaPage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked Heritage, Intercity, and VIP Airport transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Heritage, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -321,8 +319,7 @@ export default function AlUlaPage() {
                     <div className="text-center mb-16">
                         <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Executive Services</span>
                         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">AlUla Heritage Transport</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                            Premium VIP private transport for UNESCO heritage tours and professional desert exploration in AlUla.
+                        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"> Premium private transport for UNESCO heritage tours and professional desert exploration in AlUla.
                         </p>
                     </div>
 
@@ -344,7 +341,7 @@ export default function AlUlaPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our AlUla VIP Transfer</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our AlUla Transfer</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                         {features.map((feature, index) => (
@@ -390,7 +387,7 @@ export default function AlUlaPage() {
                                 ]
                             },
                             {
-                                question: "Can I get a VIP transfer from AlUla to Khaybar?",
+                                question: "Can I get a transfer from AlUla to Khaybar?",
                                 shortAnswer: "Yes, 2-3 Hours",
                                 detailedAnswer: "The volcanic lava fields of Khaybar are 150km away. It's a popular day trip. We wait while you explore the fort and oasis.",
                                 perspectives: [
@@ -411,8 +408,7 @@ export default function AlUlaPage() {
                             <span className="text-sm font-semibold text-yellow-900">Heritage Rates</span>
                         </div>
 
-                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6">
-                            VIP Transport Fares
+                        <h3 className="text-3xl sm:text-4xl font-black tracking-tight text-gray-900 mb-6"> Transport Fares
                         </h3>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
                             Transparent pricing for executive airport transfers and daily chauffeur hire.
@@ -476,8 +472,7 @@ export default function AlUlaPage() {
                         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
                             AlUla Travel Insights
                         </h2>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            Share your experience or ask a question about our VIP transfer services in AlUla.
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto"> Share your experience or ask a question about our transfer services in AlUla.
                         </p>
                     </div>
 

@@ -394,7 +394,7 @@ export default async function AuthorProfilePage({ params }: Props) {
                                 <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center mb-4">
                                     <Globe className="w-5 h-5 text-primary" />
                                 </div>
-                                <h3 className="font-black text-xl mb-2">Need a VIP Transfer?</h3>
+                                <h3 className="font-black text-xl mb-2">Need a Transfer?</h3>
                                 <p className="text-gray-400 text-sm mb-5 leading-relaxed">
                                     Book a professional private chauffeur across Saudi Arabia — Airport, Umrah, Intercity & more.
                                 </p>

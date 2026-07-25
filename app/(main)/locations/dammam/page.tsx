@@ -102,7 +102,7 @@ export default function DammamPage() {
         <div className="bg-gray-50 min-h-screen">
             <JsonLdLocation 
                 cityName="Dammam"
-                description="Professional VIP transfers in Dammam. Specializing in King Fahd International Airport (DMM) pickups, Jubail industrial commutes, and executive corporate transport."
+                description="Professional transfers in Dammam. Specializing in King Fahd International Airport (DMM) pickups, Jubail industrial commutes, and executive corporate transport."
                 services={services}
                 
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
@@ -115,8 +115,7 @@ export default function DammamPage() {
                 h1Text="Private Car Transfer, Taxi and Chauffeur Service in Dammam"
                 bookingFormTitle="WhatsApp Booking for Premium Transfer in Dammam"
                 title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        VIP Chauffeur Service Dammam
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> Chauffeur Service Dammam
                     </span>
                 }
                 subtitle="Eastern Province Metro Hub & Industrial Artery"
@@ -154,8 +153,7 @@ export default function DammamPage() {
             <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked Airport, Intercity, and VIP Corporate transfers. We do NOT provide local short-distance hailing.
+                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Airport, Intercity, and Corporate transfers. We do NOT provide local short-distance hailing.
                     </p>
                 </div>
             </div>
@@ -264,7 +262,7 @@ export default function DammamPage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
                         <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Executive Services</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">VIP Dammam Transport Solutions</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Dammam Transport Solutions</h2>
                         <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                             Premium chauffeur-driven experiences connecting Dammam to King Fahd Airport (DMM), Jubail Industrial City, and corporate hubs across the Eastern Province.
                         </p>
@@ -288,7 +286,7 @@ export default function DammamPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Dammam VIP Transfer</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Dammam Transfer</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
                         {features.map((feature, index) => (
@@ -375,7 +373,7 @@ export default function DammamPage() {
                     <MicroSemanticFAQ
                         faqs={[
                             {
-                                question: "How much is a VIP transfer from Dammam Airport to the city?",
+                                question: "How much is a transfer from Dammam Airport to the city?",
                                 shortAnswer: "150-200 SAR",
                                 detailedAnswer: "King Fahd International Airport (DMM) is 45-50km from the city. The standard fare reflects this distance. Uber pricing surges, but our fixed rate includes meet & greet.",
                                 perspectives: [
@@ -392,7 +390,7 @@ export default function DammamPage() {
                                 ]
                             },
                             {
-                                question: "Is there a VIP transfer to Riyadh?",
+                                question: "Is there a transfer to Riyadh?",
                                 shortAnswer: "Yes, 4 Hours",
                                 detailedAnswer: "We provide intercity transfers to Riyadh (400km). It is a smooth highway drive. Popular for those who miss flights or carry heavy luggage.",
                                 perspectives: [
@@ -421,8 +419,7 @@ export default function DammamPage() {
                             <span className="text-sm font-semibold text-yellow-900"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current inline-block" /> WhatsApp Booking</span>
                         </div>
 
-                        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                            Dammam VIP Transfer Fares
+                        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6"> Dammam Transfer Fares
                         </h3>
                         <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                             Flat rates to/from King Fahd International Airport (DMM).
@@ -434,7 +431,7 @@ export default function DammamPage() {
                             <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                                 <Plane className="w-6 h-6 text-primary" />
                             </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">VIP Airport Pickup</div>
+                            <div className="text-xl font-bold text-gray-900 mb-3">Airport Pickup</div>
                             <div className="text-4xl font-black text-primary mb-3">
                                 <span className="text-2xl">From</span> SAR 200
                             </div>
@@ -484,8 +481,7 @@ export default function DammamPage() {
             {/* CTA Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Get a quote for your Dammam VIP Transfer Now
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6"> Get a quote for your Dammam Transfer Now
                     </h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
                         Reliable transport for airport transfers, Jubail trips, and city travel.

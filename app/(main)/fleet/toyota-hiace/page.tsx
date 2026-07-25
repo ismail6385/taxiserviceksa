@@ -10,7 +10,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'Toyota Hiace VIP Private Transfer Saudi Arabia | Group Transport',
+    title: 'Toyota Hiace Private Transfer Saudi Arabia | Group Transport',
     description: 'Book the elite Toyota Hiace private transfer in Saudi Arabia. Professional 11-seater van for Umrah groups, large families, and executive transfers. Reliable and spacious group logistics.',
     keywords: ['Toyota Hiace VIP transfer', 'group transport KSA', 'Umrah van chauffeur', '11 seater Saudi Arabia', 'Hiace Jeddah Airport'],
     alternates: {
@@ -99,7 +99,7 @@ export default function ToyotaHiacePage() {
                         <div>
                             <h2 className="text-4xl font-black text-gray-900 mb-8 leading-tight tracking-tighter uppercase">Step Up to Group Travel Excellence</h2>
                             <p className="text-gray-600 text-xl leading-relaxed mb-6">
-                                The <strong>Toyota Hiace VIP transfer</strong> is our most popular choice for medium-sized groups and large families. Known for its indestructible reliability and expansive interior, it provides a functional and comfortable experience for Umrah groups and corporate event logistics.
+                                The <strong>Toyota Hiace transfer</strong> is our most popular choice for medium-sized groups and large families. Known for its indestructible reliability and expansive interior, it provides a functional and comfortable experience for Umrah groups and corporate event logistics.
                             </p>
                             
                             <div className="space-y-6 mb-12">
@@ -167,7 +167,7 @@ export default function ToyotaHiacePage() {
                         {
                             question: "Does the Toyota Hiace include a chauffeur?",
                             shortAnswer: "Yes, professional group drivers.",
-                            detailedAnswer: "Every Toyota Hiace VIP transfer includes a professional, uniformed chauffeur. We specialize in group logistics and executive transport; we do not offer self-drive options.",
+                            detailedAnswer: "Every Toyota Hiace transfer includes a professional, uniformed chauffeur. We specialize in group logistics and executive transport; we do not offer self-drive options.",
                             perspectives: [
                                 { role: 'Safety Lead', icon: 'Shield', insight: 'Our drivers are experts at city navigation and highway safety.' }
                             ]

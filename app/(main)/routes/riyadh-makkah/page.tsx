@@ -33,7 +33,7 @@ export default function RiyadhMakkahRoutePage() {
             <JsonLdRoute 
                 from="Riyadh"
                 to="Makkah"
-                description="Luxury intercity transfer from Riyadh to Makkah. Premium 8-9 hour journey with professional chauffeurs. 100% private VIP car service."
+                description="Luxury intercity transfer from Riyadh to Makkah. Premium 8-9 hour journey with professional chauffeurs. 100% private car service."
                 distance="870 km"
                 duration="PT9H"
             />
@@ -42,11 +42,10 @@ export default function RiyadhMakkahRoutePage() {
                 images={['/locations/makkah.webp', '/hero-slide-3.webp']}
                 h1Text="Riyadh to Makkah Taxi"
                 title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Riyadh → Makkah VIP
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> Riyadh → Makkah
                     </span>
                 }
-                subtitle="The Premium Way to the Holy City - 100% Private VIP Direct"
+                subtitle="The Premium Way to the Holy City - 100% Private Direct"
                 location="8-9 Hours | Private Only | Professional Chauffeurs"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -109,7 +108,7 @@ export default function RiyadhMakkahRoutePage() {
                             <div className="space-y-6">
                                 {[
                                     { name: 'GMC Yukon Denali', capacity: '7 Pax', luggage: '5 Bags' },
-                                    { name: 'Mercedes S-Class VIP', capacity: '3 Pax', luggage: '2 Bags' },
+                                    { name: 'Mercedes S-Class', capacity: '3 Pax', luggage: '2 Bags' },
                                     { name: 'Luxurious Bus', capacity: '25 Pax', luggage: '10 Bags' },
                                     { name: 'Mercedes Sprinter', capacity: '14 Pax', luggage: '6 Bags' }
                                 ].map((car, i) => (
@@ -162,7 +161,7 @@ export default function RiyadhMakkahRoutePage() {
                         {
                             question: "How much is a taxi from Riyadh to Makkah?",
                             shortAnswer: "Fixed Rate (Vehicle-Dependent)",
-                            detailedAnswer: "Taxi rates for the 870km trip from Riyadh to Makkah are fixed to avoid price gouging. Prices vary based on whether you choose a sedan, SUV, or VIP van. Contact us for the latest seasonal rates.",
+                            detailedAnswer: "Taxi rates for the 870km trip from Riyadh to Makkah are fixed to avoid price gouging. Prices vary based on whether you choose a sedan, SUV, or van. Contact us for the latest seasonal rates.",
                             perspectives: [
                                 { role: 'Billing', icon: 'DollarSign', insight: 'Our fixed rates include fuel, toll fees, and several refreshment breaks.' }
                             ]
@@ -192,7 +191,7 @@ export default function RiyadhMakkahRoutePage() {
                 customLinks={[
                     { name: 'Riyadh to Madinah', url: '/routes/riyadh-madinah/', description: 'Direct transfer from the capital to the Prophet\'s City.' },
                     { name: 'Riyadh to Dammam', url: '/routes/riyadh-dammam/', description: 'Connecting the capital with the Eastern Province.' },
-                    { name: 'Makkah to Riyadh', url: '/routes/makkah-riyadh/', description: 'Return VIP transfer from the Holy City to Riyadh.' }
+                    { name: 'Makkah to Riyadh', url: '/routes/makkah-riyadh/', description: 'Return transfer from the Holy City to Riyadh.' }
                 ]}
             />
             <RelatedRoutes originSlug="riyadh" currentSlug="riyadh-makkah" />
@@ -200,8 +199,7 @@ export default function RiyadhMakkahRoutePage() {
             <div className="bg-emerald-950 py-24 text-center px-4 relative overflow-hidden rounded-[4rem] mx-4 mb-12 shadow-2xl">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -mr-48 -mt-48 animate-pulse"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
-                    <div className="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-1.5 rounded-full mb-8 animate-pulse">
-                        100% Private VIP Transfers Only • No Shared Taxis
+                    <div className="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-1.5 rounded-full mb-8 animate-pulse"> 100% Private Transfers Only • No Shared Taxis
                     </div>
                     <h2 className="text-3xl md:text-6xl font-black text-white mb-8 leading-tight">Get a quote for your Executive <br/> Riyadh to Makkah Taxi</h2>
                     <p className="text-emerald-100/60 text-lg mb-12 max-w-2xl mx-auto italic">"Providing the ultimate long-distance sanctuary for your spiritual journey."</p>

@@ -60,7 +60,7 @@ export default function LuxuriousBusPage() {
                         Elite Group Logistics
                     </span>
                 }
-                subtitle="The Ultimate Solution for Large Scale VIP Group Movement"
+                subtitle="The Ultimate Solution for Large Scale Group Movement"
                 location="25 Passengers | 30+ Bags | First Class Coach"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -99,7 +99,7 @@ export default function LuxuriousBusPage() {
                         <div>
                             <h2 className="text-4xl font-black text-gray-900 mb-8 leading-tight uppercase tracking-tighter">Commanding Comfort for 25+</h2>
                             <p className="text-gray-600 text-xl leading-relaxed mb-8">
-                                Move your entire organization or large pilgrimage group with the <strong>Luxurious Bus VIP private transfer</strong>. Designed for the long road between Riyadh, Makkah, and Madinah, our coaches feature "Tourismo" style luxury with extensive amenities for every passenger.
+                                Move your entire organization or large pilgrimage group with the <strong>Luxurious Bus private transfer</strong>. Designed for the long road between Riyadh, Makkah, and Madinah, our coaches feature "Tourismo" style luxury with extensive amenities for every passenger.
                             </p>
                             
                             <div className="space-y-6 mb-12">
@@ -122,7 +122,7 @@ export default function LuxuriousBusPage() {
 
                             <EntityTrustSignal 
                                 brandName="Elite Group Captains"
-                                description="Specially trained drivers for large-scale VIP logistics and diplomatic tours."
+                                description="Specially trained drivers for large-scale logistics and diplomatic tours."
                                 metrics={[
                                     { label: 'Fleet Safety', value: '100%', icon: ShieldCheck },
                                     { label: 'Client Retention', value: 'Elite', icon: Star }
@@ -132,7 +132,7 @@ export default function LuxuriousBusPage() {
 
                         <div className="bg-white rounded-[3rem] p-10 border border-gray-100 shadow-xl relative overflow-hidden">
                            <div className="absolute top-0 right-0 w-full h-2 bg-black"></div>
-                            <h3 className="text-2xl font-black text-gray-900 mb-8 uppercase tracking-widest text-center">Group VIP Specs</h3>
+                            <h3 className="text-2xl font-black text-gray-900 mb-8 uppercase tracking-widest text-center">Group Specs</h3>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-12">
                                 {[
                                     { title: 'On-Board Lavatory', info: 'Available on select models.' },

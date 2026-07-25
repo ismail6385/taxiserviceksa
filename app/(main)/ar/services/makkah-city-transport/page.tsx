@@ -7,7 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'خدمة نقل VIP في مكة المكرمة | سائق خاص ونقل عائلي | Taxi Service KSA',
+    title: 'خدمة نقل في مكة المكرمة | سائق خاص ونقل عائلي | Taxi Service KSA',
     description: 'نقل خاص وسائق عائلي في مكة المكرمة. توصيل من الفندق إلى الحرم، جولات الزيارة، من مطار جدة إلى مكة، ونقل عائلي فاخر. سائقون مرخصون على مدار الساعة.',
     keywords: [
         'خدمة نقل VIP مكة المكرمة',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'نقل VIP في مكة المكرمة | سائق عائلي خاص | Taxi Service KSA',
+        title: 'نقل في مكة المكرمة | سائق عائلي خاص | Taxi Service KSA',
         description: 'نقل وعائلي في مكة المكرمة. من الفندق إلى الحرم، جولات الزيارة، توصيل المطار، ومن مكة إلى المدينة. سائقون مرخصون، أسطول فاخر، على مدار الساعة.',
         url: 'https://taxiserviceksa.com/ar/services/makkah-city-transport/',
         locale: 'ar_SA',
@@ -73,7 +73,7 @@ export default function MakkahCityTransportPageArabic() {
 
     const faqs = [
         {
-            question: 'هل توجد خدمة نقل VIP في مكة المكرمة؟',
+            question: 'هل توجد خدمة نقل في مكة المكرمة؟',
             answer: 'نعم. توفر Taxi Service KSA نقلاً خاصاً VIP في مكة المكرمة يشمل التوصيل من الفندق إلى الحرم، جولات الزيارة، والتوصيل بين المدن إلى المدينة المنورة وجدة. جميع السائقين مسلمون ويمكنهم الدخول إلى جميع مناطق مكة المكرمة. تشمل السيارات جمس يوكن إكس إل وتويوتا هايس للعائلات والمجموعات.',
         },
         {
@@ -101,14 +101,14 @@ export default function MakkahCityTransportPageArabic() {
     const serviceSchema = {
         '@context': 'https://schema.org',
         '@type': 'Service',
-        name: 'خدمة نقل VIP وعائلي في مكة المكرمة',
+        name: 'خدمة نقل وعائلي في مكة المكرمة',
         serviceType: 'نقل خاص في مكة المكرمة',
         provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com' },
         areaServed: [
             { '@type': 'City', name: 'مكة المكرمة' },
             { '@type': 'AdministrativeArea', name: 'منطقة مكة المكرمة' },
         ],
-        description: 'نقل VIP وعائلي خاص في مكة المكرمة. من الفندق إلى الحرم، جولات الزيارة، توصيل المطار، ومن مكة إلى المدينة. جميع السائقين مسلمون بدخول كامل للمدينة.',
+        description: 'نقل وعائلي خاص في مكة المكرمة. من الفندق إلى الحرم، جولات الزيارة، توصيل المطار، ومن مكة إلى المدينة. جميع السائقين مسلمون بدخول كامل للمدينة.',
         offers: { '@type': 'Offer', availability: 'https://schema.org/InStock' },
     };
 
@@ -124,7 +124,7 @@ export default function MakkahCityTransportPageArabic() {
                 <div className="max-w-7xl mx-auto relative z-10 text-center">
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider text-sm px-4 py-1.5 rounded-full inline-block mb-6">نقل مكة المكرمة</span>
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        نقل VIP وعائلي<br /><span className="text-white/80">في مكة المكرمة</span>
+نقل وعائلي<br /><span className="text-white/80">في مكة المكرمة</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
                         توصيل خاص من الفندق إلى الحرم، جولات زيارة المعالم، استقبال من مطار جدة، ونقل بين مكة المكرمة والمدينة المنورة. جميع السائقين مسلمون بدخول كامل للمناطق المقدسة في مكة المكرمة.
@@ -234,7 +234,7 @@ export default function MakkahCityTransportPageArabic() {
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black">جمس يوكن (للعائلات)</Link></li>
                                 <li><Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-black">تويوتا هايس (للمجموعات)</Link></li>
-                                <li><Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-black">هيونداي ستاريا VIP</Link></li>
+                                <li><Link href="/fleet/hyundai-staria/" className="text-gray-600 hover:text-black">هيونداي ستاريا</Link></li>
                                 <li><Link href="/fleet/" className="text-black font-bold hover:underline">جميع السيارات ←</Link></li>
                             </ul>
                         </div>

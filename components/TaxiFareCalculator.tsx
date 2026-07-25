@@ -37,7 +37,7 @@ export default function TaxiFareCalculator() {
             <div className="bg-gray-900 p-6 text-white text-center">
                 <Calculator className="w-12 h-12 mx-auto mb-3 text-emerald-400" />
                 <h3 className="text-2xl font-bold">Taxi Quote Estimator</h3>
-                <p className="text-gray-400 text-sm">Get Instant VIP Quotations via WhatsApp</p>
+                <p className="text-gray-400 text-sm">Get Instant Quotations via WhatsApp</p>
             </div>
 
             <div className="p-8">
@@ -88,7 +88,7 @@ export default function TaxiFareCalculator() {
                     <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
                         <div className="flex items-center gap-2 mb-4 justify-center text-gray-500 text-sm">
                             <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                            <span>Professional VIP transfers with meet-and-greet service</span>
+                            <span>Professional transfers with meet-and-greet service</span>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                             {/* Sedan */}
@@ -106,14 +106,14 @@ export default function TaxiFareCalculator() {
 
                             {/* SUV */}
                             <div className="bg-emerald-50 p-4 rounded-xl border-2 border-emerald-500 text-center relative overflow-hidden">
-                                <div className="absolute top-0 right-0 bg-emerald-600 text-white text-[10px] px-2 py-0.5 rounded-bl-lg font-bold">VIP</div>
+                                <div className="absolute top-0 right-0 bg-emerald-600 text-white text-[10px] px-2 py-0.5 rounded-bl-lg font-bold">POPULAR</div>
                                 <Car className="w-8 h-8 mx-auto mb-2 text-emerald-600" />
-                                <div className="font-bold text-gray-900">VIP Luxury SUV</div>
+                                <div className="font-bold text-gray-900">Luxury SUV</div>
                                 <div className="text-xs text-gray-500 mb-2">GMC Yukon XL / Denali</div>
                                 <div className="text-xl font-black text-gray-900 mb-4">
                                     {result.suv ? `SAR ${result.suv}` : <span className="text-sm font-semibold text-gray-500">Contact for Quote</span>}
                                 </div>
-                                <Link href={`https://wa.me/966569487569?text=${encodeURIComponent(`Hello, I want to book a VIP SUV from ${CITY_LABELS[from]} to ${CITY_LABELS[to]}${result.suv ? ` (quoted SAR ${result.suv})` : ''}.`)}`}>
+                                <Link href={`https://wa.me/966569487569?text=${encodeURIComponent(`Hello, I want to book an SUV from ${CITY_LABELS[from]} to ${CITY_LABELS[to]}${result.suv ? ` (quoted SAR ${result.suv})` : ''}.`)}`}>
                                     <Button size="sm" className="w-full bg-emerald-600 hover:bg-emerald-700">WhatsApp Quote</Button>
                                 </Link>
                             </div>

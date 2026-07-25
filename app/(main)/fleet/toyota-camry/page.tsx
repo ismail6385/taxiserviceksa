@@ -10,7 +10,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
-    title: 'Toyota Camry VIP Private Transfer Saudi Arabia | Premium Sedan',
+    title: 'Toyota Camry Private Transfer Saudi Arabia | Premium Sedan',
     description: 'Book the elite Toyota Camry private transfer in Saudi Arabia. Premium executive sedan for business travel and airport transfers. Efficient, professional, and reliable chauffeur service.',
     keywords: ['Toyota Camry VIP transfer', 'premium sedan chauffeur KSA', 'Toyota Camry Riyadh transfer', 'executive car service Saudi Arabia'],
     alternates: {
@@ -93,7 +93,7 @@ export default function ToyotaCamryPage() {
                         <div>
                             <h2 className="text-4xl font-black text-gray-900 mb-8 leading-tight tracking-tighter uppercase">Reliability Meets Modern Style</h2>
                             <p className="text-gray-600 text-xl leading-relaxed mb-6">
-                                Experience the perfect blend of efficiency and professionalism with our <strong>Toyota Camry VIP private transfer</strong>. Ideal for business travelers and city airport transfers, our Camry fleet offers a smooth, reliable journey with all-inclusive pricing.
+                                Experience the perfect blend of efficiency and professionalism with our <strong>Toyota Camry private transfer</strong>. Ideal for business travelers and city airport transfers, our Camry fleet offers a smooth, reliable journey with all-inclusive pricing.
                             </p>
                             
                             <div className="space-y-6 mb-12">
@@ -165,7 +165,7 @@ export default function ToyotaCamryPage() {
                         {
                             question: "Is there a meeting service at the airport?",
                             shortAnswer: "Yes, Meet & Greet Included.",
-                            detailedAnswer: "All our VIP airport transfers include a professional greet service at the arrivals terminal, where our chauffeur will be waiting with your name on a digital sign.",
+                            detailedAnswer: "All our airport transfers include a professional greet service at the arrivals terminal, where our chauffeur will be waiting with your name on a digital sign.",
                             perspectives: [
                                 { role: 'Airport Ops', icon: 'Plane', insight: 'We monitor flight statuses in real-time to adjust for delays.' }
                             ]
@@ -188,10 +188,10 @@ export default function ToyotaCamryPage() {
                 <div className="absolute inset-0 bg-emerald-500/5 blur-[120px] rounded-full"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
                     <h2 className="text-4xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-none uppercase">EFFICIENCY <br/> <span className="text-emerald-500">DEFINED</span></h2>
-                    <p className="text-gray-400 text-xl mb-12 max-w-2xl mx-auto font-medium">Why settle for standard when you can have VIP? Secure your professional Toyota Camry transfer today.</p>
+                    <p className="text-gray-400 text-xl mb-12 max-w-2xl mx-auto font-medium">Why settle for standard when you can have? Secure your professional Toyota Camry transfer today.</p>
                     <Link href="/booking/?vehicle=toyota-camry">
                         <Button size="lg" className="bg-emerald-600 hover:bg-emerald-500 text-white font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl transition-all hover:scale-105">
-                            BOOK CAMRY VIP
+                            BOOK CAMRY
                         </Button>
                     </Link>
                 </div>
