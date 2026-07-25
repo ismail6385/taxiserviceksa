@@ -7,7 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Toyota Hiace with Driver Saudi Arabia | Group Van Hire Riyadh & Jeddah | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service for Group Hiace Hire | Taxi Service KSA',
     description: 'Hire a Toyota Hiace with driver in Saudi Arabia. 11-seat private van for groups, families, pilgrim groups, and tourist parties in Riyadh, Jeddah, Makkah, and Madinah. Book now.',
     keywords: [
         'Toyota Hiace with driver Saudi Arabia',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/services/group-hiace-hire/',
     },
     openGraph: {
-        title: 'Toyota Hiace with Driver Saudi Arabia | Group Van Hire | Taxi Service KSA',
+        title: 'Private Car, Taxi and Chauffeur Service for Group Hiace Hire | Taxi Service KSA',
         description: 'Hire a Toyota Hiace (11-seat) with driver in Riyadh, Jeddah, Makkah, and Madinah. Private group van for families, pilgrim groups, and tourist parties.',
         url: 'https://taxiserviceksa.com/services/group-hiace-hire/',
         type: 'website',
@@ -126,7 +126,7 @@ export default function GroupHiaceHirePage() {
                 <div className="max-w-7xl mx-auto relative z-10 text-center">
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-6">Group Van Hire</span>
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        Toyota Hiace with Driver<br /><span className="text-white/80">Saudi Arabia</span>
+                        Private Car, Taxi and Chauffeur Service<br />{' '}<span className="text-white/80">for Group Hiace Hire</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
                         Private 11-seat Toyota Hiace with professional driver for families, pilgrim groups, tourist parties, and corporate teams across Riyadh, Jeddah, Makkah, and Madinah.

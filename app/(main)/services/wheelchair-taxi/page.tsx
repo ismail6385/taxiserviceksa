@@ -14,7 +14,7 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 
 export const metadata: Metadata = {
-    title: 'Wheelchair Accessible Taxi Service KSA | Handicap Transport Service',
+    title: 'Private Car, Taxi and Chauffeur Service for Wheelchair Accessible Transport | Taxi Service KSA',
     description: 'Reliable wheelchair transfer service in Saudi Arabia. Vehicles equipped for elderly and disabled passengers. Accessible transport for Umrah, hospital visits, and airport transfers.',
     keywords: ['Wheelchair VIP transfer Saudi Arabia', 'Handicap accessible transport KSA', 'Disabled transfer service', 'Elderly transport Umrah', 'Medical VIP transfer service'],
     alternates: {
@@ -50,7 +50,7 @@ export default function WheelchairTaxiPage() {
 
             <Hero
                 images={['/hero-slide-3.webp', '/hero-slide-1.webp']}
-                h1Text="Wheelchair Accessible VIP Transfer Service"
+                h1Text="Private Car, Taxi and Chauffeur Service for Wheelchair Accessible Transport"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Care & Comfort

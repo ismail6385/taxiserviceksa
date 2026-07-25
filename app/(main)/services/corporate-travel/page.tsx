@@ -13,14 +13,14 @@ import {
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Corporate Travel Solutions Saudi Arabia | Company Account & Monthly Billing',
+    title: 'Private Car, Taxi and Chauffeur Service for Corporate Travel | Taxi Service KSA',
     description: 'Dedicated corporate travel account for businesses in Saudi Arabia. Monthly billing, multi-trip contracts, dedicated account manager, and fleet allocation for your company.',
     keywords: ['Corporate travel account Saudi Arabia', 'Company taxi account KSA', 'Monthly billing taxi Saudi', 'Business fleet management KSA', 'Corporate transport contract Saudi Arabia'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/corporate-travel/',
     },
     openGraph: {
-        title: 'Corporate Transfer Service Saudi Arabia | Executive Chauffeur with Driver | Taxi Service KSA',
+        title: 'Private Car, Taxi and Chauffeur Service for Corporate Travel | Taxi Service KSA',
         description: 'Professional corporate transfer service for business executives. Monthly billing, priority booking, executive vehicles.',
         url: 'https://taxiserviceksa.com/services/corporate-travel/',
         type: 'website',
@@ -154,8 +154,8 @@ export default function CorporateTravelPage() {
                             Corporate Travel Service
                         </span>
                         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                            Top Rated Executive Transport<br />
-                            <span className="text-white">In Saudi Arabia</span>
+                            Private Car, Taxi and Chauffeur Service<br />{' '}
+                            <span className="text-white">for Corporate Travel</span>
                         </h1>
                         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
                             Taxi Service KSA provides the best executive transfer service for corporate clients. Professional executive transport with licensed chauffeurs in Riyadh and Jeddah.

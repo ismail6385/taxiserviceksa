@@ -7,7 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Makkah Transport Service | Private Chauffeur & Family Transfer | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service for Makkah City Transport | Taxi Service KSA',
     description: 'Private transport and family chauffeur in Makkah. Hotel to Haram transfers, Ziyarat tours, Jeddah airport to Makkah, and luxury family transport. Licensed drivers 24/7.',
     keywords: [
         'Makkah VIP transport service',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/services/makkah-city-transport/',
     },
     openGraph: {
-        title: 'Makkah Transport | Private Family Chauffeur | Taxi Service KSA',
+        title: 'Private Car, Taxi and Chauffeur Service for Makkah City Transport | Taxi Service KSA',
         description: 'Family transport in Makkah. Hotel to Haram, Ziyarat tours, airport transfers, and Makkah to Madinah. Licensed drivers, luxury fleet, 24/7.',
         url: 'https://taxiserviceksa.com/services/makkah-city-transport/',
         type: 'website',
@@ -118,7 +118,7 @@ export default function MakkahCityTransportPage() {
                 <div className="max-w-7xl mx-auto relative z-10 text-center">
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-6">Makkah Transport</span>
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-Family Transport<br /><span className="text-white/80">in Makkah</span>
+Private Car, Taxi and Chauffeur Service<br />{' '}<span className="text-white/80">for Makkah City Transport</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
                         Private hotel-to-Haram transfers, Ziyarat tours, Jeddah airport pickups, and Makkah–Madinah intercity transport. All-Muslim drivers with full access to Makkah's sacred areas.

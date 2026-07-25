@@ -4,7 +4,7 @@ import { ArrowRight, MapPin, Phone, CheckCircle2, Star, Hotel } from 'lucide-rea
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Jeddah Corniche Hotel Taxi | Luxury Chauffeur Transfers | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service for Jeddah Corniche Hotels | Taxi Service KSA',
     description: 'Private hotel taxi transfers along the Jeddah Corniche. Luxury chauffeur service for Ritz-Carlton, Shangri-La, Hilton, Waldorf Astoria, and Rosewood. Fixed rates, 24/7.',
     keywords: [
         'Jeddah Corniche hotel taxi',
@@ -72,8 +72,8 @@ export default function JeddahCornicheHotelTaxiPage() {
                         <span className="bg-white/10 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/20">Lobby Pickups</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-5 leading-tight">
-                        Jeddah Corniche<br />
-                        <span className="text-emerald-300">Hotel Taxi Service</span>
+                        Private Car, Taxi and Chauffeur Service<br />{' '}
+                        <span className="text-emerald-300">for Jeddah Corniche Hotels</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-2xl mb-8 leading-relaxed">
                         Chauffeur-driven private hotel transfers starting directly from your hotel lobby on the Jeddah Corniche. Seamless transport to Jeddah Airport, Makkah Haram, and central business hubs.

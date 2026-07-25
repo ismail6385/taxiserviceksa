@@ -9,14 +9,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 
 export const metadata: Metadata = {
-    title: 'Local Taxi in Makkah | Hotel to Haram & Ziyarat Rides | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service in Makkah | Hotel to Haram & Ziyarat | Taxi Service KSA',
     description: 'Local taxi service within Makkah for pilgrims. Hotel to Haram shuttles, short Ziyarat trips, and intra-city rides. Available 24/7 during Umrah and Hajj season.',
     keywords: ['Local taxi Makkah', 'Hotel to Haram taxi', 'Makkah city rides', 'Pilgrims taxi Makkah', 'Intra-city taxi Makkah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/taxi-in-makkah/',
     },
     openGraph: {
-        title: 'Taxi in Makkah | 24/7 Premium Private Taxis | Taxi Service KSA',
+        title: 'Private Car Transfer, Taxi and Chauffeur Service in Makkah | Hotel to Haram & Ziyarat | Taxi Service KSA',
         description: 'Reliable private taxi service in Makkah. Premium fleet available 24/7 for intercity travel and Ziyarat.',
         url: 'https://taxiserviceksa.com/services/taxi-in-makkah/',
         type: 'website',
@@ -68,7 +68,7 @@ export default function TaxiInMakkahPage() {
 
             <Hero
                 images={['/makkah-clock-tower.webp', '/makkah-kaaba-night.webp']}
-                h1Text="Taxi Makkah"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Makkah - Hotel to Haram & Ziyarat"
                 bookingFormTitle="Get a quote for your Makkah Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">

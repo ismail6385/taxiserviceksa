@@ -23,7 +23,7 @@ import {
 } from '@/components/ui/accordion';
 
 export const metadata: Metadata = {
-    title: 'Saudi Arabia Tours & Sightseeing | Historical & Heritage Trips | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service for Tours & Sightseeing | Taxi Service KSA',
     description: 'Discover Saudi Arabia with private guided tours. Makkah & Madinah Ziyarat, AlUla Heritage sites, Taif sightseeing, and Jeddah historical tours. Get a quote for your private driver today.',
     keywords: ['Saudi Arabia tours', 'Madinah Ziyarat tour', 'AlUla heritage tour', 'Taif sightseeing', 'Jeddah historical tour', 'Private tour driver KSA'],
     alternates: {
@@ -95,7 +95,7 @@ export default function ToursPage() {
 
             <Hero
                 images={['/hero-slide-2.webp', '/alula-hegra.webp']}
-                h1Text="Private Tours & Sightseeing in Saudi Arabia"
+                h1Text="Private Car, Taxi and Chauffeur Service for Tours & Sightseeing"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Discover the Kingdom

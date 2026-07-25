@@ -17,14 +17,14 @@ import JsonLdLocation from '@/components/JsonLdLocation';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
-    title: 'Airport Transfer Service Saudi Arabia | 8 Airports | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service for Airport Transfers | Taxi Service KSA',
     description: 'Professional airport transfer service across Saudi Arabia. 8 major airports covered including Jeddah, Riyadh & Madinah. Executive meet-and-greet, flight tracking, fixed rates, 24/7 service.',
     keywords: ['VIP Airport Transfers Saudi Arabia'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/airport-transfers/',
     },
     openGraph: {
-        title: 'Airport Transfer Service Saudi Arabia | Premium Chauffeur - 8 Airports | Taxi Service KSA',
+        title: 'Private Car, Taxi and Chauffeur Service for Airport Transfers | Taxi Service KSA',
         description: 'Professional airport transfer service across Saudi Arabia. 8 major airports covered. Executive meet-and-greet, flight tracking, 24/7 service.',
         url: 'https://taxiserviceksa.com/services/airport-transfers/',
         type: 'website',
@@ -234,8 +234,8 @@ export default async function AirportTransfersPage() {
                         Expert Aviation Logistics
                     </span>
                     <h1 className="text-4xl md:text-6xl font-black text-white mb-6 px-4 leading-tight">
-Airport Private Transfers<br />
-                        <span className="text-primary">In Saudi Arabia</span>
+Private Car, Taxi and Chauffeur Service<br />{' '}
+                        <span className="text-primary">for Airport Transfers</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 mb-10">
                         Reliable <strong>24/7 airport pickups</strong> and departures across the Kingdom's major travel hubs. Experience international standard meet-and-greet services at 8 airports, including <strong>Jeddah Terminal 1</strong> and <strong>Riyadh Terminal 3/4</strong>.

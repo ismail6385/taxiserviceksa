@@ -4,7 +4,7 @@ import { ArrowRight, MapPin, Phone, CheckCircle2, Star, Shield, Anchor } from 'l
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Jeddah Port Taxi Transfer | Cruise Terminal Transfers | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service for Jeddah Port Transfers | Taxi Service KSA',
     description: 'Private taxi from Jeddah Islamic Port. Premium transfers for cruise ship passengers to Makkah (Umrah), JED Airport, and Jeddah hotels. Fixed rates, book via WhatsApp.',
     keywords: [
         'Jeddah port taxi transfer',
@@ -72,8 +72,8 @@ export default function JeddahPortTaxiTransferPage() {
                         <span className="bg-white/10 text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/20">24/7 Available</span>
                     </div>
                     <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-5 leading-tight">
-                        Jeddah Islamic Port<br />
-                        <span className="text-blue-300">Taxi & Chauffeur</span>
+                        Private Car, Taxi and Chauffeur Service<br />{' '}
+                        <span className="text-blue-300">for Jeddah Port Transfers</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-2xl mb-8 leading-relaxed">
                         Pre-booked private transfers from the Jeddah Islamic Port Cruise terminal. Direct rides to Makkah Al Haram, KAIA Airport (JED), and Jeddah hotels. Professional chauffeurs, fixed rates.

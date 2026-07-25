@@ -29,7 +29,7 @@ import QuestionForm from '@/components/seo/QuestionForm';
 import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
-    title: 'Intercity Taxi Service KSA | Long Distance Private Chauffeur',
+    title: 'Private Car, Taxi and Chauffeur Service for Intercity Travel | Taxi Service KSA',
     description: 'Premium intercity transfer service in Saudi Arabia. Executive private transfers between Jeddah, Makkah, Madinah, Riyadh, and more. Luxury long-distance travel with fixed rates.',
     keywords: ['Intercity VIP transfer Saudi Arabia', 'Jeddah to Riyadh premium transfer', 'Long distance private chauffeur KSA', 'City to city VIP transfer Saudi Arabia', 'Private executive car hire Saudi cities'],
     alternates: {
@@ -118,8 +118,8 @@ export default function IntercityServicePage() {
                         Seamless Kingdom-Wide Travel
                     </span>
                     <h1 className="text-4xl md:text-6xl font-black text-white mb-6 px-4 leading-tight">
-Intercity Transfer Service<br />
-                        <span className="text-primary">Across Saudi Arabia</span>
+Private Car, Taxi and Chauffeur Service<br />{' '}
+                        <span className="text-primary">for Intercity Travel</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 mb-10">
                         Professional long-distance travel between <strong>Jeddah, Makkah, Madinah, Riyadh, and Dammam</strong>. Experience executive comfort with licensed drivers for all your city-to-city needs.

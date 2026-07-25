@@ -15,7 +15,7 @@ import {
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Saudi Arabia Tourism Transport | Private Driver for Tourists | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service for Tourism Transport | Taxi Service KSA',
     description: 'Private car with driver for tourists in Saudi Arabia. City tours, desert trips, shopping tours, and sightseeing in Riyadh, Jeddah, AlUla, and Makkah. English-speaking drivers. Book now.',
     keywords: [
         'Saudi tourism car service',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/services/tourism-transport/',
     },
     openGraph: {
-        title: 'Saudi Arabia Tourism Transport | Private Driver for Tourists | Taxi Service KSA',
+        title: 'Private Car, Taxi and Chauffeur Service for Tourism Transport | Taxi Service KSA',
         description: 'Private chauffeur for tourists across Saudi Arabia. City tours, desert trips, shopping, and sightseeing in Riyadh, Jeddah, AlUla, and Makkah. English-speaking drivers.',
         url: 'https://taxiserviceksa.com/services/tourism-transport/',
         type: 'website',
@@ -209,8 +209,8 @@ export default function TourismTransportPage() {
                         Saudi Tourism Transport
                     </span>
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        Private Driver for Tourists<br />
-                        <span className="text-white/80">in Saudi Arabia</span>
+                        Private Car, Taxi and Chauffeur Service<br />{' '}
+                        <span className="text-white/80">for Tourism Transport</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
                         Explore Riyadh, Jeddah, AlUla, and the Saudi desert with your own private English-speaking driver. City tours, shopping trips, desert excursions, and luxury road trips — all in one service.

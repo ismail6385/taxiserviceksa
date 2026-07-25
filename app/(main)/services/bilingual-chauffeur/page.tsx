@@ -15,7 +15,7 @@ import {
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'English-Speaking Driver Saudi Arabia | Bilingual Chauffeur Riyadh & Jeddah | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service for Bilingual Chauffeurs | Taxi Service KSA',
     description: 'English and Arabic speaking private driver in Saudi Arabia. Bilingual chauffeur for foreign visitors, expats, and female travelers in Riyadh and Jeddah. Licensed, professional, 24/7.',
     keywords: [
         'English speaking driver Saudi Arabia',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/services/bilingual-chauffeur/',
     },
     openGraph: {
-        title: 'English-Speaking Driver Saudi Arabia | Bilingual Chauffeur | Taxi Service KSA',
+        title: 'Private Car, Taxi and Chauffeur Service for Bilingual Chauffeurs | Taxi Service KSA',
         description: 'Hire an English and Arabic speaking private driver in Saudi Arabia. Professional bilingual chauffeur for foreign visitors, expats, and female travelers across Riyadh and Jeddah.',
         url: 'https://taxiserviceksa.com/services/bilingual-chauffeur/',
         type: 'website',
@@ -198,8 +198,8 @@ export default function BilingualChauffeurPage() {
                         Bilingual Chauffeur Service
                     </span>
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        English-Speaking Driver<br />
-                        <span className="text-white/80">in Saudi Arabia</span>
+                        Private Car, Taxi and Chauffeur Service<br />{' '}
+                        <span className="text-white/80">for Bilingual Chauffeurs</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
                         Professional bilingual chauffeur service in English and Arabic across Riyadh, Jeddah, Makkah, and Madinah. Ideal for foreign visitors, expats, female travelers, and international tourists.

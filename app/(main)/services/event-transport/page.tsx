@@ -15,7 +15,7 @@ import {
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Event & Wedding Transport Saudi Arabia | Conference & Exhibition Chauffeur | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service for Event & Wedding Transport | Taxi Service KSA',
     description: 'Professional event transport for weddings, conferences, exhibitions, and corporate events in Riyadh and Jeddah. Private chauffeur for guests, arrivals, and group logistics. Book now.',
     keywords: [
         'Saudi event chauffeur booking',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/services/event-transport/',
     },
     openGraph: {
-        title: 'Event & Wedding Transport Saudi Arabia | Chauffeur for Conferences & Weddings | Taxi Service KSA',
+        title: 'Private Car, Taxi and Chauffeur Service for Event & Wedding Transport | Taxi Service KSA',
         description: 'Private chauffeur and group transport for weddings, conferences, exhibitions, and corporate events in Riyadh and Jeddah. arrivals, guest shuttles, and full event logistics.',
         url: 'https://taxiserviceksa.com/services/event-transport/',
         type: 'website',
@@ -195,8 +195,8 @@ export default function EventTransportPage() {
                         Event & Wedding Transport
                     </span>
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        Private Event Transport<br />
-                        <span className="text-white/80">Saudi Arabia</span>
+                        Private Car, Taxi and Chauffeur Service<br />{' '}
+                        <span className="text-white/80">for Event & Wedding Transport</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
                         Coordinated chauffeur and group transport for weddings, conferences, exhibitions, Riyadh Season events, and corporate functions across Riyadh and Jeddah.

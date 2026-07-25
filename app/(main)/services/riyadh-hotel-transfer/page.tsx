@@ -7,7 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Riyadh Hotel Transfer Service | Airport & City Hotel Pickup | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service for Riyadh Hotel Transfers | Taxi Service KSA',
     description: 'Private hotel pickup and transfer service in Riyadh. Airport to hotel, hotel to hotel, and hotel to business district. Luxury vehicles, meet-and-greet, 24/7. Book your Riyadh hotel transfer now.',
     keywords: [
         'Riyadh hotel pickup service',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/services/riyadh-hotel-transfer/',
     },
     openGraph: {
-        title: 'Riyadh Hotel Transfer Service | Airport & City Pickup | Taxi Service KSA',
+        title: 'Private Car, Taxi and Chauffeur Service for Riyadh Hotel Transfers | Taxi Service KSA',
         description: 'Private hotel pickup and transfer in Riyadh. Airport to hotel, hotel to business district, and luxury hotel-to-hotel transfers. Meet-and-greet, 24/7.',
         url: 'https://taxiserviceksa.com/services/riyadh-hotel-transfer/',
         type: 'website',
@@ -120,7 +120,7 @@ export default function RiyadhHotelTransferPage() {
                 <div className="max-w-7xl mx-auto relative z-10 text-center">
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-6">Riyadh Hotel Transfer</span>
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        Hotel Transfer Service<br /><span className="text-white/80">in Riyadh</span>
+                        Private Car, Taxi and Chauffeur Service<br />{' '}<span className="text-white/80">for Riyadh Hotel Transfers</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
                         Private airport-to-hotel, hotel-to-business-district, and luxury hotel pickup service across Riyadh. Meet-and-greet, flight tracking, fixed rates — available 24/7.

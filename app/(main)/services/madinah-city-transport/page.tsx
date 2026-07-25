@@ -7,7 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Madinah Luxury Family Transfer | Private Chauffeur & Transport | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service for Madinah City Transport | Taxi Service KSA',
     description: 'Private family transport and luxury chauffeur in Madinah. Hotel to Prophet\'s Mosque, Ziyarat tours, Madinah airport pickups, and Madinah to Makkah transfers. Licensed drivers 24/7.',
     keywords: [
         'Madinah luxury family transfer',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/services/madinah-city-transport/',
     },
     openGraph: {
-        title: 'Madinah Luxury Family Transfer | Private Chauffeur | Taxi Service KSA',
+        title: 'Private Car, Taxi and Chauffeur Service for Madinah City Transport | Taxi Service KSA',
         description: 'Private luxury transport in Madinah. Hotel to Prophet\'s Mosque, Ziyarat tours, airport transfers, and Madinah to Makkah. Family vehicles available 24/7.',
         url: 'https://taxiserviceksa.com/services/madinah-city-transport/',
         type: 'website',
@@ -118,7 +118,7 @@ export default function MadinahCityTransportPage() {
                 <div className="max-w-7xl mx-auto relative z-10 text-center">
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-6">Madinah Transport</span>
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        Luxury Family Transfer<br /><span className="text-white/80">in Madinah</span>
+                        Private Car, Taxi and Chauffeur Service<br />{' '}<span className="text-white/80">for Madinah City Transport</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
                         Private hotel transfers, Ziyarat tours, airport pickups, and Madinah–Makkah intercity transport. Comfortable family vehicles with Muslim drivers, available at all prayer times.

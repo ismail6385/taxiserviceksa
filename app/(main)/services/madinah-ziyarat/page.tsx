@@ -19,7 +19,7 @@ import ZiyaratSites from '@/components/ZiyaratSites';
 
 
 export const metadata: Metadata = {
-    title: 'Madinah Ziyarat Taxi Service 2026 | Holy Sites Tours (Ziyarah) | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service for Madinah Ziyarat | Taxi Service KSA',
     description: 'Book comprehensive Ziyarat tours in Madinah 2026. Visit Masjid Quba, Mount Uhud, Seven Mosques, and Qiblatain with knowledgeable local drivers. Fixed price packages.',
     keywords: ['Madinah Ziyarat 2026', 'Ziyarat taxi Madinah', 'Quba mosque taxi', 'Uhud mountain tour', 'Seven mosques visit', 'Madinah holy sites transport'],
     alternates: {
@@ -70,7 +70,7 @@ export default function MadinahZiyaratPage() {
 
             <Hero
                 images={['/madinah-prophets-mosque.webp', '/hero-slide-2.webp']}
-                h1Text="2026 Madinah Ziyarat Taxi Packages"
+                h1Text="Private Car, Taxi and Chauffeur Service for Madinah Ziyarat"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         2026 Spiritual Journey

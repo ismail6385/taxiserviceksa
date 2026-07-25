@@ -15,7 +15,7 @@ import {
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Private Driver by Hour, Day & Month Saudi Arabia | Riyadh & Jeddah | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service for Private Driver Hire | Taxi Service KSA',
     description: 'Hire a private driver in Riyadh or Jeddah by the hour, full day, week, or month. Luxury SUV with driver. English-speaking chauffeur for shopping, meetings, tours, and family use.',
     keywords: [
         'private driver for full day Riyadh',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/services/private-driver/',
     },
     openGraph: {
-        title: 'Private Driver by Hour, Day & Month Saudi Arabia | Taxi Service KSA',
+        title: 'Private Car, Taxi and Chauffeur Service for Private Driver Hire | Taxi Service KSA',
         description: 'Hire a private driver in Riyadh or Jeddah by the hour, day, week, or month. English-speaking chauffeur with luxury SUV for shopping, meetings, family trips, and tours.',
         url: 'https://taxiserviceksa.com/services/private-driver/',
         type: 'website',
@@ -218,8 +218,8 @@ export default function PrivateDriverPage() {
                         Private Driver Hire
                     </span>
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        Hire a Private Driver<br />
-                        <span className="text-white/80">by Hour, Day or Month in Saudi Arabia</span>
+                        Private Car, Taxi and Chauffeur Service<br />{' '}
+                        <span className="text-white/80">for Private Driver Hire</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
                         Your own dedicated driver in Riyadh or Jeddah — for shopping, business meetings, family outings, or a full tourist itinerary. Fixed rates. English-speaking. Luxury vehicles.

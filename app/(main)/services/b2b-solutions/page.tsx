@@ -17,7 +17,7 @@ import { Button } from '@/components/ui/button';
 import Hero from '@/components/Hero';
 
 export const metadata = {
-    title: 'B2B & Corporate Transport Solutions | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service for B2B Corporate Solutions | Taxi Service KSA',
     description: 'Premier B2B transportation services in Saudi Arabia. We partner with travel agencies, Umrah operators, and corporate clients for reliable, luxury transfers.',
     keywords: ['B2B Transport Solutions Saudi Arabia'],
     alternates: {
@@ -29,7 +29,7 @@ export default function B2BSolutions() {
     return (
         <main className="min-h-screen bg-white">
             <Hero
-                title="Scale Your Travel Business with Top-Tier Logistics"
+                h1Text="Private Car, Taxi and Chauffeur Service for B2B Corporate Solutions"
                 subtitle="We provide reliable, high-capacity, and luxury transport solutions for corporate clients and global Umrah agencies."
                 images={["/chauffeur-service.png"]}
             />

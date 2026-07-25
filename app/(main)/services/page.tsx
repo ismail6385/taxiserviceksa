@@ -4,7 +4,7 @@ import { Car, Plane, Building2, Compass, ArrowRight, MapPin, Crown, Globe, Clock
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-    title: 'All Chauffeur & Transport Services Saudi Arabia | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Services Across Saudi Arabia | Taxi Service KSA',
     description: 'Complete range of private transport services in Saudi Arabia — chauffeur, airport transfers, tourism transport, private driver hire, event transport, and more. Book now.',
     keywords: ['VIP Private Transfers', 'Executive Chauffeur Service', 'Taxi Service KSA', 'Long Distance Transfer', 'Umrah Private Transport', 'Business Chauffeur', 'Tourism Transport Saudi', 'Private Driver Saudi Arabia', 'English Speaking Driver Saudi'],
     alternates: {
@@ -182,8 +182,8 @@ export default function ServicesPage() {
                         All Services
                     </span>
                     <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
-                        Private Chauffeur &<br />
-                        <span className="text-black">Transport Services in Saudi Arabia</span>
+                        Private Car, Taxi and Chauffeur<br />{' '}
+                        <span className="text-black">Services Across Saudi Arabia</span>
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"> Pre-booked private journeys across the Kingdom — from chauffeur and tourist transport to Umrah transfers and group hire. No street-hail, no surge pricing.
                     </p>

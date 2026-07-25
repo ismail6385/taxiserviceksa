@@ -10,14 +10,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
-    title: 'GCC Chauffeur Service | Saudi Arabia to UAE, Kuwait, Qatar & Bahrain | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service for GCC Cross-Border Travel | Taxi Service KSA',
     description: 'Private chauffeur service from Saudi Arabia across the GCC — Dubai, Abu Dhabi, Kuwait, Qatar, and Bahrain. Door-to-door cross-border transfers with fixed rates.',
     keywords: ['GCC chauffeur service', 'Saudi Arabia to UAE taxi', 'Saudi Arabia to Kuwait taxi', 'Saudi Arabia to Qatar taxi', 'Saudi Arabia to Bahrain taxi', 'cross border chauffeur Gulf'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/gcc-chauffeur-service/',
     },
     openGraph: {
-        title: 'GCC Chauffeur Service | Taxi Service KSA',
+        title: 'Private Car, Taxi and Chauffeur Service for GCC Cross-Border Travel | Taxi Service KSA',
         description: 'Private cross-border chauffeur transfers connecting Saudi Arabia with the UAE, Kuwait, Qatar, and Bahrain.',
         url: 'https://taxiserviceksa.com/services/gcc-chauffeur-service/',
         type: 'website',
@@ -90,7 +90,7 @@ export default function GccChauffeurServicePage() {
 
             <Hero
                 images={images}
-                h1Text="GCC Chauffeur Service"
+                h1Text="Private Car, Taxi and Chauffeur Service for GCC Cross-Border Travel"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Saudi Arabia to the Gulf, Door to Door

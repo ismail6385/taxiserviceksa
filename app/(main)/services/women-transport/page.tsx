@@ -15,7 +15,7 @@ import {
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Private Transport for Women Saudi Arabia | Female-Friendly Chauffeur | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service for Women | Taxi Service KSA',
     description: 'Safe, private transport for women in Saudi Arabia. Female-friendly chauffeur service in Riyadh, Jeddah, Makkah, and Madinah. Licensed drivers, private vehicles, 24/7 availability.',
     keywords: [
         'female friendly chauffeur Saudi',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/services/women-transport/',
     },
     openGraph: {
-        title: 'Private Transport for Women Saudi Arabia | Female-Friendly Chauffeur | Taxi Service KSA',
+        title: 'Private Car, Taxi and Chauffeur Service for Women | Taxi Service KSA',
         description: 'Safe, private, and discreet transport for women across Saudi Arabia. Female-friendly chauffeurs available 24/7 in Riyadh, Jeddah, Makkah, and Madinah.',
         url: 'https://taxiserviceksa.com/services/women-transport/',
         type: 'website',
@@ -173,8 +173,8 @@ export default function WomenTransportPage() {
                         Women's Private Transport
                     </span>
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        Safe Private Transport<br />
-                        <span className="text-white/80">for Women in Saudi Arabia</span>
+                        Private Car, Taxi and Chauffeur Service<br />{' '}
+                        <span className="text-white/80">for Women</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
                         Professional, discreet, and private chauffeur service for women across Riyadh, Jeddah, Makkah, and Madinah. Solo travelers, families, businesswomen, and Umrah pilgrims — all welcome.

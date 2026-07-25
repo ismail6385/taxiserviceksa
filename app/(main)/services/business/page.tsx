@@ -15,7 +15,7 @@ import QuestionsDisplay from '@/components/QuestionsDisplay';
 import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
-    title: 'Business & Corporate Taxi Service KSA | Executive Chauffeur',
+    title: 'Private Car, Taxi and Chauffeur Service for Business & Corporate Travel | Taxi Service KSA',
     description: 'Premier corporate transfer service in Saudi Arabia for business professionals. Executive cars, monthly invoicing, reliable airport transfers, and event transport.',
     keywords: ['Corporate VIP transfer Saudi Arabia', 'Business executive transfer KSA', 'Chauffeur service Riyadh', 'Jeddah business transfer', 'VIP transport Saudi Arabia'],
     alternates: {
@@ -82,8 +82,8 @@ export default function BusinessPage() {
                         Executive Excellence
                     </span>
                     <h1 className="text-4xl md:text-6xl font-black text-white mb-6 px-4 leading-tight">
-                        Corporate Transport Solutions<br />
-                        <span className="text-primary">For Business Professionals</span>
+                        Private Car, Taxi and Chauffeur Service<br />{' '}
+                        <span className="text-primary">for Business & Corporate Travel</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 mb-10">
                         Efficiency, discretion, and reliability. Powering Saudi business mobility with a fleet of premium vehicles and professional chauffeurs dedicated to your schedule.

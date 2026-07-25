@@ -8,14 +8,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 
 export const metadata: Metadata = {
-    title: 'Local Taxi in Jeddah | Same-Day City Rides & Short Transfers | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service in Jeddah | Local City Rides | Taxi Service KSA',
     description: 'Need a local taxi in Jeddah? We cover same-day city rides, hotel pickups, shopping mall transfers, and short trips within Jeddah. Book online, fixed price.',
     keywords: ['Local taxi Jeddah', 'Taxi within Jeddah city', 'Jeddah city rides', 'Hotel pickup Jeddah', 'Same day taxi Jeddah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/taxi-in-jeddah/',
     },
     openGraph: {
-        title: 'Taxi in Jeddah | Premium Chauffeured Cars | Taxi Service KSA',
+        title: 'Private Car Transfer, Taxi and Chauffeur Service in Jeddah | Local City Rides | Taxi Service KSA',
         description: 'Elite private taxis and executive SUVs in Jeddah for VIPs, corporate travel, and Umrah pilgrims.',
         url: 'https://taxiserviceksa.com/services/taxi-in-jeddah/',
         type: 'website',
@@ -67,7 +67,7 @@ export default function TaxiInJeddahPage() {
 
             <Hero
                 images={['/locations/jeddah.webp', '/hero-slide-1.webp']}
-                h1Text="Taxi Jeddah"
+                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Jeddah - Local City Rides"
                 bookingFormTitle="Get a quote for your Jeddah Taxi"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">

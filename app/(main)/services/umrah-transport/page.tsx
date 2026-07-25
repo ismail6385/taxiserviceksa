@@ -16,14 +16,14 @@ import AuthorCard from '@/components/AuthorCard';
 import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
-    title: 'Umrah Transport Service | Private Chauffeur Makkah & Madinah | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service for Umrah Transport | Taxi Service KSA',
     description: 'Complete Umrah transport with professional licensed chauffeurs. Jeddah Airport to Makkah, Makkah to Madinah private transfers. Meeqat stops, Zamzam accommodation, fixed rates, 24/7.',
     keywords: ['VIP Umrah Transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/umrah-transport/',
     },
     openGraph: {
-        title: 'Umrah Transfer Service | Private Chauffeur for Makkah & Madinah | Taxi Service KSA',
+        title: 'Private Car, Taxi and Chauffeur Service for Umrah Transport | Taxi Service KSA',
         description: 'Complete Umrah transport service with professional chauffeurs. Jeddah Airport to Makkah, Makkah to Madinah best transfer. Fixed rates, 24/7 service.',
         url: 'https://taxiserviceksa.com/services/umrah-transport/',
         type: 'website',
@@ -196,7 +196,7 @@ export default async function UmrahTransportPage() {
                     <span className="bg-primary/20 text-primary font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4 backdrop-blur-sm border border-primary/20">
                         Elite Pilgrimage Logistics
                     </span>
-                    <h1 className="text-4xl md:text-6xl font-black text-white mb-6 px-4 leading-tight"> Umrah Transport Service
+                    <h1 className="text-4xl md:text-6xl font-black text-white mb-6 px-4 leading-tight"> Private Car, Taxi and Chauffeur Service for Umrah Transport
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 mb-10">
                         Perform your Umrah with peace of mind. We provide <strong>premium private transfers</strong> between Jeddah Airport, Makkah, and Madinah with professional, licensed drivers.

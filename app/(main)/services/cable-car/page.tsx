@@ -15,7 +15,7 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 
 export const metadata: Metadata = {
-    title: 'Cable Car Transfers Saudi Arabia | Taif & Abha Telefric Taxi | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service for Cable Car Transfers | Taxi Service KSA',
     description: 'Taxi service to Cable Car (Telefric) stations in Taif (Al Hada) and Abha. Enjoy the scenic mountain views with reliable transport to and from the terminals.',
     keywords: ['Taif cable car taxi', 'Al Hada telefric transport', 'Abha cable car ride', 'Saudi Arabia cable car', 'Mountain tourism taxi'],
     alternates: {
@@ -68,7 +68,7 @@ export default function CableCarPage() {
 
             <Hero
                 images={['/locations/taif.webp', '/hero-slide-3.webp']}
-                h1Text="Cable Car Station Transfers"
+                h1Text="Private Car, Taxi and Chauffeur Service for Cable Car Transfers"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Scenic Heights

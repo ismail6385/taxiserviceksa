@@ -16,7 +16,7 @@ import JsonLdFAQ from '@/components/JsonLdFAQ';
 import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
-    title: 'Taxi in Tabuk | Private Car Tabuk to NEOM, AlUla & KSA | Taxi Service KSA',
+    title: 'Private Car Transfer, Taxi and Chauffeur Service in Tabuk | NEOM & AlUla Routes | Taxi Service KSA',
     description: 'Best private taxi service in Tabuk 2026. Specialists in Tabuk to NEOM transfers, AlUla, Jeddah, and city rides. Fixed rates, luxury fleet, 24/7. Book via WhatsApp.',
     keywords: [
         'taxi in Tabuk',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'Taxi in Tabuk | Private Car to NEOM, AlUla & All Saudi Arabia',
+        title: 'Private Car Transfer, Taxi and Chauffeur Service in Tabuk | NEOM & AlUla Routes | Taxi Service KSA',
         description: 'Premium taxi and private car service in Tabuk. NEOM specialists, AlUla transfers, airport pickup. Fixed rates, luxury fleet, 24/7.',
         url: 'https://taxiserviceksa.com/services/taxi-in-tabuk/',
         type: 'website',
@@ -223,8 +223,8 @@ export default function TaxiInTabukPage() {
                         Tabuk · NEOM Gateway · Northwest Saudi Arabia
                     </span>
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        Taxi in Tabuk<br />
-                        <span className="text-white/80">Private Car to NEOM, AlUla &amp; All KSA</span>
+                        Private Car Transfer, Taxi and Chauffeur Service in Tabuk<br />{' '}
+                        <span className="text-white/80">NEOM &amp; AlUla Routes</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-4">
                         The best private taxi service in Tabuk — NEOM transfers, AlUla tourism routes, airport pickup, and city rides. Professional drivers, luxury fleet, fixed rates 24/7.
