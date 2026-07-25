@@ -17,14 +17,14 @@ import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
     title: 'Umrah VIP Transport Service | Private Chauffeur Makkah & Madinah | Taxi Service KSA',
-    description: 'Complete VIP Umrah transport with professional licensed chauffeurs. Jeddah Airport to Makkah, Makkah to Madinah private transfers. Meeqat stops, Zamzam accommodation, fixed rates, 24/7.',
+    description: 'Complete Umrah transport with professional licensed chauffeurs. Jeddah Airport to Makkah, Makkah to Madinah private transfers. Meeqat stops, Zamzam accommodation, fixed rates, 24/7.',
     keywords: ['VIP Umrah Transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/umrah-transport/',
     },
     openGraph: {
         title: 'Umrah VIP Transfer Service | Private Chauffeur for Makkah & Madinah | Taxi Service KSA',
-        description: 'Complete VIP Umrah transport service with professional chauffeurs. Jeddah Airport to Makkah, Makkah to Madinah best transfer. Fixed rates, 24/7 service.',
+        description: 'Complete Umrah transport service with professional chauffeurs. Jeddah Airport to Makkah, Makkah to Madinah best transfer. Fixed rates, 24/7 service.',
         url: 'https://taxiserviceksa.com/services/umrah-transport/',
         type: 'website',
     },

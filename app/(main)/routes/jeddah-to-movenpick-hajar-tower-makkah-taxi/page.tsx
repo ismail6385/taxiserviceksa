@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Movenpick Hajar Tower Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Movenpick Hotel & Residences Hajar Tower Makkah (Directly at the King Abdul Aziz Gate). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Movenpick Hotel & Residences Hajar Tower Makkah (Directly at the King Abdul Aziz Gate). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-movenpick-hajar-tower-makkah-taxi/',
         type: 'website',
     },

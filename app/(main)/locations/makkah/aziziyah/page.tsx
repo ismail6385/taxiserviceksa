@@ -12,7 +12,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service Aziziyah to Haram Makkah | Premium Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service from Aziziyah to Haram. Exclusive hotel pickups and dedicated pilgrim logistics.',
+    description: 'Premium private transfer and executive chauffeur service from Aziziyah to Haram. Exclusive hotel pickups and dedicated pilgrim logistics.',
     keywords: ['Aziziyah VIP transfer', 'Aziziyah to Haram premium chauffeur', 'Aziziyah executive car', 'Makkah VIP pilgrim transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/makkah/aziziyah/',

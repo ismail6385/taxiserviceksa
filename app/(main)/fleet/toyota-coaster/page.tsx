@@ -11,7 +11,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'Toyota Coaster VIP Private Transfer Saudi Arabia | 17-Seater Bus',
-    description: 'Book the elite Toyota Coaster VIP private transfer in Saudi Arabia. Premium 17-seater executive bus for corporate events, tour groups, and large families. Professional chauffeur service.',
+    description: 'Book the elite Toyota Coaster private transfer in Saudi Arabia. Premium 17-seater executive bus for corporate events, tour groups, and large families. Professional chauffeur service.',
     keywords: ['Toyota Coaster VIP transfer', 'group bus KSA', 'corporate transport Saudi Arabia', '17 seater executive bus', 'VIP bus Riyadh'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/fleet/toyota-coaster/',
@@ -66,7 +66,7 @@ export default function ToyotaCoasterPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?vehicle=toyota-coaster">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book VIP Coaster
+                            Book Toyota Coaster
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

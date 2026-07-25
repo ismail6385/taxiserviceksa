@@ -10,14 +10,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi Rub al Khali Border Crossing (Oman) | 24/7 VIP Transfers',
-    description: 'Need a taxi at Rub al Khali Border? We provide reliable, 24/7 VIP cross-border transfers between Saudi Arabia and Oman. Get a quote now.',
+    description: 'Need a taxi at Rub al Khali Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Oman. Get a quote now.',
     keywords: ['Taxi Rub al Khali border crossing', 'Rub al Khali border to Saudi Arabia taxi', 'Taxi from Rub al Khali to Riyadh', 'Cross border taxi Oman', 'Rub al Khali immigration taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/border-crossings/taxi-rub-al-khali-border-crossing/',
     },
     openGraph: {
         title: 'Taxi Rub al Khali Border Crossing (Oman)',
-        description: 'Need a taxi at Rub al Khali Border? We provide reliable, 24/7 VIP cross-border transfers between Saudi Arabia and Oman. Get a quote now.',
+        description: 'Need a taxi at Rub al Khali Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Oman. Get a quote now.',
         url: 'https://taxiserviceksa.com/border-crossings/taxi-rub-al-khali-border-crossing/',
         type: 'website',
     },

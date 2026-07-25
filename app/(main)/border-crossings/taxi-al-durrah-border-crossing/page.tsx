@@ -10,14 +10,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi Al Durrah Border Crossing (Jordan) | 24/7 VIP Transfers',
-    description: 'Need a taxi at Al Durrah Border? We provide reliable, 24/7 VIP cross-border transfers between Saudi Arabia and Jordan. Get a quote now.',
+    description: 'Need a taxi at Al Durrah Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Jordan. Get a quote now.',
     keywords: ['Taxi Al Durrah border crossing', 'Al Durrah border to Saudi Arabia taxi', 'Taxi from Al Durrah to Riyadh', 'Cross border taxi Jordan', 'Al Durrah immigration taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/border-crossings/taxi-al-durrah-border-crossing/',
     },
     openGraph: {
         title: 'Taxi Al Durrah Border Crossing (Jordan)',
-        description: 'Need a taxi at Al Durrah Border? We provide reliable, 24/7 VIP cross-border transfers between Saudi Arabia and Jordan. Get a quote now.',
+        description: 'Need a taxi at Al Durrah Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Jordan. Get a quote now.',
         url: 'https://taxiserviceksa.com/border-crossings/taxi-al-durrah-border-crossing/',
         type: 'website',
     },

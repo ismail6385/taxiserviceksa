@@ -14,7 +14,7 @@ import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
     title: 'Makkah to Jeddah Taxi | Makkah to Jeddah Private Car | Taxi Service KSA',
-    description: 'Book the best online taxi from Makkah to Jeddah. Reliable 24/7 transfer from Makkah hotels to Jeddah city or airport. Fixed rates, VIP GMC Yukons, and door-to-door excellence.',
+    description: 'Book the best online taxi from Makkah to Jeddah. Reliable 24/7 transfer from Makkah hotels to Jeddah city or airport. Fixed rates, GMC Yukons, and door-to-door excellence.',
     keywords: ['Taxi Makkah to Jeddah', 'Makkah to Jeddah Taxi', 'Makkah to Jeddah private car', 'taxi price Makkah to Jeddah', 'Makkah to Jeddah transport', 'private transfer Makkah to Jeddah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/makkah-jeddah/',

@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Hofuf | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Hofuf. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Hofuf. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Hofuf VIP private transfer", "Executive chauffeur Hofuf", "Hofuf Airport VIP pickup", "Premium driver Hofuf"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/hofuf/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Hofuf | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Hofuf? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Hofuf? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/hofuf/",
         type: "website",
     },

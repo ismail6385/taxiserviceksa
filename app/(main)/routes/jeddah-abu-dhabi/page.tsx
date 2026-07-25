@@ -13,14 +13,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Jeddah to Abu Dhabi Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Jeddah to Abu Dhabi. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Jeddah to Abu Dhabi. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Jeddah to Abu Dhabi', 'Jeddah to Abu Dhabi transfer', 'cross border taxi Saudi Arabia', 'VIP transport Jeddah Abu Dhabi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-abu-dhabi/',
     },
     openGraph: {
         title: 'Jeddah to Abu Dhabi Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-        description: 'Request a premium quote from Jeddah to Abu Dhabi. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Jeddah to Abu Dhabi. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/jeddah-abu-dhabi/',
         type: 'website',
     },

@@ -4,7 +4,7 @@ import { blogService } from '@/lib/blogService';
 
 export const metadata: Metadata = {
   title: 'خدمة تاكسي VIP في السعودية | Taxi Service KSA',
-  description: 'احجز أفضل خدمة تاكسي VIP في السعودية. استمتع بنقل خاص فاخر، وسفر بين المدن، وعبور الحدود مع سائقينا التنفيذيين المحترفين.',
+  description: 'احجز أفضل خدمة تاكسي في السعودية. استمتع بنقل خاص فاخر، وسفر بين المدن، وعبور الحدود مع سائقينا التنفيذيين المحترفين.',
   alternates: {
     canonical: 'https://taxiserviceksa.com/ar/',
     languages: {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'خدمة تاكسي VIP في السعودية | Taxi Service KSA',
-    description: 'احجز أفضل خدمة تاكسي VIP في السعودية. استمتع بنقل خاص فاخر، وسفر بين المدن، وعبور الحدود مع سائقينا التنفيذيين المحترفين.',
+    description: 'احجز أفضل خدمة تاكسي في السعودية. استمتع بنقل خاص فاخر، وسفر بين المدن، وعبور الحدود مع سائقينا التنفيذيين المحترفين.',
     url: 'https://taxiserviceksa.com/ar/',
     siteName: 'Taxi Service KSA',
     locale: 'ar_SA',

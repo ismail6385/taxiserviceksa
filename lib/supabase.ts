@@ -37,6 +37,7 @@ export type BookingData = {
     status?: 'pending' | 'confirmed' | 'cancelled' | 'completed';
     has_return_trip?: boolean;
     child_seats?: number;
+    flight_number?: string;
 };
 
 export const vehicles = [

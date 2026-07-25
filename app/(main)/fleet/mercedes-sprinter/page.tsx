@@ -11,7 +11,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'Mercedes Sprinter VIP Minibus Saudi Arabia | Luxury Group Travel',
-    description: 'Book the elite Mercedes Sprinter VIP private transfer in Saudi Arabia. Premium 14-seater for executive groups, tours, and corporate events. High-spec luxury and professional service.',
+    description: 'Book the elite Mercedes Sprinter private transfer in Saudi Arabia. Premium 14-seater for executive groups, tours, and corporate events. High-spec luxury and professional service.',
     keywords: ['Mercedes Sprinter VIP transfer', 'luxury minibus chauffeur KSA', 'Mercedes Sprinter Riyadh transfer', 'executive group service Saudi Arabia', 'VIP Sprinter hire', 'Umrah group transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/fleet/mercedes-sprinter/',

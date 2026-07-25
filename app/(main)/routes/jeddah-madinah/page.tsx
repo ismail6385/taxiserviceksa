@@ -18,7 +18,7 @@ import { madinahHotels } from '@/data/madinahHotels';
 
 export const metadata: Metadata = {
     title: 'Jeddah to Madinah Taxi | Jeddah to Madinah Private Car | Taxi Service KSA',
-    description: 'Book the best online taxi from Jeddah to Madinah. High-speed 415km transfer from Jeddah to Madinah hotels. Fixed rates, VIP GMC Yukons, and 24/7 airport pickup available.',
+    description: 'Book the best online taxi from Jeddah to Madinah. High-speed 415km transfer from Jeddah to Madinah hotels. Fixed rates, GMC Yukons, and 24/7 airport pickup available.',
     keywords: ['Taxi Jeddah to Madinah', 'Jeddah to Madinah Taxi', 'Jeddah to Madinah private car', 'taxi from Jeddah to Madinah', 'Jeddah to Madinah taxi fare', 'Madinah taxi booking', 'private transfer Jeddah to Madinah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-madinah/',

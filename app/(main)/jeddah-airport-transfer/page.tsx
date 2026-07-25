@@ -5,7 +5,7 @@ import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
     title: 'Jeddah Airport Transfer | King Abdulaziz International Airport (JED) | Taxi Service KSA',
-    description: 'Private airport transfer at King Abdulaziz International Airport Jeddah (JED). VIP chauffeur, meet-and-greet, fixed rates, 24/7 service. Book Jeddah airport taxi now.',
+    description: 'Private airport transfer at King Abdulaziz International Airport Jeddah (JED). chauffeur, meet-and-greet, fixed rates, 24/7 service. Book Jeddah airport taxi now.',
     keywords: [
         'Jeddah airport transfer',
         'King Abdulaziz International Airport taxi',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport Transfer | King Abdulaziz International Airport (JED)',
-        description: 'Private VIP airport transfer at King Abdulaziz International Airport (JED), Jeddah. Meet-and-greet, fixed rates, 24/7. Book now.',
+        description: 'Private airport transfer at King Abdulaziz International Airport (JED), Jeddah. Meet-and-greet, fixed rates, 24/7. Book now.',
         url: 'https://taxiserviceksa.com/jeddah-airport-transfer/',
         type: 'website',
         images: [{ url: 'https://taxiserviceksa.com/hero-slide-3.webp' }],

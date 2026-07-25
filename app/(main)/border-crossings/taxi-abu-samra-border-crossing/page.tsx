@@ -10,14 +10,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi Abu Samra Border Crossing (Qatar) | 24/7 VIP Transfers',
-    description: 'Need a taxi at Abu Samra Border? We provide reliable, 24/7 VIP cross-border transfers between Saudi Arabia and Qatar. Get a quote now.',
+    description: 'Need a taxi at Abu Samra Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Qatar. Get a quote now.',
     keywords: ['Taxi Abu Samra border crossing', 'Abu Samra border to Saudi Arabia taxi', 'Taxi from Abu Samra to Riyadh', 'Cross border taxi Qatar', 'Abu Samra immigration taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/border-crossings/taxi-abu-samra-border-crossing/',
     },
     openGraph: {
         title: 'Taxi Abu Samra Border Crossing (Qatar)',
-        description: 'Need a taxi at Abu Samra Border? We provide reliable, 24/7 VIP cross-border transfers between Saudi Arabia and Qatar. Get a quote now.',
+        description: 'Need a taxi at Abu Samra Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Qatar. Get a quote now.',
         url: 'https://taxiserviceksa.com/border-crossings/taxi-abu-samra-border-crossing/',
         type: 'website',
     },

@@ -12,7 +12,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Jabal Omar Makkah | Premium Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service for Jabal Omar hotels. Professional airport pickups for Hilton, Conrad, and Hyatt Regency.',
+    description: 'Premium private transfer and executive chauffeur service for Jabal Omar hotels. Professional airport pickups for Hilton, Conrad, and Hyatt Regency.',
     keywords: ['Jabal Omar VIP transfer', 'Makkah Hilton premium chauffeur', 'Conrad Makkah VIP', 'Hyatt Regency Makkah executive car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/makkah/jabal-omar/',

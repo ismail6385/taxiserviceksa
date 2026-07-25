@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Anjum Hotel Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Anjum Hotel Makkah (Ajyad). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Anjum Hotel Makkah (Ajyad). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-anjum-hotel-makkah-taxi/',
         type: 'website',
     },

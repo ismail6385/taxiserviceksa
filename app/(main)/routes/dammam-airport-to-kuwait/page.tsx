@@ -14,14 +14,14 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 
 export const metadata: Metadata = {
     title: 'Dammam Airport to Kuwait Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Book a premium taxi from King Fahd International Airport (DMM) Dammam to Kuwait. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service.',
+    description: 'Book a premium taxi from King Fahd International Airport (DMM) Dammam to Kuwait. Reliable cross-border transfers, comfortable SUVs, and door-to-door service.',
     keywords: ['Dammam Airport to Kuwait Taxi', 'DMM to Kuwait transfer', 'Dammam airport cross border taxi', 'VIP transport Dammam Kuwait'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/dammam-airport-to-kuwait/',
     },
     openGraph: {
         title: 'Dammam Airport to Kuwait Taxi | Taxi Service KSA',
-        description: 'Book a premium taxi from King Fahd International Airport (DMM) Dammam to Kuwait. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service.',
+        description: 'Book a premium taxi from King Fahd International Airport (DMM) Dammam to Kuwait. Reliable cross-border transfers, comfortable SUVs, and door-to-door service.',
         url: 'https://taxiserviceksa.com/routes/dammam-airport-to-kuwait/',
         type: 'website',
     },
@@ -146,7 +146,7 @@ export default function DammamAirportKuwaitRoutePage() {
                     <div className="flex justify-center">
                         <a href="https://wa.me/966505322744?text=Hello,%20I%20saw%20your%20journey%20video%20and%20want%20to%20book%20DMM%20to%20Kuwait%20taxi" className="inline-flex items-center gap-2 bg-emerald-600 text-white hover:bg-emerald-700 font-bold py-4 px-10 rounded-2xl shadow-xl transition-all hover:scale-105">
                             <WhatsAppIcon className="w-5 h-5 fill-white" />
-                            Book Your VIP Ride Now
+                            Book Your Ride Now
                         </a>
                     </div>
                 </div>

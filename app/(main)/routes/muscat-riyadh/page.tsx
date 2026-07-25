@@ -13,14 +13,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Muscat to Riyadh Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Muscat to Riyadh. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Muscat to Riyadh. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Muscat to Riyadh', 'Muscat to Riyadh transfer', 'cross border taxi Saudi Arabia', 'VIP transport Muscat Riyadh'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/muscat-riyadh/',
     },
     openGraph: {
         title: 'Muscat to Riyadh Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-        description: 'Request a premium quote from Muscat to Riyadh. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Muscat to Riyadh. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/muscat-riyadh/',
         type: 'website',
     },

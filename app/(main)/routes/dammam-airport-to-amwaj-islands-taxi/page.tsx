@@ -10,15 +10,15 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
-    title: 'Dammam Airport to Amwaj Islands Taxi | King Fahd Causeway Transfer | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service from Dammam Airport to Amwaj Islands | Taxi Service KSA',
     description: 'Book a private taxi from Dammam Airport to Amwaj Islands, Bahrain via King Fahd Causeway. Door-to-door service to Bahrain\'s beach and resort island. Fixed rates.',
     keywords: ['Dammam Airport to Amwaj Islands taxi', 'Dammam Airport to Amwaj Bahrain', 'King Fahd Causeway Amwaj', 'Eastern Province to Amwaj transfer', 'Dammam Airport to Amwaj car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/dammam-airport-to-amwaj-islands-taxi/',
     },
     openGraph: {
-        title: 'Dammam Airport to Amwaj Islands Taxi | King Fahd Causeway | Taxi Service KSA',
-        description: 'Private VIP transfer from Dammam Airport to Amwaj Islands, Bahrain\'s beach and resort district, via King Fahd Causeway.',
+        title: 'Private Car, Taxi and Chauffeur Service from Dammam Airport to Amwaj Islands | Taxi Service KSA',
+        description: 'Private transfer from Dammam Airport to Amwaj Islands, Bahrain\'s beach and resort district, via King Fahd Causeway.',
         url: 'https://taxiserviceksa.com/routes/dammam-airport-to-amwaj-islands-taxi/',
         type: 'website',
     },
@@ -48,7 +48,7 @@ export default function DammamToAmwajIslandsTaxiPage() {
 
             <Hero
                 images={['/hero-slide-1.webp', '/gmc-yukon.webp', '/hero-slide-2.webp']}
-                h1Text="Dammam Airport to Amwaj Islands Taxi"
+                h1Text="Private Car, Taxi and Chauffeur Service from Dammam Airport to Amwaj Islands"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         King Fahd Causeway Route
@@ -181,6 +181,9 @@ export default function DammamToAmwajIslandsTaxiPage() {
                         </Link>
                         <Link href="/routes/khobar-bahrain/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
                             Al Khobar to Bahrain
+                        </Link>
+                        <Link href="/routes/amwaj-islands-to-dammam-airport-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
+                            Amwaj Islands to Dammam Airport (Return)
                         </Link>
                     </div>
                 </div>

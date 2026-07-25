@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Sheraton Makkah Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Sheraton Makkah Jabal Al Kaaba Hotel (Ajyad). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Sheraton Makkah Jabal Al Kaaba Hotel (Ajyad). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-sheraton-makkah-taxi/',
         type: 'website',
     },

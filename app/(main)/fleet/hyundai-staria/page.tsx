@@ -11,7 +11,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'Hyundai Staria VIP Private Transfer Saudi Arabia | Premium Van',
-    description: 'Book the elite Hyundai Staria VIP private transfer in Saudi Arabia. Premium 7-seater "Business Class" van for families and VIP groups. Panoramic views and superior comfort.',
+    description: 'Book the elite Hyundai Staria private transfer in Saudi Arabia. Premium 7-seater "Business Class" van for families and groups. Panoramic views and superior comfort.',
     keywords: ['Hyundai Staria VIP transfer', 'premium van chauffeur KSA', 'Hyundai Staria Riyadh transfer', 'executive group transport Saudi Arabia', 'VIP van Jeddah airport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/fleet/hyundai-staria/',
@@ -60,7 +60,7 @@ export default function HyundaiStariaPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?vehicle=hyundai-staria">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book VIP Staria
+                            Book Hyundai Staria
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

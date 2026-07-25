@@ -13,14 +13,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Dammam to Muscat Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Dammam to Muscat. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Dammam to Muscat. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Dammam to Muscat', 'Dammam to Muscat transfer', 'cross border taxi Saudi Arabia', 'VIP transport Dammam Muscat'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/dammam-muscat/',
     },
     openGraph: {
         title: 'Dammam to Muscat Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-        description: 'Request a premium quote from Dammam to Muscat. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Dammam to Muscat. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/dammam-muscat/',
         type: 'website',
     },

@@ -294,7 +294,7 @@ export default function JeddahCompleteBlogPage() {
                                 name: '6. Jeddah Waterfront (AMAALA Promenade) — New Jeddah',
                                 body: `The Jeddah Waterfront development project is transforming the northern coastline of the city into a world-class leisure destination. Inspired by Dubai's Marina concept, it features a 14-kilometer waterfront promenade, luxury residential towers, five-star hotel clusters including the Rosewood Jeddah and Waldorf Astoria, and the Red Sea Global marina.\n\nThe new Jeddah Season festival — Saudi Arabia's annual entertainment mega-event — is centered around the waterfront and brings international performances, art installations, and food festivals to the city each year.`,
                                 transport: '/vip-chauffeur-jeddah/',
-                                transportLabel: 'Book VIP Waterfront Transfer',
+                                transportLabel: 'Book Waterfront Transfer',
                             },
                         ].map((landmark, i) => (
                             <div key={i} className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm">

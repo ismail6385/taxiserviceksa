@@ -30,7 +30,7 @@ import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
     title: 'Intercity Taxi Service KSA | Long Distance Private Chauffeur',
-    description: 'Premium intercity VIP transfer service in Saudi Arabia. Executive private transfers between Jeddah, Makkah, Madinah, Riyadh, and more. Luxury long-distance travel with fixed rates.',
+    description: 'Premium intercity transfer service in Saudi Arabia. Executive private transfers between Jeddah, Makkah, Madinah, Riyadh, and more. Luxury long-distance travel with fixed rates.',
     keywords: ['Intercity VIP transfer Saudi Arabia', 'Jeddah to Riyadh premium transfer', 'Long distance private chauffeur KSA', 'City to city VIP transfer Saudi Arabia', 'Private executive car hire Saudi cities'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/intercity/',

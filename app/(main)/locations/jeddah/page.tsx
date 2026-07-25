@@ -25,7 +25,7 @@ import { jeddahHotels } from '@/data/jeddahHotels';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Jeddah | KAIA Airport VIP Pickup | Taxi Service KSA',
-    description: 'Premium VIP private transfer service in Jeddah for King Abdulaziz International Airport (KAIA). Executive chauffeur service to Makkah hotels and Madinah. Professional international standards.',
+    description: 'Premium private transfer service in Jeddah for King Abdulaziz International Airport (KAIA). Executive chauffeur service to Makkah hotels and Madinah. Professional international standards.',
     keywords: ['Jeddah VIP transfer service', 'KAIA premium airport transfer', 'Jeddah to Makkah VIP transfer', 'Executive chauffeur Jeddah', 'Jeddah airport VIP pickup', 'Luxury private driver Jeddah', 'Jeddah to Makkah premium car', 'Jeddah to Madinah VIP transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/',

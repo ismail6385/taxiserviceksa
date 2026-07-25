@@ -30,7 +30,7 @@ import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in AlUla | Hegra Heritage Tours | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service in AlUla. Specialized UNESCO heritage site transport to Hegra and ULH Airport transfers. Premium 4x4 vehicles for desert luxury.',
+    description: 'Premium private transfer and executive chauffeur service in AlUla. Specialized UNESCO heritage site transport to Hegra and ULH Airport transfers. Premium 4x4 vehicles for desert luxury.',
     keywords: ['AlUla VIP private transfer', 'Executive chauffeur AlUla', 'Hegra VIP tours', 'ULH Airport VIP pickup', 'AlUla premium desert transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/alula/',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service in AlUla | Hegra Tours & Airport Pickup | Taxi Service KSA',
-        description: 'VIP transfer service in AlUla for UNESCO heritage tours and airport pickups. Premium 4x4 vehicles for desert sites. Book online.',
+        description: 'Transfer service in AlUla for UNESCO heritage tours and airport pickups. Premium 4x4 vehicles for desert sites. Book online.',
         url: 'https://taxiserviceksa.com/locations/alula/',
         type: 'website',
     },

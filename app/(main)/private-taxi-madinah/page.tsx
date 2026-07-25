@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Private Taxi Madinah | Chauffeur Service | Taxi Service KSA',
-        description: 'VIP private taxi in Madinah. Airport, Ziyarat, Makkah transfers. Fixed rates. Book now.',
+        description: 'Private taxi in Madinah. Airport, Ziyarat, Makkah transfers. Fixed rates. Book now.',
         url: 'https://taxiserviceksa.com/private-taxi-madinah/',
         type: 'website',
     },

@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Al-Uyun | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Al-Uyun. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Al-Uyun. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Al-Uyun VIP private transfer", "Executive chauffeur Al-Uyun", "Al-Uyun Airport VIP pickup", "Premium driver Al-Uyun"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/al-uyun/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Al-Uyun | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Al-Uyun? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Al-Uyun? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/al-uyun/",
         type: "website",
     },

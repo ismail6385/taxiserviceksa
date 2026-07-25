@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Al-Balad Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Al-Balad, Historic Jeddah. VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Al-Balad, Historic Jeddah. drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-al-balad-jeddah-taxi/',
         type: 'website',
     },

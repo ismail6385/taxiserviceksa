@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Dhahban | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Dhahban. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Dhahban. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Dhahban VIP private transfer", "Executive chauffeur Dhahban", "Dhahban Airport VIP pickup", "Premium driver Dhahban"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/dhahban/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Dhahban | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Dhahban? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Dhahban? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/dhahban/",
         type: "website",
     },

@@ -31,7 +31,7 @@ import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Taif | Al Hada Mountain | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service in Taif. Specialized Makkah to Taif mountain transfers via Al Hada and Jeddah Airport pickups. Professional high-altitude driving expertise.',
+    description: 'Premium private transfer and executive chauffeur service in Taif. Specialized Makkah to Taif mountain transfers via Al Hada and Jeddah Airport pickups. Professional high-altitude driving expertise.',
     keywords: ['Taif VIP private transfer', 'Executive chauffeur Taif', 'Al Hada VIP transport', 'Premium Makkah to Taif transfer', 'Taif mountain chauffeur service'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/taif/',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Taif | Makkah Transfers & Al Hada Tours | Taxi Service KSA',
-        description: 'Premium VIP transfer to Taif via Al Hada mountain road. Service includes stops at cable car and rose factories.',
+        description: 'Premium transfer to Taif via Al Hada mountain road. Service includes stops at cable car and rose factories.',
         url: 'https://taxiserviceksa.com/locations/taif/',
         type: 'website',
         images: [{ url: 'https://taxiserviceksa.com/taif-mountains-view.webp', alt: 'Taif Al Hada Mountain Road' }],

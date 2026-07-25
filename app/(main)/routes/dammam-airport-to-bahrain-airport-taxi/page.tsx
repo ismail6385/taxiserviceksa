@@ -10,14 +10,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
-    title: 'Dammam Airport to Bahrain Airport Taxi | King Fahd Causeway Transfer | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service from Dammam Airport to Bahrain Airport | Taxi Service KSA',
     description: 'Book a private taxi from King Fahd International Airport (Dammam) direct to Bahrain International Airport via King Fahd Causeway. Fixed rates, door-to-door, 24/7.',
     keywords: ['Dammam Airport to Bahrain Airport taxi', 'DMM to BAH taxi', 'King Fahd Airport to Bahrain Airport', 'Dammam Airport Bahrain transfer', 'Saudi Bahrain airport taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/dammam-airport-to-bahrain-airport-taxi/',
     },
     openGraph: {
-        title: 'Dammam Airport to Bahrain Airport Taxi | Fixed Price Transfer | Taxi Service KSA',
+        title: 'Private Car, Taxi and Chauffeur Service from Dammam Airport to Bahrain Airport | Taxi Service KSA',
         description: 'Direct private transfer from King Fahd International Airport (DMM) to Bahrain International Airport (BAH) via the causeway.',
         url: 'https://taxiserviceksa.com/routes/dammam-airport-to-bahrain-airport-taxi/',
         type: 'website',
@@ -48,7 +48,7 @@ export default function DammamAirportToBahrainAirportTaxiPage() {
 
             <Hero
                 images={['/hero-slide-1.webp', '/gmc-yukon.webp', '/hero-slide-3.webp']}
-                h1Text="Dammam Airport to Bahrain Airport Taxi"
+                h1Text="Private Car, Taxi and Chauffeur Service from Dammam Airport to Bahrain Airport"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Airport-to-Airport Transfer
@@ -182,6 +182,9 @@ export default function DammamAirportToBahrainAirportTaxiPage() {
                         </Link>
                         <Link href="/routes/khobar-bahrain/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
                             Al Khobar to Bahrain
+                        </Link>
+                        <Link href="/routes/bahrain-airport-to-dammam-airport-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
+                            Bahrain Airport to Dammam Airport (Return)
                         </Link>
                         <Link href="/border-crossings/taxi-king-fahd-causeway-border-crossing/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
                             King Fahd Causeway Border Info

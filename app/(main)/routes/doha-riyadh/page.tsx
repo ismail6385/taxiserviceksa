@@ -15,14 +15,14 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 
 export const metadata: Metadata = {
     title: 'Doha to Riyadh Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Doha to Riyadh. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Doha to Riyadh. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Doha to Riyadh', 'Doha to Riyadh transfer', 'cross border taxi Saudi Arabia', 'VIP transport Doha Riyadh'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/doha-riyadh/',
     },
     openGraph: {
         title: 'Doha to Riyadh Taxi | Taxi Service KSA',
-        description: 'Request a premium quote from Doha to Riyadh. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Doha to Riyadh. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/doha-riyadh/',
         type: 'website',
     },

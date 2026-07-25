@@ -12,14 +12,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service to Al Hamra Jeddah | Executive Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service to Al Hamra District, Jeddah. Transfers to Ritz Carlton and InterContinental with professional chauffeurs.',
+    description: 'Premium private transfer and executive chauffeur service to Al Hamra District, Jeddah. Transfers to Ritz Carlton and InterContinental with professional chauffeurs.',
     keywords: ['Al Hamra VIP transfer', 'Jeddah fountain premium chauffeur', 'Ritz Carlton Jeddah executive transport', 'Al Hamra Corniche VIP'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/al-hamra/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Al Hamra | Executive Chauffeur | Taxi Service KSA',
-        description: 'Premium VIP private transfers to Jeddah\'s most prestigious district. Executive chauffeur service for Ritz Carlton and InterContinental guests.',
+        description: 'Premium private transfers to Jeddah\'s most prestigious district. Executive chauffeur service for Ritz Carlton and InterContinental guests.',
         url: 'https://taxiserviceksa.com/locations/jeddah/al-hamra/',
         type: 'website',
     },

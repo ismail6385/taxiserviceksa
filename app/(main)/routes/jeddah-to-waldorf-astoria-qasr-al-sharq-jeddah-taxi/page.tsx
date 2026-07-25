@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Waldorf Astoria Jeddah Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Waldorf Astoria Jeddah - Qasr Al Sharq (Corniche, North Jeddah). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Waldorf Astoria Jeddah - Qasr Al Sharq (Corniche, North Jeddah). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-waldorf-astoria-qasr-al-sharq-jeddah-taxi/',
         type: 'website',
     },

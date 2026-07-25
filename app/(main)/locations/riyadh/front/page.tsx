@@ -12,14 +12,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service to Riyadh Front | Premium Event Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service for Riyadh Front (Roshn Front). Professional transport for LEAP, Cityscape, and business exhibitions.',
+    description: 'Premium private transfer and executive chauffeur service for Riyadh Front (Roshn Front). Professional transport for LEAP, Cityscape, and business exhibitions.',
     keywords: ['Riyadh Front VIP transfer', 'Roshn Front premium chauffeur', 'Riyadh Exhibition Center executive car', 'LEAP Riyadh VIP transport', 'Airport to Riyadh Front VIP'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/front/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service to Riyadh Front (Exhibition Center) | Taxi Service KSA',
-        description: 'Attending an event at Riyadh Front? Premium VIP private transfer and professional chauffeur service from hotels and King Khalid Airport.',
+        description: 'Attending an event at Riyadh Front? Premium private transfer and professional chauffeur service from hotels and King Khalid Airport.',
         url: 'https://taxiserviceksa.com/locations/riyadh/front/',
         type: 'website',
     },

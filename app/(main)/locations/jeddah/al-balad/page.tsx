@@ -12,14 +12,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service to Al-Balad | Historic Jeddah UNESCO Tour | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service to Historic Jeddah (Al-Balad). UNESCO World Heritage site tours with professional heritage-trained drivers.',
+    description: 'Premium private transfer and executive chauffeur service to Historic Jeddah (Al-Balad). UNESCO World Heritage site tours with professional heritage-trained drivers.',
     keywords: ['Al-Balad VIP transfer', 'Historic Jeddah executive chauffeur', 'Jeddah Old Town premium transport', 'UNESCO Jeddah tour'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/al-balad/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service to Historic Jeddah (Al-Balad) | Taxi Service KSA',
-        description: 'Explore the UNESCO heritage site of Al-Balad in comfort. Premium VIP private transfer and elite chauffeur service for historic tours.',
+        description: 'Explore the UNESCO heritage site of Al-Balad in comfort. Premium private transfer and elite chauffeur service for historic tours.',
         url: 'https://taxiserviceksa.com/locations/jeddah/al-balad/',
         type: 'website',
     },
@@ -64,7 +64,7 @@ export default function AlBaladPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Jeddah%20My%20Hotel&dropoff=Al-Balad">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book VIP Visit
+                            Book Your Al-Balad Visit
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

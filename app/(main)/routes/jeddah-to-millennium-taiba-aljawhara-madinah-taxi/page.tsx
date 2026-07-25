@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Millennium Aljawhara Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Millennium Al Jawhara Al Madinah (Central Area, near Masjid an-Nabawi). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Millennium Al Jawhara Al Madinah (Central Area, near Masjid an-Nabawi). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-millennium-taiba-aljawhara-madinah-taxi/',
         type: 'website',
     },

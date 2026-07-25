@@ -13,14 +13,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Makkah to Doha Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Makkah to Doha. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Makkah to Doha. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Makkah to Doha', 'Makkah to Doha transfer', 'cross border taxi Saudi Arabia', 'VIP transport Makkah Doha'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/makkah-doha/',
     },
     openGraph: {
         title: 'Makkah to Doha Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-        description: 'Request a premium quote from Makkah to Doha. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Makkah to Doha. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/makkah-doha/',
         type: 'website',
     },

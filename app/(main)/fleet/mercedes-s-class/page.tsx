@@ -12,7 +12,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'Mercedes S-Class VIP Chauffeur Saudi Arabia | Executive Car',
-    description: 'Book the elite Mercedes S-Class VIP private transfer in Saudi Arabia. Premium executive chauffeur service for business travel and VIP intercity transfers. Fixed rates and professional service.',
+    description: 'Book the elite Mercedes S-Class private transfer in Saudi Arabia. Premium executive chauffeur service for business travel and intercity transfers. Fixed rates and professional service.',
     keywords: ['Mercedes S-Class VIP transfer', 'luxury sedan chauffeur KSA', 'Mercedes S-Class Riyadh transfer', 'executive chauffeur service Saudi Arabia', 'Mercedes VIP car', 'Makkah to Madinah Mercedes S-Class'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/fleet/mercedes-s-class/',

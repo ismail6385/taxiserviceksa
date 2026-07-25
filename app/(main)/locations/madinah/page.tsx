@@ -41,7 +41,7 @@ import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Ziyarat Chauffeur Service in Madinah 2026 | Premium Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer service in Madinah 2026. Specialized Prince Mohammad Airport (MED) pickups and executive Ziyarat tours. Professional intercity transfers to Makkah.',
+    description: 'Premium private transfer service in Madinah 2026. Specialized Prince Mohammad Airport (MED) pickups and executive Ziyarat tours. Professional intercity transfers to Makkah.',
     keywords: ['Madinah VIP private transfer 2026', 'Executive chauffeur Madinah', 'Premium Ziyarat tour Madinah', 'Madinah airport VIP pickup', 'VIP transfer Madinah to Makkah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/madinah/',

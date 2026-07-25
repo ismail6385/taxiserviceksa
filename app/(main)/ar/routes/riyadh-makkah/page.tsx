@@ -13,7 +13,7 @@ import JsonLdRoute from '@/components/JsonLdRoute';
 
 export const metadata: Metadata = {
     title: 'تاكسي الرياض إلى مكة ٢٠٢٦ | نقل VIP خاص | أسعار ثابتة',
-    description: 'احجز أفضل تاكسي من الرياض إلى مكة لعام ٢٠٢٦. رحلة VIP فاخرة تستغرق ٨-٩ ساعات مع سائقين محترفين. أسعار ثابتة وخدمة من الباب إلى الباب.',
+    description: 'احجز أفضل تاكسي من الرياض إلى مكة لعام ٢٠٢٦. رحلة فاخرة تستغرق ٨-٩ ساعات مع سائقين محترفين. أسعار ثابتة وخدمة من الباب إلى الباب.',
     keywords: ['تاكسي الرياض مكة', 'سعر تاكسي الرياض مكة', 'سيارة خاصة من الرياض إلى مكة', 'تاكسي عمرة الرياض مكة', 'نقل الرياض مكة'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ar/routes/riyadh-makkah/',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'تاكسي الرياض إلى مكة ٢٠٢٦ | نقل VIP خاص',
-        description: 'رحلة VIP فاخرة من الرياض إلى مكة مع سائقين محترفين. أسعار ثابتة، خدمة من الباب إلى الباب.',
+        description: 'رحلة فاخرة من الرياض إلى مكة مع سائقين محترفين. أسعار ثابتة، خدمة من الباب إلى الباب.',
         url: 'https://taxiserviceksa.com/ar/routes/riyadh-makkah/',
         locale: 'ar_SA',
         type: 'website',

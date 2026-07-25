@@ -12,7 +12,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Makkah Train Station | Premium Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service from Makkah Haramain Train Station (Rusaifah). Professional pickup for Umrah pilgrims.',
+    description: 'Premium private transfer and executive chauffeur service from Makkah Haramain Train Station (Rusaifah). Professional pickup for Umrah pilgrims.',
     keywords: ['Makkah train station VIP transfer', 'Haramain railway premium chauffeur', 'Rusaifah station VIP transport', 'Makkah station executive car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/makkah/train-station/',

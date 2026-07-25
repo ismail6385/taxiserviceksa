@@ -13,7 +13,7 @@ import JsonLdRoute from '@/components/JsonLdRoute';
 
 export const metadata: Metadata = {
     title: 'Madinah to Jeddah Taxi | VIP Private Transfers | Taxi Service KSA',
-    description: 'Book the best Madinah to Jeddah Taxi. Comfortable 4-5 hour journey from Madinah hotels to Jeddah. Fixed rates, VIP GMC Yukons, and 24/7 service.',
+    description: 'Book the best Madinah to Jeddah Taxi. Comfortable 4-5 hour journey from Madinah hotels to Jeddah. Fixed rates, GMC Yukons, and 24/7 service.',
     keywords: ['Taxi Madinah to Jeddah', 'Madinah to Jeddah Taxi', 'Madinah to Jeddah private car', 'taxi fare Madinah to Jeddah', 'Madinah to Jeddah transport', 'private transfer Madinah to Jeddah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/madinah-jeddah/',

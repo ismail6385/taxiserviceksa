@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Tanuma | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Tanuma. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Tanuma. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Tanuma VIP private transfer", "Executive chauffeur Tanuma", "Tanuma Airport VIP pickup", "Premium driver Tanuma"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/tanuma/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Tanuma | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Tanuma? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Tanuma? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/tanuma/",
         type: "website",
     },

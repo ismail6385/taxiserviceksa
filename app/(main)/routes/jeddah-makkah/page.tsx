@@ -20,7 +20,7 @@ import { makkahHotels } from '@/data/makkahHotels';
 
 export const metadata: Metadata = {
     title: 'Jeddah to Makkah Taxi 2026 | VIP Private Transfers | Fixed Rates',
-    description: 'Book the best Jeddah to Makkah Taxi for 2026. Premium intercity transfer with professional chauffeurs. Fixed rates starting from 300 SAR. Door-to-door VIP service.',
+    description: 'Book the best Jeddah to Makkah Taxi for 2026. Premium intercity transfer with professional chauffeurs. Fixed rates starting from 300 SAR. Door-to-door service.',
     keywords: ['Jeddah to Makkah Taxi 2026', 'Jeddah to Makkah taxi price', 'Jeddah to Makkah private car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-makkah/',

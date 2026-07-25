@@ -13,14 +13,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Amman to Dammam Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Amman to Dammam. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Amman to Dammam. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Amman to Dammam', 'Amman to Dammam transfer', 'cross border taxi Saudi Arabia', 'VIP transport Amman Dammam'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/amman-dammam/',
     },
     openGraph: {
         title: 'Amman to Dammam Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-        description: 'Request a premium quote from Amman to Dammam. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Amman to Dammam. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/amman-dammam/',
         type: 'website',
     },

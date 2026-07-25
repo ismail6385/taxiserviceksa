@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Al-Quway'iyah | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Al-Quway'iyah. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Al-Quway'iyah. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Al-Quway'iyah VIP private transfer", "Executive chauffeur Al-Quway'iyah", "Al-Quway'iyah Airport VIP pickup", "Premium driver Al-Quway'iyah"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/al-quway-iyah/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Al-Quway'iyah | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Al-Quway'iyah? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Al-Quway'iyah? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/al-quway-iyah/",
         type: "website",
     },

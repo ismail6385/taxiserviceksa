@@ -16,7 +16,7 @@ import JsonLdPerson from '@/components/seo/JsonLdPerson';
 
 export const metadata: Metadata = {
     title: 'About Taxi Service KSA | VIP Chauffeur Service Saudi Arabia',
-    description: 'Learn about Taxi Service KSA, the leading VIP private transfer and chauffeur service in Saudi Arabia. Specializing in luxury airport pickups, Umrah transport, and executive intercity travel.',
+    description: 'Learn about Taxi Service KSA, the leading private transfer and chauffeur service in Saudi Arabia. Specializing in luxury airport pickups, Umrah transport, and executive intercity travel.',
     keywords: ['VIP Private Transfer Saudi Arabia', 'Executive Chauffeur Service', 'Luxury Airport Transport', 'Executive Umrah Transport', 'Professional Driver KSA'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/about/',

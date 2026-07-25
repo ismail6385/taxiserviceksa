@@ -15,14 +15,14 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 
 export const metadata: Metadata = {
     title: 'Bahrain to Riyadh Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Bahrain to Riyadh. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Bahrain to Riyadh. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Bahrain to Riyadh', 'Bahrain to Riyadh transfer', 'cross border taxi Saudi Arabia', 'VIP transport Bahrain Riyadh'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/bahrain-riyadh/',
     },
     openGraph: {
         title: 'Bahrain to Riyadh Taxi | Taxi Service KSA',
-        description: 'Request a premium quote from Bahrain to Riyadh. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Bahrain to Riyadh. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/bahrain-riyadh/',
         type: 'website',
     },

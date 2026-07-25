@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Dariya | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Dariya. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Dariya. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Dariya VIP private transfer", "Executive chauffeur Dariya", "Dariya Airport VIP pickup", "Premium driver Dariya"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/dariya/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Dariya | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Dariya? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Dariya? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/dariya/",
         type: "website",
     },

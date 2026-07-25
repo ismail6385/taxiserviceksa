@@ -10,7 +10,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'GMC Yukon XL VIP Private Transfer Saudi Arabia | Premium Chauffeur',
-    description: 'Book the premium GMC Yukon XL VIP private transfer in Saudi Arabia. Luxury 7-seater SUV with extended wheelbase (XL) for extra luggage space, airport transfers, and family Umrah.',
+    description: 'Book the premium GMC Yukon XL private transfer in Saudi Arabia. Luxury 7-seater SUV with extended wheelbase (XL) for extra luggage space, airport transfers, and family Umrah.',
     keywords: ['GMC Yukon XL VIP transfer', 'GMC Yukon XL Saudi Arabia', 'luxury SUV chauffeur KSA', 'GMC Yukon XL Riyadh transfer', 'family SUV transfer Makkah', 'Jeddah to Makkah GMC Yukon XL'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/fleet/gmc-yukon-xl/',

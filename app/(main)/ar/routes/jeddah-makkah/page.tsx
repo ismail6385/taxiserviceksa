@@ -20,7 +20,7 @@ import { makkahHotels } from '@/data/makkahHotels';
 
 export const metadata: Metadata = {
     title: 'تاكسي جدة إلى مكة ٢٠٢٦ | نقل VIP خاص | أسعار ثابتة',
-    description: 'احجز أفضل تاكسي من جدة إلى مكة لعام ٢٠٢٦. نقل متميز بين المدن مع سائقين محترفين. أسعار ثابتة تبدأ من ٣٠٠ ريال. خدمة VIP من الباب إلى الباب.',
+    description: 'احجز أفضل تاكسي من جدة إلى مكة لعام ٢٠٢٦. نقل متميز بين المدن مع سائقين محترفين. أسعار ثابتة تبدأ من ٣٠٠ ريال. خدمة من الباب إلى الباب.',
     keywords: ['تاكسي جدة مكة ٢٠٢٦', 'سعر تاكسي جدة مكة', 'سيارة خاصة جدة مكة'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ar/routes/jeddah-makkah/',

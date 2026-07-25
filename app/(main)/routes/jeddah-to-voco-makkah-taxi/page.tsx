@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Voco Makkah Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Voco Makkah (Central Makkah, near the Haram). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Voco Makkah (Central Makkah, near the Haram). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-voco-makkah-taxi/',
         type: 'website',
     },

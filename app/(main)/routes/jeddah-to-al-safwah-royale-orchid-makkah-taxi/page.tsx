@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Al Safwah Royale Orchid Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Al Safwah Royale Orchid Hotel Makkah (Ajyad). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Al Safwah Royale Orchid Hotel Makkah (Ajyad). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-al-safwah-royale-orchid-makkah-taxi/',
         type: 'website',
     },

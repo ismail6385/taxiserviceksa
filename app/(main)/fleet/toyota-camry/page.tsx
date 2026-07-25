@@ -11,7 +11,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'Toyota Camry VIP Private Transfer Saudi Arabia | Premium Sedan',
-    description: 'Book the elite Toyota Camry VIP private transfer in Saudi Arabia. Premium executive sedan for business travel and airport transfers. Efficient, professional, and reliable chauffeur service.',
+    description: 'Book the elite Toyota Camry private transfer in Saudi Arabia. Premium executive sedan for business travel and airport transfers. Efficient, professional, and reliable chauffeur service.',
     keywords: ['Toyota Camry VIP transfer', 'premium sedan chauffeur KSA', 'Toyota Camry Riyadh transfer', 'executive car service Saudi Arabia'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/fleet/toyota-camry/',
@@ -60,7 +60,7 @@ export default function ToyotaCamryPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?vehicle=toyota-camry">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book VIP Camry
+                            Book Toyota Camry
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

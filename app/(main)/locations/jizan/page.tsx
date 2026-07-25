@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Jizan | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Jizan. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Jizan. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Jizan VIP private transfer", "Executive chauffeur Jizan", "Jizan Airport VIP pickup", "Premium driver Jizan"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/jizan/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Jizan | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Jizan? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Jizan? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/jizan/",
         type: "website",
     },

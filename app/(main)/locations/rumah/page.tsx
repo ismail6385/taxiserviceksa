@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Rumah | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Rumah. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Rumah. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Rumah VIP private transfer", "Executive chauffeur Rumah", "Rumah Airport VIP pickup", "Premium driver Rumah"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/rumah/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Rumah | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Rumah? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Rumah? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/rumah/",
         type: "website",
     },

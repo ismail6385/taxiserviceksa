@@ -13,14 +13,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Kuwait to Makkah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Kuwait to Makkah. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Kuwait to Makkah. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Kuwait to Makkah', 'Kuwait to Makkah transfer', 'cross border taxi Saudi Arabia', 'VIP transport Kuwait Makkah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/kuwait-makkah/',
     },
     openGraph: {
         title: 'Kuwait to Makkah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-        description: 'Request a premium quote from Kuwait to Makkah. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Kuwait to Makkah. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/kuwait-makkah/',
         type: 'website',
     },

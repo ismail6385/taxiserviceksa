@@ -13,14 +13,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Dammam to Bahrain Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Dammam to Bahrain. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Dammam to Bahrain. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Dammam to Bahrain', 'Dammam to Bahrain transfer', 'cross border taxi Saudi Arabia', 'VIP transport Dammam Bahrain'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/dammam-bahrain/',
     },
     openGraph: {
         title: 'Dammam to Bahrain Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-        description: 'Request a premium quote from Dammam to Bahrain. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Dammam to Bahrain. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/dammam-bahrain/',
         type: 'website',
     },

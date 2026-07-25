@@ -5,7 +5,7 @@ import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 export const metadata: Metadata = {
     title: 'Chauffeur Jobs in Khamis Mushait - Premium Opportunities',
-    description: 'Looking for chauffeur jobs in Khamis Mushait? Join as a professional VIP driver. High income, own car (2020+), premium clients, and long trips.',
+    description: 'Looking for chauffeur jobs in Khamis Mushait? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Khamis Mushait', 'chauffeur jobs in Khamis Mushait', 'VIP drivers Khamis Mushait'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/chauffeur-jobs-khamis-mushait',

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Hyatt Regency Jabal Omar Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Hyatt Regency Makkah Jabal Omar (Jabal Omar Complex). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Hyatt Regency Makkah Jabal Omar (Jabal Omar Complex). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-hyatt-regency-jabal-omar-makkah-taxi/',
         type: 'website',
     },

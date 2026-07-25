@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Hilton Convention Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Hilton Makkah Convention Hotel (Ajyad, near King Abdul Aziz Gate). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Hilton Makkah Convention Hotel (Ajyad, near King Abdul Aziz Gate). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-hilton-convention-makkah-taxi/',
         type: 'website',
     },

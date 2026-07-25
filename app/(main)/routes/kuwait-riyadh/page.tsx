@@ -20,14 +20,14 @@ import ServiceComparison from '@/components/ServiceComparison';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer from Kuwait City to Riyadh | Taxi Service KSA',
-    description: 'Book a private car transfer from Kuwait City to Riyadh from 170 KD. Door-to-door VIP SUV, bilingual driver, Nuwaiseeb border assistance included. Fixed rates, 24/7.',
+    description: 'Book a private car transfer from Kuwait City to Riyadh from 170 KD. Door-to-door SUV, bilingual driver, Nuwaiseeb border assistance included. Fixed rates, 24/7.',
     keywords: ['private car transfer Kuwait City Riyadh', 'Kuwait to Riyadh taxi', 'Kuwait Riyadh transfer', 'cross border taxi Saudi Arabia', 'VIP transport Kuwait Riyadh'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/kuwait-riyadh/',
     },
     openGraph: {
         title: 'Private Car Transfer from Kuwait City to Riyadh | Taxi Service KSA',
-        description: 'Book a private car transfer from Kuwait City to Riyadh from 170 KD. Door-to-door VIP SUV, bilingual driver, Nuwaiseeb border assistance included. Fixed rates, 24/7.',
+        description: 'Book a private car transfer from Kuwait City to Riyadh from 170 KD. Door-to-door SUV, bilingual driver, Nuwaiseeb border assistance included. Fixed rates, 24/7.',
         url: 'https://taxiserviceksa.com/routes/kuwait-riyadh/',
         type: 'website',
         images: [{ url: 'https://taxiserviceksa.com/hero-slide-1.webp', width: 1200, height: 630, alt: 'Private car transfer from Kuwait City to Riyadh — VIP SUV service' }],
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'Private Car Transfer from Kuwait City to Riyadh | Taxi Service KSA',
-        description: 'Book a private car transfer from Kuwait City to Riyadh from 170 KD. Door-to-door VIP SUV, bilingual driver, Nuwaiseeb border assistance included. Fixed rates, 24/7.',
+        description: 'Book a private car transfer from Kuwait City to Riyadh from 170 KD. Door-to-door SUV, bilingual driver, Nuwaiseeb border assistance included. Fixed rates, 24/7.',
         images: ['https://taxiserviceksa.com/hero-slide-1.webp'],
     },
 };

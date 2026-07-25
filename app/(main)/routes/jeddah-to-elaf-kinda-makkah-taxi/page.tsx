@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Elaf Kinda Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Elaf Kinda Hotel Makkah (Kinda, Ajyad). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Elaf Kinda Hotel Makkah (Kinda, Ajyad). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-elaf-kinda-makkah-taxi/',
         type: 'website',
     },

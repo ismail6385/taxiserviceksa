@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Al-Kharj | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Al-Kharj. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Al-Kharj. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Al-Kharj VIP private transfer", "Executive chauffeur Al-Kharj", "Al-Kharj Airport VIP pickup", "Premium driver Al-Kharj"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/al-kharj/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Al-Kharj | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Al-Kharj? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Al-Kharj? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/al-kharj/",
         type: "website",
     },

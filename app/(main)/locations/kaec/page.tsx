@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in KAEC | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in KAEC. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in KAEC. Professional, reliable intercity transport and airport pickups.",
     keywords: ["KAEC VIP private transfer", "Executive chauffeur KAEC", "KAEC Airport VIP pickup", "Premium driver KAEC"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/kaec/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in KAEC | Taxi Service KSA",
-        description: "Need a premium VIP transfer in KAEC? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in KAEC? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/kaec/",
         type: "website",
     },

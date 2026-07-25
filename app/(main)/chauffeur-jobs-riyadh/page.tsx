@@ -21,7 +21,7 @@ import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 export const metadata: Metadata = {
     title: 'High-Income Chauffeur Jobs Riyadh 2026 | VIP Driver Roles',
-    description: 'Elite chauffeur jobs in Riyadh 2026. Earn SAR 15,000 - 25,000 monthly. Requirements: Own car (2020+), professional attitude, and VIP service focus. Apply today.',
+    description: 'Elite chauffeur jobs in Riyadh 2026. Earn SAR 15,000 - 25,000 monthly. Requirements: Own car (2020+), professional attitude, and service focus. Apply today.',
     keywords: ['chauffeur jobs Riyadh 2026', 'VIP driver recruitment Riyadh', 'high paying driving jobs Saudi Arabia', 'Riyadh private chauffeur vacancies'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/chauffeur-jobs-riyadh/',

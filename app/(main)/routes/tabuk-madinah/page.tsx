@@ -15,7 +15,7 @@ import TLDRSummary from '@/components/seo/TLDRSummary';
 
 export const metadata: Metadata = {
     title: 'Tabuk to Madinah Taxi | Tabuk to Madinah Private Car | Taxi Service KSA',
-    description: 'Book the best online taxi from Tabuk to Madinah. Direct 6.5-7 hour intercity transfer. Fixed rates, VIP GMC Yukons, and door-to-door service for families.',
+    description: 'Book the best online taxi from Tabuk to Madinah. Direct 6.5-7 hour intercity transfer. Fixed rates, GMC Yukons, and door-to-door service for families.',
     keywords: ['Taxi Tabuk to Madinah', 'Tabuk to Madinah Taxi', 'Tabuk to Madinah private car', 'taxi from Tabuk to Madinah', 'Tabuk to Madinah car hire', 'intercity taxi Saudi Arabia'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-madinah/',

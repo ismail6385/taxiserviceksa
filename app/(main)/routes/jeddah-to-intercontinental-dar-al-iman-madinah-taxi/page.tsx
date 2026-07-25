@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Dar Al Iman InterContinental Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Dar Al Iman InterContinental Madinah (Central Area, King Fahd Road). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Dar Al Iman InterContinental Madinah (Central Area, King Fahd Road). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-intercontinental-dar-al-iman-madinah-taxi/',
         type: 'website',
     },

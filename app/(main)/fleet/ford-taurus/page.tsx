@@ -11,7 +11,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'Ford Taurus 2026 VIP Transfer Saudi Arabia | Premium Sedan',
-    description: 'Book the all-new Ford Taurus 2026 VIP private transfer in Saudi Arabia. Modern 3-seater sedan with first-class technology and comfort for city and airport transfers.',
+    description: 'Book the all-new Ford Taurus 2026 private transfer in Saudi Arabia. Modern 3-seater sedan with first-class technology and comfort for city and airport transfers.',
     keywords: ['Ford Taurus 2026 VIP transfer', 'Ford Taurus chauffeur KSA', 'premium sedan transfer Riyadh', 'new Ford Taurus taxi Saudi Arabia', 'Ford Taurus executive car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/fleet/ford-taurus/',

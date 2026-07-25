@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: 'Driver Jobs in Dammam - Premium Opportunities',
-    description: 'Looking for driver jobs in Dammam? Join as a professional VIP driver. High income, own car (2020+), premium clients, and long trips.',
+    description: 'Looking for driver jobs in Dammam? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['driver jobs Dammam', 'driver jobs in Dammam', 'VIP drivers Dammam'],
     alternates: {
         canonical: '/driver-jobs-dammam',

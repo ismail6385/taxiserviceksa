@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Mahad al-Dhahab | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Mahad al-Dhahab. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Mahad al-Dhahab. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Mahad al-Dhahab VIP private transfer", "Executive chauffeur Mahad al-Dhahab", "Mahad al-Dhahab Airport VIP pickup", "Premium driver Mahad al-Dhahab"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/mahad-al-dhahab/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Mahad al-Dhahab | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Mahad al-Dhahab? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Mahad al-Dhahab? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/mahad-al-dhahab/",
         type: "website",
     },

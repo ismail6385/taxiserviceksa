@@ -18,14 +18,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: 'VIP Airport Transfer Service Saudi Arabia | 8 Airports | Taxi Service KSA',
-    description: 'Professional VIP airport transfer service across Saudi Arabia. 8 major airports covered including Jeddah, Riyadh & Madinah. Executive meet-and-greet, flight tracking, fixed rates, 24/7 service.',
+    description: 'Professional airport transfer service across Saudi Arabia. 8 major airports covered including Jeddah, Riyadh & Madinah. Executive meet-and-greet, flight tracking, fixed rates, 24/7 service.',
     keywords: ['VIP Airport Transfers Saudi Arabia'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/airport-transfers/',
     },
     openGraph: {
         title: 'VIP Airport Transfer Service Saudi Arabia | Premium Chauffeur - 8 Airports | Taxi Service KSA',
-        description: 'Professional VIP airport transfer service across Saudi Arabia. 8 major airports covered. Executive meet-and-greet, flight tracking, 24/7 service.',
+        description: 'Professional airport transfer service across Saudi Arabia. 8 major airports covered. Executive meet-and-greet, flight tracking, 24/7 service.',
         url: 'https://taxiserviceksa.com/services/airport-transfers/',
         type: 'website',
     },

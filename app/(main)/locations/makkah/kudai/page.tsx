@@ -15,7 +15,7 @@ import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Kudai Makkah | Premium Hub Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service in Kudai Makkah. Professional hotel pickups for Le Meridien Towers and Kudai Hub guests.',
+    description: 'Premium private transfer and executive chauffeur service in Kudai Makkah. Professional hotel pickups for Le Meridien Towers and Kudai Hub guests.',
     keywords: ['Kudai VIP transfer', 'Kudai to Haram premium chauffeur', 'Le Meridien Towers VIP transport', 'Makkah Kudai executive car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/makkah/kudai/',

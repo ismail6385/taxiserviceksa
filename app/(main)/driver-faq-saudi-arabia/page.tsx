@@ -4,7 +4,7 @@ import { HelpCircle, ChevronRight, Car, Banknote, ShieldCheck, Clock, MapPin } f
 
 export const metadata: Metadata = {
     title: 'Driver FAQ Saudi Arabia: Everything You Need to Know',
-    description: 'Frequently asked questions about driver jobs in Saudi Arabia. Learn how to apply, car requirements, earning potential, and why VIP transit is better than Uber.',
+    description: 'Frequently asked questions about driver jobs in Saudi Arabia. Learn how to apply, car requirements, earning potential, and why transit is better than Uber.',
     keywords: ['driver faq saudi arabia', 'how to become a driver in saudi', 'driver jobs in saudi arabia', 'taxi driver requirements KSA'],
     alternates: {
         canonical: '/driver-faq-saudi-arabia',

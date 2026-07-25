@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Swissôtel Al Maqam Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Swissôtel Al Maqam Makkah (Abraj Al Bait Complex). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Swissôtel Al Maqam Makkah (Abraj Al Bait Complex). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-swissotel-al-maqam-makkah-taxi/',
         type: 'website',
     },

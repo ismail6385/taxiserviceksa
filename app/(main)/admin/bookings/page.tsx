@@ -69,6 +69,27 @@ import {
     SheetTitle,
     SheetDescription,
 } from '@/components/ui/sheet';
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogFooter,
+    DialogTitle,
+    DialogDescription,
+} from '@/components/ui/dialog';
+
+const VEHICLE_OPTIONS = [
+    'Toyota Camry',
+    'GMC Yukon XL / Denali',
+    'Hyundai Staria VIP',
+    'Hyundai Starex',
+    'Toyota Hiace',
+    'Toyota Coaster',
+    'Mercedes S-Class',
+    'BMW 7 Series',
+    'Mercedes Sprinter',
+    'Luxurious Bus',
+];
 
 interface Booking {
     id: string;
@@ -113,6 +134,14 @@ export default function BookingsPage() {
     const [isEditing, setIsEditing] = useState(false);
     const [editedBooking, setEditedBooking] = useState<Booking | null>(null);
     const [isCreating, setIsCreating] = useState(false);
+    const [showReturnPrompt, setShowReturnPrompt] = useState(false);
+    const [returnTripDraft, setReturnTripDraft] = useState({
+        pickup_date: '',
+        pickup_time: '',
+        passengers: 1,
+        luggage: 0,
+        vehicle_type: 'Toyota Camry',
+    });
     const [selectedIds, setSelectedIds] = useState<string[]>([]);
     const [sortConfig, setSortConfig] = useState<{ key: keyof Booking; direction: 'asc' | 'desc' } | null>(null);
     const [newBookingAlert, setNewBookingAlert] = useState<Booking | null>(null);
@@ -347,28 +376,39 @@ export default function BookingsPage() {
 
     }, [newBooking.customer_phone, newBooking.pickup_date, newBooking.pickup_time, isCreating, bookings]);
 
+    // Opens a quick prompt for the details that usually differ on the return
+    // leg (date, passengers, luggage, vehicle) instead of silently guessing
+    // +7 days and copying the outbound vehicle/passenger count.
+    const openReturnTripPrompt = () => {
+        if (!selectedBooking) return;
+        const originalDate = new Date(selectedBooking.pickup_date);
+        const suggestedDate = new Date(originalDate);
+        suggestedDate.setDate(originalDate.getDate() + 7);
+
+        setReturnTripDraft({
+            pickup_date: suggestedDate.toISOString().split('T')[0],
+            pickup_time: selectedBooking.pickup_time || '12:00',
+            passengers: selectedBooking.passengers || 1,
+            luggage: selectedBooking.luggage || 0,
+            vehicle_type: selectedBooking.vehicle_type || 'Toyota Camry',
+        });
+        setShowReturnPrompt(true);
+    };
+
     const generateReturnTrip = () => {
         if (!selectedBooking) return;
         try {
-            const returnPickup = selectedBooking.destination;
-            const returnDestination = selectedBooking.pickup_location;
-            
-            const originalDate = new Date(selectedBooking.pickup_date);
-            const returnDate = new Date(originalDate);
-            returnDate.setDate(originalDate.getDate() + 7);
-            const returnDateStr = returnDate.toISOString().split('T')[0];
-
             const newB: Partial<Booking> = {
                 customer_name: selectedBooking.customer_name,
                 customer_email: selectedBooking.customer_email || '',
                 customer_phone: selectedBooking.customer_phone || '',
-                pickup_location: returnPickup,
-                destination: returnDestination,
-                pickup_date: returnDateStr,
-                pickup_time: selectedBooking.pickup_time || '12:00',
-                vehicle_type: selectedBooking.vehicle_type || 'Sedan',
-                passengers: selectedBooking.passengers || 1,
-                luggage: selectedBooking.luggage || 0,
+                pickup_location: selectedBooking.destination,
+                destination: selectedBooking.pickup_location,
+                pickup_date: returnTripDraft.pickup_date,
+                pickup_time: returnTripDraft.pickup_time,
+                vehicle_type: returnTripDraft.vehicle_type,
+                passengers: returnTripDraft.passengers,
+                luggage: returnTripDraft.luggage,
                 total_price: selectedBooking.total_price || 0,
                 special_requests: `Return trip for booking #${selectedBooking.id.slice(0, 8)}`,
                 payment_status: 'unpaid',
@@ -380,8 +420,8 @@ export default function BookingsPage() {
 
             setNewBooking(newB);
             setIsCreating(true);
+            setShowReturnPrompt(false);
             setSelectedBooking(null);
-            alert("Return trip draft generated! Please verify the return date/time and click 'Save Booking' to create.");
         } catch (err) {
             console.error(err);
         }
@@ -1651,7 +1691,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                         </SheetHeader>
                         {!isEditing ? (
                             <div className="flex items-center gap-2">
-                                <Button variant="outline" size="sm" onClick={generateReturnTrip} className="bg-white text-blue-600 hover:bg-blue-50 border-blue-200">
+                                <Button variant="outline" size="sm" onClick={openReturnTripPrompt} className="bg-white text-blue-600 hover:bg-blue-50 border-blue-200">
                                     <ArrowUpDown className="w-4 h-4 mr-2" /> Return Trip
                                 </Button>
                                 <Button variant="outline" size="sm" onClick={() => setIsEditing(true)} className="bg-white text-gray-700 hover:bg-gray-50 border-gray-200">
@@ -2299,6 +2339,85 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                 </SheetContent>
             </Sheet>
 
+            {/* Return Trip Quick Prompt */}
+            <Dialog open={showReturnPrompt} onOpenChange={setShowReturnPrompt}>
+                <DialogContent className="bg-white border-gray-200 text-gray-900 sm:max-w-md">
+                    <DialogHeader>
+                        <DialogTitle>Return Trip Details</DialogTitle>
+                        <DialogDescription>
+                            Pickup and drop-off will be swapped automatically. Confirm whatever's different from the outbound trip below.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <div className="grid grid-cols-2 gap-4">
+                        <div className="space-y-1">
+                            <label className="text-sm font-medium text-gray-700">Return Date</label>
+                            <Input
+                                type="date"
+                                value={returnTripDraft.pickup_date}
+                                onChange={(e) => setReturnTripDraft({ ...returnTripDraft, pickup_date: e.target.value })}
+                                className="bg-white border-gray-200"
+                            />
+                        </div>
+                        <div className="space-y-1">
+                            <label className="text-sm font-medium text-gray-700">Pickup Time</label>
+                            <Input
+                                type="time"
+                                value={returnTripDraft.pickup_time}
+                                onChange={(e) => setReturnTripDraft({ ...returnTripDraft, pickup_time: e.target.value })}
+                                className="bg-white border-gray-200"
+                            />
+                        </div>
+                        <div className="space-y-1">
+                            <label className="text-sm font-medium text-gray-700">Passengers</label>
+                            <Input
+                                type="number"
+                                min={1}
+                                value={returnTripDraft.passengers}
+                                onChange={(e) => setReturnTripDraft({ ...returnTripDraft, passengers: parseInt(e.target.value) || 1 })}
+                                className="bg-white border-gray-200"
+                            />
+                        </div>
+                        <div className="space-y-1">
+                            <label className="text-sm font-medium text-gray-700">Luggage</label>
+                            <Input
+                                type="number"
+                                min={0}
+                                value={returnTripDraft.luggage}
+                                onChange={(e) => setReturnTripDraft({ ...returnTripDraft, luggage: parseInt(e.target.value) || 0 })}
+                                className="bg-white border-gray-200"
+                            />
+                        </div>
+                        <div className="space-y-1 col-span-2">
+                            <label className="text-sm font-medium text-gray-700">Vehicle Type</label>
+                            <Select
+                                value={returnTripDraft.vehicle_type}
+                                onValueChange={(val) => setReturnTripDraft({ ...returnTripDraft, vehicle_type: val })}
+                            >
+                                <SelectTrigger className="bg-white border-gray-200">
+                                    <SelectValue />
+                                </SelectTrigger>
+                                <SelectContent className="bg-white border-gray-200">
+                                    {VEHICLE_OPTIONS.map((v) => (
+                                        <SelectItem key={v} value={v}>{v}</SelectItem>
+                                    ))}
+                                </SelectContent>
+                            </Select>
+                            {selectedBooking && returnTripDraft.vehicle_type !== selectedBooking.vehicle_type && (
+                                <p className="text-[11px] text-amber-600 font-medium">
+                                    Different from outbound vehicle ({selectedBooking.vehicle_type})
+                                </p>
+                            )}
+                        </div>
+                    </div>
+                    <DialogFooter>
+                        <Button variant="outline" onClick={() => setShowReturnPrompt(false)}>Cancel</Button>
+                        <Button className="bg-primary text-black hover:bg-black hover:text-white font-bold" onClick={generateReturnTrip}>
+                            Continue to Booking Form
+                        </Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
+
             {/* Create Booking Sheet */}
             <Sheet open={isCreating} onOpenChange={setIsCreating}>
                 <SheetContent className="overflow-y-auto bg-white border-l border-gray-200 text-gray-900 w-full sm:max-w-xl">
@@ -2429,16 +2548,9 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             <SelectValue />
                                         </SelectTrigger>
                                         <SelectContent className="bg-white border-gray-200">
-                                            <SelectItem value="Toyota Camry">Toyota Camry</SelectItem>
-                                            <SelectItem value="GMC Yukon XL / Denali">GMC Yukon XL / Denali</SelectItem>
-                                            <SelectItem value="Hyundai Staria VIP">Hyundai Staria VIP</SelectItem>
-                                            <SelectItem value="Hyundai Starex">Hyundai Starex</SelectItem>
-                                            <SelectItem value="Toyota Hiace">Toyota Hiace</SelectItem>
-                                            <SelectItem value="Toyota Coaster">Toyota Coaster</SelectItem>
-                                            <SelectItem value="Mercedes S-Class">Mercedes S-Class</SelectItem>
-                                            <SelectItem value="BMW 7 Series">BMW 7 Series</SelectItem>
-                                            <SelectItem value="Mercedes Sprinter">Mercedes Sprinter</SelectItem>
-                                            <SelectItem value="Luxurious Bus">Luxurious Bus</SelectItem>
+                                            {VEHICLE_OPTIONS.map((v) => (
+                                                <SelectItem key={v} value={v}>{v}</SelectItem>
+                                            ))}
                                         </SelectContent>
                                     </Select>
                                 </div>

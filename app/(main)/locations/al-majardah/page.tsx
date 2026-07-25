@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Al Majardah | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Al Majardah. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Al Majardah. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Al Majardah VIP private transfer", "Executive chauffeur Al Majardah", "Al Majardah Airport VIP pickup", "Premium driver Al Majardah"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/al-majardah/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Al Majardah | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Al Majardah? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Al Majardah? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/al-majardah/",
         type: "website",
     },

@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Arar | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Arar. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Arar. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Arar VIP private transfer", "Executive chauffeur Arar", "Arar Airport VIP pickup", "Premium driver Arar"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/arar/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Arar | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Arar? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Arar? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/arar/",
         type: "website",
     },

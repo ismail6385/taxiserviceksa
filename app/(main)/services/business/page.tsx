@@ -16,7 +16,7 @@ import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
     title: 'Business & Corporate Taxi Service KSA | Executive Chauffeur',
-    description: 'Premier corporate VIP transfer service in Saudi Arabia for business professionals. Executive cars, monthly invoicing, reliable airport transfers, and event transport.',
+    description: 'Premier corporate transfer service in Saudi Arabia for business professionals. Executive cars, monthly invoicing, reliable airport transfers, and event transport.',
     keywords: ['Corporate VIP transfer Saudi Arabia', 'Business executive transfer KSA', 'Chauffeur service Riyadh', 'Jeddah business transfer', 'VIP transport Saudi Arabia'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/business/',

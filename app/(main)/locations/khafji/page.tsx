@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Khafji | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Khafji. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Khafji. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Khafji VIP private transfer", "Executive chauffeur Khafji", "Khafji Airport VIP pickup", "Premium driver Khafji"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/khafji/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Khafji | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Khafji? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Khafji? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/khafji/",
         type: "website",
     },

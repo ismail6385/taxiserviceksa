@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Al-Jafr | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Al-Jafr. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Al-Jafr. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Al-Jafr VIP private transfer", "Executive chauffeur Al-Jafr", "Al-Jafr Airport VIP pickup", "Premium driver Al-Jafr"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/al-jafr/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Al-Jafr | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Al-Jafr? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Al-Jafr? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/al-jafr/",
         type: "website",
     },

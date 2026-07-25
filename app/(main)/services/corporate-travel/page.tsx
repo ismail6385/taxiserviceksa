@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Corporate VIP Transfer Service Saudi Arabia | Executive Chauffeur with Driver | Taxi Service KSA',
-        description: 'Professional corporate VIP transfer service for business executives. Monthly billing, priority booking, executive vehicles.',
+        description: 'Professional corporate transfer service for business executives. Monthly billing, priority booking, executive vehicles.',
         url: 'https://taxiserviceksa.com/services/corporate-travel/',
         type: 'website',
     },

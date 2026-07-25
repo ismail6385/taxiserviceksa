@@ -11,7 +11,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'GMC Yukon VIP Private Transfer Saudi Arabia | Premium Chauffeur',
-    description: 'Book the elite GMC Yukon VIP private transfer in Saudi Arabia. Premium 7-seater SUV for airport transfers, business travel, and Umrah journeys. Best-in-class comfort and reliability.',
+    description: 'Book the elite GMC Yukon private transfer in Saudi Arabia. Premium 7-seater SUV for airport transfers, business travel, and Umrah journeys. Best-in-class comfort and reliability.',
     keywords: ['GMC Yukon VIP transfer', 'luxury SUV chauffeur KSA', 'GMC Yukon Riyadh transfer', 'executive chauffeur service Saudi Arabia', 'GMC Yukon VIP car', 'Jeddah to Makkah GMC Yukon'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/fleet/gmc-yukon/',

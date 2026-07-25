@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: 'Driver Jobs in Khobar - Premium Opportunities',
-    description: 'Looking for driver jobs in Khobar? Join as a professional VIP driver. High income, own car (2020+), premium clients, and long trips.',
+    description: 'Looking for driver jobs in Khobar? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['driver jobs Khobar', 'driver jobs in Khobar', 'VIP drivers Khobar'],
     alternates: {
         canonical: '/driver-jobs-khobar',

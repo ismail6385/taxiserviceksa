@@ -13,14 +13,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Bahrain to Makkah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Bahrain to Makkah. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Bahrain to Makkah. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Bahrain to Makkah', 'Bahrain to Makkah transfer', 'cross border taxi Saudi Arabia', 'VIP transport Bahrain Makkah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/bahrain-makkah/',
     },
     openGraph: {
         title: 'Bahrain to Makkah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-        description: 'Request a premium quote from Bahrain to Makkah. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Bahrain to Makkah. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/bahrain-makkah/',
         type: 'website',
     },

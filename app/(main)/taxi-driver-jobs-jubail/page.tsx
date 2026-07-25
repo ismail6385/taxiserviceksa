@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: 'Taxi Driver Jobs in Jubail - Premium Opportunities',
-    description: 'Looking for taxi driver jobs in Jubail? Join as a professional VIP driver. High income, own car (2020+), premium clients, and long trips.',
+    description: 'Looking for taxi driver jobs in Jubail? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['taxi driver jobs Jubail', 'taxi driver jobs in Jubail', 'VIP drivers Jubail'],
     alternates: {
         canonical: '/taxi-driver-jobs-jubail',

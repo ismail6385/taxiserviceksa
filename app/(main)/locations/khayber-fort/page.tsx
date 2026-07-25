@@ -31,7 +31,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Khaybar Fort | Madinah & AlUla | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service to Khaybar Fort. Specialized heritage tours from Madinah and AlUla with luxury 4x4 vehicle options.',
+    description: 'Premium private transfer and executive chauffeur service to Khaybar Fort. Specialized heritage tours from Madinah and AlUla with luxury 4x4 vehicle options.',
     keywords: ['Khaybar Fort VIP transfer', 'Executive chauffeur Khaybar', 'Madinah to Khaybar VIP', 'AlUla to Khaybar premium transfer', 'Khaybar 4x4 expedition'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/khayber-fort/',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service to Khaybar Fort | Madinah & AlUla Transfers | Taxi Service KSA',
-        description: 'VIP transfer to Khaybar Oasis from Madinah (170km). Premium 4x4 vehicles available for volcanic tours.',
+        description: 'Transfer to Khaybar Oasis from Madinah (170km). Premium 4x4 vehicles available for volcanic tours.',
         url: 'https://taxiserviceksa.com/locations/khayber-fort/',
         type: 'website',
         images: [{ url: 'https://taxiserviceksa.com/hero-slide-2.webp', alt: 'Khaybar Fort on volcanic rock' }],

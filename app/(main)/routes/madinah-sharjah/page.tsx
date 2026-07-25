@@ -13,14 +13,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Madinah to Sharjah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Madinah to Sharjah. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Madinah to Sharjah. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Madinah to Sharjah', 'Madinah to Sharjah transfer', 'cross border taxi Saudi Arabia', 'VIP transport Madinah Sharjah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/madinah-sharjah/',
     },
     openGraph: {
         title: 'Madinah to Sharjah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-        description: 'Request a premium quote from Madinah to Sharjah. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Madinah to Sharjah. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/madinah-sharjah/',
         type: 'website',
     },

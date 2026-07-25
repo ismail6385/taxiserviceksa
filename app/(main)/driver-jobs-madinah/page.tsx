@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: 'Driver Jobs in Madinah - Premium Opportunities',
-    description: 'Looking for driver jobs in Madinah? Join as a professional VIP driver. High income, own car (2020+), premium clients, and long trips.',
+    description: 'Looking for driver jobs in Madinah? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['driver jobs Madinah', 'driver jobs in Madinah', 'VIP drivers Madinah'],
     alternates: {
         canonical: '/driver-jobs-madinah',

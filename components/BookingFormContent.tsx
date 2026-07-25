@@ -76,6 +76,8 @@ export default function BookingFormContent({ prefilledData, className }: Booking
     const [promoError, setPromoError] = useState('');
     const [open, setOpen] = useState(false);
     const [preferredTimeNote, setPreferredTimeNote] = useState('');
+    const [returnDate, setReturnDate] = useState('');
+    const [returnTime, setReturnTime] = useState('');
 
     const [formData, setFormData] = useState<BookingData>({
         customer_name: '',
@@ -92,7 +94,8 @@ export default function BookingFormContent({ prefilledData, className }: Booking
         special_requests: '',
         status: 'pending',
         has_return_trip: false,
-        child_seats: 0
+        child_seats: 0,
+        flight_number: ''
     });
 
     const searchParams = useSearchParams();
@@ -155,11 +158,11 @@ export default function BookingFormContent({ prefilledData, className }: Booking
             ...prev,
             vehicle_type: vehicle.name,
             vehicle_image: vehicle.image,
-            // Keep whatever passenger count the customer already set, only
-            // clamping it down if it exceeds the newly selected vehicle's
-            // capacity — don't silently overwrite it to the vehicle's max seats.
+            // Keep whatever passenger/luggage count the customer already set, only
+            // clamping down if it exceeds the newly selected vehicle's capacity —
+            // don't silently overwrite it to the vehicle's max seats/bags.
             passengers: Math.min(prev.passengers || 1, vehicle.passengers) || 1,
-            luggage: vehicle.luggage
+            luggage: Math.min(prev.luggage || 0, vehicle.luggage)
         }));
     };
 
@@ -195,7 +198,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
             const finalFormData = {
                 ...insertData,
                 customer_phone: fullPhoneNumber,
-                special_requests: `${formData.has_return_trip ? '[RETURN TRIP REQUESTED] ' : ''}${formData.child_seats ? `[CHILD SEATS: ${formData.child_seats}] ` : ''}${preferredTimeNote.trim() ? `[PREFERRED TIME: ${preferredTimeNote.trim()}] ` : ''}${promoApplied ? `[PROMO: ${promoApplied.code} - ${promoApplied.discount_value}${promoApplied.discount_type === 'percentage' ? '%' : ' SAR'} off] ` : ''}${(formData.special_requests ? formData.special_requests + '. ' : '') + 'Please Provide Quote'}`
+                special_requests: `${formData.has_return_trip ? `[RETURN TRIP REQUESTED${returnDate ? ` - Return Date: ${returnDate}` : ''}${returnTime ? ` at ${returnTime}` : ''}] ` : ''}${formData.child_seats ? `[CHILD SEATS: ${formData.child_seats}] ` : ''}${preferredTimeNote.trim() ? `[PREFERRED TIME: ${preferredTimeNote.trim()}] ` : ''}${promoApplied ? `[PROMO: ${promoApplied.code} - ${promoApplied.discount_value}${promoApplied.discount_type === 'percentage' ? '%' : ' SAR'} off] ` : ''}${(formData.special_requests ? formData.special_requests + '. ' : '') + 'Please Provide Quote'}`
             };
 
             const { data, error } = await supabase.from('bookings').insert([finalFormData]).select();
@@ -406,6 +409,18 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             />
                         </div>
 
+                        {/* Flight Number */}
+                        <div className="space-y-1.5">
+                            <label className="text-sm font-semibold text-gray-700 ml-1">Flight Number (optional)</label>
+                            <Input
+                                name="flight_number"
+                                value={formData.flight_number}
+                                onChange={handleChange}
+                                placeholder="e.g. SV123 or EK803"
+                                className="h-11 bg-gray-50 border-gray-300 rounded-xl text-sm"
+                            />
+                        </div>
+
                         {/* Return Trip Toggle */}
                         <div className="flex items-center gap-3 p-4 bg-blue-50/50 rounded-2xl border border-blue-100/50 cursor-pointer transition-all hover:bg-blue-50" onClick={() => setFormData(prev => ({ ...prev, has_return_trip: !prev.has_return_trip }))}>
                             <div className={`w-10 h-6 rounded-full relative transition-colors ${formData.has_return_trip ? 'bg-primary' : 'bg-gray-200'}`}>
@@ -413,8 +428,45 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             </div>
                             <div className="flex flex-col">
                                 <span className="text-sm font-bold text-gray-900">Add Return Trip?</span>
-                                <span className="text-[10px] text-gray-500 font-medium">Book both ways for a VIP chauffeured experience.</span>
+                                <span className="text-[10px] text-gray-500 font-medium">Book both ways for a chauffeured experience.</span>
                             </div>
+                        </div>
+
+                        {formData.has_return_trip && (
+                            <div className="grid grid-cols-2 gap-4 p-4 bg-blue-50/30 rounded-2xl border border-dashed border-blue-200 animate-fade-in-up">
+                                <div className="space-y-1.5">
+                                    <label className="text-xs font-semibold text-gray-700 ml-1">Return Date</label>
+                                    <Input
+                                        type="date"
+                                        value={returnDate}
+                                        min={formData.pickup_date || undefined}
+                                        onChange={(e) => setReturnDate(e.target.value)}
+                                        className="h-11 bg-white border-gray-300 rounded-xl text-sm"
+                                    />
+                                </div>
+                                <div className="space-y-1.5">
+                                    <label className="text-xs font-semibold text-gray-700 ml-1">Return Time</label>
+                                    <Input
+                                        type="time"
+                                        value={returnTime}
+                                        onChange={(e) => setReturnTime(e.target.value)}
+                                        className="h-11 bg-white border-gray-300 rounded-xl text-sm"
+                                    />
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Special Requests */}
+                        <div className="space-y-1.5">
+                            <label className="text-sm font-semibold text-gray-700 ml-1">Special Requests / Notes (optional)</label>
+                            <textarea
+                                name="special_requests"
+                                value={formData.special_requests}
+                                onChange={handleChange}
+                                placeholder="e.g. Meeting a colleague too, extra bags, gate number..."
+                                rows={2}
+                                className="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm outline-none focus:border-primary resize-none"
+                            />
                         </div>
 
                         <Button type="button" onClick={nextStep} className="w-full bg-gray-950 hover:bg-black text-white font-black py-5 text-xl rounded-2xl mt-4 shadow-lg flex items-center justify-center gap-3 transition-all hover:scale-[1.02] active:scale-95">
@@ -504,6 +556,46 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                             <button
                                                 type="button"
                                                 onClick={(e) => { e.stopPropagation(); formData.passengers < maxPax && setFormData(prev => ({ ...prev, passengers: prev.passengers + 1 })); }}
+                                                className="w-8 h-8 rounded-md bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-all active:scale-95"
+                                            >
+                                                <span className="text-base font-black text-gray-900">+</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })()}
+
+                        {/* Number of Luggage/Bags */}
+                        {formData.vehicle_type && (() => {
+                            const selectedVehicle = vehicles.find(v => v.name === formData.vehicle_type);
+                            const maxLuggage = selectedVehicle?.luggage || 0;
+                            return (
+                                <div className="bg-primary/5 p-5 rounded-3xl border border-dashed border-primary/30">
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-3">
+                                            <div className="p-2 bg-white rounded-xl shadow-sm">
+                                                <Briefcase className="w-5 h-5 text-primary" />
+                                            </div>
+                                            <div>
+                                                <h4 className="font-black text-gray-900 leading-none">Number of Luggage</h4>
+                                                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-tight mt-1">
+                                                    How many bags/suitcases? (Max {maxLuggage} for this vehicle)
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-3 bg-white rounded-lg p-1 border shadow-sm h-10">
+                                            <button
+                                                type="button"
+                                                onClick={(e) => { e.stopPropagation(); formData.luggage > 0 && setFormData(prev => ({ ...prev, luggage: prev.luggage - 1 })); }}
+                                                className="w-8 h-8 rounded-md bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-all active:scale-95"
+                                            >
+                                                <span className="text-base font-black text-gray-900">-</span>
+                                            </button>
+                                            <span className="font-black text-primary min-w-[20px] text-center">{formData.luggage}</span>
+                                            <button
+                                                type="button"
+                                                onClick={(e) => { e.stopPropagation(); formData.luggage < maxLuggage && setFormData(prev => ({ ...prev, luggage: prev.luggage + 1 })); }}
                                                 className="w-8 h-8 rounded-md bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-all active:scale-95"
                                             >
                                                 <span className="text-base font-black text-gray-900">+</span>
@@ -707,8 +799,8 @@ export default function BookingFormContent({ prefilledData, className }: Booking
 *Vehicle:* ${formData.vehicle_type}
 *Passengers:* ${formData.passengers}
 *Luggage:* ${formData.luggage} bags
-*Child Seats:* ${formData.child_seats || 0}
-*Return Trip:* ${formData.has_return_trip ? 'Yes' : 'No'}
+*Child Seats:* ${formData.child_seats || 0}${formData.flight_number ? `\n*Flight Number:* ${formData.flight_number}` : ''}
+*Return Trip:* ${formData.has_return_trip ? 'Yes' : 'No'}${formData.has_return_trip && returnDate ? `\n*Return Date:* ${returnDate}${returnTime ? ` at ${returnTime}` : ''}` : ''}
 *Special Requests:* ${formData.special_requests || 'None'}
 ---
 Please provide a quote for this journey.`;
@@ -728,6 +820,8 @@ Please provide a quote for this journey.`;
                                     setStep(1);
                                     setSuccess(false);
                                     setPreferredTimeNote('');
+                                    setReturnDate('');
+                                    setReturnTime('');
                                     setFormData(prev => ({
                                         ...prev,
                                         customer_name: '',
@@ -737,7 +831,8 @@ Please provide a quote for this journey.`;
                                         destination: '',
                                         status: 'pending',
                                         has_return_trip: false,
-                                        child_seats: 0
+                                        child_seats: 0,
+                                        flight_number: ''
                                     }));
                                 }}
                                 className="border-2 border-gray-200 hover:bg-gray-50 text-gray-700 font-bold py-4 px-8 rounded-xl transition-colors"

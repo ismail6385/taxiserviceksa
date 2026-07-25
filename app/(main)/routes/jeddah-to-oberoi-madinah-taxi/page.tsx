@@ -11,7 +11,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 
 export const metadata: Metadata = {
     title: 'Jeddah to Oberoi Madinah Taxi | VIP Transfer - Fixed Price | Taxi Service KSA',
-    description: 'Request a quote for a VIP luxury taxi from Jeddah Airport to The Oberoi Madinah Hotel. Door-to-door first-class service for executive guests. 24/7 Availability.',
+    description: 'Request a quote for a luxury taxi from Jeddah Airport to The Oberoi Madinah Hotel. Door-to-door first-class service for executive guests. 24/7 Availability.',
     keywords: ['Jeddah to Oberoi Madinah taxi', 'The Oberoi Madinah hotel transfer', 'KAIA to Oberoi Madinah', 'luxury Oberoi Madinah pickup', 'Oberoi Al Madinah VIP taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-oberoi-madinah-taxi/',
@@ -69,7 +69,7 @@ export default function JeddahToOberoiMadinahPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book VIP Ride
+                            Book This Ride
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

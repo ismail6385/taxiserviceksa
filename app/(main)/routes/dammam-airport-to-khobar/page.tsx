@@ -13,14 +13,14 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 
 export const metadata: Metadata = {
     title: 'Dammam Airport to Khobar Taxi | VIP Airport Transfer | Taxi Service KSA',
-    description: 'Book a premium taxi from King Fahd International Airport (DMM) Dammam to Khobar. Reliable VIP transfers, comfortable SUVs, and professional door-to-door service.',
+    description: 'Book a premium taxi from King Fahd International Airport (DMM) Dammam to Khobar. Reliable transfers, comfortable SUVs, and professional door-to-door service.',
     keywords: ['Dammam Airport to Khobar Taxi', 'DMM to Khobar transfer', 'Dammam airport taxi service', 'VIP transport Khobar'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/dammam-airport-to-khobar/',
     },
     openGraph: {
         title: 'Dammam Airport to Khobar Taxi | Taxi Service KSA',
-        description: 'Book a premium taxi from King Fahd International Airport (DMM) Dammam to Khobar. Reliable VIP transfers, comfortable SUVs, and professional door-to-door service.',
+        description: 'Book a premium taxi from King Fahd International Airport (DMM) Dammam to Khobar. Reliable transfers, comfortable SUVs, and professional door-to-door service.',
         url: 'https://taxiserviceksa.com/routes/dammam-airport-to-khobar/',
         type: 'website',
     },

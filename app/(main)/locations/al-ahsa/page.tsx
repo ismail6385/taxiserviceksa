@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Al-Ahsa | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service in Al-Ahsa. Professional, reliable intercity transport and airport pickups. Book online.',
+    description: 'Premium private transfer and executive chauffeur service in Al-Ahsa. Professional, reliable intercity transport and airport pickups. Book online.',
     keywords: ['Al-Ahsa VIP private transfer', 'Executive chauffeur Al-Ahsa', 'Al-Ahsa taxi service', 'Hofuf taxi', 'Al-Ahsa to Dammam taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/al-ahsa/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Al-Ahsa | Taxi Service KSA',
-        description: 'Need a premium VIP transfer in Al-Ahsa (Hofuf)? We provide comfortable chauffeured trips and intercity transport.',
+        description: 'Need a premium transfer in Al-Ahsa (Hofuf)? We provide comfortable chauffeured trips and intercity transport.',
         url: 'https://taxiserviceksa.com/locations/al-ahsa/',
         type: 'website',
     },

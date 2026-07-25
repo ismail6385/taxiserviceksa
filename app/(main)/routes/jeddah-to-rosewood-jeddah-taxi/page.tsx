@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Rosewood Jeddah Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Rosewood Jeddah (North Jeddah business district). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Rosewood Jeddah (North Jeddah business district). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-rosewood-jeddah-taxi/',
         type: 'website',
     },

@@ -12,14 +12,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service to Diplomatic Quarter (DQ) Riyadh | Embassy Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service for the Diplomatic Quarter. Secure, professional transport for embassies and Oud Square.',
+    description: 'Premium private transfer and executive chauffeur service for the Diplomatic Quarter. Secure, professional transport for embassies and Oud Square.',
     keywords: ['Diplomatic Quarter VIP transfer', 'Riyadh DQ premium chauffeur', 'Embassy executive transport', 'Oud Square VIP transfer', 'Al Safarat VIP car service'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/diplomatic-quarter/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service to Diplomatic Quarter (DQ) Riyadh | Taxi Service KSA',
-        description: 'Executive VIP private transfer to the Diplomatic Quarter. Professional chauffeur service handling all checkpoint protocols for embassy visits.',
+        description: 'Executive private transfer to the Diplomatic Quarter. Professional chauffeur service handling all checkpoint protocols for embassy visits.',
         url: 'https://taxiserviceksa.com/locations/riyadh/diplomatic-quarter/',
         type: 'website',
     },

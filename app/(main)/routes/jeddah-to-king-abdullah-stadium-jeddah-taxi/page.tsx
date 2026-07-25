@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to King Abdullah Stadium Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to King Abdullah Sports City Stadium, North Jeddah. VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to King Abdullah Sports City Stadium, North Jeddah. drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-king-abdullah-stadium-jeddah-taxi/',
         type: 'website',
     },

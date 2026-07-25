@@ -15,7 +15,7 @@ import BookingProcess from '@/components/BookingProcess';
 
 export const metadata: Metadata = {
     title: 'Ziyarat in Makkah 2026 | Full Holy Sites Tour | VIP Taxi Service',
-    description: 'Book the best Makkah Ziyarat tour for 2026. Visit Jabal al-Nour, Jabal Thawr, Mina, Arafat, and more with professional chauffeurs. Fixed rates and VIP cars.',
+    description: 'Book the best Makkah Ziyarat tour for 2026. Visit Jabal al-Nour, Jabal Thawr, Mina, Arafat, and more with professional chauffeurs. Fixed rates and premium cars.',
     keywords: ['Ziyarat in Makkah 2026', 'Makkah holy sites tour taxi', 'Jabal al-Nour taxi price', 'Makkah ziyarah guide'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ziyarat-in-makkah/',

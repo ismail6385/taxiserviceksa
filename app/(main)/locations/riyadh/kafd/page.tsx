@@ -12,14 +12,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service to KAFD | Executive Chauffeur Service | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service for King Abdullah Financial District (KAFD). Punctual, professional transport for PIF Tower and corporate meetings.',
+    description: 'Premium private transfer and executive chauffeur service for King Abdullah Financial District (KAFD). Punctual, professional transport for PIF Tower and corporate meetings.',
     keywords: ['KAFD VIP transfer', 'Riyadh Financial District premium chauffeur', 'KAFD executive transport', 'PIF Tower VIP car service', 'KAFD corporate transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/kafd/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service to KAFD (Financial District) | Taxi Service KSA',
-        description: 'Premium VIP private transfer to Riyadh\'s business hub. Professional chauffeur service and executive vehicles for senior leadership.',
+        description: 'Premium private transfer to Riyadh\'s business hub. Professional chauffeur service and executive vehicles for senior leadership.',
         url: 'https://taxiserviceksa.com/locations/riyadh/kafd/',
         type: 'website',
     },

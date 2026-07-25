@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Thuwal | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Thuwal. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Thuwal. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Thuwal VIP private transfer", "Executive chauffeur Thuwal", "Thuwal Airport VIP pickup", "Premium driver Thuwal"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/thuwal/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Thuwal | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Thuwal? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Thuwal? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/thuwal/",
         type: "website",
     },

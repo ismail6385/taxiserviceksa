@@ -15,14 +15,14 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 
 export const metadata: Metadata = {
     title: 'Dammam to Kuwait Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Dammam to Kuwait. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Dammam to Kuwait. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Dammam to Kuwait', 'Dammam to Kuwait transfer', 'cross border taxi Saudi Arabia', 'VIP transport Dammam Kuwait'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/dammam-kuwait/',
     },
     openGraph: {
         title: 'Dammam to Kuwait Taxi | Taxi Service KSA',
-        description: 'Request a premium quote from Dammam to Kuwait. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Dammam to Kuwait. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/dammam-kuwait/',
         type: 'website',
     },

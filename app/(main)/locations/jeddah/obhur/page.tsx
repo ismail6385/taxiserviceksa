@@ -12,14 +12,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service to Obhur Jeddah | Beach Resort Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service to Obhur, Jeddah. Reliable luxury transfers to Indigo, Oia, and all private beach resorts.',
+    description: 'Premium private transfer and executive chauffeur service to Obhur, Jeddah. Reliable luxury transfers to Indigo, Oia, and all private beach resorts.',
     keywords: ['Obhur VIP transfer', 'Jeddah beach premium chauffeur', 'Jeddah to Obhur VIP', 'Indigo resort premium transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/obhur/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service to Obhur Beach Resorts | Premium Chauffeur | Taxi Service KSA',
-        description: 'Going to the beach? We provide premium VIP private transfers and executive SUVs for families and divers heading to Obhur resorts.',
+        description: 'Going to the beach? We provide premium private transfers and executive SUVs for families and divers heading to Obhur resorts.',
         url: 'https://taxiserviceksa.com/locations/jeddah/obhur/',
         type: 'website',
     },

@@ -13,14 +13,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Kuwait to Jeddah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Kuwait to Jeddah. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Kuwait to Jeddah. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Kuwait to Jeddah', 'Kuwait to Jeddah transfer', 'cross border taxi Saudi Arabia', 'VIP transport Kuwait Jeddah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/kuwait-jeddah/',
     },
     openGraph: {
         title: 'Kuwait to Jeddah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-        description: 'Request a premium quote from Kuwait to Jeddah. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Kuwait to Jeddah. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/kuwait-jeddah/',
         type: 'website',
     },

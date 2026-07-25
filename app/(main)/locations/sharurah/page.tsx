@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Sharurah | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Sharurah. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Sharurah. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Sharurah VIP private transfer", "Executive chauffeur Sharurah", "Sharurah Airport VIP pickup", "Premium driver Sharurah"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/sharurah/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Sharurah | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Sharurah? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Sharurah? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/sharurah/",
         type: "website",
     },

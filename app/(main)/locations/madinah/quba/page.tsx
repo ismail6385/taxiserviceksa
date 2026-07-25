@@ -12,7 +12,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service to Masjid Quba | Madinah Ziyarat Service | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service to Masjid Quba. Perform Sunnah prayers in the first mosque of Islam with a professional driver.',
+    description: 'Premium private transfer and executive chauffeur service to Masjid Quba. Perform Sunnah prayers in the first mosque of Islam with a professional driver.',
     keywords: ['Masjid Quba VIP transfer', 'Madinah Quba premium chauffeur', 'First Mosque VIP transport', 'Madinah Ziyarat executive car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/madinah/quba/',

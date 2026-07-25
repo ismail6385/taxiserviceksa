@@ -10,14 +10,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi Al Batha Border Crossing (UAE) | 24/7 VIP Transfers',
-    description: 'Need a taxi at Al Batha Border? We provide reliable, 24/7 VIP cross-border transfers between Saudi Arabia and UAE. Get a quote now.',
+    description: 'Need a taxi at Al Batha Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and UAE. Get a quote now.',
     keywords: ['Taxi Al Batha border crossing', 'Al Batha border to Saudi Arabia taxi', 'Taxi from Al Batha to Riyadh', 'Cross border taxi UAE', 'Al Batha immigration taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/border-crossings/taxi-al-batha-border-crossing/',
     },
     openGraph: {
         title: 'Taxi Al Batha Border Crossing (UAE)',
-        description: 'Need a taxi at Al Batha Border? We provide reliable, 24/7 VIP cross-border transfers between Saudi Arabia and UAE. Get a quote now.',
+        description: 'Need a taxi at Al Batha Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and UAE. Get a quote now.',
         url: 'https://taxiserviceksa.com/border-crossings/taxi-al-batha-border-crossing/',
         type: 'website',
     },

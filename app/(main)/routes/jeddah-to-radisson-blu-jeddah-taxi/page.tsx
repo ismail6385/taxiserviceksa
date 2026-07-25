@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Radisson Blu Jeddah Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Radisson Blu Hotel Jeddah (Madinah Road area, Jeddah). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Radisson Blu Hotel Jeddah (Madinah Road area, Jeddah). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-radisson-blu-jeddah-taxi/',
         type: 'website',
     },

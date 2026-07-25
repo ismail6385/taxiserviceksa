@@ -29,7 +29,7 @@ import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Yanbu | Airport & Industrial Port | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service in Yanbu. Specialized Prince Abdul Mohsin Airport (YNB) pickups and industrial city port transfers. Professional corporate standards.',
+    description: 'Premium private transfer and executive chauffeur service in Yanbu. Specialized Prince Abdul Mohsin Airport (YNB) pickups and industrial city port transfers. Professional corporate standards.',
     keywords: ['Yanbu VIP private transfer', 'Executive chauffeur Yanbu', 'YNB Airport VIP pickup', 'Yanbu industrial port transfer', 'Yanbu corporate transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/yanbu/',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Yanbu | Airport Transfer & Industrial Transport | Taxi Service KSA',
-        description: 'VIP transfer service in Yanbu operates 24/7. Premium airport transfers and industrial city transport. Fixed rates. Book online.',
+        description: 'Transfer service in Yanbu operates 24/7. Premium airport transfers and industrial city transport. Fixed rates. Book online.',
         url: 'https://taxiserviceksa.com/locations/yanbu/',
         type: 'website',
     },

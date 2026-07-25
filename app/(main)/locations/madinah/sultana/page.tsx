@@ -12,7 +12,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service to Sultana Road Madinah | Premium Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service to Sultana Road (Sultanah) in Madinah. Luxury transport for shopping, dining, and cafes.',
+    description: 'Premium private transfer and executive chauffeur service to Sultana Road (Sultanah) in Madinah. Luxury transport for shopping, dining, and cafes.',
     keywords: ['Sultana Road VIP transfer', 'Madinah shopping premium chauffeur', 'Sultanah VIP transport', 'Madinah executive lifestyle car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/madinah/sultana/',

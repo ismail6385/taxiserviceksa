@@ -16,7 +16,7 @@ import RoutePerspective from '@/components/seo/RoutePerspective';
 
 export const metadata: Metadata = {
     title: 'Jeddah to Riyadh Taxi | Jeddah to Riyadh Private Car (950km) | Taxi Service KSA',
-    description: 'Book the best online taxi from Jeddah to Riyadh. Direct 9-10 hour intercity transfer across Saudi Arabia. Fixed rates, VIP GMC Yukons, and door-to-door service.',
+    description: 'Book the best online taxi from Jeddah to Riyadh. Direct 9-10 hour intercity transfer across Saudi Arabia. Fixed rates, GMC Yukons, and door-to-door service.',
     keywords: ['Taxi Jeddah to Riyadh', 'Jeddah to Riyadh Taxi', 'Jeddah to Riyadh private car', 'taxi from Jeddah to Riyadh', 'Jeddah to Riyadh car hire', 'intercity taxi Saudi Arabia'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-riyadh/',

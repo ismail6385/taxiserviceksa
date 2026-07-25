@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Al Wajh | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Al Wajh. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Al Wajh. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Al Wajh VIP private transfer", "Executive chauffeur Al Wajh", "Al Wajh Airport VIP pickup", "Premium driver Al Wajh"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/al-wajh/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Al Wajh | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Al Wajh? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Al Wajh? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/al-wajh/",
         type: "website",
     },

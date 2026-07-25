@@ -13,14 +13,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Bahrain to Jeddah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Bahrain to Jeddah. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Bahrain to Jeddah. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Bahrain to Jeddah', 'Bahrain to Jeddah transfer', 'cross border taxi Saudi Arabia', 'VIP transport Bahrain Jeddah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/bahrain-jeddah/',
     },
     openGraph: {
         title: 'Bahrain to Jeddah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-        description: 'Request a premium quote from Bahrain to Jeddah. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Bahrain to Jeddah. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/bahrain-jeddah/',
         type: 'website',
     },

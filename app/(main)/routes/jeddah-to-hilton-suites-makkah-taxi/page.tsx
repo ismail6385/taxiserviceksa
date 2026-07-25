@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Hilton Suites Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Hilton Suites Makkah (Ajyad, near King Abdul Aziz Gate). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Hilton Suites Makkah (Ajyad, near King Abdul Aziz Gate). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-hilton-suites-makkah-taxi/',
         type: 'website',
     },

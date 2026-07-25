@@ -12,14 +12,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in NEOM | Tabuk to The Line | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service to NEOM, The Line, Trojena, and Sindalah. Specialized 4x4 desert luxury for consultants and executives.',
+    description: 'Premium private transfer and executive chauffeur service to NEOM, The Line, Trojena, and Sindalah. Specialized 4x4 desert luxury for consultants and executives.',
     keywords: ['NEOM VIP private transfer', 'Executive chauffeur NEOM', 'Tabuk to NEOM VIP', 'The Line premium transport', 'Sindalah VIP transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/neom/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service to NEOM (The Line, Trojena, Sindalah) | Taxi Service KSA',
-        description: 'Premium VIP transfer from Tabuk to NEOM projects. We serve NC1, NC2, Oxagon, and the Base Camp.',
+        description: 'Premium transfer from Tabuk to NEOM projects. We serve NC1, NC2, Oxagon, and the Base Camp.',
         url: 'https://taxiserviceksa.com/locations/neom/',
         type: 'website',
     },

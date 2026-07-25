@@ -13,14 +13,14 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 
 export const metadata: Metadata = {
     title: 'Kuwait to Dammam Airport Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Book a premium taxi from Kuwait to King Fahd International Airport (DMM) Dammam. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service.',
+    description: 'Book a premium taxi from Kuwait to King Fahd International Airport (DMM) Dammam. Reliable cross-border transfers, comfortable SUVs, and door-to-door service.',
     keywords: ['Kuwait to Dammam Airport Taxi', 'Kuwait to DMM transfer', 'Kuwait Dammam airport cross border taxi', 'VIP transport Kuwait Dammam'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/kuwait-to-dammam-airport/',
     },
     openGraph: {
         title: 'Kuwait to Dammam Airport Taxi | Taxi Service KSA',
-        description: 'Book a premium taxi from Kuwait to King Fahd International Airport (DMM) Dammam. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service.',
+        description: 'Book a premium taxi from Kuwait to King Fahd International Airport (DMM) Dammam. Reliable cross-border transfers, comfortable SUVs, and door-to-door service.',
         url: 'https://taxiserviceksa.com/routes/kuwait-to-dammam-airport/',
         type: 'website',
     },

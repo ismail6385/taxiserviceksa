@@ -17,7 +17,7 @@ import BookingProcess from '@/components/BookingProcess';
 
 export const metadata: Metadata = {
     title: 'تاكسي مكة إلى المدينة ٢٠٢٦ | نقل VIP خاص | أسعار ثابتة',
-    description: 'احجز أفضل تاكسي من مكة إلى المدينة لعام ٢٠٢٦. نقل متميز بين المدن مع سائقين محترفين. أسعار ثابتة تبدأ من ٥٥٠ ريال. خدمة VIP من الباب إلى الباب.',
+    description: 'احجز أفضل تاكسي من مكة إلى المدينة لعام ٢٠٢٦. نقل متميز بين المدن مع سائقين محترفين. أسعار ثابتة تبدأ من ٥٥٠ ريال. خدمة من الباب إلى الباب.',
     keywords: ['تاكسي مكة المدينة ٢٠٢٦', 'سعر تاكسي مكة المدينة', 'سيارة خاصة مكة المدينة'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ar/routes/makkah-madinah/',

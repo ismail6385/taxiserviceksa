@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: 'Taxi Driver Jobs in Buraidah - Premium Opportunities',
-    description: 'Looking for taxi driver jobs in Buraidah? Join as a professional VIP driver. High income, own car (2020+), premium clients, and long trips.',
+    description: 'Looking for taxi driver jobs in Buraidah? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['taxi driver jobs Buraidah', 'taxi driver jobs in Buraidah', 'VIP drivers Buraidah'],
     alternates: {
         canonical: '/taxi-driver-jobs-buraidah',

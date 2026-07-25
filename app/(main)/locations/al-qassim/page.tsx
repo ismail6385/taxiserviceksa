@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Al-Qassim | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service in Al-Qassim region. Professional, reliable intercity transport and airport pickups. Book online.',
+    description: 'Premium private transfer and executive chauffeur service in Al-Qassim region. Professional, reliable intercity transport and airport pickups. Book online.',
     keywords: ['Al-Qassim VIP private transfer', 'Executive chauffeur Al-Qassim', 'Al-Qassim taxi service', 'Buraidah taxi', 'Al-Qassim to Riyadh taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/al-qassim/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Al-Qassim | Taxi Service KSA',
-        description: 'Need a premium VIP transfer in Al-Qassim? We provide comfortable chauffeured trips and intercity transport.',
+        description: 'Need a premium transfer in Al-Qassim? We provide comfortable chauffeured trips and intercity transport.',
         url: 'https://taxiserviceksa.com/locations/al-qassim/',
         type: 'website',
     },

@@ -6,7 +6,7 @@ import Hero from '@/components/Hero';
 
 export const metadata: Metadata = {
     title: 'VIP Airport Lounges in Saudi Arabia | Guide 2026 | Taxi Service KSA',
-    description: 'Complete guide to VIP Airport Lounges in Saudi Arabia 2026. Discover the best places, tips, and reliable transport options with Taxi Service KSA.',
+    description: 'Complete guide to Airport Lounges in Saudi Arabia 2026. Discover the best places, tips, and reliable transport options with Taxi Service KSA.',
     keywords: ['VIP Airport Lounges Saudi Arabia Guide 2026'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/blog/vip-airport-lounges-saudi-arabia-guide-2026/',
@@ -30,7 +30,7 @@ export default function VIPLoungesGuidePage() {
                 <div className="flex justify-center mt-8">
                     <Link href="/booking/">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
-                            Book Airport VIP Transfer
+                            Book Airport Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
@@ -49,7 +49,7 @@ export default function VIPLoungesGuidePage() {
                     
                     <div className="bg-emerald-50 p-6 rounded-2xl border border-emerald-100 mt-8">
                         <h3 className="text-xl font-bold text-emerald-900 mb-2">Need a ride?</h3>
-                        <p className="text-emerald-800 mb-4">Book a VIP Private Car for your trip today and enjoy a seamless travel experience.</p>
+                        <p className="text-emerald-800 mb-4">Book a Private Car for your trip today and enjoy a seamless travel experience.</p>
                         <Link href="/booking/">
                             <Button className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold">
                                 Reserve Private Car

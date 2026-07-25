@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Al-Bukayriyah | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Al-Bukayriyah. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Al-Bukayriyah. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Al-Bukayriyah VIP private transfer", "Executive chauffeur Al-Bukayriyah", "Al-Bukayriyah Airport VIP pickup", "Premium driver Al-Bukayriyah"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/al-bukayriyah/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Al-Bukayriyah | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Al-Bukayriyah? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Al-Bukayriyah? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/al-bukayriyah/",
         type: "website",
     },

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Jeddah Hilton Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Jeddah Hilton (Corniche, North Jeddah). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Jeddah Hilton (Corniche, North Jeddah). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-hilton-jeddah-taxi/',
         type: 'website',
     },

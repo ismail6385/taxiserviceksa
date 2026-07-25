@@ -9,7 +9,7 @@ import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 export const metadata: Metadata = {
     title: 'VIP Executive Fleet Saudi Arabia | Premium Chauffeur Vehicles',
-    description: 'Explore our VIP executive fleet in Saudi Arabia. Luxury Mercedes S-Class, Cadillac Escalade, GMC Yukon, and Luxurious Buses for premium private transfers. 2026 models.',
+    description: 'Explore our executive fleet in Saudi Arabia. Luxury Mercedes S-Class, Cadillac Escalade, GMC Yukon, and Luxurious Buses for premium private transfers. 2026 models.',
     keywords: ['VIP Fleet Saudi Arabia', 'Premium Chauffeur Vehicles', 'Mercedes S-Class Saudi Arabia', 'Cadillac Escalade Chauffeur', 'GMC Yukon VIP Transfer', 'Luxury Van Transfer KSA', 'Executive Car with Driver', 'Umrah Private Fleet', 'Luxurious Bus Saudi Arabia'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/fleet/',

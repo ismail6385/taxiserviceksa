@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Al-Ghat | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Al-Ghat. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Al-Ghat. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Al-Ghat VIP private transfer", "Executive chauffeur Al-Ghat", "Al-Ghat Airport VIP pickup", "Premium driver Al-Ghat"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/al-ghat/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Al-Ghat | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Al-Ghat? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Al-Ghat? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/al-ghat/",
         type: "website",
     },

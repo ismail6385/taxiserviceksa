@@ -18,7 +18,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service Jeddah to Makkah | Premium Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service from Jeddah to Makkah. Specialized Umrah transfers with luxury SUVs and professional drivers.',
+    description: 'Premium private transfer and executive chauffeur service from Jeddah to Makkah. Specialized Umrah transfers with luxury SUVs and professional drivers.',
     keywords: ['Jeddah to Makkah VIP transfer', 'Premium chauffeur Jeddah Makkah', 'Executive Makkah transfer', 'Luxury Umrah transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah-makkah/',

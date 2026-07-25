@@ -49,7 +49,7 @@ export default function NeomGuidePage() {
                     
                     <div className="bg-emerald-50 p-6 rounded-2xl border border-emerald-100 mt-8">
                         <h3 className="text-xl font-bold text-emerald-900 mb-2">Need a ride?</h3>
-                        <p className="text-emerald-800 mb-4">Book a VIP Private Car for your trip today and enjoy a seamless travel experience.</p>
+                        <p className="text-emerald-800 mb-4">Book a Private Car for your trip today and enjoy a seamless travel experience.</p>
                         <Link href="/booking/">
                             <Button className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold">
                                 Reserve Private Car

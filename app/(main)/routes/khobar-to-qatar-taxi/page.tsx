@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Al Khobar to Qatar Taxi | Abu Samra Border | Taxi Service KSA',
-        description: 'Travel from Al Khobar or Dammam to Qatar via the Abu Samra border. Comfortable private VIP transfers with fixed rates.',
+        description: 'Travel from Al Khobar or Dammam to Qatar via the Abu Samra border. Comfortable private transfers with fixed rates.',
         url: 'https://taxiserviceksa.com/routes/khobar-to-qatar-taxi/',
         type: 'website',
     },

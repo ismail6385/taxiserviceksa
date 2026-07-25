@@ -13,14 +13,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Abu Dhabi to Madinah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Abu Dhabi to Madinah. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Abu Dhabi to Madinah. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Abu Dhabi to Madinah', 'Abu Dhabi to Madinah transfer', 'cross border taxi Saudi Arabia', 'VIP transport Abu Dhabi Madinah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/abu-dhabi-madinah/',
     },
     openGraph: {
         title: 'Abu Dhabi to Madinah Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-        description: 'Request a premium quote from Abu Dhabi to Madinah. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Abu Dhabi to Madinah. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/abu-dhabi-madinah/',
         type: 'website',
     },

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Jeddah Marriott Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Jeddah Marriott Hotel (Central Jeddah, near the business district). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Jeddah Marriott Hotel (Central Jeddah, near the business district). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-jeddah-marriott-taxi/',
         type: 'website',
     },

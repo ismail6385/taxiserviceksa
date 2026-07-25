@@ -12,7 +12,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service to Jeddah Corniche | F1 Track VIP Service | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service to the New Jeddah Corniche. Visit the F1 Track, Yacht Club, and Red Sea Mall with an professional driver.',
+    description: 'Premium private transfer and executive chauffeur service to the New Jeddah Corniche. Visit the F1 Track, Yacht Club, and Red Sea Mall with an professional driver.',
     keywords: ['Jeddah Corniche VIP transfer', 'Jeddah Waterfront premium chauffeur', 'Jeddah F1 Track VIP', 'Red Sea Mall executive transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/corniche/',
@@ -64,7 +64,7 @@ export default function JeddahCornichePage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Jeddah%20Airport&dropoff=Jeddah%20Corniche">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book VIP Visit
+                            Book Your Jeddah Corniche Visit
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

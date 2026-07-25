@@ -13,14 +13,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Abha | AHB Airport Pickup | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service in Abha. Specialized Abha Airport (AHB) pickups and mountain transfers to Al Soudah and Rijal Almaa. Professional high-altitude service.',
+    description: 'Premium private transfer and executive chauffeur service in Abha. Specialized Abha Airport (AHB) pickups and mountain transfers to Al Soudah and Rijal Almaa. Professional high-altitude service.',
     keywords: ['Abha VIP private transfer', 'Executive chauffeur Abha', 'AHB Airport VIP pickup', 'Ride to Al Soudah VIP', 'Abha premium driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/abha/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Abha | Taxi Service KSA',
-        description: 'Need a premium VIP transfer in Abha? We provide comfortable chauffeured trips to Al Soudah, Green Mountain, and Abha Airport.',
+        description: 'Need a premium transfer in Abha? We provide comfortable chauffeured trips to Al Soudah, Green Mountain, and Abha Airport.',
         url: 'https://taxiserviceksa.com/locations/abha/',
         type: 'website',
     },

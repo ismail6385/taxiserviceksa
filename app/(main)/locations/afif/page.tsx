@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Afif | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Afif. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Afif. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Afif VIP private transfer", "Executive chauffeur Afif", "Afif Airport VIP pickup", "Premium driver Afif"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/afif/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Afif | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Afif? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Afif? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/afif/",
         type: "website",
     },

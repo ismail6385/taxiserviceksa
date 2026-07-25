@@ -25,7 +25,7 @@ import ExpertReview from '@/components/seo/ExpertReview';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Dhahran | Aramco & Ithra | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service in Dhahran. Specialized Saudi Aramco, KFUPM, and Ithra Center transport. Professional corporate standards.',
+    description: 'Premium private transfer and executive chauffeur service in Dhahran. Specialized Saudi Aramco, KFUPM, and Ithra Center transport. Professional corporate standards.',
     keywords: ['Dhahran VIP private transfer', 'Executive chauffeur Dhahran', 'Aramco VIP pickup', 'Ithra Center VIP transport', 'KFUPM executive taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/dhahran/',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Dhahran | Aramco & Ithra Pickups | Taxi Service KSA',
-        description: 'Premium VIP transfer service in Dhahran. Transfers to Saudi Aramco, KFUPM, and Ithra Center. Professional chauffeurs for business & city travel.',
+        description: 'Premium transfer service in Dhahran. Transfers to Saudi Aramco, KFUPM, and Ithra Center. Professional chauffeurs for business & city travel.',
         url: 'https://taxiserviceksa.com/locations/dhahran/',
         type: 'website',
     },

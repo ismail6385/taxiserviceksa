@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
     title: 'All Chauffeur & Transport Services Saudi Arabia | Taxi Service KSA',
-    description: 'Complete range of private transport services in Saudi Arabia — VIP chauffeur, airport transfers, tourism transport, private driver hire, event transport, and more. Book now.',
+    description: 'Complete range of private transport services in Saudi Arabia — chauffeur, airport transfers, tourism transport, private driver hire, event transport, and more. Book now.',
     keywords: ['VIP Private Transfers', 'Executive Chauffeur Service', 'Taxi Service KSA', 'Long Distance Transfer', 'Umrah Private Transport', 'Business Chauffeur', 'Tourism Transport Saudi', 'Private Driver Saudi Arabia', 'English Speaking Driver Saudi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/',

@@ -11,7 +11,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'Mercedes Vito VIP Van Saudi Arabia | Executive Group Travel',
-    description: 'Book the elite Mercedes Vito VIP private transfer in Saudi Arabia. Premium 7-seater executive van for business teams, families, and luxury tours. Professional chauffeurs and fixed rates.',
+    description: 'Book the elite Mercedes Vito private transfer in Saudi Arabia. Premium 7-seater executive van for business teams, families, and luxury tours. Professional chauffeurs and fixed rates.',
     keywords: ['Mercedes Vito VIP transfer', 'luxury van chauffeur KSA', 'Mercedes Vito Riyadh transfer', 'executive van service Saudi Arabia', 'VIP Mercedes van hire', 'Vito airport transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/fleet/mercedes-vito/',

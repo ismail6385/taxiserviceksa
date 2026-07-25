@@ -5,7 +5,7 @@ import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 export const metadata: Metadata = {
     title: 'Chauffeur Jobs in Abha - Premium Opportunities',
-    description: 'Looking for chauffeur jobs in Abha? Join as a professional VIP driver. High income, own car (2020+), premium clients, and long trips.',
+    description: 'Looking for chauffeur jobs in Abha? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Abha', 'chauffeur jobs in Abha', 'VIP drivers Abha'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/chauffeur-jobs-abha',

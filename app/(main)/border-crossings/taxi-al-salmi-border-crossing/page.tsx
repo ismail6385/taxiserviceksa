@@ -10,14 +10,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi Al Salmi Border Crossing (Kuwait) | 24/7 VIP Transfers',
-    description: 'Need a taxi at Al Salmi Border? We provide reliable, 24/7 VIP cross-border transfers between Saudi Arabia and Kuwait. Get a quote now.',
+    description: 'Need a taxi at Al Salmi Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Kuwait. Get a quote now.',
     keywords: ['Taxi Al Salmi border crossing', 'Al Salmi border to Saudi Arabia taxi', 'Taxi from Al Salmi to Riyadh', 'Cross border taxi Kuwait', 'Al Salmi immigration taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/border-crossings/taxi-al-salmi-border-crossing/',
     },
     openGraph: {
         title: 'Taxi Al Salmi Border Crossing (Kuwait)',
-        description: 'Need a taxi at Al Salmi Border? We provide reliable, 24/7 VIP cross-border transfers between Saudi Arabia and Kuwait. Get a quote now.',
+        description: 'Need a taxi at Al Salmi Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Kuwait. Get a quote now.',
         url: 'https://taxiserviceksa.com/border-crossings/taxi-al-salmi-border-crossing/',
         type: 'website',
     },

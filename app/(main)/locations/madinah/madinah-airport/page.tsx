@@ -15,7 +15,7 @@ import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Madinah Airport | Premium Chauffeur Pickup | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service at Madinah Airport (MED). Get a quote for your professional pickup to Masjid Nabawi and local hotels.',
+    description: 'Premium private transfer and executive chauffeur service at Madinah Airport (MED). Get a quote for your professional pickup to Masjid Nabawi and local hotels.',
     keywords: ['Madinah Airport VIP transfer', 'MED Airport premium chauffeur', 'Madinah Airport executive car', 'Prince Mohammad Airport VIP pickup'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/madinah/madinah-airport/',
@@ -198,7 +198,7 @@ export default function MadinahAirportPage() {
                     <div className="flex flex-wrap justify-center gap-6">
                         <Link href="/booking/">
                             <Button className="bg-white text-emerald-900 hover:bg-primary hover:text-white font-black px-12 py-8 text-xl rounded-2xl h-auto shadow-2xl scale-100 hover:scale-105 transition-all">
-                                Book VIP Airport Transfer
+                                Book Your Madinah Airport Transfer
                             </Button>
                         </Link>
                         <Link href="/locations/madinah/">

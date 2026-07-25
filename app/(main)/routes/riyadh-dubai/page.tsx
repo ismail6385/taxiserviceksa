@@ -11,14 +11,14 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 
 export const metadata: Metadata = {
     title: 'Riyadh to Dubai Taxi | 3500 SAR GMC VIP Transfer | Taxi Service KSA',
-    description: 'Book a private VIP taxi from Riyadh to Dubai. GMC Yukon / Chevy Tahoe from 3500 SAR. Door-to-door, border assistance included. WhatsApp booking available 24/7.',
+    description: 'Book a private taxi from Riyadh to Dubai. GMC Yukon / Chevy Tahoe from 3500 SAR. Door-to-door, border assistance included. WhatsApp booking available 24/7.',
     keywords: ['Taxi Riyadh to Dubai', 'Riyadh to Dubai transfer', 'Riyadh Dubai price 3500 SAR', 'cross border taxi Saudi Arabia', 'VIP transport Riyadh Dubai GMC'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/riyadh-dubai/',
     },
     openGraph: {
         title: 'Riyadh to Dubai Taxi | 3500 SAR VIP GMC Transfer',
-        description: 'Book a private VIP taxi from Riyadh to Dubai. GMC Yukon / Chevy Tahoe from 3500 SAR. Door-to-door, border assistance included.',
+        description: 'Book a private taxi from Riyadh to Dubai. GMC Yukon / Chevy Tahoe from 3500 SAR. Door-to-door, border assistance included.',
         url: 'https://taxiserviceksa.com/routes/riyadh-dubai/',
         type: 'website',
     },

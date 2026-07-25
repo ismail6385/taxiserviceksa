@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Al Rais | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Al Rais. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Al Rais. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Al Rais VIP private transfer", "Executive chauffeur Al Rais", "Al Rais Airport VIP pickup", "Premium driver Al Rais"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/al-rais/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Al Rais | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Al Rais? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Al Rais? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/al-rais/",
         type: "website",
     },

@@ -16,7 +16,7 @@ import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
     title: 'Event & Wedding Transport Saudi Arabia | Conference & Exhibition Chauffeur | Taxi Service KSA',
-    description: 'Professional event transport for weddings, conferences, exhibitions, and corporate events in Riyadh and Jeddah. Private chauffeur for guests, VIP arrivals, and group logistics. Book now.',
+    description: 'Professional event transport for weddings, conferences, exhibitions, and corporate events in Riyadh and Jeddah. Private chauffeur for guests, arrivals, and group logistics. Book now.',
     keywords: [
         'Saudi event chauffeur booking',
         'private transport for wedding guests',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Event & Wedding Transport Saudi Arabia | Chauffeur for Conferences & Weddings | Taxi Service KSA',
-        description: 'Private chauffeur and group transport for weddings, conferences, exhibitions, and corporate events in Riyadh and Jeddah. VIP arrivals, guest shuttles, and full event logistics.',
+        description: 'Private chauffeur and group transport for weddings, conferences, exhibitions, and corporate events in Riyadh and Jeddah. arrivals, guest shuttles, and full event logistics.',
         url: 'https://taxiserviceksa.com/services/event-transport/',
         type: 'website',
     },

@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Wadi ad-Dawasir | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Wadi ad-Dawasir. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Wadi ad-Dawasir. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Wadi ad-Dawasir VIP private transfer", "Executive chauffeur Wadi ad-Dawasir", "Wadi ad-Dawasir Airport VIP pickup", "Premium driver Wadi ad-Dawasir"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/wadi-ad-dawasir/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Wadi ad-Dawasir | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Wadi ad-Dawasir? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Wadi ad-Dawasir? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/wadi-ad-dawasir/",
         type: "website",
     },

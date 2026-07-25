@@ -7,7 +7,7 @@ import BookingProcess from '@/components/BookingProcess';
 
 export const metadata: Metadata = {
     title: 'Border Crossing Taxi 2026 | Saudi Arabia VIP International Transfers',
-    description: 'Professional cross-border taxi services for 2026. VIP transfers to Bahrain, UAE, Qatar, Kuwait, and Jordan. Fixed rates, GCC-licensed drivers, and premium SUVs.',
+    description: 'Professional cross-border taxi services for 2026. transfers to Bahrain, UAE, Qatar, Kuwait, and Jordan. Fixed rates, GCC-licensed drivers, and premium SUVs.',
     keywords: ['Saudi border taxi 2026', 'King Fahd Causeway taxi', 'cross border taxi KSA', 'Salwa border transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/border-crossings/',

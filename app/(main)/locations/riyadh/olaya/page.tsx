@@ -12,14 +12,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service to Olaya District Riyadh | Premium Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service for Olaya, Riyadh. Professional transport to Kingdom Centre, Al Faisaliah Tower, and Tahlia Street.',
+    description: 'Premium private transfer and executive chauffeur service for Olaya, Riyadh. Professional transport to Kingdom Centre, Al Faisaliah Tower, and Tahlia Street.',
     keywords: ['Olaya VIP transfer', 'Riyadh downtown premium chauffeur', 'Kingdom Centre VIP car', 'Faisaliah Tower executive transport', 'Olaya Street VIP transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/olaya/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service to Olaya District (Riyadh Downtown) | Taxi Service KSA',
-        description: 'Elite VIP private transfer and professional chauffeur service for Riyadh\'s financial heart. Serving Kingdom Centre, Faisaliah, and major hotels.',
+        description: 'Elite private transfer and professional chauffeur service for Riyadh\'s financial heart. Serving Kingdom Centre, Faisaliah, and major hotels.',
         url: 'https://taxiserviceksa.com/locations/riyadh/olaya/',
         type: 'website',
     },

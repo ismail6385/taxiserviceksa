@@ -13,14 +13,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Madinah to Doha Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Madinah to Doha. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Madinah to Doha. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Madinah to Doha', 'Madinah to Doha transfer', 'cross border taxi Saudi Arabia', 'VIP transport Madinah Doha'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/madinah-doha/',
     },
     openGraph: {
         title: 'Madinah to Doha Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-        description: 'Request a premium quote from Madinah to Doha. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Madinah to Doha. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/madinah-doha/',
         type: 'website',
     },

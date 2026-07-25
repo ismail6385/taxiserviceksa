@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Samtah | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Samtah. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Samtah. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Samtah VIP private transfer", "Executive chauffeur Samtah", "Samtah Airport VIP pickup", "Premium driver Samtah"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/samtah/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Samtah | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Samtah? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Samtah? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/samtah/",
         type: "website",
     },

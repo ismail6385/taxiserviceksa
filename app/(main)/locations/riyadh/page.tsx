@@ -31,14 +31,14 @@ import JsonLdLocation from '@/components/JsonLdLocation';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Executive Chauffeur Service in Riyadh | RUH Airport | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service in Riyadh. Specialized King Khalid Airport (RUH) pickups and corporate business transport. Professional international standards.',
+    description: 'Premium private transfer and executive chauffeur service in Riyadh. Specialized King Khalid Airport (RUH) pickups and corporate business transport. Professional international standards.',
     keywords: ['Riyadh VIP private transfer', 'Executive chauffeur service Riyadh', 'Riyadh airport VIP pickup', 'RUH premium airport transfer', 'Riyadh corporate business transport', 'Luxury car with driver Riyadh', 'Riyadh to Makkah VIP transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Executive Chauffeur Service in Riyadh | Taxi Service KSA',
-        description: 'Premium VIP private transfer and professional chauffeur service in Riyadh. Specialized King Khalid Airport (RUH) pickups and elite corporate transport.',
+        description: 'Premium private transfer and professional chauffeur service in Riyadh. Specialized King Khalid Airport (RUH) pickups and elite corporate transport.',
         url: 'https://taxiserviceksa.com/locations/riyadh/',
         type: 'website',
     },

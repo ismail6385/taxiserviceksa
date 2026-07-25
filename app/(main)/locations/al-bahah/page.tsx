@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Al Bahah | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Al Bahah. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Al Bahah. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Al Bahah VIP private transfer", "Executive chauffeur Al Bahah", "Al Bahah Airport VIP pickup", "Premium driver Al Bahah"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/al-bahah/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Al Bahah | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Al Bahah? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Al Bahah? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/al-bahah/",
         type: "website",
     },

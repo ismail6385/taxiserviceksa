@@ -15,11 +15,11 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
 
     return {
         title: vehicleName
-            ? `Book ${vehicleName} VIP Transfer | Private Chauffeur KSA`
-            : 'VIP Private Transfer Booking | Premium Chauffeur KSA',
+            ? `Book ${vehicleName} Private Transfer | Chauffeur Service KSA`
+            : 'Private Car Transfer, Taxi and Chauffeur Service Booking | Taxi Service KSA',
         description: vehicleName
-            ? `Secure your VIP ${vehicleName} private transfer in Saudi Arabia. Premium chauffeur service, 2026 fleet, and international standards.`
-            : 'Get a quote for your VIP private transfer in Saudi Arabia. Professional chauffeur service for airport transfers, Umrah, and intercity travel. International quality standards.',
+            ? `Secure your ${vehicleName} private transfer in Saudi Arabia. Premium chauffeur service, 2026 fleet, and international standards.`
+            : 'Get a quote for your private transfer in Saudi Arabia. Professional chauffeur service for airport transfers, Umrah, and intercity travel. International quality standards.',
         alternates: {
             canonical: 'https://taxiserviceksa.com/booking/',
         },
@@ -34,9 +34,9 @@ export default function BookingPage({ searchParams }: { searchParams: { [key: st
     const route = typeof searchParams.route === 'string' ? searchParams.route : null;
 
     const getTitle = (routeSlug: string | null) => {
-        if (!routeSlug) return "Get a quote for your VIP Transfer";
+        if (!routeSlug) return "Get a quote for your transfer";
         const formatted = routeSlug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-        return `Book VIP Transfer from ${formatted.replace(' To ', ' to ')}`;
+        return `Book Your Transfer from ${formatted.replace(' To ', ' to ')}`;
     };
 
     return (

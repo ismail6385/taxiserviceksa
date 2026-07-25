@@ -14,7 +14,7 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Madinah Train Station | Premium Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service at Madinah Haramain Train Station. Fast, professional pickup to Masjid Nabawi and local hotels.',
+    description: 'Premium private transfer and executive chauffeur service at Madinah Haramain Train Station. Fast, professional pickup to Masjid Nabawi and local hotels.',
     keywords: ['Madinah train station VIP transfer', 'Haramain railway premium chauffeur', 'Madinah station executive car', 'Madinah railway VIP pickup'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/madinah/train-station/',

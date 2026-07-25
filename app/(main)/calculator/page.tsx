@@ -10,14 +10,14 @@ import { Info, CheckCircle2, ShieldCheck, MapPin } from 'lucide-react';
 
 export const metadata: Metadata = {
     title: 'Taxi Quote Estimator Saudi Arabia | Jeddah, Makkah, Madinah',
-    description: 'Get an instant private transfer quote for Jeddah Airport, Makkah, and Madinah. Book VIP GMC Yukon or family vans via WhatsApp. Licensed chauffeurs.',
+    description: 'Get an instant private transfer quote for Jeddah Airport, Makkah, and Madinah. Book GMC Yukon or family vans via WhatsApp. Licensed chauffeurs.',
     keywords: ['taxi fare calculator saudi arabia', 'jeddah to makkah taxi price', 'makkah to madinah taxi fare', 'saudi taxi rates', 'umrah taxi cost'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/calculator/',
     },
     openGraph: {
         title: 'Check Taxi Transfer Quotes: Jeddah, Makkah & Madinah',
-        description: 'Plan your Umrah transport. Get instant VIP quotes for Jeddah Airport to Makkah and Madinah transfers.',
+        description: 'Plan your Umrah transport. Get instant quotes for Jeddah Airport to Makkah and Madinah transfers.',
         url: 'https://taxiserviceksa.com/calculator/',
         type: 'website',
     },

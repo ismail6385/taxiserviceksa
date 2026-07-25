@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Khamis Mushait | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service in Khamis Mushait. Professional, reliable intercity transport and airport pickups. Book online.',
+    description: 'Premium private transfer and executive chauffeur service in Khamis Mushait. Professional, reliable intercity transport and airport pickups. Book online.',
     keywords: ['Khamis Mushait VIP private transfer', 'Executive chauffeur Khamis Mushait', 'Khamis Mushait taxi service', 'Khamis Mushait airport taxi', 'Khamis Mushait to Abha taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/khamis-mushait/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Khamis Mushait | Taxi Service KSA',
-        description: 'Need a premium VIP transfer in Khamis Mushait? We provide comfortable chauffeured trips and intercity transport.',
+        description: 'Need a premium transfer in Khamis Mushait? We provide comfortable chauffeured trips and intercity transport.',
         url: 'https://taxiserviceksa.com/locations/khamis-mushait/',
         type: 'website',
     },

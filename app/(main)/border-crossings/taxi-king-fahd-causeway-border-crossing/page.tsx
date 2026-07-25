@@ -14,7 +14,7 @@ import BookingProcess from '@/components/BookingProcess';
 
 export const metadata: Metadata = {
     title: 'Taxi King Fahd Causeway Border Crossing 2026 | VIP Cross-Border',
-    description: 'Book the best Taxi at King Fahd Causeway Border for 2026. Reliable VIP cross-border transfers between Saudi Arabia and Bahrain. Fixed rates and expert drivers.',
+    description: 'Book the best Taxi at King Fahd Causeway Border for 2026. Reliable cross-border transfers between Saudi Arabia and Bahrain. Fixed rates and expert drivers.',
     keywords: ['Taxi King Fahd Causeway border crossing 2026', 'Saudi to Bahrain taxi price', 'cross border taxi KSA Bahrain'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/border-crossings/taxi-king-fahd-causeway-border-crossing/',

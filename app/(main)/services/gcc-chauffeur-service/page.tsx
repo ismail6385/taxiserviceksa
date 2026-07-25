@@ -11,7 +11,7 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: 'GCC Chauffeur Service | Saudi Arabia to UAE, Kuwait, Qatar & Bahrain | Taxi Service KSA',
-    description: 'Private VIP chauffeur service from Saudi Arabia across the GCC — Dubai, Abu Dhabi, Kuwait, Qatar, and Bahrain. Door-to-door cross-border transfers with fixed rates.',
+    description: 'Private chauffeur service from Saudi Arabia across the GCC — Dubai, Abu Dhabi, Kuwait, Qatar, and Bahrain. Door-to-door cross-border transfers with fixed rates.',
     keywords: ['GCC chauffeur service', 'Saudi Arabia to UAE taxi', 'Saudi Arabia to Kuwait taxi', 'Saudi Arabia to Qatar taxi', 'Saudi Arabia to Bahrain taxi', 'cross border chauffeur Gulf'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/gcc-chauffeur-service/',

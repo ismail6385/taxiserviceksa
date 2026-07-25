@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Buraidah | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service in Buraidah, Al-Qassim. Professional, reliable intercity transport and airport pickups. Book online.',
+    description: 'Premium private transfer and executive chauffeur service in Buraidah, Al-Qassim. Professional, reliable intercity transport and airport pickups. Book online.',
     keywords: ['Buraidah VIP private transfer', 'Executive chauffeur Buraidah', 'Buraidah taxi service', 'Buraidah airport taxi', 'Buraidah to Riyadh taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/buraidah/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Buraidah | Taxi Service KSA',
-        description: 'Need a premium VIP transfer in Buraidah? We provide comfortable chauffeured trips and intercity transport.',
+        description: 'Need a premium transfer in Buraidah? We provide comfortable chauffeured trips and intercity transport.',
         url: 'https://taxiserviceksa.com/locations/buraidah/',
         type: 'website',
     },

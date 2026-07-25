@@ -11,7 +11,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'Genesis G80 VIP Transfer Saudi Arabia | Luxury Executive Transport',
-    description: 'Book the elite Genesis G80 VIP private transfer in Saudi Arabia. Premium executive sedan with sophisticated design and first-class comfort for city and airport transfers.',
+    description: 'Book the elite Genesis G80 private transfer in Saudi Arabia. Premium executive sedan with sophisticated design and first-class comfort for city and airport transfers.',
     keywords: ['Genesis G80 VIP transfer', 'Genesis chauffeur KSA', 'luxury sedan Riyadh', 'Genesis executive car Saudi Arabia', 'VIP Genesis G80 taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/fleet/genesis-g80/',
@@ -66,7 +66,7 @@ export default function GenesisG80Page() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?vehicle=genesis-g80">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book Genesis VIP
+                            Book Genesis G80
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

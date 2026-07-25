@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Al Khobar to Kuwait Taxi | Nuwaiseeb Border | Taxi Service KSA',
-        description: 'Travel from Al Khobar or Dammam to Kuwait via the Nuwaiseeb border. Comfortable private VIP transfers with fixed rates.',
+        description: 'Travel from Al Khobar or Dammam to Kuwait via the Nuwaiseeb border. Comfortable private transfers with fixed rates.',
         url: 'https://taxiserviceksa.com/routes/khobar-to-kuwait-taxi/',
         type: 'website',
     },

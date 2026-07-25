@@ -15,14 +15,14 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 
 export const metadata: Metadata = {
     title: 'Abu Dhabi to Riyadh Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Abu Dhabi to Riyadh. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Abu Dhabi to Riyadh. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Abu Dhabi to Riyadh', 'Abu Dhabi to Riyadh transfer', 'cross border taxi Saudi Arabia', 'VIP transport Abu Dhabi Riyadh'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/abu-dhabi-riyadh/',
     },
     openGraph: {
         title: 'Abu Dhabi to Riyadh Taxi | Taxi Service KSA',
-        description: 'Request a premium quote from Abu Dhabi to Riyadh. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Abu Dhabi to Riyadh. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/abu-dhabi-riyadh/',
         type: 'website',
     },

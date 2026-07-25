@@ -10,14 +10,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi Halat Ammar Border Crossing (Jordan) | 24/7 VIP Transfers',
-    description: 'Need a taxi at Halat Ammar Border? We provide reliable, 24/7 VIP cross-border transfers between Saudi Arabia and Jordan. Get a quote now.',
+    description: 'Need a taxi at Halat Ammar Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Jordan. Get a quote now.',
     keywords: ['Taxi Halat Ammar border crossing', 'Halat Ammar border to Saudi Arabia taxi', 'Taxi from Halat Ammar to Riyadh', 'Cross border taxi Jordan', 'Halat Ammar immigration taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/border-crossings/taxi-halat-ammar-border-crossing/',
     },
     openGraph: {
         title: 'Taxi Halat Ammar Border Crossing (Jordan)',
-        description: 'Need a taxi at Halat Ammar Border? We provide reliable, 24/7 VIP cross-border transfers between Saudi Arabia and Jordan. Get a quote now.',
+        description: 'Need a taxi at Halat Ammar Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Jordan. Get a quote now.',
         url: 'https://taxiserviceksa.com/border-crossings/taxi-halat-ammar-border-crossing/',
         type: 'website',
     },

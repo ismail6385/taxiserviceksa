@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Abu Arish | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Abu Arish. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Abu Arish. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Abu Arish VIP private transfer", "Executive chauffeur Abu Arish", "Abu Arish Airport VIP pickup", "Premium driver Abu Arish"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/abu-arish/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Abu Arish | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Abu Arish? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Abu Arish? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/abu-arish/",
         type: "website",
     },

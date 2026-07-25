@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Al-Qunfudhah | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Al-Qunfudhah. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Al-Qunfudhah. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Al-Qunfudhah VIP private transfer", "Executive chauffeur Al-Qunfudhah", "Al-Qunfudhah Airport VIP pickup", "Premium driver Al-Qunfudhah"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/al-qunfudhah/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Al-Qunfudhah | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Al-Qunfudhah? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Al-Qunfudhah? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/al-qunfudhah/",
         type: "website",
     },

@@ -13,7 +13,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'تاكسي جدة إلى دبي | نقل VIP عبر الحدود | Taxi Service KSA',
-    description: 'اطلب عرض سعر مميز لرحلة من جدة إلى دبي. نقل VIP موثوق عبر الحدود، سيارات دفع رباعي مريحة، وخدمة من الباب إلى الباب في جميع أنحاء الخليج.',
+    description: 'اطلب عرض سعر مميز لرحلة من جدة إلى دبي. نقل موثوق عبر الحدود، سيارات دفع رباعي مريحة، وخدمة من الباب إلى الباب في جميع أنحاء الخليج.',
     keywords: ['تاكسي جدة إلى دبي', 'نقل جدة دبي', 'تاكسي عبور الحدود السعودية', 'نقل VIP جدة دبي'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ar/routes/jeddah-dubai/',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'تاكسي جدة إلى دبي | نقل VIP عبر الحدود | Taxi Service KSA',
-        description: 'اطلب عرض سعر مميز لرحلة من جدة إلى دبي. نقل VIP موثوق عبر الحدود، سيارات دفع رباعي مريحة، وخدمة من الباب إلى الباب في جميع أنحاء الخليج.',
+        description: 'اطلب عرض سعر مميز لرحلة من جدة إلى دبي. نقل موثوق عبر الحدود، سيارات دفع رباعي مريحة، وخدمة من الباب إلى الباب في جميع أنحاء الخليج.',
         url: 'https://taxiserviceksa.com/ar/routes/jeddah-dubai/',
         locale: 'ar_SA',
         type: 'website',

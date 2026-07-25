@@ -15,7 +15,7 @@ import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Misfalah Makkah | Premium Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service in Misfalah Makkah. Professional hotel pickups and airport transfers for Umrah pilgrims.',
+    description: 'Premium private transfer and executive chauffeur service in Misfalah Makkah. Professional hotel pickups and airport transfers for Umrah pilgrims.',
     keywords: ['Misfalah VIP transfer', 'Misfalah to Haram premium chauffeur', 'Misfalah executive car', 'Makkah VIP pilgrim transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/makkah/misfalah/',

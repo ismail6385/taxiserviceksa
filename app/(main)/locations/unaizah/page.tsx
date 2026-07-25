@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Unaizah | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Unaizah. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Unaizah. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Unaizah VIP private transfer", "Executive chauffeur Unaizah", "Unaizah Airport VIP pickup", "Premium driver Unaizah"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/unaizah/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Unaizah | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Unaizah? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Unaizah? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/unaizah/",
         type: "website",
     },

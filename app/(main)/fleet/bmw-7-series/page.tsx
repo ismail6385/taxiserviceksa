@@ -11,7 +11,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 
 export const metadata: Metadata = {
     title: 'BMW 7-Series VIP Chauffeur Saudi Arabia | Luxury Sedan',
-    description: 'Book the elite BMW 7-Series VIP private transfer in Saudi Arabia. Ultimate luxury sedan with professional chauffeur service for business and VIP travel. Experience German engineering at its finest.',
+    description: 'Book the elite BMW 7-Series private transfer in Saudi Arabia. Ultimate luxury sedan with professional chauffeur service for business and travel. Experience German engineering at its finest.',
     keywords: ['BMW 7-Series VIP transfer', 'BMW chauffeur KSA', 'luxury sedan Riyadh', 'BMW executive car Saudi Arabia', 'VIP BMW 7-Series taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/fleet/bmw-7-series/',
@@ -66,7 +66,7 @@ export default function BMW7SeriesPage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking/?vehicle=bmw-7-series">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book BMW VIP
+                            Book BMW 7-Series
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>

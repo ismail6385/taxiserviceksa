@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Magna | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Magna. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Magna. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Magna VIP private transfer", "Executive chauffeur Magna", "Magna Airport VIP pickup", "Premium driver Magna"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/magna/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Magna | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Magna? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Magna? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/magna/",
         type: "website",
     },

@@ -13,14 +13,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Sharjah to Dammam Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Sharjah to Dammam. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    description: 'Request a premium quote from Sharjah to Dammam. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
     keywords: ['Taxi Sharjah to Dammam', 'Sharjah to Dammam transfer', 'cross border taxi Saudi Arabia', 'VIP transport Sharjah Dammam'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/sharjah-dammam/',
     },
     openGraph: {
         title: 'Sharjah to Dammam Taxi | VIP Cross-Border Transfer | Taxi Service KSA',
-        description: 'Request a premium quote from Sharjah to Dammam. Reliable cross-border VIP transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Request a premium quote from Sharjah to Dammam. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/sharjah-dammam/',
         type: 'website',
     },

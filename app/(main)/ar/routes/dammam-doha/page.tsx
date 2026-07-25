@@ -15,7 +15,7 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 
 export const metadata: Metadata = {
     title: 'تاكسي الدمام إلى الدوحة | نقل VIP عبر الحدود | Taxi Service KSA',
-    description: 'اطلب عرض سعر مميز لرحلة من الدمام إلى الدوحة. نقل VIP موثوق عبر الحدود، سيارات دفع رباعي مريحة، وخدمة من الباب إلى الباب في جميع أنحاء الخليج.',
+    description: 'اطلب عرض سعر مميز لرحلة من الدمام إلى الدوحة. نقل موثوق عبر الحدود، سيارات دفع رباعي مريحة، وخدمة من الباب إلى الباب في جميع أنحاء الخليج.',
     keywords: ['تاكسي الدمام إلى الدوحة', 'نقل الدمام الدوحة', 'تاكسي عبور الحدود السعودية', 'نقل VIP الدمام الدوحة'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ar/routes/dammam-doha/',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'تاكسي الدمام إلى الدوحة | Taxi Service KSA',
-        description: 'اطلب عرض سعر مميز لرحلة من الدمام إلى الدوحة. نقل VIP موثوق عبر الحدود، سيارات دفع رباعي مريحة، وخدمة من الباب إلى الباب في جميع أنحاء الخليج.',
+        description: 'اطلب عرض سعر مميز لرحلة من الدمام إلى الدوحة. نقل موثوق عبر الحدود، سيارات دفع رباعي مريحة، وخدمة من الباب إلى الباب في جميع أنحاء الخليج.',
         url: 'https://taxiserviceksa.com/ar/routes/dammam-doha/',
         locale: 'ar_SA',
         type: 'website',

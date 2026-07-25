@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Sharma | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Sharma. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Sharma. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Sharma VIP private transfer", "Executive chauffeur Sharma", "Sharma Airport VIP pickup", "Premium driver Sharma"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/sharma/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Sharma | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Sharma? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Sharma? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/sharma/",
         type: "website",
     },

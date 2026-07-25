@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Conrad Makkah Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Conrad Makkah (Jabal Omar Complex). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Conrad Makkah (Jabal Omar Complex). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-conrad-makkah-taxi/',
         type: 'website',
     },

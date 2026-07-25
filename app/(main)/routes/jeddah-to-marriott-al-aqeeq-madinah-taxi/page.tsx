@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Marriott Al Aqeeq Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Madinah Marriott Hotel Al Aqeeq (Al Aqeeq district). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Madinah Marriott Hotel Al Aqeeq (Al Aqeeq district). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-marriott-al-aqeeq-madinah-taxi/',
         type: 'website',
     },

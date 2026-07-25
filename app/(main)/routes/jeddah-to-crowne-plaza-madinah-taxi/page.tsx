@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Crowne Plaza Madinah Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Crowne Plaza Madinah (Central Area, near Masjid an-Nabawi). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Crowne Plaza Madinah (Central Area, near Masjid an-Nabawi). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-crowne-plaza-madinah-taxi/',
         type: 'website',
     },

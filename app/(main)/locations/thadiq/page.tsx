@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Thadiq | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Thadiq. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Thadiq. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Thadiq VIP private transfer", "Executive chauffeur Thadiq", "Thadiq Airport VIP pickup", "Premium driver Thadiq"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/thadiq/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Thadiq | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Thadiq? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Thadiq? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/thadiq/",
         type: "website",
     },

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Movenpick Jeddah Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Movenpick Hotel Jeddah (Al Hamra, Corniche). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Movenpick Hotel Jeddah (Al Hamra, Corniche). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-movenpick-jeddah-taxi/',
         type: 'website',
     },

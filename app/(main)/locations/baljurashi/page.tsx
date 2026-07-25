@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Baljurashi | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Baljurashi. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Baljurashi. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Baljurashi VIP private transfer", "Executive chauffeur Baljurashi", "Baljurashi Airport VIP pickup", "Premium driver Baljurashi"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/baljurashi/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Baljurashi | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Baljurashi? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Baljurashi? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/baljurashi/",
         type: "website",
     },

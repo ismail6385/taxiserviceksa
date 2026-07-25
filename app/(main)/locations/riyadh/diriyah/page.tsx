@@ -12,14 +12,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service to Diriyah | At-Turaif Premium Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service for Diriyah Gate and Bujairi Terrace. Professional transport to Riyadh\'s UNESCO heritage site.',
+    description: 'Premium private transfer and executive chauffeur service for Diriyah Gate and Bujairi Terrace. Professional transport to Riyadh\'s UNESCO heritage site.',
     keywords: ['Diriyah VIP transfer', 'Bujairi Terrace premium chauffeur', 'Diriyah Gate executive transport', 'At-Turaif VIP car', 'Riyadh to Diriyah premium transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/diriyah/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service to Diriyah Gate & Bujairi Terrace | Taxi Service KSA',
-        description: 'Premium VIP private transfer to Riyadh\'s historical heart. Professional chauffeur service for dining at Bujairi Terrace and At-Turaif tours.',
+        description: 'Premium private transfer to Riyadh\'s historical heart. Professional chauffeur service for dining at Bujairi Terrace and At-Turaif tours.',
         url: 'https://taxiserviceksa.com/locations/riyadh/diriyah/',
         type: 'website',
     },

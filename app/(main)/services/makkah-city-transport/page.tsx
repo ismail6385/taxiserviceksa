@@ -8,7 +8,7 @@ import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
     title: 'Makkah VIP Transport Service | Private Chauffeur & Family Transfer | Taxi Service KSA',
-    description: 'Private VIP transport and family chauffeur in Makkah. Hotel to Haram transfers, Ziyarat tours, Jeddah airport to Makkah, and luxury family transport. Licensed drivers 24/7.',
+    description: 'Private transport and family chauffeur in Makkah. Hotel to Haram transfers, Ziyarat tours, Jeddah airport to Makkah, and luxury family transport. Licensed drivers 24/7.',
     keywords: [
         'Makkah VIP transport service',
         'Makkah family transport service',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Makkah VIP Transport | Private Family Chauffeur | Taxi Service KSA',
-        description: 'VIP and family transport in Makkah. Hotel to Haram, Ziyarat tours, airport transfers, and Makkah to Madinah. Licensed drivers, luxury fleet, 24/7.',
+        description: 'And family transport in Makkah. Hotel to Haram, Ziyarat tours, airport transfers, and Makkah to Madinah. Licensed drivers, luxury fleet, 24/7.',
         url: 'https://taxiserviceksa.com/services/makkah-city-transport/',
         type: 'website',
     },

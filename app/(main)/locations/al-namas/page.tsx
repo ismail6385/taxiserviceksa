@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Al Namas | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Al Namas. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Al Namas. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Al Namas VIP private transfer", "Executive chauffeur Al Namas", "Al Namas Airport VIP pickup", "Premium driver Al Namas"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/al-namas/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Al Namas | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Al Namas? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Al Namas? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/al-namas/",
         type: "website",
     },

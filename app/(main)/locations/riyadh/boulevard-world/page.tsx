@@ -12,14 +12,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service to Boulevard World | Premium Season Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service to Boulevard World and Boulevard City. Professional door-to-door transport for Riyadh Season.',
+    description: 'Premium private transfer and executive chauffeur service to Boulevard World and Boulevard City. Professional door-to-door transport for Riyadh Season.',
     keywords: ['Boulevard World VIP transfer', 'Riyadh Season premium chauffeur', 'Boulevard City executive transport', 'Riyadh entertainment VIP car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/boulevard-world/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service to Boulevard World & City (Riyadh) | Taxi Service KSA',
-        description: 'The elite way to visit Riyadh Season. Premium VIP private transfer and professional chauffeur service to the entrance gate.',
+        description: 'The elite way to visit Riyadh Season. Premium private transfer and professional chauffeur service to the entrance gate.',
         url: 'https://taxiserviceksa.com/locations/riyadh/boulevard-world/',
         type: 'website',
     },

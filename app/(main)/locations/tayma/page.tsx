@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Tayma | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Tayma. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Tayma. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Tayma VIP private transfer", "Executive chauffeur Tayma", "Tayma Airport VIP pickup", "Premium driver Tayma"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/tayma/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Tayma | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Tayma? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Tayma? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/tayma/",
         type: "website",
     },

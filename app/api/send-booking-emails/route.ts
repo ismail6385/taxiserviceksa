@@ -53,6 +53,7 @@ export async function POST(request: NextRequest) {
         const safeDest     = escapeHtml(booking.destination);
         const safeVehicle  = escapeHtml(booking.vehicle_type);
         const safeRequests = escapeHtml(booking.special_requests) || 'None';
+        const safeFlightNumber = escapeHtml(booking.flight_number);
 
         const formatTime12h = (timeStr?: string): string => {
             if (!timeStr) return '—';
@@ -128,6 +129,8 @@ export async function POST(request: NextRequest) {
                 <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
                 <p><strong>Vehicle:</strong> ${safeVehicle}</p>
                 <p><strong>Passengers:</strong> ${booking.passengers}</p>
+                <p><strong>Luggage:</strong> ${booking.luggage ?? 0} bags</p>
+                ${safeFlightNumber ? `<p><strong>Flight Number:</strong> ${safeFlightNumber}</p>` : ''}
                 <p><strong>Special Requests:</strong> ${safeRequests}</p>
                 <hr>
                 <p style="font-size: 12px; color: #666;">View this in the Admin Dashboard to generate a PDF Quotation.</p>

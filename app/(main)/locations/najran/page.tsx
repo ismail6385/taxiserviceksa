@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Najran | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service in Najran. Professional, reliable intercity transport and airport pickups. Book online.',
+    description: 'Premium private transfer and executive chauffeur service in Najran. Professional, reliable intercity transport and airport pickups. Book online.',
     keywords: ['Najran VIP private transfer', 'Executive chauffeur Najran', 'Najran taxi service', 'Najran airport taxi', 'Najran to Jeddah taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/najran/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Najran | Taxi Service KSA',
-        description: 'Need a premium VIP transfer in Najran? We provide comfortable chauffeured trips and intercity transport.',
+        description: 'Need a premium transfer in Najran? We provide comfortable chauffeured trips and intercity transport.',
         url: 'https://taxiserviceksa.com/locations/najran/',
         type: 'website',
     },

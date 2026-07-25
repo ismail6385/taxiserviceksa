@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Dawadmi | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Dawadmi. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Dawadmi. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Dawadmi VIP private transfer", "Executive chauffeur Dawadmi", "Dawadmi Airport VIP pickup", "Premium driver Dawadmi"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/dawadmi/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Dawadmi | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Dawadmi? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Dawadmi? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/dawadmi/",
         type: "website",
     },

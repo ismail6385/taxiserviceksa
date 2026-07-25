@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Buqayq | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Buqayq. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Buqayq. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Buqayq VIP private transfer", "Executive chauffeur Buqayq", "Buqayq Airport VIP pickup", "Premium driver Buqayq"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/buqayq/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Buqayq | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Buqayq? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Buqayq? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/buqayq/",
         type: "website",
     },

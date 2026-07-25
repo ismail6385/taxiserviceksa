@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Al Kiswah Towers Hotel Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Al Kiswah Towers Hotel (At Tayseer District, Makkah). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Al Kiswah Towers Hotel (At Tayseer District, Makkah). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-al-kiswah-towers-makkah-taxi/',
         type: 'website',
     },

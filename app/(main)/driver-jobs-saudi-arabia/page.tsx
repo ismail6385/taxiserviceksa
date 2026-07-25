@@ -5,7 +5,7 @@ import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 
 export const metadata: Metadata = {
     title: 'Driver Jobs Saudi Arabia: Earn High Income with Your Car',
-    description: 'Looking for driver jobs Saudi Arabia? Join our VIP chauffeur network. Find premium taxi driver jobs KSA in Riyadh, Jeddah, Makkah, and 15+ other cities.',
+    description: 'Looking for driver jobs Saudi Arabia? Join our chauffeur network. Find premium taxi driver jobs KSA in Riyadh, Jeddah, Makkah, and 15+ other cities.',
     keywords: ['driver jobs Saudi Arabia', 'taxi driver jobs KSA', 'chauffeur jobs Saudi', 'VIP driver KSA', 'private driver network'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/driver-jobs-saudi-arabia',

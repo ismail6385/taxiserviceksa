@@ -15,7 +15,7 @@ import DistanceTable from '@/components/seo/DistanceTable';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Madinah Central Area | Premium Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service in the Madinah Central Area (Markaziya). Dedicated pickups for Oberoi and Hilton pilgrims.',
+    description: 'Premium private transfer and executive chauffeur service in the Madinah Central Area (Markaziya). Dedicated pickups for Oberoi and Hilton pilgrims.',
     keywords: ['Madinah Central Area VIP transfer', 'Markaziya premium chauffeur', 'Oberoi Madinah VIP transport', 'Hilton Madinah executive car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/madinah/central-area/',

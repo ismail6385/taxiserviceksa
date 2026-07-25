@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Marriott Jabal Omar Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Jabal Omar Marriott Hotel Makkah (Jabal Omar Complex). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Jabal Omar Marriott Hotel Makkah (Jabal Omar Complex). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-marriott-jabal-omar-makkah-taxi/',
         type: 'website',
     },

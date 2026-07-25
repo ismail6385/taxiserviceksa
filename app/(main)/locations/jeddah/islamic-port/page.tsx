@@ -12,14 +12,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Jeddah Islamic Port | Seaport Chauffeur | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service from Jeddah Islamic Port to Makkah. Reliable terminal pickup for pilgrims arriving by ferry.',
+    description: 'Premium private transfer and executive chauffeur service from Jeddah Islamic Port to Makkah. Reliable terminal pickup for pilgrims arriving by ferry.',
     keywords: ['Jeddah Islamic Port VIP transfer', 'Jeddah seaport premium chauffeur', 'Jeddah port to Makkah VIP', 'Ferry terminal executive transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/islamic-port/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Jeddah Islamic Port | Seaport Chauffeur | Taxi Service KSA',
-        description: 'Direct VIP private transfer for sea arrivals. Premier chauffeur service from the passenger terminal to Makkah or Madinah.',
+        description: 'Direct private transfer for sea arrivals. Premier chauffeur service from the passenger terminal to Makkah or Madinah.',
         url: 'https://taxiserviceksa.com/locations/jeddah/islamic-port/',
         type: 'website',
     },

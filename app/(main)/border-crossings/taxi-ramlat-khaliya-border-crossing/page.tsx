@@ -10,14 +10,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Taxi Ramlat Khaliya Border Crossing (Oman) | 24/7 VIP Transfers',
-    description: 'Need a taxi at Ramlat Khaliya Border? We provide reliable, 24/7 VIP cross-border transfers between Saudi Arabia and Oman. Get a quote now.',
+    description: 'Need a taxi at Ramlat Khaliya Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Oman. Get a quote now.',
     keywords: ['Taxi Ramlat Khaliya border crossing', 'Ramlat Khaliya border to Saudi Arabia taxi', 'Taxi from Ramlat Khaliya to Riyadh', 'Cross border taxi Oman', 'Ramlat Khaliya immigration taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/border-crossings/taxi-ramlat-khaliya-border-crossing/',
     },
     openGraph: {
         title: 'Taxi Ramlat Khaliya Border Crossing (Oman)',
-        description: 'Need a taxi at Ramlat Khaliya Border? We provide reliable, 24/7 VIP cross-border transfers between Saudi Arabia and Oman. Get a quote now.',
+        description: 'Need a taxi at Ramlat Khaliya Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Oman. Get a quote now.',
         url: 'https://taxiserviceksa.com/border-crossings/taxi-ramlat-khaliya-border-crossing/',
         type: 'website',
     },

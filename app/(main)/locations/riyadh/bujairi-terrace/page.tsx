@@ -12,14 +12,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service to Bujairi Terrace Diriyah | Premium Dining | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service for Al Bujairi Terrace. Arrive in style for fine dining at Hakkasan, Angelina, and more.',
+    description: 'Premium private transfer and executive chauffeur service for Al Bujairi Terrace. Arrive in style for fine dining at Hakkasan, Angelina, and more.',
     keywords: ['Bujairi Terrace VIP transfer', 'Diriyah premium chauffeur', 'Hakkasan Riyadh executive car', 'Bujairi Terrace luxury transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/bujairi-terrace/',
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service to Al Bujairi Terrace (Diriyah) | Taxi Service KSA',
-        description: 'Going for fine dining in Diriyah? Premium VIP private transfers and professional chauffeur service to Bujairi Terrace. Elite arrival for elite destinations.',
+        description: 'Going for fine dining in Diriyah? Premium private transfers and professional chauffeur service to Bujairi Terrace. Elite arrival for elite destinations.',
         url: 'https://taxiserviceksa.com/locations/riyadh/bujairi-terrace/',
         type: 'website',
     },

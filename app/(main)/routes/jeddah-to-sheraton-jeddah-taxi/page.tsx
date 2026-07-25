@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Jeddah Airport to Sheraton Jeddah Taxi | Fixed Price Transfer | Taxi Service KSA',
-        description: 'Direct transfer from KAIA Airport to Sheraton Jeddah Hotel (North Jeddah, near the Corniche). VIP drop-off service.',
+        description: 'Direct transfer from KAIA Airport to Sheraton Jeddah Hotel (North Jeddah, near the Corniche). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-sheraton-jeddah-taxi/',
         type: 'website',
     },

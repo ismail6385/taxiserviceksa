@@ -190,7 +190,7 @@ export default function VipTransferDammamPage() {
 
                 {/* CTA */}
                 <section className="text-center bg-gradient-to-r from-slate-900 to-blue-900 rounded-3xl p-12 text-white">
-                    <h2 className="text-3xl font-black mb-3">Book Your Dammam VIP Transfer</h2>
+                    <h2 className="text-3xl font-black mb-3">Book Your Dammam Transfer</h2>
                     <p className="text-gray-300 mb-8">Fast response, fixed price, professional driver — Eastern Province covered.</p>
                     <a href="https://wa.me/966552202642?text=Hi,%20I%20need%20a%20VIP%20transfer%20in%20Dammam" target="_blank" rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-10 py-5 rounded-xl text-lg transition-all shadow-lg">

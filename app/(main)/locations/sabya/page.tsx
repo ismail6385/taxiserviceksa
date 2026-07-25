@@ -10,14 +10,14 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: "Private Car Transfer, Taxi and Chauffeur Service in Sabya | Taxi Service KSA",
-    description: "Premium VIP private transfer and executive chauffeur service in Sabya. Professional, reliable intercity transport and airport pickups.",
+    description: "Premium private transfer and executive chauffeur service in Sabya. Professional, reliable intercity transport and airport pickups.",
     keywords: ["Sabya VIP private transfer", "Executive chauffeur Sabya", "Sabya Airport VIP pickup", "Premium driver Sabya"],
     alternates: {
         canonical: "https://taxiserviceksa.com/locations/sabya/",
     },
     openGraph: {
         title: "Private Car Transfer, Taxi and Chauffeur Service in Sabya | Taxi Service KSA",
-        description: "Need a premium VIP transfer in Sabya? We provide comfortable chauffeured trips and intercity transport.",
+        description: "Need a premium transfer in Sabya? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/sabya/",
         type: "website",
     },

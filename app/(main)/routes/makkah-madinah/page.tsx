@@ -17,7 +17,7 @@ import BookingProcess from '@/components/BookingProcess';
 
 export const metadata: Metadata = {
     title: 'Makkah to Madinah Taxi 2026 | VIP Private Transfers | Fixed Rates',
-    description: 'Book the best Makkah to Madinah Taxi for 2026. Premium intercity transfer with professional chauffeurs. Fixed rates starting from 550 SAR. Door-to-door VIP service.',
+    description: 'Book the best Makkah to Madinah Taxi for 2026. Premium intercity transfer with professional chauffeurs. Fixed rates starting from 550 SAR. Door-to-door service.',
     keywords: ['Taxi Makkah to Madinah 2026', 'Makkah to Madinah Taxi price', 'Makkah to Madinah private car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/makkah-madinah/',

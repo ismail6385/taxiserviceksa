@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Al Khobar to Bahrain Taxi | King Fahd Causeway | Taxi Service KSA',
-        description: 'Travel from Al Khobar or Dammam to Bahrain via King Fahd Causeway. Comfortable private VIP transfers with fixed rates.',
+        description: 'Travel from Al Khobar or Dammam to Bahrain via King Fahd Causeway. Comfortable private transfers with fixed rates.',
         url: 'https://taxiserviceksa.com/routes/khobar-bahrain/',
         type: 'website',
     },

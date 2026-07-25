@@ -14,7 +14,7 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service to Masjid Al Qiblatain | Madinah Ziyarat | Taxi Service KSA',
-    description: 'Premium VIP private transfer and executive chauffeur service to Masjid Al Qiblatain. Visit the mosque of two Qiblas with a professional driver.',
+    description: 'Premium private transfer and executive chauffeur service to Masjid Al Qiblatain. Visit the mosque of two Qiblas with a professional driver.',
     keywords: ['Masjid Al Qiblatain VIP transfer', 'Madinah heritage premium chauffeur', 'Masjid Al Qiblatain VIP', 'Madinah Ziyarat executive transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/madinah/qiblatain/',

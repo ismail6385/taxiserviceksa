@@ -10,15 +10,15 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
-    title: 'Dammam Airport to Manama Taxi | King Fahd Causeway Transfer | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service from Dammam Airport to Manama | Taxi Service KSA',
     description: 'Book a private taxi from Dammam Airport to Manama, Bahrain via King Fahd Causeway. Door-to-door service to Bahrain\'s capital. Fixed rates, no hidden fees.',
     keywords: ['Dammam Airport to Manama taxi', 'Dammam Airport to Bahrain capital taxi', 'King Fahd Causeway Manama', 'Eastern Province to Manama transfer', 'Dammam Airport to Manama car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/dammam-airport-to-manama-taxi/',
     },
     openGraph: {
-        title: 'Dammam Airport to Manama Taxi | King Fahd Causeway | Taxi Service KSA',
-        description: 'Private VIP transfer from Dammam Airport to Manama, the capital of Bahrain, via King Fahd Causeway.',
+        title: 'Private Car, Taxi and Chauffeur Service from Dammam Airport to Manama | Taxi Service KSA',
+        description: 'Private transfer from Dammam Airport to Manama, the capital of Bahrain, via King Fahd Causeway.',
         url: 'https://taxiserviceksa.com/routes/dammam-airport-to-manama-taxi/',
         type: 'website',
     },
@@ -48,7 +48,7 @@ export default function DammamToManamaTaxiPage() {
 
             <Hero
                 images={['/hero-slide-1.webp', '/gmc-yukon.webp', '/hero-slide-2.webp']}
-                h1Text="Dammam Airport to Manama Taxi"
+                h1Text="Private Car, Taxi and Chauffeur Service from Dammam Airport to Manama"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         King Fahd Causeway Route
@@ -181,6 +181,9 @@ export default function DammamToManamaTaxiPage() {
                         </Link>
                         <Link href="/routes/khobar-bahrain/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
                             Al Khobar to Bahrain
+                        </Link>
+                        <Link href="/routes/manama-to-dammam-airport-taxi/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-emerald-500 hover:text-emerald-700 transition-colors shadow-sm">
+                            Manama to Dammam Airport (Return)
                         </Link>
                     </div>
                 </div>

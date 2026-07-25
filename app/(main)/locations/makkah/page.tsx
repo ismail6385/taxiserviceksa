@@ -26,7 +26,7 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Umrah Chauffeur Service in Makkah 2026 | Premium Transport | Taxi Service KSA',
-    description: 'Premium VIP private transfer service in Makkah 2026 for Umrah pilgrims. Executive chauffeur service for Makkah, Madinah, and Jeddah Airport pickups. High-end fleet for a dignified journey.',
+    description: 'Premium private transfer service in Makkah 2026 for Umrah pilgrims. Executive chauffeur service for Makkah, Madinah, and Jeddah Airport pickups. High-end fleet for a dignified journey.',
     keywords: ['VIP Umrah transport Makkah 2026', 'Premium private transfer Makkah', 'Makkah VIP chauffeur', 'Executive Umrah taxi', 'Jeddah to Makkah VIP transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/makkah/',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Makkah | 24/7 Umrah Transport | Taxi Service KSA',
-        description: 'Book premium VIP private transfers in Makkah specifically for Umrah pilgrims and families. Direct hotel to Haram transfers and Jeddah Airport pickup.',
+        description: 'Book premium private transfers in Makkah specifically for Umrah pilgrims and families. Direct hotel to Haram transfers and Jeddah Airport pickup.',
         url: 'https://taxiserviceksa.com/locations/makkah/',
         type: 'website',
         images: [{ url: 'https://taxiserviceksa.com/makkah-kaaba-night.webp', alt: 'VIP private transfer in Makkah' }],
@@ -366,7 +366,7 @@ export default async function MakkahPage() {
                         <div className="flex flex-col sm:flex-row justify-center gap-6">
                             <Link href="/booking/" className="w-full sm:w-auto">
                                 <Button className="w-full bg-primary text-white hover:bg-white hover:text-primary font-black px-12 py-8 h-auto text-xl rounded-2xl transition-all shadow-2xl shadow-primary/20">
-                                    Book VIP Now
+                                    Book Your Makkah Transfer
                                 </Button>
                             </Link>
                             <a href="mailto:taxiserviceksa9988@gmail.com" className="w-full sm:w-auto">
