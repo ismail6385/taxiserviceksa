@@ -9,14 +9,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi Al Durrah Border Crossing (Jordan) | 24/7 Transfers',
+    title: 'Private Car, Taxi and Chauffeur Service at Al Durrah Border Crossing | Taxi Service KSA',
     description: 'Need a taxi at Al Durrah Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Jordan. Get a quote now.',
     keywords: ['Taxi Al Durrah border crossing', 'Al Durrah border to Saudi Arabia taxi', 'Taxi from Al Durrah to Riyadh', 'Cross border taxi Jordan', 'Al Durrah immigration taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/border-crossings/taxi-al-durrah-border-crossing/',
     },
     openGraph: {
-        title: 'Taxi Al Durrah Border Crossing (Jordan)',
+        title: 'Private Car, Taxi and Chauffeur Service at Al Durrah Border Crossing | Taxi Service KSA',
         description: 'Need a taxi at Al Durrah Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Jordan. Get a quote now.',
         url: 'https://taxiserviceksa.com/border-crossings/taxi-al-durrah-border-crossing/',
         type: 'website',
@@ -65,7 +65,7 @@ export default function AlDurrahBorderPage() {
 
             <Hero
                 images={images}
-                h1Text="Taxi at Al Durrah Border Crossing"
+                h1Text="Private Car, Taxi and Chauffeur Service at Al Durrah Border Crossing"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Saudi & Jordan Border Service

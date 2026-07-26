@@ -9,14 +9,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi Al Batha Border Crossing (UAE) | 24/7 Transfers',
+    title: 'Private Car, Taxi and Chauffeur Service at Al Batha Border Crossing | Taxi Service KSA',
     description: 'Need a taxi at Al Batha Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and UAE. Get a quote now.',
     keywords: ['Taxi Al Batha border crossing', 'Al Batha border to Saudi Arabia taxi', 'Taxi from Al Batha to Riyadh', 'Cross border taxi UAE', 'Al Batha immigration taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/border-crossings/taxi-al-batha-border-crossing/',
     },
     openGraph: {
-        title: 'Taxi Al Batha Border Crossing (UAE)',
+        title: 'Private Car, Taxi and Chauffeur Service at Al Batha Border Crossing | Taxi Service KSA',
         description: 'Need a taxi at Al Batha Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and UAE. Get a quote now.',
         url: 'https://taxiserviceksa.com/border-crossings/taxi-al-batha-border-crossing/',
         type: 'website',
@@ -65,7 +65,7 @@ export default function AlBathaBorderPage() {
 
             <Hero
                 images={images}
-                h1Text="Taxi at Al Batha Border Crossing"
+                h1Text="Private Car, Taxi and Chauffeur Service at Al Batha Border Crossing"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Saudi & UAE Border Service

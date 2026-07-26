@@ -10,7 +10,7 @@ import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 export const metadata: Metadata = {
     title: 'Executive Fleet Saudi Arabia | Premium Chauffeur Vehicles',
     description: 'Explore our executive fleet in Saudi Arabia. Luxury Mercedes S-Class, Cadillac Escalade, GMC Yukon, and Luxurious Buses for premium private transfers. 2026 models.',
-    keywords: ['VIP Fleet Saudi Arabia', 'Premium Chauffeur Vehicles', 'Mercedes S-Class Saudi Arabia', 'Cadillac Escalade Chauffeur', 'GMC Yukon VIP Transfer', 'Luxury Van Transfer KSA', 'Executive Car with Driver', 'Umrah Private Fleet', 'Luxurious Bus Saudi Arabia'],
+    keywords: ['Executive Fleet Saudi Arabia', 'Premium Chauffeur Vehicles', 'Mercedes S-Class Saudi Arabia', 'Cadillac Escalade Chauffeur', 'GMC Yukon Transfer', 'Luxury Van Transfer KSA', 'Executive Car with Driver', 'Umrah Private Fleet', 'Luxurious Bus Saudi Arabia'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/fleet/',
     }
@@ -20,11 +20,11 @@ export default function FleetPage() {
     const fleet = [
         {
             name: "Mercedes S-Class",
-            type: "VIP Executive",
+            type: "Executive Sedan",
             image: "/fleet/mercedes-s-class-vip-chauffeur-service-saudi.webp",
             passengers: 3,
             luggage: 2,
-            features: ["VIP Experience", "Leather Interior", "Discreet Service", "Late Model"],
+            features: ["Premium Experience", "Leather Interior", "Discreet Service", "Late Model"],
             href: "/fleet/mercedes-s-class/",
             category: "Luxury"
         },
@@ -34,8 +34,18 @@ export default function FleetPage() {
             image: "/fleet/cadillac-escalade-chauffeur-service-ksa.webp",
             passengers: 7,
             luggage: 4,
-            features: ["Premium Audio", "Extra Comfort", "VIP Chauffeur", "Climate Control"],
+            features: ["Premium Audio", "Extra Comfort", "Professional Chauffeur", "Climate Control"],
             href: "/fleet/cadillac-escalade/",
+            category: "Luxury"
+        },
+        {
+            name: "GMC Yukon",
+            type: "Premium SUV",
+            image: "/gmc-yukon.webp",
+            passengers: 7,
+            luggage: 4,
+            features: ["Spacious Cabin", "Executive Comfort", "American Build", "Reliable"],
+            href: "/fleet/gmc-yukon/",
             category: "Luxury"
         },
         {
@@ -60,7 +70,7 @@ export default function FleetPage() {
         },
         {
             name: "BMW 7 Series",
-            type: "VIP Sedan",
+            type: "Executive Sedan",
             image: "/fleet/bmw-7-series-luxury-chauffeur-saudi.webp",
             passengers: 3,
             luggage: 2,
@@ -69,12 +79,12 @@ export default function FleetPage() {
             category: "Luxury"
         },
         {
-            name: "Genesis G80 VIP",
+            name: "Genesis G80",
             type: "Premium Sedan",
             image: "/fleet/genesis-g80-luxury-transport-ksa.webp",
             passengers: 3,
             luggage: 2,
-            features: ["Korean Craftsmanship", "Silent Cabin", "VIP Rear Seat", "Modern Luxury"],
+            features: ["Korean Craftsmanship", "Silent Cabin", "Premium Rear Seat", "Modern Luxury"],
             href: "/fleet/genesis-g80/",
             category: "Luxury"
         },
@@ -90,13 +100,23 @@ export default function FleetPage() {
         },
         {
             name: "Mercedes Sprinter",
-            type: "VIP Minibus",
+            type: "Premium Minibus",
             image: "/fleet/mercedes-sprinter-luxury-van-transfer-saudi.webp",
             passengers: 14,
             luggage: 4,
-            features: ["Custom Interior", "High Roof", "Corporate Travel", "Group VIP"],
+            features: ["Custom Interior", "High Roof", "Corporate Travel", "Group Travel"],
             href: "/fleet/mercedes-sprinter/",
             category: "Group"
+        },
+        {
+            name: "Hyundai Staria",
+            type: "Family Van",
+            image: "/hyundai-staria.webp",
+            passengers: 7,
+            luggage: 4,
+            features: ["Modern Design", "Spacious Interior", "Comfortable Ride", "Efficient"],
+            href: "/fleet/hyundai-staria/",
+            category: "Economy"
         },
         {
             name: "Hyundai Staria VIP",
@@ -121,7 +141,7 @@ export default function FleetPage() {
         },
         {
             name: "Toyota Coaster",
-            type: "VIP Minibus",
+            type: "Premium Minibus",
             image: "/fleet/toyota-coaster.webp",
             passengers: 17,
             luggage: 20,

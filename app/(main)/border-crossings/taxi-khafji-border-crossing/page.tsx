@@ -10,14 +10,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
-    title: 'Taxi Khafji Border Crossing (Kuwait) | 24/7 Transfers',
+    title: 'Private Car, Taxi and Chauffeur Service at Khafji Border Crossing | Taxi Service KSA',
     description: 'Need a taxi at Khafji Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Kuwait. Get a quote now.',
     keywords: ['Taxi Khafji border crossing', 'Khafji border to Saudi Arabia taxi', 'Taxi from Khafji to Riyadh', 'Cross border taxi Kuwait', 'Khafji immigration taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/border-crossings/taxi-khafji-border-crossing/',
     },
     openGraph: {
-        title: 'Taxi Khafji Border Crossing (Kuwait)',
+        title: 'Private Car, Taxi and Chauffeur Service at Khafji Border Crossing | Taxi Service KSA',
         description: 'Need a taxi at Khafji Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Kuwait. Get a quote now.',
         url: 'https://taxiserviceksa.com/border-crossings/taxi-khafji-border-crossing/',
         type: 'website',
@@ -66,7 +66,7 @@ export default function KhafjiBorderPage() {
 
             <Hero
                 images={images}
-                h1Text="Taxi at Khafji Border Crossing"
+                h1Text="Private Car, Taxi and Chauffeur Service at Khafji Border Crossing"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Saudi & Kuwait Border Service

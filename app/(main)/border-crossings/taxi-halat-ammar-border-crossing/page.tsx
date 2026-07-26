@@ -9,14 +9,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi Halat Ammar Border Crossing (Jordan) | 24/7 Transfers',
+    title: 'Private Car, Taxi and Chauffeur Service at Halat Ammar Border Crossing | Taxi Service KSA',
     description: 'Need a taxi at Halat Ammar Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Jordan. Get a quote now.',
     keywords: ['Taxi Halat Ammar border crossing', 'Halat Ammar border to Saudi Arabia taxi', 'Taxi from Halat Ammar to Riyadh', 'Cross border taxi Jordan', 'Halat Ammar immigration taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/border-crossings/taxi-halat-ammar-border-crossing/',
     },
     openGraph: {
-        title: 'Taxi Halat Ammar Border Crossing (Jordan)',
+        title: 'Private Car, Taxi and Chauffeur Service at Halat Ammar Border Crossing | Taxi Service KSA',
         description: 'Need a taxi at Halat Ammar Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Jordan. Get a quote now.',
         url: 'https://taxiserviceksa.com/border-crossings/taxi-halat-ammar-border-crossing/',
         type: 'website',
@@ -65,7 +65,7 @@ export default function HalatAmmarBorderPage() {
 
             <Hero
                 images={images}
-                h1Text="Taxi at Halat Ammar Border Crossing"
+                h1Text="Private Car, Taxi and Chauffeur Service at Halat Ammar Border Crossing"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Saudi & Jordan Border Service

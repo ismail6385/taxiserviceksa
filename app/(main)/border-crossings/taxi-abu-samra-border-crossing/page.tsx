@@ -9,14 +9,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi Abu Samra Border Crossing (Qatar) | 24/7 Transfers',
+    title: 'Private Car, Taxi and Chauffeur Service at Abu Samra Border Crossing | Taxi Service KSA',
     description: 'Need a taxi at Abu Samra Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Qatar. Get a quote now.',
     keywords: ['Taxi Abu Samra border crossing', 'Abu Samra border to Saudi Arabia taxi', 'Taxi from Abu Samra to Riyadh', 'Cross border taxi Qatar', 'Abu Samra immigration taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/border-crossings/taxi-abu-samra-border-crossing/',
     },
     openGraph: {
-        title: 'Taxi Abu Samra Border Crossing (Qatar)',
+        title: 'Private Car, Taxi and Chauffeur Service at Abu Samra Border Crossing | Taxi Service KSA',
         description: 'Need a taxi at Abu Samra Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Qatar. Get a quote now.',
         url: 'https://taxiserviceksa.com/border-crossings/taxi-abu-samra-border-crossing/',
         type: 'website',
@@ -65,7 +65,7 @@ export default function AbuSamraBorderPage() {
 
             <Hero
                 images={images}
-                h1Text="Taxi at Abu Samra Border Crossing"
+                h1Text="Private Car, Taxi and Chauffeur Service at Abu Samra Border Crossing"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Saudi & Qatar Border Service

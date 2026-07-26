@@ -5,7 +5,7 @@ import { MapPin, ArrowRight, Car, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-    title: 'Service Locations | Private Car Transfer, Taxi & Chauffeur Service KSA | Taxi Service KSA',
+    title: 'Private Car, Taxi and Chauffeur Service Locations Across Saudi Arabia | Taxi Service KSA',
     description: 'Premium private transfer service across Saudi Arabia. Professional executive chauffeurs for airport transfers & tours in Jeddah, Makkah, Madinah, Riyadh, AlUla & Taif.',
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/',
@@ -532,7 +532,7 @@ export default function LocationsPage() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <span className="bg-gray-100 text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Destinations</span>
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Service Locations</h1>
+                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Private Car, Taxi and Chauffeur Service Locations Across Saudi Arabia</h1>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                         We serve all major cities and historical sites in Saudi Arabia. Before you travel, check our <Link href="/guides/makkah-umrah-guide/" className="text-gray-900 font-bold hover:underline underline-offset-4 decoration-primary">Makkah Umrah Guide</Link> for local advice.
                         Choose your destination and Get a quote for your <Link href="/routes/" className="text-gray-900 font-bold hover:underline underline-offset-4 decoration-primary">intercity route</Link> today.

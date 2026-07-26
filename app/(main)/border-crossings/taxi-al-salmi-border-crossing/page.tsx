@@ -9,14 +9,14 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
 export const metadata: Metadata = {
-    title: 'Taxi Al Salmi Border Crossing (Kuwait) | 24/7 Transfers',
+    title: 'Private Car, Taxi and Chauffeur Service at Al Salmi Border Crossing | Taxi Service KSA',
     description: 'Need a taxi at Al Salmi Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Kuwait. Get a quote now.',
     keywords: ['Taxi Al Salmi border crossing', 'Al Salmi border to Saudi Arabia taxi', 'Taxi from Al Salmi to Riyadh', 'Cross border taxi Kuwait', 'Al Salmi immigration taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/border-crossings/taxi-al-salmi-border-crossing/',
     },
     openGraph: {
-        title: 'Taxi Al Salmi Border Crossing (Kuwait)',
+        title: 'Private Car, Taxi and Chauffeur Service at Al Salmi Border Crossing | Taxi Service KSA',
         description: 'Need a taxi at Al Salmi Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Kuwait. Get a quote now.',
         url: 'https://taxiserviceksa.com/border-crossings/taxi-al-salmi-border-crossing/',
         type: 'website',
@@ -65,7 +65,7 @@ export default function AlSalmiBorderPage() {
 
             <Hero
                 images={images}
-                h1Text="Taxi at Al Salmi Border Crossing"
+                h1Text="Private Car, Taxi and Chauffeur Service at Al Salmi Border Crossing"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Saudi & Kuwait Border Service

@@ -10,14 +10,14 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
-    title: 'Taxi Nuwaiseeb Border Crossing (Kuwait) | 24/7 Transfers',
+    title: 'Private Car, Taxi and Chauffeur Service at Nuwaiseeb Border Crossing | Taxi Service KSA',
     description: 'Need a taxi at Nuwaiseeb Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Kuwait. Get a quote now.',
     keywords: ['Taxi Nuwaiseeb border crossing', 'Nuwaiseeb border to Saudi Arabia taxi', 'Taxi from Nuwaiseeb to Riyadh', 'Cross border taxi Kuwait', 'Nuwaiseeb immigration taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/border-crossings/taxi-nuwaiseeb-border-crossing/',
     },
     openGraph: {
-        title: 'Taxi Nuwaiseeb Border Crossing (Kuwait)',
+        title: 'Private Car, Taxi and Chauffeur Service at Nuwaiseeb Border Crossing | Taxi Service KSA',
         description: 'Need a taxi at Nuwaiseeb Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Kuwait. Get a quote now.',
         url: 'https://taxiserviceksa.com/border-crossings/taxi-nuwaiseeb-border-crossing/',
         type: 'website',
@@ -66,7 +66,7 @@ export default function NuwaiseebBorderPage() {
 
             <Hero
                 images={images}
-                h1Text="Taxi at Nuwaiseeb Border Crossing"
+                h1Text="Private Car, Taxi and Chauffeur Service at Nuwaiseeb Border Crossing"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         Saudi & Kuwait Border Service

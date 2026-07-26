@@ -13,7 +13,7 @@ import PricingTable from '@/components/PricingTable';
 import BookingProcess from '@/components/BookingProcess';
 
 export const metadata: Metadata = {
-    title: 'Taxi King Fahd Causeway Border Crossing 2026 | Cross-Border Transfer',
+    title: 'Private Car, Taxi and Chauffeur Service at King Fahd Causeway Border Crossing | Taxi Service KSA',
     description: 'Book the best Taxi at King Fahd Causeway Border for 2026. Reliable cross-border transfers between Saudi Arabia and Bahrain. Fixed rates and expert drivers.',
     keywords: ['Taxi King Fahd Causeway border crossing 2026', 'Saudi to Bahrain taxi price', 'cross border taxi KSA Bahrain'],
     alternates: {
@@ -35,7 +35,7 @@ export default function KingFahdCausewayBorderPage() {
         <div className="bg-gray-50 min-h-screen">
             <Hero
                 images={images}
-                h1Text="Taxi at King Fahd Causeway Border"
+                h1Text="Private Car, Taxi and Chauffeur Service at King Fahd Causeway Border Crossing"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
                         2026 Cross-Border
