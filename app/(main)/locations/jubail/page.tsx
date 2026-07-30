@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button';
 import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Factory, ArrowRight, Briefcase, Shield } from 'lucide-react';
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import RouteFleetSection from '@/components/RouteFleetSection';
+import { toyotaVelozHighlight } from '@/data/areaFleetHighlights';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 
@@ -180,6 +182,8 @@ export default function JubailPage() {
                     />
                 </div>
             </section>
+
+            <RouteFleetSection areaHighlight={toyotaVelozHighlight} />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
                 <RelatedLocations currentCity="Jubail" />

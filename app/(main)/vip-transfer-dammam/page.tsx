@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, MapPin, Phone, CheckCircle2 } from 'lucide-react';
 import JsonLdFAQ from '@/components/JsonLdFAQ';
+import RouteFleetSection from '@/components/RouteFleetSection';
+import { toyotaVelozHighlight } from '@/data/areaFleetHighlights';
 
 export const metadata: Metadata = {
     title: 'VIP Transfer Dammam | Private Car Dammam Al Khobar | Taxi Service KSA',
@@ -155,6 +157,12 @@ export default function VipTransferDammamPage() {
                         ))}
                     </div>
                 </section>
+
+            </div>
+
+            <RouteFleetSection areaHighlight={toyotaVelozHighlight} />
+
+            <div className="max-w-5xl mx-auto px-4 space-y-16">
 
                 {/* FAQ */}
                 <section>

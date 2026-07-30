@@ -4,7 +4,17 @@ import { Button } from '@/components/ui/button';
 import { Users, Briefcase, CheckCircle2, ArrowRight } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
-const fleet = [
+interface FleetVehicle {
+    name: string;
+    image: string;
+    passengers: number;
+    luggage: number;
+    features: string[];
+    link: string;
+    badge?: string;
+}
+
+const fleet: FleetVehicle[] = [
     {
         name: "Toyota Camry",
         image: "/toyota-camry.webp",
@@ -55,7 +65,14 @@ const fleet = [
     },
 ];
 
-export default function RouteFleetSection() {
+interface RouteFleetSectionProps {
+    /** Optional local vehicle to feature first in the grid for area-specific pages (e.g. Toyota Veloz in Dammam/Jubail/Bahrain). */
+    areaHighlight?: FleetVehicle;
+}
+
+export default function RouteFleetSection({ areaHighlight }: RouteFleetSectionProps = {}) {
+    const displayFleet = areaHighlight ? [areaHighlight, ...fleet] : fleet;
+
     return (
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
             <div className="max-w-7xl mx-auto">
@@ -74,7 +91,7 @@ export default function RouteFleetSection() {
 
                 {/* Fleet Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                    {fleet.map((vehicle, index) => (
+                    {displayFleet.map((vehicle, index) => (
                         <div key={index} className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-primary/50 flex flex-col">
                             {/* Vehicle Image */}
                             <Link href={vehicle.link} className="block">
@@ -88,6 +105,11 @@ export default function RouteFleetSection() {
                                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                     />
                                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
+                                    {vehicle.badge && (
+                                        <span className="absolute top-3 left-3 bg-emerald-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow-md">
+                                            {vehicle.badge}
+                                        </span>
+                                    )}
                                 </div>
                             </Link>
 

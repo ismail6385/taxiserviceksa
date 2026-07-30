@@ -103,6 +103,7 @@ export default function TaxiInDammamPage() {
 
     const vehicles = [
         { name: 'Toyota Camry', seats: 3, luggage: '2 bags', ideal: 'Solo business traveler, city rides', link: '/fleet/toyota-camry/' },
+        { name: 'Toyota Veloz 2024', seats: 7, luggage: '4 bags', ideal: 'New model, Dammam/Jubail families, Bahrain trips', link: '/fleet/toyota-veloz/' },
         { name: 'Genesis G80', seats: 3, luggage: '2 bags', ideal: 'Executive visitor, Aramco meetings', link: '/fleet/genesis-g80/' },
         { name: 'GMC Yukon XL', seats: 7, luggage: '5 bags', ideal: 'Corporate teams, families, Bahrain trips', link: '/fleet/gmc-yukon/' },
         { name: 'Hyundai Staria VIP', seats: 7, luggage: '4 bags', ideal: 'VIP family, delegations', link: '/fleet/hyundai-staria/' },

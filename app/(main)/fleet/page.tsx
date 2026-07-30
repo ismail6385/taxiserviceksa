@@ -10,7 +10,7 @@ import JsonLdBreadcrumb from '@/components/seo/JsonLdBreadcrumb';
 export const metadata: Metadata = {
     title: 'Executive Fleet Saudi Arabia | Premium Chauffeur Vehicles',
     description: 'Explore our executive fleet in Saudi Arabia. Luxury Mercedes S-Class, Cadillac Escalade, GMC Yukon, and Luxurious Buses for premium private transfers. 2026 models.',
-    keywords: ['Executive Fleet Saudi Arabia', 'Premium Chauffeur Vehicles', 'Mercedes S-Class Saudi Arabia', 'Cadillac Escalade Chauffeur', 'GMC Yukon Transfer', 'Luxury Van Transfer KSA', 'Executive Car with Driver', 'Umrah Private Fleet', 'Luxurious Bus Saudi Arabia'],
+    keywords: ['Executive Fleet Saudi Arabia', 'Premium Chauffeur Vehicles', 'Mercedes S-Class Saudi Arabia', 'Cadillac Escalade Chauffeur', 'GMC Yukon Transfer', 'Luxury Van Transfer KSA', 'Executive Car with Driver', 'Umrah Private Fleet', 'Luxurious Bus Saudi Arabia', 'Toyota Veloz 2024 Dammam', 'Toyota Veloz Jubail Bahrain taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/fleet/',
     }
@@ -157,6 +157,16 @@ export default function FleetPage() {
             luggage: 2,
             features: ["Smooth Ride", "Clean Interior", "Punctual", "Efficient"],
             href: "/fleet/toyota-camry/",
+            category: "Economy"
+        },
+        {
+            name: "Toyota Veloz 2024",
+            type: "New Model MPV",
+            image: "/fleet/toyota-veloz-2024-dammam-jubail-bahrain-chauffeur.webp",
+            passengers: 7,
+            luggage: 4,
+            features: ["Brand New 2024 Model", "Dammam & Jubail Coverage", "Bahrain Causeway Transfers", "Umrah Ready"],
+            href: "/fleet/toyota-veloz/",
             category: "Economy"
         },
         {

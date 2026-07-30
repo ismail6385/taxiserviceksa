@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { MapPin, Clock, CheckCircle2, Car, Users, DollarSign, Plane, ArrowRight, Shield } from 'lucide-react';
 import Hero from '@/components/Hero';
 import RouteFleetSection from '@/components/RouteFleetSection';
+import { toyotaVelozHighlight } from '@/data/areaFleetHighlights';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
@@ -175,7 +176,7 @@ export default function DammamAirportToBahrainAirportTaxiPage() {
                 />
             </div>
 
-            <RouteFleetSection />
+            <RouteFleetSection areaHighlight={toyotaVelozHighlight} />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
                 <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">

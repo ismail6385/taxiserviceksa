@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { MapPin, Clock, CheckCircle2, Car, Users, DollarSign, Briefcase, ArrowRight } from 'lucide-react';
 import Hero from '@/components/Hero';
 import RouteFleetSection from '@/components/RouteFleetSection';
+import { toyotaVelozHighlight } from '@/data/areaFleetHighlights';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import RelatedRoutes from '@/components/seo/RelatedRoutes';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
@@ -156,7 +157,7 @@ export default function DammamMadinahRoutePage() {
                 </div>
             </section>
 
-            <RouteFleetSection />
+            <RouteFleetSection areaHighlight={toyotaVelozHighlight} />
 
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">

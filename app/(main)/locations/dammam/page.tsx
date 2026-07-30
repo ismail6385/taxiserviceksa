@@ -11,6 +11,8 @@ import {
     AccordionTrigger,
 } from '@/components/ui/accordion';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import RouteFleetSection from '@/components/RouteFleetSection';
+import { toyotaVelozHighlight } from '@/data/areaFleetHighlights';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import TrendingTravelNote from '@/components/seo/TrendingTravelNote';
 import QuestionGrouper from '@/components/seo/QuestionGrouper';
@@ -471,6 +473,8 @@ export default function DammamPage() {
                     </div>
                 </div>
             </section>
+
+            <RouteFleetSection areaHighlight={toyotaVelozHighlight} />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <RelatedLocations currentCity="Dammam" />

@@ -9,6 +9,7 @@ export async function GET() {
     const fleetPages = [
         '/fleet/gmc-yukon',
         '/fleet/toyota-camry',
+        '/fleet/toyota-veloz',
         '/fleet/hyundai-staria',
         '/fleet/toyota-hiace',
         '/fleet/toyota-coaster',
