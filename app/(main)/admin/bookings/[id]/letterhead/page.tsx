@@ -66,6 +66,7 @@ interface Booking {
     destination: string;
     pickup_date: string;
     pickup_time: string;
+    trip_end_date?: string;
     vehicle_type: string;
     passengers: number;
     luggage: number;
@@ -386,7 +387,7 @@ export default function LetterheadPage() {
                                 <div className="grid grid-cols-2 gap-y-4">
                                     <div>
                                         <p className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">{t.pickupDate}</p>
-                                        <p className="font-semibold text-gray-900">{booking.pickup_date}</p>
+                                        <p className="font-semibold text-gray-900">{booking.trip_end_date && booking.trip_end_date !== booking.pickup_date ? `${booking.pickup_date} → ${booking.trip_end_date}` : booking.pickup_date}</p>
                                     </div>
                                     <div>
                                         <p className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">{t.time}</p>

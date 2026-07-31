@@ -125,6 +125,7 @@ export default function AdminDashboard() {
 
     const upcomingSchedule = bookings
         .filter(b => (b.pickup_date === today || b.pickup_date === tomorrowStr) && !['cancelled','completed'].includes(b.status))
+        .sort((a, b) => (a.pickup_date + a.pickup_time).localeCompare(b.pickup_date + b.pickup_time))
         .slice(0, 8);
 
     // Monthly bookings (last 6 months)
@@ -304,7 +305,11 @@ export default function AdminDashboard() {
                         ) : (
                             <div className="divide-y divide-neutral-700/50">
                                 {upcomingSchedule.map(b => (
-                                    <div key={b.id} className="flex items-center gap-4 px-5 py-3.5 hover:bg-neutral-700/30 transition-colors">
+                                    <div
+                                        key={b.id}
+                                        onClick={() => router.push(`/admin/bookings?openId=${b.id}`)}
+                                        className="flex items-center gap-4 px-5 py-3.5 hover:bg-neutral-700/30 transition-colors cursor-pointer"
+                                    >
                                         <div className="text-center shrink-0 w-14">
                                             <p className="text-xs font-black text-white">{b.pickup_time}</p>
                                             <p className="text-[10px] text-neutral-500 uppercase">
@@ -322,7 +327,7 @@ export default function AdminDashboard() {
                                         </Badge>
                                         <Button
                                             size="sm" variant="ghost"
-                                            onClick={() => router.push('/admin/bookings')}
+                                            onClick={(e) => { e.stopPropagation(); router.push(`/admin/bookings?openId=${b.id}`); }}
                                             className="text-neutral-400 hover:text-white h-7 w-7 p-0 shrink-0"
                                         >
                                             <ExternalLink className="w-3.5 h-3.5" />

@@ -25,6 +25,7 @@ interface Booking {
     destination: string;
     pickup_date: string;
     pickup_time: string;
+    trip_end_date?: string;
     vehicle_type: string;
     passengers: number;
     luggage: number;
@@ -141,7 +142,7 @@ export default function HandoverPage() {
                                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Pickup Information</p>
                                 <div className="space-y-2">
                                     <p className="flex items-center gap-2 text-sm font-bold text-slate-900">
-                                        <Calendar className="w-4 h-4 text-slate-400" /> {booking.pickup_date}
+                                        <Calendar className="w-4 h-4 text-slate-400" /> {booking.trip_end_date && booking.trip_end_date !== booking.pickup_date ? `${booking.pickup_date} → ${booking.trip_end_date}` : booking.pickup_date}
                                     </p>
                                     <p className="flex items-center gap-2 text-sm font-bold text-slate-900">
                                         <Clock className="w-4 h-4 text-slate-400" /> {formatTime12h(booking.pickup_time)}

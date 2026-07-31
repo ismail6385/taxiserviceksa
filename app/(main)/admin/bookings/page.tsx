@@ -98,6 +98,7 @@ interface Booking {
     destination: string;
     pickup_date: string;
     pickup_time: string;
+    trip_end_date?: string; // for multi-day package/tour bookings
     vehicle_type: string;
     passengers: number;
     luggage: number;
@@ -199,6 +200,7 @@ export default function BookingsPage() {
 
     // Auto-fill & Duplicate State
     const [duplicateFound, setDuplicateFound] = useState<Booking | null>(null);
+    const [nameSuggestions, setNameSuggestions] = useState<Booking[]>([]);
 
     const [newBooking, setNewBooking] = useState<Partial<Booking>>({
         customer_name: '',
@@ -208,6 +210,7 @@ export default function BookingsPage() {
         destination: '',
         pickup_date: new Date().toISOString().split('T')[0],
         pickup_time: '12:00',
+        trip_end_date: '',
         vehicle_type: 'Sedan',
         passengers: 1,
         luggage: 0,
@@ -311,6 +314,14 @@ export default function BookingsPage() {
         }
     };
 
+    const getTripDayCount = (startDateStr?: string, endDateStr?: string) => {
+        if (!startDateStr || !endDateStr) return 1;
+        const start = new Date(startDateStr);
+        const end = new Date(endDateStr);
+        const diffDays = Math.round((end.getTime() - start.getTime()) / 86400000) + 1;
+        return diffDays > 0 ? diffDays : 1;
+    };
+
     const getTimeSince = (dateStr: string) => {
         const created = new Date(dateStr);
         const now = new Date();
@@ -348,33 +359,65 @@ export default function BookingsPage() {
 
     // Auto-fill & Duplicate Logic
     useEffect(() => {
-        if (!isCreating || !newBooking.customer_phone) {
+        if (!isCreating) {
             setDuplicateFound(null);
+            setNameSuggestions([]);
             return;
         }
 
-        const phone = newBooking.customer_phone.trim();
-        if (phone.length < 5) return;
+        // 1. Auto-fill by phone (exact match — phone is a reliable unique id)
+        const phone = newBooking.customer_phone?.trim() || '';
+        if (phone.length >= 5) {
+            const existingByPhone = bookings.find(b => b.customer_phone === phone);
+            if (existingByPhone && !newBooking.customer_name) {
+                setNewBooking(prev => ({
+                    ...prev,
+                    customer_name: existingByPhone.customer_name,
+                    customer_email: existingByPhone.customer_email
+                }));
+            }
 
-        // 1. Auto-fill logic
-        const existingCustomer = bookings.find(b => b.customer_phone === phone);
-        if (existingCustomer && !newBooking.customer_name) {
-            setNewBooking(prev => ({
-                ...prev,
-                customer_name: existingCustomer.customer_name,
-                customer_email: existingCustomer.customer_email
-            }));
+            // Duplicate detection (Phone + Date + Time)
+            const duplicate = bookings.find(b =>
+                b.customer_phone === phone &&
+                b.pickup_date === newBooking.pickup_date &&
+                b.pickup_time === newBooking.pickup_time
+            );
+            setDuplicateFound(duplicate || null);
+        } else {
+            setDuplicateFound(null);
         }
 
-        // 2. Duplicate detection (Phone + Date + Time)
-        const duplicate = bookings.find(b => 
-            b.customer_phone === phone && 
-            b.pickup_date === newBooking.pickup_date && 
-            b.pickup_time === newBooking.pickup_time
-        );
-        setDuplicateFound(duplicate || null);
+        // 2. Auto-fill by email (exact match, only if phone hasn't already matched)
+        const email = newBooking.customer_email?.trim().toLowerCase() || '';
+        if (!phone && email.length >= 5 && email.includes('@')) {
+            const existingByEmail = bookings.find(b => b.customer_email?.toLowerCase() === email);
+            if (existingByEmail && !newBooking.customer_name) {
+                setNewBooking(prev => ({
+                    ...prev,
+                    customer_name: existingByEmail.customer_name,
+                    customer_phone: existingByEmail.customer_phone
+                }));
+            }
+        }
 
-    }, [newBooking.customer_phone, newBooking.pickup_date, newBooking.pickup_time, isCreating, bookings]);
+        // 3. Name suggestions — names aren't unique, so only suggest (don't
+        // silently auto-fill someone else's phone/email off a name match).
+        const name = newBooking.customer_name?.trim() || '';
+        if (!phone && !email && name.length >= 3) {
+            const seenPhones = new Set<string>();
+            const matches = bookings.filter(b => {
+                if (!b.customer_name?.toLowerCase().includes(name.toLowerCase())) return false;
+                if (seenPhones.has(b.customer_phone)) return false;
+                seenPhones.add(b.customer_phone);
+                return true;
+            }).slice(0, 3);
+            setNameSuggestions(matches);
+        } else {
+            setNameSuggestions([]);
+        }
+
+    }, [newBooking.customer_phone, newBooking.customer_email, newBooking.customer_name, newBooking.pickup_date, newBooking.pickup_time, isCreating, bookings]);
 
     // Opens a quick prompt for the details that usually differ on the return
     // leg (date, passengers, luggage, vehicle) instead of silently guessing
@@ -515,7 +558,7 @@ export default function BookingsPage() {
             const { id, created_at, status, ...updateData } = editedBooking;
             const { error } = await supabase
                 .from('bookings')
-                .update(updateData)
+                .update({ ...updateData, trip_end_date: updateData.trip_end_date || null })
                 .eq('id', id);
 
             if (error) throw error;
@@ -534,7 +577,7 @@ export default function BookingsPage() {
         try {
             const { data, error } = await supabase
                 .from('bookings')
-                .insert([newBooking])
+                .insert([{ ...newBooking, trip_end_date: newBooking.trip_end_date || null }])
                 .select();
 
             if (error) throw error;
@@ -551,6 +594,7 @@ export default function BookingsPage() {
                     destination: '',
                     pickup_date: new Date().toISOString().split('T')[0],
                     pickup_time: '12:00',
+                    trip_end_date: '',
                     vehicle_type: 'Sedan',
                     passengers: 1,
                     luggage: 0,
@@ -575,6 +619,17 @@ export default function BookingsPage() {
         setEditedBooking(booking);
         setIsEditing(false);
     };
+
+    // Deep-link support: /admin/bookings?openId=<id> (used by the Dashboard's
+    // Today/Tomorrow schedule so clicking a trip opens its detail directly).
+    useEffect(() => {
+        if (bookings.length === 0) return;
+        const openId = new URLSearchParams(window.location.search).get('openId');
+        if (!openId) return;
+        const target = bookings.find(b => b.id === openId);
+        if (target) openBookingDetails(target);
+        router.replace('/admin/bookings');
+    }, [bookings]);
 
     // Filter Logic
     const filteredBookings = bookings.filter(booking => {
@@ -1396,6 +1451,9 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 {isOverdue && <Badge className="bg-red-700 text-white border-none animate-pulse text-[10px]">OVERDUE</Badge>}
                                                 {isToday && !isOverdue && <Badge className="bg-red-500 hover:bg-red-600 animate-pulse text-[10px] uppercase border-none text-white px-1.5 py-0">Today</Badge>}
                                                 {isTomorrow && <Badge className="bg-orange-500 hover:bg-orange-600 text-[10px] uppercase border-none text-white px-1.5 py-0">Tomorrow</Badge>}
+                                                {booking.trip_end_date && booking.trip_end_date !== booking.pickup_date && (
+                                                    <Badge className="bg-primary/10 text-primary border-primary/30 text-[10px]">{getTripDayCount(booking.pickup_date, booking.trip_end_date)}D</Badge>
+                                                )}
                                             </div>
                                             <div className={`text-xs ${isOverdue ? 'text-red-700 font-bold' : 'text-gray-500'}`}>{formatTime12h(booking.pickup_time)}</div>
                                         </TableCell>
@@ -1574,6 +1632,9 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         <p className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">Date & Time</p>
                                         <p className={isOverdue ? 'text-red-700 font-bold' : 'text-gray-800 font-medium'}>{booking.pickup_date}</p>
                                         <p className="text-gray-500">{formatTime12h(booking.pickup_time)}</p>
+                                        {booking.trip_end_date && booking.trip_end_date !== booking.pickup_date && (
+                                            <p className="text-primary font-semibold">{getTripDayCount(booking.pickup_date, booking.trip_end_date)} day package</p>
+                                        )}
                                     </div>
                                     <div>
                                         <p className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">Price</p>
@@ -1838,6 +1899,26 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 <span className="font-medium bg-white border border-gray-200 px-2 py-1 rounded text-sm block w-fit text-gray-900">{formatTime12h(selectedBooking.pickup_time)}</span>
                                             )}
                                         </div>
+                                    </div>
+
+                                    <div className="pl-4 pt-3 border-t border-gray-100">
+                                        <span className="block text-xs text-gray-500 mb-1">Trip End Date (For multi-day bookings)</span>
+                                        {isEditing ? (
+                                            <>
+                                                <Input type="date" value={editedBooking.trip_end_date || ''} min={editedBooking.pickup_date} onChange={(e) => setEditedBooking({ ...editedBooking, trip_end_date: e.target.value })} className="h-8 text-sm bg-white w-fit" />
+                                                {editedBooking.trip_end_date && editedBooking.trip_end_date !== editedBooking.pickup_date && (
+                                                    <p className="text-xs text-primary font-semibold mt-1">{getTripDayCount(editedBooking.pickup_date, editedBooking.trip_end_date)} day package</p>
+                                                )}
+                                            </>
+                                        ) : (
+                                            selectedBooking.trip_end_date && selectedBooking.trip_end_date !== selectedBooking.pickup_date ? (
+                                                <Badge className="bg-primary/10 text-primary border-primary/30 font-bold">
+                                                    {getTripDayCount(selectedBooking.pickup_date, selectedBooking.trip_end_date)} Day Package · until {selectedBooking.trip_end_date}
+                                                </Badge>
+                                            ) : (
+                                                <span className="text-sm text-gray-400">Single day trip</span>
+                                            )
+                                        )}
                                     </div>
 
                                     <div className="pl-4 pt-3 mt-1 border-t border-gray-100 flex items-center justify-between">
@@ -2451,6 +2532,28 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         onChange={(e) => setNewBooking({ ...newBooking, customer_name: e.target.value })}
                                         className="bg-white border-gray-200 focus:border-primary"
                                     />
+                                    {nameSuggestions.length > 0 && (
+                                        <div className="flex flex-wrap gap-1 pt-1">
+                                            {nameSuggestions.map((s) => (
+                                                <button
+                                                    key={s.id}
+                                                    type="button"
+                                                    onClick={() => {
+                                                        setNewBooking(prev => ({
+                                                            ...prev,
+                                                            customer_name: s.customer_name,
+                                                            customer_phone: s.customer_phone,
+                                                            customer_email: s.customer_email
+                                                        }));
+                                                        setNameSuggestions([]);
+                                                    }}
+                                                    className="text-[10px] px-2 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 hover:bg-primary/20 font-semibold"
+                                                >
+                                                    {s.customer_name} · {s.customer_phone}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Phone Number</label>
@@ -2476,6 +2579,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         onChange={(e) => setNewBooking({ ...newBooking, customer_email: e.target.value })}
                                         className="bg-white border-gray-200 focus:border-primary"
                                     />
+                                    <p className="text-[10px] text-gray-400">Also matches repeat customers by email if phone is empty.</p>
                                 </div>
                             </div>
                         </div>
@@ -2520,6 +2624,21 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 onChange={(e) => setNewBooking({ ...newBooking, pickup_time: e.target.value })}
                                                 className="bg-white border-gray-200"
                                             />
+                                        </div>
+                                        <div className="space-y-1 sm:col-span-2">
+                                            <label className="text-sm font-medium text-gray-700">Trip End Date (For multi-day bookings)</label>
+                                            <Input
+                                                type="date"
+                                                value={newBooking.trip_end_date || ''}
+                                                min={newBooking.pickup_date}
+                                                onChange={(e) => setNewBooking({ ...newBooking, trip_end_date: e.target.value })}
+                                                className="bg-white border-gray-200"
+                                            />
+                                            {newBooking.trip_end_date && newBooking.trip_end_date !== newBooking.pickup_date && (
+                                                <p className="text-xs text-primary font-semibold">
+                                                    {getTripDayCount(newBooking.pickup_date, newBooking.trip_end_date)} day package ({newBooking.pickup_date} → {newBooking.trip_end_date})
+                                                </p>
+                                            )}
                                         </div>
                                         <div className="space-y-1 sm:col-span-2">
                                             <label className="text-sm font-medium text-gray-700">Flight Number (If applicable)</label>

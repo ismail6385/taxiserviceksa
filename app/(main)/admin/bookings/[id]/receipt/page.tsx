@@ -55,6 +55,7 @@ interface Booking {
     destination: string;
     pickup_date: string;
     pickup_time: string;
+    trip_end_date?: string;
     vehicle_type: string;
     passengers: number;
     luggage: number;
@@ -335,7 +336,7 @@ export default function ReceiptPage() {
                                 </tr>
                                 <tr className="border-b border-gray-100">
                                     <td className="px-4 py-3 text-gray-700 font-medium">{t.dateTime}</td>
-                                    <td className="px-4 py-3 text-gray-600">{booking.pickup_date} — {formatTime12h(booking.pickup_time)}</td>
+                                    <td className="px-4 py-3 text-gray-600">{booking.trip_end_date && booking.trip_end_date !== booking.pickup_date ? `${booking.pickup_date} → ${booking.trip_end_date}` : `${booking.pickup_date} — ${formatTime12h(booking.pickup_time)}`}</td>
                                     <td className="px-4 py-3"></td>
                                 </tr>
                                 <tr className="border-b border-gray-100">

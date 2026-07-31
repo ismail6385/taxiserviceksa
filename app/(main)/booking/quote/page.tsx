@@ -2,7 +2,6 @@
 
 import { Suspense, useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 import {
     CheckCircle2, Calendar, Clock, Car, Users,
@@ -37,15 +36,19 @@ function QuoteContent() {
 
     useEffect(() => {
         if (!ref) { setLoading(false); setError('No booking reference provided.'); return; }
-        supabase
-            .from('bookings')
-            .select('id,customer_name,pickup_location,destination,pickup_date,pickup_time,vehicle_type,passengers,total_price,currency,status')
-            .ilike('id', `${ref}%`)
-            .limit(1)
-            .single()
-            .then(({ data }) => {
-                if (data) setBooking(data);
+        fetch('/api/booking/lookup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ref })
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.booking) setBooking(data.booking);
                 else setError('Booking not found.');
+                setLoading(false);
+            })
+            .catch(() => {
+                setError('Booking not found.');
                 setLoading(false);
             });
     }, [ref]);

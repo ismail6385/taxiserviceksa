@@ -2,7 +2,6 @@
 
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { supabase } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Search, MapPin, Calendar, Clock, Car, Users, CheckCircle2, XCircle, AlertCircle, Loader2, Phone, Mail, FileText, Truck } from 'lucide-react';
@@ -100,16 +99,13 @@ function TrackBookingContent() {
         setError('');
         try {
             const isId = /^[a-f0-9-]{8,36}$/i.test(q);
-            let result = null;
-            if (isId) {
-                const { data } = await supabase.from('bookings').select('*').ilike('id', `${q}%`).limit(1).single();
-                result = data;
-            }
-            if (!result) {
-                const { data } = await supabase.from('bookings').select('*').eq('customer_email', q.toLowerCase()).order('created_at', { ascending: false }).limit(1).single();
-                result = data;
-            }
-            if (result) setBooking(result);
+            const res = await fetch('/api/booking/lookup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(isId ? { ref: q } : { email: q.toLowerCase() })
+            });
+            const data = await res.json();
+            if (data.booking) setBooking(data.booking);
             else setNotFound(true);
         } catch { setNotFound(true); }
         finally { setLoading(false); }

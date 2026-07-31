@@ -97,6 +97,7 @@ interface Booking {
     destination: string;
     pickup_date: string;
     pickup_time: string;
+    trip_end_date?: string;
     vehicle_type: string;
     passengers: number;
     luggage: number;
@@ -693,7 +694,7 @@ export default function InvoicePage() {
                                 <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">{t.tripSchedule}</h3>
                                 <div className="space-y-1">
                                     {[
-                                        { icon: <Calendar className="w-3 h-3" />, label: t.dateLabel, value: booking.pickup_date },
+                                        { icon: <Calendar className="w-3 h-3" />, label: t.dateLabel, value: booking.trip_end_date && booking.trip_end_date !== booking.pickup_date ? `${booking.pickup_date} → ${booking.trip_end_date}` : booking.pickup_date },
                                         { icon: <Clock className="w-3 h-3" />, label: t.timeLabel, value: formatTime12h(booking.pickup_time) },
                                         { icon: <Car className="w-3 h-3" />, label: t.vehicleLabel, value: booking.vehicle_type },
                                         { icon: <User className="w-3 h-3" />, label: t.passengersLabel, value: `${booking.passengers} ${t.pax} · ${booking.luggage} ${t.bags}` },

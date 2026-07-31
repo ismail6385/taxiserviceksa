@@ -14,7 +14,8 @@ CREATE TABLE IF NOT EXISTS bookings (
   destination VARCHAR(500) NOT NULL,
   pickup_date DATE NOT NULL,
   pickup_time TIME NOT NULL,
-  
+  trip_end_date DATE, -- optional: for multi-day package/tour bookings that span more than one day
+
   -- Vehicle Selection (Step 2)
   vehicle_type VARCHAR(100) NOT NULL,
   vehicle_image VARCHAR(500),
