@@ -631,7 +631,10 @@ export default function ContractsPage() {
                                 </div>
 
                                 <div>
-                                    <h3 className="text-sm font-bold text-gray-900 mb-2">Generated Bookings ({contractBookings.length})</h3>
+                                    <div className="flex items-center justify-between mb-2">
+                                        <h3 className="text-sm font-bold text-gray-900">Generated Bookings ({contractBookings.length})</h3>
+                                        <span className="text-[10px] text-gray-400">Click a trip to edit it (e.g. change pickup to Jubail for one week)</span>
+                                    </div>
                                     {loadingBookings ? (
                                         <div className="text-sm text-gray-400">Loading...</div>
                                     ) : contractBookings.length === 0 ? (
@@ -639,13 +642,18 @@ export default function ContractsPage() {
                                     ) : (
                                         <div className="space-y-1.5 max-h-[400px] overflow-y-auto pr-1">
                                             {contractBookings.map(b => (
-                                                <div key={b.id} className="flex items-center justify-between text-xs bg-white border border-gray-100 rounded-lg px-3 py-2">
+                                                <button
+                                                    key={b.id}
+                                                    type="button"
+                                                    onClick={() => router.push(`/admin/bookings?openId=${b.id}`)}
+                                                    className="w-full flex items-center justify-between text-xs bg-white border border-gray-100 rounded-lg px-3 py-2 hover:border-primary hover:bg-primary/5 transition-colors text-left"
+                                                >
                                                     <div>
                                                         <div className="font-semibold text-gray-900">{b.pickup_date} · {formatTime12h(b.pickup_time)}</div>
                                                         <div className="text-gray-500">{b.pickup_location} → {b.destination}</div>
                                                     </div>
                                                     <Badge className="bg-gray-100 text-gray-600 border-gray-200 text-[10px]">{b.status}</Badge>
-                                                </div>
+                                                </button>
                                             ))}
                                         </div>
                                     )}
