@@ -120,6 +120,9 @@ interface Booking {
     child_seats?: number;
     currency?: string;
     payment_method?: string;
+    trip_type?: 'point_to_point' | 'hourly';
+    duration_hours?: number;
+    contract_id?: string | null;
 }
 
 export default function BookingsPage() {
@@ -201,6 +204,9 @@ export default function BookingsPage() {
     // Auto-fill & Duplicate State
     const [duplicateFound, setDuplicateFound] = useState<Booking | null>(null);
     const [nameSuggestions, setNameSuggestions] = useState<Booking[]>([]);
+    // Opt-in only — admin ticks this before Save if they want the client
+    // emailed about the change. Never sent automatically.
+    const [notifyClientOnSave, setNotifyClientOnSave] = useState(false);
 
     const [newBooking, setNewBooking] = useState<Partial<Booking>>({
         customer_name: '',
@@ -226,7 +232,8 @@ export default function BookingsPage() {
         flight_number: '',
         currency: 'SAR',
         payment_method: 'Cash to Driver',
-        has_return_trip: false
+        has_return_trip: false,
+        trip_type: 'point_to_point'
     });
 
     const router = useRouter();
@@ -552,6 +559,21 @@ export default function BookingsPage() {
         }
     }, [newBooking.pickup_location, newBooking.destination, newBooking.vehicle_type, newBooking.has_return_trip, isCreating, dbPrices]);
 
+    // Trip fields the client actually sees — used to decide whether an edit
+    // is worth emailing them about. Internal-only fields (notes, tags, driver
+    // details which have their own dedicated email) are excluded on purpose.
+    const CLIENT_FACING_FIELDS: { key: keyof Booking; label: string }[] = [
+        { key: 'pickup_location', label: 'Pickup Location' },
+        { key: 'destination', label: 'Destination' },
+        { key: 'pickup_date', label: 'Pickup Date' },
+        { key: 'pickup_time', label: 'Pickup Time' },
+        { key: 'trip_end_date', label: 'Trip End Date' },
+        { key: 'duration_hours', label: 'Duration (hours)' },
+        { key: 'vehicle_type', label: 'Vehicle' },
+        { key: 'flight_number', label: 'Flight Number' },
+        { key: 'total_price', label: 'Price' },
+    ];
+
     const saveDetails = async () => {
         if (!editedBooking) return;
         try {
@@ -567,6 +589,29 @@ export default function BookingsPage() {
             setBookings(bookings.map(b => b.id === id ? editedBooking : b));
             setSelectedBooking(editedBooking);
             setIsEditing(false);
+
+            // Notify the client by email — ONLY if the admin explicitly
+            // ticked "Also email the client" before saving. Never automatic.
+            if (notifyClientOnSave && selectedBooking && editedBooking.customer_email) {
+                const changes = CLIENT_FACING_FIELDS
+                    .filter(f => (selectedBooking[f.key] ?? '') !== (editedBooking[f.key] ?? ''))
+                    .map(f => ({ field: f.label, oldValue: selectedBooking[f.key], newValue: editedBooking[f.key] }));
+
+                if (changes.length > 0) {
+                    adminFetch('/api/send-update-email', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            bookingId: id,
+                            customerEmail: editedBooking.customer_email,
+                            customerName: editedBooking.customer_name,
+                            currency: editedBooking.currency || 'SAR',
+                            changes
+                        })
+                    }).catch(err => console.error('Failed to send update email:', err));
+                }
+            }
+            setNotifyClientOnSave(false);
         } catch (error) {
             console.error('Error updating booking details:', error);
             alert("Failed to update booking details.");
@@ -577,7 +622,11 @@ export default function BookingsPage() {
         try {
             const { data, error } = await supabase
                 .from('bookings')
-                .insert([{ ...newBooking, trip_end_date: newBooking.trip_end_date || null }])
+                .insert([{
+                    ...newBooking,
+                    trip_end_date: newBooking.trip_end_date || null,
+                    destination: newBooking.destination?.trim() || (newBooking.trip_type === 'hourly' ? 'As Directed (Hourly Hire)' : newBooking.destination)
+                }])
                 .select();
 
             if (error) throw error;
@@ -604,7 +653,10 @@ export default function BookingsPage() {
                     internal_notes: '',
                     tags: '',
                     actual_vehicle: '',
-                    payment_status: 'unpaid'
+                    payment_status: 'unpaid',
+                    trip_type: 'point_to_point',
+                    duration_hours: undefined,
+                    has_return_trip: false
                 });
                 alert('Booking created successfully!');
             }
@@ -1454,6 +1506,12 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 {booking.trip_end_date && booking.trip_end_date !== booking.pickup_date && (
                                                     <Badge className="bg-primary/10 text-primary border-primary/30 text-[10px]">{getTripDayCount(booking.pickup_date, booking.trip_end_date)}D</Badge>
                                                 )}
+                                                {booking.trip_type === 'hourly' && (
+                                                    <Badge className="bg-amber-100 text-amber-700 border-amber-300 text-[10px]">⏱ {booking.duration_hours || '?'}H</Badge>
+                                                )}
+                                                {booking.contract_id && (
+                                                    <Badge className="bg-purple-100 text-purple-700 border-purple-300 text-[10px]">📋 Contract</Badge>
+                                                )}
                                             </div>
                                             <div className={`text-xs ${isOverdue ? 'text-red-700 font-bold' : 'text-gray-500'}`}>{formatTime12h(booking.pickup_time)}</div>
                                         </TableCell>
@@ -1635,6 +1693,12 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         {booking.trip_end_date && booking.trip_end_date !== booking.pickup_date && (
                                             <p className="text-primary font-semibold">{getTripDayCount(booking.pickup_date, booking.trip_end_date)} day package</p>
                                         )}
+                                        {booking.trip_type === 'hourly' && (
+                                            <p className="text-amber-600 font-semibold">⏱ Hourly ({booking.duration_hours || '?'}h)</p>
+                                        )}
+                                        {booking.contract_id && (
+                                            <p className="text-purple-600 font-semibold">📋 Contract</p>
+                                        )}
                                     </div>
                                     <div>
                                         <p className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">Price</p>
@@ -1770,6 +1834,17 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                             </div>
                         )}
                     </div>
+                    {isEditing && (
+                        <label className="flex items-center gap-2 text-[11px] text-blue-700 bg-blue-50 border border-blue-100 rounded-lg px-3 py-2 mb-4 -mt-2 cursor-pointer select-none">
+                            <input
+                                type="checkbox"
+                                checked={notifyClientOnSave}
+                                onChange={(e) => setNotifyClientOnSave(e.target.checked)}
+                                className="accent-primary"
+                            />
+                            Also email the client if pickup, date/time, vehicle or price changes (unchecked = save silently, no email)
+                        </label>
+                    )}
 
                     {selectedBooking && editedBooking && (
                         <div className="space-y-8">
@@ -1902,6 +1977,27 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     </div>
 
                                     <div className="pl-4 pt-3 border-t border-gray-100">
+                                        <span className="block text-xs text-gray-500 mb-1">Trip Type</span>
+                                        {isEditing ? (
+                                            <button
+                                                type="button"
+                                                onClick={() => setEditedBooking({ ...editedBooking, trip_type: editedBooking.trip_type === 'hourly' ? 'point_to_point' : 'hourly', has_return_trip: false })}
+                                                className={`h-8 px-3 rounded-md text-[10px] font-black uppercase tracking-widest transition-all border ${
+                                                    editedBooking.trip_type === 'hourly'
+                                                    ? 'bg-amber-500 text-white border-amber-600 shadow-sm'
+                                                    : 'bg-white text-gray-400 border-gray-200'
+                                                }`}
+                                            >
+                                                {editedBooking.trip_type === 'hourly' ? '⏱ Hourly Hire' : 'Point to Point'}
+                                            </button>
+                                        ) : (
+                                            <Badge className={selectedBooking.trip_type === 'hourly' ? 'bg-amber-100 text-amber-700 border-amber-300 font-bold' : 'bg-gray-100 text-gray-400 border-gray-200'}>
+                                                {selectedBooking.trip_type === 'hourly' ? `⏱ HOURLY HIRE${selectedBooking.duration_hours ? ` · ${selectedBooking.duration_hours}h` : ''}` : 'POINT TO POINT'}
+                                            </Badge>
+                                        )}
+                                    </div>
+
+                                    <div className="pl-4 pt-3 border-t border-gray-100">
                                         <span className="block text-xs text-gray-500 mb-1">Trip End Date (For multi-day bookings)</span>
                                         {isEditing ? (
                                             <>
@@ -1945,22 +2041,43 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             </div>
                                         </div>
                                         <div className="flex flex-col items-end">
-                                            <span className="block text-xs text-gray-500 mb-1">Round Trip?</span>
-                                            {isEditing ? (
-                                                <button
-                                                    onClick={() => setEditedBooking({ ...editedBooking, has_return_trip: !editedBooking.has_return_trip })}
-                                                    className={`h-8 px-3 rounded-md text-[10px] font-black uppercase tracking-widest transition-all ${
-                                                        editedBooking.has_return_trip 
-                                                        ? 'bg-blue-600 text-white border-blue-700 shadow-sm' 
-                                                        : 'bg-white text-gray-400 border border-gray-200'
-                                                    }`}
-                                                >
-                                                    {editedBooking.has_return_trip ? '🔄 Enabled' : 'Disabled'}
-                                                </button>
+                                            {(isEditing ? editedBooking.trip_type : selectedBooking.trip_type) === 'hourly' ? (
+                                                <>
+                                                    <span className="block text-xs text-gray-500 mb-1">Duration (hours)</span>
+                                                    {isEditing ? (
+                                                        <Input
+                                                            type="number"
+                                                            min={1}
+                                                            value={editedBooking.duration_hours ?? ''}
+                                                            onChange={(e) => setEditedBooking({ ...editedBooking, duration_hours: e.target.value ? Number(e.target.value) : undefined })}
+                                                            className="h-8 text-sm bg-white w-20"
+                                                        />
+                                                    ) : (
+                                                        <Badge className="bg-amber-100 text-amber-700 border-amber-300 font-bold">
+                                                            {selectedBooking.duration_hours || '?'} hours
+                                                        </Badge>
+                                                    )}
+                                                </>
                                             ) : (
-                                                <Badge className={selectedBooking.has_return_trip ? 'bg-blue-100 text-blue-700 border-blue-200' : 'bg-gray-100 text-gray-400 border-gray-200'}>
-                                                    {selectedBooking.has_return_trip ? '🔄 ROUND TRIP' : 'ONE WAY'}
-                                                </Badge>
+                                                <>
+                                                    <span className="block text-xs text-gray-500 mb-1">Round Trip?</span>
+                                                    {isEditing ? (
+                                                        <button
+                                                            onClick={() => setEditedBooking({ ...editedBooking, has_return_trip: !editedBooking.has_return_trip })}
+                                                            className={`h-8 px-3 rounded-md text-[10px] font-black uppercase tracking-widest transition-all ${
+                                                                editedBooking.has_return_trip
+                                                                ? 'bg-blue-600 text-white border-blue-700 shadow-sm'
+                                                                : 'bg-white text-gray-400 border border-gray-200'
+                                                            }`}
+                                                        >
+                                                            {editedBooking.has_return_trip ? '🔄 Enabled' : 'Disabled'}
+                                                        </button>
+                                                    ) : (
+                                                        <Badge className={selectedBooking.has_return_trip ? 'bg-blue-100 text-blue-700 border-blue-200' : 'bg-gray-100 text-gray-400 border-gray-200'}>
+                                                            {selectedBooking.has_return_trip ? '🔄 ROUND TRIP' : 'ONE WAY'}
+                                                        </Badge>
+                                                    )}
+                                                </>
                                             )}
                                         </div>
                                     </div>
@@ -2779,20 +2896,47 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         </SelectContent>
                                     </Select>
                                 </div>
-                                <div className="space-y-1 sm:col-span-2">
-                                    <label className="text-sm font-medium text-gray-700">Round Trip?</label>
+                                <div className="space-y-1">
+                                    <label className="text-sm font-medium text-gray-700">Trip Type</label>
                                     <button
                                         type="button"
-                                        onClick={() => setNewBooking({ ...newBooking, has_return_trip: !newBooking.has_return_trip })}
+                                        onClick={() => setNewBooking({ ...newBooking, trip_type: newBooking.trip_type === 'hourly' ? 'point_to_point' : 'hourly', has_return_trip: false })}
                                         className={`h-9 px-4 rounded-md text-[11px] font-black uppercase tracking-widest transition-all border ${
-                                            newBooking.has_return_trip
-                                            ? 'bg-blue-600 text-white border-blue-700'
+                                            newBooking.trip_type === 'hourly'
+                                            ? 'bg-amber-500 text-white border-amber-600'
                                             : 'bg-white text-gray-400 border-gray-200 hover:border-gray-300'
                                         }`}
                                     >
-                                        {newBooking.has_return_trip ? '🔄 Round Trip Enabled' : 'One Way Only'}
+                                        {newBooking.trip_type === 'hourly' ? '⏱ Hourly Hire' : 'Point to Point'}
                                     </button>
                                 </div>
+                                {newBooking.trip_type === 'hourly' ? (
+                                    <div className="space-y-1">
+                                        <label className="text-sm font-medium text-gray-700">Duration (hours)</label>
+                                        <Input
+                                            type="number"
+                                            min={1}
+                                            value={newBooking.duration_hours ?? ''}
+                                            onChange={(e) => setNewBooking({ ...newBooking, duration_hours: e.target.value ? Number(e.target.value) : undefined })}
+                                            className="bg-white border-gray-200"
+                                        />
+                                    </div>
+                                ) : (
+                                    <div className="space-y-1">
+                                        <label className="text-sm font-medium text-gray-700">Round Trip?</label>
+                                        <button
+                                            type="button"
+                                            onClick={() => setNewBooking({ ...newBooking, has_return_trip: !newBooking.has_return_trip })}
+                                            className={`h-9 px-4 rounded-md text-[11px] font-black uppercase tracking-widest transition-all border ${
+                                                newBooking.has_return_trip
+                                                ? 'bg-blue-600 text-white border-blue-700'
+                                                : 'bg-white text-gray-400 border-gray-200 hover:border-gray-300'
+                                            }`}
+                                        >
+                                            {newBooking.has_return_trip ? '🔄 Round Trip Enabled' : 'One Way Only'}
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="space-y-1">

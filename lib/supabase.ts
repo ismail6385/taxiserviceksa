@@ -38,6 +38,8 @@ export type BookingData = {
     has_return_trip?: boolean;
     child_seats?: number;
     flight_number?: string;
+    trip_type?: 'point_to_point' | 'hourly';
+    duration_hours?: number;
 };
 
 export const vehicles = [

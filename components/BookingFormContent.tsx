@@ -95,7 +95,8 @@ export default function BookingFormContent({ prefilledData, className }: Booking
         status: 'pending',
         has_return_trip: false,
         child_seats: 0,
-        flight_number: ''
+        flight_number: '',
+        trip_type: 'point_to_point'
     });
 
     const searchParams = useSearchParams();
@@ -194,11 +195,13 @@ export default function BookingFormContent({ prefilledData, className }: Booking
         setLoading(true);
         try {
             const fullPhoneNumber = `${countryCode}${formData.customer_phone}`;
+            const isHourly = formData.trip_type === 'hourly';
             const { has_return_trip, child_seats, ...insertData } = formData;
             const finalFormData = {
                 ...insertData,
+                destination: isHourly && !formData.destination.trim() ? 'As Directed (Hourly Hire)' : formData.destination,
                 customer_phone: fullPhoneNumber,
-                special_requests: `${formData.has_return_trip ? `[RETURN TRIP REQUESTED${returnDate ? ` - Return Date: ${returnDate}` : ''}${returnTime ? ` at ${returnTime}` : ''}] ` : ''}${formData.child_seats ? `[CHILD SEATS: ${formData.child_seats}] ` : ''}${preferredTimeNote.trim() ? `[PREFERRED TIME: ${preferredTimeNote.trim()}] ` : ''}${promoApplied ? `[PROMO: ${promoApplied.code} - ${promoApplied.discount_value}${promoApplied.discount_type === 'percentage' ? '%' : ' SAR'} off] ` : ''}${(formData.special_requests ? formData.special_requests + '. ' : '') + 'Please Provide Quote'}`
+                special_requests: `${isHourly ? `[HOURLY HIRE: ${formData.duration_hours || '?'} hours] ` : ''}${formData.has_return_trip ? `[RETURN TRIP REQUESTED${returnDate ? ` - Return Date: ${returnDate}` : ''}${returnTime ? ` at ${returnTime}` : ''}] ` : ''}${formData.child_seats ? `[CHILD SEATS: ${formData.child_seats}] ` : ''}${preferredTimeNote.trim() ? `[PREFERRED TIME: ${preferredTimeNote.trim()}] ` : ''}${promoApplied ? `[PROMO: ${promoApplied.code} - ${promoApplied.discount_value}${promoApplied.discount_type === 'percentage' ? '%' : ' SAR'} off] ` : ''}${(formData.special_requests ? formData.special_requests + '. ' : '') + 'Please Provide Quote'}`
             };
 
             const { data, error } = await supabase.from('bookings').insert([finalFormData]).select();
@@ -243,7 +246,9 @@ export default function BookingFormContent({ prefilledData, className }: Booking
         }
     };
 
-    const isStep1Valid = !!(formData.pickup_location && formData.destination && formData.pickup_date && formData.pickup_time);
+    const isStep1Valid = formData.trip_type === 'hourly'
+        ? !!(formData.pickup_location && formData.pickup_date && formData.pickup_time && formData.duration_hours && formData.duration_hours > 0)
+        : !!(formData.pickup_location && formData.destination && formData.pickup_date && formData.pickup_time);
     const isStep2Valid = !!(formData.vehicle_type);
     const isStep3Valid = !!(formData.customer_name && formData.customer_email && formData.customer_phone);
 
@@ -295,19 +300,39 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             </p>
                         </div>
 
-                        <div className="bg-gray-50/50 p-3 rounded-xl border border-dashed border-gray-200">
-                            <label className="text-xs font-semibold text-gray-500 ml-2 mb-1 block">Quick Select Route</label>
-                            <Select onValueChange={(val) => {
-                                if (val === 'custom') setFormData(prev => ({ ...prev, pickup_location: '', destination: '' }));
-                                else {
-                                    const r = POPULAR_ROUTES.find(pr => pr.id === val);
-                                    if (r) setFormData(prev => ({ ...prev, pickup_location: r.from || '', destination: r.to || '' }));
-                                }
-                            }}>
-                                <SelectTrigger className="bg-white border-gray-200"><SelectValue placeholder="Select a popular route..." /></SelectTrigger>
-                                <SelectContent className="z-[200]">{POPULAR_ROUTES.map((r) => <SelectItem key={r.id} value={r.id}>{r.label}</SelectItem>)}</SelectContent>
-                            </Select>
+                        {/* Trip Type Selector */}
+                        <div className="grid grid-cols-2 gap-1.5 p-1.5 bg-gray-100 rounded-2xl">
+                            <button
+                                type="button"
+                                onClick={() => setFormData(prev => ({ ...prev, trip_type: 'point_to_point' }))}
+                                className={`flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold transition-all ${(formData.trip_type ?? 'point_to_point') === 'point_to_point' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500'}`}
+                            >
+                                <MapPin className="w-4 h-4" /> Point to Point
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setFormData(prev => ({ ...prev, trip_type: 'hourly', has_return_trip: false }))}
+                                className={`flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold transition-all ${formData.trip_type === 'hourly' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500'}`}
+                            >
+                                <Clock className="w-4 h-4" /> Hourly Hire
+                            </button>
                         </div>
+
+                        {formData.trip_type !== 'hourly' && (
+                            <div className="bg-gray-50/50 p-3 rounded-xl border border-dashed border-gray-200">
+                                <label className="text-xs font-semibold text-gray-500 ml-2 mb-1 block">Quick Select Route</label>
+                                <Select onValueChange={(val) => {
+                                    if (val === 'custom') setFormData(prev => ({ ...prev, pickup_location: '', destination: '' }));
+                                    else {
+                                        const r = POPULAR_ROUTES.find(pr => pr.id === val);
+                                        if (r) setFormData(prev => ({ ...prev, pickup_location: r.from || '', destination: r.to || '' }));
+                                    }
+                                }}>
+                                    <SelectTrigger className="bg-white border-gray-200"><SelectValue placeholder="Select a popular route..." /></SelectTrigger>
+                                    <SelectContent className="z-[200]">{POPULAR_ROUTES.map((r) => <SelectItem key={r.id} value={r.id}>{r.label}</SelectItem>)}</SelectContent>
+                                </Select>
+                            </div>
+                        )}
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="space-y-1.5">
@@ -325,13 +350,13 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                 </div>
                             </div>
                             <div className="space-y-1.5">
-                                <label className="text-sm font-semibold text-gray-700 ml-1">To</label>
+                                <label className="text-sm font-semibold text-gray-700 ml-1">{formData.trip_type === 'hourly' ? 'Destination (optional)' : 'To'}</label>
                                 <div className="relative group/input">
                                     <MapPin className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors z-10" />
                                     <LocationAutocomplete
                                         name="destination"
-                                        placeholder="Makkah Hotel, Kaaba..."
-                                        required
+                                        placeholder={formData.trip_type === 'hourly' ? 'Leave blank for "as directed"' : 'Makkah Hotel, Kaaba...'}
+                                        required={formData.trip_type !== 'hourly'}
                                         value={formData.destination}
                                         onChange={(val) => setFormData(prev => ({ ...prev, destination: val }))}
                                         className="w-full pl-10 pr-9 h-12 bg-gray-50 border border-gray-300 rounded-xl text-sm outline-none focus:border-primary"
@@ -421,39 +446,59 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             />
                         </div>
 
-                        {/* Return Trip Toggle */}
-                        <div className="flex items-center gap-3 p-4 bg-blue-50/50 rounded-2xl border border-blue-100/50 cursor-pointer transition-all hover:bg-blue-50" onClick={() => setFormData(prev => ({ ...prev, has_return_trip: !prev.has_return_trip }))}>
-                            <div className={`w-10 h-6 rounded-full relative transition-colors ${formData.has_return_trip ? 'bg-primary' : 'bg-gray-200'}`}>
-                                <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${formData.has_return_trip ? 'left-5' : 'left-1'}`}></div>
+                        {formData.trip_type === 'hourly' ? (
+                            /* Duration */
+                            <div className="space-y-1.5">
+                                <label className="text-sm font-semibold text-gray-700 ml-1">Duration (hours)</label>
+                                <div className="relative flex items-center h-12 bg-gray-50 border border-gray-300 rounded-xl px-3">
+                                    <Clock className="mr-2 h-4 w-4 text-gray-500 shrink-0" />
+                                    <input
+                                        type="number"
+                                        min={1}
+                                        value={formData.duration_hours ?? ''}
+                                        onChange={(e) => setFormData(prev => ({ ...prev, duration_hours: e.target.value ? Number(e.target.value) : undefined }))}
+                                        placeholder="e.g. 4"
+                                        className="w-full bg-transparent outline-none text-sm text-gray-900"
+                                    />
+                                </div>
                             </div>
-                            <div className="flex flex-col">
-                                <span className="text-sm font-bold text-gray-900">Add Return Trip?</span>
-                                <span className="text-[10px] text-gray-500 font-medium">Book both ways for a chauffeured experience.</span>
-                            </div>
-                        </div>
+                        ) : (
+                            <>
+                                {/* Return Trip Toggle */}
+                                <div className="flex items-center gap-3 p-4 bg-blue-50/50 rounded-2xl border border-blue-100/50 cursor-pointer transition-all hover:bg-blue-50" onClick={() => setFormData(prev => ({ ...prev, has_return_trip: !prev.has_return_trip }))}>
+                                    <div className={`w-10 h-6 rounded-full relative transition-colors ${formData.has_return_trip ? 'bg-primary' : 'bg-gray-200'}`}>
+                                        <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${formData.has_return_trip ? 'left-5' : 'left-1'}`}></div>
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <span className="text-sm font-bold text-gray-900">Add Return Trip?</span>
+                                        <span className="text-[10px] text-gray-500 font-medium">Book both ways for a chauffeured experience.</span>
+                                    </div>
+                                </div>
 
-                        {formData.has_return_trip && (
-                            <div className="grid grid-cols-2 gap-4 p-4 bg-blue-50/30 rounded-2xl border border-dashed border-blue-200 animate-fade-in-up">
-                                <div className="space-y-1.5">
-                                    <label className="text-xs font-semibold text-gray-700 ml-1">Return Date</label>
-                                    <Input
-                                        type="date"
-                                        value={returnDate}
-                                        min={formData.pickup_date || undefined}
-                                        onChange={(e) => setReturnDate(e.target.value)}
-                                        className="h-11 bg-white border-gray-300 rounded-xl text-sm"
-                                    />
-                                </div>
-                                <div className="space-y-1.5">
-                                    <label className="text-xs font-semibold text-gray-700 ml-1">Return Time</label>
-                                    <Input
-                                        type="time"
-                                        value={returnTime}
-                                        onChange={(e) => setReturnTime(e.target.value)}
-                                        className="h-11 bg-white border-gray-300 rounded-xl text-sm"
-                                    />
-                                </div>
-                            </div>
+                                {formData.has_return_trip && (
+                                    <div className="grid grid-cols-2 gap-4 p-4 bg-blue-50/30 rounded-2xl border border-dashed border-blue-200 animate-fade-in-up">
+                                        <div className="space-y-1.5">
+                                            <label className="text-xs font-semibold text-gray-700 ml-1">Return Date</label>
+                                            <Input
+                                                type="date"
+                                                value={returnDate}
+                                                min={formData.pickup_date || undefined}
+                                                onChange={(e) => setReturnDate(e.target.value)}
+                                                className="h-11 bg-white border-gray-300 rounded-xl text-sm"
+                                            />
+                                        </div>
+                                        <div className="space-y-1.5">
+                                            <label className="text-xs font-semibold text-gray-700 ml-1">Return Time</label>
+                                            <Input
+                                                type="time"
+                                                value={returnTime}
+                                                onChange={(e) => setReturnTime(e.target.value)}
+                                                className="h-11 bg-white border-gray-300 rounded-xl text-sm"
+                                            />
+                                        </div>
+                                    </div>
+                                )}
+                            </>
                         )}
 
                         {/* Special Requests */}
@@ -479,10 +524,14 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                     <div className="space-y-6 animate-fade-in-up">
                         <div className="text-center">
                             <h2 className="text-2xl font-bold text-gray-900">Select Your Vehicle</h2>
-                            <p className="text-gray-500 text-sm mt-1">{formData.pickup_location} <ArrowRight className="w-3 h-3 inline mx-1" /> {formData.destination}</p>
+                            <p className="text-gray-500 text-sm mt-1">
+                                {formData.trip_type === 'hourly'
+                                    ? `${formData.pickup_location} — Hourly Hire (${formData.duration_hours || '?'}h)`
+                                    : <>{formData.pickup_location} <ArrowRight className="w-3 h-3 inline mx-1" /> {formData.destination}</>}
+                            </p>
                         </div>
 
-                        <div className="grid grid-cols-1 gap-3 max-h-[420px] overflow-y-auto pr-2 custom-scrollbar">
+                        <div className="grid grid-cols-1 gap-3">
                             {vehicles.map((v) => (
                                 <div
                                     key={v.name}
@@ -799,8 +848,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
 *Vehicle:* ${formData.vehicle_type}
 *Passengers:* ${formData.passengers}
 *Luggage:* ${formData.luggage} bags
-*Child Seats:* ${formData.child_seats || 0}${formData.flight_number ? `\n*Flight Number:* ${formData.flight_number}` : ''}
-*Return Trip:* ${formData.has_return_trip ? 'Yes' : 'No'}${formData.has_return_trip && returnDate ? `\n*Return Date:* ${returnDate}${returnTime ? ` at ${returnTime}` : ''}` : ''}
+*Child Seats:* ${formData.child_seats || 0}${formData.flight_number ? `\n*Flight Number:* ${formData.flight_number}` : ''}${formData.trip_type === 'hourly' ? `\n*Trip Type:* Hourly Hire (${formData.duration_hours || '?'} hours)` : `\n*Return Trip:* ${formData.has_return_trip ? 'Yes' : 'No'}${formData.has_return_trip && returnDate ? `\n*Return Date:* ${returnDate}${returnTime ? ` at ${returnTime}` : ''}` : ''}`}
 *Special Requests:* ${formData.special_requests || 'None'}
 ---
 Please provide a quote for this journey.`;
@@ -832,7 +880,9 @@ Please provide a quote for this journey.`;
                                         status: 'pending',
                                         has_return_trip: false,
                                         child_seats: 0,
-                                        flight_number: ''
+                                        flight_number: '',
+                                        trip_type: 'point_to_point',
+                                        duration_hours: undefined
                                     }));
                                 }}
                                 className="border-2 border-gray-200 hover:bg-gray-50 text-gray-700 font-bold py-4 px-8 rounded-xl transition-colors"

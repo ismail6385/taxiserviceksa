@@ -15,6 +15,8 @@ CREATE TABLE IF NOT EXISTS bookings (
   pickup_date DATE NOT NULL,
   pickup_time TIME NOT NULL,
   trip_end_date DATE, -- optional: for multi-day package/tour bookings that span more than one day
+  trip_type VARCHAR(20) DEFAULT 'point_to_point', -- point_to_point, return, or hourly
+  duration_hours INTEGER, -- for hourly hire bookings
 
   -- Vehicle Selection (Step 2)
   vehicle_type VARCHAR(100) NOT NULL,

@@ -29,6 +29,7 @@ import {
     UserCog,
     Mail,
     Building2,
+    Repeat,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
@@ -37,6 +38,7 @@ import { cn } from '@/lib/utils';
 const menuItems = [
     { name: 'Dashboard',       href: '/admin/dashboard',           icon: LayoutDashboard },
     { name: 'Bookings',        href: '/admin/bookings',            icon: CalendarDays },
+    { name: 'Contracts',       href: '/admin/contracts',           icon: Repeat },
     { name: 'Calendar',        href: '/admin/calendar',            icon: Calendar },
     { name: 'Customers',       href: '/admin/customers',           icon: Users },
     { name: 'Email Client',    href: '/admin/email-client',        icon: Mail },
