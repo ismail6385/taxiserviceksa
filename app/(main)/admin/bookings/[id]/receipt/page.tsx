@@ -17,6 +17,7 @@ const RECEIPT_TEXT: Record<DocLang, Record<string, string>> = {
         paymentFor: 'being payment for private transport services rendered on',
         particulars: 'Particulars', details: 'Details', amount: 'Amount',
         service: 'Service', privateChauffeurTransfer: 'Private Chauffeur Transfer',
+        hourlyChauffeurService: 'Hourly Chauffeur Service', durationLabel: 'Duration', hours: 'hours',
         route: 'Route', to: 'to',
         dateTime: 'Date & Time', vehicle: 'Vehicle', passengers: 'Passengers',
         paymentMethod: 'Payment Method', remarks: 'Remarks',
@@ -34,6 +35,7 @@ const RECEIPT_TEXT: Record<DocLang, Record<string, string>> = {
         paymentFor: 'كدفعة مقابل خدمات النقل الخاص المقدمة بتاريخ',
         particulars: 'البيان', details: 'التفاصيل', amount: 'المبلغ',
         service: 'الخدمة', privateChauffeurTransfer: 'نقل خاص بسائق',
+        hourlyChauffeurService: 'خدمة سائق بالساعة', durationLabel: 'المدة', hours: 'ساعات',
         route: 'المسار', to: 'إلى',
         dateTime: 'التاريخ والوقت', vehicle: 'المركبة', passengers: 'الركاب',
         paymentMethod: 'طريقة الدفع', remarks: 'ملاحظات',
@@ -68,6 +70,9 @@ interface Booking {
     currency?: string;
     payment_status?: string;
     payment_method?: string;
+    trip_type?: 'point_to_point' | 'hourly';
+    duration_hours?: number;
+    contract_id?: string | null;
 }
 
 export default function ReceiptPage() {
@@ -136,6 +141,10 @@ export default function ReceiptPage() {
             jsPDF: { unit: 'mm' as const, format: 'a4' as const, orientation: 'portrait' as const },
         };
         try {
+            // Wait for the web font to finish loading before the DOM is
+            // screenshotted — otherwise mobile (slower/cold cache) captures
+            // the fallback system font mid-swap, producing a flat/italic PDF.
+            if (document.fonts?.ready) await document.fonts.ready;
             // @ts-ignore
             const html2pdf = (await import('html2pdf.js')).default;
             await html2pdf().set(opt).from(element).save();
@@ -156,6 +165,7 @@ export default function ReceiptPage() {
                 html2canvas: { scale: 2, useCORS: true, letterRendering: true, windowWidth: 1200, scrollY: 0, scrollX: 0 },
                 jsPDF: { unit: 'mm' as const, format: 'a4' as const, orientation: 'portrait' as const },
             };
+            if (document.fonts?.ready) await document.fonts.ready;
             // @ts-ignore
             const html2pdf = (await import('html2pdf.js')).default;
             const blob: Blob = await html2pdf().set(opt).from(element).outputPdf('blob');
@@ -322,7 +332,7 @@ export default function ReceiptPage() {
                             <tbody>
                                 <tr className="border-b border-gray-100">
                                     <td className="px-4 py-3 text-gray-700 font-medium align-top">{t.service}</td>
-                                    <td className="px-4 py-3 text-gray-600 align-top">{t.privateChauffeurTransfer}</td>
+                                    <td className="px-4 py-3 text-gray-600 align-top">{booking.trip_type === 'hourly' ? t.hourlyChauffeurService : t.privateChauffeurTransfer}</td>
                                     <td className="px-4 py-3 text-right font-bold text-gray-900 align-top">{currency} {amount}</td>
                                 </tr>
                                 <tr className="border-b border-gray-100">
@@ -334,6 +344,13 @@ export default function ReceiptPage() {
                                     </td>
                                     <td className="px-4 py-3"></td>
                                 </tr>
+                                {booking.trip_type === 'hourly' && (
+                                    <tr className="border-b border-gray-100">
+                                        <td className="px-4 py-3 text-gray-700 font-medium">{t.durationLabel}</td>
+                                        <td className="px-4 py-3 text-gray-600">{booking.duration_hours || '?'} {t.hours}</td>
+                                        <td className="px-4 py-3"></td>
+                                    </tr>
+                                )}
                                 <tr className="border-b border-gray-100">
                                     <td className="px-4 py-3 text-gray-700 font-medium">{t.dateTime}</td>
                                     <td className="px-4 py-3 text-gray-600">{booking.trip_end_date && booking.trip_end_date !== booking.pickup_date ? `${booking.pickup_date} → ${booking.trip_end_date}` : `${booking.pickup_date} — ${formatTime12h(booking.pickup_time)}`}</td>

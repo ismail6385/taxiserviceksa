@@ -52,6 +52,8 @@ const INVOICE_TEXT: Record<DocLang, Record<string, string>> = {
         authorizedSignature: 'Authorized Signature', director: 'Director', partner: 'Partner',
         thankYou: 'Thank you for choosing Taxi Service KSA — www.taxiserviceksa.com',
         pax: 'Pax', bags: 'Bags', city: 'Jeddah, Saudi Arabia',
+        hourlyHire: 'Hourly Hire', hourlyService: 'Hourly Chauffeur Service', durationLabel: 'Duration',
+        hours: 'hours', monthlyContract: 'Monthly Contract',
     },
     ar: {
         invoice: 'فاتورة', no: 'الرقم', date: 'التاريخ:', roundTrip: 'ذهاب وعودة',
@@ -78,6 +80,8 @@ const INVOICE_TEXT: Record<DocLang, Record<string, string>> = {
         authorizedSignature: 'التوقيع المعتمد', director: 'المدير', partner: 'الشريك',
         thankYou: 'شكراً لاختياركم تاكسي سيرفس السعودية — www.taxiserviceksa.com',
         pax: 'راكب', bags: 'حقيبة', city: 'جدة، المملكة العربية السعودية',
+        hourlyHire: 'إيجار بالساعة', hourlyService: 'خدمة سائق بالساعة', durationLabel: 'المدة',
+        hours: 'ساعات', monthlyContract: 'عقد شهري',
     },
 };
 
@@ -110,6 +114,9 @@ interface Booking {
     currency?: string;
     payment_status?: string;
     payment_method?: string;
+    trip_type?: 'point_to_point' | 'hourly';
+    duration_hours?: number;
+    contract_id?: string | null;
 }
 
 export default function InvoicePage() {
@@ -226,6 +233,10 @@ export default function InvoicePage() {
         };
 
         try {
+            // Wait for the web font to finish loading before the DOM is
+            // screenshotted — otherwise mobile (slower/cold cache) captures
+            // the fallback system font mid-swap, producing a flat/italic PDF.
+            if (document.fonts?.ready) await document.fonts.ready;
             // @ts-ignore - dynamic import to avoid SSR 'self is not defined'
             const html2pdf = (await import('html2pdf.js')).default;
             await html2pdf().set(opt).from(element).save();
@@ -258,6 +269,7 @@ export default function InvoicePage() {
                 jsPDF: { unit: 'mm' as const, format: 'a4' as const, orientation: 'portrait' as const },
             };
 
+            if (document.fonts?.ready) await document.fonts.ready;
             // @ts-ignore
             const html2pdf = (await import('html2pdf.js')).default;
             const pdfBlob: Blob = await html2pdf().set(opt).from(element).outputPdf('blob');
@@ -670,6 +682,16 @@ export default function InvoicePage() {
                                             <Repeat className="w-2.5 h-2.5" /> {t.roundTrip}
                                         </span>
                                     )}
+                                    {booking.trip_type === 'hourly' && (
+                                        <span className="px-2.5 py-0.5 rounded text-[10px] font-semibold uppercase bg-amber-50 text-amber-700 border border-amber-200 flex items-center gap-1 whitespace-nowrap">
+                                            <Clock className="w-2.5 h-2.5" /> {t.hourlyHire} · {booking.duration_hours || '?'}{lang === 'ar' ? '' : 'h'}
+                                        </span>
+                                    )}
+                                    {booking.contract_id && (
+                                        <span className="px-2.5 py-0.5 rounded text-[10px] font-semibold uppercase bg-purple-50 text-purple-700 border border-purple-200 whitespace-nowrap">
+                                            {t.monthlyContract}
+                                        </span>
+                                    )}
                                     <span className={`px-2.5 py-0.5 rounded text-[10px] font-semibold uppercase border whitespace-nowrap ${paymentStatus === 'Paid' ? 'bg-green-50 text-green-700 border-green-200' : 'bg-red-50 text-red-700 border-red-200'}`}>
                                         {lang === 'ar' ? (STATUS_AR[paymentStatus] || paymentStatus) : paymentStatus}
                                     </span>
@@ -698,6 +720,7 @@ export default function InvoicePage() {
                                         { icon: <Clock className="w-3 h-3" />, label: t.timeLabel, value: formatTime12h(booking.pickup_time) },
                                         { icon: <Car className="w-3 h-3" />, label: t.vehicleLabel, value: booking.vehicle_type },
                                         { icon: <User className="w-3 h-3" />, label: t.passengersLabel, value: `${booking.passengers} ${t.pax} · ${booking.luggage} ${t.bags}` },
+                                        ...(booking.trip_type === 'hourly' ? [{ icon: <Clock className="w-3 h-3" />, label: t.durationLabel, value: `${booking.duration_hours || '?'} ${t.hours}` }] : []),
                                     ].map(({ icon, label, value }) => (
                                         <div key={label} className="flex justify-between items-center text-xs">
                                             <span className="text-gray-500 flex items-center gap-1.5">{icon} {label}</span>
@@ -771,15 +794,17 @@ export default function InvoicePage() {
                                     <tr className="border-t border-gray-100">
                                         <td className="px-4 py-3.5">
                                             <p className="font-bold text-gray-900 text-sm">
-                                                {isRoundTrip ? t.roundTripService : t.privateService}
+                                                {isRoundTrip ? t.roundTripService : booking.trip_type === 'hourly' ? t.hourlyService : t.privateService}
                                             </p>
                                             <p className="text-xs text-gray-500 mt-0.5">
                                                 {booking.vehicle_type} — {t.chauffeurService}
                                             </p>
                                             <p className="text-[11px] text-gray-400 mt-1 font-medium">
-                                                {isRoundTrip
-                                                    ? `${booking.pickup_location.split(',')[0]} ↔ ${booking.destination.split(',')[0]}`
-                                                    : `${booking.pickup_location.split(',')[0]} → ${booking.destination.split(',')[0]}`}
+                                                {booking.trip_type === 'hourly'
+                                                    ? `${booking.pickup_location.split(',')[0]} — ${booking.duration_hours || '?'} ${t.hours}`
+                                                    : isRoundTrip
+                                                        ? `${booking.pickup_location.split(',')[0]} ↔ ${booking.destination.split(',')[0]}`
+                                                        : `${booking.pickup_location.split(',')[0]} → ${booking.destination.split(',')[0]}`}
                                             </p>
                                             {booking.special_requests && (
                                                 <div className="mt-2 p-2 bg-gray-50 rounded border border-gray-100 text-[11px] text-gray-500 whitespace-pre-wrap leading-snug">
