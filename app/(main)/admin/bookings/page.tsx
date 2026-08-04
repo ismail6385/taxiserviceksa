@@ -131,6 +131,7 @@ export default function BookingsPage() {
     const [searchTerm, setSearchTerm] = useState('');
     const [statusFilter, setStatusFilter] = useState('all');
     const [paymentFilter, setPaymentFilter] = useState('all');
+    const [tripTypeFilter, setTripTypeFilter] = useState('all');
     const [dbPrices, setDbPrices] = useState<Record<string, Record<string, number>>>({});
 
     // Sheet State
@@ -193,7 +194,7 @@ export default function BookingsPage() {
     // Reset to page 1 whenever any filter changes
     useEffect(() => {
         setCurrentPage(1);
-    }, [searchTerm, statusFilter, paymentFilter, startDate, endDate]);
+    }, [searchTerm, statusFilter, paymentFilter, tripTypeFilter, startDate, endDate]);
     
     const [sendingQuote, setSendingQuote] = useState(false);
     const [quoteSent, setQuoteSent] = useState(false);
@@ -709,10 +710,20 @@ export default function BookingsPage() {
             matchesPayment = booking.payment_status === paymentFilter;
         }
 
-        const dateInRange = (!startDate || booking.pickup_date >= startDate) && 
+        // Trip Type Filter
+        let matchesTripType = true;
+        if (tripTypeFilter === 'hourly') {
+            matchesTripType = booking.trip_type === 'hourly';
+        } else if (tripTypeFilter === 'contract') {
+            matchesTripType = !!booking.contract_id;
+        } else if (tripTypeFilter === 'point_to_point') {
+            matchesTripType = booking.trip_type !== 'hourly';
+        }
+
+        const dateInRange = (!startDate || booking.pickup_date >= startDate) &&
                           (!endDate || booking.pickup_date <= endDate);
 
-        return matchesSearch && matchesStatus && matchesPayment && dateInRange;
+        return matchesSearch && matchesStatus && matchesPayment && matchesTripType && dateInRange;
     }).sort((a, b) => {
         if (!sortConfig) return 0;
         const { key, direction } = sortConfig;
@@ -813,7 +824,9 @@ export default function BookingsPage() {
     };
 
     const shareClientDetails = (booking: Booking) => {
-        const text = `*Booking Details (Client)* \n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*Client:* ${booking.customer_name}\n*Phone:* ${booking.customer_phone}\n*Pickup:* ${booking.pickup_location}\n*Dropoff:* ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}\n*Vehicle:* ${booking.vehicle_type}\n*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}\n\n*Fare:* ${booking.currency || 'SAR'} ${booking.total_price || 'Confirming'}\n\n*Notes:* ${booking.special_requests || 'N/A'}\n\nThank you for choosing Taxi Service KSA.`;
+        const hourlyLine = booking.trip_type === 'hourly' ? `\n*Duration:* ${booking.duration_hours || '?'} hours (Hourly Hire)` : '';
+        const contractLine = booking.contract_id ? `\n*Contract:* Recurring Monthly Client` : '';
+        const text = `*Booking Details (Client)* \n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*Client:* ${booking.customer_name}\n*Phone:* ${booking.customer_phone}\n*Pickup:* ${booking.pickup_location}\n*Dropoff:* ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}${hourlyLine}${contractLine}\n*Vehicle:* ${booking.vehicle_type}\n*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}\n\n*Fare:* ${booking.currency || 'SAR'} ${booking.total_price || 'Confirming'}\n\n*Notes:* ${booking.special_requests || 'N/A'}\n\nThank you for choosing Taxi Service KSA.`;
 
         navigator.clipboard.writeText(text).then(() => {
             alert('Client details copied to clipboard!');
@@ -821,7 +834,9 @@ export default function BookingsPage() {
     };
 
     const shareDriverDetails = (booking: Booking) => {
-        const text = `*NEW TRIP FOR DRIVER* \n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*Client:* ${booking.customer_name}\n*Phone:* ${booking.customer_phone}\n\n*Pickup:* ${booking.pickup_location}\n*Dropoff:* ${booking.destination}\n*Date:* ${booking.pickup_date}\n*Time:* ${booking.pickup_time}\n\n*Vehicle:* ${booking.vehicle_type}\n*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}\n\n*Notes:* ${booking.special_requests || 'None'}`;
+        const hourlyLine = booking.trip_type === 'hourly' ? `\n*Duration:* ${booking.duration_hours || '?'} hours (Hourly Hire)` : '';
+        const contractLine = booking.contract_id ? `\n*Contract:* Recurring Monthly Client` : '';
+        const text = `*NEW TRIP FOR DRIVER* \n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*Client:* ${booking.customer_name}\n*Phone:* ${booking.customer_phone}\n\n*Pickup:* ${booking.pickup_location}\n*Dropoff:* ${booking.destination}\n*Date:* ${booking.pickup_date}\n*Time:* ${booking.pickup_time}${hourlyLine}${contractLine}\n\n*Vehicle:* ${booking.vehicle_type}\n*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}\n\n*Notes:* ${booking.special_requests || 'None'}`;
 
         navigator.clipboard.writeText(text).then(() => {
             alert('Driver details (No Price) copied!');
@@ -831,10 +846,14 @@ export default function BookingsPage() {
     const sendWhatsAppHello = (booking: Booking) => {
         const returnText = booking.has_return_trip ? " (Including Round Trip 🔄)" : "";
         const childSeatText = booking.child_seats ? ` (With ${booking.child_seats} Child Seat(s) 👶)` : "";
-        
-        const text = `Hello ${booking.customer_name}! 🚕 *Taxi Service KSA* here. 
-        
-We have received your booking request from *${booking.pickup_location}* to *${booking.destination}* on *${booking.pickup_date}*${returnText}${childSeatText}. 
+        const contractText = booking.contract_id ? " — as part of your Monthly Contract 📋" : "";
+        const tripDescription = booking.trip_type === 'hourly'
+            ? `from *${booking.pickup_location}* for *${booking.duration_hours || '?'} hours* (Hourly Hire ⏱)`
+            : `from *${booking.pickup_location}* to *${booking.destination}*`;
+
+        const text = `Hello ${booking.customer_name}! 🚕 *Taxi Service KSA* here.
+
+We have received your booking request ${tripDescription} on *${booking.pickup_date}*${returnText}${childSeatText}${contractText}.
 
 Our team is reviewing the availability and will send you the quotation shortly. Thank you!`;
         openWhatsApp(booking.customer_phone, text);
@@ -856,8 +875,12 @@ Your professional chauffeur will contact you shortly via WhatsApp/Call. Have a s
 
     const sendWhatsAppPrice = (booking: Booking) => {
         const hasReturn = booking.has_return_trip || booking.special_requests?.includes('RETURN TRIP');
-        
-        const text = `Hi ${booking.customer_name}! The total fare for your trip is *${booking.currency || 'SAR'} ${booking.total_price || 0}* ${hasReturn ? '(Round Trip Included)' : ''}.
+        const tripNote = booking.trip_type === 'hourly'
+            ? `(Hourly Hire — ${booking.duration_hours || '?'} hours)`
+            : hasReturn ? '(Round Trip Included)' : '';
+        const contractNote = booking.contract_id ? '\n\n📋 This trip is part of your active Monthly Contract.' : '';
+
+        const text = `Hi ${booking.customer_name}! The total fare for your trip is *${booking.currency || 'SAR'} ${booking.total_price || 0}* ${tripNote}.${contractNote}
 
 💳 *Payment Status:* ${(booking.payment_status || 'unpaid').toUpperCase()}
 
@@ -1051,7 +1074,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
 
         if (dataToExport.length === 0) return;
         
-        const headers = ["ID", "Customer", "Phone", "From", "To", "Date", "Time", "Vehicle", "Price", "Status", "Payment"];
+        const headers = ["ID", "Customer", "Phone", "From", "To", "Date", "Time", "Vehicle", "Price", "Status", "Payment", "Trip Type", "Duration (Hrs)", "Contract"];
         const rows = dataToExport.map(b => [
             b.id,
             b.customer_name,
@@ -1063,7 +1086,10 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
             b.vehicle_type,
             b.total_price || 0,
             b.status,
-            b.payment_status
+            b.payment_status,
+            b.trip_type === 'hourly' ? 'Hourly' : 'Point to Point',
+            b.trip_type === 'hourly' ? (b.duration_hours || '') : '',
+            b.contract_id ? 'Yes' : 'No'
         ]);
         
         const csvContent = [headers, ...rows].map(e => e.join(",")).join("\n");
@@ -1299,15 +1325,32 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                         </SelectContent>
                     </Select>
                 </div>
+                <div className="flex-1">
+                    <Select value={tripTypeFilter} onValueChange={setTripTypeFilter}>
+                        <SelectTrigger className="bg-white border-gray-200 text-gray-900 shadow-sm">
+                            <div className="flex items-center gap-2">
+                                <Clock className="w-4 h-4" />
+                                <SelectValue placeholder="Trip Type" />
+                            </div>
+                        </SelectTrigger>
+                        <SelectContent className="bg-white border-gray-200 text-gray-900 shadow-lg">
+                            <SelectItem value="all">All Trip Types</SelectItem>
+                            <SelectItem value="point_to_point">Point to Point</SelectItem>
+                            <SelectItem value="hourly">Hourly Hire</SelectItem>
+                            <SelectItem value="contract">Recurring Contract</SelectItem>
+                        </SelectContent>
+                    </Select>
                 </div>
-                {(searchTerm || statusFilter !== 'all' || paymentFilter !== 'all' || startDate || endDate) && (
-                    <Button 
-                        variant="ghost" 
-                        size="sm" 
+                </div>
+                {(searchTerm || statusFilter !== 'all' || paymentFilter !== 'all' || tripTypeFilter !== 'all' || startDate || endDate) && (
+                    <Button
+                        variant="ghost"
+                        size="sm"
                         onClick={() => {
                             setSearchTerm('');
                             setStatusFilter('all');
                             setPaymentFilter('all');
+                            setTripTypeFilter('all');
                             setStartDate('');
                             setEndDate('');
                             setCurrentPage(1);
