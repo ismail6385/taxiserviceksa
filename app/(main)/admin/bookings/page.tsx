@@ -123,6 +123,8 @@ interface Booking {
     trip_type?: 'point_to_point' | 'hourly';
     duration_hours?: number;
     contract_id?: string | null;
+    driver_arrived_at?: string;
+    trip_started_at?: string;
 }
 
 export default function BookingsPage() {
@@ -134,6 +136,10 @@ export default function BookingsPage() {
     const [tripTypeFilter, setTripTypeFilter] = useState('all');
     const [dbPrices, setDbPrices] = useState<Record<string, Record<string, number>>>({});
     const [approvedDrivers, setApprovedDrivers] = useState<{ id: string; full_name: string; phone_number: string }[]>([]);
+    const [rateCards, setRateCards] = useState<{ id: string; company_name: string; pickup_location: string; destination: string; vehicle_type: string; rate: number; currency: string }[]>([]);
+    const [b2bCompany, setB2bCompany] = useState('');
+    const [checkingFlight, setCheckingFlight] = useState(false);
+    const [flightStatusResult, setFlightStatusResult] = useState<any>(null);
 
     // Sheet State
     const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
@@ -206,6 +212,9 @@ export default function BookingsPage() {
     // Auto-fill & Duplicate State
     const [duplicateFound, setDuplicateFound] = useState<Booking | null>(null);
     const [nameSuggestions, setNameSuggestions] = useState<Booking[]>([]);
+    const [loyaltyCount, setLoyaltyCount] = useState(0);
+    const [freeWaitMinutes, setFreeWaitMinutes] = useState(15);
+    const [waitRatePer15, setWaitRatePer15] = useState(20);
     // Opt-in only — admin ticks this before Save if they want the client
     // emailed about the change. Never sent automatically.
     const [notifyClientOnSave, setNotifyClientOnSave] = useState(false);
@@ -249,6 +258,7 @@ export default function BookingsPage() {
                 fetchBookings();
                 fetchDbPrices();
                 fetchApprovedDrivers();
+                fetchRateCards();
                 // Request browser notification permission
                 if (typeof Notification !== 'undefined' && Notification.permission === 'default') {
                     Notification.requestPermission();
@@ -300,6 +310,15 @@ export default function BookingsPage() {
         }
     };
 
+    const fetchRateCards = async () => {
+        try {
+            const { data, error } = await supabase.from('b2b_rate_cards').select('id,company_name,pickup_location,destination,vehicle_type,rate,currency');
+            if (!error && data) setRateCards(data);
+        } catch (err) {
+            console.error('Failed to load B2B rate cards:', err);
+        }
+    };
+
     // Another booking (not this one) with the same driver on the same
     // pickup date — a heads-up, not a hard block, since drivers sometimes
     // do split shifts or the clash is intentional.
@@ -344,6 +363,32 @@ export default function BookingsPage() {
         } catch (e) {
             return timeStr;
         }
+    };
+
+    // Minutes the driver waited beyond free time, based on "Driver Arrived"
+    // vs "Trip Started" (both same-day HH:MM). Returns null if either is
+    // missing so callers can distinguish "not logged yet" from "zero wait".
+    const getMatchingRateCard = (company: string, pickup: string, destination: string, vehicle: string) => {
+        if (!company.trim() || !pickup.trim() || !destination.trim()) return undefined;
+        const norm = (s: string) => s.trim().toLowerCase();
+        return rateCards.find(r =>
+            norm(r.company_name) === norm(company) &&
+            norm(r.pickup_location) === norm(pickup) &&
+            norm(r.destination) === norm(destination) &&
+            norm(r.vehicle_type) === norm(vehicle)
+        );
+    };
+
+    const getWaitMinutes = (arrivedAt?: string, startedAt?: string): number | null => {
+        if (!arrivedAt || !startedAt) return null;
+        const toMinutes = (t: string) => {
+            const [h, m] = t.split(':').map(Number);
+            return isNaN(h) || isNaN(m) ? null : h * 60 + m;
+        };
+        const arrived = toMinutes(arrivedAt);
+        const started = toMinutes(startedAt);
+        if (arrived === null || started === null) return null;
+        return Math.max(0, started - arrived);
     };
 
     const getTripDayCount = (startDateStr?: string, endDateStr?: string) => {
@@ -394,6 +439,7 @@ export default function BookingsPage() {
         if (!isCreating) {
             setDuplicateFound(null);
             setNameSuggestions([]);
+            setLoyaltyCount(0);
             return;
         }
 
@@ -416,8 +462,13 @@ export default function BookingsPage() {
                 b.pickup_time === newBooking.pickup_time
             );
             setDuplicateFound(duplicate || null);
+
+            // Loyalty check — how many prior (non-cancelled) bookings this
+            // phone already has, so admin can proactively offer a discount.
+            setLoyaltyCount(bookings.filter(b => b.customer_phone === phone && b.status !== 'cancelled').length);
         } else {
             setDuplicateFound(null);
+            setLoyaltyCount(0);
         }
 
         // 2. Auto-fill by email (exact match, only if phone hasn't already matched)
@@ -695,6 +746,21 @@ export default function BookingsPage() {
         setSelectedBooking(booking);
         setEditedBooking(booking);
         setIsEditing(false);
+        setFlightStatusResult(null);
+    };
+
+    const checkFlightStatus = async (flightNumber: string) => {
+        setCheckingFlight(true);
+        setFlightStatusResult(null);
+        try {
+            const res = await adminFetch(`/api/check-flight-status?flight=${encodeURIComponent(flightNumber)}`);
+            const data = await res.json();
+            setFlightStatusResult(data);
+        } catch (err) {
+            setFlightStatusResult({ error: 'lookup_failed', message: 'Failed to check flight status.' });
+        } finally {
+            setCheckingFlight(false);
+        }
     };
 
     // Deep-link support: /admin/bookings?openId=<id> (used by the Dashboard's
@@ -2092,20 +2158,49 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                     <Input value={editedBooking.flight_number || ''} onChange={(e) => setEditedBooking({ ...editedBooking, flight_number: e.target.value })} className="h-8 text-sm bg-white w-32" placeholder="e.g. EK803" />
                                                 ) : (
                                                     <>
-                                                        <span className="text-sm font-semibold text-gray-900">{selectedBooking.flight_number || 'N/A'}</span>
+                                        <span className="text-sm font-semibold text-gray-900">{selectedBooking.flight_number || 'N/A'}</span>
                                                         {selectedBooking.flight_number && (
-                                                            <a 
-                                                                href={`https://www.flightradar24.com/data/flights/${selectedBooking.flight_number}`} 
-                                                                target="_blank" 
+                                                            <a
+                                                                href={`https://www.flightradar24.com/data/flights/${selectedBooking.flight_number}`}
+                                                                target="_blank"
                                                                 rel="noopener noreferrer"
                                                                 className="text-[10px] text-blue-600 hover:underline flex items-center gap-1"
                                                             >
                                                                 <ExternalLink className="w-3 h-3" /> Track Flight
                                                             </a>
                                                         )}
+                                                        {selectedBooking.flight_number && (
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => checkFlightStatus(selectedBooking.flight_number!)}
+                                                                disabled={checkingFlight}
+                                                                className="text-[10px] text-emerald-600 hover:underline flex items-center gap-1 disabled:opacity-50"
+                                                            >
+                                                                <Clock className="w-3 h-3" /> {checkingFlight ? 'Checking...' : 'Check Status'}
+                                                            </button>
+                                                        )}
                                                     </>
                                                 )}
                                             </div>
+                                            {flightStatusResult && (
+                                                <div className="mt-2 text-[11px] bg-gray-50 border border-gray-200 rounded-lg p-2 max-w-[260px]">
+                                                    {flightStatusResult.error ? (
+                                                        <p className="text-gray-500">{flightStatusResult.message}</p>
+                                                    ) : (
+                                                        <>
+                                                            <p className="font-bold text-gray-900 uppercase">{flightStatusResult.status}</p>
+                                                            {flightStatusResult.arrivalDelay ? (
+                                                                <p className="text-red-600 font-semibold">⚠️ Arrival delayed {flightStatusResult.arrivalDelay} min</p>
+                                                            ) : (
+                                                                <p className="text-emerald-600">On time</p>
+                                                            )}
+                                                            {flightStatusResult.arrivalEstimated && (
+                                                                <p className="text-gray-500">Est. arrival: {new Date(flightStatusResult.arrivalEstimated).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}</p>
+                                                            )}
+                                                        </>
+                                                    )}
+                                                </div>
+                                            )}
                                         </div>
                                         <div className="flex flex-col items-end">
                                             {(isEditing ? editedBooking.trip_type : selectedBooking.trip_type) === 'hourly' ? (
@@ -2401,6 +2496,63 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             )}
                                         </div>
                                     </div>
+
+                                    {/* Waiting Time Tracker */}
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <span className="block text-xs text-gray-500 mb-1">Driver Arrived</span>
+                                            {isEditing ? (
+                                                <Input type="time" value={editedBooking.driver_arrived_at || ''} onChange={(e) => setEditedBooking({ ...editedBooking, driver_arrived_at: e.target.value })} className="h-8 text-sm bg-white" />
+                                            ) : (
+                                                <span className="font-medium text-gray-900">{formatTime12h(selectedBooking.driver_arrived_at) || '—'}</span>
+                                            )}
+                                        </div>
+                                        <div>
+                                            <span className="block text-xs text-gray-500 mb-1">Trip Started</span>
+                                            {isEditing ? (
+                                                <Input type="time" value={editedBooking.trip_started_at || ''} onChange={(e) => setEditedBooking({ ...editedBooking, trip_started_at: e.target.value })} className="h-8 text-sm bg-white" />
+                                            ) : (
+                                                <span className="font-medium text-gray-900">{formatTime12h(selectedBooking.trip_started_at) || '—'}</span>
+                                            )}
+                                        </div>
+                                    </div>
+                                    {(() => {
+                                        const source = isEditing ? editedBooking : selectedBooking;
+                                        const waitMinutes = getWaitMinutes(source.driver_arrived_at, source.trip_started_at);
+                                        if (waitMinutes === null) return null;
+                                        const extraMinutes = Math.max(0, waitMinutes - freeWaitMinutes);
+                                        const suggestedCharge = Math.ceil(extraMinutes / 15) * waitRatePer15;
+                                        return (
+                                            <div className="bg-orange-50 border border-orange-200 rounded-lg p-3 text-xs space-y-2">
+                                                <p className="font-bold text-orange-700">⏱ Waited {waitMinutes} min</p>
+                                                {isEditing && extraMinutes > 0 && (
+                                                    <>
+                                                        <div className="flex items-center gap-2 text-[11px] text-orange-700">
+                                                            <span>Free:</span>
+                                                            <Input type="number" min={0} value={freeWaitMinutes} onChange={(e) => setFreeWaitMinutes(Number(e.target.value) || 0)} className="h-6 w-14 text-xs bg-white" />
+                                                            <span>min · Rate:</span>
+                                                            <Input type="number" min={0} value={waitRatePer15} onChange={(e) => setWaitRatePer15(Number(e.target.value) || 0)} className="h-6 w-14 text-xs bg-white" />
+                                                            <span>{editedBooking.currency || 'SAR'}/15min</span>
+                                                        </div>
+                                                        <div className="flex items-center justify-between">
+                                                            <span className="text-orange-700">{extraMinutes} min over — suggested extra: <strong>{editedBooking.currency || 'SAR'} {suggestedCharge}</strong></span>
+                                                            <Button
+                                                                size="sm"
+                                                                variant="outline"
+                                                                className="h-6 text-[10px] bg-white"
+                                                                onClick={() => setEditedBooking({ ...editedBooking, total_price: (editedBooking.total_price || 0) + suggestedCharge })}
+                                                            >
+                                                                + Add to Price
+                                                            </Button>
+                                                        </div>
+                                                    </>
+                                                )}
+                                                {!isEditing && waitMinutes <= freeWaitMinutes && (
+                                                    <p className="text-[10px] text-orange-500">Within free wait time.</p>
+                                                )}
+                                            </div>
+                                        );
+                                    })()}
 
                                     {/* Assign Driver & Notify Button */}
                                     {!isEditing && selectedBooking.driver_name && selectedBooking.driver_phone && (
@@ -2733,6 +2885,23 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     <Button size="sm" variant="outline" className="h-7 text-[10px]" onClick={() => openBookingDetails(duplicateFound)}>View Old</Button>
                                 </div>
                             )}
+                            {loyaltyCount >= 3 && (
+                                <div className="bg-amber-50 border border-amber-200 p-3 rounded-lg flex items-center gap-3">
+                                    <Crown className="w-5 h-5 text-amber-500 fill-amber-500 shrink-0" />
+                                    <div className="flex-1">
+                                        <p className="text-xs font-bold text-amber-700">Loyal Customer — {loyaltyCount + 1}th booking</p>
+                                        <p className="text-[10px] text-amber-600">Consider offering a loyalty discount or promo code.</p>
+                                    </div>
+                                    <Button
+                                        size="sm"
+                                        variant="outline"
+                                        className="h-7 text-[10px]"
+                                        onClick={() => setNewBooking(prev => ({ ...prev, tags: prev.tags ? `${prev.tags}, Loyal Customer` : 'Loyal Customer' }))}
+                                    >
+                                        + Tag Loyal
+                                    </Button>
+                                </div>
+                            )}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Full Name</label>
@@ -2798,6 +2967,33 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                         <div className="space-y-4">
                             <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">Trip Information</h3>
                             <div className="space-y-4">
+                                {rateCards.length > 0 && (
+                                    <div className="space-y-1">
+                                        <label className="text-sm font-medium text-gray-700">Company (B2B, optional)</label>
+                                        <Input
+                                            list="b2b-company-names-booking"
+                                            placeholder="Type a company to auto-suggest their negotiated rate"
+                                            value={b2bCompany}
+                                            onChange={(e) => setB2bCompany(e.target.value)}
+                                            className="bg-white border-gray-200"
+                                        />
+                                        <datalist id="b2b-company-names-booking">
+                                            {Array.from(new Set(rateCards.map(r => r.company_name))).map(c => <option key={c} value={c} />)}
+                                        </datalist>
+                                    </div>
+                                )}
+                                {(() => {
+                                    const match = getMatchingRateCard(b2bCompany, newBooking.pickup_location || '', newBooking.destination || '', newBooking.vehicle_type || '');
+                                    if (!match) return null;
+                                    return (
+                                        <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-3 flex items-center justify-between text-sm">
+                                            <span className="text-emerald-700 font-semibold">💼 {match.company_name} negotiated rate: {match.currency} {match.rate}</span>
+                                            <Button size="sm" className="h-7 text-xs bg-emerald-600 hover:bg-emerald-700 text-white" onClick={() => setNewBooking({ ...newBooking, total_price: match.rate, currency: match.currency })}>
+                                                Use This Rate
+                                            </Button>
+                                        </div>
+                                    );
+                                })()}
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Pickup Location</label>
                                     <Input
