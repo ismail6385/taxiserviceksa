@@ -117,6 +117,7 @@ interface Booking {
     trip_type?: 'point_to_point' | 'hourly';
     duration_hours?: number;
     contract_id?: string | null;
+    invoice_number?: string | null;
 }
 
 export default function InvoicePage() {
@@ -169,7 +170,19 @@ export default function InvoicePage() {
                     .single();
 
                 if (error) throw error;
-                setBooking(data);
+                let bookingData = data;
+                // Assign a permanent sequential invoice number the first time
+                // this invoice is ever opened — accounting numbers must not
+                // change on re-visits, so it's stored back on the booking.
+                if (!bookingData.invoice_number) {
+                    const { data: assignedNumber, error: rpcError } = await supabase.rpc('assign_invoice_number', { p_booking_id: id });
+                    if (!rpcError && assignedNumber) {
+                        bookingData = { ...bookingData, invoice_number: assignedNumber };
+                    } else if (rpcError) {
+                        console.error('Failed to assign invoice number:', rpcError);
+                    }
+                }
+                setBooking(bookingData);
                 // Initialize editable fields from booking data if they exist
                 if (data.currency) setCurrency(data.currency);
                 if (data.payment_status) setPaymentStatus(data.payment_status);
@@ -333,7 +346,9 @@ export default function InvoicePage() {
         month: 'long',
         year: 'numeric'
     });
-    const invoiceNumber = `INV-${(booking.pickup_date || booking.created_at.slice(0, 10)).replace(/-/g, '')}-${booking.id.slice(0, 6).toUpperCase()}`;
+    // Falls back to the old date/id-derived format only in the brief window
+    // before the permanent sequential number above finishes assigning.
+    const invoiceNumber = booking.invoice_number || `INV-${(booking.pickup_date || booking.created_at.slice(0, 10)).replace(/-/g, '')}-${booking.id.slice(0, 6).toUpperCase()}`;
     const t = INVOICE_TEXT[lang];
 
     return (
