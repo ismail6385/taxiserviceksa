@@ -304,7 +304,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                         <div className="grid grid-cols-2 gap-1.5 p-1.5 bg-gray-100 rounded-2xl">
                             <button
                                 type="button"
-                                onClick={() => setFormData(prev => ({ ...prev, trip_type: 'point_to_point' }))}
+                                onClick={() => setFormData(prev => ({ ...prev, trip_type: 'point_to_point', duration_hours: undefined }))}
                                 className={`flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold transition-all ${(formData.trip_type ?? 'point_to_point') === 'point_to_point' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500'}`}
                             >
                                 <MapPin className="w-4 h-4" /> Point to Point

@@ -1981,7 +1981,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         {isEditing ? (
                                             <button
                                                 type="button"
-                                                onClick={() => setEditedBooking({ ...editedBooking, trip_type: editedBooking.trip_type === 'hourly' ? 'point_to_point' : 'hourly', has_return_trip: false })}
+                                                onClick={() => setEditedBooking({ ...editedBooking, trip_type: editedBooking.trip_type === 'hourly' ? 'point_to_point' : 'hourly', has_return_trip: false, duration_hours: editedBooking.trip_type === 'hourly' ? undefined : editedBooking.duration_hours })}
                                                 className={`h-8 px-3 rounded-md text-[10px] font-black uppercase tracking-widest transition-all border ${
                                                     editedBooking.trip_type === 'hourly'
                                                     ? 'bg-amber-500 text-white border-amber-600 shadow-sm'
@@ -2900,7 +2900,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     <label className="text-sm font-medium text-gray-700">Trip Type</label>
                                     <button
                                         type="button"
-                                        onClick={() => setNewBooking({ ...newBooking, trip_type: newBooking.trip_type === 'hourly' ? 'point_to_point' : 'hourly', has_return_trip: false })}
+                                        onClick={() => setNewBooking({ ...newBooking, trip_type: newBooking.trip_type === 'hourly' ? 'point_to_point' : 'hourly', has_return_trip: false, duration_hours: newBooking.trip_type === 'hourly' ? undefined : newBooking.duration_hours })}
                                         className={`h-9 px-4 rounded-md text-[11px] font-black uppercase tracking-widest transition-all border ${
                                             newBooking.trip_type === 'hourly'
                                             ? 'bg-amber-500 text-white border-amber-600'
