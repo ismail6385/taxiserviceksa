@@ -137,6 +137,7 @@ export default function BookingsPage() {
     const [dbPrices, setDbPrices] = useState<Record<string, Record<string, number>>>({});
     const [approvedDrivers, setApprovedDrivers] = useState<{ id: string; full_name: string; phone_number: string }[]>([]);
     const [rateCards, setRateCards] = useState<{ id: string; company_name: string; pickup_location: string; destination: string; vehicle_type: string; rate: number; currency: string }[]>([]);
+    const [hourlyRates, setHourlyRates] = useState<Record<string, number>>({});
     const [b2bCompany, setB2bCompany] = useState('');
     const [checkingFlight, setCheckingFlight] = useState(false);
     const [flightStatusResult, setFlightStatusResult] = useState<any>(null);
@@ -259,6 +260,7 @@ export default function BookingsPage() {
                 fetchDbPrices();
                 fetchApprovedDrivers();
                 fetchRateCards();
+                fetchHourlyRates();
                 // Request browser notification permission
                 if (typeof Notification !== 'undefined' && Notification.permission === 'default') {
                     Notification.requestPermission();
@@ -316,6 +318,15 @@ export default function BookingsPage() {
             if (!error && data) setRateCards(data);
         } catch (err) {
             console.error('Failed to load B2B rate cards:', err);
+        }
+    };
+
+    const fetchHourlyRates = async () => {
+        try {
+            const { data, error } = await supabase.from('hourly_rates').select('vehicle,rate');
+            if (!error && data) setHourlyRates(Object.fromEntries(data.map((r: any) => [r.vehicle, r.rate])));
+        } catch (err) {
+            console.error('Failed to load hourly rates:', err);
         }
     };
 
@@ -2243,6 +2254,20 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             )}
                                         </div>
                                     </div>
+                                    {isEditing && editedBooking.trip_type === 'hourly' && editedBooking.duration_hours && hourlyRates[editedBooking.vehicle_type] > 0 && (
+                                        <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 mt-2 flex items-center justify-between text-xs">
+                                            <span className="text-amber-700 font-semibold">
+                                                ⏱ {editedBooking.currency || 'SAR'} {hourlyRates[editedBooking.vehicle_type]}/hr × {editedBooking.duration_hours}h = {editedBooking.currency || 'SAR'} {hourlyRates[editedBooking.vehicle_type] * editedBooking.duration_hours}
+                                            </span>
+                                            <Button
+                                                size="sm"
+                                                className="h-6 text-[10px] bg-amber-600 hover:bg-amber-700 text-white"
+                                                onClick={() => setEditedBooking({ ...editedBooking, total_price: hourlyRates[editedBooking.vehicle_type] * editedBooking.duration_hours! })}
+                                            >
+                                                Use This Price
+                                            </Button>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
 
@@ -3233,6 +3258,20 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             onChange={(e) => setNewBooking({ ...newBooking, duration_hours: e.target.value ? Number(e.target.value) : undefined })}
                                             className="bg-white border-gray-200"
                                         />
+                                        {newBooking.duration_hours && newBooking.vehicle_type && hourlyRates[newBooking.vehicle_type] > 0 && (
+                                            <div className="bg-amber-50 border border-amber-200 rounded-lg p-2 mt-1 flex items-center justify-between text-[11px]">
+                                                <span className="text-amber-700 font-semibold">
+                                                    {hourlyRates[newBooking.vehicle_type]}/hr × {newBooking.duration_hours}h = SAR {hourlyRates[newBooking.vehicle_type] * newBooking.duration_hours}
+                                                </span>
+                                                <Button
+                                                    size="sm"
+                                                    className="h-6 text-[10px] bg-amber-600 hover:bg-amber-700 text-white"
+                                                    onClick={() => setNewBooking({ ...newBooking, total_price: hourlyRates[newBooking.vehicle_type!] * newBooking.duration_hours! })}
+                                                >
+                                                    Use
+                                                </Button>
+                                            </div>
+                                        )}
                                     </div>
                                 ) : (
                                     <div className="space-y-1">
