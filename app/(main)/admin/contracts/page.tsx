@@ -37,6 +37,7 @@ interface Contract {
     return_day_of_week: number;
     return_time: string;
     vehicle_type: string;
+    preferred_driver?: string | null;
     monthly_rate?: number | null;
     currency?: string | null;
     status: ContractStatus;
@@ -88,6 +89,7 @@ const SETUP_SQL = `CREATE TABLE IF NOT EXISTS contracts (
   return_day_of_week smallint NOT NULL,
   return_time        time NOT NULL,
   vehicle_type       text NOT NULL,
+  preferred_driver   text,
   monthly_rate       numeric(10,2),
   currency           text DEFAULT 'SAR',
   status             text NOT NULL DEFAULT 'active',
@@ -97,7 +99,9 @@ const SETUP_SQL = `CREATE TABLE IF NOT EXISTS contracts (
   created_at         timestamptz DEFAULT now()
 );
 ALTER TABLE contracts ENABLE ROW LEVEL SECURITY;
+DROP POLICY IF EXISTS "Admin full access" ON contracts;
 CREATE POLICY "Admin full access" ON contracts FOR ALL USING (auth.role() = 'authenticated');
+ALTER TABLE contracts ADD COLUMN IF NOT EXISTS preferred_driver text;
 
 ALTER TABLE bookings ADD COLUMN IF NOT EXISTS contract_id uuid REFERENCES contracts(id) ON DELETE SET NULL;
 CREATE INDEX IF NOT EXISTS idx_bookings_contract_id ON bookings(contract_id);`;
@@ -113,6 +117,7 @@ const EMPTY_FORM = {
     return_day_of_week: 0,
     return_time: '05:00',
     vehicle_type: VEHICLE_OPTIONS[0],
+    preferred_driver: '',
     monthly_rate: '',
     currency: 'SAR',
     notes: '',
@@ -129,6 +134,23 @@ function nextOccurrence(from: Date, targetDow: number): Date {
 
 function toDateStr(d: Date): string {
     return d.toLocaleDateString('en-CA');
+}
+
+// Pickup date of the last week that has actually been generated for this
+// contract — used to warn the admin before a client's bookings quietly
+// run out because nobody clicked "Generate More Weeks" in time.
+function getLastGeneratedPickupDate(contract: Contract): Date | null {
+    if (!contract.weeks_generated || contract.weeks_generated <= 0) return null;
+    const weekBase = new Date(contract.start_date + 'T00:00:00');
+    weekBase.setDate(weekBase.getDate() + (contract.weeks_generated - 1) * 7);
+    return nextOccurrence(weekBase, contract.pickup_day_of_week);
+}
+
+function daysUntilRunOut(contract: Contract): number | null {
+    const lastDate = getLastGeneratedPickupDate(contract);
+    if (!lastDate) return null;
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    return Math.round((lastDate.getTime() - today.getTime()) / 86400000);
 }
 
 function formatTime12h(timeStr?: string): string {
@@ -206,6 +228,7 @@ export default function ContractsPage() {
                 pickup_date: toDateStr(pickupDate),
                 pickup_time: contract.pickup_time,
                 vehicle_type: contract.vehicle_type,
+                driver_name: contract.preferred_driver || undefined,
                 passengers: 1,
                 luggage: 0,
                 status: 'confirmed',
@@ -224,6 +247,7 @@ export default function ContractsPage() {
                 pickup_date: toDateStr(returnDate),
                 pickup_time: contract.return_time,
                 vehicle_type: contract.vehicle_type,
+                driver_name: contract.preferred_driver || undefined,
                 passengers: 1,
                 luggage: 0,
                 status: 'confirmed',
@@ -258,6 +282,7 @@ export default function ContractsPage() {
                     return_day_of_week: form.return_day_of_week,
                     return_time: form.return_time,
                     vehicle_type: form.vehicle_type,
+                    preferred_driver: form.preferred_driver || null,
                     monthly_rate: form.monthly_rate ? Number(form.monthly_rate) : null,
                     currency: form.currency,
                     notes: form.notes || null,
@@ -320,6 +345,14 @@ export default function ContractsPage() {
         setSelectedContract(prev => prev && prev.id === contract.id ? { ...prev, status } : prev);
     };
 
+    const updatePreferredDriver = async (contract: Contract, driver: string) => {
+        const value = driver.trim() || null;
+        if (value === (contract.preferred_driver || null)) return;
+        await supabase.from('contracts').update({ preferred_driver: value }).eq('id', contract.id);
+        setContracts(prev => prev.map(c => c.id === contract.id ? { ...c, preferred_driver: value } : c));
+        setSelectedContract(prev => prev && prev.id === contract.id ? { ...prev, preferred_driver: value } : prev);
+    };
+
     const handleDelete = async (id: string) => {
         if (!confirm('Delete this contract? Bookings already generated from it will stay in the Bookings list (just unlinked).')) return;
         await supabase.from('contracts').delete().eq('id', id);
@@ -360,6 +393,27 @@ export default function ContractsPage() {
                 </div>
             )}
 
+            {(() => {
+                const runningLow = contracts.filter(c => c.status === 'active' && (daysUntilRunOut(c) ?? 99) <= 7);
+                if (runningLow.length === 0) return null;
+                return (
+                    <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-6 text-sm text-red-800">
+                        <p className="font-bold mb-1">⚠️ {runningLow.length} contract{runningLow.length > 1 ? 's' : ''} running low on generated bookings</p>
+                        <ul className="list-disc list-inside space-y-0.5">
+                            {runningLow.map(c => {
+                                const days = daysUntilRunOut(c)!;
+                                return (
+                                    <li key={c.id}>
+                                        <button onClick={() => openContract(c)} className="underline font-semibold hover:text-red-900">{c.customer_name}</button>
+                                        {' — '}{days < 0 ? `ran out ${Math.abs(days)}d ago` : days === 0 ? 'runs out today' : `only ${days}d of bookings left`}
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+                );
+            })()}
+
             <div className="flex flex-wrap gap-3 mb-4">
                 <Button variant="outline" onClick={() => setShowAddForm(!showAddForm)} className="bg-white gap-2">
                     <Plus className="w-4 h-4" /> New Contract
@@ -381,6 +435,7 @@ export default function ContractsPage() {
                         >
                             {VEHICLE_OPTIONS.map(v => <option key={v} value={v}>{v}</option>)}
                         </select>
+                        <Input placeholder="Preferred driver (optional)" value={form.preferred_driver} onChange={e => setForm(f => ({ ...f, preferred_driver: e.target.value }))} />
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -435,7 +490,7 @@ export default function ContractsPage() {
                             value={form.notes}
                             onChange={e => setForm(f => ({ ...f, notes: e.target.value }))}
                             className="w-full min-h-[70px] p-2 text-sm border border-gray-200 rounded-md bg-white text-gray-900"
-                            placeholder="e.g. Occasional pickup from Jubail or Ras Al Khair, same driver preferred, SUV only"
+                            placeholder="e.g. Occasional pickup from Jubail or Ras Al Khair, SUV only"
                         />
                     </div>
 
@@ -477,7 +532,10 @@ export default function ContractsPage() {
                                 <TableCell className="text-xs text-gray-600">
                                     {DAY_NAMES[c.pickup_day_of_week]} {formatTime12h(c.pickup_time)} → {DAY_NAMES[c.return_day_of_week]} {formatTime12h(c.return_time)}
                                 </TableCell>
-                                <TableCell className="text-sm text-gray-700">{c.vehicle_type}</TableCell>
+                                <TableCell className="text-sm text-gray-700">
+                                    {c.vehicle_type}
+                                    {c.preferred_driver && <div className="text-xs text-gray-400">🧑‍✈️ {c.preferred_driver}</div>}
+                                </TableCell>
                                 <TableCell className="text-sm font-bold text-gray-900">{c.monthly_rate ? `${c.currency || 'SAR'} ${c.monthly_rate}` : '—'}</TableCell>
                                 <TableCell>
                                     <select
@@ -491,7 +549,12 @@ export default function ContractsPage() {
                                         <option value="cancelled">Cancelled</option>
                                     </select>
                                 </TableCell>
-                                <TableCell className="text-sm text-gray-700">{c.weeks_generated}</TableCell>
+                                <TableCell className="text-sm text-gray-700">
+                                    {c.weeks_generated}
+                                    {c.status === 'active' && (daysUntilRunOut(c) ?? 99) <= 7 && (
+                                        <Badge className="ml-1.5 bg-red-100 text-red-700 border-red-300 text-[10px]">⚠️ Renew</Badge>
+                                    )}
+                                </TableCell>
                                 <TableCell className="text-right">
                                     <div className="flex justify-end gap-2">
                                         <Button size="icon" variant="ghost" onClick={() => openContract(c)} title="View bookings">
@@ -527,6 +590,27 @@ export default function ContractsPage() {
                                     {selectedContract.customer_email && <div className="flex justify-between"><span className="text-gray-500">Email</span><span className="font-semibold">{selectedContract.customer_email}</span></div>}
                                     {selectedContract.notes && <div className="pt-1 border-t border-gray-200 mt-1 text-gray-600">{selectedContract.notes}</div>}
                                 </div>
+
+                                <div className="space-y-1">
+                                    <label className="text-xs font-medium text-gray-500">Preferred Driver</label>
+                                    <Input
+                                        key={selectedContract.id}
+                                        defaultValue={selectedContract.preferred_driver || ''}
+                                        onBlur={e => updatePreferredDriver(selectedContract, e.target.value)}
+                                        placeholder="e.g. Ahmed — applies to future generated bookings only"
+                                        className="h-9 bg-white"
+                                    />
+                                </div>
+
+                                {(() => {
+                                    const days = daysUntilRunOut(selectedContract);
+                                    if (days === null || days > 7) return null;
+                                    return (
+                                        <div className="bg-red-50 border border-red-200 rounded-xl p-3 text-sm text-red-800 font-semibold">
+                                            ⚠️ {days < 0 ? `Ran out ${Math.abs(days)} day(s) ago` : days === 0 ? 'Runs out today' : `Only ${days} day(s) of bookings left`} — generate more weeks below.
+                                        </div>
+                                    );
+                                })()}
 
                                 <div className="flex items-center gap-2 bg-blue-50 border border-blue-100 rounded-xl p-3">
                                     <Input
