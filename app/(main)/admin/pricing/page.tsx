@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { useRouter } from 'next/navigation';
 import { PRICING_RULES } from '@/lib/pricing';
-import { Save, RefreshCw, DollarSign, Info, RotateCcw } from 'lucide-react';
+import { Save, RefreshCw, DollarSign, Info, RotateCcw, Plus, Trash2, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
@@ -28,16 +28,11 @@ function routeLabel(key: string) {
         .join(' ↔ ');
 }
 
-const SETUP_SQL = `-- Run this once in your Supabase SQL editor:
-CREATE TABLE IF NOT EXISTS pricing_rules (
-    route    text NOT NULL,
-    vehicle  text NOT NULL,
-    price    integer NOT NULL DEFAULT 0,
-    updated_at timestamptz DEFAULT now(),
-    PRIMARY KEY (route, vehicle)
-);`;
+function slugify(s: string) {
+    return s.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
 
-const HOURLY_VEHICLES: string[] = [
+const DEFAULT_VEHICLES: string[] = [
     'Toyota Camry',
     'Hyundai Starex',
     'Toyota Hiace',
@@ -54,6 +49,17 @@ const HOURLY_VEHICLES: string[] = [
     'Luxurious Bus',
 ];
 
+const SETUP_SQL = `-- Run this once in your Supabase SQL editor:
+CREATE TABLE IF NOT EXISTS pricing_rules (
+    route      text NOT NULL,
+    vehicle    text NOT NULL,
+    price      integer NOT NULL DEFAULT 0,
+    label      text,
+    updated_at timestamptz DEFAULT now(),
+    PRIMARY KEY (route, vehicle)
+);
+ALTER TABLE pricing_rules ADD COLUMN IF NOT EXISTS label text;`;
+
 const HOURLY_SETUP_SQL = `-- Run this once in your Supabase SQL editor:
 CREATE TABLE IF NOT EXISTS hourly_rates (
     vehicle    text PRIMARY KEY,
@@ -69,17 +75,25 @@ export default function PricingPage() {
     const router = useRouter();
     const [prices, setPrices] = useState<PriceMap>(buildDefaultPrices);
     const [defaults] = useState<PriceMap>(buildDefaultPrices);
+    const [customRouteLabels, setCustomRouteLabels] = useState<Record<string, string>>({});
+    const [vehicleTypes, setVehicleTypes] = useState<string[]>(DEFAULT_VEHICLES);
     const [saving, setSaving] = useState(false);
     const [saved, setSaved] = useState(false);
     const [loading, setLoading] = useState(true);
     const [dbReady, setDbReady] = useState(true);
     const [showSql, setShowSql] = useState(false);
 
-    const [hourlyRates, setHourlyRates] = useState<Record<string, number>>(() => Object.fromEntries(HOURLY_VEHICLES.map(v => [v, 0])));
+    const [hourlyRates, setHourlyRates] = useState<Record<string, number>>(() => Object.fromEntries(DEFAULT_VEHICLES.map(v => [v, 0])));
     const [hourlySaving, setHourlySaving] = useState(false);
     const [hourlySaved, setHourlySaved] = useState(false);
     const [hourlyDbReady, setHourlyDbReady] = useState(true);
     const [showHourlySql, setShowHourlySql] = useState(false);
+
+    const [showAddRoute, setShowAddRoute] = useState(false);
+    const [newRouteFrom, setNewRouteFrom] = useState('');
+    const [newRouteTo, setNewRouteTo] = useState('');
+    const [showAddVehicle, setShowAddVehicle] = useState(false);
+    const [newVehicleName, setNewVehicleName] = useState('');
 
     useEffect(() => {
         supabase.auth.getSession().then(({ data: { session } }) => {
@@ -88,6 +102,10 @@ export default function PricingPage() {
             loadHourlyRates();
         });
     }, [router]);
+
+    const addVehicleToKnownList = (vehicle: string) => {
+        setVehicleTypes(prev => prev.includes(vehicle) ? prev : [...prev, vehicle].sort());
+    };
 
     const loadHourlyRates = async () => {
         const { data, error } = await supabase.from('hourly_rates').select('vehicle,rate');
@@ -99,7 +117,10 @@ export default function PricingPage() {
         if (data && data.length > 0) {
             setHourlyRates(prev => {
                 const next = { ...prev };
-                for (const row of data) next[row.vehicle] = row.rate;
+                for (const row of data) {
+                    next[row.vehicle] = row.rate;
+                    addVehicleToKnownList(row.vehicle);
+                }
                 return next;
             });
         }
@@ -122,7 +143,7 @@ export default function PricingPage() {
 
     const loadPrices = async () => {
         setLoading(true);
-        const { data, error } = await supabase.from('pricing_rules').select('route,vehicle,price');
+        const { data, error } = await supabase.from('pricing_rules').select('route,vehicle,price,label');
 
         if (error) {
             setDbReady(false);
@@ -132,12 +153,15 @@ export default function PricingPage() {
 
         if (data && data.length > 0) {
             const loaded = buildDefaultPrices();
+            const labels: Record<string, string> = {};
             for (const row of data) {
-                if (loaded[row.route]) {
-                    loaded[row.route][row.vehicle] = row.price;
-                }
+                if (!loaded[row.route]) loaded[row.route] = {};
+                loaded[row.route][row.vehicle] = row.price;
+                if (row.label) labels[row.route] = row.label;
+                addVehicleToKnownList(row.vehicle);
             }
             setPrices(loaded);
+            setCustomRouteLabels(labels);
         }
         setLoading(false);
     };
@@ -160,10 +184,10 @@ export default function PricingPage() {
     const handleSave = async () => {
         setSaving(true);
         try {
-            const rows: { route: string; vehicle: string; price: number }[] = [];
+            const rows: { route: string; vehicle: string; price: number; label: string | null }[] = [];
             for (const [route, vehicles] of Object.entries(prices)) {
                 for (const [vehicle, price] of Object.entries(vehicles)) {
-                    rows.push({ route, vehicle, price });
+                    rows.push({ route, vehicle, price, label: customRouteLabels[route] || null });
                 }
             }
             const { error } = await supabase
@@ -180,6 +204,58 @@ export default function PricingPage() {
         }
     };
 
+    const addRoute = () => {
+        const from = newRouteFrom.trim();
+        const to = newRouteTo.trim();
+        if (!from || !to) {
+            alert('Please fill in both From and To areas.');
+            return;
+        }
+        const key = `${slugify(from)}-${slugify(to)}`;
+        if (prices[key]) {
+            alert('This route already exists.');
+            return;
+        }
+        setPrices(prev => ({ ...prev, [key]: Object.fromEntries(vehicleTypes.map(v => [v, 0])) }));
+        setCustomRouteLabels(prev => ({ ...prev, [key]: `${from} ↔ ${to}` }));
+        setNewRouteFrom('');
+        setNewRouteTo('');
+        setShowAddRoute(false);
+    };
+
+    const deleteRoute = async (route: string) => {
+        if (!confirm(`Delete the "${customRouteLabels[route] || routeLabel(route)}" route and all its prices?`)) return;
+        setPrices(prev => {
+            const next = { ...prev };
+            delete next[route];
+            return next;
+        });
+        if (dbReady) {
+            const { error } = await supabase.from('pricing_rules').delete().eq('route', route);
+            if (error) alert('Removed locally, but failed to delete from the database — it may reappear on reload.');
+        }
+    };
+
+    const addVehicleType = () => {
+        const name = newVehicleName.trim();
+        if (!name) return;
+        if (vehicleTypes.some(v => v.toLowerCase() === name.toLowerCase())) {
+            alert('This vehicle type already exists.');
+            return;
+        }
+        addVehicleToKnownList(name);
+        setPrices(prev => {
+            const next: PriceMap = {};
+            for (const [route, vehicles] of Object.entries(prev)) {
+                next[route] = vehicles[name] !== undefined ? vehicles : { ...vehicles, [name]: 0 };
+            }
+            return next;
+        });
+        setHourlyRates(prev => prev[name] !== undefined ? prev : { ...prev, [name]: 0 });
+        setNewVehicleName('');
+        setShowAddVehicle(false);
+    };
+
     return (
         <div className="text-white">
 
@@ -191,19 +267,60 @@ export default function PricingPage() {
                     </h1>
                     <p className="text-neutral-400 mt-1">Edit base prices per route and vehicle</p>
                 </div>
-                <Button
-                    onClick={handleSave}
-                    disabled={saving || loading || !dbReady}
-                    className={`font-bold min-w-[140px] ${saved ? 'bg-green-500 hover:bg-green-500 text-white' : 'bg-primary text-black hover:bg-primary/90'}`}
-                >
-                    {saving
-                        ? <><RefreshCw className="w-4 h-4 mr-2 animate-spin" />Saving...</>
-                        : saved
-                        ? '✓ Saved!'
-                        : <><Save className="w-4 h-4 mr-2" />Save All Prices</>
-                    }
-                </Button>
+                <div className="flex flex-wrap gap-2">
+                    <Button variant="outline" onClick={() => setShowAddRoute(!showAddRoute)} className="bg-neutral-800 border-neutral-700 text-white hover:bg-neutral-700 gap-2">
+                        <Plus className="w-4 h-4" /> Add Area / Route
+                    </Button>
+                    <Button variant="outline" onClick={() => setShowAddVehicle(!showAddVehicle)} className="bg-neutral-800 border-neutral-700 text-white hover:bg-neutral-700 gap-2">
+                        <Plus className="w-4 h-4" /> Add Car Type
+                    </Button>
+                    <Button
+                        onClick={handleSave}
+                        disabled={saving || loading || !dbReady}
+                        className={`font-bold min-w-[140px] ${saved ? 'bg-green-500 hover:bg-green-500 text-white' : 'bg-primary text-black hover:bg-primary/90'}`}
+                    >
+                        {saving
+                            ? <><RefreshCw className="w-4 h-4 mr-2 animate-spin" />Saving...</>
+                            : saved
+                            ? '✓ Saved!'
+                            : <><Save className="w-4 h-4 mr-2" />Save All Prices</>
+                        }
+                    </Button>
+                </div>
             </div>
+
+            {/* Add Route form */}
+            {showAddRoute && (
+                <div className="bg-neutral-800 rounded-xl border border-neutral-700 p-5 mb-6 flex flex-wrap items-end gap-3">
+                    <div className="space-y-1">
+                        <label className="text-xs text-neutral-400 font-bold">From</label>
+                        <Input value={newRouteFrom} onChange={e => setNewRouteFrom(e.target.value)} placeholder="e.g. Al Khobar" className="bg-neutral-900 border-neutral-700 text-white w-48" />
+                    </div>
+                    <div className="space-y-1">
+                        <label className="text-xs text-neutral-400 font-bold">To</label>
+                        <Input value={newRouteTo} onChange={e => setNewRouteTo(e.target.value)} placeholder="e.g. Riyadh Airport" className="bg-neutral-900 border-neutral-700 text-white w-48" />
+                    </div>
+                    <Button onClick={addRoute} className="bg-primary text-black hover:bg-primary/90 font-bold">Add Route</Button>
+                    <Button variant="ghost" onClick={() => { setShowAddRoute(false); setNewRouteFrom(''); setNewRouteTo(''); }} className="text-neutral-400 hover:text-white">
+                        <X className="w-4 h-4" />
+                    </Button>
+                </div>
+            )}
+
+            {/* Add Vehicle form */}
+            {showAddVehicle && (
+                <div className="bg-neutral-800 rounded-xl border border-neutral-700 p-5 mb-6 flex flex-wrap items-end gap-3">
+                    <div className="space-y-1">
+                        <label className="text-xs text-neutral-400 font-bold">Car Type Name</label>
+                        <Input value={newVehicleName} onChange={e => setNewVehicleName(e.target.value)} placeholder="e.g. Lexus LX 600" className="bg-neutral-900 border-neutral-700 text-white w-60" />
+                    </div>
+                    <Button onClick={addVehicleType} className="bg-primary text-black hover:bg-primary/90 font-bold">Add Car Type</Button>
+                    <Button variant="ghost" onClick={() => { setShowAddVehicle(false); setNewVehicleName(''); }} className="text-neutral-400 hover:text-white">
+                        <X className="w-4 h-4" />
+                    </Button>
+                    <p className="w-full text-[11px] text-neutral-500">Adds this car type as a SAR 0 row to every route below and to Hourly Hire Rates — set its price/rate then Save.</p>
+                </div>
+            )}
 
             {/* Info */}
             <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 mb-5 flex items-start gap-3 text-sm text-blue-300">
@@ -219,7 +336,7 @@ export default function PricingPage() {
                 <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-5 mb-6">
                     <p className="font-bold text-amber-400 mb-2">⚠️ Database Table Missing</p>
                     <p className="text-sm text-amber-300 mb-3">
-                        The <code className="bg-amber-500/20 px-1.5 py-0.5 rounded text-xs">pricing_rules</code> table does not exist yet.
+                        The <code className="bg-amber-500/20 px-1.5 py-0.5 rounded text-xs">pricing_rules</code> table does not exist yet (or is missing the <code className="bg-amber-500/20 px-1.5 py-0.5 rounded text-xs">label</code> column).
                         Run this SQL in your Supabase dashboard to enable saving:
                     </p>
                     <button
@@ -246,14 +363,22 @@ export default function PricingPage() {
                         {/* Route Header */}
                         <div className="bg-neutral-900/60 px-5 py-3 border-b border-neutral-700 flex items-center gap-3">
                             <DollarSign className="w-4 h-4 text-primary" />
-                            <span className="font-bold text-white">{routeLabel(route)}</span>
-                            <span className="ml-auto text-xs text-neutral-500 font-mono">{route}</span>
+                            <span className="font-bold text-white">{customRouteLabels[route] || routeLabel(route)}</span>
+                            <span className="text-xs text-neutral-500 font-mono">{route}</span>
+                            <button
+                                onClick={() => deleteRoute(route)}
+                                className="ml-auto text-neutral-500 hover:text-red-400 transition-colors"
+                                title="Delete this route"
+                            >
+                                <Trash2 className="w-4 h-4" />
+                            </button>
                         </div>
 
                         {/* Vehicle Grid */}
                         <div className="p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             {Object.entries(vehicles).map(([vehicle, price]) => {
-                                const isChanged = price !== defaults[route]?.[vehicle];
+                                const hasDefault = defaults[route]?.[vehicle] !== undefined;
+                                const isChanged = hasDefault && price !== defaults[route][vehicle];
                                 return (
                                     <div key={vehicle} className="space-y-1.5">
                                         <div className="flex items-center justify-between">
@@ -282,7 +407,7 @@ export default function PricingPage() {
                                                 className={`pl-12 bg-neutral-900 border-neutral-700 text-white font-bold disabled:opacity-50 ${isChanged ? 'border-amber-500/50 bg-amber-500/5' : ''}`}
                                             />
                                         </div>
-                                        {isChanged && (
+                                        {isChanged && defaults[route]?.[vehicle] !== undefined && (
                                             <p className="text-[10px] text-amber-400">
                                                 Default: SAR {defaults[route]?.[vehicle]}
                                             </p>
@@ -333,7 +458,7 @@ export default function PricingPage() {
                 )}
 
                 <div className="bg-neutral-800 rounded-xl border border-neutral-700 p-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {HOURLY_VEHICLES.map(vehicle => (
+                    {vehicleTypes.map(vehicle => (
                         <div key={vehicle} className="space-y-1.5">
                             <label className="text-xs text-neutral-400 font-bold truncate block">{vehicle}</label>
                             <div className="relative">
