@@ -785,6 +785,15 @@ export default function BookingsPage() {
         router.replace('/admin/bookings');
     }, [bookings]);
 
+    // Vehicle dropdown source — the hardcoded list plus any car type added
+    // from the Pricing page (hourly_rates / pricing_rules), so a new car
+    // type is immediately bookable without a code change.
+    const dynamicVehicleOptions = Array.from(new Set([
+        ...VEHICLE_OPTIONS,
+        ...Object.keys(hourlyRates),
+        ...Object.values(dbPrices).flatMap(routeVehicles => Object.keys(routeVehicles)),
+    ])).sort();
+
     // Filter Logic
     const filteredBookings = bookings.filter(booking => {
         const matchesSearch =
@@ -2287,7 +2296,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                         placeholder="e.g. Sedan, Custom Van"
                                                     />
                                                     <div className="flex flex-wrap gap-1">
-                                                        {['Toyota Camry', 'GMC Yukon XL / Denali', 'Hyundai Staria VIP', 'Hyundai Starex', 'Toyota Hiace', 'Toyota Coaster', 'Mercedes S-Class', 'BMW 7 Series', 'Mercedes Sprinter'].map((v) => (
+                                                        {dynamicVehicleOptions.map((v) => (
                                                             <span 
                                                                 key={v}
                                                                 onClick={() => setEditedBooking({ ...editedBooking, vehicle_type: v })}
@@ -2865,7 +2874,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     <SelectValue />
                                 </SelectTrigger>
                                 <SelectContent className="bg-white border-gray-200">
-                                    {VEHICLE_OPTIONS.map((v) => (
+                                    {dynamicVehicleOptions.map((v) => (
                                         <SelectItem key={v} value={v}>{v}</SelectItem>
                                     ))}
                                 </SelectContent>
@@ -3098,7 +3107,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             <SelectValue />
                                         </SelectTrigger>
                                         <SelectContent className="bg-white border-gray-200">
-                                            {VEHICLE_OPTIONS.map((v) => (
+                                            {dynamicVehicleOptions.map((v) => (
                                                 <SelectItem key={v} value={v}>{v}</SelectItem>
                                             ))}
                                         </SelectContent>
