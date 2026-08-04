@@ -29,6 +29,7 @@ const QUOTE_TEXT: Record<DocLang, Record<string, string>> = {
         subject: 'Sub: Official Quotation for Transport Services',
         dear: 'Dear', intro: 'Thank you for choosing Taxi Service KSA. We are pleased to provide the following quotation for your requested transportation services. Please review the details of your upcoming journey below:',
         pickupDate: 'Pickup Date', time: 'Time', routeDetails: 'Route Details', from: 'From:', to: 'To:',
+        distance: 'Distance', duration: 'Est. Duration',
         vehicleReq: 'Vehicle Requirements', occupancy: 'Occupancy', passengers: 'Passengers', bags: 'Bags',
         specialRequests: 'Special Requests',
         closing: 'This quotation is based on the details provided. For any modifications, please contact our support team. We look forward to providing you with a comfortable and seamless experience.',
@@ -46,6 +47,7 @@ const QUOTE_TEXT: Record<DocLang, Record<string, string>> = {
         subject: 'الموضوع: عرض سعر رسمي لخدمات النقل',
         dear: 'عزيزي', intro: 'شكراً لاختياركم تاكسي سيرفس السعودية. يسعدنا تزويدكم بعرض السعر التالي لخدمات النقل المطلوبة. يرجى مراجعة تفاصيل رحلتكم القادمة أدناه:',
         pickupDate: 'تاريخ الانطلاق', time: 'الوقت', routeDetails: 'تفاصيل المسار', from: 'من:', to: 'إلى:',
+        distance: 'المسافة', duration: 'المدة التقديرية',
         vehicleReq: 'متطلبات المركبة', occupancy: 'عدد الركاب', passengers: 'ركاب', bags: 'حقائب',
         specialRequests: 'طلبات خاصة',
         closing: 'يستند هذا العرض إلى التفاصيل المقدمة. لأي تعديلات، يرجى التواصل مع فريق الدعم لدينا. نتطلع لتقديم تجربة مريحة وسلسة لكم.',
@@ -78,6 +80,8 @@ interface Booking {
     total_price?: number;
     currency?: string;
     payment_method?: string;
+    distance_km?: number;
+    duration_estimate?: string;
 }
 
 export default function LetterheadPage() {
@@ -398,6 +402,22 @@ export default function LetterheadPage() {
                                         <p className="font-semibold text-gray-900">{t.from} {booking.pickup_location}</p>
                                         <p className="font-semibold text-gray-900 mt-0.5">{t.to} {booking.destination}</p>
                                     </div>
+                                    {(booking.distance_km || booking.duration_estimate) && (
+                                        <>
+                                            {booking.distance_km && (
+                                                <div>
+                                                    <p className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">{t.distance}</p>
+                                                    <p className="font-semibold text-gray-900">{booking.distance_km} km</p>
+                                                </div>
+                                            )}
+                                            {booking.duration_estimate && (
+                                                <div>
+                                                    <p className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">{t.duration}</p>
+                                                    <p className="font-semibold text-gray-900">{booking.duration_estimate}</p>
+                                                </div>
+                                            )}
+                                        </>
+                                    )}
                                     <div>
                                         <p className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">{t.vehicleReq}</p>
                                         <p className="font-semibold text-gray-900">{booking.vehicle_type}</p>

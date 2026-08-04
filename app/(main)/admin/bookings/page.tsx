@@ -125,6 +125,8 @@ interface Booking {
     contract_id?: string | null;
     driver_arrived_at?: string;
     trip_started_at?: string;
+    distance_km?: number;
+    duration_estimate?: string;
 }
 
 export default function BookingsPage() {
@@ -2117,6 +2119,25 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         )}
                                     </div>
 
+                                    <div className="grid grid-cols-2 gap-4 pl-4">
+                                        <div>
+                                            <span className="block text-xs text-gray-500 mb-1">Distance (km)</span>
+                                            {isEditing ? (
+                                                <Input type="number" min={0} value={editedBooking.distance_km ?? ''} onChange={(e) => setEditedBooking({ ...editedBooking, distance_km: e.target.value ? Number(e.target.value) : undefined })} className="h-8 text-sm bg-white" placeholder="e.g. 95" />
+                                            ) : (
+                                                <span className="font-medium text-gray-900">{selectedBooking.distance_km ? `${selectedBooking.distance_km} km` : '—'}</span>
+                                            )}
+                                        </div>
+                                        <div>
+                                            <span className="block text-xs text-gray-500 mb-1">Est. Duration</span>
+                                            {isEditing ? (
+                                                <Input value={editedBooking.duration_estimate || ''} onChange={(e) => setEditedBooking({ ...editedBooking, duration_estimate: e.target.value })} className="h-8 text-sm bg-white" placeholder="e.g. 1 hr 15 min" />
+                                            ) : (
+                                                <span className="font-medium text-gray-900">{selectedBooking.duration_estimate || '—'}</span>
+                                            )}
+                                        </div>
+                                    </div>
+
                                     <div className="grid grid-cols-2 gap-4 pl-4 pt-4 border-t border-gray-200 mt-4">
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Date</span>
@@ -3081,6 +3102,26 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     />
                                 </div>
                                     <div className="grid grid-cols-2 gap-4">
+                                        <div className="space-y-1">
+                                            <label className="text-sm font-medium text-gray-700">Distance (km)</label>
+                                            <Input
+                                                type="number"
+                                                min={0}
+                                                placeholder="e.g. 95"
+                                                value={newBooking.distance_km ?? ''}
+                                                onChange={(e) => setNewBooking({ ...newBooking, distance_km: e.target.value ? Number(e.target.value) : undefined })}
+                                                className="bg-white border-gray-200"
+                                            />
+                                        </div>
+                                        <div className="space-y-1">
+                                            <label className="text-sm font-medium text-gray-700">Est. Duration</label>
+                                            <Input
+                                                placeholder="e.g. 1 hr 15 min"
+                                                value={newBooking.duration_estimate || ''}
+                                                onChange={(e) => setNewBooking({ ...newBooking, duration_estimate: e.target.value })}
+                                                className="bg-white border-gray-200"
+                                            />
+                                        </div>
                                         <div className="space-y-1">
                                             <label className="text-sm font-medium text-gray-700">Pickup Date</label>
                                             <Input
