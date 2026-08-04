@@ -2589,19 +2589,19 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 <p className="font-bold text-orange-700">⏱ Waited {waitMinutes} min</p>
                                                 {isEditing && extraMinutes > 0 && (
                                                     <>
-                                                        <div className="flex items-center gap-2 text-[11px] text-orange-700">
+                                                        <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5 text-[11px] text-orange-700">
                                                             <span>Free:</span>
                                                             <Input type="number" min={0} value={freeWaitMinutes} onChange={(e) => setFreeWaitMinutes(Number(e.target.value) || 0)} className="h-6 w-14 text-xs bg-white" />
                                                             <span>min · Rate:</span>
                                                             <Input type="number" min={0} value={waitRatePer15} onChange={(e) => setWaitRatePer15(Number(e.target.value) || 0)} className="h-6 w-14 text-xs bg-white" />
                                                             <span>{editedBooking.currency || 'SAR'}/15min</span>
                                                         </div>
-                                                        <div className="flex items-center justify-between">
+                                                        <div className="flex flex-wrap items-center justify-between gap-2">
                                                             <span className="text-orange-700">{extraMinutes} min over — suggested extra: <strong>{editedBooking.currency || 'SAR'} {suggestedCharge}</strong></span>
                                                             <Button
                                                                 size="sm"
                                                                 variant="outline"
-                                                                className="h-6 text-[10px] bg-white"
+                                                                className="h-6 text-[10px] bg-white shrink-0"
                                                                 onClick={() => setEditedBooking({ ...editedBooking, total_price: (editedBooking.total_price || 0) + suggestedCharge })}
                                                             >
                                                                 + Add to Price
