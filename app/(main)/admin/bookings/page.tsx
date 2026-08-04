@@ -133,6 +133,7 @@ export default function BookingsPage() {
     const [paymentFilter, setPaymentFilter] = useState('all');
     const [tripTypeFilter, setTripTypeFilter] = useState('all');
     const [dbPrices, setDbPrices] = useState<Record<string, Record<string, number>>>({});
+    const [approvedDrivers, setApprovedDrivers] = useState<{ id: string; full_name: string; phone_number: string }[]>([]);
 
     // Sheet State
     const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
@@ -247,6 +248,7 @@ export default function BookingsPage() {
             } else {
                 fetchBookings();
                 fetchDbPrices();
+                fetchApprovedDrivers();
                 // Request browser notification permission
                 if (typeof Notification !== 'undefined' && Notification.permission === 'default') {
                     Notification.requestPermission();
@@ -288,6 +290,28 @@ export default function BookingsPage() {
             supabase.removeChannel(subscription);
         };
     }, [router]);
+
+    const fetchApprovedDrivers = async () => {
+        try {
+            const { data, error } = await supabase.from('drivers').select('id,full_name,phone_number').eq('status', 'approved').order('full_name');
+            if (!error && data) setApprovedDrivers(data);
+        } catch (err) {
+            console.error('Failed to load drivers:', err);
+        }
+    };
+
+    // Another booking (not this one) with the same driver on the same
+    // pickup date — a heads-up, not a hard block, since drivers sometimes
+    // do split shifts or the clash is intentional.
+    const getDriverConflict = (driverName: string, pickupDate: string, excludeId?: string): Booking | undefined => {
+        if (!driverName || !pickupDate) return undefined;
+        return bookings.find(b =>
+            b.id !== excludeId &&
+            b.driver_name === driverName &&
+            b.pickup_date === pickupDate &&
+            b.status !== 'cancelled'
+        );
+    };
 
     const fetchDbPrices = async () => {
         try {
@@ -2293,7 +2317,33 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Driver Name</span>
                                             {isEditing ? (
-                                                <Input value={editedBooking.driver_name || ''} onChange={(e) => setEditedBooking({ ...editedBooking, driver_name: e.target.value })} className="h-8 text-sm bg-white" placeholder="Assign Driver" />
+                                                <>
+                                                    <div className="flex gap-1.5">
+                                                        <Input value={editedBooking.driver_name || ''} onChange={(e) => setEditedBooking({ ...editedBooking, driver_name: e.target.value })} className="h-8 text-sm bg-white flex-1 min-w-0" placeholder="Assign Driver" />
+                                                        {approvedDrivers.length > 0 && (
+                                                            <select
+                                                                value=""
+                                                                onChange={(e) => {
+                                                                    const driver = approvedDrivers.find(d => d.id === e.target.value);
+                                                                    if (driver) setEditedBooking({ ...editedBooking, driver_name: driver.full_name, driver_phone: driver.phone_number });
+                                                                }}
+                                                                className="h-8 text-[11px] bg-white border border-gray-200 rounded-md px-1 w-20 shrink-0"
+                                                                title="Quick pick from approved drivers"
+                                                            >
+                                                                <option value="">Pick...</option>
+                                                                {approvedDrivers.map(d => <option key={d.id} value={d.id}>{d.full_name}</option>)}
+                                                            </select>
+                                                        )}
+                                                    </div>
+                                                    {(() => {
+                                                        const conflict = editedBooking.driver_name && editedBooking.pickup_date
+                                                            ? getDriverConflict(editedBooking.driver_name, editedBooking.pickup_date, editedBooking.id)
+                                                            : undefined;
+                                                        return conflict ? (
+                                                            <p className="text-[10px] text-red-600 font-semibold mt-1">⚠️ Already assigned to {conflict.customer_name} on this date ({formatTime12h(conflict.pickup_time)})</p>
+                                                        ) : null;
+                                                    })()}
+                                                </>
                                             ) : (
                                                 <span className="font-medium text-gray-900">{selectedBooking.driver_name || 'Not Assigned'}</span>
                                             )}
@@ -2905,12 +2955,36 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                 </div>
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Driver Name</label>
-                                    <Input
-                                        placeholder="Assign later"
-                                        value={newBooking.driver_name}
-                                        onChange={(e) => setNewBooking({ ...newBooking, driver_name: e.target.value })}
-                                        className="bg-white border-gray-200"
-                                    />
+                                    <div className="flex gap-1.5">
+                                        <Input
+                                            placeholder="Assign later"
+                                            value={newBooking.driver_name}
+                                            onChange={(e) => setNewBooking({ ...newBooking, driver_name: e.target.value })}
+                                            className="bg-white border-gray-200 flex-1 min-w-0"
+                                        />
+                                        {approvedDrivers.length > 0 && (
+                                            <select
+                                                value=""
+                                                onChange={(e) => {
+                                                    const driver = approvedDrivers.find(d => d.id === e.target.value);
+                                                    if (driver) setNewBooking({ ...newBooking, driver_name: driver.full_name, driver_phone: driver.phone_number });
+                                                }}
+                                                className="h-10 text-[11px] bg-white border border-gray-200 rounded-md px-1 w-20 shrink-0"
+                                                title="Quick pick from approved drivers"
+                                            >
+                                                <option value="">Pick...</option>
+                                                {approvedDrivers.map(d => <option key={d.id} value={d.id}>{d.full_name}</option>)}
+                                            </select>
+                                        )}
+                                    </div>
+                                    {(() => {
+                                        const conflict = newBooking.driver_name && newBooking.pickup_date
+                                            ? getDriverConflict(newBooking.driver_name, newBooking.pickup_date)
+                                            : undefined;
+                                        return conflict ? (
+                                            <p className="text-[10px] text-red-600 font-semibold">⚠️ Already assigned to {conflict.customer_name} on this date ({formatTime12h(conflict.pickup_time)})</p>
+                                        ) : null;
+                                    })()}
                                 </div>
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Internal Management Tags</label>

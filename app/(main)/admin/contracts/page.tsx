@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
@@ -181,13 +181,25 @@ export default function ContractsPage() {
     const [loadingBookings, setLoadingBookings] = useState(false);
     const [extendWeeks, setExtendWeeks] = useState(4);
     const [extending, setExtending] = useState(false);
+    const [approvedDrivers, setApprovedDrivers] = useState<{ id: string; full_name: string; phone_number: string }[]>([]);
+    const driverInputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         supabase.auth.getSession().then(({ data: { session } }) => {
             if (!session) { router.push('/admin/login'); return; }
             fetchContracts();
+            fetchApprovedDrivers();
         });
     }, [router]);
+
+    const fetchApprovedDrivers = async () => {
+        try {
+            const { data, error } = await supabase.from('drivers').select('id,full_name,phone_number').eq('status', 'approved').order('full_name');
+            if (!error && data) setApprovedDrivers(data);
+        } catch (err) {
+            console.error('Failed to load drivers:', err);
+        }
+    };
 
     const fetchContracts = async () => {
         setLoading(true);
@@ -435,7 +447,23 @@ export default function ContractsPage() {
                         >
                             {VEHICLE_OPTIONS.map(v => <option key={v} value={v}>{v}</option>)}
                         </select>
-                        <Input placeholder="Preferred driver (optional)" value={form.preferred_driver} onChange={e => setForm(f => ({ ...f, preferred_driver: e.target.value }))} />
+                        <div className="flex gap-1.5">
+                            <Input placeholder="Preferred driver (optional)" value={form.preferred_driver} onChange={e => setForm(f => ({ ...f, preferred_driver: e.target.value }))} className="flex-1 min-w-0" />
+                            {approvedDrivers.length > 0 && (
+                                <select
+                                    value=""
+                                    onChange={e => {
+                                        const driver = approvedDrivers.find(d => d.id === e.target.value);
+                                        if (driver) setForm(f => ({ ...f, preferred_driver: driver.full_name }));
+                                    }}
+                                    className="h-10 text-[11px] bg-white border border-gray-200 rounded-md px-1 w-20 shrink-0"
+                                    title="Quick pick from approved drivers"
+                                >
+                                    <option value="">Pick...</option>
+                                    {approvedDrivers.map(d => <option key={d.id} value={d.id}>{d.full_name}</option>)}
+                                </select>
+                            )}
+                        </div>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -592,14 +620,34 @@ export default function ContractsPage() {
                                 </div>
 
                                 <div className="space-y-1">
-                                    <label className="text-xs font-medium text-gray-500">Preferred Driver</label>
-                                    <Input
-                                        key={selectedContract.id}
-                                        defaultValue={selectedContract.preferred_driver || ''}
-                                        onBlur={e => updatePreferredDriver(selectedContract, e.target.value)}
-                                        placeholder="e.g. Ahmed — applies to future generated bookings only"
-                                        className="h-9 bg-white"
-                                    />
+                                    <label className="text-xs font-medium text-gray-500">Preferred Driver (applies to future generated bookings only)</label>
+                                    <div className="flex gap-1.5">
+                                        <Input
+                                            key={selectedContract.id}
+                                            ref={driverInputRef}
+                                            defaultValue={selectedContract.preferred_driver || ''}
+                                            onBlur={e => updatePreferredDriver(selectedContract, e.target.value)}
+                                            placeholder="e.g. Ahmed"
+                                            className="h-9 bg-white flex-1 min-w-0"
+                                        />
+                                        {approvedDrivers.length > 0 && (
+                                            <select
+                                                value=""
+                                                onChange={e => {
+                                                    const driver = approvedDrivers.find(d => d.id === e.target.value);
+                                                    if (driver && driverInputRef.current) {
+                                                        driverInputRef.current.value = driver.full_name;
+                                                        updatePreferredDriver(selectedContract, driver.full_name);
+                                                    }
+                                                }}
+                                                className="h-9 text-[11px] bg-white border border-gray-200 rounded-md px-1 w-20 shrink-0"
+                                                title="Quick pick from approved drivers"
+                                            >
+                                                <option value="">Pick...</option>
+                                                {approvedDrivers.map(d => <option key={d.id} value={d.id}>{d.full_name}</option>)}
+                                            </select>
+                                        )}
+                                    </div>
                                 </div>
 
                                 {(() => {
