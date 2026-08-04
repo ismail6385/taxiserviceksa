@@ -139,6 +139,7 @@ export default function BookingsPage() {
     const [rateCards, setRateCards] = useState<{ id: string; company_name: string; pickup_location: string; destination: string; vehicle_type: string; rate: number; currency: string }[]>([]);
     const [hourlyRates, setHourlyRates] = useState<Record<string, number>>({});
     const [b2bCompany, setB2bCompany] = useState('');
+    const [showPaymentConfirm, setShowPaymentConfirm] = useState(false);
     const [checkingFlight, setCheckingFlight] = useState(false);
     const [flightStatusResult, setFlightStatusResult] = useState<any>(null);
 
@@ -1122,7 +1123,11 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
         }
     };
 
-    const sendReceiptEmail = async (booking: Booking) => {
+    // markPaid is explicit and admin-confirmed (see the Confirm Payment
+    // dialog) — this used to always flip payment_status to 'paid' as a
+    // silent side effect of sending the receipt, whether or not the
+    // customer had actually paid.
+    const sendReceiptEmail = async (booking: Booking, markPaid: boolean) => {
         if (!booking.customer_email) {
             alert('No customer email on this booking.');
             return;
@@ -1151,7 +1156,9 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                 }),
             });
             if (!res.ok) throw new Error('Failed');
-            await supabase.from('bookings').update({ payment_status: 'paid' }).eq('id', booking.id);
+            if (markPaid) {
+                await supabase.from('bookings').update({ payment_status: 'paid' }).eq('id', booking.id);
+            }
             setReceiptSent(true);
             await refreshSelectedBooking(booking.id);
             setTimeout(() => setReceiptSent(false), 4000);
@@ -2747,7 +2754,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                 {!isEditing && selectedBooking.status === 'completed' && (
                                     <Button
                                         className={`w-full font-bold h-12 transition-all ${receiptSent ? 'bg-green-500 text-white' : 'bg-green-600 hover:bg-green-700 text-white'}`}
-                                        onClick={() => sendReceiptEmail(selectedBooking)}
+                                        onClick={() => setShowPaymentConfirm(true)}
                                         disabled={sendingReceipt}
                                     >
                                         {sendingReceipt ? (
@@ -2891,6 +2898,33 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                         <Button className="bg-primary text-black hover:bg-black hover:text-white font-bold" onClick={generateReturnTrip}>
                             Continue to Booking Form
                         </Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
+
+            <Dialog open={showPaymentConfirm} onOpenChange={setShowPaymentConfirm}>
+                <DialogContent className="bg-white border-gray-200 text-gray-900 sm:max-w-sm">
+                    <DialogHeader>
+                        <DialogTitle>Has the customer paid?</DialogTitle>
+                        <DialogDescription>
+                            This decides whether the booking gets marked <strong>Paid</strong>. The receipt email sends either way.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <DialogFooter className="flex-col gap-2 sm:flex-col sm:space-x-0">
+                        <Button
+                            className="w-full bg-green-600 hover:bg-green-700 text-white font-bold"
+                            onClick={() => { setShowPaymentConfirm(false); if (selectedBooking) sendReceiptEmail(selectedBooking, true); }}
+                        >
+                            ✅ Yes — Mark Paid & Send Receipt
+                        </Button>
+                        <Button
+                            variant="outline"
+                            className="w-full"
+                            onClick={() => { setShowPaymentConfirm(false); if (selectedBooking) sendReceiptEmail(selectedBooking, false); }}
+                        >
+                            Not Yet — Send Receipt Only
+                        </Button>
+                        <Button variant="ghost" className="w-full text-gray-500" onClick={() => setShowPaymentConfirm(false)}>Cancel</Button>
                     </DialogFooter>
                 </DialogContent>
             </Dialog>
