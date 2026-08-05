@@ -18,6 +18,9 @@ export default function AdminDriversPage() {
     const [notesDraft, setNotesDraft] = useState<{ [key: string]: string }>({});
     const [savingNotes, setSavingNotes] = useState<string | null>(null);
     const [notesSaved, setNotesSaved] = useState<string | null>(null);
+    const [commissionDraft, setCommissionDraft] = useState<{ [key: string]: string }>({});
+    const [savingCommission, setSavingCommission] = useState<string | null>(null);
+    const [commissionSaved, setCommissionSaved] = useState<string | null>(null);
 
     useEffect(() => {
         supabase.auth.getSession().then(({ data: { session } }) => {
@@ -79,6 +82,26 @@ export default function AdminDriversPage() {
             console.error('Error saving notes:', error);
         } finally {
             setSavingNotes(null);
+        }
+    };
+
+    const saveCommission = async (id: string) => {
+        const rate = Number(commissionDraft[id]);
+        if (isNaN(rate) || rate < 0 || rate > 100) {
+            alert('Enter a commission percentage between 0 and 100.');
+            return;
+        }
+        setSavingCommission(id);
+        try {
+            await driverService.saveCommissionRate(id, rate);
+            setDrivers(prev => prev.map(d => d.id === id ? { ...d, commission_rate: rate } : d));
+            setCommissionSaved(id);
+            setTimeout(() => setCommissionSaved(null), 2500);
+        } catch (error) {
+            console.error('Error saving commission rate:', error);
+            alert('Failed to save. Make sure the commission_rate column exists (see setup SQL).');
+        } finally {
+            setSavingCommission(null);
         }
     };
 
@@ -216,6 +239,42 @@ export default function AdminDriversPage() {
                                         rows={2}
                                         className="w-full text-sm bg-white border border-amber-200 rounded-lg p-2.5 resize-none focus:outline-none focus:ring-2 focus:ring-amber-300 placeholder:text-amber-300 text-gray-700"
                                     />
+                                </div>
+
+                                {/* Commission Rate */}
+                                <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-3 mb-4">
+                                    <div className="flex items-center justify-between mb-2">
+                                        <p className="text-xs font-bold text-emerald-700 uppercase tracking-widest">Commission Rate</p>
+                                        <button
+                                            onClick={() => saveCommission(driver.id)}
+                                            disabled={savingCommission === driver.id || (commissionDraft[driver.id] ?? String(driver.commission_rate ?? '')) === String(driver.commission_rate ?? '')}
+                                            className={`text-xs font-bold px-2.5 py-1 rounded-lg flex items-center gap-1 transition-colors ${
+                                                commissionSaved === driver.id
+                                                    ? 'bg-emerald-500 text-white'
+                                                    : 'bg-emerald-200 text-emerald-800 hover:bg-emerald-300 disabled:opacity-40'
+                                            }`}
+                                        >
+                                            {savingCommission === driver.id
+                                                ? <Loader2 className="w-3 h-3 animate-spin" />
+                                                : commissionSaved === driver.id
+                                                ? <><Check className="w-3 h-3" /> Saved</>
+                                                : <><Save className="w-3 h-3" /> Save</>
+                                            }
+                                        </button>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <input
+                                            type="number"
+                                            min={0}
+                                            max={100}
+                                            step={0.5}
+                                            value={commissionDraft[driver.id] ?? driver.commission_rate ?? ''}
+                                            onChange={e => setCommissionDraft({ ...commissionDraft, [driver.id]: e.target.value })}
+                                            placeholder="e.g. 15"
+                                            className="w-24 text-sm bg-white border border-emerald-200 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-emerald-300 text-gray-700"
+                                        />
+                                        <span className="text-sm text-emerald-700 font-semibold">% goes to the platform (rest to the driver) — auto-fills when this driver is assigned to a booking</span>
+                                    </div>
                                 </div>
 
                                 {/* Actions */}

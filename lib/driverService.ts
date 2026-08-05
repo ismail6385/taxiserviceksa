@@ -11,6 +11,7 @@ export interface Driver {
     admin_notes?: string;
     created_at: string;
     reviewed_at?: string;
+    commission_rate?: number;
 }
 
 export const driverService = {
@@ -69,6 +70,20 @@ export const driverService = {
         const { data, error } = await supabase
             .from('drivers')
             .update({ admin_notes: notes })
+            .eq('id', id)
+            .select()
+            .single();
+
+        if (error) throw error;
+        return data as Driver;
+    },
+
+    // Save this driver's default commission rate (%) — used to auto-fill
+    // the commission on a booking when this driver is assigned
+    async saveCommissionRate(id: string, rate: number) {
+        const { data, error } = await supabase
+            .from('drivers')
+            .update({ commission_rate: rate })
             .eq('id', id)
             .select()
             .single();

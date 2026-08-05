@@ -127,6 +127,7 @@ interface Booking {
     trip_started_at?: string;
     distance_km?: number;
     duration_estimate?: string;
+    commission_rate?: number;
 }
 
 export default function BookingsPage() {
@@ -137,7 +138,7 @@ export default function BookingsPage() {
     const [paymentFilter, setPaymentFilter] = useState('all');
     const [tripTypeFilter, setTripTypeFilter] = useState('all');
     const [dbPrices, setDbPrices] = useState<Record<string, Record<string, number>>>({});
-    const [approvedDrivers, setApprovedDrivers] = useState<{ id: string; full_name: string; phone_number: string }[]>([]);
+    const [approvedDrivers, setApprovedDrivers] = useState<{ id: string; full_name: string; phone_number: string; commission_rate?: number }[]>([]);
     const [rateCards, setRateCards] = useState<{ id: string; company_name: string; pickup_location: string; destination: string; vehicle_type: string; rate: number; currency: string }[]>([]);
     const [hourlyRates, setHourlyRates] = useState<Record<string, number>>({});
     const [b2bCompany, setB2bCompany] = useState('');
@@ -308,7 +309,7 @@ export default function BookingsPage() {
 
     const fetchApprovedDrivers = async () => {
         try {
-            const { data, error } = await supabase.from('drivers').select('id,full_name,phone_number').eq('status', 'approved').order('full_name');
+            const { data, error } = await supabase.from('drivers').select('id,full_name,phone_number,commission_rate').eq('status', 'approved').order('full_name');
             if (!error && data) setApprovedDrivers(data);
         } catch (err) {
             console.error('Failed to load drivers:', err);
@@ -2482,7 +2483,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                                 value=""
                                                                 onChange={(e) => {
                                                                     const driver = approvedDrivers.find(d => d.id === e.target.value);
-                                                                    if (driver) setEditedBooking({ ...editedBooking, driver_name: driver.full_name, driver_phone: driver.phone_number });
+                                                                    if (driver) setEditedBooking({ ...editedBooking, driver_name: driver.full_name, driver_phone: driver.phone_number, commission_rate: driver.commission_rate ?? editedBooking.commission_rate });
                                                                 }}
                                                                 className="h-8 text-[11px] bg-white border border-gray-200 rounded-md px-1 w-20 shrink-0"
                                                                 title="Quick pick from approved drivers"
@@ -2615,6 +2616,44 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             </div>
                                         );
                                     })()}
+
+                                    {/* Commission (admin-only — never shown on customer documents) */}
+                                    <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-3">
+                                        <div className="flex items-center justify-between mb-1.5">
+                                            <span className="text-xs font-bold text-emerald-700 uppercase tracking-wide">Commission (Internal Only)</span>
+                                            {isEditing ? (
+                                                <div className="flex items-center gap-1">
+                                                    <Input
+                                                        type="number"
+                                                        min={0}
+                                                        max={100}
+                                                        step={0.5}
+                                                        value={editedBooking.commission_rate ?? ''}
+                                                        onChange={(e) => setEditedBooking({ ...editedBooking, commission_rate: e.target.value ? Number(e.target.value) : undefined })}
+                                                        className="h-6 w-16 text-xs bg-white"
+                                                        placeholder="%"
+                                                    />
+                                                    <span className="text-xs text-emerald-700">%</span>
+                                                </div>
+                                            ) : (
+                                                <span className="text-xs font-bold text-emerald-700">{selectedBooking.commission_rate ? `${selectedBooking.commission_rate}%` : 'Not set'}</span>
+                                            )}
+                                        </div>
+                                        {(() => {
+                                            const source = isEditing ? editedBooking : selectedBooking;
+                                            if (!source.total_price || !source.commission_rate) return (
+                                                <p className="text-[10px] text-emerald-600">Set commission % and price to see the payout split.</p>
+                                            );
+                                            const commissionAmount = Math.round(source.total_price * (source.commission_rate / 100) * 100) / 100;
+                                            const payout = Math.round((source.total_price - commissionAmount) * 100) / 100;
+                                            return (
+                                                <div className="flex items-center justify-between text-xs text-emerald-800">
+                                                    <span>Driver Payout: <strong>{source.currency || 'SAR'} {payout}</strong></span>
+                                                    <span>Your Commission: <strong>{source.currency || 'SAR'} {commissionAmount}</strong></span>
+                                                </div>
+                                            );
+                                        })()}
+                                    </div>
 
                                     {/* Assign Driver & Notify Button */}
                                     {!isEditing && selectedBooking.driver_name && selectedBooking.driver_phone && (
@@ -3272,7 +3311,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 value=""
                                                 onChange={(e) => {
                                                     const driver = approvedDrivers.find(d => d.id === e.target.value);
-                                                    if (driver) setNewBooking({ ...newBooking, driver_name: driver.full_name, driver_phone: driver.phone_number });
+                                                    if (driver) setNewBooking({ ...newBooking, driver_name: driver.full_name, driver_phone: driver.phone_number, commission_rate: driver.commission_rate ?? newBooking.commission_rate });
                                                 }}
                                                 className="h-10 text-[11px] bg-white border border-gray-200 rounded-md px-1 w-20 shrink-0"
                                                 title="Quick pick from approved drivers"
@@ -3290,6 +3329,25 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             <p className="text-[10px] text-red-600 font-semibold">⚠️ Already assigned to {conflict.customer_name} on this date ({formatTime12h(conflict.pickup_time)})</p>
                                         ) : null;
                                     })()}
+                                </div>
+                                <div className="space-y-1">
+                                    <label className="text-sm font-medium text-gray-700">Commission % (Internal)</label>
+                                    <Input
+                                        type="number"
+                                        min={0}
+                                        max={100}
+                                        step={0.5}
+                                        placeholder="e.g. 15"
+                                        value={newBooking.commission_rate ?? ''}
+                                        onChange={(e) => setNewBooking({ ...newBooking, commission_rate: e.target.value ? Number(e.target.value) : undefined })}
+                                        className="bg-white border-gray-200"
+                                    />
+                                    {!!(newBooking.total_price && newBooking.commission_rate) && (
+                                        <p className="text-[10px] text-emerald-700 font-semibold">
+                                            Driver Payout: {newBooking.currency || 'SAR'} {Math.round((newBooking.total_price - newBooking.total_price * (newBooking.commission_rate / 100)) * 100) / 100}
+                                            {' · '}Your Commission: {newBooking.currency || 'SAR'} {Math.round(newBooking.total_price * (newBooking.commission_rate / 100) * 100) / 100}
+                                        </p>
+                                    )}
                                 </div>
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Internal Management Tags</label>
