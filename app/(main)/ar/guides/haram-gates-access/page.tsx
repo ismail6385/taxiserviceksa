@@ -11,11 +11,12 @@ export const metadata: Metadata = {
     description: 'دليل أبواب المسجد الحرام. اعثر على باب الملك عبدالعزيز، باب الملك فهد، مداخل العمرة، والأبواب المخصصة لذوي الاحتياجات. تنقل داخل الحرم بسهولة.',
     keywords: ['أبواب الحرم المكي', 'باب الملك عبدالعزيز', 'باب الملك فهد', 'رقم باب العمرة', 'وصول ذوي الاحتياجات أبواب الحرم'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/haram-gates-access/',
+        canonical: 'https://taxiserviceksa.com/ar/guides/haram-gates-access/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/haram-gates-access/',
             'ar': 'https://taxiserviceksa.com/ar/guides/haram-gates-access/',
             'ur': 'https://taxiserviceksa.com/ur/guides/haram-gates-access/',
+            'x-default': 'https://taxiserviceksa.com/guides/haram-gates-access/',
         },
     },
 };

@@ -11,11 +11,12 @@ export const metadata: Metadata = {
     description: 'سعودی ریال (SAR) کے بارے میں مکمل گائیڈ۔ مکہ اور مدینہ میں پیسے تبدیل کرنے کی جگہیں، ATM کا استعمال، اور کریڈٹ کارڈ۔ زیادہ فیس سے بچیں۔',
     keywords: ['سعودی کرنسی گائیڈ', 'مکہ میں پیسے تبدیل', 'ریال کی شرح', 'مدینہ ATM', 'سعودی ایئرپورٹ کرنسی'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/currency/',
+        canonical: 'https://taxiserviceksa.com/ur/guides/currency/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/currency/',
             'ar': 'https://taxiserviceksa.com/ar/guides/currency/',
             'ur': 'https://taxiserviceksa.com/ur/guides/currency/',
+            'x-default': 'https://taxiserviceksa.com/guides/currency/',
         },
     },
 };

@@ -16,6 +16,7 @@ export const metadata: Metadata = {
             'en': 'https://taxiserviceksa.com/guides/currency/',
             'ar': 'https://taxiserviceksa.com/ar/guides/currency/',
             'ur': 'https://taxiserviceksa.com/ur/guides/currency/',
+            'x-default': 'https://taxiserviceksa.com/guides/currency/',
         },
     },
 };

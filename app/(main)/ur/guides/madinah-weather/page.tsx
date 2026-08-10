@@ -11,11 +11,12 @@ export const metadata: Metadata = {
     description: 'مدینہ کی موسمی گائیڈ۔ اوسط درجہ حرارت، گرمیوں کی گرمی کی وارننگ، اور عمرہ کے لیے بہترین مہینے۔ اپنا سامان منصوبہ بندی سے پیک کریں۔',
     keywords: ['مدینہ موسم', 'مدینہ زیارت کا بہترین وقت', 'مدینہ درجہ حرارت ماہانہ', 'عمرہ موسم گائیڈ', 'مدینہ آب و ہوا'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/madinah-weather/',
+        canonical: 'https://taxiserviceksa.com/ur/guides/madinah-weather/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/madinah-weather/',
             'ar': 'https://taxiserviceksa.com/ar/guides/madinah-weather/',
             'ur': 'https://taxiserviceksa.com/ur/guides/madinah-weather/',
+            'x-default': 'https://taxiserviceksa.com/guides/madinah-weather/',
         },
     },
 };

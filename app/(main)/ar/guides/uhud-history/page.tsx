@@ -12,11 +12,12 @@ export const metadata: Metadata = {
     description: 'استكشف تاريخ غزوة أحد. دليل جبل الرماة ومقبرة الشهداء (سيدنا حمزة) وأهمية جبل أحد في الإسلام.',
     keywords: ['تاريخ جبل أحد', 'دليل غزوة أحد', 'جبل الرماة المدينة', 'قبر حمزة أحد', 'المواقع التاريخية المدينة'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/uhud-history/',
+        canonical: 'https://taxiserviceksa.com/ar/guides/uhud-history/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/uhud-history/',
             'ar': 'https://taxiserviceksa.com/ar/guides/uhud-history/',
             'ur': 'https://taxiserviceksa.com/ur/guides/uhud-history/',
+            'x-default': 'https://taxiserviceksa.com/guides/uhud-history/',
         },
     },
 };

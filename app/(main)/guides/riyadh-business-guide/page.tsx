@@ -27,6 +27,12 @@ export const metadata: Metadata = {
     keywords: ['Riyadh business travel', 'KAFD taxi', 'corporate transport Riyadh', 'business districts Riyadh', 'Riyadh meeting venues', 'King Khalid Airport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/riyadh-business-guide/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/riyadh-business-guide/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/riyadh-business-guide/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/riyadh-business-guide/',
+            'x-default': 'https://taxiserviceksa.com/guides/riyadh-business-guide/',
+        },
     },
     openGraph: {
         title: 'Riyadh Business Travel Guide 2026 | Complete Corporate Transport Guide',

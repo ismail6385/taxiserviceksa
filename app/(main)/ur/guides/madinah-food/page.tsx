@@ -11,11 +11,12 @@ export const metadata: Metadata = {
     description: 'مدینہ میں کہاں کھائیں؟ مسجد نبوی کے قریب بہترین ریستورانوں کی گائیڈ۔ البیک کے مقامات، روایتی مندی، بخاری چاول، اور عمدہ کھانا۔',
     keywords: ['مدینہ ریستوراں', 'مسجد نبوی کے قریب کھانا', 'البیک مدینہ', 'مندی مدینہ', 'مدینہ کھانے کی جگہیں'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/madinah-food/',
+        canonical: 'https://taxiserviceksa.com/ur/guides/madinah-food/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/madinah-food/',
             'ar': 'https://taxiserviceksa.com/ar/guides/madinah-food/',
             'ur': 'https://taxiserviceksa.com/ur/guides/madinah-food/',
+            'x-default': 'https://taxiserviceksa.com/guides/madinah-food/',
         },
     },
 };

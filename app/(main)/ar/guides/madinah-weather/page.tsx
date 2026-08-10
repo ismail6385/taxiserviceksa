@@ -11,11 +11,12 @@ export const metadata: Metadata = {
     description: 'دليل الطقس الموسمي للمدينة المنورة. متوسط درجات الحرارة، تحذيرات حر الصيف، وأفضل أشهر العمرة. خطط لتعبئة أمتعتك.',
     keywords: ['طقس المدينة المنورة', 'أفضل وقت لزيارة المدينة', 'درجة حرارة المدينة شهريا', 'دليل طقس العمرة', 'مناخ المدينة المنورة'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/madinah-weather/',
+        canonical: 'https://taxiserviceksa.com/ar/guides/madinah-weather/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/madinah-weather/',
             'ar': 'https://taxiserviceksa.com/ar/guides/madinah-weather/',
             'ur': 'https://taxiserviceksa.com/ur/guides/madinah-weather/',
+            'x-default': 'https://taxiserviceksa.com/guides/madinah-weather/',
         },
     },
 };

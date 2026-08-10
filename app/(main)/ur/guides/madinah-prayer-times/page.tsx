@@ -11,11 +11,12 @@ export const metadata: Metadata = {
     description: 'مدینہ المنورہ میں نماز کے موجودہ اوقات۔ مسجد نبوی میں نماز کی اہمیت۔ ہجوم کے اوقات سے بچیں۔',
     keywords: ['مدینہ نماز اوقات', 'مسجد نبوی نماز وقت', 'فجر وقت مدینہ', 'عشاء وقت مدینہ', 'نماز شیڈول مدینہ'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/madinah-prayer-times/',
+        canonical: 'https://taxiserviceksa.com/ur/guides/madinah-prayer-times/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/madinah-prayer-times/',
             'ar': 'https://taxiserviceksa.com/ar/guides/madinah-prayer-times/',
             'ur': 'https://taxiserviceksa.com/ur/guides/madinah-prayer-times/',
+            'x-default': 'https://taxiserviceksa.com/guides/madinah-prayer-times/',
         },
     },
 };

@@ -15,11 +15,12 @@ export const metadata: Metadata = {
     description: 'دليل شامل لممشى المشاة الذي يربط المسجد النبوي بمسجد قباء. المسافة، أفضل وقت للمشي، والمرافق على طول الطريق.',
     keywords: ['طريق قباء للمشاة', 'المشي من النبوي إلى قباء', 'شارع قباء المدينة', 'جولة مشي الزيارة', 'المشي السني المدينة'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/quba-walking-path/',
+        canonical: 'https://taxiserviceksa.com/ar/guides/quba-walking-path/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/quba-walking-path/',
             'ar': 'https://taxiserviceksa.com/ar/guides/quba-walking-path/',
             'ur': 'https://taxiserviceksa.com/ur/guides/quba-walking-path/',
+            'x-default': 'https://taxiserviceksa.com/guides/quba-walking-path/',
         },
     },
 };

@@ -11,11 +11,12 @@ export const metadata: Metadata = {
     description: 'دليل المساجد السبعة في المدينة المنورة. موقع غزوة الخندق. التاريخ والموقع والمسجد الكبير الجديد.',
     keywords: ['المساجد السبعة المدينة', 'موقع غزوة الخندق', 'الخندق المدينة', 'مسجد الفتح', 'مسجد سلمان الفارسي'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/seven-mosques/',
+        canonical: 'https://taxiserviceksa.com/ar/guides/seven-mosques/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/seven-mosques/',
             'ar': 'https://taxiserviceksa.com/ar/guides/seven-mosques/',
             'ur': 'https://taxiserviceksa.com/ur/guides/seven-mosques/',
+            'x-default': 'https://taxiserviceksa.com/guides/seven-mosques/',
         },
     },
 };

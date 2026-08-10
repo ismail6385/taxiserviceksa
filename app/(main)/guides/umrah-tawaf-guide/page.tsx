@@ -18,6 +18,7 @@ export const metadata: Metadata = {
             'en': 'https://taxiserviceksa.com/guides/umrah-tawaf-guide/',
             'ar': 'https://taxiserviceksa.com/ar/guides/umrah-tawaf-guide/',
             'ur': 'https://taxiserviceksa.com/ur/guides/umrah-tawaf-guide/',
+            'x-default': 'https://taxiserviceksa.com/guides/umrah-tawaf-guide/',
         },
     },
 };

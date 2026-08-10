@@ -16,6 +16,7 @@ export const metadata: Metadata = {
             'en': 'https://taxiserviceksa.com/guides/haram-gates-access/',
             'ar': 'https://taxiserviceksa.com/ar/guides/haram-gates-access/',
             'ur': 'https://taxiserviceksa.com/ur/guides/haram-gates-access/',
+            'x-default': 'https://taxiserviceksa.com/guides/haram-gates-access/',
         },
     },
 };

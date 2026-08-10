@@ -11,11 +11,12 @@ export const metadata: Metadata = {
     description: 'دليل شامل للريال السعودي (SAR). أماكن صرف العملة في مكة والمدينة، استخدام الصراف الآلي، وقبول بطاقات الائتمان. تجنب رسوم الصرف المرتفعة.',
     keywords: ['دليل العملة السعودية', 'صرف العملة مكة', 'سعر صرف الريال', 'صراف آلي المدينة', 'صرف العملة مطار السعودية'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/currency/',
+        canonical: 'https://taxiserviceksa.com/ar/guides/currency/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/currency/',
             'ar': 'https://taxiserviceksa.com/ar/guides/currency/',
             'ur': 'https://taxiserviceksa.com/ur/guides/currency/',
+            'x-default': 'https://taxiserviceksa.com/guides/currency/',
         },
     },
 };

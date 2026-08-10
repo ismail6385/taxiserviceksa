@@ -11,11 +11,12 @@ export const metadata: Metadata = {
     description: 'أوقات الصلاة الحالية في المدينة المنورة. أهمية الصلاة في المسجد النبوي الشريف. تجنب ازدحام أوقات الذروة.',
     keywords: ['أوقات الصلاة المدينة المنورة', 'صلاة المسجد النبوي', 'وقت الفجر المدينة', 'وقت العشاء المدينة', 'جدول الصلاة المدينة'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/madinah-prayer-times/',
+        canonical: 'https://taxiserviceksa.com/ar/guides/madinah-prayer-times/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/madinah-prayer-times/',
             'ar': 'https://taxiserviceksa.com/ar/guides/madinah-prayer-times/',
             'ur': 'https://taxiserviceksa.com/ur/guides/madinah-prayer-times/',
+            'x-default': 'https://taxiserviceksa.com/guides/madinah-prayer-times/',
         },
     },
 };

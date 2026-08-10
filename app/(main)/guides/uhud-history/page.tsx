@@ -17,6 +17,7 @@ export const metadata: Metadata = {
             'en': 'https://taxiserviceksa.com/guides/uhud-history/',
             'ar': 'https://taxiserviceksa.com/ar/guides/uhud-history/',
             'ur': 'https://taxiserviceksa.com/ur/guides/uhud-history/',
+            'x-default': 'https://taxiserviceksa.com/guides/uhud-history/',
         },
     },
 };

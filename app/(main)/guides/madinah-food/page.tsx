@@ -16,6 +16,7 @@ export const metadata: Metadata = {
             'en': 'https://taxiserviceksa.com/guides/madinah-food/',
             'ar': 'https://taxiserviceksa.com/ar/guides/madinah-food/',
             'ur': 'https://taxiserviceksa.com/ur/guides/madinah-food/',
+            'x-default': 'https://taxiserviceksa.com/guides/madinah-food/',
         },
     },
 };

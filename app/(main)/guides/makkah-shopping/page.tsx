@@ -16,6 +16,7 @@ export const metadata: Metadata = {
             'en': 'https://taxiserviceksa.com/guides/makkah-shopping/',
             'ar': 'https://taxiserviceksa.com/ar/guides/makkah-shopping/',
             'ur': 'https://taxiserviceksa.com/ur/guides/makkah-shopping/',
+            'x-default': 'https://taxiserviceksa.com/guides/makkah-shopping/',
         },
     },
 };

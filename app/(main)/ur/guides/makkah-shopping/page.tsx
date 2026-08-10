@@ -11,11 +11,12 @@ export const metadata: Metadata = {
     description: 'مکہ میں خریداری کی بہترین جگہیں۔ ابراج البیت مال، مکہ مال، اور روایتی بازاروں کی گائیڈ۔ کھجوریں، عطر، سونا، اور یادگاری تحائف کہاں سے خریدیں۔',
     keywords: ['مکہ شاپنگ مالز', 'ابراج البیت مال', 'مکہ کھجور خریدنا', 'مکہ سونے کا بازار', 'مکہ یادگاری تحائف'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/makkah-shopping/',
+        canonical: 'https://taxiserviceksa.com/ur/guides/makkah-shopping/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/makkah-shopping/',
             'ar': 'https://taxiserviceksa.com/ar/guides/makkah-shopping/',
             'ur': 'https://taxiserviceksa.com/ur/guides/makkah-shopping/',
+            'x-default': 'https://taxiserviceksa.com/guides/makkah-shopping/',
         },
     },
 };

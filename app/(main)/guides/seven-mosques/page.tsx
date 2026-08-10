@@ -16,6 +16,7 @@ export const metadata: Metadata = {
             'en': 'https://taxiserviceksa.com/guides/seven-mosques/',
             'ar': 'https://taxiserviceksa.com/ar/guides/seven-mosques/',
             'ur': 'https://taxiserviceksa.com/ur/guides/seven-mosques/',
+            'x-default': 'https://taxiserviceksa.com/guides/seven-mosques/',
         },
     },
 };

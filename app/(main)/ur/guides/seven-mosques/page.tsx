@@ -11,11 +11,12 @@ export const metadata: Metadata = {
     description: 'مدینہ میں سات مساجد کی گائیڈ۔ غزوہ خندق کا مقام۔ تاریخ، محل وقوع، اور نئی بڑی مسجد۔',
     keywords: ['سات مساجد مدینہ', 'غزوہ خندق مقام', 'خندق مدینہ', 'مسجد فتح', 'مسجد سلمان فارسی'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/seven-mosques/',
+        canonical: 'https://taxiserviceksa.com/ur/guides/seven-mosques/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/seven-mosques/',
             'ar': 'https://taxiserviceksa.com/ar/guides/seven-mosques/',
             'ur': 'https://taxiserviceksa.com/ur/guides/seven-mosques/',
+            'x-default': 'https://taxiserviceksa.com/guides/seven-mosques/',
         },
     },
 };

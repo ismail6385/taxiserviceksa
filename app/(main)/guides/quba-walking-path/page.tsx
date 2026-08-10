@@ -20,6 +20,7 @@ export const metadata: Metadata = {
             'en': 'https://taxiserviceksa.com/guides/quba-walking-path/',
             'ar': 'https://taxiserviceksa.com/ar/guides/quba-walking-path/',
             'ur': 'https://taxiserviceksa.com/ur/guides/quba-walking-path/',
+            'x-default': 'https://taxiserviceksa.com/guides/quba-walking-path/',
         },
     },
 };

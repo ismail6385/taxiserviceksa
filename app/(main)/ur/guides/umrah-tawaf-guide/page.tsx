@@ -13,11 +13,12 @@ export const metadata: Metadata = {
     description: 'عمرہ کا طواف کرنا سیکھیں۔ کعبہ کے گرد 7 چکر، مردوں کے لیے اضطباع اور رمل کے احکام، اور مستحب دعائیں۔ مبتدیوں کی مکمل گائیڈ۔',
     keywords: ['عمرہ طواف گائیڈ', 'طواف کرنے کا طریقہ', 'طواف دعائیں', 'اضطباع اور رمل', 'کعبہ کا طواف'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/umrah-tawaf-guide/',
+        canonical: 'https://taxiserviceksa.com/ur/guides/umrah-tawaf-guide/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/umrah-tawaf-guide/',
             'ar': 'https://taxiserviceksa.com/ar/guides/umrah-tawaf-guide/',
             'ur': 'https://taxiserviceksa.com/ur/guides/umrah-tawaf-guide/',
+            'x-default': 'https://taxiserviceksa.com/guides/umrah-tawaf-guide/',
         },
     },
 };

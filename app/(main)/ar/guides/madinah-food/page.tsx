@@ -11,11 +11,12 @@ export const metadata: Metadata = {
     description: 'أين تأكل في المدينة المنورة؟ دليل أفضل المطاعم قرب المسجد النبوي. مواقع البيك، المندي التقليدي، الأرز البخاري، والمطاعم الفاخرة.',
     keywords: ['مطاعم المدينة المنورة', 'أفضل طعام قرب المسجد النبوي', 'البيك المدينة', 'مندي المدينة', 'أماكن الأكل المدينة'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/madinah-food/',
+        canonical: 'https://taxiserviceksa.com/ar/guides/madinah-food/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/madinah-food/',
             'ar': 'https://taxiserviceksa.com/ar/guides/madinah-food/',
             'ur': 'https://taxiserviceksa.com/ur/guides/madinah-food/',
+            'x-default': 'https://taxiserviceksa.com/guides/madinah-food/',
         },
     },
 };

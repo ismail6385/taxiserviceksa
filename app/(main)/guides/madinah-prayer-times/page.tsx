@@ -16,6 +16,7 @@ export const metadata: Metadata = {
             'en': 'https://taxiserviceksa.com/guides/madinah-prayer-times/',
             'ar': 'https://taxiserviceksa.com/ar/guides/madinah-prayer-times/',
             'ur': 'https://taxiserviceksa.com/ur/guides/madinah-prayer-times/',
+            'x-default': 'https://taxiserviceksa.com/guides/madinah-prayer-times/',
         },
     },
 };

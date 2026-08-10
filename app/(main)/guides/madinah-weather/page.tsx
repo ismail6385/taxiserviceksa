@@ -16,6 +16,7 @@ export const metadata: Metadata = {
             'en': 'https://taxiserviceksa.com/guides/madinah-weather/',
             'ar': 'https://taxiserviceksa.com/ar/guides/madinah-weather/',
             'ur': 'https://taxiserviceksa.com/ur/guides/madinah-weather/',
+            'x-default': 'https://taxiserviceksa.com/guides/madinah-weather/',
         },
     },
 };

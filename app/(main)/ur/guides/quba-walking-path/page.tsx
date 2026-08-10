@@ -15,11 +15,12 @@ export const metadata: Metadata = {
     description: 'مسجد نبوی سے مسجد قباء کو جوڑنے والے پیدل راستے کی مکمل گائیڈ۔ فاصلہ، چلنے کا بہترین وقت، اور راستے کی سہولیات۔',
     keywords: ['قباء پیدل راستہ', 'نبوی سے قباء تک چلنا', 'قباء ایوینیو مدینہ', 'زیارت پیدل سفر', 'سنت چلنا مدینہ'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/quba-walking-path/',
+        canonical: 'https://taxiserviceksa.com/ur/guides/quba-walking-path/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/quba-walking-path/',
             'ar': 'https://taxiserviceksa.com/ar/guides/quba-walking-path/',
             'ur': 'https://taxiserviceksa.com/ur/guides/quba-walking-path/',
+            'x-default': 'https://taxiserviceksa.com/guides/quba-walking-path/',
         },
     },
 };

@@ -11,11 +11,12 @@ export const metadata: Metadata = {
     description: 'أفضل أماكن التسوق في مكة المكرمة. دليل مركز أبراج البيت ومول مكة والأسواق التقليدية. أين تشتري التمور والعطور والذهب والهدايا التذكارية.',
     keywords: ['مراكز تسوق مكة', 'مول أبراج البيت', 'شراء تمور مكة', 'سوق ذهب مكة', 'هدايا تذكارية مكة'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/makkah-shopping/',
+        canonical: 'https://taxiserviceksa.com/ar/guides/makkah-shopping/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/makkah-shopping/',
             'ar': 'https://taxiserviceksa.com/ar/guides/makkah-shopping/',
             'ur': 'https://taxiserviceksa.com/ur/guides/makkah-shopping/',
+            'x-default': 'https://taxiserviceksa.com/guides/makkah-shopping/',
         },
     },
 };

@@ -12,11 +12,12 @@ export const metadata: Metadata = {
     description: 'غزوہ احد کی تاریخ دریافت کریں۔ تیر اندازوں کی پہاڑی، شہداء کے قبرستان (سیدنا حمزہ)، اور اسلام میں جبل احد کی اہمیت کی گائیڈ۔',
     keywords: ['جبل احد تاریخ', 'غزوہ احد گائیڈ', 'تیر اندازوں کی پہاڑی مدینہ', 'حمزہ قبر احد', 'مدینہ تاریخی مقامات'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/uhud-history/',
+        canonical: 'https://taxiserviceksa.com/ur/guides/uhud-history/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/uhud-history/',
             'ar': 'https://taxiserviceksa.com/ar/guides/uhud-history/',
             'ur': 'https://taxiserviceksa.com/ur/guides/uhud-history/',
+            'x-default': 'https://taxiserviceksa.com/guides/uhud-history/',
         },
     },
 };

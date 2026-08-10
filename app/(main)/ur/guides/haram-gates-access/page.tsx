@@ -11,11 +11,12 @@ export const metadata: Metadata = {
     description: 'مسجد الحرام کے دروازوں کی گائیڈ۔ شاہ عبدالعزیز گیٹ، شاہ فہد گیٹ، عمرہ داخلی راستے، اور وہیل چیئر قابل رسائی دروازے تلاش کریں۔',
     keywords: ['حرم مکہ دروازے', 'شاہ عبدالعزیز گیٹ', 'شاہ فہد گیٹ', 'عمرہ گیٹ نمبر', 'حرم وہیل چیئر رسائی'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/haram-gates-access/',
+        canonical: 'https://taxiserviceksa.com/ur/guides/haram-gates-access/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/haram-gates-access/',
             'ar': 'https://taxiserviceksa.com/ar/guides/haram-gates-access/',
             'ur': 'https://taxiserviceksa.com/ur/guides/haram-gates-access/',
+            'x-default': 'https://taxiserviceksa.com/guides/haram-gates-access/',
         },
     },
 };

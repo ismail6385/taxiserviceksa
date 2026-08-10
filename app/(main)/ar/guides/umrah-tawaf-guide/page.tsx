@@ -13,11 +13,12 @@ export const metadata: Metadata = {
     description: 'تعلم كيفية أداء طواف العمرة. 7 أشواط حول الكعبة المشرفة، أحكام الاضطباع والرمل للرجال، والأدعية المستحبة. دليل شامل للمبتدئين.',
     keywords: ['دليل طواف العمرة', 'كيفية أداء الطواف', 'أدعية الطواف', 'الاضطباع والرمل', 'الطواف حول الكعبة'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/guides/umrah-tawaf-guide/',
+        canonical: 'https://taxiserviceksa.com/ar/guides/umrah-tawaf-guide/',
         languages: {
             'en': 'https://taxiserviceksa.com/guides/umrah-tawaf-guide/',
             'ar': 'https://taxiserviceksa.com/ar/guides/umrah-tawaf-guide/',
             'ur': 'https://taxiserviceksa.com/ur/guides/umrah-tawaf-guide/',
+            'x-default': 'https://taxiserviceksa.com/guides/umrah-tawaf-guide/',
         },
     },
 };
