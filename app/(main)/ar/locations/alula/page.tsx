@@ -27,10 +27,10 @@ export const metadata: Metadata = {
     alternates: {
         canonical: 'https://taxiserviceksa.com/ar/locations/alula/',
         languages: {
-            'en': 'https://taxiserviceksa.com/ar/locations/alula/',
+            'en': 'https://taxiserviceksa.com/locations/alula/',
             'ar': 'https://taxiserviceksa.com/ar/locations/alula/',
             'ur': 'https://taxiserviceksa.com/ur/locations/alula/',
-            'x-default': 'https://taxiserviceksa.com/ar/locations/alula/',
+            'x-default': 'https://taxiserviceksa.com/locations/alula/',
         }
     },
     openGraph: {

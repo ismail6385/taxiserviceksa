@@ -31,12 +31,6 @@ export const metadata: Metadata = {
     keywords: ['Al Khobar VIP private transfer', 'Executive chauffeur Khobar', 'Bahrain Causeway VIP pickup', 'Premium Khobar to Bahrain transfer', 'Al Khobar corporate transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/al-khobar/',
-        languages: {
-            'en': 'https://taxiserviceksa.com/locations/al-khobar/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/al-khobar/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/al-khobar/',
-            'x-default': 'https://taxiserviceksa.com/locations/al-khobar/',
-        }
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Al Khobar | Corniche & Causeway Trips | Taxi Service KSA',

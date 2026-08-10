@@ -27,10 +27,10 @@ export const metadata: Metadata = {
     alternates: {
         canonical: 'https://taxiserviceksa.com/ar/locations/yanbu/',
         languages: {
-            'en': 'https://taxiserviceksa.com/ar/locations/yanbu/',
+            'en': 'https://taxiserviceksa.com/locations/yanbu/',
             'ar': 'https://taxiserviceksa.com/ar/locations/yanbu/',
             'ur': 'https://taxiserviceksa.com/ur/locations/yanbu/',
-            'x-default': 'https://taxiserviceksa.com/ar/locations/yanbu/',
+            'x-default': 'https://taxiserviceksa.com/locations/yanbu/',
         }
     },
     openGraph: {

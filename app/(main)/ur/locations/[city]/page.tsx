@@ -44,12 +44,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: city.metaTitle,
         description: city.metaDescription,
         alternates: {
-            canonical: `https://taxiserviceksa.com/locations/${city.slug}`,
+            canonical: `https://taxiserviceksa.com/ur/locations/${city.slug}/`,
+            languages: {
+                'en': `https://taxiserviceksa.com/locations/${city.slug}/`,
+                'ar': `https://taxiserviceksa.com/ar/locations/${city.slug}/`,
+                'ur': `https://taxiserviceksa.com/ur/locations/${city.slug}/`,
+                'x-default': `https://taxiserviceksa.com/locations/${city.slug}/`,
+            },
         },
         openGraph: {
             title: city.metaTitle,
             description: city.metaDescription,
-            url: `https://taxiserviceksa.com/locations/${city.slug}`,
+            url: `https://taxiserviceksa.com/ur/locations/${city.slug}/`,
             type: 'website',
         }
     };

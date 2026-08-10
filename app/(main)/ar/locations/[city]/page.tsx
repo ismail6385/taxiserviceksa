@@ -31,6 +31,13 @@ interface Props {
     };
 }
 
+// Cities that have a real, published /ur/locations/{slug}/ page — only these
+// should get a `ur` hreflang entry, otherwise it would point at a 404.
+const UR_TRANSLATED_CITIES = new Set([
+    'abha', 'alula', 'dammam', 'jeddah', 'khayber-fort', 'madinah',
+    'makkah', 'makkah-ziyarat', 'riyadh', 'tabuk', 'taif', 'yanbu',
+]);
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const city = cities[params.city];
 
@@ -44,12 +51,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: city.metaTitle,
         description: city.metaDescription,
         alternates: {
-            canonical: `https://taxiserviceksa.com/locations/${city.slug}`,
+            canonical: `https://taxiserviceksa.com/ar/locations/${city.slug}/`,
+            languages: {
+                'en': `https://taxiserviceksa.com/locations/${city.slug}/`,
+                'ar': `https://taxiserviceksa.com/ar/locations/${city.slug}/`,
+                ...(UR_TRANSLATED_CITIES.has(city.slug) ? { 'ur': `https://taxiserviceksa.com/ur/locations/${city.slug}/` } : {}),
+                'x-default': `https://taxiserviceksa.com/locations/${city.slug}/`,
+            },
         },
         openGraph: {
             title: city.metaTitle,
             description: city.metaDescription,
-            url: `https://taxiserviceksa.com/locations/${city.slug}`,
+            url: `https://taxiserviceksa.com/ar/locations/${city.slug}/`,
             type: 'website',
         }
     };
