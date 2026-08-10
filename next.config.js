@@ -473,6 +473,27 @@ const nextConfig = {
         destination: '/routes/jeddah-to-dar-al-taqwa-madinah-taxi/',
         permanent: true,
       },
+      // Canonical URL fixes - Aug 2026 (content updated to 2026, slug renamed to match)
+      {
+        source: '/insights/pilgrimage-transport-report-2025',
+        destination: '/insights/pilgrimage-transport-report-2026',
+        permanent: true,
+      },
+      {
+        source: '/insights/pilgrimage-transport-report-2025/',
+        destination: '/insights/pilgrimage-transport-report-2026/',
+        permanent: true,
+      },
+      {
+        source: '/blog/jeddah-airport-makkah-taxi-fare-2025',
+        destination: '/blog/jeddah-airport-makkah-taxi-fare-2026',
+        permanent: true,
+      },
+      {
+        source: '/blog/jeddah-airport-makkah-taxi-fare-2025/',
+        destination: '/blog/jeddah-airport-makkah-taxi-fare-2026/',
+        permanent: true,
+      },
     ];
   },
   async rewrites() {

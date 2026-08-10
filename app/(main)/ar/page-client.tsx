@@ -359,7 +359,7 @@ export default function HomeClientArabic({ latestBlogs = [] }: HomeClientArabicP
                             <span className="font-bold">دراسة ٢٠٢٦:</span> لماذا تختار ٧٠% من العائلات التاكسي بدلاً من القطار فائق السرعة؟
                         </p>
                     </div>
-                    <Link href="/insights/pilgrimage-transport-report-2025/" className="flex-shrink-0">
+                    <Link href="/insights/pilgrimage-transport-report-2026/" className="flex-shrink-0">
                         <button className="text-white border-b border-white hover:border-emerald-200 hover:text-emerald-100 transition-colors text-sm font-bold flex items-center gap-1 group">
                             اطّلع على البيانات <ArrowRight className="w-4 h-4 rotate-180 transform group-hover:-translate-x-1 transition-transform" />
                         </button>
