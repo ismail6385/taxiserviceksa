@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     keywords: ['GCC chauffeur service', 'Saudi Arabia to UAE taxi', 'Saudi Arabia to Kuwait taxi', 'Saudi Arabia to Qatar taxi', 'Saudi Arabia to Bahrain taxi', 'cross border chauffeur Gulf'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/gcc-chauffeur-service/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/gcc-chauffeur-service/',
+            'ar': 'https://taxiserviceksa.com/ar/services/gcc-chauffeur-service/',
+            'x-default': 'https://taxiserviceksa.com/services/gcc-chauffeur-service/',
+        },
     },
     openGraph: {
         title: 'Private Car, Taxi and Chauffeur Service for GCC Cross-Border Travel | Taxi Service KSA',

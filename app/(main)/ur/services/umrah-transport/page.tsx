@@ -17,6 +17,12 @@ export const metadata: Metadata = {
     keywords: ['عمرہ ٹیکسی سروس', 'مکہ مدینہ ٹرانسپورٹ', 'ڈرائیور کے ساتھ عمرہ ٹرانسپورٹ', 'جدہ ایئرپورٹ سے مکہ ٹیکسی', 'سعودی عرب زیارات ٹرانسپورٹ'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/services/umrah-transport/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/umrah-transport/',
+            'ar': 'https://taxiserviceksa.com/ar/services/umrah-transport/',
+            'ur': 'https://taxiserviceksa.com/ur/services/umrah-transport/',
+            'x-default': 'https://taxiserviceksa.com/services/umrah-transport/',
+        },
     },
     openGraph: {
         title: 'عمرہ ٹرانسپورٹ سروس | مکہ اور مدینہ کے لیے ڈرائیور کے ساتھ ٹیکسی',

@@ -36,6 +36,11 @@ export const metadata: Metadata = {
     ],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/event-transport/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/event-transport/',
+            'ar': 'https://taxiserviceksa.com/ar/services/event-transport/',
+            'x-default': 'https://taxiserviceksa.com/services/event-transport/',
+        },
     },
     openGraph: {
         title: 'Private Car, Taxi and Chauffeur Service for Event & Wedding Transport | Taxi Service KSA',

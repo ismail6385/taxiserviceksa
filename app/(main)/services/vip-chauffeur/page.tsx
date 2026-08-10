@@ -31,6 +31,11 @@ export const metadata: Metadata = {
     ],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/vip-chauffeur/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/vip-chauffeur/',
+            'ar': 'https://taxiserviceksa.com/ar/services/vip-chauffeur/',
+            'x-default': 'https://taxiserviceksa.com/services/vip-chauffeur/',
+        },
     },
     openGraph: {
         title: 'VIP Chauffeur Service Saudi Arabia | Royal & Diplomatic Transport | Taxi Service KSA',

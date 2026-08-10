@@ -22,6 +22,12 @@ export const metadata: Metadata = {
     keywords: ['VIP Airport Transfers Saudi Arabia'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/airport-transfers/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/airport-transfers/',
+            'ar': 'https://taxiserviceksa.com/ar/services/airport-transfers/',
+            'ur': 'https://taxiserviceksa.com/ur/services/airport-transfers/',
+            'x-default': 'https://taxiserviceksa.com/services/airport-transfers/',
+        },
     },
     openGraph: {
         title: 'Private Car, Taxi and Chauffeur Service for Airport Transfers | Taxi Service KSA',

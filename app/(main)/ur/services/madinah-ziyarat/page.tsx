@@ -18,6 +18,12 @@ export const metadata: Metadata = {
     keywords: ['مدینہ زیارات', 'زیارت ٹیکسی مدینہ', 'مسجد قباء ٹیکسی', 'جبل احد کا دورہ', 'مدینہ کے مقدس مقامات کی ٹرانسپورٹ'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/services/madinah-ziyarat/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/madinah-ziyarat/',
+            'ar': 'https://taxiserviceksa.com/ar/services/madinah-ziyarat/',
+            'ur': 'https://taxiserviceksa.com/ur/services/madinah-ziyarat/',
+            'x-default': 'https://taxiserviceksa.com/services/madinah-ziyarat/',
+        },
     },
     openGraph: {
         title: 'مدینہ زیارات پرائیویٹ ٹیکسی | دینی مقامات کی سیر',

@@ -17,6 +17,7 @@ export const metadata: Metadata = {
         languages: {
             'en': 'https://taxiserviceksa.com/services/taxi-in-makkah/',
             'ar': 'https://taxiserviceksa.com/ar/services/taxi-in-makkah/',
+            'ur': 'https://taxiserviceksa.com/ur/services/taxi-in-makkah/',
             'x-default': 'https://taxiserviceksa.com/services/taxi-in-makkah/',
         },
     },

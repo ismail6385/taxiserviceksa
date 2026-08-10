@@ -20,6 +20,12 @@ export const metadata: Metadata = {
     keywords: ['Taif cable car taxi', 'Al Hada telefric transport', 'Abha cable car ride', 'Saudi Arabia cable car', 'Mountain tourism taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/cable-car/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/cable-car/',
+            'ar': 'https://taxiserviceksa.com/ar/services/cable-car/',
+            'ur': 'https://taxiserviceksa.com/ur/services/cable-car/',
+            'x-default': 'https://taxiserviceksa.com/services/cable-car/',
+        },
     },
 };
 

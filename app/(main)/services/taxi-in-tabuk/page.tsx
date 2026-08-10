@@ -38,6 +38,7 @@ export const metadata: Metadata = {
         languages: {
             'en': 'https://taxiserviceksa.com/services/taxi-in-tabuk/',
             'ar': 'https://taxiserviceksa.com/ar/services/taxi-in-tabuk/',
+            'ur': 'https://taxiserviceksa.com/ur/services/taxi-in-tabuk/',
             'x-default': 'https://taxiserviceksa.com/services/taxi-in-tabuk/',
         },
     },

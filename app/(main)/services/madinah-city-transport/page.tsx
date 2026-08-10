@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     ],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/madinah-city-transport/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/madinah-city-transport/',
+            'ar': 'https://taxiserviceksa.com/ar/services/madinah-city-transport/',
+            'x-default': 'https://taxiserviceksa.com/services/madinah-city-transport/',
+        },
     },
     openGraph: {
         title: 'Private Car, Taxi and Chauffeur Service for Madinah City Transport | Taxi Service KSA',

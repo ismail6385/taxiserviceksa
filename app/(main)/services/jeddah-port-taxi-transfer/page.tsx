@@ -18,6 +18,11 @@ export const metadata: Metadata = {
     ],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/jeddah-port-taxi-transfer/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/jeddah-port-taxi-transfer/',
+            'ar': 'https://taxiserviceksa.com/ar/services/jeddah-port-taxi-transfer/',
+            'x-default': 'https://taxiserviceksa.com/services/jeddah-port-taxi-transfer/',
+        },
     },
 };
 

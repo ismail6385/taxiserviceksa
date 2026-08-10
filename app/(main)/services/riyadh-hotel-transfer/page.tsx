@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     ],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/riyadh-hotel-transfer/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/riyadh-hotel-transfer/',
+            'ar': 'https://taxiserviceksa.com/ar/services/riyadh-hotel-transfer/',
+            'x-default': 'https://taxiserviceksa.com/services/riyadh-hotel-transfer/',
+        },
     },
     openGraph: {
         title: 'Private Car, Taxi and Chauffeur Service for Riyadh Hotel Transfers | Taxi Service KSA',

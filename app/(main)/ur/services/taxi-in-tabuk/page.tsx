@@ -13,6 +13,12 @@ export const metadata: Metadata = {
     keywords: ['تبوک سے نیوم ٹیکسی', 'تبوک میں ٹیکسی', 'نیوم ٹو تبوک کار', 'تبوک سے مدینہ ٹیکسی', 'تبوک پرائیویٹ کار'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/services/taxi-in-tabuk/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/taxi-in-tabuk/',
+            'ar': 'https://taxiserviceksa.com/ar/services/taxi-in-tabuk/',
+            'ur': 'https://taxiserviceksa.com/ur/services/taxi-in-tabuk/',
+            'x-default': 'https://taxiserviceksa.com/services/taxi-in-tabuk/',
+        },
     },
     openGraph: {
         title: 'نیوم اور تبوک میں ٹیکسی | انتہائی محفوظ اور آرام دہ گاڑیاں',

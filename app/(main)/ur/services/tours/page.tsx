@@ -15,6 +15,12 @@ export const metadata: Metadata = {
     keywords: ['سعودی عرب ٹورز', 'مدینہ زیارت ٹور', 'العلا تاریخی سفر', 'طائف سائیٹ سینگ', 'جدہ تاریخی ٹور', 'پرائیویٹ ٹور ڈرائیور KSA'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/services/tours/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/tours/',
+            'ar': 'https://taxiserviceksa.com/ar/services/tours/',
+            'ur': 'https://taxiserviceksa.com/ur/services/tours/',
+            'x-default': 'https://taxiserviceksa.com/services/tours/',
+        },
     },
     openGraph: {
         title: 'سعودی عرب کے ٹورز اور سائیٹ سینگ | پرائیویٹ ٹرانسپورٹ',

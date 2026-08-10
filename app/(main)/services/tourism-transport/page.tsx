@@ -36,6 +36,11 @@ export const metadata: Metadata = {
     ],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/tourism-transport/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/tourism-transport/',
+            'ar': 'https://taxiserviceksa.com/ar/services/tourism-transport/',
+            'x-default': 'https://taxiserviceksa.com/services/tourism-transport/',
+        },
     },
     openGraph: {
         title: 'Private Car, Taxi and Chauffeur Service for Tourism Transport | Taxi Service KSA',

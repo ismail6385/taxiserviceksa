@@ -18,6 +18,12 @@ export const metadata: Metadata = {
     keywords: ['وہیل چیئر ٹرانسفر', 'عمرہ بزرگوں کی ٹرانسپورٹ', 'ویل چیئر ٹیکسی سعودی عرب', 'ہسپتال ٹرانسفر سروس', 'معذور افراد ٹرانسپورٹ کسا'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/services/wheelchair-taxi/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/wheelchair-taxi/',
+            'ar': 'https://taxiserviceksa.com/ar/services/wheelchair-taxi/',
+            'ur': 'https://taxiserviceksa.com/ur/services/wheelchair-taxi/',
+            'x-default': 'https://taxiserviceksa.com/services/wheelchair-taxi/',
+        },
     },
     openGraph: {
         title: 'ویل چیئر قابلِ رسائی وی آئی پی ٹرانسفر | آرام اور دیکھ بھال',

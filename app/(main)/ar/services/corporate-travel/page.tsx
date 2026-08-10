@@ -17,7 +17,13 @@ export const metadata: Metadata = {
     description: 'Professional corporate travel service for business executives in Saudi Arabia. Monthly billing, priority booking, and executive vehicles with licensed drivers. Riyadh and Jeddah focus.',
     keywords: ['corporate taxi Saudi Arabia', 'executive transport Riyadh', 'business travel Jeddah', 'corporate car service KSA'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/corporate-travel/',
+        canonical: 'https://taxiserviceksa.com/ar/services/corporate-travel/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/corporate-travel/',
+            'ar': 'https://taxiserviceksa.com/ar/services/corporate-travel/',
+            'ur': 'https://taxiserviceksa.com/ur/services/corporate-travel/',
+            'x-default': 'https://taxiserviceksa.com/services/corporate-travel/',
+        },
     },
     openGraph: {
         title: 'Corporate Travel Service Saudi Arabia | Executive Taxi with Driver',

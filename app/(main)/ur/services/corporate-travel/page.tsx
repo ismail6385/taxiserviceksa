@@ -18,6 +18,12 @@ export const metadata: Metadata = {
     keywords: ['کارپوریٹ وی آئی پی ٹرانسفر سعودی عرب', 'بہترین وی آئی پی ٹرانسفر سروس', 'ایگزیکٹو ٹرانسپورٹ ریاض', 'بزنس ٹریول جدہ', 'کارپوریٹ چوفر سروس'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/services/corporate-travel/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/corporate-travel/',
+            'ar': 'https://taxiserviceksa.com/ar/services/corporate-travel/',
+            'ur': 'https://taxiserviceksa.com/ur/services/corporate-travel/',
+            'x-default': 'https://taxiserviceksa.com/services/corporate-travel/',
+        },
     },
     openGraph: {
         title: 'کارپوریٹ وی آئی پی ٹرانسفر سعودی عرب | ایگزیکٹو سروس بمعہ ڈرائیور',

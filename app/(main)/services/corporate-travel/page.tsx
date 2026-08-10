@@ -18,6 +18,12 @@ export const metadata: Metadata = {
     keywords: ['Corporate travel account Saudi Arabia', 'Company taxi account KSA', 'Monthly billing taxi Saudi', 'Business fleet management KSA', 'Corporate transport contract Saudi Arabia'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/corporate-travel/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/corporate-travel/',
+            'ar': 'https://taxiserviceksa.com/ar/services/corporate-travel/',
+            'ur': 'https://taxiserviceksa.com/ur/services/corporate-travel/',
+            'x-default': 'https://taxiserviceksa.com/services/corporate-travel/',
+        },
     },
     openGraph: {
         title: 'Private Car, Taxi and Chauffeur Service for Corporate Travel | Taxi Service KSA',

@@ -20,6 +20,12 @@ export const metadata: Metadata = {
     keywords: ['Corporate VIP transfer Saudi Arabia', 'Business executive transfer KSA', 'Chauffeur service Riyadh', 'Jeddah business transfer', 'VIP transport Saudi Arabia'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/business/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/business/',
+            'ar': 'https://taxiserviceksa.com/ar/services/business/',
+            'ur': 'https://taxiserviceksa.com/ur/services/business/',
+            'x-default': 'https://taxiserviceksa.com/services/business/',
+        },
     },
 };
 

@@ -23,6 +23,8 @@ export const metadata: Metadata = {
         languages: {
             'en': 'https://taxiserviceksa.com/services/umrah-transport/',
             'ar': 'https://taxiserviceksa.com/ar/services/umrah-transport/',
+            'ur': 'https://taxiserviceksa.com/ur/services/umrah-transport/',
+            'x-default': 'https://taxiserviceksa.com/services/umrah-transport/',
         },
     },
     openGraph: {

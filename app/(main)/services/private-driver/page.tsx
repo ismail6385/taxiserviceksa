@@ -36,6 +36,11 @@ export const metadata: Metadata = {
     ],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/private-driver/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/private-driver/',
+            'ar': 'https://taxiserviceksa.com/ar/services/private-driver/',
+            'x-default': 'https://taxiserviceksa.com/services/private-driver/',
+        },
     },
     openGraph: {
         title: 'Private Car, Taxi and Chauffeur Service for Private Driver Hire | Taxi Service KSA',

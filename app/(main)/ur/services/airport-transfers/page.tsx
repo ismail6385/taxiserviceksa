@@ -21,6 +21,12 @@ export const metadata: Metadata = {
     keywords: ['وی آئی پی ایئرپورٹ ٹرانسفر سعودی عرب', 'پریمیم چوفر سروس', 'جدہ ایئرپورٹ ٹیکسی', 'ریاض ایئرپورٹ ٹرانسفر', 'مدینہ ایئرپورٹ ٹیکسی', 'ابہا ایئرپورٹ ٹیکسی'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/services/airport-transfers/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/airport-transfers/',
+            'ar': 'https://taxiserviceksa.com/ar/services/airport-transfers/',
+            'ur': 'https://taxiserviceksa.com/ur/services/airport-transfers/',
+            'x-default': 'https://taxiserviceksa.com/services/airport-transfers/',
+        },
     },
     openGraph: {
         title: 'ایئرپورٹ ٹرانسفر سروس سعودی عرب | پریمیم چوفر - 8 ہوائی اڈے',

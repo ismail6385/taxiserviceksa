@@ -32,6 +32,7 @@ export const metadata = {
         languages: {
             'en': 'https://taxiserviceksa.com/services/b2b-solutions/',
             'ar': 'https://taxiserviceksa.com/ar/services/b2b-solutions/',
+            'ur': 'https://taxiserviceksa.com/ur/services/b2b-solutions/',
             'x-default': 'https://taxiserviceksa.com/services/b2b-solutions/',
         },
     },

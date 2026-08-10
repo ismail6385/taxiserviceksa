@@ -19,6 +19,12 @@ export const metadata: Metadata = {
     keywords: ['Top Rated Heritage Tours', 'Best 4x4 Desert Transport KSA', 'AlUla Tours Saudi Arabia', 'Hegra UNESCO Transport', 'Saudi Heritage Sites Taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/heritage-tours/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/heritage-tours/',
+            'ar': 'https://taxiserviceksa.com/ar/services/heritage-tours/',
+            'ur': 'https://taxiserviceksa.com/ur/services/heritage-tours/',
+            'x-default': 'https://taxiserviceksa.com/services/heritage-tours/',
+        },
     },
     openGraph: {
         title: 'Private Car, Taxi and Chauffeur Service for Heritage Tours | Taxi Service KSA',

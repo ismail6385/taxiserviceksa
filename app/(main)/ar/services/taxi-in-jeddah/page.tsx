@@ -16,6 +16,7 @@ export const metadata: Metadata = {
         languages: {
             'en': 'https://taxiserviceksa.com/services/taxi-in-jeddah/',
             'ar': 'https://taxiserviceksa.com/ar/services/taxi-in-jeddah/',
+            'ur': 'https://taxiserviceksa.com/ur/services/taxi-in-jeddah/',
             'x-default': 'https://taxiserviceksa.com/services/taxi-in-jeddah/',
         },
     },

@@ -19,7 +19,13 @@ export const metadata: Metadata = {
     description: 'Book comprehensive Ziyarat tours in Madinah. Visit Masjid Quba, Mount Uhud, Seven Mosques, and Qiblatain with knowledgeable local drivers. Fixed price packages.',
     keywords: ['Madinah Ziyarat', 'Ziyarat taxi Madinah', 'Quba mosque taxi', 'Uhud mountain tour', 'Seven mosques visit', 'Madinah holy sites transport'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/madinah-ziyarat/',
+        canonical: 'https://taxiserviceksa.com/ar/services/madinah-ziyarat/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/madinah-ziyarat/',
+            'ar': 'https://taxiserviceksa.com/ar/services/madinah-ziyarat/',
+            'ur': 'https://taxiserviceksa.com/ur/services/madinah-ziyarat/',
+            'x-default': 'https://taxiserviceksa.com/services/madinah-ziyarat/',
+        },
     },
 };
 

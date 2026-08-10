@@ -18,6 +18,11 @@ export const metadata: Metadata = {
     ],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/jeddah-corniche-hotel-taxi/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/jeddah-corniche-hotel-taxi/',
+            'ar': 'https://taxiserviceksa.com/ar/services/jeddah-corniche-hotel-taxi/',
+            'x-default': 'https://taxiserviceksa.com/services/jeddah-corniche-hotel-taxi/',
+        },
     },
 };
 

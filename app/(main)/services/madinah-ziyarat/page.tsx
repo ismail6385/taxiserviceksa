@@ -24,6 +24,12 @@ export const metadata: Metadata = {
     keywords: ['Madinah Ziyarat 2026', 'Ziyarat taxi Madinah', 'Quba mosque taxi', 'Uhud mountain tour', 'Seven mosques visit', 'Madinah holy sites transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/madinah-ziyarat/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/madinah-ziyarat/',
+            'ar': 'https://taxiserviceksa.com/ar/services/madinah-ziyarat/',
+            'ur': 'https://taxiserviceksa.com/ur/services/madinah-ziyarat/',
+            'x-default': 'https://taxiserviceksa.com/services/madinah-ziyarat/',
+        },
     },
 };
 

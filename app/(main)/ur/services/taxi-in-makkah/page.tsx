@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     keywords: ['مکہ سے مدینہ ٹیکسی', 'مکہ میں ٹیکسی', 'مکہ ٹیکسی', 'مکہ سے مدینہ ٹیکسی کرایہ', 'مکہ ٹو جدہ ٹیکسی'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/services/taxi-in-makkah/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/taxi-in-makkah/',
+            'ar': 'https://taxiserviceksa.com/ar/services/taxi-in-makkah/',
+            'ur': 'https://taxiserviceksa.com/ur/services/taxi-in-makkah/',
+            'x-default': 'https://taxiserviceksa.com/services/taxi-in-makkah/',
+        },
     },
     openGraph: {
         title: 'مکہ میں ٹیکسی | 24/7 پریمیم پرائیویٹ ٹرانسپورٹ',

@@ -13,6 +13,12 @@ export const metadata: Metadata = {
     keywords: ['جدہ سے مکہ ٹیکسی', 'جدہ ایئرپورٹ ٹیکسی', 'جدہ میں ٹیکسی', 'جدہ ٹو مکہ ٹیکسی کرایہ', 'ایئرپورٹ پک اپ جدہ'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/services/taxi-in-jeddah/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/taxi-in-jeddah/',
+            'ar': 'https://taxiserviceksa.com/ar/services/taxi-in-jeddah/',
+            'ur': 'https://taxiserviceksa.com/ur/services/taxi-in-jeddah/',
+            'x-default': 'https://taxiserviceksa.com/services/taxi-in-jeddah/',
+        },
     },
     openGraph: {
         title: 'جدہ میں ٹیکسی | پریمیم کارز بمعہ ڈرائیور',

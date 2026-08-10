@@ -13,6 +13,12 @@ export const metadata: Metadata = {
     keywords: ['طائف کیبل کار ٹیکسی', 'الہدا ٹیلی فریک ٹرانسپورٹ', 'ابہا کیبل کار رائیڈ', 'سعودی عرب کیبل کار', 'پہاڑی سیاحت ٹیکسی KSA'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/services/cable-car/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/cable-car/',
+            'ar': 'https://taxiserviceksa.com/ar/services/cable-car/',
+            'ur': 'https://taxiserviceksa.com/ur/services/cable-car/',
+            'x-default': 'https://taxiserviceksa.com/services/cable-car/',
+        },
     },
     openGraph: {
         title: 'طائف اور ابہا کیبل کار ٹرانسفرز | پہاڑی تفریحی مقامات',

@@ -18,7 +18,13 @@ export const metadata: Metadata = {
     description: 'Reliable wheelchair taxi service in Saudi Arabia. Vehicles equipped for elderly and disabled passengers. Accessible transport for Umrah, hospital visits, and airport transfers.',
     keywords: ['Wheelchair taxi Saudi Arabia', 'Handicap accessible transport KSA', 'Disabled taxi service', 'Elderly transport Umrah', 'Medical taxi service'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/wheelchair-taxi/',
+        canonical: 'https://taxiserviceksa.com/ar/services/wheelchair-taxi/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/wheelchair-taxi/',
+            'ar': 'https://taxiserviceksa.com/ar/services/wheelchair-taxi/',
+            'ur': 'https://taxiserviceksa.com/ur/services/wheelchair-taxi/',
+            'x-default': 'https://taxiserviceksa.com/services/wheelchair-taxi/',
+        },
     },
 };
 

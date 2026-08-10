@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     keywords: ['Local taxi Makkah', 'Hotel to Haram taxi', 'Makkah city rides', 'Pilgrims taxi Makkah', 'Intra-city taxi Makkah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/taxi-in-makkah/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/taxi-in-makkah/',
+            'ar': 'https://taxiserviceksa.com/ar/services/taxi-in-makkah/',
+            'ur': 'https://taxiserviceksa.com/ur/services/taxi-in-makkah/',
+            'x-default': 'https://taxiserviceksa.com/services/taxi-in-makkah/',
+        },
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Makkah | Hotel to Haram & Ziyarat | Taxi Service KSA',

@@ -21,6 +21,12 @@ export const metadata: Metadata = {
     keywords: ['VIP Umrah Transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/umrah-transport/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/umrah-transport/',
+            'ar': 'https://taxiserviceksa.com/ar/services/umrah-transport/',
+            'ur': 'https://taxiserviceksa.com/ur/services/umrah-transport/',
+            'x-default': 'https://taxiserviceksa.com/services/umrah-transport/',
+        },
     },
     openGraph: {
         title: 'Private Car, Taxi and Chauffeur Service for Umrah Transport | Taxi Service KSA',

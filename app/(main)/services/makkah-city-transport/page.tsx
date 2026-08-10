@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     ],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/makkah-city-transport/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/makkah-city-transport/',
+            'ar': 'https://taxiserviceksa.com/ar/services/makkah-city-transport/',
+            'x-default': 'https://taxiserviceksa.com/services/makkah-city-transport/',
+        },
     },
     openGraph: {
         title: 'Private Car, Taxi and Chauffeur Service for Makkah City Transport | Taxi Service KSA',

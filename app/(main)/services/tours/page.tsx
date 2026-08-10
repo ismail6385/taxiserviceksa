@@ -28,6 +28,12 @@ export const metadata: Metadata = {
     keywords: ['Saudi Arabia tours', 'Madinah Ziyarat tour', 'AlUla heritage tour', 'Taif sightseeing', 'Jeddah historical tour', 'Private tour driver KSA'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/tours/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/tours/',
+            'ar': 'https://taxiserviceksa.com/ar/services/tours/',
+            'ur': 'https://taxiserviceksa.com/ur/services/tours/',
+            'x-default': 'https://taxiserviceksa.com/services/tours/',
+        },
     },
 };
 

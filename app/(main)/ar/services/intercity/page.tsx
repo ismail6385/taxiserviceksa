@@ -32,7 +32,13 @@ export const metadata: Metadata = {
     description: 'Reliable intercity taxi service in Saudi Arabia. Private transfers between Jeddah, Makkah, Madinah, Riyadh, and more. Comfortable long-distance travel with fixed rates.',
     keywords: ['Intercity taxi Saudi Arabia', 'Jeddah to Riyadh taxi', 'Long distance taxi KSA', 'City to city transfer Saudi Arabia', 'Private car hire Saudi cities'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/intercity/',
+        canonical: 'https://taxiserviceksa.com/ar/services/intercity/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/intercity/',
+            'ar': 'https://taxiserviceksa.com/ar/services/intercity/',
+            'ur': 'https://taxiserviceksa.com/ur/services/intercity/',
+            'x-default': 'https://taxiserviceksa.com/services/intercity/',
+        },
     },
     openGraph: {
         url: 'https://taxiserviceksa.com/services/intercity/',

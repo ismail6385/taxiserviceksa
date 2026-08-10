@@ -18,6 +18,12 @@ export const metadata: Metadata = {
     keywords: ['انٹرسٹی وی آئی پی ٹرانسفر', 'سعودی عرب پرائیویٹ ٹرانسپورٹ', 'جدہ سے ریاض ٹیکسی', 'مکہ سے مدینہ ٹرانسفر', 'لانگ ڈرائیو وی آئی پی سروس'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/services/intercity/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/intercity/',
+            'ar': 'https://taxiserviceksa.com/ar/services/intercity/',
+            'ur': 'https://taxiserviceksa.com/ur/services/intercity/',
+            'x-default': 'https://taxiserviceksa.com/services/intercity/',
+        },
     },
     openGraph: {
         title: 'انٹرسٹی پرائیویٹ ٹرانسفر | ایک شہر سے دوسرے شہر کا سفر',

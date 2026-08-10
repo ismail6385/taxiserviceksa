@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     ],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/group-hiace-hire/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/group-hiace-hire/',
+            'ar': 'https://taxiserviceksa.com/ar/services/group-hiace-hire/',
+            'x-default': 'https://taxiserviceksa.com/services/group-hiace-hire/',
+        },
     },
     openGraph: {
         title: 'Private Car, Taxi and Chauffeur Service for Group Hiace Hire | Taxi Service KSA',

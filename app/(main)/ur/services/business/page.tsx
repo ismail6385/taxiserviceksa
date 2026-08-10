@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     keywords: ['کارپوریٹ وی آئی پی ٹرانسفر سعودی عرب', 'بزنس ایگزیکٹو ٹرانسفر KSA', 'چوفیر سروس ریاض', 'جدہ بزنس ٹرانسفر', 'وی آئی پی ٹرانسپورٹ سعودی عرب'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/services/business/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/business/',
+            'ar': 'https://taxiserviceksa.com/ar/services/business/',
+            'ur': 'https://taxiserviceksa.com/ur/services/business/',
+            'x-default': 'https://taxiserviceksa.com/services/business/',
+        },
     },
     openGraph: {
         title: 'کارپوریٹ بزنس ٹرانسفرز | ایگزیکٹو گاڑیاں اور ڈرائیورز',

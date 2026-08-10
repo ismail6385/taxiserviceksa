@@ -23,6 +23,8 @@ export const metadata: Metadata = {
         languages: {
             'en': 'https://taxiserviceksa.com/services/airport-transfers/',
             'ar': 'https://taxiserviceksa.com/ar/services/airport-transfers/',
+            'ur': 'https://taxiserviceksa.com/ur/services/airport-transfers/',
+            'x-default': 'https://taxiserviceksa.com/services/airport-transfers/',
         },
     },
     openGraph: {

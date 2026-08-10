@@ -19,6 +19,12 @@ export const metadata: Metadata = {
     keywords: ['ہیریٹیج ٹورز سعودی عرب', '4x4 ڈیزرٹ ٹرانسپورٹ', 'العلا ٹورز', 'مدائن صالح کی سیر', 'خیبر ٹورز', 'سعودی تاریخی مقامات ٹیکسی'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/services/heritage-tours/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/heritage-tours/',
+            'ar': 'https://taxiserviceksa.com/ar/services/heritage-tours/',
+            'ur': 'https://taxiserviceksa.com/ur/services/heritage-tours/',
+            'x-default': 'https://taxiserviceksa.com/services/heritage-tours/',
+        },
     },
     openGraph: {
         title: 'سعودی عرب تاریخی مقامات ٹورز | 4x4 کے ساتھ یونیسکو سائٹس کا سفر',

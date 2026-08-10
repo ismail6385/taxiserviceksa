@@ -35,6 +35,11 @@ export const metadata: Metadata = {
     ],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/bilingual-chauffeur/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/bilingual-chauffeur/',
+            'ar': 'https://taxiserviceksa.com/ar/services/bilingual-chauffeur/',
+            'x-default': 'https://taxiserviceksa.com/services/bilingual-chauffeur/',
+        },
     },
     openGraph: {
         title: 'Private Car, Taxi and Chauffeur Service for Bilingual Chauffeurs | Taxi Service KSA',

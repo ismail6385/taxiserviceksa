@@ -22,6 +22,12 @@ export const metadata: Metadata = {
     keywords: ['کارپوریٹ ٹرانسپورٹ', 'B2B ٹرانسفر سعودی عرب', 'عمرہ ایجنسی ٹرانسپورٹ', 'وی آئی پی ٹرانسفر بزنس', 'کمپنی ٹرانسپورٹ معاہدہ'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/services/b2b-solutions/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/b2b-solutions/',
+            'ar': 'https://taxiserviceksa.com/ar/services/b2b-solutions/',
+            'ur': 'https://taxiserviceksa.com/ur/services/b2b-solutions/',
+            'x-default': 'https://taxiserviceksa.com/services/b2b-solutions/',
+        },
     },
     openGraph: {
         title: 'B2B سفری سہولیات | بزنس لاجسٹکس',

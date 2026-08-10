@@ -13,6 +13,12 @@ export const metadata: Metadata = {
     keywords: ['Local taxi Jeddah', 'Taxi within Jeddah city', 'Jeddah city rides', 'Hotel pickup Jeddah', 'Same day taxi Jeddah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/taxi-in-jeddah/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/taxi-in-jeddah/',
+            'ar': 'https://taxiserviceksa.com/ar/services/taxi-in-jeddah/',
+            'ur': 'https://taxiserviceksa.com/ur/services/taxi-in-jeddah/',
+            'x-default': 'https://taxiserviceksa.com/services/taxi-in-jeddah/',
+        },
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Jeddah | Local City Rides | Taxi Service KSA',

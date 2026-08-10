@@ -33,6 +33,11 @@ export const metadata: Metadata = {
     ],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/women-transport/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/women-transport/',
+            'ar': 'https://taxiserviceksa.com/ar/services/women-transport/',
+            'x-default': 'https://taxiserviceksa.com/services/women-transport/',
+        },
     },
     openGraph: {
         title: 'Private Car, Taxi and Chauffeur Service for Women | Taxi Service KSA',

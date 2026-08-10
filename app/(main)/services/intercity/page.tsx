@@ -34,6 +34,12 @@ export const metadata: Metadata = {
     keywords: ['Intercity VIP transfer Saudi Arabia', 'Jeddah to Riyadh premium transfer', 'Long distance private chauffeur KSA', 'City to city VIP transfer Saudi Arabia', 'Private executive car hire Saudi cities'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/intercity/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/intercity/',
+            'ar': 'https://taxiserviceksa.com/ar/services/intercity/',
+            'ur': 'https://taxiserviceksa.com/ur/services/intercity/',
+            'x-default': 'https://taxiserviceksa.com/services/intercity/',
+        },
     },
     openGraph: {
         url: 'https://taxiserviceksa.com/services/intercity/',
