@@ -455,6 +455,11 @@ export default async function MadinahPage() {
                             }
                         ]}
                     />
+                    <div className="text-center mt-8">
+                        <Link href="/guides/uhud-history/" className="text-primary font-bold hover:underline inline-flex items-center gap-2">
+                            History of Mount Uhud: Full Ziyarat Guide <ArrowRight className="w-4 h-4" />
+                        </Link>
+                    </div>
                 </div>
             </section>
 
