@@ -110,7 +110,7 @@ export default function MadinahZiyaratPageUrdu() {
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-start">
-                            <Link href="/ur/booking?service=ziyarat">
+                            <Link href="/booking?service=ziyarat">
                                 <Button size="lg" className="bg-emerald-600 text-white hover:bg-emerald-500 font-bold text-lg px-10 py-7 rounded-full shadow-2xl hover:shadow-emerald-500/40 transition-all transform hover:-translate-y-1 group border-[3px] border-emerald-400/30 w-full sm:w-auto">
                                     <Moon className="mr-3 w-6 h-6" />
                                     زیارت کوٹیشن حاصل کریں
@@ -195,7 +195,7 @@ export default function MadinahZiyaratPageUrdu() {
                                     </ul>
                                 </div>
 
-                                <Link href="/ur/booking?service=ziyarat" className="block w-full">
+                                <Link href="/booking?service=ziyarat" className="block w-full">
                                     <Button className="w-full bg-slate-900 text-white hover:bg-emerald-600 text-lg py-6 font-bold rounded-xl shadow-lg transition-colors">
                                         آج ہی کوٹیشن حاصل کریں
                                     </Button>
@@ -256,7 +256,7 @@ export default function MadinahZiyaratPageUrdu() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button asChild size="lg" className="bg-emerald-600 text-white hover:bg-emerald-500 font-black text-lg px-10 py-6 h-auto shadow-xl rounded-full border border-emerald-500/50">
-                            <Link href="/ur/routes/makkah-madinah/">
+                            <Link href="/routes/makkah-madinah/">
                                 <ArrowRight className="mr-2 w-5 h-5 rotate-180" />
                                 مدینہ سے مکہ ٹرانسفر
                             </Link>

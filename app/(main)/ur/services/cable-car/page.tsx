@@ -86,7 +86,7 @@ export default function CableCarPageUrdu() {
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-start w-full max-w-sm md:max-w-none ml-auto">
-                            <Link href="/ur/booking?service=cable-car" className="w-full sm:w-auto">
+                            <Link href="/booking?service=cable-car" className="w-full sm:w-auto">
                                 <Button size="lg" className="bg-cyan-600 text-white hover:bg-cyan-500 font-bold text-lg px-10 py-7 rounded-full shadow-[0_10px_20px_rgba(6,182,212,0.3)] hover:shadow-[0_15px_30px_rgba(6,182,212,0.5)] transition-all transform hover:-translate-y-1 group border-[2px] border-cyan-400/50 w-full font-urdu">
                                     <Mountain className="mr-3 w-6 h-6" />
                                      ٹیکسی کوٹیشن حاصل کریں
@@ -165,7 +165,7 @@ export default function CableCarPageUrdu() {
                                         </div>
                                     </div>
 
-                                    <Link href="/ur/booking?service=cable-car" className="block mt-8 w-full">
+                                    <Link href="/booking?service=cable-car" className="block mt-8 w-full">
                                         <Button className="w-full bg-slate-900 text-white hover:bg-cyan-600 font-bold py-6 text-lg rounded-xl shadow-md transition-colors flex items-center justify-between">
                                             رائیڈ کوٹیشن حاصل کریں
                                             <ArrowRight className="w-5 h-5 rotate-180" />
@@ -230,7 +230,7 @@ export default function CableCarPageUrdu() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button asChild size="lg" className="bg-cyan-500 text-white hover:bg-cyan-400 font-bold text-lg px-10 py-6 h-auto shadow-xl rounded-full text-slate-900 border border-transparent">
-                            <Link href="/ur/booking?service=cable-car">
+                            <Link href="/booking?service=cable-car">
                                 <ArrowRight className="mr-2 w-5 h-5 rotate-180" />
                                 پہاڑی سفر کی بکنگ
                             </Link>

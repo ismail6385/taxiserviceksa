@@ -180,7 +180,7 @@ export default function PrivateTaxiMadinahPage() {
                         {[
                             { href: '/madinah-airport-taxi/', label: 'Madinah Airport Taxi' },
                             { href: '/makkah-to-madinah-taxi/', label: 'Makkah to Madinah Transfer' },
-                            { href: '/makkah-taxi/', label: 'Makkah Taxi Service' },
+                            { href: '/services/taxi-in-makkah/', label: 'Makkah Taxi Service' },
                             { href: '/jeddah-airport-transfer/', label: 'Jeddah Airport Transfer' },
                             { href: '/blog/best-hotels-masjid-nabawi-madinah/', label: 'Best Hotels Near Nabawi' },
                             { href: '/routes/', label: 'All Saudi Routes' },

@@ -184,7 +184,7 @@ export default async function AirportTransfersPageUrdu() {
             answer: (
                 <>
                     جی ہاں۔{' '}
-                    <Link href='/ur/routes/jeddah-makkah/' className='text-sky-700 hover:underline'>
+                    <Link href='/routes/jeddah-makkah/' className='text-sky-700 hover:underline'>
                         جدہ سے مکہ کا روٹ
                     </Link>{' '}
                     ہماری سب سے مشہور اور بک ہونے والی سروس ہے۔ فاصلہ 80 کلومیٹر ہے، اور سفر کا وقت 60-90 منٹ ہے۔ فکسڈ ریٹس میں ارائیولز ہال پر میٹ اینڈ گریٹ کی سروس بھی شامل ہے۔
@@ -283,7 +283,7 @@ export default async function AirportTransfersPageUrdu() {
                             بین الاقوامی معیار کی استقبالیہ خدمات کا تجربہ کریں۔ ہم <Link href="/ur/locations/jeddah/" className="text-gray-900 underline decoration-sky-500/50 hover:text-sky-600 transition-colors">جدہ ایئرپورٹ</Link> سے <span className="text-gray-900 font-bold">الحمراء</span>، <span className="text-gray-900 font-bold">ابراج البیت</span>، اور دیگر بڑے مراکز کے لیے **پریمیم، پہلے سے بک شدہ وی آئی پی ٹرانسفرز** فراہم کرتے ہیں۔ ہماری ایگزیکٹو ڈرائیونگ سروس **عزیزیہ کے حاجی کیمپوں** اور **ریاض کے KAFD** کی پیچیدہ سفری رکاوٹوں کو حل کر کے آپ کو باآسانی آپ کی منزل تک پہنچاتی ہے۔
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link href="/ur/booking?service=airport-transfer">
+                            <Link href="/booking?service=airport-transfer">
                                 <Button size="lg" className="bg-sky-600 text-white hover:bg-sky-700 font-black text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-sky-500/20 transition-all transform hover:scale-105 group">
                                     <ArrowRight className="mr-2 w-5 h-5 group-hover:-translate-x-1 transition-transform rotate-180" />
                                     ایئرپورٹ ٹرانسفر کوٹیشن حاصل کریں
@@ -494,7 +494,7 @@ export default async function AirportTransfersPageUrdu() {
                         سعودی عرب کی بہترین ایگزیکٹو ایئرپورٹ ٹرانسپورٹ کے ساتھ اپنے سفر کو محفوظ اور پرسکون بنائیں۔ ہم بین الاقوامی مسافروں اور بزنس ٹریولنگ کے لیے خصوصی خدمات فراہم کرتے ہیں۔
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/ur/booking?service=airport-transfer">
+                        <Link href="/booking?service=airport-transfer">
                             <Button size="lg" className="bg-white text-sky-950 hover:bg-sky-50 font-black text-lg px-10 py-6 h-auto min-w-[200px] rounded-full shadow-2xl">
                                 کوٹیشن حاصل کریں
                             </Button>

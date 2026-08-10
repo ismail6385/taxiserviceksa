@@ -242,7 +242,7 @@ export default function JeddahAirportTransferPage() {
                         {[
                             { href: '/routes/jeddah-to-fairmont-makkah-taxi/', label: 'Jeddah to Fairmont Makkah' },
                             { href: '/routes/jeddah-to-pullman-makkah-taxi/', label: 'Jeddah to Pullman Makkah' },
-                            { href: '/makkah-taxi/', label: 'Makkah Taxi Service' },
+                            { href: '/services/taxi-in-makkah/', label: 'Makkah Taxi Service' },
                             { href: '/makkah-to-madinah-taxi/', label: 'Makkah to Madinah Transfer' },
                             { href: '/madinah-airport-taxi/', label: 'Madinah Airport Taxi' },
                             { href: '/riyadh-airport-taxi/', label: 'Riyadh Airport Taxi' },

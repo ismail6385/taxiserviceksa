@@ -94,7 +94,7 @@ export default function WheelchairTaxiPageUrdu() {
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-start">
-                            <Link href="/ur/booking?service=wheelchair-taxi">
+                            <Link href="/booking?service=wheelchair-taxi">
                                 <Button size="lg" className="bg-cyan-600 text-white hover:bg-cyan-500 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-cyan-500/30 transition-all transform hover:-translate-y-1 group border-[1.5px] border-cyan-400/50 w-full sm:w-auto">
                                     <ArrowRight className="mr-2 w-5 h-5 group-hover:-translate-x-1 transition-transform rotate-180" />
                                     خصوصی ٹرانسفر کوٹیشن حاصل کریں
@@ -212,7 +212,7 @@ export default function WheelchairTaxiPageUrdu() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button asChild size="lg" className="bg-cyan-600 text-white hover:bg-cyan-500 font-black text-lg px-10 py-6 h-auto shadow-xl rounded-full">
-                            <Link href="/ur/booking/">
+                            <Link href="/booking/">
                                 <ArrowRight className="mr-2 w-5 h-5 rotate-180" />
                                 خصوصی ٹرانسفر کوٹیشن حاصل کریں
                             </Link>

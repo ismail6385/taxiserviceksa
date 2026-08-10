@@ -87,7 +87,7 @@ export default function TaxiInJeddahPageUrdu() {
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-start w-full max-w-sm md:max-w-none ml-auto">
-                            <Link href="/ur/booking?service=jeddah-taxi" className="w-full sm:w-auto">
+                            <Link href="/booking?service=jeddah-taxi" className="w-full sm:w-auto">
                                 <Button size="lg" className="bg-emerald-600 text-white hover:bg-emerald-500 font-bold text-lg px-10 py-7 rounded-xl shadow-[0_10px_20px_rgba(16,185,129,0.3)] hover:shadow-emerald-500/50 transition-all transform hover:-translate-y-1 group border-[2px] border-emerald-400/50 w-full">
                                      ٹیکسی کوٹیشن حاصل کریں
                                     <ArrowRight className="mr-2 w-5 h-5 group-hover:-translate-x-2 transition-transform rotate-180" />
@@ -118,17 +118,17 @@ export default function TaxiInJeddahPageUrdu() {
                             <p className="text-slate-600">جدہ سے اپنی منزل منتخب کریں اور وی آئی پی ٹرانسپورٹ حاصل کریں۔</p>
                         </div>
                         <div className="flex flex-wrap gap-3 flex-row-reverse w-full md:w-auto justify-start">
-                            <Link href="/ur/routes/jeddah-makkah/">
+                            <Link href="/routes/jeddah-makkah/">
                                 <Button className="bg-white text-slate-900 hover:bg-emerald-600 hover:text-white border-2 border-slate-200 hover:border-emerald-600 rounded-full px-6 transition-all shadow-sm font-bold h-12">
                                     جدہ سے مکہ
                                 </Button>
                             </Link>
-                            <Link href="/ur/routes/jeddah-madinah/">
+                            <Link href="/routes/jeddah-madinah/">
                                 <Button className="bg-white text-slate-900 hover:bg-emerald-600 hover:text-white border-2 border-slate-200 hover:border-emerald-600 rounded-full px-6 transition-all shadow-sm font-bold h-12">
                                     جدہ سے مدینہ
                                 </Button>
                             </Link>
-                            <Link href="/ur/routes/jeddah-alula/">
+                            <Link href="/routes/jeddah-alula/">
                                 <Button className="bg-white text-slate-900 hover:bg-emerald-600 hover:text-white border-2 border-slate-200 hover:border-emerald-600 rounded-full px-6 transition-all shadow-sm font-bold h-12">
                                     جدہ سے العلا
                                 </Button>
@@ -215,7 +215,7 @@ export default function TaxiInJeddahPageUrdu() {
                                     </div>
                                 </div>
                                 
-                                <Link href="/ur/booking/" className="mt-8 w-full flex items-center justify-center gap-2 p-4 font-bold text-white transition-all bg-emerald-700/80 rounded-xl hover:bg-emerald-600 shadow-lg">
+                                <Link href="/booking/" className="mt-8 w-full flex items-center justify-center gap-2 p-4 font-bold text-white transition-all bg-emerald-700/80 rounded-xl hover:bg-emerald-600 shadow-lg">
                                     یہ گاڑی کوٹیشن حاصل کریں
                                 </Link>
                             </div>

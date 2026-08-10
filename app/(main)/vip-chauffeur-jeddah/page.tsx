@@ -188,7 +188,7 @@ export default function VipChauffeurJeddahPage() {
                             { href: '/routes/jeddah-to-fairmont-makkah-taxi/', label: 'Jeddah to Fairmont Makkah' },
                             { href: '/routes/jeddah-to-pullman-makkah-taxi/', label: 'Jeddah to Pullman Makkah' },
                             { href: '/riyadh-to-jeddah-private-car/', label: 'Riyadh to Jeddah Car' },
-                            { href: '/makkah-taxi/', label: 'Makkah Taxi Service' },
+                            { href: '/services/taxi-in-makkah/', label: 'Makkah Taxi Service' },
                             { href: '/fleet/', label: 'View Our Fleet' },
                         ].map((link) => (
                             <Link key={link.href} href={link.href} className="flex items-center gap-2 bg-white rounded-xl px-4 py-3 text-sm font-semibold text-emerald-700 hover:bg-emerald-50 transition-colors shadow-sm border border-gray-100">

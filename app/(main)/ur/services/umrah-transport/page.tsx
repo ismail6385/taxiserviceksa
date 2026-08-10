@@ -34,7 +34,7 @@ export default function UmrahTransportPageUrdu() {
             duration: '60-90 منٹ',
             price: 'مناسب ترین منصفانہ ریٹس',
             description: 'کنگ عبدالعزیز بین الاقوامی ہوائی اڈے سے براہ راست آپ کے مکہ ہوٹل تک ٹرانسفر۔ استقبالیہ (Meet-and-greet) سروس شامل ہے۔',
-            link: '/ur/routes/jeddah-makkah',
+            link: '/routes/jeddah-makkah/',
             icon: Plane
         },
         {
@@ -43,7 +43,7 @@ export default function UmrahTransportPageUrdu() {
             duration: '4-5 گھنٹے',
             price: 'مناسب ترین منصفانہ ریٹس',
             description: 'دونوں مقدس شہروں کے درمیان آرام دہ سفر کے ساتھ اپنا عمرہ مکمل کریں۔ راستے میں نماز اور آرام کے لیے رکنے کی سہولت۔',
-            link: '/ur/routes/makkah-madinah',
+            link: '/routes/makkah-madinah/',
             icon: Navigation
         },
         {
@@ -182,7 +182,7 @@ export default function UmrahTransportPageUrdu() {
                             آپ کے مبارک عمرہ سفر کے لیے مکمل ٹرانسپورٹ سلوشن۔ جدہ ایئرپورٹ آمد سے لے کر مکہ، مدینہ، اور تمام مقدس مقامات کی زیارات تک۔ ہماری تمام گاڑیوں کے ساتھ لائسنس یافتہ، بااخلاق ڈرائیورز شامل ہوتے ہیں۔
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-start">
-                            <Link href="/ur/booking?service=umrah-transport">
+                            <Link href="/booking?service=umrah-transport">
                                 <Button size="lg" className="bg-white text-emerald-950 hover:bg-emerald-50 font-black text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-emerald-500/20 transition-all transform hover:scale-105 group border border-emerald-100/20">
                                     <ArrowRight className="mr-2 w-5 h-5 group-hover:-translate-x-1 transition-transform rotate-180" />
                                     عمرہ کی سواری کوٹیشن حاصل کریں
@@ -337,7 +337,7 @@ export default function UmrahTransportPageUrdu() {
                         پیشہ ور ڈرائیورز، فکسڈ ریٹس، اور آپ کے پورے عمرہ کے سفر کے لیے 24/7 سروس۔ ایئرپورٹ پر آمد سے لے کر واپسی کی روانگی تک ہم آپ کے ہمراہ ہیں۔
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/ur/booking?service=umrah-transport">
+                        <Link href="/booking?service=umrah-transport">
                             <Button size="lg" className="bg-white text-emerald-950 hover:bg-emerald-50 font-black text-lg px-10 py-6 h-auto min-w-[200px] rounded-full shadow-xl">
                                 کوٹیشن حاصل کریں
                             </Button>

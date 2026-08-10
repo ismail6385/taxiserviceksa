@@ -83,9 +83,17 @@ export default async function AuthorProfilePage({ params }: Props) {
     // Get Supabase blogs
     const supabaseBlogs = await blogService.getBlogsByAuthor(author.name);
 
+    // BLOG_TEMPLATES is a content-idea list for the admin generator tool, not a
+    // list of live posts — only link templates that have actually been published
+    // to the blogs table, otherwise this page dead-links to /blog/{slug}/ 404s.
+    const publishedSlugs = new Set((await blogService.getPublishedBlogs()).map((b: { slug: string }) => b.slug));
+    const supabaseSlugs = new Set(supabaseBlogs.map((b: { slug: string }) => b.slug));
+
     // Get blogTemplates articles (attributed to Muhammad Ismail)
     const templateArticles = params.slug === 'muhammad-ismail'
-        ? BLOG_TEMPLATES.map((t: { title: string; slug: string; excerpt: string; content: string; category: string; seo_keywords?: string[]; seo_title?: string; seo_description?: string }, i: number) => ({
+        ? BLOG_TEMPLATES
+            .filter((t: { slug: string }) => publishedSlugs.has(t.slug) && !supabaseSlugs.has(t.slug))
+            .map((t: { title: string; slug: string; excerpt: string; content: string; category: string; seo_keywords?: string[]; seo_title?: string; seo_description?: string }, i: number) => ({
             id: `tpl-${i}`,
             title: t.title,
             slug: t.slug,

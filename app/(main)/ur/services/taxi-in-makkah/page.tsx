@@ -88,7 +88,7 @@ export default function TaxiInMakkahPageUrdu() {
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-start w-full max-w-sm md:max-w-none ml-auto">
-                            <Link href="/ur/booking?service=makkah-taxi" className="w-full sm:w-auto">
+                            <Link href="/booking?service=makkah-taxi" className="w-full sm:w-auto">
                                 <Button size="lg" className="bg-amber-600 text-white hover:bg-amber-500 font-bold text-lg px-10 py-7 rounded-xl shadow-[0_10px_20px_rgba(217,119,6,0.3)] hover:shadow-[0_15px_30px_rgba(217,119,6,0.5)] transition-all transform hover:-translate-y-1 group border border-amber-400/50 w-full text-slate-950">
                                      مکہ ٹیکسی کے لیے کوٹیشن حاصل کریں
                                     <ArrowRight className="mr-2 w-5 h-5 group-hover:-translate-x-2 transition-transform rotate-180" />
@@ -119,17 +119,17 @@ export default function TaxiInMakkahPageUrdu() {
                             <p className="text-slate-600">کرایہ اور راستے کی تفصیلی معلومات کے لیے اپنی منزل کا انتخاب کریں۔</p>
                         </div>
                         <div className="flex flex-wrap gap-3 flex-row-reverse w-full md:w-auto justify-start">
-                            <Link href="/ur/routes/makkah-madinah/">
+                            <Link href="/routes/makkah-madinah/">
                                 <Button className="bg-white text-slate-900 hover:bg-amber-500 hover:text-white border-2 border-slate-200 hover:border-amber-500 rounded-full px-6 transition-all shadow-sm font-bold h-12">
                                      مکہ سے مدینہ
                                 </Button>
                             </Link>
-                            <Link href="/ur/routes/makkah-jeddah/">
+                            <Link href="/routes/makkah-jeddah/">
                                 <Button className="bg-white text-slate-900 hover:bg-amber-500 hover:text-white border-2 border-slate-200 hover:border-amber-500 rounded-full px-6 transition-all shadow-sm font-bold h-12">
                                     مکہ سے جدہ (ایئرپورٹ)
                                 </Button>
                             </Link>
-                            <Link href="/ur/routes/makkah-taif/">
+                            <Link href="/routes/makkah-taif/">
                                 <Button className="bg-white text-slate-900 hover:bg-amber-500 hover:text-white border-2 border-slate-200 hover:border-amber-500 rounded-full px-6 transition-all shadow-sm font-bold h-12">
                                     مکہ سے طائف
                                 </Button>
@@ -216,7 +216,7 @@ export default function TaxiInMakkahPageUrdu() {
                                     </div>
                                 </div>
                                 
-                                <Link href="/ur/booking/" className="mt-8 w-full flex items-center justify-center gap-2 p-4 font-bold text-slate-950 transition-all bg-amber-500 rounded-xl hover:bg-amber-400 shadow-lg">
+                                <Link href="/booking/" className="mt-8 w-full flex items-center justify-center gap-2 p-4 font-bold text-slate-950 transition-all bg-amber-500 rounded-xl hover:bg-amber-400 shadow-lg">
                                     یہ گاڑی کوٹیشن حاصل کریں
                                 </Link>
                             </div>

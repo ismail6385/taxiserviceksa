@@ -87,7 +87,7 @@ export default function TaxiInTabukPageUrdu() {
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-start w-full max-w-sm md:max-w-none ml-auto">
-                            <Link href="/ur/booking?service=tabuk-taxi" className="w-full sm:w-auto">
+                            <Link href="/booking?service=tabuk-taxi" className="w-full sm:w-auto">
                                 <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-500 font-bold text-lg px-10 py-7 rounded-xl shadow-[0_10px_20px_rgba(37,99,235,0.3)] hover:shadow-blue-500/50 transition-all transform hover:-translate-y-1 group border-[2px] border-blue-400/50 w-full">
                                      نیوم کے لیے گاڑی کوٹیشن حاصل کریں
                                     <ArrowRight className="mr-2 w-5 h-5 group-hover:-translate-x-2 transition-transform rotate-180" />
@@ -118,17 +118,17 @@ export default function TaxiInTabukPageUrdu() {
                             <p className="text-slate-600">ایک محفوظ، تصدیق شدہ طویل سفر کے لیے تبوک سے اپنی منزل منتخب کریں۔</p>
                         </div>
                         <div className="flex flex-wrap gap-3 flex-row-reverse w-full md:w-auto justify-start">
-                            <Link href="/ur/routes/tabuk-neom/">
+                            <Link href="/routes/tabuk-neom/">
                                 <Button className="bg-white text-slate-900 hover:bg-blue-600 hover:text-white border-2 border-slate-200 hover:border-blue-600 rounded-full px-6 transition-all shadow-sm font-bold h-12">
                                      تبوک سے نیوم (NEOM)
                                 </Button>
                             </Link>
-                            <Link href="/ur/routes/tabuk-jeddah/">
+                            <Link href="/routes/tabuk-jeddah/">
                                 <Button className="bg-white text-slate-900 hover:bg-blue-600 hover:text-white border-2 border-slate-200 hover:border-blue-600 rounded-full px-6 transition-all shadow-sm font-bold h-12">
                                     تبوک سے جدہ
                                 </Button>
                             </Link>
-                            <Link href="/ur/routes/tabuk-makkah/">
+                            <Link href="/routes/tabuk-makkah/">
                                 <Button className="bg-white text-slate-900 hover:bg-blue-600 hover:text-white border-2 border-slate-200 hover:border-blue-600 rounded-full px-6 transition-all shadow-sm font-bold h-12">
                                     تبوک سے مکہ
                                 </Button>
@@ -214,7 +214,7 @@ export default function TaxiInTabukPageUrdu() {
                                     </div>
                                 </div>
                                 
-                                <Link href="/ur/booking/" className="mt-8 w-full flex items-center justify-center gap-2 p-4 font-bold text-white transition-all bg-blue-700/80 rounded-xl hover:bg-blue-600 shadow-lg border border-blue-500/30">
+                                <Link href="/booking/" className="mt-8 w-full flex items-center justify-center gap-2 p-4 font-bold text-white transition-all bg-blue-700/80 rounded-xl hover:bg-blue-600 shadow-lg border border-blue-500/30">
                                     یہ گاڑی کوٹیشن حاصل کریں
                                 </Link>
                             </div>

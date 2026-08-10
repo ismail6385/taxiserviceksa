@@ -171,7 +171,7 @@ export default function MakkahToJeddahPage() {
                     <h2 className="text-2xl font-black text-gray-900 mb-6">Related Services</h2>
                     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                         {[
-                            { href: '/makkah-taxi/', label: 'Makkah City Taxi' },
+                            { href: '/services/taxi-in-makkah/', label: 'Makkah City Taxi' },
                             { href: '/makkah-to-madinah-taxi/', label: 'Makkah to Madinah' },
                             { href: '/jeddah-airport-transfer/', label: 'Jeddah Airport Transfer' },
                             { href: '/routes/jeddah-to-fairmont-makkah-taxi/', label: 'Jeddah to Makkah' },

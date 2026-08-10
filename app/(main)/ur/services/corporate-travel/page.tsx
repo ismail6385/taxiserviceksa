@@ -161,7 +161,7 @@ export default function CorporateTravelPageUrdu() {
                             Taxi Service KSA کارپوریٹ کلائنٹس کے لیے بہترین ایگزیکٹو ٹرانسفر سروس پیش کرتا ہے۔ ریاض اور جدہ میں لائسنس یافتہ پروفیشنل چوفرز کے ساتھ پرتعیش اور آرام دہ ایگزیکٹو ٹرانسپورٹ۔ وقت کی پابندی ہماری پہچان ہے۔
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-start">
-                            <Link href="/ur/booking?service=corporate-travel">
+                            <Link href="/booking?service=corporate-travel">
                                 <Button size="lg" className="bg-white text-blue-950 hover:bg-blue-50 font-black text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-blue-500/20 transition-all transform hover:scale-105 group border border-blue-100/20">
                                     <ArrowRight className="mr-2 w-5 h-5 group-hover:-translate-x-1 transition-transform rotate-180" />
                                     کارپوریٹ اکاؤنٹ کی درخواست دیں
@@ -284,7 +284,7 @@ export default function CorporateTravelPageUrdu() {
                         سعودی عرب میں ٹاپ ریٹڈ وی آئی پی ٹرانسفر سروس کے ساتھ اپنا بزنس ٹریول محفوظ بنائیں۔ ماہانہ بلنگ اور ترجیحی بکنگ کی سہولیات سے فائدہ اٹھائیں۔
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/ur/booking?service=corporate-travel">
+                        <Link href="/booking?service=corporate-travel">
                             <Button size="lg" className="bg-white text-blue-950 hover:bg-blue-50 font-black text-lg px-10 py-6 h-auto min-w-[200px] rounded-full shadow-xl">
                                 کارپوریٹ اکاؤنٹ کی درخواست دیں
                             </Button>

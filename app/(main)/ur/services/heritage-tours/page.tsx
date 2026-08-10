@@ -184,7 +184,7 @@ export default function HeritageToursPageUrdu() {
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-start">
-                            <Link href="/ur/booking?service=heritage-tours">
+                            <Link href="/booking?service=heritage-tours">
                                 <Button size="lg" className="bg-amber-600 text-white hover:bg-amber-500 font-black text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-amber-500/30 transition-all transform hover:scale-105 group border border-amber-400/20">
                                     <ArrowRight className="mr-2 w-5 h-5 group-hover:-translate-x-1 transition-transform rotate-180" />
                                     اپنا ٹور کوٹیشن حاصل کریں
@@ -383,7 +383,7 @@ export default function HeritageToursPageUrdu() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button asChild size="lg" className="bg-amber-600 text-white hover:bg-amber-500 font-black text-lg px-10 py-6 h-auto shadow-xl rounded-full border border-amber-500/50">
-                            <Link href="/ur/booking/">
+                            <Link href="/booking/">
                                 <ArrowRight className="mr-2 w-5 h-5 rotate-180" />
                                 ہیریٹیج ٹور کوٹیشن حاصل کریں
                             </Link>

@@ -116,7 +116,7 @@ export default function IntercityServicePageUrdu() {
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-start">
-                            <Link href="/ur/booking?service=intercity">
+                            <Link href="/booking?service=intercity">
                                 <Button size="lg" className="bg-indigo-600 text-white hover:bg-indigo-500 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-indigo-500/30 transition-all transform hover:-translate-y-1 group border border-indigo-400/50 w-full sm:w-auto">
                                     <ArrowRight className="mr-2 w-5 h-5 group-hover:-translate-x-1 transition-transform rotate-180" />
                                     انٹرسٹی ٹرانسفر کوٹیشن حاصل کریں
@@ -189,7 +189,7 @@ export default function IntercityServicePageUrdu() {
                             </div>
                             <div className="pt-4 border-t border-slate-100 flex justify-between items-center">
                                 <span className="text-emerald-600 font-extrabold text-lg px-2 py-1 bg-emerald-50 rounded">{route.price}</span>
-                                <Link href="/ur/booking/" className="text-indigo-600 font-bold hover:text-indigo-800 flex items-center gap-1">
+                                <Link href="/booking/" className="text-indigo-600 font-bold hover:text-indigo-800 flex items-center gap-1">
                                     کوٹیشن حاصل کریں <ArrowRight className="w-4 h-4 rotate-180" />
                                 </Link>
                             </div>

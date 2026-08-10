@@ -106,7 +106,7 @@ export default function ToursPageUrdu() {
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-start w-full max-w-sm md:max-w-none ml-auto">
-                            <Link href="/ur/booking?service=tours" className="w-full sm:w-auto">
+                            <Link href="/booking?service=tours" className="w-full sm:w-auto">
                                 <Button size="lg" className="bg-orange-600 text-white hover:bg-orange-500 font-bold text-lg px-10 py-7 rounded-2xl shadow-[0_10px_30px_rgba(234,88,12,0.4)] hover:shadow-[0_15px_40px_rgba(234,88,12,0.6)] transition-all transform hover:-translate-y-1 group border-[2px] border-orange-400/50 w-full font-urdu">
                                     <Camera className="mr-3 w-6 h-6" />
                                      اپنی سیر کوٹیشن حاصل کریں

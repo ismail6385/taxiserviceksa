@@ -93,7 +93,7 @@ export default function BusinessPageUrdu() {
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-start w-full max-w-sm md:max-w-none ml-auto">
-                            <Link href="/ur/booking?service=business" className="w-full sm:w-auto">
+                            <Link href="/booking?service=business" className="w-full sm:w-auto">
                                 <Button size="lg" className="bg-emerald-600 text-white hover:bg-emerald-500 font-bold text-lg px-10 py-7 rounded-xl shadow-xl hover:shadow-emerald-500/30 transition-all transform hover:-translate-y-1 group border border-emerald-400/50 w-full">
                                     <Car className="mr-3 w-6 h-6" />
                                     کارپوریٹ گاڑی کوٹیشن حاصل کریں

@@ -152,7 +152,7 @@ export default function ServicesPageUrdu() {
                         <p className="text-indigo-100/90 mb-10 max-w-3xl mx-auto leading-relaxed text-xl font-light">
                             ہم ایک **سرشار (Dedicated)** پرائیویٹ ٹرانسفر کمپنی ہیں۔ ہم مقامی گلی کوچوں میں ہاتھ دے کر روکی جانے والی ٹیکسی یا چھوٹے، لوکل پوائنٹ ٹو پوائنٹ سفری حل فراہم نہیں کرتے۔ ہماری پوری فلیٹ کا مقصد صرف اور صرف پہلے سے بک شدہ (Pre-booked) ایئرپورٹ ٹرانسفرز، لمبی دوری کے انٹرسٹی سفر، اور دن بھر کی لگژری سہولیات مہیا کرنا ہے۔
                         </p>
-                        <Link href="/ur/booking/" className="inline-block">
+                        <Link href="/booking/" className="inline-block">
                             <Button size="lg" className="bg-white text-slate-900 hover:bg-indigo-50 hover:text-indigo-700 hover:scale-105 font-black text-xl px-12 py-7 h-auto rounded-full shadow-[0_10px_25px_rgba(255,255,255,0.1)] transition-all">
                                 اپنی وی آئی پی گاڑی کے لیے کوٹیشن حاصل کریں
                             </Button>
