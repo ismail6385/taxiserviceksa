@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/accordion';
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 import AuthorCard from '@/components/AuthorCard';
+import TopicCluster from '@/components/seo/TopicCluster';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Tabuk | NEOM & AlUla Routes | Taxi Service KSA',
@@ -483,6 +484,72 @@ export default function TaxiInTabukPage() {
                             </ul>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            {/* Tabuk Guides Topic Cluster */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+                <div className="max-w-7xl mx-auto">
+                    <TopicCluster
+                        mainTopic="Tabuk Travel Hub"
+                        clusters={[
+                            {
+                                category: "Key Routes",
+                                relevance: "Primary",
+                                items: [
+                                    { label: "Tabuk to NEOM", url: "/routes/tabuk-neom/" },
+                                    { label: "Tabuk to AlUla", url: "/routes/tabuk-alula/" },
+                                    { label: "Tabuk to Jeddah", url: "/routes/tabuk-jeddah/" }
+                                ]
+                            },
+                            {
+                                category: "Planning Essentials",
+                                relevance: "Secondary",
+                                items: [
+                                    { label: "Complete Tabuk Travel Guide", url: "/blog/complete-tabuk-travel-guide/" },
+                                    { label: "Travel Tips & Cost Checklist", url: "/blog/tabuk-travel-tips-checklist-cost/" },
+                                    { label: "Best Time to Visit (Weather)", url: "/blog/best-time-to-visit-tabuk-weather/" }
+                                ]
+                            },
+                            {
+                                category: "More Tabuk Guides",
+                                relevance: "Tertiary",
+                                items: [
+                                    { label: "Al Disah Valley", url: "/blog/al-disah-valley-tabuk-how-to-visit/" },
+                                    { label: "AlUla Visitor Guide", url: "/blog/alula-visitor-guide-from-tabuk/" },
+                                    { label: "Best Red Sea Beaches", url: "/blog/best-red-sea-beaches-near-tabuk/" },
+                                    { label: "Best Restaurants & Cafes", url: "/blog/best-restaurants-cafes-food-tabuk/" },
+                                    { label: "Visiting NEOM from Tabuk", url: "/blog/can-tourists-visit-neom-from-tabuk/" },
+                                    { label: "Car Rental at the Airport", url: "/blog/car-rental-tabuk-airport-worth-it/" },
+                                    { label: "Hegra (Madain Salih) Guide", url: "/blog/hegra-madain-salih-how-to-visit-from-tabuk/" },
+                                    { label: "Getting Around as a Tourist", url: "/blog/how-to-get-around-tabuk-as-a-tourist/" },
+                                    { label: "Airport to City Guide", url: "/blog/how-to-get-from-tabuk-airport-to-city/" },
+                                    { label: "Tabuk to AlUla Guide", url: "/blog/how-to-get-from-tabuk-to-alula/" },
+                                    { label: "Tabuk to NEOM Guide", url: "/blog/how-to-get-to-neom-from-tabuk/" },
+                                    { label: "Is There Uber in Tabuk?", url: "/blog/is-there-uber-in-tabuk/" },
+                                    { label: "Private Driver Price (NEOM)", url: "/blog/private-driver-tabuk-neom-price/" },
+                                    { label: "Shopping Guide (Malls & Markets)", url: "/blog/shopping-guide-malls-markets-tabuk/" },
+                                    { label: "Adventure, Hiking & Camping", url: "/blog/tabuk-adventure-activities-hiking-camping/" },
+                                    { label: "Airport (TUU) Arrivals Guide", url: "/blog/tabuk-airport-tuu-arrivals-guide/" },
+                                    { label: "Budget to Luxury Travel Guide", url: "/blog/tabuk-budget-luxury-family-solo-travel/" },
+                                    { label: "Tabuk Castle & Fort Guide", url: "/blog/tabuk-castle-fort-visitor-guide/" },
+                                    { label: "Railway Museum Guide", url: "/blog/tabuk-castle-railway-museum-guide/" },
+                                    { label: "Best Photo Spots", url: "/blog/tabuk-photography-instagram-spots/" },
+                                    { label: "Red Sea Beaches (Magna, Tayyib Ism)", url: "/blog/tabuk-red-sea-beaches-magna-tayyib-ism/" },
+                                    { label: "Tabuk to AlUla (Distance & Time)", url: "/blog/tabuk-to-alula-distance-drive-time/" },
+                                    { label: "Tabuk to Haql Guide", url: "/blog/tabuk-to-haql-transport-guide/" },
+                                    { label: "Tabuk to Jeddah Guide", url: "/blog/tabuk-to-jeddah-transport-guide/" },
+                                    { label: "Tabuk to Madinah Guide", url: "/blog/tabuk-to-madinah-private-car-guide/" },
+                                    { label: "Tabuk to NEOM (Distance & Time)", url: "/blog/tabuk-to-neom-distance-drive-time/" },
+                                    { label: "Tabuk to Riyadh Guide", url: "/blog/tabuk-to-riyadh-transport-guide/" },
+                                    { label: "Sharma Beach Guide", url: "/blog/tabuk-to-sharma-beach-how-to-get-there/" },
+                                    { label: "Travel Itinerary Planning", url: "/blog/tabuk-travel-itinerary-planning/" },
+                                    { label: "Top Places to Visit", url: "/blog/top-places-to-visit-tabuk-saudi-arabia/" },
+                                    { label: "Things to Do in Tabuk", url: "/blog/top-places-visit-things-do-tabuk/" }
+                                ]
+                            }
+                        ]}
+                    />
                 </div>
             </section>
 

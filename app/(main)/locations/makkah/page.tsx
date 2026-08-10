@@ -443,6 +443,11 @@ export default async function MakkahPage() {
                             }
                         ]}
                     />
+                    <div className="text-center mt-8">
+                        <Link href="/blog/jabal-al-noor-guide/" className="text-primary font-bold hover:underline inline-flex items-center gap-2">
+                            Read the Full Jabal Al-Noor &amp; Hira Cave Guide <ArrowRight className="w-4 h-4" />
+                        </Link>
+                    </div>
                 </div>
             </section>
 

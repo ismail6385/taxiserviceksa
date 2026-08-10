@@ -215,9 +215,43 @@ export default function TaifPage() {
                             category: "Attractions",
                             relevance: "Secondary",
                             items: [
-                                { label: "Rose Festival Tours", url: "/blog/taif-rose-festival-guide", description: "March/April Only" },
+                                { label: "Rose Festival Tours", url: "/blog/taif-rose-festival-guide/", description: "March/April Only" },
                                 { label: "Cable Car Transfers", url: "/services/cable-car", description: "Top Station Dropoff" },
                                 { label: "Miqat Ziyarat", url: "/guides/meeqat-locations", description: "Qarn al-Manazil" }
+                            ]
+                        },
+                        {
+                            category: "More Taif Guides",
+                            relevance: "Tertiary",
+                            items: [
+                                { label: "Adventure Activities", url: "/blog/adventure-activities-in-taif/" },
+                                { label: "Al Hada Mountain Guide", url: "/blog/al-hada-mountain-taif-guide/" },
+                                { label: "Al Shafa Mountain Guide", url: "/blog/al-shafa-mountain-taif-guide/" },
+                                { label: "Best Day Trips", url: "/blog/best-day-trips-from-taif/" },
+                                { label: "Best Parks & Nature", url: "/blog/best-parks-nature-taif/" },
+                                { label: "Best Picnic Spots", url: "/blog/best-picnic-spots-in-taif/" },
+                                { label: "Scenic Viewpoints", url: "/blog/best-scenic-viewpoints-taif/" },
+                                { label: "Camping & Campsites", url: "/blog/camping-in-taif-best-campsites-tips/" },
+                                { label: "Family-Friendly Activities", url: "/blog/family-friendly-things-to-do-in-taif/" },
+                                { label: "Taif FAQs", url: "/blog/frequently-asked-questions-about-taif/" },
+                                { label: "Fruit Farms", url: "/blog/fruit-farms-seasonal-experiences-taif/" },
+                                { label: "Hiking Trails", url: "/blog/hiking-in-taif-best-trails-routes/" },
+                                { label: "Historic Mosques", url: "/blog/historic-mosques-in-taif/" },
+                                { label: "Complete History Guide", url: "/blog/history-of-taif-complete-heritage-guide/" },
+                                { label: "SIM Cards & WiFi", url: "/blog/internet-sim-cards-wifi-taif/" },
+                                { label: "Is Taif Safe?", url: "/blog/is-taif-safe-for-tourists/" },
+                                { label: "Romantic Places", url: "/blog/romantic-places-to-visit-in-taif/" },
+                                { label: "Cable Car Guide", url: "/blog/taif-cable-car-guide-2026/" },
+                                { label: "Culture & Traditions", url: "/blog/taif-culture-local-traditions/" },
+                                { label: "Day Trip & Cable Car Guide", url: "/blog/taif-day-trip-guide-cable-car/" },
+                                { label: "Rose Gardens & Factory", url: "/blog/taif-rose-gardens-factory-guide/" },
+                                { label: "Travel Budget Guide", url: "/blog/taif-travel-budget-guide-2026/" },
+                                { label: "Taif vs Abha", url: "/blog/taif-vs-abha-comparison/" },
+                                { label: "Taif vs Al Baha", url: "/blog/taif-vs-al-baha-comparison/" },
+                                { label: "Taif Zoo", url: "/blog/taif-zoo-family-attractions/" },
+                                { label: "What to Pack", url: "/blog/what-to-pack-for-taif/" },
+                                { label: "What to Wear", url: "/blog/what-to-wear-in-taif/" },
+                                { label: "City of Roses (Why?)", url: "/blog/why-is-taif-called-city-of-roses/" }
                             ]
                         }
                     ]}

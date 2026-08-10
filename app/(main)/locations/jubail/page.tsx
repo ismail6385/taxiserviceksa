@@ -153,6 +153,13 @@ export default function JubailPage() {
                                         <p className="text-sm text-gray-500">Popular waterfront area for leisure and hotels.</p>
                                     </div>
                                 </li>
+                                <li className="flex gap-4">
+                                    <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center shrink-0 text-primary font-bold">4</div>
+                                    <div>
+                                        <Link href="/locations/jubail/industrial-city/" className="font-bold text-gray-900 hover:text-primary transition-colors">Industrial City & Plants →</Link>
+                                        <p className="text-sm text-gray-500">Gate access transfers for Sadara, SABIC, and Royal Commission plants.</p>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>

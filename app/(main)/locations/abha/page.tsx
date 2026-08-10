@@ -124,7 +124,7 @@ export default function AbhaPage() {
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">1</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Al Soudah</h4>
+                                        <Link href="/locations/abha/al-soudah/" className="font-bold text-gray-900 hover:text-primary transition-colors">Al Soudah →</Link>
                                         <p className="text-sm text-gray-500">The highest peak. Famous for cable cars and juniper forests.</p>
                                     </div>
                                 </li>
