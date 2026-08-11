@@ -8,6 +8,15 @@ export const metadata: Metadata = {
     title: 'Travel Guides | Taxi Service KSA - Expert Insights for Saudi Arabia',
     description: 'Comprehensive travel guides for Jeddah Airport, Makkah Umrah, and Riyadh Business Travel. Expert insights from professional drivers with years of local experience.',
     keywords: ['Jeddah Airport Guide', 'Makkah Umrah Guide', 'Riyadh Business Guide', 'Saudi Arabia Travel', 'Taxi Service KSA'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/ur/guides/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/',
+            'x-default': 'https://taxiserviceksa.com/guides/',
+        },
+    },
 };
 
 const guides = [

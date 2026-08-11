@@ -12,6 +12,12 @@ export const metadata: Metadata = {
     keywords: ['Jeddah Airport Guide', 'Makkah Umrah Guide', 'Riyadh Business Guide', 'Saudi Arabia Travel', 'Taxi Service KSA'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/guides/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/guides/',
+            'ar': 'https://taxiserviceksa.com/ar/guides/',
+            'ur': 'https://taxiserviceksa.com/ur/guides/',
+            'x-default': 'https://taxiserviceksa.com/guides/',
+        },
     },
 };
 

@@ -9,6 +9,12 @@ export const metadata: Metadata = {
     keywords: ['وی آئی پی پرائیویٹ ٹرانسفرز', 'چوفیر سروس سعودی عرب', 'عمرہ پرائیویٹ ٹرانسپورٹ', 'جدہ مکہ ٹیکسی', 'ایئرپورٹ پک اپ'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/services/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/',
+            'ar': 'https://taxiserviceksa.com/ar/services/',
+            'ur': 'https://taxiserviceksa.com/ur/services/',
+            'x-default': 'https://taxiserviceksa.com/services/',
+        },
     },
 };
 

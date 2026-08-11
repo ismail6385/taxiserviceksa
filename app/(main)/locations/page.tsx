@@ -9,6 +9,11 @@ export const metadata: Metadata = {
     description: 'Premium private transfer service across Saudi Arabia. Professional executive chauffeurs for airport transfers & tours in Jeddah, Makkah, Madinah, Riyadh, AlUla & Taif.',
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/locations/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/',
+            'x-default': 'https://taxiserviceksa.com/locations/',
+        },
     },
 };
 

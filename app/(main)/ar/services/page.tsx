@@ -12,6 +12,7 @@ export const metadata: Metadata = {
         languages: {
             'en': 'https://taxiserviceksa.com/services/',
             'ar': 'https://taxiserviceksa.com/ar/services/',
+            'ur': 'https://taxiserviceksa.com/ur/services/',
             'x-default': 'https://taxiserviceksa.com/services/',
         },
     },

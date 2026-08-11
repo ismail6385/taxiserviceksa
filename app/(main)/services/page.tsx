@@ -9,6 +9,12 @@ export const metadata: Metadata = {
     keywords: ['VIP Private Transfers', 'Executive Chauffeur Service', 'Taxi Service KSA', 'Long Distance Transfer', 'Umrah Private Transport', 'Business Chauffeur', 'Tourism Transport Saudi', 'Private Driver Saudi Arabia', 'English Speaking Driver Saudi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/services/',
+            'ar': 'https://taxiserviceksa.com/ar/services/',
+            'ur': 'https://taxiserviceksa.com/ur/services/',
+            'x-default': 'https://taxiserviceksa.com/services/',
+        },
     },
 };
 

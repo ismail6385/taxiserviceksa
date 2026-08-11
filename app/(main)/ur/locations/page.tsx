@@ -9,6 +9,11 @@ export const metadata: Metadata = {
     description: 'سعودی عرب بھر میں پریمیم وی آئی پی پرائیویٹ ٹرانسفر سروس۔ جدہ، مکہ، مدینہ، ریاض، العلا اور طائف میں ایئرپورٹ ٹرانسفر اور ٹورز کے لیے پیشہ ور چوفرز۔',
     alternates: {
         canonical: 'https://taxiserviceksa.com/ur/locations/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/locations/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/',
+            'x-default': 'https://taxiserviceksa.com/locations/',
+        },
     },
 };
 
