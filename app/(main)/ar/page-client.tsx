@@ -951,6 +951,9 @@ export default function HomeClientArabic({ latestBlogs = [] }: HomeClientArabicP
                                 تمتد عملياتنا الأعلى تقييماً لتشمل جدة ومكة والمدينة والرياض والدمام — بالإضافة إلى النقل العابر للحدود إلى دول الخليج الأوسع.
                             </p>
                         </div>
+                        <Link href="/ar/locations/" className="text-primary font-bold hover:underline flex items-center gap-2 mt-4 md:mt-0">
+                            عرض جميع المواقع <ArrowRight className="w-4 h-4 rotate-180" />
+                        </Link>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

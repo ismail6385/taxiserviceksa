@@ -494,6 +494,17 @@ const nextConfig = {
         destination: '/blog/jeddah-airport-makkah-taxi-fare-2026/',
         permanent: true,
       },
+      // Deprecated duplicate of /routes/jeddah-makkah/ - Aug 2026
+      {
+        source: '/routes/jeddah-makkah-old',
+        destination: '/routes/jeddah-makkah/',
+        permanent: true,
+      },
+      {
+        source: '/routes/jeddah-makkah-old/',
+        destination: '/routes/jeddah-makkah/',
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
