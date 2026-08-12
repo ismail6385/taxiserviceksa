@@ -460,6 +460,38 @@ export default async function MadinahPage() {
                             History of Mount Uhud: Full Ziyarat Guide <ArrowRight className="w-4 h-4" />
                         </Link>
                     </div>
+
+                    <TopicCluster
+                        mainTopic="Madinah Travel Hub"
+                        clusters={[
+                            {
+                                category: "More Madinah Guides",
+                                relevance: "Tertiary",
+                                items: [
+                                    { label: "Complete Madinah Travel Guide", url: "/blog/complete-madinah-travel-guide" },
+                                    { label: "Best Time to Visit (Weather)", url: "/blog/best-time-to-visit-madinah-weather" },
+                                    { label: "First-Time Visitor Guide", url: "/blog/madinah-first-time-visitor-guide-tips" },
+                                    { label: "Top Places to Visit", url: "/blog/top-places-visit-things-do-madinah" },
+                                    { label: "Budget to Luxury Travel Guide", url: "/blog/madinah-budget-luxury-family-solo-travel" },
+                                    { label: "Travel Itinerary Planning", url: "/blog/madinah-travel-itinerary-planning" },
+                                    { label: "Hotels Guide", url: "/blog/madinah-hotels-budget-luxury-family" },
+                                    { label: "Best Restaurants & Street Food", url: "/blog/best-restaurants-cafes-street-food-madinah" },
+                                    { label: "Shopping (Dates & Perfumes)", url: "/blog/shopping-guide-malls-dates-perfumes-madinah" },
+                                    { label: "Masjid An-Nabawi Complete Guide", url: "/blog/masjid-an-nabawi-complete-guide-history" },
+                                    { label: "How to Visit Rawdah", url: "/blog/how-to-book-visit-rawdah-madinah" },
+                                    { label: "Quba Mosque History & Visit Guide", url: "/blog/quba-mosque-history-visit-guide" },
+                                    { label: "Qiblatain & Seven Mosques Guide", url: "/blog/qiblatain-mosque-seven-mosques-guide" },
+                                    { label: "Jannat Al-Baqi Cemetery Guide", url: "/blog/jannat-al-baqi-madinah-cemetery-guide" },
+                                    { label: "Mount Uhud Visit Guide", url: "/blog/mount-uhud-history-visit-guide" },
+                                    { label: "Ziyarat Places & Museums", url: "/blog/madinah-ziyarat-places-museums-landmarks" },
+                                    { label: "Visiting During Ramadan & Hajj", url: "/blog/visiting-madinah-ramadan-hajj-season" },
+                                    { label: "Airport Taxi Transfer Guide", url: "/blog/madinah-airport-taxi-transfer-guide" },
+                                    { label: "Private Taxi Fares Guide", url: "/blog/private-taxi-services-fares-madinah" },
+                                    { label: "Practical Rules & Customs Guide", url: "/blog/practical-guide-rules-customs-madinah" }
+                                ]
+                            }
+                        ]}
+                    />
                 </div>
             </section>
 

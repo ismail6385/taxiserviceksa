@@ -18,6 +18,7 @@ import ZiyaratSites from '@/components/ZiyaratSites';
 import JsonLdLocation from '@/components/JsonLdLocation';
 import DistanceTable from '@/components/seo/DistanceTable';
 import SeasonalTravelTips from '@/components/seo/SeasonalTravelTips';
+import TopicCluster from '@/components/seo/TopicCluster';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
@@ -448,6 +449,37 @@ export default async function MakkahPage() {
                             Read the Full Jabal Al-Noor &amp; Hira Cave Guide <ArrowRight className="w-4 h-4" />
                         </Link>
                     </div>
+
+                    <TopicCluster
+                        mainTopic="Makkah Travel Hub"
+                        clusters={[
+                            {
+                                category: "More Makkah Guides",
+                                relevance: "Tertiary",
+                                items: [
+                                    { label: "Masjid Al-Haram Complete Guide", url: "/blog/masjid-al-haram-complete-guide" },
+                                    { label: "Kaaba History & Significance", url: "/blog/kaaba-history-significance" },
+                                    { label: "Hajar Al-Aswad (Black Stone) Guide", url: "/blog/hajar-al-aswad-black-stone-guide" },
+                                    { label: "Maqam Ibrahim Guide", url: "/blog/maqam-ibrahim-guide" },
+                                    { label: "Zamzam Well History & Facts", url: "/blog/zamzam-well-history-facts" },
+                                    { label: "Safa & Marwah Guide", url: "/blog/safa-marwah-guide" },
+                                    { label: "Cave of Hira History", url: "/blog/cave-of-hira-history" },
+                                    { label: "Jabal Thawr Guide", url: "/blog/jabal-thawr-guide" },
+                                    { label: "Jannat Al-Mualla Guide", url: "/blog/jannat-al-mualla-makkah-guide" },
+                                    { label: "Abraj Al-Bait Clock Tower", url: "/blog/abraj-al-bait-clock-tower-makkah" },
+                                    { label: "Makkah Museum Guide", url: "/blog/makkah-museum-guide" },
+                                    { label: "Cave of Thawr (Hijra History)", url: "/blog/cave-of-thawr-hijra-history" },
+                                    { label: "Birthplace of Prophet Muhammad", url: "/blog/birthplace-prophet-muhammad-makkah" },
+                                    { label: "Best Ziyarat Places", url: "/blog/best-ziyarat-places-makkah" },
+                                    { label: "Religious Landmarks Guide", url: "/blog/religious-landmarks-makkah-guide" },
+                                    { label: "Islamic History of Makkah", url: "/blog/islamic-history-makkah" },
+                                    { label: "Sacred Places Guide", url: "/blog/sacred-places-makkah" },
+                                    { label: "Historical Mosques Guide", url: "/blog/historical-mosques-makkah" },
+                                    { label: "Hidden Religious Sites", url: "/blog/hidden-religious-sites-makkah" }
+                                ]
+                            }
+                        ]}
+                    />
                 </div>
             </section>
 

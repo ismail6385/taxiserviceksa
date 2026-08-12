@@ -17,6 +17,7 @@ import {
 import DistanceTable from '@/components/seo/DistanceTable';
 import SeasonalTravelTips from '@/components/seo/SeasonalTravelTips';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import TopicCluster from '@/components/seo/TopicCluster';
 import JsonLdLocation from '@/components/JsonLdLocation';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { jeddahHotels } from '@/data/jeddahHotels';
@@ -534,6 +535,25 @@ export default async function JeddahPage() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <RelatedLocations currentCity="Jeddah" />
+
+                <TopicCluster
+                    mainTopic="Jeddah Travel Hub"
+                    clusters={[
+                        {
+                            category: "More Jeddah Guides",
+                            relevance: "Tertiary",
+                            items: [
+                                { label: "Complete Jeddah Guide", url: "/blog/complete-jeddah-guide" },
+                                { label: "Top 15 Places to Visit", url: "/blog/top-15-places-to-visit-in-jeddah" },
+                                { label: "Best Beaches in Jeddah", url: "/blog/best-beaches-in-jeddah" },
+                                { label: "Jeddah Corniche Guide", url: "/blog/jeddah-corniche-guide" },
+                                { label: "Why Visit Al-Balad", url: "/blog/why-you-should-visit-al-balad-in-jeddah" },
+                                { label: "Floating Mosque (Al Rahma)", url: "/blog/floating-mosque-al-rahma-mosque-travel-guide" },
+                                { label: "Fakieh Aquarium Complete Guide", url: "/blog/fakieh-aquarium-jeddah-complete-guide" }
+                            ]
+                        }
+                    ]}
+                />
             </div>
         </div >
     );

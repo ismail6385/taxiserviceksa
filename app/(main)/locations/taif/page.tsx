@@ -226,6 +226,7 @@ export default function TaifPage() {
                             items: [
                                 { label: "Adventure Activities", url: "/blog/adventure-activities-in-taif/" },
                                 { label: "Al Hada Mountain Guide", url: "/blog/al-hada-mountain-taif-guide/" },
+                                { label: "Al Hada vs Al Shafa", url: "/blog/al-hada-vs-al-shafa-comparison/" },
                                 { label: "Al Shafa Mountain Guide", url: "/blog/al-shafa-mountain-taif-guide/" },
                                 { label: "Best Day Trips", url: "/blog/best-day-trips-from-taif/" },
                                 { label: "Best Parks & Nature", url: "/blog/best-parks-nature-taif/" },

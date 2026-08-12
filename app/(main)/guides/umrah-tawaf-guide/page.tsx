@@ -7,6 +7,7 @@ import { RefreshCw, Footprints, Heart, BookOpen, AlertTriangle, ArrowRight, MapP
 import Hero from '@/components/Hero';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
+import TopicCluster from '@/components/seo/TopicCluster';
 
 export const metadata: Metadata = {
     title: 'Umrah Tawaf Guide | Step-by-Step Circumambulation Rules',
@@ -231,6 +232,33 @@ export default function TawafGuidePage() {
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+                <div className="max-w-7xl mx-auto">
+                    <TopicCluster
+                        mainTopic="Umrah Rituals Hub"
+                        clusters={[
+                            {
+                                category: "More Umrah Guides",
+                                relevance: "Tertiary",
+                                items: [
+                                    { label: "Ihram Rules for Pilgrims", url: "/blog/ihram-rules-umrah-pilgrims" },
+                                    { label: "Tawaf Guide", url: "/blog/tawaf-guide-hajj-umrah" },
+                                    { label: "Sa'i Guide", url: "/blog/sai-guide-hajj-umrah" },
+                                    { label: "Halq vs Taqsir (Hair Cutting)", url: "/blog/halq-vs-taqsir-hair-cutting-umrah" },
+                                    { label: "Common Umrah Mistakes to Avoid", url: "/blog/common-umrah-mistakes-to-avoid" },
+                                    { label: "Ultimate Umrah Packing List", url: "/blog/ultimate-umrah-packing-list" },
+                                    { label: "Best Time to Perform Umrah", url: "/blog/best-time-to-perform-umrah" },
+                                    { label: "Ramadan Umrah Guide", url: "/blog/ramadan-umrah-guide" },
+                                    { label: "Women's Umrah Guide", url: "/blog/womens-umrah-guide" },
+                                    { label: "Elderly Umrah Guide & Tips", url: "/blog/elderly-umrah-guide-tips" },
+                                    { label: "Zamzam Water Rules for Pilgrims", url: "/blog/zamzam-water-rules-pilgrims" }
+                                ]
+                            }
+                        ]}
+                    />
                 </div>
             </section>
         </div>

@@ -219,6 +219,30 @@ export default function AlUlaPage() {
                                 { label: "Elephant Rock Sunset", url: "/locations/alula", description: "Evening Trips" },
                                 { label: "Khaybar Day Trip", url: "/locations/khayber-fort", description: "Volcanic Fields" }
                             ]
+                        },
+                        {
+                            category: "More AlUla Guides",
+                            relevance: "Tertiary",
+                            items: [
+                                { label: "Complete AlUla Travel Guide", url: "/blog/complete-alula-travel-guide" },
+                                { label: "Best Time to Visit (Weather)", url: "/blog/best-time-to-visit-alula-weather" },
+                                { label: "Travel Tips & Safety Checklist", url: "/blog/alula-travel-tips-checklist-safety" },
+                                { label: "Budget to Luxury Travel Guide", url: "/blog/alula-budget-luxury-family-solo-travel" },
+                                { label: "Travel Itinerary Planning", url: "/blog/alula-travel-itinerary-planning" },
+                                { label: "Top Places to Visit", url: "/blog/top-places-visit-things-do-alula" },
+                                { label: "Hegra (Madain Salih) Guide", url: "/blog/hegra-madain-salih-visitor-guide" },
+                                { label: "Elephant Rock & Landmarks", url: "/blog/elephant-rock-alula-natural-landmarks" },
+                                { label: "Old Town, Dadan & Jabal Ikmah", url: "/blog/alula-old-town-dadan-jabal-ikmah" },
+                                { label: "Maraya Concert Hall & Culture", url: "/blog/maraya-concert-hall-art-culture-alula" },
+                                { label: "Oasis Heritage Trail", url: "/blog/alula-oasis-heritage-trail-picnic-spots" },
+                                { label: "Desert Adventures & Safari", url: "/blog/alula-desert-adventures-safari-activities" },
+                                { label: "Stargazing & Camping Spots", url: "/blog/stargazing-camping-sunset-spots-alula" },
+                                { label: "Best Photo Spots", url: "/blog/alula-photography-instagram-spots" },
+                                { label: "Where to Stay (Hotels & Resorts)", url: "/blog/where-to-stay-alula-hotels-resorts" },
+                                { label: "Best Restaurants & Cafes", url: "/blog/best-restaurants-cafes-food-alula" },
+                                { label: "Shopping & Souvenirs", url: "/blog/shopping-guide-souvenirs-markets-alula" },
+                                { label: "Summer vs Winter Travel", url: "/blog/alula-summer-vs-winter-travel-comparison" }
+                            ]
                         }
                     ]}
                 />
