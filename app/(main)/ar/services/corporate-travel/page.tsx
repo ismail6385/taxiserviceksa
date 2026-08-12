@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         siteName: 'Taxi Service KSA',
         title: 'Corporate Travel Service Saudi Arabia | Executive Taxi with Driver',
         description: 'Professional corporate travel service for business executives. Monthly billing, priority booking, executive vehicles.',
-        url: 'https://taxiserviceksa.com/services/corporate-travel/',
+        url: 'https://taxiserviceksa.com/ar/services/corporate-travel/',
         type: 'website',
     },
 };

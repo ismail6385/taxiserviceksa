@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         siteName: 'Taxi Service KSA',
         title: 'Heritage Tours Saudi Arabia | UNESCO Sites Transport with 4x4',
         description: 'Professional heritage tour transport for AlUla, Khaybar, and UNESCO sites. 4x4 desert vehicles with licensed drivers.',
-        url: 'https://taxiserviceksa.com/services/heritage-tours/',
+        url: 'https://taxiserviceksa.com/ar/services/heritage-tours/',
         type: 'website',
     },
 };

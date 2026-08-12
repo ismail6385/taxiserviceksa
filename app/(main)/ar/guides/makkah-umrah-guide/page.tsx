@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         siteName: 'Taxi Service KSA',
         title: 'Makkah Umrah Complete Guide 2024 | Everything Pilgrims Need',
         description: 'Comprehensive Umrah guide: Haram access, Tawaf timing, Ziyarat sites, transport, and practical tips for pilgrims.',
-        url: 'https://taxiserviceksa.com/guides/makkah-umrah-guide/',
+        url: 'https://taxiserviceksa.com/ar/guides/makkah-umrah-guide/',
         type: 'article',
     },
 };

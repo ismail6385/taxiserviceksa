@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         siteName: 'Taxi Service KSA',
         title: 'Airport Transfer Service Saudi Arabia | Taxi with Driver - 8 Airports',
         description: 'Professional airport transfer service across Saudi Arabia. 8 major airports covered. Meet-and-greet, flight tracking, 24/7 service.',
-        url: 'https://taxiserviceksa.com/services/airport-transfers/',
+        url: 'https://taxiserviceksa.com/ar/services/airport-transfers/',
         type: 'website',
     },
 };

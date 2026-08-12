@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         siteName: 'Taxi Service KSA',
         title: 'Umrah Transport Service | Taxi with Driver for Makkah & Madinah',
         description: 'Complete Umrah transport service with professional drivers. Jeddah Airport to Makkah, Makkah to Madinah taxi. Fixed rates, 24/7 service.',
-        url: 'https://taxiserviceksa.com/services/umrah-transport/',
+        url: 'https://taxiserviceksa.com/ar/services/umrah-transport/',
         type: 'website',
     },
 };
