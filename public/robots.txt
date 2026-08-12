@@ -37,5 +37,4 @@ Allow: /
 
 Content-Signal: ai-train=no, search=yes, ai-input=yes
 
-Sitemap: https://taxiserviceksa.com/sitemap-index.xml
 Sitemap: https://taxiserviceksa.com/sitemap.xml

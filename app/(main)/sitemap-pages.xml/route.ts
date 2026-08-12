@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { AUTHORS } from '@/lib/constants';
 
 export async function GET() {
     const baseUrl = 'https://taxiserviceksa.com';
@@ -18,13 +19,21 @@ export async function GET() {
         { url: '/submit-review', priority: 0.5, changefreq: 'monthly' },
         { url: '/map', priority: 0.4, changefreq: 'monthly' },
         { url: '/partners', priority: 0.4, changefreq: 'monthly' },
+        { url: '/partners/driver-registration', priority: 0.6, changefreq: 'monthly' },
         { url: '/privacy-policy', priority: 0.3, changefreq: 'yearly' },
         { url: '/terms-conditions', priority: 0.3, changefreq: 'yearly' },
-        { url: '/author/muhammad-ismail', priority: 0.4, changefreq: 'monthly' },
+        { url: '/author', priority: 0.4, changefreq: 'monthly' },
+        // individual /author/{slug} pages are added dynamically below from AUTHORS
         { url: '/fleet', priority: 0.7, changefreq: 'monthly' },
         { url: '/locations', priority: 0.8, changefreq: 'monthly' },
         { url: '/services', priority: 0.8, changefreq: 'monthly' }
     ];
+
+    const authorPages = AUTHORS.map(author => ({
+        url: `/author/${author.slug}`,
+        priority: 0.4,
+        changefreq: 'monthly'
+    }));
 
     // Dynamic city array for 'join-as-driver/[city]'
     const driverCities = [
@@ -77,7 +86,7 @@ export async function GET() {
         console.error('Failed to read main directory:', e);
     }
 
-    const pages = [...basePages, ...driverCityPages, ...dynamicPages];
+    const pages = [...basePages, ...authorPages, ...driverCityPages, ...dynamicPages];
 
     // Remove duplicates if any
     const uniquePages = Array.from(new Set(pages.map(p => p.url)))

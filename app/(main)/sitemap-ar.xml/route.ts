@@ -15,7 +15,7 @@ export async function GET() {
     // Read top-level directories that contain page.tsx directly
     try {
         const topDirs = fs.readdirSync(arPath, { withFileTypes: true })
-            .filter(dirent => dirent.isDirectory() && !['services', 'locations', 'guides'].includes(dirent.name))
+            .filter(dirent => dirent.isDirectory() && !['services', 'locations', 'guides', 'routes'].includes(dirent.name))
             .map(dirent => dirent.name);
 
         topDirs.forEach(dir => {
@@ -25,6 +25,11 @@ export async function GET() {
         });
     } catch (e) {
         console.error('Error reading Arabic top-level pages:', e);
+    }
+
+    // /ar/routes/ hub itself
+    if (fs.existsSync(path.join(arPath, 'routes', 'page.tsx'))) {
+        arPages.push({ url: '/ar/routes', priority: 0.9 });
     }
 
     const getDynamicPaths = (subDir: string, priority: number) => {
@@ -48,8 +53,9 @@ export async function GET() {
     const arServices = getDynamicPaths('services', 0.8);
     const arLocations = getDynamicPaths('locations', 0.7);
     const arGuides = getDynamicPaths('guides', 0.6);
+    const arRoutes = getDynamicPaths('routes', 0.7);
 
-    const allArUrls = [...arPages, ...arServices, ...arLocations, ...arGuides];
+    const allArUrls = [...arPages, ...arServices, ...arLocations, ...arGuides, ...arRoutes];
 
     const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
