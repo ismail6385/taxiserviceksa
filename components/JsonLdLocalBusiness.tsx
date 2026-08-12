@@ -7,30 +7,13 @@ export default function JsonLdLocalBusiness() {
         "@id": "https://taxiserviceksa.com/#taxiservice",
         "name": "Taxi Service KSA",
         "alternateName": "TaxiServiceKSA",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "https://taxiserviceksa.com/logo.png",
-            "width": 512,
-            "height": 512
-        },
-        "image": "https://taxiserviceksa.com/og-image.jpg",
         "url": "https://taxiserviceksa.com",
-        "telephone": "+966-56-948-7569",
-        "email": "taxiserviceksa9988@gmail.com",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Prince Sultan Road",
-            "addressLocality": "Jeddah",
-            "addressRegion": "Makkah Province",
-            "postalCode": "23423",
-            "addressCountry": "SA"
+        "description": "24/7 Private Car, Taxi & Executive Chauffeur Service in Saudi Arabia. Specializing in Umrah transfers, Jeddah Airport pickups, and all intercity travel across the Kingdom.",
+        "serviceType": "Taxi Service",
+        "provider": {
+            "@type": "Organization",
+            "@id": "https://taxiserviceksa.com/#organization"
         },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 21.5433,
-            "longitude": 39.1728
-        },
-        "priceRange": "$$",
         "areaServed": [
             { "@type": "City", "name": "Jeddah" },
             { "@type": "City", "name": "Makkah" },
@@ -59,23 +42,6 @@ export default function JsonLdLocalBusiness() {
             { "@type": "City", "name": "Sambah" },
             { "@type": "AdministrativeArea", "name": "Saudi Arabia" }
         ],
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-                "Monday", "Tuesday", "Wednesday", "Thursday",
-                "Friday", "Saturday", "Sunday"
-            ],
-            "opens": "00:00",
-            "closes": "23:59"
-        },
-        "description": "24/7 Private Car, Taxi & Executive Chauffeur Service in Saudi Arabia. Specializing in Umrah transfers, Jeddah Airport pickups, and all intercity travel across the Kingdom.",
-        "founder": {
-            "@type": "Person",
-            "name": "Muhammad Ismail"
-        },
-        "foundingDate": "2012",
-        "paymentAccepted": "Cash, Credit Card, Apple Pay, Online Transfer",
-        "currenciesAccepted": "SAR, USD, EUR, GBP, CAD, AUD, IDR, PKR",
         "sameAs": [
             "https://www.facebook.com/taxiserviceksa",
             "https://www.instagram.com/taxiserviceksa",

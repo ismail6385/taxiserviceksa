@@ -29,8 +29,9 @@ export default function JsonLdLocation({
                 "name": `Private Car, Taxi and Chauffeur Service in ${cityName}`,
                 "description": description,
                 "provider": {
-                    "@type": "LocalBusiness",
-                    "name": "TaxiServiceKSA",
+                    "@type": "Organization",
+                    "@id": `${baseUrl}/#organization`,
+                    "name": "Taxi Service KSA",
                     "image": image || `${baseUrl}/logo.png`,
                     "url": baseUrl,
                     "aggregateRating": {

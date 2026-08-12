@@ -23,10 +23,10 @@ export default function JsonLdRoute({ from, to, description, distance, duration,
                 "name": `${routeName} Private Transfer`,
                 "description": description,
                 "provider": {
-                    "@type": "LocalBusiness",
-                    "name": "TaxiServiceKSA",
+                    "@type": "Organization",
+                    "@id": `${baseUrl}/#organization`,
+                    "name": "Taxi Service KSA",
                     "url": baseUrl,
-                    "telephone": "+966 56 073 2928",
                     "aggregateRating": {
                         "@type": "AggregateRating",
                         "ratingValue": ratingValue,
@@ -39,33 +39,6 @@ export default function JsonLdRoute({ from, to, description, distance, duration,
                     { "@type": "City", "name": from },
                     { "@type": "City", "name": to }
                 ]
-            },
-            {
-                "@type": "TravelAction",
-                "name": routeName,
-                "fromLocation": {
-                    "@type": "Place",
-                    "name": from,
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": from,
-                        "addressCountry": "SA"
-                    }
-                },
-                "toLocation": {
-                    "@type": "Place",
-                    "name": to,
-                    "address": {
-                        "@type": "PostalAddress",
-                        "addressLocality": to,
-                        "addressCountry": "SA"
-                    }
-                },
-                "distance": distance || "Variable",
-                "instrument": {
-                    "@type": "Car",
-                    "name": "GMC Yukon, Mercedes S-Class, Toyota Camry, Cadillac Escalade"
-                }
             }
         ]
     };
