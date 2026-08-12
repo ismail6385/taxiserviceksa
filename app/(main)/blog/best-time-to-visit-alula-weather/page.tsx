@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Discover the best time to visit AlUla, Saudi Arabia. Month-by-month weather breakdown, temperatures, and guide to the Winter at Tantora festival season.',
     keywords: ['best time to visit AlUla', 'AlUla weather by month', 'AlUla temperature 2026', 'winter at tantora season', 'AlUla summer travel'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/best-time-to-visit-alula-weather/' },
-    openGraph: { title: 'Best Time to Visit AlUla 2026: Month-by-Month Weather Guide', description: 'Plan your AlUla trip with our comprehensive month-by-month weather and event guide.', type: 'article', url: 'https://taxiserviceksa.com/blog/best-time-to-visit-alula-weather/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Best Time to Visit AlUla 2026: Month-by-Month Weather Guide' }],
+        siteName: 'Taxi Service KSA', title: 'Best Time to Visit AlUla 2026: Month-by-Month Weather Guide', description: 'Plan your AlUla trip with our comprehensive month-by-month weather and event guide.', type: 'article', url: 'https://taxiserviceksa.com/blog/best-time-to-visit-alula-weather/' },
 };
 
 const faqSchema = {

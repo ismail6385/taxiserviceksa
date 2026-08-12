@@ -36,6 +36,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'نقل خاص للسيدات في السعودية | سائق خاص وآمن' }],
+        siteName: 'Taxi Service KSA',
         title: 'نقل خاص للسيدات في السعودية | سائق خاص وآمن',
         description: 'نقل خاص وآمن ومحترم للسيدات في الرياض وجدة ومكة والمدينة، متوفر على مدار الساعة.',
         url: 'https://taxiserviceksa.com/ar/services/women-transport/',

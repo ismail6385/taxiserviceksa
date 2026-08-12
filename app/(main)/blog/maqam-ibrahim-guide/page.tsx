@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/maqam-ibrahim-guide/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Maqam Ibrahim Complete Guide 2026 | History & Prayers' }],
+        siteName: 'Taxi Service KSA',
         title: 'Maqam Ibrahim Complete Guide 2026 | History & Prayers',
         description: 'A comprehensive pilgrim guide on Maqam Ibrahim inside the Grand Mosque. Discover the history of the sacred stone and prayers guidelines.',
         type: 'article',

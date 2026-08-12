@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Discover the top attractions, activities, and things to do in Madinah. From Masjid an-Nabawi to Mount Uhud and Quba Mosque — your complete city guide.',
     keywords: ['top places to visit in Madinah', 'things to do in Madinah 2026', 'Madinah city guide', 'Madinah attractions for tourists', 'best sightseeing in Madinah'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/top-places-visit-things-do-madinah/' },
-    openGraph: { title: 'Top Places to Visit & Things to Do in Madinah 2026', description: 'The complete city guide to Madinah attractions, activities, and sacred landmarks.', type: 'article', url: 'https://taxiserviceksa.com/blog/top-places-visit-things-do-madinah/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Top Places to Visit & Things to Do in Madinah 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Top Places to Visit & Things to Do in Madinah 2026', description: 'The complete city guide to Madinah attractions, activities, and sacred landmarks.', type: 'article', url: 'https://taxiserviceksa.com/blog/top-places-visit-things-do-madinah/' },
 };
 
 const faqSchema = {

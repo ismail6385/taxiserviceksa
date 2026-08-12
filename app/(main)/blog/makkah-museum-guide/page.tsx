@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/makkah-museum-guide/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Makkah Museum Guide 2026 | Location, Hours & Tickets' }],
+        siteName: 'Taxi Service KSA',
         title: 'Makkah Museum Guide 2026 | Location, Hours & Tickets',
         description: 'Plan your visit to Makkah\'s historical museums. Discover exhibits of ancient Islamic coins, calligraphic scripts, and old Kaaba doors.',
         type: 'article',

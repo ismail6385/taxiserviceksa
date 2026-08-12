@@ -32,6 +32,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Service for Makkah City Transport | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car, Taxi and Chauffeur Service for Makkah City Transport | Taxi Service KSA',
         description: 'Family transport in Makkah. Hotel to Haram, Ziyarat tours, airport transfers, and Makkah to Madinah. Licensed drivers, luxury fleet, 24/7.',
         url: 'https://taxiserviceksa.com/services/makkah-city-transport/',

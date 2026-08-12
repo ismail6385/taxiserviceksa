@@ -10,6 +10,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-rua-al-madinah-taxi/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jeddah Airport to Rua Al Madinah Taxi | Fixed Price Transfer | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Jeddah Airport to Rua Al Madinah Taxi | Fixed Price Transfer | Taxi Service KSA',
         description: 'Direct transfer from KAIA Airport to Rua Al Madinah District Hotels (Rua Al Madinah development, adjacent to the Central Area). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-rua-al-madinah-taxi/',

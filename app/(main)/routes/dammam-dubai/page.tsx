@@ -21,6 +21,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/dammam-dubai/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Dammam to Dubai Taxi | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Dammam to Dubai Taxi | Taxi Service KSA',
         description: 'Request a premium quote from Dammam to Dubai. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/dammam-dubai/',

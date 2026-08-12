@@ -40,6 +40,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Service for Women | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car, Taxi and Chauffeur Service for Women | Taxi Service KSA',
         description: 'Safe, private, and discreet transport for women across Saudi Arabia. Female-friendly chauffeurs available 24/7 in Riyadh, Jeddah, Makkah, and Madinah.',
         url: 'https://taxiserviceksa.com/services/women-transport/',

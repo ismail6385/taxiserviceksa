@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "Al Baha guide",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taif vs Al Baha: Which Mountain Destination Is Better? 2026' }],
+    siteName: 'Taxi Service KSA',
     title: "Taif vs Al Baha: Which Mountain Destination Is Better? 2026",
     description:
       "A detailed visitor comparison of Taif and Al Baha — the two high-altitude retreats located in Saudi Arabia's western highlands.",
@@ -153,7 +155,7 @@ export default function TaifVsAlBahaComparison() {
             <Link href="/booking" className="bg-white text-green-800 font-bold px-8 py-3 rounded-full hover:bg-green-50 transition">
               Book Taxi to Al Baha
             </Link>
-            <Link href="/routes/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
+            <Link href="/locations/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
               View Taif Routes
             </Link>
           </div>

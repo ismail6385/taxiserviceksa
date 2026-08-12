@@ -19,6 +19,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/dammam-airport-to-khobar/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Dammam Airport to Khobar Taxi | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Dammam Airport to Khobar Taxi | Taxi Service KSA',
         description: 'Book a premium taxi from King Fahd International Airport (DMM) Dammam to Khobar. Reliable transfers, comfortable SUVs, and professional door-to-door service.',
         url: 'https://taxiserviceksa.com/routes/dammam-airport-to-khobar/',

@@ -10,6 +10,8 @@ export const metadata: Metadata = {
         canonical: "https://taxiserviceksa.com/routes/msc-dammam-to-bahrain-taxi/",
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'MSC Dammam to Bahrain VIP Taxi | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: "MSC Dammam to Bahrain VIP Taxi | Taxi Service KSA",
         description: 'Executive VIP transfer from the Eastern Province to Bahrain via King Fahd Causeway, built for corporate travel.',
         url: "https://taxiserviceksa.com/routes/msc-dammam-to-bahrain-taxi/",

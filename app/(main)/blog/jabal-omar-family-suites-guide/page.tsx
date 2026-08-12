@@ -19,6 +19,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/jabal-omar-family-suites-guide/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jabal Omar Family Suites for 6 People: Best Hotels & Booking Tips 2026' }],
+        siteName: 'Taxi Service KSA',
         title: 'Jabal Omar Family Suites for 6 People: Best Hotels & Booking Tips 2026',
         description: 'Which Jabal Omar hotels actually have rooms or suites that fit a family of 6? A practical comparison and booking guide for Umrah families.',
         type: 'article',

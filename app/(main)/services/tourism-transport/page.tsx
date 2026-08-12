@@ -43,6 +43,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Service for Tourism Transport | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car, Taxi and Chauffeur Service for Tourism Transport | Taxi Service KSA',
         description: 'Private chauffeur for tourists across Saudi Arabia. City tours, desert trips, shopping, and sightseeing in Riyadh, Jeddah, AlUla, and Makkah. English-speaking drivers.',
         url: 'https://taxiserviceksa.com/services/tourism-transport/',

@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     "Hejaz cultural traditions",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taif Culture & Local Traditions: Heritage Guide 2026' }],
+    siteName: 'Taxi Service KSA',
     title: "Taif Culture & Local Traditions: Heritage Guide 2026",
     description:
       "Understand the rich cultural identity, warm hospitality, folklore, and culinary heritage of Taif.",
@@ -82,7 +84,7 @@ export default function TaifCultureLocalTraditions() {
             <Link href="/booking" className="bg-white text-amber-800 font-bold px-8 py-3 rounded-full hover:bg-amber-50 transition">
               Book Taif Taxi
             </Link>
-            <Link href="/routes/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
+            <Link href="/locations/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
               View Taif Routes
             </Link>
           </div>

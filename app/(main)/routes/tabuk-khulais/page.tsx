@@ -21,6 +21,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-khulais/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk to Khulais Taxi | Private Transfer - Fixed Price | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Tabuk to Khulais Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 850 km drive. Request a quote for a comfortable ride from Tabuk to Khulais. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-khulais/',

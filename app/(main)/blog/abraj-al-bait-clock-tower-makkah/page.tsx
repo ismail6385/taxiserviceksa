@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/abraj-al-bait-clock-tower-makkah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Abraj Al Bait (Makkah Clock Tower) Guide | Hotels & Mall' }],
+        siteName: 'Taxi Service KSA',
         title: 'Abraj Al Bait (Makkah Clock Tower) Guide | Hotels & Mall',
         description: 'Plan your stay and shopping experience at the Makkah Clock Tower. Discover premium hotel recommendations and observation deck details.',
         type: 'article',

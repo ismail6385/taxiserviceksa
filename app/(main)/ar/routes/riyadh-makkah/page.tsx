@@ -24,6 +24,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'تاكسي الرياض إلى مكة ٢٠٢٦ | نقل خاص' }],
+        siteName: 'Taxi Service KSA',
         title: 'تاكسي الرياض إلى مكة ٢٠٢٦ | نقل خاص',
         description: 'رحلة فاخرة من الرياض إلى مكة مع سائقين محترفين. أسعار ثابتة، خدمة من الباب إلى الباب.',
         url: 'https://taxiserviceksa.com/ar/routes/riyadh-makkah/',

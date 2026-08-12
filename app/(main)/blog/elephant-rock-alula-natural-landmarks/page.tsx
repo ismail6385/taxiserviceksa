@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Detailed guide to visiting Elephant Rock (Jabal AlFil) in AlUla. Learn about geological facts, best sunset times, seating, dining options, and entry details.',
     keywords: ['Elephant Rock AlUla guide 2026', 'Jabal AlFil rock formation', 'AlUla natural landmarks', 'Elephant rock sunset cafe', 'free things to do in AlUla'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/elephant-rock-alula-natural-landmarks/' },
-    openGraph: { title: 'Elephant Rock (Jabal AlFil) AlUla: Complete Visit Guide 2026', description: 'Explore Jabal AlFil — AlUla\'s spectacular elephant-shaped sandstone monolith with this complete guide.', type: 'article', url: 'https://taxiserviceksa.com/blog/elephant-rock-alula-natural-landmarks/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Elephant Rock (Jabal AlFil) AlUla: Complete Visit Guide 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Elephant Rock (Jabal AlFil) AlUla: Complete Visit Guide 2026', description: 'Explore Jabal AlFil — AlUla\'s spectacular elephant-shaped sandstone monolith with this complete guide.', type: 'article', url: 'https://taxiserviceksa.com/blog/elephant-rock-alula-natural-landmarks/' },
 };
 
 const faqSchema = {

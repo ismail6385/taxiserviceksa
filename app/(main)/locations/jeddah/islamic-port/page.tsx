@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/islamic-port/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car Transfer, Taxi and Chauffeur Service in Jeddah Islamic Port | Seaport Chauffeur | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Jeddah Islamic Port | Seaport Chauffeur | Taxi Service KSA',
         description: 'Direct private transfer for sea arrivals. Premier chauffeur service from the passenger terminal to Makkah or Madinah.',
         url: 'https://taxiserviceksa.com/locations/jeddah/islamic-port/',

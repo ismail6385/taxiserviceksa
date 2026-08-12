@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk to Haql — Transport Guide 2026' }],
         title: 'Tabuk to Haql — Transport Guide 2026',
         description: '290 km from Tabuk to Haql on the Gulf of Aqaba. Private driver prices, road conditions, and what to see at Saudi Arabia\'s Red Sea border town.',
         url: 'https://taxiserviceksa.com/blog/tabuk-to-haql-transport-guide/',

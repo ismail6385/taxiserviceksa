@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'The ultimate guide to AlUla, Saudi Arabia. Learn why to visit, how to get there, entry requirements, visitor information, and top highlights for 2026.',
     keywords: ['complete AlUla travel guide 2026', 'AlUla first time visitor handbook', 'why visit AlUla', 'AlUla city guide Saudi Arabia', 'AlUla visitor information'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/complete-alula-travel-guide/' },
-    openGraph: { title: 'Complete AlUla Travel Guide 2026: First-Time Visitor Handbook', description: 'Your all-in-one visitor handbook to AlUla — from visa to archaeological highlights.', type: 'article', url: 'https://taxiserviceksa.com/blog/complete-alula-travel-guide/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Complete AlUla Travel Guide 2026: First-Time Visitor Handbook' }],
+        siteName: 'Taxi Service KSA', title: 'Complete AlUla Travel Guide 2026: First-Time Visitor Handbook', description: 'Your all-in-one visitor handbook to AlUla — from visa to archaeological highlights.', type: 'article', url: 'https://taxiserviceksa.com/blog/complete-alula-travel-guide/' },
 };
 
 const faqSchema = {

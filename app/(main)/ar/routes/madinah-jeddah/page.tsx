@@ -24,6 +24,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'تاكسي المدينة المنورة إلى جدة ٢٠٢٦ | نقل خاص' }],
+        siteName: 'Taxi Service KSA',
         title: 'تاكسي المدينة المنورة إلى جدة ٢٠٢٦ | نقل خاص',
         description: 'رحلة مريحة من المدينة المنورة إلى جدة مع سائقين محترفين. أسعار ثابتة وخدمة من الباب إلى الباب.',
         url: 'https://taxiserviceksa.com/ar/routes/madinah-jeddah/',

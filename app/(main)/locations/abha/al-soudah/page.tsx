@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/abha/al-soudah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi to Al Soudah Mountain (Abha) | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi to Al Soudah Mountain (Abha) | Taxi Service KSA',
         description: 'Ride to the clouds. Safe mountain transfers from Abha City and Airport to Al Soudah Park and Rijal Almaa.',
         url: 'https://taxiserviceksa.com/locations/abha/al-soudah/',

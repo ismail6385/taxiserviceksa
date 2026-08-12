@@ -38,6 +38,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'VIP Chauffeur Service Saudi Arabia | Royal & Diplomatic Transport | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'VIP Chauffeur Service Saudi Arabia | Royal & Diplomatic Transport | Taxi Service KSA',
         description: 'Premium VIP chauffeur for royal guests, diplomats, hotel guests, and elite visitors across Riyadh and Jeddah. Discreet, licensed, 24/7.',
         url: 'https://taxiserviceksa.com/services/vip-chauffeur/',

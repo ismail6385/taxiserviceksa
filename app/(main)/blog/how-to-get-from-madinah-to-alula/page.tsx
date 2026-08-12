@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'How to Get from Madinah to AlUla — 2026 Transport Guide' }],
         title: 'How to Get from Madinah to AlUla — 2026 Transport Guide',
         description: 'Private car (330 km, 3.5 hrs), rental car, or domestic flight into AlUla Airport (ULH). No public bus or train. Options, prices, and what to book in advance.',
         url: 'https://taxiserviceksa.com/blog/how-to-get-from-madinah-to-alula/',

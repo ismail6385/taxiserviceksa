@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "AlUla travel tips",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Is AlUla Safe for Tourists? Complete Safety Guide 2026' }],
+    siteName: 'Taxi Service KSA',
     title: "Is AlUla Safe for Tourists? Complete Safety Guide 2026",
     description:
       "Everything you need to know about safety in AlUla — crime, roads, health, and cultural etiquette for international visitors.",

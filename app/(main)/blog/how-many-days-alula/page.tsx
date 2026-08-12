@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "AlUla trip planning 2026",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'How Many Days Do You Need in AlUla? 2026 Itinerary Guide' }],
+    siteName: 'Taxi Service KSA',
     title: "How Many Days Do You Need in AlUla? 2026 Itinerary Guide",
     description:
       "2-day, 3-day, 5-day and 7-day AlUla itineraries to help you plan the perfect trip duration.",

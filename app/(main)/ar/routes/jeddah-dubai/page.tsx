@@ -24,6 +24,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'تاكسي جدة إلى دبي | نقل عبر الحدود | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'تاكسي جدة إلى دبي | نقل عبر الحدود | Taxi Service KSA',
         description: 'اطلب عرض سعر مميز لرحلة من جدة إلى دبي. نقل موثوق عبر الحدود، سيارات دفع رباعي مريحة، وخدمة من الباب إلى الباب في جميع أنحاء الخليج.',
         url: 'https://taxiserviceksa.com/ar/routes/jeddah-dubai/',

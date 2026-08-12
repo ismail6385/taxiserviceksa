@@ -16,6 +16,8 @@ export const metadata: Metadata = {
         canonical: "https://taxiserviceksa.com/locations/al-badai/",
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car Transfer, Taxi and Chauffeur Service in Al-Badai | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: "Private Car Transfer, Taxi and Chauffeur Service in Al-Badai | Taxi Service KSA",
         description: "Need a premium transfer in Al-Badai? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/al-badai/",

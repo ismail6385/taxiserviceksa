@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "Sarawat mountains Saudi Arabia",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taif vs Abha: Which Summer Destination Is Better? 2026 Comparison' }],
+    siteName: 'Taxi Service KSA',
     title: "Taif vs Abha: Which Summer Destination Is Better? 2026 Comparison",
     description:
       "A complete head-to-head comparison between Saudi Arabia's two premier mountain retreats: Taif and Abha.",
@@ -167,7 +169,7 @@ export default function TaifVsAbhaComparison() {
             <Link href="/booking" className="bg-white text-blue-800 font-bold px-8 py-3 rounded-full hover:bg-blue-50 transition">
               Book Your Taxi
             </Link>
-            <Link href="/routes/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
+            <Link href="/locations/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
               View Taif Routes
             </Link>
           </div>

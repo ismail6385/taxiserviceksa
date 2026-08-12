@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "AlUla solo travel",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Can You Visit AlUla Without a Tour? Independent Travel Guide 2026' }],
+    siteName: 'Taxi Service KSA',
     title: "Can You Visit AlUla Without a Tour? Independent Travel Guide 2026",
     description:
       "Which AlUla sites require a guide? Which ones can you visit solo? Get the complete independent traveler's guide.",

@@ -23,6 +23,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/top-15-places-to-visit-in-jeddah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Top 15 Places to Visit in Jeddah 2026 | Best Tourist Attractions' }],
+        siteName: 'Taxi Service KSA',
         title: 'Top 15 Places to Visit in Jeddah 2026 | Best Tourist Attractions',
         description: 'Discover the 15 best tourist attractions in Jeddah — Al Balad, King Fahd Fountain, Red Sea Corniche, floating mosque and more with transport tips.',
         type: 'article',

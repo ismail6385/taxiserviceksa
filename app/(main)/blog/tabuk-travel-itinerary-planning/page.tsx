@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Find the best Tabuk travel itinerary. Day-by-day plans for a 3-day weekend escape or a 5-day adventure covering Wadi Al-Disah, mountains, and Red Sea beaches.',
     keywords: ['Tabuk travel itinerary 2026', 'Tabuk 3 day itinerary', 'Tabuk weekend guide', 'Tabuk day trips', 'how many days in Tabuk'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/tabuk-travel-itinerary-planning/' },
-    openGraph: { title: 'Tabuk Itinerary Planner 2026: 3-Day Weekend & 5-Day Day Trips', description: 'Detailed step-by-step itineraries to explore the historic sites, beaches, and canyons of Tabuk.', type: 'article', url: 'https://taxiserviceksa.com/blog/tabuk-travel-itinerary-planning/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk Itinerary Planner 2026: 3-Day Weekend & 5-Day Day Trips' }],
+        siteName: 'Taxi Service KSA', title: 'Tabuk Itinerary Planner 2026: 3-Day Weekend & 5-Day Day Trips', description: 'Detailed step-by-step itineraries to explore the historic sites, beaches, and canyons of Tabuk.', type: 'article', url: 'https://taxiserviceksa.com/blog/tabuk-travel-itinerary-planning/' },
 };
 
 const faqSchema = {

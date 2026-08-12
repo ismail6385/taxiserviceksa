@@ -41,6 +41,8 @@ export const metadata: Metadata = {
         }
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car Transfer, Taxi and Chauffeur Service in Dammam | Airport & City Travel | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Dammam | Airport & City Travel | Taxi Service KSA',
         description: 'Book the premium transfer in Dammam. Fast airport transfers, corniche rides & intercity travel to Khobar/Jubail. 24/7 availability.',
         url: 'https://taxiserviceksa.com/locations/dammam/',

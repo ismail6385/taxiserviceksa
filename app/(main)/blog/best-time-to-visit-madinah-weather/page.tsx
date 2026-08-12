@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/best-time-to-visit-madinah-weather/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Best Time to Visit Madinah | Weather by Month 2026 Guide' }],
+        siteName: 'Taxi Service KSA',
         title: 'Best Time to Visit Madinah | Weather by Month 2026 Guide',
         description: 'Read the monthly weather breakdown of Madinah. Find out when temperatures are pleasant for visiting and performing prayers comfortably.',
         type: 'article',

@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/taif-day-trip/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taif Day Trip Tour | Cable Car, Rose Gardens & Mountain Views | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taif Day Trip Tour | Cable Car, Rose Gardens & Mountain Views | Taxi Service KSA',
         description: 'A private round-trip day tour to Taif from Makkah or Jeddah, with wait time built in at each stop.',
         url: 'https://taxiserviceksa.com/taif-day-trip/',

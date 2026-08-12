@@ -30,6 +30,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Makkah Umrah Complete Guide 2024 | Everything Pilgrims Need' }],
+        siteName: 'Taxi Service KSA',
         title: 'Makkah Umrah Complete Guide 2024 | Everything Pilgrims Need',
         description: 'Comprehensive Umrah guide: Haram access, Tawaf timing, Ziyarat sites, transport, and practical tips for pilgrims.',
         url: 'https://taxiserviceksa.com/guides/makkah-umrah-guide/',

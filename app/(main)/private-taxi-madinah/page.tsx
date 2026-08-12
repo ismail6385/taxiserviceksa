@@ -26,6 +26,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/private-taxi-madinah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Taxi Madinah | Chauffeur Service | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Taxi Madinah | Chauffeur Service | Taxi Service KSA',
         description: 'Private taxi in Madinah. Airport, Ziyarat, Makkah transfers. Fixed rates. Book now.',
         url: 'https://taxiserviceksa.com/private-taxi-madinah/',

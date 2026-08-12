@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Detailed guide to private intercity taxi services from Madinah. Compare standard sedan and SUV taxi fares to Makkah, Jeddah, Taif, Yanbu, and Badr.',
     keywords: ['Madinah intercity taxi services', 'taxi fare Madinah to Makkah 2026', 'Jeddah to Madinah taxi cost', 'private taxi Yanbu Taif', 'GMC SUV taxi Madinah'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/private-taxi-services-fares-madinah/' },
-    openGraph: { title: 'Madinah Intercity Taxi Services: Fares to Makkah, Jeddah & Yanbu 2026', description: 'Everything about intercity taxi rates from Madinah to Makkah, Jeddah, Yanbu, and Taif.', type: 'article', url: 'https://taxiserviceksa.com/blog/private-taxi-services-fares-madinah/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Madinah Intercity Taxi Services: Fares to Makkah, Jeddah & Yanbu 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Madinah Intercity Taxi Services: Fares to Makkah, Jeddah & Yanbu 2026', description: 'Everything about intercity taxi rates from Madinah to Makkah, Jeddah, Yanbu, and Taif.', type: 'article', url: 'https://taxiserviceksa.com/blog/private-taxi-services-fares-madinah/' },
 };
 
 const faqSchema = {

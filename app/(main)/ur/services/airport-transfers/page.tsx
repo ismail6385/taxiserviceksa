@@ -29,6 +29,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'ایئرپورٹ ٹرانسفر سروس سعودی عرب | پریمیم چوفر - 8 ہوائی اڈے' }],
+        siteName: 'Taxi Service KSA',
         title: 'ایئرپورٹ ٹرانسفر سروس سعودی عرب | پریمیم چوفر - 8 ہوائی اڈے',
         description: 'سعودی عرب بھر میں پروفیشنل وی آئی پی ایئرپورٹ ٹرانسفر سروس۔ 8 بڑے ایئرپورٹس کی کوریج۔ ایگزیکٹو استقبالیہ، فلائٹ ٹریکنگ، 24/7 سروس۔',
         url: 'https://taxiserviceksa.com/ur/services/airport-transfers/',

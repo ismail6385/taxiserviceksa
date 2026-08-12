@@ -24,6 +24,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Should I Rent a Car in Saudi Arabia? Honest 2026 Guide' }],
+        siteName: 'Taxi Service KSA',
         title: 'Should I Rent a Car in Saudi Arabia? Honest 2026 Guide',
         description: 'For most tourists, hiring a private driver beats renting a car in Saudi Arabia. Here\'s exactly when each option makes sense.',
         url: 'https://taxiserviceksa.com/blog/should-i-rent-a-car-in-saudi-arabia/',

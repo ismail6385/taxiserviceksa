@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "Damask rose harvest Saudi Arabia",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taif Rose Gardens & Rose Factory Guide: Complete Visitor Info' }],
+    siteName: 'Taxi Service KSA',
     title: "Taif Rose Gardens & Rose Factory Guide: Complete Visitor Info",
     description:
       "A complete guide to touring Taif's historic rose gardens and learning the traditional art of rose oil distillation.",
@@ -155,7 +157,7 @@ export default function TaifRoseGardensFactoryGuide() {
             <Link href="/booking" className="bg-white text-rose-800 font-bold px-8 py-3 rounded-full hover:bg-rose-50 transition">
               Book Taif Taxi
             </Link>
-            <Link href="/routes/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
+            <Link href="/locations/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
               View Taif Routes
             </Link>
           </div>

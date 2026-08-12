@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Complete guide to Masjid Quba in Madinah — the first mosque in Islam. History, virtues, visiting tips, location, and how to get there from Masjid an-Nabawi.',
     keywords: ['Masjid Quba guide 2026', 'first mosque in Islam Quba', 'Quba mosque history', 'visit Quba mosque Madinah', 'Quba mosque virtue reward'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/quba-mosque-history-visit-guide/' },
-    openGraph: { title: 'Masjid Quba Guide 2026: History & Visit Tips', description: 'The complete guide to visiting Masjid Quba — the first mosque built in Islamic history.', type: 'article', url: 'https://taxiserviceksa.com/blog/quba-mosque-history-visit-guide/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Masjid Quba Guide 2026: History & Visit Tips' }],
+        siteName: 'Taxi Service KSA', title: 'Masjid Quba Guide 2026: History & Visit Tips', description: 'The complete guide to visiting Masjid Quba — the first mosque built in Islamic history.', type: 'article', url: 'https://taxiserviceksa.com/blog/quba-mosque-history-visit-guide/' },
 };
 
 const faqSchema = {

@@ -19,6 +19,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/womens-umrah-guide/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Women\'s Umrah Guide 2026 | Rules, Ihram & Menstruation' }],
+        siteName: 'Taxi Service KSA',
         title: "Women's Umrah Guide 2026 | Rules, Ihram & Menstruation",
         description: "A comprehensive guide designed specifically for female pilgrims. Essential Islamic rulings, physical preparation, and travel safety advice.",
         type: 'article',

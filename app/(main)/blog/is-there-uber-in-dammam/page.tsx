@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Is There Uber in Dammam? Apps, Alternatives & What Actually Works' }],
         title: 'Is There Uber in Dammam? Apps, Alternatives & What Actually Works',
         description: 'Uber and Careem operate in Dammam — but they won\'t work for Bahrain Causeway, airport pickups, or Aramco transfers. Here\'s the full breakdown.',
         url: 'https://taxiserviceksa.com/blog/is-there-uber-in-dammam/',

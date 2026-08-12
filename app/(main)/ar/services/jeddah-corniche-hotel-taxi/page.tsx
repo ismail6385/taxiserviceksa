@@ -25,6 +25,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'تاكسي فنادق كورنيش جدة | نقل فاخر بسائق خاص | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'تاكسي فنادق كورنيش جدة | نقل فاخر بسائق خاص | Taxi Service KSA',
         description: 'نقل فندقي خاص بشوفير مباشرة من ردهة فندقكم على كورنيش جدة. تنقل سلس إلى مطار جدة والحرم المكي ومراكز الأعمال.',
         url: 'https://taxiserviceksa.com/ar/services/jeddah-corniche-hotel-taxi/',

@@ -32,6 +32,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Service for Madinah City Transport | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car, Taxi and Chauffeur Service for Madinah City Transport | Taxi Service KSA',
         description: 'Private luxury transport in Madinah. Hotel to Prophet\'s Mosque, Ziyarat tours, airport transfers, and Madinah to Makkah. Family vehicles available 24/7.',
         url: 'https://taxiserviceksa.com/services/madinah-city-transport/',

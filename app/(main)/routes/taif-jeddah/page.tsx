@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/taif-jeddah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taif to Jeddah Taxi (Airport Transfer) - Reliable & Affordable | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taif to Jeddah Taxi (Airport Transfer) - Reliable & Affordable | Taxi Service KSA',
         description: 'Need a ride from Taif to Jeddah? Book our private taxi via Al Hada. Fixed prices available. Door-to-door pickup.',
         url: 'https://taxiserviceksa.com/routes/taif-jeddah/',

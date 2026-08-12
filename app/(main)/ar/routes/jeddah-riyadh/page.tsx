@@ -27,6 +27,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'تاكسي جدة إلى الرياض ٢٠٢٦ | سيارة خاصة' }],
+        siteName: 'Taxi Service KSA',
         title: 'تاكسي جدة إلى الرياض ٢٠٢٦ | سيارة خاصة',
         description: 'رحلة مباشرة بين المدن مع سائقين محترفين. أسعار ثابتة وخدمة من الباب إلى الباب.',
         url: 'https://taxiserviceksa.com/ar/routes/jeddah-riyadh/',

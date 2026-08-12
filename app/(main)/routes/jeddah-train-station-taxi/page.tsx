@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-train-station-taxi/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jeddah Train Station Taxi (Al Sulimaniyah) - Fast & Reliable | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Jeddah Train Station Taxi (Al Sulimaniyah) - Fast & Reliable | Taxi Service KSA',
         description: 'Arriving by Haramain Train? Get a quote for your taxi from Jeddah Station to Airport or Hotel. Fixed prices, no waiting.',
         url: 'https://taxiserviceksa.com/routes/jeddah-train-station-taxi/',

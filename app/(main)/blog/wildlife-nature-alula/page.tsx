@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     keywords: ['AlUla wildlife and nature', 'Sharaan nature reserve', 'Arabian leopard AlUla', 'Saudi Arabia desert animals', 'AlUla flora fauna'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/wildlife-nature-alula/' },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Wildlife & Nature in AlUla: Reserves & Species' }],
+        siteName: 'Taxi Service KSA',
         title: 'Wildlife & Nature in AlUla: Reserves & Species',
         description: 'Discover the rich flora, fauna, and protective conservation reserves in the historic valley of AlUla.',
         type: 'article',

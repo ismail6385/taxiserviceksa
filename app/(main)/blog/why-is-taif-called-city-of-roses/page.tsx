@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "Taif roses facts",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Why Is Taif Called the City of Roses? History & Origins' }],
+    siteName: 'Taxi Service KSA',
     title: "Why Is Taif Called the City of Roses? History & Origins",
     description:
       "The fascinating story behind Taif's iconic title — and what makes the rose so central to its culture and identity.",
@@ -114,7 +116,7 @@ export default function WhyIsTaifCalledCityOfRoses() {
             <Link href="/booking" className="bg-white text-rose-800 font-bold px-8 py-3 rounded-full hover:bg-rose-50 transition">
               Book Rose Farm Tour
             </Link>
-            <Link href="/routes/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
+            <Link href="/locations/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
               View Taif Routes
             </Link>
           </div>

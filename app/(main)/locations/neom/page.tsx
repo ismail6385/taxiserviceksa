@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/neom/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car Transfer, Taxi and Chauffeur Service to NEOM (The Line, Trojena, Sindalah) | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car Transfer, Taxi and Chauffeur Service to NEOM (The Line, Trojena, Sindalah) | Taxi Service KSA',
         description: 'Premium transfer from Tabuk to NEOM projects. We serve NC1, NC2, Oxagon, and the Base Camp.',
         url: 'https://taxiserviceksa.com/locations/neom/',

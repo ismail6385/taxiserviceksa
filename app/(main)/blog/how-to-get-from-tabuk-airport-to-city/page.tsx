@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'How to Get from Tabuk Airport to City Centre — All Options' }],
         title: 'How to Get from Tabuk Airport to City Centre — All Options',
         description: 'Tabuk Airport to city centre is 14 km. Your options: pre-booked transfer, Uber, car rental. Prices, tips, and honest recommendations.',
         url: 'https://taxiserviceksa.com/blog/how-to-get-from-tabuk-airport-to-city/',

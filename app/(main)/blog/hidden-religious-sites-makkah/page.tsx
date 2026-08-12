@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/hidden-religious-sites-makkah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Hidden Religious Sites in Makkah | 2026 Guide' }],
+        siteName: 'Taxi Service KSA',
         title: 'Hidden Religious Sites in Makkah | 2026 Guide',
         description: 'Read the comprehensive pilgrim guide to Makkah\'s lesser-known sacred monuments. Learn their history, location, and travel guidelines.',
         type: 'article',

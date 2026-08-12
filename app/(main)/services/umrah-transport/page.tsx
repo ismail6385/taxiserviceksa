@@ -29,6 +29,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Service for Umrah Transport | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car, Taxi and Chauffeur Service for Umrah Transport | Taxi Service KSA',
         description: 'Complete Umrah transport service with professional chauffeurs. Jeddah Airport to Makkah, Makkah to Madinah best transfer. Fixed rates, 24/7 service.',
         url: 'https://taxiserviceksa.com/services/umrah-transport/',

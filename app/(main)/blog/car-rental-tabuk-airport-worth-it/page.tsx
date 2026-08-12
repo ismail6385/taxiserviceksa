@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Car Rental at Tabuk Airport — Is It Worth It? 2026 Guide' }],
         title: 'Car Rental at Tabuk Airport — Is It Worth It? 2026 Guide',
         description: 'Rental car vs hired driver at Tabuk Airport. Price comparison, licence requirements, NEOM road rules, and honest verdict for tourists.',
         url: 'https://taxiserviceksa.com/blog/car-rental-tabuk-airport-worth-it/',

@@ -22,6 +22,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'کارپوریٹ بزنس ٹرانسفرز | ایگزیکٹو گاڑیاں اور ڈرائیورز' }],
+        siteName: 'Taxi Service KSA',
         title: 'کارپوریٹ بزنس ٹرانسفرز | ایگزیکٹو گاڑیاں اور ڈرائیورز',
         description: 'ریاض، جدہ اور دمام میں کاروباری وفود اور ایگزیکٹوز کے لیے انتہائی شاندار اور پرائیویسی پر مبنی سفری سہولیات۔',
         url: 'https://taxiserviceksa.com/ur/services/business/',

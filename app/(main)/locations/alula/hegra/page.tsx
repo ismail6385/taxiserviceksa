@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/alula/hegra/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi to Hegra (Madain Saleh) UNESCO Site | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi to Hegra (Madain Saleh) UNESCO Site | Taxi Service KSA',
         description: 'Private transfer to Hegra. Note: Private cars cannot enter the tombs area without a permit. We take you to the Visitor Center.',
         url: 'https://taxiserviceksa.com/locations/alula/hegra/',

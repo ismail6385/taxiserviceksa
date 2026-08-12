@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/dhahran/ithra/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi to Ithra Cultural Center (Dhahran) | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi to Ithra Cultural Center (Dhahran) | Taxi Service KSA',
         description: 'Visit the stunning Ithra building. We provide gate drop-offs for visitors to the library, cinema, and museums.',
         url: 'https://taxiserviceksa.com/locations/dhahran/ithra/',

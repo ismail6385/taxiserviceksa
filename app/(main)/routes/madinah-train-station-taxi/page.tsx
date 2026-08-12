@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/madinah-train-station-taxi/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Madinah Train Station Taxi to Hotel (Markaziyah) - Fixed Price | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Madinah Train Station Taxi to Hotel (Markaziyah) - Fixed Price | Taxi Service KSA',
         description: 'Arriving in Madinah by train? Get a direct taxi transfer from the station to your hotel near Masjid Nabawi.',
         url: 'https://taxiserviceksa.com/routes/madinah-train-station-taxi/',

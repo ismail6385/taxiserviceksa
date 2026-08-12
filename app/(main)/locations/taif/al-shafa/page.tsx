@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/taif/al-shafa/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi to Al Shafa Mountains (Taif) | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi to Al Shafa Mountains (Taif) | Taxi Service KSA',
         description: 'Private transfer to the stunning peaks of Al Shafa. Enjoy cool weather, horse riding, and nature parks with our reliable taxi service.',
         url: 'https://taxiserviceksa.com/locations/taif/al-shafa/',

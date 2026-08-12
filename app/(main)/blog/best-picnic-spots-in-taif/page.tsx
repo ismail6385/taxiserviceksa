@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "where to picnic in Taif",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Best Picnic Spots in Taif: Top Scenic Parks & Gardens' }],
+    siteName: 'Taxi Service KSA',
     title: "Best Picnic Spots in Taif: Top Scenic Parks & Gardens",
     description:
       "Looking for the perfect spot to layout a blanket and enjoy Taif's cool weather? Read our local picnic guide.",
@@ -117,7 +119,7 @@ export default function BestPicnicSpotsInTaif() {
             <Link href="/booking" className="bg-white text-green-800 font-bold px-8 py-3 rounded-full hover:bg-green-50 transition">
               Book Picnic Taxi
             </Link>
-            <Link href="/routes/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
+            <Link href="/locations/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
               View Taif Routes
             </Link>
           </div>

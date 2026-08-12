@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'How to Get Around Tabuk as a Tourist — Transport Guide 2026' }],
         title: 'How to Get Around Tabuk as a Tourist — Transport Guide 2026',
         description: 'Everything a tourist needs to know about transport in Tabuk: apps, private drivers, car rental, and getting to NEOM and AlUla.',
         url: 'https://taxiserviceksa.com/blog/how-to-get-around-tabuk-as-a-tourist/',

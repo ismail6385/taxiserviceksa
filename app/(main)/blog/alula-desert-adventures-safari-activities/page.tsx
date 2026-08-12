@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Ultimate guide to outdoor adventures in AlUla. Hot air balloon rides, desert safaris, ziplining, canyon hiking, and dune buggies in 2026.',
     keywords: ['AlUla desert adventures 2026', 'AlUla hot air balloon guide', 'desert safari AlUla tour', 'canyon hiking AlUla', 'outdoor activities AlUla'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/alula-desert-adventures-safari-activities/' },
-    openGraph: { title: 'AlUla Desert Adventures, Safaris & Outdoor Activities 2026', description: 'Experience the thrill of AlUla: hot air ballooning, desert 4x4 safaris, and canyon zip-lining.', type: 'article', url: 'https://taxiserviceksa.com/blog/alula-desert-adventures-safari-activities/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'AlUla Desert Adventures, Safaris & Outdoor Activities 2026' }],
+        siteName: 'Taxi Service KSA', title: 'AlUla Desert Adventures, Safaris & Outdoor Activities 2026', description: 'Experience the thrill of AlUla: hot air ballooning, desert 4x4 safaris, and canyon zip-lining.', type: 'article', url: 'https://taxiserviceksa.com/blog/alula-desert-adventures-safari-activities/' },
 };
 
 const faqSchema = {

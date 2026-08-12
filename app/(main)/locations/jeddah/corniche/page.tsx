@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/corniche/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi to Jeddah Corniche (New Waterfront) | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi to Jeddah Corniche (New Waterfront) | Taxi Service KSA',
         description: 'The #1 leisure destination in Jeddah. Reliable transfers to the F1 Circuit and Yacht Club for international visitors.',
         url: 'https://taxiserviceksa.com/locations/jeddah/corniche/',

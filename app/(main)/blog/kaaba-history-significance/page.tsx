@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/kaaba-history-significance/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'The History and Significance of the Kaaba | 2026 Pilgrim Guide' }],
+        siteName: 'Taxi Service KSA',
         title: 'The History and Significance of the Kaaba | 2026 Pilgrim Guide',
         description: 'Read the comprehensive history of the Kaaba, the House of Allah, detailing its reconstruction phases and deep spiritual role.',
         type: 'article',

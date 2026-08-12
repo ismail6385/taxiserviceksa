@@ -26,6 +26,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Corporate Travel Service Saudi Arabia | Executive Taxi with Driver' }],
+        siteName: 'Taxi Service KSA',
         title: 'Corporate Travel Service Saudi Arabia | Executive Taxi with Driver',
         description: 'Professional corporate travel service for business executives. Monthly billing, priority booking, executive vehicles.',
         url: 'https://taxiserviceksa.com/services/corporate-travel/',

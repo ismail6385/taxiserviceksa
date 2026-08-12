@@ -19,6 +19,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/fakieh-aquarium-jeddah-complete-guide/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Fakieh Aquarium Jeddah 2026 | Ticket Price, Shows & Guide' }],
+        siteName: 'Taxi Service KSA',
         title: 'Fakieh Aquarium Jeddah 2026 | Ticket Price, Shows & Guide',
         description: 'Your ultimate family guide to visiting Fakieh Aquarium on the Jeddah Corniche. Entry fees, schedules, marine exhibitions, and private chauffeur options.',
         type: 'article',

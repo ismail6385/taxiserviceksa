@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Essential guide for visiting Madinah during Ramadan and Hajj season 2026. What to expect, crowd tips, Rawdah booking, Iftar spots, and transport advice.',
     keywords: ['Madinah Ramadan guide 2026', 'visit Madinah Hajj season', 'Madinah during Ramadan tips', 'Madinah peak season travel', 'Madinah Umrah Ramadan'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/visiting-madinah-ramadan-hajj-season/' },
-    openGraph: { title: 'Visiting Madinah During Ramadan & Hajj Season 2026', description: 'Essential tips for navigating Madinah at its busiest and most spiritually rewarding time.', type: 'article', url: 'https://taxiserviceksa.com/blog/visiting-madinah-ramadan-hajj-season/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Visiting Madinah During Ramadan & Hajj Season 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Visiting Madinah During Ramadan & Hajj Season 2026', description: 'Essential tips for navigating Madinah at its busiest and most spiritually rewarding time.', type: 'article', url: 'https://taxiserviceksa.com/blog/visiting-madinah-ramadan-hajj-season/' },
 };
 
 const faqSchema = {

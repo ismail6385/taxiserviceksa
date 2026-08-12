@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/bujairi-terrace/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car Transfer, Taxi and Chauffeur Service to Al Bujairi Terrace (Diriyah) | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car Transfer, Taxi and Chauffeur Service to Al Bujairi Terrace (Diriyah) | Taxi Service KSA',
         description: 'Going for fine dining in Diriyah? Premium private transfers and professional chauffeur service to Bujairi Terrace. Elite arrival for elite destinations.',
         url: 'https://taxiserviceksa.com/locations/riyadh/bujairi-terrace/',

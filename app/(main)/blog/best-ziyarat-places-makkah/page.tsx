@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/best-ziyarat-places-makkah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: '15 Best Ziyarat Places in Makkah | 2026 Pilgrim Guide' }],
+        siteName: 'Taxi Service KSA',
         title: '15 Best Ziyarat Places in Makkah | 2026 Pilgrim Guide',
         description: 'Plan your historical tour in Makkah. Discover the top 15 Ziyarat places including holy mountains, caves, cemeteries, and Hajj sites.',
         type: 'article',

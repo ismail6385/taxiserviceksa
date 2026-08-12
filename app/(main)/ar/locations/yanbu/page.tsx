@@ -34,6 +34,8 @@ export const metadata: Metadata = {
         }
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi Service in Yanbu | Airport Transfer & Industrial Transport' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi Service in Yanbu | Airport Transfer & Industrial Transport',
         description: 'Taxi service in Yanbu operates 24/7. Airport transfers and industrial city transport. Fixed rates. Book online.',
         url: 'https://taxiserviceksa.com/ar/locations/yanbu/',

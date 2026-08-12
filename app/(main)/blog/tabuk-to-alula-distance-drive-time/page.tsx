@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk to AlUla Distance & Drive Time — Complete Route Guide' }],
         title: 'Tabuk to AlUla Distance & Drive Time — Complete Route Guide',
         description: '330 km, 3.5–4 hours. Full milestone map from Tabuk to AlUla with fuel stops, road tips, and what to expect en route.',
         url: 'https://taxiserviceksa.com/blog/tabuk-to-alula-distance-drive-time/',

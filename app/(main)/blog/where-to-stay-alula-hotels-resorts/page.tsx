@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Find the best hotels, luxury resorts, boutique villas, and budget accommodation in AlUla. Complete area breakdown and booking guide for 2026.',
     keywords: ['where to stay in AlUla 2026', 'best resorts in AlUla', 'luxury hotels AlUla', 'budget hotels AlUla town', 'AlUla accommodation guide'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/where-to-stay-alula-hotels-resorts/' },
-    openGraph: { title: 'Where to Stay in AlUla: Best Hotels, Resorts & Areas 2026', description: 'The complete hotel guide to AlUla. Choose between luxury eco-villas and budget old town apartments.', type: 'article', url: 'https://taxiserviceksa.com/blog/where-to-stay-alula-hotels-resorts/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Where to Stay in AlUla: Best Hotels, Resorts & Areas 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Where to Stay in AlUla: Best Hotels, Resorts & Areas 2026', description: 'The complete hotel guide to AlUla. Choose between luxury eco-villas and budget old town apartments.', type: 'article', url: 'https://taxiserviceksa.com/blog/where-to-stay-alula-hotels-resorts/' },
 };
 
 const faqSchema = {

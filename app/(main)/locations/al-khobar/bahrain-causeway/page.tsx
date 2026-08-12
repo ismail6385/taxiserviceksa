@@ -20,6 +20,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/al-khobar/bahrain-causeway/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Service: Saudi to Bahrain (Causeway) Taxi | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Service: Saudi to Bahrain (Causeway) Taxi | Taxi Service KSA',
         description: 'Direct transfer from your door in Khobar/Dammam to Manama, Bahrain. We handle the causeway driving permit and insurance.',
         url: 'https://taxiserviceksa.com/locations/al-khobar/bahrain-causeway/',

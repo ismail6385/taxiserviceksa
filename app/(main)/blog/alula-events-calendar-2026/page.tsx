@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     keywords: ['AlUla events calendar 2026', 'AlUla festival dates', 'Maraya concerts 2026', 'AlUla hot air balloon festival', 'Desert polo AlUla'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/alula-events-calendar-2026/' },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'AlUla Events Calendar 2026: Festivals, Concerts & Sports' }],
+        siteName: 'Taxi Service KSA',
         title: 'AlUla Events Calendar 2026: Festivals, Concerts & Sports',
         description: 'Plan your trip around AlUla\'s spectacular yearly events and festivals.',
         type: 'article',

@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Complete guide to Masjid an-Nabawi in Madinah. History of the Prophet\'s Mosque, the Green Dome, Rawdah al-Sharif, visiting hours, and what to do inside.',
     keywords: ['Masjid an-Nabawi guide 2026', 'history of Masjid an-Nabawi', 'Green Dome Madinah', 'Prophets mosque visit tips', 'Rawdah al-Sharif Madinah'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/masjid-an-nabawi-complete-guide-history/' },
-    openGraph: { title: 'Masjid an-Nabawi Complete Guide 2026', description: 'Everything you need to know about the Prophet\'s Mosque in Madinah.', type: 'article', url: 'https://taxiserviceksa.com/blog/masjid-an-nabawi-complete-guide-history/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Masjid an-Nabawi Complete Guide 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Masjid an-Nabawi Complete Guide 2026', description: 'Everything you need to know about the Prophet\'s Mosque in Madinah.', type: 'article', url: 'https://taxiserviceksa.com/blog/masjid-an-nabawi-complete-guide-history/' },
 };
 
 const articleSchema = {

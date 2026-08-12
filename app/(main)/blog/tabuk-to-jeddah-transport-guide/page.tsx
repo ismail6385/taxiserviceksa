@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk to Jeddah — Distance, Drive Time & Transport Options 2026' }],
         title: 'Tabuk to Jeddah — Distance, Drive Time & Transport Options 2026',
         description: 'Tabuk to Jeddah: 800 km by road or 1.5 hours by air. Full transport guide with prices, route, and private driver options.',
         url: 'https://taxiserviceksa.com/blog/tabuk-to-jeddah-transport-guide/',

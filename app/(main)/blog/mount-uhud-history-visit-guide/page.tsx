@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Complete guide to Mount Uhud in Madinah. History of the Battle of Uhud, the graves of the martyrs, Hamza (R.A), visiting tips, and how to get there.',
     keywords: ['Mount Uhud guide 2026', 'Battle of Uhud history', 'Hamza ibn Abdul Muttalib grave', 'Uhud Madinah visit tips', 'Jabal Uhud how to visit'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/mount-uhud-history-visit-guide/' },
-    openGraph: { title: 'Mount Uhud Madinah: History, Battle & Visit Guide 2026', description: 'Visit Mount Uhud — site of the historic Battle of Uhud and the resting place of 70 companions.', type: 'article', url: 'https://taxiserviceksa.com/blog/mount-uhud-history-visit-guide/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Mount Uhud Madinah: History, Battle & Visit Guide 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Mount Uhud Madinah: History, Battle & Visit Guide 2026', description: 'Visit Mount Uhud — site of the historic Battle of Uhud and the resting place of 70 companions.', type: 'article', url: 'https://taxiserviceksa.com/blog/mount-uhud-history-visit-guide/' },
 };
 
 const faqSchema = {

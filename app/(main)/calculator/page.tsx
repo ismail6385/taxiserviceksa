@@ -16,6 +16,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/calculator/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Check Taxi Transfer Quotes: Jeddah, Makkah & Madinah' }],
+        siteName: 'Taxi Service KSA',
         title: 'Check Taxi Transfer Quotes: Jeddah, Makkah & Madinah',
         description: 'Plan your Umrah transport. Get instant quotes for Jeddah Airport to Makkah and Madinah transfers.',
         url: 'https://taxiserviceksa.com/calculator/',

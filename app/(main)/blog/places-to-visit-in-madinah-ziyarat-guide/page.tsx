@@ -19,6 +19,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/places-to-visit-in-madinah-ziyarat-guide/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'List of Places to Visit in Madinah: Complete Ziyarat Guide (2026)' }],
+        siteName: 'Taxi Service KSA',
         title: 'List of Places to Visit in Madinah: Complete Ziyarat Guide (2026)',
         description: 'Every major Ziyarat site in Madinah, briefly explained and grouped into a practical route you can actually follow in 2-3 days.',
         type: 'article',

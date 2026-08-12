@@ -21,6 +21,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/common-umrah-mistakes-to-avoid/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: '21 Common Umrah Mistakes to Avoid | Hajj & Umrah Guide 2026' }],
+        siteName: 'Taxi Service KSA',
         title: '21 Common Umrah Mistakes to Avoid | Hajj & Umrah Guide 2026',
         description: 'Ensure your Umrah is valid and accepted. Discover the critical mistakes to avoid at every stage of the pilgrimage — from Miqat to hair cutting.',
         type: 'article',

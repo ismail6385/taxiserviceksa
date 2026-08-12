@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi from Dammam to Al Khobar — 2026 Prices & Options' }],
         title: 'Taxi from Dammam to Al Khobar — 2026 Prices & Options',
         description: 'Dammam to Al Khobar is 20 km — about 20–30 minutes by car. Private taxi costs SAR 80–150. Here\'s what to expect and when to pre-book.',
         url: 'https://taxiserviceksa.com/blog/how-much-is-taxi-from-dammam-to-al-khobar/',

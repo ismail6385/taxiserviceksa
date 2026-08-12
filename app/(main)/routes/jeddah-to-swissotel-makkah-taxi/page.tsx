@@ -20,6 +20,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-swissotel-makkah-taxi/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jeddah Airport to Swissotel Makkah Taxi | Fixed Price Transfer | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Jeddah Airport to Swissotel Makkah Taxi | Fixed Price Transfer | Taxi Service KSA',
         description: 'Direct transfer from KAIA Airport to Swissotel Makkah (Clock Tower). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-swissotel-makkah-taxi/',

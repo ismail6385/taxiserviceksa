@@ -24,6 +24,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Driver vs Uber in Riyadh: Which is Better for Tourists?' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Driver vs Uber in Riyadh: Which is Better for Tourists?',
         description: 'Surge pricing, safety, English speakers, wait times — everything a tourist needs to know before getting around Riyadh.',
         url: 'https://taxiserviceksa.com/blog/private-driver-vs-uber-riyadh-tourist/',

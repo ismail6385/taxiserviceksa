@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Find the perfect AlUla travel itinerary. Day-by-day plans for a 2-day weekend trip or a 3-day exploration covering Hegra, Old Town, Elephant Rock, and more.',
     keywords: ['AlUla travel itinerary 2 days', 'AlUla itinerary 3 days', 'AlUla weekend guide', 'AlUla trip planner 2026', 'how many days in AlUla'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/alula-travel-itinerary-planning/' },
-    openGraph: { title: 'AlUla Travel Itinerary 2026: 2-Day, 3-Day & Weekend Plans', description: 'Plan your AlUla vacation with our detailed 2-day and 3-day step-by-step itineraries.', type: 'article', url: 'https://taxiserviceksa.com/blog/alula-travel-itinerary-planning/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'AlUla Travel Itinerary 2026: 2-Day, 3-Day & Weekend Plans' }],
+        siteName: 'Taxi Service KSA', title: 'AlUla Travel Itinerary 2026: 2-Day, 3-Day & Weekend Plans', description: 'Plan your AlUla vacation with our detailed 2-day and 3-day step-by-step itineraries.', type: 'article', url: 'https://taxiserviceksa.com/blog/alula-travel-itinerary-planning/' },
 };
 
 const faqSchema = {

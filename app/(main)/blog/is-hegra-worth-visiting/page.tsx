@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "Hegra tombs AlUla",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Is Hegra Worth Visiting? Honest Review of AlUla\'s UNESCO Site 2026' }],
+    siteName: 'Taxi Service KSA',
     title: "Is Hegra Worth Visiting? Honest Review of AlUla's UNESCO Site 2026",
     description:
       "An honest, detailed review of Hegra — what makes it special, what might disappoint, and whether it's worth the trip.",

@@ -20,6 +20,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/ihram-rules-umrah-pilgrims/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Rules of Ihram for Umrah & Hajj Pilgrims | Essential Guide 2026' }],
+        siteName: 'Taxi Service KSA',
         title: 'Rules of Ihram for Umrah & Hajj Pilgrims | Essential Guide 2026',
         description: 'Complete guide to Ihram rules — clothing specifications, prohibitions, Miqat boundaries, and practical transit advice for international pilgrims.',
         type: 'article',

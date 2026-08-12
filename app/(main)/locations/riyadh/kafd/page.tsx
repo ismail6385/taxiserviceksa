@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/kafd/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car Transfer, Taxi and Chauffeur Service to KAFD (Financial District) | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car Transfer, Taxi and Chauffeur Service to KAFD (Financial District) | Taxi Service KSA',
         description: 'Premium private transfer to Riyadh\'s business hub. Professional chauffeur service and executive vehicles for senior leadership.',
         url: 'https://taxiserviceksa.com/locations/riyadh/kafd/',

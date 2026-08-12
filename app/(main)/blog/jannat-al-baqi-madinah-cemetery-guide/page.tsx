@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Complete guide to Jannat al-Baqi cemetery in Madinah. Who is buried there, visiting hours, etiquette, and the significance of this sacred graveyard near Masjid an-Nabawi.',
     keywords: ['Jannat al-Baqi guide', 'Madinah cemetery visit', 'who is buried in Jannat al-Baqi', 'Baqi cemetery visiting hours', 'Al-Baqi Madinah pilgrimage'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/jannat-al-baqi-madinah-cemetery-guide/' },
-    openGraph: { title: 'Jannat al-Baqi Cemetery Madinah Guide 2026', description: 'The sacred graveyard of Madinah — who is buried there, how to visit, and what to recite.', type: 'article', url: 'https://taxiserviceksa.com/blog/jannat-al-baqi-madinah-cemetery-guide/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jannat al-Baqi Cemetery Madinah Guide 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Jannat al-Baqi Cemetery Madinah Guide 2026', description: 'The sacred graveyard of Madinah — who is buried there, how to visit, and what to recite.', type: 'article', url: 'https://taxiserviceksa.com/blog/jannat-al-baqi-madinah-cemetery-guide/' },
 };
 
 const faqSchema = {

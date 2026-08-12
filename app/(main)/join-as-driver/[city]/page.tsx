@@ -39,6 +39,8 @@ export async function generateMetadata({ params }: { params: { city: string } })
         title: `Driver Jobs in ${name} - Join as a VIP Chauffeur`,
         description: `Looking for private driver jobs in ${name}? Join our elite network. We are hiring professional drivers in ${name} with their own cars (2020+). High-value clients and long-distance trips.`,
         openGraph: {
+            images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Driver Jobs in ${name} - Join as a VIP Chauffeur' }],
+            siteName: 'Taxi Service KSA',
             title: `Driver Jobs in ${name} - Join as a VIP Chauffeur`,
             description: `We are hiring professional VIP chauffeurs in ${name}. Earn 7000-15000 SAR/month with direct bookings and premium clients.`,
         },

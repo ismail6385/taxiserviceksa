@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Explore the culinary scene of Tabuk. Complete guide to the best restaurants, Arabic cafes, Pakistani/Indian dining, breakfast spots, and street food.',
     keywords: ['best restaurants in Tabuk', 'Tabuk food guide 2026', 'Pakistani restaurants Tabuk', 'Arabic cafes Tabuk', 'best breakfast in Tabuk'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/best-restaurants-cafes-food-tabuk/' },
-    openGraph: { title: 'Best Restaurants & Cafes in Tabuk: Food & Dining Guide 2026', description: 'Explore Tabuk\'s local dining scene, including traditional Saudi food, Indian/Pakistani spots, and trendy coffee shops.', type: 'article', url: 'https://taxiserviceksa.com/blog/best-restaurants-cafes-food-tabuk/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Best Restaurants & Cafes in Tabuk: Food & Dining Guide 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Best Restaurants & Cafes in Tabuk: Food & Dining Guide 2026', description: 'Explore Tabuk\'s local dining scene, including traditional Saudi food, Indian/Pakistani spots, and trendy coffee shops.', type: 'article', url: 'https://taxiserviceksa.com/blog/best-restaurants-cafes-food-tabuk/' },
 };
 
 const faqSchema = {

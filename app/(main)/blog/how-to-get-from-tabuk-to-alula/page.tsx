@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'How to Get from Tabuk to AlUla — Transport Options 2026' }],
         title: 'How to Get from Tabuk to AlUla — Transport Options 2026',
         description: 'Private car, rental, or hired driver — your options for the 330 km Tabuk to AlUla journey explained with prices and road tips.',
         url: 'https://taxiserviceksa.com/blog/how-to-get-from-tabuk-to-alula/',

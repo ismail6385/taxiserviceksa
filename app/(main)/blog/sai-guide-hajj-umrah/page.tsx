@@ -21,6 +21,8 @@ export const metadata: Metadata = {
         canonical: "https://taxiserviceksa.com/blog/sai-guide-hajj-umrah/",
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Complete Sa\'i Guide for Hajj & Umrah 2026 | Safa to Marwa Steps' }],
+        siteName: 'Taxi Service KSA',
         title: "Complete Sa'i Guide for Hajj & Umrah 2026 | Safa to Marwa Steps",
         description: "Everything you need to know to perform Sa'i correctly — 7 laps, starting direction, duas, and conditions explained for international pilgrims.",
         type: 'article',

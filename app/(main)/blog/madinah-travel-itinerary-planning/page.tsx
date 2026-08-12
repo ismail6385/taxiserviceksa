@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Ready-to-use Madinah travel itineraries for 3, 5, and 7-day trips. Covers Masjid an-Nabawi, Quba, Uhud, date markets, Ziyarat spots, and more.',
     keywords: ['Madinah travel itinerary 3 days', '5 day Madinah itinerary', '7 day Madinah plan', 'Madinah trip planner 2026', 'best itinerary for Madinah Umrah'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/madinah-travel-itinerary-planning/' },
-    openGraph: { title: 'Madinah Travel Itinerary 2026: 3, 5 & 7-Day Plans', description: 'Plan your perfect Madinah trip with our detailed day-by-day itineraries.', type: 'article', url: 'https://taxiserviceksa.com/blog/madinah-travel-itinerary-planning/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Madinah Travel Itinerary 2026: 3, 5 & 7-Day Plans' }],
+        siteName: 'Taxi Service KSA', title: 'Madinah Travel Itinerary 2026: 3, 5 & 7-Day Plans', description: 'Plan your perfect Madinah trip with our detailed day-by-day itineraries.', type: 'article', url: 'https://taxiserviceksa.com/blog/madinah-travel-itinerary-planning/' },
 };
 
 const faqSchema = {

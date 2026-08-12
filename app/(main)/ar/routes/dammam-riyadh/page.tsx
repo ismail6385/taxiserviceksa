@@ -23,6 +23,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'تاكسي تنفيذي: الدمام إلى الرياض | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'تاكسي تنفيذي: الدمام إلى الرياض | Taxi Service KSA',
         description: 'تحتاج للتنقل من الدمام إلى الرياض؟ توفر سياراتنا الفاخرة GMC خدمة مريحة من الباب إلى الباب خلال ٤ ساعات.',
         url: 'https://taxiserviceksa.com/ar/routes/dammam-riyadh/',

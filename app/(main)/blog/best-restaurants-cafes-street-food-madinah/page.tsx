@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Discover the best Pakistani, Indian, Arabic restaurants, cafes, and street food spots in Madinah. Full dining guide with locations and must-try dishes.',
     keywords: ['best restaurants in Madinah', 'Pakistani restaurants Madinah', 'Indian food Madinah', 'Arabic restaurants Madinah', 'best cafes Madinah', 'Madinah street food'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/best-restaurants-cafes-street-food-madinah/' },
-    openGraph: { title: 'Best Restaurants, Cafes & Street Food in Madinah 2026', description: 'A foodie\'s complete guide to eating in Madinah — from haleem to Arabic mandi.', type: 'article', url: 'https://taxiserviceksa.com/blog/best-restaurants-cafes-street-food-madinah/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Best Restaurants, Cafes & Street Food in Madinah 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Best Restaurants, Cafes & Street Food in Madinah 2026', description: 'A foodie\'s complete guide to eating in Madinah — from haleem to Arabic mandi.', type: 'article', url: 'https://taxiserviceksa.com/blog/best-restaurants-cafes-street-food-madinah/' },
 };
 
 const faqSchema = {

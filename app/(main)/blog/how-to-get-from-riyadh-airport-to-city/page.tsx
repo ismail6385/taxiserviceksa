@@ -24,6 +24,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'How to Get from Riyadh Airport to City Centre (2026 Guide)' }],
+        siteName: 'Taxi Service KSA',
         title: 'How to Get from Riyadh Airport to City Centre (2026 Guide)',
         description: 'Private transfer, Uber, bus, taxi stand — every option explained with costs and times.',
         url: 'https://taxiserviceksa.com/blog/how-to-get-from-riyadh-airport-to-city/',

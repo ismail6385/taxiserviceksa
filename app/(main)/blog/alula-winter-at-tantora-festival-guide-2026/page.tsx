@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     keywords: ['Winter at Tantora 2026', 'AlUla Tantora festival dates', 'Winter at Tantora tickets', 'Maraya concert hall events', 'AlUla winter festival'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/alula-winter-at-tantora-festival-guide-2026/' },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'AlUla Winter at Tantora Festival Guide 2026' }],
+        siteName: 'Taxi Service KSA',
         title: 'AlUla Winter at Tantora Festival Guide 2026',
         description: 'Plan your visit to the premier winter arts and heritage festival in AlUla.',
         type: 'article',

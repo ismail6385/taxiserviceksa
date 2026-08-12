@@ -20,6 +20,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/madinah/train-station/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi from Madinah Train Station (Haramain) | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi from Madinah Train Station (Haramain) | Taxi Service KSA',
         description: 'Direct transfer from Madinah Railway Station to your hotel door. 24/7 service for arriving pilgrims.',
         url: 'https://taxiserviceksa.com/locations/madinah/train-station/',

@@ -31,6 +31,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'تاكسي جدة إلى مكة ٢٠٢٦ | نقل خاص' }],
+        siteName: 'Taxi Service KSA',
         title: 'تاكسي جدة إلى مكة ٢٠٢٦ | نقل خاص',
         description: 'نقل متميز بين المدن مع سائقين محترفين. أسعار ثابتة، خدمة من الباب إلى الباب.',
         url: 'https://taxiserviceksa.com/ar/routes/jeddah-makkah/',

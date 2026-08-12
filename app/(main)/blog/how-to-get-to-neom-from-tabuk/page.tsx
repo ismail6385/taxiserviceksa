@@ -24,6 +24,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'How to Get to NEOM from Tabuk (2026 Guide)' }],
+        siteName: 'Taxi Service KSA',
         title: 'How to Get to NEOM from Tabuk (2026 Guide)',
         description: '190 km, 2–2.5 hours. Every transport option from Tabuk to NEOM explained — private car, taxi, bus, and what to expect at checkpoints.',
         url: 'https://taxiserviceksa.com/blog/how-to-get-to-neom-from-tabuk/',

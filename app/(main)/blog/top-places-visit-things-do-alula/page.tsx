@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'The ultimate sightseeing guide to AlUla, Saudi Arabia. Explore UNESCO sites, historical spots, natural wonders, and modern art installations.',
     keywords: ['top places to visit in AlUla', 'things to do in AlUla 2026', 'AlUla must-visit attractions', 'AlUla historical places', 'AlUla UNESCO heritage sites'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/top-places-visit-things-do-alula/' },
-    openGraph: { title: 'Top Places to Visit & Things to Do in AlUla 2026', description: 'Your ultimate travel guide to AlUla\'s historical landmarks, nature reserves, and art galleries.', type: 'article', url: 'https://taxiserviceksa.com/blog/top-places-visit-things-do-alula/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Top Places to Visit & Things to Do in AlUla 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Top Places to Visit & Things to Do in AlUla 2026', description: 'Your ultimate travel guide to AlUla\'s historical landmarks, nature reserves, and art galleries.', type: 'article', url: 'https://taxiserviceksa.com/blog/top-places-visit-things-do-alula/' },
 };
 
 const faqSchema = {

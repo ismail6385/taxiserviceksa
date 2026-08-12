@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Detailed guide to visiting Hegra (Mada\'in Salih) in AlUla. History of the Nabataean tombs, UNESCO status, booking tickets, opening hours, and rules.',
     keywords: ['Hegra visitor guide 2026', 'Madain Salih tombs AlUla', 'UNESCO site Hegra Saudi Arabia', 'Hegra ticket booking guide', 'tomb of lihyan son of kuza'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/hegra-madain-salih-visitor-guide/' },
-    openGraph: { title: 'Hegra (Mada\'in Salih) AlUla: Complete Visitor Guide 2026', description: 'Everything you need to know to visit Hegra: history, ticket booking, rules, and top tombs.', type: 'article', url: 'https://taxiserviceksa.com/blog/hegra-madain-salih-visitor-guide/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Hegra (Mada\'in Salih) AlUla: Complete Visitor Guide 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Hegra (Mada\'in Salih) AlUla: Complete Visitor Guide 2026', description: 'Everything you need to know to visit Hegra: history, ticket booking, rules, and top tombs.', type: 'article', url: 'https://taxiserviceksa.com/blog/hegra-madain-salih-visitor-guide/' },
 };
 
 const faqSchema = {

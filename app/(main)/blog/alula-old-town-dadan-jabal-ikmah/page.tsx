@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Explore the historical core of AlUla. Complete guide to AlUla Old Town, the ancient tombs of Dadan, and the rock inscriptions of Jabal Ikmah.',
     keywords: ['AlUla Old Town guide 2026', 'Dadan archaeological site AlUla', 'Jabal Ikmah inscriptions', 'ancient history of AlUla', 'Lihyanite kingdom tombs'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/alula-old-town-dadan-jabal-ikmah/' },
-    openGraph: { title: 'AlUla Old Town, Dadan & Jabal Ikmah: Heritage Guide 2026', description: 'Your guide to exploring AlUla Old Town, Dadan ruins, and the open-air inscriptions library at Jabal Ikmah.', type: 'article', url: 'https://taxiserviceksa.com/blog/alula-old-town-dadan-jabal-ikmah/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'AlUla Old Town, Dadan & Jabal Ikmah: Heritage Guide 2026' }],
+        siteName: 'Taxi Service KSA', title: 'AlUla Old Town, Dadan & Jabal Ikmah: Heritage Guide 2026', description: 'Your guide to exploring AlUla Old Town, Dadan ruins, and the open-air inscriptions library at Jabal Ikmah.', type: 'article', url: 'https://taxiserviceksa.com/blog/alula-old-town-dadan-jabal-ikmah/' },
 };
 
 const faqSchema = {

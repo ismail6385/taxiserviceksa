@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     keywords: ['AlUla hiking trails 2026', 'Oasis Heritage Trail AlUla', 'AlUla hiking routes', 'adventure trail AlUla', 'canyon walk AlUla'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/best-hiking-trails-alula-2026/' },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Best Hiking Trails in AlUla 2026: Routes & Maps' }],
+        siteName: 'Taxi Service KSA',
         title: 'Best Hiking Trails in AlUla 2026: Routes & Maps',
         description: 'Discover the spectacular desert and oasis hikes of AlUla with route maps and safety tips.',
         type: 'article',

@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Best Red Sea Beaches Near Tabuk — Snorkelling & Coastal Guide 2026' }],
         title: 'Best Red Sea Beaches Near Tabuk — Snorkelling & Coastal Guide 2026',
         description: 'Top Red Sea beaches near Tabuk: Haql, Sharma, Al Wajh coast, and NEOM coastline. What to see, how to get there, and best season.',
         url: 'https://taxiserviceksa.com/blog/best-red-sea-beaches-near-tabuk/',

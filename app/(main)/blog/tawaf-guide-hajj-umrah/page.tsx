@@ -22,6 +22,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/tawaf-guide-hajj-umrah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Complete Tawaf Guide for Hajj & Umrah 2026 | Step-by-Step' }],
+        siteName: 'Taxi Service KSA',
         title: 'Complete Tawaf Guide for Hajj & Umrah 2026 | Step-by-Step',
         description: 'Everything you need to know to perform Tawaf correctly — 7 circuits, starting point, rules, duas, and types of Tawaf explained for international pilgrims.',
         type: 'article',

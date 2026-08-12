@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'A comprehensive photography guide to Tabuk. Learn the best angles, camera settings, and timings for Wadi Al-Disah, shipwrecks, and sand dunes.',
     keywords: ['Tabuk photography guide 2026', 'best photo spots in Tabuk', 'Tabuk instagram spots', 'how to photograph Wadi Al Disah', 'shipwreck beach photography'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/tabuk-photography-instagram-spots/' },
-    openGraph: { title: 'Tabuk Photography Guide: Best Photo & Instagram Locations 2026', description: 'Your visual guide to photographing the dramatic canyon walls, Red Sea shipwrecks, and castles of Tabuk.', type: 'article', url: 'https://taxiserviceksa.com/blog/tabuk-photography-instagram-spots/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk Photography Guide: Best Photo & Instagram Locations 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Tabuk Photography Guide: Best Photo & Instagram Locations 2026', description: 'Your visual guide to photographing the dramatic canyon walls, Red Sea shipwrecks, and castles of Tabuk.', type: 'article', url: 'https://taxiserviceksa.com/blog/tabuk-photography-instagram-spots/' },
 };
 
 const faqSchema = {

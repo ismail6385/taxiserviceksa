@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'AlUla Visitor Guide from Tabuk — What to See, When to Go' }],
         title: 'AlUla Visitor Guide from Tabuk — What to See, When to Go',
         description: 'Everything you need to plan a trip to AlUla from Tabuk: top attractions, Hegra tickets, where to stay, best season, and travel tips.',
         url: 'https://taxiserviceksa.com/blog/alula-visitor-guide-from-tabuk/',

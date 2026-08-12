@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-hilton-madinah-taxi/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jeddah to Madinah Hilton Hotel Transfer - Trusted Service | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Jeddah to Madinah Hilton Hotel Transfer - Trusted Service | Taxi Service KSA',
         description: 'Direct private taxi from Jeddah Airport to Madinah Hilton. Located steps from King Fahd Gate. Get a quote for your ride now.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-hilton-madinah-taxi/',

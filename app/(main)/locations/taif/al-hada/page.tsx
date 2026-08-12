@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/taif/al-hada/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi to Al Hada Mountain & Cable Car | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi to Al Hada Mountain & Cable Car | Taxi Service KSA',
         description: 'Private transfer to Al Hada, Taif. Experience the winding mountain roads and cable car with our experienced drivers.',
         url: 'https://taxiserviceksa.com/locations/taif/al-hada/',

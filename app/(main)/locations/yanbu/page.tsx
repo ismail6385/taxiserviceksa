@@ -41,6 +41,8 @@ export const metadata: Metadata = {
         }
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car Transfer, Taxi and Chauffeur Service in Yanbu | Airport Transfer & Industrial Transport | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Yanbu | Airport Transfer & Industrial Transport | Taxi Service KSA',
         description: 'Transfer service in Yanbu operates 24/7. Premium airport transfers and industrial city transport. Fixed rates. Book online.',
         url: 'https://taxiserviceksa.com/locations/yanbu/',

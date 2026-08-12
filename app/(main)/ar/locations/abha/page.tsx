@@ -23,6 +23,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'تاكسي وخدمة شوفير خاص في أبها | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'تاكسي وخدمة شوفير خاص في أبها | Taxi Service KSA',
         description: 'هل تحتاج نقلاً متميزاً في أبها؟ نوفر رحلات شوفير مريحة إلى السودة، الجبل الأخضر، ومطار أبها.',
         url: 'https://taxiserviceksa.com/ar/locations/abha/',

@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/religious-landmarks-makkah-guide/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Top Religious Landmarks in Makkah | 2026 Guide' }],
+        siteName: 'Taxi Service KSA',
         title: 'Top Religious Landmarks in Makkah | 2026 Guide',
         description: 'Read the comprehensive pilgrim guide to Makkah\'s sacred monuments and historical sites. Learn their significance and travel tips.',
         type: 'article',

@@ -27,6 +27,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'سعودی عرب تاریخی مقامات ٹورز | 4x4 کے ساتھ یونیسکو سائٹس کا سفر' }],
+        siteName: 'Taxi Service KSA',
         title: 'سعودی عرب تاریخی مقامات ٹورز | 4x4 کے ساتھ یونیسکو سائٹس کا سفر',
         description: 'العلا اور خیبر جیسے تاریخی مقامات کی سیر کے لیے پروفیشنل ٹرانسپورٹ سروس اور لائسنس یافتہ مقامی ڈرائیورز۔',
         url: 'https://taxiserviceksa.com/ur/services/heritage-tours/',

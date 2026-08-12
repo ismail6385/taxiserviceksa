@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Can Tourists Visit NEOM from Tabuk? Access Guide 2026' }],
         title: 'Can Tourists Visit NEOM from Tabuk? Access Guide 2026',
         description: 'NEOM tourist access explained: what is open, what needs a permit, and how to travel from Tabuk by private car.',
         url: 'https://taxiserviceksa.com/blog/can-tourists-visit-neom-from-tabuk/',

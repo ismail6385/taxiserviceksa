@@ -24,6 +24,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk to NEOM Distance & Drive Time (2026)' }],
+        siteName: 'Taxi Service KSA',
         title: 'Tabuk to NEOM Distance & Drive Time (2026)',
         description: '190 km, 2–2.5 hours. Full route guide with checkpoints, rest stops, and transport options.',
         url: 'https://taxiserviceksa.com/blog/tabuk-to-neom-distance-drive-time/',

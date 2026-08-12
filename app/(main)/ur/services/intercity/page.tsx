@@ -26,6 +26,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'انٹرسٹی پرائیویٹ ٹرانسفر | ایک شہر سے دوسرے شہر کا سفر' }],
+        siteName: 'Taxi Service KSA',
         title: 'انٹرسٹی پرائیویٹ ٹرانسفر | ایک شہر سے دوسرے شہر کا سفر',
         description: 'سعودی عرب کے تمام بڑے شہروں کے درمیان پرائیویٹ اور محفوظ سفری سہولت۔ جدید اور آرام دہ گاڑیاں بمعہ ڈرائیور۔',
         url: 'https://taxiserviceksa.com/ur/services/intercity/',

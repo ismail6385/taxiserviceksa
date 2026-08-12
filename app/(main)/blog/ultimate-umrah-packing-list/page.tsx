@@ -20,6 +20,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/ultimate-umrah-packing-list/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Ultimate Umrah Packing List 2026 | Checklist for Pilgrims' }],
+        siteName: 'Taxi Service KSA',
         title: 'Ultimate Umrah Packing List 2026 | Checklist for Pilgrims',
         description: 'Complete, interactive checklist for Hajj and Umrah pilgrims. Don’t leave anything behind — documents, clothing, health, and spiritual essentials.',
         type: 'article',

@@ -42,6 +42,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Service for Bilingual Chauffeurs | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car, Taxi and Chauffeur Service for Bilingual Chauffeurs | Taxi Service KSA',
         description: 'Hire an English and Arabic speaking private driver in Saudi Arabia. Professional bilingual chauffeur for foreign visitors, expats, and female travelers across Riyadh and Jeddah.',
         url: 'https://taxiserviceksa.com/services/bilingual-chauffeur/',

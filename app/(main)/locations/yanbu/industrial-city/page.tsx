@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/yanbu/industrial-city/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi to Yanbu Industrial City (Royal Commission) | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi to Yanbu Industrial City (Royal Commission) | Taxi Service KSA',
         description: 'Professional transport services for business travelers in Yanbu Industrial City. Gate drop-offs for major industries.',
         url: 'https://taxiserviceksa.com/locations/yanbu/industrial-city/',

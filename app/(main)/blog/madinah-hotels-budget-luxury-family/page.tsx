@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Find the best budget, luxury, and family hotels in Madinah near Masjid an-Nabawi. Includes room prices, key features, and expert booking tips.',
     keywords: ['best hotels in Madinah 2026', 'budget hotels Madinah', 'luxury hotels near Masjid Nabawi', 'family hotels Madinah', 'hotels near Masjid an-Nabawi'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/madinah-hotels-budget-luxury-family/' },
-    openGraph: { title: 'Best Hotels in Madinah 2026: Budget, Luxury & Family Near Masjid Nabawi', description: 'The complete hotel guide to Madinah covering budget, luxury and family-friendly options.', type: 'article', url: 'https://taxiserviceksa.com/blog/madinah-hotels-budget-luxury-family/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Best Hotels in Madinah 2026: Budget, Luxury & Family Near Masjid Nabawi' }],
+        siteName: 'Taxi Service KSA', title: 'Best Hotels in Madinah 2026: Budget, Luxury & Family Near Masjid Nabawi', description: 'The complete hotel guide to Madinah covering budget, luxury and family-friendly options.', type: 'article', url: 'https://taxiserviceksa.com/blog/madinah-hotels-budget-luxury-family/' },
 };
 
 const faqSchema = {

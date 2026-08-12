@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Step-by-step guide to booking and visiting the Rawdah al-Sharif in Masjid an-Nabawi. Learn how to use the Nusuk app, timings, rules, and what to expect.',
     keywords: ['how to book Rawdah Madinah', 'Nusuk app Rawdah booking', 'visit Rawdah al-Sharif guide', 'Rawdah Madinah timings 2026', 'Rawdah reservation steps'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/how-to-book-visit-rawdah-madinah/' },
-    openGraph: { title: 'How to Book & Visit Rawdah in Madinah via Nusuk 2026', description: 'Step-by-step Rawdah booking guide using the Nusuk app with tips for a successful visit.', type: 'article', url: 'https://taxiserviceksa.com/blog/how-to-book-visit-rawdah-madinah/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'How to Book & Visit Rawdah in Madinah via Nusuk 2026' }],
+        siteName: 'Taxi Service KSA', title: 'How to Book & Visit Rawdah in Madinah via Nusuk 2026', description: 'Step-by-step Rawdah booking guide using the Nusuk app with tips for a successful visit.', type: 'article', url: 'https://taxiserviceksa.com/blog/how-to-book-visit-rawdah-madinah/' },
 };
 
 const faqSchema = {

@@ -20,6 +20,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/madinah/qiblatain/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi to Masjid Al Qiblatain (Madinah) | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi to Masjid Al Qiblatain (Madinah) | Taxi Service KSA',
         description: 'Visit the historical site where the direction of prayer was changed. Comfortable family taxis for your Ziyarat tour.',
         url: 'https://taxiserviceksa.com/locations/madinah/qiblatain/',

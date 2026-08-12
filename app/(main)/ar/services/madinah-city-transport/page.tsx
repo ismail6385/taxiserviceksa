@@ -32,6 +32,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'نقل عائلي فاخر في المدينة المنورة | سائق خاص | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'نقل عائلي فاخر في المدينة المنورة | سائق خاص | Taxi Service KSA',
         description: 'نقل فاخر وخاص في المدينة المنورة. من الفندق إلى المسجد النبوي، جولات الزيارة، توصيل المطار، ومن المدينة إلى مكة. سيارات عائلية متوفرة على مدار الساعة.',
         url: 'https://taxiserviceksa.com/ar/services/madinah-city-transport/',

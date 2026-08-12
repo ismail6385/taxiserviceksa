@@ -43,6 +43,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Service for Private Driver Hire | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car, Taxi and Chauffeur Service for Private Driver Hire | Taxi Service KSA',
         description: 'Hire a private driver in Riyadh or Jeddah by the hour, day, week, or month. English-speaking chauffeur with luxury SUV for shopping, meetings, family trips, and tours.',
         url: 'https://taxiserviceksa.com/services/private-driver/',

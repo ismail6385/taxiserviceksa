@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/yanbu-jeddah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Yanbu to Jeddah Taxi (Airport Transfer) - Experienced Drivers | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Yanbu to Jeddah Taxi (Airport Transfer) - Experienced Drivers | Taxi Service KSA',
         description: 'Need a ride from Yanbu (Royal Commission/Industrial) to Jeddah? Book our private taxi. Fixed prices available. 24/7 Pickup.',
         url: 'https://taxiserviceksa.com/routes/yanbu-jeddah/',

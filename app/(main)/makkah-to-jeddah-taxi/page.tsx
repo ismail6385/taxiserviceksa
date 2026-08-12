@@ -23,6 +23,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/makkah-to-jeddah-taxi/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Makkah to Jeddah Taxi | Private Transfer | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Makkah to Jeddah Taxi | Private Transfer | Taxi Service KSA',
         description: 'Direct private taxi from Makkah to Jeddah. 85 km, ~1 hour. Airport, hotels, Corniche. Fixed rates.',
         url: 'https://taxiserviceksa.com/makkah-to-jeddah-taxi/',

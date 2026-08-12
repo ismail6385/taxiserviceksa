@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/jabal-thawr-guide/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jabal Thawr Makkah Guide 2026 | Mountain of the Cave' }],
+        siteName: 'Taxi Service KSA',
         title: 'Jabal Thawr Makkah Guide 2026 | Mountain of the Cave',
         description: 'Read the historical significance and climbing advice for Jabal Thawr in Makkah, where the Prophet ﷺ hid during the Hijrah.',
         type: 'article',

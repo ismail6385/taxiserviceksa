@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk to Sharma Beach — How to Get There (NEOM Coast)' }],
         title: 'Tabuk to Sharma Beach — How to Get There (NEOM Coast)',
         description: 'Sharma is the closest Red Sea beach to Tabuk — 190 km through the NEOM corridor. Here\'s how to get there, what to bring, and what to expect.',
         url: 'https://taxiserviceksa.com/blog/tabuk-to-sharma-beach-how-to-get-there/',

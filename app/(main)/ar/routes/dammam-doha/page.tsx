@@ -26,6 +26,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'تاكسي الدمام إلى الدوحة | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'تاكسي الدمام إلى الدوحة | Taxi Service KSA',
         description: 'اطلب عرض سعر مميز لرحلة من الدمام إلى الدوحة. نقل موثوق عبر الحدود، سيارات دفع رباعي مريحة، وخدمة من الباب إلى الباب في جميع أنحاء الخليج.',
         url: 'https://taxiserviceksa.com/ar/routes/dammam-doha/',

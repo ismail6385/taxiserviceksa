@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-fairmont-makkah-taxi/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jeddah Airport to Fairmont Makkah Taxi | Transfer | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Jeddah Airport to Fairmont Makkah Taxi | Transfer | Taxi Service KSA',
         description: 'Direct transfer to Fairmont Makkah Clock Royal Tower. 24/7 Service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-fairmont-makkah-taxi/',

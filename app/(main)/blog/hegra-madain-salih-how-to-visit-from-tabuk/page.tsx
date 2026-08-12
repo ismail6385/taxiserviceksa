@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Hegra (Mada\'in Salih) — How to Visit from Tabuk 2026' }],
         title: 'Hegra (Mada\'in Salih) — How to Visit from Tabuk 2026',
         description: 'UNESCO-listed Nabataean tombs at Hegra — how to get there from Tabuk, book tickets, and what to see at Saudi Arabia\'s most ancient site.',
         url: 'https://taxiserviceksa.com/blog/hegra-madain-salih-how-to-visit-from-tabuk/',

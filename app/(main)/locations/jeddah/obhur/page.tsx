@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/obhur/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car Transfer, Taxi and Chauffeur Service to Obhur Beach Resorts | Premium Chauffeur | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car Transfer, Taxi and Chauffeur Service to Obhur Beach Resorts | Premium Chauffeur | Taxi Service KSA',
         description: 'Going to the beach? We provide premium private transfers and executive SUVs for families and divers heading to Obhur resorts.',
         url: 'https://taxiserviceksa.com/locations/jeddah/obhur/',

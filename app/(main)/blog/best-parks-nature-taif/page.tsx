@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "green spaces Taif",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Best Parks & Nature Attractions in Taif: Top Green Spots' }],
+    siteName: 'Taxi Service KSA',
     title: "Best Parks & Nature Attractions in Taif: Top Green Spots",
     description:
       "A local guide to the most beautiful parks, nature reserves, and green valleys in the high-altitude city of Taif.",
@@ -167,7 +169,7 @@ export default function BestParksNatureTaif() {
             <Link href="/booking" className="bg-white text-green-800 font-bold px-8 py-3 rounded-full hover:bg-green-50 transition">
               Book Private Taxi
             </Link>
-            <Link href="/routes/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
+            <Link href="/locations/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
               View Taif Routes
             </Link>
           </div>

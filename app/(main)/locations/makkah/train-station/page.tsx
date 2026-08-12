@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/makkah/train-station/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi from Makkah Train Station (Haramain) | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi from Makkah Train Station (Haramain) | Taxi Service KSA',
         description: 'Direct transfer from Makkah Railway Station to Clock Tower and Haram hotels. Avoid the crowds with pre-booked pickups.',
         url: 'https://taxiserviceksa.com/locations/makkah/train-station/',

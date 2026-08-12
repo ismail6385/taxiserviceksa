@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     keywords: ['AlUla sunrise spots', 'best sunset AlUla', 'Harrat viewpoint AlUla', 'Elephant rock sunset', 'Maraya concert hall reflections'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/best-sunrise-sunset-spots-alula/' },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Best Sunrise & Sunset Spots in AlUla' }],
+        siteName: 'Taxi Service KSA',
         title: 'Best Sunrise & Sunset Spots in AlUla',
         description: 'Where to watch the sun rise and set in the ancient desert valleys of AlUla.',
         type: 'article',

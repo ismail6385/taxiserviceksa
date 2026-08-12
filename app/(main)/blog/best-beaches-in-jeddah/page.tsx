@@ -22,6 +22,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/best-beaches-in-jeddah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Best Beaches in Jeddah 2026 | Red Sea Beach Guide for Tourists' }],
+        siteName: 'Taxi Service KSA',
         title: 'Best Beaches in Jeddah 2026 | Red Sea Beach Guide for Tourists',
         description: 'From Obhur Creek private beach clubs to the public Corniche beaches — discover where to swim, snorkel and relax on Jeddah\'s beautiful Red Sea coastline.',
         type: 'article',

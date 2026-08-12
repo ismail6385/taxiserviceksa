@@ -31,6 +31,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'خدمة توصيل فنادق الرياض | استقبال من المطار والمدينة | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'خدمة توصيل فنادق الرياض | استقبال من المطار والمدينة | Taxi Service KSA',
         description: 'استقبال وتوصيل خاص للفنادق في الرياض. من المطار إلى الفندق، ومن الفندق إلى الحي التجاري، وتوصيل فاخر بين الفنادق. استقبال شخصي على مدار الساعة.',
         url: 'https://taxiserviceksa.com/ar/services/riyadh-hotel-transfer/',

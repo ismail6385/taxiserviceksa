@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/makkah/aziziyah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'from Aziziyah to Haram (Makkah) Taxi | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'from Aziziyah to Haram (Makkah) Taxi | Taxi Service KSA',
         description: 'Staying in Aziziyah? We provide fast 24/7 transfers to King Abdulaziz Gate and the Clock Tower.',
         url: 'https://taxiserviceksa.com/locations/makkah/aziziyah/',

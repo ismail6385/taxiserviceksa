@@ -30,6 +30,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Riyadh Business Travel Guide 2026 | Complete Corporate Transport Guide' }],
+        siteName: 'Taxi Service KSA',
         title: 'Riyadh Business Travel Guide 2026 | Complete Corporate Transport Guide',
         description: 'Everything business travelers need: KAFD access, districts, venues, corporate facilities, and transport.',
         url: 'https://taxiserviceksa.com/guides/riyadh-business-guide/',

@@ -10,6 +10,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-m-hotel-millennium-makkah-taxi/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jeddah Airport to M Hotel Makkah Taxi | Fixed Price Transfer | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Jeddah Airport to M Hotel Makkah Taxi | Fixed Price Transfer | Taxi Service KSA',
         description: 'Direct transfer from KAIA Airport to M Hotel Makkah by Millennium (Central Makkah, near the Haram). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-m-hotel-millennium-makkah-taxi/',

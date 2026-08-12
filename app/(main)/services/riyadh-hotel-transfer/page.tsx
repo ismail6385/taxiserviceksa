@@ -32,6 +32,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Service for Riyadh Hotel Transfers | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car, Taxi and Chauffeur Service for Riyadh Hotel Transfers | Taxi Service KSA',
         description: 'Private hotel pickup and transfer in Riyadh. Airport to hotel, hotel to business district, and luxury hotel-to-hotel transfers. Meet-and-greet, 24/7.',
         url: 'https://taxiserviceksa.com/services/riyadh-hotel-transfer/',

@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "visiting Al Rudaf Park",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Al Rudaf Park Visitor Guide: Taif\'s Best Family Destination' }],
+    siteName: 'Taxi Service KSA',
     title: "Al Rudaf Park Visitor Guide: Taif's Best Family Destination",
     description:
       "Explore Al Rudaf Park, featuring lush gardens, children's play areas, and the famous musical dancing fountain in Taif.",
@@ -150,7 +152,7 @@ export default function AlRudafParkVisitorGuide() {
             <Link href="/booking" className="bg-white text-green-800 font-bold px-8 py-3 rounded-full hover:bg-green-50 transition">
               Book Taif Taxi
             </Link>
-            <Link href="/routes/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
+            <Link href="/locations/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
               View Taif Routes
             </Link>
           </div>

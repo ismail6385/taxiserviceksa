@@ -37,6 +37,8 @@ export const metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'حلول نقل الشركات وB2B | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'حلول نقل الشركات وB2B | Taxi Service KSA',
         description: 'خدمات نقل متميزة للشركات في السعودية. نتعاون مع وكالات السفر ومشغلي العمرة والشركات لتقديم نقل فاخر وموثوق.',
         url: 'https://taxiserviceksa.com/ar/services/b2b-solutions/',

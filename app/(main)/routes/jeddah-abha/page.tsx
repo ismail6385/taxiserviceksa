@@ -21,6 +21,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-abha/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jeddah to Abha Taxi | Private Transfer - Fixed Price | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Jeddah to Abha Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 630 km drive through the Asir mountains. Request a quote for a comfortable ride from Jeddah to Abha. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/jeddah-abha/',

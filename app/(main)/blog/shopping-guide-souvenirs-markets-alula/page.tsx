@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'The complete AlUla shopping guide. Discover the best markets in Old Town, boutique souvenirs, organic date shops, and local perfume outlets in 2026.',
     keywords: ['AlUla shopping guide 2026', 'best souvenirs to buy in AlUla', 'AlUla date shops', 'Old town markets AlUla', 'perfume shops AlUla'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/shopping-guide-souvenirs-markets-alula/' },
-    openGraph: { title: 'AlUla Shopping Guide 2026: Souvenirs, Markets & Date Shops', description: 'Your guide to shopping in AlUla — from local citrus products to hand-poured perfumes and heritage crafts.', type: 'article', url: 'https://taxiserviceksa.com/blog/shopping-guide-souvenirs-markets-alula/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'AlUla Shopping Guide 2026: Souvenirs, Markets & Date Shops' }],
+        siteName: 'Taxi Service KSA', title: 'AlUla Shopping Guide 2026: Souvenirs, Markets & Date Shops', description: 'Your guide to shopping in AlUla — from local citrus products to hand-poured perfumes and heritage crafts.', type: 'article', url: 'https://taxiserviceksa.com/blog/shopping-guide-souvenirs-markets-alula/' },
 };
 
 const faqSchema = {

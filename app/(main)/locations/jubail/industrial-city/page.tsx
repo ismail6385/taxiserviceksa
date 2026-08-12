@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/jubail/industrial-city/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi to Jubail Industrial City | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi to Jubail Industrial City | Taxi Service KSA',
         description: 'Professional transport to the world\'s largest industrial city. Transfers to all major plants and RC camps.',
         url: 'https://taxiserviceksa.com/locations/jubail/industrial-city/',

@@ -22,6 +22,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'تاكسي الرياض إلى دبي | نقل بجمس ٣٬٥٠٠ ريال' }],
+        siteName: 'Taxi Service KSA',
         title: 'تاكسي الرياض إلى دبي | نقل بجمس ٣٬٥٠٠ ريال',
         description: 'احجز تاكسي خاص من الرياض إلى دبي. جمس يوكن / شيفروليه تاهو بسعر يبدأ من ٣٥٠٠ ريال. خدمة من الباب إلى الباب، مع مساعدة كاملة عند الحدود.',
         url: 'https://taxiserviceksa.com/ar/routes/riyadh-dubai/',

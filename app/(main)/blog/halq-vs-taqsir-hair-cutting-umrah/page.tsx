@@ -21,6 +21,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/halq-vs-taqsir-hair-cutting-umrah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Halq vs Taqsir Guide | Hair Cutting Rules for Hajj & Umrah' }],
+        siteName: 'Taxi Service KSA',
         title: 'Halq vs Taqsir Guide | Hair Cutting Rules for Hajj & Umrah',
         description: 'Learn the differences, spiritual virtues, and strict rulings of Halq and Taqsir for pilgrims to correctly complete their Umrah and Hajj.',
         type: 'article',

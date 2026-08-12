@@ -23,6 +23,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Executive Taxi: Dammam to Riyadh | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Executive Taxi: Dammam to Riyadh | Taxi Service KSA',
         description: 'Need to travel from Dammam to Riyadh? Our luxury GMCs provide comfortable 4-hour door-to-door service.',
         url: 'https://taxiserviceksa.com/routes/dammam-riyadh/',

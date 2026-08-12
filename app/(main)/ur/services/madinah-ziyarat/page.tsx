@@ -26,6 +26,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'مدینہ زیارات پرائیویٹ ٹیکسی | دینی مقامات کی سیر' }],
+        siteName: 'Taxi Service KSA',
         title: 'مدینہ زیارات پرائیویٹ ٹیکسی | دینی مقامات کی سیر',
         description: 'مدینہ منورہ میں اسلامی مقامات اور زیارات کا مسنون سفر۔ قابل اعتماد ڈرائیورز اور فکسڈ پیکجز۔',
         url: 'https://taxiserviceksa.com/ur/services/madinah-ziyarat/',

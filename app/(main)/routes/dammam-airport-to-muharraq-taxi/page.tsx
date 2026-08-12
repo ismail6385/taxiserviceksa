@@ -24,6 +24,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/dammam-airport-to-muharraq-taxi/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Service from Dammam Airport to Muharraq | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car, Taxi and Chauffeur Service from Dammam Airport to Muharraq | Taxi Service KSA',
         description: 'Private transfer from Dammam Airport to Muharraq, Bahrain\'s historic old town, via King Fahd Causeway.',
         url: 'https://taxiserviceksa.com/routes/dammam-airport-to-muharraq-taxi/',

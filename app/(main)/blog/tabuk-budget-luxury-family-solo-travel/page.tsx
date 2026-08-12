@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Find the best hotels, luxury resorts, and budget accommodation in Tabuk. Learn how to plan according to your travel style: family, solo, or budget.',
     keywords: ['where to stay in Tabuk 2026', 'best areas to stay Tabuk', 'Tabuk budget travel', 'luxury hotels Tabuk', 'family hotels Tabuk'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/tabuk-budget-luxury-family-solo-travel/' },
-    openGraph: { title: 'Tabuk Accommodation & Travel Styles Guide: Budget, Luxury, Family & Solo 2026', description: 'Your guide to choosing the best hotels, resorts, and travel style options in Tabuk Province.', type: 'article', url: 'https://taxiserviceksa.com/blog/tabuk-budget-luxury-family-solo-travel/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk Accommodation & Travel Styles Guide: Budget, Luxury, Family & Solo 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Tabuk Accommodation & Travel Styles Guide: Budget, Luxury, Family & Solo 2026', description: 'Your guide to choosing the best hotels, resorts, and travel style options in Tabuk Province.', type: 'article', url: 'https://taxiserviceksa.com/blog/tabuk-budget-luxury-family-solo-travel/' },
 };
 
 const faqSchema = {

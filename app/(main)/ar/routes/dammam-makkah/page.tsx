@@ -23,6 +23,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'تاكسي خاص: الدمام إلى مكة | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'تاكسي خاص: الدمام إلى مكة | Taxi Service KSA',
         description: 'نقل بري بين المدن من الدمام إلى مكة بسيارة خاصة مكيفة. مثالي لمعتمري العمرة والعائلات.',
         url: 'https://taxiserviceksa.com/ar/routes/dammam-makkah/',

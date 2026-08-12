@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'The complete dining guide to AlUla. Discover the best fine dining at Maraya, traditional Arabic restaurants, breakfast spots, and specialty coffee shops.',
     keywords: ['best restaurants in AlUla', 'AlUla food guide 2026', 'luxury dining AlUla', 'best cafes AlUla', 'Arabic restaurants AlUla town'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/best-restaurants-cafes-food-alula/' },
-    openGraph: { title: 'Best Restaurants, Cafes & Food Guide to AlUla 2026', description: 'Explore the culinary scene of AlUla — from Michelin-starred dining to traditional local oases cafes.', type: 'article', url: 'https://taxiserviceksa.com/blog/best-restaurants-cafes-food-alula/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Best Restaurants, Cafes & Food Guide to AlUla 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Best Restaurants, Cafes & Food Guide to AlUla 2026', description: 'Explore the culinary scene of AlUla — from Michelin-starred dining to traditional local oases cafes.', type: 'article', url: 'https://taxiserviceksa.com/blog/best-restaurants-cafes-food-alula/' },
 };
 
 const faqSchema = {

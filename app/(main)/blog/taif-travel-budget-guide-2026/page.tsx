@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "Saudi Arabia trip cost",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taif Travel Budget Guide 2026: Cost Breakdown' }],
+    siteName: 'Taxi Service KSA',
     title: "Taif Travel Budget Guide 2026: Cost Breakdown",
     description:
       "A complete cost breakdown for traveling to Taif — from budget hotels and street food to luxury mountain resorts.",
@@ -143,7 +145,7 @@ export default function TaifTravelBudgetGuide2026() {
             <Link href="/booking" className="bg-white text-gray-800 font-bold px-8 py-3 rounded-full hover:bg-gray-50 transition">
               Book Fixed-Rate Taxi
             </Link>
-            <Link href="/routes/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
+            <Link href="/locations/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
               View Taif Routes
             </Link>
           </div>

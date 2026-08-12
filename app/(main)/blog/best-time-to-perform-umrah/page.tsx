@@ -19,6 +19,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/best-time-to-perform-umrah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Best Time to Perform Umrah 2026 | Weather, Crowd & Cost Guide' }],
+        siteName: 'Taxi Service KSA',
         title: 'Best Time to Perform Umrah 2026 | Weather, Crowd & Cost Guide',
         description: 'Plan your pilgrimage with confidence. A complete breakdown of Makkah weather, crowd density cycles, and budget-friendly seasons.',
         type: 'article',

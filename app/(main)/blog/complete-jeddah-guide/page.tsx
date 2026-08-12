@@ -23,6 +23,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/complete-jeddah-guide/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jeddah Complete Travel Guide 2026 | History, Landmarks & Getting Around' }],
+        siteName: 'Taxi Service KSA',
         title: 'Jeddah Complete Travel Guide 2026 | History, Landmarks & Getting Around',
         description: 'Everything you need to know about Jeddah — history, must-see spots, food, culture and private transport options for international travelers.',
         type: 'article',

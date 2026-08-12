@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "family trip AlUla Saudi Arabia",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Is AlUla Suitable for Children? Family Travel Guide 2026' }],
+    siteName: 'Taxi Service KSA',
     title: "Is AlUla Suitable for Children? Family Travel Guide 2026",
     description:
       "Planning an AlUla family trip? Find out what activities kids will love, what to skip, and how to plan a successful family visit.",

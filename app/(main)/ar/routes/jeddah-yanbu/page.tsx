@@ -25,6 +25,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'خدمة: تاكسي من مطار جدة إلى ينبع | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'خدمة: تاكسي من مطار جدة إلى ينبع | Taxi Service KSA',
         description: 'نقل مباشر من جدة إلى مدينة ينبع الصناعية. سيارات آمنة ومريحة للمهندسين والتنفيذيين والغواصين.',
         url: 'https://taxiserviceksa.com/ar/routes/jeddah-yanbu/',

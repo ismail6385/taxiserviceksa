@@ -28,6 +28,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/vip-transfer-dammam/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'VIP Transfer Dammam | Private Car Eastern Province | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'VIP Transfer Dammam | Private Car Eastern Province | Taxi Service KSA',
         description: 'VIP private car in Dammam, Al Khobar, Dhahran. Airport, intercity, corporate. Fixed rates.',
         url: 'https://taxiserviceksa.com/vip-transfer-dammam/',

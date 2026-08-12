@@ -22,6 +22,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'خدمة شوفير دول الخليج | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'خدمة شوفير دول الخليج | Taxi Service KSA',
         description: 'نقل خاص عبر الحدود يربط السعودية بالإمارات والكويت وقطر والبحرين.',
         url: 'https://taxiserviceksa.com/ar/services/gcc-chauffeur-service/',

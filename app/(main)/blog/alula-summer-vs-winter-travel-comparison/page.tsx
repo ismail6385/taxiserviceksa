@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     keywords: ['AlUla summer vs winter', 'best season to visit AlUla', 'AlUla temperature summer', 'AlUla hotel prices winter', 'Hegra tours in summer'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/alula-summer-vs-winter-travel-comparison/' },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'AlUla Summer vs Winter Travel Comparison: When to Go' }],
+        siteName: 'Taxi Service KSA',
         title: 'AlUla Summer vs Winter Travel Comparison: When to Go',
         description: 'Decide when to visit AlUla by comparing summer and winter travel experiences.',
         type: 'article',

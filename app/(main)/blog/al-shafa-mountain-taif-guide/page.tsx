@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "Taif mountain Al Shafa",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Al Shafa Mountain Taif: Complete Visitor Guide 2026' }],
+    siteName: 'Taxi Service KSA',
     title: "Al Shafa Mountain Taif: Complete Visitor Guide 2026",
     description:
       "Al Shafa — Taif's hidden mountain gem with rose farms, cool air, panoramic views, and authentic village charm.",
@@ -173,7 +175,7 @@ export default function AlShafaMountainTaifGuide() {
             <Link href="/booking" className="bg-white text-purple-800 font-bold px-8 py-3 rounded-full hover:bg-purple-50 transition">
               Book Taif Taxi
             </Link>
-            <Link href="/routes/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
+            <Link href="/locations/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
               View Taif Routes
             </Link>
           </div>

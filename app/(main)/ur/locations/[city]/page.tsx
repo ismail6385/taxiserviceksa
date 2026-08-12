@@ -53,6 +53,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             },
         },
         openGraph: {
+            images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi Service KSA' }],
+            siteName: 'Taxi Service KSA',
             title: city.metaTitle,
             description: city.metaDescription,
             url: `https://taxiserviceksa.com/ur/locations/${city.slug}/`,

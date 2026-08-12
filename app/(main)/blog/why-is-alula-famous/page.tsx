@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "AlUla Saudi Arabia famous",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Why Is AlUla Famous? 10 Reasons AlUla Is Saudi Arabia\'s Crown Jewel' }],
+    siteName: 'Taxi Service KSA',
     title: "Why Is AlUla Famous? 10 Reasons AlUla Is Saudi Arabia's Crown Jewel",
     description:
       "From UNESCO heritage sites to ancient rock art and luxury desert resorts — here's why AlUla has captured the world's attention.",

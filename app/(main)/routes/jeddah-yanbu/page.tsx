@@ -25,6 +25,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Service: Jeddah Airport to Yanbu Taxi | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Service: Jeddah Airport to Yanbu Taxi | Taxi Service KSA',
         description: 'Direct transfers from Jeddah to Yanbu Industrial City. Safe, comfortable cars for engineers, executives, and divers.',
         url: 'https://taxiserviceksa.com/routes/jeddah-yanbu/',

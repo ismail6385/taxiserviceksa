@@ -43,6 +43,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Service for Event & Wedding Transport | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car, Taxi and Chauffeur Service for Event & Wedding Transport | Taxi Service KSA',
         description: 'Private chauffeur and group transport for weddings, conferences, exhibitions, and corporate events in Riyadh and Jeddah. arrivals, guest shuttles, and full event logistics.',
         url: 'https://taxiserviceksa.com/services/event-transport/',

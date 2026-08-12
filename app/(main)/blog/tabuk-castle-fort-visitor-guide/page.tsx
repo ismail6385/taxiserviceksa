@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk Castle (Fort) — Visitor Guide 2026' }],
         title: 'Tabuk Castle (Fort) — Visitor Guide 2026',
         description: 'Ottoman-era Tabuk Castle — opening hours, tickets, history, and how to get there from anywhere in the city.',
         url: 'https://taxiserviceksa.com/blog/tabuk-castle-fort-visitor-guide/',

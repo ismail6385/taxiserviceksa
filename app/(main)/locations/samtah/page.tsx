@@ -16,6 +16,8 @@ export const metadata: Metadata = {
         canonical: "https://taxiserviceksa.com/locations/samtah/",
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car Transfer, Taxi and Chauffeur Service in Samtah | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: "Private Car Transfer, Taxi and Chauffeur Service in Samtah | Taxi Service KSA",
         description: "Need a premium transfer in Samtah? We provide comfortable chauffeured trips and intercity transport.",
         url: "https://taxiserviceksa.com/locations/samtah/",

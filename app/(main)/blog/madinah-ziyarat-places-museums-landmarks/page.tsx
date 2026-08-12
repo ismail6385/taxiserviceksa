@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'The most comprehensive Madinah Ziyarat guide. All sacred sites, Islamic landmarks, museums, and hidden gems with visiting tips and a suggested tour order.',
     keywords: ['Madinah Ziyarat guide 2026', 'Islamic landmarks Madinah', 'best Ziyarat places Madinah', 'Madinah museums guide', 'Madinah religious sites list'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/madinah-ziyarat-places-museums-landmarks/' },
-    openGraph: { title: 'Complete Madinah Ziyarat Guide 2026', description: 'All sacred sites, museums, and landmarks in Madinah with visiting order and expert tips.', type: 'article', url: 'https://taxiserviceksa.com/blog/madinah-ziyarat-places-museums-landmarks/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Complete Madinah Ziyarat Guide 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Complete Madinah Ziyarat Guide 2026', description: 'All sacred sites, museums, and landmarks in Madinah with visiting order and expert tips.', type: 'article', url: 'https://taxiserviceksa.com/blog/madinah-ziyarat-places-museums-landmarks/' },
 };
 
 const faqSchema = {

@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     keywords: ['rock climbing AlUla', 'via ferrata AlUla', 'AlUla zipline price', 'adventure sports Saudi Arabia', 'AlUla canyon climbing'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/rock-climbing-adventure-sports-alula/' },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Rock Climbing & Adventure Sports in AlUla' }],
+        siteName: 'Taxi Service KSA',
         title: 'Rock Climbing & Adventure Sports in AlUla',
         description: 'Scale ancient cliffs and soar over desert canyons. Complete guide to adventure sports in AlUla.',
         type: 'article',

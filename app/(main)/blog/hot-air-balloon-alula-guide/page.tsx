@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     keywords: ['hot air balloon AlUla', 'AlUla skies festival 2026', 'hot air balloon price Saudi Arabia', 'Hegra balloon rides', 'AlUla balloon festival booking'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/hot-air-balloon-alula-guide/' },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Hot Air Balloon in AlUla: Flights, Prices & Booking' }],
+        siteName: 'Taxi Service KSA',
         title: 'Hot Air Balloon in AlUla: Flights, Prices & Booking',
         description: 'Soar above ancient Nabataean tombs and dramatic sandstone canyons in a hot air balloon over AlUla.',
         type: 'article',

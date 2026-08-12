@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/makkah/jabal-omar/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi to Jabal Omar Hotels (Makkah) | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi to Jabal Omar Hotels (Makkah) | Taxi Service KSA',
         description: 'Staying at the Hilton, Conrad, or Hyatt in Makkah? We provide luxury GMC transfers directly to the Jabal Omar main entrance.',
         url: 'https://taxiserviceksa.com/locations/makkah/jabal-omar/',

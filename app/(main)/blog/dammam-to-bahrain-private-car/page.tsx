@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Dammam to Bahrain by Private Car — Causeway Guide 2026' }],
         title: 'Dammam to Bahrain by Private Car — Causeway Guide 2026',
         description: 'Private car from Dammam to Bahrain (Manama) via King Fahd Causeway. 95 km, 1.5–2.5 hours, SAR 300–500. What happens at the border and how to book.',
         url: 'https://taxiserviceksa.com/blog/dammam-to-bahrain-private-car/',

@@ -24,6 +24,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/jeddah-makkah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         url: 'https://taxiserviceksa.com/locations/jeddah-makkah/',
     },
 };

@@ -26,6 +26,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'ویل چیئر قابلِ رسائی وی آئی پی ٹرانسفر | آرام اور دیکھ بھال' }],
+        siteName: 'Taxi Service KSA',
         title: 'ویل چیئر قابلِ رسائی وی آئی پی ٹرانسفر | آرام اور دیکھ بھال',
         description: 'بیماروں، بزرگوں، اور معذورین کی آسانی کے لیے کشادہ گاڑیاں اور تعاون کرنے والے ڈرائیورز کا انتظام۔',
         url: 'https://taxiserviceksa.com/ur/services/wheelchair-taxi/',

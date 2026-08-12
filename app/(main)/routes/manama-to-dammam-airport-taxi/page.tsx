@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/manama-to-dammam-airport-taxi/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Service from Manama to Dammam Airport | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car, Taxi and Chauffeur Service from Manama to Dammam Airport | Taxi Service KSA',
         description: 'Private transfer from Manama, the capital of Bahrain, to Dammam Airport via King Fahd Causeway.',
         url: 'https://taxiserviceksa.com/routes/manama-to-dammam-airport-taxi/',

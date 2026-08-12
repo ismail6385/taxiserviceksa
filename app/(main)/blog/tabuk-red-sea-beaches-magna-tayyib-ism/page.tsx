@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'The complete guide to Tabuk\'s Red Sea coastline. Explore Sharma Beach, Umluj boat tours, Haql shipwreck, Magna springs, and Tayyib Al-Ism valley.',
     keywords: ['Tabuk beaches guide 2026', 'Sharma beach Tabuk', 'Umluj Maldives Saudi Arabia', 'Haql shipwreck beach', 'Tayyib Al Ism valley Magna'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/tabuk-red-sea-beaches-magna-tayyib-ism/' },
-    openGraph: { title: 'Tabuk Red Sea Beaches Guide: Sharma, Umluj, Haql & Tayyib Al-Ism 2026', description: 'Explore the pristine turquoise coastlines of Saudi Arabia\'s northwest Tabuk province.', type: 'article', url: 'https://taxiserviceksa.com/blog/tabuk-red-sea-beaches-magna-tayyib-ism/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk Red Sea Beaches Guide: Sharma, Umluj, Haql & Tayyib Al-Ism 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Tabuk Red Sea Beaches Guide: Sharma, Umluj, Haql & Tayyib Al-Ism 2026', description: 'Explore the pristine turquoise coastlines of Saudi Arabia\'s northwest Tabuk province.', type: 'article', url: 'https://taxiserviceksa.com/blog/tabuk-red-sea-beaches-magna-tayyib-ism/' },
 };
 
 const faqSchema = {

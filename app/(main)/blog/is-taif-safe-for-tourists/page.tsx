@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "emergency numbers Taif",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Is Taif Safe for Tourists? Complete Safety Guide 2026' }],
+    siteName: 'Taxi Service KSA',
     title: "Is Taif Safe for Tourists? Complete Safety Guide 2026",
     description:
       "A complete guide to visitor safety in Taif — covering crime, road safety, health, and cultural rules.",
@@ -127,7 +129,7 @@ export default function IsTaifSafeForTourists() {
             <Link href="/booking" className="bg-white text-blue-800 font-bold px-8 py-3 rounded-full hover:bg-blue-50 transition">
               Book Safe Taxi
             </Link>
-            <Link href="/routes/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
+            <Link href="/locations/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
               View Taif Routes
             </Link>
           </div>

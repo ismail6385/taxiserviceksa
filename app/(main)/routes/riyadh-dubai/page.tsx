@@ -22,6 +22,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Riyadh to Dubai Taxi | 3500 SAR GMC Transfer' }],
+        siteName: 'Taxi Service KSA',
         title: 'Riyadh to Dubai Taxi | 3500 SAR GMC Transfer',
         description: 'Book a private taxi from Riyadh to Dubai. GMC Yukon / Chevy Tahoe from 3500 SAR. Door-to-door, border assistance included.',
         url: 'https://taxiserviceksa.com/routes/riyadh-dubai/',

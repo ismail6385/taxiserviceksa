@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/cave-of-hira-history/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'The Cave of Hira History & Spiritual Significance | 2026' }],
+        siteName: 'Taxi Service KSA',
         title: 'The Cave of Hira History & Spiritual Significance | 2026',
         description: 'A deep dive into the history and spiritual meaning of the Cave of Hira on Jabal al-Noor, Makkah.',
         type: 'article',

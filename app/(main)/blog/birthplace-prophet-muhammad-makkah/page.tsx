@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/birthplace-prophet-muhammad-makkah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'The Birthplace of Prophet Muhammad ﷺ in Makkah | 2026 Guide' }],
+        siteName: 'Taxi Service KSA',
         title: 'The Birthplace of Prophet Muhammad ﷺ in Makkah | 2026 Guide',
         description: 'A visitor guide to the historical birth site of Prophet Muhammad ﷺ in Makkah, detailing history and modern-day preservation.',
         type: 'article',

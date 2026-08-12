@@ -21,6 +21,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'طائف اور ابہا کیبل کار ٹرانسفرز | پہاڑی تفریحی مقامات' }],
+        siteName: 'Taxi Service KSA',
         title: 'طائف اور ابہا کیبل کار ٹرانسفرز | پہاڑی تفریحی مقامات',
         description: 'اسٹیشن تک آرام دہ رسائی۔ طائف اور ابہا کے بلند ترین مقامات کا نظارہ کریں۔',
         url: 'https://taxiserviceksa.com/ur/services/cable-car/',

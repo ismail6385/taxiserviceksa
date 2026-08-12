@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-dammam/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Taxi: Jeddah to Dammam | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Taxi: Jeddah to Dammam | Taxi Service KSA',
         description: 'Cross-country transfer from Jeddah to Dammam in a private, air-conditioned vehicle. Overnight and multi-stop options available.',
         url: 'https://taxiserviceksa.com/routes/jeddah-dammam/',

@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/bahrain-airport-to-dammam-airport-taxi/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Service from Bahrain Airport to Dammam Airport | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car, Taxi and Chauffeur Service from Bahrain Airport to Dammam Airport | Taxi Service KSA',
         description: 'Direct private transfer from Bahrain International Airport (BAH) to King Fahd International Airport (DMM) via the causeway.',
         url: 'https://taxiserviceksa.com/routes/bahrain-airport-to-dammam-airport-taxi/',

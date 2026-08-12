@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/islamic-history-makkah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'The Islamic History of Makkah | Key Events & Timeline' }],
+        siteName: 'Taxi Service KSA',
         title: 'The Islamic History of Makkah | Key Events & Timeline',
         description: 'Read the comprehensive historical overview of Makkah, detailing early Quranic history, the Prophet\'s life, and the conquest of Makkah.',
         type: 'article',

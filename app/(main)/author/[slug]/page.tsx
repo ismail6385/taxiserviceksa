@@ -37,7 +37,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         openGraph: {
             title: `${author.name} | Taxi Service KSA`,
             description: description,
-            images: [{ url: author.avatar, width: 400, height: 400 }],
+            url: `https://taxiserviceksa.com/author/${author.slug}/`,
+            siteName: 'Taxi Service KSA',
+            type: 'profile',
+            images: [{ url: author.avatar, width: 400, height: 400, alt: author.name }],
         },
     };
 }

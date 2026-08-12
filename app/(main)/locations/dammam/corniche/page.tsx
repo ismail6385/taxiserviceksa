@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/dammam/corniche/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi to Dammam Corniche & Marjan Island | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi to Dammam Corniche & Marjan Island | Taxi Service KSA',
         description: 'The best family picnic spot in the Eastern Province. We provide safe rides for families and groups to the Dammam waterfront.',
         url: 'https://taxiserviceksa.com/locations/dammam/corniche/',

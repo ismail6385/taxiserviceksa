@@ -20,6 +20,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-pullman-makkah-taxi/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jeddah Airport to Pullman ZamZam Makkah Taxi | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Jeddah Airport to Pullman ZamZam Makkah Taxi | Taxi Service KSA',
         description: 'Reliable transfer from KAIA Airport to Pullman ZamZam Makkah. Door-to-door service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-pullman-makkah-taxi/',

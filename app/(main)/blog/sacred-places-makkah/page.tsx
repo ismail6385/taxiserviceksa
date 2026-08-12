@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/sacred-places-makkah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Sacred Places in Makkah | 2026 Pilgrim Directory' }],
+        siteName: 'Taxi Service KSA',
         title: 'Sacred Places in Makkah | 2026 Pilgrim Directory',
         description: 'Read the complete guide to Makkah\'s holy sites, detailing historical context, significance, and visiting guidelines.',
         type: 'article',

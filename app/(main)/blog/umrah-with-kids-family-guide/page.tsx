@@ -19,6 +19,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/umrah-with-kids-family-guide/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Should You Take Your Kids for Umrah? Age-by-Age Family Guide 2026' }],
+        siteName: 'Taxi Service KSA',
         title: 'Should You Take Your Kids for Umrah? Age-by-Age Family Guide 2026',
         description: 'A practical decision framework for parents weighing whether to bring young children on Umrah, plus tips for a smoother trip if you do.',
         type: 'article',

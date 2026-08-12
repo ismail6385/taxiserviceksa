@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Detailed guide to visiting Maraya Concert Hall in AlUla. Discover AlUla\'s art exhibitions, museums, architecture, and contemporary cultural projects.',
     keywords: ['Maraya Concert Hall AlUla guide', 'largest mirrored building in the world', 'AlUla art and culture 2026', 'AlUla museums guide', 'Maraya social restaurant booking'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/maraya-concert-hall-art-culture-alula/' },
-    openGraph: { title: 'Maraya Concert Hall, Art & Culture Guide to AlUla 2026', description: 'Explore Maraya — the mirrored architectural masterwork — and the contemporary art scene of AlUla.', type: 'article', url: 'https://taxiserviceksa.com/blog/maraya-concert-hall-art-culture-alula/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Maraya Concert Hall, Art & Culture Guide to AlUla 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Maraya Concert Hall, Art & Culture Guide to AlUla 2026', description: 'Explore Maraya — the mirrored architectural masterwork — and the contemporary art scene of AlUla.', type: 'article', url: 'https://taxiserviceksa.com/blog/maraya-concert-hall-art-culture-alula/' },
 };
 
 const faqSchema = {

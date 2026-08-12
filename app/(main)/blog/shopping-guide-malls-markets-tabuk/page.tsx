@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'The complete shopping guide to Tabuk, Saudi Arabia. Discover the best malls, historic souqs, organic date shops, and local perfume outlets.',
     keywords: ['Tabuk shopping guide 2026', 'best shopping malls in Tabuk', 'Tabuk markets souq', 'Tabuk date shops', 'perfume shops Tabuk'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/shopping-guide-malls-markets-tabuk/' },
-    openGraph: { title: 'Tabuk Shopping Guide 2026: Malls, Souqs & Date Markets', description: 'Explore Tabuk\'s local markets and modern shopping malls for traditional dates, carpets, perfumes, and international brands.', type: 'article', url: 'https://taxiserviceksa.com/blog/shopping-guide-malls-markets-tabuk/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk Shopping Guide 2026: Malls, Souqs & Date Markets' }],
+        siteName: 'Taxi Service KSA', title: 'Tabuk Shopping Guide 2026: Malls, Souqs & Date Markets', description: 'Explore Tabuk\'s local markets and modern shopping malls for traditional dates, carpets, perfumes, and international brands.', type: 'article', url: 'https://taxiserviceksa.com/blog/shopping-guide-malls-markets-tabuk/' },
 };
 
 const faqSchema = {

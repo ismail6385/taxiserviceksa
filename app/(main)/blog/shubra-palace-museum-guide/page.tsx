@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "King Abdulaziz Taif palace",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Shubra Palace Museum Guide: Taif\'s Historical Masterpiece' }],
+    siteName: 'Taxi Service KSA',
     title: "Shubra Palace Museum Guide: Taif's Historical Masterpiece",
     description:
       "Visit Shubra Palace, the historic royal residence in Taif featuring a fusion of Hijazi and Roman architecture.",
@@ -133,7 +135,7 @@ export default function ShubraPalaceMuseumGuide() {
             <Link href="/booking" className="bg-white text-amber-800 font-bold px-8 py-3 rounded-full hover:bg-amber-50 transition">
               Book Taif Taxi
             </Link>
-            <Link href="/routes/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
+            <Link href="/locations/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
               View Taif Routes
             </Link>
           </div>

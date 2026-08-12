@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/taif/miqat-qarn-al-manazil/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi to Miqat Qarn al-Manazil (As-Sayl Al-Kabir) | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi to Miqat Qarn al-Manazil (As-Sayl Al-Kabir) | Taxi Service KSA',
         description: 'Official taxi service to Miqat Qarn al-Manazil. Stop for Ihram on your way to Makkah. Experienced drivers.',
         url: 'https://taxiserviceksa.com/locations/taif/miqat-qarn-al-manazil/',

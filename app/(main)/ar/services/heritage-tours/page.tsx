@@ -26,6 +26,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Heritage Tours Saudi Arabia | UNESCO Sites Transport with 4x4' }],
+        siteName: 'Taxi Service KSA',
         title: 'Heritage Tours Saudi Arabia | UNESCO Sites Transport with 4x4',
         description: 'Professional heritage tour transport for AlUla, Khaybar, and UNESCO sites. 4x4 desert vehicles with licensed drivers.',
         url: 'https://taxiserviceksa.com/services/heritage-tours/',

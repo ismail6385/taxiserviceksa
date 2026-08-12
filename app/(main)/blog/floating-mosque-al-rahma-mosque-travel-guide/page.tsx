@@ -20,6 +20,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/floating-mosque-al-rahma-mosque-travel-guide/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Floating Mosque (Al Rahma) Travel Guide | Jeddah Landmark' }],
+        siteName: 'Taxi Service KSA',
         title: 'Floating Mosque (Al Rahma) Travel Guide | Jeddah Landmark',
         description: 'Complete visitor guide to the Floating Mosque (Al Rahma) in Jeddah. Learn when to visit for the best views, dress code guidelines, and transit info.',
         type: 'article',

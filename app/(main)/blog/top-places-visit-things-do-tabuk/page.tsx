@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Explore the best attractions and sights in Tabuk, Saudi Arabia. Detailed guide to historical ruins, pristine beaches, and canyon hikes.',
     keywords: ['top places to visit in Tabuk', 'things to do in Tabuk 2026', 'Tabuk attractions guide', 'Tabuk sightseeing', 'Tabuk tourism'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/top-places-visit-things-do-tabuk/' },
-    openGraph: { title: 'Top Places to Visit & Things to Do in Tabuk 2026', description: 'Plan your Tabuk sightseeing with our complete directory of historical, coastal, and natural highlights.', type: 'article', url: 'https://taxiserviceksa.com/blog/top-places-visit-things-do-tabuk/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Top Places to Visit & Things to Do in Tabuk 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Top Places to Visit & Things to Do in Tabuk 2026', description: 'Plan your Tabuk sightseeing with our complete directory of historical, coastal, and natural highlights.', type: 'article', url: 'https://taxiserviceksa.com/blog/top-places-visit-things-do-tabuk/' },
 };
 
 const faqSchema = {

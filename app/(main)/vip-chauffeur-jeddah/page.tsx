@@ -26,6 +26,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/vip-chauffeur-jeddah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'VIP Chauffeur Jeddah | Private Driver Service | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'VIP Chauffeur Jeddah | Private Driver Service | Taxi Service KSA',
         description: 'Professional VIP chauffeur service in Jeddah. Hourly, full-day, airport, business. Luxury fleet.',
         url: 'https://taxiserviceksa.com/vip-chauffeur-jeddah/',

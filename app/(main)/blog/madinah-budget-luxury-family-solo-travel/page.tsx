@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Complete guide to budget travel, luxury stays, family trips, and solo travel in Madinah. Cost breakdowns, tips, and booking advice for all traveler types.',
     keywords: ['Madinah budget travel guide', 'luxury travel Madinah', 'family travel Madinah', 'solo travel Madinah', 'Madinah trip on a budget 2026'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/madinah-budget-luxury-family-solo-travel/' },
-    openGraph: { title: 'Madinah Travel Guide: Budget, Luxury, Family & Solo 2026', description: 'Everything you need for budget, luxury, family, and solo travel in Madinah.', type: 'article', url: 'https://taxiserviceksa.com/blog/madinah-budget-luxury-family-solo-travel/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Madinah Travel Guide: Budget, Luxury, Family & Solo 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Madinah Travel Guide: Budget, Luxury, Family & Solo 2026', description: 'Everything you need for budget, luxury, family, and solo travel in Madinah.', type: 'article', url: 'https://taxiserviceksa.com/blog/madinah-budget-luxury-family-solo-travel/' },
 };
 
 const faqSchema = {

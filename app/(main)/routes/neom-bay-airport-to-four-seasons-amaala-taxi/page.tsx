@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/neom-bay-airport-to-four-seasons-amaala-taxi/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'NEOM Bay Airport to Four Seasons AMAALA | Private Transfer | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'NEOM Bay Airport to Four Seasons AMAALA | Private Transfer | Taxi Service KSA',
         description: 'Private door-to-door transfer from NEOM Bay Airport to Four Seasons Resort AMAALA. Premium SUVs, meet & greet, and fixed pricing.',
         url: 'https://taxiserviceksa.com/routes/neom-bay-airport-to-four-seasons-amaala-taxi/',

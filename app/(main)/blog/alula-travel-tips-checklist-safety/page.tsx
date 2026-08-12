@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Essential travel tips, packing checklist, and safety guide for visiting AlUla. Learn what to wear, safety precautions, and travel advice for 2026.',
     keywords: ['AlUla travel tips 2026', 'AlUla travel checklist', 'AlUla safety tips', 'what to wear in AlUla', 'AlUla travel guidelines'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/alula-travel-tips-checklist-safety/' },
-    openGraph: { title: 'AlUla Travel Tips, Checklist & Safety Guide 2026', description: 'Your essential preparation handbook for AlUla: travel tips, packing lists, and safety advice.', type: 'article', url: 'https://taxiserviceksa.com/blog/alula-travel-tips-checklist-safety/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'AlUla Travel Tips, Checklist & Safety Guide 2026' }],
+        siteName: 'Taxi Service KSA', title: 'AlUla Travel Tips, Checklist & Safety Guide 2026', description: 'Your essential preparation handbook for AlUla: travel tips, packing lists, and safety advice.', type: 'article', url: 'https://taxiserviceksa.com/blog/alula-travel-tips-checklist-safety/' },
 };
 
 const faqSchema = {

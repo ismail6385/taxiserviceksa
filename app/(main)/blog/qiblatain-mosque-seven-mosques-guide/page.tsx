@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Complete guide to Masjid al-Qiblatain (Mosque of Two Qiblas) and the Seven Mosques of Madinah. History, visiting tips, and locations for pilgrims.',
     keywords: ['Masjid Qiblatain guide', 'seven mosques Madinah', 'Mosque of Two Qiblas history', 'Al-Ahzab mosques Madinah', 'visit Qiblatain mosque Madinah 2026'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/qiblatain-mosque-seven-mosques-guide/' },
-    openGraph: { title: 'Masjid Qiblatain & Seven Mosques Madinah Guide 2026', description: 'Visit the Mosque of Two Qiblas and all Seven Mosques of Madinah with this expert guide.', type: 'article', url: 'https://taxiserviceksa.com/blog/qiblatain-mosque-seven-mosques-guide/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Masjid Qiblatain & Seven Mosques Madinah Guide 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Masjid Qiblatain & Seven Mosques Madinah Guide 2026', description: 'Visit the Mosque of Two Qiblas and all Seven Mosques of Madinah with this expert guide.', type: 'article', url: 'https://taxiserviceksa.com/blog/qiblatain-mosque-seven-mosques-guide/' },
 };
 
 const faqSchema = {

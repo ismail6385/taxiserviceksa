@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/hajar-al-aswad-black-stone-guide/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Hajar al-Aswad (Black Stone) Guide | History & Meaning' }],
+        siteName: 'Taxi Service KSA',
         title: 'Hajar al-Aswad (Black Stone) Guide | History & Meaning',
         description: 'Discover the history, origin, and spiritual significance of the Hajar al-Aswad, and how to perform Istilam safely during Tawaf.',
         type: 'article',

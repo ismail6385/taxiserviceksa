@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'The complete Madinah shopping guide. Best malls, date markets, perfume shops, and souvenir spots for pilgrims and tourists in 2026.',
     keywords: ['best shopping in Madinah', 'Madinah date market guide', 'perfume shops Madinah', 'best malls Madinah', 'Madinah shopping tips pilgrims'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/shopping-guide-malls-dates-perfumes-madinah/' },
-    openGraph: { title: 'Shopping Guide to Madinah 2026: Malls, Dates & Perfumes', description: 'Everything you can shop in Madinah — from premium Ajwa dates to oud perfumes.', type: 'article', url: 'https://taxiserviceksa.com/blog/shopping-guide-malls-dates-perfumes-madinah/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Shopping Guide to Madinah 2026: Malls, Dates & Perfumes' }],
+        siteName: 'Taxi Service KSA', title: 'Shopping Guide to Madinah 2026: Malls, Dates & Perfumes', description: 'Everything you can shop in Madinah — from premium Ajwa dates to oud perfumes.', type: 'article', url: 'https://taxiserviceksa.com/blog/shopping-guide-malls-dates-perfumes-madinah/' },
 };
 
 const faqSchema = {

@@ -21,6 +21,8 @@ export const metadata: Metadata = {
         canonical: "https://taxiserviceksa.com/routes/tabuk-al-majmaah/",
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk to Al Majma | Taxi Service KSA\'ah Taxi | Private Transfer - Fixed Price' }],
+        siteName: 'Taxi Service KSA',
         title: "Tabuk to Al Majma | Taxi Service KSA'ah Taxi | Private Transfer - Fixed Price",
         description: "Reliable 1100 km drive. Request a quote for a comfortable ride from Tabuk to Al Majma'ah. Professional service available 24/7.",
         url: "https://taxiserviceksa.com/routes/tabuk-al-majmaah/",

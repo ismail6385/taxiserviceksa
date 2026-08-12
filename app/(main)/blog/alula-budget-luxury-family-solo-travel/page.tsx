@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Learn how to experience AlUla according to your style. Tips for budget travel, luxury eco-resorts, family itineraries, solo exploration, and romantic trips in 2026.',
     keywords: ['AlUla budget travel guide', 'luxury travel AlUla resorts', 'family travel AlUla', 'solo travel AlUla', 'romantic getaway AlUla'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/alula-budget-luxury-family-solo-travel/' },
-    openGraph: { title: 'AlUla Travel Styles Guide: Budget, Luxury, Family & Solo 2026', description: 'Practical advice, costs, and itineraries for budget, luxury, family, and solo travelers in AlUla.', type: 'article', url: 'https://taxiserviceksa.com/blog/alula-budget-luxury-family-solo-travel/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'AlUla Travel Styles Guide: Budget, Luxury, Family & Solo 2026' }],
+        siteName: 'Taxi Service KSA', title: 'AlUla Travel Styles Guide: Budget, Luxury, Family & Solo 2026', description: 'Practical advice, costs, and itineraries for budget, luxury, family, and solo travelers in AlUla.', type: 'article', url: 'https://taxiserviceksa.com/blog/alula-budget-luxury-family-solo-travel/' },
 };
 
 const faqSchema = {

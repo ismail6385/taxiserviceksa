@@ -19,6 +19,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/riyadh-sharjah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Riyadh to Sharjah Taxi | Cross-Border Transfer | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Riyadh to Sharjah Taxi | Cross-Border Transfer | Taxi Service KSA',
         description: 'Request a premium quote from Riyadh to Sharjah. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/riyadh-sharjah/',

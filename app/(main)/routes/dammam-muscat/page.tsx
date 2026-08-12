@@ -19,6 +19,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/dammam-muscat/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Dammam to Muscat Taxi | Cross-Border Transfer | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Dammam to Muscat Taxi | Cross-Border Transfer | Taxi Service KSA',
         description: 'Request a premium quote from Dammam to Muscat. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/dammam-muscat/',

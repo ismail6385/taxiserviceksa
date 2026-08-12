@@ -43,6 +43,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'نقل سياحي في السعودية | سائق خاص للسياح' }],
+        siteName: 'Taxi Service KSA',
         title: 'نقل سياحي في السعودية | سائق خاص للسياح',
         description: 'سائق خاص للسياح في جميع أنحاء السعودية. جولات المدن، رحلات الصحراء، التسوق، والمعالم السياحية في الرياض وجدة والعلا ومكة. سائقون يتحدثون الإنجليزية.',
         url: 'https://taxiserviceksa.com/ar/services/tourism-transport/',

@@ -29,6 +29,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jeddah Airport Complete Guide 2024 | King Abdulaziz Airport' }],
+        siteName: 'Taxi Service KSA',
         title: 'Jeddah Airport Complete Guide 2024 | King Abdulaziz Airport',
         description: 'Everything you need to know about navigating Jeddah Airport: terminals, facilities, transport to Makkah.',
         url: 'https://taxiserviceksa.com/guides/jeddah-airport-guide/',

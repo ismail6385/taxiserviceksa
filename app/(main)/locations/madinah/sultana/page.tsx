@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/madinah/sultana/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi to Sultana Road (Dining Hub) | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi to Sultana Road (Dining Hub) | Taxi Service KSA',
         description: 'Enjoy the nightlife of Madinah on Sultana Road. We provide reliable transfers from your hotel to the best restaurants and shops.',
         url: 'https://taxiserviceksa.com/locations/madinah/sultana/',

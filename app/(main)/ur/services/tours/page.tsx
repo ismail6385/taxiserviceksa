@@ -23,6 +23,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'سعودی عرب کے ٹورز اور سائیٹ سینگ | پرائیویٹ ٹرانسپورٹ' }],
+        siteName: 'Taxi Service KSA',
         title: 'سعودی عرب کے ٹورز اور سائیٹ سینگ | پرائیویٹ ٹرانسپورٹ',
         description: 'مملکت کے خوبصورت اور تاریخی مقامات کی سیر۔ قابل اعتماد مقامی ڈرائیورز۔',
         url: 'https://taxiserviceksa.com/ur/services/tours/',

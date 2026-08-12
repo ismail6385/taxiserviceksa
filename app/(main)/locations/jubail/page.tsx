@@ -28,6 +28,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/jubail/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi Service in Jubail 2026 | Private Car & Airport Transfer' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi Service in Jubail 2026 | Private Car & Airport Transfer',
         description: 'Reliable taxi and private car service in Jubail Industrial City. Book online for flat-rate transfers to Dammam Airport, Al Khobar & Riyadh.',
         url: 'https://taxiserviceksa.com/locations/jubail/',

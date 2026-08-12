@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-oberoi-madinah-taxi/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Transfer: Jeddah Airport to The Oberoi Madinah | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Transfer: Jeddah Airport to The Oberoi Madinah | Taxi Service KSA',
         description: 'First-class private transfer to The Oberoi Madinah. GMC Yukon & luxury options available. Direct drop-off at hotel entrance.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-oberoi-madinah-taxi/',

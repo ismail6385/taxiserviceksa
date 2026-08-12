@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'The ultimate guide to visiting Wadi Al-Disah in Tabuk. Learn about 4x4 trails, hiking routes, oasis springs, camping, and local driver hire tips for 2026.',
     keywords: ['Wadi Al Disah valley guide 2026', 'Al Disah canyon Tabuk', 'Wadi Al Disah hiking trails', 'Disah oasis springs', 'Tabuk desert excursions'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/wadi-al-disah-valley-visit-guide/' },
-    openGraph: { title: 'Wadi Al-Disah Valley Tabuk: Complete Visit Guide 2026', description: 'Plan your desert canyon excursion to Wadi Al-Disah with our step-by-step visitor guide.', type: 'article', url: 'https://taxiserviceksa.com/blog/wadi-al-disah-valley-visit-guide/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Wadi Al-Disah Valley Tabuk: Complete Visit Guide 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Wadi Al-Disah Valley Tabuk: Complete Visit Guide 2026', description: 'Plan your desert canyon excursion to Wadi Al-Disah with our step-by-step visitor guide.', type: 'article', url: 'https://taxiserviceksa.com/blog/wadi-al-disah-valley-visit-guide/' },
 };
 
 const faqSchema = {

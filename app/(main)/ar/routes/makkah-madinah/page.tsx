@@ -28,6 +28,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'تاكسي مكة إلى المدينة ٢٠٢٦ | نقل خاص' }],
+        siteName: 'Taxi Service KSA',
         title: 'تاكسي مكة إلى المدينة ٢٠٢٦ | نقل خاص',
         description: 'نقل متميز بين المدن المقدسة مع سائقين محترفين. أسعار ثابتة، خدمة من الباب إلى الباب.',
         url: 'https://taxiserviceksa.com/ar/routes/makkah-madinah/',

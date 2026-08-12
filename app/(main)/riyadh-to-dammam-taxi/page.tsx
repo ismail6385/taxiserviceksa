@@ -23,6 +23,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/riyadh-to-dammam-taxi/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Riyadh to Dammam Taxi | Private Car | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Riyadh to Dammam Taxi | Private Car | Taxi Service KSA',
         description: 'Private intercity car from Riyadh to Dammam (400 km, ~4 hours). Fixed price. WhatsApp to book.',
         url: 'https://taxiserviceksa.com/riyadh-to-dammam-taxi/',

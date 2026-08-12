@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk to Madinah — Private Car Guide 2026' }],
         title: 'Tabuk to Madinah — Private Car Guide 2026',
         description: '660 km from Tabuk to Madinah — 6 to 7 hours by private car. Route guide, prices, road tips, and what to know for pilgrims.',
         url: 'https://taxiserviceksa.com/blog/tabuk-to-madinah-private-car-guide/',

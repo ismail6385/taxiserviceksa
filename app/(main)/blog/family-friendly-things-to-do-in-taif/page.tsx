@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     "Taif Zoo",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Family-Friendly Things to Do in Taif: Kids Guide 2026' }],
+    siteName: 'Taxi Service KSA',
     title: "Family-Friendly Things to Do in Taif: Kids Guide 2026",
     description:
       "A complete guide to planning a memorable family vacation with children in the mountain city of Taif.",
@@ -121,7 +123,7 @@ export default function FamilyFriendlyThingsToDoInTaif() {
             <Link href="/booking" className="bg-white text-blue-800 font-bold px-8 py-3 rounded-full hover:bg-amber-50 transition">
               Book Family Taxi
             </Link>
-            <Link href="/routes/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
+            <Link href="/locations/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
               View Taif Routes
             </Link>
           </div>

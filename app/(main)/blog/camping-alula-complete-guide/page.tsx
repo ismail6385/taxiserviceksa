@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     keywords: ['camping in AlUla', 'AlUla luxury glamping', 'desert camping Saudi Arabia', 'stargazing Gharameel AlUla', 'AlUla campsites'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/camping-alula-complete-guide/' },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Camping in AlUla: Complete Guide' }],
+        siteName: 'Taxi Service KSA',
         title: 'Camping in AlUla: Complete Guide',
         description: 'Sleep under a blanket of stars. Discover the best camping and glamping experiences in AlUla.',
         type: 'article',

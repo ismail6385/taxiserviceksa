@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/jabal-al-noor-guide/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jabal al-Noor Makkah Guide 2026 | Mountain of Light' }],
+        siteName: 'Taxi Service KSA',
         title: 'Jabal al-Noor Makkah Guide 2026 | Mountain of Light',
         description: 'Plan your visit to Jabal al-Noor in Makkah. Discover climb duration, history of Cave of Hira, and essential safety guidelines.',
         type: 'article',

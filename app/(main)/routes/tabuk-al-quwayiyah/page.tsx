@@ -21,6 +21,8 @@ export const metadata: Metadata = {
         canonical: "https://taxiserviceksa.com/routes/tabuk-al-quwayiyah/",
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk to Al-Quway | Taxi Service KSA\'iyah Taxi | Private Transfer - Fixed Price' }],
+        siteName: 'Taxi Service KSA',
         title: "Tabuk to Al-Quway | Taxi Service KSA'iyah Taxi | Private Transfer - Fixed Price",
         description: "Reliable 1200 km drive. Request a quote for a comfortable ride from Tabuk to Al-Quway'iyah. Professional service available 24/7.",
         url: "https://taxiserviceksa.com/routes/tabuk-al-quwayiyah/",

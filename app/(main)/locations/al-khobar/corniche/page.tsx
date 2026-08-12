@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/al-khobar/corniche/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi to Al Khobar Corniche & Waterfront | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi to Al Khobar Corniche & Waterfront | Taxi Service KSA',
         description: 'Enjoy the best views in the Eastern Province. Private taxi drop-off at Khobar Corniche, Ajdan Walk, and new extension.',
         url: 'https://taxiserviceksa.com/locations/al-khobar/corniche/',

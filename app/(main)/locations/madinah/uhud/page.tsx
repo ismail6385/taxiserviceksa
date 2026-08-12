@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/madinah/uhud/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi to Mount Uhud & Archers Mound | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi to Mount Uhud & Archers Mound | Taxi Service KSA',
         description: 'Visit the historic site of the Battle of Uhud. We provide comfortable transport for Ziyarat to Shuhada Uhud.',
         url: 'https://taxiserviceksa.com/locations/madinah/uhud/',

@@ -25,6 +25,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'عمرہ ٹرانسپورٹ سروس | مکہ اور مدینہ کے لیے ڈرائیور کے ساتھ ٹیکسی' }],
+        siteName: 'Taxi Service KSA',
         title: 'عمرہ ٹرانسپورٹ سروس | مکہ اور مدینہ کے لیے ڈرائیور کے ساتھ ٹیکسی',
         description: 'پیشہ ور ڈرائیورز کے ساتھ مکمل عمرہ ٹرانسپورٹ سروس۔ جدہ ایئرپورٹ سے مکہ، مکہ سے مدینہ ٹیکسی۔ فکسڈ ریٹس، 24/7 سروس۔',
         url: 'https://taxiserviceksa.com/ur/services/umrah-transport/',

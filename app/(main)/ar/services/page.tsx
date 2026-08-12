@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'خدماتنا | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'خدماتنا | Taxi Service KSA',
         description: 'باقة كاملة من خدمات النقل الخاص في السعودية بسائقين محترفين مرخصين.',
         url: 'https://taxiserviceksa.com/ar/services/',

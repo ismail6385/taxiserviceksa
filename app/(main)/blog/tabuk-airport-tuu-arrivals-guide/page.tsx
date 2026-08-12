@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk Airport (TUU) Arrivals Guide — What to Do When You Land' }],
         title: 'Tabuk Airport (TUU) Arrivals Guide — What to Do When You Land',
         description: 'Step-by-step arrivals guide for Tabuk Regional Airport. Immigration, baggage, taxis, car rental, and how to get to the city or NEOM.',
         url: 'https://taxiserviceksa.com/blog/tabuk-airport-tuu-arrivals-guide/',

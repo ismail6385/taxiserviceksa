@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/alula/elephant-rock/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi to Elephant Rock (Jabal AlFil) | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi to Elephant Rock (Jabal AlFil) | Taxi Service KSA',
         description: 'Private transfer to AlUla\'s most iconic geological wonder. Enjoy sunset and return safely to your hotel.',
         url: 'https://taxiserviceksa.com/locations/alula/elephant-rock/',

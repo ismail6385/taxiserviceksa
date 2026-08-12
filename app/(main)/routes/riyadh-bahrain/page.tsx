@@ -21,6 +21,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/riyadh-bahrain/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Riyadh to Bahrain Taxi | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Riyadh to Bahrain Taxi | Taxi Service KSA',
         description: 'Request a premium quote from Riyadh to Bahrain. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/riyadh-bahrain/',

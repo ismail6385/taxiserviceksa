@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/jeddah/al-balad/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car Transfer, Taxi and Chauffeur Service to Historic Jeddah (Al-Balad) | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car Transfer, Taxi and Chauffeur Service to Historic Jeddah (Al-Balad) | Taxi Service KSA',
         description: 'Explore the UNESCO heritage site of Al-Balad in comfort. Premium private transfer and elite chauffeur service for historic tours.',
         url: 'https://taxiserviceksa.com/locations/jeddah/al-balad/',

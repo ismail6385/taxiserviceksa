@@ -41,6 +41,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'نقل الفعاليات والأفراح في السعودية | سائق للمؤتمرات والأفراح | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'نقل الفعاليات والأفراح في السعودية | سائق للمؤتمرات والأفراح | Taxi Service KSA',
         description: 'سائق خاص ونقل جماعي للأفراح والمؤتمرات والمعارض وفعاليات الشركات في الرياض وجدة. استقبال كبار الشخصيات، نقل الضيوف، ولوجستيات فعاليات متكاملة.',
         url: 'https://taxiserviceksa.com/ar/services/event-transport/',

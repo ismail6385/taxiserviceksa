@@ -30,6 +30,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'B2B سفری سہولیات | بزنس لاجسٹکس' }],
+        siteName: 'Taxi Service KSA',
         title: 'B2B سفری سہولیات | بزنس لاجسٹکس',
         description: 'کارپوریٹ کمپنیوں اور ٹریول ایجنسیوں کے لیے خصوصی اور قابل اعتماد سفری انتظامات۔ پیشگی بکنگ، فکسڈ ریٹس اور بلنگ کی سہولت۔',
         url: 'https://taxiserviceksa.com/ur/services/b2b-solutions/',

@@ -10,6 +10,8 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
         title: 'Saudi Arabia Travel Guides 2026 | Transport, Tourism & Umrah',
         description: 'Expert transport guides, tourist destination tips, and spiritual travel insights for Makkah, Madinah, Riyadh, Jeddah, and across Saudi Arabia.',
         openGraph: {
+            images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Saudi Arabia Travel Guides 2026 | Taxi Service KSA' }],
+            siteName: 'Taxi Service KSA',
             title: 'Saudi Arabia Travel Guides 2026 | Taxi Service KSA',
             description: 'Your trusted companion for Umrah, pilgrimage, and Saudi tourism transport information.',
             type: 'website',

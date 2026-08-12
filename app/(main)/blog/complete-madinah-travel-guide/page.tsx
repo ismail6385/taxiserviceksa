@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/complete-madinah-travel-guide/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Complete Madinah Travel Guide 2026 | Holy City Tips' }],
+        siteName: 'Taxi Service KSA',
         title: 'Complete Madinah Travel Guide 2026 | Holy City Tips',
         description: 'Plan your spiritual and historical journey to Madinah with our complete visitor guide. Get tips on hotels, sites, and local transport.',
         type: 'article',

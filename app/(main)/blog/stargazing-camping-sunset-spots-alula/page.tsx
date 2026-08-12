@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Explore the night skies of AlUla. Complete guide to stargazing in Gharameel, camping under the stars, hidden spots, and best sunrise & sunset views.',
     keywords: ['AlUla stargazing guide 2026', 'Gharameel stargazing AlUla', 'AlUla camping guide', 'best sunset spots in AlUla', 'AlUla hidden gems'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/stargazing-camping-sunset-spots-alula/' },
-    openGraph: { title: 'AlUla Stargazing, Gharameel & Best Sunset Spots Guide 2026', description: 'Experience the magical dark skies, camping spots, and scenic viewpoints of AlUla.', type: 'article', url: 'https://taxiserviceksa.com/blog/stargazing-camping-sunset-spots-alula/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'AlUla Stargazing, Gharameel & Best Sunset Spots Guide 2026' }],
+        siteName: 'Taxi Service KSA', title: 'AlUla Stargazing, Gharameel & Best Sunset Spots Guide 2026', description: 'Experience the magical dark skies, camping spots, and scenic viewpoints of AlUla.', type: 'article', url: 'https://taxiserviceksa.com/blog/stargazing-camping-sunset-spots-alula/' },
 };
 
 const faqSchema = {

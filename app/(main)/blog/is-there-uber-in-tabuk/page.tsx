@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Is There Uber in Tabuk? Apps, Alternatives & What Actually Works' }],
         title: 'Is There Uber in Tabuk? Apps, Alternatives & What Actually Works',
         description: 'Uber and Careem are in Tabuk, but they don\'t work for airport pickups or long-distance routes. Here\'s the honest guide to getting around.',
         url: 'https://taxiserviceksa.com/blog/is-there-uber-in-tabuk/',

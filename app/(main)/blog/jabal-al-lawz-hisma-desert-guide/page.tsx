@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Explore the spectacular highlands of Tabuk. Complete guide to Jabal Al-Lawz snow mountain and the majestic red sands of Hisma Desert.',
     keywords: ['Jabal Al Lawz snow Tabuk 2026', 'Hisma Desert sand dunes', 'Tabuk mountain hiking', 'desert camping Tabuk', 'Jabal Al Lawz petroglyphs'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/jabal-al-lawz-hisma-desert-guide/' },
-    openGraph: { title: 'Jabal Al-Lawz & Hisma Desert Tabuk: Mountains & Desert Guide 2026', description: 'Your guide to hiking, camping, and witnessing winter snow in Tabuk\'s highlands.', type: 'article', url: 'https://taxiserviceksa.com/blog/jabal-al-lawz-hisma-desert-guide/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jabal Al-Lawz & Hisma Desert Tabuk: Mountains & Desert Guide 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Jabal Al-Lawz & Hisma Desert Tabuk: Mountains & Desert Guide 2026', description: 'Your guide to hiking, camping, and witnessing winter snow in Tabuk\'s highlands.', type: 'article', url: 'https://taxiserviceksa.com/blog/jabal-al-lawz-hisma-desert-guide/' },
 };
 
 const faqSchema = {

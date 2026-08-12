@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk to Riyadh — Distance, Flight, Drive & Transfer Guide 2026' }],
         title: 'Tabuk to Riyadh — Distance, Flight, Drive & Transfer Guide 2026',
         description: 'Tabuk to Riyadh is 1,400 km by road or 2 hours by air. All transport options with prices, travel times, and honest recommendations.',
         url: 'https://taxiserviceksa.com/blog/tabuk-to-riyadh-transport-guide/',

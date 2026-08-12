@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     canonical: 'https://taxiserviceksa.com/',
   },
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Transfers, Day Trips and Hourly Drivers with Taxi Service KSA' }],
     title: 'Private Transfers, Day Trips and Hourly Drivers with Taxi Service KSA',
     description: 'Book private car transfers, round-trip day trips, or hire an hourly driver. Enjoy door-to-door rides and sightseeing in 80+ cities with local drivers.',
     url: 'https://taxiserviceksa.com/',

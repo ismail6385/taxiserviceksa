@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "Saudi Arabia religion travel rules",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Can Non-Muslims Visit AlUla? Complete Guide for Non-Muslim Tourists 2026' }],
+    siteName: 'Taxi Service KSA',
     title: "Can Non-Muslims Visit AlUla? Complete Guide for Non-Muslim Tourists 2026",
     description:
       "Non-Muslims are warmly welcome in AlUla. Here's everything you need to know about visiting as a non-Muslim tourist.",

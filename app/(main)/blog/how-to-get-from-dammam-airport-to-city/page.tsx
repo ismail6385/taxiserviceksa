@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'How to Get from Dammam Airport to City (DMM) | All Options' }],
         title: 'How to Get from Dammam Airport to City (DMM) | All Options',
         description: 'Private transfer, metered taxi, Uber/Careem from King Fahd Airport to Dammam, Al Khobar, Dhahran, and Bahrain. Prices, distances, and what to book in advance.',
         url: 'https://taxiserviceksa.com/blog/how-to-get-from-dammam-airport-to-city/',

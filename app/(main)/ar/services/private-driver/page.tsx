@@ -39,6 +39,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'سائق خاص بالساعة واليوم والشهر في السعودية | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'سائق خاص بالساعة واليوم والشهر في السعودية | Taxi Service KSA',
         description: 'استأجر سائقاً خاصاً في الرياض أو جدة بالساعة أو اليوم أو الأسبوع أو الشهر. شوفير يتحدث الإنجليزية بسيارة فاخرة للتسوق والاجتماعات والرحلات العائلية والجولات.',
         url: 'https://taxiserviceksa.com/ar/services/private-driver/',

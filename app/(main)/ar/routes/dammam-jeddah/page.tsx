@@ -23,6 +23,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'تاكسي خاص: الدمام إلى جدة | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'تاكسي خاص: الدمام إلى جدة | Taxi Service KSA',
         description: 'نقل بري بين المدن من الدمام إلى جدة بسيارة خاصة مكيفة. تتوفر خيارات المبيت الليلي والتوقف المتعدد.',
         url: 'https://taxiserviceksa.com/ar/routes/dammam-jeddah/',

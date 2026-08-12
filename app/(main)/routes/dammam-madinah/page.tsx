@@ -24,6 +24,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Taxi: Dammam to Madinah | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Taxi: Dammam to Madinah | Taxi Service KSA',
         description: 'Cross-country transfer from Dammam to Madinah in a private, air-conditioned vehicle. Ideal for Ziyarat visitors and families.',
         url: 'https://taxiserviceksa.com/routes/dammam-madinah/',

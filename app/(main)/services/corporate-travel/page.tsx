@@ -26,6 +26,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Service for Corporate Travel | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car, Taxi and Chauffeur Service for Corporate Travel | Taxi Service KSA',
         description: 'Professional corporate transfer service for business executives. Monthly billing, priority booking, executive vehicles.',
         url: 'https://taxiserviceksa.com/services/corporate-travel/',

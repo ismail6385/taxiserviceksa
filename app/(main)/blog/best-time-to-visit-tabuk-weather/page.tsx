@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Discover the best time to visit Tabuk, Saudi Arabia. Month-by-month weather breakdown, temperatures, snowfall season, and beach timing for 2026.',
     keywords: ['best time to visit Tabuk', 'Tabuk weather by month', 'Tabuk temperature 2026', 'snow in Tabuk Jabal Al Lawz', 'Tabuk beach season'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/best-time-to-visit-tabuk-weather/' },
-    openGraph: { title: 'Best Time to Visit Tabuk 2026: Month-by-Month Weather Guide', description: 'Plan your Tabuk trip with our comprehensive month-by-month weather and activity guide.', type: 'article', url: 'https://taxiserviceksa.com/blog/best-time-to-visit-tabuk-weather/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Best Time to Visit Tabuk 2026: Month-by-Month Weather Guide' }],
+        siteName: 'Taxi Service KSA', title: 'Best Time to Visit Tabuk 2026: Month-by-Month Weather Guide', description: 'Plan your Tabuk trip with our comprehensive month-by-month weather and activity guide.', type: 'article', url: 'https://taxiserviceksa.com/blog/best-time-to-visit-tabuk-weather/' },
 };
 
 const faqSchema = {

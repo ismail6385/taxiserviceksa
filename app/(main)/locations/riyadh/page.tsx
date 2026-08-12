@@ -43,6 +43,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car Transfer, Taxi and Executive Chauffeur Service in Riyadh | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car Transfer, Taxi and Executive Chauffeur Service in Riyadh | Taxi Service KSA',
         description: 'Premium private transfer and professional chauffeur service in Riyadh. Specialized King Khalid Airport (RUH) pickups and elite corporate transport.',
         url: 'https://taxiserviceksa.com/locations/riyadh/',

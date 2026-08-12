@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'A practical visitor guide to Madinah. Learn about rules, local customs, dress code for men and women, safety, SIM cards, currency exchange, and general travel FAQs.',
     keywords: ['Madinah rules and regulations 2026', 'dress code in Madinah for women', 'SIM card at Madinah airport', 'is Madinah safe for tourists', 'Saudi Arabia local customs pilgrims'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/practical-guide-rules-customs-madinah/' },
-    openGraph: { title: 'Madinah Practical Travel Guide 2026: SIM Cards, Dress Code & Rules', description: 'Essential rules, local customs, and practical tips for a respectful and smooth trip to Madinah.', type: 'article', url: 'https://taxiserviceksa.com/blog/practical-guide-rules-customs-madinah/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Madinah Practical Travel Guide 2026: SIM Cards, Dress Code & Rules' }],
+        siteName: 'Taxi Service KSA', title: 'Madinah Practical Travel Guide 2026: SIM Cards, Dress Code & Rules', description: 'Essential rules, local customs, and practical tips for a respectful and smooth trip to Madinah.', type: 'article', url: 'https://taxiserviceksa.com/blog/practical-guide-rules-customs-madinah/' },
 };
 
 const faqSchema = {

@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Explore the rich history of Tabuk city. Complete visitor guide to Tabuk Castle, Hejaz Railway Station Museum, and other historical landmarks.',
     keywords: ['Tabuk Castle visitor guide 2026', 'Hejaz Railway Station Museum Tabuk', 'historical places in Tabuk', 'Tabuk museums guide', 'Saudi Arabia history'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/tabuk-castle-railway-museum-guide/' },
-    openGraph: { title: 'Tabuk Castle & Hejaz Railway Museum: Heritage Guide 2026', description: 'Step back in time to the Ottoman era and Hejaz railway history in Tabuk city.', type: 'article', url: 'https://taxiserviceksa.com/blog/tabuk-castle-railway-museum-guide/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk Castle & Hejaz Railway Museum: Heritage Guide 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Tabuk Castle & Hejaz Railway Museum: Heritage Guide 2026', description: 'Step back in time to the Ottoman era and Hejaz railway history in Tabuk city.', type: 'article', url: 'https://taxiserviceksa.com/blog/tabuk-castle-railway-museum-guide/' },
 };
 
 const faqSchema = {

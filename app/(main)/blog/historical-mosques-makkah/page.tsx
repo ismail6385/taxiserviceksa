@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/historical-mosques-makkah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Historical Mosques in Makkah | 2026 Ziyarat Guide' }],
+        siteName: 'Taxi Service KSA',
         title: 'Historical Mosques in Makkah | 2026 Ziyarat Guide',
         description: 'Discover the rich history, spiritual significance, and location details of Makkah\'s historical mosques outside the Grand Mosque.',
         type: 'article',

@@ -21,6 +21,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-alula/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jeddah to Al Ula Taxi | 700km Route - Affordable Fixed Price | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Jeddah to Al Ula Taxi | 700km Route - Affordable Fixed Price | Taxi Service KSA',
         description: 'Comfortable private transfer from Jeddah to Al Ula. 700km journey. Flexible and affordable fixed rates. Visit the ancient city of Hegra.',
         url: 'https://taxiserviceksa.com/routes/jeddah-alula/',

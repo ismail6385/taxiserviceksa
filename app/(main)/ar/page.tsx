@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'خدمة تاكسي في السعودية | Taxi Service KSA' }],
     title: 'خدمة تاكسي في السعودية | Taxi Service KSA',
     description: 'احجز أفضل خدمة تاكسي في السعودية. استمتع بنقل خاص فاخر، وسفر بين المدن، وعبور الحدود مع سائقينا التنفيذيين المحترفين.',
     url: 'https://taxiserviceksa.com/ar/',

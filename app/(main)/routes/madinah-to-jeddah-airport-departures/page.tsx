@@ -20,6 +20,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/madinah-to-jeddah-airport-departures/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Madinah to Jeddah Airport (JED) Departures Taxi | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Madinah to Jeddah Airport (JED) Departures Taxi | Taxi Service KSA',
         description: 'Direct transfer for your return flight. Madinah to JED Terminal 1/North. On-time guarantee.',
         url: 'https://taxiserviceksa.com/routes/madinah-to-jeddah-airport-departures/',

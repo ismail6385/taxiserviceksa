@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/madinah/quba/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi to Masjid Quba (The First Mosque) | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Taxi to Masjid Quba (The First Mosque) | Taxi Service KSA',
         description: 'Visit the historic Quba Mosque. Earn the reward of an Umrah by praying here. Convenient taxi transfer from your hotel.',
         url: 'https://taxiserviceksa.com/locations/madinah/quba/',

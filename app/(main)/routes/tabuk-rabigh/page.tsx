@@ -21,6 +21,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/tabuk-rabigh/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk to Rabigh Taxi | Private Transfer - Fixed Price | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Tabuk to Rabigh Taxi | Private Transfer - Fixed Price | Taxi Service KSA',
         description: 'Reliable 780 km drive. Request a quote for a comfortable ride from Tabuk to Rabigh. Professional service available 24/7.',
         url: 'https://taxiserviceksa.com/routes/tabuk-rabigh/',

@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Complete guide to Madinah Airport (MED) taxis, private transfers, and shuttle options. Learn about official fares, ride-hailing apps, and booking tips for 2026.',
     keywords: ['Madinah Airport taxi guide 2026', 'PRINCE MOHAMMAD BIN ABDULAZIZ AIRPORT transfers', 'MED airport to hotel taxi fare', 'Madinah airport private transfer booking', 'cheap ride from Madinah airport'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/madinah-airport-taxi-transfer-guide/' },
-    openGraph: { title: 'Madinah Airport Taxi & Transfer Guide 2026: Fares & Tips', description: 'Your guide to Prince Mohammad bin Abdulaziz Airport (MED) taxis, private transfers, and booking tips.', type: 'article', url: 'https://taxiserviceksa.com/blog/madinah-airport-taxi-transfer-guide/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Madinah Airport Taxi & Transfer Guide 2026: Fares & Tips' }],
+        siteName: 'Taxi Service KSA', title: 'Madinah Airport Taxi & Transfer Guide 2026: Fares & Tips', description: 'Your guide to Prince Mohammad bin Abdulaziz Airport (MED) taxis, private transfers, and booking tips.', type: 'article', url: 'https://taxiserviceksa.com/blog/madinah-airport-taxi-transfer-guide/' },
 };
 
 const faqSchema = {

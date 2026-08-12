@@ -25,6 +25,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car Transfer, Taxi and Chauffeur Service in Abha | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Abha | Taxi Service KSA',
         description: 'Need a premium transfer in Abha? We provide comfortable chauffeured trips to Al Soudah, Green Mountain, and Abha Airport.',
         url: 'https://taxiserviceksa.com/locations/abha/',

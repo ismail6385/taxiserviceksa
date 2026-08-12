@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Al Disah Valley Tabuk — How to Visit, Distance & Guide 2026' }],
         title: 'Al Disah Valley Tabuk — How to Visit, Distance & Guide 2026',
         description: 'Wadi Disah is Tabuk\'s most dramatic natural attraction — towering red sandstone cliffs and a hidden palm valley. Here\'s how to get there.',
         url: 'https://taxiserviceksa.com/blog/al-disah-valley-tabuk-how-to-visit/',

@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/jazan-airport-to-bisha-airport-taxi/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Transfer from Jazan Airport to Bisha Airport | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car, Taxi and Chauffeur Transfer from Jazan Airport to Bisha Airport | Taxi Service KSA',
         description: 'Private door-to-door transfer from Jazan Airport to Bisha Airport. Comfortable SUVs for the mountain route, meet & greet, and fixed pricing.',
         url: 'https://taxiserviceksa.com/routes/jazan-airport-to-bisha-airport-taxi/',

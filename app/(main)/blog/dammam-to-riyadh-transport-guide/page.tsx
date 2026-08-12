@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Dammam to Riyadh — All Transport Options 2026' }],
         title: 'Dammam to Riyadh — All Transport Options 2026',
         description: 'Private car (4–4.5 hrs, SAR 600–900), SAPTCO bus, or flight from Dammam to Riyadh. Full comparison of time, cost, and convenience for every traveller.',
         url: 'https://taxiserviceksa.com/blog/dammam-to-riyadh-transport-guide/',

@@ -16,6 +16,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/border-crossings/taxi-ramlat-khaliya-border-crossing/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Service at Ramlat Khaliya Border Crossing | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car, Taxi and Chauffeur Service at Ramlat Khaliya Border Crossing | Taxi Service KSA',
         description: 'Need a taxi at Ramlat Khaliya Border? We provide reliable, 24/7 cross-border transfers between Saudi Arabia and Oman. Get a quote now.',
         url: 'https://taxiserviceksa.com/border-crossings/taxi-ramlat-khaliya-border-crossing/',

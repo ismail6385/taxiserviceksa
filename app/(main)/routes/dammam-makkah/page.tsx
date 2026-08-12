@@ -24,6 +24,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Taxi: Dammam to Makkah | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Taxi: Dammam to Makkah | Taxi Service KSA',
         description: 'Cross-country transfer from Dammam to Makkah in a private, air-conditioned vehicle. Ideal for Umrah pilgrims and families.',
         url: 'https://taxiserviceksa.com/routes/dammam-makkah/',

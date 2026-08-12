@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Essential travel tips, packing checklist, safety advice, cost breakdown, and FAQs for visiting Tabuk, Saudi Arabia in 2026.',
     keywords: ['Tabuk travel tips 2026', 'Tabuk travel checklist', 'Tabuk safety tips', 'Tabuk travel cost guide', 'Tabuk travel FAQs'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/tabuk-travel-tips-checklist-cost/' },
-    openGraph: { title: 'Tabuk Travel Tips, Checklist, Safety & Cost Guide 2026', description: 'Your essential Tabuk preparation handbook with tips, packing lists, costs, and safety info.', type: 'article', url: 'https://taxiserviceksa.com/blog/tabuk-travel-tips-checklist-cost/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk Travel Tips, Checklist, Safety & Cost Guide 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Tabuk Travel Tips, Checklist, Safety & Cost Guide 2026', description: 'Your essential Tabuk preparation handbook with tips, packing lists, costs, and safety info.', type: 'article', url: 'https://taxiserviceksa.com/blog/tabuk-travel-tips-checklist-cost/' },
 };
 
 const faqSchema = {

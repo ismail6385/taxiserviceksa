@@ -42,6 +42,8 @@ export const metadata: Metadata = {
         }
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car Transfer, Taxi and Chauffeur Service in AlUla | Hegra Tours & Airport Pickup | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car Transfer, Taxi and Chauffeur Service in AlUla | Hegra Tours & Airport Pickup | Taxi Service KSA',
         description: 'Transfer service in AlUla for UNESCO heritage tours and airport pickups. Premium 4x4 vehicles for desert sites. Book online.',
         url: 'https://taxiserviceksa.com/locations/alula/',

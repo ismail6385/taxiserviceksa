@@ -32,6 +32,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Service for Group Hiace Hire | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car, Taxi and Chauffeur Service for Group Hiace Hire | Taxi Service KSA',
         description: 'Hire a Toyota Hiace (11-seat) with driver in Riyadh, Jeddah, Makkah, and Madinah. Private group van for families, pilgrim groups, and tourist parties.',
         url: 'https://taxiserviceksa.com/services/group-hiace-hire/',

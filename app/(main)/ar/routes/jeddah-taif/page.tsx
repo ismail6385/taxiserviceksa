@@ -26,6 +26,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'تاكسي جدة إلى الطائف | نقل جبل الهدا الخلاب' }],
+        siteName: 'Taxi Service KSA',
         title: 'تاكسي جدة إلى الطائف | نقل جبل الهدا الخلاب',
         description: 'رحلة خلابة عبر جبل الهدا في سيارة خاصة مع سائق محترف. نقل موثوق إلى الطائف والمنتجعات.',
         url: 'https://taxiserviceksa.com/ar/routes/jeddah-taif/',

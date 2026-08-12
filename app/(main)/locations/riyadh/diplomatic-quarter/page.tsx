@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/diplomatic-quarter/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car Transfer, Taxi and Chauffeur Service to Diplomatic Quarter (DQ) Riyadh | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car Transfer, Taxi and Chauffeur Service to Diplomatic Quarter (DQ) Riyadh | Taxi Service KSA',
         description: 'Executive private transfer to the Diplomatic Quarter. Professional chauffeur service handling all checkpoint protocols for embassy visits.',
         url: 'https://taxiserviceksa.com/locations/riyadh/diplomatic-quarter/',

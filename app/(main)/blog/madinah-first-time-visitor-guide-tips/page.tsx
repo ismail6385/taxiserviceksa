@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Essential tips, a comprehensive checklist, and a first-time visitor guide to Madinah. Learn what to expect, what to pack, and how to make the most of your trip.',
     keywords: ['first time visitor Madinah guide', 'Madinah travel tips 2026', 'Madinah travel checklist', 'what to expect in Madinah', 'Madinah dos and donts'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/madinah-first-time-visitor-guide-tips/' },
-    openGraph: { title: 'Madinah First-Time Visitor Guide, Tips & Checklist 2026', description: 'Everything a first-time visitor needs to know before arriving in Madinah — from etiquette to transport.', type: 'article', url: 'https://taxiserviceksa.com/blog/madinah-first-time-visitor-guide-tips/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Madinah First-Time Visitor Guide, Tips & Checklist 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Madinah First-Time Visitor Guide, Tips & Checklist 2026', description: 'Everything a first-time visitor needs to know before arriving in Madinah — from etiquette to transport.', type: 'article', url: 'https://taxiserviceksa.com/blog/madinah-first-time-visitor-guide-tips/' },
 };
 
 const faqSchema = {

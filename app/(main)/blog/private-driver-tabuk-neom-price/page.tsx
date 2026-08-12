@@ -24,6 +24,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Driver Tabuk to NEOM — Price Guide 2026' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Driver Tabuk to NEOM — Price Guide 2026',
         description: 'All vehicle prices, monthly contract rates, and what\'s included in a Tabuk to NEOM private transfer.',
         url: 'https://taxiserviceksa.com/blog/private-driver-tabuk-neom-price/',

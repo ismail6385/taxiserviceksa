@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'سعودی عرب میں ٹیکسی سروس | Taxi Service KSA' }],
     title: 'سعودی عرب میں ٹیکسی سروس | Taxi Service KSA',
     description: 'سعودی عرب میں بہترین وی آئی پی ٹیکسی سروس بک کریں۔ عمرہ ٹرانسپورٹ، ایئرپورٹ ٹرانسفر اور انٹرسٹی سفر پیشہ ور ڈرائیورز کے ساتھ۔',
     url: 'https://taxiserviceksa.com/ur/',

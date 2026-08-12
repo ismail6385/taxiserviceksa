@@ -16,6 +16,8 @@ export const metadata: Metadata = {
     "AlUla travel expenses",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'How Much Does an AlUla Trip Cost? Complete Budget Guide 2026' }],
+    siteName: 'Taxi Service KSA',
     title: "How Much Does an AlUla Trip Cost? Complete Budget Guide 2026",
     description:
       "Full cost breakdown for visiting AlUla — from budget backpacker to luxury splurge, know what to expect before you go.",

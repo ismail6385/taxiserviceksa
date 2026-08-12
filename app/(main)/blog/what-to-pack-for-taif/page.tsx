@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     "Saudi Arabia power adapter",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'What to Pack for Taif: Complete Packing List 2026' }],
+    siteName: 'Taxi Service KSA',
     title: "What to Pack for Taif: Complete Packing List 2026",
     description:
       "The complete travel checklist and packing guide for visiting the mountains of Taif.",
@@ -105,7 +107,7 @@ export default function WhatToPackForTaif() {
             <Link href="/booking" className="bg-white text-green-800 font-bold px-8 py-3 rounded-full hover:bg-green-50 transition">
               Book Taif Taxi
             </Link>
-            <Link href="/routes/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
+            <Link href="/locations/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
               View Taif Routes
             </Link>
           </div>

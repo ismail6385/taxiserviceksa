@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'The ultimate guide to Tabuk, Saudi Arabia. Discover why to visit, entry tips, attractions overview, and practical visitor information for first-timers in 2026.',
     keywords: ['complete Tabuk travel guide 2026', 'Tabuk first time visitor guide', 'why visit Tabuk Saudi Arabia', 'Tabuk city guide', 'Tabuk visitor information'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/complete-tabuk-travel-guide/' },
-    openGraph: { title: 'Complete Tabuk Travel Guide 2026: First-Time Visitor Handbook', description: 'Your all-in-one handbook to Tabuk — from Red Sea beaches to snow-capped mountains.', type: 'article', url: 'https://taxiserviceksa.com/blog/complete-tabuk-travel-guide/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Complete Tabuk Travel Guide 2026: First-Time Visitor Handbook' }],
+        siteName: 'Taxi Service KSA', title: 'Complete Tabuk Travel Guide 2026: First-Time Visitor Handbook', description: 'Your all-in-one handbook to Tabuk — from Red Sea beaches to snow-capped mountains.', type: 'article', url: 'https://taxiserviceksa.com/blog/complete-tabuk-travel-guide/' },
 };
 
 const faqSchema = {

@@ -19,6 +19,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/elderly-umrah-guide-tips/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Elderly Umrah Guide 2026 | Wheelchairs, Health & Travel Tips' }],
+        siteName: 'Taxi Service KSA',
         title: 'Elderly Umrah Guide 2026 | Wheelchairs, Health & Travel Tips',
         description: 'Ensure a safe, comfortable, and spiritually rewarding Umrah for senior citizens. Complete guide to health, mobility, and transport logistics.',
         type: 'article',

@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Detailed guide to outdoor sports in Tabuk, Saudi Arabia. Learn about camping in Hisma Desert, hiking in Wadi Al-Disah, and mountain trails.',
     keywords: ['Tabuk outdoor adventure 2026', 'hiking in Tabuk Saudi Arabia', 'desert camping Tabuk', 'Tabuk road trip guide', 'Wadi Al Disah trekking'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/tabuk-adventure-activities-hiking-camping/' },
-    openGraph: { title: 'Tabuk Outdoor Adventures: Hiking, Camping & Desert Safaris 2026', description: 'Plan your next hiking, camping, or desert road trip in Tabuk Province with our adventure guide.', type: 'article', url: 'https://taxiserviceksa.com/blog/tabuk-adventure-activities-hiking-camping/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Tabuk Outdoor Adventures: Hiking, Camping & Desert Safaris 2026' }],
+        siteName: 'Taxi Service KSA', title: 'Tabuk Outdoor Adventures: Hiking, Camping & Desert Safaris 2026', description: 'Plan your next hiking, camping, or desert road trip in Tabuk Province with our adventure guide.', type: 'article', url: 'https://taxiserviceksa.com/blog/tabuk-adventure-activities-hiking-camping/' },
 };
 
 const faqSchema = {

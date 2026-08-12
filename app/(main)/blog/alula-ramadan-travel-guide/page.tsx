@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     keywords: ['AlUla Ramadan guide', 'Hegra hours during Ramadan', 'AlUla restaurants Ramadan', 'Ramadan travel Saudi Arabia', 'AlUla transport Ramadan'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/alula-ramadan-travel-guide/' },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'AlUla Ramadan Travel Guide: Opening Hours & Tips' }],
+        siteName: 'Taxi Service KSA',
         title: 'AlUla Ramadan Travel Guide: Opening Hours & Tips',
         description: 'Discover how to plan a respectful and rewarding trip to AlUla during the holy month of Ramadan.',
         type: 'article',

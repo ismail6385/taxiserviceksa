@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     "Taif cable car details",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Frequently Asked Questions About Taif: Travel FAQ 2026' }],
+    siteName: 'Taxi Service KSA',
     title: "Frequently Asked Questions About Taif: Travel FAQ 2026",
     description:
       "All your questions answered — cover travel logistics, timing, weather, safety, and activities in Taif.",
@@ -108,7 +110,7 @@ export default function FrequentlyAskedQuestionsAboutTaif() {
               Book Taif Taxi
             </Link>
             <Link
-              href="/routes/taif"
+              href="/locations/taif"
               className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition"
             >
               View Taif Routes

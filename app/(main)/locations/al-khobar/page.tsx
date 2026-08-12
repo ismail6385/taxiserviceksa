@@ -33,6 +33,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/al-khobar/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car Transfer, Taxi and Chauffeur Service in Al Khobar | Corniche & Causeway Trips | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Al Khobar | Corniche & Causeway Trips | Taxi Service KSA',
         description: 'Premium transfer service in Al Khobar for local travel & Causeway trips to Bahrain. Reliable, comfortable rides to Dammam Airport and Corniche.',
         url: 'https://taxiserviceksa.com/locations/al-khobar/',

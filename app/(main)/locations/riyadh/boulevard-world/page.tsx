@@ -18,6 +18,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/boulevard-world/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car Transfer, Taxi and Chauffeur Service to Boulevard World & City (Riyadh) | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car Transfer, Taxi and Chauffeur Service to Boulevard World & City (Riyadh) | Taxi Service KSA',
         description: 'The elite way to visit Riyadh Season. Premium private transfer and professional chauffeur service to the entrance gate.',
         url: 'https://taxiserviceksa.com/locations/riyadh/boulevard-world/',

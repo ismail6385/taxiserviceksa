@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/jannat-al-mualla-makkah-guide/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jannat al-Mualla Cemetery Makkah | History & Visitor Guide' }],
+        siteName: 'Taxi Service KSA',
         title: 'Jannat al-Mualla Cemetery Makkah | History & Visitor Guide',
         description: 'Discover the historical importance and rules for visiting Jannat al-Mualla, the sacred burial ground in Makkah.',
         type: 'article',

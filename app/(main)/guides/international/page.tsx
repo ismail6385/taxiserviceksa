@@ -11,6 +11,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/guides/international/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'International Pilgrim Guides' }],
         title: 'International Pilgrim Guides',
         description: 'Find dedicated Umrah taxi and transport guides for your country. Comprehensive travel information for pilgrims from over 80 nations visiting Saudi Arabia.',
         url: 'https://taxiserviceksa.com/guides/international/',

@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     keywords: ['Saudi National Day AlUla 2026', 'AlUla national day events', 'September 23 Saudi Arabia', 'Elephant rock light show', 'AlUla national day activities'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/alula-national-day-celebration-guide/' },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'AlUla National Day Celebration Guide 2026' }],
+        siteName: 'Taxi Service KSA',
         title: 'AlUla National Day Celebration Guide 2026',
         description: 'Celebrate Saudi National Day surrounded by AlUla\'s spectacular ancient heritage.',
         type: 'article',

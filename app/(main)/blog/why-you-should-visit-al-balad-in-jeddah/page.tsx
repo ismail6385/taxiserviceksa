@@ -21,6 +21,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/why-you-should-visit-al-balad-in-jeddah/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Why You Should Visit Al-Balad in Jeddah | Historic Hejaz Guide' }],
+        siteName: 'Taxi Service KSA',
         title: 'Why You Should Visit Al-Balad in Jeddah | Historic Hejaz Guide',
         description: 'Explore the UNESCO-listed coral-stone streets, ancient palaces, and traditional souqs of Historic Jeddah (Al-Balad) with our complete visitor guide.',
         type: 'article',

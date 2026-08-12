@@ -32,6 +32,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'نقل في مكة المكرمة | سائق عائلي خاص | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'نقل في مكة المكرمة | سائق عائلي خاص | Taxi Service KSA',
         description: 'نقل وعائلي في مكة المكرمة. من الفندق إلى الحرم، جولات الزيارة، توصيل المطار، ومن مكة إلى المدينة. سائقون مرخصون، أسطول فاخر، على مدار الساعة.',
         url: 'https://taxiserviceksa.com/ar/services/makkah-city-transport/',

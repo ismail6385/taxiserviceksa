@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/zamzam-well-history-facts/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'The Zamzam Well History & Miraculous Facts | 2026 Guide' }],
+        siteName: 'Taxi Service KSA',
         title: 'The Zamzam Well History & Miraculous Facts | 2026 Guide',
         description: 'Read the complete history and incredible facts of the holy Zamzam water. Understand its origin and current distribution system.',
         type: 'article',

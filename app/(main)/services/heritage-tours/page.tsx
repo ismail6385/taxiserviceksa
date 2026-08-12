@@ -27,6 +27,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Service for Heritage Tours | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car, Taxi and Chauffeur Service for Heritage Tours | Taxi Service KSA',
         description: 'Professional heritage tour transport for AlUla, Khaybar, and UNESCO sites. 4x4 desert vehicles with licensed drivers.',
         url: 'https://taxiserviceksa.com/services/heritage-tours/',

@@ -23,6 +23,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/jeddah-corniche-guide/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Complete Guide to Jeddah Corniche 2026 | What to See, Do & Eat' }],
+        siteName: 'Taxi Service KSA',
         title: 'Complete Guide to Jeddah Corniche 2026 | What to See, Do & Eat',
         description: 'Everything you need to know about the Jeddah Corniche — 30 km of Red Sea seafront, iconic landmarks, restaurants, hotels and how to make the most of your visit.',
         type: 'article',

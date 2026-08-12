@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Master your camera in AlUla. Complete guide to the best photography spots, instagrammable locations, sunset framing, and drone rules for 2026.',
     keywords: ['AlUla photography guide 2026', 'best photo spots in AlUla', 'instagram locations AlUla', 'Maraya concert hall photos', 'how to photograph Hegra'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/alula-photography-instagram-spots/' },
-    openGraph: { title: 'AlUla Photography Guide: Best Photo & Instagram Locations 2026', description: 'Your guide to capturing AlUla\'s beautiful desert landscapes, mirrored halls, and ancient monuments.', type: 'article', url: 'https://taxiserviceksa.com/blog/alula-photography-instagram-spots/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'AlUla Photography Guide: Best Photo & Instagram Locations 2026' }],
+        siteName: 'Taxi Service KSA', title: 'AlUla Photography Guide: Best Photo & Instagram Locations 2026', description: 'Your guide to capturing AlUla\'s beautiful desert landscapes, mirrored halls, and ancient monuments.', type: 'article', url: 'https://taxiserviceksa.com/blog/alula-photography-instagram-spots/' },
 };
 
 const faqSchema = {

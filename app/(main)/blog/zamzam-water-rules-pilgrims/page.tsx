@@ -19,6 +19,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/zamzam-water-rules-pilgrims/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Official Zamzam Water Rules 2026 | Airport & Airline Guide' }],
+        siteName: 'Taxi Service KSA',
         title: 'Official Zamzam Water Rules 2026 | Airport & Airline Guide',
         description: 'Complete guide on carrying Zamzam water home. Understand airport luggage rules, official purchase locations, and airline allowance guidelines.',
         type: 'article',

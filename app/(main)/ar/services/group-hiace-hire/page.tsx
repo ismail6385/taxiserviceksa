@@ -32,6 +32,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'تويوتا هايس مع سائق في السعودية | تأجير حافلة جماعية | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'تويوتا هايس مع سائق في السعودية | تأجير حافلة جماعية | Taxi Service KSA',
         description: 'استأجر تويوتا هايس (١١ مقعداً) مع سائق في الرياض وجدة ومكة والمدينة. حافلة جماعية خاصة للعائلات ومجموعات المعتمرين والسياح.',
         url: 'https://taxiserviceksa.com/ar/services/group-hiace-hire/',

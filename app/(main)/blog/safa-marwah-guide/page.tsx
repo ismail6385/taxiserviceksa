@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/safa-marwah-guide/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Safa and Marwah Guide 2026 | Sa\'i Steps & Meaning' }],
+        siteName: 'Taxi Service KSA',
         title: 'Safa and Marwah Guide 2026 | Sa\'i Steps & Meaning',
         description: 'Discover the history and practical steps for performing Sa\'i between the hills of Safa and Marwah inside Masjid al-Haram.',
         type: 'article',

@@ -24,6 +24,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'How Much is a Taxi from Riyadh Airport? (2026 Prices)' }],
+        siteName: 'Taxi Service KSA',
         title: 'How Much is a Taxi from Riyadh Airport? (2026 Prices)',
         description: 'Private transfer, Uber, and metered taxi fares from King Khalid International Airport to all Riyadh destinations.',
         url: 'https://taxiserviceksa.com/blog/how-much-is-taxi-from-riyadh-airport/',

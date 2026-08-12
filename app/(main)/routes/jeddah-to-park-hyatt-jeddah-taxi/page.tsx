@@ -10,6 +10,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-park-hyatt-jeddah-taxi/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jeddah Airport to Park Hyatt Jeddah Taxi | Fixed Price Transfer | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Jeddah Airport to Park Hyatt Jeddah Taxi | Fixed Price Transfer | Taxi Service KSA',
         description: 'Direct transfer from KAIA Airport to Park Hyatt Jeddah - Marina, Club and Spa (Corniche Marina, North Jeddah). drop-off service.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-park-hyatt-jeddah-taxi/',

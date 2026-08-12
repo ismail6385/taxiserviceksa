@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/cave-of-thawr-hijra-history/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'The Cave of Thawr Hijra History | Prophet Companion Guide' }],
+        siteName: 'Taxi Service KSA',
         title: 'The Cave of Thawr Hijra History | Prophet Companion Guide',
         description: 'Read the miraculous events of the Hijrah migration that transpired inside the Cave of Thawr, Makkah.',
         type: 'article',

@@ -24,6 +24,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/riyadh-to-jeddah-private-car/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Riyadh to Jeddah Private Car | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Riyadh to Jeddah Private Car | Taxi Service KSA',
         description: 'Door-to-door private car from Riyadh to Jeddah. 950 km, ~9 hours, fixed price. Book now.',
         url: 'https://taxiserviceksa.com/riyadh-to-jeddah-private-car/',

@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-to-dar-al-taqwa-madinah-taxi/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Jeddah to Dar Al Taqwa Madinah - Hotel Transfer | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Jeddah to Dar Al Taqwa Madinah - Hotel Transfer | Taxi Service KSA',
         description: 'Private, comfortable transfer from Jeddah Airport to Dar Al Taqwa Hotel. Located at the Main Gate of the Prophet Mosque.',
         url: 'https://taxiserviceksa.com/routes/jeddah-to-dar-al-taqwa-madinah-taxi/',

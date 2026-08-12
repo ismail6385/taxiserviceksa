@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     keywords: ['AlUla Eid holiday', 'Eid in AlUla events', 'Eid travel Saudi Arabia', 'AlUla hotels Eid', 'Eid Al Fitr AlUla'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/alula-eid-holiday-travel-guide/' },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'AlUla Eid Holiday Travel Guide: Festivals & Bookings' }],
+        siteName: 'Taxi Service KSA',
         title: 'AlUla Eid Holiday Travel Guide: Festivals & Bookings',
         description: 'Plan a spectacular and festive Eid holiday getaway in the historic desert oasis of AlUla.',
         type: 'article',

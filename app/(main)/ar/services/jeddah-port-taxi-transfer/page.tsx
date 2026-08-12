@@ -25,6 +25,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'تاكسي ميناء جدة الإسلامي | توصيل ركاب السفن السياحية' }],
+        siteName: 'Taxi Service KSA',
         title: 'تاكسي ميناء جدة الإسلامي | توصيل ركاب السفن السياحية',
         description: 'تاكسي خاص من ميناء جدة الإسلامي إلى مكة المكرمة، مطار جدة، وفنادق جدة. أسعار ثابتة، احجز عبر واتساب.',
         url: 'https://taxiserviceksa.com/ar/services/jeddah-port-taxi-transfer/',

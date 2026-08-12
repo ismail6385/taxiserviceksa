@@ -15,6 +15,8 @@ export const metadata: Metadata = {
     "Taif surrounding attractions",
   ],
   openGraph: {
+    images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Best Day Trips from Taif: Top Nearby Excursions 2026' }],
+    siteName: 'Taxi Service KSA',
     title: "Best Day Trips from Taif: Top Nearby Excursions 2026",
     description:
       "Expand your itinerary. Explore the top historic villages, holy sites, and coastal retreats accessible via a day trip from Taif.",
@@ -161,7 +163,7 @@ export default function BestDayTripsFromTaif() {
             <Link href="/booking" className="bg-white text-amber-800 font-bold px-8 py-3 rounded-full hover:bg-amber-50 transition">
               Book Day Tour Taxi
             </Link>
-            <Link href="/routes/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
+            <Link href="/locations/taif" className="border-2 border-white text-white font-semibold px-8 py-3 rounded-full hover:bg-white/10 transition">
               View Taif Routes
             </Link>
           </div>

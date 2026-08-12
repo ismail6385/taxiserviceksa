@@ -17,6 +17,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/blog/masjid-al-haram-complete-guide/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Masjid al-Haram Complete Guide 2026 | Rules, History & Layout' }],
+        siteName: 'Taxi Service KSA',
         title: 'Masjid al-Haram Complete Guide 2026 | Rules, History & Layout',
         description: 'Plan your visit to the Grand Mosque of Makkah with our comprehensive layout, entry gates, prayer etiquette, and historical insights.',
         type: 'article',

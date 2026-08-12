@@ -14,6 +14,7 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Madinah to AlUla Drive Time & Distance (2026)' }],
         title: 'Madinah to AlUla Drive Time & Distance (2026)',
         description: '330 km, 3.5 hours on well-maintained desert highway. What to expect on the Madinah to AlUla drive, where to stop, and why private car is the only option.',
         url: 'https://taxiserviceksa.com/blog/how-long-is-drive-from-madinah-to-alula/',

@@ -7,7 +7,9 @@ export const metadata: Metadata = {
     description: 'Explore the lush, shaded walkways of the AlUla Oasis Heritage Trail. Discover the best scenic spots, orchards, mudbrick ruins, and family picnic areas.',
     keywords: ['AlUla Oasis Heritage Trail guide 2026', 'best picnic spots in AlUla', 'AlUla palm tree walk', 'AlUla oasis farms', 'family outdoors in AlUla'],
     alternates: { canonical: 'https://taxiserviceksa.com/blog/alula-oasis-heritage-trail-picnic-spots/' },
-    openGraph: { title: 'AlUla Oasis Heritage Trail & Best Picnic Spots Guide 2026', description: 'Walk under towering date palms and orange orchards on AlUla\'s historic Oasis trail.', type: 'article', url: 'https://taxiserviceksa.com/blog/alula-oasis-heritage-trail-picnic-spots/' },
+    openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'AlUla Oasis Heritage Trail & Best Picnic Spots Guide 2026' }],
+        siteName: 'Taxi Service KSA', title: 'AlUla Oasis Heritage Trail & Best Picnic Spots Guide 2026', description: 'Walk under towering date palms and orange orchards on AlUla\'s historic Oasis trail.', type: 'article', url: 'https://taxiserviceksa.com/blog/alula-oasis-heritage-trail-picnic-spots/' },
 };
 
 const faqSchema = {

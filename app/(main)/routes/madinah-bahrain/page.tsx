@@ -19,6 +19,8 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/routes/madinah-bahrain/',
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Madinah to Bahrain Taxi | Cross-Border Transfer | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Madinah to Bahrain Taxi | Cross-Border Transfer | Taxi Service KSA',
         description: 'Request a premium quote from Madinah to Bahrain. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
         url: 'https://taxiserviceksa.com/routes/madinah-bahrain/',

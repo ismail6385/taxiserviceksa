@@ -22,6 +22,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car, Taxi and Chauffeur Service for GCC Cross-Border Travel | Taxi Service KSA' }],
+        siteName: 'Taxi Service KSA',
         title: 'Private Car, Taxi and Chauffeur Service for GCC Cross-Border Travel | Taxi Service KSA',
         description: 'Private cross-border chauffeur transfers connecting Saudi Arabia with the UAE, Kuwait, Qatar, and Bahrain.',
         url: 'https://taxiserviceksa.com/services/gcc-chauffeur-service/',

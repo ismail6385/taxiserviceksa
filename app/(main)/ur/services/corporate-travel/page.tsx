@@ -26,6 +26,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'کارپوریٹ وی آئی پی ٹرانسفر سعودی عرب | ایگزیکٹو سروس بمعہ ڈرائیور' }],
+        siteName: 'Taxi Service KSA',
         title: 'کارپوریٹ وی آئی پی ٹرانسفر سعودی عرب | ایگزیکٹو سروس بمعہ ڈرائیور',
         description: 'بزنس ایگزیکٹوز کے لیے پروفیشنل کارپوریٹ وی آئی پی ٹرانسفر سروس۔ ماہانہ بلنگ، ترجیحی بکنگ اور ایگزیکٹو گاڑیاں دستیاب ہیں۔',
         url: 'https://taxiserviceksa.com/ur/services/corporate-travel/',
