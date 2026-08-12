@@ -191,6 +191,60 @@ export default function DammamBahrainRoutePage() {
                 </div>
             </div>
 
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 mb-8">
+                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+                    <h4 className="font-bold text-gray-900 mb-4">Corporate Accounts: Dammam to Bahrain</h4>
+                    <p className="text-sm text-gray-500 mb-4">Dedicated VIP transfer pages for companies with regular Dammam–Bahrain staff travel.</p>
+                    <div className="flex flex-wrap gap-3">
+                        {[
+                            { slug: 'abb-dammam-to-bahrain-taxi', name: 'ABB' },
+                            { slug: 'baker-hughes-dammam-to-bahrain-taxi', name: 'Baker Hughes' },
+                            { slug: 'bechtel-dammam-to-bahrain-taxi', name: 'Bechtel' },
+                            { slug: 'carrefour-dammam-to-bahrain-taxi', name: 'Carrefour' },
+                            { slug: 'db-schenker-dammam-to-bahrain-taxi', name: 'DB Schenker' },
+                            { slug: 'dhl-dammam-to-bahrain-taxi', name: 'DHL' },
+                            { slug: 'emerson-dammam-to-bahrain-taxi', name: 'Emerson Electric' },
+                            { slug: 'exxonmobil-dammam-to-bahrain-taxi', name: 'ExxonMobil' },
+                            { slug: 'fedex-dammam-to-bahrain-taxi', name: 'FedEx' },
+                            { slug: 'fluor-dammam-to-bahrain-taxi', name: 'Fluor' },
+                            { slug: 'ge-dammam-to-bahrain-taxi', name: 'GE' },
+                            { slug: 'halliburton-dammam-to-bahrain-taxi', name: 'Halliburton' },
+                            { slug: 'hilton-dammam-to-bahrain-taxi', name: 'Hilton' },
+                            { slug: 'honeywell-dammam-to-bahrain-taxi', name: 'Honeywell' },
+                            { slug: 'hyundai-enc-dammam-to-bahrain-taxi', name: 'Hyundai E&C' },
+                            { slug: 'hyundai-motor-dammam-to-bahrain-taxi', name: 'Hyundai Motor' },
+                            { slug: 'ikea-dammam-to-bahrain-taxi', name: 'IKEA' },
+                            { slug: 'intercontinental-dammam-to-bahrain-taxi', name: 'InterContinental' },
+                            { slug: 'jacobs-dammam-to-bahrain-taxi', name: 'Jacobs Engineering' },
+                            { slug: 'johnson-controls-dammam-to-bahrain-taxi', name: 'Johnson Controls' },
+                            { slug: 'lt-dammam-to-bahrain-taxi', name: 'Larsen & Toubro (L&T)' },
+                            { slug: 'maersk-dammam-to-bahrain-taxi', name: 'Maersk' },
+                            { slug: 'marriott-dammam-to-bahrain-taxi', name: 'Marriott' },
+                            { slug: 'mcdermott-dammam-to-bahrain-taxi', name: 'McDermott' },
+                            { slug: 'msc-dammam-to-bahrain-taxi', name: 'MSC' },
+                            { slug: 'nissan-dammam-to-bahrain-taxi', name: 'Nissan' },
+                            { slug: 'samsung-engineering-dammam-to-bahrain-taxi', name: 'Samsung Engineering' },
+                            { slug: 'schlumberger-dammam-to-bahrain-taxi', name: 'Schlumberger (SLB)' },
+                            { slug: 'shell-dammam-to-bahrain-taxi', name: 'Shell' },
+                            { slug: 'siemens-dammam-to-bahrain-taxi', name: 'Siemens' },
+                            { slug: 'sinopec-dammam-to-bahrain-taxi', name: 'Sinopec' },
+                            { slug: 'technip-energies-dammam-to-bahrain-taxi', name: 'Technip Energies' },
+                            { slug: 'totalenergies-dammam-to-bahrain-taxi', name: 'TotalEnergies' },
+                            { slug: 'toyota-dammam-to-bahrain-taxi', name: 'Toyota' },
+                            { slug: 'weatherford-dammam-to-bahrain-taxi', name: 'Weatherford' },
+                        ].map((company) => (
+                            <Link
+                                key={company.slug}
+                                href={`/routes/${company.slug}/`}
+                                className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-primary hover:text-primary transition-colors shadow-sm"
+                            >
+                                {company.name}
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
                 <RelatedLocations currentCity="Dammam" />
                 <RelatedRoutes originSlug="dammam" currentSlug="dammam-bahrain" />

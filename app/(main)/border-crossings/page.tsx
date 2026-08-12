@@ -54,6 +54,62 @@ const BORDER_CROSSINGS = [
         description: 'Popular crossing for travelers between Dammam/Jubail and Kuwait City.',
         highlights: ['Dammam to Kuwait', 'Quick crossing', 'Professional drivers'],
         price: 'From 900 SAR'
+    },
+    {
+        name: 'Abu Samra Border',
+        to: 'Qatar',
+        slug: 'taxi-abu-samra-border-crossing',
+        description: 'Alternate crossing point for travelers heading between Saudi Arabia and Qatar.',
+        highlights: ['Direct to Doha', 'Hassle-free', 'Comfortable SUVs'],
+        price: 'From 1200 SAR'
+    },
+    {
+        name: 'Al Durrah Border',
+        to: 'Jordan',
+        slug: 'taxi-al-durrah-border-crossing',
+        description: 'Cross-border transfer point connecting Saudi Arabia with Jordan.',
+        highlights: ['Amman transfers', 'Border assistance', 'Safe & Secure'],
+        price: 'From 1400 SAR'
+    },
+    {
+        name: 'Al Salmi Border',
+        to: 'Kuwait',
+        slug: 'taxi-al-salmi-border-crossing',
+        description: 'Northern crossing point for travelers between Saudi Arabia and Kuwait.',
+        highlights: ['Direct to Kuwait City', 'Quick crossing', 'Professional drivers'],
+        price: 'From 900 SAR'
+    },
+    {
+        name: 'Halat Ammar Border',
+        to: 'Jordan',
+        slug: 'taxi-halat-ammar-border-crossing',
+        description: 'Northern gateway for travelers between Saudi Arabia (Tabuk region) and Jordan.',
+        highlights: ['Amman transfers', 'Border assistance', 'Safe & Secure'],
+        price: 'From 1400 SAR'
+    },
+    {
+        name: 'Nuwaiseeb Border',
+        to: 'Kuwait',
+        slug: 'taxi-nuwaiseeb-border-crossing',
+        description: 'The primary and busiest crossing between Saudi Arabia and Kuwait City.',
+        highlights: ['Dammam to Kuwait', 'Quick crossing', 'Professional drivers'],
+        price: 'From 900 SAR'
+    },
+    {
+        name: 'Ramlat Khaliya Border',
+        to: 'Oman',
+        slug: 'taxi-ramlat-khaliya-border-crossing',
+        description: 'Southeastern crossing point connecting Saudi Arabia with Oman.',
+        highlights: ['Long-distance comfort', 'Reliable', 'Border assistance'],
+        price: 'From 1600 SAR'
+    },
+    {
+        name: 'Rub al Khali Border',
+        to: 'Oman',
+        slug: 'taxi-rub-al-khali-border-crossing',
+        description: 'Empty Quarter crossing point connecting Saudi Arabia with Oman.',
+        highlights: ['Long-distance comfort', 'Reliable', 'Border assistance'],
+        price: 'From 1600 SAR'
     }
 ];
 
