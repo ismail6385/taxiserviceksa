@@ -505,6 +505,189 @@ const nextConfig = {
         destination: '/routes/jeddah-makkah/',
         permanent: true,
       },
+      // Deprecated duplicate of /taxi-driver-jobs-{city}/ - Aug 2026
+      // (driver-jobs-{city} was word-for-word identical content, just
+      // "taxi driver" -> "driver" find-replaced)
+      {
+        source: '/driver-jobs-abha',
+        destination: '/taxi-driver-jobs-abha/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-abha/',
+        destination: '/taxi-driver-jobs-abha/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-al-ahsa',
+        destination: '/taxi-driver-jobs-al-ahsa/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-al-ahsa/',
+        destination: '/taxi-driver-jobs-al-ahsa/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-al-qassim',
+        destination: '/taxi-driver-jobs-al-qassim/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-al-qassim/',
+        destination: '/taxi-driver-jobs-al-qassim/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-buraidah',
+        destination: '/taxi-driver-jobs-buraidah/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-buraidah/',
+        destination: '/taxi-driver-jobs-buraidah/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-dammam',
+        destination: '/taxi-driver-jobs-dammam/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-dammam/',
+        destination: '/taxi-driver-jobs-dammam/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-dhahran',
+        destination: '/taxi-driver-jobs-dhahran/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-dhahran/',
+        destination: '/taxi-driver-jobs-dhahran/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-hail',
+        destination: '/taxi-driver-jobs-hail/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-hail/',
+        destination: '/taxi-driver-jobs-hail/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-jeddah',
+        destination: '/taxi-driver-jobs-jeddah/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-jeddah/',
+        destination: '/taxi-driver-jobs-jeddah/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-jubail',
+        destination: '/taxi-driver-jobs-jubail/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-jubail/',
+        destination: '/taxi-driver-jobs-jubail/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-khamis-mushait',
+        destination: '/taxi-driver-jobs-khamis-mushait/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-khamis-mushait/',
+        destination: '/taxi-driver-jobs-khamis-mushait/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-khobar',
+        destination: '/taxi-driver-jobs-khobar/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-khobar/',
+        destination: '/taxi-driver-jobs-khobar/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-madinah',
+        destination: '/taxi-driver-jobs-madinah/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-madinah/',
+        destination: '/taxi-driver-jobs-madinah/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-makkah',
+        destination: '/taxi-driver-jobs-makkah/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-makkah/',
+        destination: '/taxi-driver-jobs-makkah/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-najran',
+        destination: '/taxi-driver-jobs-najran/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-najran/',
+        destination: '/taxi-driver-jobs-najran/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-riyadh',
+        destination: '/taxi-driver-jobs-riyadh/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-riyadh/',
+        destination: '/taxi-driver-jobs-riyadh/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-tabuk',
+        destination: '/taxi-driver-jobs-tabuk/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-tabuk/',
+        destination: '/taxi-driver-jobs-tabuk/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-taif',
+        destination: '/taxi-driver-jobs-taif/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-taif/',
+        destination: '/taxi-driver-jobs-taif/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-yanbu',
+        destination: '/taxi-driver-jobs-yanbu/',
+        permanent: true,
+      },
+      {
+        source: '/driver-jobs-yanbu/',
+        destination: '/taxi-driver-jobs-yanbu/',
+        permanent: true,
+      },
     ];
   },
   async rewrites() {

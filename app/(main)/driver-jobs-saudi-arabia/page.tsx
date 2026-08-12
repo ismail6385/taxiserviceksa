@@ -81,25 +81,27 @@ export default function DriverJobsSaudiHub() {
                 {/* Cities Grid */}
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     {cities.map((city) => (
-                        <Link 
-                            key={city.id} 
-                            href={`/join-as-driver/${city.id}`}
-                            className="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:border-primary/20 transition-all font-bold text-gray-900 group relative overflow-hidden block"
+                        <div
+                            key={city.id}
+                            className="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm hover:shadow-xl hover:border-primary/20 transition-all font-bold text-gray-900 group relative overflow-hidden"
                         >
                             <div className="flex items-center justify-between mb-4">
                                 <div className="bg-gray-50 w-12 h-12 rounded-xl flex items-center justify-center text-gray-600 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
                                     <city.icon className="w-6 h-6" />
                                 </div>
-                                <ArrowRight className="w-5 h-5 text-gray-300 group-hover:text-primary group-hover:translate-x-1 transition-all" />
                             </div>
-                            
+
                             <h3 className="text-xl font-black mb-1 group-hover:text-primary transition-colors">{city.name}</h3>
                             <p className="text-sm text-gray-500 font-medium mb-4">{city.desc}</p>
-                            
-                            <div className="text-sm text-primary font-bold inline-flex items-center gap-1 group-hover:underline">
-                                Apply as a driver in {city.name}
+
+                            <Link href={`/join-as-driver/${city.id}`} className="text-sm text-primary font-bold inline-flex items-center gap-1 hover:underline mb-2">
+                                Apply as a driver in {city.name} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-all" />
+                            </Link>
+                            <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs pt-2 border-t border-gray-100 mt-2">
+                                <Link href={`/taxi-driver-jobs-${city.id}/`} className="text-gray-500 hover:text-primary hover:underline">Taxi driver jobs</Link>
+                                <Link href={`/chauffeur-jobs-${city.id}/`} className="text-gray-500 hover:text-primary hover:underline">Chauffeur jobs</Link>
                             </div>
-                        </Link>
+                        </div>
                     ))}
                 </div>
 
