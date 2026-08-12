@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     keywords: ['Taxi Riyadh to Jeddah', 'Riyadh to Jeddah Taxi', 'Riyadh to Jeddah private car', 'taxi from Riyadh to Jeddah', 'Riyadh to Jeddah car hire', 'long distance taxi Saudi Arabia', 'private transfer Riyadh to Jeddah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/riyadh-jeddah/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/routes/riyadh-jeddah/',
+            'ar': 'https://taxiserviceksa.com/ar/routes/riyadh-jeddah/',
+            'x-default': 'https://taxiserviceksa.com/routes/riyadh-jeddah/',
+        },
     },
 };
 

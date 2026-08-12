@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     keywords: ['Taxi Dammam to Kuwait', 'Dammam to Kuwait transfer', 'cross border taxi Saudi Arabia', 'VIP transport Dammam Kuwait'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/dammam-kuwait/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/routes/dammam-kuwait/',
+            'ar': 'https://taxiserviceksa.com/ar/routes/dammam-kuwait/',
+            'x-default': 'https://taxiserviceksa.com/routes/dammam-kuwait/',
+        },
     },
     openGraph: {
         title: 'Dammam to Kuwait Taxi | Taxi Service KSA',

@@ -35,6 +35,12 @@ export const metadata: Metadata = {
     keywords: ['Riyadh VIP private transfer', 'Executive chauffeur service Riyadh', 'Riyadh airport VIP pickup', 'RUH premium airport transfer', 'Riyadh corporate business transport', 'Luxury car with driver Riyadh', 'Riyadh to Makkah VIP transfer'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/riyadh/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/locations/riyadh/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/riyadh/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/riyadh/',
+            'x-default': 'https://taxiserviceksa.com/locations/riyadh/',
+        },
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Executive Chauffeur Service in Riyadh | Taxi Service KSA',

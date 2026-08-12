@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     keywords: ['Taxi Dammam to Makkah', 'Dammam to Makkah Umrah taxi', 'Khobar to Makkah taxi', 'Dammam to Makkah transfer', 'Eastern Province to Makkah taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/dammam-makkah/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/routes/dammam-makkah/',
+            'ar': 'https://taxiserviceksa.com/ar/routes/dammam-makkah/',
+            'x-default': 'https://taxiserviceksa.com/routes/dammam-makkah/',
+        },
     },
     openGraph: {
         title: 'Private Taxi: Dammam to Makkah | Taxi Service KSA',

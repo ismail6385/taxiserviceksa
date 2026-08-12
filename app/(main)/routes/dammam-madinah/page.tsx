@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     keywords: ['Taxi Dammam to Madinah', 'Dammam to Madinah Ziyarat taxi', 'Khobar to Madinah taxi', 'Dammam to Madinah transfer', 'Eastern Province to Madinah taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/dammam-madinah/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/routes/dammam-madinah/',
+            'ar': 'https://taxiserviceksa.com/ar/routes/dammam-madinah/',
+            'x-default': 'https://taxiserviceksa.com/routes/dammam-madinah/',
+        },
     },
     openGraph: {
         title: 'Private Taxi: Dammam to Madinah | Taxi Service KSA',

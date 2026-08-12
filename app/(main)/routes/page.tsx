@@ -10,6 +10,11 @@ export const metadata: Metadata = {
     keywords: ['transfer routes Saudi Arabia', 'Jeddah Makkah transfer', 'Makkah Madinah transfer', 'intercity Taxi Service KSA', 'Saudi Arabia cross border taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/routes/',
+            'ar': 'https://taxiserviceksa.com/ar/routes/',
+            'x-default': 'https://taxiserviceksa.com/routes/',
+        },
     },
 };
 

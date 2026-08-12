@@ -17,6 +17,12 @@ export const metadata: Metadata = {
     keywords: ['Abha VIP private transfer', 'Executive chauffeur Abha', 'AHB Airport VIP pickup', 'Ride to Al Soudah VIP', 'Abha premium driver'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/abha/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/locations/abha/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/abha/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/abha/',
+            'x-default': 'https://taxiserviceksa.com/locations/abha/',
+        },
     },
     openGraph: {
         title: 'Private Car Transfer, Taxi and Chauffeur Service in Abha | Taxi Service KSA',

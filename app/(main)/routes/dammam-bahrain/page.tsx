@@ -18,6 +18,11 @@ export const metadata: Metadata = {
     keywords: ['Taxi Dammam to Bahrain', 'Dammam to Bahrain transfer', 'cross border taxi Saudi Arabia', 'VIP transport Dammam Bahrain'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/dammam-bahrain/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/routes/dammam-bahrain/',
+            'ar': 'https://taxiserviceksa.com/ar/routes/dammam-bahrain/',
+            'x-default': 'https://taxiserviceksa.com/routes/dammam-bahrain/',
+        },
     },
     openGraph: {
         title: 'Dammam to Bahrain Taxi | Cross-Border Transfer | Taxi Service KSA',

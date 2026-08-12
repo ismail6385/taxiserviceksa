@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     keywords: ['Taxi Jeddah to Dubai', 'Jeddah to Dubai transfer', 'cross border taxi Saudi Arabia', 'VIP transport Jeddah Dubai'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-dubai/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/routes/jeddah-dubai/',
+            'ar': 'https://taxiserviceksa.com/ar/routes/jeddah-dubai/',
+            'x-default': 'https://taxiserviceksa.com/routes/jeddah-dubai/',
+        },
     },
     openGraph: {
         title: 'Jeddah to Dubai Taxi | Cross-Border Transfer | Taxi Service KSA',

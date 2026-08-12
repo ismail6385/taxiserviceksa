@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     keywords: ['Taxi Madinah to Jeddah', 'Madinah to Jeddah Taxi', 'Madinah to Jeddah private car', 'taxi fare Madinah to Jeddah', 'Madinah to Jeddah transport', 'private transfer Madinah to Jeddah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/madinah-jeddah/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/routes/madinah-jeddah/',
+            'ar': 'https://taxiserviceksa.com/ar/routes/madinah-jeddah/',
+            'x-default': 'https://taxiserviceksa.com/routes/madinah-jeddah/',
+        },
     },
 };
 

@@ -21,6 +21,11 @@ export const metadata: Metadata = {
     keywords: ['Taxi Makkah to Madinah 2026', 'Makkah to Madinah Taxi price', 'Makkah to Madinah private car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/makkah-madinah/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/routes/makkah-madinah/',
+            'ar': 'https://taxiserviceksa.com/ar/routes/makkah-madinah/',
+            'x-default': 'https://taxiserviceksa.com/routes/makkah-madinah/',
+        },
     },
 };
 

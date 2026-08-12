@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     keywords: ['Taxi Riyadh to Dubai', 'Riyadh to Dubai transfer', 'Riyadh Dubai price 3500 SAR', 'cross border taxi Saudi Arabia', 'VIP transport Riyadh Dubai GMC'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/riyadh-dubai/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/routes/riyadh-dubai/',
+            'ar': 'https://taxiserviceksa.com/ar/routes/riyadh-dubai/',
+            'x-default': 'https://taxiserviceksa.com/routes/riyadh-dubai/',
+        },
     },
     openGraph: {
         title: 'Riyadh to Dubai Taxi | 3500 SAR GMC Transfer',

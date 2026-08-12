@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     keywords: ['Taxi Riyadh to Makkah', 'Riyadh to Makkah Taxi', 'private transfer Riyadh to Makkah', 'Riyadh to Makkah car with driver', 'Umrah taxi Riyadh to Makkah', 'Riyadh to Makkah transport'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/riyadh-makkah/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/routes/riyadh-makkah/',
+            'ar': 'https://taxiserviceksa.com/ar/routes/riyadh-makkah/',
+            'x-default': 'https://taxiserviceksa.com/routes/riyadh-makkah/',
+        },
     },
 };
 

@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     keywords: ['Taxi Jeddah to Taif', 'Jeddah to Taif Taxi', 'Al Hada mountain taxi service', 'Taif cable car transfer', 'Jeddah to Taif car with driver', 'private transfer Jeddah to Taif'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-taif/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/routes/jeddah-taif/',
+            'ar': 'https://taxiserviceksa.com/ar/routes/jeddah-taif/',
+            'x-default': 'https://taxiserviceksa.com/routes/jeddah-taif/',
+        },
     },
 };
 

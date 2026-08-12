@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     keywords: ['Taxi Dammam to Doha', 'Dammam to Doha transfer', 'cross border taxi Saudi Arabia', 'VIP transport Dammam Doha'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/dammam-doha/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/routes/dammam-doha/',
+            'ar': 'https://taxiserviceksa.com/ar/routes/dammam-doha/',
+            'x-default': 'https://taxiserviceksa.com/routes/dammam-doha/',
+        },
     },
     openGraph: {
         title: 'Dammam to Doha Taxi | Taxi Service KSA',

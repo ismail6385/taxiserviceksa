@@ -24,6 +24,11 @@ export const metadata: Metadata = {
     keywords: ['Jeddah to Makkah Taxi 2026', 'Jeddah to Makkah taxi price', 'Jeddah to Makkah private car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-makkah/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/routes/jeddah-makkah/',
+            'ar': 'https://taxiserviceksa.com/ar/routes/jeddah-makkah/',
+            'x-default': 'https://taxiserviceksa.com/routes/jeddah-makkah/',
+        },
     },
 };
 

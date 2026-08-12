@@ -17,6 +17,11 @@ export const metadata: Metadata = {
     keywords: ['Taxi Dammam to Jeddah', 'Dammam to Jeddah car', 'Khobar to Jeddah taxi', 'Dammam to Jeddah transfer', 'Eastern Province to Jeddah taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/dammam-jeddah/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/routes/dammam-jeddah/',
+            'ar': 'https://taxiserviceksa.com/ar/routes/dammam-jeddah/',
+            'x-default': 'https://taxiserviceksa.com/routes/dammam-jeddah/',
+        },
     },
     openGraph: {
         title: 'Private Taxi: Dammam to Jeddah | Taxi Service KSA',

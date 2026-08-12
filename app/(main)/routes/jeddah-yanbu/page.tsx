@@ -18,6 +18,11 @@ export const metadata: Metadata = {
     keywords: ['from jeddah to yanbu', 'Jeddah to Yanbu taxi', 'Jeddah Airport to Yanbu taxi', 'Yanbu Industrial City transfer', 'Jeddah to Yanbu car service', 'jeddah to yanbu distance'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-yanbu/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/routes/jeddah-yanbu/',
+            'ar': 'https://taxiserviceksa.com/ar/routes/jeddah-yanbu/',
+            'x-default': 'https://taxiserviceksa.com/routes/jeddah-yanbu/',
+        },
     },
     openGraph: {
         title: 'Service: Jeddah Airport to Yanbu Taxi | Taxi Service KSA',

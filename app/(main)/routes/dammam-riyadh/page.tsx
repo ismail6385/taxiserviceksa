@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     keywords: ['Taxi Dammam to Riyadh', 'Dammam to Riyadh car', 'Khobar to Riyadh taxi', 'Dammam to Riyadh transfer', 'One way taxi Dammam Riyadh'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/dammam-riyadh/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/routes/dammam-riyadh/',
+            'ar': 'https://taxiserviceksa.com/ar/routes/dammam-riyadh/',
+            'x-default': 'https://taxiserviceksa.com/routes/dammam-riyadh/',
+        },
     },
     openGraph: {
         title: 'Executive Taxi: Dammam to Riyadh | Taxi Service KSA',

@@ -20,6 +20,12 @@ export const metadata: Metadata = {
     keywords: ['Makkah VIP Ziyarat', 'Premium Makkah holy sites tour', 'Executive chauffeur Makkah Ziyarat', 'Luxury pilgrim transport Makkah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/makkah-ziyarat/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/locations/makkah-ziyarat/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/makkah-ziyarat/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/makkah-ziyarat/',
+            'x-default': 'https://taxiserviceksa.com/locations/makkah-ziyarat/',
+        },
     },
     openGraph: {
         url: 'https://taxiserviceksa.com/locations/makkah-ziyarat/',
