@@ -3,7 +3,7 @@
 import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { CheckCircle2, MapPin, Calendar, Clock, Car, Search, MessageSquare, Home } from 'lucide-react';
+import { CheckCircle2, MapPin, Calendar, Clock, Car, Search, MessageSquare, Home, ArrowLeftRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 function ConfirmationContent() {
@@ -16,10 +16,14 @@ function ConfirmationContent() {
     const date = params.get('date') || '';
     const time = params.get('time') || '';
     const vehicle = params.get('vehicle') || '';
+    const hasReturnTrip = params.get('hasReturnTrip') === '1';
+    const returnDate = params.get('returnDate') || '';
+    const returnTime = params.get('returnTime') || '';
 
     const refId = ref ? `#${ref.slice(0, 8).toUpperCase()}` : '';
+    const returnLine = hasReturnTrip ? `\nReturn: ${returnDate || 'TBC'}${returnTime ? ` at ${returnTime}` : ''}` : '';
     const whatsappMsg = encodeURIComponent(
-        `Hello, I just submitted a booking request.\n\nRef: ${refId}\nName: ${name}\nRoute: ${from} → ${to}\nDate: ${date} at ${time}\nVehicle: ${vehicle}\n\nPlease confirm my quote.`
+        `Hello, I just submitted a booking request.\n\nRef: ${refId}\nName: ${name}\nRoute: ${from} → ${to}\nDate: ${date} at ${time}${returnLine}\nVehicle: ${vehicle}\n\nPlease confirm my quote.`
     );
 
     return (
@@ -85,6 +89,22 @@ function ConfirmationContent() {
                             </div>
                         )}
                     </div>
+
+                    {hasReturnTrip && (
+                        <div className="bg-blue-50 border border-blue-100 rounded-xl p-3">
+                            <p className="text-[10px] text-blue-500 font-bold uppercase tracking-widest mb-1 flex items-center gap-1">
+                                <ArrowLeftRight className="w-3 h-3" /> Round Trip
+                            </p>
+                            {returnDate ? (
+                                <p className="text-sm font-bold text-blue-900">
+                                    Returning {returnDate}{returnTime ? ` at ${returnTime}` : ''}
+                                    {returnDate === date ? ' (same day)' : ''}
+                                </p>
+                            ) : (
+                                <p className="text-sm text-blue-700">Return details will be confirmed by our team.</p>
+                            )}
+                        </div>
+                    )}
                 </div>
 
                 {/* Info Box */}

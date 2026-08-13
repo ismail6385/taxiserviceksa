@@ -23,6 +23,8 @@ import { cn } from '@/lib/utils';
 import { useBookingFlow } from '@/hooks/useBookingFlow';
 import BookingFlowSteps from '@/components/BookingFlowSteps';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import { isDateBefore, isSameDate, validateRoundTrip } from '@/lib/booking-validation';
+import { CounterControl } from '@/components/PassengerLuggageSelector';
 
 type TabKey = 'transfers' | 'hourly' | 'daytrips';
 
@@ -59,16 +61,16 @@ export default function HomeHero() {
     const flow = useBookingFlow();
     const {
         step, pickup, setPickup, dropoff, setDropoff, date, setDate, time, setTime,
-        isRoundTrip, setIsRoundTrip, returnDate, setReturnDate, viaCity, setViaCity,
-        setTripType, passengers, setPassengers,
+        isRoundTrip, setIsRoundTrip, returnDate, setReturnDate, returnTime, setReturnTime,
+        viaCity, setViaCity, setTripType, passengers, setPassengers, luggage, setLuggage,
     } = flow;
 
     const [activeTab, setActiveTab] = useState<TabKey>('transfers');
     const [showReturn, setShowReturn] = useState(false);
     const [showMultiCity, setShowMultiCity] = useState(false);
-    const [luggage, setLuggage] = useState(2);
     const [departureOpen, setDepartureOpen] = useState(false);
     const [returnOpen, setReturnOpen] = useState(false);
+    const [searchError, setSearchError] = useState('');
 
     // Match the reference layout's default traveler count
     useEffect(() => { setPassengers(2); }, []); // eslint-disable-line react-hooks/exhaustive-deps
@@ -82,18 +84,36 @@ export default function HomeHero() {
         else setTripType('Day Trip');
     }, [activeTab]); // eslint-disable-line react-hooks/exhaustive-deps
 
+    const todayStr = format(new Date(), 'yyyy-MM-dd');
+
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
-        if (!pickup || !dropoff || !date || !time) {
-            alert('Please fill in pickup, destination, and departure date & time.');
+        if (!pickup.trim() || !dropoff.trim() || !date || !time) {
+            setSearchError('Please fill in pickup, destination, and departure date & time.');
             return;
         }
+        const { valid, fieldErrors } = validateRoundTrip({
+            pickup_date: date,
+            pickup_time: time,
+            has_return_trip: isRoundTrip,
+            return_date: returnDate || null,
+            return_time: returnTime || null,
+        });
+        if (!valid) {
+            setSearchError(Object.values(fieldErrors)[0]);
+            return;
+        }
+        setSearchError('');
         flow.setStep(2);
     };
 
     const departureLabel = date
         ? `${format(new Date(date), 'MMM d')}${time ? `, ${format(new Date(`2000-01-01T${time}`), 'h:mm a')}` : ''}`
         : 'Departure';
+
+    const returnLabel = returnDate
+        ? `${format(new Date(returnDate), 'MMM d')}${returnTime ? `, ${format(new Date(`2000-01-01T${returnTime}`), 'h:mm a')}` : ''}`
+        : 'Return date';
 
     return (
         <section className="relative bg-[#0a1442] text-white overflow-hidden" aria-label="Hero section">
@@ -223,7 +243,7 @@ export default function HomeHero() {
                                             mode="single"
                                             selected={date ? new Date(date) : undefined}
                                             onSelect={(d) => d && setDate(format(d, 'yyyy-MM-dd'))}
-                                            disabled={(d) => d < new Date(new Date().setHours(0, 0, 0, 0))}
+                                            disabled={(d) => isDateBefore(format(d, 'yyyy-MM-dd'), todayStr)}
                                             initialFocus
                                         />
                                         <div className="p-3 border-t border-gray-100">
@@ -253,7 +273,7 @@ export default function HomeHero() {
                                                     >
                                                         <CalendarDays className="w-5 h-5 text-gray-400 shrink-0" />
                                                         <span className={cn('text-sm font-semibold whitespace-nowrap', !returnDate && 'text-gray-400 font-medium')}>
-                                                            {returnDate ? format(new Date(returnDate), 'MMM d') : 'Return date'}
+                                                            {returnLabel}
                                                         </span>
                                                     </button>
                                                 </PopoverTrigger>
@@ -261,15 +281,27 @@ export default function HomeHero() {
                                                     <CalendarComponent
                                                         mode="single"
                                                         selected={returnDate ? new Date(returnDate) : undefined}
-                                                        onSelect={(d) => { if (d) { setReturnDate(format(d, 'yyyy-MM-dd')); setReturnOpen(false); } }}
-                                                        disabled={(d) => d < (date ? new Date(date) : new Date(new Date().setHours(0, 0, 0, 0)))}
+                                                        onSelect={(d) => { if (d) setReturnDate(format(d, 'yyyy-MM-dd')); }}
+                                                        disabled={(d) => isDateBefore(format(d, 'yyyy-MM-dd'), date || todayStr)}
                                                         initialFocus
                                                     />
+                                                    <div className="p-3 border-t border-gray-100">
+                                                        <Select value={returnTime} onValueChange={(v) => { setReturnTime(v); setReturnOpen(false); }}>
+                                                            <SelectTrigger className="w-full h-10 rounded-lg text-sm">
+                                                                <SelectValue placeholder="Return time" />
+                                                            </SelectTrigger>
+                                                            <SelectContent className="max-h-[240px] z-[210]">
+                                                                {TIME_SLOTS.map((t) => (
+                                                                    <SelectItem key={t.value} value={t.value}>{t.label}</SelectItem>
+                                                                ))}
+                                                            </SelectContent>
+                                                        </Select>
+                                                    </div>
                                                 </PopoverContent>
                                             </Popover>
                                             <button
                                                 type="button"
-                                                onClick={() => { setShowReturn(false); setIsRoundTrip(false); setReturnDate(''); }}
+                                                onClick={() => { setShowReturn(false); setIsRoundTrip(false); setReturnDate(''); setReturnTime(''); }}
                                                 className="pr-4 text-gray-300 hover:text-gray-500 transition-colors"
                                                 aria-label="Remove return date"
                                             >
@@ -302,19 +334,11 @@ export default function HomeHero() {
                                     <PopoverContent className="w-64 p-4 space-y-4 z-[200]" align="end">
                                         <div className="flex items-center justify-between">
                                             <span className="font-bold text-gray-900 text-sm">Passengers</span>
-                                            <div className="flex items-center gap-3">
-                                                <button type="button" onClick={() => setPassengers((p) => Math.max(1, p - 1))} className="w-8 h-8 rounded-full border border-gray-200 hover:bg-gray-100 flex items-center justify-center font-bold text-gray-700">−</button>
-                                                <span className="w-4 text-center font-bold text-gray-900">{passengers}</span>
-                                                <button type="button" onClick={() => setPassengers((p) => Math.min(20, p + 1))} className="w-8 h-8 rounded-full border border-gray-200 hover:bg-gray-100 flex items-center justify-center font-bold text-gray-700">+</button>
-                                            </div>
+                                            <CounterControl value={passengers} onChange={setPassengers} min={1} size="sm" aria-label="passengers" />
                                         </div>
                                         <div className="flex items-center justify-between">
                                             <span className="font-bold text-gray-900 text-sm">Luggage</span>
-                                            <div className="flex items-center gap-3">
-                                                <button type="button" onClick={() => setLuggage((l) => Math.max(0, l - 1))} className="w-8 h-8 rounded-full border border-gray-200 hover:bg-gray-100 flex items-center justify-center font-bold text-gray-700">−</button>
-                                                <span className="w-4 text-center font-bold text-gray-900">{luggage}</span>
-                                                <button type="button" onClick={() => setLuggage((l) => Math.min(20, l + 1))} className="w-8 h-8 rounded-full border border-gray-200 hover:bg-gray-100 flex items-center justify-center font-bold text-gray-700">+</button>
-                                            </div>
+                                            <CounterControl value={luggage} onChange={setLuggage} min={0} max={50} enforceMax size="sm" aria-label="luggage" />
                                         </div>
                                     </PopoverContent>
                                 </Popover>
@@ -328,6 +352,16 @@ export default function HomeHero() {
                                     Search
                                 </button>
                             </div>
+                            {searchError && (
+                                <p className="mt-3 text-sm font-semibold text-red-100 bg-red-500/20 border border-red-400/40 rounded-xl px-4 py-2.5">
+                                    {searchError}
+                                </p>
+                            )}
+                            {isRoundTrip && returnDate && isSameDate(returnDate, date) && !searchError && (
+                                <p className="mt-3 text-xs font-medium text-gray-300">
+                                    Same-day round trip — return time must be after {time ? format(new Date(`2000-01-01T${time}`), 'h:mm a') : 'your pickup time'}.
+                                </p>
+                            )}
                         </form>
 
                         {/* Multi-city + trust row */}

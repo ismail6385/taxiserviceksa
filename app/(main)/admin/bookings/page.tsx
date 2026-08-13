@@ -44,6 +44,8 @@ import {
     Truck
 } from 'lucide-react';
 import { getPrice } from '@/lib/pricing';
+import { validateRoundTrip, hasStructuredReturnLeg, isSameDate } from '@/lib/booking-validation';
+import { CounterControl } from '@/components/PassengerLuggageSelector';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -117,6 +119,8 @@ interface Booking {
     tags?: string; // Comma separated tags e.g. "VIP, Priority"
     internal_notes?: string;
     has_return_trip?: boolean;
+    return_date?: string | null;
+    return_time?: string | null;
     child_seats?: number;
     currency?: string;
     payment_method?: string;
@@ -249,8 +253,11 @@ export default function BookingsPage() {
         currency: 'SAR',
         payment_method: 'Cash to Driver',
         has_return_trip: false,
+        return_date: '',
+        return_time: '',
         trip_type: 'point_to_point'
     });
+    const [bookingFieldErrors, setBookingFieldErrors] = useState<Record<string, string>>({});
 
     const router = useRouter();
 
@@ -663,30 +670,51 @@ export default function BookingsPage() {
         { key: 'vehicle_type', label: 'Vehicle' },
         { key: 'flight_number', label: 'Flight Number' },
         { key: 'total_price', label: 'Price' },
+        { key: 'return_date', label: 'Return Date' },
+        { key: 'return_time', label: 'Return Time' },
     ];
 
     const saveDetails = async () => {
         if (!editedBooking) return;
+        const { valid, fieldErrors } = validateRoundTrip(editedBooking);
+        if (!valid) {
+            setBookingFieldErrors(fieldErrors);
+            return;
+        }
         try {
             const { id, created_at, status, ...updateData } = editedBooking;
-            const { error } = await supabase
-                .from('bookings')
-                .update({ ...updateData, trip_end_date: updateData.trip_end_date || null })
-                .eq('id', id);
-
-            if (error) throw error;
+            const response = await adminFetch(`/api/admin/bookings/${id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    ...updateData,
+                    trip_end_date: updateData.trip_end_date || null,
+                    return_date: updateData.has_return_trip ? (updateData.return_date || null) : null,
+                    return_time: updateData.has_return_trip ? (updateData.return_time || null) : null,
+                }),
+            });
+            const result = await response.json().catch(() => ({}));
+            if (!response.ok) {
+                if (result.fieldErrors) {
+                    setBookingFieldErrors(result.fieldErrors);
+                    return;
+                }
+                throw new Error(result.error || 'Failed to update booking details.');
+            }
+            const updated: Booking = result.booking;
+            setBookingFieldErrors({});
 
             // Update local state
-            setBookings(bookings.map(b => b.id === id ? editedBooking : b));
-            setSelectedBooking(editedBooking);
+            setBookings(bookings.map(b => b.id === id ? updated : b));
+            setSelectedBooking(updated);
             setIsEditing(false);
 
             // Notify the client by email — ONLY if the admin explicitly
             // ticked "Also email the client" before saving. Never automatic.
-            if (notifyClientOnSave && selectedBooking && editedBooking.customer_email) {
+            if (notifyClientOnSave && selectedBooking && updated.customer_email) {
                 const changes = CLIENT_FACING_FIELDS
-                    .filter(f => (selectedBooking[f.key] ?? '') !== (editedBooking[f.key] ?? ''))
-                    .map(f => ({ field: f.label, oldValue: selectedBooking[f.key], newValue: editedBooking[f.key] }));
+                    .filter(f => (selectedBooking[f.key] ?? '') !== (updated[f.key] ?? ''))
+                    .map(f => ({ field: f.label, oldValue: selectedBooking[f.key], newValue: updated[f.key] }));
 
                 if (changes.length > 0) {
                     adminFetch('/api/send-update-email', {
@@ -694,9 +722,9 @@ export default function BookingsPage() {
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
                             bookingId: id,
-                            customerEmail: editedBooking.customer_email,
-                            customerName: editedBooking.customer_name,
-                            currency: editedBooking.currency || 'SAR',
+                            customerEmail: updated.customer_email,
+                            customerName: updated.customer_name,
+                            currency: updated.currency || 'SAR',
                             changes
                         })
                     }).catch(err => console.error('Failed to send update email:', err));
@@ -710,20 +738,37 @@ export default function BookingsPage() {
     };
 
     const saveNewBooking = async () => {
+        const { valid, fieldErrors } = validateRoundTrip(newBooking);
+        if (!valid) {
+            setBookingFieldErrors(fieldErrors);
+            return;
+        }
         try {
-            const { data, error } = await supabase
-                .from('bookings')
-                .insert([{
+            const response = await adminFetch('/api/booking/create', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
                     ...newBooking,
                     trip_end_date: newBooking.trip_end_date || null,
-                    destination: newBooking.destination?.trim() || (newBooking.trip_type === 'hourly' ? 'As Directed (Hourly Hire)' : newBooking.destination)
-                }])
-                .select();
+                    destination: newBooking.destination?.trim() || (newBooking.trip_type === 'hourly' ? 'As Directed (Hourly Hire)' : newBooking.destination),
+                    return_date: newBooking.has_return_trip ? (newBooking.return_date || null) : null,
+                    return_time: newBooking.has_return_trip ? (newBooking.return_time || null) : null,
+                    // Admin-created bookings don't auto-email the customer today.
+                    sendCustomerEmail: false,
+                }),
+            });
+            const result = await response.json().catch(() => ({}));
+            if (!response.ok) {
+                if (result.fieldErrors) {
+                    setBookingFieldErrors(result.fieldErrors);
+                    return;
+                }
+                throw new Error(result.error || 'Failed to create booking.');
+            }
+            setBookingFieldErrors({});
 
-            if (error) throw error;
-
-            if (data && data[0]) {
-                setBookings([data[0], ...bookings]);
+            if (result.booking) {
+                setBookings([result.booking, ...bookings]);
                 setIsCreating(false);
                 // Reset new booking state
                 setNewBooking({
@@ -747,7 +792,9 @@ export default function BookingsPage() {
                     payment_status: 'unpaid',
                     trip_type: 'point_to_point',
                     duration_hours: undefined,
-                    has_return_trip: false
+                    has_return_trip: false,
+                    return_date: '',
+                    return_time: '',
                 });
                 alert('Booking created successfully!');
             }
@@ -958,7 +1005,9 @@ export default function BookingsPage() {
     };
 
     const sendWhatsAppHello = (booking: Booking) => {
-        const returnText = booking.has_return_trip ? " (Including Round Trip 🔄)" : "";
+        const returnText = hasStructuredReturnLeg(booking)
+            ? ` (Round Trip 🔄 — returning ${booking.return_date}${booking.return_time ? ` at ${formatTime12h(booking.return_time)}` : ''})`
+            : booking.has_return_trip ? " (Including Round Trip 🔄)" : "";
         const childSeatText = booking.child_seats ? ` (With ${booking.child_seats} Child Seat(s) 👶)` : "";
         const contractText = booking.contract_id ? " — as part of your Monthly Contract 📋" : "";
         const tripDescription = booking.trip_type === 'hourly'
@@ -1967,6 +2016,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                 if (!open) {
                     setSelectedBooking(null);
                     setIsEditing(false);
+                    setBookingFieldErrors({});
                 }
             }}>
                 <SheetContent className="overflow-y-auto bg-white border-l border-gray-200 text-gray-900 w-full sm:max-w-xl">
@@ -1988,7 +2038,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                             </div>
                         ) : (
                             <div className="flex items-center gap-2">
-                                <Button variant="ghost" size="sm" onClick={() => { setIsEditing(false); setEditedBooking(selectedBooking); }} className="text-gray-500 hover:bg-gray-100">
+                                <Button variant="ghost" size="sm" onClick={() => { setIsEditing(false); setEditedBooking(selectedBooking); setBookingFieldErrors({}); }} className="text-gray-500 hover:bg-gray-100">
                                     Cancel
                                 </Button>
                                 <Button size="sm" onClick={saveDetails} className="bg-primary text-black hover:bg-black hover:text-white transition-all font-bold">
@@ -2199,6 +2249,45 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         )}
                                     </div>
 
+                                    {(isEditing ? editedBooking.has_return_trip : selectedBooking.has_return_trip) && (
+                                        <div className="pl-4 pt-3 border-t border-gray-100">
+                                            <span className="block text-xs text-gray-500 mb-1">Return Date &amp; Time</span>
+                                            {isEditing ? (
+                                                <>
+                                                    <div className="flex items-center gap-2">
+                                                        <Input
+                                                            type="date"
+                                                            value={editedBooking.return_date || ''}
+                                                            min={editedBooking.pickup_date}
+                                                            onChange={(e) => setEditedBooking({ ...editedBooking, return_date: e.target.value })}
+                                                            className="h-8 text-sm bg-white w-fit"
+                                                        />
+                                                        <Input
+                                                            type="time"
+                                                            value={editedBooking.return_time || ''}
+                                                            onChange={(e) => setEditedBooking({ ...editedBooking, return_time: e.target.value })}
+                                                            className="h-8 text-sm bg-white w-fit"
+                                                        />
+                                                    </div>
+                                                    {bookingFieldErrors.return_date && <p className="text-red-500 text-xs mt-1">{bookingFieldErrors.return_date}</p>}
+                                                    {bookingFieldErrors.return_time && <p className="text-red-500 text-xs mt-1">{bookingFieldErrors.return_time}</p>}
+                                                    {!bookingFieldErrors.return_date && !bookingFieldErrors.return_time && editedBooking.return_date && editedBooking.pickup_date && isSameDate(editedBooking.return_date, editedBooking.pickup_date) && (
+                                                        <p className="text-xs text-gray-400 mt-1">Same-day round trip — return time must be after pickup time.</p>
+                                                    )}
+                                                </>
+                                            ) : (
+                                                hasStructuredReturnLeg(selectedBooking) ? (
+                                                    <span className="font-medium bg-white border border-gray-200 px-2 py-1 rounded text-sm block w-fit text-gray-900">
+                                                        {selectedBooking.return_date}{selectedBooking.return_time ? ` at ${formatTime12h(selectedBooking.return_time)}` : ''}
+                                                        {selectedBooking.return_date === selectedBooking.pickup_date ? ' (same day)' : ''}
+                                                    </span>
+                                                ) : (
+                                                    <span className="text-sm text-gray-400">Not recorded (legacy booking)</span>
+                                                )
+                                            )}
+                                        </div>
+                                    )}
+
                                     <div className="pl-4 pt-3 mt-1 border-t border-gray-100 flex items-center justify-between">
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Flight Number (If applicable)</span>
@@ -2274,7 +2363,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                     <span className="block text-xs text-gray-500 mb-1">Round Trip?</span>
                                                     {isEditing ? (
                                                         <button
-                                                            onClick={() => setEditedBooking({ ...editedBooking, has_return_trip: !editedBooking.has_return_trip })}
+                                                            onClick={() => setEditedBooking({ ...editedBooking, has_return_trip: !editedBooking.has_return_trip, ...(editedBooking.has_return_trip ? { return_date: '', return_time: '' } : {}) })}
                                                             className={`h-8 px-3 rounded-md text-[10px] font-black uppercase tracking-widest transition-all ${
                                                                 editedBooking.has_return_trip
                                                                 ? 'bg-blue-600 text-white border-blue-700 shadow-sm'
@@ -2428,7 +2517,13 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Passengers</span>
                                             {isEditing ? (
-                                                <Input type="number" value={editedBooking.passengers} onChange={(e) => setEditedBooking({ ...editedBooking, passengers: parseInt(e.target.value) })} className="h-8 text-sm bg-white" />
+                                                <CounterControl
+                                                    value={editedBooking.passengers}
+                                                    onChange={(n) => setEditedBooking({ ...editedBooking, passengers: n })}
+                                                    min={1}
+                                                    size="sm"
+                                                    aria-label="passengers"
+                                                />
                                             ) : (
                                                 <span className="font-medium text-gray-900">{selectedBooking.passengers} <span className="text-xs text-gray-500">People</span></span>
                                             )}
@@ -2436,7 +2531,16 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Luggage</span>
                                             {isEditing ? (
-                                                <Input type="number" value={editedBooking.luggage} onChange={(e) => setEditedBooking({ ...editedBooking, luggage: parseInt(e.target.value) })} className="h-8 text-sm bg-white" />
+                                                // Never capped to vehicle capacity — admin can always record more bags than nominal.
+                                                <CounterControl
+                                                    value={editedBooking.luggage}
+                                                    onChange={(n) => setEditedBooking({ ...editedBooking, luggage: n })}
+                                                    min={0}
+                                                    max={50}
+                                                    enforceMax
+                                                    size="sm"
+                                                    aria-label="luggage"
+                                                />
                                             ) : (
                                                 <span className="font-medium text-gray-900">{selectedBooking.luggage} <span className="text-xs text-gray-500">Bags</span></span>
                                             )}
@@ -2990,7 +3094,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
             </Dialog>
 
             {/* Create Booking Sheet */}
-            <Sheet open={isCreating} onOpenChange={setIsCreating}>
+            <Sheet open={isCreating} onOpenChange={(open) => { setIsCreating(open); if (!open) setBookingFieldErrors({}); }}>
                 <SheetContent className="overflow-y-auto bg-white border-l border-gray-200 text-gray-900 w-full sm:max-w-xl">
                     <SheetHeader className="text-left mb-6">
                         <SheetTitle className="text-2xl font-bold text-gray-900">Create New Booking</SheetTitle>
@@ -3264,20 +3368,25 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                 </div>
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Passengers</label>
-                                    <Input
-                                        type="number"
-                                        value={newBooking.passengers}
-                                        onChange={(e) => setNewBooking({ ...newBooking, passengers: parseInt(e.target.value) })}
-                                        className="bg-white border-gray-200"
+                                    <CounterControl
+                                        value={newBooking.passengers ?? 1}
+                                        onChange={(n) => setNewBooking({ ...newBooking, passengers: n })}
+                                        min={1}
+                                        size="sm"
+                                        aria-label="passengers"
                                     />
                                 </div>
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Luggage</label>
-                                    <Input
-                                        type="number"
-                                        value={newBooking.luggage}
-                                        onChange={(e) => setNewBooking({ ...newBooking, luggage: parseInt(e.target.value) })}
-                                        className="bg-white border-gray-200"
+                                    {/* Never capped to vehicle capacity — admin can always record more bags than nominal. */}
+                                    <CounterControl
+                                        value={newBooking.luggage ?? 0}
+                                        onChange={(n) => setNewBooking({ ...newBooking, luggage: n })}
+                                        min={0}
+                                        max={50}
+                                        enforceMax
+                                        size="sm"
+                                        aria-label="luggage"
                                     />
                                 </div>
                                 <div className="space-y-1">
@@ -3420,7 +3529,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         <label className="text-sm font-medium text-gray-700">Round Trip?</label>
                                         <button
                                             type="button"
-                                            onClick={() => setNewBooking({ ...newBooking, has_return_trip: !newBooking.has_return_trip })}
+                                            onClick={() => setNewBooking({ ...newBooking, has_return_trip: !newBooking.has_return_trip, ...(newBooking.has_return_trip ? { return_date: '', return_time: '' } : {}) })}
                                             className={`h-9 px-4 rounded-md text-[11px] font-black uppercase tracking-widest transition-all border ${
                                                 newBooking.has_return_trip
                                                 ? 'bg-blue-600 text-white border-blue-700'
@@ -3432,6 +3541,35 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     </div>
                                 )}
                             </div>
+                            {newBooking.has_return_trip && (
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div className="space-y-1">
+                                        <label className="text-sm font-medium text-gray-700">Return Date</label>
+                                        <Input
+                                            type="date"
+                                            value={newBooking.return_date || ''}
+                                            min={newBooking.pickup_date}
+                                            onChange={(e) => setNewBooking({ ...newBooking, return_date: e.target.value })}
+                                            className="bg-white border-gray-200 focus:border-primary"
+                                        />
+                                        {bookingFieldErrors.return_date && <p className="text-red-500 text-xs mt-1">{bookingFieldErrors.return_date}</p>}
+                                    </div>
+                                    <div className="space-y-1">
+                                        <label className="text-sm font-medium text-gray-700">Return Time</label>
+                                        <Input
+                                            type="time"
+                                            value={newBooking.return_time || ''}
+                                            onChange={(e) => setNewBooking({ ...newBooking, return_time: e.target.value })}
+                                            className="bg-white border-gray-200 focus:border-primary"
+                                        />
+                                        {bookingFieldErrors.return_time ? (
+                                            <p className="text-red-500 text-xs mt-1">{bookingFieldErrors.return_time}</p>
+                                        ) : newBooking.return_date && newBooking.pickup_date && isSameDate(newBooking.return_date, newBooking.pickup_date) ? (
+                                            <p className="text-xs text-gray-400 mt-1">Same-day round trip — must be after pickup time.</p>
+                                        ) : null}
+                                    </div>
+                                </div>
+                            )}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Special Requests / Notes (Client Facing)</label>

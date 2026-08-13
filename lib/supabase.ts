@@ -36,6 +36,8 @@ export type BookingData = {
     special_requests?: string;
     status?: 'pending' | 'confirmed' | 'cancelled' | 'completed';
     has_return_trip?: boolean;
+    return_date?: string | null;
+    return_time?: string | null;
     child_seats?: number;
     flight_number?: string;
     trip_type?: 'point_to_point' | 'hourly';

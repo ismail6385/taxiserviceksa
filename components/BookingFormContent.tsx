@@ -28,7 +28,9 @@ import { cn } from "@/lib/utils";
 import { MapPin, Phone, User, Clock, Car, Mail, ArrowRight, ArrowLeft, Check, Users, Briefcase, Wallet, ChevronsUpDown, Search, Calendar as CalendarIcon, Info } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import LocationAutocomplete from '@/components/LocationAutocomplete';
-import { supabase, vehicles, type BookingData } from '@/lib/supabase';
+import { CounterControl } from '@/components/PassengerLuggageSelector';
+import { vehicles, type BookingData } from '@/lib/supabase';
+import { validateBookingForm, validateRoundTrip } from '@/lib/booking-validation';
 
 import { countryCodes } from '@/data/countryCodes';
 import { format } from "date-fns";
@@ -78,6 +80,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
     const [preferredTimeNote, setPreferredTimeNote] = useState('');
     const [returnDate, setReturnDate] = useState('');
     const [returnTime, setReturnTime] = useState('');
+    const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
     const [formData, setFormData] = useState<BookingData>({
         customer_name: '',
@@ -159,11 +162,12 @@ export default function BookingFormContent({ prefilledData, className }: Booking
             ...prev,
             vehicle_type: vehicle.name,
             vehicle_image: vehicle.image,
-            // Keep whatever passenger/luggage count the customer already set, only
-            // clamping down if it exceeds the newly selected vehicle's capacity —
-            // don't silently overwrite it to the vehicle's max seats/bags.
+            // Keep whatever passenger/luggage count the customer already set.
+            // Passengers may still soft-clamp to the new vehicle's seat count
+            // (a real physical constraint); luggage is never capped by
+            // vehicle capacity — a customer can request more bags than the
+            // vehicle's nominal capacity, that's just informational.
             passengers: Math.min(prev.passengers || 1, vehicle.passengers) || 1,
-            luggage: Math.min(prev.luggage || 0, vehicle.luggage)
         }));
     };
 
@@ -192,36 +196,57 @@ export default function BookingFormContent({ prefilledData, className }: Booking
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        const validation = validateBookingForm({
+            ...formData,
+            return_date: formData.has_return_trip ? returnDate : null,
+            return_time: formData.has_return_trip ? returnTime : null,
+        });
+        if (!validation.valid) {
+            setFieldErrors(validation.fieldErrors);
+            if (validation.fieldErrors.return_date || validation.fieldErrors.return_time || validation.fieldErrors.pickup_date || validation.fieldErrors.pickup_time) {
+                setStep(1);
+            }
+            return;
+        }
+
         setLoading(true);
         try {
             const fullPhoneNumber = `${countryCode}${formData.customer_phone}`;
             const isHourly = formData.trip_type === 'hourly';
-            const { has_return_trip, child_seats, ...insertData } = formData;
+            const { child_seats, ...insertData } = formData;
             const finalFormData = {
                 ...insertData,
                 destination: isHourly && !formData.destination.trim() ? 'As Directed (Hourly Hire)' : formData.destination,
                 customer_phone: fullPhoneNumber,
-                special_requests: `${isHourly ? `[HOURLY HIRE: ${formData.duration_hours || '?'} hours] ` : ''}${formData.has_return_trip ? `[RETURN TRIP REQUESTED${returnDate ? ` - Return Date: ${returnDate}` : ''}${returnTime ? ` at ${returnTime}` : ''}] ` : ''}${formData.child_seats ? `[CHILD SEATS: ${formData.child_seats}] ` : ''}${preferredTimeNote.trim() ? `[PREFERRED TIME: ${preferredTimeNote.trim()}] ` : ''}${promoApplied ? `[PROMO: ${promoApplied.code} - ${promoApplied.discount_value}${promoApplied.discount_type === 'percentage' ? '%' : ' SAR'} off] ` : ''}${(formData.special_requests ? formData.special_requests + '. ' : '') + 'Please Provide Quote'}`
+                return_date: formData.has_return_trip ? returnDate : null,
+                return_time: formData.has_return_trip ? returnTime : null,
+                special_requests: `${isHourly ? `[HOURLY HIRE: ${formData.duration_hours || '?'} hours] ` : ''}${formData.child_seats ? `[CHILD SEATS: ${formData.child_seats}] ` : ''}${preferredTimeNote.trim() ? `[PREFERRED TIME: ${preferredTimeNote.trim()}] ` : ''}${promoApplied ? `[PROMO: ${promoApplied.code} - ${promoApplied.discount_value}${promoApplied.discount_type === 'percentage' ? '%' : ' SAR'} off] ` : ''}${(formData.special_requests ? formData.special_requests + '. ' : '') + 'Please Provide Quote'}`
             };
 
-            const { data, error } = await supabase.from('bookings').insert([finalFormData]).select();
-            if (error) throw error;
-
-            fetch('/api/send-booking-emails', {
+            const res = await fetch('/api/booking/create', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ booking: data[0], price: 'Need Quote' })
-            }).then(async (res) => {
-                if (!res.ok) {
-                    const errorData = await res.json().catch(() => ({}));
-                    console.error('Email API error:', res.status, errorData);
-                }
-            }).catch((err) => console.error('Email fetch failed:', err));
+                body: JSON.stringify(finalFormData),
+            });
+            const result = await res.json();
 
+            if (!res.ok) {
+                if (result.fieldErrors) {
+                    setFieldErrors(result.fieldErrors);
+                    if (result.fieldErrors.return_date || result.fieldErrors.return_time || result.fieldErrors.pickup_date || result.fieldErrors.pickup_time) {
+                        setStep(1);
+                    }
+                    return;
+                }
+                throw new Error(result.error || 'Booking failed');
+            }
+
+            const booking = result.booking;
             setSuccess(true);
             setStep(4);
 
-            const bookingId = data[0]?.id || '';
+            const bookingId = booking?.id || '';
             const confirmParams = new URLSearchParams({
                 ref: bookingId,
                 name: formData.customer_name,
@@ -232,6 +257,11 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                 time: formData.pickup_time,
                 vehicle: formData.vehicle_type,
             });
+            if (formData.has_return_trip) {
+                confirmParams.set('hasReturnTrip', '1');
+                if (returnDate) confirmParams.set('returnDate', returnDate);
+                if (returnTime) confirmParams.set('returnTime', returnTime);
+            }
 
             // Redirect to confirmation page after brief delay
             setTimeout(() => {
@@ -246,14 +276,45 @@ export default function BookingFormContent({ prefilledData, className }: Booking
         }
     };
 
-    const isStep1Valid = formData.trip_type === 'hourly'
+    // Step 1 only collects trip details (not customer/vehicle info yet), so
+    // it's validated with a scoped check + validateRoundTrip rather than the
+    // full validateBookingForm (which requires fields not yet on screen).
+    const isStep1TripValid = formData.trip_type === 'hourly'
         ? !!(formData.pickup_location && formData.pickup_date && formData.pickup_time && formData.duration_hours && formData.duration_hours > 0)
         : !!(formData.pickup_location && formData.destination && formData.pickup_date && formData.pickup_time);
+
+    const getStep1FieldErrors = (): Record<string, string> => {
+        const errors: Record<string, string> = {};
+        if (!formData.pickup_location) errors.pickup_location = 'Pickup location is required.';
+        if (formData.trip_type === 'hourly') {
+            if (!formData.duration_hours || formData.duration_hours <= 0) {
+                errors.duration_hours = 'Please enter the hire duration in hours.';
+            }
+        } else if (!formData.destination) {
+            errors.destination = 'Destination is required.';
+        }
+        if (!formData.pickup_date) errors.pickup_date = 'Pickup date is required.';
+        if (!formData.pickup_time) errors.pickup_time = 'Pickup time is required.';
+
+        const roundTrip = validateRoundTrip({
+            pickup_date: formData.pickup_date,
+            pickup_time: formData.pickup_time,
+            has_return_trip: formData.has_return_trip,
+            return_date: formData.has_return_trip ? returnDate : null,
+            return_time: formData.has_return_trip ? returnTime : null,
+        });
+        return { ...errors, ...roundTrip.fieldErrors };
+    };
+
     const isStep2Valid = !!(formData.vehicle_type);
     const isStep3Valid = !!(formData.customer_name && formData.customer_email && formData.customer_phone);
 
     const nextStep = () => {
-        if (step === 1 && !isStep1Valid) return alert('Please fill in all trip details.');
+        if (step === 1) {
+            const errors = getStep1FieldErrors();
+            setFieldErrors(errors);
+            if (Object.keys(errors).length > 0 || !isStep1TripValid) return;
+        }
         if (step === 2 && !isStep2Valid) return alert('Please select a vehicle.');
         if (step === 3 && !isStep3Valid) return alert('Please fill in your contact details.');
         if (step === 3) return;
@@ -348,6 +409,9 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                         className="w-full pl-10 pr-9 h-12 bg-gray-50 border border-gray-300 rounded-xl text-sm outline-none focus:border-primary"
                                     />
                                 </div>
+                                {fieldErrors.pickup_location && (
+                                    <p className="text-red-500 text-xs mt-1 ml-1">{fieldErrors.pickup_location}</p>
+                                )}
                             </div>
                             <div className="space-y-1.5">
                                 <label className="text-sm font-semibold text-gray-700 ml-1">{formData.trip_type === 'hourly' ? 'Destination (optional)' : 'To'}</label>
@@ -362,6 +426,9 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                         className="w-full pl-10 pr-9 h-12 bg-gray-50 border border-gray-300 rounded-xl text-sm outline-none focus:border-primary"
                                     />
                                 </div>
+                                {fieldErrors.destination && (
+                                    <p className="text-red-500 text-xs mt-1 ml-1">{fieldErrors.destination}</p>
+                                )}
                             </div>
                         </div>
 
@@ -404,6 +471,9 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                         />
                                     </PopoverContent>
                                 </Popover>
+                                {fieldErrors.pickup_date && (
+                                    <p className="text-red-500 text-xs ml-1">{fieldErrors.pickup_date}</p>
+                                )}
                             </div>
 
                             <div className="relative group/input flex flex-col gap-1.5">
@@ -420,6 +490,9 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                         className="w-full bg-transparent outline-none text-sm text-gray-900"
                                     />
                                 </div>
+                                {fieldErrors.pickup_time && (
+                                    <p className="text-red-500 text-xs ml-1">{fieldErrors.pickup_time}</p>
+                                )}
                             </div>
                         </div>
 
@@ -461,6 +534,9 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                         className="w-full bg-transparent outline-none text-sm text-gray-900"
                                     />
                                 </div>
+                                {fieldErrors.duration_hours && (
+                                    <p className="text-red-500 text-xs mt-1 ml-1">{fieldErrors.duration_hours}</p>
+                                )}
                             </div>
                         ) : (
                             <>
@@ -483,19 +559,42 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                                 type="date"
                                                 value={returnDate}
                                                 min={formData.pickup_date || undefined}
-                                                onChange={(e) => setReturnDate(e.target.value)}
-                                                className="h-11 bg-white border-gray-300 rounded-xl text-sm"
+                                                onChange={(e) => {
+                                                    setReturnDate(e.target.value);
+                                                    setFieldErrors(prev => {
+                                                        const { return_date, return_time, ...rest } = prev;
+                                                        return rest;
+                                                    });
+                                                }}
+                                                className={`h-11 bg-white rounded-xl text-sm ${fieldErrors.return_date ? 'border-red-400' : 'border-gray-300'}`}
                                             />
+                                            {fieldErrors.return_date && (
+                                                <p className="text-red-500 text-xs mt-1 ml-1">{fieldErrors.return_date}</p>
+                                            )}
                                         </div>
                                         <div className="space-y-1.5">
                                             <label className="text-xs font-semibold text-gray-700 ml-1">Return Time</label>
                                             <Input
                                                 type="time"
                                                 value={returnTime}
-                                                onChange={(e) => setReturnTime(e.target.value)}
-                                                className="h-11 bg-white border-gray-300 rounded-xl text-sm"
+                                                onChange={(e) => {
+                                                    setReturnTime(e.target.value);
+                                                    setFieldErrors(prev => {
+                                                        const { return_date, return_time, ...rest } = prev;
+                                                        return rest;
+                                                    });
+                                                }}
+                                                className={`h-11 bg-white rounded-xl text-sm ${fieldErrors.return_time ? 'border-red-400' : 'border-gray-300'}`}
                                             />
+                                            {fieldErrors.return_time && (
+                                                <p className="text-red-500 text-xs mt-1 ml-1">{fieldErrors.return_time}</p>
+                                            )}
                                         </div>
+                                        {formData.pickup_date && returnDate && formData.pickup_date === returnDate && !fieldErrors.return_time && (
+                                            <p className="col-span-2 text-[11px] text-blue-700 -mt-2 ml-1">
+                                                Same-day round trip — return time must be after {formData.pickup_time || 'your pickup time'}.
+                                            </p>
+                                        )}
                                     </div>
                                 )}
                             </>
@@ -593,23 +692,14 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                                 </p>
                                             </div>
                                         </div>
-                                        <div className="flex items-center gap-3 bg-white rounded-lg p-1 border shadow-sm h-10">
-                                            <button
-                                                type="button"
-                                                onClick={(e) => { e.stopPropagation(); formData.passengers > 1 && setFormData(prev => ({ ...prev, passengers: prev.passengers - 1 })); }}
-                                                className="w-8 h-8 rounded-md bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-all active:scale-95"
-                                            >
-                                                <span className="text-base font-black text-gray-900">-</span>
-                                            </button>
-                                            <span className="font-black text-primary min-w-[20px] text-center">{formData.passengers}</span>
-                                            <button
-                                                type="button"
-                                                onClick={(e) => { e.stopPropagation(); formData.passengers < maxPax && setFormData(prev => ({ ...prev, passengers: prev.passengers + 1 })); }}
-                                                className="w-8 h-8 rounded-md bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-all active:scale-95"
-                                            >
-                                                <span className="text-base font-black text-gray-900">+</span>
-                                            </button>
-                                        </div>
+                                        <CounterControl
+                                            value={formData.passengers}
+                                            onChange={(n) => setFormData(prev => ({ ...prev, passengers: n }))}
+                                            min={1}
+                                            max={maxPax}
+                                            enforceMax
+                                            aria-label="passengers"
+                                        />
                                     </div>
                                 </div>
                             );
@@ -618,7 +708,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                         {/* Number of Luggage/Bags */}
                         {formData.vehicle_type && (() => {
                             const selectedVehicle = vehicles.find(v => v.name === formData.vehicle_type);
-                            const maxLuggage = selectedVehicle?.luggage || 0;
+                            const vehicleLuggageCapacity = selectedVehicle?.luggage || 0;
                             return (
                                 <div className="bg-primary/5 p-5 rounded-3xl border border-dashed border-primary/30">
                                     <div className="flex items-center justify-between">
@@ -629,27 +719,21 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                             <div>
                                                 <h4 className="font-black text-gray-900 leading-none">Number of Luggage</h4>
                                                 <p className="text-[10px] text-gray-500 font-bold uppercase tracking-tight mt-1">
-                                                    How many bags/suitcases? (Max {maxLuggage} for this vehicle)
+                                                    How many bags/suitcases? (Vehicle capacity: {vehicleLuggageCapacity} — need more? No problem.)
                                                 </p>
                                             </div>
                                         </div>
-                                        <div className="flex items-center gap-3 bg-white rounded-lg p-1 border shadow-sm h-10">
-                                            <button
-                                                type="button"
-                                                onClick={(e) => { e.stopPropagation(); formData.luggage > 0 && setFormData(prev => ({ ...prev, luggage: prev.luggage - 1 })); }}
-                                                className="w-8 h-8 rounded-md bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-all active:scale-95"
-                                            >
-                                                <span className="text-base font-black text-gray-900">-</span>
-                                            </button>
-                                            <span className="font-black text-primary min-w-[20px] text-center">{formData.luggage}</span>
-                                            <button
-                                                type="button"
-                                                onClick={(e) => { e.stopPropagation(); formData.luggage < maxLuggage && setFormData(prev => ({ ...prev, luggage: prev.luggage + 1 })); }}
-                                                className="w-8 h-8 rounded-md bg-gray-50 hover:bg-gray-100 flex items-center justify-center transition-all active:scale-95"
-                                            >
-                                                <span className="text-base font-black text-gray-900">+</span>
-                                            </button>
-                                        </div>
+                                        {/* Luggage is never capped to the vehicle's capacity — only a generic
+                                            sanity ceiling, so a customer can request more bags than the
+                                            vehicle's nominal capacity. */}
+                                        <CounterControl
+                                            value={formData.luggage}
+                                            onChange={(n) => setFormData(prev => ({ ...prev, luggage: n }))}
+                                            min={0}
+                                            max={50}
+                                            enforceMax
+                                            aria-label="luggage"
+                                        />
                                     </div>
                                 </div>
                             );

@@ -15,10 +15,12 @@ import {
     MapPin,
     Phone,
     Mail,
-    Languages
+    Languages,
+    Repeat
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import { formatTime12h } from '@/lib/format-time';
 
 type DocLang = 'en' | 'ar';
 
@@ -29,6 +31,7 @@ const QUOTE_TEXT: Record<DocLang, Record<string, string>> = {
         subject: 'Sub: Official Quotation for Transport Services',
         dear: 'Dear', intro: 'Thank you for choosing Taxi Service KSA. We are pleased to provide the following quotation for your requested transportation services. Please review the details of your upcoming journey below:',
         pickupDate: 'Pickup Date', time: 'Time', routeDetails: 'Route Details', from: 'From:', to: 'To:',
+        outbound: 'Outbound', returnLabel: 'Return', sameDay: 'same day', returnNotRecorded: 'Return details not recorded',
         distance: 'Distance', duration: 'Est. Duration',
         vehicleReq: 'Vehicle Requirements', occupancy: 'Occupancy', passengers: 'Passengers', bags: 'Bags',
         specialRequests: 'Special Requests',
@@ -47,6 +50,7 @@ const QUOTE_TEXT: Record<DocLang, Record<string, string>> = {
         subject: 'الموضوع: عرض سعر رسمي لخدمات النقل',
         dear: 'عزيزي', intro: 'شكراً لاختياركم تاكسي سيرفس السعودية. يسعدنا تزويدكم بعرض السعر التالي لخدمات النقل المطلوبة. يرجى مراجعة تفاصيل رحلتكم القادمة أدناه:',
         pickupDate: 'تاريخ الانطلاق', time: 'الوقت', routeDetails: 'تفاصيل المسار', from: 'من:', to: 'إلى:',
+        outbound: 'الذهاب', returnLabel: 'العودة', sameDay: 'نفس اليوم', returnNotRecorded: 'تفاصيل العودة غير مسجلة',
         distance: 'المسافة', duration: 'المدة التقديرية',
         vehicleReq: 'متطلبات المركبة', occupancy: 'عدد الركاب', passengers: 'ركاب', bags: 'حقائب',
         specialRequests: 'طلبات خاصة',
@@ -82,6 +86,9 @@ interface Booking {
     payment_method?: string;
     distance_km?: number;
     duration_estimate?: string;
+    has_return_trip?: boolean;
+    return_date?: string | null;
+    return_time?: string | null;
 }
 
 export default function LetterheadPage() {
@@ -95,6 +102,10 @@ export default function LetterheadPage() {
     const [isDownloading, setIsDownloading] = useState(false);
     const [isEmailingOnly, setIsEmailingOnly] = useState(false);
     const [emailSent, setEmailSent] = useState(false);
+    const [isRoundTrip, setIsRoundTrip] = useState(false);
+    const [returnDestination, setReturnDestination] = useState('');
+    const [returnDate, setReturnDate] = useState('');
+    const [returnTime, setReturnTime] = useState('');
 
     useEffect(() => {
         const fetchBooking = async () => {
@@ -107,6 +118,12 @@ export default function LetterheadPage() {
 
                 if (error) throw error;
                 setBooking(data);
+                if (data.has_return_trip) {
+                    setIsRoundTrip(true);
+                    setReturnDestination(data.pickup_location || '');
+                    if (data.return_date) setReturnDate(data.return_date);
+                    if (data.return_time) setReturnTime(data.return_time);
+                }
             } catch (error) {
                 console.error('Error fetching booking:', error);
             } finally {
@@ -151,7 +168,10 @@ export default function LetterheadPage() {
                     ...booking,
                     special_requests: quickNote.trim()
                         ? `${booking.special_requests || ''}\nNote: ${quickNote}`
-                        : booking.special_requests
+                        : booking.special_requests,
+                    has_return_trip: isRoundTrip,
+                    return_date: isRoundTrip ? (returnDate || booking.return_date || null) : null,
+                    return_time: isRoundTrip ? (returnTime || booking.return_time || null) : null,
                 },
                 currency: booking.currency || 'SAR',
                 pdfBase64,
@@ -244,23 +264,6 @@ export default function LetterheadPage() {
         year: 'numeric'
     });
 
-    const formatTime12h = (timeStr?: string) => {
-        if (!timeStr) return '—';
-        try {
-            const parts = timeStr.split(':');
-            if (parts.length < 2) return timeStr;
-            let hours = parseInt(parts[0], 10);
-            const minutes = parts[1];
-            if (isNaN(hours)) return timeStr;
-            const ampm = hours >= 12 ? 'PM' : 'AM';
-            hours = hours % 12;
-            hours = hours ? hours : 12;
-            return `${hours}:${minutes} ${ampm}`;
-        } catch {
-            return timeStr;
-        }
-    };
-
     const t = QUOTE_TEXT[lang];
 
     return (
@@ -277,6 +280,42 @@ export default function LetterheadPage() {
                     >
                         <Languages className="w-3.5 h-3.5" /> {lang === 'en' ? 'English' : 'عربي'}
                     </button>
+
+                    {/* Round Trip Toggle */}
+                    <div className="flex flex-col gap-1">
+                        <div
+                            onClick={() => {
+                                setIsRoundTrip(!isRoundTrip);
+                                if (!isRoundTrip && booking) setReturnDestination(booking.pickup_location);
+                            }}
+                            className={`flex items-center gap-2 rounded-lg border p-1 shadow-sm px-3 h-10 cursor-pointer transition-all select-none ${
+                                isRoundTrip ? 'bg-blue-600 border-blue-600 text-white' : 'bg-white text-gray-500 border-gray-200'
+                            }`}
+                        >
+                            <Repeat className="w-3.5 h-3.5" />
+                            <span className="text-[11px] font-black uppercase tracking-widest whitespace-nowrap">
+                                {isRoundTrip ? 'Round Trip ON' : 'Round Trip'}
+                            </span>
+                        </div>
+                        {isRoundTrip && (
+                            <div className="flex gap-1">
+                                <input
+                                    type="date"
+                                    value={returnDate}
+                                    min={booking?.pickup_date}
+                                    onChange={(e) => setReturnDate(e.target.value)}
+                                    className="h-7 w-[100px] text-[10px] font-bold border rounded px-1.5 outline-none bg-white"
+                                />
+                                <input
+                                    type="time"
+                                    value={returnTime}
+                                    onChange={(e) => setReturnTime(e.target.value)}
+                                    className="h-7 w-20 text-[10px] font-bold border rounded px-1.5 outline-none bg-white"
+                                />
+                            </div>
+                        )}
+                    </div>
+
                     <Button
                         onClick={handleDownloadOnly}
                         disabled={isDownloading}
@@ -398,10 +437,25 @@ export default function LetterheadPage() {
                                         <p className="font-semibold text-gray-900">{formatTime12h(booking.pickup_time)}</p>
                                     </div>
                                     <div className="col-span-2">
-                                        <p className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">{t.routeDetails}</p>
+                                        <p className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">
+                                            {isRoundTrip ? t.outbound : t.routeDetails}
+                                        </p>
                                         <p className="font-semibold text-gray-900">{t.from} {booking.pickup_location}</p>
                                         <p className="font-semibold text-gray-900 mt-0.5">{t.to} {booking.destination}</p>
                                     </div>
+                                    {isRoundTrip && (
+                                        <div className="col-span-2 pt-3 border-t border-gray-200">
+                                            <p className="text-blue-500 text-[10px] uppercase font-bold tracking-wider flex items-center gap-1">
+                                                <Repeat className="w-2.5 h-2.5" /> {t.returnLabel}
+                                                {returnDate ? ` · ${returnDate}${returnDate === booking.pickup_date ? ` (${t.sameDay})` : ''}${returnTime ? ` ${formatTime12h(returnTime)}` : ''}` : ''}
+                                            </p>
+                                            <p className="font-semibold text-gray-900">{t.from} {booking.destination}</p>
+                                            <p className="font-semibold text-gray-900 mt-0.5">{t.to} {returnDestination || booking.pickup_location}</p>
+                                            {!returnDate && (
+                                                <p className="text-[10px] text-gray-400 italic mt-1">{t.returnNotRecorded}</p>
+                                            )}
+                                        </div>
+                                    )}
                                     {(booking.distance_km || booking.duration_estimate) && (
                                         <>
                                             {booking.distance_km && (

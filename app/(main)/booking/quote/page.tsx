@@ -5,9 +5,10 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import {
     CheckCircle2, Calendar, Clock, Car, Users,
-    MessageSquare, Loader2, XCircle, AlertCircle, Home
+    MessageSquare, Loader2, XCircle, AlertCircle, Home, ArrowLeftRight
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { hasStructuredReturnLeg } from '@/lib/booking-validation';
 
 interface Booking {
     id: string;
@@ -21,6 +22,9 @@ interface Booking {
     total_price?: number;
     currency?: string;
     status: string;
+    has_return_trip?: boolean;
+    return_date?: string | null;
+    return_time?: string | null;
 }
 
 function QuoteContent() {
@@ -109,8 +113,11 @@ function QuoteContent() {
     const curr = booking.currency || 'SAR';
     const price = booking.total_price ? Number(booking.total_price).toFixed(2) : null;
     const refId = `#${booking.id.slice(0, 8).toUpperCase()}`;
+    const returnLine = booking.has_return_trip
+        ? `\n*Return:* ${booking.return_date || 'TBC'}${booking.return_time ? ` at ${booking.return_time}` : ''}`
+        : '';
     const whatsappMsg = encodeURIComponent(
-        `Hello, I'd like to confirm my booking.\n\n*Ref:* ${refId}\n*Route:* ${booking.pickup_location} → ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}`
+        `Hello, I'd like to confirm my booking.\n\n*Ref:* ${refId}\n*Route:* ${booking.pickup_location} → ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}${returnLine}`
     );
 
     return (
@@ -168,6 +175,22 @@ function QuoteContent() {
                             <p className="text-sm font-bold text-gray-900">{booking.vehicle_type}</p>
                         </div>
                     </div>
+
+                    {booking.has_return_trip && (
+                        <div className="bg-blue-50 border border-blue-100 rounded-xl p-3">
+                            <p className="text-[10px] text-blue-500 font-bold uppercase tracking-widest mb-1 flex items-center gap-1">
+                                <ArrowLeftRight className="w-3 h-3" /> Round Trip
+                            </p>
+                            {hasStructuredReturnLeg(booking) ? (
+                                <p className="text-sm font-bold text-blue-900">
+                                    Returning {booking.return_date}{booking.return_time ? ` at ${booking.return_time}` : ''}
+                                    {booking.return_date === booking.pickup_date ? ' (same day)' : ''}
+                                </p>
+                            ) : (
+                                <p className="text-sm text-blue-700">Return details not recorded — our team will confirm.</p>
+                            )}
+                        </div>
+                    )}
                 </div>
 
                 {/* Price Card */}

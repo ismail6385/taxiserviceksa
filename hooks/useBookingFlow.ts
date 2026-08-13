@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { supabase, vehicles } from '@/lib/supabase';
+import { vehicles } from '@/lib/supabase';
 import { BRAND } from '@/lib/brand-config';
+import { validateBookingForm } from '@/lib/booking-validation';
 
 export function useBookingFlow() {
     const pathname = usePathname();
@@ -17,6 +18,7 @@ export function useBookingFlow() {
     const [time, setTime] = useState('');
     const [isRoundTrip, setIsRoundTrip] = useState(false);
     const [returnDate, setReturnDate] = useState('');
+    const [returnTime, setReturnTime] = useState('');
     const [viaCity, setViaCity] = useState('');
     const [tripType, setTripType] = useState('');
     const [preferredTimeNote, setPreferredTimeNote] = useState('');
@@ -29,6 +31,8 @@ export function useBookingFlow() {
     const [openCountry, setOpenCountry] = useState(false);
 
     const [passengers, setPassengers] = useState(1);
+    const [luggage, setLuggage] = useState(2);
+    const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
     const handleBack = () => {
         if (step > 1) setStep(step - 1);
@@ -38,7 +42,6 @@ export function useBookingFlow() {
         const notes = [isRoundTrip ? 'Request: Round Trip' : 'Request: One Way'];
         if (tripType) notes.push(`Trip Type: ${tripType}`);
         if (viaCity) notes.push(`Via: ${viaCity}`);
-        if (returnDate) notes.push(`Return Date: ${returnDate}`);
         if (preferredTimeNote.trim()) notes.push(`Preferred Time: ${preferredTimeNote.trim()}`);
         notes.push('Please Provide Quote');
         return notes.join('. ');
@@ -50,57 +53,20 @@ export function useBookingFlow() {
         setDropoff('');
         setDate('');
         setTime('');
+        setIsRoundTrip(false);
         setReturnDate('');
+        setReturnTime('');
         setViaCity('');
         setTripType('');
         setPreferredTimeNote('');
         setCustomerName('');
         setCustomerEmail('');
         setCustomerPhone('');
+        setLuggage(2);
+        setFieldErrors({});
     };
 
-    const handleSubmitBooking = async (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!selectedVehicle) return;
-        setLoading(true);
-
-        try {
-            const fullPhoneNumber = `${countryCode}${customerPhone}`;
-            const bookingData = {
-                customer_name: customerName,
-                customer_email: customerEmail,
-                customer_phone: fullPhoneNumber,
-                pickup_location: pickup,
-                destination: dropoff,
-                pickup_date: date,
-                pickup_time: time,
-                vehicle_type: selectedVehicle.name,
-                vehicle_image: selectedVehicle.image,
-                passengers: passengers,
-                luggage: selectedVehicle.luggage,
-                special_requests: `${buildRequestNotes()} | Source: ${pathname}`,
-                status: 'pending'
-            };
-
-            const { data, error } = await supabase.from('bookings').insert([bookingData]).select();
-            if (error) throw error;
-
-            // Send Email (fire-and-forget, don't block booking success)
-            fetch('/api/send-booking-emails', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ booking: data[0], price: 'Need Quote' })
-            }).then(async (res) => {
-                if (!res.ok) {
-                    const errorData = await res.json().catch(() => ({}));
-                    console.error('Email API error:', res.status, errorData);
-                } else {
-                    console.log('Booking emails sent successfully!');
-                }
-            }).catch((err) => console.error('Email fetch failed:', err));
-
-            // Construct WhatsApp message
-            const whatsappMsg = `*New Booking Request - ${BRAND.name}*
+    const buildWhatsAppMessage = (fullPhoneNumber: string) => `*New Booking Request - ${BRAND.name}*
 *Name:* ${customerName}
 *Email:* ${customerEmail}
 *Phone:* ${fullPhoneNumber}
@@ -108,13 +74,65 @@ export function useBookingFlow() {
 *Destination:* ${dropoff}
 *Date:* ${date}
 *Time:* ${time}
-*Vehicle:* ${selectedVehicle.name}
+*Vehicle:* ${selectedVehicle?.name}
 *Passengers:* ${passengers}
-*Luggage:* ${selectedVehicle.luggage} bags
-*Return Trip:* ${isRoundTrip ? 'Yes' : 'No'}${returnDate ? `\n*Return Date:* ${returnDate}` : ''}${viaCity ? `\n*Via:* ${viaCity}` : ''}${tripType ? `\n*Trip Type:* ${tripType}` : ''}
+*Luggage:* ${luggage} bags
+*Return Trip:* ${isRoundTrip ? 'Yes' : 'No'}${returnDate ? `\n*Return Date:* ${returnDate}` : ''}${returnTime ? `\n*Return Time:* ${returnTime}` : ''}${viaCity ? `\n*Via:* ${viaCity}` : ''}${tripType ? `\n*Trip Type:* ${tripType}` : ''}
 ---
 Please provide a quote for this journey.`;
 
+    const handleSubmitBooking = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!selectedVehicle) return;
+
+        const fullPhoneNumber = `${countryCode}${customerPhone}`;
+        const bookingInput = {
+            customer_name: customerName,
+            customer_email: customerEmail,
+            customer_phone: fullPhoneNumber,
+            pickup_location: pickup,
+            destination: dropoff,
+            pickup_date: date,
+            pickup_time: time,
+            vehicle_type: selectedVehicle.name,
+            vehicle_image: selectedVehicle.image,
+            passengers,
+            luggage,
+            has_return_trip: isRoundTrip,
+            return_date: isRoundTrip ? (returnDate || null) : null,
+            return_time: isRoundTrip ? (returnTime || null) : null,
+        };
+
+        const { valid, fieldErrors: errors } = validateBookingForm(bookingInput);
+        if (!valid) {
+            setFieldErrors(errors);
+            return;
+        }
+        setFieldErrors({});
+        setLoading(true);
+
+        try {
+            const res = await fetch('/api/booking/create', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    ...bookingInput,
+                    special_requests: `${buildRequestNotes()} | Source: ${pathname}`,
+                    status: 'pending',
+                }),
+            });
+
+            if (!res.ok) {
+                const result = await res.json().catch(() => ({} as { error?: string; fieldErrors?: Record<string, string> }));
+                if (result.fieldErrors) {
+                    setFieldErrors(result.fieldErrors);
+                    setLoading(false);
+                    return;
+                }
+                throw new Error(result.error || 'Booking failed');
+            }
+
+            const whatsappMsg = buildWhatsAppMessage(fullPhoneNumber);
             const encodedMsg = encodeURIComponent(whatsappMsg);
             const whatsappUrl = `https://wa.me/${BRAND.contact.whatsapp.replace('+', '')}?text=${encodedMsg}`;
 
@@ -134,20 +152,7 @@ Please provide a quote for this journey.`;
 
     const sendWhatsAppAgain = () => {
         const fullPhoneNumber = `${countryCode}${customerPhone}`;
-        const whatsappMsg = `*New Booking Request - ${BRAND.name}*
-*Name:* ${customerName}
-*Email:* ${customerEmail}
-*Phone:* ${fullPhoneNumber}
-*Pickup:* ${pickup}
-*Destination:* ${dropoff}
-*Date:* ${date}
-*Time:* ${time}
-*Vehicle:* ${selectedVehicle?.name}
-*Passengers:* ${passengers}
-*Luggage:* ${selectedVehicle?.luggage} bags
-*Return Trip:* ${isRoundTrip ? 'Yes' : 'No'}${returnDate ? `\n*Return Date:* ${returnDate}` : ''}${viaCity ? `\n*Via:* ${viaCity}` : ''}${tripType ? `\n*Trip Type:* ${tripType}` : ''}
----
-Please provide a quote for this journey.`;
+        const whatsappMsg = buildWhatsAppMessage(fullPhoneNumber);
         const encodedMsg = encodeURIComponent(whatsappMsg);
         window.open(`https://wa.me/${BRAND.contact.whatsapp.replace('+', '')}?text=${encodedMsg}`, '_blank');
     };
@@ -161,6 +166,7 @@ Please provide a quote for this journey.`;
         time, setTime,
         isRoundTrip, setIsRoundTrip,
         returnDate, setReturnDate,
+        returnTime, setReturnTime,
         viaCity, setViaCity,
         tripType, setTripType,
         preferredTimeNote, setPreferredTimeNote,
@@ -171,6 +177,8 @@ Please provide a quote for this journey.`;
         countryCode, setCountryCode,
         openCountry, setOpenCountry,
         passengers, setPassengers,
+        luggage, setLuggage,
+        fieldErrors, setFieldErrors,
         handleBack,
         handleSubmitBooking,
         resetForm,

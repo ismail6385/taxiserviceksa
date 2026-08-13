@@ -4,8 +4,9 @@ import { Suspense, useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
-import { Star, Calendar, MessageSquare, Loader2, Heart, Home, RotateCcw } from 'lucide-react';
+import { Star, Calendar, MessageSquare, Loader2, Heart, Home, RotateCcw, ArrowLeftRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { hasStructuredReturnLeg } from '@/lib/booking-validation';
 
 interface Booking {
     id: string;
@@ -16,6 +17,9 @@ interface Booking {
     vehicle_type: string;
     total_price?: number;
     currency?: string;
+    has_return_trip?: boolean;
+    return_date?: string | null;
+    return_time?: string | null;
 }
 
 function CompletedContent() {
@@ -29,7 +33,7 @@ function CompletedContent() {
         if (!ref) { setLoading(false); return; }
         supabase
             .from('bookings')
-            .select('id,customer_name,pickup_location,destination,pickup_date,vehicle_type,total_price,currency')
+            .select('id,customer_name,pickup_location,destination,pickup_date,vehicle_type,total_price,currency,has_return_trip,return_date,return_time')
             .ilike('id', `${ref}%`)
             .limit(1)
             .single()
@@ -103,6 +107,13 @@ function CompletedContent() {
                                 </>
                             )}
                         </div>
+
+                        {booking.has_return_trip && hasStructuredReturnLeg(booking) && (
+                            <div className="flex items-center gap-1.5 text-sm text-blue-700 pt-2 border-t border-gray-100">
+                                <ArrowLeftRight className="w-3.5 h-3.5" />
+                                Round trip — returned {booking.return_date}{booking.return_time ? ` at ${booking.return_time}` : ''}
+                            </div>
+                        )}
                     </div>
                 )}
 

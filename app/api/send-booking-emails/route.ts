@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendMail } from '@/lib/mail-server';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
+import { hasStructuredReturnLeg } from '@/lib/booking-validation';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -72,6 +73,10 @@ export async function POST(request: NextRequest) {
             }
         };
 
+        const returnLegLine = hasStructuredReturnLeg(booking)
+            ? `<p style="margin: 5px 0;"><strong>Return:</strong> ${booking.return_date} at ${formatTime12h(booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}</p>`
+            : (booking.has_return_trip ? `<p style="margin: 5px 0;"><strong>Trip Type:</strong> Round Trip (return details to be confirmed)</p>` : '');
+
         console.log('Sending emails for booking:', booking.id || 'new booking');
 
         // 1. Send email to customer
@@ -93,6 +98,7 @@ export async function POST(request: NextRequest) {
                         <p style="margin: 5px 0;"><strong>Pickup:</strong> ${safePickup}</p>
                         <p style="margin: 5px 0;"><strong>Destination:</strong> ${safeDest}</p>
                         <p style="margin: 5px 0;"><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
+                        ${returnLegLine}
                         <p style="margin: 5px 0;"><strong>Vehicle Type:</strong> ${safeVehicle}</p>
                         <p style="margin: 5px 0;"><strong>Passengers:</strong> ${booking.passengers} Pax</p>
                     </div>
@@ -127,6 +133,7 @@ export async function POST(request: NextRequest) {
                 <p><strong>Phone:</strong> ${escapeHtml(booking.customer_phone)}</p>
                 <p><strong>Route:</strong> ${safePickup} to ${safeDest}</p>
                 <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
+                ${returnLegLine}
                 <p><strong>Vehicle:</strong> ${safeVehicle}</p>
                 <p><strong>Passengers:</strong> ${booking.passengers}</p>
                 <p><strong>Luggage:</strong> ${booking.luggage ?? 0} bags</p>

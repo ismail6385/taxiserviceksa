@@ -28,6 +28,8 @@ import {
     CommandItem,
     CommandList,
 } from "@/components/ui/command";
+import { CounterControl } from '@/components/PassengerLuggageSelector';
+import { isSameDate } from '@/lib/booking-validation';
 
 interface BookingFlowStepsProps {
     step: number;
@@ -36,10 +38,15 @@ interface BookingFlowStepsProps {
     date: string;
     time: string;
     isRoundTrip: boolean;
+    returnDate: string;
+    returnTime: string;
     selectedVehicle: typeof vehicles[0] | null;
     setSelectedVehicle: (v: typeof vehicles[0]) => void;
     passengers: number;
     setPassengers: React.Dispatch<React.SetStateAction<number>>;
+    luggage: number;
+    setLuggage: React.Dispatch<React.SetStateAction<number>>;
+    fieldErrors: Record<string, string>;
     customerName: string;
     setCustomerName: (v: string) => void;
     customerEmail: string;
@@ -60,9 +67,9 @@ interface BookingFlowStepsProps {
 
 export default function BookingFlowSteps(props: BookingFlowStepsProps) {
     const {
-        step, pickup, dropoff, date, time, isRoundTrip,
+        step, pickup, dropoff, date, time, isRoundTrip, returnDate, returnTime,
         selectedVehicle, setSelectedVehicle,
-        passengers, setPassengers,
+        passengers, setPassengers, luggage, setLuggage, fieldErrors,
         customerName, setCustomerName,
         customerEmail, setCustomerEmail,
         customerPhone, setCustomerPhone,
@@ -115,7 +122,7 @@ export default function BookingFlowSteps(props: BookingFlowStepsProps) {
                                     <SelectValue placeholder="Choose your vehicle..." />
                                 </div>
                             </SelectTrigger>
-                            <SelectContent className="max-h-[420px]">
+                            <SelectContent className="max-h-[420px] z-[200]">
                                 {vehicles.map((v) => (
                                     <SelectItem key={v.name} value={v.name} className="py-2 cursor-pointer">
                                         <div className="flex items-center gap-3">
@@ -152,30 +159,40 @@ export default function BookingFlowSteps(props: BookingFlowStepsProps) {
                                         onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                                     />
                                 </div>
-                                {/* Passenger Selector */}
-                                <div className="p-4 flex flex-col sm:flex-row items-center justify-between gap-3 border-t border-gray-100">
-                                    <div className="flex flex-col">
-                                        <span className="text-sm font-black text-gray-900 uppercase tracking-tighter">Passengers</span>
-                                        <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest leading-none mt-0.5">
-                                            Max {selectedVehicle.passengers} • {selectedVehicle.luggage} Bags
-                                        </span>
+                                {/* Passenger & Luggage Selector */}
+                                <div className="p-4 space-y-3 border-t border-gray-100">
+                                    <div className="flex items-center justify-between gap-3">
+                                        <div className="flex flex-col">
+                                            <span className="text-sm font-black text-gray-900 uppercase tracking-tighter">Passengers</span>
+                                            <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest leading-none mt-0.5">
+                                                Max {selectedVehicle.passengers}
+                                            </span>
+                                        </div>
+                                        <CounterControl
+                                            value={passengers}
+                                            onChange={setPassengers}
+                                            min={1}
+                                            max={selectedVehicle.passengers}
+                                            enforceMax
+                                            aria-label="passengers"
+                                        />
                                     </div>
-                                    <div className="flex items-center bg-gray-50 rounded-xl p-1 border shadow-sm">
-                                        <button
-                                            type="button"
-                                            onClick={() => setPassengers(p => Math.max(1, p - 1))}
-                                            className="w-10 h-10 rounded-lg bg-white hover:bg-gray-100 flex items-center justify-center transition-all active:scale-90 border"
-                                        >
-                                            <span className="text-xl font-bold text-gray-900">-</span>
-                                        </button>
-                                        <span className="text-2xl font-black text-primary min-w-[50px] text-center">{passengers}</span>
-                                        <button
-                                            type="button"
-                                            onClick={() => setPassengers(p => Math.min(selectedVehicle.passengers, p + 1))}
-                                            className="w-10 h-10 rounded-lg bg-white hover:bg-gray-100 flex items-center justify-center transition-all active:scale-90 border"
-                                        >
-                                            <span className="text-xl font-bold text-gray-900">+</span>
-                                        </button>
+                                    <div className="flex items-center justify-between gap-3">
+                                        <div className="flex flex-col">
+                                            <span className="text-sm font-black text-gray-900 uppercase tracking-tighter">Luggage</span>
+                                            <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest leading-none mt-0.5">
+                                                Vehicle capacity: {selectedVehicle.luggage} — need more? No problem.
+                                            </span>
+                                        </div>
+                                        {/* Luggage is never capped to the vehicle's capacity — only a generic sanity ceiling. */}
+                                        <CounterControl
+                                            value={luggage}
+                                            onChange={setLuggage}
+                                            min={0}
+                                            max={50}
+                                            enforceMax
+                                            aria-label="luggage"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -209,6 +226,13 @@ export default function BookingFlowSteps(props: BookingFlowStepsProps) {
                         <div>
                             <h3 className="text-xl font-bold text-gray-900">Enter Details</h3>
                             <p className="text-sm text-gray-500">{selectedVehicle.name} • {date ? format(new Date(date), "MMM d") : ''} at {time ? format(new Date(`2000-01-01T${time}`), "h:mm a") : ''}</p>
+                            {isRoundTrip && returnDate && (
+                                <p className="text-sm text-gray-500">
+                                    Return: {format(new Date(returnDate), "MMM d")}
+                                    {returnTime ? ` at ${format(new Date(`2000-01-01T${returnTime}`), "h:mm a")}` : ''}
+                                    {isSameDate(returnDate, date) ? ' (same day)' : ''}
+                                </p>
+                            )}
                         </div>
                         <Button type="button" variant="ghost" onClick={handleBack} className="text-gray-500">Back</Button>
                     </div>
@@ -218,10 +242,12 @@ export default function BookingFlowSteps(props: BookingFlowStepsProps) {
                             <div className="relative group">
                                 <User className="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
                                 <Input name="name" placeholder="Full Name" required value={customerName} onChange={(e) => setCustomerName(e.target.value)} className="pl-10 h-12 bg-gray-50 border-gray-200 rounded-xl" />
+                                {fieldErrors.customer_name && <p className="text-red-500 text-xs mt-1 ml-1">{fieldErrors.customer_name}</p>}
                             </div>
                             <div className="relative group">
                                 <Mail className="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
                                 <Input name="email" type="email" placeholder="Email Address" required value={customerEmail} onChange={(e) => setCustomerEmail(e.target.value)} className="pl-10 h-12 bg-gray-50 border-gray-200 rounded-xl" />
+                                {fieldErrors.customer_email && <p className="text-red-500 text-xs mt-1 ml-1">{fieldErrors.customer_email}</p>}
                             </div>
                         </div>
                         <div className="space-y-4">
@@ -230,7 +256,7 @@ export default function BookingFlowSteps(props: BookingFlowStepsProps) {
                                     <PopoverTrigger asChild>
                                         <Button variant="outline" role="combobox" aria-label="Select country code" aria-expanded={openCountry} className="w-[100px] h-12 justify-between bg-gray-50 border-gray-200 rounded-xl"><span className="truncate">{countryCode}</span><ChevronsUpDown className="ml-2 h-4 w-4 opacity-50" /></Button>
                                     </PopoverTrigger>
-                                    <PopoverContent className="w-[250px] p-0 max-h-[300px] overflow-y-auto">
+                                    <PopoverContent className="w-[250px] p-0 max-h-[300px] overflow-y-auto z-[200]">
                                         <Command>
                                             <CommandInput placeholder="Search..." />
                                             <CommandList>
@@ -249,6 +275,7 @@ export default function BookingFlowSteps(props: BookingFlowStepsProps) {
                                 </Popover>
                                 <Input name="phone" type="tel" placeholder="Mobile Number" required value={customerPhone} onChange={(e) => setCustomerPhone(e.target.value)} className="flex-1 h-12 bg-gray-50 border-gray-200 rounded-xl" />
                             </div>
+                            {fieldErrors.customer_phone && <p className="text-red-500 text-xs -mt-2 ml-1">{fieldErrors.customer_phone}</p>}
 
                             <div className="bg-primary/10 border border-primary/20 rounded-xl p-3 flex justify-between items-center">
                                 <span className="text-sm font-semibold text-gray-700 flex items-center"><Wallet className="w-4 h-4 mr-2" /> Fare Estimate:</span>

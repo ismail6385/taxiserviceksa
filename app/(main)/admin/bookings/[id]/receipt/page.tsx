@@ -4,7 +4,9 @@ import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { adminFetch } from '@/lib/admin-fetch';
-import { ArrowLeft, Mail, Printer, Languages } from 'lucide-react';
+import { formatTime12h } from '@/lib/format-time';
+import { downloadDocumentPdf, documentPdfToBase64 } from '@/lib/document-pdf';
+import { ArrowLeft, Mail, Printer, Languages, Repeat } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 type DocLang = 'en' | 'ar';
@@ -18,7 +20,8 @@ const RECEIPT_TEXT: Record<DocLang, Record<string, string>> = {
         particulars: 'Particulars', details: 'Details', amount: 'Amount',
         service: 'Service', privateChauffeurTransfer: 'Private Chauffeur Transfer',
         hourlyChauffeurService: 'Hourly Chauffeur Service', durationLabel: 'Duration', hours: 'hours',
-        route: 'Route', to: 'to',
+        route: 'Route', to: 'to', outboundRoute: 'Outbound Route', returnRoute: 'Return Route',
+        returnDateTime: 'Return Date & Time', sameDay: 'same day',
         dateTime: 'Date & Time', vehicle: 'Vehicle', passengers: 'Passengers',
         paymentMethod: 'Payment Method', remarks: 'Remarks',
         totalReceived: 'Total Amount Received',
@@ -36,7 +39,8 @@ const RECEIPT_TEXT: Record<DocLang, Record<string, string>> = {
         particulars: 'البيان', details: 'التفاصيل', amount: 'المبلغ',
         service: 'الخدمة', privateChauffeurTransfer: 'نقل خاص بسائق',
         hourlyChauffeurService: 'خدمة سائق بالساعة', durationLabel: 'المدة', hours: 'ساعات',
-        route: 'المسار', to: 'إلى',
+        route: 'المسار', to: 'إلى', outboundRoute: 'مسار الذهاب', returnRoute: 'مسار العودة',
+        returnDateTime: 'تاريخ ووقت العودة', sameDay: 'نفس اليوم',
         dateTime: 'التاريخ والوقت', vehicle: 'المركبة', passengers: 'الركاب',
         paymentMethod: 'طريقة الدفع', remarks: 'ملاحظات',
         totalReceived: 'إجمالي المبلغ المستلم',
@@ -73,6 +77,9 @@ interface Booking {
     trip_type?: 'point_to_point' | 'hourly';
     duration_hours?: number;
     contract_id?: string | null;
+    has_return_trip?: boolean;
+    return_date?: string | null;
+    return_time?: string | null;
 }
 
 export default function ReceiptPage() {
@@ -112,43 +119,9 @@ export default function ReceiptPage() {
         day: '2-digit', month: 'short', year: 'numeric',
     });
 
-    const formatTime12h = (timeStr?: string) => {
-        if (!timeStr) return '—';
-        try {
-            const parts = timeStr.split(':');
-            if (parts.length < 2) return timeStr;
-            let hours = parseInt(parts[0], 10);
-            const minutes = parts[1];
-            if (isNaN(hours)) return timeStr;
-            const ampm = hours >= 12 ? 'PM' : 'AM';
-            hours = hours % 12;
-            hours = hours ? hours : 12;
-            return `${hours}:${minutes} ${ampm}`;
-        } catch {
-            return timeStr;
-        }
-    };
-
     const handlePrint = async () => {
         if (!booking) return;
-        const element = document.getElementById('receipt-print');
-        if (!element) return;
-        const opt = {
-            margin: [0, 0, 0, 0] as [number, number, number, number],
-            filename: `Receipt-${receiptNumber}.pdf`,
-            image: { type: 'jpeg' as const, quality: 0.98 },
-            html2canvas: { scale: 2, useCORS: true, letterRendering: true, windowWidth: 1200, scrollY: 0, scrollX: 0 },
-            jsPDF: { unit: 'mm' as const, format: 'a4' as const, orientation: 'portrait' as const },
-        };
-        try {
-            // Wait for the web font to finish loading before the DOM is
-            // screenshotted — otherwise mobile (slower/cold cache) captures
-            // the fallback system font mid-swap, producing a flat/italic PDF.
-            if (document.fonts?.ready) await document.fonts.ready;
-            // @ts-ignore
-            const html2pdf = (await import('html2pdf.js')).default;
-            await html2pdf().set(opt).from(element).save();
-        } catch { window.print(); }
+        await downloadDocumentPdf('receipt-print', `Receipt-${receiptNumber}.pdf`);
     };
 
     const handleSendEmail = async () => {
@@ -156,24 +129,8 @@ export default function ReceiptPage() {
         setSendingEmail(true);
         setEmailSent(false);
         try {
-            const element = document.getElementById('receipt-print');
-            if (!element) throw new Error('not found');
-            const opt = {
-                margin: [0, 0, 0, 0] as [number, number, number, number],
-                filename: `Receipt-${receiptNumber}.pdf`,
-                image: { type: 'jpeg' as const, quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true, letterRendering: true, windowWidth: 1200, scrollY: 0, scrollX: 0 },
-                jsPDF: { unit: 'mm' as const, format: 'a4' as const, orientation: 'portrait' as const },
-            };
-            if (document.fonts?.ready) await document.fonts.ready;
-            // @ts-ignore
-            const html2pdf = (await import('html2pdf.js')).default;
-            const blob: Blob = await html2pdf().set(opt).from(element).outputPdf('blob');
-            const buf = await blob.arrayBuffer();
-            const bytes = new Uint8Array(buf);
-            let bin = '';
-            for (let i = 0; i < bytes.byteLength; i++) bin += String.fromCharCode(bytes[i]);
-            const base64 = btoa(bin);
+            const filename = `Receipt-${receiptNumber}.pdf`;
+            const base64 = await documentPdfToBase64('receipt-print', filename);
 
             await supabase.from('bookings')
                 .update({ currency, payment_status: 'paid', payment_method: paymentMethod })
@@ -184,7 +141,7 @@ export default function ReceiptPage() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     booking, pdfBase64: base64,
-                    filename: `Receipt-${receiptNumber}.pdf`,
+                    filename,
                     currency, paymentMethod,
                     amountPaid: amountPaid || booking.total_price?.toFixed(2),
                 }),
@@ -336,7 +293,7 @@ export default function ReceiptPage() {
                                     <td className="px-4 py-3 text-right font-bold text-gray-900 align-top">{currency} {amount}</td>
                                 </tr>
                                 <tr className="border-b border-gray-100">
-                                    <td className="px-4 py-3 text-gray-700 font-medium align-top">{t.route}</td>
+                                    <td className="px-4 py-3 text-gray-700 font-medium align-top">{booking.has_return_trip ? t.outboundRoute : t.route}</td>
                                     <td className="px-4 py-3 text-gray-600 align-top">
                                         {booking.pickup_location}<br />
                                         <span className="text-gray-400 text-xs">↓ {t.to}</span><br />
@@ -344,6 +301,28 @@ export default function ReceiptPage() {
                                     </td>
                                     <td className="px-4 py-3"></td>
                                 </tr>
+                                {booking.has_return_trip && (
+                                    <>
+                                        <tr className="border-b border-gray-100">
+                                            <td className="px-4 py-3 text-gray-700 font-medium align-top flex items-center gap-1.5"><Repeat className="w-3 h-3 text-blue-500" /> {t.returnRoute}</td>
+                                            <td className="px-4 py-3 text-gray-600 align-top">
+                                                {booking.destination}<br />
+                                                <span className="text-gray-400 text-xs">↓ {t.to}</span><br />
+                                                {booking.pickup_location}
+                                            </td>
+                                            <td className="px-4 py-3"></td>
+                                        </tr>
+                                        <tr className="border-b border-gray-100">
+                                            <td className="px-4 py-3 text-gray-700 font-medium">{t.returnDateTime}</td>
+                                            <td className="px-4 py-3 text-gray-600">
+                                                {booking.return_date
+                                                    ? `${booking.return_date}${booking.return_date === booking.pickup_date ? ` (${t.sameDay})` : ''} — ${formatTime12h(booking.return_time)}`
+                                                    : <span className="italic text-gray-400">—</span>}
+                                            </td>
+                                            <td className="px-4 py-3"></td>
+                                        </tr>
+                                    </>
+                                )}
                                 {booking.trip_type === 'hourly' && (
                                     <tr className="border-b border-gray-100">
                                         <td className="px-4 py-3 text-gray-700 font-medium">{t.durationLabel}</td>

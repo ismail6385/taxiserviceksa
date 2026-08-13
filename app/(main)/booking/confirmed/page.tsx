@@ -6,9 +6,10 @@ import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 import {
     CheckCircle2, Calendar, Clock, Car, MessageSquare,
-    Loader2, Phone, User, Search, Home, MapPin
+    Loader2, Phone, User, Search, Home, MapPin, ArrowLeftRight
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { hasStructuredReturnLeg } from '@/lib/booking-validation';
 
 interface Booking {
     id: string;
@@ -25,6 +26,9 @@ interface Booking {
     driver_phone?: string;
     driver_plate?: string;
     status: string;
+    has_return_trip?: boolean;
+    return_date?: string | null;
+    return_time?: string | null;
 }
 
 function ConfirmedContent() {
@@ -38,7 +42,7 @@ function ConfirmedContent() {
         if (!ref) { setLoading(false); return; }
         supabase
             .from('bookings')
-            .select('id,customer_name,pickup_location,destination,pickup_date,pickup_time,vehicle_type,passengers,total_price,currency,driver_name,driver_phone,driver_plate,status')
+            .select('id,customer_name,pickup_location,destination,pickup_date,pickup_time,vehicle_type,passengers,total_price,currency,driver_name,driver_phone,driver_plate,status,has_return_trip,return_date,return_time')
             .ilike('id', `${ref}%`)
             .limit(1)
             .single()
@@ -120,6 +124,22 @@ function ConfirmedContent() {
                                 <p className="text-sm font-bold text-gray-900">{booking.vehicle_type}</p>
                             </div>
                         </div>
+
+                        {booking.has_return_trip && (
+                            <div className="bg-blue-50 border border-blue-100 rounded-xl p-3">
+                                <p className="text-[10px] text-blue-500 font-bold uppercase tracking-widest mb-1 flex items-center gap-1">
+                                    <ArrowLeftRight className="w-3 h-3" /> Round Trip
+                                </p>
+                                {hasStructuredReturnLeg(booking) ? (
+                                    <p className="text-sm font-bold text-blue-900">
+                                        Returning {booking.return_date}{booking.return_time ? ` at ${booking.return_time}` : ''}
+                                        {booking.return_date === booking.pickup_date ? ' (same day)' : ''}
+                                    </p>
+                                ) : (
+                                    <p className="text-sm text-blue-700">Return details not recorded — contact support to confirm.</p>
+                                )}
+                            </div>
+                        )}
 
                         {price && (
                             <div className="flex items-center justify-between bg-gray-50 rounded-xl p-3 border border-gray-100">

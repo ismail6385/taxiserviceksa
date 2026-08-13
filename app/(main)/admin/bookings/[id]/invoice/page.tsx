@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
 import { adminFetch } from '@/lib/admin-fetch';
+import { formatTime12h } from '@/lib/format-time';
+import { downloadDocumentPdf, documentPdfToBase64 } from '@/lib/document-pdf';
 import {
     Printer,
     ArrowLeft,
@@ -33,6 +35,7 @@ const INVOICE_TEXT: Record<DocLang, Record<string, string>> = {
         dateLabel: 'Date', timeLabel: 'Time', vehicleLabel: 'Vehicle', passengersLabel: 'Passengers',
         journeyRoute: 'Journey Route', stop: 'stop', stops: 'stops',
         pickup: 'Pick-up', dropoff: 'Drop-off', destination: 'Destination', returnDropoff: 'Return Drop-off',
+        outbound: 'Outbound', returnLeg: 'Return', sameDay: 'same day', returnNotRecorded: 'Return details not recorded',
         description: 'Description', amount: 'Amount',
         roundTripService: 'Round Trip Transfer Service', privateService: 'Private Transfer Service',
         chauffeurService: 'Professional Chauffeur Service',
@@ -61,6 +64,7 @@ const INVOICE_TEXT: Record<DocLang, Record<string, string>> = {
         dateLabel: 'التاريخ', timeLabel: 'الوقت', vehicleLabel: 'المركبة', passengersLabel: 'الركاب',
         journeyRoute: 'مسار الرحلة', stop: 'محطة', stops: 'محطات',
         pickup: 'الانطلاق', dropoff: 'الوصول', destination: 'الوجهة', returnDropoff: 'نقطة العودة',
+        outbound: 'الذهاب', returnLeg: 'العودة', sameDay: 'نفس اليوم', returnNotRecorded: 'تفاصيل العودة غير مسجلة',
         description: 'الوصف', amount: 'المبلغ',
         roundTripService: 'خدمة نقل ذهاب وعودة', privateService: 'خدمة نقل خاص',
         chauffeurService: 'خدمة سائق محترف',
@@ -118,6 +122,9 @@ interface Booking {
     duration_hours?: number;
     contract_id?: string | null;
     invoice_number?: string | null;
+    has_return_trip?: boolean;
+    return_date?: string | null;
+    return_time?: string | null;
 }
 
 export default function InvoicePage() {
@@ -132,6 +139,8 @@ export default function InvoicePage() {
     const [paymentMethod, setPaymentMethod] = useState('Cash to Driver');
     const [isRoundTrip, setIsRoundTrip] = useState(false);
     const [returnDestination, setReturnDestination] = useState('');
+    const [returnDate, setReturnDate] = useState('');
+    const [returnTime, setReturnTime] = useState('');
     const [sendingEmail, setSendingEmail] = useState(false);
     const [emailSent, setEmailSent] = useState(false);
     const [stops, setStops] = useState<Stop[]>([]);
@@ -192,6 +201,8 @@ export default function InvoicePage() {
                 if (data.has_return_trip) {
                     setIsRoundTrip(true);
                     setReturnDestination(data.pickup_location || '');
+                    if (data.return_date) setReturnDate(data.return_date);
+                    if (data.return_time) setReturnTime(data.return_time);
                 }
             } catch (error) {
                 console.error('Error fetching booking:', error);
@@ -203,61 +214,17 @@ export default function InvoicePage() {
         if (id) fetchBooking();
     }, [id]);
 
-    const formatTime12h = (timeStr?: string) => {
-        if (!timeStr) return '—';
-        try {
-            const parts = timeStr.split(':');
-            if (parts.length < 2) return timeStr;
-            let hours = parseInt(parts[0], 10);
-            const minutes = parts[1];
-            if (isNaN(hours)) return timeStr;
-            const ampm = hours >= 12 ? 'PM' : 'AM';
-            hours = hours % 12;
-            hours = hours ? hours : 12;
-            return `${hours}:${minutes} ${ampm}`;
-        } catch (e) {
-            return timeStr;
-        }
+    const buildInvoiceFilename = () => {
+        if (!booking) return 'Invoice.pdf';
+        const customerName = booking.customer_name ? booking.customer_name.replace(/\s+/g, '-') : 'Client';
+        const refId = booking.id.slice(0, 8).toUpperCase();
+        const dateStr = booking.pickup_date || new Date().toISOString().split('T')[0];
+        return `Invoice-${refId}-${customerName}-${dateStr}.pdf`;
     };
 
     const handlePrint = async () => {
         if (!booking) return;
-        const customerName = booking.customer_name ? booking.customer_name.replace(/\s+/g, '-') : 'Client';
-        const refId = booking.id.slice(0, 8).toUpperCase();
-        const dateStr = booking.pickup_date || new Date().toISOString().split('T')[0];
-        const filename = `Invoice-${refId}-${customerName}-${dateStr}.pdf`;
-
-        const element = document.getElementById('invoice-print');
-        if (!element) return;
-
-        const opt = {
-            margin: [0, 0, 0, 0] as [number, number, number, number],
-            filename: filename,
-            image: { type: 'jpeg' as const, quality: 0.98 },
-            html2canvas: {
-                scale: 2,
-                useCORS: true,
-                letterRendering: true,
-                windowWidth: 1200, // Important: capture at desktop width
-                scrollY: 0,
-                scrollX: 0
-            },
-            jsPDF: { unit: 'mm' as const, format: 'a4' as const, orientation: 'portrait' as const }
-        };
-
-        try {
-            // Wait for the web font to finish loading before the DOM is
-            // screenshotted — otherwise mobile (slower/cold cache) captures
-            // the fallback system font mid-swap, producing a flat/italic PDF.
-            if (document.fonts?.ready) await document.fonts.ready;
-            // @ts-ignore - dynamic import to avoid SSR 'self is not defined'
-            const html2pdf = (await import('html2pdf.js')).default;
-            await html2pdf().set(opt).from(element).save();
-        } catch (error) {
-            console.error('PDF Generation Error:', error);
-            // Fallback to window.print if html2pdf fails
-            window.print();
-        }
+        await downloadDocumentPdf('invoice-print', buildInvoiceFilename());
     };
 
     const handleSendEmail = async () => {
@@ -266,32 +233,8 @@ export default function InvoicePage() {
         setEmailSent(false);
 
         try {
-            const customerName = booking.customer_name ? booking.customer_name.replace(/\s+/g, '-') : 'Client';
-            const refId = booking.id.slice(0, 8).toUpperCase();
-            const dateStr = booking.pickup_date || new Date().toISOString().split('T')[0];
-            const filename = `Invoice-${refId}-${customerName}-${dateStr}.pdf`;
-
-            const element = document.getElementById('invoice-print');
-            if (!element) throw new Error('Invoice element not found');
-
-            const opt = {
-                margin: [0, 0, 0, 0] as [number, number, number, number],
-                filename,
-                image: { type: 'jpeg' as const, quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true, letterRendering: true, windowWidth: 1200, scrollY: 0, scrollX: 0 },
-                jsPDF: { unit: 'mm' as const, format: 'a4' as const, orientation: 'portrait' as const },
-            };
-
-            if (document.fonts?.ready) await document.fonts.ready;
-            // @ts-ignore
-            const html2pdf = (await import('html2pdf.js')).default;
-            const pdfBlob: Blob = await html2pdf().set(opt).from(element).outputPdf('blob');
-
-            const arrayBuffer = await pdfBlob.arrayBuffer();
-            const bytes = new Uint8Array(arrayBuffer);
-            let binary = '';
-            for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
-            const base64 = btoa(binary);
+            const filename = buildInvoiceFilename();
+            const base64 = await documentPdfToBase64('invoice-print', filename);
 
             // Persist currency, paymentStatus, paymentMethod back to DB
             await supabase
@@ -303,7 +246,12 @@ export default function InvoicePage() {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    booking,
+                    booking: {
+                        ...booking,
+                        has_return_trip: isRoundTrip,
+                        return_date: isRoundTrip ? (returnDate || booking.return_date || null) : null,
+                        return_time: isRoundTrip ? (returnTime || booking.return_time || null) : null,
+                    },
                     pdfBase64: base64,
                     filename,
                     currency,
@@ -388,12 +336,29 @@ export default function InvoicePage() {
                             </span>
                         </div>
                         {isRoundTrip && (
-                            <input
-                                value={returnDestination}
-                                onChange={(e) => setReturnDestination(e.target.value)}
-                                className="h-7 w-40 text-[11px] font-bold border rounded px-2 outline-none bg-white"
-                                placeholder="Return destination..."
-                            />
+                            <div className="flex flex-col gap-1">
+                                <input
+                                    value={returnDestination}
+                                    onChange={(e) => setReturnDestination(e.target.value)}
+                                    className="h-7 w-40 text-[11px] font-bold border rounded px-2 outline-none bg-white"
+                                    placeholder="Return destination..."
+                                />
+                                <div className="flex gap-1">
+                                    <input
+                                        type="date"
+                                        value={returnDate}
+                                        min={booking?.pickup_date}
+                                        onChange={(e) => setReturnDate(e.target.value)}
+                                        className="h-7 w-[100px] text-[10px] font-bold border rounded px-1.5 outline-none bg-white"
+                                    />
+                                    <input
+                                        type="time"
+                                        value={returnTime}
+                                        onChange={(e) => setReturnTime(e.target.value)}
+                                        className="h-7 w-20 text-[10px] font-bold border rounded px-1.5 outline-none bg-white"
+                                    />
+                                </div>
+                            </div>
                         )}
                     </div>
 
@@ -736,6 +701,7 @@ export default function InvoicePage() {
                                         { icon: <Car className="w-3 h-3" />, label: t.vehicleLabel, value: booking.vehicle_type },
                                         { icon: <User className="w-3 h-3" />, label: t.passengersLabel, value: `${booking.passengers} ${t.pax} · ${booking.luggage} ${t.bags}` },
                                         ...(booking.trip_type === 'hourly' ? [{ icon: <Clock className="w-3 h-3" />, label: t.durationLabel, value: `${booking.duration_hours || '?'} ${t.hours}` }] : []),
+                                        ...(isRoundTrip && returnDate ? [{ icon: <Repeat className="w-3 h-3" />, label: t.returnLeg, value: `${returnDate}${returnDate === booking.pickup_date ? ` (${t.sameDay})` : ''}${returnTime ? ` ${formatTime12h(returnTime)}` : ''}` }] : []),
                                     ].map(({ icon, label, value }) => (
                                         <div key={label} className="flex justify-between items-center text-xs">
                                             <span className="text-gray-500 flex items-center gap-1.5">{icon} {label}</span>
@@ -758,7 +724,7 @@ export default function InvoicePage() {
                                 <div className="relative">
                                     <div className={`absolute top-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white shadow-sm ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}></div>
                                     <p className="text-[10px] text-gray-400 font-semibold uppercase">
-                                        {t.pickup}{booking.pickup_time ? ` · ${formatTime12h(booking.pickup_time)}` : ''}
+                                        {isRoundTrip ? t.outbound : t.pickup}{booking.pickup_date ? ` · ${booking.pickup_date}` : ''}{booking.pickup_time ? ` ${formatTime12h(booking.pickup_time)}` : ''}
                                     </p>
                                     <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{booking.pickup_location}</p>
                                 </div>
@@ -789,8 +755,14 @@ export default function InvoicePage() {
                                         <div className={`absolute top-1 w-3 h-3 bg-blue-600 rounded-full border-2 border-white shadow-sm flex items-center justify-center ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}>
                                             <Repeat className="w-2 h-2 text-white" />
                                         </div>
-                                        <p className="text-[10px] text-blue-500 font-semibold uppercase">{t.returnDropoff}</p>
+                                        <p className="text-[10px] text-blue-500 font-semibold uppercase">
+                                            {t.returnDropoff}
+                                            {returnDate ? ` · ${returnDate}${returnDate === booking.pickup_date ? ` (${t.sameDay})` : ''}${returnTime ? ` ${formatTime12h(returnTime)}` : ''}` : ''}
+                                        </p>
                                         <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{returnDestination || booking.pickup_location}</p>
+                                        {!returnDate && (
+                                            <p className="text-[10px] text-gray-400 italic mt-0.5">{t.returnNotRecorded}</p>
+                                        )}
                                     </div>
                                 )}
                             </div>
