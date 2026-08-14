@@ -52,6 +52,8 @@ export interface RoundTripInput {
     has_return_trip?: boolean | null;
     return_date?: string | null;
     return_time?: string | null;
+    return_pickup_location?: string | null;
+    return_destination?: string | null;
 }
 
 export interface ValidationResult {
@@ -62,7 +64,11 @@ export interface ValidationResult {
 /**
  * Rules:
  * - Not a round trip -> always valid, nothing to check.
- * - Round trip requires both a return date and a return time.
+ * - Round trip requires a return date, a return time, AND its own return
+ *   pickup + drop-off locations — the return leg is never assumed to be the
+ *   outbound route reversed at the validation level (see getReturnRoute()
+ *   for the display-only fallback used on legacy bookings that predate
+ *   these fields).
  * - Return date may never be before the pickup date.
  * - Same-day round trip: return time must be strictly after pickup time.
  * - Multi-day round trip (return date after pickup date): any return time is valid.
@@ -79,6 +85,12 @@ export function validateRoundTrip(input: RoundTripInput): ValidationResult {
     }
     if (!input.return_time) {
         fieldErrors.return_time = 'Please select a return time.';
+    }
+    if (!input.return_pickup_location || !input.return_pickup_location.trim()) {
+        fieldErrors.return_pickup_location = 'Please enter the return pickup location.';
+    }
+    if (!input.return_destination || !input.return_destination.trim()) {
+        fieldErrors.return_destination = 'Please enter the return drop-off location.';
     }
 
     if (input.return_date && input.pickup_date && isDateBefore(input.return_date, input.pickup_date)) {
@@ -185,6 +197,26 @@ export function hasStructuredReturnLeg(booking?: {
     return Boolean(booking?.has_return_trip && booking?.return_date);
 }
 
+/**
+ * Resolves the return leg's actual pickup/drop-off. Prefers the explicitly
+ * recorded return_pickup_location/return_destination; falls back to the
+ * outbound route reversed for bookings that predate these columns (or where
+ * an admin left them blank) — every document/admin/customer view that shows
+ * a return route must go through this instead of hand-rolling the same
+ * "assume it's reversed" fallback independently.
+ */
+export function getReturnRoute(booking?: {
+    pickup_location?: string | null;
+    destination?: string | null;
+    return_pickup_location?: string | null;
+    return_destination?: string | null;
+} | null): { pickupLocation: string; destination: string } {
+    return {
+        pickupLocation: booking?.return_pickup_location?.trim() || booking?.destination || '',
+        destination: booking?.return_destination?.trim() || booking?.pickup_location || '',
+    };
+}
+
 // ---------------------------------------------------------------------------
 // Zod schema — the API layer's source of truth. Calls validateRoundTrip
 // internally via superRefine so there is exactly one implementation of the
@@ -205,6 +237,8 @@ const bookingFieldsShape = {
         has_return_trip: z.boolean().optional(),
         return_date: z.string().nullable().optional(),
         return_time: z.string().nullable().optional(),
+        return_pickup_location: z.string().nullable().optional(),
+        return_destination: z.string().nullable().optional(),
         special_requests: z.string().optional().nullable(),
         // Matches the full admin lifecycle (app/(main)/admin/bookings/page.tsx's
         // Booking['status']) — narrower enums here would silently strip

@@ -19,9 +19,12 @@ function ConfirmationContent() {
     const hasReturnTrip = params.get('hasReturnTrip') === '1';
     const returnDate = params.get('returnDate') || '';
     const returnTime = params.get('returnTime') || '';
+    const returnFrom = params.get('returnFrom') || '';
+    const returnTo = params.get('returnTo') || '';
 
     const refId = ref ? `#${ref.slice(0, 8).toUpperCase()}` : '';
-    const returnLine = hasReturnTrip ? `\nReturn: ${returnDate || 'TBC'}${returnTime ? ` at ${returnTime}` : ''}` : '';
+    const returnRouteLine = hasReturnTrip && (returnFrom || returnTo) ? `\nReturn Route: ${returnFrom || to} → ${returnTo || from}` : '';
+    const returnLine = hasReturnTrip ? `\nReturn: ${returnDate || 'TBC'}${returnTime ? ` at ${returnTime}` : ''}${returnRouteLine}` : '';
     const whatsappMsg = encodeURIComponent(
         `Hello, I just submitted a booking request.\n\nRef: ${refId}\nName: ${name}\nRoute: ${from} → ${to}\nDate: ${date} at ${time}${returnLine}\nVehicle: ${vehicle}\n\nPlease confirm my quote.`
     );
@@ -96,10 +99,17 @@ function ConfirmationContent() {
                                 <ArrowLeftRight className="w-3 h-3" /> Round Trip
                             </p>
                             {returnDate ? (
-                                <p className="text-sm font-bold text-blue-900">
-                                    Returning {returnDate}{returnTime ? ` at ${returnTime}` : ''}
-                                    {returnDate === date ? ' (same day)' : ''}
-                                </p>
+                                <>
+                                    {(returnFrom || returnTo) && (
+                                        <p className="text-sm font-bold text-blue-900">
+                                            {returnFrom || to} → {returnTo || from}
+                                        </p>
+                                    )}
+                                    <p className="text-xs text-blue-700 mt-0.5">
+                                        Returning {returnDate}{returnTime ? ` at ${returnTime}` : ''}
+                                        {returnDate === date ? ' (same day)' : ''}
+                                    </p>
+                                </>
                             ) : (
                                 <p className="text-sm text-blue-700">Return details will be confirmed by our team.</p>
                             )}

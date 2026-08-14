@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { sendMail } from '@/lib/mail-server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { getAdminSession } from '@/lib/admin-auth';
-import { hasStructuredReturnLeg } from '@/lib/booking-validation';
+import { hasStructuredReturnLeg, getReturnRoute } from '@/lib/booking-validation';
 import { formatTime12h } from '@/lib/format-time';
 
 async function appendEmailLog(bookingId: string, entry: string) {
@@ -36,7 +36,7 @@ export async function POST(request: NextRequest) {
         const amount = amountPaid ?? booking.total_price?.toFixed(2) ?? '0.00';
 
         const returnLegLine = hasStructuredReturnLeg(booking)
-            ? `<p style="margin: 5px 0;"><strong>Return:</strong> ${booking.return_date} at ${formatTime12h(booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}</p>`
+            ? `<p style="margin: 5px 0;"><strong>Return Route:</strong> ${getReturnRoute(booking).pickupLocation} → ${getReturnRoute(booking).destination}</p><p style="margin: 5px 0;"><strong>Return Date/Time:</strong> ${booking.return_date} at ${formatTime12h(booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}</p>`
             : '';
 
         await sendMail({

@@ -38,6 +38,8 @@ export type BookingData = {
     has_return_trip?: boolean;
     return_date?: string | null;
     return_time?: string | null;
+    return_pickup_location?: string | null;
+    return_destination?: string | null;
     child_seats?: number;
     flight_number?: string;
     trip_type?: 'point_to_point' | 'hourly';

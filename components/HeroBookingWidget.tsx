@@ -27,6 +27,7 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
     const {
         step, pickup, setPickup, dropoff, setDropoff, date, setDate, time, setTime,
         isRoundTrip, setIsRoundTrip, returnDate, setReturnDate, returnTime, setReturnTime,
+        returnPickupLocation, setReturnPickupLocation, returnDropoffLocation, setReturnDropoffLocation,
         preferredTimeNote, setPreferredTimeNote, fieldErrors, setFieldErrors,
     } = flow;
 
@@ -46,6 +47,8 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
             has_return_trip: isRoundTrip,
             return_date: returnDate || null,
             return_time: returnTime || null,
+            return_pickup_location: returnPickupLocation || null,
+            return_destination: returnDropoffLocation || null,
         });
 
         const allErrors = { ...errors, ...roundTripErrors };
@@ -173,7 +176,15 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
                                 checked={isRoundTrip}
                                 onCheckedChange={(checked) => {
                                     setIsRoundTrip(checked);
-                                    if (!checked) { setReturnDate(''); setReturnTime(''); }
+                                    if (!checked) {
+                                        setReturnDate('');
+                                        setReturnTime('');
+                                        setReturnPickupLocation('');
+                                        setReturnDropoffLocation('');
+                                    } else {
+                                        setReturnPickupLocation(dropoff);
+                                        setReturnDropoffLocation(pickup);
+                                    }
                                 }}
                             />
                             <Label htmlFor="round-trip" className="text-sm font-medium text-gray-600 cursor-pointer">Round trip</Label>
@@ -182,6 +193,38 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
 
                     {isRoundTrip && (
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 animate-fade-in">
+                            {/* Return Route */}
+                            <div className="sm:col-span-2 flex items-center justify-between -mb-1">
+                                <span className="text-xs font-bold text-gray-500 uppercase tracking-wide">Return Journey</span>
+                                <button
+                                    type="button"
+                                    onClick={() => { setReturnPickupLocation(dropoff); setReturnDropoffLocation(pickup); }}
+                                    className="text-xs font-semibold text-primary hover:underline"
+                                >
+                                    Use reversed outbound locations
+                                </button>
+                            </div>
+                            <div className="relative group">
+                                <MapPin className="absolute left-3 top-3.5 w-5 h-5 text-gray-400 z-10" />
+                                <LocationAutocomplete
+                                    placeholder="Return Pickup Location"
+                                    value={returnPickupLocation}
+                                    onChange={setReturnPickupLocation}
+                                    className="w-full pl-10 pr-3 h-12 bg-gray-50 border border-gray-200 focus:border-primary rounded-xl text-base font-medium outline-none"
+                                />
+                                {fieldErrors.return_pickup_location && <p className="text-red-500 text-xs mt-1 ml-1">{fieldErrors.return_pickup_location}</p>}
+                            </div>
+                            <div className="relative group">
+                                <MapPin className="absolute left-3 top-3.5 w-5 h-5 text-gray-400 z-10" />
+                                <LocationAutocomplete
+                                    placeholder="Return Drop-off Location"
+                                    value={returnDropoffLocation}
+                                    onChange={setReturnDropoffLocation}
+                                    className="w-full pl-10 pr-3 h-12 bg-gray-50 border border-gray-200 focus:border-primary rounded-xl text-base font-medium outline-none"
+                                />
+                                {fieldErrors.return_destination && <p className="text-red-500 text-xs mt-1 ml-1">{fieldErrors.return_destination}</p>}
+                            </div>
+
                             {/* Return Date */}
                             <div className="relative group flex flex-col">
                                 <Popover>

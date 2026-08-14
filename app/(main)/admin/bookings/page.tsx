@@ -44,7 +44,7 @@ import {
     Truck
 } from 'lucide-react';
 import { getPrice } from '@/lib/pricing';
-import { validateRoundTrip, hasStructuredReturnLeg, isSameDate } from '@/lib/booking-validation';
+import { validateRoundTrip, hasStructuredReturnLeg, getReturnRoute, isSameDate } from '@/lib/booking-validation';
 import { CounterControl } from '@/components/PassengerLuggageSelector';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -121,6 +121,8 @@ interface Booking {
     has_return_trip?: boolean;
     return_date?: string | null;
     return_time?: string | null;
+    return_pickup_location?: string | null;
+    return_destination?: string | null;
     child_seats?: number;
     currency?: string;
     payment_method?: string;
@@ -255,6 +257,8 @@ export default function BookingsPage() {
         has_return_trip: false,
         return_date: '',
         return_time: '',
+        return_pickup_location: '',
+        return_destination: '',
         trip_type: 'point_to_point'
     });
     const [bookingFieldErrors, setBookingFieldErrors] = useState<Record<string, string>>({});
@@ -672,6 +676,8 @@ export default function BookingsPage() {
         { key: 'total_price', label: 'Price' },
         { key: 'return_date', label: 'Return Date' },
         { key: 'return_time', label: 'Return Time' },
+        { key: 'return_pickup_location', label: 'Return Pickup Location' },
+        { key: 'return_destination', label: 'Return Drop-off Location' },
     ];
 
     const saveDetails = async () => {
@@ -691,6 +697,8 @@ export default function BookingsPage() {
                     trip_end_date: updateData.trip_end_date || null,
                     return_date: updateData.has_return_trip ? (updateData.return_date || null) : null,
                     return_time: updateData.has_return_trip ? (updateData.return_time || null) : null,
+                    return_pickup_location: updateData.has_return_trip ? (updateData.return_pickup_location || null) : null,
+                    return_destination: updateData.has_return_trip ? (updateData.return_destination || null) : null,
                 }),
             });
             const result = await response.json().catch(() => ({}));
@@ -753,6 +761,8 @@ export default function BookingsPage() {
                     destination: newBooking.destination?.trim() || (newBooking.trip_type === 'hourly' ? 'As Directed (Hourly Hire)' : newBooking.destination),
                     return_date: newBooking.has_return_trip ? (newBooking.return_date || null) : null,
                     return_time: newBooking.has_return_trip ? (newBooking.return_time || null) : null,
+                    return_pickup_location: newBooking.has_return_trip ? (newBooking.return_pickup_location || null) : null,
+                    return_destination: newBooking.has_return_trip ? (newBooking.return_destination || null) : null,
                     // Admin-created bookings don't auto-email the customer today.
                     sendCustomerEmail: false,
                 }),
@@ -795,6 +805,8 @@ export default function BookingsPage() {
                     has_return_trip: false,
                     return_date: '',
                     return_time: '',
+                    return_pickup_location: '',
+                    return_destination: '',
                 });
                 alert('Booking created successfully!');
             }
@@ -2251,7 +2263,50 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
 
                                     {(isEditing ? editedBooking.has_return_trip : selectedBooking.has_return_trip) && (
                                         <div className="pl-4 pt-3 border-t border-gray-100">
-                                            <span className="block text-xs text-gray-500 mb-1">Return Date &amp; Time</span>
+                                            <div className="flex items-center justify-between mb-1">
+                                                <span className="block text-xs text-gray-500">Return Pickup &amp; Drop-off</span>
+                                                {isEditing && (
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => setEditedBooking({
+                                                            ...editedBooking,
+                                                            return_pickup_location: editedBooking.destination,
+                                                            return_destination: editedBooking.pickup_location,
+                                                        })}
+                                                        className="text-[10px] font-semibold text-primary hover:underline"
+                                                    >
+                                                        Use reversed outbound
+                                                    </button>
+                                                )}
+                                            </div>
+                                            {isEditing ? (
+                                                <>
+                                                    <div className="flex items-center gap-2">
+                                                        <Input
+                                                            value={editedBooking.return_pickup_location || ''}
+                                                            onChange={(e) => setEditedBooking({ ...editedBooking, return_pickup_location: e.target.value })}
+                                                            placeholder="Return pickup location"
+                                                            className="h-8 text-sm bg-white"
+                                                        />
+                                                        <Input
+                                                            value={editedBooking.return_destination || ''}
+                                                            onChange={(e) => setEditedBooking({ ...editedBooking, return_destination: e.target.value })}
+                                                            placeholder="Return drop-off location"
+                                                            className="h-8 text-sm bg-white"
+                                                        />
+                                                    </div>
+                                                    {bookingFieldErrors.return_pickup_location && <p className="text-red-500 text-xs mt-1">{bookingFieldErrors.return_pickup_location}</p>}
+                                                    {bookingFieldErrors.return_destination && <p className="text-red-500 text-xs mt-1">{bookingFieldErrors.return_destination}</p>}
+                                                </>
+                                            ) : (
+                                                <span className="font-medium bg-white border border-gray-200 px-2 py-1 rounded text-sm block w-fit text-gray-900">
+                                                    {(() => { const r = getReturnRoute(selectedBooking); return `${r.pickupLocation} → ${r.destination}`; })()}
+                                                    {!selectedBooking.return_pickup_location && !selectedBooking.return_destination && (
+                                                        <span className="text-gray-400 italic"> (assumed reversed — not explicitly recorded)</span>
+                                                    )}
+                                                </span>
+                                            )}
+                                            <span className="block text-xs text-gray-500 mb-1 mt-3">Return Date &amp; Time</span>
                                             {isEditing ? (
                                                 <>
                                                     <div className="flex items-center gap-2">
@@ -2363,7 +2418,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                     <span className="block text-xs text-gray-500 mb-1">Round Trip?</span>
                                                     {isEditing ? (
                                                         <button
-                                                            onClick={() => setEditedBooking({ ...editedBooking, has_return_trip: !editedBooking.has_return_trip, ...(editedBooking.has_return_trip ? { return_date: '', return_time: '' } : {}) })}
+                                                            onClick={() => setEditedBooking({ ...editedBooking, has_return_trip: !editedBooking.has_return_trip, ...(editedBooking.has_return_trip ? { return_date: '', return_time: '', return_pickup_location: '', return_destination: '' } : {}) })}
                                                             className={`h-8 px-3 rounded-md text-[10px] font-black uppercase tracking-widest transition-all ${
                                                                 editedBooking.has_return_trip
                                                                 ? 'bg-blue-600 text-white border-blue-700 shadow-sm'
@@ -3529,7 +3584,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         <label className="text-sm font-medium text-gray-700">Round Trip?</label>
                                         <button
                                             type="button"
-                                            onClick={() => setNewBooking({ ...newBooking, has_return_trip: !newBooking.has_return_trip, ...(newBooking.has_return_trip ? { return_date: '', return_time: '' } : {}) })}
+                                            onClick={() => setNewBooking({ ...newBooking, has_return_trip: !newBooking.has_return_trip, ...(newBooking.has_return_trip ? { return_date: '', return_time: '', return_pickup_location: '', return_destination: '' } : {}) })}
                                             className={`h-9 px-4 rounded-md text-[11px] font-black uppercase tracking-widest transition-all border ${
                                                 newBooking.has_return_trip
                                                 ? 'bg-blue-600 text-white border-blue-700'
@@ -3542,6 +3597,43 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                 )}
                             </div>
                             {newBooking.has_return_trip && (
+                                <div className="space-y-4 p-4 bg-blue-50/40 border border-dashed border-blue-200 rounded-xl">
+                                    <div className="flex items-center justify-between">
+                                        <span className="text-xs font-bold text-blue-700 uppercase tracking-wide">Return Journey</span>
+                                        <button
+                                            type="button"
+                                            onClick={() => setNewBooking({
+                                                ...newBooking,
+                                                return_pickup_location: newBooking.destination,
+                                                return_destination: newBooking.pickup_location,
+                                            })}
+                                            className="text-[11px] font-semibold text-primary hover:underline"
+                                        >
+                                            Use reversed outbound locations
+                                        </button>
+                                    </div>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <div className="space-y-1">
+                                            <label className="text-sm font-medium text-gray-700">Return Pickup Location</label>
+                                            <Input
+                                                value={newBooking.return_pickup_location || ''}
+                                                onChange={(e) => setNewBooking({ ...newBooking, return_pickup_location: e.target.value })}
+                                                placeholder="e.g. Makkah Hotel"
+                                                className="bg-white border-gray-200 focus:border-primary"
+                                            />
+                                            {bookingFieldErrors.return_pickup_location && <p className="text-red-500 text-xs mt-1">{bookingFieldErrors.return_pickup_location}</p>}
+                                        </div>
+                                        <div className="space-y-1">
+                                            <label className="text-sm font-medium text-gray-700">Return Drop-off Location</label>
+                                            <Input
+                                                value={newBooking.return_destination || ''}
+                                                onChange={(e) => setNewBooking({ ...newBooking, return_destination: e.target.value })}
+                                                placeholder="e.g. Jeddah Airport"
+                                                className="bg-white border-gray-200 focus:border-primary"
+                                            />
+                                            {bookingFieldErrors.return_destination && <p className="text-red-500 text-xs mt-1">{bookingFieldErrors.return_destination}</p>}
+                                        </div>
+                                    </div>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div className="space-y-1">
                                         <label className="text-sm font-medium text-gray-700">Return Date</label>
@@ -3568,6 +3660,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             <p className="text-xs text-gray-400 mt-1">Same-day round trip — must be after pickup time.</p>
                                         ) : null}
                                     </div>
+                                </div>
                                 </div>
                             )}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

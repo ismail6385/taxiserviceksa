@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Search, MapPin, Calendar, Clock, Car, Users, CheckCircle2, XCircle, AlertCircle, Loader2, Phone, Mail, FileText, Truck, ArrowLeftRight } from 'lucide-react';
-import { hasStructuredReturnLeg } from '@/lib/booking-validation';
+import { hasStructuredReturnLeg, getReturnRoute } from '@/lib/booking-validation';
 
 interface Booking {
     id: string;
@@ -29,6 +29,8 @@ interface Booking {
     has_return_trip?: boolean;
     return_date?: string | null;
     return_time?: string | null;
+    return_pickup_location?: string | null;
+    return_destination?: string | null;
 }
 
 const STATUS_CONFIG: Record<string, { label: string; color: string; bg: string; icon: any }> = {
@@ -210,11 +212,16 @@ function TrackBookingContent() {
                                         <ArrowLeftRight className="w-3 h-3" /> Round Trip
                                     </p>
                                     {hasStructuredReturnLeg(booking) ? (
-                                        <p className="text-sm font-bold text-blue-900">
-                                            Returning {booking.return_date}
-                                            {booking.return_time ? ` at ${booking.return_time}` : ''}
-                                            {booking.return_date === booking.pickup_date ? ' (same day)' : ''}
-                                        </p>
+                                        <>
+                                            <p className="text-sm font-bold text-blue-900">
+                                                {getReturnRoute(booking).pickupLocation} → {getReturnRoute(booking).destination}
+                                            </p>
+                                            <p className="text-xs text-blue-700 mt-0.5">
+                                                Returning {booking.return_date}
+                                                {booking.return_time ? ` at ${booking.return_time}` : ''}
+                                                {booking.return_date === booking.pickup_date ? ' (same day)' : ''}
+                                            </p>
+                                        </>
                                     ) : (
                                         <p className="text-sm text-blue-700">Return details not recorded — our team will confirm your return leg.</p>
                                     )}

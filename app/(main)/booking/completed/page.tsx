@@ -6,7 +6,7 @@ import { supabase } from '@/lib/supabase';
 import Link from 'next/link';
 import { Star, Calendar, MessageSquare, Loader2, Heart, Home, RotateCcw, ArrowLeftRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { hasStructuredReturnLeg } from '@/lib/booking-validation';
+import { hasStructuredReturnLeg, getReturnRoute } from '@/lib/booking-validation';
 
 interface Booking {
     id: string;
@@ -20,6 +20,8 @@ interface Booking {
     has_return_trip?: boolean;
     return_date?: string | null;
     return_time?: string | null;
+    return_pickup_location?: string | null;
+    return_destination?: string | null;
 }
 
 function CompletedContent() {
@@ -33,7 +35,7 @@ function CompletedContent() {
         if (!ref) { setLoading(false); return; }
         supabase
             .from('bookings')
-            .select('id,customer_name,pickup_location,destination,pickup_date,vehicle_type,total_price,currency,has_return_trip,return_date,return_time')
+            .select('id,customer_name,pickup_location,destination,pickup_date,vehicle_type,total_price,currency,has_return_trip,return_date,return_time,return_pickup_location,return_destination')
             .ilike('id', `${ref}%`)
             .limit(1)
             .single()
@@ -111,7 +113,7 @@ function CompletedContent() {
                         {booking.has_return_trip && hasStructuredReturnLeg(booking) && (
                             <div className="flex items-center gap-1.5 text-sm text-blue-700 pt-2 border-t border-gray-100">
                                 <ArrowLeftRight className="w-3.5 h-3.5" />
-                                Round trip — returned {booking.return_date}{booking.return_time ? ` at ${booking.return_time}` : ''}
+                                Round trip via {getReturnRoute(booking).pickupLocation} → {getReturnRoute(booking).destination} — returned {booking.return_date}{booking.return_time ? ` at ${booking.return_time}` : ''}
                             </div>
                         )}
                     </div>

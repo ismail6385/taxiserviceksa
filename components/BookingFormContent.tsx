@@ -80,6 +80,8 @@ export default function BookingFormContent({ prefilledData, className }: Booking
     const [preferredTimeNote, setPreferredTimeNote] = useState('');
     const [returnDate, setReturnDate] = useState('');
     const [returnTime, setReturnTime] = useState('');
+    const [returnPickupLocation, setReturnPickupLocation] = useState('');
+    const [returnDropoffLocation, setReturnDropoffLocation] = useState('');
     const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
     const [formData, setFormData] = useState<BookingData>({
@@ -201,10 +203,12 @@ export default function BookingFormContent({ prefilledData, className }: Booking
             ...formData,
             return_date: formData.has_return_trip ? returnDate : null,
             return_time: formData.has_return_trip ? returnTime : null,
+            return_pickup_location: formData.has_return_trip ? returnPickupLocation : null,
+            return_destination: formData.has_return_trip ? returnDropoffLocation : null,
         });
         if (!validation.valid) {
             setFieldErrors(validation.fieldErrors);
-            if (validation.fieldErrors.return_date || validation.fieldErrors.return_time || validation.fieldErrors.pickup_date || validation.fieldErrors.pickup_time) {
+            if (validation.fieldErrors.return_date || validation.fieldErrors.return_time || validation.fieldErrors.return_pickup_location || validation.fieldErrors.return_destination || validation.fieldErrors.pickup_date || validation.fieldErrors.pickup_time) {
                 setStep(1);
             }
             return;
@@ -221,6 +225,8 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                 customer_phone: fullPhoneNumber,
                 return_date: formData.has_return_trip ? returnDate : null,
                 return_time: formData.has_return_trip ? returnTime : null,
+                return_pickup_location: formData.has_return_trip ? returnPickupLocation : null,
+                return_destination: formData.has_return_trip ? returnDropoffLocation : null,
                 special_requests: `${isHourly ? `[HOURLY HIRE: ${formData.duration_hours || '?'} hours] ` : ''}${formData.child_seats ? `[CHILD SEATS: ${formData.child_seats}] ` : ''}${preferredTimeNote.trim() ? `[PREFERRED TIME: ${preferredTimeNote.trim()}] ` : ''}${promoApplied ? `[PROMO: ${promoApplied.code} - ${promoApplied.discount_value}${promoApplied.discount_type === 'percentage' ? '%' : ' SAR'} off] ` : ''}${(formData.special_requests ? formData.special_requests + '. ' : '') + 'Please Provide Quote'}`
             };
 
@@ -234,7 +240,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
             if (!res.ok) {
                 if (result.fieldErrors) {
                     setFieldErrors(result.fieldErrors);
-                    if (result.fieldErrors.return_date || result.fieldErrors.return_time || result.fieldErrors.pickup_date || result.fieldErrors.pickup_time) {
+                    if (result.fieldErrors.return_date || result.fieldErrors.return_time || result.fieldErrors.return_pickup_location || result.fieldErrors.return_destination || result.fieldErrors.pickup_date || result.fieldErrors.pickup_time) {
                         setStep(1);
                     }
                     return;
@@ -261,6 +267,8 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                 confirmParams.set('hasReturnTrip', '1');
                 if (returnDate) confirmParams.set('returnDate', returnDate);
                 if (returnTime) confirmParams.set('returnTime', returnTime);
+                if (returnPickupLocation) confirmParams.set('returnFrom', returnPickupLocation);
+                if (returnDropoffLocation) confirmParams.set('returnTo', returnDropoffLocation);
             }
 
             // Redirect to confirmation page after brief delay
@@ -302,6 +310,8 @@ export default function BookingFormContent({ prefilledData, className }: Booking
             has_return_trip: formData.has_return_trip,
             return_date: formData.has_return_trip ? returnDate : null,
             return_time: formData.has_return_trip ? returnTime : null,
+            return_pickup_location: formData.has_return_trip ? returnPickupLocation : null,
+            return_destination: formData.has_return_trip ? returnDropoffLocation : null,
         });
         return { ...errors, ...roundTrip.fieldErrors };
     };
@@ -541,7 +551,17 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                         ) : (
                             <>
                                 {/* Return Trip Toggle */}
-                                <div className="flex items-center gap-3 p-4 bg-blue-50/50 rounded-2xl border border-blue-100/50 cursor-pointer transition-all hover:bg-blue-50" onClick={() => setFormData(prev => ({ ...prev, has_return_trip: !prev.has_return_trip }))}>
+                                <div
+                                    className="flex items-center gap-3 p-4 bg-blue-50/50 rounded-2xl border border-blue-100/50 cursor-pointer transition-all hover:bg-blue-50"
+                                    onClick={() => setFormData(prev => {
+                                        const next = !prev.has_return_trip;
+                                        if (!next) {
+                                            setReturnPickupLocation('');
+                                            setReturnDropoffLocation('');
+                                        }
+                                        return { ...prev, has_return_trip: next };
+                                    })}
+                                >
                                     <div className={`w-10 h-6 rounded-full relative transition-colors ${formData.has_return_trip ? 'bg-primary' : 'bg-gray-200'}`}>
                                         <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-all ${formData.has_return_trip ? 'left-5' : 'left-1'}`}></div>
                                     </div>
@@ -553,6 +573,65 @@ export default function BookingFormContent({ prefilledData, className }: Booking
 
                                 {formData.has_return_trip && (
                                     <div className="grid grid-cols-2 gap-4 p-4 bg-blue-50/30 rounded-2xl border border-dashed border-blue-200 animate-fade-in-up">
+                                        <div className="col-span-2 flex items-center justify-between -mb-1">
+                                            <span className="text-xs font-bold text-blue-700 uppercase tracking-wide">Return Journey</span>
+                                            <button
+                                                type="button"
+                                                onClick={() => {
+                                                    setReturnPickupLocation(formData.destination);
+                                                    setReturnDropoffLocation(formData.pickup_location);
+                                                    setFieldErrors(prev => {
+                                                        const { return_pickup_location, return_destination, ...rest } = prev;
+                                                        return rest;
+                                                    });
+                                                }}
+                                                className="text-[11px] font-semibold text-primary hover:underline"
+                                            >
+                                                Use reversed outbound locations
+                                            </button>
+                                        </div>
+                                        <div className="col-span-2 sm:col-span-1 space-y-1.5">
+                                            <label className="text-xs font-semibold text-gray-700 ml-1">Return Pickup Location</label>
+                                            <div className="relative group/input">
+                                                <MapPin className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 z-10" />
+                                                <LocationAutocomplete
+                                                    placeholder="e.g. Makkah Hotel"
+                                                    value={returnPickupLocation}
+                                                    onChange={(val) => {
+                                                        setReturnPickupLocation(val);
+                                                        setFieldErrors(prev => {
+                                                            const { return_pickup_location, ...rest } = prev;
+                                                            return rest;
+                                                        });
+                                                    }}
+                                                    className={`w-full pl-10 pr-3 h-11 bg-white rounded-xl text-sm outline-none ${fieldErrors.return_pickup_location ? 'border-red-400' : 'border-gray-300'}`}
+                                                />
+                                            </div>
+                                            {fieldErrors.return_pickup_location && (
+                                                <p className="text-red-500 text-xs mt-1 ml-1">{fieldErrors.return_pickup_location}</p>
+                                            )}
+                                        </div>
+                                        <div className="col-span-2 sm:col-span-1 space-y-1.5">
+                                            <label className="text-xs font-semibold text-gray-700 ml-1">Return Drop-off Location</label>
+                                            <div className="relative group/input">
+                                                <MapPin className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 z-10" />
+                                                <LocationAutocomplete
+                                                    placeholder="e.g. Jeddah Airport"
+                                                    value={returnDropoffLocation}
+                                                    onChange={(val) => {
+                                                        setReturnDropoffLocation(val);
+                                                        setFieldErrors(prev => {
+                                                            const { return_destination, ...rest } = prev;
+                                                            return rest;
+                                                        });
+                                                    }}
+                                                    className={`w-full pl-10 pr-3 h-11 bg-white rounded-xl text-sm outline-none ${fieldErrors.return_destination ? 'border-red-400' : 'border-gray-300'}`}
+                                                />
+                                            </div>
+                                            {fieldErrors.return_destination && (
+                                                <p className="text-red-500 text-xs mt-1 ml-1">{fieldErrors.return_destination}</p>
+                                            )}
+                                        </div>
                                         <div className="space-y-1.5">
                                             <label className="text-xs font-semibold text-gray-700 ml-1">Return Date</label>
                                             <Input
@@ -932,7 +1011,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
 *Vehicle:* ${formData.vehicle_type}
 *Passengers:* ${formData.passengers}
 *Luggage:* ${formData.luggage} bags
-*Child Seats:* ${formData.child_seats || 0}${formData.flight_number ? `\n*Flight Number:* ${formData.flight_number}` : ''}${formData.trip_type === 'hourly' ? `\n*Trip Type:* Hourly Hire (${formData.duration_hours || '?'} hours)` : `\n*Return Trip:* ${formData.has_return_trip ? 'Yes' : 'No'}${formData.has_return_trip && returnDate ? `\n*Return Date:* ${returnDate}${returnTime ? ` at ${returnTime}` : ''}` : ''}`}
+*Child Seats:* ${formData.child_seats || 0}${formData.flight_number ? `\n*Flight Number:* ${formData.flight_number}` : ''}${formData.trip_type === 'hourly' ? `\n*Trip Type:* Hourly Hire (${formData.duration_hours || '?'} hours)` : `\n*Return Trip:* ${formData.has_return_trip ? 'Yes' : 'No'}${formData.has_return_trip && returnDate ? `\n*Return Date:* ${returnDate}${returnTime ? ` at ${returnTime}` : ''}` : ''}${formData.has_return_trip && (returnPickupLocation || returnDropoffLocation) ? `\n*Return Route:* ${returnPickupLocation || formData.destination} → ${returnDropoffLocation || formData.pickup_location}` : ''}`}
 *Special Requests:* ${formData.special_requests || 'None'}
 ---
 Please provide a quote for this journey.`;
@@ -954,6 +1033,8 @@ Please provide a quote for this journey.`;
                                     setPreferredTimeNote('');
                                     setReturnDate('');
                                     setReturnTime('');
+                                    setReturnPickupLocation('');
+                                    setReturnDropoffLocation('');
                                     setFormData(prev => ({
                                         ...prev,
                                         customer_name: '',

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendMail } from '@/lib/mail-server';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
-import { hasStructuredReturnLeg } from '@/lib/booking-validation';
+import { hasStructuredReturnLeg, getReturnRoute } from '@/lib/booking-validation';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
@@ -74,7 +74,7 @@ export async function POST(request: NextRequest) {
         };
 
         const returnLegLine = hasStructuredReturnLeg(booking)
-            ? `<p style="margin: 5px 0;"><strong>Return:</strong> ${booking.return_date} at ${formatTime12h(booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}</p>`
+            ? `<p style="margin: 5px 0;"><strong>Return Route:</strong> ${escapeHtml(getReturnRoute(booking).pickupLocation)} → ${escapeHtml(getReturnRoute(booking).destination)}</p><p style="margin: 5px 0;"><strong>Return Date/Time:</strong> ${booking.return_date} at ${formatTime12h(booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}</p>`
             : (booking.has_return_trip ? `<p style="margin: 5px 0;"><strong>Trip Type:</strong> Round Trip (return details to be confirmed)</p>` : '');
 
         console.log('Sending emails for booking:', booking.id || 'new booking');

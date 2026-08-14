@@ -9,7 +9,7 @@ import {
     Loader2, Phone, User, Search, Home, MapPin, ArrowLeftRight
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { hasStructuredReturnLeg } from '@/lib/booking-validation';
+import { hasStructuredReturnLeg, getReturnRoute } from '@/lib/booking-validation';
 
 interface Booking {
     id: string;
@@ -29,6 +29,8 @@ interface Booking {
     has_return_trip?: boolean;
     return_date?: string | null;
     return_time?: string | null;
+    return_pickup_location?: string | null;
+    return_destination?: string | null;
 }
 
 function ConfirmedContent() {
@@ -42,7 +44,7 @@ function ConfirmedContent() {
         if (!ref) { setLoading(false); return; }
         supabase
             .from('bookings')
-            .select('id,customer_name,pickup_location,destination,pickup_date,pickup_time,vehicle_type,passengers,total_price,currency,driver_name,driver_phone,driver_plate,status,has_return_trip,return_date,return_time')
+            .select('id,customer_name,pickup_location,destination,pickup_date,pickup_time,vehicle_type,passengers,total_price,currency,driver_name,driver_phone,driver_plate,status,has_return_trip,return_date,return_time,return_pickup_location,return_destination')
             .ilike('id', `${ref}%`)
             .limit(1)
             .single()
@@ -131,10 +133,15 @@ function ConfirmedContent() {
                                     <ArrowLeftRight className="w-3 h-3" /> Round Trip
                                 </p>
                                 {hasStructuredReturnLeg(booking) ? (
-                                    <p className="text-sm font-bold text-blue-900">
-                                        Returning {booking.return_date}{booking.return_time ? ` at ${booking.return_time}` : ''}
-                                        {booking.return_date === booking.pickup_date ? ' (same day)' : ''}
-                                    </p>
+                                    <>
+                                        <p className="text-sm font-bold text-blue-900">
+                                            {getReturnRoute(booking).pickupLocation} → {getReturnRoute(booking).destination}
+                                        </p>
+                                        <p className="text-xs text-blue-700 mt-0.5">
+                                            Returning {booking.return_date}{booking.return_time ? ` at ${booking.return_time}` : ''}
+                                            {booking.return_date === booking.pickup_date ? ' (same day)' : ''}
+                                        </p>
+                                    </>
                                 ) : (
                                     <p className="text-sm text-blue-700">Return details not recorded — contact support to confirm.</p>
                                 )}

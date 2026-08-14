@@ -6,6 +6,7 @@ import { supabase } from '@/lib/supabase';
 import { adminFetch } from '@/lib/admin-fetch';
 import { formatTime12h } from '@/lib/format-time';
 import { downloadDocumentPdf, documentPdfToBase64 } from '@/lib/document-pdf';
+import { getReturnRoute } from '@/lib/booking-validation';
 import { ArrowLeft, Mail, Printer, Languages, Repeat } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -80,6 +81,8 @@ interface Booking {
     has_return_trip?: boolean;
     return_date?: string | null;
     return_time?: string | null;
+    return_pickup_location?: string | null;
+    return_destination?: string | null;
 }
 
 export default function ReceiptPage() {
@@ -306,9 +309,9 @@ export default function ReceiptPage() {
                                         <tr className="border-b border-gray-100">
                                             <td className="px-4 py-3 text-gray-700 font-medium align-top flex items-center gap-1.5"><Repeat className="w-3 h-3 text-blue-500" /> {t.returnRoute}</td>
                                             <td className="px-4 py-3 text-gray-600 align-top">
-                                                {booking.destination}<br />
+                                                {getReturnRoute(booking).pickupLocation}<br />
                                                 <span className="text-gray-400 text-xs">↓ {t.to}</span><br />
-                                                {booking.pickup_location}
+                                                {getReturnRoute(booking).destination}
                                             </td>
                                             <td className="px-4 py-3"></td>
                                         </tr>

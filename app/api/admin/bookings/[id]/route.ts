@@ -38,6 +38,8 @@ export async function PUT(
             ...data,
             return_date: data.has_return_trip ? data.return_date ?? null : null,
             return_time: data.has_return_trip ? data.return_time ?? null : null,
+            return_pickup_location: data.has_return_trip ? data.return_pickup_location ?? null : null,
+            return_destination: data.has_return_trip ? data.return_destination ?? null : null,
         };
 
         const { data: updated, error } = await supabaseAdmin

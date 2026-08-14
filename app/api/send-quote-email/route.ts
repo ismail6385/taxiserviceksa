@@ -3,7 +3,7 @@ import { sendMail } from '@/lib/mail-server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 import { getAdminSession } from '@/lib/admin-auth';
-import { hasStructuredReturnLeg } from '@/lib/booking-validation';
+import { hasStructuredReturnLeg, getReturnRoute } from '@/lib/booking-validation';
 
 async function appendEmailLog(bookingId: string, entry: string) {
     const { data } = await supabaseAdmin.from('bookings').select('internal_notes').eq('id', bookingId).single();
@@ -73,11 +73,11 @@ export async function POST(request: NextRequest) {
         };
 
         const returnLegRow = hasStructuredReturnLeg(booking)
-            ? `<tr><td style="padding: 5px 0; color: #666;">Return</td><td style="font-weight: bold; color: #000;">${booking.return_date} at ${formatTime12h(booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}</td></tr>`
+            ? `<tr><td style="padding: 5px 0; color: #666;">Return Route</td><td style="font-weight: bold; color: #000;">${getReturnRoute(booking).pickupLocation} → ${getReturnRoute(booking).destination}</td></tr><tr><td style="padding: 5px 0; color: #666;">Return Date/Time</td><td style="font-weight: bold; color: #000;">${booking.return_date} at ${formatTime12h(booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}</td></tr>`
             : (booking.has_return_trip ? `<tr><td style="padding: 5px 0; color: #666;">Trip Type</td><td style="font-weight: bold; color: #000;">Round Trip</td></tr>` : '');
 
         const whatsappMsg = encodeURIComponent(
-            `Hello, I'd like to confirm my booking.\n\n*Quote Ref:* ${refId}\n*Route:* ${booking.pickup_location} → ${booking.destination}\n*Date:* ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}${hasStructuredReturnLeg(booking) ? `\n*Return:* ${booking.return_date} at ${formatTime12h(booking.return_time)}` : ''}\n*Vehicle:* ${booking.vehicle_type}\n*Quote:* ${curr} ${price}`
+            `Hello, I'd like to confirm my booking.\n\n*Quote Ref:* ${refId}\n*Route:* ${booking.pickup_location} → ${booking.destination}\n*Date:* ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}${hasStructuredReturnLeg(booking) ? `\n*Return Route:* ${getReturnRoute(booking).pickupLocation} → ${getReturnRoute(booking).destination}\n*Return:* ${booking.return_date} at ${formatTime12h(booking.return_time)}` : ''}\n*Vehicle:* ${booking.vehicle_type}\n*Quote:* ${curr} ${price}`
         );
 
         const quoteHtml = `
@@ -149,7 +149,7 @@ export async function POST(request: NextRequest) {
                 <p><strong>Phone:</strong> ${escapeHtml(booking.customer_phone)}</p>
                 <p><strong>Route:</strong> ${safePickup} → ${safeDest}</p>
                 <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
-                ${hasStructuredReturnLeg(booking) ? `<p><strong>Return:</strong> ${booking.return_date} at ${formatTime12h(booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}</p>` : ''}
+                ${hasStructuredReturnLeg(booking) ? `<p><strong>Return Route:</strong> ${escapeHtml(getReturnRoute(booking).pickupLocation)} → ${escapeHtml(getReturnRoute(booking).destination)}</p><p><strong>Return:</strong> ${booking.return_date} at ${formatTime12h(booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}</p>` : ''}
                 <p><strong>Vehicle:</strong> ${safeVehicle}</p>
                 <p><strong>Quoted Price:</strong> <span style="font-size:18px; font-weight:900; color:#000;">${curr} ${price}</span></p>
                 <p style="font-size: 12px; color: #666;">Quote ref: ${refId} — valid 48 hours</p>

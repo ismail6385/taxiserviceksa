@@ -21,6 +21,7 @@ import {
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { formatTime12h } from '@/lib/format-time';
+import { getReturnRoute } from '@/lib/booking-validation';
 
 type DocLang = 'en' | 'ar';
 
@@ -89,6 +90,8 @@ interface Booking {
     has_return_trip?: boolean;
     return_date?: string | null;
     return_time?: string | null;
+    return_pickup_location?: string | null;
+    return_destination?: string | null;
 }
 
 export default function LetterheadPage() {
@@ -103,7 +106,8 @@ export default function LetterheadPage() {
     const [isEmailingOnly, setIsEmailingOnly] = useState(false);
     const [emailSent, setEmailSent] = useState(false);
     const [isRoundTrip, setIsRoundTrip] = useState(false);
-    const [returnDestination, setReturnDestination] = useState('');
+    const [returnPickupLocation, setReturnPickupLocation] = useState('');
+    const [returnDropoffLocation, setReturnDropoffLocation] = useState('');
     const [returnDate, setReturnDate] = useState('');
     const [returnTime, setReturnTime] = useState('');
 
@@ -120,7 +124,9 @@ export default function LetterheadPage() {
                 setBooking(data);
                 if (data.has_return_trip) {
                     setIsRoundTrip(true);
-                    setReturnDestination(data.pickup_location || '');
+                    const route = getReturnRoute(data);
+                    setReturnPickupLocation(route.pickupLocation);
+                    setReturnDropoffLocation(route.destination);
                     if (data.return_date) setReturnDate(data.return_date);
                     if (data.return_time) setReturnTime(data.return_time);
                 }
@@ -172,6 +178,8 @@ export default function LetterheadPage() {
                     has_return_trip: isRoundTrip,
                     return_date: isRoundTrip ? (returnDate || booking.return_date || null) : null,
                     return_time: isRoundTrip ? (returnTime || booking.return_time || null) : null,
+                    return_pickup_location: isRoundTrip ? (returnPickupLocation || null) : null,
+                    return_destination: isRoundTrip ? (returnDropoffLocation || null) : null,
                 },
                 currency: booking.currency || 'SAR',
                 pdfBase64,
@@ -285,8 +293,13 @@ export default function LetterheadPage() {
                     <div className="flex flex-col gap-1">
                         <div
                             onClick={() => {
-                                setIsRoundTrip(!isRoundTrip);
-                                if (!isRoundTrip && booking) setReturnDestination(booking.pickup_location);
+                                const next = !isRoundTrip;
+                                setIsRoundTrip(next);
+                                if (next && booking) {
+                                    const route = getReturnRoute(booking);
+                                    setReturnPickupLocation(route.pickupLocation);
+                                    setReturnDropoffLocation(route.destination);
+                                }
                             }}
                             className={`flex items-center gap-2 rounded-lg border p-1 shadow-sm px-3 h-10 cursor-pointer transition-all select-none ${
                                 isRoundTrip ? 'bg-blue-600 border-blue-600 text-white' : 'bg-white text-gray-500 border-gray-200'
@@ -298,20 +311,48 @@ export default function LetterheadPage() {
                             </span>
                         </div>
                         {isRoundTrip && (
-                            <div className="flex gap-1">
+                            <div className="flex flex-col gap-1 bg-blue-50/60 border border-blue-100 rounded-lg p-1.5">
+                                <div className="flex items-center justify-between">
+                                    <span className="text-[9px] font-bold text-blue-600 uppercase">Return Route</span>
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            if (!booking) return;
+                                            setReturnPickupLocation(booking.destination);
+                                            setReturnDropoffLocation(booking.pickup_location);
+                                        }}
+                                        className="text-[9px] font-semibold text-primary hover:underline"
+                                    >
+                                        Reverse outbound
+                                    </button>
+                                </div>
                                 <input
-                                    type="date"
-                                    value={returnDate}
-                                    min={booking?.pickup_date}
-                                    onChange={(e) => setReturnDate(e.target.value)}
-                                    className="h-7 w-[100px] text-[10px] font-bold border rounded px-1.5 outline-none bg-white"
+                                    value={returnPickupLocation}
+                                    onChange={(e) => setReturnPickupLocation(e.target.value)}
+                                    className="h-7 w-44 text-[11px] font-bold border rounded px-2 outline-none bg-white"
+                                    placeholder="Return pickup location..."
                                 />
                                 <input
-                                    type="time"
-                                    value={returnTime}
-                                    onChange={(e) => setReturnTime(e.target.value)}
-                                    className="h-7 w-20 text-[10px] font-bold border rounded px-1.5 outline-none bg-white"
+                                    value={returnDropoffLocation}
+                                    onChange={(e) => setReturnDropoffLocation(e.target.value)}
+                                    className="h-7 w-44 text-[11px] font-bold border rounded px-2 outline-none bg-white"
+                                    placeholder="Return drop-off location..."
                                 />
+                                <div className="flex gap-1">
+                                    <input
+                                        type="date"
+                                        value={returnDate}
+                                        min={booking?.pickup_date}
+                                        onChange={(e) => setReturnDate(e.target.value)}
+                                        className="h-7 w-[100px] text-[10px] font-bold border rounded px-1.5 outline-none bg-white"
+                                    />
+                                    <input
+                                        type="time"
+                                        value={returnTime}
+                                        onChange={(e) => setReturnTime(e.target.value)}
+                                        className="h-7 w-20 text-[10px] font-bold border rounded px-1.5 outline-none bg-white"
+                                    />
+                                </div>
                             </div>
                         )}
                     </div>
@@ -449,8 +490,8 @@ export default function LetterheadPage() {
                                                 <Repeat className="w-2.5 h-2.5" /> {t.returnLabel}
                                                 {returnDate ? ` · ${returnDate}${returnDate === booking.pickup_date ? ` (${t.sameDay})` : ''}${returnTime ? ` ${formatTime12h(returnTime)}` : ''}` : ''}
                                             </p>
-                                            <p className="font-semibold text-gray-900">{t.from} {booking.destination}</p>
-                                            <p className="font-semibold text-gray-900 mt-0.5">{t.to} {returnDestination || booking.pickup_location}</p>
+                                            <p className="font-semibold text-gray-900">{t.from} {returnPickupLocation || booking.destination}</p>
+                                            <p className="font-semibold text-gray-900 mt-0.5">{t.to} {returnDropoffLocation || booking.pickup_location}</p>
                                             {!returnDate && (
                                                 <p className="text-[10px] text-gray-400 italic mt-1">{t.returnNotRecorded}</p>
                                             )}

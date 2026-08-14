@@ -7,7 +7,7 @@ export const runtime = 'nodejs';
 
 // Only fields customers are allowed to see - excludes internal_notes, tags,
 // payment_status and other admin-only fields.
-const PUBLIC_FIELDS = 'id, created_at, pickup_location, destination, pickup_date, pickup_time, trip_end_date, vehicle_type, passengers, luggage, customer_name, customer_email, customer_phone, status, total_price, currency, special_requests, driver_name, driver_phone, driver_plate, has_return_trip, return_date, return_time';
+const PUBLIC_FIELDS = 'id, created_at, pickup_location, destination, pickup_date, pickup_time, trip_end_date, vehicle_type, passengers, luggage, customer_name, customer_email, customer_phone, status, total_price, currency, special_requests, driver_name, driver_phone, driver_plate, has_return_trip, return_date, return_time, return_pickup_location, return_destination';
 
 export async function POST(request: NextRequest) {
     const ip = getClientIp(request);

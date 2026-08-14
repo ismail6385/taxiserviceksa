@@ -3,7 +3,7 @@ import { sendMail } from '@/lib/mail-server';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 import { getAdminSession } from '@/lib/admin-auth';
-import { hasStructuredReturnLeg } from '@/lib/booking-validation';
+import { hasStructuredReturnLeg, getReturnRoute } from '@/lib/booking-validation';
 
 async function appendEmailLog(bookingId: string, entry: string) {
     const { data } = await supabaseAdmin.from('bookings').select('internal_notes').eq('id', bookingId).single();
@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
         };
 
         const returnLegLine = hasStructuredReturnLeg(booking)
-            ? `<p style="margin: 5px 0;"><strong>Return:</strong> ${booking.return_date} at ${formatTime12h(booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}</p>`
+            ? `<p style="margin: 5px 0;"><strong>Return Route:</strong> ${getReturnRoute(booking).pickupLocation} → ${getReturnRoute(booking).destination}</p><p style="margin: 5px 0;"><strong>Return Date/Time:</strong> ${booking.return_date} at ${formatTime12h(booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}</p>`
             : '';
 
         // 1. Send invoice to customer (+ CC additional emails)

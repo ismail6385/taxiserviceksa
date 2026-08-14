@@ -25,6 +25,7 @@ import BookingFlowSteps from '@/components/BookingFlowSteps';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { isDateBefore, isSameDate, validateRoundTrip } from '@/lib/booking-validation';
 import { CounterControl } from '@/components/PassengerLuggageSelector';
+import LocationAutocomplete from '@/components/LocationAutocomplete';
 
 type TabKey = 'transfers' | 'hourly' | 'daytrips';
 
@@ -62,6 +63,7 @@ export default function HomeHero() {
     const {
         step, pickup, setPickup, dropoff, setDropoff, date, setDate, time, setTime,
         isRoundTrip, setIsRoundTrip, returnDate, setReturnDate, returnTime, setReturnTime,
+        returnPickupLocation, setReturnPickupLocation, returnDropoffLocation, setReturnDropoffLocation,
         viaCity, setViaCity, setTripType, passengers, setPassengers, luggage, setLuggage,
     } = flow;
 
@@ -98,6 +100,8 @@ export default function HomeHero() {
             has_return_trip: isRoundTrip,
             return_date: returnDate || null,
             return_time: returnTime || null,
+            return_pickup_location: returnPickupLocation || null,
+            return_destination: returnDropoffLocation || null,
         });
         if (!valid) {
             setSearchError(Object.values(fieldErrors)[0]);
@@ -277,7 +281,7 @@ export default function HomeHero() {
                                                         </span>
                                                     </button>
                                                 </PopoverTrigger>
-                                                <PopoverContent className="w-auto p-0 z-[200]" align="start">
+                                                <PopoverContent className="w-72 p-0 z-[200]" align="start">
                                                     <CalendarComponent
                                                         mode="single"
                                                         selected={returnDate ? new Date(returnDate) : undefined}
@@ -286,7 +290,7 @@ export default function HomeHero() {
                                                         initialFocus
                                                     />
                                                     <div className="p-3 border-t border-gray-100">
-                                                        <Select value={returnTime} onValueChange={(v) => { setReturnTime(v); setReturnOpen(false); }}>
+                                                        <Select value={returnTime} onValueChange={(v) => setReturnTime(v)}>
                                                             <SelectTrigger className="w-full h-10 rounded-lg text-sm">
                                                                 <SelectValue placeholder="Return time" />
                                                             </SelectTrigger>
@@ -297,11 +301,42 @@ export default function HomeHero() {
                                                             </SelectContent>
                                                         </Select>
                                                     </div>
+                                                    <div className="p-3 border-t border-gray-100 space-y-2">
+                                                        <div className="flex items-center justify-between">
+                                                            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wide">Return Route</span>
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => { setReturnPickupLocation(dropoff); setReturnDropoffLocation(pickup); }}
+                                                                className="text-[10px] font-semibold text-primary hover:underline"
+                                                            >
+                                                                Reverse outbound
+                                                            </button>
+                                                        </div>
+                                                        <LocationAutocomplete
+                                                            placeholder="Return pickup location"
+                                                            value={returnPickupLocation}
+                                                            onChange={setReturnPickupLocation}
+                                                            className="w-full h-9 px-3 bg-gray-50 border border-gray-200 rounded-lg text-xs outline-none focus:border-primary"
+                                                        />
+                                                        <LocationAutocomplete
+                                                            placeholder="Return drop-off location"
+                                                            value={returnDropoffLocation}
+                                                            onChange={setReturnDropoffLocation}
+                                                            className="w-full h-9 px-3 bg-gray-50 border border-gray-200 rounded-lg text-xs outline-none focus:border-primary"
+                                                        />
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => setReturnOpen(false)}
+                                                            className="w-full h-8 text-xs font-semibold bg-gray-900 hover:bg-black text-white rounded-lg transition-colors"
+                                                        >
+                                                            Done
+                                                        </button>
+                                                    </div>
                                                 </PopoverContent>
                                             </Popover>
                                             <button
                                                 type="button"
-                                                onClick={() => { setShowReturn(false); setIsRoundTrip(false); setReturnDate(''); setReturnTime(''); }}
+                                                onClick={() => { setShowReturn(false); setIsRoundTrip(false); setReturnDate(''); setReturnTime(''); setReturnPickupLocation(''); setReturnDropoffLocation(''); }}
                                                 className="pr-4 text-gray-300 hover:text-gray-500 transition-colors"
                                                 aria-label="Remove return date"
                                             >
@@ -311,7 +346,12 @@ export default function HomeHero() {
                                     ) : (
                                         <button
                                             type="button"
-                                            onClick={() => { setShowReturn(true); setIsRoundTrip(true); }}
+                                            onClick={() => {
+                                                setShowReturn(true);
+                                                setIsRoundTrip(true);
+                                                setReturnPickupLocation(dropoff);
+                                                setReturnDropoffLocation(pickup);
+                                            }}
                                             className="flex items-center gap-1.5 px-5 py-4 md:py-0 shrink-0 text-gray-400 hover:text-gray-600 font-semibold text-sm transition-colors"
                                         >
                                             <Plus className="w-4 h-4" /> Add return

@@ -19,6 +19,8 @@ export function useBookingFlow() {
     const [isRoundTrip, setIsRoundTrip] = useState(false);
     const [returnDate, setReturnDate] = useState('');
     const [returnTime, setReturnTime] = useState('');
+    const [returnPickupLocation, setReturnPickupLocation] = useState('');
+    const [returnDropoffLocation, setReturnDropoffLocation] = useState('');
     const [viaCity, setViaCity] = useState('');
     const [tripType, setTripType] = useState('');
     const [preferredTimeNote, setPreferredTimeNote] = useState('');
@@ -56,6 +58,8 @@ export function useBookingFlow() {
         setIsRoundTrip(false);
         setReturnDate('');
         setReturnTime('');
+        setReturnPickupLocation('');
+        setReturnDropoffLocation('');
         setViaCity('');
         setTripType('');
         setPreferredTimeNote('');
@@ -77,7 +81,7 @@ export function useBookingFlow() {
 *Vehicle:* ${selectedVehicle?.name}
 *Passengers:* ${passengers}
 *Luggage:* ${luggage} bags
-*Return Trip:* ${isRoundTrip ? 'Yes' : 'No'}${returnDate ? `\n*Return Date:* ${returnDate}` : ''}${returnTime ? `\n*Return Time:* ${returnTime}` : ''}${viaCity ? `\n*Via:* ${viaCity}` : ''}${tripType ? `\n*Trip Type:* ${tripType}` : ''}
+*Return Trip:* ${isRoundTrip ? 'Yes' : 'No'}${returnDate ? `\n*Return Date:* ${returnDate}` : ''}${returnTime ? `\n*Return Time:* ${returnTime}` : ''}${isRoundTrip && (returnPickupLocation || returnDropoffLocation) ? `\n*Return Route:* ${returnPickupLocation || dropoff} → ${returnDropoffLocation || pickup}` : ''}${viaCity ? `\n*Via:* ${viaCity}` : ''}${tripType ? `\n*Trip Type:* ${tripType}` : ''}
 ---
 Please provide a quote for this journey.`;
 
@@ -101,6 +105,8 @@ Please provide a quote for this journey.`;
             has_return_trip: isRoundTrip,
             return_date: isRoundTrip ? (returnDate || null) : null,
             return_time: isRoundTrip ? (returnTime || null) : null,
+            return_pickup_location: isRoundTrip ? (returnPickupLocation || null) : null,
+            return_destination: isRoundTrip ? (returnDropoffLocation || null) : null,
         };
 
         const { valid, fieldErrors: errors } = validateBookingForm(bookingInput);
@@ -167,6 +173,8 @@ Please provide a quote for this journey.`;
         isRoundTrip, setIsRoundTrip,
         returnDate, setReturnDate,
         returnTime, setReturnTime,
+        returnPickupLocation, setReturnPickupLocation,
+        returnDropoffLocation, setReturnDropoffLocation,
         viaCity, setViaCity,
         tripType, setTripType,
         preferredTimeNote, setPreferredTimeNote,

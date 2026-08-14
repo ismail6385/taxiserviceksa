@@ -8,6 +8,7 @@ import { supabase } from '@/lib/supabase';
 import { adminFetch } from '@/lib/admin-fetch';
 import { formatTime12h } from '@/lib/format-time';
 import { downloadDocumentPdf, documentPdfToBase64 } from '@/lib/document-pdf';
+import { getReturnRoute } from '@/lib/booking-validation';
 import {
     Printer,
     ArrowLeft,
@@ -125,6 +126,8 @@ interface Booking {
     has_return_trip?: boolean;
     return_date?: string | null;
     return_time?: string | null;
+    return_pickup_location?: string | null;
+    return_destination?: string | null;
 }
 
 export default function InvoicePage() {
@@ -138,7 +141,8 @@ export default function InvoicePage() {
     const [paymentStatus, setPaymentStatus] = useState('Unpaid');
     const [paymentMethod, setPaymentMethod] = useState('Cash to Driver');
     const [isRoundTrip, setIsRoundTrip] = useState(false);
-    const [returnDestination, setReturnDestination] = useState('');
+    const [returnPickupLocation, setReturnPickupLocation] = useState('');
+    const [returnDropoffLocation, setReturnDropoffLocation] = useState('');
     const [returnDate, setReturnDate] = useState('');
     const [returnTime, setReturnTime] = useState('');
     const [sendingEmail, setSendingEmail] = useState(false);
@@ -197,10 +201,15 @@ export default function InvoicePage() {
                 if (data.payment_status) setPaymentStatus(data.payment_status);
                 // Note: payment_method might not be in the DB yet, but we check just in case
                 if (data.payment_method) setPaymentMethod(data.payment_method);
-                // Auto-detect round trip from booking data
+                // Auto-detect round trip from booking data. getReturnRoute()
+                // prefers explicitly recorded return locations and falls back
+                // to the outbound route reversed for legacy bookings that
+                // predate return_pickup_location/return_destination.
                 if (data.has_return_trip) {
                     setIsRoundTrip(true);
-                    setReturnDestination(data.pickup_location || '');
+                    const route = getReturnRoute(data);
+                    setReturnPickupLocation(route.pickupLocation);
+                    setReturnDropoffLocation(route.destination);
                     if (data.return_date) setReturnDate(data.return_date);
                     if (data.return_time) setReturnTime(data.return_time);
                 }
@@ -251,6 +260,8 @@ export default function InvoicePage() {
                         has_return_trip: isRoundTrip,
                         return_date: isRoundTrip ? (returnDate || booking.return_date || null) : null,
                         return_time: isRoundTrip ? (returnTime || booking.return_time || null) : null,
+                        return_pickup_location: isRoundTrip ? (returnPickupLocation || null) : null,
+                        return_destination: isRoundTrip ? (returnDropoffLocation || null) : null,
                     },
                     pdfBase64: base64,
                     filename,
@@ -323,8 +334,13 @@ export default function InvoicePage() {
                     <div className="flex flex-col gap-1">
                         <div
                             onClick={() => {
-                                setIsRoundTrip(!isRoundTrip);
-                                if (!isRoundTrip && booking) setReturnDestination(booking.pickup_location);
+                                const next = !isRoundTrip;
+                                setIsRoundTrip(next);
+                                if (next && booking) {
+                                    const route = getReturnRoute(booking);
+                                    setReturnPickupLocation(route.pickupLocation);
+                                    setReturnDropoffLocation(route.destination);
+                                }
                             }}
                             className={`flex items-center gap-2 rounded-lg border p-1 shadow-sm px-3 cursor-pointer transition-all select-none ${
                                 isRoundTrip ? 'bg-blue-600 border-blue-600 text-white' : 'bg-white text-gray-500 border-gray-200'
@@ -336,12 +352,32 @@ export default function InvoicePage() {
                             </span>
                         </div>
                         {isRoundTrip && (
-                            <div className="flex flex-col gap-1">
+                            <div className="flex flex-col gap-1 bg-blue-50/60 border border-blue-100 rounded-lg p-1.5">
+                                <div className="flex items-center justify-between">
+                                    <span className="text-[9px] font-bold text-blue-600 uppercase">Return Route</span>
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            if (!booking) return;
+                                            setReturnPickupLocation(booking.destination);
+                                            setReturnDropoffLocation(booking.pickup_location);
+                                        }}
+                                        className="text-[9px] font-semibold text-primary hover:underline"
+                                    >
+                                        Reverse outbound
+                                    </button>
+                                </div>
                                 <input
-                                    value={returnDestination}
-                                    onChange={(e) => setReturnDestination(e.target.value)}
-                                    className="h-7 w-40 text-[11px] font-bold border rounded px-2 outline-none bg-white"
-                                    placeholder="Return destination..."
+                                    value={returnPickupLocation}
+                                    onChange={(e) => setReturnPickupLocation(e.target.value)}
+                                    className="h-7 w-44 text-[11px] font-bold border rounded px-2 outline-none bg-white"
+                                    placeholder="Return pickup location..."
+                                />
+                                <input
+                                    value={returnDropoffLocation}
+                                    onChange={(e) => setReturnDropoffLocation(e.target.value)}
+                                    className="h-7 w-44 text-[11px] font-bold border rounded px-2 outline-none bg-white"
+                                    placeholder="Return drop-off location..."
                                 />
                                 <div className="flex gap-1">
                                     <input
@@ -712,10 +748,11 @@ export default function InvoicePage() {
                             </div>
                         </div>
 
-                        {/* Route Details */}
+                        {/* Route Details — Outbound */}
                         <div className="mb-6">
                             <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2.5">
-                                {t.journeyRoute}
+                                {isRoundTrip ? t.outbound : t.journeyRoute}
+                                {booking.pickup_date ? ` · ${booking.pickup_date}${booking.pickup_time ? ` ${formatTime12h(booking.pickup_time)}` : ''}` : ''}
                                 {stops.length > 0 && <span className="text-orange-500 normal-case font-medium mx-1.5">· {stops.length} {stops.length > 1 ? t.stops : t.stop}</span>}
                             </h3>
                             <div className={`relative space-y-3 before:absolute before:top-2 before:bottom-2 before:w-0.5 before:border-dashed before:border-gray-200 ${lang === 'ar' ? 'pr-5 before:right-[7px] before:border-r-2' : 'pl-5 before:left-[7px] before:border-l-2'}`}>
@@ -723,9 +760,7 @@ export default function InvoicePage() {
                                 {/* Pickup */}
                                 <div className="relative">
                                     <div className={`absolute top-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white shadow-sm ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}></div>
-                                    <p className="text-[10px] text-gray-400 font-semibold uppercase">
-                                        {isRoundTrip ? t.outbound : t.pickup}{booking.pickup_date ? ` · ${booking.pickup_date}` : ''}{booking.pickup_time ? ` ${formatTime12h(booking.pickup_time)}` : ''}
-                                    </p>
+                                    <p className="text-[10px] text-gray-400 font-semibold uppercase">{t.pickup}</p>
                                     <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{booking.pickup_location}</p>
                                 </div>
 
@@ -748,25 +783,34 @@ export default function InvoicePage() {
                                     <p className="text-[10px] text-gray-400 font-semibold uppercase">{isRoundTrip ? t.destination : t.dropoff}</p>
                                     <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{booking.destination}</p>
                                 </div>
-
-                                {/* Return */}
-                                {isRoundTrip && (
-                                    <div className="relative">
-                                        <div className={`absolute top-1 w-3 h-3 bg-blue-600 rounded-full border-2 border-white shadow-sm flex items-center justify-center ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}>
-                                            <Repeat className="w-2 h-2 text-white" />
-                                        </div>
-                                        <p className="text-[10px] text-blue-500 font-semibold uppercase">
-                                            {t.returnDropoff}
-                                            {returnDate ? ` · ${returnDate}${returnDate === booking.pickup_date ? ` (${t.sameDay})` : ''}${returnTime ? ` ${formatTime12h(returnTime)}` : ''}` : ''}
-                                        </p>
-                                        <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{returnDestination || booking.pickup_location}</p>
-                                        {!returnDate && (
-                                            <p className="text-[10px] text-gray-400 italic mt-0.5">{t.returnNotRecorded}</p>
-                                        )}
-                                    </div>
-                                )}
                             </div>
                         </div>
+
+                        {/* Route Details — Return (own pickup/drop-off, never assumed) */}
+                        {isRoundTrip && (
+                            <div className="mb-6">
+                                <h3 className="text-[10px] font-bold text-blue-500 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                                    <Repeat className="w-2.5 h-2.5" />
+                                    {t.returnLeg}
+                                    {returnDate ? ` · ${returnDate}${returnDate === booking.pickup_date ? ` (${t.sameDay})` : ''}${returnTime ? ` ${formatTime12h(returnTime)}` : ''}` : ''}
+                                </h3>
+                                <div className={`relative space-y-3 before:absolute before:top-2 before:bottom-2 before:w-0.5 before:border-dashed before:border-blue-200 ${lang === 'ar' ? 'pr-5 before:right-[7px] before:border-r-2' : 'pl-5 before:left-[7px] before:border-l-2'}`}>
+                                    <div className="relative">
+                                        <div className={`absolute top-1 w-3 h-3 bg-blue-500 rounded-full border-2 border-white shadow-sm ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}></div>
+                                        <p className="text-[10px] text-gray-400 font-semibold uppercase">{t.pickup}</p>
+                                        <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{returnPickupLocation || booking.destination}</p>
+                                    </div>
+                                    <div className="relative">
+                                        <div className={`absolute top-1 w-3 h-3 bg-blue-600 rounded-full border-2 border-white shadow-sm ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}></div>
+                                        <p className="text-[10px] text-gray-400 font-semibold uppercase">{t.dropoff}</p>
+                                        <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{returnDropoffLocation || booking.pickup_location}</p>
+                                    </div>
+                                </div>
+                                {!returnDate && (
+                                    <p className="text-[10px] text-gray-400 italic mt-1.5">{t.returnNotRecorded}</p>
+                                )}
+                            </div>
+                        )}
 
                         {/* Service Table */}
                         <div className="border border-gray-200 rounded-lg overflow-hidden mb-6">

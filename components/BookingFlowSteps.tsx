@@ -40,6 +40,8 @@ interface BookingFlowStepsProps {
     isRoundTrip: boolean;
     returnDate: string;
     returnTime: string;
+    returnPickupLocation: string;
+    returnDropoffLocation: string;
     selectedVehicle: typeof vehicles[0] | null;
     setSelectedVehicle: (v: typeof vehicles[0]) => void;
     passengers: number;
@@ -68,6 +70,7 @@ interface BookingFlowStepsProps {
 export default function BookingFlowSteps(props: BookingFlowStepsProps) {
     const {
         step, pickup, dropoff, date, time, isRoundTrip, returnDate, returnTime,
+        returnPickupLocation, returnDropoffLocation,
         selectedVehicle, setSelectedVehicle,
         passengers, setPassengers, luggage, setLuggage, fieldErrors,
         customerName, setCustomerName,
@@ -231,6 +234,7 @@ export default function BookingFlowSteps(props: BookingFlowStepsProps) {
                                     Return: {format(new Date(returnDate), "MMM d")}
                                     {returnTime ? ` at ${format(new Date(`2000-01-01T${returnTime}`), "h:mm a")}` : ''}
                                     {isSameDate(returnDate, date) ? ' (same day)' : ''}
+                                    {(returnPickupLocation || returnDropoffLocation) ? ` • ${returnPickupLocation || dropoff} → ${returnDropoffLocation || pickup}` : ''}
                                 </p>
                             )}
                         </div>
