@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Car, Plane, Building2, Compass, ArrowRight, MapPin, Crown, Globe, Clock, Users, Heart, Languages } from 'lucide-react';
+import { Car, Plane, Building2, Compass, ArrowRight, MapPin, Crown, Globe, Clock, Users, Heart, Languages, Briefcase, Mountain, Anchor } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
@@ -170,6 +170,78 @@ export default function ServicesPage() {
             icon: Building2,
             href: '/services/b2b-solutions/',
             features: ['Travel agency partners', 'Hotel concierge contracts', 'Bulk booking discounts', 'Custom invoicing'],
+            isNew: false,
+        },
+        {
+            name: 'Business Traveler Transport',
+            description: 'Book a premium car by the single trip — no account or contract needed. Perfect for one-off meetings, client visits, or an airport run while you\'re in town.',
+            icon: Briefcase,
+            href: '/services/business/',
+            features: ['Pay per trip, no account', 'Same-day booking', 'Executive sedans & SUVs', 'WhatsApp booking'],
+            isNew: false,
+        },
+        {
+            name: 'Taxi in Jeddah — Local City Rides',
+            description: 'Same-day local rides within Jeddah — Corniche, malls, business districts, and hotel-to-hotel — without booking a full intercity transfer.',
+            icon: Car,
+            href: '/services/taxi-in-jeddah/',
+            features: ['Corniche & waterfront', 'Malls & shopping', 'Business district meetings', 'Same-day booking'],
+            isNew: false,
+        },
+        {
+            name: 'Taxi in Makkah — Hotel to Haram',
+            description: 'Local rides between your Makkah hotel and Al Haram, plus short Ziyarat trips to nearby sites. Fixed fares, no meters.',
+            icon: Car,
+            href: '/services/taxi-in-makkah/',
+            features: ['Hotel to Haram shuttle', 'Local Ziyarat sites', 'Fixed fares, no meter', '24/7 prayer times'],
+            isNew: false,
+        },
+        {
+            name: 'Madinah Ziyarat Packages',
+            description: 'Tiered Ziyarat tour packages covering Quba Mosque, Mount Uhud, the Seven Mosques, and Al-Baqi — with a driver who waits at every site.',
+            icon: MapPin,
+            href: '/services/madinah-ziyarat/',
+            features: ['Quba, Uhud, Seven Mosques', 'Al-Baqi Cemetery', 'Driver waits on-site', 'Package pricing'],
+            isNew: false,
+        },
+        {
+            name: 'Taxi in Dammam & Eastern Province',
+            description: 'Private car service across Dammam, Al Khobar, and Dhahran — plus Bahrain Causeway crossings and Aramco compound transfers.',
+            icon: MapPin,
+            href: '/services/taxi-in-dammam/',
+            features: ['Al Khobar & Dhahran', 'Bahrain Causeway specialists', 'Aramco compound access', 'DMM airport pickup'],
+            isNew: false,
+        },
+        {
+            name: 'Taxi in Tabuk & NEOM',
+            description: 'Private car service for NEOM workers and AlUla-bound tourists across Tabuk province.',
+            icon: MapPin,
+            href: '/services/taxi-in-tabuk/',
+            features: ['NEOM worker transfers', 'AlUla tourist trips', 'Tabuk city rides', 'Fixed rates'],
+            isNew: false,
+        },
+        {
+            name: 'Jeddah Corniche Hotel Taxi',
+            description: 'Lobby pickups at Ritz-Carlton, Shangri-La, Waldorf Astoria, and every major hotel on the Jeddah Corniche. Airport and Makkah transfers included.',
+            icon: Building2,
+            href: '/services/jeddah-corniche-hotel-taxi/',
+            features: ['All Corniche luxury hotels', 'Lobby pickup', 'Airport & Makkah transfers', 'Fixed rates'],
+            isNew: false,
+        },
+        {
+            name: 'Jeddah Cruise Port Transfer',
+            description: 'Pre-booked transfers from Jeddah Islamic Port for cruise passengers — direct to Makkah for Umrah, JED Airport, or city hotels.',
+            icon: Anchor,
+            href: '/services/jeddah-port-taxi-transfer/',
+            features: ['Cruise terminal pickup', 'Makkah Umrah day-trips', 'Airport connections', 'Fixed rates'],
+            isNew: false,
+        },
+        {
+            name: 'Cable Car Station Transfer',
+            description: 'Private transport to the Taif and Abha cable car stations. Mountain-road drivers, timed for your cable car booking.',
+            icon: Mountain,
+            href: '/services/cable-car/',
+            features: ['Taif & Abha stations', 'Mountain-road drivers', 'Timed for your booking', 'Round-trip available'],
             isNew: false,
         },
     ];

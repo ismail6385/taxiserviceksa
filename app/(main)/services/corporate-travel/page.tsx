@@ -165,8 +165,11 @@ export default function CorporateTravelPage() {
                             Private Car, Taxi and Chauffeur Service<br />{' '}
                             <span className="text-white">for Corporate Travel</span>
                         </h1>
-                        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
+                        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-4">
                             Taxi Service KSA provides the best executive transfer service for corporate clients. Professional executive transport with licensed chauffeurs in Riyadh and Jeddah.
+                        </p>
+                        <p className="text-sm text-gray-400 max-w-3xl mx-auto mb-8">
+                            Need just one trip, not a monthly account? See <Link href="/services/business/" className="text-white underline hover:text-gray-200">Business Traveler Transport</Link> for pay-per-ride booking.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link href="/booking?service=corporate-travel">
@@ -290,6 +293,7 @@ export default function CorporateTravelPage() {
                         <div>
                             <h4 className="text-base font-bold text-gray-900 mb-4">Executive Services</h4>
                             <ul className="space-y-2 text-sm">
+                                <li><Link href="/services/business/" className="text-gray-600 hover:text-black transition-colors">Business Traveler (Single Trip)</Link></li>
                                 <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black transition-colors">Chauffeur Service</Link></li>
                                 <li><Link href="/services/event-transport/" className="text-gray-600 hover:text-black transition-colors">Conference & Event Transport</Link></li>
                                 <li><Link href="/services/private-driver/" className="text-gray-600 hover:text-black transition-colors">Private Driver (Daily/Monthly)</Link></li>

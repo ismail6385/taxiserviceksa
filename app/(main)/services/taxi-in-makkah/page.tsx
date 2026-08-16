@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { MapPin, Clock, CheckCircle2, Car, Users, DollarSign, Shield, ArrowRight, Star, Plane, Briefcase } from 'lucide-react';
+import { MapPin, Clock, Car, Users, Star, Briefcase } from 'lucide-react';
 import Hero from '@/components/Hero';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
@@ -32,21 +32,21 @@ export const metadata: Metadata = {
 
 export default function TaxiInMakkahPage() {
     const fleet = [
-        { name: 'Mercedes S-Class', type: 'Luxury Sedan', pax: '3', lugg: '2', img: 'Car' },
-        { name: 'BMW', type: 'Luxury Sedan', pax: '3', lugg: '2', img: 'Car' },
-        { name: 'Cadillac Escalade', type: 'Premium SUV', pax: '7', lugg: '4', img: 'Car' },
-        { name: 'GMC', type: 'Family SUV', pax: '7', lugg: '4', img: 'Car' },
-        { name: 'Ford Taurus 2026', type: 'Executive Sedan', pax: '3', lugg: '2', img: 'Car' },
-        { name: 'Genesis 2023', type: 'Executive Sedan', pax: '3', lugg: '2', img: 'Car' },
-        { name: 'Mercedes Vito', type: 'Luxury Van', pax: '7', lugg: '4', img: 'Car' },
-        { name: 'Mercedes Sprinter', type: 'Executive Minibus', pax: '14', lugg: '4', img: 'Car' },
-        { name: 'Luxurious Bus', type: 'Large Group Transport', pax: '25', lugg: '4', img: 'Users' }
+        { name: 'GMC', type: 'Family SUV', pax: '7', lugg: '4', img: 'Car', note: 'Families making frequent hotel-to-Haram trips during prayer times.' },
+        { name: 'Cadillac Escalade', type: 'Premium SUV', pax: '7', lugg: '4', img: 'Car', note: 'VIP pilgrim groups needing a discreet, spacious ride to the Haram.' },
+        { name: 'Mercedes Vito', type: 'Luxury Van', pax: '7', lugg: '4', img: 'Car', note: 'Small Ziyarat groups touring Quba, Mina, and Jabal al-Noor.' },
+        { name: 'Mercedes Sprinter', type: 'Executive Minibus', pax: '14', lugg: '4', img: 'Car', note: 'Mid-size pilgrim groups on a full-day Ziyarat itinerary.' },
+        { name: 'Luxurious Bus', type: 'Large Group Transport', pax: '25', lugg: '4', img: 'Users', note: 'Large Umrah group logistics between hotel, Haram, and Ziyarat sites.' },
+        { name: 'Mercedes S-Class', type: 'Luxury Sedan', pax: '3', lugg: '2', img: 'Car', note: 'Solo or couple pilgrims wanting a quiet, comfortable Haram shuttle.' },
+        { name: 'BMW', type: 'Luxury Sedan', pax: '3', lugg: '2', img: 'Car', note: 'Individual hotel-to-Haram transfers, any prayer time.' },
+        { name: 'Ford Taurus 2026', type: 'Executive Sedan', pax: '3', lugg: '2', img: 'Car', note: 'Everyday hotel pickups for one or two pilgrims.' },
+        { name: 'Genesis 2023', type: 'Executive Sedan', pax: '3', lugg: '2', img: 'Car', note: 'Comfortable option for elderly pilgrims needing shorter walks.' },
     ];
 
     const serviceSchema = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "serviceType": "Taxi Service",
+        "serviceType": "Local Taxi & Ziyarat Chauffeur Service",
         "provider": {
             "@type": "LocalBusiness",
             "name": "Taxi Service KSA"
@@ -55,12 +55,12 @@ export default function TaxiInMakkahPage() {
             "@type": "City",
             "name": "Makkah"
         },
-        "description": "Premium 24/7 pre-booked taxi and chauffeur services based in Makkah, Saudi Arabia. Covering all domestic routes including Madinah and Jeddah.",
+        "description": "Local taxi and chauffeur service within Makkah for pilgrims — hotel to Al Haram shuttles, short Ziyarat site visits, and intra-city rides, available 24/7.",
         "offers": {
             "@type": "Offer",
             "availability": "https://schema.org/InStock",
             "priceCurrency": "SAR",
-            "price": "Depending on route"
+            "price": "Depending on trip"
         }
     };
 
@@ -129,37 +129,37 @@ export default function TaxiInMakkahPage() {
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
                     <div className="mb-16">
-                        <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Your Spiritual Journey Transport</span>
+                        <span className="text-primary font-bold uppercase tracking-widest text-sm mb-3 block">Hotel to Haram &amp; Local Ziyarat</span>
                         <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight mb-8">
-                            The Most Trusted Taxi in Makkah
+                            Local Taxi Service Within Makkah
                         </h2>
                         <div className="prose prose-lg text-gray-600 max-w-4xl">
-                            <p>Finding a reliable <strong>taxi in Makkah</strong> during high pilgrimage seasons can be incredibly challenging. Whether you need a quick pickup from your hotel near the Haram (such as Jabal Omar) or a comfortable long-distance ride to Madinah, we provide a pre-booked, private chauffeur service that eliminates the stress of street-hailing.</p>
-                            <p>We do not operate as a standard metered street taxi. We are a dedicated private transport provider specializing in premium, comfortable travel for Umrah groups, families, and individuals. Our transparent fixed-pricing means you never have to negotiate fares with drivers during rush hour.</p>
+                            <p>Need a quick, reliable ride from your hotel near the Haram (such as Jabal Omar) to Al Haram itself, or a short trip to a nearby Ziyarat site? This page covers local rides <strong>within Makkah</strong> — for a long-distance trip to Madinah or Jeddah, see the intercity routes below.</p>
+                            <p>We do not operate as a standard metered street taxi. Our drivers know the Haram's complex pedestrian zones and prayer-time crowd patterns, and every fare is fixed before you get in the car — no negotiating during rush hour.</p>
                         </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
                          <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:border-primary/30 transition-colors">
                             <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
-                                <DollarSign className="w-6 h-6 text-primary" />
+                                <MapPin className="w-6 h-6 text-primary" />
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">Fixed Pricing</h3>
-                            <p className="text-gray-600 text-sm">No surge pricing during prayer times or peak seasons. Know the exact fare before you get in the car.</p>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">Hotel to Haram Shuttle</h3>
+                            <p className="text-gray-600 text-sm">Direct rides between your Jabal Omar or Ajyad hotel and Al Haram, any time of day.</p>
+                        </div>
+                        <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:border-primary/30 transition-colors">
+                            <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
+                                <Star className="w-6 h-6 text-primary" />
+                            </div>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">Local Ziyarat Sites</h3>
+                            <p className="text-gray-600 text-sm">Short trips to Jabal al-Noor, Mina, Muzdalifah, and Jabal Thawr with a waiting driver.</p>
                         </div>
                         <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:border-primary/30 transition-colors">
                             <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
                                 <Clock className="w-6 h-6 text-primary" />
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">Punctual Pickups</h3>
-                            <p className="text-gray-600 text-sm">Our chauffeurs are scheduled well in advance to ensure you never miss a flight or prayer time.</p>
-                        </div>
-                        <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 hover:border-primary/30 transition-colors">
-                            <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-6">
-                                <Shield className="w-6 h-6 text-primary" />
-                            </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-3">Licensed Professionals</h3>
-                            <p className="text-gray-600 text-sm">Every vehicle is fully insured and operated by a verified driver who knows Makkah's complex road network.</p>
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">All Prayer Times</h3>
+                            <p className="text-gray-600 text-sm">Fixed fares around the clock, including Fajr and Tahajjud — no surge pricing.</p>
                         </div>
                     </div>
                 </div>
@@ -201,7 +201,8 @@ export default function TaxiInMakkahPage() {
                                         <span>Air Conditioning</span>
                                     </div>
                                 </div>
-                                
+                                <p className="text-gray-400 text-xs mt-4 border-t border-white/10 pt-3">{v.note}</p>
+
                                 <Link href="/booking/" className="mt-8 relative w-full inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-white transition-all duration-300 bg-primary/20 rounded-xl group-hover:bg-primary group-hover:text-black">
                                     <span className="relative font-bold">WhatsApp Booking for This Vehicle</span>
                                 </Link>
@@ -246,15 +247,15 @@ export default function TaxiInMakkahPage() {
                         contextName="Taxi In Makkah"
                 faqs={[
                     {
-                        question: "How do I Request a quote for a private taxi in Makkah?",
-                        shortAnswer: "Pre-book online via Email.",
-                        detailedAnswer: "You can book our Makkah taxi service directly through our website booking form or by sending us an email. Let us know your pickup location in Makkah, your destination, the date, and the size of your group. We will confirm your vehicle immediately.",
+                        question: "How far is my hotel from Al Haram?",
+                        shortAnswer: "Usually a 5–15 minute ride.",
+                        detailedAnswer: "Most Jabal Omar and Ajyad hotels are within 1–2 km of Al Haram — a 5–15 minute ride depending on prayer-time pedestrian closures. Book via WhatsApp with your hotel name and we'll confirm the fixed fare.",
                         perspectives: []
                     },
                     {
-                        question: "Can you provide a taxi from Makkah to Madinah?",
-                        shortAnswer: "Yes, 24/7 service.",
-                        detailedAnswer: "Yes, this is our most popular route. We offer direct, comfortable intercity transfers from your Makkah hotel straight to your Madinah accommodation. You can choose from our sedans or large Mercedes/GMC SUVs.",
+                        question: "Can you take me to nearby Ziyarat sites like Jabal al-Noor or Mina?",
+                        shortAnswer: "Yes, with a waiting driver.",
+                        detailedAnswer: "Yes. We cover short local Ziyarat trips to Jabal al-Noor, Mina, Muzdalifah, and Jabal Thawr, with the driver waiting on-site. For a full-day Ziyarat itinerary across Makkah, ask about our extended packages.",
                         perspectives: []
                     },
                     {
@@ -266,7 +267,7 @@ export default function TaxiInMakkahPage() {
                     {
                         question: "Are your taxi prices in Makkah fixed?",
                         shortAnswer: "Yes, 100% fixed.",
-                        detailedAnswer: "Yes. Unlike street taxis, we do not use meters. Every ride booked through us has a fixed, upfront price. You will not pay anything extra for traffic delays.",
+                        detailedAnswer: "Yes. Unlike street taxis, we do not use meters. Every local ride booked through us has a fixed, upfront price. You will not pay anything extra for traffic or prayer-time delays.",
                         perspectives: []
                     }
                 ]}

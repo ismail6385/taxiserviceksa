@@ -42,10 +42,10 @@ export const metadata: Metadata = {
 };
 
 export default function MadinahCityTransportPage() {
-    const services = [
+    const services: { title: string; desc: string; icon: typeof Star; href?: string }[] = [
         { title: "Hotel to Prophet's Mosque", desc: "Private transfer from any Madinah hotel to Masjid an-Nabawi. Driver waits for return. Available at all prayer times including Fajr.", icon: Star },
         { title: 'Madinah Airport Pickup (MED)', desc: "Meet-and-greet at Prince Mohammad bin Abdulaziz Airport (MED). Transfer to Madinah hotels. 20 km, approx. 20–30 minutes.", icon: MapPin },
-        { title: 'Madinah Ziyarat Tours', desc: "Full-day Ziyarat driver covering Masjid an-Nabawi, Quba Mosque, Masjid al-Qiblatayn, Uhud Mountain, Al-Baqi cemetery, and dates markets.", icon: Clock },
+        { title: 'Madinah Ziyarat Tours', desc: "Quba Mosque, Uhud, Al-Baqi and more — see our dedicated Ziyarat page for the full site list and package pricing.", icon: Clock, href: '/services/madinah-ziyarat/' },
         { title: 'Madinah → Makkah Transfer', desc: "Private intercity transfer from Madinah to Makkah (420 km, approx. 4.5 hours). Luxury SUV or van with full comfort and rest stops.", icon: Car },
         { title: 'Luxury Family Transport', desc: "GMC Yukon XL or Toyota Hiace for large families. Multi-stop itineraries — mosque visits, Ziyarat, shopping in Madinah's markets.", icon: Users },
         { title: '24/7 Prayer Time Transport', desc: "Available for Tahajjud, Fajr, Dhuhr, Asr, Maghrib, and Isha prayer times. No surge pricing at any hour.", icon: Shield },
@@ -156,13 +156,29 @@ export default function MadinahCityTransportPage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16"><h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Madinah Transport Services</h2></div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {services.map((s, i) => (
-                            <div key={i} className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-black hover:shadow-xl transition-all">
-                                <div className="w-14 h-14 bg-black rounded-full flex items-center justify-center mb-5"><s.icon className="w-7 h-7 text-white" /></div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">{s.title}</h3>
-                                <p className="text-gray-600 leading-relaxed text-sm">{s.desc}</p>
-                            </div>
-                        ))}
+                        {services.map((s, i) => {
+                            const card = (
+                                <>
+                                    <div className="w-14 h-14 bg-black rounded-full flex items-center justify-center mb-5"><s.icon className="w-7 h-7 text-white" /></div>
+                                    <h3 className="text-xl font-bold text-gray-900 mb-3">{s.title}</h3>
+                                    <p className="text-gray-600 leading-relaxed text-sm">{s.desc}</p>
+                                    {s.href && (
+                                        <span className="inline-flex items-center gap-1 text-sm font-bold text-black mt-4">
+                                            View full packages &amp; pricing <ArrowRight className="w-3.5 h-3.5" />
+                                        </span>
+                                    )}
+                                </>
+                            );
+                            return s.href ? (
+                                <Link key={i} href={s.href} className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-black hover:shadow-xl transition-all block">
+                                    {card}
+                                </Link>
+                            ) : (
+                                <div key={i} className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-black hover:shadow-xl transition-all">
+                                    {card}
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>

@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { Building2, Briefcase, Clock, Shield, Wifi, FileText, CheckCircle2, Car, Star, MapPin, ArrowRight } from 'lucide-react';
+import { Building2, Briefcase, Clock, Shield, Wifi, FileText, CheckCircle2, Car, Star, MapPin, ArrowRight, Zap } from 'lucide-react';
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
@@ -13,11 +13,12 @@ import QuestionForm from '@/components/seo/QuestionForm';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 import AuthorCard from '@/components/AuthorCard';
+import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Private Car, Taxi and Chauffeur Service for Business & Corporate Travel | Taxi Service KSA',
-    description: 'Premier corporate transfer service in Saudi Arabia for business professionals. Executive cars, monthly invoicing, reliable airport transfers, and event transport.',
-    keywords: ['Corporate VIP transfer Saudi Arabia', 'Business executive transfer KSA', 'Chauffeur service Riyadh', 'Jeddah business transfer', 'VIP transport Saudi Arabia'],
+    title: 'Private Car, Taxi and Chauffeur Service for Business Travelers | Single-Trip Executive Rides | Taxi Service KSA',
+    description: 'Need an executive car for one business trip? No account or contract required — book a premium chauffeur by the single ride for meetings, airport runs, or a business day out in Saudi Arabia. Pay per trip via WhatsApp.',
+    keywords: ['single trip executive car Saudi Arabia', 'business traveler taxi KSA', 'one-off chauffeur Riyadh', 'business trip car no account', 'ad-hoc executive transfer Jeddah'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/business/',
         languages: {
@@ -32,14 +33,14 @@ export const metadata: Metadata = {
 export default function BusinessPage() {
     const features = [
         {
+            icon: Zap,
+            title: 'No Account Needed',
+            desc: 'Book a single ride for one trip — no sign-up, no contract, no minimum. Pay per trip via WhatsApp.'
+        },
+        {
             icon: Clock,
             title: 'Punctuality Guaranteed',
             desc: 'We understand the value of your time. Our drivers arrive 15 minutes early for all business bookings.'
-        },
-        {
-            icon: Building2,
-            title: 'Corporate Accounts',
-            desc: 'Streamlined billing with monthly invoicing and detailed reporting for registered corporate clients.'
         },
         {
             icon: Shield,
@@ -63,11 +64,30 @@ export default function BusinessPage() {
     const schemas = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Corporate Taxi Service KSA",
-        "description": "Executive transportation services for business travelers in Saudi Arabia.",
+        "name": "Single-Trip Business Traveler Car Service KSA",
+        "description": "Pay-per-trip executive car service for business travelers in Saudi Arabia — no account or contract required.",
         "areaServed": "Saudi Arabia",
-        "serviceType": "VIP Transport"
+        "serviceType": "Single-Trip Executive Transport"
     };
+
+    const faqs = [
+        {
+            question: 'Do I need to open an account to book a business trip?',
+            answer: 'No. This service is pay-per-trip — book a single ride via WhatsApp or our online form with no sign-up, no contract, and no minimum number of trips. If your company needs regular, ongoing transport with monthly billing, see our Corporate Travel account service instead.',
+        },
+        {
+            question: 'Can I book just one ride, like an airport pickup between meetings?',
+            answer: 'Yes. Most business-traveler bookings are single trips — an airport pickup, a client meeting, or a few hours of city travel during a short visit. Each ride is booked and paid for individually.',
+        },
+        {
+            question: 'Do you provide a receipt for expense reimbursement?',
+            answer: 'Yes. Every trip generates an automatic digital invoice emailed to you immediately after the ride, formatted for expense reports.',
+        },
+        {
+            question: 'What if I need transport every day for a month or longer?',
+            answer: 'For ongoing, multi-trip business travel with monthly invoicing and a dedicated account manager, our Corporate Travel service is the better fit — it is built for exactly that.',
+        },
+    ];
 
     return (
         <div className="bg-gray-50 min-h-screen">
@@ -76,6 +96,7 @@ export default function BusinessPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
             />
+            <JsonLdFAQ faqs={faqs} />
 
             {/* Hero Section - Standardized Premium Style */}
             <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
@@ -85,26 +106,26 @@ export default function BusinessPage() {
 
                 <div className="max-w-7xl mx-auto relative z-10 text-center">
                     <span className="bg-primary/20 text-primary font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4 backdrop-blur-sm border border-primary/20">
-                        Executive Excellence
+                        No Account Required
                     </span>
                     <h1 className="text-4xl md:text-6xl font-black text-white mb-6 px-4 leading-tight">
                         Private Car, Taxi and Chauffeur Service<br />{' '}
-                        <span className="text-primary">for Business & Corporate Travel</span>
+                        <span className="text-primary">for Business Travelers</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 mb-10">
-                        Efficiency, discretion, and reliability. Powering Saudi business mobility with a fleet of premium vehicles and professional chauffeurs dedicated to your schedule.
+                        In Saudi Arabia for a single meeting, client visit, or a few days of business? Book a premium chauffeur one ride at a time — no sign-up, no contract, pay per trip.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4 mb-12">
                         <Button asChild size="lg" className="bg-primary hover:bg-emerald-600 text-white font-black text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            <Link href="https://wa.me/966552202642?text=Hello,%20I%20want%20to%20open%20a%20Corporate%20Account" target="_blank">
-                                Open Account via WhatsApp
+                            <Link href="https://wa.me/966552202642?text=Hello,%20I%20need%20a%20car%20for%20a%20business%20trip" target="_blank">
+                                Book via WhatsApp
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </Button>
                         <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-md text-white border-white/20 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl transition-all w-full sm:w-auto">
                             <Link href="/booking/">
-                                Get Corporate Quote
+                                Get a Quote
                             </Link>
                         </Button>
                     </div>
@@ -113,13 +134,13 @@ export default function BusinessPage() {
                     <div className="bg-emerald-50 rounded-2xl p-8 border border-emerald-100 shadow-sm mb-12 max-w-4xl mx-auto text-left">
                         <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
                             <CheckCircle2 className="w-5 h-5 text-emerald-700" />
-                            TL;DR: Corporate Service Quick Facts
+                            TL;DR: Business Traveler Quick Facts
                         </h2>
                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 text-sm">
-                            <li><strong className="text-gray-900">Priority:</strong> Corporate clients receive 100% on-time guarantee and priority dispatch.</li>
-                            <li><strong className="text-gray-900">Billing:</strong> Flexible monthly invoicing and automated digital receipts for expenses.</li>
+                            <li><strong className="text-gray-900">No Account:</strong> Book a single trip with no sign-up or minimum — pay per ride.</li>
+                            <li><strong className="text-gray-900">Billing:</strong> Instant digital receipt for expense reports, per trip.</li>
                             <li><strong className="text-gray-900">Fleet:</strong> Mercedes S-Class, BMW 7 Series, and GMC Yukon XL available.</li>
-                            <li><strong className="text-gray-900">Privacy:</strong> Drivers are trained for discreet, confidential executive service.</li>
+                            <li><strong className="text-gray-900">Need it daily instead?</strong> See our <Link href="/services/corporate-travel/" className="text-emerald-700 underline font-semibold">Corporate Travel account</Link> for monthly billing.</li>
                         </ul>
                     </div>
 
@@ -169,26 +190,38 @@ export default function BusinessPage() {
                         contextName="Business"
                         faqs={[
                             {
-                                question: "How do I open a corporate account?",
-                                shortAnswer: "Contact Sales.",
-                                detailedAnswer: "Please email our corporate sales team at taxiserviceksa9988@gmail.com with your company details. We will set up your account with credit terms and a dedicated booking portal.",
+                                question: "Do I need to sign up for an account?",
+                                shortAnswer: "No — book a single trip.",
+                                detailedAnswer: "No sign-up required. Message us on WhatsApp with your trip details and pay per ride. This service is built for one-off business travel, not ongoing accounts.",
                                 perspectives: [
                                     {
-                                        role: "Account Manager",
-                                        icon: "Briefcase",
-                                        insight: "Corporate accounts get priority dispatch and discounted rates for high volume usage."
+                                        role: "Booking Desk",
+                                        icon: "Compass",
+                                        insight: "Most business-traveler bookings are confirmed within 30 minutes of the WhatsApp message."
                                     }
                                 ]
                             },
                             {
                                 question: "Do you provide receipts for expense reimbursement?",
                                 shortAnswer: "Yes, instant digital receipts.",
-                                detailedAnswer: "Every trip generates an automatic digital invoice sent to your email. For corporate accounts, we provide a consolidated monthly statement.",
+                                detailedAnswer: "Every trip generates an automatic digital invoice sent to your email immediately, formatted for expense reports.",
                                 perspectives: [
                                     {
                                         role: "Finance Dept",
                                         icon: "FileText",
                                         insight: "Correctly formatted tax invoices are essential for VAT reclamation."
+                                    }
+                                ]
+                            },
+                            {
+                                question: "I need transport every day for a longer stay — is there a better option?",
+                                shortAnswer: "Yes, see Corporate Travel.",
+                                detailedAnswer: "For recurring business travel with monthly invoicing, priority booking, and a dedicated account manager, our Corporate Travel service is designed for exactly that — see /services/corporate-travel/.",
+                                perspectives: [
+                                    {
+                                        role: "Account Manager",
+                                        icon: "Briefcase",
+                                        insight: "Corporate accounts typically make sense from around 10+ trips a month."
                                     }
                                 ]
                             }
@@ -212,6 +245,12 @@ export default function BusinessPage() {
 
             <RelatedServices
                 services={[
+                    {
+                        name: 'Corporate Travel (Monthly Account)',
+                        description: 'Need transport every day, not just once? Open a company account with monthly billing instead.',
+                        href: '/services/corporate-travel',
+                        icon: Building2
+                    },
                     {
                         name: 'Airport Transfers',
                         description: 'Reliable airport pickups for your executives and guests.',

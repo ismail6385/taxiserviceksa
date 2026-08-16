@@ -206,39 +206,12 @@ export default function TaxiInDammamPage() {
         url: 'https://taxiserviceksa.com/services/taxi-in-dammam/',
     };
 
-    const ratingSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'Service',
-        name: 'Taxi in Dammam — Private Car Service',
-        serviceType: 'Private Taxi & Chauffeur Dammam',
-        provider: {
-            '@type': 'Organization',
-            name: 'Taxi Service KSA',
-            url: 'https://taxiserviceksa.com',
-            telephone: '+966553270009',
-        },
-        aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.9',
-            reviewCount: '118',
-            bestRating: '5',
-            worstRating: '1',
-        },
-        areaServed: [
-            { '@type': 'City', name: 'Dammam' },
-            { '@type': 'City', name: 'Al Khobar' },
-            { '@type': 'Place', name: 'Eastern Province' },
-        ],
-    };
-
     return (
         <div className="bg-gray-50 min-h-screen">
             <Script id="dammam-taxi-schema" type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
             <Script id="dammam-speakable" type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
-            <Script id="dammam-rating-schema" type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingSchema) }} />
             <JsonLdFAQ faqs={faqs} />
 
             {/* Hero */}
@@ -422,8 +395,8 @@ export default function TaxiInDammamPage() {
                             </p>
                             <div className="grid grid-cols-3 gap-6 border-t pt-8">
                                 <div className="text-center">
-                                    <div className="text-3xl font-black text-black">4.9</div>
-                                    <div className="text-sm text-gray-500 mt-1">Star Rating</div>
+                                    <div className="text-3xl font-black text-black">100%</div>
+                                    <div className="text-sm text-gray-500 mt-1">Fixed Rates</div>
                                 </div>
                                 <div className="text-center border-x border-gray-200">
                                     <div className="text-3xl font-black text-black">24/7</div>
