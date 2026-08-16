@@ -6,7 +6,7 @@ import { Users, Briefcase, CheckCircle2, Star, Shield, Clock, Car, MapPin, Arrow
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
-import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedFleet from '@/components/seo/RelatedFleet';
 
 export const metadata: Metadata = {
     title: 'Hyundai Staria VIP Private Transfer Saudi Arabia | Premium Van',
@@ -184,7 +184,7 @@ export default function HyundaiStariaVIPPage() {
                 />
             </div>
 
-            <RelatedLocations currentCity="VIP Fleet" />
+            <RelatedFleet currentSlug="hyundai-staria-vip" />
 
             <div className="bg-indigo-950 py-32 text-center px-4 relative overflow-hidden rounded-[4rem] mx-4 mb-12 shadow-2xl">
                 <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid-pattern.svg')] opacity-10"></div>

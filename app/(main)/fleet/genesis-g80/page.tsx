@@ -7,7 +7,7 @@ import { Users, Briefcase, CheckCircle2, Star, Shield, Clock, Car, MapPin, Arrow
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
-import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedFleet from '@/components/seo/RelatedFleet';
 
 export const metadata: Metadata = {
     title: 'Genesis G80 Transfer Saudi Arabia | Luxury Executive Transport',
@@ -185,7 +185,7 @@ export default function GenesisG80Page() {
                 />
             </div>
 
-            <RelatedLocations currentCity="VIP Fleet" />
+            <RelatedFleet currentSlug="genesis-g80" />
 
             <div className="bg-stone-950 py-32 text-center px-4 relative overflow-hidden rounded-[5rem] mx-4 mb-16 shadow-2xl">
                 <div className="absolute inset-0 bg-rose-500/5 blur-[120px] rounded-full"></div>

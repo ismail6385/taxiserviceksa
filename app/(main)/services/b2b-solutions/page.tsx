@@ -144,6 +144,30 @@ export default function B2BSolutions() {
                 </div>
             </section>
 
+            {/* Related B2B Pages */}
+            <section className="py-16 px-4 bg-gray-50 border-t border-gray-100">
+                <div className="max-w-5xl mx-auto">
+                    <h2 className="text-2xl font-black text-gray-900 mb-6 text-center">Related B2B &amp; Corporate Pages</h2>
+                    <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+                        {[
+                            { href: '/services/corporate-travel/', label: 'Corporate Travel' },
+                            { href: '/services/gcc-chauffeur-service/', label: 'GCC Chauffeur Service' },
+                            { href: '/partners/', label: 'Partner With Us' },
+                            { href: '/vip-transfer-dammam/', label: 'Dammam VIP Transfer' },
+                        ].map((link) => (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                className="flex items-center gap-2 bg-white rounded-xl px-4 py-3 text-sm font-semibold text-primary hover:bg-primary/5 transition-colors shadow-sm border border-gray-100"
+                            >
+                                <ArrowRight className="w-4 h-4 flex-shrink-0" />
+                                {link.label}
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* CTA Section */}
             <section className="py-24 px-4">
                 <div className="max-w-4xl mx-auto text-center">

@@ -7,7 +7,7 @@ import { Users, Briefcase, CheckCircle2, Star, Shield, Clock, Car, MapPin, Arrow
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
-import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedFleet from '@/components/seo/RelatedFleet';
 
 export const metadata: Metadata = {
     title: 'Hyundai Starex Private Transfer Saudi Arabia | Family Van',
@@ -191,7 +191,7 @@ export default function HyundaiStarexPage() {
                 />
             </div>
 
-            <RelatedLocations currentCity="VIP Family Fleet" />
+            <RelatedFleet currentSlug="hyundai-starex" />
 
             <div className="bg-black py-40 text-center px-4 relative overflow-hidden rounded-t-[5rem]">
                 <div className="absolute inset-0 bg-blue-500/5 blur-[120px] rounded-full"></div>

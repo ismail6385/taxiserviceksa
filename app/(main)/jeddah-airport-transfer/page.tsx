@@ -246,6 +246,8 @@ export default function JeddahAirportTransferPage() {
                             { href: '/makkah-to-madinah-taxi/', label: 'Makkah to Madinah Transfer' },
                             { href: '/madinah-airport-taxi/', label: 'Madinah Airport Taxi' },
                             { href: '/riyadh-airport-taxi/', label: 'Riyadh Airport Taxi' },
+                            { href: '/locations/jeddah/', label: 'Jeddah City Transfers' },
+                            { href: '/fleet/', label: 'Our Vehicle Fleet' },
                         ].map((link) => (
                             <Link
                                 key={link.href}

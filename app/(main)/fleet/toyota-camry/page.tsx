@@ -7,7 +7,7 @@ import { Users, Briefcase, CheckCircle2, Star, Shield, Clock, Car, MapPin, Arrow
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
-import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedFleet from '@/components/seo/RelatedFleet';
 
 export const metadata: Metadata = {
     title: 'Toyota Camry Private Transfer Saudi Arabia | Premium Sedan',
@@ -182,7 +182,7 @@ export default function ToyotaCamryPage() {
                 />
             </div>
 
-            <RelatedLocations currentCity="Executive Fleet" />
+            <RelatedFleet currentSlug="toyota-camry" />
 
             <div className="bg-emerald-950 py-32 text-center px-4 relative overflow-hidden rounded-[5rem] mx-4 mb-16 shadow-2xl border border-emerald-500/10">
                 <div className="absolute inset-0 bg-emerald-500/5 blur-[120px] rounded-full"></div>

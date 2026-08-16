@@ -102,18 +102,18 @@ export default function JeddahPortTaxiTransferPage() {
                     <h2 className="text-3xl font-black text-gray-900 mb-8">Popular Port Transfers</h2>
                     <div className="grid md:grid-cols-3 gap-6">
                         {[
-                            { to: 'Makkah Al Haram', price: 'From SAR 300', note: 'Direct Umrah pilgrim transfer. 1 hour drive.' },
-                            { to: 'Jeddah Airport (JED)', price: 'From SAR 120', note: 'KAIA flight connection transfers. 35 mins.' },
-                            { to: 'Jeddah City Hotels', price: 'From SAR 100', note: 'Corniche & downtown hotel drops. 20 mins.' },
+                            { to: 'Makkah Al Haram', price: 'From SAR 300', note: 'Direct Umrah pilgrim transfer. 1 hour drive.', href: '/routes/jeddah-makkah/' },
+                            { to: 'Jeddah Airport (JED)', price: 'From SAR 120', note: 'KAIA flight connection transfers. 35 mins.', href: '/jeddah-airport-transfer/' },
+                            { to: 'Jeddah City Hotels', price: 'From SAR 100', note: 'Corniche & downtown hotel drops. 20 mins.', href: '/services/jeddah-corniche-hotel-taxi/' },
                         ].map((r, i) => (
-                            <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:border-blue-300 transition-all">
+                            <Link key={i} href={r.href} className="block bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:border-blue-300 hover:shadow-md transition-all">
                                 <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
                                     <Anchor className="w-5 h-5 text-blue-600" />
                                 </div>
                                 <h3 className="font-bold text-gray-900 text-lg mb-1">{r.to}</h3>
                                 <p className="text-gray-500 text-xs mb-4 leading-relaxed">{r.note}</p>
                                 <p className="font-black text-blue-700">{r.price}</p>
-                            </div>
+                            </Link>
                         ))}
                     </div>
                 </section>
@@ -147,6 +147,30 @@ export default function JeddahPortTaxiTransferPage() {
                                 <h3 className="font-bold text-gray-900 mb-3 text-lg">{faq.question}</h3>
                                 <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
                             </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* Related Pages */}
+                <section className="bg-gray-100 rounded-3xl p-8">
+                    <h2 className="text-2xl font-black text-gray-900 mb-6">Related Jeddah Services</h2>
+                    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        {[
+                            { href: '/locations/jeddah/', label: 'Jeddah City Transport' },
+                            { href: '/services/gcc-chauffeur-service/', label: 'GCC Chauffeur Service' },
+                            { href: '/services/umrah-transport/', label: 'Umrah Transport' },
+                            { href: '/routes/jeddah-makkah/', label: 'Jeddah to Makkah Transfer' },
+                            { href: '/fleet/', label: 'Our Vehicle Fleet' },
+                            { href: '/services/vip-chauffeur/', label: 'VIP Chauffeur' },
+                        ].map((link) => (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                className="flex items-center gap-2 bg-white rounded-xl px-4 py-3 text-sm font-semibold text-blue-700 hover:bg-blue-50 hover:text-blue-800 transition-colors shadow-sm border border-gray-100"
+                            >
+                                <ArrowRight className="w-4 h-4 flex-shrink-0" />
+                                {link.label}
+                            </Link>
                         ))}
                     </div>
                 </section>

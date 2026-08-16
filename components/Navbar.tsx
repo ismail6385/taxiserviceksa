@@ -37,6 +37,7 @@ export default function Navbar() {
                 { name: 'Airport Transfers', href: '/services/airport-transfers/', desc: '24/7 MED & JED pickups' },
                 { name: 'Business & Executive', href: '/services/business/', desc: 'Luxury chauffeur service' },
                 { name: 'Intercity Transfers', href: '/services/intercity/', desc: 'Across all KSA cities' },
+                { name: 'Our Fleet', href: '/fleet/', desc: 'Compare sedans, SUVs, vans & coaches' },
             ]
         },
         {

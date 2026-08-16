@@ -2,7 +2,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
-import { Plane, Clock, MapPin, CheckCircle2, Shield, User, ArrowRight } from 'lucide-react';
+import { Plane, Clock, MapPin, CheckCircle2, Shield, User, ArrowRight, Car, Navigation } from 'lucide-react';
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
@@ -96,6 +96,49 @@ export default function MadinahAirportTaxiPage() {
                             <p className="text-gray-600 text-lg leading-relaxed">
                                 Our drivers know all the hotels in the Central Zone (Markaziyah) and can navigate the traffic restrictions efficiently to get you to your lobby quickly.
                             </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Internal Links */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
+                <div className="max-w-7xl mx-auto">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                        <div>
+                            <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><MapPin className="w-4 h-4" /> Madinah Routes</h4>
+                            <ul className="space-y-2 text-sm">
+                                <li><Link href="/locations/madinah/" className="text-gray-600 hover:text-black">Madinah City Transport</Link></li>
+                                <li><Link href="/routes/madinah-makkah/" className="text-gray-600 hover:text-black">Madinah → Makkah Route</Link></li>
+                                <li><Link href="/routes/jeddah-madinah/" className="text-gray-600 hover:text-black">Jeddah → Madinah Route</Link></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Car className="w-4 h-4" /> Fleet</h4>
+                            <ul className="space-y-2 text-sm">
+                                <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black">GMC Yukon (recommended)</Link></li>
+                                <li><Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-black">Toyota Hiace (groups)</Link></li>
+                                <li><Link href="/fleet/toyota-camry/" className="text-gray-600 hover:text-black">Toyota Camry</Link></li>
+                                <li><Link href="/fleet/" className="text-black font-bold hover:underline">All Fleet →</Link></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Shield className="w-4 h-4" /> Related Services</h4>
+                            <ul className="space-y-2 text-sm">
+                                <li><Link href="/services/madinah-ziyarat/" className="text-gray-600 hover:text-black">Madinah Ziyarat</Link></li>
+                                <li><Link href="/services/umrah-transport/" className="text-gray-600 hover:text-black">Umrah Transport</Link></li>
+                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black">VIP Chauffeur</Link></li>
+                                <li><Link href="/services/bilingual-chauffeur/" className="text-gray-600 hover:text-black">English-Speaking Driver</Link></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Navigation className="w-4 h-4" /> Other Airports</h4>
+                            <ul className="space-y-2 text-sm">
+                                <li><Link href="/services/airport-transfers/" className="text-gray-600 hover:text-black">All Saudi Airports</Link></li>
+                                <li><Link href="/jeddah-airport-transfer/" className="text-gray-600 hover:text-black">Jeddah Airport (JED)</Link></li>
+                                <li><Link href="/riyadh-airport-taxi/" className="text-gray-600 hover:text-black">Riyadh Airport (RUH)</Link></li>
+                                <li><Link href="/dammam-airport-taxi/" className="text-gray-600 hover:text-black">Dammam Airport (DMM)</Link></li>
+                            </ul>
                         </div>
                     </div>
                 </div>

@@ -7,7 +7,7 @@ import { Users, Briefcase, CheckCircle2, Star, Shield, Clock, Car, MapPin, Arrow
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
-import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedFleet from '@/components/seo/RelatedFleet';
 
 export const metadata: Metadata = {
     title: 'Ford Taurus 2026 Transfer Saudi Arabia | Premium Sedan',
@@ -189,7 +189,7 @@ export default function FordTaurusPage() {
                 />
             </div>
 
-            <RelatedLocations currentCity="VIP Fleet" />
+            <RelatedFleet currentSlug="ford-taurus" />
 
             <div className="bg-blue-900 py-32 text-center px-4 relative overflow-hidden rounded-t-[5rem]">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>

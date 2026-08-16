@@ -470,7 +470,8 @@ export default function DammamAirportTaxiPage() {
                                 <li><Link href="/services/airport-transfers/" className="text-gray-600 hover:text-black">All Saudi Airports</Link></li>
                                 <li><Link href="/riyadh-airport-taxi/" className="text-gray-600 hover:text-black">Riyadh Airport (RUH)</Link></li>
                                 <li><Link href="/tabuk-airport-taxi/" className="text-gray-600 hover:text-black">Tabuk Airport (TUU)</Link></li>
-                                <li><Link href="/guides/jeddah-airport-guide/" className="text-gray-600 hover:text-black">Jeddah Airport (JED)</Link></li>
+                                <li><Link href="/jeddah-airport-transfer/" className="text-gray-600 hover:text-black">Jeddah Airport (JED)</Link></li>
+                                <li><Link href="/locations/dammam/" className="text-gray-600 hover:text-black">Dammam City Transport</Link></li>
                             </ul>
                         </div>
                     </div>

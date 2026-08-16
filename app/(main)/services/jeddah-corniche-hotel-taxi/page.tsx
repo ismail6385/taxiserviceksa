@@ -155,6 +155,30 @@ export default function JeddahCornicheHotelTaxiPage() {
                         ))}
                     </div>
                 </section>
+
+                {/* Related Pages */}
+                <section className="bg-gray-100 rounded-3xl p-8">
+                    <h2 className="text-2xl font-black text-gray-900 mb-6">Related Jeddah Services</h2>
+                    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        {[
+                            { href: '/locations/jeddah/', label: 'Jeddah City Transport' },
+                            { href: '/services/taxi-in-jeddah/', label: 'Taxi in Jeddah' },
+                            { href: '/jeddah-airport-transfer/', label: 'Jeddah Airport Transfer' },
+                            { href: '/routes/jeddah-makkah/', label: 'Jeddah to Makkah Transfer' },
+                            { href: '/fleet/', label: 'Our Vehicle Fleet' },
+                            { href: '/services/vip-chauffeur/', label: 'VIP Chauffeur' },
+                        ].map((link) => (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                className="flex items-center gap-2 bg-white rounded-xl px-4 py-3 text-sm font-semibold text-emerald-700 hover:bg-emerald-50 hover:text-emerald-800 transition-colors shadow-sm border border-gray-100"
+                            >
+                                <ArrowRight className="w-4 h-4 flex-shrink-0" />
+                                {link.label}
+                            </Link>
+                        ))}
+                    </div>
+                </section>
             </div>
         </div>
     );

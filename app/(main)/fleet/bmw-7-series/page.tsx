@@ -7,7 +7,7 @@ import { Users, Briefcase, CheckCircle2, Star, Shield, Clock, Car, MapPin, Arrow
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
-import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedFleet from '@/components/seo/RelatedFleet';
 
 export const metadata: Metadata = {
     title: 'BMW 7-Series Chauffeur Saudi Arabia | Luxury Sedan',
@@ -193,7 +193,7 @@ export default function BMW7SeriesPage() {
                 />
             </div>
 
-            <RelatedLocations currentCity="VIP Fleet" />
+            <RelatedFleet currentSlug="bmw-7-series" />
 
             <div className="bg-black py-40 text-center px-4 relative overflow-hidden">
                 <div className="absolute inset-0 bg-indigo-500/5 blur-[120px] rounded-full -mt-40"></div>

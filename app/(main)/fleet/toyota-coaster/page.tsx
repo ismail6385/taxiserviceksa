@@ -7,7 +7,7 @@ import { Users, Briefcase, CheckCircle2, Star, Shield, Clock, Car, MapPin, Arrow
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
-import RelatedLocations from '@/components/seo/RelatedLocations';
+import RelatedFleet from '@/components/seo/RelatedFleet';
 
 export const metadata: Metadata = {
     title: 'Toyota Coaster Private Transfer Saudi Arabia | 17-Seater Bus',
@@ -187,7 +187,7 @@ export default function ToyotaCoasterPage() {
                 />
             </div>
 
-            <RelatedLocations currentCity="VIP Group Fleet" />
+            <RelatedFleet currentSlug="toyota-coaster" />
 
             <div className="bg-blue-900 py-32 text-center px-4 relative overflow-hidden rounded-[4rem] mx-4 mb-16 shadow-2xl">
                 <div className="absolute inset-0 bg-black/10"></div>

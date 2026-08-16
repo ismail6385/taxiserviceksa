@@ -447,7 +447,8 @@ export default function RiyadhAirportTaxiPage() {
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/services/airport-transfers/" className="text-gray-600 hover:text-black">All Saudi Airports</Link></li>
                                 <li><Link href="/madinah-airport-taxi/" className="text-gray-600 hover:text-black">Madinah Airport (MED)</Link></li>
-                                <li><Link href="/locations/jeddah/" className="text-gray-600 hover:text-black">Jeddah Airport (JED)</Link></li>
+                                <li><Link href="/jeddah-airport-transfer/" className="text-gray-600 hover:text-black">Jeddah Airport (JED)</Link></li>
+                                <li><Link href="/locations/riyadh/" className="text-gray-600 hover:text-black">Riyadh City Transport</Link></li>
                             </ul>
                         </div>
                     </div>
