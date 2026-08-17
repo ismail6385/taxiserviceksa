@@ -27,6 +27,7 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 import AuthorCard from '@/components/AuthorCard';
+import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
     title: 'Private Car, Taxi and Chauffeur Service for Intercity Travel | Taxi Service KSA',
@@ -114,6 +115,7 @@ export default function IntercityServicePage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
             />
+            <JsonLdFAQ faqs={faqs} />
 
             {/* Hero Section - Standardized Premium Style */}
             <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">

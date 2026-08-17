@@ -6,6 +6,7 @@ import { MapPin, Clock, CheckCircle2, Car, Users, DollarSign, Shield, ArrowRight
 import Hero from '@/components/Hero';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
+import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Jeddah | Local City Rides | Taxi Service KSA',
@@ -63,6 +64,13 @@ export default function TaxiInJeddahPage() {
         }
     };
 
+    const faqs = [
+        { question: 'Can I book a short local ride within Jeddah city?', answer: 'Yes. This service covers rides entirely within Jeddah — hotel to hotel, a mall run, or a meeting across town. Most local trips can be booked and confirmed the same day via WhatsApp.' },
+        { question: 'Do you cover Jeddah Corniche hotels and the waterfront?', answer: 'Yes. We provide lobby pickups at Ritz-Carlton, Shangri-La, Waldorf Astoria, and every major hotel on the Corniche.' },
+        { question: 'What about shopping trips to Red Sea Mall or Mall of Arabia?', answer: 'Yes. We handle mall and shopping-district drop-offs across Jeddah, with the option to have the driver wait or return at a scheduled time.' },
+        { question: 'I need an airport pickup instead — where do I book that?', answer: 'This page is for rides within Jeddah city. For a KAIA airport pickup, book through our Jeddah Airport Transfer service, built specifically for flight-tracked arrivals.' },
+    ];
+
     return (
         <div className="bg-gray-50 min-h-screen">
             <Script
@@ -70,6 +78,7 @@ export default function TaxiInJeddahPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
             />
+            <JsonLdFAQ faqs={faqs} />
 
             <Hero
                 images={['/locations/jeddah.webp', '/hero-slide-1.webp']}

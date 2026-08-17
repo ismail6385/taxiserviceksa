@@ -7,6 +7,7 @@ import { MapPin, Clock, Car, Users, Star, Briefcase } from 'lucide-react';
 import Hero from '@/components/Hero';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
+import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Makkah | Hotel to Haram & Ziyarat | Taxi Service KSA',
@@ -64,6 +65,13 @@ export default function TaxiInMakkahPage() {
         }
     };
 
+    const faqs = [
+        { question: 'How far is my hotel from Al Haram?', answer: 'Most Jabal Omar and Ajyad hotels are within 1-2 km of Al Haram — a 5-15 minute ride depending on prayer-time pedestrian closures.' },
+        { question: 'Can you take me to nearby Ziyarat sites like Jabal al-Noor or Mina?', answer: 'Yes. We cover short local Ziyarat trips to Jabal al-Noor, Mina, Muzdalifah, and Jabal Thawr, with the driver waiting on-site.' },
+        { question: 'Do you have large vehicles for families in Makkah?', answer: 'Yes. We have 7-seater vehicles like the Cadillac Escalade and GMC, plus larger options like the Mercedes Vito, Mercedes Sprinter (14 pax), and a Luxurious Bus for up to 25 people.' },
+        { question: 'Are your taxi prices in Makkah fixed?', answer: 'Yes, 100% fixed. We do not use meters — every local ride has a fixed, upfront price with no extra charge for traffic or prayer-time delays.' },
+    ];
+
     return (
         <div className="bg-gray-50 min-h-screen">
             <Script
@@ -71,6 +79,7 @@ export default function TaxiInMakkahPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
             />
+            <JsonLdFAQ faqs={faqs} />
 
             <Hero
                 images={['/makkah-clock-tower.webp', '/makkah-kaaba-night.webp']}

@@ -21,11 +21,13 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from '@/components/ui/accordion';
+import { ArrowRight } from 'lucide-react';
+import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
-    title: 'Private Car, Taxi and Chauffeur Service for Tours & Sightseeing | Taxi Service KSA',
-    description: 'Discover Saudi Arabia with private guided tours. Makkah & Madinah Ziyarat, AlUla Heritage sites, Taif sightseeing, and Jeddah historical tours. Get a quote for your private driver today.',
-    keywords: ['Saudi Arabia tours', 'Madinah Ziyarat tour', 'AlUla heritage tour', 'Taif sightseeing', 'Jeddah historical tour', 'Private tour driver KSA'],
+    title: 'Private Car, Taxi and Chauffeur Service for Combination Tours & Multi-Stop Itineraries | Taxi Service KSA',
+    description: 'Combine multiple Saudi Arabia sights in one private hire — Jeddah Al-Balad + Corniche, Taif city + cable car, or a custom multi-city day. Not sure which tour fits you? Compare all our tour pages here.',
+    keywords: ['Saudi Arabia multi-stop tour', 'combination day trip Saudi Arabia', 'custom tour itinerary KSA', 'Taif Jeddah combined tour', 'private tour driver KSA'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/services/tours/',
         languages: {
@@ -81,12 +83,31 @@ export default function ToursPage() {
         }
     ];
 
+    const faqs = [
+        {
+            question: 'Do the drivers speak English?',
+            answer: 'Yes — our tour drivers are selected for their language skills and ability to communicate basic historical information about the sites. For specialized historical lectures, we recommend hiring a licensed tour guide, but our drivers provide excellent logistical and basic historical support.',
+        },
+        {
+            question: 'Are entry tickets to sites included?',
+            answer: 'No — our prices cover the private vehicle, fuel, and driver only. Entry tickets to gated museums or AlUla sites must be purchased separately (e.g. via the Experience AlUla app). Mosques and open historical sites are free.',
+        },
+        {
+            question: 'Can you build a custom multi-stop itinerary?',
+            answer: 'Yes — this is what this page is for. Tell us which sites you want to combine (across cities or over several days) via WhatsApp, and we\'ll build a private itinerary with one driver for the whole trip.',
+        },
+        {
+            question: 'How is this different from booking Heritage Tours or Tourism Transport directly?',
+            answer: 'Those pages are built for one specific destination — AlUla heritage sites, or general city/desert sightseeing. This page is for combining multiple stops (possibly across more than one of those categories) into a single custom-planned trip.',
+        },
+    ];
+
     const schemas = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Saudi Arabia Private Tours",
+        "name": "Saudi Arabia Combination Tours & Custom Itineraries",
 
-        "description": "Private sightseeing and historical tours across Saudi Arabia including Ziyarat and Heritage sites.",
+        "description": "Private multi-stop and combination day trips across Saudi Arabia — combining sights across cities into one custom-planned itinerary.",
         "areaServed": "Saudi Arabia",
         "serviceType": "TourOperator"
     };
@@ -98,16 +119,17 @@ export default function ToursPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
             />
+            <JsonLdFAQ faqs={faqs} />
 
             <Hero
                 images={['/hero-slide-2.webp', '/alula-hegra.webp']}
-                h1Text="Private Car, Taxi and Chauffeur Service for Tours & Sightseeing"
+                h1Text="Private Car, Taxi and Chauffeur Service for Combination Tours & Multi-Stop Itineraries"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Discover the Kingdom
+                        Build Your Own Day
                     </span>
                 }
-                subtitle="Historical & Cultural Journeys"
+                subtitle="Combine Multiple Sights in One Private Hire"
                 location="KSA Historic Sites"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
@@ -137,10 +159,57 @@ export default function ToursPage() {
                 />
             </div>
 
+            {/* Combination Itineraries — the genuine differentiator for this page */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-gray-900 mb-2">Combination Day Trips</h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto">Want more than one stop in a single hire? These combine sights across our other tour pages into one day.</p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {[
+                            { name: 'Jeddah Al-Balad + Corniche', duration: 'Half Day', desc: 'Historic Old Jeddah in the morning, then the waterfront Corniche and King Fahd Fountain in the afternoon — one driver, one booking.' },
+                            { name: 'Taif City + Cable Car', duration: 'Full Day', desc: 'Shubra Palace and the Rose Factory, then a ride up the Al Hada cable car — see our Cable Car page for the ride itself.' },
+                            { name: 'Custom Multi-City Itinerary', duration: 'Your Schedule', desc: "Want to combine sites across two or more of our tour pages — say, AlUla plus Madinah Ziyarat over a few days? Tell us your plan on WhatsApp and we'll build it." },
+                        ].map((combo, i) => (
+                            <div key={i} className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-emerald-500 hover:shadow-lg transition-all">
+                                <h3 className="text-xl font-bold text-gray-900 mb-1">{combo.name}</h3>
+                                <div className="flex items-center gap-1 text-sm text-emerald-600 font-semibold mb-4"><Clock className="w-4 h-4" /> {combo.duration}</div>
+                                <p className="text-gray-600 text-sm leading-relaxed">{combo.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Tour Finder — which single-destination page fits you */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-100">
+                <div className="max-w-5xl mx-auto">
+                    <div className="text-center mb-10">
+                        <h2 className="text-3xl font-bold text-gray-900 mb-2">Not Sure Which Tour Fits You?</h2>
+                        <p className="text-gray-600">If you know exactly what you want, these dedicated pages go deeper than a combo day allows.</p>
+                    </div>
+                    <div className="bg-white rounded-2xl border border-gray-200 divide-y divide-gray-100 overflow-hidden">
+                        {[
+                            { want: 'AlUla / Hegra heritage sites specifically', go: 'Heritage Tours', href: '/services/heritage-tours/' },
+                            { want: 'General city, desert, or shopping sightseeing', go: 'Tourism Transport', href: '/services/tourism-transport/' },
+                            { want: 'Madinah pilgrimage sites — Quba, Uhud, Seven Mosques', go: 'Madinah Ziyarat', href: '/services/madinah-ziyarat/' },
+                        ].map((row, i) => (
+                            <Link key={i} href={row.href} className="flex items-center justify-between gap-4 p-5 hover:bg-gray-50 transition-colors group">
+                                <span className="text-gray-700 text-sm">{row.want}</span>
+                                <span className="flex items-center gap-1 text-emerald-700 font-bold text-sm whitespace-nowrap">
+                                    {row.go} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </span>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* Popular Tours Grid */}
             <section className="py-16 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">Popular Tour Packages</h2>
+                    <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">Or Book a Single-Site Tour</h2>
                     <p className="text-center text-gray-600 mb-12">Curated experiences for spiritual and cultural enrichment</p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -228,6 +297,18 @@ export default function ToursPage() {
                                             insight: "We can advise you on where and how to book tickets, but we focus on the logistics of getting you there comfortably."
                                         }
                                     ]
+                                },
+                                {
+                                    question: "Can you build a custom multi-stop itinerary?",
+                                    shortAnswer: "Yes, that's this page.",
+                                    detailedAnswer: "Tell us which sites you want to combine — across cities or over several days — via WhatsApp, and we'll build a private itinerary with one driver for the whole trip.",
+                                    perspectives: []
+                                },
+                                {
+                                    question: "How is this different from Heritage Tours or Tourism Transport?",
+                                    shortAnswer: "Those are single-destination.",
+                                    detailedAnswer: "Heritage Tours and Tourism Transport are each built for one specific destination or category. This page is for combining multiple stops, possibly across more than one of those categories, into a custom-planned trip.",
+                                    perspectives: []
                                 }
                             ]}
                         />
@@ -258,7 +339,4 @@ export default function ToursPage() {
 function DefaultUserIcon(props: any) {
     return <Users {...props} />
 }
-
-import { ArrowRight } from 'lucide-react';
-
 

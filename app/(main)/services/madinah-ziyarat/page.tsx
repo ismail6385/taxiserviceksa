@@ -16,6 +16,7 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 import PricingTable from '@/components/PricingTable';
 import BookingProcess from '@/components/BookingProcess';
 import ZiyaratSites from '@/components/ZiyaratSites';
+import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 
 export const metadata: Metadata = {
@@ -59,9 +60,29 @@ export default function MadinahZiyaratPage() {
     ];
 
 
+    const faqs = [
+        {
+            question: 'Can we customize the Ziyarat list?',
+            answer: 'Yes, fully flexible. The packages listed are standard suggestions — you can add or remove sites. Simply tell the driver where you want to go; charges are based on time usage.',
+        },
+        {
+            question: 'Are ladies allowed in the graveyard visits?',
+            answer: 'For Baqi and the Uhud martyrs, ladies can stand at the outer fence boundaries to offer Salam. Access inside the graveyard enclosure is generally restricted to men.',
+        },
+        {
+            question: 'How much does a Madinah Ziyarat tour cost?',
+            answer: 'Packages start from SAR 150, covering the group (up to 4 passengers in a sedan) for the Standard Ziyarat route. Larger vans are available for bigger groups — contact us via WhatsApp for an exact quote based on your group size and chosen package.',
+        },
+        {
+            question: "What's included in the Ziyarat package price?",
+            answer: 'Every package includes a licensed local driver-guide, hotel pickup and drop-off, and complimentary dates and water during the trip. There are no hidden fees beyond the quoted package price.',
+        },
+    ];
+
     return (
         <div className="bg-gray-50 min-h-screen">
-            <JsonLdLocation 
+            <JsonLdFAQ faqs={faqs} />
+            <JsonLdLocation
                 cityName="Madinah Ziyarat"
                 description="Comprehensive private taxi tours to holy Islamic sites in Madinah. Visit Masjid Quba, Mount Uhud, and the Seven Mosques with experienced local drivers."
                 services={[
@@ -260,6 +281,18 @@ export default function MadinahZiyaratPage() {
                                             insight: "Our drivers respect these etiquettes and will park in appropriate spots for the sisters to see comfortably."
                                         }
                                     ]
+                                },
+                                {
+                                    question: "How much does a Madinah Ziyarat tour cost?",
+                                    shortAnswer: "Starting from SAR 150.",
+                                    detailedAnswer: "Packages start from SAR 150, covering the group (up to 4 passengers in a sedan) for the Standard Ziyarat route. Larger vans are available for bigger groups.",
+                                    perspectives: []
+                                },
+                                {
+                                    question: "What's included in the price?",
+                                    shortAnswer: "Guide, pickup, dates & water.",
+                                    detailedAnswer: "Every package includes a licensed local driver-guide, hotel pickup and drop-off, and complimentary dates and water during the trip — no hidden fees.",
+                                    perspectives: []
                                 }
                             ]}
                         />

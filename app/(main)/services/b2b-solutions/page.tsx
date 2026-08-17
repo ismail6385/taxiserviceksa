@@ -15,6 +15,8 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Hero from '@/components/Hero';
+import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
+import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata = {
     title: 'Private Car, Taxi and Chauffeur Service for B2B Corporate Solutions | Taxi Service KSA',
@@ -32,8 +34,28 @@ export const metadata = {
 };
 
 export default function B2BSolutions() {
+    const faqs = [
+        {
+            question: 'How do I become a B2B partner?',
+            answer: 'Message our B2B desk on WhatsApp or email with your company details — travel agency, Umrah operator, hotel, or corporate account. We\'ll discuss your typical booking volume and set up fixed net rates.',
+        },
+        {
+            question: 'Is there a minimum booking volume to qualify?',
+            answer: 'No fixed minimum. We work with agencies of all sizes, from occasional group bookings to regular monthly volume — rates and terms scale with your typical usage.',
+        },
+        {
+            question: 'How does invoicing work for partners?',
+            answer: 'Partners receive consolidated invoicing for their bookings rather than paying per trip. Payment terms are agreed individually based on your booking volume.',
+        },
+        {
+            question: 'Can you handle last-minute bulk bookings for Umrah groups?',
+            answer: 'For existing partners with an established booking history, we prioritize urgent fleet allocation for pilgrim groups. New partners should reach out as early as possible for large or time-sensitive bookings.',
+        },
+    ];
+
     return (
         <main className="min-h-screen bg-white">
+            <JsonLdFAQ faqs={faqs} />
             <Hero
                 h1Text="Private Car, Taxi and Chauffeur Service for B2B Corporate Solutions"
                 subtitle="We provide reliable, high-capacity, and luxury transport solutions for corporate clients and global Umrah agencies."
@@ -125,8 +147,8 @@ export default function B2BSolutions() {
                                     <div className="text-gray-400 text-sm font-bold uppercase tracking-widest">Arrival On-Time</div>
                                 </div>
                                 <div className="bg-white/5 p-8 rounded-[2rem] border border-white/10 backdrop-blur-sm">
-                                    <div className="text-4xl font-black text-white mb-2">150+</div>
-                                    <div className="text-gray-400 text-sm font-bold uppercase tracking-widest">Global Partners</div>
+                                    <div className="text-4xl font-black text-white mb-2">0</div>
+                                    <div className="text-gray-400 text-sm font-bold uppercase tracking-widest">Hidden Fees</div>
                                 </div>
                             </div>
                             <div className="space-y-6 mt-12">
@@ -135,12 +157,27 @@ export default function B2BSolutions() {
                                     <div className="text-gray-400 text-sm font-bold uppercase tracking-widest">B2B Desk Support</div>
                                 </div>
                                 <div className="bg-white/5 p-8 rounded-[2rem] border border-white/10 backdrop-blur-sm">
-                                    <div className="text-4xl font-black text-primary mb-2">5/5</div>
-                                    <div className="text-gray-400 text-sm font-bold uppercase tracking-widest">Average Rating</div>
+                                    <div className="text-4xl font-black text-primary mb-2">2016</div>
+                                    <div className="text-gray-400 text-sm font-bold uppercase tracking-widest">Operating Since</div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            {/* FAQ */}
+            <section className="py-16 px-4 bg-white">
+                <div className="max-w-7xl mx-auto">
+                    <MicroSemanticFAQ
+                        contextName="B2B Solutions"
+                        faqs={faqs.map((f) => ({
+                            question: f.question,
+                            shortAnswer: f.answer.split('.')[0] + '.',
+                            detailedAnswer: f.answer,
+                            perspectives: [],
+                        }))}
+                    />
                 </div>
             </section>
 

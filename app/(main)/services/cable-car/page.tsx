@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { Mountain, Cloud, MapPin, Camera, Car, Star, Navigation, Clock } from 'lucide-react';
+import { Mountain, Cloud, MapPin, Camera, Car, Star, Navigation, Clock, Users, Briefcase } from 'lucide-react';
 
 import Hero from '@/components/Hero';
 import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
@@ -13,6 +13,7 @@ import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
+import JsonLdFAQ from '@/components/JsonLdFAQ';
 
 export const metadata: Metadata = {
     title: 'Private Car, Taxi and Chauffeur Service for Cable Car Transfers | Taxi Service KSA',
@@ -54,6 +55,35 @@ export default function CableCarPage() {
         }
     ];
 
+    const vehicles = [
+        { name: 'Toyota Camry', seats: 3, note: 'Solo or couple riders on the paved Al Hada road to Taif.', link: '/fleet/toyota-camry/' },
+        { name: 'GMC Yukon XL', seats: 7, note: 'Best for the winding mountain switchbacks up to Abha — higher clearance and a steadier ride.', link: '/fleet/gmc-yukon/' },
+        { name: 'Toyota Hiace', seats: 11, note: 'Group trips to Habala Village or a combined Taif + Abha itinerary.', link: '/fleet/toyota-hiace/' },
+    ];
+
+    const faqs = [
+        {
+            question: "Can the taxi wait for us while we ride the cable car?",
+            answer: "Yes. The round trip plus time at the destination can take several hours — you can request a 'Wait and Return' service so the same driver is ready when you come back down. Booking a separate return taxi is harder in remote mountain areas, so keeping the driver is the safer option.",
+        },
+        {
+            question: "Is the cable car ticket included in the taxi fare?",
+            answer: "No. We provide transportation to the cable car station only — tickets are purchased separately at the venue counter.",
+        },
+        {
+            question: "What vehicle is best for the mountain roads to Abha or Taif?",
+            answer: "The Al Hada road to Taif has sharp switchbacks and steep grades, so a GMC Yukon XL or similar SUV gives a steadier ride than a sedan. A Toyota Camry is fine for the paved approach roads if you're traveling solo or as a couple.",
+        },
+        {
+            question: "How long does the drive take to reach the cable car stations?",
+            answer: "From Taif city, the Al Hada cable car station is roughly 20-30 minutes by road. From Abha city, the Green Mountain and Habala Village stations are typically 15-25 minutes depending on your starting hotel.",
+        },
+        {
+            question: "Can we combine a Taif cable car trip with sightseeing?",
+            answer: "Yes. Many visitors combine the cable car with a Taif city tour (Shubra Palace, Al Rudaf Park) in the same day-hire booking — ask your driver to build a combined itinerary when you book.",
+        },
+    ];
+
     const schemas = {
         "@context": "https://schema.org",
         "@type": "Service",
@@ -71,6 +101,7 @@ export default function CableCarPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
             />
+            <JsonLdFAQ faqs={faqs} />
 
             <Hero
                 images={['/locations/taif.webp', '/hero-slide-3.webp']}
@@ -132,6 +163,26 @@ export default function CableCarPage() {
                 </div>
             </section>
 
+            {/* Fleet for Mountain Roads */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Choosing the Right Vehicle for Mountain Roads</h2>
+                        <p className="text-gray-600 max-w-2xl mx-auto">The Al Hada and Abha routes involve steep grades and switchbacks — vehicle choice matters more here than on flat city roads.</p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {vehicles.map((v, i) => (
+                            <Link key={i} href={v.link} className="block bg-gray-50 rounded-2xl p-6 border-2 border-gray-200 hover:border-emerald-500 hover:shadow-lg transition-all">
+                                <Car className="w-8 h-8 text-emerald-600 mb-4" />
+                                <h3 className="font-bold text-gray-900 text-lg mb-1">{v.name}</h3>
+                                <div className="flex items-center gap-1 text-xs text-gray-500 mb-3"><Users className="w-3.5 h-3.5" /> {v.seats} passengers</div>
+                                <p className="text-gray-600 text-sm">{v.note}</p>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
                     <MicroSemanticFAQ
@@ -140,7 +191,7 @@ export default function CableCarPage() {
                             {
                                 question: "Can the taxi wait for us while we ride the cable car?",
                                 shortAnswer: "Yes, waiting time available.",
-                                detailedAnswer: "The round trip plus time at the destination (e.g., Al Kar water park) can take several hours. You can Request a quote for a 'Wait and Return' service so the driver is ready when you come back up.",
+                                detailedAnswer: "The round trip plus time at the destination can take several hours. You can request a 'Wait and Return' service so the driver is ready when you come back down.",
                                 perspectives: [
                                     {
                                         role: "Tourist Tip",
@@ -160,6 +211,30 @@ export default function CableCarPage() {
                                         insight: "Taif cable car tickets are sold separately at the venue."
                                     }
                                 ]
+                            },
+                            {
+                                question: "What vehicle is best for the mountain roads to Abha or Taif?",
+                                shortAnswer: "An SUV for the switchbacks.",
+                                detailedAnswer: "The Al Hada road to Taif has sharp switchbacks and steep grades, so a GMC Yukon XL gives a steadier ride than a sedan. A Toyota Camry is fine if you're traveling solo or as a couple on the paved approach roads.",
+                                perspectives: [
+                                    {
+                                        role: "Driver",
+                                        icon: "Compass",
+                                        insight: "Groups heading to Habala Village usually prefer the Hiace for the narrower access roads."
+                                    }
+                                ]
+                            },
+                            {
+                                question: "How long does the drive take to reach the cable car stations?",
+                                shortAnswer: "15-30 minutes typically.",
+                                detailedAnswer: "From Taif city, the Al Hada station is roughly 20-30 minutes by road. From Abha city, the Green Mountain and Habala Village stations are typically 15-25 minutes depending on your starting hotel.",
+                                perspectives: []
+                            },
+                            {
+                                question: "Can we combine a Taif cable car trip with sightseeing?",
+                                shortAnswer: "Yes, ask when booking.",
+                                detailedAnswer: "Many visitors combine the cable car with a Taif city tour (Shubra Palace, Al Rudaf Park) in the same day-hire booking — ask your driver to build a combined itinerary when you book.",
+                                perspectives: []
                             }
                         ]}
                     />
