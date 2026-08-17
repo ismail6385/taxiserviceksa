@@ -97,9 +97,9 @@ export default function BilingualChauffeurPage() {
         },
         {
             title: 'Medical Tourists',
-            description: 'Patients and accompanying family members visiting hospitals in Riyadh or Jeddah who need clear, reliable communication with their driver throughout treatment visits.',
+            description: 'Patients navigating a Saudi hospital system in a foreign language rely on our English-speaking drivers to relay directions, explain paperwork requests to reception staff, and pass on delays to waiting family.',
             icon: Car,
-            scenarios: ['Hospital pickup & waiting', 'Pharmacy & recovery trips', 'Multi-day treatment transport'],
+            scenarios: ['Explaining appointment details to reception', 'Basic translation with hospital staff', 'Same driver across a multi-day treatment course'],
         },
         {
             title: 'GCC & Arab Tourists',

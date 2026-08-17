@@ -59,9 +59,9 @@ export default function WomenTransportPage() {
         },
         {
             title: 'Family Transport',
-            description: 'Comfortable GMC Yukon or Hyundai Staria for mothers and children. Multi-stop family itineraries — school runs, hospital visits, shopping, and outings.',
+            description: 'A trusted, pre-assigned driver for mothers traveling with children — background-checked, and familiar with your regular stops so you\'re not explaining the school run to a new driver each time.',
             icon: Users,
-            scenarios: ['School pickup and drop-off', 'Hospital and clinic visits', 'Shopping and family outings'],
+            scenarios: ['Same driver for the school run each week', 'GMC Yukon or Staria with proper car seats', 'Driver waits during errands — no re-booking'],
         },
         {
             title: 'Female Business Travelers',
@@ -71,9 +71,9 @@ export default function WomenTransportPage() {
         },
         {
             title: 'Medical & Hospital Visits',
-            description: 'Reliable, private transport for women attending hospitals, clinics, and specialist appointments. Driver waits and provides return journey.',
+            description: 'A pre-assigned female-friendly driver for a woman\'s own medical or specialist appointments — no unfamiliar male driver, and full privacy for sensitive visits.',
             icon: MapPin,
-            scenarios: ['Hospital pickup and waiting', 'Clinic transfers', 'Pharmacy and recovery trips'],
+            scenarios: ['Pre-assigned driver, not a random pickup', 'Waits discreetly during the appointment', 'Direct return journey home'],
         },
         {
             title: 'Shopping & Personal Errands',

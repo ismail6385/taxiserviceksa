@@ -99,13 +99,13 @@ export default function PrivateDriverPage() {
         },
         {
             title: 'Family Private Driver',
-            description: 'Comfortable GMC Yukon or Hyundai Staria with a courteous driver for family use — school runs, hospital visits, outings, and airport trips.',
-            locations: ['Hospital & clinic visits', 'School pickup/drop', 'Airport transfers', 'Weekend family outings'],
+            description: 'Book a family vehicle by the half-day or full day rather than per trip — one fixed rate covers the school run, a hospital visit, and an evening outing without three separate bookings.',
+            locations: ['Hourly and half-day family packages', 'Same driver across a multi-stop day', 'Fixed rate regardless of stop count'],
             icon: Users,
         },
         {
             title: 'Medical Tourism Driver',
-            description: 'Reliable daily driver for patients and families visiting Saudi Arabia for medical treatment. Flexible scheduling around appointments and recovery.',
+            description: 'Treatment courses spanning several days or weeks are billed as a weekly or monthly package rather than per trip, with the driver adjusting same-day for appointment delays.',
             locations: ['King Faisal Specialist Hospital', 'Saudi German Hospital', 'Dr. Sulaiman Al Habib clinics', 'Medical City Riyadh'],
             icon: Star,
         },
