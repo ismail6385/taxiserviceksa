@@ -31,6 +31,7 @@ export default function ChauffeurJobsKhamisMushaitPage() {
                 jobLocation={{
                     addressLocality: "Khamis Mushait",
                     addressRegion: "Asir Province",
+                    postalCode: "62461",
                     addressCountry: "SA"
                 }}
                 baseSalary={{

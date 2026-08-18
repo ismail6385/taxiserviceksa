@@ -31,6 +31,7 @@ export default function ChauffeurJobsAlAhsaPage() {
                 jobLocation={{
                     addressLocality: "Al Ahsa",
                     addressRegion: "Eastern Province",
+                    postalCode: "36361",
                     addressCountry: "SA"
                 }}
                 baseSalary={{

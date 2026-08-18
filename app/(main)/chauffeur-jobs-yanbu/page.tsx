@@ -31,6 +31,7 @@ export default function ChauffeurJobsYanbuPage() {
                 jobLocation={{
                     addressLocality: "Yanbu",
                     addressRegion: "Al Madinah Province",
+                    postalCode: "46477",
                     addressCountry: "SA"
                 }}
                 baseSalary={{

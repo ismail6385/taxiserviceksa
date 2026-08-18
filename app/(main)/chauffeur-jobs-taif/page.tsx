@@ -31,6 +31,7 @@ export default function ChauffeurJobsTaifPage() {
                 jobLocation={{
                     addressLocality: "Taif",
                     addressRegion: "Makkah Province",
+                    postalCode: "21431",
                     addressCountry: "SA"
                 }}
                 baseSalary={{

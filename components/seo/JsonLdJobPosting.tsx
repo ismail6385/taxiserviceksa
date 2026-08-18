@@ -10,6 +10,7 @@ interface JsonLdJobPostingProps {
     addressLocality: string;
     addressRegion: string;
     addressCountry: string;
+    postalCode: string;
   };
   baseSalary?: {
     currency: string;
@@ -48,6 +49,7 @@ export default function JsonLdJobPosting({
         "streetAddress": "Prince Sultan Road",
         "addressLocality": jobLocation.addressLocality,
         "addressRegion": jobLocation.addressRegion,
+        "postalCode": jobLocation.postalCode,
         "addressCountry": jobLocation.addressCountry
       }
     },

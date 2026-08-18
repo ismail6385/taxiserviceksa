@@ -31,6 +31,7 @@ export default function ChauffeurJobsBuraidahPage() {
                 jobLocation={{
                     addressLocality: "Buraidah",
                     addressRegion: "Al Qassim Province",
+                    postalCode: "52318",
                     addressCountry: "SA"
                 }}
                 baseSalary={{

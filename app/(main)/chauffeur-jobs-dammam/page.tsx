@@ -31,6 +31,7 @@ export default function ChauffeurJobsDammamPage() {
                 jobLocation={{
                     addressLocality: "Dammam",
                     addressRegion: "Eastern Province",
+                    postalCode: "34223",
                     addressCountry: "SA"
                 }}
                 baseSalary={{

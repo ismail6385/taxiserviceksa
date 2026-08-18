@@ -31,6 +31,7 @@ export default function ChauffeurJobsAlQassimPage() {
                 jobLocation={{
                     addressLocality: "Al Qassim",
                     addressRegion: "Al Qassim Province",
+                    postalCode: "52318",
                     addressCountry: "SA"
                 }}
                 baseSalary={{

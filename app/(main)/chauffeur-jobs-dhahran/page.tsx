@@ -31,6 +31,7 @@ export default function ChauffeurJobsDhahranPage() {
                 jobLocation={{
                     addressLocality: "Dhahran",
                     addressRegion: "Eastern Province",
+                    postalCode: "31932",
                     addressCountry: "SA"
                 }}
                 baseSalary={{

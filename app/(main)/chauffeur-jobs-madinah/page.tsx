@@ -31,6 +31,7 @@ export default function ChauffeurJobsMadinahPage() {
                 jobLocation={{
                     addressLocality: "Madinah",
                     addressRegion: "Al Madinah Province",
+                    postalCode: "42311",
                     addressCountry: "SA"
                 }}
                 baseSalary={{

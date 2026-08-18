@@ -31,6 +31,7 @@ export default function ChauffeurJobsKhobarPage() {
                 jobLocation={{
                     addressLocality: "Khobar",
                     addressRegion: "Eastern Province",
+                    postalCode: "31952",
                     addressCountry: "SA"
                 }}
                 baseSalary={{

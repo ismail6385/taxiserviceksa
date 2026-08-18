@@ -31,6 +31,7 @@ export default function ChauffeurJobsMakkahPage() {
                 jobLocation={{
                     addressLocality: "Makkah",
                     addressRegion: "Makkah Province",
+                    postalCode: "24231",
                     addressCountry: "SA"
                 }}
                 baseSalary={{

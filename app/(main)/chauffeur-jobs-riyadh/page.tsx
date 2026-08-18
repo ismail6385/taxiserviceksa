@@ -71,6 +71,7 @@ export default function ChauffeurJobsRiyadhPage() {
                 jobLocation={{
                     addressLocality: "Riyadh",
                     addressRegion: "Riyadh Province",
+                    postalCode: "12271",
                     addressCountry: "SA"
                 }}
                 baseSalary={{

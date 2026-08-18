@@ -31,6 +31,7 @@ export default function ChauffeurJobsTabukPage() {
                 jobLocation={{
                     addressLocality: "Tabuk",
                     addressRegion: "Tabuk Province",
+                    postalCode: "47311",
                     addressCountry: "SA"
                 }}
                 baseSalary={{

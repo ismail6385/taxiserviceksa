@@ -31,6 +31,7 @@ export default function ChauffeurJobsAbhaPage() {
                 jobLocation={{
                     addressLocality: "Abha",
                     addressRegion: "Asir Province",
+                    postalCode: "62521",
                     addressCountry: "SA"
                 }}
                 baseSalary={{

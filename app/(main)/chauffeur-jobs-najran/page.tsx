@@ -31,6 +31,7 @@ export default function ChauffeurJobsNajranPage() {
                 jobLocation={{
                     addressLocality: "Najran",
                     addressRegion: "Najran Province",
+                    postalCode: "66262",
                     addressCountry: "SA"
                 }}
                 baseSalary={{

@@ -31,6 +31,7 @@ export default function ChauffeurJobsHailPage() {
                 jobLocation={{
                     addressLocality: "Hail",
                     addressRegion: "Hail Province",
+                    postalCode: "55211",
                     addressCountry: "SA"
                 }}
                 baseSalary={{

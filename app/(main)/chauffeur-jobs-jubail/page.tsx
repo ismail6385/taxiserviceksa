@@ -31,6 +31,7 @@ export default function ChauffeurJobsJubailPage() {
                 jobLocation={{
                     addressLocality: "Jubail",
                     addressRegion: "Eastern Province",
+                    postalCode: "35412",
                     addressCountry: "SA"
                 }}
                 baseSalary={{
