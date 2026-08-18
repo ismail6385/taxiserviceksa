@@ -16,84 +16,111 @@ import {
     Phone,
     Globe,
     MapPin,
-    Calendar,
     Clock,
-    Car,
-    User,
     Plus,
     Trash2,
     Repeat,
     Landmark,
-    Languages
+    Languages,
+    CheckCircle2,
+    AlertCircle
 } from 'lucide-react';
 
 type DocLang = 'en' | 'ar';
+type NormalizedStatus = 'paid' | 'unpaid' | 'partial';
 
 const INVOICE_TEXT: Record<DocLang, Record<string, string>> = {
     en: {
-        invoice: 'INVOICE', no: 'No.', date: 'Date:', roundTrip: 'Round Trip',
-        billTo: 'Bill To', tripSchedule: 'Trip Schedule',
-        dateLabel: 'Date', timeLabel: 'Time', vehicleLabel: 'Vehicle', passengersLabel: 'Passengers',
+        invoice: 'INVOICE', no: 'Invoice No.', issueDate: 'Issue Date:', bookingRef: 'Booking Ref:', roundTrip: 'Round Trip',
+        billTo: 'Bill To', bookingDetails: 'Booking Details',
+        dateLabel: 'Date', timeLabel: 'Time', vehicleLabel: 'Vehicle', passengersLabel: 'Passengers', luggageLabel: 'Luggage', serviceTypeLabel: 'Service Type',
+        bookingSummary: 'Booking Summary', serviceDate: 'Service Date', vehiclesLabel: 'Vehicle(s)',
         journeyRoute: 'Journey Route', stop: 'stop', stops: 'stops', fullItinerary: 'Full Itinerary',
+        itinDate: 'Date', itinTime: 'Time', itinPickup: 'Pick-up', itinDest: 'Destination', itinVehicle: 'Vehicle',
         pickup: 'Pick-up', dropoff: 'Drop-off', destination: 'Destination', returnDropoff: 'Return Drop-off',
         outbound: 'Outbound', returnLeg: 'Return', sameDay: 'same day', returnNotRecorded: 'Return details not recorded',
-        description: 'Description', amount: 'Amount',
+        serviceDescription: 'Service Description', description: 'Description', qty: 'Qty', unitPrice: 'Unit Price', amount: 'Amount',
         roundTripService: 'Round Trip Transfer Service', privateService: 'Private Transfer Service',
+        multiDayService: 'Multi-Day Private Chauffeur Transportation', completePackage: 'Complete Transportation Package',
         chauffeurService: 'Professional Chauffeur Service',
         specialRequests: 'Special Requests:', totalPayable: 'Total Payable',
         depositPaid: 'Deposit / Advance Paid', balanceDue: 'Balance Due',
-        bookingConfirmation: 'Booking Confirmation',
-        bookingConfirmationText: 'Your transport service is fully confirmed. Please have this invoice ready for your chauffeur.',
-        paymentInstruction: 'Payment Instruction',
-        payCash: 'Payment to be handed to the driver upon journey completion.',
-        payOnline: 'Payment has been secured via online transaction.',
+        paymentDetails: 'Payment Details', paymentMethodLabel: 'Payment Method', paymentRequired: 'Payment Required', amountReceived: 'Amount Received', remainingBalance: 'Remaining Balance',
         bankDetails: 'Bank Transfer Details', bankName: 'Bank Name', accountName: 'Account Name',
         accountNumber: 'Account Number', swift: 'SWIFT / BIC', iban: 'IBAN', note: 'Note:',
+        statusPaid: 'PAID', statusUnpaid: 'UNPAID', statusPartial: 'PARTIALLY PAID',
+        confirmedHeading: 'Booking Confirmed', confirmedText: 'Payment received. Your transportation service is fully confirmed.',
+        pendingHeading: 'Payment Pending', pendingText: 'Your reservation will be confirmed upon receipt of payment.',
+        partialHeading: 'Partial Payment Received', partialText: 'Your reservation is held subject to settlement of the remaining balance.',
+        payInstructUnpaid: 'Payment is pending. Please complete payment according to the details below.',
+        payInstructCash: 'Payment to be handed to the driver upon journey completion.',
         terms: 'Terms & Conditions',
-        term1: 'Price includes fuel, parking, and toll fees.',
-        term2: 'Free cancellation up to 24 hours before pickup.',
-        term3: 'Driver will wait 60 minutes for airport pickups.',
-        term4: 'This invoice is valid for 30 days from date issued.',
+        term1: 'The quoted price covers the transportation services and itinerary stated on this invoice.',
+        term2: 'Fuel and standard chauffeur service are included unless otherwise stated.',
+        term3: 'Additional waiting time beyond the standard allowance may incur extra charges.',
+        term4: 'Additional stops, route changes, or services requested after confirmation may be charged separately.',
+        term5: 'Airport pickups include the company’s standard waiting period.',
+        term6: 'Free cancellation up to 24 hours before the first scheduled pickup.',
+        term7: 'Any additional charges will be communicated before being applied, wherever reasonably possible.',
+        term8: 'The customer is responsible for providing accurate pickup times and locations.',
+        term9: 'This invoice serves as the official booking and payment document.',
         authorizedSignature: 'Authorized Signature', director: 'Director', partner: 'Partner',
-        thankYou: 'Thank you for choosing Taxi Service KSA — www.taxiserviceksa.com',
+        thankYou: 'Thank you for choosing Taxi Service KSA', tagline: 'Professional Chauffeur & Private Transportation Services in Saudi Arabia',
         pax: 'Pax', bags: 'Bags', city: 'Jeddah, Saudi Arabia',
         hourlyHire: 'Hourly Hire', hourlyService: 'Hourly Chauffeur Service', durationLabel: 'Duration',
         hours: 'hours', monthlyContract: 'Monthly Contract',
     },
     ar: {
-        invoice: 'فاتورة', no: 'الرقم', date: 'التاريخ:', roundTrip: 'ذهاب وعودة',
-        billTo: 'فاتورة إلى', tripSchedule: 'جدول الرحلة',
-        dateLabel: 'التاريخ', timeLabel: 'الوقت', vehicleLabel: 'المركبة', passengersLabel: 'الركاب',
+        invoice: 'فاتورة', no: 'رقم الفاتورة', issueDate: 'تاريخ الإصدار:', bookingRef: 'رقم الحجز:', roundTrip: 'ذهاب وعودة',
+        billTo: 'فاتورة إلى', bookingDetails: 'تفاصيل الحجز',
+        dateLabel: 'التاريخ', timeLabel: 'الوقت', vehicleLabel: 'المركبة', passengersLabel: 'الركاب', luggageLabel: 'الحقائب', serviceTypeLabel: 'نوع الخدمة',
+        bookingSummary: 'ملخص الحجز', serviceDate: 'تاريخ الخدمة', vehiclesLabel: 'المركبات',
         journeyRoute: 'مسار الرحلة', stop: 'محطة', stops: 'محطات', fullItinerary: 'برنامج الرحلة الكامل',
+        itinDate: 'التاريخ', itinTime: 'الوقت', itinPickup: 'الانطلاق', itinDest: 'الوجهة', itinVehicle: 'المركبة',
         pickup: 'الانطلاق', dropoff: 'الوصول', destination: 'الوجهة', returnDropoff: 'نقطة العودة',
         outbound: 'الذهاب', returnLeg: 'العودة', sameDay: 'نفس اليوم', returnNotRecorded: 'تفاصيل العودة غير مسجلة',
-        description: 'الوصف', amount: 'المبلغ',
+        serviceDescription: 'وصف الخدمة', description: 'الوصف', qty: 'الكمية', unitPrice: 'سعر الوحدة', amount: 'المبلغ',
         roundTripService: 'خدمة نقل ذهاب وعودة', privateService: 'خدمة نقل خاص',
+        multiDayService: 'خدمة نقل خاص متعددة الأيام', completePackage: 'باقة نقل كاملة',
         chauffeurService: 'خدمة سائق محترف',
         specialRequests: 'طلبات خاصة:', totalPayable: 'المبلغ الإجمالي المستحق',
         depositPaid: 'العربون / الدفعة المقدمة', balanceDue: 'المبلغ المتبقي',
-        bookingConfirmation: 'تأكيد الحجز',
-        bookingConfirmationText: 'تم تأكيد خدمة النقل الخاصة بكم بالكامل. يرجى إحضار هذه الفاتورة لسائقكم.',
-        paymentInstruction: 'تعليمات الدفع',
-        payCash: 'يتم تسليم المبلغ للسائق عند انتهاء الرحلة.',
-        payOnline: 'تم تأمين الدفع عبر معاملة إلكترونية.',
+        paymentDetails: 'تفاصيل الدفع', paymentMethodLabel: 'طريقة الدفع', paymentRequired: 'المبلغ المطلوب', amountReceived: 'المبلغ المستلم', remainingBalance: 'الرصيد المتبقي',
         bankDetails: 'تفاصيل التحويل البنكي', bankName: 'اسم البنك', accountName: 'اسم صاحب الحساب',
         accountNumber: 'رقم الحساب', swift: 'رمز السويفت', iban: 'رقم الآيبان', note: 'ملاحظة:',
+        statusPaid: 'مدفوع', statusUnpaid: 'غير مدفوع', statusPartial: 'مدفوع جزئياً',
+        confirmedHeading: 'تم تأكيد الحجز', confirmedText: 'تم استلام الدفع. تم تأكيد خدمة النقل الخاصة بكم بالكامل.',
+        pendingHeading: 'الدفع معلق', pendingText: 'سيتم تأكيد الحجز عند استلام الدفع.',
+        partialHeading: 'تم استلام دفعة جزئية', partialText: 'الحجز محجوز رهناً بانتظار تسوية المبلغ المتبقي.',
+        payInstructUnpaid: 'الدفع معلق. يرجى إتمام الدفع وفق التفاصيل أدناه.',
+        payInstructCash: 'يتم تسليم المبلغ للسائق عند انتهاء الرحلة.',
         terms: 'الشروط والأحكام',
-        term1: 'السعر يشمل الوقود ورسوم الانتظار والرسوم المرورية.',
-        term2: 'إلغاء مجاني حتى 24 ساعة قبل موعد الانطلاق.',
-        term3: 'ينتظر السائق 60 دقيقة عند الاستلام من المطار.',
-        term4: 'هذه الفاتورة صالحة لمدة 30 يوماً من تاريخ الإصدار.',
+        term1: 'يغطي السعر المذكور خدمات النقل وبرنامج الرحلة الموضح في هذه الفاتورة.',
+        term2: 'الوقود وخدمة السائق الأساسية مشمولة ما لم يُذكر خلاف ذلك.',
+        term3: 'قد يؤدي وقت الانتظار الإضافي إلى رسوم إضافية.',
+        term4: 'قد تُحتسب المحطات الإضافية أو تغيير المسار المطلوبة بعد التأكيد بشكل منفصل.',
+        term5: 'يشمل استلام المطار فترة انتظار الشركة المعتادة.',
+        term6: 'إلغاء مجاني حتى 24 ساعة قبل أول موعد انطلاق محدد.',
+        term7: 'سيتم إبلاغكم بأي رسوم إضافية قبل تطبيقها كلما أمكن ذلك.',
+        term8: 'العميل مسؤول عن تقديم أوقات ومواقع استلام دقيقة.',
+        term9: 'تعد هذه الفاتورة المستند الرسمي للحجز والدفع.',
         authorizedSignature: 'التوقيع المعتمد', director: 'المدير', partner: 'الشريك',
-        thankYou: 'شكراً لاختياركم تاكسي سيرفس السعودية — www.taxiserviceksa.com',
+        thankYou: 'شكراً لاختياركم تاكسي سيرفس السعودية', tagline: 'خدمات سائق خاص ونقل خاص احترافية في المملكة العربية السعودية',
         pax: 'راكب', bags: 'حقيبة', city: 'جدة، المملكة العربية السعودية',
         hourlyHire: 'إيجار بالساعة', hourlyService: 'خدمة سائق بالساعة', durationLabel: 'المدة',
         hours: 'ساعات', monthlyContract: 'عقد شهري',
     },
 };
 
-const STATUS_AR: Record<string, string> = { Paid: 'مدفوع', Unpaid: 'غير مدفوع', Pending: 'قيد الانتظار' };
-const METHOD_AR: Record<string, string> = { 'Cash to Driver': 'نقداً للسائق', Online: 'دفع إلكتروني', 'Bank Transfer': 'تحويل بنكي' };
+const STATUS_LABEL_KEY: Record<NormalizedStatus, string> = { paid: 'statusPaid', unpaid: 'statusUnpaid', partial: 'statusPartial' };
+const METHOD_AR: Record<string, string> = { 'Cash to Driver': 'نقداً للسائق', 'Online': 'دفع إلكتروني', 'Bank Transfer': 'تحويل بنكي' };
+
+function normalizeStatus(raw: string): NormalizedStatus {
+    const v = (raw || '').toLowerCase();
+    if (v.includes('partial')) return 'partial';
+    if (v === 'paid') return 'paid';
+    return 'unpaid';
+}
 
 interface Stop {
     time: string;
@@ -202,7 +229,10 @@ export default function InvoicePage() {
                 setBooking(bookingData);
                 // Initialize editable fields from booking data if they exist
                 if (data.currency) setCurrency(data.currency);
-                if (data.payment_status) setPaymentStatus(data.payment_status);
+                if (data.payment_status) {
+                    const s = normalizeStatus(data.payment_status);
+                    setPaymentStatus(s === 'paid' ? 'Paid' : s === 'partial' ? 'Partially Paid' : 'Unpaid');
+                }
                 // Note: payment_method might not be in the DB yet, but we check just in case
                 if (data.payment_method) setPaymentMethod(data.payment_method);
                 // Auto-detect round trip from booking data. getReturnRoute()
@@ -312,7 +342,46 @@ export default function InvoicePage() {
     // Falls back to the old date/id-derived format only in the brief window
     // before the permanent sequential number above finishes assigning.
     const invoiceNumber = booking.invoice_number || `INV-${(booking.pickup_date || booking.created_at.slice(0, 10)).replace(/-/g, '')}-${booking.id.slice(0, 6).toUpperCase()}`;
+    const bookingRef = `BOOK-${booking.id.slice(0, 8).toUpperCase()}`;
     const t = INVOICE_TEXT[lang];
+
+    // --- Single source of truth for payment status → every piece of text
+    // on the document (badge, confirmation box, payment instructions) is
+    // derived from this so they can never contradict each other. ---
+    const status = normalizeStatus(paymentStatus);
+    const total = booking.total_price || 0;
+    const deposit = status === 'partial' ? (booking.deposit_amount || 0) : 0;
+    const balance = status === 'paid' ? 0 : status === 'partial' ? Math.max(total - deposit, 0) : total;
+    const STATUS_STYLE: Record<NormalizedStatus, { badge: string; box: string; icon: 'ok' | 'warn' }> = {
+        paid: { badge: 'bg-green-50 text-green-700 border-green-200', box: 'bg-green-50 border-green-200', icon: 'ok' },
+        unpaid: { badge: 'bg-red-50 text-red-700 border-red-200', box: 'bg-red-50 border-red-200', icon: 'warn' },
+        partial: { badge: 'bg-amber-50 text-amber-700 border-amber-200', box: 'bg-amber-50 border-amber-200', icon: 'warn' },
+    };
+    const confirmationHeading = status === 'paid' ? t.confirmedHeading : status === 'partial' ? t.partialHeading : t.pendingHeading;
+    const confirmationText = status === 'paid' ? t.confirmedText : status === 'partial' ? t.partialText : t.pendingText;
+    const paymentInstructionText = status === 'paid'
+        ? t.confirmedText
+        : (paymentMethod === 'Cash to Driver' ? t.payInstructCash : t.payInstructUnpaid);
+
+    const hasItinerary = !!(booking.itinerary_legs && booking.itinerary_legs.length > 0);
+
+    // Service date range — computed from the full itinerary when present,
+    // otherwise from pickup_date (+ trip_end_date for multi-day packages).
+    let serviceDateLabel = booking.pickup_date;
+    if (hasItinerary) {
+        const dates = [booking.pickup_date, ...booking.itinerary_legs!.map(l => l.date), ...(isRoundTrip && returnDate ? [returnDate] : [])].filter(Boolean).sort();
+        const first = dates[0];
+        const last = dates[dates.length - 1];
+        serviceDateLabel = first === last ? first : `${first} – ${last}`;
+    } else if (booking.trip_end_date && booking.trip_end_date !== booking.pickup_date) {
+        serviceDateLabel = `${booking.pickup_date} – ${booking.trip_end_date}`;
+    }
+
+    const serviceTitle = hasItinerary
+        ? t.multiDayService
+        : booking.trip_type === 'hourly' ? t.hourlyService
+        : isRoundTrip ? t.roundTripService
+        : t.privateService;
 
     return (
         <div className="min-h-screen bg-gray-100 py-6 px-4 print:bg-white print:py-0 print:px-0 print:min-h-0">
@@ -410,24 +479,42 @@ export default function InvoicePage() {
                                 value={paymentStatus}
                                 onChange={(e) => setPaymentStatus(e.target.value)}
                                 className="h-7 w-24 text-[11px] font-bold outline-none bg-transparent"
-                                placeholder="e.g. Paid, Half"
+                                placeholder="e.g. Paid, Partially Paid"
                             />
                         </div>
                         <div className="flex gap-1 px-1">
-                            {['Paid', 'Unpaid', 'Pending'].map((status) => (
+                            {['Paid', 'Partially Paid', 'Unpaid'].map((s) => (
                                 <button
-                                    key={status}
-                                    onClick={() => setPaymentStatus(status)}
-                                    className={`px-2 py-0.5 text-[9px] font-bold rounded transition-all ${paymentStatus === status
+                                    key={s}
+                                    onClick={() => setPaymentStatus(s)}
+                                    className={`px-2 py-0.5 text-[9px] font-bold rounded transition-all ${paymentStatus === s
                                             ? 'bg-gray-800 text-white'
                                             : 'bg-gray-200 text-gray-600 hover:bg-gray-300'
                                         }`}
                                 >
-                                    {status}
+                                    {s}
                                 </button>
                             ))}
                         </div>
                     </div>
+
+                    {/* Deposit amount — only relevant once Partially Paid is selected */}
+                    {status === 'partial' && (
+                        <div className="flex flex-col gap-1">
+                            <div className="flex items-center gap-2 bg-white rounded-lg border p-1 shadow-sm px-2">
+                                <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest mr-2 whitespace-nowrap">Paid:</span>
+                                <input
+                                    type="number"
+                                    min={0}
+                                    step="0.01"
+                                    value={booking.deposit_amount ?? ''}
+                                    onChange={(e) => setBooking({ ...booking, deposit_amount: e.target.value ? parseFloat(e.target.value) : null })}
+                                    className="h-7 w-20 text-[11px] font-bold outline-none bg-transparent"
+                                    placeholder="0.00"
+                                />
+                            </div>
+                        </div>
+                    )}
 
                     {/* Payment Method Custom Input */}
                     <div className="flex flex-col gap-1">
@@ -514,51 +601,55 @@ export default function InvoicePage() {
                 />
             </div>
 
-            {/* Multi-Stop Builder — screen only */}
-            <div className="max-w-[210mm] mx-auto mb-4 print:hidden">
-                <div className="bg-white border-2 border-dashed border-orange-200 rounded-xl p-4">
-                    <div className="flex items-center justify-between mb-3">
-                        <div>
-                            <p className="text-xs font-black text-orange-600 uppercase tracking-widest">Multi-Stop Itinerary</p>
-                            <p className="text-[10px] text-gray-400 mt-0.5">Add extra stops between pickup and drop-off</p>
+            {/* Multi-Stop Builder — screen only. Only meaningful when the booking
+                has no structured itinerary_legs; a booking with a real multi-day
+                itinerary already has its full schedule and doesn't need this. */}
+            {!hasItinerary && (
+                <div className="max-w-[210mm] mx-auto mb-4 print:hidden">
+                    <div className="bg-white border-2 border-dashed border-orange-200 rounded-xl p-4">
+                        <div className="flex items-center justify-between mb-3">
+                            <div>
+                                <p className="text-xs font-black text-orange-600 uppercase tracking-widest">Extra Stops (single trip)</p>
+                                <p className="text-[10px] text-gray-400 mt-0.5">Add waypoints between pickup and drop-off. For a multi-day/multi-leg itinerary, add legs on the booking itself instead.</p>
+                            </div>
+                            <button
+                                onClick={addStop}
+                                className="flex items-center gap-1.5 bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-all"
+                            >
+                                <Plus className="w-3.5 h-3.5" /> Add Stop
+                            </button>
                         </div>
-                        <button
-                            onClick={addStop}
-                            className="flex items-center gap-1.5 bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-all"
-                        >
-                            <Plus className="w-3.5 h-3.5" /> Add Stop
-                        </button>
-                    </div>
 
-                    {stops.length === 0 ? (
-                        <p className="text-[11px] text-gray-400 italic text-center py-2">No extra stops. Click "Add Stop" to add intermediate locations.</p>
-                    ) : (
-                        <div className="space-y-2">
-                            {stops.map((stop, i) => (
-                                <div key={i} className="flex gap-2 items-center">
-                                    <span className="text-[10px] font-black text-gray-400 w-14 shrink-0">Stop {i + 1}</span>
-                                    <input
-                                        type="time"
-                                        value={stop.time}
-                                        onChange={e => updateStop(i, 'time', e.target.value)}
-                                        className="border border-gray-200 rounded-lg px-2 py-1.5 text-xs font-bold outline-none focus:border-orange-400 w-28 shrink-0"
-                                    />
-                                    <input
-                                        type="text"
-                                        value={stop.location}
-                                        onChange={e => updateStop(i, 'location', e.target.value)}
-                                        placeholder="Location / address..."
-                                        className="flex-1 border border-gray-200 rounded-lg px-3 py-1.5 text-xs outline-none focus:border-orange-400"
-                                    />
-                                    <button onClick={() => removeStop(i)} className="text-red-400 hover:text-red-600 transition-colors shrink-0">
-                                        <Trash2 className="w-4 h-4" />
-                                    </button>
-                                </div>
-                            ))}
-                        </div>
-                    )}
+                        {stops.length === 0 ? (
+                            <p className="text-[11px] text-gray-400 italic text-center py-2">No extra stops. Click "Add Stop" to add intermediate locations.</p>
+                        ) : (
+                            <div className="space-y-2">
+                                {stops.map((stop, i) => (
+                                    <div key={i} className="flex gap-2 items-center">
+                                        <span className="text-[10px] font-black text-gray-400 w-14 shrink-0">Stop {i + 1}</span>
+                                        <input
+                                            type="time"
+                                            value={stop.time}
+                                            onChange={e => updateStop(i, 'time', e.target.value)}
+                                            className="border border-gray-200 rounded-lg px-2 py-1.5 text-xs font-bold outline-none focus:border-orange-400 w-28 shrink-0"
+                                        />
+                                        <input
+                                            type="text"
+                                            value={stop.location}
+                                            onChange={e => updateStop(i, 'location', e.target.value)}
+                                            placeholder="Location / address..."
+                                            className="flex-1 border border-gray-200 rounded-lg px-3 py-1.5 text-xs outline-none focus:border-orange-400"
+                                        />
+                                        <button onClick={() => removeStop(i)} className="text-red-400 hover:text-red-600 transition-colors shrink-0">
+                                            <Trash2 className="w-4 h-4" />
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
                 </div>
-            </div>
+            )}
 
             {/* Additional Recipients */}
             <div className="max-w-[210mm] mx-auto mb-4 print:hidden">
@@ -609,9 +700,9 @@ export default function InvoicePage() {
                         </div>
                         <div className="flex items-center gap-2">
                             <label className="text-[10px] font-black uppercase text-gray-500 tracking-wider">Show On Document</label>
-                            <input 
-                                type="checkbox" 
-                                checked={bankDetails.showOnDocument} 
+                            <input
+                                type="checkbox"
+                                checked={bankDetails.showOnDocument}
                                 onChange={(e) => setBankDetails({...bankDetails, showOnDocument: e.target.checked})}
                                 className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 cursor-pointer"
                             />
@@ -670,341 +761,398 @@ export default function InvoicePage() {
                 </div>
             </div>
 
-            {/* Invoice Container — Single A4 Page */}
-            <div id="invoice-print" dir={lang === 'ar' ? 'rtl' : 'ltr'} className="max-w-[210mm] mx-auto bg-white shadow-2xl print:shadow-none print:max-w-none print:w-[210mm] box-border">
+            {/* Invoice Container — A4, allowed to flow across multiple pages */}
+            <div id="invoice-print" dir={lang === 'ar' ? 'rtl' : 'ltr'} className="max-w-[210mm] mx-auto bg-white shadow-lg print:shadow-none print:max-w-none print:w-[210mm] box-border">
                 {/* Decorative Top Bar */}
-                <div className="h-2 bg-gray-900 w-full"></div>
+                <div className="h-1.5 bg-gray-900 w-full"></div>
 
-                <div className="px-10 py-8 print:px-[14mm] print:py-[10mm] flex flex-col min-h-[calc(296mm-8px)] justify-between bg-white">
+                <div className="px-10 py-9 print:px-[18mm] print:py-[16mm] flex flex-col bg-white">
 
-                    {/* Top Content */}
-                    <div>
-                        {/* Invoice Header */}
-                        <div className="flex justify-between items-start mb-6 pb-6 border-b border-gray-200">
-                            <div>
-                                <h2 className="text-xl font-bold tracking-tight text-gray-900">
-                                    Taxi Service <span className="text-lime-600">KSA</span>
-                                </h2>
-                                <div className="text-xs text-gray-500 space-y-1 mt-2 leading-snug">
-                                    <p className="flex items-center gap-1.5"><MapPin className="w-3 h-3 text-gray-400" /> {t.city}</p>
-                                    <p className="flex items-center gap-1.5"><Mail className="w-3 h-3 text-gray-400" /> info@taxiserviceksa.com</p>
-                                    <p className="flex items-center gap-1.5"><Phone className="w-3 h-3 text-gray-400" /> <span dir="ltr">+966 56 948 7569</span></p>
-                                    <p className="flex items-center gap-1.5"><Globe className="w-3 h-3 text-gray-400" /> www.taxiserviceksa.com</p>
-                                </div>
-                            </div>
-                            <div className={lang === 'ar' ? 'text-left' : 'text-right'}>
-                                <h1 className="text-2xl font-bold text-gray-900 tracking-wide">{t.invoice}</h1>
-                                <p className="text-gray-500 font-mono text-xs mt-1">{t.no} {invoiceNumber}</p>
-                                <p className="text-gray-500 text-xs">{t.date} {invoiceDate}</p>
-                                <div className={`flex gap-1.5 mt-2 ${lang === 'ar' ? 'justify-start' : 'justify-end'}`}>
-                                    {isRoundTrip && (
-                                        <span className="px-2.5 py-0.5 rounded text-[10px] font-semibold uppercase bg-blue-50 text-blue-700 border border-blue-200 flex items-center gap-1 whitespace-nowrap">
-                                            <Repeat className="w-2.5 h-2.5" /> {t.roundTrip}
-                                        </span>
-                                    )}
-                                    {booking.trip_type === 'hourly' && (
-                                        <span className="px-2.5 py-0.5 rounded text-[10px] font-semibold uppercase bg-amber-50 text-amber-700 border border-amber-200 flex items-center gap-1 whitespace-nowrap">
-                                            <Clock className="w-2.5 h-2.5" /> {t.hourlyHire} · {booking.duration_hours || '?'}{lang === 'ar' ? '' : 'h'}
-                                        </span>
-                                    )}
-                                    {booking.contract_id && (
-                                        <span className="px-2.5 py-0.5 rounded text-[10px] font-semibold uppercase bg-purple-50 text-purple-700 border border-purple-200 whitespace-nowrap">
-                                            {t.monthlyContract}
-                                        </span>
-                                    )}
-                                    <span className={`px-2.5 py-0.5 rounded text-[10px] font-semibold uppercase border whitespace-nowrap ${paymentStatus === 'Paid' ? 'bg-green-50 text-green-700 border-green-200' : 'bg-red-50 text-red-700 border-red-200'}`}>
-                                        {lang === 'ar' ? (STATUS_AR[paymentStatus] || paymentStatus) : paymentStatus}
-                                    </span>
-                                    <span className="px-2.5 py-0.5 rounded text-[10px] font-semibold uppercase bg-gray-50 text-gray-600 border border-gray-200 whitespace-nowrap">
-                                        {lang === 'ar' ? (METHOD_AR[paymentMethod] || paymentMethod) : paymentMethod}
-                                    </span>
-                                </div>
+                    {/* ============ HEADER ============ */}
+                    <div className="flex justify-between items-start mb-7 pb-6 border-b border-gray-200">
+                        <div>
+                            <h2 className="text-[26px] leading-tight font-bold tracking-tight text-gray-900">
+                                Taxi Service <span className="text-lime-600">KSA</span>
+                            </h2>
+                            <div className="text-[10.5px] text-gray-500 space-y-1 mt-2.5 leading-snug">
+                                <p className="flex items-center gap-1.5"><MapPin className="w-3 h-3 text-gray-400" /> {t.city}</p>
+                                <p className="flex items-center gap-1.5"><Mail className="w-3 h-3 text-gray-400" /> info@taxiserviceksa.com</p>
+                                <p className="flex items-center gap-1.5"><Phone className="w-3 h-3 text-gray-400" /> <span dir="ltr">+966 56 948 7569</span></p>
+                                <p className="flex items-center gap-1.5"><Globe className="w-3 h-3 text-gray-400" /> www.taxiserviceksa.com</p>
                             </div>
                         </div>
-
-                        {/* Bill To + Trip Schedule */}
-                        <div className="grid grid-cols-2 gap-6 mb-6">
-                            <div>
-                                <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">{t.billTo}</h3>
-                                <p className="text-sm font-bold text-gray-900">{booking.customer_name}</p>
-                                <div className="space-y-1 text-xs text-gray-600 mt-1.5">
-                                    <p className="flex items-center gap-1.5"><Phone className="w-3 h-3 text-gray-400 flex-shrink-0" /> <span dir="ltr">{booking.customer_phone}</span></p>
-                                    <p className="flex items-center gap-1.5"><Mail className="w-3 h-3 text-gray-400 flex-shrink-0" /> {booking.customer_email}</p>
-                                </div>
+                        <div className={lang === 'ar' ? 'text-left' : 'text-right'}>
+                            <h1 className="text-[34px] leading-none font-bold text-gray-900 tracking-wide">{t.invoice}</h1>
+                            <div className="mt-2 text-[10.5px] text-gray-500 space-y-0.5">
+                                <p><span className="text-gray-400">{t.no}</span> <span className="font-mono font-semibold text-gray-800">{invoiceNumber}</span></p>
+                                <p>{t.issueDate} <span className="font-semibold text-gray-800">{invoiceDate}</span></p>
+                                <p>{t.bookingRef} <span className="font-mono font-semibold text-gray-800">{bookingRef}</span></p>
                             </div>
-                            <div>
-                                <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">{t.tripSchedule}</h3>
-                                <div className="space-y-1">
-                                    {[
-                                        { icon: <Calendar className="w-3 h-3" />, label: t.dateLabel, value: booking.trip_end_date && booking.trip_end_date !== booking.pickup_date ? `${booking.pickup_date} → ${booking.trip_end_date}` : booking.pickup_date },
-                                        { icon: <Clock className="w-3 h-3" />, label: t.timeLabel, value: formatTime12h(booking.pickup_time) },
-                                        { icon: <Car className="w-3 h-3" />, label: t.vehicleLabel, value: booking.vehicle_type },
-                                        { icon: <User className="w-3 h-3" />, label: t.passengersLabel, value: `${booking.passengers} ${t.pax} · ${booking.luggage} ${t.bags}` },
-                                        ...(booking.trip_type === 'hourly' ? [{ icon: <Clock className="w-3 h-3" />, label: t.durationLabel, value: `${booking.duration_hours || '?'} ${t.hours}` }] : []),
-                                        ...(isRoundTrip && returnDate ? [{ icon: <Repeat className="w-3 h-3" />, label: t.returnLeg, value: `${returnDate}${returnDate === booking.pickup_date ? ` (${t.sameDay})` : ''}${returnTime ? ` ${formatTime12h(returnTime)}` : ''}` }] : []),
-                                    ].map(({ icon, label, value }) => (
-                                        <div key={label} className="flex justify-between items-center text-xs">
-                                            <span className="text-gray-500 flex items-center gap-1.5">{icon} {label}</span>
-                                            <span className="font-semibold text-gray-900">{value}</span>
+                            <div className={`inline-flex items-center gap-1.5 mt-3 px-3 py-1 rounded border text-[11px] font-bold uppercase tracking-wide ${STATUS_STYLE[status].badge}`}>
+                                {STATUS_STYLE[status].icon === 'ok' ? <CheckCircle2 className="w-3 h-3" /> : <AlertCircle className="w-3 h-3" />}
+                                {t[STATUS_LABEL_KEY[status]]}
+                            </div>
+                            <div className={`flex gap-1.5 mt-2 flex-wrap ${lang === 'ar' ? 'justify-start' : 'justify-end'}`}>
+                                {isRoundTrip && (
+                                    <span className="px-2 py-0.5 rounded text-[9px] font-semibold uppercase bg-blue-50 text-blue-700 border border-blue-200 flex items-center gap-1 whitespace-nowrap">
+                                        <Repeat className="w-2.5 h-2.5" /> {t.roundTrip}
+                                    </span>
+                                )}
+                                {booking.trip_type === 'hourly' && (
+                                    <span className="px-2 py-0.5 rounded text-[9px] font-semibold uppercase bg-amber-50 text-amber-700 border border-amber-200 flex items-center gap-1 whitespace-nowrap">
+                                        <Clock className="w-2.5 h-2.5" /> {t.hourlyHire} · {booking.duration_hours || '?'}{lang === 'ar' ? '' : 'h'}
+                                    </span>
+                                )}
+                                {booking.contract_id && (
+                                    <span className="px-2 py-0.5 rounded text-[9px] font-semibold uppercase bg-purple-50 text-purple-700 border border-purple-200 whitespace-nowrap">
+                                        {t.monthlyContract}
+                                    </span>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* ============ BILL TO / BOOKING DETAILS ============ */}
+                    <div className="grid grid-cols-2 gap-8 mb-7">
+                        <div>
+                            <h3 className="text-[9.5px] font-bold text-gray-400 uppercase tracking-wider mb-2">{t.billTo}</h3>
+                            <p className="text-[15px] font-semibold text-gray-900">{booking.customer_name}</p>
+                            <div className="space-y-1 text-[11px] text-gray-600 mt-1.5">
+                                <p className="flex items-center gap-1.5"><Phone className="w-3 h-3 text-gray-400 flex-shrink-0" /> <span dir="ltr">{booking.customer_phone}</span></p>
+                                <p className="flex items-center gap-1.5"><Mail className="w-3 h-3 text-gray-400 flex-shrink-0" /> {booking.customer_email}</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 className="text-[9.5px] font-bold text-gray-400 uppercase tracking-wider mb-2">{t.bookingDetails}</h3>
+                            <div className="space-y-1">
+                                {[
+                                    { label: t.serviceDate, value: serviceDateLabel },
+                                    { label: t.timeLabel, value: formatTime12h(booking.pickup_time) },
+                                    { label: t.vehicleLabel, value: booking.vehicle_type },
+                                    { label: t.passengersLabel, value: `${booking.passengers} ${t.pax} · ${booking.luggage} ${t.bags}` },
+                                    { label: t.serviceTypeLabel, value: serviceTitle },
+                                    ...(booking.trip_type === 'hourly' ? [{ label: t.durationLabel, value: `${booking.duration_hours || '?'} ${t.hours}` }] : []),
+                                ].map(({ label, value }) => (
+                                    <div key={label} className="flex justify-between items-baseline gap-3 text-[11px]">
+                                        <span className="text-gray-500 shrink-0">{label}</span>
+                                        <span className="font-semibold text-gray-900 text-right">{value}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* ============ BOOKING SUMMARY STRIP ============ */}
+                    <div className="grid grid-cols-4 gap-px bg-gray-200 border border-gray-200 rounded-lg overflow-hidden mb-7">
+                        {[
+                            { label: t.serviceDate, value: serviceDateLabel },
+                            { label: t.vehiclesLabel, value: booking.vehicle_type },
+                            { label: t.passengersLabel, value: `${booking.passengers} ${t.pax}` },
+                            { label: t.serviceTypeLabel, value: serviceTitle },
+                        ].map(({ label, value }) => (
+                            <div key={label} className="bg-gray-50 px-3 py-2.5">
+                                <p className="text-[8.5px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">{label}</p>
+                                <p className="text-[11.5px] font-semibold text-gray-900 leading-snug break-words">{value}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* ============ ITINERARY ============ */}
+                    {hasItinerary ? (
+                        <div className="mb-7" style={{ breakInside: 'avoid' }}>
+                            <h3 className="text-[9.5px] font-bold text-gray-400 uppercase tracking-wider mb-2.5">{t.fullItinerary}</h3>
+                            <table className="w-full border-collapse">
+                                <thead>
+                                    <tr className="bg-gray-50 text-[9.5px] font-bold text-gray-500 uppercase tracking-wide">
+                                        <th className="text-left px-3 py-2 border-b-2 border-gray-200">{t.itinDate}</th>
+                                        <th className="text-left px-3 py-2 border-b-2 border-gray-200">{t.itinTime}</th>
+                                        <th className="text-left px-3 py-2 border-b-2 border-gray-200">{t.itinPickup}</th>
+                                        <th className="text-left px-3 py-2 border-b-2 border-gray-200">{t.itinDest}</th>
+                                        <th className="text-left px-3 py-2 border-b-2 border-gray-200">{t.itinVehicle}</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="text-[10.5px] text-gray-800">
+                                    <tr style={{ breakInside: 'avoid' }} className="border-b border-gray-100">
+                                        <td className="px-3 py-2 font-mono whitespace-nowrap">{booking.pickup_date}</td>
+                                        <td className="px-3 py-2 font-mono whitespace-nowrap">{formatTime12h(booking.pickup_time)}</td>
+                                        <td className="px-3 py-2 font-medium">{booking.pickup_location}</td>
+                                        <td className="px-3 py-2 font-medium">{booking.destination}</td>
+                                        <td className="px-3 py-2 text-gray-500">{booking.vehicle_type}</td>
+                                    </tr>
+                                    {booking.itinerary_legs!.map((leg, i) => (
+                                        <tr key={i} style={{ breakInside: 'avoid' }} className="border-b border-gray-100">
+                                            <td className="px-3 py-2 font-mono whitespace-nowrap">{leg.date}</td>
+                                            <td className="px-3 py-2 font-mono whitespace-nowrap">{leg.time ? formatTime12h(leg.time) : '—'}</td>
+                                            <td className="px-3 py-2 font-medium">{leg.pickup}</td>
+                                            <td className="px-3 py-2 font-medium">{leg.dropoff}</td>
+                                            <td className="px-3 py-2 text-gray-500">{booking.vehicle_type}</td>
+                                        </tr>
+                                    ))}
+                                    {isRoundTrip && returnDate && (
+                                        <tr style={{ breakInside: 'avoid' }}>
+                                            <td className="px-3 py-2 font-mono whitespace-nowrap">{returnDate}</td>
+                                            <td className="px-3 py-2 font-mono whitespace-nowrap">{returnTime ? formatTime12h(returnTime) : '—'}</td>
+                                            <td className="px-3 py-2 font-medium">{returnPickupLocation || booking.destination}</td>
+                                            <td className="px-3 py-2 font-medium">{returnDropoffLocation || booking.pickup_location}</td>
+                                            <td className="px-3 py-2 text-gray-500">{booking.vehicle_type}</td>
+                                        </tr>
+                                    )}
+                                </tbody>
+                            </table>
+                        </div>
+                    ) : (
+                        <>
+                            {/* Route Details — Outbound (simple, single-trip bookings) */}
+                            <div className="mb-6" style={{ breakInside: 'avoid' }}>
+                                <h3 className="text-[9.5px] font-bold text-gray-400 uppercase tracking-wider mb-2.5">
+                                    {isRoundTrip ? t.outbound : t.journeyRoute}
+                                    {booking.pickup_date ? ` · ${booking.pickup_date}${booking.pickup_time ? ` ${formatTime12h(booking.pickup_time)}` : ''}` : ''}
+                                    {stops.length > 0 && <span className="text-orange-500 normal-case font-medium mx-1.5">· {stops.length} {stops.length > 1 ? t.stops : t.stop}</span>}
+                                </h3>
+                                <div className={`relative space-y-3 before:absolute before:top-2 before:bottom-2 before:w-0.5 before:border-dashed before:border-gray-200 ${lang === 'ar' ? 'pr-5 before:right-[7px] before:border-r-2' : 'pl-5 before:left-[7px] before:border-l-2'}`}>
+                                    <div className="relative">
+                                        <div className={`absolute top-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white shadow-sm ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}></div>
+                                        <p className="text-[10px] text-gray-400 font-semibold uppercase">{t.pickup}</p>
+                                        <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{booking.pickup_location}</p>
+                                    </div>
+                                    {stops.filter(s => s.location.trim()).map((stop, i) => (
+                                        <div key={i} className="relative">
+                                            <div className={`absolute top-1 w-3 h-3 bg-orange-400 rounded-full border-2 border-white shadow-sm flex items-center justify-center ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}>
+                                                <span className="text-white text-[6px] font-bold">{i + 1}</span>
+                                            </div>
+                                            <p className="text-[10px] text-orange-500 font-semibold uppercase">
+                                                {i + 1}. {stop.time ? ` · ${stop.time}` : ''}
+                                            </p>
+                                            <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{stop.location}</p>
                                         </div>
                                     ))}
+                                    <div className="relative">
+                                        <div className={`absolute top-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white shadow-sm ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}></div>
+                                        <p className="text-[10px] text-gray-400 font-semibold uppercase">{isRoundTrip ? t.destination : t.dropoff}</p>
+                                        <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{booking.destination}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        {booking.itinerary_legs && booking.itinerary_legs.length > 0 ? (
-                            /* Full multi-stop itinerary — recorded on the booking itself */
-                            <div className="mb-6">
-                                <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2.5">{t.fullItinerary}</h3>
-                                <table className="w-full text-xs border-collapse">
-                                    <tbody>
-                                        <tr className="border-b border-gray-100">
-                                            <td className="py-1.5 pr-3 font-mono text-gray-500 whitespace-nowrap align-top">{booking.pickup_date}{booking.pickup_time ? ` · ${formatTime12h(booking.pickup_time)}` : ''}</td>
-                                            <td className="py-1.5 font-semibold text-gray-900">{booking.pickup_location} → {booking.destination}</td>
-                                        </tr>
-                                        {booking.itinerary_legs.map((leg, i) => (
-                                            <tr key={i} className="border-b border-gray-100">
-                                                <td className="py-1.5 pr-3 font-mono text-gray-500 whitespace-nowrap align-top">{leg.date}{leg.time ? ` · ${formatTime12h(leg.time)}` : ''}</td>
-                                                <td className="py-1.5 font-semibold text-gray-900">{leg.pickup} → {leg.dropoff}</td>
-                                            </tr>
-                                        ))}
-                                        {isRoundTrip && returnDate && (
-                                            <tr>
-                                                <td className="py-1.5 pr-3 font-mono text-gray-500 whitespace-nowrap align-top">{returnDate}{returnTime ? ` · ${formatTime12h(returnTime)}` : ''}</td>
-                                                <td className="py-1.5 font-semibold text-gray-900">{returnPickupLocation || booking.destination} → {returnDropoffLocation || booking.pickup_location}</td>
-                                            </tr>
-                                        )}
-                                    </tbody>
-                                </table>
-                            </div>
-                        ) : (
-                            <>
-                                {/* Route Details — Outbound */}
-                                <div className="mb-6">
-                                    <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2.5">
-                                        {isRoundTrip ? t.outbound : t.journeyRoute}
-                                        {booking.pickup_date ? ` · ${booking.pickup_date}${booking.pickup_time ? ` ${formatTime12h(booking.pickup_time)}` : ''}` : ''}
-                                        {stops.length > 0 && <span className="text-orange-500 normal-case font-medium mx-1.5">· {stops.length} {stops.length > 1 ? t.stops : t.stop}</span>}
+                            {isRoundTrip && (
+                                <div className="mb-6" style={{ breakInside: 'avoid' }}>
+                                    <h3 className="text-[9.5px] font-bold text-blue-500 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+                                        <Repeat className="w-2.5 h-2.5" />
+                                        {t.returnLeg}
+                                        {returnDate ? ` · ${returnDate}${returnDate === booking.pickup_date ? ` (${t.sameDay})` : ''}${returnTime ? ` ${formatTime12h(returnTime)}` : ''}` : ''}
                                     </h3>
-                                    <div className={`relative space-y-3 before:absolute before:top-2 before:bottom-2 before:w-0.5 before:border-dashed before:border-gray-200 ${lang === 'ar' ? 'pr-5 before:right-[7px] before:border-r-2' : 'pl-5 before:left-[7px] before:border-l-2'}`}>
-
-                                        {/* Pickup */}
+                                    <div className={`relative space-y-3 before:absolute before:top-2 before:bottom-2 before:w-0.5 before:border-dashed before:border-blue-200 ${lang === 'ar' ? 'pr-5 before:right-[7px] before:border-r-2' : 'pl-5 before:left-[7px] before:border-l-2'}`}>
                                         <div className="relative">
-                                            <div className={`absolute top-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white shadow-sm ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}></div>
+                                            <div className={`absolute top-1 w-3 h-3 bg-blue-500 rounded-full border-2 border-white shadow-sm ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}></div>
                                             <p className="text-[10px] text-gray-400 font-semibold uppercase">{t.pickup}</p>
-                                            <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{booking.pickup_location}</p>
+                                            <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{returnPickupLocation || booking.destination}</p>
                                         </div>
-
-                                        {/* Extra stops */}
-                                        {stops.filter(s => s.location.trim()).map((stop, i) => (
-                                            <div key={i} className="relative">
-                                                <div className={`absolute top-1 w-3 h-3 bg-orange-400 rounded-full border-2 border-white shadow-sm flex items-center justify-center ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}>
-                                                    <span className="text-white text-[6px] font-bold">{i + 1}</span>
-                                                </div>
-                                                <p className="text-[10px] text-orange-500 font-semibold uppercase">
-                                                    {i + 1}. {stop.time ? ` · ${stop.time}` : ''}
-                                                </p>
-                                                <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{stop.location}</p>
-                                            </div>
-                                        ))}
-
-                                        {/* Drop-off */}
                                         <div className="relative">
-                                            <div className={`absolute top-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white shadow-sm ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}></div>
-                                            <p className="text-[10px] text-gray-400 font-semibold uppercase">{isRoundTrip ? t.destination : t.dropoff}</p>
-                                            <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{booking.destination}</p>
+                                            <div className={`absolute top-1 w-3 h-3 bg-blue-600 rounded-full border-2 border-white shadow-sm ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}></div>
+                                            <p className="text-[10px] text-gray-400 font-semibold uppercase">{t.dropoff}</p>
+                                            <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{returnDropoffLocation || booking.pickup_location}</p>
                                         </div>
                                     </div>
+                                    {!returnDate && (
+                                        <p className="text-[10px] text-gray-400 italic mt-1.5">{t.returnNotRecorded}</p>
+                                    )}
                                 </div>
+                            )}
+                        </>
+                    )}
 
-                                {/* Route Details — Return (own pickup/drop-off, never assumed) */}
-                                {isRoundTrip && (
-                                    <div className="mb-6">
-                                        <h3 className="text-[10px] font-bold text-blue-500 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
-                                            <Repeat className="w-2.5 h-2.5" />
-                                            {t.returnLeg}
-                                            {returnDate ? ` · ${returnDate}${returnDate === booking.pickup_date ? ` (${t.sameDay})` : ''}${returnTime ? ` ${formatTime12h(returnTime)}` : ''}` : ''}
-                                        </h3>
-                                        <div className={`relative space-y-3 before:absolute before:top-2 before:bottom-2 before:w-0.5 before:border-dashed before:border-blue-200 ${lang === 'ar' ? 'pr-5 before:right-[7px] before:border-r-2' : 'pl-5 before:left-[7px] before:border-l-2'}`}>
-                                            <div className="relative">
-                                                <div className={`absolute top-1 w-3 h-3 bg-blue-500 rounded-full border-2 border-white shadow-sm ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}></div>
-                                                <p className="text-[10px] text-gray-400 font-semibold uppercase">{t.pickup}</p>
-                                                <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{returnPickupLocation || booking.destination}</p>
-                                            </div>
-                                            <div className="relative">
-                                                <div className={`absolute top-1 w-3 h-3 bg-blue-600 rounded-full border-2 border-white shadow-sm ${lang === 'ar' ? '-right-[18px]' : '-left-[18px]'}`}></div>
-                                                <p className="text-[10px] text-gray-400 font-semibold uppercase">{t.dropoff}</p>
-                                                <p className="text-sm font-semibold text-gray-900 leading-snug break-words">{returnDropoffLocation || booking.pickup_location}</p>
-                                            </div>
-                                        </div>
-                                        {!returnDate && (
-                                            <p className="text-[10px] text-gray-400 italic mt-1.5">{t.returnNotRecorded}</p>
-                                        )}
-                                    </div>
-                                )}
-                            </>
-                        )}
-
-                        {/* Service Table */}
-                        <div className="border border-gray-200 rounded-lg overflow-hidden mb-6">
+                    {/* ============ SERVICE DESCRIPTION + PRICING ============ */}
+                    <div className="mb-7" style={{ breakInside: 'avoid' }}>
+                        <h3 className="text-[9.5px] font-bold text-gray-400 uppercase tracking-wider mb-2.5">{t.serviceDescription}</h3>
+                        <div className="border border-gray-200 rounded-lg overflow-hidden">
                             <table className="w-full text-left">
-                                <thead className="bg-gray-50 text-gray-500 text-[10px] font-bold uppercase tracking-wider">
+                                <thead className="bg-gray-50 text-gray-500 text-[9.5px] font-bold uppercase tracking-wider">
                                     <tr>
-                                        <th className="px-4 py-3">{t.description}</th>
-                                        <th className="px-4 py-3 text-right">{t.amount}</th>
+                                        <th className="px-4 py-2.5">{t.description}</th>
+                                        <th className="px-4 py-2.5 text-center w-16">{t.qty}</th>
+                                        <th className="px-4 py-2.5 text-right w-32">{t.unitPrice}</th>
+                                        <th className="px-4 py-2.5 text-right w-32">{t.amount}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr className="border-t border-gray-100">
-                                        <td className="px-4 py-3.5">
-                                            <p className="font-bold text-gray-900 text-sm">
-                                                {isRoundTrip ? t.roundTripService : booking.trip_type === 'hourly' ? t.hourlyService : t.privateService}
+                                        <td className="px-4 py-3.5 align-top">
+                                            <p className="font-bold text-gray-900 text-[13px]">
+                                                {hasItinerary ? t.completePackage : serviceTitle}
                                             </p>
-                                            <p className="text-xs text-gray-500 mt-0.5">
+                                            <p className="text-[11px] text-gray-500 mt-0.5">
                                                 {booking.vehicle_type} — {t.chauffeurService}
                                             </p>
-                                            <p className="text-[11px] text-gray-400 mt-1 font-medium">
-                                                {booking.trip_type === 'hourly'
-                                                    ? `${booking.pickup_location.split(',')[0]} — ${booking.duration_hours || '?'} ${t.hours}`
-                                                    : isRoundTrip
-                                                        ? `${booking.pickup_location.split(',')[0]} ↔ ${booking.destination.split(',')[0]}`
-                                                        : `${booking.pickup_location.split(',')[0]} → ${booking.destination.split(',')[0]}`}
+                                            <p className="text-[10.5px] text-gray-400 mt-1 font-medium">
+                                                {hasItinerary
+                                                    ? `${serviceTitle} · ${serviceDateLabel}`
+                                                    : booking.trip_type === 'hourly'
+                                                        ? `${booking.pickup_location.split(',')[0]} — ${booking.duration_hours || '?'} ${t.hours}`
+                                                        : isRoundTrip
+                                                            ? `${booking.pickup_location.split(',')[0]} ↔ ${booking.destination.split(',')[0]}`
+                                                            : `${booking.pickup_location.split(',')[0]} → ${booking.destination.split(',')[0]}`}
                                             </p>
                                             {booking.special_requests && (
-                                                <div className="mt-2 p-2 bg-gray-50 rounded border border-gray-100 text-[11px] text-gray-500 whitespace-pre-wrap leading-snug">
+                                                <div className="mt-2 p-2 bg-gray-50 rounded border border-gray-100 text-[10.5px] text-gray-500 whitespace-pre-wrap leading-snug">
                                                     <span className="font-semibold">{t.specialRequests} </span>{booking.special_requests}
                                                 </div>
                                             )}
                                             {quickNote.trim() && (
                                                 <div className="mt-2 border-l-2 border-primary px-3 py-1.5 bg-primary/5 rounded-r">
-                                                    <p className="text-xs text-gray-700 whitespace-pre-wrap leading-snug">{quickNote.trim()}</p>
+                                                    <p className="text-[11px] text-gray-700 whitespace-pre-wrap leading-snug">{quickNote.trim()}</p>
                                                 </div>
                                             )}
                                         </td>
+                                        <td className="px-4 py-3.5 text-center align-top text-[12px] text-gray-700">1</td>
+                                        <td className="px-4 py-3.5 text-right align-top text-[12px] text-gray-700">{currency} {total.toFixed(2)}</td>
                                         <td className="px-4 py-3.5 text-right align-top">
-                                            <span className="text-sm font-bold text-gray-900">{currency} {booking.total_price?.toFixed(2) || '0.00'}</span>
+                                            <span className="text-[13px] font-bold text-gray-900">{currency} {total.toFixed(2)}</span>
                                         </td>
                                     </tr>
                                 </tbody>
                                 <tfoot>
-                                    {!!booking.deposit_amount && (
+                                    {status === 'partial' && (
                                         <>
                                             <tr className="border-t border-gray-100">
-                                                <td className="px-4 py-2 text-right text-[11px] font-semibold text-blue-600">{t.depositPaid}</td>
+                                                <td colSpan={3} className="px-4 py-2 text-right text-[10.5px] font-semibold text-amber-600">{t.depositPaid}</td>
                                                 <td className="px-4 py-2 text-right border-l border-gray-100">
-                                                    <span className="text-sm font-bold text-blue-700">{currency} {booking.deposit_amount.toFixed(2)}</span>
+                                                    <span className="text-[12.5px] font-bold text-amber-700">{currency} {deposit.toFixed(2)}</span>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td className="px-4 py-2 text-right text-[11px] font-semibold text-gray-500">{t.balanceDue}</td>
+                                                <td colSpan={3} className="px-4 py-2 text-right text-[10.5px] font-semibold text-gray-500">{t.balanceDue}</td>
                                                 <td className="px-4 py-2 text-right border-l border-gray-100">
-                                                    <span className="text-sm font-bold text-gray-900">{currency} {(booking.total_price! - booking.deposit_amount).toFixed(2)}</span>
+                                                    <span className="text-[12.5px] font-bold text-gray-900">{currency} {balance.toFixed(2)}</span>
                                                 </td>
                                             </tr>
                                         </>
                                     )}
                                     <tr className="bg-gray-900">
-                                        <td className="px-4 py-3 text-right text-[11px] font-bold uppercase tracking-wide text-white/60">{t.totalPayable}</td>
-                                        <td className="px-4 py-3 text-right border-l border-white/10">
-                                            <span className="text-base font-bold text-primary">{currency} {booking.total_price?.toFixed(2) || '0.00'}</span>
+                                        <td colSpan={3} className="px-4 py-3.5 text-right text-[12px] font-bold uppercase tracking-wide text-white/60">{t.totalPayable}</td>
+                                        <td className="px-4 py-3.5 text-right border-l border-white/10">
+                                            <span className="text-[19px] font-bold text-primary">{currency} {total.toFixed(2)}</span>
                                         </td>
                                     </tr>
                                 </tfoot>
                             </table>
                         </div>
-
-                        {/* Payment Info */}
-                        <div className="grid grid-cols-2 gap-4 mb-6">
-                            <div className="bg-primary/5 rounded-lg p-3 border border-primary/10">
-                                <h3 className="text-[9px] font-bold text-primary uppercase tracking-wide mb-1">{t.bookingConfirmation}</h3>
-                                <p className="text-[11px] text-gray-600 leading-snug">
-                                    {t.bookingConfirmationText}
-                                </p>
-                            </div>
-                            <div className="bg-gray-50 rounded-lg p-3 border border-gray-100">
-                                <h3 className="text-[9px] font-bold text-gray-400 uppercase tracking-wide mb-1">{t.paymentInstruction}</h3>
-                                <p className="text-[11px] text-gray-700 font-medium leading-snug">
-                                    {paymentMethod === 'Cash to Driver' ? t.payCash : t.payOnline}
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Printed Bank Details Block */}
-                        {bankDetails.showOnDocument && (
-                            <div className="mb-6 bg-blue-50/40 rounded-lg p-4 border border-blue-100">
-                                <h3 className="text-[11px] font-bold text-blue-700 uppercase tracking-wide flex items-center gap-1.5 mb-3 pb-2 border-b border-blue-100">
-                                    <Landmark className="w-3.5 h-3.5" /> {t.bankDetails}
-                                </h3>
-                                <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-xs">
-                                    {bankDetails.bankName && (
-                                        <div className="flex justify-between border-b border-gray-100 pb-1">
-                                            <span className="text-gray-500">{t.bankName}</span>
-                                            <span className="font-semibold text-gray-900">{bankDetails.bankName}</span>
-                                        </div>
-                                    )}
-                                    {bankDetails.accountName && (
-                                        <div className="flex justify-between border-b border-gray-100 pb-1">
-                                            <span className="text-gray-500">{t.accountName}</span>
-                                            <span className="font-semibold text-gray-900">{bankDetails.accountName}</span>
-                                        </div>
-                                    )}
-                                    {bankDetails.accountNumber && (
-                                        <div className="flex justify-between border-b border-gray-100 pb-1">
-                                            <span className="text-gray-500">{t.accountNumber}</span>
-                                            <span className="font-semibold font-mono text-gray-900">{bankDetails.accountNumber}</span>
-                                        </div>
-                                    )}
-                                    {bankDetails.swiftCode && (
-                                        <div className="flex justify-between border-b border-gray-100 pb-1">
-                                            <span className="text-gray-500">{t.swift}</span>
-                                            <span className="font-semibold font-mono text-gray-900">{bankDetails.swiftCode}</span>
-                                        </div>
-                                    )}
-                                    {bankDetails.iban && (
-                                        <div className="col-span-2 flex justify-between border-b border-gray-100 pb-1">
-                                            <span className="text-gray-500">{t.iban}</span>
-                                            <span className="font-semibold font-mono text-gray-900 tracking-wide">{bankDetails.iban}</span>
-                                        </div>
-                                    )}
-                                </div>
-                                {bankDetails.notes && (
-                                    <p className="text-[11px] text-blue-600/80 italic mt-2">{t.note} {bankDetails.notes}</p>
-                                )}
-                            </div>
-                        )}
                     </div>
 
-                    {/* Footer */}
-                    <div className="mt-auto">
-                        <div className="grid grid-cols-2 gap-8 items-end border-t border-gray-200 pt-4">
-                            <div>
-                                <p className="font-bold text-gray-900 mb-1.5 uppercase tracking-wide text-[10px]">{t.terms}</p>
-                                <ul className="list-disc list-inside space-y-0.5 text-[10px] text-gray-500">
-                                    <li>{t.term1}</li>
-                                    <li>{t.term2}</li>
-                                    <li>{t.term3}</li>
-                                    <li>{t.term4}</li>
-                                </ul>
+                    {/* ============ PAYMENT DETAILS + BOOKING CONFIRMATION ============ */}
+                    <div className="grid grid-cols-2 gap-4 mb-7" style={{ breakInside: 'avoid' }}>
+                        <div className="bg-gray-50 rounded-lg p-3.5 border border-gray-200">
+                            <h3 className="text-[9.5px] font-bold text-gray-400 uppercase tracking-wide mb-1.5">{t.paymentDetails}</h3>
+                            <p className="text-[11px] text-gray-500 mb-1">{t.paymentMethodLabel}: <span className="font-semibold text-gray-800">{lang === 'ar' ? (METHOD_AR[paymentMethod] || paymentMethod) : paymentMethod}</span></p>
+                            <p className="text-[11px] text-gray-700 font-medium leading-snug mb-2">
+                                {paymentInstructionText}
+                            </p>
+                            {status === 'paid' && (
+                                <p className="text-[11px] font-bold text-green-700">{t.amountReceived}: {currency} {total.toFixed(2)}</p>
+                            )}
+                            {status === 'partial' && (
+                                <>
+                                    <p className="text-[11px] font-bold text-amber-700">{t.amountReceived}: {currency} {deposit.toFixed(2)}</p>
+                                    <p className="text-[11px] font-bold text-gray-800">{t.remainingBalance}: {currency} {balance.toFixed(2)}</p>
+                                </>
+                            )}
+                            {status === 'unpaid' && (
+                                <p className="text-[11px] font-bold text-red-700">{t.paymentRequired}: {currency} {total.toFixed(2)}</p>
+                            )}
+                        </div>
+                        <div className={`rounded-lg p-3.5 border ${STATUS_STYLE[status].box}`}>
+                            <h3 className="text-[9.5px] font-bold uppercase tracking-wide mb-1.5 flex items-center gap-1.5">
+                                {STATUS_STYLE[status].icon === 'ok' ? <CheckCircle2 className="w-3 h-3" /> : <AlertCircle className="w-3 h-3" />}
+                                {confirmationHeading}
+                            </h3>
+                            <p className="text-[11px] text-gray-700 leading-snug">
+                                {confirmationText}
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Printed Bank Details Block */}
+                    {bankDetails.showOnDocument && (
+                        <div className="mb-7 bg-blue-50/40 rounded-lg p-4 border border-blue-100" style={{ breakInside: 'avoid' }}>
+                            <h3 className="text-[10.5px] font-bold text-blue-700 uppercase tracking-wide flex items-center gap-1.5 mb-3 pb-2 border-b border-blue-100">
+                                <Landmark className="w-3.5 h-3.5" /> {t.bankDetails}
+                            </h3>
+                            <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-[11px]">
+                                {bankDetails.bankName && (
+                                    <div className="flex justify-between border-b border-gray-100 pb-1">
+                                        <span className="text-gray-500">{t.bankName}</span>
+                                        <span className="font-semibold text-gray-900">{bankDetails.bankName}</span>
+                                    </div>
+                                )}
+                                {bankDetails.accountName && (
+                                    <div className="flex justify-between border-b border-gray-100 pb-1">
+                                        <span className="text-gray-500">{t.accountName}</span>
+                                        <span className="font-semibold text-gray-900">{bankDetails.accountName}</span>
+                                    </div>
+                                )}
+                                {bankDetails.accountNumber && (
+                                    <div className="flex justify-between border-b border-gray-100 pb-1">
+                                        <span className="text-gray-500">{t.accountNumber}</span>
+                                        <span className="font-semibold font-mono text-gray-900">{bankDetails.accountNumber}</span>
+                                    </div>
+                                )}
+                                {bankDetails.swiftCode && (
+                                    <div className="flex justify-between border-b border-gray-100 pb-1">
+                                        <span className="text-gray-500">{t.swift}</span>
+                                        <span className="font-semibold font-mono text-gray-900">{bankDetails.swiftCode}</span>
+                                    </div>
+                                )}
+                                {bankDetails.iban && (
+                                    <div className="col-span-2 flex justify-between border-b border-gray-100 pb-1">
+                                        <span className="text-gray-500">{t.iban}</span>
+                                        <span className="font-semibold font-mono text-gray-900 tracking-wide">{bankDetails.iban}</span>
+                                    </div>
+                                )}
                             </div>
-                            <div className={lang === 'ar' ? 'text-left' : 'text-right'}>
-                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-2">{t.authorizedSignature}</p>
-                                <div className={`flex items-end gap-6 ${lang === 'ar' ? 'justify-start' : 'justify-end'}`}>
-                                    <div className="text-center">
-                                        <img src="/ismail-signature.png" alt="Ismail" className="h-8 w-auto object-contain mx-auto" />
-                                        <p className="text-[10px] font-semibold text-gray-700 border-t border-gray-300 pt-1 mt-1 min-w-[70px]">Ismail</p>
-                                        <p className="text-[8px] text-gray-400">{t.director}</p>
-                                    </div>
-                                    <div className="text-center">
-                                        <img src="/zumer-signature.png" alt="Zumer" className="h-8 w-auto object-contain mx-auto" />
-                                        <p className="text-[10px] font-semibold text-gray-700 border-t border-gray-300 pt-1 mt-1 min-w-[70px]">Zumer</p>
-                                        <p className="text-[8px] text-gray-400">{t.partner}</p>
-                                    </div>
-                                </div>
+                            {bankDetails.notes && (
+                                <p className="text-[10.5px] text-blue-600/80 italic mt-2">{t.note} {bankDetails.notes}</p>
+                            )}
+                        </div>
+                    )}
+
+                    {/* ============ TERMS ============ */}
+                    <div className="mb-7" style={{ breakInside: 'avoid' }}>
+                        <p className="font-bold text-gray-900 mb-2 uppercase tracking-wide text-[9.5px]">{t.terms}</p>
+                        <ol className="list-decimal list-inside space-y-1 text-[9.5px] text-gray-500 leading-relaxed grid grid-cols-2 gap-x-6">
+                            <li>{t.term1}</li>
+                            <li>{t.term2}</li>
+                            <li>{t.term3}</li>
+                            <li>{t.term4}</li>
+                            <li>{t.term5}</li>
+                            <li>{t.term6}</li>
+                            <li>{t.term7}</li>
+                            <li>{t.term8}</li>
+                            <li>{t.term9}</li>
+                        </ol>
+                    </div>
+
+                    {/* ============ SIGNATURE ============ */}
+                    <div className="mt-auto pt-2" style={{ breakInside: 'avoid' }}>
+                        <div className={`flex items-end gap-6 ${lang === 'ar' ? 'justify-start' : 'justify-end'}`}>
+                            <div className="text-center">
+                                <p className="text-[8.5px] font-bold text-gray-400 uppercase tracking-wide mb-2">{t.authorizedSignature}</p>
+                                <img src="/ismail-signature.png" alt="Ismail" className="h-7 w-auto object-contain mx-auto" />
+                                <p className="text-[9.5px] font-semibold text-gray-700 border-t border-gray-300 pt-1 mt-1 min-w-[70px]">Ismail</p>
+                                <p className="text-[8px] text-gray-400">{t.director}</p>
+                            </div>
+                            <div className="text-center">
+                                <p className="text-[8.5px] font-bold text-gray-400 uppercase tracking-wide mb-2 invisible">{t.authorizedSignature}</p>
+                                <img src="/zumer-signature.png" alt="Zumer" className="h-7 w-auto object-contain mx-auto" />
+                                <p className="text-[9.5px] font-semibold text-gray-700 border-t border-gray-300 pt-1 mt-1 min-w-[70px]">Zumer</p>
+                                <p className="text-[8px] text-gray-400">{t.partner}</p>
                             </div>
                         </div>
-                        <div className="mt-4 pt-3 border-t border-gray-100 text-center text-gray-400 text-[10px]">
-                            <p>{t.thankYou}</p>
-                        </div>
+                    </div>
+
+                    {/* ============ FOOTER ============ */}
+                    <div className="mt-6 pt-4 border-t border-gray-100 text-center" style={{ breakInside: 'avoid' }}>
+                        <p className="text-[9px] font-semibold text-gray-500">{t.thankYou}</p>
+                        <p className="text-[8.5px] text-gray-400 mt-1">{t.tagline}</p>
+                        <p className="text-[8.5px] text-gray-400 mt-1">info@taxiserviceksa.com · +966 56 948 7569 · www.taxiserviceksa.com</p>
                     </div>
                 </div>
             </div>
@@ -1027,12 +1175,17 @@ export default function InvoicePage() {
                     }
                     #invoice-print {
                         width: 210mm !important;
-                        min-height: 296mm !important;
                         background: white !important;
                         box-shadow: none !important;
                         border: none !important;
                         margin: 0 auto !important;
                         overflow: visible !important;
+                    }
+                    h1, h2, h3 {
+                        break-after: avoid;
+                    }
+                    table, tr {
+                        break-inside: avoid;
                     }
                     * {
                         -webkit-print-color-adjust: exact !important;
