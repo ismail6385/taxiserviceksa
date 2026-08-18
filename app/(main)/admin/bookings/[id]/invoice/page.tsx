@@ -916,14 +916,14 @@ export default function InvoicePage() {
                         {/* Payment Info */}
                         <div className="grid grid-cols-2 gap-4 mb-6">
                             <div className="bg-primary/5 rounded-lg p-3 border border-primary/10">
-                                <h3 className="text-[10px] font-bold text-primary uppercase tracking-wide mb-1">{t.bookingConfirmation}</h3>
-                                <p className="text-xs text-gray-600 leading-snug">
+                                <h3 className="text-[9px] font-bold text-primary uppercase tracking-wide mb-1">{t.bookingConfirmation}</h3>
+                                <p className="text-[11px] text-gray-600 leading-snug">
                                     {t.bookingConfirmationText}
                                 </p>
                             </div>
                             <div className="bg-gray-50 rounded-lg p-3 border border-gray-100">
-                                <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-wide mb-1">{t.paymentInstruction}</h3>
-                                <p className="text-xs text-gray-700 font-medium leading-snug">
+                                <h3 className="text-[9px] font-bold text-gray-400 uppercase tracking-wide mb-1">{t.paymentInstruction}</h3>
+                                <p className="text-[11px] text-gray-700 font-medium leading-snug">
                                     {paymentMethod === 'Cash to Driver' ? t.payCash : t.payOnline}
                                 </p>
                             </div>
