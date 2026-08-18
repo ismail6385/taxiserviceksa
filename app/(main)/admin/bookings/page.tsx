@@ -3441,19 +3441,27 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Vehicle Type</label>
-                                    <Select
-                                        value={newBooking.vehicle_type}
-                                        onValueChange={(val) => setNewBooking({ ...newBooking, vehicle_type: val })}
-                                    >
-                                        <SelectTrigger className="bg-white border-gray-200">
-                                            <SelectValue />
-                                        </SelectTrigger>
-                                        <SelectContent className="bg-white border-gray-200">
-                                            {dynamicVehicleOptions.map((v) => (
-                                                <SelectItem key={v} value={v}>{v}</SelectItem>
-                                            ))}
-                                        </SelectContent>
-                                    </Select>
+                                    <Input
+                                        value={newBooking.vehicle_type || ''}
+                                        onChange={(e) => setNewBooking({ ...newBooking, vehicle_type: e.target.value })}
+                                        className="bg-white border-gray-200"
+                                        placeholder="e.g. Toyota Camry, or type a custom vehicle"
+                                    />
+                                    <div className="flex flex-wrap gap-1 pt-1">
+                                        {dynamicVehicleOptions.map((v) => (
+                                            <span
+                                                key={v}
+                                                onClick={() => setNewBooking({ ...newBooking, vehicle_type: v })}
+                                                className={`text-[10px] px-1.5 py-0.5 rounded cursor-pointer transition-colors border ${
+                                                    newBooking.vehicle_type === v
+                                                    ? 'bg-primary border-primary text-black font-bold'
+                                                    : 'bg-gray-100 border-gray-200 text-gray-700 hover:bg-gray-200'
+                                                }`}
+                                            >
+                                                {v}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Total Price</label>
