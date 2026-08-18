@@ -76,6 +76,16 @@ export async function POST(request: NextRequest) {
             ? `<tr><td style="padding: 5px 0; color: #666;">Return Route</td><td style="font-weight: bold; color: #000;">${getReturnRoute(booking).pickupLocation} → ${getReturnRoute(booking).destination}</td></tr><tr><td style="padding: 5px 0; color: #666;">Return Date/Time</td><td style="font-weight: bold; color: #000;">${booking.return_date} at ${formatTime12h(booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}</td></tr>`
             : (booking.has_return_trip ? `<tr><td style="padding: 5px 0; color: #666;">Trip Type</td><td style="font-weight: bold; color: #000;">Round Trip</td></tr>` : '');
 
+        const itineraryLegs: { date: string; time: string; pickup: string; dropoff: string }[] = Array.isArray(booking.itinerary_legs) ? booking.itinerary_legs : [];
+        const itineraryHtml = itineraryLegs.length > 0 ? `
+            <div style="background-color: #f8f9fa; padding: 20px; border-radius: 12px; margin: 15px 0; border: 1px solid #ebedf0;">
+                <h3 style="margin-top: 0; color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 8px; display: inline-block;">Full Itinerary</h3>
+                <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+                    <tr style="border-bottom: 1px solid #eee;"><td style="padding: 5px 8px 5px 0; color: #666; white-space: nowrap;">${booking.pickup_date} ${formatTime12h(booking.pickup_time)}</td><td style="padding: 5px 0; font-weight: bold; color: #000;">${safePickup} → ${safeDest}</td></tr>
+                    ${itineraryLegs.map((leg) => `<tr style="border-bottom: 1px solid #eee;"><td style="padding: 5px 8px 5px 0; color: #666; white-space: nowrap;">${escapeHtml(leg.date)}${leg.time ? ' ' + formatTime12h(leg.time) : ''}</td><td style="padding: 5px 0; font-weight: bold; color: #000;">${escapeHtml(leg.pickup)} → ${escapeHtml(leg.dropoff)}</td></tr>`).join('')}
+                </table>
+            </div>` : '';
+
         const whatsappMsg = encodeURIComponent(
             `Hello, I'd like to confirm my booking.\n\n*Quote Ref:* ${refId}\n*Route:* ${booking.pickup_location} → ${booking.destination}\n*Date:* ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}${hasStructuredReturnLeg(booking) ? `\n*Return Route:* ${getReturnRoute(booking).pickupLocation} → ${getReturnRoute(booking).destination}\n*Return:* ${booking.return_date} at ${formatTime12h(booking.return_time)}` : ''}\n*Vehicle:* ${booking.vehicle_type}\n*Quote:* ${curr} ${price}`
         );
@@ -102,6 +112,7 @@ export async function POST(request: NextRequest) {
                             <tr><td style="padding: 5px 0; color: #666;">Passengers</td><td style="font-weight: bold; color: #000;">${booking.passengers} Pax</td></tr>
                         </table>
                     </div>
+                    ${itineraryHtml}
 
                     <div style="background-color: #000; color: #fff; padding: 20px 25px; border-radius: 12px; margin: 25px 0; text-align: center;">
                         <p style="margin: 0 0 5px; font-size: 13px; color: #aaa; text-transform: uppercase; letter-spacing: 2px;">Total Quote Price</p>

@@ -33,6 +33,7 @@ const QUOTE_TEXT: Record<DocLang, Record<string, string>> = {
         dear: 'Dear', intro: 'Thank you for choosing Taxi Service KSA. We are pleased to provide the following quotation for your requested transportation services. Please review the details of your upcoming journey below:',
         pickupDate: 'Pickup Date', time: 'Time', routeDetails: 'Route Details', from: 'From:', to: 'To:',
         outbound: 'Outbound', returnLabel: 'Return', sameDay: 'same day', returnNotRecorded: 'Return details not recorded',
+        fullItinerary: 'Full Itinerary', leg: 'Leg',
         distance: 'Distance', duration: 'Est. Duration',
         vehicleReq: 'Vehicle Requirements', occupancy: 'Occupancy', passengers: 'Passengers', bags: 'Bags',
         specialRequests: 'Special Requests',
@@ -52,6 +53,7 @@ const QUOTE_TEXT: Record<DocLang, Record<string, string>> = {
         dear: 'عزيزي', intro: 'شكراً لاختياركم تاكسي سيرفس السعودية. يسعدنا تزويدكم بعرض السعر التالي لخدمات النقل المطلوبة. يرجى مراجعة تفاصيل رحلتكم القادمة أدناه:',
         pickupDate: 'تاريخ الانطلاق', time: 'الوقت', routeDetails: 'تفاصيل المسار', from: 'من:', to: 'إلى:',
         outbound: 'الذهاب', returnLabel: 'العودة', sameDay: 'نفس اليوم', returnNotRecorded: 'تفاصيل العودة غير مسجلة',
+        fullItinerary: 'برنامج الرحلة الكامل', leg: 'المرحلة',
         distance: 'المسافة', duration: 'المدة التقديرية',
         vehicleReq: 'متطلبات المركبة', occupancy: 'عدد الركاب', passengers: 'ركاب', bags: 'حقائب',
         specialRequests: 'طلبات خاصة',
@@ -92,6 +94,7 @@ interface Booking {
     return_time?: string | null;
     return_pickup_location?: string | null;
     return_destination?: string | null;
+    itinerary_legs?: { date: string; time: string; pickup: string; dropoff: string }[] | null;
 }
 
 export default function LetterheadPage() {
@@ -477,25 +480,53 @@ export default function LetterheadPage() {
                                         <p className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">{t.time}</p>
                                         <p className="font-semibold text-gray-900">{formatTime12h(booking.pickup_time)}</p>
                                     </div>
-                                    <div className="col-span-2">
-                                        <p className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">
-                                            {isRoundTrip ? t.outbound : t.routeDetails}
-                                        </p>
-                                        <p className="font-semibold text-gray-900">{t.from} {booking.pickup_location}</p>
-                                        <p className="font-semibold text-gray-900 mt-0.5">{t.to} {booking.destination}</p>
-                                    </div>
-                                    {isRoundTrip && (
-                                        <div className="col-span-2 pt-3 border-t border-gray-200">
-                                            <p className="text-blue-500 text-[10px] uppercase font-bold tracking-wider flex items-center gap-1">
-                                                <Repeat className="w-2.5 h-2.5" /> {t.returnLabel}
-                                                {returnDate ? ` · ${returnDate}${returnDate === booking.pickup_date ? ` (${t.sameDay})` : ''}${returnTime ? ` ${formatTime12h(returnTime)}` : ''}` : ''}
-                                            </p>
-                                            <p className="font-semibold text-gray-900">{t.from} {returnPickupLocation || booking.destination}</p>
-                                            <p className="font-semibold text-gray-900 mt-0.5">{t.to} {returnDropoffLocation || booking.pickup_location}</p>
-                                            {!returnDate && (
-                                                <p className="text-[10px] text-gray-400 italic mt-1">{t.returnNotRecorded}</p>
-                                            )}
+                                    {booking.itinerary_legs && booking.itinerary_legs.length > 0 ? (
+                                        <div className="col-span-2">
+                                            <p className="text-gray-500 text-[10px] uppercase font-bold tracking-wider mb-2">{t.fullItinerary}</p>
+                                            <table className="w-full text-xs border-collapse">
+                                                <tbody>
+                                                    <tr className="border-b border-gray-200">
+                                                        <td className="py-1.5 pr-2 font-mono text-gray-500 whitespace-nowrap align-top">{booking.pickup_date}{booking.pickup_time ? ` · ${formatTime12h(booking.pickup_time)}` : ''}</td>
+                                                        <td className="py-1.5 font-semibold text-gray-900">{booking.pickup_location} → {booking.destination}</td>
+                                                    </tr>
+                                                    {booking.itinerary_legs.map((leg, i) => (
+                                                        <tr key={i} className="border-b border-gray-200">
+                                                            <td className="py-1.5 pr-2 font-mono text-gray-500 whitespace-nowrap align-top">{leg.date}{leg.time ? ` · ${formatTime12h(leg.time)}` : ''}</td>
+                                                            <td className="py-1.5 font-semibold text-gray-900">{leg.pickup} → {leg.dropoff}</td>
+                                                        </tr>
+                                                    ))}
+                                                    {isRoundTrip && returnDate && (
+                                                        <tr>
+                                                            <td className="py-1.5 pr-2 font-mono text-gray-500 whitespace-nowrap align-top">{returnDate}{returnTime ? ` · ${formatTime12h(returnTime)}` : ''}</td>
+                                                            <td className="py-1.5 font-semibold text-gray-900">{returnPickupLocation || booking.destination} → {returnDropoffLocation || booking.pickup_location}</td>
+                                                        </tr>
+                                                    )}
+                                                </tbody>
+                                            </table>
                                         </div>
+                                    ) : (
+                                        <>
+                                            <div className="col-span-2">
+                                                <p className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">
+                                                    {isRoundTrip ? t.outbound : t.routeDetails}
+                                                </p>
+                                                <p className="font-semibold text-gray-900">{t.from} {booking.pickup_location}</p>
+                                                <p className="font-semibold text-gray-900 mt-0.5">{t.to} {booking.destination}</p>
+                                            </div>
+                                            {isRoundTrip && (
+                                                <div className="col-span-2 pt-3 border-t border-gray-200">
+                                                    <p className="text-blue-500 text-[10px] uppercase font-bold tracking-wider flex items-center gap-1">
+                                                        <Repeat className="w-2.5 h-2.5" /> {t.returnLabel}
+                                                        {returnDate ? ` · ${returnDate}${returnDate === booking.pickup_date ? ` (${t.sameDay})` : ''}${returnTime ? ` ${formatTime12h(returnTime)}` : ''}` : ''}
+                                                    </p>
+                                                    <p className="font-semibold text-gray-900">{t.from} {returnPickupLocation || booking.destination}</p>
+                                                    <p className="font-semibold text-gray-900 mt-0.5">{t.to} {returnDropoffLocation || booking.pickup_location}</p>
+                                                    {!returnDate && (
+                                                        <p className="text-[10px] text-gray-400 italic mt-1">{t.returnNotRecorded}</p>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </>
                                     )}
                                     {(booking.distance_km || booking.duration_estimate) && (
                                         <>

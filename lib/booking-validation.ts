@@ -264,6 +264,17 @@ const bookingFieldsShape = {
         duration_estimate: z.string().optional().nullable(),
         commission_rate: z.union([z.number(), z.string()]).optional().nullable(),
         contract_id: z.string().optional().nullable(),
+        // Extra pickup/drop-off legs beyond the primary pickup_location/
+        // destination and the single return leg — for multi-day/multi-stop
+        // bookings (e.g. an event or retreat with several trips over several
+        // dates). Each leg is independent; there is no ordering guarantee
+        // beyond array order.
+        itinerary_legs: z.array(z.object({
+            date: z.string(),
+            time: z.string(),
+            pickup: z.string(),
+            dropoff: z.string(),
+        })).optional().nullable(),
 };
 
 /** Shared by both schemas below so round-trip/trip-type rules can never drift

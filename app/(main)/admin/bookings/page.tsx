@@ -45,6 +45,7 @@ import {
 } from 'lucide-react';
 import { getPrice } from '@/lib/pricing';
 import { validateRoundTrip, hasStructuredReturnLeg, getReturnRoute, isSameDate } from '@/lib/booking-validation';
+import ItineraryLegsEditor, { type ItineraryLeg } from '@/components/admin/ItineraryLegsEditor';
 import { CounterControl } from '@/components/PassengerLuggageSelector';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -134,6 +135,7 @@ interface Booking {
     distance_km?: number;
     duration_estimate?: string;
     commission_rate?: number;
+    itinerary_legs?: ItineraryLeg[] | null;
 }
 
 export default function BookingsPage() {
@@ -259,7 +261,8 @@ export default function BookingsPage() {
         return_time: '',
         return_pickup_location: '',
         return_destination: '',
-        trip_type: 'point_to_point'
+        trip_type: 'point_to_point',
+        itinerary_legs: []
     });
     const [bookingFieldErrors, setBookingFieldErrors] = useState<Record<string, string>>({});
 
@@ -699,6 +702,7 @@ export default function BookingsPage() {
                     return_time: updateData.has_return_trip ? (updateData.return_time || null) : null,
                     return_pickup_location: updateData.has_return_trip ? (updateData.return_pickup_location || null) : null,
                     return_destination: updateData.has_return_trip ? (updateData.return_destination || null) : null,
+                    itinerary_legs: (updateData.itinerary_legs && updateData.itinerary_legs.length > 0) ? updateData.itinerary_legs : null,
                 }),
             });
             const result = await response.json().catch(() => ({}));
@@ -763,6 +767,7 @@ export default function BookingsPage() {
                     return_time: newBooking.has_return_trip ? (newBooking.return_time || null) : null,
                     return_pickup_location: newBooking.has_return_trip ? (newBooking.return_pickup_location || null) : null,
                     return_destination: newBooking.has_return_trip ? (newBooking.return_destination || null) : null,
+                    itinerary_legs: (newBooking.itinerary_legs && newBooking.itinerary_legs.length > 0) ? newBooking.itinerary_legs : null,
                     // Admin-created bookings don't auto-email the customer today.
                     sendCustomerEmail: false,
                 }),
@@ -807,6 +812,7 @@ export default function BookingsPage() {
                     return_time: '',
                     return_pickup_location: '',
                     return_destination: '',
+                    itinerary_legs: [],
                 });
                 alert('Booking created successfully!');
             }
@@ -2182,6 +2188,28 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         )}
                                     </div>
 
+                                    {isEditing ? (
+                                        <div className="pl-4 bg-white border border-gray-200 rounded-lg p-3">
+                                            <ItineraryLegsEditor
+                                                legs={editedBooking.itinerary_legs || []}
+                                                onChange={(legs) => setEditedBooking({ ...editedBooking, itinerary_legs: legs })}
+                                                minDate={editedBooking.pickup_date}
+                                            />
+                                        </div>
+                                    ) : selectedBooking.itinerary_legs && selectedBooking.itinerary_legs.length > 0 ? (
+                                        <div className="pl-4">
+                                            <span className="block text-xs text-gray-500 mb-1.5">Additional Itinerary Legs</span>
+                                            <div className="space-y-1.5">
+                                                {selectedBooking.itinerary_legs.map((leg, i) => (
+                                                    <div key={i} className="text-sm bg-white border border-gray-200 rounded-lg px-3 py-2 flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                                                        <span className="font-mono text-xs text-gray-500">{leg.date} {leg.time && `· ${formatTime12h(leg.time)}`}</span>
+                                                        <span className="font-medium text-gray-900">{leg.pickup} → {leg.dropoff}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ) : null}
+
                                     <div className="grid grid-cols-2 gap-4 pl-4">
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Distance (km)</span>
@@ -3297,6 +3325,13 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         value={newBooking.destination}
                                         onChange={(e) => setNewBooking({ ...newBooking, destination: e.target.value })}
                                         className="bg-white border-gray-200"
+                                    />
+                                </div>
+                                <div className="bg-gray-50 border border-gray-200 rounded-xl p-3">
+                                    <ItineraryLegsEditor
+                                        legs={newBooking.itinerary_legs || []}
+                                        onChange={(legs) => setNewBooking({ ...newBooking, itinerary_legs: legs })}
+                                        minDate={newBooking.pickup_date}
                                     />
                                 </div>
                                     <div className="grid grid-cols-2 gap-4">
