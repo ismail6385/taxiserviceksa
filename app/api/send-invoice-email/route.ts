@@ -80,6 +80,7 @@ export async function POST(request: NextRequest) {
                         ${returnLegLine}
                         <p style="margin: 5px 0;"><strong>Vehicle:</strong> ${booking.vehicle_type}</p>
                         <p style="margin: 5px 0;"><strong>Amount:</strong> ${currency || 'SAR'} ${booking.total_price?.toFixed(2) || '0.00'}</p>
+                        ${booking.deposit_amount ? `<p style="margin: 5px 0;"><strong>Deposit Paid:</strong> ${currency || 'SAR'} ${Number(booking.deposit_amount).toFixed(2)}</p><p style="margin: 5px 0;"><strong>Balance Due:</strong> ${currency || 'SAR'} ${(Number(booking.total_price) - Number(booking.deposit_amount)).toFixed(2)}</p>` : ''}
                         <p style="margin: 5px 0;"><strong>Payment Status:</strong> ${paymentStatus || 'Unpaid'}</p>
                         <p style="margin: 5px 0;"><strong>Payment Method:</strong> ${paymentMethod || 'Cash to Driver'}</p>
                     </div>

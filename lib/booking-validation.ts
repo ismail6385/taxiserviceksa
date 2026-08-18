@@ -247,6 +247,7 @@ const bookingFieldsShape = {
         child_seats: z.number().int().min(0).optional().nullable(),
         flight_number: z.string().optional().nullable(),
         total_price: z.union([z.number(), z.string()]).optional().nullable(),
+        deposit_amount: z.union([z.number(), z.string()]).optional().nullable(),
         currency: z.string().optional().nullable(),
         payment_method: z.string().optional().nullable(),
         payment_status: z.string().optional().nullable(),

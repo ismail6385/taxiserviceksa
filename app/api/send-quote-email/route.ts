@@ -118,6 +118,11 @@ export async function POST(request: NextRequest) {
                         <p style="margin: 0 0 5px; font-size: 13px; color: #aaa; text-transform: uppercase; letter-spacing: 2px;">Total Quote Price</p>
                         <p style="margin: 0; font-size: 36px; font-weight: 900; color: #C6FF00; letter-spacing: 1px;">${curr} ${price}</p>
                         <p style="margin: 8px 0 0; font-size: 11px; color: #777;">Includes fuel, toll, and parking fees</p>
+                        ${booking.deposit_amount ? `
+                        <div style="margin-top: 14px; padding-top: 14px; border-top: 1px solid #333; display: flex; justify-content: space-between; gap: 20px;">
+                            <span style="font-size: 12px; color: #8fd3ff;">Deposit / Advance: <strong style="color:#fff;">${curr} ${Number(booking.deposit_amount).toFixed(2)}</strong></span>
+                            <span style="font-size: 12px; color: #aaa;">Balance Due: <strong style="color:#fff;">${curr} ${(Number(booking.total_price) - Number(booking.deposit_amount)).toFixed(2)}</strong></span>
+                        </div>` : ''}
                     </div>
 
                     <p style="font-size: 14px; color: #555;">This quote is valid for <strong>48 hours</strong>. To confirm your booking or ask any questions, simply reply to this email or tap the button below.</p>

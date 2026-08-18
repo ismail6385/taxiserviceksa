@@ -39,6 +39,7 @@ const QUOTE_TEXT: Record<DocLang, Record<string, string>> = {
         specialRequests: 'Special Requests',
         closing: 'This quotation is based on the details provided. For any modifications, please contact our support team. We look forward to providing you with a comfortable and seamless experience.',
         totalQuoted: 'Total Quoted Price',
+        depositRequired: 'Deposit / Advance', balanceDue: 'Balance Due',
         terms: 'Terms & Conditions',
         term1: 'Price includes fuel, toll fees, and basic wait times.',
         term2: 'Cancellation is free up to 24 hours before pickup.',
@@ -59,6 +60,7 @@ const QUOTE_TEXT: Record<DocLang, Record<string, string>> = {
         specialRequests: 'طلبات خاصة',
         closing: 'يستند هذا العرض إلى التفاصيل المقدمة. لأي تعديلات، يرجى التواصل مع فريق الدعم لدينا. نتطلع لتقديم تجربة مريحة وسلسة لكم.',
         totalQuoted: 'السعر الإجمالي المقترح',
+        depositRequired: 'العربون / الدفعة المقدمة', balanceDue: 'المبلغ المتبقي',
         terms: 'الشروط والأحكام',
         term1: 'السعر يشمل الوقود ورسوم الطرق ووقت الانتظار الأساسي.',
         term2: 'إلغاء مجاني حتى 24 ساعة قبل موعد الانطلاق.',
@@ -85,6 +87,7 @@ interface Booking {
     status: string;
     special_requests?: string;
     total_price?: number;
+    deposit_amount?: number | null;
     currency?: string;
     payment_method?: string;
     distance_km?: number;
@@ -572,11 +575,29 @@ export default function LetterheadPage() {
                             )}
 
                             {booking.total_price !== undefined && booking.total_price !== null && (
-                                <div className="flex items-center justify-between border border-gray-200 py-3 px-4 rounded-lg bg-gray-50">
-                                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">{t.totalQuoted}</span>
-                                    <span className="text-xl font-bold text-gray-900">
-                                        {booking.currency || 'SAR'} {booking.total_price.toFixed(2)}
-                                    </span>
+                                <div className="border border-gray-200 rounded-lg bg-gray-50 divide-y divide-gray-200">
+                                    <div className="flex items-center justify-between py-3 px-4">
+                                        <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">{t.totalQuoted}</span>
+                                        <span className="text-xl font-bold text-gray-900">
+                                            {booking.currency || 'SAR'} {booking.total_price.toFixed(2)}
+                                        </span>
+                                    </div>
+                                    {!!booking.deposit_amount && (
+                                        <>
+                                            <div className="flex items-center justify-between py-2 px-4">
+                                                <span className="text-xs font-bold text-blue-500 uppercase tracking-wider">{t.depositRequired}</span>
+                                                <span className="text-sm font-bold text-blue-700">
+                                                    {booking.currency || 'SAR'} {booking.deposit_amount.toFixed(2)}
+                                                </span>
+                                            </div>
+                                            <div className="flex items-center justify-between py-2 px-4">
+                                                <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">{t.balanceDue}</span>
+                                                <span className="text-sm font-bold text-gray-900">
+                                                    {booking.currency || 'SAR'} {(booking.total_price - booking.deposit_amount).toFixed(2)}
+                                                </span>
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
                             )}
                         </div>

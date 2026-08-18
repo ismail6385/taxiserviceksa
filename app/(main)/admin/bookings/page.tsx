@@ -111,6 +111,7 @@ interface Booking {
     status: 'pending' | 'quote_sent' | 'confirmed' | 'in_progress' | 'cancelled' | 'completed';
     special_requests?: string;
     total_price?: number;
+    deposit_amount?: number | null;
     payment_status?: string;
     driver_name?: string;
     driver_phone?: string;
@@ -245,6 +246,7 @@ export default function BookingsPage() {
         passengers: 1,
         luggage: 0,
         total_price: 0,
+        deposit_amount: null,
         special_requests: '',
         internal_notes: '',
         tags: '',
@@ -800,6 +802,7 @@ export default function BookingsPage() {
                     luggage: 0,
                     status: 'pending',
                     total_price: 0,
+                    deposit_amount: null,
                     special_requests: '',
                     internal_notes: '',
                     tags: '',
@@ -2596,6 +2599,37 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         </div>
                                     </div>
 
+                                    <div>
+                                        <span className="block text-xs text-gray-500 mb-1">Deposit Paid (e.g. online advance)</span>
+                                        {isEditing ? (
+                                            <div className="flex items-center gap-2">
+                                                <Input
+                                                    type="number"
+                                                    min={0}
+                                                    step="0.01"
+                                                    value={editedBooking.deposit_amount ?? ''}
+                                                    onChange={(e) => setEditedBooking({ ...editedBooking, deposit_amount: e.target.value ? parseFloat(e.target.value) : null })}
+                                                    className="h-8 text-sm bg-white font-bold w-28"
+                                                    placeholder="0.00"
+                                                />
+                                                {!!editedBooking.total_price && (
+                                                    <span className="text-xs text-gray-500">
+                                                        Balance due: <strong className="text-gray-900">{editedBooking.currency || 'SAR'} {(editedBooking.total_price - (editedBooking.deposit_amount || 0)).toFixed(2)}</strong>
+                                                    </span>
+                                                )}
+                                            </div>
+                                        ) : selectedBooking.deposit_amount ? (
+                                            <div className="text-sm">
+                                                <span className="font-bold text-blue-600">{selectedBooking.currency || 'SAR'} {selectedBooking.deposit_amount.toFixed(2)} paid</span>
+                                                {!!selectedBooking.total_price && (
+                                                    <span className="text-gray-500"> · Balance due: <strong className="text-gray-900">{selectedBooking.currency || 'SAR'} {(selectedBooking.total_price - selectedBooking.deposit_amount).toFixed(2)}</strong></span>
+                                                )}
+                                            </div>
+                                        ) : (
+                                            <span className="text-sm text-gray-400">—</span>
+                                        )}
+                                    </div>
+
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Passengers</span>
@@ -3455,6 +3489,23 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             </span>
                                         ))}
                                     </div>
+                                </div>
+                                <div className="space-y-1">
+                                    <label className="text-sm font-medium text-gray-700">Deposit Paid (e.g. online advance)</label>
+                                    <Input
+                                        type="number"
+                                        min={0}
+                                        step="0.01"
+                                        placeholder="0.00"
+                                        value={newBooking.deposit_amount ?? ''}
+                                        onChange={(e) => setNewBooking({ ...newBooking, deposit_amount: e.target.value ? parseFloat(e.target.value) : null })}
+                                        className="bg-white border-gray-200 font-bold"
+                                    />
+                                    {!!newBooking.total_price && (
+                                        <p className="text-[11px] text-gray-500">
+                                            Balance due: <strong className="text-gray-900">{newBooking.currency || 'SAR'} {(newBooking.total_price - (newBooking.deposit_amount || 0)).toFixed(2)}</strong>
+                                        </p>
+                                    )}
                                 </div>
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Passengers</label>
