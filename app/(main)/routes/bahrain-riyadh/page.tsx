@@ -82,33 +82,33 @@ export default function BahrainRiyadhRoutePage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
-                            <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">International Border</span>
+                            <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">Causeway + Highway 95</span>
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                                The Premium Way from Bahrain to Riyadh
+                                A Comfortable Half-Day Drive to the Capital
                             </h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                                Traveling between Bahrain and Riyadh by road is a popular option for families, businessmen, and GCC residents. The distance is approximately 450 km, and the journey typically takes 4-6 hours.
+                                Bahrain to Riyadh covers roughly 490 km — across the King Fahd Causeway, then west along Highway 95 through the Eastern Province to the capital. It's a genuine half-day drive, comfortably doable in a single sitting with one rest stop.
                             </p>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                Avoid the hassle of airport queues and strict baggage allowances. Our professional chauffeurs handle the border crossing paperwork, vehicle insurance, and navigate the journey while you relax in a spacious SUV.
+                                This route is popular with business travellers heading to meetings in Riyadh, and with GCC residents visiting family in the capital who prefer door-to-door privacy over a connecting flight through Dammam.
                             </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Globe className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Border Assistance</span>
+                                    <span className="font-semibold text-gray-800">Via Highway 95</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Clock className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">4-6 hours Journey</span>
+                                    <span className="font-semibold text-gray-800">5-5.5 hours Journey</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Building2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Door-to-Door</span>
+                                    <span className="font-semibold text-gray-800">~490 km Total</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <CheckCircle2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Comfort</span>
+                                    <span className="font-semibold text-gray-800">Single-Day Trip</span>
                                 </div>
                             </div>
                         </div>
@@ -119,22 +119,22 @@ export default function BahrainRiyadhRoutePage() {
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">1</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Seamless Door-to-Door Service</h4>
-                                        <p className="text-sm text-gray-500">We pick you up from your exact location in Bahrain and drop you directly at your destination in Riyadh.</p>
+                                        <h4 className="font-bold text-gray-900">Causeway Then Highway 95</h4>
+                                        <p className="text-sm text-gray-500">The route crosses the King Fahd Causeway before joining Highway 95, the main Eastern Province-to-Riyadh corridor.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center shrink-0 text-primary font-bold">2</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Custom Border Procedures</h4>
-                                        <p className="text-sm text-gray-500">Our drivers are experienced with GCC borders, assisting you through passport control quickly and smoothly.</p>
+                                        <h4 className="font-bold text-gray-900">One Comfortable Rest Stop</h4>
+                                        <p className="text-sm text-gray-500">Most journeys include a single stop roughly halfway, at a highway service station, for prayer, fuel, and refreshments.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">3</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Rest Stops on Demand</h4>
-                                        <p className="text-sm text-gray-500">Take breaks whenever you want. We stop at hygienic service facilities along the highway for refreshments and prayer.</p>
+                                        <h4 className="font-bold text-gray-900">Direct to Your Riyadh Address</h4>
+                                        <p className="text-sm text-gray-500">Whether it's a hotel, a business district, or a private residence, you're dropped exactly where you need to be — no transfer required.</p>
                                     </div>
                                 </li>
                             </ul>
@@ -151,18 +151,18 @@ export default function BahrainRiyadhRoutePage() {
                         contextName="Bahrain to Riyadh"
                         points={[
                             {
-                                topic: "Visas & ID",
-                                commonBelief: "Just jump in and go.",
-                                reality: "You must have a valid passport, Iqama/GCC ID, and appropriate visas depending on your nationality. The driver assists but cannot issue visas.",
-                                truthRange: "Passenger Responsibility",
-                                factors: ["Valid Passport", "GCC Visa"]
+                                topic: "Flight vs Private Car",
+                                commonBelief: "A flight is always faster overall.",
+                                reality: "Flight time is under two hours, but add airport check-in, security, and baggage claim on both ends, and a private car's 5-5.5 hour door-to-door drive is often competitive — especially for groups or anyone with extra luggage.",
+                                truthRange: "Depends on Group Size",
+                                factors: ["Total Door-to-Door Time", "Luggage & Group Comfort"]
                             },
                             {
-                                topic: "Pricing",
-                                commonBelief: "It's expensive for groups.",
-                                reality: "For families or groups of 4-6 people, a private VIP SUV transfer is often cheaper than buying multiple flight tickets.",
-                                truthRange: "Highly Cost-Effective",
-                                factors: ["Per-Vehicle Price", "No Luggage Fees"]
+                                topic: "Best Time to Travel",
+                                commonBelief: "Any time of day is the same.",
+                                reality: "An early morning departure avoids both the weekend causeway rush and the worst of the daytime heat on the Highway 95 stretch through the Eastern Province.",
+                                truthRange: "Morning Departure Recommended",
+                                factors: ["Causeway Traffic", "Desert Heat"]
                             }
                         ]}
                     />
@@ -177,21 +177,21 @@ export default function BahrainRiyadhRoutePage() {
             <MicroSemanticFAQ
                 faqs={[
                     {
-                        question: "How long does a taxi take from Bahrain to Riyadh?",
-                        shortAnswer: "4-6 hours",
-                        detailedAnswer: "The total driving time is around 4-6 hours. Please note that border crossing times can vary between 30 minutes to 2 hours depending on the season, weekends, and time of day.",
+                        question: "Is Bahrain to Riyadh doable in one day?",
+                        shortAnswer: "Yes, easily",
+                        detailedAnswer: "Yes. At 5-5.5 hours of driving, it's a comfortable single-day journey with time to spare for a rest stop — no overnight stay is needed.",
                         perspectives: []
                     },
                     {
-                        question: "What vehicle options do you have for this route?",
-                        shortAnswer: "SUVs & Sedans",
-                        detailedAnswer: "We offer comfortable sedans for 1-2 passengers and premium SUVs (like GMC Yukon or Chevy Suburban) which are highly recommended for the long 450 km journey.",
+                        question: "What's the route from Bahrain to Riyadh?",
+                        shortAnswer: "Causeway, then Highway 95",
+                        detailedAnswer: "The drive crosses the King Fahd Causeway into the Eastern Province, then follows Highway 95 west to Riyadh — the main road used for Eastern Province-to-capital traffic.",
                         perspectives: []
                     },
                     {
-                        question: "Is the border vehicle insurance included in the price?",
-                        shortAnswer: "Yes",
-                        detailedAnswer: "Yes, our quoted price of 1200 SAR includes the vehicle crossing insurance and toll fees.",
+                        question: "Can I book a large SUV for a family trip to Riyadh?",
+                        shortAnswer: "Yes, GMC Yukon or similar",
+                        detailedAnswer: "Yes. For the 490 km journey, we recommend a GMC Yukon or similar SUV for families or groups of 4+ — more comfortable than a sedan over a multi-hour drive.",
                         perspectives: []
                     }
                 ]}
