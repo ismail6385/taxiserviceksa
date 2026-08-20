@@ -51,7 +51,16 @@ export async function GET() {
     // Nested event pages under /events/{slug} — not auto-discovered since
     // app/(main)/events/ has no top-level page.tsx of its own.
     const eventPages = [
+        { url: '/events/riyadh-event-transportation', priority: 0.8, changefreq: 'weekly' },
         { url: '/events/leap-riyadh-transportation', priority: 0.8, changefreq: 'weekly' },
+        { url: '/events/money20-20-riyadh-transportation', priority: 0.8, changefreq: 'weekly' },
+        { url: '/events/global-ai-summit-riyadh-transportation', priority: 0.8, changefreq: 'weekly' },
+        { url: '/events/black-hat-mea-transportation', priority: 0.8, changefreq: 'weekly' },
+        { url: '/events/future-minerals-forum-transportation', priority: 0.7, changefreq: 'weekly' },
+        { url: '/events/riyadh-exhibition-transportation', priority: 0.7, changefreq: 'monthly' },
+        { url: '/events/riyadh-conference-transportation', priority: 0.7, changefreq: 'monthly' },
+        { url: '/events/corporate-event-transportation-saudi-arabia', priority: 0.7, changefreq: 'monthly' },
+        { url: '/events/vip-event-chauffeur-riyadh', priority: 0.7, changefreq: 'monthly' },
     ];
 
     // Dynamically list all other directories in app/(main) that contain a page.tsx
