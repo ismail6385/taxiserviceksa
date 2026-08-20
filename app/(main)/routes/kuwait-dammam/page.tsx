@@ -82,33 +82,33 @@ export default function KuwaitDammamRoutePage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
-                            <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">International Border</span>
+                            <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">Nuwaiseeb Border</span>
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                                The Premium Way from Kuwait to Dammam
+                                Across the Nuwaiseeb Crossing to the Eastern Province
                             </h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                                Traveling between Kuwait and Dammam by road is a popular option for families, businessmen, and GCC residents. The distance is approximately 400 km, and the journey typically takes 4-5 hours.
+                                Kuwait to Dammam covers approximately 440 km via the Nuwaiseeb (Khafji) border crossing, the main land route connecting Kuwait to Saudi Arabia's Eastern Province. At 4-4.5 hours, it's a comfortable single-day drive rather than an overnight trip.
                             </p>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                Avoid the hassle of airport queues and strict baggage allowances. Our professional chauffeurs handle the border crossing paperwork, vehicle insurance, and navigate the journey while you relax in a spacious SUV.
+                                This is a well-travelled corridor for Kuwaiti and Saudi families, oil-and-gas sector professionals moving between the two countries' petrochemical hubs, and residents visiting relatives across the border.
                             </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Globe className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Border Assistance</span>
+                                    <span className="font-semibold text-gray-800">Nuwaiseeb Crossing</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Clock className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">4-5 hours Journey</span>
+                                    <span className="font-semibold text-gray-800">4-4.5 hours Journey</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Building2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Door-to-Door</span>
+                                    <span className="font-semibold text-gray-800">~440 km Total</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <CheckCircle2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Comfort</span>
+                                    <span className="font-semibold text-gray-800">Single-Day Trip</span>
                                 </div>
                             </div>
                         </div>
@@ -119,22 +119,22 @@ export default function KuwaitDammamRoutePage() {
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">1</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Seamless Door-to-Door Service</h4>
-                                        <p className="text-sm text-gray-500">We pick you up from your exact location in Kuwait and drop you directly at your destination in Dammam.</p>
+                                        <h4 className="font-bold text-gray-900">Nuwaiseeb Border Crossing</h4>
+                                        <p className="text-sm text-gray-500">Our drivers cross regularly at Nuwaiseeb (Khafji) and know the fastest lanes for GCC nationals and visiting passengers alike.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center shrink-0 text-primary font-bold">2</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Custom Border Procedures</h4>
-                                        <p className="text-sm text-gray-500">Our drivers are experienced with GCC borders, assisting you through passport control quickly and smoothly.</p>
+                                        <h4 className="font-bold text-gray-900">Petrochemical Corridor</h4>
+                                        <p className="text-sm text-gray-500">A regular route for oil-and-gas professionals commuting between Kuwait and the Jubail/Dammam industrial belt.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">3</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Rest Stops on Demand</h4>
-                                        <p className="text-sm text-gray-500">Take breaks whenever you want. We stop at hygienic service facilities along the highway for refreshments and prayer.</p>
+                                        <h4 className="font-bold text-gray-900">Same-Day Return Available</h4>
+                                        <p className="text-sm text-gray-500">At 4-4.5 hours each way, many clients book a same-day round trip for a single meeting or family visit.</p>
                                     </div>
                                 </li>
                             </ul>
@@ -151,18 +151,18 @@ export default function KuwaitDammamRoutePage() {
                         contextName="Kuwait to Dammam"
                         points={[
                             {
-                                topic: "Visas & ID",
-                                commonBelief: "Just jump in and go.",
-                                reality: "You must have a valid passport, Iqama/GCC ID, and appropriate visas depending on your nationality. The driver assists but cannot issue visas.",
-                                truthRange: "Passenger Responsibility",
-                                factors: ["Valid Passport", "GCC Visa"]
+                                topic: "Holiday Border Queues",
+                                commonBelief: "The Nuwaiseeb crossing is always quick.",
+                                reality: "During Eid and Saudi/Kuwaiti national holidays, the Nuwaiseeb crossing sees significantly longer queues than a normal weekday. Booking a few hours' buffer around holiday travel is worth it.",
+                                truthRange: "Holiday-Dependent",
+                                factors: ["Eid Travel Season", "Weekday vs Holiday"]
                             },
                             {
-                                topic: "Pricing",
-                                commonBelief: "It's expensive for groups.",
-                                reality: "For families or groups of 4-6 people, a private VIP SUV transfer is often cheaper than buying multiple flight tickets.",
-                                truthRange: "Highly Cost-Effective",
-                                factors: ["Per-Vehicle Price", "No Luggage Fees"]
+                                topic: "Business vs Family Travel",
+                                commonBelief: "This route is mainly for oil industry workers.",
+                                reality: "While the petrochemical corridor drives a lot of traffic, an equal share of bookings are families visiting relatives across the border — the drive is short enough for a comfortable day trip either way.",
+                                truthRange: "Mixed Use Route",
+                                factors: ["Business Travel", "Family Visits"]
                             }
                         ]}
                     />
@@ -177,21 +177,21 @@ export default function KuwaitDammamRoutePage() {
             <MicroSemanticFAQ
                 faqs={[
                     {
-                        question: "How long does a taxi take from Kuwait to Dammam?",
-                        shortAnswer: "4-5 hours",
-                        detailedAnswer: "The total driving time is around 4-5 hours. Please note that border crossing times can vary between 30 minutes to 2 hours depending on the season, weekends, and time of day.",
+                        question: "Which border crossing do you use between Kuwait and Dammam?",
+                        shortAnswer: "Nuwaiseeb (Khafji)",
+                        detailedAnswer: "We cross at Nuwaiseeb on the Kuwaiti side, matched with Khafji on the Saudi side — the standard land crossing for this route, open 24 hours.",
                         perspectives: []
                     },
                     {
-                        question: "What vehicle options do you have for this route?",
-                        shortAnswer: "SUVs & Sedans",
-                        detailedAnswer: "We offer comfortable sedans for 1-2 passengers and premium SUVs (like GMC Yukon or Chevy Suburban) which are highly recommended for the long 400 km journey.",
-                        perspectives: []
-                    },
-                    {
-                        question: "Is the border vehicle insurance included in the price?",
+                        question: "Can I book a same-day round trip?",
                         shortAnswer: "Yes",
-                        detailedAnswer: "Yes, our quoted price of 1000 SAR includes the vehicle crossing insurance and toll fees.",
+                        detailedAnswer: "Yes. At 4-4.5 hours each way, a same-day round trip for a single meeting or family visit is a common way this route is booked.",
+                        perspectives: []
+                    },
+                    {
+                        question: "Is this route busy during Saudi or Kuwaiti holidays?",
+                        shortAnswer: "Yes, plan extra time",
+                        detailedAnswer: "Yes — during Eid and other national holidays, the Nuwaiseeb crossing gets noticeably busier. We recommend booking with a little extra buffer time during those periods.",
                         perspectives: []
                     }
                 ]}

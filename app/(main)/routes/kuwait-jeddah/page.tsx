@@ -82,33 +82,33 @@ export default function KuwaitJeddahRoutePage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
-                            <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">International Border</span>
+                            <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">Long-Distance Private Hire</span>
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                                The Premium Way from Kuwait to Jeddah
+                                A Full Cross-Country Transfer to the Red Sea
                             </h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                                Traveling between Kuwait and Jeddah by road is a popular option for families, businessmen, and GCC residents. The distance is approximately 1616 km, and the journey typically takes 16-18 hours.
+                                Kuwait to Jeddah covers approximately 1,570 km — from the Nuwaiseeb border, the length of the Kingdom to the Red Sea coast — at around 16.5 hours of driving. This is a genuine full-day private hire, not a quick transfer.
                             </p>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                Avoid the hassle of airport queues and strict baggage allowances. Our professional chauffeurs handle the border crossing paperwork, vehicle insurance, and navigate the journey while you relax in a spacious SUV.
+                                Most bookings are Umrah pilgrims who prefer a direct drive over a connecting flight, and Kuwaiti families relocating to or visiting the Jeddah area. We recommend at least 48 hours notice to arrange the right vehicle and driver plan.
                             </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Globe className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Border Assistance</span>
+                                    <span className="font-semibold text-gray-800">Full Day Journey</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Clock className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">16-18 hours Journey</span>
+                                    <span className="font-semibold text-gray-800">~16.5 hours Journey</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Building2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Door-to-Door</span>
+                                    <span className="font-semibold text-gray-800">~1,570 km Total</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <CheckCircle2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Comfort</span>
+                                    <span className="font-semibold text-gray-800">Book 48h Ahead</span>
                                 </div>
                             </div>
                         </div>
@@ -119,22 +119,22 @@ export default function KuwaitJeddahRoutePage() {
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">1</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Seamless Door-to-Door Service</h4>
-                                        <p className="text-sm text-gray-500">We pick you up from your exact location in Kuwait and drop you directly at your destination in Jeddah.</p>
+                                        <h4 className="font-bold text-gray-900">A Full Day Behind the Wheel</h4>
+                                        <p className="text-sm text-gray-500">Plan your departure time around arriving in Jeddah at a reasonable hour — this is genuinely a full day's drive.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center shrink-0 text-primary font-bold">2</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Custom Border Procedures</h4>
-                                        <p className="text-sm text-gray-500">Our drivers are experienced with GCC borders, assisting you through passport control quickly and smoothly.</p>
+                                        <h4 className="font-bold text-gray-900">Driver Rotation Available</h4>
+                                        <p className="text-sm text-gray-500">For the full 16.5-hour drive, ask about a second driver joining partway for a safer, more comfortable journey.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">3</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Rest Stops on Demand</h4>
-                                        <p className="text-sm text-gray-500">Take breaks whenever you want. We stop at hygienic service facilities along the highway for refreshments and prayer.</p>
+                                        <h4 className="font-bold text-gray-900">Umrah-Ready Vehicles</h4>
+                                        <p className="text-sm text-gray-500">Vehicles are equipped for pilgrims travelling onward to Makkah, with space for Ihram bags and extra luggage.</p>
                                     </div>
                                 </li>
                             </ul>
@@ -151,18 +151,18 @@ export default function KuwaitJeddahRoutePage() {
                         contextName="Kuwait to Jeddah"
                         points={[
                             {
-                                topic: "Visas & ID",
-                                commonBelief: "Just jump in and go.",
-                                reality: "You must have a valid passport, Iqama/GCC ID, and appropriate visas depending on your nationality. The driver assists but cannot issue visas.",
-                                truthRange: "Passenger Responsibility",
-                                factors: ["Valid Passport", "GCC Visa"]
+                                topic: "Fly vs Drive for This Distance",
+                                commonBelief: "Everyone should just fly this route.",
+                                reality: "Flying is faster for a solo traveller, but pilgrims who want to skip airport transfers entirely, or families with heavy luggage, often still prefer the door-to-door private drive despite the longer duration.",
+                                truthRange: "Group-Dependent Choice",
+                                factors: ["~16.5-Hour Drive Time", "No Airport Transfers"]
                             },
                             {
-                                topic: "Pricing",
-                                commonBelief: "It's expensive for groups.",
-                                reality: "For families or groups of 4-6 people, a private VIP SUV transfer is often cheaper than buying multiple flight tickets.",
-                                truthRange: "Highly Cost-Effective",
-                                factors: ["WhatsApp Booking For Details", "No Luggage Fees"]
+                                topic: "Booking Notice",
+                                commonBelief: "You can book this route same-day.",
+                                reality: "Because of the distance, we recommend at least 48 hours notice so the right vehicle — and a rotation driver if you'd like one — can be confirmed in advance.",
+                                truthRange: "Advance Booking Recommended",
+                                factors: ["Driver Availability", "Vehicle Assignment"]
                             }
                         ]}
                     />
@@ -177,21 +177,21 @@ export default function KuwaitJeddahRoutePage() {
             <MicroSemanticFAQ
                 faqs={[
                     {
-                        question: "How long does a taxi take from Kuwait to Jeddah?",
-                        shortAnswer: "16-18 hours",
-                        detailedAnswer: "The total driving time is around 16-18 hours. Please note that border crossing times can vary between 30 minutes to 2 hours depending on the season, weekends, and time of day.",
+                        question: "Is Kuwait to Jeddah really a single continuous drive?",
+                        shortAnswer: "Yes, or split with an overnight stop",
+                        detailedAnswer: "Yes, it can be completed in one continuous trip of around 16.5 hours with rest stops, though many clients prefer to break the journey with an overnight stop partway. Let us know your preference when booking.",
                         perspectives: []
                     },
                     {
-                        question: "What vehicle options do you have for this route?",
-                        shortAnswer: "SUVs & Sedans",
-                        detailedAnswer: "We offer comfortable sedans for 1-2 passengers and premium SUVs (like GMC Yukon or Chevy Suburban) which are highly recommended for the long 1616 km journey.",
+                        question: "Do you provide a second driver for this route?",
+                        shortAnswer: "Yes, on request",
+                        detailedAnswer: "Yes, for the full-distance drive we can arrange a driver rotation on request, which is safer and more comfortable than one driver covering the whole journey alone.",
                         perspectives: []
                     },
                     {
-                        question: "How can I get a price for this border transfer?",
-                        shortAnswer: "Request a Quote",
-                        detailedAnswer: "Prices vary based on the vehicle type, number of passengers, and specific locations. Please use our 'WhatsApp Booking' button or contact us via Email to receive an accurate, all-inclusive quote that covers vehicle crossing insurance and toll fees.",
+                        question: "Is this route suitable for Umrah pilgrims?",
+                        shortAnswer: "Yes, a common booking",
+                        detailedAnswer: "Yes, this is one of our regular long-distance bookings for pilgrims arriving via Kuwait who prefer to drive directly to Jeddah rather than book a connecting flight.",
                         perspectives: []
                     }
                 ]}

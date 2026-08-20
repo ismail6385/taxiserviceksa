@@ -82,33 +82,33 @@ export default function KuwaitMadinahRoutePage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
-                            <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">International Border</span>
+                            <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">Pilgrimage Route</span>
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                                The Premium Way from Kuwait to Madinah
+                                A Long-Distance Drive Straight to the Prophet's Mosque
                             </h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                                Traveling between Kuwait and Madinah by road is a popular option for families, businessmen, and GCC residents. The distance is approximately 1290 km, and the journey typically takes 12-14 hours.
+                                Kuwait to Madinah covers approximately 1,125 km — from the Nuwaiseeb border, across the Kingdom to the Prophet's Mosque. At around 13.5 hours of driving, it's a demanding but genuinely popular route for pilgrims who prefer visiting Madinah before continuing to Makkah.
                             </p>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                Avoid the hassle of airport queues and strict baggage allowances. Our professional chauffeurs handle the border crossing paperwork, vehicle insurance, and navigate the journey while you relax in a spacious SUV.
+                                Many clients on this route are performing Ziyarat before their Umrah, or Kuwaiti family groups combining a Madinah visit with a wider Saudi trip. Drivers on this route are Muslim and familiar with Madinah's Haram-area drop-off points.
                             </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Globe className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Border Assistance</span>
+                                    <span className="font-semibold text-gray-800">Muslim Drivers</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Clock className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">12-14 hours Journey</span>
+                                    <span className="font-semibold text-gray-800">~13.5 hours Journey</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Building2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Door-to-Door</span>
+                                    <span className="font-semibold text-gray-800">~1,125 km Total</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <CheckCircle2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Comfort</span>
+                                    <span className="font-semibold text-gray-800">Ziyarat-Ready</span>
                                 </div>
                             </div>
                         </div>
@@ -119,22 +119,22 @@ export default function KuwaitMadinahRoutePage() {
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">1</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Seamless Door-to-Door Service</h4>
-                                        <p className="text-sm text-gray-500">We pick you up from your exact location in Kuwait and drop you directly at your destination in Madinah.</p>
+                                        <h4 className="font-bold text-gray-900">Madinah-First Itinerary</h4>
+                                        <p className="text-sm text-gray-500">A popular choice for pilgrims who prefer to visit the Prophet's Mosque first, then continue to Makkah for Umrah on a separate leg.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center shrink-0 text-primary font-bold">2</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Custom Border Procedures</h4>
-                                        <p className="text-sm text-gray-500">Our drivers are experienced with GCC borders, assisting you through passport control quickly and smoothly.</p>
+                                        <h4 className="font-bold text-gray-900">Muslim Drivers, Haram-Area Familiar</h4>
+                                        <p className="text-sm text-gray-500">All drivers on this route are Muslim and know the designated drop-off points closest to Masjid an-Nabawi.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">3</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Rest Stops on Demand</h4>
-                                        <p className="text-sm text-gray-500">Take breaks whenever you want. We stop at hygienic service facilities along the highway for refreshments and prayer.</p>
+                                        <h4 className="font-bold text-gray-900">Rest Stop Recommended</h4>
+                                        <p className="text-sm text-gray-500">At around 13.5 hours, most clients choose to split the drive with a rest stop rather than arriving late at night.</p>
                                     </div>
                                 </li>
                             </ul>
@@ -151,18 +151,18 @@ export default function KuwaitMadinahRoutePage() {
                         contextName="Kuwait to Madinah"
                         points={[
                             {
-                                topic: "Visas & ID",
-                                commonBelief: "Just jump in and go.",
-                                reality: "You must have a valid passport, Iqama/GCC ID, and appropriate visas depending on your nationality. The driver assists but cannot issue visas.",
-                                truthRange: "Passenger Responsibility",
-                                factors: ["Valid Passport", "GCC Visa"]
+                                topic: "Madinah First or Makkah First",
+                                commonBelief: "It doesn't matter which holy city you visit first.",
+                                reality: "Many pilgrims specifically choose to perform Ziyarat in Madinah before Umrah in Makkah — this route serves exactly that itinerary, with a separate onward transfer available for the Makkah leg.",
+                                truthRange: "Personal / Scholarly Preference",
+                                factors: ["Ziyarat Timing", "Onward Route to Makkah"]
                             },
                             {
-                                topic: "Pricing",
-                                commonBelief: "It's expensive for groups.",
-                                reality: "For families or groups of 4-6 people, a private VIP SUV transfer is often cheaper than buying multiple flight tickets.",
-                                truthRange: "Highly Cost-Effective",
-                                factors: ["WhatsApp Booking For Details", "No Luggage Fees"]
+                                topic: "Driving Through the Night",
+                                commonBelief: "It's fine to arrive at any hour.",
+                                reality: "Arriving very late at night can mean a tired first visit to the mosque — many clients prefer an early-morning departure timed to reach Madinah by evening.",
+                                truthRange: "Departure Timing Matters",
+                                factors: ["Arrival Time", "Rest Before First Visit"]
                             }
                         ]}
                     />
@@ -177,21 +177,21 @@ export default function KuwaitMadinahRoutePage() {
             <MicroSemanticFAQ
                 faqs={[
                     {
-                        question: "How long does a taxi take from Kuwait to Madinah?",
-                        shortAnswer: "12-14 hours",
-                        detailedAnswer: "The total driving time is around 12-14 hours. Please note that border crossing times can vary between 30 minutes to 2 hours depending on the season, weekends, and time of day.",
+                        question: "Can I stop for Ziyarat sites along the way?",
+                        shortAnswer: "Ziyarat is arranged once in Madinah",
+                        detailedAnswer: "The direct route doesn't pass through other Ziyarat sites, but once in Madinah we can arrange a dedicated Ziyarat tour (Quba, Uhud, the Seven Mosques) separately — just ask when booking.",
                         perspectives: []
                     },
                     {
-                        question: "What vehicle options do you have for this route?",
-                        shortAnswer: "SUVs & Sedans",
-                        detailedAnswer: "We offer comfortable sedans for 1-2 passengers and premium SUVs (like GMC Yukon or Chevy Suburban) which are highly recommended for the long 1290 km journey.",
+                        question: "Are the drivers on this route Muslim?",
+                        shortAnswer: "Yes",
+                        detailedAnswer: "Yes, drivers assigned to Madinah routes are Muslim and familiar with the designated drop-off areas closest to Masjid an-Nabawi.",
                         perspectives: []
                     },
                     {
-                        question: "How can I get a price for this border transfer?",
-                        shortAnswer: "Request a Quote",
-                        detailedAnswer: "Prices vary based on the vehicle type, number of passengers, and specific locations. Please use our 'WhatsApp Booking' button or contact us via Email to receive an accurate, all-inclusive quote that covers vehicle crossing insurance and toll fees.",
+                        question: "Should I book an overnight stop for this journey?",
+                        shortAnswer: "Optional, but recommended",
+                        detailedAnswer: "It's optional, but recommended — at around 13.5 hours, many clients prefer to split the drive rather than arrive very late at night. Let us know your preference and we'll plan accordingly.",
                         perspectives: []
                     }
                 ]}
