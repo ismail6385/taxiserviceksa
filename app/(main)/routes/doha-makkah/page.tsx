@@ -170,7 +170,7 @@ export default function DohaMakkahRoutePage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
-                <RelatedLocations currentCity="Riyadh" />
+                <RelatedLocations currentCity="Makkah" />
                 <RelatedRoutes originSlug="doha" currentSlug="doha-makkah" />
             </div>
 
