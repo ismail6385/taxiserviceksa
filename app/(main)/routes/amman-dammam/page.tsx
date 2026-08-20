@@ -82,33 +82,33 @@ export default function AmmanDammamRoutePage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
-                            <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">International Border</span>
+                            <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">Two-Day Private Transfer</span>
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                                The Premium Way from Amman to Dammam
+                                The Longest Route We Run From Amman
                             </h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                                Traveling between Amman and Dammam by road is a popular option for families, businessmen, and GCC residents. The distance is approximately 1944 km, and the journey typically takes 19-21 hours.
+                                Amman to Dammam covers approximately 1,596 km — genuinely further than Amman to Riyadh, since the road continues east across the Kingdom to reach the Eastern Province. At around 18 hours of driving, we plan this as a two-day journey with a scheduled overnight stop.
                             </p>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                Avoid the hassle of airport queues and strict baggage allowances. Our professional chauffeurs handle the border crossing paperwork, vehicle insurance, and navigate the journey while you relax in a spacious SUV.
+                                Most bookings are Jordanian families and business travellers connected to the Eastern Province's oil-and-gas sector. We require at least 72 hours notice to plan the route, overnight stop, and driver rotation properly.
                             </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Globe className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Border Assistance</span>
+                                    <span className="font-semibold text-gray-800">Overnight Stop Planned</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Clock className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">19-21 hours Journey</span>
+                                    <span className="font-semibold text-gray-800">~18 hours Journey</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Building2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Door-to-Door</span>
+                                    <span className="font-semibold text-gray-800">~1,596 km Total</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <CheckCircle2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Comfort</span>
+                                    <span className="font-semibold text-gray-800">Book 72h Ahead</span>
                                 </div>
                             </div>
                         </div>
@@ -119,22 +119,22 @@ export default function AmmanDammamRoutePage() {
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">1</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Seamless Door-to-Door Service</h4>
-                                        <p className="text-sm text-gray-500">We pick you up from your exact location in Amman and drop you directly at your destination in Dammam.</p>
+                                        <h4 className="font-bold text-gray-900">Scheduled Overnight Stop</h4>
+                                        <p className="text-sm text-gray-500">We plan a proper hotel stop roughly midway, rather than expecting one driver to cover 18 hours straight.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center shrink-0 text-primary font-bold">2</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Custom Border Procedures</h4>
-                                        <p className="text-sm text-gray-500">Our drivers are experienced with GCC borders, assisting you through passport control quickly and smoothly.</p>
+                                        <h4 className="font-bold text-gray-900">Driver Rotation Included</h4>
+                                        <p className="text-sm text-gray-500">For a journey this long, a second driver is part of the standard plan — not an optional extra.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">3</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Rest Stops on Demand</h4>
-                                        <p className="text-sm text-gray-500">Take breaks whenever you want. We stop at hygienic service facilities along the highway for refreshments and prayer.</p>
+                                        <h4 className="font-bold text-gray-900">Petrochemical Corridor</h4>
+                                        <p className="text-sm text-gray-500">A regular route for professionals connected to the Dammam/Jubail industrial belt.</p>
                                     </div>
                                 </li>
                             </ul>
@@ -151,18 +151,18 @@ export default function AmmanDammamRoutePage() {
                         contextName="Amman to Dammam"
                         points={[
                             {
-                                topic: "Visas & ID",
-                                commonBelief: "Just jump in and go.",
-                                reality: "You must have a valid passport, Iqama/GCC ID, and appropriate visas depending on your nationality. The driver assists but cannot issue visas.",
-                                truthRange: "Passenger Responsibility",
-                                factors: ["Valid Passport", "GCC Visa"]
+                                topic: "Dammam vs Riyadh Distance",
+                                commonBelief: "Riyadh must be the further destination since it's the capital.",
+                                reality: "Dammam is actually the longer drive from Amman — the road continues past Riyadh's latitude and east across the Kingdom, adding real distance rather than shortcutting to the coast.",
+                                truthRange: "Counter-Intuitive Geography",
+                                factors: ["Route Direction", "Total Distance"]
                             },
                             {
-                                topic: "Pricing",
-                                commonBelief: "It's expensive for groups.",
-                                reality: "For families or groups of 4-6 people, a private VIP SUV transfer is often cheaper than buying multiple flight tickets.",
-                                truthRange: "Highly Cost-Effective",
-                                factors: ["WhatsApp Booking For Details", "No Luggage Fees"]
+                                topic: "Is This a One-Day Drive?",
+                                commonBelief: "A determined driver could finish this in one day.",
+                                reality: "At 1,596 km and around 18 hours, we don't book this as a single push — we plan a proper overnight stop so the journey stays safe and comfortable.",
+                                truthRange: "Two-Day Journey by Design",
+                                factors: ["Driver Fatigue", "Safety Over Speed"]
                             }
                         ]}
                     />
@@ -177,21 +177,21 @@ export default function AmmanDammamRoutePage() {
             <MicroSemanticFAQ
                 faqs={[
                     {
-                        question: "How long does a taxi take from Amman to Dammam?",
-                        shortAnswer: "19-21 hours",
-                        detailedAnswer: "The total driving time is around 19-21 hours. Please note that border crossing times can vary between 30 minutes to 2 hours depending on the season, weekends, and time of day.",
+                        question: "Is Amman to Dammam a one-day or two-day trip?",
+                        shortAnswer: "Two days, with a planned overnight stop",
+                        detailedAnswer: "At around 18 hours and 1,596 km, we plan this as a two-day journey with a scheduled overnight hotel stop roughly midway, rather than one driver attempting it non-stop.",
                         perspectives: []
                     },
                     {
-                        question: "What vehicle options do you have for this route?",
-                        shortAnswer: "SUVs & Sedans",
-                        detailedAnswer: "We offer comfortable sedans for 1-2 passengers and premium SUVs (like GMC Yukon or Chevy Suburban) which are highly recommended for the long 1944 km journey.",
+                        question: "Why is Dammam further than Riyadh from Amman?",
+                        shortAnswer: "The road continues east past Riyadh",
+                        detailedAnswer: "The route to Dammam doesn't branch off early — it follows the same corridor toward Riyadh and then continues east across the Kingdom to the Eastern Province, adding real distance.",
                         perspectives: []
                     },
                     {
-                        question: "How can I get a price for this border transfer?",
-                        shortAnswer: "Request a Quote",
-                        detailedAnswer: "Prices vary based on the vehicle type, number of passengers, and specific locations. Please use our 'WhatsApp Booking' button or contact us via Email to receive an accurate, all-inclusive quote that covers vehicle crossing insurance and toll fees.",
+                        question: "How much advance notice do you need?",
+                        shortAnswer: "At least 72 hours",
+                        detailedAnswer: "We recommend at least 72 hours notice so we can properly plan the route, book the overnight stop, and confirm a driver rotation in advance.",
                         perspectives: []
                     }
                 ]}

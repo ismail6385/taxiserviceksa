@@ -82,33 +82,33 @@ export default function AmmanMakkahRoutePage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
-                            <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">International Border</span>
+                            <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">Umrah Transfer</span>
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                                The Premium Way from Amman to Makkah
+                                The Direct Route for Umrah Pilgrims From Jordan
                             </h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                                Traveling between Amman and Makkah by road is a popular option for families, businessmen, and GCC residents. The distance is approximately 1608 km, and the journey typically takes 16-18 hours.
+                                Amman to Makkah covers approximately 1,520 km — the longest of our Amman routes, at around 15 hours of driving. This is a dedicated Umrah transfer for pilgrims who want a single private vehicle from Amman straight to the Haram, without a connecting flight or shared transport.
                             </p>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                Avoid the hassle of airport queues and strict baggage allowances. Our professional chauffeurs handle the border crossing paperwork, vehicle insurance, and navigate the journey while you relax in a spacious SUV.
+                                Vehicles on this route are set up for pilgrims, with extra space for Ihram bags, and Muslim drivers who know the approved drop-off points near the Grand Mosque given the vehicle access restrictions close to the Haram.
                             </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Globe className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Border Assistance</span>
+                                    <span className="font-semibold text-gray-800">Meeqat Stop Available</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Clock className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">16-18 hours Journey</span>
+                                    <span className="font-semibold text-gray-800">~15 hours Journey</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Building2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Door-to-Door</span>
+                                    <span className="font-semibold text-gray-800">~1,520 km Total</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <CheckCircle2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Comfort</span>
+                                    <span className="font-semibold text-gray-800">Muslim Drivers</span>
                                 </div>
                             </div>
                         </div>
@@ -119,22 +119,22 @@ export default function AmmanMakkahRoutePage() {
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">1</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Seamless Door-to-Door Service</h4>
-                                        <p className="text-sm text-gray-500">We pick you up from your exact location in Amman and drop you directly at your destination in Makkah.</p>
+                                        <h4 className="font-bold text-gray-900">Door-to-Haram-Area Service</h4>
+                                        <p className="text-sm text-gray-500">Your driver takes you as close to the Haram as vehicle access rules allow, then guides you to the nearest entrance on foot.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center shrink-0 text-primary font-bold">2</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Custom Border Procedures</h4>
-                                        <p className="text-sm text-gray-500">Our drivers are experienced with GCC borders, assisting you through passport control quickly and smoothly.</p>
+                                        <h4 className="font-bold text-gray-900">Meeqat Stop Included</h4>
+                                        <p className="text-sm text-gray-500">For pilgrims entering Ihram, we stop at the appropriate Meeqat point along the route before continuing to Makkah.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">3</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Rest Stops on Demand</h4>
-                                        <p className="text-sm text-gray-500">Take breaks whenever you want. We stop at hygienic service facilities along the highway for refreshments and prayer.</p>
+                                        <h4 className="font-bold text-gray-900">Multi-Vehicle Group Bookings</h4>
+                                        <p className="text-sm text-gray-500">For larger Umrah groups travelling together, we coordinate multiple vehicles departing Amman on the same schedule.</p>
                                     </div>
                                 </li>
                             </ul>
@@ -151,18 +151,18 @@ export default function AmmanMakkahRoutePage() {
                         contextName="Amman to Makkah"
                         points={[
                             {
-                                topic: "Visas & ID",
-                                commonBelief: "Just jump in and go.",
-                                reality: "You must have a valid passport, Iqama/GCC ID, and appropriate visas depending on your nationality. The driver assists but cannot issue visas.",
-                                truthRange: "Passenger Responsibility",
-                                factors: ["Valid Passport", "GCC Visa"]
+                                topic: "Meeqat Timing",
+                                commonBelief: "You can enter Ihram any time before Makkah.",
+                                reality: "Pilgrims must enter Ihram at or before the Meeqat boundary for their route — our drivers know exactly where this is on the Amman-Makkah road and will stop there on request.",
+                                truthRange: "Fixed Boundary Point",
+                                factors: ["Meeqat Location", "Ihram Timing"]
                             },
                             {
-                                topic: "Pricing",
-                                commonBelief: "It's expensive for groups.",
-                                reality: "For families or groups of 4-6 people, a private VIP SUV transfer is often cheaper than buying multiple flight tickets.",
-                                truthRange: "Highly Cost-Effective",
-                                factors: ["WhatsApp Booking For Details", "No Luggage Fees"]
+                                topic: "Vehicle Access Near the Haram",
+                                commonBelief: "The driver can drop you right at the Haram entrance.",
+                                reality: "Private vehicles are restricted from the innermost zone around the Grand Mosque — your driver drops you at the nearest permitted point, a short walk from the entrances.",
+                                truthRange: "Drop-off Zone Restrictions",
+                                factors: ["Haram Vehicle Restrictions", "Walking Distance"]
                             }
                         ]}
                     />
@@ -177,21 +177,21 @@ export default function AmmanMakkahRoutePage() {
             <MicroSemanticFAQ
                 faqs={[
                     {
-                        question: "How long does a taxi take from Amman to Makkah?",
-                        shortAnswer: "16-18 hours",
-                        detailedAnswer: "The total driving time is around 16-18 hours. Please note that border crossing times can vary between 30 minutes to 2 hours depending on the season, weekends, and time of day.",
+                        question: "Where is the Meeqat stop for this route?",
+                        shortAnswer: "Qarn al-Manazil or Dhul Hulaifah",
+                        detailedAnswer: "Pilgrims travelling from Amman typically enter Ihram at Qarn al-Manazil or Dhul Hulaifah depending on the exact route taken — tell your driver you need a Meeqat stop when booking and they'll plan accordingly.",
                         perspectives: []
                     },
                     {
-                        question: "What vehicle options do you have for this route?",
-                        shortAnswer: "SUVs & Sedans",
-                        detailedAnswer: "We offer comfortable sedans for 1-2 passengers and premium SUVs (like GMC Yukon or Chevy Suburban) which are highly recommended for the long 1608 km journey.",
+                        question: "How close to the Haram can the car drop us off?",
+                        shortAnswer: "A short walk from the entrances",
+                        detailedAnswer: "Private vehicles cannot enter the innermost pedestrian zone around the Grand Mosque. Your driver will drop you at the nearest permitted point, typically a short walk from the Haram entrances.",
                         perspectives: []
                     },
                     {
-                        question: "How can I get a price for this border transfer?",
-                        shortAnswer: "Request a Quote",
-                        detailedAnswer: "Prices vary based on the vehicle type, number of passengers, and specific locations. Please use our 'WhatsApp Booking' button or contact us via Email to receive an accurate, all-inclusive quote that covers vehicle crossing insurance and toll fees.",
+                        question: "Can you arrange multiple vehicles for a group Umrah trip?",
+                        shortAnswer: "Yes",
+                        detailedAnswer: "Yes, for larger groups we can coordinate several vehicles departing Amman on the same schedule so everyone arrives together.",
                         perspectives: []
                     }
                 ]}
