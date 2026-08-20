@@ -82,33 +82,33 @@ export default function DohaRiyadhRoutePage() {
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
-                            <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">International Border</span>
+                            <span className="text-emerald-800 font-bold uppercase tracking-wider text-sm">Capital-to-Capital Route</span>
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2 mb-6">
-                                The Premium Way from Doha to Riyadh
+                                A Comfortable Single-Day Drive Between the Two Capitals
                             </h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                                Traveling between Doha and Riyadh by road is a popular option for families, businessmen, and GCC residents. The distance is approximately 600 km, and the journey typically takes 6-8 hours.
+                                Doha to Riyadh covers approximately 584 km via the Abu Samra-Salwa crossing, then north-west across the Kingdom to the capital. At around 6 hours of driving, it's one of the more manageable long-distance GCC routes we operate.
                             </p>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                                Avoid the hassle of airport queues and strict baggage allowances. Our professional chauffeurs handle the border crossing paperwork, vehicle insurance, and navigate the journey while you relax in a spacious SUV.
+                                This route is regularly booked by Qatari business travellers attending meetings in Riyadh, government and diplomatic staff moving between the two capitals, and families who prefer door-to-door travel over a connecting flight and airport transfers.
                             </p>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Globe className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Border Assistance</span>
+                                    <span className="font-semibold text-gray-800">Salwa Crossing</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Clock className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">6-8 hours Journey</span>
+                                    <span className="font-semibold text-gray-800">~6 hours Journey</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Building2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Door-to-Door</span>
+                                    <span className="font-semibold text-gray-800">~584 km Total</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <CheckCircle2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">Comfort</span>
+                                    <span className="font-semibold text-gray-800">Business-Ready</span>
                                 </div>
                             </div>
                         </div>
@@ -119,22 +119,22 @@ export default function DohaRiyadhRoutePage() {
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">1</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Seamless Door-to-Door Service</h4>
-                                        <p className="text-sm text-gray-500">We pick you up from your exact location in Doha and drop you directly at your destination in Riyadh.</p>
+                                        <h4 className="font-bold text-gray-900">Direct Capital-to-Capital Transfer</h4>
+                                        <p className="text-sm text-gray-500">One vehicle, one driver, no connecting flight — straight from your Doha pickup to your Riyadh destination.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center shrink-0 text-primary font-bold">2</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Custom Border Procedures</h4>
-                                        <p className="text-sm text-gray-500">Our drivers are experienced with GCC borders, assisting you through passport control quickly and smoothly.</p>
+                                        <h4 className="font-bold text-gray-900">Business-Traveller Friendly</h4>
+                                        <p className="text-sm text-gray-500">Wi-Fi-ready sedans and a quiet cabin for calls or work en route, popular with executives commuting for same-day meetings.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">
                                     <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 shadow-sm text-primary font-bold">3</div>
                                     <div>
-                                        <h4 className="font-bold text-gray-900">Rest Stops on Demand</h4>
-                                        <p className="text-sm text-gray-500">Take breaks whenever you want. We stop at hygienic service facilities along the highway for refreshments and prayer.</p>
+                                        <h4 className="font-bold text-gray-900">Same-Day Return Available</h4>
+                                        <p className="text-sm text-gray-500">At around 6 hours each way, many clients book a same-day round trip for a single meeting or event in Riyadh.</p>
                                     </div>
                                 </li>
                             </ul>
@@ -151,18 +151,18 @@ export default function DohaRiyadhRoutePage() {
                         contextName="Doha to Riyadh"
                         points={[
                             {
-                                topic: "Visas & ID",
-                                commonBelief: "Just jump in and go.",
-                                reality: "You must have a valid passport, Iqama/GCC ID, and appropriate visas depending on your nationality. The driver assists but cannot issue visas.",
-                                truthRange: "Passenger Responsibility",
-                                factors: ["Valid Passport", "GCC Visa"]
+                                topic: "Fly vs Drive Between the Capitals",
+                                commonBelief: "Flying is always faster for a business trip.",
+                                reality: "By the time you factor in airport check-in, security, and a taxi at both ends, a 6-hour direct drive is often close to the same door-to-door time as flying — with no baggage handling and a private, working cabin.",
+                                truthRange: "Comparable Door-to-Door Time",
+                                factors: ["Airport Overhead", "Direct Door-to-Door"]
                             },
                             {
-                                topic: "Pricing",
-                                commonBelief: "It's expensive for groups.",
-                                reality: "For families or groups of 4-6 people, a private VIP SUV transfer is often cheaper than buying multiple flight tickets.",
-                                truthRange: "Highly Cost-Effective",
-                                factors: ["Per-Vehicle Price", "No Luggage Fees"]
+                                topic: "Same-Day Meetings",
+                                commonBelief: "This distance is too far for a same-day round trip.",
+                                reality: "At around 6 hours each way, a same-day Doha-Riyadh-Doha round trip is tight but genuinely done by business travellers for a single important meeting — plan for a long day rather than a short one.",
+                                truthRange: "Possible with Careful Timing",
+                                factors: ["Meeting Duration", "Departure Time"]
                             }
                         ]}
                     />
@@ -178,14 +178,14 @@ export default function DohaRiyadhRoutePage() {
                 faqs={[
                     {
                         question: "How long does a taxi take from Doha to Riyadh?",
-                        shortAnswer: "6-8 hours",
-                        detailedAnswer: "The total driving time is around 6-8 hours. Please note that border crossing times can vary between 30 minutes to 2 hours depending on the season, weekends, and time of day.",
+                        shortAnswer: "Around 6 hours",
+                        detailedAnswer: "The total driving time is around 6 hours for the 584 km route. Border crossing at Salwa typically adds 30 minutes to 2 hours depending on the season and time of day.",
                         perspectives: []
                     },
                     {
-                        question: "What vehicle options do you have for this route?",
-                        shortAnswer: "SUVs & Sedans",
-                        detailedAnswer: "We offer comfortable sedans for 1-2 passengers and premium SUVs (like GMC Yukon or Chevy Suburban) which are highly recommended for the long 600 km journey.",
+                        question: "Is this route suitable for a same-day business trip?",
+                        shortAnswer: "Yes, with careful planning",
+                        detailedAnswer: "Yes, a same-day round trip is possible — many business travellers do it for a single meeting. It makes for a long day, so we recommend building in some buffer time either side of your meeting.",
                         perspectives: []
                     },
                     {
