@@ -153,6 +153,19 @@ export default function RiyadhPage() {
                 </div>
             </section>
 
+            {/* LEAP Riyadh contextual callout */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+                <Link
+                    href="/events/leap-riyadh-transportation/"
+                    className="flex items-center justify-between gap-4 bg-emerald-50 border border-emerald-100 rounded-2xl px-6 py-4 hover:bg-emerald-100/60 transition-colors group"
+                >
+                    <span className="text-sm font-semibold text-emerald-900">
+                        Attending LEAP Riyadh? See our dedicated LEAP Riyadh transportation page for airport, hotel, corporate and VIP transfers.
+                    </span>
+                    <ArrowRight className="w-4 h-4 text-emerald-700 shrink-0 group-hover:translate-x-1 transition-transform" />
+                </Link>
+            </div>
+
             {/* Main Content & Services */}
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
                 <div className="max-w-7xl mx-auto">

@@ -188,6 +188,19 @@ export default function CorporateTravelPage() {
                 </div>
             </section>
 
+            {/* LEAP Riyadh contextual callout */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+                <Link
+                    href="/events/leap-riyadh-transportation/"
+                    className="flex items-center justify-between gap-4 bg-emerald-50 border border-emerald-100 rounded-2xl px-6 py-4 hover:bg-emerald-100/60 transition-colors group"
+                >
+                    <span className="text-sm font-semibold text-emerald-900">
+                        Bringing a company team to LEAP Riyadh? See our dedicated corporate transportation for LEAP exhibitors and delegations.
+                    </span>
+                    <ArrowRight className="w-4 h-4 text-emerald-700 shrink-0 group-hover:translate-x-1 transition-transform" />
+                </Link>
+            </div>
+
             {/* Business Hubs Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">

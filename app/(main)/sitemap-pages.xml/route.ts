@@ -48,6 +48,12 @@ export async function GET() {
         changefreq: 'monthly'
     }));
 
+    // Nested event pages under /events/{slug} — not auto-discovered since
+    // app/(main)/events/ has no top-level page.tsx of its own.
+    const eventPages = [
+        { url: '/events/leap-riyadh-transportation', priority: 0.8, changefreq: 'weekly' },
+    ];
+
     // Dynamically list all other directories in app/(main) that contain a page.tsx
     let dynamicPages: any[] = [];
     try {
@@ -86,7 +92,7 @@ export async function GET() {
         console.error('Failed to read main directory:', e);
     }
 
-    const pages = [...basePages, ...authorPages, ...driverCityPages, ...dynamicPages];
+    const pages = [...basePages, ...authorPages, ...driverCityPages, ...eventPages, ...dynamicPages];
 
     // Remove duplicates if any
     const uniquePages = Array.from(new Set(pages.map(p => p.url)))
