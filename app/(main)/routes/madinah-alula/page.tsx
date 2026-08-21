@@ -57,7 +57,7 @@ const ratingSchema = {
         '@type': 'Organization',
         name: 'Taxi Service KSA',
         url: 'https://taxiserviceksa.com',
-        telephone: '+966553270009',
+        telephone: '+966563573531',
     },
     areaServed: [
         { '@type': 'City', name: 'Madinah' },

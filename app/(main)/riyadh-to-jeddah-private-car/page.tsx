@@ -52,7 +52,7 @@ const faqs = [
     },
     {
         question: 'Can I book a one-way car from Riyadh to Jeddah?',
-        answer: 'Yes. One-way transfers are available from Riyadh to Jeddah (and Jeddah to Riyadh). We also offer return trips and multi-city bookings. Book via WhatsApp at +966 552 202 642 with your preferred departure date, time, and pick-up address in Riyadh.',
+        answer: 'Yes. One-way transfers are available from Riyadh to Jeddah (and Jeddah to Riyadh). We also offer return trips and multi-city bookings. Book via WhatsApp at +966 56 357 3531 with your preferred departure date, time, and pick-up address in Riyadh.',
     },
     {
         question: 'What stops are available on the Riyadh to Jeddah route?',
@@ -77,7 +77,7 @@ const serviceSchema = {
         '@type': 'Organization',
         name: 'Taxi Service KSA',
         url: 'https://taxiserviceksa.com',
-        telephone: '+966552202642',
+        telephone: '+966563573531',
     },
     areaServed: { '@type': 'Country', name: 'Saudi Arabia' },
     description: 'Door-to-door private car service from Riyadh to Jeddah. 950 km intercity chauffeur, fixed rates, professional drivers, 24/7 availability.',
@@ -123,7 +123,7 @@ export default function RiyadhToJeddahPage() {
                     </p>
                     <div className="flex flex-wrap gap-4">
                         <a
-                            href="https://wa.me/966552202642?text=Hi,%20I%20need%20a%20private%20car%20from%20Riyadh%20to%20Jeddah"
+                            href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20private%20car%20from%20Riyadh%20to%20Jeddah"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"
@@ -181,7 +181,7 @@ export default function RiyadhToJeddahPage() {
                                 <div className="text-right">
                                     <p className="font-black text-emerald-700 text-xl">{v.price}</p>
                                     <a
-                                        href={`https://wa.me/966552202642?text=Hi,%20I%20need%20${v.name}%20from%20Riyadh%20to%20Jeddah`}
+                                        href={`https://wa.me/966563573531?text=Hi,%20I%20need%20${v.name}%20from%20Riyadh%20to%20Jeddah`}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="text-xs text-green-600 font-semibold hover:underline"
@@ -260,7 +260,7 @@ export default function RiyadhToJeddahPage() {
                         Tell us your date, time, and number of passengers. We'll send you a fixed price instantly.
                     </p>
                     <a
-                        href="https://wa.me/966552202642?text=Hi,%20I%20need%20a%20private%20car%20from%20Riyadh%20to%20Jeddah"
+                        href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20private%20car%20from%20Riyadh%20to%20Jeddah"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-10 py-5 rounded-xl text-lg transition-all shadow-lg"

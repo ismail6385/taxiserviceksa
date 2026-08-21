@@ -110,7 +110,7 @@ export default function HowLongIsDriveFromMadinahToAlulaPage() {
                         <li>🛣️ <strong>Route:</strong> Route 15 south → Route 70 west into AlUla</li>
                         <li>⛽ <strong>Fuel up:</strong> In Madinah — petrol stations sparse on highway</li>
                         <li>🚗 <strong>Transport:</strong> Private car only — no public transport on this corridor</li>
-                        <li>✅ <strong>Book in advance:</strong> WhatsApp +966 553 270 009</li>
+                        <li>✅ <strong>Book in advance:</strong> WhatsApp +966 56 357 3531</li>
                     </ul>
                 </div>
 
@@ -181,7 +181,7 @@ export default function HowLongIsDriveFromMadinahToAlulaPage() {
                         Door-to-door private car from Madinah city or Madinah Airport (MED) to AlUla Heritage Village, Hegra, Habitas, Banyan Tree, or any AlUla resort. GMC Yukon XL recommended for families. Book 24 hours ahead.
                     </p>
                     <a
-                        href="https://wa.me/966553270009?text=Hi%2C%20I%20need%20a%20private%20car%20from%20Madinah%20to%20AlUla.%20Please%20share%20availability%20and%20pricing."
+                        href="https://wa.me/966563573531?text=Hi%2C%20I%20need%20a%20private%20car%20from%20Madinah%20to%20AlUla.%20Please%20share%20availability%20and%20pricing."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"

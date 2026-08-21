@@ -252,7 +252,7 @@ export default function PrivateDriverTabukNeomPricePage() {
                     <h2 className="text-2xl font-bold mb-4">Get Your Fixed Quote — Tabuk to NEOM</h2>
                     <p className="text-gray-400 mb-6">Tell us your date, passengers, pickup point, and destination inside NEOM. Fixed price in 30 minutes.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966552202642?text=Hello,%20I%20need%20a%20price%20for%20private%20car%20from%20Tabuk%20to%20NEOM" target="_blank">
+                        <Link href="https://wa.me/966563573531?text=Hello,%20I%20need%20a%20price%20for%20private%20car%20from%20Tabuk%20to%20NEOM" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-100 font-bold px-8">
                                 Get Price on WhatsApp <ArrowRight className="ml-2 w-4 h-4" />
                             </Button>

@@ -67,7 +67,7 @@ export default async function HomeArabic() {
             "contactPoint": [
               {
                 "@type": "ContactPoint",
-                "telephone": "+966 56 073 2928",
+                "telephone": "+966 56 357 3531",
                 "contactType": "خدمة العملاء"
               }
             ]

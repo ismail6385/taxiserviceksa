@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
 
                 <hr style="border: none; border-top: 1px solid #eee; margin: 24px 0 14px;">
                 <p style="font-size: 12px; color: #999; text-align: center;">
-                    Taxi Service KSA &bull; info@taxiserviceksa.com &bull; +966 56 948 7569 &bull; www.taxiserviceksa.com
+                    Taxi Service KSA &bull; info@taxiserviceksa.com &bull; +966 56 357 3531 &bull; www.taxiserviceksa.com
                 </p>
                 <p style="font-size: 11px; color: #bbb; text-align: center;">
                     If you'd rather not receive future updates from us, just reply and let us know.

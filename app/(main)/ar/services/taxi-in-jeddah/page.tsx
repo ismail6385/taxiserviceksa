@@ -203,7 +203,7 @@ export default function TaxiInJeddahPageArabic() {
                                 </div>
 
                                 <a
-                                    href={`https://wa.me/966569487569?text=مرحباً،%20أرغب%20في%20حجز%20سيارة%20VIP%20${encodeURIComponent(v.name)}%20في%20جدة.`}
+                                    href={`https://wa.me/966563573531?text=مرحباً،%20أرغب%20في%20حجز%20سيارة%20VIP%20${encodeURIComponent(v.name)}%20في%20جدة.`}
                                     target="_blank"
                                     rel="nofollow noopener noreferrer"
                                     className="mt-8 relative w-full inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-white transition-all duration-300 bg-primary/20 rounded-xl group-hover:bg-primary group-hover:text-black text-center"

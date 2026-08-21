@@ -111,7 +111,7 @@ export default function TabukAirportTaxiPage() {
         },
         {
             question: 'How do I book a private transfer from Tabuk Airport?',
-            answer: 'Book via WhatsApp at +966 552 202 642. Send your flight number, arrival date, number of passengers, destination (city, NEOM, or AlUla), and any luggage details. We confirm your booking and send driver details — name, photo, vehicle plate — before your flight lands. The driver meets you at arrivals with a name sign.',
+            answer: 'Book via WhatsApp at +966 56 357 3531. Send your flight number, arrival date, number of passengers, destination (city, NEOM, or AlUla), and any luggage details. We confirm your booking and send driver details — name, photo, vehicle plate — before your flight lands. The driver meets you at arrivals with a name sign.',
         },
     ];
 
@@ -124,7 +124,7 @@ export default function TabukAirportTaxiPage() {
             '@type': 'Organization',
             name: 'Taxi Service KSA',
             url: 'https://taxiserviceksa.com',
-            telephone: '+966552202642',
+            telephone: '+966563573531',
         },
         areaServed: [
             { '@type': 'City', name: 'Tabuk' },
@@ -202,12 +202,12 @@ export default function TabukAirportTaxiPage() {
                             <li><strong className="text-white">NEOM Distance:</strong> 190 km — 2–2.5 hrs drive</li>
                             <li><strong className="text-white">AlUla Distance:</strong> 330 km — 3.5–4 hrs drive</li>
                             <li><strong className="text-white">Service:</strong> 24/7 · Meet-and-greet · Fixed rates</li>
-                            <li><strong className="text-white">Booking:</strong> WhatsApp +966 552 202 642</li>
+                            <li><strong className="text-white">Booking:</strong> WhatsApp +966 56 357 3531</li>
                         </ul>
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966552202642?text=Hello,%20I%20need%20an%20airport%20transfer%20at%20Tabuk%20Airport%20(TUU)" target="_blank">
+                        <Link href="https://wa.me/966563573531?text=Hello,%20I%20need%20an%20airport%20transfer%20at%20Tabuk%20Airport%20(TUU)" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
                                 Book TUU Airport Transfer
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -477,7 +477,7 @@ export default function TabukAirportTaxiPage() {
                         Arriving at TUU — heading to NEOM, AlUla, or Tabuk city. Your driver is ready. Fixed rates, meet-and-greet, 24/7.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966552202642?text=Hello,%20I%20need%20an%20airport%20transfer%20at%20Tabuk%20Airport%20(TUU)" target="_blank">
+                        <Link href="https://wa.me/966563573531?text=Hello,%20I%20need%20an%20airport%20transfer%20at%20Tabuk%20Airport%20(TUU)" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[220px]">
                                 WhatsApp Booking
                             </Button>

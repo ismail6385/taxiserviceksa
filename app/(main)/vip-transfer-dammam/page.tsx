@@ -56,7 +56,7 @@ const faqs = [
     },
     {
         question: 'How do I book a chauffeur in Al Khobar?',
-        answer: 'Book via WhatsApp at +966 552 202 642 or through our website. Specify: pickup location in Al Khobar (street address or landmark), destination, date and time, and number of passengers. We confirm within minutes. For corporate accounts, call or WhatsApp for monthly package rates.',
+        answer: 'Book via WhatsApp at +966 56 357 3531 or through our website. Specify: pickup location in Al Khobar (street address or landmark), destination, date and time, and number of passengers. We confirm within minutes. For corporate accounts, call or WhatsApp for monthly package rates.',
     },
 ];
 
@@ -74,7 +74,7 @@ const serviceSchema = {
     '@type': 'Service',
     name: 'VIP Transfer Dammam — Eastern Province Private Car',
     serviceType: 'VIP Transfer & Private Chauffeur',
-    provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: '+966552202642' },
+    provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: '+966563573531' },
     areaServed: { '@type': 'City', name: 'Dammam' },
     description: 'VIP private car in Dammam, Al Khobar, Dhahran. Airport, intercity, Bahrain causeway, corporate travel.',
     offers: { '@type': 'Offer', priceCurrency: 'SAR', price: '80', availability: 'https://schema.org/InStock' },
@@ -109,7 +109,7 @@ export default function VipTransferDammamPage() {
                         Airport pickups, corporate travel, Bahrain causeway. Fixed rates, 24/7.
                     </p>
                     <div className="flex flex-wrap gap-4">
-                        <a href="https://wa.me/966552202642?text=Hi,%20I%20need%20a%20VIP%20transfer%20in%20Dammam" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20VIP%20transfer%20in%20Dammam" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> Book via WhatsApp
                         </a>
@@ -202,7 +202,7 @@ export default function VipTransferDammamPage() {
                 <section className="text-center bg-gradient-to-r from-slate-900 to-blue-900 rounded-3xl p-12 text-white">
                     <h2 className="text-3xl font-black mb-3">Book Your Dammam Transfer</h2>
                     <p className="text-gray-300 mb-8">Fast response, fixed price, professional driver — Eastern Province covered.</p>
-                    <a href="https://wa.me/966552202642?text=Hi,%20I%20need%20a%20VIP%20transfer%20in%20Dammam" target="_blank" rel="noopener noreferrer"
+                    <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20VIP%20transfer%20in%20Dammam" target="_blank" rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-10 py-5 rounded-xl text-lg transition-all shadow-lg">
                         <Phone className="w-5 h-5" /> WhatsApp Now
                     </a>

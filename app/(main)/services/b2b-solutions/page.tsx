@@ -213,7 +213,7 @@ export default function B2BSolutions() {
                         Join our network of elite travel partners and provide your clients with the most reliable transport service in the Kingdom.
                     </p>
                     <div className="grid sm:grid-cols-3 gap-4">
-                        <a href="https://wa.me/966569487569?text=Hello%2C%20I%20represent%20a%20travel%20agency%2Ftour%20operator%20and%20want%20to%20discuss%20a%20B2B%20partnership" target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/966563573531?text=Hello%2C%20I%20represent%20a%20travel%20agency%2Ftour%20operator%20and%20want%20to%20discuss%20a%20B2B%20partnership" target="_blank" rel="noopener noreferrer">
                             <Button className="w-full bg-green-500 hover:bg-green-600 text-white font-black py-8 rounded-2xl text-lg shadow-xl shadow-green-500/20 transition-all group">
                                 WhatsApp B2B Desk
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

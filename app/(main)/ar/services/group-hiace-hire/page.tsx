@@ -149,7 +149,7 @@ export default function GroupHiaceHirePageArabic() {
                         </ul>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966552202642?text=مرحباً،%20أرغب%20باستئجار%20تويوتا%20هايس%20مع%20سائق%20في%20السعودية" target="_blank">
+                        <Link href="https://wa.me/966563573531?text=مرحباً،%20أرغب%20باستئجار%20تويوتا%20هايس%20مع%20سائق%20في%20السعودية" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
                                 احجز تأجير هايس الجماعي <ArrowRight className="mr-2 w-5 h-5 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </Button>
@@ -275,7 +275,7 @@ export default function GroupHiaceHirePageArabic() {
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">احجز تويوتا هايس مع سائق في السعودية</h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">حافلة خاصة بـ ١١ مقعداً مع سائق محترف للعائلات ومجموعات المعتمرين والسياح وفرق الشركات. متوفرة على مدار الساعة في الرياض وجدة ومكة والمدينة.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966552202642?text=مرحباً،%20أرغب%20باستئجار%20تويوتا%20هايس%20مع%20سائق%20في%20السعودية" target="_blank">
+                        <Link href="https://wa.me/966563573531?text=مرحباً،%20أرغب%20باستئجار%20تويوتا%20هايس%20مع%20سائق%20في%20السعودية" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">حجز عبر واتساب</Button>
                         </Link>
                         <a href="mailto:taxiserviceksa9988@gmail.com">

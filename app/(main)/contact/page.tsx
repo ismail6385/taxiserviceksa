@@ -132,7 +132,7 @@ export default function ContactPage() {
                             "@type": "LocalBusiness",
                             "name": "Taxi Service KSA",
                             "image": "https://taxiserviceksa.com/logo.png",
-                            "telephone": "+966569487569",
+                            "telephone": "+966563573531",
                             "email": "taxiserviceksa9988@gmail.com",
                             "address": {
                                 "@type": "PostalAddress",
@@ -161,7 +161,7 @@ export default function ContactPage() {
                     {/* Clear CTA Hierarchy */}
                     <div className="flex flex-col items-center justify-center gap-4">
                         <a
-                            href="https://wa.me/966569487569?text=Hello%2C%20I%20have%20a%20question."
+                            href="https://wa.me/966563573531?text=Hello%2C%20I%20have%20a%20question."
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-full sm:w-auto flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-black py-5 px-10 rounded-2xl transition-all shadow-2xl shadow-[#25D366]/20 hover:-translate-y-1 text-lg"
@@ -172,7 +172,7 @@ export default function ContactPage() {
                         <p className="text-gray-400 text-sm flex items-center gap-1 mt-2">
                             Reply time: <strong className="text-white">&lt; 2 minutes</strong>
                             <span className="mx-2">•</span>
-                            <a href="tel:+966569487569" className="hover:text-white underline underline-offset-4 transition-colors">Or call +966 56 948 7569</a>
+                            <a href="tel:+966563573531" className="hover:text-white underline underline-offset-4 transition-colors">Or call +966 56 357 3531</a>
                         </p>
                     </div>
                 </div>
@@ -201,12 +201,12 @@ export default function ContactPage() {
                             <h2 className="text-xl font-black mb-5 text-[#0b1b36]">Quick Contact</h2>
                             
                             <div className="space-y-4">
-                                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl group cursor-pointer" onClick={() => handleCopy('+966 56 948 7569', 'phone')}>
+                                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl group cursor-pointer" onClick={() => handleCopy('+966 56 357 3531', 'phone')}>
                                     <div className="flex items-center gap-3">
                                         <div className="bg-black/5 p-2 rounded-lg"><Phone className="w-5 h-5 text-gray-700" /></div>
                                         <div>
                                             <p className="text-xs text-gray-500 font-medium">Direct Call / WhatsApp</p>
-                                            <p className="text-sm font-bold text-gray-900">+966 56 948 7569</p>
+                                            <p className="text-sm font-bold text-gray-900">+966 56 357 3531</p>
                                         </div>
                                     </div>
                                     {copiedPhone ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-4 h-4 text-gray-400 group-hover:text-gray-900 transition-colors" />}
@@ -368,7 +368,7 @@ export default function ContactPage() {
                         <div className="absolute top-4 left-4 right-4 md:right-auto md:w-80 bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-2xl z-10 border border-gray-200">
                             <h3 className="font-bold text-[#0b1b36] text-lg mb-1">JED Airport Standby</h3>
                             <p className="text-sm text-gray-600 mb-4">Our drivers are permanently stationed at terminals T1, North, and South.</p>
-                            <a href="https://wa.me/966569487569" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full gap-2 bg-[#0b1b36] text-white py-2 rounded-xl text-sm font-bold hover:bg-[#d4af37] hover:text-[#0b1b36] transition-colors">
+                            <a href="https://wa.me/966563573531" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full gap-2 bg-[#0b1b36] text-white py-2 rounded-xl text-sm font-bold hover:bg-[#d4af37] hover:text-[#0b1b36] transition-colors">
                                 Book JED Pickup Now <ArrowRight className="w-4 h-4" />
                             </a>
                         </div>

@@ -133,7 +133,7 @@ export default function ZamzamRulesPage() {
                         Bringing Zamzam water back to your home country requires adhering to strict packaging and airport luggage regulations. Read the official rules to avoid customs confiscation.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20private%20taxi%20transfer%20to%20Jeddah%20Airport%20with%20trunk%20space%20for%20my%20luggage%20and%20Zamzam" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20private%20taxi%20transfer%20to%20Jeddah%20Airport%20with%20trunk%20space%20for%20my%20luggage%20and%20Zamzam" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-4 h-4" /> Book Airport Taxi
                         </a>
@@ -247,7 +247,7 @@ export default function ZamzamRulesPage() {
                         Checking in Zamzam and multiple suitcases requires sufficient luggage space. Book a spacious sedan or family SUV (GMC Yukon/Hyundai Staria) to transport your luggage and blessed water safely to the airport.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20am%20heading%20to%20the%20airport%20and%20need%20a%20taxi%20with%20luggage/Zamzam%20space" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966563573531?text=Hi,%20I%20am%20heading%20to%20the%20airport%20and%20need%20a%20taxi%20with%20luggage/Zamzam%20space" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> Book via WhatsApp
                         </a>

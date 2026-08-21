@@ -59,7 +59,7 @@ const serviceSchema = {
     '@type': 'Service',
     name: 'خدمة سائق وتاكسي ميناء جدة للسفن السياحية',
     serviceType: 'سائق الميناء والتاكسي الخاص',
-    provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: '+966569487569' },
+    provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: '+966563573531' },
     areaServed: { '@type': 'City', name: 'جدة' },
     description: 'توصيل خاص بالتاكسي من محطة السفن السياحية بميناء جدة الإسلامي إلى مكة المكرمة، مطار جدة، وفنادق المدينة.',
     offers: { '@type': 'Offer', priceCurrency: 'SAR', price: '180', availability: 'https://schema.org/InStock' },
@@ -93,7 +93,7 @@ export default function JeddahPortTaxiTransferPageArabic() {
                         توصيل خاص محجوز مسبقاً من محطة السفن السياحية بميناء جدة الإسلامي. رحلات مباشرة إلى الحرم المكي، مطار الملك عبدالعزيز الدولي (جدة)، وفنادق جدة. سائقون محترفون، وأسعار ثابتة.
                     </p>
                     <div className="flex flex-wrap gap-4">
-                        <a href="https://wa.me/966569487569?text=مرحباً،%20أحتاج%20تاكسي%20من%20ميناء%20جدة%20الإسلامي" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966563573531?text=مرحباً،%20أحتاج%20تاكسي%20من%20ميناء%20جدة%20الإسلامي" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> احجز عبر واتساب
                         </a>

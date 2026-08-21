@@ -53,7 +53,7 @@ const faqs = [
     },
     {
         question: 'How do I book a driver from Jeddah airport?',
-        answer: 'Book via WhatsApp at +966 552 202 642 or through our website. Provide your flight number, arrival time, and destination. We track your flight live — if it is delayed, your driver waits. No extra charge for flight delays up to 90 minutes for international flights.',
+        answer: 'Book via WhatsApp at +966 56 357 3531 or through our website. Provide your flight number, arrival time, and destination. We track your flight live — if it is delayed, your driver waits. No extra charge for flight delays up to 90 minutes for international flights.',
     },
     {
         question: 'Can I get a transfer from Jeddah airport to Madinah?',
@@ -79,7 +79,7 @@ const serviceSchema = {
         '@type': 'Organization',
         name: 'Taxi Service KSA',
         url: 'https://taxiserviceksa.com',
-        telephone: '+966552202642',
+        telephone: '+966563573531',
     },
     areaServed: { '@type': 'City', name: 'Jeddah' },
     serviceLocation: {
@@ -135,7 +135,7 @@ export default function JeddahAirportTransferPage() {
                     </p>
                     <div className="flex flex-wrap gap-4">
                         <a
-                            href="https://wa.me/966552202642?text=Hi,%20I%20need%20a%20Jeddah%20Airport%20transfer%20(JED)"
+                            href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20Jeddah%20Airport%20transfer%20(JED)"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
@@ -269,13 +269,13 @@ export default function JeddahAirportTransferPage() {
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
                         <a
-                            href="https://wa.me/966552202642?text=Hi,%20I%20need%20a%20Jeddah%20Airport%20transfer%20(JED)"
+                            href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20Jeddah%20Airport%20transfer%20(JED)"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg"
                         >
                             <Phone className="w-5 h-5" />
-                            WhatsApp: +966 552 202 642
+                            WhatsApp: +966 56 357 3531
                         </a>
                         <Link
                             href="/booking/"

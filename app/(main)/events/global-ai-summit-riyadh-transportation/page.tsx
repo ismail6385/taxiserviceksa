@@ -108,7 +108,7 @@ export default function GlobalAISummitTransportationPage() {
                 location="King Abdulaziz International Conference Center"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <a href={`https://wa.me/966569487569?text=${quoteMessage}`}>
+                    <a href={`https://wa.me/966563573531?text=${quoteMessage}`}>
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                             Get My Global AI Summit Quote
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -251,7 +251,7 @@ export default function GlobalAISummitTransportationPage() {
                         <h3 className="text-2xl font-black text-gray-900 mb-2">Bringing a Delegation to the Summit?</h3>
                         <p className="text-gray-600">Tell us your organization, headcount, and dates — we'll propose a coordinated vehicle plan.</p>
                     </div>
-                    <a href={`https://wa.me/966569487569?text=${quoteMessage}`} className="shrink-0">
+                    <a href={`https://wa.me/966563573531?text=${quoteMessage}`} className="shrink-0">
                         <Button size="lg" className="bg-gray-900 text-white hover:bg-gray-800 font-bold px-8 py-6 rounded-2xl w-full md:w-auto">
                             Get My Global AI Summit Quote <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
@@ -280,7 +280,7 @@ export default function GlobalAISummitTransportationPage() {
                     <h2 className="text-3xl md:text-4xl font-black mb-4">Ready for the Global AI Summit?</h2>
                     <p className="text-gray-400 text-lg mb-8 max-w-xl mx-auto">Book your airport, hotel, corporate or VIP transfer today.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href={`https://wa.me/966569487569?text=${quoteMessage}`}>
+                        <a href={`https://wa.me/966563573531?text=${quoteMessage}`}>
                             <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">WhatsApp Booking</Button>
                         </a>
                         <a href="mailto:taxiserviceksa9988@gmail.com">

@@ -206,7 +206,7 @@ export default function TabukToJeddahPage() {
                         Door-to-door service from Tabuk to Jeddah. Popular with families and pilgrims heading to Makkah. English-speaking drivers available.
                     </p>
                     <a
-                        href="https://wa.me/966553270009?text=Hi%2C%20I%20need%20a%20private%20driver%20from%20Tabuk%20to%20Jeddah.%20Please%20share%20availability%20and%20price."
+                        href="https://wa.me/966563573531?text=Hi%2C%20I%20need%20a%20private%20driver%20from%20Tabuk%20to%20Jeddah.%20Please%20share%20availability%20and%20price."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"

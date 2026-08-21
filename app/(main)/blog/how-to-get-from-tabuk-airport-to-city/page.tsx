@@ -185,7 +185,7 @@ export default function TabukAirportToCityPage() {
                         <li>First-time visitors unfamiliar with the city</li>
                     </ul>
                     <a
-                        href="https://wa.me/966553270009?text=Hi%2C%20I%20need%20a%20transfer%20from%20Tabuk%20Airport%20(TUU)%20to%20the%20city.%20Please%20share%20price%20and%20availability."
+                        href="https://wa.me/966563573531?text=Hi%2C%20I%20need%20a%20transfer%20from%20Tabuk%20Airport%20(TUU)%20to%20the%20city.%20Please%20share%20price%20and%20availability."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"

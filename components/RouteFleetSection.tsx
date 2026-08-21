@@ -155,7 +155,7 @@ export default function RouteFleetSection({ areaHighlight }: RouteFleetSectionPr
                                         </Button>
                                     </Link>
                                     <a
-                                        href={`https://wa.me/966569487569?text=Hello%2C%20I%20want%20a%20${encodeURIComponent(vehicle.name)}%20for%20this%20route.`}
+                                        href={`https://wa.me/966563573531?text=Hello%2C%20I%20want%20a%20${encodeURIComponent(vehicle.name)}%20for%20this%20route.`}
                                         target="_blank"
                                         rel="nofollow noopener noreferrer"
                                         className="w-full"

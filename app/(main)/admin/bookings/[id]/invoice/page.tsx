@@ -777,7 +777,7 @@ export default function InvoicePage() {
                             <div className="text-[10.5px] text-gray-500 space-y-1 mt-2.5 leading-snug">
                                 <p className="flex items-center gap-1.5"><MapPin className="w-3 h-3 text-gray-400" /> {t.city}</p>
                                 <p className="flex items-center gap-1.5"><Mail className="w-3 h-3 text-gray-400" /> info@taxiserviceksa.com</p>
-                                <p className="flex items-center gap-1.5"><Phone className="w-3 h-3 text-gray-400" /> <span dir="ltr">+966 56 948 7569</span></p>
+                                <p className="flex items-center gap-1.5"><Phone className="w-3 h-3 text-gray-400" /> <span dir="ltr">+966 56 357 3531</span></p>
                                 <p className="flex items-center gap-1.5"><Globe className="w-3 h-3 text-gray-400" /> www.taxiserviceksa.com</p>
                             </div>
                         </div>
@@ -1152,7 +1152,7 @@ export default function InvoicePage() {
                     <div className="mt-6 pt-4 border-t border-gray-100 text-center" style={{ breakInside: 'avoid' }}>
                         <p className="text-[9px] font-semibold text-gray-500">{t.thankYou}</p>
                         <p className="text-[8.5px] text-gray-400 mt-1">{t.tagline}</p>
-                        <p className="text-[8.5px] text-gray-400 mt-1">info@taxiserviceksa.com · +966 56 948 7569 · www.taxiserviceksa.com</p>
+                        <p className="text-[8.5px] text-gray-400 mt-1">info@taxiserviceksa.com · +966 56 357 3531 · www.taxiserviceksa.com</p>
                     </div>
                 </div>
             </div>

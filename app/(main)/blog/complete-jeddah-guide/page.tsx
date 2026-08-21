@@ -500,7 +500,7 @@ export default function JeddahCompleteBlogPage() {
                                 <p className={`leading-relaxed ${opt.highlight ? 'text-emerald-800' : 'text-gray-600'}`}>{opt.content}</p>
                                 {opt.cta && (
                                     <div className="mt-4 flex flex-wrap gap-3">
-                                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20taxi%20in%20Jeddah" target="_blank" rel="noopener noreferrer"
+                                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20taxi%20in%20Jeddah" target="_blank" rel="noopener noreferrer"
                                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-colors">
                                             <Phone className="w-4 h-4" /> Book via WhatsApp (English)
                                         </a>
@@ -617,7 +617,7 @@ export default function JeddahCompleteBlogPage() {
                         Book your private English-speaking chauffeur for seamless travel from Jeddah Airport to your hotel, Makkah, Madinah, and every landmark in between.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20am%20visiting%20Jeddah%20and%20need%20a%20taxi%20transfer" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966563573531?text=Hi,%20I%20am%20visiting%20Jeddah%20and%20need%20a%20taxi%20transfer" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> WhatsApp Us in English
                         </a>

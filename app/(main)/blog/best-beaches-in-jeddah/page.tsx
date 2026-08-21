@@ -318,7 +318,7 @@ export default function BestBeachesJeddahPage() {
                         Jeddah sits on the Red Sea — one of the world's most beautiful bodies of water. From free public beaches to ultra-luxury private beach clubs, here's your complete guide to the best coastal experiences in the city.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20transfer%20to%20a%20Jeddah%20beach" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20transfer%20to%20a%20Jeddah%20beach" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-4 h-4" /> Book Beach Transfer
                         </a>
@@ -432,7 +432,7 @@ export default function BestBeachesJeddahPage() {
 
                             {/* CTA */}
                             <div className="flex flex-wrap gap-3">
-                                <a href={`https://wa.me/966569487569?text=Hi,%20I%20need%20a%20transfer%20to%20${encodeURIComponent(beach.name.split('—')[0].trim())}`}
+                                <a href={`https://wa.me/966563573531?text=Hi,%20I%20need%20a%20transfer%20to%20${encodeURIComponent(beach.name.split('—')[0].trim())}`}
                                     target="_blank" rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-colors">
                                     <Phone className="w-4 h-4" /> Book Transfer
@@ -492,7 +492,7 @@ export default function BestBeachesJeddahPage() {
                         Book a private transfer to any Jeddah beach or beach club. Fixed rates, 24/7 availability, English-speaking drivers, and meet & greet service from your hotel.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20transfer%20to%20Obhur%20Creek%20beach%20in%20Jeddah" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20transfer%20to%20Obhur%20Creek%20beach%20in%20Jeddah" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> WhatsApp Beach Transfer
                         </a>

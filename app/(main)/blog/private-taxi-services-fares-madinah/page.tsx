@@ -94,7 +94,7 @@ export default function MadinahIntercityFaresPage() {
                     <h2 className="text-3xl font-black mb-4">Book Your Intercity Transfer Today</h2>
                     <p className="text-gray-300 max-w-xl mx-auto mb-8">Get reliable, fixed-price private transfers between Madinah, Makkah, Jeddah, and all cities. English & Urdu speaking drivers available.</p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20to%20book%20a%20private%20intercity%20transfer%20from%20Madinah" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"><Phone className="w-5 h-5" /> WhatsApp Booking</a>
+                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20to%20book%20a%20private%20intercity%20transfer%20from%20Madinah" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"><Phone className="w-5 h-5" /> WhatsApp Booking</a>
                         <Link href="/routes/makkah-madinah/" className="inline-flex items-center gap-2 bg-white text-slate-900 font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">Makkah ⇄ Madinah <ArrowRight className="w-5 h-5" /></Link>
                     </div>
                 </section>

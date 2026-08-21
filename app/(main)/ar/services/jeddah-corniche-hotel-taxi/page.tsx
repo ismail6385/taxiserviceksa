@@ -59,7 +59,7 @@ const serviceSchema = {
     '@type': 'Service',
     name: 'شوفير وتاكسي فنادق كورنيش جدة',
     serviceType: 'شوفير فندقي وتاكسي خاص',
-    provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: '+966569487569' },
+    provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: '+966563573531' },
     areaServed: { '@type': 'City', name: 'جدة' },
     description: 'خدمة تاكسي وشوفير فاخرة لفنادق كورنيش جدة لضيوف الفنادق المميزة.',
     offers: { '@type': 'Offer', priceCurrency: 'SAR', price: '80', availability: 'https://schema.org/InStock' },
@@ -93,7 +93,7 @@ export default function JeddahCornicheHotelTaxiPageArabic() {
                         نقل فندقي خاص بشوفير مباشرة من ردهة فندقكم على كورنيش جدة. تنقل سلس إلى مطار جدة، والحرم المكي، ومراكز الأعمال الرئيسية.
                     </p>
                     <div className="flex flex-wrap gap-4">
-                        <a href="https://wa.me/966569487569?text=مرحباً،%20أحتاج%20نقلاً%20من%20فندقي%20على%20كورنيش%20جدة" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966563573531?text=مرحباً،%20أحتاج%20نقلاً%20من%20فندقي%20على%20كورنيش%20جدة" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> حجز عبر واتساب
                         </a>

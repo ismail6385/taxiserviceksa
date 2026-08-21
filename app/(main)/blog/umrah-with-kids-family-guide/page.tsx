@@ -121,7 +121,7 @@ export default function UmrahWithKidsFamilyGuidePage() {
                         One child is old enough to understand the Kaabah and has been asking to go. The other is too young to be left behind comfortably. It is one of the most common dilemmas parents face when planning a summer Umrah — here is a practical way to think it through.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20am%20planning%20Umrah%20with%20my%20children%20and%20need%20a%20family-friendly%20taxi%20with%20child%20seats" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966563573531?text=Hi,%20I%20am%20planning%20Umrah%20with%20my%20children%20and%20need%20a%20family-friendly%20taxi%20with%20child%20seats" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-4 h-4" /> Ask About Family Transfers
                         </a>
@@ -280,7 +280,7 @@ export default function UmrahWithKidsFamilyGuidePage() {
                         Whether it's two adults or the whole family, book a spacious, air-conditioned Hyundai Staria or GMC Yukon XL with child seats available on request, room for a stroller and luggage, and flexible stops along the way. Fixed rates, door-to-door.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20am%20planning%20Umrah%20with%20my%20family%20and%20need%20a%20taxi%20with%20child%20seats" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966563573531?text=Hi,%20I%20am%20planning%20Umrah%20with%20my%20family%20and%20need%20a%20taxi%20with%20child%20seats" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> Book via WhatsApp
                         </a>

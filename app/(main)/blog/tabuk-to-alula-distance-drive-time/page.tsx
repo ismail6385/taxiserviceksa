@@ -221,7 +221,7 @@ export default function TabukToAlulaDistancePage() {
                         A private driver from Tabuk to AlUla costs SAR 600–900 one-way. You arrive relaxed, no navigation stress, no fuel worries.
                     </p>
                     <a
-                        href="https://wa.me/966553270009?text=Hi%2C%20I%20need%20a%20private%20driver%20from%20Tabuk%20to%20AlUla.%20Please%20send%20availability%20and%20price."
+                        href="https://wa.me/966563573531?text=Hi%2C%20I%20need%20a%20private%20driver%20from%20Tabuk%20to%20AlUla.%20Please%20send%20availability%20and%20price."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"

@@ -85,7 +85,7 @@ export default function AskQuestionPage() {
                             <p className="text-sm text-emerald-700/80 font-medium">Chat with our support team directly on WhatsApp for immediate help.</p>
                         </div>
                         <a
-                            href="https://wa.me/966569487569?text=Hello%2C%20I%20have%20a%20question%20about%20your%20taxi%20services."
+                            href="https://wa.me/966563573531?text=Hello%2C%20I%20have%20a%20question%20about%20your%20taxi%20services."
                             target="_blank"
                             rel="noopener noreferrer"
                             className="shrink-0 relative z-10"

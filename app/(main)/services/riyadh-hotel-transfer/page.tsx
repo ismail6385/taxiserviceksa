@@ -142,7 +142,7 @@ export default function RiyadhHotelTransferPage() {
                         </ul>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966552202642?text=Hello,%20I%20need%20a%20hotel%20transfer%20in%20Riyadh" target="_blank">
+                        <Link href="https://wa.me/966563573531?text=Hello,%20I%20need%20a%20hotel%20transfer%20in%20Riyadh" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
                                 Book Hotel Transfer <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Button>
@@ -187,7 +187,7 @@ export default function RiyadhHotelTransferPage() {
                             </div>
                         ))}
                     </div>
-                    <p className="text-center mt-8 text-sm text-gray-500">Don't see your hotel? We cover <strong>all hotels</strong> in Riyadh. <Link href="https://wa.me/966552202642?text=Hello,%20I%20need%20a%20hotel%20transfer%20in%20Riyadh" className="text-black font-bold hover:underline">Contact us →</Link></p>
+                    <p className="text-center mt-8 text-sm text-gray-500">Don't see your hotel? We cover <strong>all hotels</strong> in Riyadh. <Link href="https://wa.me/966563573531?text=Hello,%20I%20need%20a%20hotel%20transfer%20in%20Riyadh" className="text-black font-bold hover:underline">Contact us →</Link></p>
                 </div>
             </section>
 
@@ -265,7 +265,7 @@ export default function RiyadhHotelTransferPage() {
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Book Your Riyadh Hotel Transfer</h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">Airport arrivals, hotel to business district, city tours, or late-night returns — private vehicles with professional drivers available 24/7 across Riyadh.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966552202642?text=Hello,%20I%20need%20a%20hotel%20transfer%20in%20Riyadh" target="_blank">
+                        <Link href="https://wa.me/966563573531?text=Hello,%20I%20need%20a%20hotel%20transfer%20in%20Riyadh" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">WhatsApp Booking</Button>
                         </Link>
                         <a href="mailto:taxiserviceksa9988@gmail.com">

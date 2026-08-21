@@ -255,7 +255,7 @@ export default function ReceiptPage() {
                         <div className="text-center pb-5 border-b-2 border-gray-900">
                             <p className="text-2xl font-black text-gray-900 uppercase tracking-[0.15em]">Taxi Service KSA</p>
                             <p className="text-xs text-gray-500 mt-1">{t.companyTagline}</p>
-                            <p className="text-xs text-gray-400">{t.city} · info@taxiserviceksa.com · <span dir="ltr">+966 56 948 7569</span> · www.taxiserviceksa.com</p>
+                            <p className="text-xs text-gray-400">{t.city} · info@taxiserviceksa.com · <span dir="ltr">+966 56 357 3531</span> · www.taxiserviceksa.com</p>
                         </div>
 
                         {/* OFFICIAL RECEIPT title */}

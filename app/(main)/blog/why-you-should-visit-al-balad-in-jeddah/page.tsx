@@ -116,7 +116,7 @@ export default function WhyVisitAlBaladPage() {
                         Step back in time inside Saudi Arabia\'s most captivating historical district. From coral-stone architecture and wooden Rawasheen balconies to centuries-old souqs and historic merchant palaces.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20private%20driver%20to%20visit%20Al-Balad%20in%20Jeddah" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20private%20driver%20to%20visit%20Al-Balad%20in%20Jeddah" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-4 h-4" /> Book Chauffeur to Al-Balad
                         </a>
@@ -307,7 +307,7 @@ export default function WhyVisitAlBaladPage() {
                         Don\'t stress about traffic and non-existent parking. Pre-book a premium private chauffeur to drop you directly at the gates of Al-Balad. Fixed rates, English-speaking drivers, and 24/7 service.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20want%20to%20book%20a%20driver%20to%20visit%20Al-Balad%20in%20Jeddah" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966563573531?text=Hi,%20I%20want%20to%20book%20a%20driver%20to%20visit%20Al-Balad%20in%20Jeddah" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> Book via WhatsApp (English)
                         </a>

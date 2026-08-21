@@ -104,7 +104,7 @@ export default function CompleteMadinahGuidePage() {
                         Madinah, the second holiest city in Islam, is known for its peaceful aura (Sakinah). Learn how to plan your stays, Ziyarat visits, and navigate the city with ease.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20private%20taxi%20transfer%20to%20or%20within%20Madinah" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20private%20taxi%20transfer%20to%20or%20within%20Madinah" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-4 h-4" /> Book Madinah Taxi
                         </a>
@@ -177,7 +177,7 @@ export default function CompleteMadinahGuidePage() {
                         Need an airport pickup, intercity transfer to Makkah, or a private Ziyarat driving tour? Book our premium transportation services in Madinah today.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20private%20taxi%20service%20in%20Madinah" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20private%20taxi%20service%20in%20Madinah" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> Book via WhatsApp
                         </a>

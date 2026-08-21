@@ -205,7 +205,7 @@ export default function DammamToRiyadhTransportGuidePage() {
                         Door to door, fixed price, scheduled rest stops included. Toyota Camry, GMC Yukon XL, and Cadillac Escalade available. Book 24 hours ahead for best availability.
                     </p>
                     <a
-                        href="https://wa.me/966553270009?text=Hi%2C%20I%20need%20a%20private%20car%20from%20Dammam%20to%20Riyadh.%20Please%20share%20availability%20and%20pricing."
+                        href="https://wa.me/966563573531?text=Hi%2C%20I%20need%20a%20private%20car%20from%20Dammam%20to%20Riyadh.%20Please%20share%20availability%20and%20pricing."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"

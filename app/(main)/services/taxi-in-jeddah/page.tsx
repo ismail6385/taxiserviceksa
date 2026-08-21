@@ -234,7 +234,7 @@ export default function TaxiInJeddahPage() {
                                 <p className="text-gray-400 text-xs mt-4 border-t border-white/10 pt-3">{v.note}</p>
 
                                 <a
-                                    href={`https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20book%20a%20VIP%20${encodeURIComponent(v.name)}%20in%20Jeddah.`}
+                                    href={`https://wa.me/966563573531?text=Hello%2C%20I%20would%20like%20to%20book%20a%20VIP%20${encodeURIComponent(v.name)}%20in%20Jeddah.`}
                                     target="_blank"
                                     rel="nofollow noopener noreferrer"
                                     className="mt-8 relative w-full inline-flex items-center justify-center p-4 px-6 py-3 overflow-hidden font-medium text-white transition-all duration-300 bg-primary/20 rounded-xl group-hover:bg-primary group-hover:text-black text-center"

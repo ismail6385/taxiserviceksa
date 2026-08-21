@@ -272,7 +272,7 @@ export default function HomeClientUrdu() {
                                         آن لائن واٹس ایپ بکنگ
                                     </Button>
                                 </Link>
-                                <a href="https://wa.me/966569487569?text=Assalam-o-Alaikum%2C%20mujhe%20VIP%20taxi%20ki%20quotation%20chahiye" target="_blank" rel="nofollow noopener noreferrer">
+                                <a href="https://wa.me/966563573531?text=Assalam-o-Alaikum%2C%20mujhe%20VIP%20taxi%20ki%20quotation%20chahiye" target="_blank" rel="nofollow noopener noreferrer">
                                     <Button size="lg" className="bg-emerald-600 border-none text-white hover:bg-emerald-700 font-bold transition-all shadow-lg flex items-center gap-2 h-14 px-8 rounded-2xl">
                                         <WhatsAppIcon className="w-6 h-6 fill-current" />
                                         واٹس ایپ پر کوٹیشن حاصل کریں
@@ -325,7 +325,7 @@ export default function HomeClientUrdu() {
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                                 لمبے سفر، وی آئی پی ایئرپورٹ استقبال اور عمرہ زائرین کے لیے مخصوص ٹرانسپورٹ سروسز میں مہارت۔
                             </p>
-                            <a href="https://wa.me/966569487569?text=Assalam-o-Alaikum%2C%20mujhe%20VIP%20taxi%20ki%20quotation%20chahiye" target="_blank" rel="nofollow noopener noreferrer">
+                            <a href="https://wa.me/966563573531?text=Assalam-o-Alaikum%2C%20mujhe%20VIP%20taxi%20ki%20quotation%20chahiye" target="_blank" rel="nofollow noopener noreferrer">
                                 <Button className="bg-emerald-600 text-white hover:bg-emerald-700 rounded-full px-8 py-6 text-lg font-bold min-h-[48px] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-emerald-500/30 flex items-center gap-2">
                                     <WhatsAppIcon className="w-6 h-6 fill-current" />
                                     واٹس ایپ پر کوٹیشن حاصل کریں
@@ -462,7 +462,7 @@ export default function HomeClientUrdu() {
                                 </div>
                             </div>
                             <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
-                                <a href="https://wa.me/966569487569?text=Assalam-o-Alaikum%2C%20mujhe%20VIP%20taxi%20ki%20quotation%20chahiye" target="_blank" rel="nofollow noopener noreferrer" className="w-full sm:w-auto">
+                                <a href="https://wa.me/966563573531?text=Assalam-o-Alaikum%2C%20mujhe%20VIP%20taxi%20ki%20quotation%20chahiye" target="_blank" rel="nofollow noopener noreferrer" className="w-full sm:w-auto">
                                     <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white px-10 h-16 rounded-2xl text-lg font-black transition-all hover:scale-105 active:scale-95 shadow-xl shadow-emerald-500/20 flex items-center gap-3">
                                         <WhatsAppIcon className="w-6 h-6 fill-current" />
                                         واٹس ایپ پر کوٹیشن حاصل کریں
@@ -537,7 +537,7 @@ export default function HomeClientUrdu() {
                                                 <Button className="w-full bg-primary text-white hover:bg-blue-600 font-bold transition-all min-h-[48px] hover:scale-[1.02] active:scale-95 shadow-md shadow-primary/20 text-xs"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> واٹس ایپ بکنگ</Button>
                                             </Link>
                                             <a
-                                                href={`https://wa.me/966569487569?text=${encodeURIComponent(`Assalam-o-Alaikum, mujhe ${vehicle.name} ki VIP quotation chahiye.`)}`}
+                                                href={`https://wa.me/966563573531?text=${encodeURIComponent(`Assalam-o-Alaikum, mujhe ${vehicle.name} ki VIP quotation chahiye.`)}`}
                                                 target="_blank"
                                                 rel="nofollow noopener noreferrer"
                                                 className="w-full"

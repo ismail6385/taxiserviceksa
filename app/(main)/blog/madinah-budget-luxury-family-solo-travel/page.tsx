@@ -68,7 +68,7 @@ export default function MadinahTravelTypesPage() {
                     <h2 className="text-3xl font-black mb-4">Private Taxis for All Budgets</h2>
                     <p className="text-gray-300 max-w-xl mx-auto mb-8">Solo, family, budget, or luxury — we have the right vehicle and price point for your Madinah journey.</p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20taxi%20in%20Madinah" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"><Phone className="w-5 h-5" /> WhatsApp Now</a>
+                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20taxi%20in%20Madinah" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"><Phone className="w-5 h-5" /> WhatsApp Now</a>
                         <Link href="/routes/madinah-makkah/" className="inline-flex items-center gap-2 bg-white text-slate-900 font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">View Routes <ArrowRight className="w-5 h-5" /></Link>
                     </div>
                 </section>

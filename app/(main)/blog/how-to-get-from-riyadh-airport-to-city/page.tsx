@@ -312,7 +312,7 @@ export default function RiyadhAirportToCityGuide() {
                         ))}
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966552202642?text=Hello,%20I%20need%20a%20transfer%20from%20King%20Khalid%20Airport%20to%20Riyadh%20city" target="_blank">
+                        <Link href="https://wa.me/966563573531?text=Hello,%20I%20need%20a%20transfer%20from%20King%20Khalid%20Airport%20to%20Riyadh%20city" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-100 font-bold px-8">
                                 Book via WhatsApp <ArrowRight className="ml-2 w-4 h-4" />
                             </Button>

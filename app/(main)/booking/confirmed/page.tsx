@@ -204,7 +204,7 @@ function ConfirmedContent() {
                 {/* Actions */}
                 <div className="space-y-3">
                     <a
-                        href={`https://wa.me/966569487569?text=${supportWAMsg}`}
+                        href={`https://wa.me/966563573531?text=${supportWAMsg}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white font-bold py-4 rounded-xl hover:bg-[#20bd5a] transition-colors text-base"
