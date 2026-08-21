@@ -86,7 +86,7 @@ export default function BookingProcess({
                 <div className="mt-20 text-center">
                     <div className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full border border-gray-100 shadow-sm">
                         <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
-                        <span className="text-xs font-bold text-gray-900 uppercase tracking-widest">Average Response Time: 2 Minutes</span>
+                        <span className="text-xs font-bold text-gray-900 uppercase tracking-widest">Fast WhatsApp Response</span>
                     </div>
                 </div>
             </div>
