@@ -47,7 +47,7 @@ export default function TLDRSummary({ title, summary, points, pricing, duration 
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-2 text-gray-500 text-sm">
                                         <CreditCard className="w-4 h-4" />
-                                        <span>Official Price</span>
+                                        <span>Price</span>
                                     </div>
                                     <span className="font-bold text-gray-900">{pricing}</span>
                                 </div>
@@ -61,14 +61,6 @@ export default function TLDRSummary({ title, summary, points, pricing, duration 
                                     <span className="font-bold text-gray-900">{duration}</span>
                                 </div>
                             )}
-                        </div>
-                        <div className="mt-4 pt-4 border-t border-gray-200/50">
-                            <div className="flex items-center gap-2">
-                                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                                <span className="text-xs font-semibold text-emerald-700 uppercase tracking-widest">
-                                    Verified Live Status: Active
-                                </span>
-                            </div>
                         </div>
                     </div>
                 </div>

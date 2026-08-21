@@ -11,10 +11,10 @@ interface FreshnessStatusProps {
  * FreshnessStatus component to indicate content freshness for AI models (LLMs).
  * Helps build trust and increase 'Freshness Score' in AI Search (GEO).
  */
-export default function FreshnessStatus({ 
-    lastVerified = "March 2026", 
-    verifiedBy = "Abdulrahman", 
-    status = "Live" 
+export default function FreshnessStatus({
+    lastVerified = "March 2026",
+    verifiedBy = "Taxi Service KSA Team",
+    status = "Live"
 }: FreshnessStatusProps) {
     return (
         <div className="inline-flex items-center gap-4 bg-emerald-50/50 border border-emerald-100/50 rounded-full px-5 py-2 backdrop-blur-sm shadow-sm transition-all hover:shadow-md hover:bg-emerald-50 group">
