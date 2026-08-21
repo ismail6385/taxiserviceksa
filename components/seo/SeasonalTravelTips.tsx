@@ -21,12 +21,12 @@ interface SeasonalTravelTipsProps {
 export default function SeasonalTravelTips({ city, labels, isRtl = false }: SeasonalTravelTipsProps) {
     const defaultLabels: SeasonalTipsLabels = {
         title: `Traveling in ${city}: Seasonal Taxi Tips`,
-        subtitle: "Understanding the local climate for a comfortable pilgrimage experience.",
+        subtitle: "Understanding the local climate before you travel.",
         summerTitle: "Summer (June - August)",
-        summerText: `Temperatures can exceed 40°C (104°F). It is critical to book <strong>air-conditioned taxis</strong> pre-arrival. Walking between hotels and the Haram during noon is difficult. Our fleet guarantees high-performance AC systems (tested for ${city}'s heat) to ensure your family remains cool from pickup to drop-off.`,
-        summerTag: "High Demand: AC Taxis",
+        summerText: `Temperatures can exceed 40°C (104°F). It is worth booking an <strong>air-conditioned taxi</strong> in advance and minimizing time outdoors around midday. Our fleet is checked for reliable AC to keep you comfortable from pickup to drop-off.`,
+        summerTag: "Book Ahead: AC Taxis",
         winterTitle: "Winter (December - February)",
-        winterText: `Pleasant weather (18°C - 30°C / 64°F - 86°F). This is popularly known as the "Umrah Season". Traffic congestion increases significantly. While walking is easier, finding a taxi on the street becomes harder due to high demand. <strong>Pre-booking</strong> ensures you skip the long street-side waits after prayers.`,
+        winterText: `Pleasant weather (18°C - 30°C / 64°F - 86°F) tends to bring more visitors and heavier traffic. <strong>Pre-booking</strong> helps you avoid waiting for a taxi during busier periods.`,
         winterTag: "Traffic Alert: Peak Season"
     };
 
