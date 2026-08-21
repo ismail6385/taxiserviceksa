@@ -16,8 +16,8 @@ import JsonLdFAQ from '@/components/JsonLdFAQ';
 import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
-    title: 'Private Car Transfer, Taxi and Chauffeur Service in Dammam | Eastern Province & Al Khobar | Taxi Service KSA',
-    description: 'Best private taxi service in Dammam 2026. Al Khobar, Dhahran, Bahrain Causeway, Jubail, and Riyadh transfers. Fixed rates, luxury fleet, 24/7. Book via WhatsApp.',
+    title: 'Taxi in Dammam — Private Car & Chauffeur Service | Taxi Service KSA',
+    description: 'Book a taxi in Dammam. Al Khobar, Dhahran, Bahrain Causeway, Jubail, and Riyadh transfers. Fixed rates, professional drivers, 24/7. Book via WhatsApp.',
     keywords: [
         'taxi in Dammam',
         'private car Dammam',
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'Private Car Transfer, Taxi and Chauffeur Service in Dammam | Eastern Province & Al Khobar | Taxi Service KSA',
-        description: 'Premium taxi and private car service in Dammam. Al Khobar, Dhahran, Bahrain Causeway, airport pickup. Fixed rates, luxury fleet, 24/7.',
+        title: 'Taxi in Dammam — Private Car & Chauffeur Service | Taxi Service KSA',
+        description: 'Book a taxi in Dammam. Al Khobar, Dhahran, Bahrain Causeway, airport pickup. Fixed rates, professional drivers, 24/7.',
         url: 'https://taxiserviceksa.com/services/taxi-in-dammam/',
         type: 'website',
         images: [{ url: 'https://taxiserviceksa.com/hero-slide-3.webp' }],
@@ -224,8 +224,8 @@ export default function TaxiInDammamPage() {
                         Dammam · Al Khobar · Dhahran · Eastern Province
                     </span>
                     <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        Private Car Transfer, Taxi and Chauffeur Service in Dammam<br />{' '}
-                        <span className="text-white/80">Eastern Province &amp; Al Khobar</span>
+                        Taxi in Dammam<br />{' '}
+                        <span className="text-white/80">Private Car &amp; Chauffeur Service</span>
                     </h1>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-4">
                         The best private taxi service in Dammam — Bahrain Causeway transfers, Aramco Dhahran visits, airport pickup, and city rides across Eastern Province. Professional drivers, luxury fleet, fixed rates 24/7.

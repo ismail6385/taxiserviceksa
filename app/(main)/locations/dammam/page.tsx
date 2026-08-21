@@ -1,36 +1,18 @@
-﻿import { Metadata } from 'next';
+import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { MapPin, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Building2, Palmtree } from 'lucide-react';
+import { MapPin, Clock, CheckCircle2, Car, Users, Plane, ArrowRight, Building2 } from 'lucide-react';
 import Hero from '@/components/Hero';
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from '@/components/ui/accordion';
-import RelatedLocations from '@/components/seo/RelatedLocations';
-import RouteFleetSection from '@/components/RouteFleetSection';
-import { toyotaVelozHighlight } from '@/data/areaFleetHighlights';
-import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
-import TrendingTravelNote from '@/components/seo/TrendingTravelNote';
-import QuestionGrouper from '@/components/seo/QuestionGrouper';
-import SemanticField from '@/components/seo/SemanticField';
-import TopicCluster from '@/components/seo/TopicCluster';
+import RelatedLocations, { RelatedLink } from '@/components/seo/RelatedLocations';
 import DistanceTable from '@/components/seo/DistanceTable';
-import TravelConsensus from '@/components/seo/TravelConsensus';
-import RoutePerspective from '@/components/seo/RoutePerspective';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
-import ExpertReview from '@/components/seo/ExpertReview';
 import JsonLdLocation from '@/components/JsonLdLocation';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
-
 export const metadata: Metadata = {
-    title: 'Taxi & Chauffeur Service in Dammam 2026 | DMM Airport Transfer | Taxi Service KSA',
-    description: 'Book a professional taxi or chauffeur in Dammam. Private transfers to King Fahd International Airport (DMM), Al Khobar, Jubail & Riyadh. Fixed rates, English-speaking drivers, 24/7 availability.',
-    keywords: ['chauffeur service dammam', 'dammam chauffeur service', 'chauffeur service in dammam', 'taxi dammam', 'dammam taxi service', 'dammam airport transfer', 'dmm airport taxi', 'dammam to jubail taxi'],
+    title: 'Dammam: Private Taxi, Airport & Intercity Transfers | Taxi Service KSA',
+    description: 'Private taxi and car transfers in Dammam. King Fahd International Airport (DMM), Al Khobar, Dhahran, Jubail, Bahrain and Riyadh. Fixed rates, professional drivers.',
+    keywords: ['dammam taxi', 'dammam airport transfer', 'dmm airport taxi', 'dammam to jubail taxi', 'dammam private car', 'eastern province taxi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/dammam/',
         languages: {
@@ -41,10 +23,10 @@ export const metadata: Metadata = {
         }
     },
     openGraph: {
-        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Car Transfer, Taxi and Chauffeur Service in Dammam | Airport & City Travel | Taxi Service KSA' }],
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Dammam private taxi and airport transfer' }],
         siteName: 'Taxi Service KSA',
-        title: 'Private Car Transfer, Taxi and Chauffeur Service in Dammam | Airport & City Travel | Taxi Service KSA',
-        description: 'Book the premium transfer in Dammam. Fast airport transfers, corniche rides & intercity travel to Khobar/Jubail. 24/7 availability.',
+        title: 'Dammam: Private Taxi, Airport & Intercity Transfers | Taxi Service KSA',
+        description: 'Private taxi and car transfers in Dammam. DMM Airport, Al Khobar, Dhahran, Jubail, Bahrain and Riyadh.',
         url: 'https://taxiserviceksa.com/locations/dammam/',
         type: 'website',
     },
@@ -52,19 +34,10 @@ export const metadata: Metadata = {
 
 export default function DammamPage() {
     const services = [
-        { name: 'King Fahd Airport (DMM)', description: 'Fast and reliable transfers to/from King Fahd International Airport', icon: Plane },
-        { name: 'Dammam Corniche', description: 'Leisure rides to the Dammam Corniche and Dolphin Village', icon: Palmtree },
-        { name: 'Intercity to Jubail', description: 'Direct transfers to Jubail Industrial City for business travelers', icon: Building2 },
-        { name: 'Half Moon Bay Trips', description: 'Day trips to Half Moon Bay for family recreation', icon: Car },
-    ];
-
-    const features = [
-        'Drivers with Eastern Province expertise',
-        '24/7 Airport pickup service',
-        'Vehicles for families & groups',
-        'Fixed fares to Jubail & Khobar',
-        'Safe & Insured rides',
-        'Online booking confirmation',
+        { name: 'King Fahd Airport (DMM)', description: 'Private pickup and drop-off at King Fahd International Airport', icon: Plane },
+        { name: 'Al Khobar & Dhahran', description: 'City and hotel transfers across the Eastern Province', icon: Building2 },
+        { name: 'Jubail Industrial City', description: 'Transfers for business travelers and contractors', icon: Car },
+        { name: 'Bahrain & Riyadh', description: 'Cross-border and long-distance private transfers', icon: MapPin },
     ];
 
     const dammamImages = [
@@ -73,71 +46,80 @@ export default function DammamPage() {
         '/hero-slide-3.webp',
     ];
 
-    const faqs = [
-        {
-            question: "Is there a taxi pickup at Dammam Airport?",
-            answer: "Yes, we provide 24/7 pickup service from King Fahd International Airport (DMM). We track your flight and meet you at the arrivals terminal. It's best to book online."
-        },
-        {
-            question: "Is there a taxi from Dammam to Al Khobar?",
-            answer: "Yes, we have frequent taxi services connecting Dammam, Al Khobar, and Dhahran. It's affordable and connects the whole tri-city area."
-        },
-        {
-            question: "What is the quickest way from Dammam to Jubail?",
-            answer: "Our private taxi is the fastest way to travel from Dammam to Jubail. The trip takes about 1 hour and is direct, unlike buses."
-        },
-        {
-            question: "Can I Request a quote for a taxi to Half Moon Bay?",
-            answer: "Yes, you can Request a quote for a taxi for a day trip to Half Moon Bay. We can drop you off and pick you up whenever you like."
-        },
-        {
-            question: "Do you offer corporate car rental in Dammam?",
-            answer: "Yes, we specialize in corporate transport. Many companies use our 'rent a car with driver' service for employee commutes to Jubail and Khobar."
-        },
-        {
-            question: "How do I pay for my taxi in Dammam?",
-            answer: "You can pay by cash or use our secure online payment system when you book through our website."
-        }
+    const vehicles = [
+        { name: 'Toyota Camry', desc: 'For 1-3 passengers, city and airport rides', link: '/fleet/toyota-camry/' },
+        { name: 'Toyota Veloz / Hyundai Staria', desc: 'For families, up to 7 passengers', link: '/fleet/toyota-veloz/' },
+        { name: 'GMC Yukon', desc: 'For premium groups and corporate travel', link: '/fleet/gmc-yukon/' },
+        { name: 'Mercedes Sprinter', desc: 'For larger groups and teams', link: '/fleet/mercedes-sprinter/' },
     ];
 
+    const nearbyLinks: RelatedLink[] = [
+        { name: 'Al Khobar', url: '/locations/al-khobar/', description: 'Private transfers between Dammam and Al Khobar for city rides, hotels and the Bahrain Causeway.' },
+        { name: 'Dhahran', url: '/locations/dhahran/', description: 'Transfers between Dammam and Dhahran for Aramco visitors and business travelers.' },
+        { name: 'Jubail', url: '/locations/jubail/', description: 'Private transfers for business travelers, contractors and families traveling to Jubail Industrial City.' },
+        { name: 'Hofuf', url: '/locations/hofuf/', description: 'Private transfers between Dammam and Hofuf (Al-Ahsa).' },
+    ];
 
+    const faqs = [
+        {
+            question: "Is Dammam the same as Al Khobar?",
+            shortAnswer: "No, but they're closely connected",
+            detailedAnswer: "Dammam, Dhahran and Al Khobar are separate cities within the same Eastern Province urban area. They're closely connected, but travel time between them varies with traffic, especially during weekday commuting hours.",
+            perspectives: []
+        },
+        {
+            question: "How far is Dammam from King Fahd International Airport?",
+            shortAnswer: "~35-40 km, about 30-40 minutes",
+            detailedAnswer: "DMM Airport is located outside central Dammam. Travel time depends on your exact pickup or drop-off location and traffic, but is typically 30-40 minutes from central Dammam.",
+            perspectives: []
+        },
+        {
+            question: "Can I book a private taxi from Dammam to Jubail?",
+            shortAnswer: "Yes",
+            detailedAnswer: "Yes, we provide private transfers between Dammam and Jubail Industrial City for business travelers, contractors and families. See our fare guide below for starting prices.",
+            perspectives: []
+        },
+        {
+            question: "Can I book a private car from Dammam to Bahrain?",
+            shortAnswer: "Yes",
+            detailedAnswer: "Yes, private transfers to the King Fahd Causeway and into Bahrain are available. Passengers are responsible for their own valid passport and entry requirements.",
+            perspectives: []
+        },
+        {
+            question: "Is there a taxi service from Dammam to Riyadh?",
+            shortAnswer: "Yes, around 4-4.5 hours",
+            detailedAnswer: "Yes, we provide intercity transfers from Dammam to Riyadh, a journey of approximately 400 km.",
+            perspectives: []
+        },
+        {
+            question: "Do you offer corporate transport in Dammam?",
+            shortAnswer: "Yes",
+            detailedAnswer: "Yes, we provide pre-booked transport for business travelers, contractors and teams traveling between Dammam, Dhahran, Al Khobar and Jubail Industrial City. See our Corporate Travel service for details.",
+            perspectives: []
+        },
+    ];
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <JsonLdLocation 
+            <JsonLdLocation
                 cityName="Dammam"
-                description="Professional transfers in Dammam. Specializing in King Fahd International Airport (DMM) pickups, Jubail industrial commutes, and executive corporate transport."
+                description="Private taxi and car transfers in Dammam. King Fahd International Airport (DMM), Al Khobar, Dhahran, Jubail and intercity travel."
                 services={services}
-                
                 image="https://taxiserviceksa.com/hero-slide-1.webp"
             />
 
-
-            {/* Hero Section */}
             <Hero
                 images={dammamImages}
-                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Dammam"
-                bookingFormTitle="WhatsApp Booking for Premium Transfer in Dammam"
+                h1Text="Dammam: Private Taxi, Airport & Intercity Transfers"
+                bookingFormTitle="WhatsApp Booking for Dammam Transfer"
                 title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> Chauffeur Service Dammam
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
+                        Eastern Province
                     </span>
                 }
-                subtitle="Eastern Province Metro Hub & Industrial Artery"
-                location="DMM Airport • Jubail • Corporate"
+                subtitle="DMM Airport • Al Khobar • Dhahran • Jubail"
+                location="Private Vehicle • Fixed Fares"
             >
-                <div className="max-w-3xl mx-auto mt-8 mb-6">
-                    <EntityTrustSignal
-                        brandName="Taxi Service KSA™ Dammam"
-                        description="Professional chauffeur and airport transfer services in Dammam. We help business travelers and families with luxury vehicles and 24/7 availability for King Fahd International Airport (DMM) and Jubail transfers."
-                        foundingDate="2012"
-                        metrics={[
-                            { label: 'Airport Trips', value: '12k+', icon: Plane },
-                            { label: 'Jubail Transfers', value: '8,000+', icon: Building2 },
-                            { label: 'Reliability', value: '99.8%', icon: Shield }
-                        ]}
-                    />
-                </div>
-
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                         <Link href="/booking/">
@@ -146,351 +128,177 @@ export default function DammamPage() {
                         </Link>
                     </Button>
                     <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
-                            Email Us
+                        <a href="https://wa.me/966553270009?text=Hello,%20I%20need%20a%20taxi%20in%20Dammam" target="_blank" rel="noopener noreferrer">
+                            <WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> Get a Quote
                         </a>
                     </Button>
                 </div>
             </Hero>
 
-            {/* Premium Service Disclaimer */}
-            <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Airport, Intercity, and Corporate transfers. We do NOT provide local short-distance hailing.
+            {/* Quick facts */}
+            <div className="max-w-7xl mx-auto px-4 -mt-10 relative z-10">
+                <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+                    {[
+                        { label: 'DMM Airport', value: 'Private Pickup', icon: Plane },
+                        { label: 'Al Khobar / Dhahran', value: 'City Transfers', icon: Building2 },
+                        { label: 'Jubail', value: 'Business Transfers', icon: Car },
+                        { label: 'Booking', value: 'WhatsApp or Online', icon: CheckCircle2 },
+                    ].map((f) => (
+                        <div key={f.label} className="flex flex-col items-center text-center">
+                            <f.icon className="w-6 h-6 text-primary mb-3" />
+                            <span className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">{f.label}</span>
+                            <span className="text-sm font-black text-gray-900">{f.value}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Intro */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+                <div className="max-w-4xl mx-auto">
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">About Dammam</h2>
+                    <p className="text-lg text-gray-600 mb-4 leading-relaxed">
+                        Dammam is the administrative capital of Saudi Arabia's Eastern Province. Dammam, Dhahran and Al Khobar form the core of the region's main urban area — three closely connected cities, though travel time between them varies with traffic, especially during weekday commuting hours.
+                    </p>
+                    <p className="text-lg text-gray-600 leading-relaxed">
+                        We provide private, pre-booked transfers in Dammam for airport pickup, city and corporate travel, and longer trips to Jubail, Bahrain and Riyadh. For full details on booking a taxi in Dammam, including pricing, vehicle options and FAQs, see our{' '}
+                        <Link href="/services/taxi-in-dammam/" className="text-primary font-semibold hover:underline">Taxi in Dammam service page</Link>.
                     </p>
                 </div>
-            </div>
-
-            {/* Trending Note */}
-            <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
-                <TrendingTravelNote
-                    topic="Dammam Airport Distance"
-                    status="Traffic Alert"
-                    lastUpdated="Daily Update"
-                    content="King Fahd International Airport (DMM) is 45km away from Dammam City Center. The highway is fast but prone to speed radar traps. Allow 50-60 mins for the trip during rush hour."
-                    tags={["AirportDistance", "SpeedCams", "RushHour", "DMM"]}
-                />
-            </div>
-
-            {/* Semantic Hub */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-16">
-                <QuestionGrouper
-                    mainQuestion="Understanding Dammam Transport"
-                    intro="Dammam is part of a massive metropolitan area including Dhahran and Al Khobar. Locals call it the 'Tri-City'."
-                    subQuestions={[
-                        {
-                            id: 'q1',
-                            condition: 'Inter-City',
-                            question: 'Are Dammam and Khobar the same?',
-                            answer: 'Geographically connected but distinct. Moving between them during peak work hours (7-9 AM) can take 40+ mins due to highway traffic.',
-                            citation: 'Traffic Analysis'
-                        },
-                        {
-                            id: 'q2',
-                            condition: 'Airport Info',
-                            question: 'Why is the airport so far?',
-                            answer: 'DMM is the largest airport in the world by land area, built far from the city to allow expansion. Taxis are the only reliable link.',
-                            citation: 'Airport Facts'
-                        },
-                        {
-                            id: 'q3',
-                            condition: 'Industrial Hub',
-                            question: 'Taxi to Jubail?',
-                            answer: 'Jubail Industrial City is 100km north (1 hr drive). We provide flat-rate transfers for contractors and engineers.',
-                            citation: 'Route Map'
-                        }
-                    ]}
-                />
-
-                <SemanticField
-                    title="The Eastern Province Context"
-                    explanation="Dammam is the administrative capital, but the centers of gravity for oil and business are spread out."
-                    concepts={[
-                        {
-                            label: 'Dammam City',
-                            description: 'The administrative heart. Home to the Corniche, government offices, and the central railway station.',
-                            wikiLink: 'https://en.wikipedia.org/wiki/Dammam'
-                        },
-                        {
-                            label: 'Dhahran',
-                            description: 'The Aramco Oil Hub. Highly secured residential camps and huge business parks (Techno Valley).',
-                            internalLink: '/locations/dhahran'
-                        },
-                        {
-                            label: 'Al Khobar',
-                            description: 'The social hub. Restaurants, malls, and the Causeway bridge to Bahrain.',
-                            internalLink: '/locations/al-khobar'
-                        }
-                    ]}
-                />
-
-                <TopicCluster
-                    mainTopic="Dammam Transport Network"
-                    clusters={[
-                        {
-                            category: "Major Routes",
-                            relevance: "Primary",
-                            items: [
-                                { label: "Airport Transfer (DMM)", url: "/services/airport-transfers" },
-                                { label: "Dammam to Bahrain", url: "/locations/al-khobar" },
-                                { label: "Dammam to Riyadh (Train Station)", url: "/services/city-transport" }
-                            ]
-                        },
-                        {
-                            category: "Corporate",
-                            relevance: "Secondary",
-                            items: [
-                                { label: "Jubail Commute", url: "/services/corporate-travel", description: "Daily Staff Transport" },
-                                { label: "2nd Industrial City", url: "/services/industrial", description: "Factory Staff" }
-                            ]
-                        }
-                    ]}
-                />
-            </div>
-
-            {/* Authoritative Signal */}
-            <section className="bg-white mt-16">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <ExpertReview
-                        reviewerName='Captain Nasser Al-Dawsari'
-                        reviewerTitle='Eastern Province Route Manager'
-                        reviewDate="29 Jun 2026"
-                        expertise={["Dammman-Jubail Hwy", "Airport Logistics", "Industrial Security"]}
-                    />
-                </div>
             </section>
 
-            {/* Services Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+            {/* Services grid */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">Executive Services</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Dammam Transport Solutions</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                            Premium chauffeur-driven experiences connecting Dammam to King Fahd Airport (DMM), Jubail Industrial City, and corporate hubs across the Eastern Province.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">Dammam Transport Services</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {services.map((service, index) => (
-                            <div key={index} className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-all border border-gray-200">
-                                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6">
-                                    <service.icon className="w-8 h-8 text-black" />
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.name}</h3>
-                                <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                            <div key={index} className="bg-white rounded-2xl p-6 border border-gray-100">
+                                <service.icon className="w-8 h-8 text-primary mb-4" />
+                                <h3 className="font-bold text-gray-900 mb-2">{service.name}</h3>
+                                <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
                             </div>
                         ))}
                     </div>
+                    <p className="text-center text-sm text-gray-500 mt-8">
+                        Need DMM airport pickup details — flight tracking, waiting time, terminal info? See our{' '}
+                        <Link href="/dammam-airport-taxi/" className="text-primary font-semibold hover:underline">Dammam Airport Taxi page</Link>.
+                    </p>
                 </div>
             </section>
 
-            {/* Features Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Why Choose Our Dammam Transfer</h2>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                        {features.map((feature, index) => (
-                            <div key={index} className="flex items-center gap-3 bg-white p-6 rounded-xl border border-gray-200">
-                                <CheckCircle2 className="w-6 h-6 text-primary flex-shrink-0" />
-                                <span className="text-gray-700 font-medium">{feature}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Micro-Semantic FAQ Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="mt-12 mb-16">
+            {/* Distance table + fares */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+                <div className="max-w-5xl mx-auto">
+                    <div className="mb-16">
                         <DistanceTable
                             origin="Dammam City Center"
                             locations={[
-                                { destination: 'King Fahd Airport (DMM)', distance: '45 km', time: '40 mins', route: 'King Fahd Rd' },
-                                { destination: 'Al Khobar Corniche', distance: '25 km', time: '30 mins', route: 'Coastal Hwy' },
-                                { destination: 'Jubail Industrial City', distance: '95 km', time: '60 mins', route: 'Jubail Hwy' },
-                                { destination: 'Bahrain Causeway', distance: '40 km', time: '45 mins', route: 'Khobar Rd' },
-                                { destination: 'Riyadh', distance: '410 km', time: '4h', route: 'Route 40' }
+                                { destination: 'King Fahd Airport (DMM)', distance: '~35-40 km', time: '~30-40 mins', route: 'King Fahd Rd' },
+                                { destination: 'Al Khobar', distance: '~20-25 km', time: '~20-30 mins', route: 'Coastal Hwy' },
+                                { destination: 'Jubail Industrial City', distance: '~95-103 km', time: '~60-75 mins', route: 'Jubail Hwy' },
+                                { destination: 'Bahrain Causeway', distance: '~40 km', time: '~45 mins', route: 'Khobar Rd' },
+                                { destination: 'Riyadh', distance: '~400 km', time: '~4-4.5 h', route: 'Route 40' }
                             ]}
                         />
+                        <p className="text-sm text-gray-500 text-center mt-4">Approximate distances and driving times from central Dammam. Actual time depends on your exact pickup/drop-off location and traffic.</p>
                     </div>
 
-                    <div className="mb-16">
-                        <TravelConsensus
-                        contextName="Dammam"
-                            points={[
-                                {
-                                    topic: "Dammam vs Khobar Stay",
-                                    commonBelief: "It doesn't matter where I stay.",
-                                    reality: "It matters. Khobar has the dining/social life. Dammam has cheaper hotels and government offices. Traffic between them is heavy.",
-                                    truthRange: "Choose Based on Purpose",
-                                    factors: ["Traffic", "Lifestyle"]
-                                },
-                                {
-                                    topic: "Uber at DMM Airport",
-                                    commonBelief: "Always available.",
-                                    reality: "DMM is very far. Ubers often reject the trip due to 'deadheading' (returning empty). Pre-booked taxis are reliable.",
-                                    truthRange: "Unreliable Availability",
-                                    factors: ["Distance", "Driver Preference"]
-                                }
-                            ]}
-                        />
-                    </div>
-
-                    <div className="mb-16">
-                        <RoutePerspective
-                            route="Dammam to Jubail (The Industrial Artery)"
-                            perspectives={[
-                                {
-                                    id: "engineer",
-                                    targetAudience: "Project Manager",
-                                    icon: Building2,
-                                    intent: "Business",
-                                    description: "A daily commute for thousands. Speed cameras are everywhere (Limit 120km/h). Our drivers use cruise control to ensure safety and punctuality.",
-                                    structuredFeatures: [
-                                        { label: "Vehicle", value: "Comfort Sedan" },
-                                        { label: "Route", value: "Hwy 615" },
-                                        { label: "Reliability", value: "Critical" }
-                                    ],
-                                    visualContext: "Wide highway flanked by refineries."
-                                },
-                                {
-                                    id: "family",
-                                    targetAudience: "Weekend Visitor",
-                                    icon: Palmtree,
-                                    intent: "Leisure",
-                                    description: "Visiting Jubail's Fanateer Beach. A smooth drive on weekends.",
-                                    structuredFeatures: [
-                                        { label: "Stop", value: "Fanateer Mall" },
-                                        { label: "Timing", value: "Before Sunset" }
-                                    ],
-                                    visualContext: "Coastal road views."
-                                }
-                            ]}
-                        />
-                    </div>
-
-                    <MicroSemanticFAQ
-                        faqs={[
-                            {
-                                question: "How much is a transfer from Dammam Airport to the city?",
-                                shortAnswer: "150-200 SAR",
-                                detailedAnswer: "King Fahd International Airport (DMM) is 45-50km from the city. The standard fare reflects this distance. Uber pricing surges, but our fixed rate includes meet & greet.",
-                                perspectives: [
-                                    { role: "Business", icon: "Plane", insight: "Company expense accounts prefer our fixed receipts." },
-                                    { role: "Family", icon: "Users", insight: "Cheaper than 2 Ubers for a large group." }
-                                ]
-                            },
-                            {
-                                question: "Can you take me to Bahrain?",
-                                shortAnswer: "Yes, with Papers",
-                                detailedAnswer: "We offer transfers to the Bahrain border. If you need to cross, we can arrange a specific vehicle with authorization (requires advance booking and valid visa).",
-                                perspectives: [
-                                    { role: "Expat", icon: "Shield", insight: "Visa on arrival is available at the causeway." }
-                                ]
-                            },
-                            {
-                                question: "Is there a transfer to Riyadh?",
-                                shortAnswer: "Yes, 4 Hours",
-                                detailedAnswer: "We provide intercity transfers to Riyadh (400km). It is a smooth highway drive. Popular for those who miss flights or carry heavy luggage.",
-                                perspectives: [
-                                    { role: "Driver", icon: "Car", insight: "We stop at SASCO midway for breaks." }
-                                ]
-                            },
-                            {
-                                question: "Do you serve the 2nd Industrial City?",
-                                shortAnswer: "Yes, Daily",
-                                detailedAnswer: "We have specific routes covering Dammam's 1st and 2nd Industrial Cities, knowing the gate systems and factory locations.",
-                                perspectives: [
-                                    { role: "Contractor", icon: "Building2", insight: "Gate passes are needed for some zones." }
-                                ]
-                            }
-                        ]}
-                    />
-                </div>
-            </section>
-
-            {/* Pricing Information */}
-            <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <div className="inline-flex items-center gap-2 bg-yellow-100 px-4 py-2 rounded-full mb-6">
-                            <Star className="w-4 h-4 text-yellow-600" />
-                            <span className="text-sm font-semibold text-yellow-900"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current inline-block" /> WhatsApp Booking</span>
-                        </div>
-
-                        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6"> Dammam Transfer Fares
-                        </h3>
-                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                            Flat rates to/from King Fahd International Airport (DMM).
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all text-center">
-                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                <Plane className="w-6 h-6 text-primary" />
-                            </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">Airport Pickup</div>
-                            <div className="text-4xl font-black text-primary mb-3">
-                                <span className="text-2xl">From</span> SAR 200
-                            </div>
-                            <div className="text-sm text-gray-600 leading-relaxed">
-                                MED Airport to Dammam Center (Fixed)
-                            </div>
-                        </div>
-
-                        <div className="bg-white p-8 rounded-2xl border-2 border-primary/30 hover:border-primary hover:shadow-xl transition-all text-center relative">
-                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white hover:text-black px-4 py-1 rounded-full text-xs font-bold">
-                                POPULAR
-                            </div>
-                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                <Building2 className="w-6 h-6 text-primary" />
-                            </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">To Jubail</div>
-                            <div className="text-4xl font-black text-primary mb-3">
-                                <span className="text-2xl">From</span> SAR 350
-                            </div>
-                            <div className="text-sm text-gray-600 leading-relaxed">
-                                Industrial City Transfer
-                            </div>
-                        </div>
-
-                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all text-center">
-                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                <MapPin className="w-6 h-6 text-primary" />
-                            </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">To Al Khobar</div>
-                            <div className="text-4xl font-black text-primary mb-3">
-                                <span className="text-2xl">From</span> SAR 200
-                            </div>
-                            <div className="text-sm text-gray-600 leading-relaxed">
-                                King Fahd Causeway / Corniche
-                            </div>
+                    <div>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">Dammam Transfer Fares</h2>
+                        <p className="text-gray-500 text-center mb-10">Starting fares — exact price depends on pickup location, destination, vehicle and booking time.</p>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            {[
+                                { icon: Plane, title: 'Airport Pickup', price: '200', desc: 'DMM Airport to Dammam city (starting fare)' },
+                                { icon: Building2, title: 'To Jubail', price: '350', desc: 'Industrial City transfer (starting fare)', popular: true },
+                                { icon: MapPin, title: 'To Al Khobar', price: '200', desc: 'City & Corniche transfer (starting fare)' },
+                            ].map((p) => (
+                                <div key={p.title} className={`bg-white p-8 rounded-2xl border-2 text-center relative ${p.popular ? 'border-primary/30' : 'border-gray-200'}`}>
+                                    {p.popular && <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-black px-4 py-1 rounded-full text-xs font-bold">POPULAR</div>}
+                                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                                        <p.icon className="w-6 h-6 text-primary" />
+                                    </div>
+                                    <div className="text-xl font-bold text-gray-900 mb-3">{p.title}</div>
+                                    <div className="text-3xl font-black text-primary mb-3"><span className="text-lg">From</span> SAR {p.price}</div>
+                                    <div className="text-sm text-gray-600">{p.desc}</div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
             </section>
 
-            <RouteFleetSection areaHighlight={toyotaVelozHighlight} />
+            {/* Vehicles */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+                <div className="max-w-5xl mx-auto">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">Vehicle Options</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {vehicles.map((v) => (
+                            <Link key={v.name} href={v.link} className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-shadow block">
+                                <Car className="w-6 h-6 text-primary mb-3" />
+                                <h3 className="font-bold text-gray-900 text-sm mb-1">{v.name}</h3>
+                                <p className="text-gray-500 text-xs">{v.desc}</p>
+                            </Link>
+                        ))}
+                    </div>
+                    <div className="text-center mt-8">
+                        <Link href="/fleet/" className="text-primary font-semibold hover:underline inline-flex items-center gap-1">
+                            View all vehicles <ArrowRight className="w-4 h-4" />
+                        </Link>
+                    </div>
+                </div>
+            </section>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <RelatedLocations currentCity="Dammam" />
+            {/* Corporate */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+                <div className="max-w-4xl mx-auto text-center">
+                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Corporate & Industrial Transfers</h2>
+                    <p className="text-gray-600 leading-relaxed mb-6">
+                        Pre-booked transportation for business travelers, contractors and teams traveling between Dammam, Dhahran, Al Khobar and Jubail Industrial City.
+                    </p>
+                    <div className="flex flex-wrap gap-4 justify-center">
+                        <Link href="/services/corporate-travel/" className="text-primary font-semibold hover:underline">Corporate Travel &rarr;</Link>
+                        <Link href="/services/airport-transfers/" className="text-primary font-semibold hover:underline">Airport Transfers &rarr;</Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* Pickup areas */}
+            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+                <div className="max-w-4xl mx-auto">
+                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 text-center">Dammam Pickup Areas</h2>
+                    <p className="text-gray-600 text-center mb-6">We provide door-to-door pickup across Dammam, including:</p>
+                    <div className="flex flex-wrap gap-3 justify-center">
+                        {['Dammam City Center', 'Corniche', 'Al Faisaliyah', 'Al Shati', 'Al Mazruiyah', 'Hotels & Residential Areas'].map((area) => (
+                            <span key={area} className="bg-white border border-gray-200 text-gray-800 font-semibold px-4 py-2 rounded-xl text-sm">{area}</span>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <RelatedLocations
+                    currentCity="Dammam"
+                    customLinks={nearbyLinks}
+                    labels={{
+                        title: 'Nearby Destinations from Dammam',
+                        subtitle: 'Private transfers across the Eastern Province',
+                        viewRoutes: 'View Details',
+                    }}
+                />
             </div>
 
-
+            <div className="max-w-4xl mx-auto px-4 pb-4">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-2">Frequently Asked Questions</h2>
+            </div>
+            <MicroSemanticFAQ faqs={faqs} />
 
             {/* CTA Section */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black mt-16">
                 <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6"> Get a quote for your Dammam Transfer Now
-                    </h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Get a Quote for Your Dammam Transfer</h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Reliable transport for airport transfers, Jubail trips, and city travel.
+                        Airport transfers, Jubail trips, corporate travel, and intercity transfers to Bahrain and Riyadh.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
@@ -499,8 +307,8 @@ export default function DammamPage() {
                             </Link>
                         </Button>
                         <Button asChild variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                            <a href="mailto:taxiserviceksa9988@gmail.com">
-                                Email Us
+                            <a href="https://wa.me/966553270009?text=Hello,%20I%20need%20a%20taxi%20in%20Dammam" target="_blank" rel="noopener noreferrer">
+                                WhatsApp Us
                             </a>
                         </Button>
                     </div>
