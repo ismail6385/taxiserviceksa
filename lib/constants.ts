@@ -19,8 +19,8 @@ export const AUTHORS = [
         id: '2',
         name: 'Muhammad Ismail',
         slug: 'muhammad-ismail',
-        role: 'Founder & SEO Logistics Expert',
-        bio: 'Founder of Taxi Service KSA and a seasoned professional in Saudi travel logistics. With over 12 years of experience in the transport industry and a deep background in SQA and AI Automation, Ismail ensures that every pilgrim and executive receives a world-class, tech-enabled travel experience. He is a recognized authority on Hajj & Umrah transport logistics and AI-driven content strategy.',
+        role: 'Founder, Taxi Service KSA',
+        bio: 'Muhammad Ismail is the founder of Taxi Service KSA, with over 12 years of experience in Saudi travel and transportation logistics. He focuses on airport transfers, intercity transportation, and private transport arrangements for Umrah pilgrims and international visitors.',
         metaDescription: 'Read expert insights on Saudi travel logistics, VIP transfers, and Umrah transportation by Muhammad Ismail, Founder and CEO of Taxi Service KSA.',
         avatar: '/images/authors/ismail.jpg',
         social: {
