@@ -121,7 +121,7 @@ export default function FleetPage() {
         {
             name: "Hyundai Staria VIP",
             type: "Premium Van",
-            image: "/fleet/hyundai-staria.webp",
+            image: "/hyundai-staria.webp",
             passengers: 7,
             luggage: 4,
             features: ["Futuristic Design", "Panoramic View", "Easy Access", "Efficient"],
