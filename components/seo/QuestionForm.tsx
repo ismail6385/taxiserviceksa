@@ -76,7 +76,7 @@ export default function QuestionForm({ locationName, serviceName }: QuestionForm
                     Have a question about our taxi service
                     {locationName && ` in ${locationName}`}
                     {serviceName && ` for ${serviceName}`}?
-                    Our experienced drivers will answer within 24 hours.
+                    Our team will get back to you.
                 </p>
             </div>
 
@@ -88,7 +88,7 @@ export default function QuestionForm({ locationName, serviceName }: QuestionForm
                         </svg>
                     </div>
                     <h4 className="text-xl font-bold text-blue-900 mb-2">Question Received!</h4>
-                    <p className="text-blue-800">Our drivers will answer your question within 24 hours. Check back soon!</p>
+                    <p className="text-blue-800">Our team will get back to you soon.</p>
                 </div>
             ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -159,7 +159,7 @@ export default function QuestionForm({ locationName, serviceName }: QuestionForm
 
                     <div className="bg-gray-50 rounded-lg p-4">
                         <p className="text-sm text-gray-600">
-                            <strong>Note:</strong> Questions are answered by our experienced drivers who have years of knowledge about Saudi roads, traffic patterns, and local insights. Your email will not be displayed publicly.
+                            <strong>Note:</strong> Questions are reviewed by our team. Your email will not be displayed publicly.
                         </p>
                     </div>
 
