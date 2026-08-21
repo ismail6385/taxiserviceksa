@@ -5,8 +5,8 @@ export default function TrustSignals() {
     const badges = [
         {
             icon: <ShieldCheck className="w-8 h-8 text-emerald-600" />,
-            title: "TGA Licensed",
-            subtitle: "Certified by Saudi Transport General Authority"
+            title: "Licensed Drivers",
+            subtitle: "Professional, Vetted Chauffeurs"
         },
         {
             icon: <Award className="w-8 h-8 text-amber-500" />,
@@ -15,8 +15,8 @@ export default function TrustSignals() {
         },
         {
             icon: <ThumbsUp className="w-8 h-8 text-blue-600" />,
-            title: "5-Star Service",
-            subtitle: "Rated by 25,000+ Happy Travelers"
+            title: "Verified Reviews",
+            subtitle: "Real Feedback From Past Travelers"
         },
         {
             icon: <CheckCircle className="w-8 h-8 text-primary" />,

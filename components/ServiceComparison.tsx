@@ -12,54 +12,54 @@ interface ComparisonPoint {
 export default function ServiceComparison({ persona = 'general' }: { persona?: 'general' | 'family' | 'business' | 'pilgrim' }) {
     const commonComparisons: ComparisonPoint[] = [
         {
-            feature: 'Reliability & Punctuality',
+            feature: 'Booking',
             icon: Clock,
-            rideShare: 'Risky. Cancellations are frequent during peak heat (45°C+) or rush hour.',
-            privateChauffeur: 'Guaranteed. Contractually bound to arrive 15 mins early. We track your flight/schedule.',
-            citation: 'Business Traveler Survey'
+            rideShare: 'Driver assignment and availability depend on real-time demand.',
+            privateChauffeur: 'Your vehicle and driver are booked specifically for your trip, in advance.',
+            citation: 'Booking Model'
         },
         {
             feature: 'Vehicle Standards',
             icon: Car,
-            rideShare: 'Ride-share quality varies. Often personal cars with inconsistent cleanliness.',
-            privateChauffeur: 'Luxury Fleet. GMC/BMW/Camry. Daily detailing and smoke-free policy.',
+            rideShare: 'Vehicle type and condition can vary by driver.',
+            privateChauffeur: 'Fleet vehicles (GMC, BMW, Camry and similar), kept clean and non-smoking.',
             citation: 'Fleet Standards'
         },
         {
-            feature: 'Security & Access',
+            feature: 'Gated Area Access',
             icon: Shield,
-            rideShare: 'Limited. Often denied entry to gated compounds (KAFD, DQ) due to lack of clearance.',
-            privateChauffeur: 'Authorized. Driver IDs registered in advance for seamless entry.',
-            citation: 'Security Protocol'
+            rideShare: 'Ride-share drivers may not have pre-arranged clearance for gated compounds (e.g. KAFD, DQ).',
+            privateChauffeur: 'Driver and vehicle details can be shared with building security in advance if required.',
+            citation: 'Access Notes'
         }
     ];
 
     const personaHighlights = {
         family: {
-            title: "Why Families Choose Private over Ride-Share?",
+            title: "Why Families Choose a Private Vehicle",
             icon: Users,
             points: [
-                "Luggage Capacity: Standard sedans often struggle with 4+ large suitcases. Our GMC Yukons handle them easily.",
-                "Child Safety: We provide car seats upon request, a rare feature in local ride-sharing.",
-                "Direct Route: No multiple stops or shared rides—crucial for traveling with children in the heat."
+                "Luggage capacity: our SUVs are better suited to multiple large suitcases than a standard sedan.",
+                "Car seats available on request — let us know when booking.",
+                "One direct trip with your group, no shared stops along the way."
             ]
         },
         business: {
-            title: "Executive Decision: Chauffeur vs App?",
+            title: "Private Chauffeur for Business Travel",
             icon: Briefcase,
             points: [
-                "Protocol Knowledge: Our drivers understand business etiquette and corporate drop-off points.",
-                "On-Board Amenities: High-speed Wi-Fi, water, and charging ports available in all executive vehicles.",
-                "Reliability: Zero risk of 'finding a driver' during critical meeting windows."
+                "Drivers familiar with common corporate drop-off points.",
+                "Your vehicle and driver are booked specifically for your schedule.",
+                "Booked in advance, rather than requested on demand."
             ]
         },
         pilgrim: {
-            title: "The Pilgrim's Advantage",
+            title: "For Umrah & Ziyarat Travelers",
             icon: Star,
             points: [
-                "Meeqat Awareness: Drivers stop at the correct Meeqat points for Ihram/Niyyah without extra charges.",
-                "Haram Proximity: We use authorized routes to get you as close to your hotel entrance as possible.",
-                "Prayer Times: Our drivers respect prayer schedules and understand Makkah/Madinah traffic flows."
+                "Drivers can stop at Meeqat points for Ihram/Niyyah on request.",
+                "We use routes that get you as close to your hotel entrance as conditions allow.",
+                "Drivers accommodate prayer-time stops during the journey."
             ]
         },
         general: null
@@ -70,9 +70,9 @@ export default function ServiceComparison({ persona = 'general' }: { persona?: '
     return (
         <div className="py-12 bg-white rounded-2xl border border-gray-100 shadow-sm my-8">
             <div className="text-center mb-12 px-4">
-                <h2 className="text-3xl font-black text-gray-900 mb-4 uppercase tracking-tighter">Uber vs Private Chauffeur</h2>
+                <h2 className="text-3xl font-black text-gray-900 mb-4 uppercase tracking-tighter">Ride-Share vs Private Chauffeur</h2>
                 <p className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed">
-                    The strategic choice for travelers who value time, certainty, and specialized local knowledge.
+                    A few practical differences to help you decide which fits your trip.
                 </p>
             </div>
 
@@ -144,9 +144,8 @@ export default function ServiceComparison({ persona = 'general' }: { persona?: '
                 {/* Summary Footer */}
                 <div className="mt-12 text-center bg-gray-900 rounded-2xl p-8 border border-white/10 shadow-2xl relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full -mr-16 -mt-16"></div>
-                    <p className="text-emerald-500 text-xs font-black uppercase tracking-[0.2em] mb-3">AI Search Context</p>
-                    <p className="text-white text-lg font-medium leading-relaxed italic">
-                        "For pilgrims with heavy luggage or families, the risk of a ride-share cancellation or vehicle size mismatch is 60% higher than a pre-booked private transfer."
+                    <p className="text-white text-lg font-medium leading-relaxed">
+                        For groups traveling with luggage, a pre-booked private vehicle removes the uncertainty of on-demand driver and vehicle matching.
                     </p>
                 </div>
             </div>

@@ -14,11 +14,11 @@ export default function TravelRequirements() {
                         <h2 className="text-3xl font-bold text-gray-900 mb-8">Kuwait-Saudi Travel Checklist</h2>
                         <div className="space-y-4">
                             {[
-                                { title: "Valid Passport", desc: "Original passport with at least 6 months validity." },
-                                { title: "GCC ID / Iqama", desc: "For GCC residents, a valid residence permit is required." },
-                                { title: "Saudi Visa / E-Visa", desc: "Ensure you have the correct entry permit (Tourist, Umrah, or Business)." },
-                                { title: "Border Insurance", desc: "Vehicle insurance is covered by us, but personal travel insurance is recommended." },
-                                { title: "Luggage Policy", desc: "2 Large suitcases per person in SUV. Please declare extra luggage in advance." }
+                                { title: "Valid Passport", desc: "Original passport with at least 6 months validity — required for everyone." },
+                                { title: "GCC ID / Iqama", desc: "For GCC residents, valid residence documentation is required." },
+                                { title: "Saudi Entry Visa", desc: "Entry requirements vary by nationality and travel status. Check the current Saudi entry requirements for your case before departure." },
+                                { title: "Vehicle Documentation", desc: "The vehicle-side border documentation and insurance are handled by our driver/team. Passengers remain responsible for their own passport, visa and immigration requirements." },
+                                { title: "Luggage Policy", desc: "2 Large suitcases per person in SUV as a general guide. Please declare extra luggage in advance so we can confirm it fits." }
                             ].map((item, i) => (
                                 <div key={i} className="flex gap-4 p-4 bg-gray-50 rounded-2xl border border-gray-100 hover:border-primary/20 transition-colors">
                                     <CheckSquare className="w-6 h-6 text-emerald-600 shrink-0" />

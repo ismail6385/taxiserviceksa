@@ -32,12 +32,12 @@ const TravelConsensus: React.FC<TravelConsensusProps> = ({
     labels: userLabels
 }) => {
     const defaultLabels = {
-        title: contextName ? `${contextName} Reality Check: What to Expect` : "Travel Reality Check: What to Expect",
-        subtitle: "Expert consensus on travel times and costs based on real pilgrim data",
-        beliefLabel: "Common Estimate",
-        realityLabel: "Pilgrim Reality",
-        rangeLabel: "Safe Truth Range",
-        factorsLabel: "Influencing Factors"
+        title: contextName ? `${contextName}: What to Expect` : "What to Expect",
+        subtitle: "Practical answers to common questions about this trip",
+        beliefLabel: "Common Assumption",
+        realityLabel: "What to Expect",
+        rangeLabel: "Typical Range",
+        factorsLabel: "What Affects This"
     };
 
     const labels = { ...defaultLabels, ...userLabels };
