@@ -10,6 +10,7 @@ import { useState, useEffect, ReactNode } from 'react';
 
 interface HeroProps {
     images?: string[];
+    imageAlt?: string; // Override the guessed-from-filename alt text with one accurate to this page
     title?: ReactNode;
     subtitle?: string;
     location?: string;
@@ -20,7 +21,7 @@ interface HeroProps {
 }
 
 export default function Hero(props: HeroProps) {
-    const { images, title, subtitle, location, h1Text, bookingFormTitle, hideBookingForm } = props;
+    const { images, imageAlt, title, subtitle, location, h1Text, bookingFormTitle, hideBookingForm } = props;
 
     // Use custom images if provided, otherwise use default homepage slides
     const slides = images || [
@@ -67,7 +68,7 @@ export default function Hero(props: HeroProps) {
             <div className="absolute inset-0 z-0 overflow-hidden">
                 <Image
                     src={slides[0]}
-                    alt={slideAltTexts[0] || "Premium taxi service in Saudi Arabia"}
+                    alt={imageAlt || slideAltTexts[0] || "Premium taxi service in Saudi Arabia"}
                     fill
                     priority
                     quality={90}

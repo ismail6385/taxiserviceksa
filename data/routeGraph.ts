@@ -132,8 +132,22 @@ for (const route of ROUTES) {
     BY_ORIGIN.set(route.origin, list);
 }
 
+// Destinations outside Saudi Arabia — deprioritized in "related routes" lists so a
+// same-country destination (e.g. Riyadh to Makkah) surfaces before a cross-border one
+// (e.g. Riyadh to Abu Dhabi), which is consistently more relevant to the visitor.
+const INTERNATIONAL_TOKENS = new Set([
+    'abu-dhabi', 'dubai', 'doha', 'kuwait', 'bahrain', 'sharjah', 'muscat', 'amman',
+]);
+
 export function getRelatedRoutes(originSlug: string, currentSlug: string, limit = 4): RouteLink[] {
-    const siblings = (BY_ORIGIN.get(originSlug) ?? []).filter((r) => r.slug !== currentSlug);
+    const siblings = (BY_ORIGIN.get(originSlug) ?? [])
+        .filter((r) => r.slug !== currentSlug)
+        .slice()
+        .sort((a, b) => {
+            const aIntl = INTERNATIONAL_TOKENS.has(a.destination) ? 1 : 0;
+            const bIntl = INTERNATIONAL_TOKENS.has(b.destination) ? 1 : 0;
+            return aIntl - bIntl;
+        });
     return siblings.slice(0, limit).map((r) => ({
         name: `${r.originLabel} to ${r.destinationLabel}`,
         url: `/routes/${r.slug}/`,
