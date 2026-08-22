@@ -161,13 +161,13 @@ export default function JeddahMakkahRoutePageArabic() {
                 {/* جدول الأسعار */}
                 <PricingTable
                     title="قائمة أسعار ٢٠٢٦: جدة إلى مكة"
-                    subtitle="أسعار ثابتة موثقة • بدون رسوم خفية"
+                    subtitle="أسعار ثابتة لعام ٢٠٢٦"
                     rows={pricingRows}
                     disclaimer="الأسعار لكل مركبة وليست للفرد. تشمل الأسعار جميع الرسوم والوقود وأجرة السائق. قد تُطبق رسوم إضافية في موسم رمضان والحج."
                 />
 
                 {/* مقارنة القطار */}
-                <TrainComparison />
+                <TrainComparison taxiPrice="300" trainPrice="70-160" />
 
                 {/* خطوات الحجز */}
                 <BookingProcess />

@@ -96,7 +96,7 @@ export default function PricingTable({
                                             <span className="text-2xl font-black text-gray-900">
                                                 {row.price} <span className="text-xs font-bold text-gray-400">{currency}</span>
                                             </span>
-                                            <span className="text-[10px] text-emerald-600 font-black uppercase tracking-widest mt-1">All-Inclusive Fixed Rate</span>
+                                            <span className="text-[10px] text-emerald-600 font-black uppercase tracking-widest mt-1">Fixed Rate</span>
                                         </div>
                                     </td>
                                     <td className="py-6 px-4 text-center">

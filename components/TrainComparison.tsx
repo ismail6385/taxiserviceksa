@@ -3,44 +3,46 @@ import { Train, Car, Clock, DollarSign, Luggage, MapPin, CheckCircle2, XCircle }
 
 interface TrainComparisonProps {
     route?: string;
-    taxiPrice?: string;
+    taxiPrice: string;
     trainPrice?: string;
 }
 
-export default function TrainComparison({ 
-    route = "Jeddah to Makkah", 
-    taxiPrice = "250", 
-    trainPrice = "80" 
+export default function TrainComparison({
+    route = "Jeddah to Makkah",
+    taxiPrice,
+    trainPrice
 }: TrainComparisonProps) {
     const comparisonPoints = [
         {
             feature: 'Convenience',
-            train: 'Station-to-Station only. Requires 2 extra taxis.',
-            taxi: 'Door-to-Door. Airport to Hotel direct.',
+            train: 'Station-to-station only. Additional transport may be needed between the airport/hotel and the railway station.',
+            taxi: 'Door-to-door. Airport or hotel to your destination direct.',
             trainIcon: XCircle,
             taxiIcon: CheckCircle2,
             icon: MapPin
         },
         {
             feature: 'Luggage',
-            train: 'Strict limits. Hard to manage 4+ bags.',
-            taxi: 'Unlimited space in SUVs/Vans for all bags.',
+            train: 'Limited allowance per ticket, can be tight with 4+ bags.',
+            taxi: 'More luggage capacity than a standard sedan — choose a larger vehicle if travelling with multiple large suitcases.',
             trainIcon: XCircle,
             taxiIcon: CheckCircle2,
             icon: Luggage
         },
         {
             feature: 'Travel Time',
-            train: '35 mins (Train) + 40 mins (Wait/Transfers).',
-            taxi: '60-80 mins (Total journey time).',
+            train: 'Around 30 mins of rail travel, plus station check-in, waiting and onward transfer time.',
+            taxi: 'Typically 60-80 mins door-to-door in normal traffic.',
             trainIcon: Clock,
             taxiIcon: CheckCircle2,
             icon: Clock
         },
         {
             feature: 'Total Cost',
-            train: `~${trainPrice} SAR per person. High for families (4+ tickets).`,
-            taxi: `Fixed ${taxiPrice} SAR. Flat rate for up to 7 people in an SUV.`,
+            train: trainPrice
+                ? `${trainPrice} SAR per person, varies by class and booking time. Adds up for families needing multiple tickets.`
+                : 'Fares vary by class and booking time.',
+            taxi: `Fixed ${taxiPrice} SAR per vehicle, not per person — for up to 7 people in an SUV.`,
             trainIcon: DollarSign,
             taxiIcon: CheckCircle2,
             icon: DollarSign
@@ -57,7 +59,7 @@ export default function TrainComparison({
                         <span className="bg-emerald-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-6 inline-block">Decision Guide</span>
                         <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">{route}: Train or Taxi?</h2>
                         <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                            While the high-speed train is fast, the private taxi is the strategic choice for families and pilgrims with heavy luggage who value door-to-door comfort.
+                            The Haramain train can be faster for pure rail travel time and suits solo travellers well. A private taxi is often more convenient for families, groups and passengers with substantial luggage, since it skips the station transfer entirely.
                         </p>
                         <div className="flex gap-4">
                             <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-xl">
@@ -107,7 +109,7 @@ export default function TrainComparison({
             
             <div className="bg-emerald-600 px-8 py-4 text-center">
                 <p className="text-white text-xs font-bold uppercase tracking-widest">
-                    Expert Verdict: For 3+ people or Umrah pilgrims with bags, the Private Taxi is 40% more cost-effective.
+                    For groups or travellers with multiple bags, a private taxi usually works out more practical than train tickets plus station transfers.
                 </p>
             </div>
         </div>

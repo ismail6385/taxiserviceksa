@@ -1,18 +1,13 @@
-﻿import { Metadata } from 'next';
+import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
-import Script from 'next/script';
 import { Button } from '@/components/ui/button';
-import { MapPin, Clock, Star, CheckCircle2, Car, Users, DollarSign, Plane, ArrowRight, Train, Navigation, Building2, Shield, User, Compass, Info } from 'lucide-react';
+import { MapPin, Clock, CheckCircle2, Car, Users, DollarSign, ArrowRight, Navigation, Info, Luggage, Repeat } from 'lucide-react';
 import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import RelatedRoutes from '@/components/seo/RelatedRoutes';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
-import RoutePerspective from '@/components/seo/RoutePerspective';
-import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import JsonLdRoute from '@/components/JsonLdRoute';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
-import RouteFleetSection from '@/components/RouteFleetSection';
 import PricingTable from '@/components/PricingTable';
 import TrainComparison from '@/components/TrainComparison';
 import BookingProcess from '@/components/BookingProcess';
@@ -20,7 +15,7 @@ import { makkahHotels } from '@/data/makkahHotels';
 
 export const metadata: Metadata = {
     title: 'Jeddah to Makkah Taxi 2026 | Private Transfers | Fixed Rates',
-    description: 'Book the best Jeddah to Makkah Taxi for 2026. Premium intercity transfer with professional chauffeurs. Fixed rates starting from 300 SAR. Door-to-door service.',
+    description: 'Book a private Jeddah to Makkah taxi. Direct door-to-door transfer with professional chauffeurs. Fixed rates from 300 SAR per vehicle, not per person.',
     keywords: ['Jeddah to Makkah Taxi 2026', 'Jeddah to Makkah taxi price', 'Jeddah to Makkah private car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/jeddah-makkah/',
@@ -35,26 +30,57 @@ export const metadata: Metadata = {
 export default function JeddahMakkahRoutePage() {
     const routeDetails = [
         { label: 'Distance', value: '85-95 km', icon: Navigation },
-        { label: 'Travel Time', value: '60-80 minutes', icon: Clock },
+        { label: 'Travel Time', value: '60-80 min', icon: Clock },
         { label: '2026 Base Fare', value: 'From 300 SAR', icon: DollarSign },
         { label: 'Service', value: 'Door-to-Door', icon: CheckCircle2 },
     ];
 
     const pricingRows = [
-        { vehicle: 'Standard Sedan', description: 'Toyota Camry or similar. Perfect for solo or couples.', price: '300', capacity: '3 Pax', isPopular: false },
-        { vehicle: 'GMC Yukon XL', description: 'The ultimate experience for families.', price: '600', capacity: '7 Pax', isPopular: true },
-        { vehicle: 'Hyundai Staria VIP', description: 'Modern luxury van with captain seats.', price: '350', capacity: '7 Pax', isPopular: false },
-        { vehicle: 'Toyota Hiace', description: 'For large groups and heavy luggage.', price: '500', capacity: '11 Pax', isPopular: false },
+        { vehicle: 'Standard Sedan', description: 'Toyota Camry or similar — up to 3 passengers.', price: '300', capacity: '3 Pax', isPopular: false },
+        { vehicle: 'GMC Yukon XL', description: 'Full-size SUV for families and groups.', price: '600', capacity: '7 Pax', isPopular: true },
+        { vehicle: 'Hyundai Staria VIP', description: 'Van with captain seats and dual AC.', price: '350', capacity: '7 Pax', isPopular: false },
+        { vehicle: 'Toyota Hiace', description: 'Larger van for bigger groups and luggage.', price: '500', capacity: '11 Pax', isPopular: false },
+    ];
+
+    const recommendedVehicles = [
+        { name: 'Toyota Camry', best: 'Best for 1-3 passengers', price: '300 SAR', icon: Car },
+        { name: 'Hyundai Staria VIP', best: 'Best for families', price: '350 SAR', icon: Users },
+        { name: 'Toyota Hiace', best: 'Best for large groups & luggage', price: '500 SAR', icon: Luggage },
+        { name: 'GMC Yukon XL', best: 'Best for premium groups', price: '600 SAR', icon: Car },
+    ];
+
+    const whyPrivateTaxi = [
+        'Direct pickup — no station transfer needed',
+        'Private vehicle for you and your group only',
+        'Fixed fare agreed before you travel',
+        'Luggage stays with you the whole trip',
+        'Drop-off at your actual hotel entrance',
+        'Flexible departure time, not a fixed timetable',
+    ];
+
+    const faqs = [
+        { question: "How much is a taxi from Jeddah to Makkah?", shortAnswer: "From 300 SAR", detailedAnswer: "Rates start from 300 SAR for a standard sedan (Toyota Camry). A Hyundai Staria VIP is 350 SAR, a Toyota Hiace is 500 SAR, and a GMC Yukon XL is 600 SAR. All prices are per vehicle, not per person.", perspectives: [] },
+        { question: "How long does Jeddah to Makkah take?", shortAnswer: "Typically 60-80 minutes", detailedAnswer: "In normal traffic the drive takes around 60-80 minutes. Allow extra time during Friday traffic, Ramadan, Hajj and other peak Umrah periods.", perspectives: [] },
+        { question: "How far is Jeddah from Makkah?", shortAnswer: "Approx. 85-95 km", detailedAnswer: "The distance is approximately 85-95 km by road, depending on your exact pickup point in Jeddah and your hotel's location in Makkah.", perspectives: [] },
+        { question: "Is the fare per passenger or per vehicle?", shortAnswer: "Per vehicle", detailedAnswer: "This is a private vehicle service — the quoted price is for the whole vehicle, not per seat. A family of 6 in a Staria VIP still pays 350 SAR total, not per person.", perspectives: [] },
+        { question: "Can I book from Jeddah Airport?", shortAnswer: "Yes", detailedAnswer: "Yes, pickup from King Abdulaziz International Airport (JED) is available. Your driver will send you the exact meeting point, vehicle details and contact information before your arrival.", perspectives: [] },
+        { question: "Can I book from a Jeddah hotel?", shortAnswer: "Yes", detailedAnswer: "Yes, we can pick you up from any hotel, residence or business address in Jeddah.", perspectives: [] },
+        { question: "Can you drop me at a specific Makkah hotel?", shortAnswer: "Yes", detailedAnswer: "Yes, we offer direct drop-off at your Makkah hotel entrance, including hotels near the Haram and Clock Tower area. See our hotel transfer directory below.", perspectives: [] },
+        { question: "Which vehicle is best for a family?", shortAnswer: "Hyundai Staria VIP or GMC Yukon XL", detailedAnswer: "For families of 5-7 with luggage, a Hyundai Staria VIP (350 SAR) or GMC Yukon XL (600 SAR) is recommended.", perspectives: [] },
+        { question: "Is the Haramain train cheaper than a taxi?", shortAnswer: "Depends on group size", detailedAnswer: "For a solo traveller, the train can be cheaper. For families or groups, a fixed-price private taxi often works out more practical once you add up multiple train tickets plus onward transport from the station.", perspectives: [] },
+        { question: "Is the taxi available 24/7?", shortAnswer: "Yes", detailedAnswer: "Yes, bookings are available 24/7, including for late-night or early-morning flight arrivals.", perspectives: [] },
+        { question: "Can I book a return trip?", shortAnswer: "Yes", detailedAnswer: "Yes, you can book a one-way transfer or a return trip — either the same day or a different date. Let us know your return date and time when booking and we'll confirm return pricing with you.", perspectives: [] },
+        { question: "Do you provide airport meet and greet?", shortAnswer: "Yes", detailedAnswer: "Yes, your driver will meet you after arrivals with your name and be in WhatsApp contact before you land.", perspectives: [] },
     ];
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <JsonLdRoute 
-                from="Jeddah" 
-                to="Makkah" 
-                description="Book the best online taxi from Jeddah to Makkah. Premium intercity transfer with professional chauffeurs. Fixed rates, door-to-door service, and high-end SUVs."
+            <JsonLdRoute
+                from="Jeddah"
+                to="Makkah"
+                description="Private taxi from Jeddah to Makkah. Fixed rates per vehicle, door-to-door service, professional chauffeurs."
                 distance="90 km"
-                duration="70 mins"
+                duration="PT70M"
             />
 
             <Hero
@@ -65,7 +91,7 @@ export default function JeddahMakkahRoutePage() {
                         2026 Transfers
                     </span>
                 }
-                subtitle="Exclusive Private Transfers for Pilgrims & Families"
+                subtitle="Private Door-to-Door Transfers for Pilgrims & Families"
                 location="Jeddah Airport → Makkah | Fixed Rates | Verified Chauffeurs"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
@@ -81,7 +107,7 @@ export default function JeddahMakkahRoutePage() {
                         </Button>
                     </a>
                 </div>
-                <p className="text-white/60 text-xs mt-6 font-bold uppercase tracking-widest">Last Updated: April 2026 • 2026 Prices Verified</p>
+                <p className="text-white/60 text-xs mt-6 font-bold uppercase tracking-widest">Prices reviewed: August 2026 • Rates may vary by travel date</p>
             </Hero>
 
             {/* Route Stats */}
@@ -100,92 +126,137 @@ export default function JeddahMakkahRoutePage() {
             </div>
 
             <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                    <div>
-                        <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6 font-display leading-tight italic">Premium Jeddah to Makkah Private Car Service</h2>
-                        <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                            Experience the gold standard of ground transportation with the best <strong>Jeddah to Makkah private car service</strong>. We provide a seamless, stress-free journey from any location in Jeddah directly to your hotel in Makkah.
-                        </p>
-                        <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                            Avoid the hassle of roadside negotiations or shared rides. Our <strong>Jeddah to Makkah taxi</strong> service offers fixed rates, professional chauffeurs, and a late-model luxury fleet specifically optimized for pilgrim comfort.
-                        </p>
-                        
-                        <div className="space-y-4">
-                            <EntityTrustSignal 
-                                brandName="TaxiServiceKSA Jeddah"
-                                description="Providing luxury intercity transfers since 2015 with a 99% satisfaction rate."
-                                metrics={[
-                                    { label: 'Jeddah Reach', value: '100%', icon: MapPin },
-                                    { label: 'Verified', value: 'Yes', icon: Shield }
-                                ]}
-                            />
-                        </div>
-                    </div>
+                <div className="max-w-3xl mx-auto text-center mb-16">
+                    <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-6 font-display leading-tight">Jeddah to Makkah Private Car Service</h2>
+                    <p className="text-gray-600 text-lg leading-relaxed mb-4">
+                        Our private Jeddah to Makkah taxi service provides direct door-to-door transportation from any location in Jeddah to your hotel in Makkah — no shared rides, no roadside negotiation.
+                    </p>
+                    <p className="text-gray-600 text-lg leading-relaxed">
+                        Fixed rates are agreed before you travel, so the price you see is the price you pay. Need pickup from <Link href="/jeddah-airport-transfer/" className="text-primary font-semibold hover:underline">Jeddah Airport</Link> specifically? See our dedicated airport transfer page for terminal pickup details.
+                    </p>
+                </div>
 
-                    <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
-                        <h3 className="text-2xl font-black text-gray-900 mb-6 font-display italic underline decoration-emerald-500 decoration-4">Recommended Vehicles</h3>
-                        <div className="space-y-6">
-                            {[
-                                { name: 'GMC Yukon XL 2026', capacity: '7 Pax', luggage: '5 Bags' },
-                                { name: 'Mercedes S-Class', capacity: '3 Pax', luggage: '2 Bags' },
-                                { name: 'Hyundai Staria', capacity: '7 Pax', luggage: '4 Bags' }
-                            ].map((car, i) => (
-                                <div key={i} className="flex items-center justify-between p-4 rounded-2xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-200">
-                                    <div className="flex gap-4 items-center">
-                                        <div className="bg-black text-white p-3 rounded-xl">
-                                            <Car className="w-6 h-6" />
-                                        </div>
-                                        <div>
-                                            <h4 className="font-black text-gray-900">{car.name}</h4>
-                                            <p className="text-xs text-gray-400 font-bold uppercase">{car.capacity} | {car.luggage}</p>
-                                        </div>
-                                    </div>
-                                    <Link href="/booking/?route=jeddah-makkah">
-                                        <Button size="sm" variant="ghost" className="text-emerald-600 font-bold group-hover:bg-emerald-50"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp</Button>
-                                    </Link>
+                {/* Route info */}
+                <div className="bg-white rounded-3xl border border-gray-100 p-8 md:p-12 mb-16">
+                    <h3 className="text-2xl font-black text-gray-900 mb-4">Jeddah to Makkah Route: Distance & Travel Time</h3>
+                    <p className="text-gray-600 leading-relaxed mb-3">
+                        Jeddah and Makkah are approximately 85-95 km apart by road, depending on your exact pickup point and destination hotel. In normal traffic, the drive typically takes around 60-80 minutes. Travel time can increase during Friday traffic, Ramadan, Hajj and other busy Umrah periods — allow extra time during those dates.
+                    </p>
+                    <p className="text-gray-600 leading-relaxed">
+                        Drivers may select the most suitable available route based on current traffic and road conditions.
+                    </p>
+                </div>
+
+                {/* Why private taxi */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
+                    <div>
+                        <h3 className="text-2xl font-black text-gray-900 mb-6">Why Book a Private Taxi?</h3>
+                        <div className="space-y-3">
+                            {whyPrivateTaxi.map((reason) => (
+                                <div key={reason} className="flex items-start gap-3">
+                                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                                    <span className="text-gray-700">{reason}</span>
                                 </div>
                             ))}
                         </div>
                     </div>
+
+                    <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+                        <h3 className="text-2xl font-black text-gray-900 mb-6">Recommended Vehicles</h3>
+                        <div className="space-y-4">
+                            {recommendedVehicles.map((car) => (
+                                <div key={car.name} className="flex items-center justify-between p-4 rounded-2xl border border-gray-100">
+                                    <div className="flex gap-4 items-center">
+                                        <div className="bg-black text-white p-3 rounded-xl">
+                                            <car.icon className="w-5 h-5" />
+                                        </div>
+                                        <div>
+                                            <h4 className="font-black text-gray-900 text-sm">{car.name}</h4>
+                                            <p className="text-xs text-gray-400 font-bold">{car.best}</p>
+                                        </div>
+                                    </div>
+                                    <span className="font-black text-primary text-sm">{car.price}</span>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="text-center mt-6">
+                            <Link href="/fleet/" className="text-primary font-semibold hover:underline inline-flex items-center gap-1 text-sm">
+                                View Full Fleet <ArrowRight className="w-4 h-4" />
+                            </Link>
+                        </div>
+                    </div>
                 </div>
 
-                {/* New Pricing Table Section */}
-                <PricingTable 
+                {/* Pricing Table */}
+                <PricingTable
                     title="2026 Price List: Jeddah to Makkah"
-                    subtitle="Verified Fixed Rates • No Hidden Surcharges"
+                    subtitle="2026 Fixed Rates"
                     rows={pricingRows}
-                    disclaimer="Prices are per vehicle, not per person. Rates include all tolls, fuel, and chauffeur fees. Seasonal surcharges may apply during Ramadan and Hajj."
+                    disclaimer="All listed fares are per vehicle, not per passenger. Rates include tolls, fuel, and chauffeur fees. Seasonal surcharges may apply during Ramadan and Hajj."
                 />
 
-                {/* New Train Comparison Section */}
-                <TrainComparison />
+                {/* Pickup / Drop-off locations */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-16">
+                    <div className="bg-white rounded-3xl border border-gray-100 p-8">
+                        <h3 className="text-xl font-black text-gray-900 mb-4 flex items-center gap-2"><MapPin className="w-5 h-5 text-primary" /> Jeddah Pickup Locations</h3>
+                        <ul className="space-y-2 text-gray-600 text-sm">
+                            <li>• King Abdulaziz International Airport (JED)</li>
+                            <li>• Any Jeddah hotel</li>
+                            <li>• Jeddah city addresses and residences</li>
+                            <li>• Business districts and offices</li>
+                        </ul>
+                    </div>
+                    <div className="bg-white rounded-3xl border border-gray-100 p-8">
+                        <h3 className="text-xl font-black text-gray-900 mb-4 flex items-center gap-2"><MapPin className="w-5 h-5 text-primary" /> Makkah Drop-Off Locations</h3>
+                        <ul className="space-y-2 text-gray-600 text-sm">
+                            <li>• Hotels near the Haram and Clock Tower area</li>
+                            <li>• Jabal Omar hotels</li>
+                            <li>• Aziziyah district</li>
+                            <li>• Any other Makkah hotel or address</li>
+                        </ul>
+                    </div>
+                </div>
 
-                {/* New Booking Process Section */}
+                {/* Return trip note */}
+                <div className="bg-white rounded-3xl border border-gray-100 p-8 mb-16 flex items-start gap-4">
+                    <Repeat className="w-6 h-6 text-primary shrink-0 mt-1" />
+                    <div>
+                        <h3 className="text-lg font-black text-gray-900 mb-2">Jeddah to Makkah Round-Trip Taxi</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">
+                            Both one-way and return transfers can be booked. A return can be arranged the same day (with waiting time) or on a separate date. Let us know your plans when booking and we'll confirm return pricing based on your dates.
+                        </p>
+                    </div>
+                </div>
+
+                {/* Train Comparison */}
+                <TrainComparison taxiPrice="300" trainPrice="70-160" />
+
+                {/* Booking Process */}
                 <BookingProcess />
 
-                {/* Airport Pickup Instructions (The "Thoroughness" Gap) */}
+                {/* Airport Pickup Instructions */}
                 <div className="bg-gray-900 rounded-[40px] p-8 md:p-16 my-20 relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
                     <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
                             <span className="text-emerald-500 font-black uppercase tracking-widest text-xs mb-4 inline-block">Airport Guide</span>
-                            <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">Where to Meet Your Driver at Jeddah Airport (JED)?</h2>
+                            <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">Meeting Your Driver at Jeddah Airport (JED)</h2>
                             <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                                Don't fall for unauthorized airport touts. Our chauffeurs monitor your flight and will be waiting at the designated arrival hall.
+                                Avoid accepting unsolicited transport offers inside the terminal. For your pre-booked transfer, your driver will send you the meeting point, vehicle details and contact information via WhatsApp before your arrival.
                             </p>
                             <div className="space-y-4">
                                 <div className="flex items-start gap-4">
                                     <div className="bg-white/10 p-2 rounded-lg text-emerald-400 mt-1"><CheckCircle2 className="w-4 h-4" /></div>
                                     <div>
-                                        <h4 className="text-white font-bold">Terminal 1 (New Airport)</h4>
-                                        <p className="text-gray-500 text-sm italic">Meeting point: Outside International Arrivals Gate (Near the large Aquarium).</p>
+                                        <h4 className="text-white font-bold">Confirm before you leave arrivals</h4>
+                                        <p className="text-gray-500 text-sm">Match the driver's name, vehicle and meeting point against what was sent to you.</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4">
                                     <div className="bg-white/10 p-2 rounded-lg text-emerald-400 mt-1"><CheckCircle2 className="w-4 h-4" /></div>
                                     <div>
-                                        <h4 className="text-white font-bold">North Terminal (International)</h4>
-                                        <p className="text-gray-500 text-sm italic">Meeting point: Directly outside the arrival exit gate with a name board.</p>
+                                        <h4 className="text-white font-bold">Exact meeting point sent by WhatsApp</h4>
+                                        <p className="text-gray-500 text-sm">Terminal layouts and pickup zones can change — your driver sends current instructions ahead of arrival, not a fixed generic instruction.</p>
                                     </div>
                                 </div>
                             </div>
@@ -193,14 +264,14 @@ export default function JeddahMakkahRoutePage() {
                         <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-sm">
                             <div className="flex items-center gap-3 mb-6">
                                 <Info className="w-6 h-6 text-emerald-400" />
-                                <h3 className="text-white font-black uppercase tracking-tighter text-xl italic">Safety Warning</h3>
+                                <h3 className="text-white font-black uppercase tracking-tighter text-xl">Safety Tip</h3>
                             </div>
                             <p className="text-gray-300 mb-6 leading-relaxed">
-                                Official taxis and pre-booked transfers in KSA are highly regulated. Never accept a ride from individuals inside the terminal building—these are often uninsured and overcharged.
+                                Avoid accepting unsolicited transport offers inside the terminal. For a pre-booked transfer, confirm the driver's name, vehicle details and meeting point before leaving the arrivals area.
                             </p>
                             <div className="bg-emerald-500/10 border border-emerald-500/20 p-4 rounded-xl">
                                 <p className="text-emerald-400 text-xs font-bold leading-relaxed">
-                                    Our drivers will always send you their car details and photo via WhatsApp 30 minutes before your arrival.
+                                    Our drivers send their car details and photo via WhatsApp ahead of your arrival.
                                 </p>
                             </div>
                         </div>
@@ -208,48 +279,11 @@ export default function JeddahMakkahRoutePage() {
                 </div>
             </section>
 
-            <RoutePerspective 
-                route="Jeddah to Makkah"
-                perspectives={[
-                    {
-                        id: 'chauffeur-tariq',
-                        targetAudience: 'Captain Tariq',
-                        icon: User,
-                        intent: 'Efficiency & Speed',
-                        description: 'The 90km drive between Jeddah and Makkah is the busiest intercity route in the world during peak season. We use advanced real-time traffic monitoring to avoid the main highway congestion, often using the Old Makkah Road for a smooth, uninterrupted entry into the city.',
-                        structuredFeatures: [
-                            { label: 'Bookings', value: '5000+' },
-                            { label: 'Experience', value: '15 Years' },
-                            { label: 'Safety Rating', value: 'Master Class' }
-                        ],
-                        visualContext: 'A birds-eye view of the Jeddah-Makkah highway showing moderate traffic.'
-                    }
-                ]}
-            />
-
             <div className="max-w-4xl mx-auto py-20 px-4">
-                <RouteFleetSection />
-
-            <MicroSemanticFAQ
-                        contextName="Jeddah to Makkah 2026" 
-                    faqs={[
-                        {
-                            question: "How much is a taxi from Jeddah to Makkah in 2026?",
-                            shortAnswer: "From 300 SAR (Fixed)",
-                            detailedAnswer: "In 2026, our rates start from 300 SAR for a standard sedan (Toyota Camry) and 600 SAR for a GMC Yukon. These are fixed rates including tolls and airport fees.",
-                            perspectives: [
-                                { role: 'Billing', icon: 'DollarSign', insight: 'Transparency is our core value; what you see is what you pay.' }
-                            ]
-                        },
-                        {
-                            question: "What is the fastest way to get to Makkah from Jeddah?",
-                            shortAnswer: "Private Car (Door-to-Door)",
-                            detailedAnswer: "While the Haramain Train is fast, our private car service is often the most efficient overall because it provides door-to-door service, eliminating the need for terminal transfers and additional taxi rides from the Makkah station to your hotel.",
-                            perspectives: [
-                                { role: 'Logistics', icon: 'Navigation', insight: 'Door-to-door saves on average 45 minutes compared to train station transfers.' }
-                            ]
-                        }
-                    ]}
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-2">Jeddah to Makkah Taxi FAQs</h2>
+                <MicroSemanticFAQ
+                    contextName="Jeddah to Makkah 2026"
+                    faqs={faqs}
                 />
             </div>
 
@@ -290,17 +324,22 @@ export default function JeddahMakkahRoutePage() {
                     { name: 'Makkah to Madinah', url: '/routes/makkah-madinah/', description: 'Continue your pilgrimage from Makkah to Madinah.' },
                     { name: 'Jeddah to Taif', url: '/routes/jeddah-taif/', description: 'Escape the heat to the mountain city of Taif.' }
                 ]}
+                labels={{
+                    title: 'Continue Your Journey',
+                    subtitle: 'Onward transfers for Umrah and Hajj travellers',
+                    viewRoutes: 'View Route',
+                }}
             />
             <RelatedRoutes originSlug="jeddah" currentSlug="jeddah-makkah" />
 
             <div className="bg-black py-24 text-center px-4 relative overflow-hidden rounded-3xl mx-4 mb-12">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
                 <div className="max-w-4xl mx-auto relative z-10">
-                    <div className="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-8 animate-pulse">
+                    <div className="inline-block bg-rose-600 text-white text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full mb-8">
                         100% Private Transfers Only • No Shared Taxis
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-black text-white mb-8">Ready for Your 2026 Makkah Journey?</h2>
-                    <p className="text-gray-400 text-lg mb-10 italic">"Travel with dignity, comfort, and complete privacy."</p>
+                    <h2 className="text-3xl md:text-5xl font-black text-white mb-8">Get Your Jeddah to Makkah Quote</h2>
+                    <p className="text-gray-400 text-lg mb-10">Fixed price, direct to your hotel.</p>
                     <div className="flex flex-col sm:flex-row gap-6 justify-center">
                         <Link href="/booking/?route=jeddah-makkah">
                             <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600 text-white font-black px-12 py-8 text-xl rounded-2xl h-auto transition-all hover:scale-105 shadow-[0_0_40px_rgba(16,185,129,0.3)]">
