@@ -170,39 +170,12 @@ export default function DammamAirportTaxiPage() {
         url: 'https://taxiserviceksa.com/dammam-airport-taxi/',
     };
 
-    const ratingSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'Service',
-        name: 'Dammam Airport Taxi — King Fahd International Airport (DMM)',
-        serviceType: 'Airport Transfer & Private Chauffeur',
-        provider: {
-            '@type': 'Organization',
-            name: 'Taxi Service KSA',
-            url: 'https://taxiserviceksa.com',
-            telephone: '+966563573531',
-        },
-        aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.9',
-            reviewCount: '134',
-            bestRating: '5',
-            worstRating: '1',
-        },
-        areaServed: [
-            { '@type': 'City', name: 'Dammam' },
-            { '@type': 'City', name: 'Al Khobar' },
-            { '@type': 'City', name: 'Dhahran' },
-        ],
-    };
-
     return (
         <div className="bg-gray-50 min-h-screen">
             <Script id="dmm-airport-schema" type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(airportSchema) }} />
             <Script id="dmm-speakable-schema" type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
-            <Script id="dmm-rating-schema" type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingSchema) }} />
             <JsonLdFAQ faqs={faqs} />
 
             {/* Hero */}

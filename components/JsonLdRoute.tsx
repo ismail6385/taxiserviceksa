@@ -6,14 +6,12 @@ interface JsonLdRouteProps {
     description: string;
     distance?: string;
     duration?: string;
-    ratingValue?: string;
-    reviewCount?: string;
 }
 
-export default function JsonLdRoute({ from, to, description, distance, duration, ratingValue = "4.9", reviewCount = "156" }: JsonLdRouteProps) {
+export default function JsonLdRoute({ from, to, description, distance, duration }: JsonLdRouteProps) {
     const baseUrl = 'https://taxiserviceksa.com';
     const routeName = `Taxi from ${from} to ${to}`;
-    
+
 
     const schema = {
         "@context": "https://schema.org",
@@ -26,14 +24,7 @@ export default function JsonLdRoute({ from, to, description, distance, duration,
                     "@type": "Organization",
                     "@id": `${baseUrl}/#organization`,
                     "name": "Taxi Service KSA",
-                    "url": baseUrl,
-                    "aggregateRating": {
-                        "@type": "AggregateRating",
-                        "ratingValue": ratingValue,
-                        "reviewCount": reviewCount,
-                        "bestRating": "5",
-                        "worstRating": "1"
-                    }
+                    "url": baseUrl
                 },
                 "areaServed": [
                     { "@type": "City", "name": from },

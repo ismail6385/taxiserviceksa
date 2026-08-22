@@ -61,8 +61,6 @@ export default function MakkahMadinahRoutePageArabic() {
                 description="Premium intercity transfer from Makkah to Madinah. Direct door-to-door car service for families and pilgrims. 450 km journey on Hijrah Road."
                 distance="450 km"
                 duration="PT5H"
-                ratingValue="4.9"
-                reviewCount="215"
             />
 
             <Hero

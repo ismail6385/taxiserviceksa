@@ -206,39 +206,12 @@ export default function TaxiInDammamPageArabic() {
         url: 'https://taxiserviceksa.com/ar/services/taxi-in-dammam/',
     };
 
-    const ratingSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'Service',
-        name: 'تاكسي الدمام — خدمة السيارات الخاصة',
-        serviceType: 'تاكسي وسائق خاص الدمام',
-        provider: {
-            '@type': 'Organization',
-            name: 'Taxi Service KSA',
-            url: 'https://taxiserviceksa.com',
-            telephone: '+966563573531',
-        },
-        aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.9',
-            reviewCount: '118',
-            bestRating: '5',
-            worstRating: '1',
-        },
-        areaServed: [
-            { '@type': 'City', name: 'الدمام' },
-            { '@type': 'City', name: 'الخبر' },
-            { '@type': 'Place', name: 'المنطقة الشرقية' },
-        ],
-    };
-
     return (
         <div className="bg-gray-50 min-h-screen rtl" dir="rtl">
             <Script id="dammam-taxi-schema-ar" type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
             <Script id="dammam-speakable-ar" type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
-            <Script id="dammam-rating-schema-ar" type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingSchema) }} />
             <JsonLdFAQ faqs={faqs} />
 
             {/* Hero */}

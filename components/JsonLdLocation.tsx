@@ -6,21 +6,17 @@ interface JsonLdLocationProps {
     services: { name: string; description: string }[];
     priceRange?: { min: number; max: number; currency: string };
     image?: string;
-    ratingValue?: string;
-    reviewCount?: string;
 }
 
-export default function JsonLdLocation({ 
-    cityName, 
-    description, 
-    services, 
+export default function JsonLdLocation({
+    cityName,
+    description,
+    services,
     priceRange,
     image,
-    ratingValue = "4.9",
-    reviewCount = "312"
 }: JsonLdLocationProps) {
     const baseUrl = 'https://taxiserviceksa.com';
-    
+
     const schema = {
         "@context": "https://schema.org",
         "@graph": [
@@ -33,14 +29,7 @@ export default function JsonLdLocation({
                     "@id": `${baseUrl}/#organization`,
                     "name": "Taxi Service KSA",
                     "image": image || `${baseUrl}/logo.png`,
-                    "url": baseUrl,
-                    "aggregateRating": {
-                        "@type": "AggregateRating",
-                        "ratingValue": ratingValue,
-                        "reviewCount": reviewCount,
-                        "bestRating": "5",
-                        "worstRating": "1"
-                    }
+                    "url": baseUrl
                 },
                 "areaServed": {
                     "@type": "City",

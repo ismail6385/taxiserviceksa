@@ -1,6 +1,5 @@
 ﻿import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
 
 import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
@@ -48,31 +47,6 @@ export const metadata: Metadata = {
     },
 };
 
-const ratingSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: 'Madinah to AlUla Private Transfer',
-    serviceType: 'Intercity Private Car Transfer',
-    provider: {
-        '@type': 'Organization',
-        name: 'Taxi Service KSA',
-        url: 'https://taxiserviceksa.com',
-        telephone: '+966563573531',
-    },
-    areaServed: [
-        { '@type': 'City', name: 'Madinah' },
-        { '@type': 'City', name: 'AlUla' },
-    ],
-    aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.9',
-        reviewCount: '87',
-        bestRating: '5',
-        worstRating: '1',
-    },
-    description: 'Premium private car transfer from Madinah to AlUla — 330 km, 3.5 hours. Fixed rates, GMC Yukon XL and Toyota Camry fleet. Door-to-door including from Madinah Airport (MED) to AlUla Heritage Village and Hegra.',
-};
-
 export default function MadinahAlUlaRoutePage() {
     const routeDetails = [
         { label: 'Distance', value: '330 km', icon: Navigation },
@@ -83,8 +57,6 @@ export default function MadinahAlUlaRoutePage() {
 
     return (
         <div className="bg-gray-50 min-h-screen">
-            <Script id="madinah-alula-rating-schema" type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(ratingSchema) }} />
             <JsonLdLocation
                 cityName="Madinah to Alula"
                 description="Professional private car service from Madinah to Alula. Reliable, door-to-door long-distance transport for families and international tourists visiting Hegra."
