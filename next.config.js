@@ -494,6 +494,19 @@ const nextConfig = {
         destination: '/blog/jeddah-airport-makkah-taxi-fare-2026/',
         permanent: true,
       },
+      // /events/ has no page of its own - the breadcrumb on every /events/{slug}/
+      // page links to it, causing a real 404. Redirect to the existing hub page
+      // that already links to all other event pages. - Aug 2026
+      {
+        source: '/events',
+        destination: '/events/riyadh-event-transportation/',
+        permanent: true,
+      },
+      {
+        source: '/events/',
+        destination: '/events/riyadh-event-transportation/',
+        permanent: true,
+      },
       // Deprecated duplicate of /routes/jeddah-makkah/ - Aug 2026
       {
         source: '/routes/jeddah-makkah-old',
