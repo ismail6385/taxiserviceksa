@@ -6,7 +6,7 @@ export const toyotaVelozHighlight = {
     image: "/fleet/toyota-veloz-2024-dammam-jubail-bahrain-chauffeur.webp",
     passengers: 7,
     luggage: 4,
-    features: ["Brand New 2024 Model", "Dammam Based", "Available for Eligible Cross-Border Bookings"],
+    features: ["2024 Toyota Veloz", "Dammam Based", "Cross-Border Availability Confirmed at Booking"],
     link: "/fleet/toyota-veloz/",
     badge: "New in this area",
 };
