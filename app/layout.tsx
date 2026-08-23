@@ -1,8 +1,8 @@
 import './(main)/globals.css';
 import { Poppins } from 'next/font/google';
-import Script from 'next/script';
 import LayoutWrapper from '@/components/LayoutWrapper';
 import JsonLdSiteNavigation from '@/components/seo/JsonLdSiteNavigation';
+import CookieConsentManager from '@/components/CookieConsentManager';
 
 const poppins = Poppins({
   weight: ['300', '400', '500', '600', '700', '800', '900'],
@@ -166,37 +166,9 @@ export default function RootLayout({
         />
       </head>
       <body className={poppins.className} suppressHydrationWarning>
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-14M4JL9R6T"
-          strategy="lazyOnload"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-14M4JL9R6T');
-          `}
-        </Script>
-
-        {/* Trustpilot Review Collector */}
-        <Script
-          src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
-          strategy="lazyOnload"
-          async
-        />
-
-        {/* Microsoft Clarity */}
-        <Script id="microsoft-clarity" strategy="lazyOnload">
-          {`
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "qp7iv7z299");
-          `}
-        </Script>
+        {/* Google Analytics, Microsoft Clarity, and Trustpilot only load after the
+            visitor accepts cookies via CookieConsentManager's banner. */}
+        <CookieConsentManager />
 
         <LayoutWrapper>
           <JsonLdSiteNavigation />
