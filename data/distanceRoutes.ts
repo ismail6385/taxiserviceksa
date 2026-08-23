@@ -2770,6 +2770,506 @@ export const DISTANCE_ROUTES: Record<string, DistanceRoute> = {
         ],
         lastVerified: 'August 2026',
     },
+
+    'riyadh-to-alula': {
+        slug: 'riyadh-to-alula',
+        origin: 'Riyadh',
+        originFull: 'Riyadh, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'AlUla',
+        destinationFull: 'AlUla, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 1,050–1,150 km',
+        distanceHeadline: '~1,080 km',
+        drivingTimeRange: 'approximately 10–12 hours of continuous driving',
+        drivingTimeHeadline: '~10–12 hrs',
+        routeHeadline: 'Via the Interior Highway, Northwest to AlUla',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Riyadh to AlUla is approximately 1,050 to 1,150 km. AlUla sits in Saudi Arabia's northwest, a genuinely long haul from the capital, and this is one of the longer domestic tourism routes we cover.",
+            "Independent route calculators show some spread on this route; your exact pickup point in Riyadh and drop-off point in AlUla both affect the total.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 10 to 12 hours at normal highway speeds — a genuinely long full-day drive.",
+            "Total journey time is longer once you add fuel and rest stops and meals over a 1,050+ km trip. Most travelers treat this as a long single-day push with several stops, though splitting it across two days is also common, especially for families or those wanting to enjoy the road trip itself.",
+            "Traffic is generally light on this route outside the two cities themselves, since it's not one of the most heavily-traveled corridors in the Kingdom.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs northwest from Riyadh across the Saudi interior toward AlUla, Saudi Arabia's premier heritage tourism destination. As a fully domestic route, there's no border crossing.",
+            "We're not naming specific highway numbers here, since routing can vary between providers — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        byCarNote: "Given the genuine length of this route and that many AlUla-bound travelers are on a tourism trip rather than a work commute, a private chauffeur-driven transfer is a popular choice — it removes the fatigue of a 10+ hour drive and lets you arrive ready to explore Hegra and AlUla's other sites rather than needing to rest first.",
+        journeyPlanningNote: "This is a genuine road-trip distance — plan for rest stops, water, snacks, and realistic timing rather than treating it as a quick hop. Families traveling with children should factor in extra breaks.",
+        bestTimeNote: "AlUla has its own distinct tourist season (cooler months are more popular for outdoor sightseeing), which is worth factoring into your overall trip planning alongside the drive itself.",
+
+        mapOriginQuery: 'Riyadh, Saudi Arabia',
+        mapDestinationQuery: 'AlUla, Saudi Arabia',
+
+        // No dedicated Riyadh-AlUla commercial route page exists yet in either
+        // direction — per spec we don't guess or create one.
+        relatedTaxiRoutes: [
+            { name: 'Riyadh to Makkah Taxi', url: '/routes/riyadh-makkah/', description: 'Private transfer from Riyadh to Makkah.' },
+            { name: 'Riyadh to Jeddah Taxi', url: '/routes/riyadh-jeddah/', description: 'Private transfer from Riyadh to Jeddah.' },
+        ],
+        relatedLocationLink: {
+            name: 'AlUla Travel Guide',
+            url: '/locations/alula/',
+            description: 'Local AlUla information and attractions.',
+        },
+        relatedDistanceSlugs: ['riyadh-to-makkah', 'riyadh-to-madinah'],
+        noDirectRouteNote: "We don't yet have a dedicated Riyadh to AlUla booking page on this site. Contact us directly via WhatsApp with your travel date and passenger count for a custom quote on this route.",
+
+        seoTitle: 'Riyadh to AlUla Distance by Road | Driving Time & Map',
+        metaDescription: 'Riyadh to AlUla distance by road, estimated driving time, route map and road-trip planning information. See how far AlUla is from Riyadh by car.',
+        h1: 'Riyadh to AlUla Distance by Road',
+
+        faqs: [
+            { question: 'How far is Riyadh from AlUla by road?', shortAnswer: 'Approximately 1,050–1,150 km', detailedAnswer: "By road, Riyadh to AlUla is approximately 1,050 to 1,150 km — one of the longer domestic tourism routes, given AlUla's location in the northwest." },
+            { question: 'How long does Riyadh to AlUla take by car?', shortAnswer: 'Approximately 10–12 hours of driving', detailedAnswer: "Pure driving time is approximately 10 to 12 hours at normal highway speeds. Total journey time is longer with rest stops." },
+            { question: 'Can I book a private transfer from Riyadh to AlUla?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "We don't have a dedicated booking page for this exact route yet, but yes — contact us via WhatsApp with your travel date and passenger count for a custom quote." },
+            { question: 'How should I plan this road trip?', shortAnswer: 'Plan rest stops and realistic timing, or split across two days', detailedAnswer: "Given the 10-12 hour length, plan for regular rest breaks, water and snacks. Some travelers split the drive across two days to enjoy the journey itself." },
+            { question: 'What is the Riyadh to AlUla driving distance?', shortAnswer: 'Roughly 1,080 km by road', detailedAnswer: "Routing tools show approximately 1,050 to 1,150 km for this long-distance domestic route." },
+            { question: 'Can families travel from Riyadh to AlUla by car?', shortAnswer: 'Yes, with the right planning', detailedAnswer: "Yes. Given the 10-12 hour length, families typically plan for regular rest breaks, and many prefer a private vehicle with a professional driver over self-driving the full distance." },
+            { question: 'Is Riyadh to AlUla suitable for a road-trip style journey?', shortAnswer: 'Yes, it\'s a popular tourism route', detailedAnswer: "Yes — many travelers treat this as part of a broader Saudi road-trip itinerary given AlUla's status as the Kingdom's premier heritage tourism destination." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Riyadh to AlUla distances?', shortAnswer: 'Different exact start/end points and routing engines', detailedAnswer: "Different mapping providers and exact starting/ending points can shift the total on a route this long. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'jeddah-to-alula': {
+        slug: 'jeddah-to-alula',
+        origin: 'Jeddah',
+        originFull: 'Jeddah, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'AlUla',
+        destinationFull: 'AlUla, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 680–720 km',
+        distanceHeadline: '~700 km',
+        drivingTimeRange: 'approximately 7–9 hours of continuous driving',
+        drivingTimeHeadline: '~7–9 hrs',
+        routeHeadline: 'Via the Coastal & Interior Highway North to AlUla',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Jeddah to AlUla is approximately 680 to 720 km. This is one of the more popular AlUla road-trip routes, since many international visitors fly into Jeddah before continuing overland to AlUla's heritage sites.",
+            "Independent route calculators and our own commercial route data agree closely on this range.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 7 to 9 hours at normal highway speeds — a demanding but manageable full-day drive.",
+            "Total journey time is a little longer once you add rest stops, meals, and fuel over a 700 km trip through scenic desert and small towns.",
+            "This route is popular enough that services and rest stops are reasonably frequent along the way.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs north from Jeddah, passing through scenic desert landscapes and small towns before reaching AlUla, Saudi Arabia's premier heritage tourism destination. As a fully domestic route, there's no border crossing.",
+            "This is one of the more established AlUla road-trip corridors, given how many visitors combine a Jeddah arrival with an AlUla road trip.",
+        ],
+        byCarNote: "Given the length and that many travelers are tourists unfamiliar with Saudi long-distance driving, a private chauffeur-driven transfer is a popular choice — it removes the fatigue and navigation burden of a 7-9 hour drive through unfamiliar terrain.",
+        journeyPlanningNote: "Plan for rest stops, water and snacks along the desert route. Families with children should factor in extra breaks over the 7-9 hour drive.",
+        bestTimeNote: "AlUla has its own distinct tourist season (cooler months are more popular for outdoor sightseeing), which is worth factoring into your overall trip planning.",
+
+        mapOriginQuery: 'Jeddah, Saudi Arabia',
+        mapDestinationQuery: 'AlUla, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Jeddah to AlUla Taxi',
+            url: '/routes/jeddah-alula/',
+            description: 'Pre-booked private transfer from Jeddah to AlUla.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'AlUla to Jeddah Taxi',
+            url: '/routes/alula-jeddah/',
+            description: 'Book the return leg from AlUla back to Jeddah.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Jeddah to Makkah Taxi', url: '/routes/jeddah-makkah/', description: 'Private transfer from Jeddah to Makkah.' },
+            { name: 'Jeddah to Madinah Taxi', url: '/routes/jeddah-madinah/', description: 'Private transfer from Jeddah to Madinah.' },
+        ],
+        relatedLocationLink: {
+            name: 'AlUla Travel Guide',
+            url: '/locations/alula/',
+            description: 'Local AlUla information and attractions.',
+        },
+        relatedDistanceSlugs: ['jeddah-to-makkah', 'jeddah-to-madinah'],
+
+        seoTitle: 'Jeddah to AlUla Distance by Road | Driving Time & Map',
+        metaDescription: 'Jeddah to AlUla distance by road, estimated driving time, route map and road-trip planning information. See how far AlUla is from Jeddah by car.',
+        h1: 'Jeddah to AlUla Distance by Road',
+
+        faqs: [
+            { question: 'How far is Jeddah from AlUla by road?', shortAnswer: 'Approximately 680–720 km', detailedAnswer: "By road, Jeddah to AlUla is approximately 680 to 720 km — one of the more popular AlUla road-trip routes." },
+            { question: 'How long does Jeddah to AlUla take by car?', shortAnswer: 'Approximately 7–9 hours of driving', detailedAnswer: "Pure driving time is approximately 7 to 9 hours at normal highway speeds. Total journey time is a little longer with rest stops." },
+            { question: 'Can I book a private transfer from Jeddah to AlUla?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Jeddah to AlUla private taxi service, with a single vehicle from your Jeddah pickup through to your AlUla drop-off point." },
+            { question: 'Is this a common route for tourists?', shortAnswer: 'Yes, one of the most popular AlUla routes', detailedAnswer: "Yes — many international visitors fly into Jeddah before continuing overland to AlUla, making this one of the more established heritage tourism routes in the Kingdom." },
+            { question: 'What is the Jeddah to AlUla driving distance?', shortAnswer: 'Roughly 700 km by road', detailedAnswer: "Routing tools and our own commercial route data agree closely on approximately 680 to 720 km." },
+            { question: 'Can families travel from Jeddah to AlUla by car?', shortAnswer: 'Yes, with rest stops planned', detailedAnswer: "Yes. At 7-9 hours, families typically plan for rest stops along the desert route, and many prefer a private chauffeur for comfort." },
+            { question: 'Can I book a return taxi from AlUla to Jeddah?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our AlUla to Jeddah taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Jeddah to AlUla distances?', shortAnswer: 'Different exact start/end points and routing engines', detailedAnswer: "Different mapping providers and exact starting/ending points can shift the total. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'riyadh-to-taif': {
+        slug: 'riyadh-to-taif',
+        origin: 'Riyadh',
+        originFull: 'Riyadh, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Taif',
+        destinationFull: 'Taif, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 785–800 km',
+        distanceHeadline: '~790 km',
+        drivingTimeRange: 'approximately 7.5–8.5 hours of continuous driving',
+        drivingTimeHeadline: '~7.5–8.5 hrs',
+        routeHeadline: 'Via the Interior Highway West to Taif',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Riyadh to Taif is approximately 785 to 800 km. Independent route calculators agree fairly closely on this figure for the drive between the capital and the Kingdom's popular highland retreat.",
+            "Your exact pickup point in Riyadh and drop-off point in Taif can still shift the total by a small amount.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 7.5 to 8.5 hours at normal highway speeds — a demanding but manageable full-day drive.",
+            "Total journey time is a little longer once you add rest stops, meals, and normal traffic around both cities.",
+            "The final approach into Taif involves some elevation gain as you reach the highland plateau, which can add a little time compared to flat highway driving.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs west from Riyadh across the Saudi interior toward Taif, the Kingdom's well-known highland retreat city. As a fully domestic route, there's no border crossing.",
+            "We're not naming specific highway numbers here, since routing can vary between providers — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        byCarNote: "At 7.5-8.5 hours, this is a genuinely long day's drive — manageable for a confident self-driver, but many travelers, particularly families heading to Taif for its cooler climate and mountain scenery, prefer a private chauffeur-driven transfer for a more restful trip.",
+        journeyPlanningNote: "If your onward plans include Makkah, note that our Taif to Makkah distance guide covers that short mountain-road leg separately.",
+        bestTimeNote: "Taif is a popular summer retreat destination for its cooler climate, so expect more traffic and higher demand during the hotter months when Saudi families travel to escape the heat.",
+
+        mapOriginQuery: 'Riyadh, Saudi Arabia',
+        mapDestinationQuery: 'Taif, Saudi Arabia',
+
+        // No dedicated Riyadh-Taif commercial route page exists yet in either
+        // direction — per spec we don't guess or create one. A genuine two-leg
+        // alternative exists via Jeddah, since Taif sits much closer to Jeddah.
+        relatedTaxiRoutes: [
+            { name: 'Riyadh to Jeddah Taxi', url: '/routes/riyadh-jeddah/', description: 'Combine with a Jeddah to Taif transfer for a two-leg journey.' },
+            { name: 'Jeddah to Taif Taxi', url: '/routes/jeddah-taif/', description: 'The short mountain-road leg from Jeddah to Taif.' },
+        ],
+        relatedLocationLink: {
+            name: 'Taif Travel Guide',
+            url: '/locations/taif/',
+            description: 'Local Taif information and attractions.',
+        },
+        relatedDistanceSlugs: ['riyadh-to-makkah', 'taif-to-makkah'],
+        noDirectRouteNote: "We don't yet have a dedicated Riyadh to Taif booking page on this site. Contact us directly via WhatsApp for a custom quote — or if your schedule is flexible, our Riyadh to Jeddah service combined with a Jeddah to Taif transfer covers the same overall journey in two legs.",
+
+        seoTitle: 'Riyadh to Taif Distance by Road | Driving Time & Map',
+        metaDescription: 'Riyadh to Taif distance by road, estimated driving time, route map and journey information. See how far Taif is from Riyadh by car.',
+        h1: 'Riyadh to Taif Distance by Road',
+
+        faqs: [
+            { question: 'How far is Riyadh from Taif by road?', shortAnswer: 'Approximately 785–800 km', detailedAnswer: "By road, Riyadh to Taif is approximately 785 to 800 km, connecting the capital to the Kingdom's popular highland retreat city." },
+            { question: 'How long does Riyadh to Taif take by car?', shortAnswer: 'Approximately 7.5–8.5 hours of driving', detailedAnswer: "Pure driving time is approximately 7.5 to 8.5 hours at normal highway speeds. Total journey time is a little longer with rest stops." },
+            { question: 'Can I book a private transfer from Riyadh to Taif?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "We don't have a dedicated booking page for this exact route yet, but yes — contact us via WhatsApp for a custom quote, or combine our Riyadh to Jeddah and Jeddah to Taif services." },
+            { question: 'Is Taif a good destination for a family trip from Riyadh?', shortAnswer: 'Yes, popular for its cooler climate', detailedAnswer: "Yes — Taif is a well-known highland retreat known for cooler weather, and many Saudi families make this trip, particularly in the hotter months." },
+            { question: 'What is the Riyadh to Taif driving distance?', shortAnswer: 'Roughly 790 km by road', detailedAnswer: "Routing tools generally agree closely on approximately 785 to 800 km for this domestic route." },
+            { question: 'What route connects Riyadh and Taif?', shortAnswer: 'The interior highway network', detailedAnswer: "The route runs west from Riyadh across the Saudi interior to Taif — we don't name a specific highway number here since routing can vary by provider." },
+            { question: 'Can families travel from Riyadh to Taif by car?', shortAnswer: 'Yes, with the right planning', detailedAnswer: "Yes. At 7.5-8.5 hours, families typically plan for regular rest breaks, and many prefer a private vehicle with a professional driver." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Riyadh to Taif distances?', shortAnswer: 'Different exact start/end points and routing engines', detailedAnswer: "Different mapping providers and exact starting/ending points can shift the total. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'jeddah-to-taif': {
+        slug: 'jeddah-to-taif',
+        origin: 'Jeddah',
+        originFull: 'Jeddah, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Taif',
+        destinationFull: 'Taif, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 167–200 km',
+        distanceHeadline: '~175 km',
+        drivingTimeRange: 'approximately 2–2.5 hours of continuous driving',
+        drivingTimeHeadline: '~2–2.5 hrs',
+        routeHeadline: 'Via the Al Hada Mountain Road',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Jeddah to Taif is approximately 167 to 200 km, one of the more relatively short Saudi domestic routes, though the mountain ascent adds time beyond what a flat distance would suggest.",
+            "This is a well-traveled route between the coastal commercial hub and the Kingdom's highland retreat city, and our own commercial route page confirms figures in this range.",
+        ],
+        drivingTimeDescription: [
+            "Driving time is approximately 2 to 2.5 hours at normal speeds — longer than the distance alone suggests, because of the mountain ascent up to Taif's highland plateau via the Al Hada road.",
+            "If you take the scenic Al Hada mountain route specifically, allow slightly longer due to the winding curves, especially on weekends when the road is busier.",
+            "Total journey time can extend further with weekend or holiday traffic, since this is a popular escape route for Jeddah and Makkah residents seeking cooler weather.",
+        ],
+        routeJourneyDescription: [
+            "The route runs from Jeddah up to Taif's elevated plateau via the Al Hada mountain road — one of the more scenic short drives in the Kingdom, with switchbacks and mountain views as you climb from the coastal plain.",
+            "As a fully domestic route, there's no border crossing, and the relatively short distance makes this a practical same-day or weekend trip.",
+        ],
+        byCarNote: "Given the mountain ascent, many travelers — especially those unfamiliar with mountain driving — prefer a private taxi or chauffeur over self-driving, even though the distance itself is short.",
+        journeyPlanningNote: "If you're continuing on to Makkah from Taif, note that our Taif to Makkah distance guide covers that additional short mountain-road leg.",
+        bestTimeNote: "Weekends and Saudi public holidays bring more traffic to the Al Hada road, as it's a popular escape route to Taif's cooler climate. Weekday travel tends to be quieter.",
+
+        mapOriginQuery: 'Jeddah, Saudi Arabia',
+        mapDestinationQuery: 'Taif, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Jeddah to Taif Taxi',
+            url: '/routes/jeddah-taif/',
+            description: 'Pre-booked private transfer from Jeddah to Taif.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Taif to Jeddah Taxi',
+            url: '/routes/taif-jeddah/',
+            description: 'Book the return leg from Taif back to Jeddah.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Jeddah to Makkah Taxi', url: '/routes/jeddah-makkah/', description: 'Private transfer from Jeddah to Makkah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Taif Travel Guide',
+            url: '/locations/taif/',
+            description: 'Local Taif information and attractions.',
+        },
+        relatedDistanceSlugs: ['jeddah-to-makkah', 'taif-to-makkah'],
+
+        seoTitle: 'Jeddah to Taif Distance by Road | Driving Time & Map',
+        metaDescription: 'Jeddah to Taif distance by road, estimated driving time, route map and Al Hada mountain road information. See how far Taif is from Jeddah by car.',
+        h1: 'Jeddah to Taif Distance by Road',
+
+        faqs: [
+            { question: 'How far is Jeddah from Taif by road?', shortAnswer: 'Approximately 167–200 km', detailedAnswer: "By road via the Al Hada mountain road, Jeddah to Taif is approximately 167 to 200 km — one of the shorter routes in our network." },
+            { question: 'How long does Jeddah to Taif take by car?', shortAnswer: 'Approximately 2–2.5 hours of driving', detailedAnswer: "Driving time is approximately 2 to 2.5 hours, longer than a flat distance would suggest because of the mountain ascent via Al Hada." },
+            { question: 'Can I book a private transfer from Jeddah to Taif?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Jeddah to Taif private taxi service, with a single vehicle for the mountain-road journey." },
+            { question: 'Is Jeddah to Taif suitable for a private taxi?', shortAnswer: 'Yes, and often preferred', detailedAnswer: "Yes — given the mountain ascent via Al Hada, many travelers prefer a private taxi or chauffeur familiar with the route over self-driving." },
+            { question: 'What is the Jeddah to Taif driving distance?', shortAnswer: 'Roughly 175 km by road', detailedAnswer: "Routing tools show a range of approximately 167 to 200 km, depending on the exact route selected." },
+            { question: 'Is this route relevant for tourism?', shortAnswer: 'Yes, a popular highland escape route', detailedAnswer: "Yes — Taif is a well-known highland retreat for Jeddah and Makkah residents seeking cooler weather, and this is the standard route up to the plateau." },
+            { question: 'What route connects Jeddah and Taif?', shortAnswer: 'The Al Hada mountain road', detailedAnswer: "The Al Hada road is the well-known route connecting the coastal plain up to Taif's elevated plateau, featuring a scenic mountain ascent." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores the mountain road entirely — the actual driving distance and time reflect the winding ascent." },
+            { question: 'Why do different websites show different Jeddah to Taif distances?', shortAnswer: 'Different exact start/end points and route choices', detailedAnswer: "The biggest source of variation is exactly where in Jeddah and where in Taif each source measures from, plus which point along the Al Hada road is used." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'dammam-to-taif': {
+        slug: 'dammam-to-taif',
+        origin: 'Dammam',
+        originFull: 'Dammam, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Taif',
+        destinationFull: 'Taif, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 1,150–1,200 km',
+        distanceHeadline: '~1,175 km',
+        drivingTimeRange: 'approximately 11–13 hours of continuous driving',
+        drivingTimeHeadline: '~11–13 hrs',
+        routeHeadline: 'Via the Interior, through the Riyadh Area',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Dammam to Taif is approximately 1,150 to 1,200 km — one of the longer domestic routes we cover, crossing the width of the Kingdom from the Gulf coast to the western highlands.",
+            "Independent route calculators agree fairly closely on this range. Your exact pickup point in Dammam and drop-off point in Taif shift the total by a modest amount.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 11 to 13 hours at normal highway speeds — genuinely one of the longer domestic drives in the Kingdom.",
+            "Total journey time is longer once you add fuel and rest stops and meals over a 1,150+ km trip. Most travelers treat this as a long single-day push with several stops, or split it across two days.",
+            "The final approach into Taif involves some elevation gain as you reach the highland plateau.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs from Dammam across Saudi Arabia's Eastern Province and interior — generally via the Riyadh area — before continuing west to Taif on the highland plateau. As a fully domestic route, there's no border crossing.",
+            "We're not naming specific highway numbers here, since routing can vary between providers — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        byCarNote: "At 11-13 hours, this is genuinely one of the longer domestic drives in the Kingdom — most families and travelers prefer a private chauffeur-driven transfer over self-driving the full distance, arriving rested rather than fatigued.",
+        journeyPlanningNote: "If your onward plans include Makkah, our Taif to Makkah and Dammam to Makkah distance guides cover those legs separately.",
+        bestTimeNote: "Taif is a popular summer retreat destination for its cooler climate, so expect more demand and traffic during the hotter months when Saudi families travel to escape the heat.",
+
+        mapOriginQuery: 'Dammam, Saudi Arabia',
+        mapDestinationQuery: 'Taif, Saudi Arabia',
+
+        // No dedicated Dammam-Taif commercial route page exists yet in either
+        // direction — per spec we don't guess or create one. A genuine two-leg
+        // alternative exists via Jeddah, since Taif sits much closer to Jeddah.
+        relatedTaxiRoutes: [
+            { name: 'Dammam to Jeddah Taxi', url: '/routes/dammam-jeddah/', description: 'Combine with a Jeddah to Taif transfer for a two-leg journey.' },
+            { name: 'Jeddah to Taif Taxi', url: '/routes/jeddah-taif/', description: 'The short mountain-road leg from Jeddah to Taif.' },
+        ],
+        relatedLocationLink: {
+            name: 'Taif Travel Guide',
+            url: '/locations/taif/',
+            description: 'Local Taif information and attractions.',
+        },
+        relatedDistanceSlugs: ['dammam-to-makkah', 'dammam-to-riyadh'],
+        noDirectRouteNote: "We don't yet have a dedicated Dammam to Taif booking page on this site. Contact us directly via WhatsApp for a custom quote — or if your schedule is flexible, our Dammam to Jeddah service combined with a Jeddah to Taif transfer covers the same overall journey in two legs.",
+
+        seoTitle: 'Dammam to Taif Distance by Road | Driving Time & Map',
+        metaDescription: 'Dammam to Taif distance by road, estimated driving time, route map and journey information. See how far Taif is from Dammam by car.',
+        h1: 'Dammam to Taif Distance by Road',
+
+        faqs: [
+            { question: 'How far is Dammam from Taif by road?', shortAnswer: 'Approximately 1,150–1,200 km', detailedAnswer: "By road, Dammam to Taif is approximately 1,150 to 1,200 km, crossing the width of the Kingdom from the Gulf coast to the western highlands." },
+            { question: 'How long does Dammam to Taif take by car?', shortAnswer: 'Approximately 11–13 hours of driving', detailedAnswer: "Pure driving time is approximately 11 to 13 hours at normal highway speeds. Total journey time is longer with rest stops." },
+            { question: 'Can I book a private transfer from Dammam to Taif?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "We don't have a dedicated booking page for this exact route yet, but yes — contact us via WhatsApp for a custom quote, or combine our Dammam to Jeddah and Jeddah to Taif services." },
+            { question: 'How should I plan this long road journey?', shortAnswer: 'Plan rest stops or split it across two days', detailedAnswer: "Given the 11-13 hour length, plan for regular rest breaks throughout the day, or consider splitting the trip across two days." },
+            { question: 'What is the Dammam to Taif driving distance?', shortAnswer: 'Roughly 1,175 km by road', detailedAnswer: "Routing tools generally agree closely on approximately 1,150 to 1,200 km for this long-distance domestic route." },
+            { question: 'Can families travel from Dammam to Taif by car?', shortAnswer: 'Yes, with the right planning', detailedAnswer: "Yes. Given the 11-13 hour length, families typically plan for regular rest breaks, and many prefer a private vehicle with a professional driver." },
+            { question: 'What route connects Dammam and Taif?', shortAnswer: 'The interior, generally via the Riyadh area', detailedAnswer: "The route runs from Dammam across the Eastern Province and Saudi interior — generally via the Riyadh area — before continuing west to Taif." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Dammam to Taif distances?', shortAnswer: 'Different exact start/end points and interior route choices', detailedAnswer: "Different mapping providers can select different interior routes and starting/ending points, which compounds into a noticeable gap on a route this long." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'riyadh-to-abha': {
+        slug: 'riyadh-to-abha',
+        origin: 'Riyadh',
+        originFull: 'Riyadh, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Abha',
+        destinationFull: 'Abha, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 950–1,120 km, depending on the route',
+        distanceHeadline: '~970 km',
+        drivingTimeRange: 'approximately 9–12 hours of continuous driving',
+        drivingTimeHeadline: '~9–12 hrs',
+        routeHeadline: 'Via Bisha (shorter) or Wadi ad-Dawasir (longer)',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Riyadh to Abha genuinely depends on which of two real routes you take: via Bisha, the shorter and more commonly used option at approximately 950 to 970 km, or via Wadi ad-Dawasir, a longer alternative at approximately 1,100 to 1,120 km.",
+            "This is a case where the range reflects two different real roads rather than just measurement variation — worth knowing when planning your trip or comparing quotes.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 9 to 10 hours via the shorter Bisha route, or approximately 11 to 12 hours via the longer Wadi ad-Dawasir route.",
+            "Total journey time is longer once you add fuel and rest stops and meals over a 950+ km trip that includes a descent into the Asir highlands near Abha.",
+            "Traffic is generally light on both routes outside the cities themselves.",
+        ],
+        routeJourneyDescription: [
+            "The more commonly used road route runs south from Riyadh via Bisha before climbing into the Asir highlands to reach Abha. An alternative, longer route runs via Wadi ad-Dawasir. As a fully domestic route, there's no border crossing.",
+            "The final approach into Abha involves a genuine highland ascent, since Abha sits at around 2,200 meters elevation in the Asir mountains.",
+        ],
+        byCarNote: "Given both the distance and the highland ascent into Abha, most families and travelers prefer a private chauffeur-driven transfer over self-driving the full route — it removes the fatigue of a 9+ hour drive that finishes with demanding mountain terrain.",
+        journeyPlanningNote: "Ask your driver or booking contact which route (Bisha or Wadi ad-Dawasir) they plan to use, since it affects both distance and timing.",
+        bestTimeNote: "Abha's highland climate makes it a popular escape destination during the hotter months — expect more demand and traffic during that period. Weather on the highland approach can occasionally affect conditions in winter.",
+
+        mapOriginQuery: 'Riyadh, Saudi Arabia',
+        mapDestinationQuery: 'Abha, Saudi Arabia',
+
+        // No dedicated Riyadh-Abha commercial route page exists yet in either
+        // direction — per spec we don't guess or create one.
+        relatedTaxiRoutes: [
+            { name: 'Riyadh to Makkah Taxi', url: '/routes/riyadh-makkah/', description: 'Private transfer from Riyadh to Makkah.' },
+            { name: 'Riyadh to Dammam Taxi', url: '/routes/riyadh-dammam/', description: 'Private transfer from Riyadh to Dammam.' },
+        ],
+        relatedLocationLink: {
+            name: 'Abha Travel Guide',
+            url: '/locations/abha/',
+            description: 'Local Abha information and attractions in the Asir highlands.',
+        },
+        relatedDistanceSlugs: ['riyadh-to-makkah', 'riyadh-to-madinah'],
+        noDirectRouteNote: "We don't yet have a dedicated Riyadh to Abha booking page on this site. Contact us directly via WhatsApp with your travel date and passenger count for a custom quote on this route.",
+
+        seoTitle: 'Riyadh to Abha Distance by Road | Driving Time & Map',
+        metaDescription: 'Riyadh to Abha distance by road, estimated driving time, route map and journey information. See how far Abha is from Riyadh by car.',
+        h1: 'Riyadh to Abha Distance by Road',
+
+        faqs: [
+            { question: 'How far is Riyadh from Abha by road?', shortAnswer: 'Approximately 950–1,120 km, depending on route', detailedAnswer: "By road, Riyadh to Abha is approximately 950 to 970 km via the shorter Bisha route, or 1,100 to 1,120 km via the longer Wadi ad-Dawasir route." },
+            { question: 'How long does Riyadh to Abha take by car?', shortAnswer: 'Approximately 9–12 hours of driving', detailedAnswer: "Pure driving time is approximately 9 to 10 hours via Bisha, or 11 to 12 hours via Wadi ad-Dawasir. Total journey time is longer with rest stops." },
+            { question: 'Can I book a private transfer from Riyadh to Abha?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "We don't have a dedicated booking page for this exact route yet, but yes — contact us via WhatsApp with your travel date and passenger count for a custom quote." },
+            { question: 'Which route is better, Bisha or Wadi ad-Dawasir?', shortAnswer: 'Bisha is shorter and more commonly used', detailedAnswer: "The Bisha route is shorter (approximately 950-970 km) and more commonly used than the longer Wadi ad-Dawasir alternative (approximately 1,100-1,120 km)." },
+            { question: 'What is the Riyadh to Abha driving distance?', shortAnswer: 'Roughly 950–1,120 km depending on route', detailedAnswer: "Two genuine routes exist: approximately 950-970 km via Bisha, or approximately 1,100-1,120 km via Wadi ad-Dawasir." },
+            { question: 'Is Abha a highland destination?', shortAnswer: 'Yes, at around 2,200m elevation', detailedAnswer: "Yes — Abha sits high in the Asir mountains at around 2,200 meters elevation, known for its cooler climate compared to most of Saudi Arabia." },
+            { question: 'Can families travel from Riyadh to Abha by car?', shortAnswer: 'Yes, with the right planning', detailedAnswer: "Yes. Given the length and highland approach, families typically plan for regular rest breaks, and many prefer a private driver for this journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and mountainous terrain entirely, and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Riyadh to Abha distances?', shortAnswer: 'Two genuinely different routes exist', detailedAnswer: "Unlike most routes where the variance is just measurement differences, this route has two genuinely different road options (Bisha vs. Wadi ad-Dawasir), which is why the range is wider than usual." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'jeddah-to-abha': {
+        slug: 'jeddah-to-abha',
+        origin: 'Jeddah',
+        originFull: 'Jeddah, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Abha',
+        destinationFull: 'Abha, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 587–630 km',
+        distanceHeadline: '~610 km',
+        drivingTimeRange: 'approximately 7–10 hours of continuous driving',
+        drivingTimeHeadline: '~7–10 hrs',
+        routeHeadline: 'Via the Coastal & Interior Highway through the Asir Mountains',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Jeddah to Abha is approximately 587 to 630 km, connecting the Red Sea coastal hub to Abha's highland retreat in the Asir mountains.",
+            "Independent route calculators and our own commercial route page agree on a range in this vicinity — one of the more consistently reported western-to-southern figures we cover.",
+        ],
+        drivingTimeDescription: [
+            "Estimated driving time is approximately 7 to 8 hours at normal highway speeds. In practice, this can stretch closer to 9 or 10 hours once you factor in the mountain sections and typical stops — worth planning for the longer end of the range.",
+            "Total journey time is longer once you add fuel and rest stops and meals over a 600+ km trip that finishes with a genuine mountain ascent.",
+            "The Asir mountain sections require more careful driving than open highway, which is part of why real-world journey times tend to run longer than the flat-highway estimate.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs south from Jeddah along the coast before turning inland and climbing into the Asir mountains to reach Abha. As a fully domestic route, there's no border crossing.",
+            "Our own dispatch drivers know these mountain roads well, given how much this route is used for the Red Sea coast to Asir highlands corridor.",
+        ],
+        byCarNote: "Given the distance and the mountain roads in the Asir approach, a private chauffeur-driven transfer with an experienced driver is a popular choice — it removes both the fatigue of a long drive and the demands of navigating unfamiliar mountain terrain.",
+        journeyPlanningNote: "Plan for the drive to run longer than the flat-distance estimate suggests, given the mountain sections near Abha — build in extra buffer for arrival timing.",
+        bestTimeNote: "Abha's cooler highland climate makes it a popular escape destination during the hotter months — expect more demand and traffic during that period.",
+
+        mapOriginQuery: 'Jeddah, Saudi Arabia',
+        mapDestinationQuery: 'Abha, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Jeddah to Abha Taxi',
+            url: '/routes/jeddah-abha/',
+            description: 'Pre-booked private transfer from Jeddah to Abha through the Asir mountains.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Jeddah to Makkah Taxi', url: '/routes/jeddah-makkah/', description: 'Private transfer from Jeddah to Makkah.' },
+            { name: 'Jeddah to Madinah Taxi', url: '/routes/jeddah-madinah/', description: 'Private transfer from Jeddah to Madinah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Abha Travel Guide',
+            url: '/locations/abha/',
+            description: 'Local Abha information and attractions in the Asir highlands.',
+        },
+        relatedDistanceSlugs: ['jeddah-to-makkah', 'jeddah-to-madinah'],
+
+        seoTitle: 'Jeddah to Abha Distance by Road | Driving Time & Map',
+        metaDescription: 'Jeddah to Abha distance by road, estimated driving time, route map and journey information. See how far Abha is from Jeddah by car.',
+        h1: 'Jeddah to Abha Distance by Road',
+
+        faqs: [
+            { question: 'How far is Jeddah from Abha by road?', shortAnswer: 'Approximately 587–630 km', detailedAnswer: "By road, Jeddah to Abha is approximately 587 to 630 km, connecting the Red Sea coastal hub to the Asir highlands." },
+            { question: 'How long does Jeddah to Abha take by car?', shortAnswer: 'Approximately 7–10 hours of driving', detailedAnswer: "Estimated driving time is approximately 7 to 8 hours, though in practice it often stretches closer to 9-10 hours because of the mountain sections near Abha." },
+            { question: 'Can I book a private transfer from Jeddah to Abha?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Jeddah to Abha private taxi service, with drivers experienced on the Asir mountain roads." },
+            { question: 'Is the mountain section difficult to drive?', shortAnswer: 'It requires more care than flat highway', detailedAnswer: "Yes — the Asir mountain sections near Abha require more careful driving than open highway, which is part of why many travelers prefer an experienced private driver." },
+            { question: 'What is the Jeddah to Abha driving distance?', shortAnswer: 'Roughly 610 km by road', detailedAnswer: "Routing tools and our own commercial route data show approximately 587 to 630 km for this route." },
+            { question: 'Can families travel from Jeddah to Abha by car?', shortAnswer: 'Yes, with a private driver recommended', detailedAnswer: "Yes. Given the distance and mountain terrain, many families prefer a private chauffeur experienced with the Asir mountain roads." },
+            { question: 'What route connects Jeddah and Abha?', shortAnswer: 'The coastal highway, then inland through the Asir mountains', detailedAnswer: "The route runs south from Jeddah along the coast, then turns inland and climbs into the Asir mountains to reach Abha." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores the mountainous terrain and roads entirely, and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Jeddah to Abha distances?', shortAnswer: 'Different exact start/end points and mountain route choices', detailedAnswer: "The mountainous terrain around Abha means different routing tools can select noticeably different paths, which is why the range here is wider than on flatter routes." },
+        ],
+        lastVerified: 'August 2026',
+    },
 };
 
 export function getDistanceRoute(slug: string): DistanceRoute | undefined {
@@ -2820,7 +3320,12 @@ export const DISTANCE_HUB_CATEGORIES: DistanceHubCategory[] = [
         id: 'tourist-religious-routes',
         title: 'Popular Tourist & Religious Routes',
         description: 'Road distance and driving time for popular tourist and pilgrim routes.',
-        routeSlugs: ['taif-to-makkah', 'taif-to-madinah', 'alula-to-makkah'],
+        routeSlugs: [
+            'taif-to-makkah', 'taif-to-madinah', 'alula-to-makkah',
+            'riyadh-to-alula', 'jeddah-to-alula',
+            'riyadh-to-taif', 'jeddah-to-taif', 'dammam-to-taif',
+            'riyadh-to-abha', 'jeddah-to-abha',
+        ],
     },
     {
         id: 'other-saudi',
