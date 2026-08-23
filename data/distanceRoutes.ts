@@ -3270,6 +3270,668 @@ export const DISTANCE_ROUTES: Record<string, DistanceRoute> = {
         ],
         lastVerified: 'August 2026',
     },
+
+    'abu-dhabi-to-riyadh': {
+        slug: 'abu-dhabi-to-riyadh',
+        origin: 'Abu Dhabi',
+        originFull: 'Abu Dhabi, UAE',
+        originCountry: 'UAE',
+        destination: 'Riyadh',
+        destinationFull: 'Riyadh, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 870–890 km',
+        distanceHeadline: '~880 km',
+        drivingTimeRange: 'approximately 8–9 hours of continuous driving',
+        drivingTimeHeadline: '~8–9 hrs',
+        routeHeadline: 'Via Al Batha Border, along the Empty Quarter',
+        borderName: 'Al Batha',
+        travelType: 'International (cross-border)',
+
+        routeDescription: [
+            "The road distance from Abu Dhabi to Riyadh is approximately 870 to 890 km. Independent route calculators and our own dispatch figures agree closely on this range — one of the shorter and more consistently reported GCC-to-Riyadh distances we cover.",
+            "Your exact pickup point in Abu Dhabi and drop-off point in Riyadh both affect the total by a modest amount, same as any international route.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 8 to 9 hours at normal highway speeds — the shortest of our UAE-Riyadh routes.",
+            "Total journey time is longer once you add the Al Batha border crossing, fuel and rest stops, and meals. Border processing can typically add anywhere from 30 minutes to 2 hours depending on the season and time of day.",
+            "Traffic and border volume both vary by day and season — build in extra time during peak travel periods.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs from Abu Dhabi to the Al Batha border crossing, then continues along the edge of the Rub' al Khali (Empty Quarter) desert into the Saudi capital.",
+            "We're not naming specific interior highway numbers here, since routing can vary by provider. Use the map below or a live navigation app for turn-by-turn routing closer to your travel date.",
+        ],
+        borderDescription: [
+            "This route crosses into Saudi Arabia at the Al Batha border, the crossing point used for UAE-Saudi road travel — known as Al Ghuwaifat on the UAE side.",
+            "You'll go through UAE exit procedures on the Abu Dhabi side and Saudi entry procedures — passport control, visa verification and vehicle documentation checks — on the Saudi side.",
+            "Every passenger needs a valid passport and correct Saudi visa/entry permission; requirements vary by nationality and residency status, so confirm your own eligibility before traveling. We're a transport provider, not an immigration authority.",
+            "Border processing time varies by day, season and volume — typically 30 minutes to 2 hours, though we don't promise a fixed crossing time.",
+        ],
+        byCarNote: "At 8-9 hours plus the border crossing, most business travelers and families crossing from Abu Dhabi choose a pre-booked private transfer over self-driving — it removes the driving fatigue while someone else manages the border formalities.",
+        journeyPlanningNote: "Confirm your visa/entry requirements for Saudi Arabia before traveling, since these vary by nationality and residency status.",
+        bestTimeNote: "Border traffic at Al Batha varies by day and volume, and can be busier around weekends and holidays. Build in extra buffer if you have a fixed arrival time in Riyadh.",
+
+        mapOriginQuery: 'Abu Dhabi, UAE',
+        mapDestinationQuery: 'Riyadh, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Abu Dhabi to Riyadh Taxi',
+            url: '/routes/abu-dhabi-riyadh/',
+            description: 'Pre-booked private cross-border transfer from Abu Dhabi to Riyadh.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Riyadh to Abu Dhabi Taxi',
+            url: '/routes/riyadh-abu-dhabi/',
+            description: 'Book the return leg from Riyadh back to Abu Dhabi.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Abu Dhabi to Makkah Taxi', url: '/routes/abu-dhabi-makkah/', description: 'Private transfer from Abu Dhabi to Makkah.' },
+            { name: 'Abu Dhabi to Madinah Taxi', url: '/routes/abu-dhabi-madinah/', description: 'Private transfer from Abu Dhabi to Madinah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Riyadh Transport Guide',
+            url: '/locations/riyadh/',
+            description: 'Local Riyadh taxi and chauffeur information.',
+        },
+        relatedBorderLink: {
+            name: 'Al Batha Border Crossing Guide',
+            url: '/border-crossings/taxi-al-batha-border-crossing/',
+            description: 'What to expect crossing the UAE-Saudi border by private vehicle.',
+        },
+        relatedDistanceSlugs: ['abu-dhabi-to-makkah', 'abu-dhabi-to-madinah'],
+
+        seoTitle: 'Abu Dhabi to Riyadh Distance by Road | Driving Time & Map',
+        metaDescription: 'Abu Dhabi to Riyadh distance by road, estimated driving time, route map and border information. See how far Riyadh is from Abu Dhabi by car.',
+        h1: 'Abu Dhabi to Riyadh Distance by Road',
+
+        faqs: [
+            { question: 'How far is Abu Dhabi from Riyadh by road?', shortAnswer: 'Approximately 870–890 km', detailedAnswer: "By road via the Al Batha border, Abu Dhabi to Riyadh is approximately 870 to 890 km — the shortest of our UAE-Riyadh routes." },
+            { question: 'How long does Abu Dhabi to Riyadh take by car?', shortAnswer: 'Approximately 8–9 hours of driving', detailedAnswer: "Pure driving time is approximately 8 to 9 hours. Border processing can add 30 minutes to 2 hours on top of that." },
+            { question: 'Which border do you cross from Abu Dhabi to Riyadh?', shortAnswer: 'Al Batha', detailedAnswer: "The Al Batha border (Al Ghuwaifat on the UAE side) is the crossing point used for UAE-Saudi road travel on this route." },
+            { question: 'What documents do I need?', shortAnswer: 'A valid passport and correct Saudi visa/entry permission', detailedAnswer: "Every passenger needs a valid passport and correct Saudi visa or entry permission; requirements vary by nationality, so confirm your own eligibility before traveling." },
+            { question: 'Can I book a private transfer from Abu Dhabi to Riyadh?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Abu Dhabi to Riyadh private taxi service, with a single vehicle from your Abu Dhabi pickup through to your Riyadh drop-off point." },
+            { question: 'What is the Abu Dhabi to Riyadh driving distance?', shortAnswer: 'Roughly 880 km by road', detailedAnswer: "Routing tools generally agree closely on approximately 870 to 890 km for this route." },
+            { question: 'Can I book a return taxi from Riyadh to Abu Dhabi?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Riyadh to Abu Dhabi taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the border entirely, and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Abu Dhabi to Riyadh distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "Figures vary because each source may use a different exact starting address, destination point, or mapping provider. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'doha-to-riyadh': {
+        slug: 'doha-to-riyadh',
+        origin: 'Doha',
+        originFull: 'Doha, Qatar',
+        originCountry: 'Qatar',
+        destination: 'Riyadh',
+        destinationFull: 'Riyadh, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 578–620 km',
+        distanceHeadline: '~590 km',
+        drivingTimeRange: 'approximately 6–7 hours of continuous driving',
+        drivingTimeHeadline: '~6–7 hrs',
+        routeHeadline: 'Via Salwa Border, Northwest to Riyadh',
+        borderName: 'Salwa / Abu Samra',
+        travelType: 'International (cross-border)',
+
+        routeDescription: [
+            "The road distance from Doha to Riyadh is approximately 578 to 620 km. Independent route calculators and our own dispatch figures agree closely on this range — one of the more manageable long-distance GCC routes we operate.",
+            "Your exact pickup point in Doha and drop-off point in Riyadh both affect the total by a modest amount.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 6 to 7 hours at normal highway speeds — a comfortable single-day drive.",
+            "Total journey time is longer once you add the Salwa border crossing, fuel and rest stops, and meals. Border processing can typically add anywhere from 30 minutes to 2 hours depending on the season and time of day.",
+            "Traffic and border volume both vary by day and season — build in extra time during peak travel periods.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs from Doha via the Salwa Road to the Abu Samra/Salwa border, then continues north-west across the Kingdom's interior to Riyadh.",
+            "We're not naming specific interior highway numbers here, since routing can vary by provider — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        borderDescription: [
+            "This is the only land crossing between Qatar and Saudi Arabia — known as Salwa on the Saudi side and Abu Samra on the Qatar side.",
+            "You'll go through Qatari exit procedures on the Doha side and Saudi entry procedures — passport control, visa verification and vehicle documentation checks — on the Saudi side.",
+            "Every passenger needs a valid passport and correct Saudi visa/entry permission; requirements vary by nationality, so confirm your own eligibility before traveling. We are a transport provider, not an immigration authority.",
+            "Border processing time varies by day and volume — typically 30 minutes to 2 hours, though we don't promise a fixed crossing time.",
+        ],
+        byCarNote: "At 6-7 hours plus the border crossing, this is one of the more manageable GCC-to-Riyadh routes — still, many business travelers and families prefer a pre-booked private transfer over self-driving, since it removes the fatigue and border-documentation burden.",
+        journeyPlanningNote: "Confirm your visa/entry requirements for Saudi Arabia before traveling, since these vary by nationality and residency status.",
+        bestTimeNote: "Border traffic at Salwa varies by day and volume, and can be busier around weekends and holidays. Build in extra buffer if you have a fixed arrival time in Riyadh.",
+
+        mapOriginQuery: 'Doha, Qatar',
+        mapDestinationQuery: 'Riyadh, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Doha to Riyadh Taxi',
+            url: '/routes/doha-riyadh/',
+            description: 'Pre-booked private cross-border transfer from Doha to Riyadh.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Riyadh to Doha Taxi',
+            url: '/routes/riyadh-doha/',
+            description: 'Book the return leg from Riyadh back to Doha.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Doha to Makkah Taxi', url: '/routes/doha-makkah/', description: 'Private transfer from Doha to Makkah.' },
+            { name: 'Doha to Madinah Taxi', url: '/routes/doha-madinah/', description: 'Private transfer from Doha to Madinah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Riyadh Transport Guide',
+            url: '/locations/riyadh/',
+            description: 'Local Riyadh taxi and chauffeur information.',
+        },
+        relatedBorderLink: {
+            name: 'Salwa Border Crossing Guide',
+            url: '/border-crossings/taxi-salwa-border-crossing/',
+            description: 'What to expect crossing the Qatar-Saudi border by private vehicle.',
+        },
+        relatedDistanceSlugs: ['doha-to-makkah', 'doha-to-madinah'],
+
+        seoTitle: 'Doha to Riyadh Distance by Road | Driving Time & Map',
+        metaDescription: 'Doha to Riyadh distance by road, estimated driving time, route map and border information. See how far Riyadh is from Doha by car.',
+        h1: 'Doha to Riyadh Distance by Road',
+
+        faqs: [
+            { question: 'How far is Doha from Riyadh by road?', shortAnswer: 'Approximately 578–620 km', detailedAnswer: "By road via the Salwa border, Doha to Riyadh is approximately 578 to 620 km — one of the more manageable long-distance GCC routes." },
+            { question: 'How long does Doha to Riyadh take by car?', shortAnswer: 'Approximately 6–7 hours of driving', detailedAnswer: "Pure driving time is approximately 6 to 7 hours. Border processing can add 30 minutes to 2 hours on top of that." },
+            { question: 'Which border do you cross from Doha to Riyadh?', shortAnswer: 'Salwa (Saudi side) / Abu Samra (Qatar side)', detailedAnswer: "The only land crossing between Qatar and Saudi Arabia is known as Salwa on the Saudi side and Abu Samra on the Qatar side." },
+            { question: 'What documents do I need?', shortAnswer: 'A valid passport and correct Saudi visa/entry permission', detailedAnswer: "Every passenger needs a valid passport and correct Saudi visa or entry permission; requirements vary by nationality, so confirm your own eligibility before traveling." },
+            { question: 'Can I book a private transfer from Doha to Riyadh?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Doha to Riyadh private taxi service, with a single vehicle from your Doha pickup through to your Riyadh drop-off point." },
+            { question: 'What is the Doha to Riyadh driving distance?', shortAnswer: 'Roughly 590 km by road', detailedAnswer: "Routing tools generally show approximately 578 to 620 km for this route, depending on the exact route across Saudi Arabia." },
+            { question: 'Can I book a return taxi from Riyadh to Doha?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Riyadh to Doha taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the border entirely, and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Doha to Riyadh distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "Figures vary because each source may use a different exact starting address, destination point, or mapping provider. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'bahrain-to-riyadh': {
+        slug: 'bahrain-to-riyadh',
+        origin: 'Bahrain',
+        originFull: 'Manama, Bahrain',
+        originCountry: 'Bahrain',
+        destination: 'Riyadh',
+        destinationFull: 'Riyadh, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 460–495 km',
+        distanceHeadline: '~480 km',
+        drivingTimeRange: 'approximately 4.5–5.5 hours of continuous driving',
+        drivingTimeHeadline: '~4.5–5.5 hrs',
+        routeHeadline: 'Via King Fahd Causeway & Highway 95',
+        borderName: 'King Fahd Causeway',
+        travelType: 'International (cross-border)',
+
+        routeDescription: [
+            "The road distance from Bahrain to Riyadh is approximately 460 to 495 km — one of the shorter GCC-to-Riyadh routes, and a genuine half-day drive.",
+            "This route is unusual in that it starts with a fixed-length bridge crossing — the King Fahd Causeway itself is 25 km long — before the open-road driving into Saudi Arabia's interior begins.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 4.5 to 5.5 hours of continuous highway driving, not counting the causeway crossing itself — comfortably doable in a single sitting with one rest stop.",
+            "Total journey time is longer once you add the causeway border crossing — which can range from roughly 30 minutes to over 2 hours depending on day and time — plus fuel and rest stops.",
+            "Weekends (Thursdays and Saturdays) and public holidays on either side tend to bring heavier causeway traffic.",
+        ],
+        routeJourneyDescription: [
+            "The journey starts by crossing the King Fahd Causeway from Bahrain into Saudi Arabia's Eastern Province, then continues west along Highway 95 through the Eastern Province to Riyadh.",
+            "This is a well-serviced corridor given how frequently it's used for Bahrain-Riyadh business and family travel.",
+        ],
+        borderDescription: [
+            "This route crosses the King Fahd Causeway, the only land link between Bahrain and Saudi Arabia — a 25 km bridge with border facilities partway across.",
+            "You'll go through Bahraini exit procedures on the Bahrain side and Saudi entry procedures — passport control, visa verification, and vehicle documentation checks — on the Saudi side.",
+            "Every passenger needs a valid passport and the correct visa or entry permission for Saudi Arabia. Requirements vary by nationality and residency status, so confirm your own eligibility before traveling — we're a transport provider, not an immigration authority.",
+            "Causeway wait times vary meaningfully by day and hour; see our dedicated King Fahd Causeway border crossing guide for more detail on what affects wait times.",
+        ],
+        byCarNote: "At 4.5-5.5 hours plus the causeway crossing, this is a comfortable single-day journey with time to spare for a rest stop — no overnight stay needed. Still, many travelers prefer a pre-booked private transfer so someone else manages the causeway crossing and documentation.",
+        journeyPlanningNote: "Confirm your visa/entry requirements for Saudi Arabia before traveling, since these vary by nationality and residency status.",
+        bestTimeNote: "Weekend causeway traffic (Thursdays/Saturdays) adds real time to this journey — traveling on a weekday tends to be smoother.",
+
+        mapOriginQuery: 'Manama, Bahrain',
+        mapDestinationQuery: 'Riyadh, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Bahrain to Riyadh Taxi',
+            url: '/routes/bahrain-riyadh/',
+            description: 'Pre-booked private cross-border transfer from Bahrain to Riyadh.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Riyadh to Bahrain Taxi',
+            url: '/routes/riyadh-bahrain/',
+            description: 'Book the return leg from Riyadh back to Bahrain.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Bahrain to Makkah Taxi', url: '/routes/bahrain-makkah/', description: 'Private transfer from Bahrain to Makkah.' },
+            { name: 'Bahrain to Madinah Taxi', url: '/routes/bahrain-madinah/', description: 'Private transfer from Bahrain to Madinah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Riyadh Transport Guide',
+            url: '/locations/riyadh/',
+            description: 'Local Riyadh taxi and chauffeur information.',
+        },
+        relatedBorderLink: {
+            name: 'King Fahd Causeway Border Guide',
+            url: '/border-crossings/taxi-king-fahd-causeway-border-crossing/',
+            description: 'What to expect crossing the Bahrain-Saudi causeway.',
+        },
+        relatedDistanceSlugs: ['bahrain-to-makkah', 'bahrain-to-madinah'],
+
+        seoTitle: 'Bahrain to Riyadh Distance by Road | Driving Time & Map',
+        metaDescription: 'Bahrain to Riyadh distance by road, estimated driving time, route map and border information. See how far Riyadh is from Bahrain by car.',
+        h1: 'Bahrain to Riyadh Distance by Road',
+
+        faqs: [
+            { question: 'How far is Bahrain from Riyadh by road?', shortAnswer: 'Approximately 460–495 km', detailedAnswer: "By road via the King Fahd Causeway, Bahrain to Riyadh is approximately 460 to 495 km — one of the shorter GCC-to-Riyadh routes." },
+            { question: 'How long does Bahrain to Riyadh take by car?', shortAnswer: 'Approximately 4.5–5.5 hours of driving', detailedAnswer: "Pure driving time (excluding the causeway crossing) is approximately 4.5 to 5.5 hours — a comfortable single-day journey." },
+            { question: 'Which border do you cross from Bahrain to Riyadh?', shortAnswer: 'The King Fahd Causeway', detailedAnswer: "The only land link between Bahrain and Saudi Arabia is the King Fahd Causeway, a 25 km bridge with border facilities partway across." },
+            { question: 'What route connects Bahrain and Riyadh?', shortAnswer: 'The King Fahd Causeway, then Highway 95', detailedAnswer: "The route crosses the causeway into the Eastern Province, then continues west along Highway 95 through to Riyadh." },
+            { question: 'Can I book a private transfer from Bahrain to Riyadh?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Bahrain to Riyadh private taxi service, with a single vehicle from your Bahrain pickup through to your Riyadh drop-off point." },
+            { question: 'What is the Bahrain to Riyadh driving distance?', shortAnswer: 'Roughly 480 km by road', detailedAnswer: "Routing tools generally show approximately 460 to 495 km for this route." },
+            { question: 'Can I book a return taxi from Riyadh to Bahrain?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Riyadh to Bahrain taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the causeway entirely, and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Bahrain to Riyadh distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "Figures vary because each source may use a different exact starting address, destination point, or mapping provider. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'kuwait-to-riyadh': {
+        slug: 'kuwait-to-riyadh',
+        origin: 'Kuwait',
+        originFull: 'Kuwait City, Kuwait',
+        originCountry: 'Kuwait',
+        destination: 'Riyadh',
+        destinationFull: 'Riyadh, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 630–720 km',
+        distanceHeadline: '~660 km',
+        drivingTimeRange: 'approximately 7–8 hours of continuous driving',
+        drivingTimeHeadline: '~7–8 hrs',
+        routeHeadline: 'Via Khafji / Nuwaiseeb Border',
+        borderName: 'Khafji / Nuwaiseeb',
+        travelType: 'International (cross-border)',
+
+        routeDescription: [
+            "The road distance from Kuwait City to Riyadh is approximately 630 to 720 km. Independent route calculators show a real spread across this range, and our own dispatch figure of around 650 km sits comfortably in the middle.",
+            "Your exact pickup point in Kuwait City and drop-off point in Riyadh both affect the total, as does which route a mapping tool selects.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 7 to 8 hours at normal highway speeds — a genuine full-day drive.",
+            "Total journey time is longer once you add the Kuwait-Saudi border crossing, fuel and rest stops, and meals. Border processing time depends on traffic at the crossing.",
+            "Traffic and border volume both vary by day and season — build in extra time during peak travel periods.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs south from Kuwait City to the Kuwait-Saudi border, crosses into Saudi Arabia's Eastern Province, then continues into the interior toward Riyadh.",
+            "We're not naming specific interior highway numbers here, since routing can vary between providers — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        borderDescription: [
+            "This is an international route, crossing the land border between Kuwait and Saudi Arabia at the crossing known as Khafji on the Saudi side and Nuwaiseeb on the Kuwait side.",
+            "On the Kuwait side you'll go through Kuwaiti exit procedures — passport control and any applicable vehicle checks. On the Saudi side, Saudi entry procedures apply — passport control, visa verification, and vehicle documentation checks.",
+            "Every passenger needs a valid passport and the correct visa or entry permission for Saudi Arabia — requirements vary by nationality and residency status, so confirm your own eligibility with the relevant embassy or a licensed visa service before traveling. We are a transport provider, not an immigration authority.",
+            "Border processing time genuinely varies by day, time and season, and we don't promise a fixed crossing time.",
+        ],
+        byCarNote: "At 7-8 hours plus the border crossing, most business travelers and families prefer a pre-booked private transfer over self-driving — it removes the driving fatigue while someone else manages the cross-border documentation.",
+        journeyPlanningNote: "Confirm your visa/entry requirements for Saudi Arabia before traveling, since these vary by nationality and residency status.",
+        bestTimeNote: "Border traffic at Khafji/Nuwaiseeb varies by day and volume, and can be busier around weekends and holidays. Build in extra buffer if you have a fixed arrival time in Riyadh.",
+
+        mapOriginQuery: 'Kuwait City, Kuwait',
+        mapDestinationQuery: 'Riyadh, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Kuwait to Riyadh Taxi',
+            url: '/routes/kuwait-riyadh/',
+            description: 'Pre-booked private cross-border transfer from Kuwait to Riyadh.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Riyadh to Kuwait Taxi',
+            url: '/routes/riyadh-kuwait/',
+            description: 'Book the return leg from Riyadh back to Kuwait.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Kuwait to Makkah Taxi', url: '/routes/kuwait-makkah/', description: 'Private transfer from Kuwait to Makkah.' },
+            { name: 'Kuwait to Madinah Taxi', url: '/routes/kuwait-madinah/', description: 'Private transfer from Kuwait to Madinah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Riyadh Transport Guide',
+            url: '/locations/riyadh/',
+            description: 'Local Riyadh taxi and chauffeur information.',
+        },
+        relatedBorderLink: {
+            name: 'Khafji Border Crossing Guide',
+            url: '/border-crossings/taxi-khafji-border-crossing/',
+            description: 'What to expect crossing the Kuwait-Saudi border by private vehicle.',
+        },
+        relatedDistanceSlugs: ['kuwait-to-makkah', 'kuwait-to-madinah'],
+
+        seoTitle: 'Kuwait to Riyadh Distance by Road | Driving Time & Map',
+        metaDescription: 'Kuwait to Riyadh distance by road, estimated driving time, route map and border information. See how far Riyadh is from Kuwait by car.',
+        h1: 'Kuwait to Riyadh Distance by Road',
+
+        faqs: [
+            { question: 'How far is Kuwait from Riyadh by road?', shortAnswer: 'Approximately 630–720 km', detailedAnswer: "By road, Kuwait City to Riyadh is approximately 630 to 720 km. The exact figure depends on your starting point and which route a mapping service calculates." },
+            { question: 'How long does Kuwait to Riyadh take by car?', shortAnswer: 'Approximately 7–8 hours of driving', detailedAnswer: "Pure driving time is approximately 7 to 8 hours. Total journey time is longer once you add the border crossing, fuel/rest stops, and meals." },
+            { question: 'Which border do you cross from Kuwait to Riyadh?', shortAnswer: 'Khafji (Saudi side) / Nuwaiseeb (Kuwait side)', detailedAnswer: "The main Kuwait-Saudi land crossing is known as Khafji on the Saudi side and Nuwaiseeb on the Kuwait side — the same physical crossing point under two names." },
+            { question: 'What documents do I need?', shortAnswer: 'A valid passport and correct Saudi visa/entry permission', detailedAnswer: "Every passenger needs a valid passport and correct Saudi visa or entry permission; requirements vary by nationality, so confirm your own eligibility before traveling." },
+            { question: 'Can I book a private transfer from Kuwait to Riyadh?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Kuwait to Riyadh private taxi service, with a single vehicle from your Kuwait pickup through to your Riyadh drop-off point." },
+            { question: 'What is the Kuwait to Riyadh driving distance?', shortAnswer: 'Roughly 660 km by road', detailedAnswer: "Routing tools show a range of approximately 630 to 720 km for this route." },
+            { question: 'Can I book a return taxi from Riyadh to Kuwait?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Riyadh to Kuwait taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the border crossing entirely, and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Kuwait to Riyadh distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "Figures vary because each source may use a different exact starting address, destination point, or mapping provider. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'muscat-to-riyadh': {
+        slug: 'muscat-to-riyadh',
+        origin: 'Muscat',
+        originFull: 'Muscat, Oman',
+        originCountry: 'Oman',
+        destination: 'Riyadh',
+        destinationFull: 'Riyadh, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 1,345–1,357 km',
+        distanceHeadline: '~1,350 km',
+        drivingTimeRange: 'approximately 12–14 hours of continuous driving',
+        drivingTimeHeadline: '~12–14 hrs',
+        routeHeadline: 'Via the Rub al Khali Border, near Ibri',
+        borderName: 'Rub al Khali / Ramlat Khaliya',
+        travelType: 'International (cross-border, 2-day journey may be preferable)',
+
+        routeDescription: [
+            "The road distance from Muscat to Riyadh is approximately 1,345 to 1,357 km — independent route calculators and our own dispatch figures converge unusually closely on this one, making it one of the more consistently reported long-distance GCC figures we cover.",
+            "Your exact pickup point in Muscat and drop-off point in Riyadh shift the total by a modest amount.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 12 to 14 hours of continuous highway driving — a genuine full-day private hire.",
+            "Given the length, some travelers split this into two days with an overnight stop, particularly if a second driver isn't joining partway through. Border processing, fuel and rest stops all add to total journey time.",
+            "Border volume and interior road conditions both vary by day and season, adding uncertainty on top of the pure driving estimate.",
+        ],
+        routeJourneyDescription: [
+            "The road route crosses Oman's interior near the town of Ibri before reaching the border with Saudi Arabia, then continues across the Kingdom's interior to Riyadh.",
+            "We're not naming specific interior highway numbers here, since routing can vary by provider. Use the map below or live navigation for your actual travel date.",
+        ],
+        borderDescription: [
+            "This is the only land crossing between Oman and Saudi Arabia — known as Ramlat Khaliya on the Omani side and Rub al Khali on the Saudi side, connecting Oman's Ad Dhahirah region (near Ibri) with Saudi Arabia's Eastern Province through the Rub' al Khali (Empty Quarter) desert.",
+            "You'll go through Omani exit procedures on the Muscat side and Saudi entry procedures — passport control, visa verification and vehicle documentation checks — on the Saudi side.",
+            "Every passenger needs a valid passport and correct Saudi visa/entry permission; requirements vary by nationality and residency status, so confirm your own eligibility before traveling. We're a transport provider, not an immigration authority.",
+            "Given the remote desert location of this crossing, plan for a genuinely long, isolated stretch of driving on either side — border processing time itself varies by day and volume, typically 30 minutes to 2 hours, though we don't promise a fixed crossing time.",
+        ],
+        byCarNote: "At 12-14 hours plus a remote desert border crossing, this is a genuine full-day private hire — for the long drive, ask about a second driver joining partway for a safer, more comfortable journey, or plan a scheduled overnight stop.",
+        journeyPlanningNote: "Confirm your visa/entry requirements for Saudi Arabia before traveling. Given the remote desert terrain on parts of this route, plan for extra water and supplies.",
+        bestTimeNote: "Given the length and remoteness of this route, avoid starting late in the day. Border processing time can vary between 30 minutes and 2 hours depending on the season and time of day.",
+
+        mapOriginQuery: 'Muscat, Oman',
+        mapDestinationQuery: 'Riyadh, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Muscat to Riyadh Taxi',
+            url: '/routes/muscat-riyadh/',
+            description: 'Pre-booked private cross-border transfer from Muscat to Riyadh.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Riyadh to Muscat Taxi',
+            url: '/routes/riyadh-muscat/',
+            description: 'Book the return leg from Riyadh back to Muscat.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Muscat to Makkah Taxi', url: '/routes/muscat-makkah/', description: 'Private transfer from Muscat to Makkah.' },
+            { name: 'Muscat to Madinah Taxi', url: '/routes/muscat-madinah/', description: 'Private transfer from Muscat to Madinah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Riyadh Transport Guide',
+            url: '/locations/riyadh/',
+            description: 'Local Riyadh taxi and chauffeur information.',
+        },
+        relatedBorderLink: {
+            name: 'Rub al Khali Border Crossing Guide',
+            url: '/border-crossings/taxi-rub-al-khali-border-crossing/',
+            description: 'What to expect crossing the Oman-Saudi border by private vehicle.',
+        },
+        relatedDistanceSlugs: ['muscat-to-makkah'],
+
+        seoTitle: 'Muscat to Riyadh Distance by Road | Driving Time & Map',
+        metaDescription: 'Muscat to Riyadh distance by road, estimated driving time, route map and border information. See how far Riyadh is from Muscat by car.',
+        h1: 'Muscat to Riyadh Distance by Road',
+
+        faqs: [
+            { question: 'How far is Muscat from Riyadh by road?', shortAnswer: 'Approximately 1,345–1,357 km', detailedAnswer: "By road via the Rub al Khali border, Muscat to Riyadh is approximately 1,345 to 1,357 km — one of the more consistently reported long-distance GCC figures." },
+            { question: 'How long does Muscat to Riyadh take by car?', shortAnswer: 'Approximately 12–14 hours of driving', detailedAnswer: "Pure driving time is approximately 12 to 14 hours. Some travelers split this into two days with an overnight stop given the length." },
+            { question: 'Which border do you cross from Muscat to Riyadh?', shortAnswer: 'Ramlat Khaliya (Oman side) / Rub al Khali (Saudi side)', detailedAnswer: "The only land crossing between Oman and Saudi Arabia connects Oman's Ad Dhahirah region (near Ibri) with Saudi Arabia's Eastern Province through the Rub' al Khali (Empty Quarter) desert." },
+            { question: 'What documents do I need?', shortAnswer: 'A valid passport and correct Saudi visa/entry permission', detailedAnswer: "Every passenger needs a valid passport and correct Saudi visa or entry permission; requirements vary by nationality, so confirm your own eligibility before traveling." },
+            { question: 'Can I book a private transfer from Muscat to Riyadh?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Muscat to Riyadh private taxi service. For the long drive, ask about a second driver joining partway for a safer, more comfortable journey." },
+            { question: 'What is the Muscat to Riyadh driving distance?', shortAnswer: 'Roughly 1,350 km by road', detailedAnswer: "Routing tools converge closely on approximately 1,345 to 1,357 km for this route." },
+            { question: 'Can I book a return taxi from Riyadh to Muscat?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Riyadh to Muscat taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the border entirely, and is always shorter than the actual driving distance — the gap is especially large on a route this long." },
+            { question: 'Why do different websites show different Muscat to Riyadh distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "Figures vary because each source may use a different exact starting address, destination point, or mapping provider. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'jeddah-to-riyadh': {
+        slug: 'jeddah-to-riyadh',
+        origin: 'Jeddah',
+        originFull: 'Jeddah, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Riyadh',
+        destinationFull: 'Riyadh, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 950–967 km',
+        distanceHeadline: '~955 km',
+        drivingTimeRange: 'approximately 8.5–10 hours of continuous driving',
+        drivingTimeHeadline: '~8.5–10 hrs',
+        routeHeadline: 'Direct via Highway 40',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Jeddah to Riyadh is approximately 950 to 967 km, running the width of the country via Highway 40 — one of the Kingdom's main east-west corridors. Independent route calculators and our own commercial route data agree closely on this range.",
+            "Your exact pickup point within Jeddah and drop-off point in Riyadh can still shift the total by a small amount.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 8.5 to 10 hours at normal highway speeds — a demanding full-day drive on a well-maintained road.",
+            "Total journey time is a little longer once you add rest stops, meals, and normal daytime traffic around both cities.",
+            "This is one of the more heavily traveled long-distance corridors in the Kingdom, so services and rest stops along Highway 40 are frequent.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs east from Jeddah on the Red Sea coast across the central Saudi interior to Riyadh, following Highway 40 for essentially the entire journey. As a fully domestic route, there's no border to cross.",
+            "Given how well-established this corridor is, this is a genuine alternative to flying for travelers who want a private, door-to-door journey.",
+        ],
+        byCarNote: "Jeddah to Riyadh is a genuinely long day's drive at 8.5-10 hours — manageable for a confident self-driver with regular stops on a well-serviced highway, but many travelers, particularly families or business travelers who want to arrive rested, prefer a private chauffeur-driven transfer instead.",
+        journeyPlanningNote: "This is a well-serviced corridor with frequent rest stops, so extensive advance planning is less critical here than on our more remote routes.",
+        bestTimeNote: "Weekday daytime traffic is generally lighter than weekends and public holidays around both cities.",
+
+        mapOriginQuery: 'Jeddah, Saudi Arabia',
+        mapDestinationQuery: 'Riyadh, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Jeddah to Riyadh Taxi',
+            url: '/routes/jeddah-riyadh/',
+            description: 'Pre-booked private transfer from Jeddah to Riyadh.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Riyadh to Jeddah Taxi',
+            url: '/routes/riyadh-jeddah/',
+            description: 'Book the return leg from Riyadh back to Jeddah.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Jeddah to Makkah Taxi', url: '/routes/jeddah-makkah/', description: 'Private transfer from Jeddah to Makkah.' },
+            { name: 'Jeddah to Madinah Taxi', url: '/routes/jeddah-madinah/', description: 'Private transfer from Jeddah to Madinah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Riyadh Transport Guide',
+            url: '/locations/riyadh/',
+            description: 'Local Riyadh taxi and chauffeur information.',
+        },
+        relatedDistanceSlugs: ['riyadh-to-makkah', 'jeddah-to-makkah', 'jeddah-to-madinah'],
+
+        seoTitle: 'Jeddah to Riyadh Distance by Road | Driving Time & Map',
+        metaDescription: 'Jeddah to Riyadh distance by road, estimated driving time, route map and journey information. See how far Riyadh is from Jeddah by car.',
+        h1: 'Jeddah to Riyadh Distance by Road',
+
+        faqs: [
+            { question: 'How far is Jeddah from Riyadh by road?', shortAnswer: 'Approximately 950–967 km', detailedAnswer: "By road via Highway 40, Jeddah to Riyadh is approximately 950 to 967 km — one of the Kingdom's main east-west highway corridors." },
+            { question: 'How long does Jeddah to Riyadh take by car?', shortAnswer: 'Approximately 8.5–10 hours of driving', detailedAnswer: "Pure driving time is approximately 8.5 to 10 hours at normal highway speeds. Total journey time is a little longer with rest stops and traffic." },
+            { question: 'What route connects Jeddah and Riyadh?', shortAnswer: 'Highway 40', detailedAnswer: "Highway 40 is the main highway connecting Jeddah to Riyadh, running largely straight across the central Saudi interior." },
+            { question: 'Can I book a private Jeddah to Riyadh taxi?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Jeddah to Riyadh private taxi service, with a single vehicle from your Jeddah pickup through to your Riyadh drop-off point." },
+            { question: 'What is the Jeddah to Riyadh driving distance?', shortAnswer: 'Roughly 955 km by road', detailedAnswer: "Routing tools generally agree closely on approximately 950 to 967 km for this well-established domestic route." },
+            { question: 'Can families travel from Jeddah to Riyadh by car?', shortAnswer: 'Yes', detailedAnswer: "Yes. At 8.5-10 hours, this is a long but manageable day's drive for most families, especially with a private vehicle and planned rest stops." },
+            { question: 'Can I book a return taxi from Riyadh to Jeddah?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Riyadh to Jeddah taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance, which follows real highways and terrain." },
+            { question: 'Why do different websites show different Jeddah to Riyadh distances?', shortAnswer: 'Different exact start/end points and routing engines', detailedAnswer: "Even on a well-established domestic highway, exact pickup and drop-off points and different mapping providers can shift the total by a modest amount. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'riyadh-to-yanbu': {
+        slug: 'riyadh-to-yanbu',
+        origin: 'Riyadh',
+        originFull: 'Riyadh, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Yanbu',
+        destinationFull: 'Yanbu, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 1,038–1,085 km',
+        distanceHeadline: '~1,060 km',
+        drivingTimeRange: 'approximately 10–11 hours of continuous driving',
+        drivingTimeHeadline: '~10–11 hrs',
+        routeHeadline: 'Via the Interior, West to the Red Sea Coast',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Riyadh to Yanbu is approximately 1,038 to 1,085 km — one of the longer domestic routes we cover, crossing the width of the Kingdom from the capital to the Red Sea coast.",
+            "Independent route calculators show some spread on this route; your exact pickup point in Riyadh and drop-off point in Yanbu both affect the total.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 10 to 11 hours at normal highway speeds — a genuinely long full-day drive.",
+            "Total journey time is longer once you add fuel and rest stops and meals over a 1,000+ km trip. Most travelers treat this as a long single-day push with several stops, or split it across two days.",
+            "Traffic is generally light on this route outside the two cities themselves.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs west from Riyadh across the Saudi interior toward Yanbu, the Red Sea coastal city and industrial port. As a fully domestic route, there's no border crossing.",
+            "We're not naming specific highway numbers here, since routing can vary between providers — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        byCarNote: "Given the genuine length of this route, a private chauffeur-driven transfer is a popular choice — it removes the fatigue of a 10+ hour drive, particularly for engineers, consultants and business travelers making the trip for work at Yanbu's industrial facilities.",
+        journeyPlanningNote: "Plan for rest stops, water and snacks over this long domestic crossing — this isn't a route to underestimate given the distance involved.",
+        bestTimeNote: "Traffic is generally predictable on this route outside the two cities themselves, though weekday travel tends to be smoother around both endpoints.",
+
+        mapOriginQuery: 'Riyadh, Saudi Arabia',
+        mapDestinationQuery: 'Yanbu, Saudi Arabia',
+
+        // No dedicated Riyadh-Yanbu commercial route page exists yet in either
+        // direction — per spec we don't guess or create one. A genuine two-leg
+        // alternative exists via Jeddah, since Yanbu sits close to Jeddah on the coast.
+        relatedTaxiRoutes: [
+            { name: 'Riyadh to Jeddah Taxi', url: '/routes/riyadh-jeddah/', description: 'Combine with a Jeddah to Yanbu transfer for a two-leg journey.' },
+            { name: 'Jeddah to Yanbu Taxi', url: '/routes/jeddah-yanbu/', description: 'The short coastal leg from Jeddah to Yanbu.' },
+        ],
+        relatedLocationLink: {
+            name: 'Yanbu Transport Guide',
+            url: '/locations/yanbu/',
+            description: 'Local Yanbu information.',
+        },
+        relatedDistanceSlugs: ['riyadh-to-makkah', 'riyadh-to-madinah', 'yanbu-to-makkah', 'yanbu-to-madinah'],
+        noDirectRouteNote: "We don't yet have a dedicated Riyadh to Yanbu booking page on this site. Contact us directly via WhatsApp for a custom quote — or if your schedule is flexible, our Riyadh to Jeddah service combined with a Jeddah to Yanbu transfer covers the same overall journey in two legs.",
+
+        seoTitle: 'Riyadh to Yanbu Distance by Road | Driving Time & Map',
+        metaDescription: 'Riyadh to Yanbu distance by road, estimated driving time, route map and journey information. See how far Yanbu is from Riyadh by car.',
+        h1: 'Riyadh to Yanbu Distance by Road',
+
+        faqs: [
+            { question: 'How far is Riyadh from Yanbu by road?', shortAnswer: 'Approximately 1,038–1,085 km', detailedAnswer: "By road, Riyadh to Yanbu is approximately 1,038 to 1,085 km, crossing the width of the Kingdom to the Red Sea coast." },
+            { question: 'How long does Riyadh to Yanbu take by car?', shortAnswer: 'Approximately 10–11 hours of driving', detailedAnswer: "Pure driving time is approximately 10 to 11 hours at normal highway speeds. Total journey time is longer with rest stops." },
+            { question: 'Can I book a private transfer from Riyadh to Yanbu?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "We don't have a dedicated booking page for this exact route yet, but yes — contact us via WhatsApp for a custom quote, or combine our Riyadh to Jeddah and Jeddah to Yanbu services." },
+            { question: 'What route connects Riyadh and Yanbu?', shortAnswer: 'The interior highway, west to the coast', detailedAnswer: "The route runs west from Riyadh across the Saudi interior to Yanbu on the Red Sea coast — we don't name a specific highway number here since routing can vary by provider." },
+            { question: 'What is the Riyadh to Yanbu driving distance?', shortAnswer: 'Roughly 1,060 km by road', detailedAnswer: "Routing tools show approximately 1,038 to 1,085 km for this long-distance domestic route." },
+            { question: 'Can families travel from Riyadh to Yanbu by car?', shortAnswer: 'Yes, with the right planning', detailedAnswer: "Yes. Given the 10-11 hour length, families typically plan for regular rest breaks, and many prefer a private vehicle with a professional driver over self-driving the full distance." },
+            { question: 'Is Riyadh to Yanbu an international route?', shortAnswer: 'No, fully domestic', detailedAnswer: "No — both are within Saudi Arabia, so there's no border crossing or international documentation required." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Riyadh to Yanbu distances?', shortAnswer: 'Different exact start/end points and routing engines', detailedAnswer: "Different mapping providers and exact starting/ending points can shift the total on a route this long. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'jeddah-to-yanbu': {
+        slug: 'jeddah-to-yanbu',
+        origin: 'Jeddah',
+        originFull: 'Jeddah, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Yanbu',
+        destinationFull: 'Yanbu, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 327–353 km',
+        distanceHeadline: '~335 km',
+        drivingTimeRange: 'approximately 3–3.5 hours of continuous driving',
+        drivingTimeHeadline: '~3–3.5 hrs',
+        routeHeadline: 'Direct via the Red Sea Coastal Highway',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Jeddah to Yanbu is approximately 327 to 353 km — a straightforward run up Saudi Arabia's Red Sea coast, one of the more consistently reported short-to-medium routes we cover.",
+            "Independent route calculators and our own commercial route data agree closely on this range.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 3 to 3.5 hours at normal highway speeds — a comfortable single trip without needing an overnight stop.",
+            "Total journey time is a little longer once you add rest stops and normal traffic around Jeddah city itself.",
+            "This is a well-serviced coastal corridor, given how frequently it's used by engineers, consultants and workers commuting to Yanbu's industrial city.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs north from Jeddah along the Red Sea coast to Yanbu — a straightforward, well-established coastal highway for essentially the entire journey. As a fully domestic route, there's no border crossing.",
+            "This route is particularly popular with professionals traveling to Yanbu's industrial and port facilities.",
+        ],
+        byCarNote: "Given the short distance, self-driving, taxi, and private chauffeur are all straightforward options — many business travelers and engineers prefer a private transfer for a predictable, hands-off journey along the coast.",
+        journeyPlanningNote: "This is a short trip, so extensive long-distance planning isn't necessary — the main consideration is timing your pickup around flight arrival if connecting through Jeddah's airport.",
+        bestTimeNote: "Traffic is generally predictable on this coastal route, with the main variable being congestion within Jeddah city itself at the start of the journey.",
+
+        mapOriginQuery: 'Jeddah, Saudi Arabia',
+        mapDestinationQuery: 'Yanbu, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Jeddah to Yanbu Taxi',
+            url: '/routes/jeddah-yanbu/',
+            description: 'Pre-booked private transfer from Jeddah to Yanbu.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Yanbu to Jeddah Taxi',
+            url: '/routes/yanbu-jeddah/',
+            description: 'Book the return leg from Yanbu back to Jeddah.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Jeddah to Madinah Taxi', url: '/routes/jeddah-madinah/', description: 'Private transfer from Jeddah to Madinah.' },
+            { name: 'Jeddah to Makkah Taxi', url: '/routes/jeddah-makkah/', description: 'Private transfer from Jeddah to Makkah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Yanbu Transport Guide',
+            url: '/locations/yanbu/',
+            description: 'Local Yanbu information.',
+        },
+        relatedDistanceSlugs: ['jeddah-to-madinah', 'jeddah-to-makkah', 'yanbu-to-madinah'],
+
+        seoTitle: 'Jeddah to Yanbu Distance by Road | Driving Time & Map',
+        metaDescription: 'Jeddah to Yanbu distance by road, estimated driving time, route map and journey information. See how far Yanbu is from Jeddah by car.',
+        h1: 'Jeddah to Yanbu Distance by Road',
+
+        faqs: [
+            { question: 'How far is Jeddah from Yanbu by road?', shortAnswer: 'Approximately 327–353 km', detailedAnswer: "By road, Jeddah to Yanbu is approximately 327 to 353 km, running up Saudi Arabia's Red Sea coast." },
+            { question: 'How long does Jeddah to Yanbu take by car?', shortAnswer: 'Approximately 3–3.5 hours of driving', detailedAnswer: "Pure driving time is approximately 3 to 3.5 hours at normal highway speeds — a comfortable single trip." },
+            { question: 'Can I book a private transfer from Jeddah to Yanbu?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Jeddah to Yanbu private taxi service, popular with engineers, consultants and workers heading to Yanbu's industrial city." },
+            { question: 'What route connects Jeddah and Yanbu?', shortAnswer: 'The Red Sea coastal highway', detailedAnswer: "A direct coastal highway runs north from Jeddah to Yanbu along the Red Sea — a well-established, straightforward route." },
+            { question: 'What is the Jeddah to Yanbu driving distance?', shortAnswer: 'Roughly 335 km by road', detailedAnswer: "Routing tools and our own commercial route data agree closely on approximately 327 to 353 km." },
+            { question: 'Can families travel from Jeddah to Yanbu by car?', shortAnswer: 'Yes, easily', detailedAnswer: "Yes. At 3-3.5 hours, this is a comfortable single trip for most families." },
+            { question: 'Can I book a return taxi from Yanbu to Jeddah?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Yanbu to Jeddah taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely — the actual driving distance is somewhat longer since the coastal road doesn't run perfectly straight." },
+            { question: 'Why do different websites show different Jeddah to Yanbu distances?', shortAnswer: 'Different exact start/end points', detailedAnswer: "The biggest source of variation is exactly where in Jeddah and where in Yanbu each source measures from." },
+        ],
+        lastVerified: 'August 2026',
+    },
 };
 
 export function getDistanceRoute(slug: string): DistanceRoute | undefined {
@@ -3299,6 +3961,12 @@ export const DISTANCE_HUB_CATEGORIES: DistanceHubCategory[] = [
         routeSlugs: ['kuwait-to-madinah', 'bahrain-to-madinah', 'doha-to-madinah', 'dubai-to-madinah', 'abu-dhabi-to-madinah'],
     },
     {
+        id: 'gcc-to-riyadh',
+        title: 'GCC to Riyadh',
+        description: 'Road distance and driving time from Gulf cities to Riyadh.',
+        routeSlugs: ['abu-dhabi-to-riyadh', 'doha-to-riyadh', 'bahrain-to-riyadh', 'kuwait-to-riyadh', 'muscat-to-riyadh'],
+    },
+    {
         id: 'saudi-to-makkah',
         title: 'Saudi Cities to Makkah',
         description: 'Road distance and driving time from other Saudi cities to Makkah.',
@@ -3314,7 +3982,7 @@ export const DISTANCE_HUB_CATEGORIES: DistanceHubCategory[] = [
         id: 'saudi-city-to-city',
         title: 'Saudi City-to-City Distances',
         description: 'Road distance and driving time between other major Saudi cities.',
-        routeSlugs: ['riyadh-to-jeddah', 'dammam-to-jeddah', 'dammam-to-riyadh', 'al-khobar-to-riyadh'],
+        routeSlugs: ['riyadh-to-jeddah', 'dammam-to-jeddah', 'dammam-to-riyadh', 'al-khobar-to-riyadh', 'jeddah-to-riyadh', 'riyadh-to-yanbu', 'jeddah-to-yanbu'],
     },
     {
         id: 'tourist-religious-routes',
