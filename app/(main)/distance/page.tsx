@@ -123,7 +123,7 @@ export default function DistanceHubPage() {
                     <div className="max-w-5xl mx-auto text-center">
                         <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">More Routes Coming</h2>
                         <p className="text-gray-500 max-w-2xl mx-auto">
-                            We're expanding this section to cover {upcomingCategories.map((c) => c.title.toLowerCase()).join(', ')}. Check back soon, or contact us directly if you need road-distance information for a specific route today.
+                            We're expanding this section to cover {upcomingCategories.map((c) => c.title.toLowerCase()).join(' and ')}. Check back soon, or contact us directly if you need road-distance information for a specific route today.
                         </p>
                     </div>
                 </section>

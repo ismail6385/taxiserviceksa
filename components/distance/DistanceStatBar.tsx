@@ -16,7 +16,8 @@ export default function DistanceStatBar({ route }: DistanceStatBarProps) {
         { icon: MapPin, label: 'Starting Point', value: route.origin },
         { icon: Flag, label: 'Destination', value: route.destination },
         { icon: Car, label: 'Route', value: route.routeHeadline },
-        { icon: Globe2, label: 'Border', value: route.borderName },
+        // Domestic routes have no border crossing — omit the stat entirely rather than show a blank/dash.
+        ...(route.borderName ? [{ icon: Globe2, label: 'Border', value: route.borderName }] : []),
         { icon: Users, label: 'Travel Type', value: route.travelType },
     ];
 
