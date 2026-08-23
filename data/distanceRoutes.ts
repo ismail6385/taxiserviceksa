@@ -2287,6 +2287,489 @@ export const DISTANCE_ROUTES: Record<string, DistanceRoute> = {
         ],
         lastVerified: 'August 2026',
     },
+
+    'tabuk-to-makkah': {
+        slug: 'tabuk-to-makkah',
+        origin: 'Tabuk',
+        originFull: 'Tabuk, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Makkah',
+        destinationFull: 'Makkah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 1,020–1,035 km',
+        distanceHeadline: '~1,030 km',
+        drivingTimeRange: 'approximately 10–11 hours of continuous driving',
+        drivingTimeHeadline: '~10–11 hrs',
+        routeHeadline: 'Via Route 15, through Madinah',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Tabuk to Makkah is approximately 1,020 to 1,035 km. Independent route calculators and our own dispatch figures agree closely on this range — one of the more consistently reported long-distance figures we cover.",
+            "Tabuk to Makkah follows one of Saudi Arabia's most historically significant corridors — much of the route traces the ancient Hajj road from the Levant, now the modern Route 15 highway, which also connects Tabuk to Madinah before continuing on to Makkah.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 10 to 11 hours at normal highway speeds — a genuinely long full-day drive on a well-maintained highway.",
+            "Total journey time is longer once you add fuel and rest stops and meals over a 1,000+ km trip. Most travelers treat this as a long single-day push with several stops, or split it across two days.",
+            "Traffic on the approach into Makkah increases during Umrah and Hajj peak periods — build in extra time during those dates.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs south from Tabuk largely along Route 15 through the Hejaz highlands, passing near Madinah before continuing on to Makkah. As a fully domestic route, there's no border crossing.",
+            "This corridor is historically significant and well-serviced, given it follows the traditional pilgrim route from the north — rest stops and fuel are more frequent here than on some less-traveled routes.",
+        ],
+        byCarNote: "At 10-11 hours, this is one of the longer domestic drives in the Kingdom — most families and pilgrims prefer a private chauffeur-driven transfer over self-driving the full distance, arriving rested rather than fatigued for Umrah.",
+        journeyPlanningNote: "Non-Muslims are not permitted to enter Makkah itself — relevant if your group includes non-Muslim travelers.",
+        bestTimeNote: "Umrah and Hajj peak seasons bring significantly more traffic on the approach into Makkah — build in extra time if traveling during these periods.",
+
+        mapOriginQuery: 'Tabuk, Saudi Arabia',
+        mapDestinationQuery: 'Makkah, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Tabuk to Makkah Taxi',
+            url: '/routes/tabuk-makkah/',
+            description: 'Pre-booked private transfer from Tabuk to Makkah.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Tabuk to Jeddah Taxi', url: '/routes/tabuk-jeddah/', description: 'Private transfer from Tabuk to Jeddah.' },
+            { name: 'Tabuk to Taif Taxi', url: '/routes/tabuk-taif/', description: 'Private transfer from Tabuk to Taif.' },
+        ],
+        relatedLocationLink: {
+            name: 'Makkah Transport Guide',
+            url: '/locations/makkah/',
+            description: 'Local Makkah taxi and chauffeur information, including Haram-area pickup rules.',
+        },
+        relatedDistanceSlugs: ['madinah-to-makkah', 'jeddah-to-makkah'],
+
+        seoTitle: 'Tabuk to Makkah Distance by Road | Driving Time & Map',
+        metaDescription: 'Tabuk to Makkah distance by road, estimated driving time, route map and journey information. See how far Makkah is from Tabuk by car.',
+        h1: 'Tabuk to Makkah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Tabuk from Makkah by road?', shortAnswer: 'Approximately 1,020–1,035 km', detailedAnswer: "By road, Tabuk to Makkah is approximately 1,020 to 1,035 km, largely following Route 15 through the Hejaz highlands." },
+            { question: 'How long does Tabuk to Makkah take?', shortAnswer: 'Approximately 10–11 hours of driving', detailedAnswer: "Pure driving time is approximately 10 to 11 hours at normal highway speeds. Total journey time is longer with rest stops and traffic." },
+            { question: 'Can I travel from Tabuk to Makkah by private taxi?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Tabuk to Makkah private taxi service, with a single vehicle from your Tabuk pickup through to your Makkah drop-off point." },
+            { question: 'How should I plan the long road journey?', shortAnswer: 'Plan rest stops and realistic timing', detailedAnswer: "Given the 10-11 hour length, plan for regular rest breaks, water and snacks, and realistic arrival timing — many travelers prefer a private driver so everyone can rest during the trip." },
+            { question: 'What is the Tabuk to Makkah driving distance?', shortAnswer: 'Roughly 1,030 km by road', detailedAnswer: "Routing tools generally agree closely on approximately 1,020 to 1,035 km for this route." },
+            { question: 'What route connects Tabuk and Makkah?', shortAnswer: 'Route 15, via Madinah', detailedAnswer: "The route largely follows Route 15, the historic Hajj road corridor, passing near Madinah before continuing on to Makkah." },
+            { question: 'Can families travel from Tabuk to Makkah by car?', shortAnswer: 'Yes, with the right planning', detailedAnswer: "Yes. Given the 10-11 hour length, families typically plan for regular rest breaks, and many prefer a private vehicle with a professional driver over self-driving the full distance." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Tabuk to Makkah distances?', shortAnswer: 'Different exact start/end points and routing engines', detailedAnswer: "Different mapping providers and different exact starting/ending points can shift the total on a route this long. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'abha-to-makkah': {
+        slug: 'abha-to-makkah',
+        origin: 'Abha',
+        originFull: 'Abha, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Makkah',
+        destinationFull: 'Makkah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 600–650 km',
+        distanceHeadline: '~620 km',
+        drivingTimeRange: 'approximately 7–9 hours of continuous driving',
+        drivingTimeHeadline: '~7–9 hrs',
+        routeHeadline: 'Via the Interior, Descending from the Asir Highlands',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Abha to Makkah is approximately 600 to 650 km. Independent route calculators show some spread here, partly because Abha sits high in the Asir mountains (around 2,200 meters elevation), and different routing tools handle the highland descent differently.",
+            "Your exact pickup point in Abha and drop-off point in Makkah both affect the total by a modest amount, same as any long domestic route.",
+        ],
+        drivingTimeDescription: [
+            "Driving time is approximately 7 to 9 hours — longer than a flat 620 km highway drive would normally take, because of the mountain descent from Abha's highland plateau down toward the coastal plain.",
+            "Total journey time is longer once you add fuel and rest stops and meals. Most travelers treat this as a long single-day drive with a couple of planned stops.",
+            "Traffic on the approach into Makkah increases during Umrah and Hajj peak periods — build in extra time during those dates.",
+        ],
+        routeJourneyDescription: [
+            "The road route descends from Abha's highland plateau in the Asir mountains, then continues through the interior toward Makkah. As a fully domestic route, there's no border crossing.",
+            "The mountain descent section is more demanding driving than open highway — a genuine consideration when planning this route, whichever way you travel.",
+        ],
+        byCarNote: "Given both the distance and the mountain descent from the Asir highlands, many travelers — especially those unfamiliar with mountain driving — prefer a private taxi or chauffeur over self-driving this route, even though a confident driver can manage it comfortably.",
+        journeyPlanningNote: "Non-Muslims are not permitted to enter Makkah itself — relevant if your group includes non-Muslim travelers.",
+        bestTimeNote: "Umrah and Hajj peak seasons bring significantly more traffic on the approach into Makkah. Weather on the highland descent can occasionally affect conditions — check ahead if traveling in winter months.",
+
+        mapOriginQuery: 'Abha, Saudi Arabia',
+        mapDestinationQuery: 'Makkah, Saudi Arabia',
+
+        // No dedicated Abha-Makkah commercial route page exists yet in either
+        // direction — per spec we don't guess or create one.
+        relatedTaxiRoutes: [
+            { name: 'Jeddah to Abha Taxi', url: '/routes/jeddah-abha/', description: 'Private transfer from Jeddah to Abha — combine with a Jeddah to Makkah transfer for a two-leg journey.' },
+            { name: 'Jeddah to Makkah Taxi', url: '/routes/jeddah-makkah/', description: 'Private transfer from Jeddah to Makkah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Makkah Transport Guide',
+            url: '/locations/makkah/',
+            description: 'Local Makkah taxi and chauffeur information, including Haram-area pickup rules.',
+        },
+        relatedDistanceSlugs: ['abha-to-madinah', 'jeddah-to-makkah'],
+        noDirectRouteNote: "We don't yet have a dedicated Abha to Makkah booking page on this site. Contact us directly via WhatsApp for a custom quote — or if your schedule is flexible, our Jeddah to Abha service combined with a Jeddah to Makkah transfer covers the same overall journey in two legs.",
+
+        seoTitle: 'Abha to Makkah Distance by Road | Driving Time & Map',
+        metaDescription: 'Abha to Makkah distance by road, estimated driving time, route map and journey information. See how far Makkah is from Abha by car.',
+        h1: 'Abha to Makkah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Abha from Makkah by road?', shortAnswer: 'Approximately 600–650 km', detailedAnswer: "By road, Abha to Makkah is approximately 600 to 650 km, descending from the Asir highlands to the coastal interior." },
+            { question: 'How long does Abha to Makkah take by car?', shortAnswer: 'Approximately 7–9 hours of driving', detailedAnswer: "Driving time is approximately 7 to 9 hours — longer than the flat distance suggests, because of the mountain descent from Abha's highland plateau." },
+            { question: 'What route connects Abha and Makkah?', shortAnswer: 'The interior highway, descending the Asir highlands', detailedAnswer: "The route descends from Abha's highland plateau (around 2,200m elevation) through the interior toward Makkah on the coastal plain." },
+            { question: 'Can I travel from Abha to Makkah by private taxi?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "We don't have a dedicated booking page for this exact route yet, but yes — contact us via WhatsApp for a custom quote, or combine our Jeddah to Abha and Jeddah to Makkah services." },
+            { question: 'Is Abha to Makkah suitable for family travel?', shortAnswer: 'Yes, with a private driver recommended', detailedAnswer: "Yes. Given the distance and the mountain descent, many families prefer a private chauffeur familiar with the route rather than self-driving." },
+            { question: 'What is the Abha to Makkah driving distance?', shortAnswer: 'Roughly 620 km by road', detailedAnswer: "Routing tools show approximately 600 to 650 km, with some variation due to the highland terrain." },
+            { question: 'Is Abha to Makkah possible as a day trip?', shortAnswer: 'Long but possible', detailedAnswer: "At 7-9 hours each way, it's a long day if attempted as a round trip — most travelers treat it as a one-way journey rather than a same-day round trip." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores the mountain terrain entirely — the actual driving distance and time reflect the highland descent, not a flat direct line." },
+            { question: 'Why do different websites show different Abha to Makkah distances?', shortAnswer: 'Different routing through mountainous terrain', detailedAnswer: "The highland terrain around Abha means different routing tools can select noticeably different paths for the descent, which is why the range here is wider than on flatter routes." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'najran-to-makkah': {
+        slug: 'najran-to-makkah',
+        origin: 'Najran',
+        originFull: 'Najran, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Makkah',
+        destinationFull: 'Makkah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 850–895 km',
+        distanceHeadline: '~870 km',
+        drivingTimeRange: 'approximately 10–12 hours of continuous driving',
+        drivingTimeHeadline: '~10–12 hrs',
+        routeHeadline: 'Via the Southern Interior Highway',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Najran to Makkah is approximately 850 to 895 km. Najran sits in Saudi Arabia's far south, near the border with Yemen, making this one of the longer domestic routes in our network.",
+            "Independent route calculators show a real spread across this range, reflecting Najran's remote location and the mountainous, less-traveled terrain in parts of the southern interior.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 10 to 12 hours at normal highway speeds — a genuinely long full-day drive.",
+            "Total journey time is longer once you add fuel and rest stops and meals over an 850+ km trip through less densely serviced terrain than routes closer to the main coastal or central corridors.",
+            "Traffic on the approach into Makkah increases during Umrah and Hajj peak periods — build in extra time during those dates.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs north and west from Najran through the southern Saudi interior toward Makkah. As a fully domestic route, there's no border crossing, though the region is genuinely remote in places.",
+            "We're not naming specific highway numbers here, since routing can vary between providers — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        byCarNote: "Given the genuine length and remoteness of this route, a private chauffeur-driven transfer is a popular choice — it removes both the fatigue of a 10+ hour drive and the burden of navigating less-traveled terrain yourself.",
+        journeyPlanningNote: "Non-Muslims are not permitted to enter Makkah itself — relevant if your group includes non-Muslim travelers.",
+        bestTimeNote: "Given the remote nature of parts of this route, avoid starting too late in the day. Umrah and Hajj peak seasons bring significantly more traffic on the approach into Makkah.",
+
+        mapOriginQuery: 'Najran, Saudi Arabia',
+        mapDestinationQuery: 'Makkah, Saudi Arabia',
+
+        // No dedicated Najran-Makkah commercial route page exists yet in either
+        // direction — per spec we don't guess or create one.
+        relatedTaxiRoutes: [
+            { name: 'Tabuk to Najran Taxi', url: '/routes/tabuk-najran/', description: 'Private transfer connecting Najran to our Tabuk network.' },
+        ],
+        relatedLocationLink: {
+            name: 'Makkah Transport Guide',
+            url: '/locations/makkah/',
+            description: 'Local Makkah taxi and chauffeur information, including Haram-area pickup rules.',
+        },
+        relatedDistanceSlugs: ['najran-to-madinah', 'jeddah-to-makkah'],
+        noDirectRouteNote: "We don't yet have a dedicated Najran to Makkah booking page on this site. Contact us directly via WhatsApp with your travel date and passenger count for a custom quote on this route.",
+
+        seoTitle: 'Najran to Makkah Distance by Road | Driving Time & Map',
+        metaDescription: 'Najran to Makkah distance by road, estimated driving time, route map and journey information. See how far Makkah is from Najran by car.',
+        h1: 'Najran to Makkah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Najran from Makkah by road?', shortAnswer: 'Approximately 850–895 km', detailedAnswer: "By road, Najran to Makkah is approximately 850 to 895 km — one of the longer domestic routes, given Najran's remote southern location." },
+            { question: 'How long does Najran to Makkah take?', shortAnswer: 'Approximately 10–12 hours of driving', detailedAnswer: "Pure driving time is approximately 10 to 12 hours at normal highway speeds. Total journey time is longer with rest stops and traffic." },
+            { question: 'Can I travel from Najran to Makkah by private taxi?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "We don't have a dedicated booking page for this exact route yet, but yes — contact us via WhatsApp with your travel date and passenger count for a custom quote." },
+            { question: 'How should I plan this long road journey?', shortAnswer: 'Plan generous rest stops and an early departure', detailedAnswer: "Given the genuine length and remoteness of parts of this route, plan for regular rest breaks, water and fuel stops, and an early departure to avoid arriving late at night." },
+            { question: 'What is the Najran to Makkah driving distance?', shortAnswer: 'Roughly 870 km by road', detailedAnswer: "Routing tools show a range of approximately 850 to 895 km, reflecting some genuine route variation through the southern interior." },
+            { question: 'Can families travel from Najran to Makkah by car?', shortAnswer: 'Yes, with careful planning', detailedAnswer: "Yes. Given the 10-12 hour length and the remote terrain in parts of the route, families typically plan for regular rest breaks and many prefer a private driver for this journey." },
+            { question: 'Is Najran to Makkah an international route?', shortAnswer: 'No, fully domestic', detailedAnswer: "No — both are within Saudi Arabia, so there's no border crossing, though Najran's proximity to the Yemen border makes it one of the more remote starting points in our network." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Najran to Makkah distances?', shortAnswer: 'Remote terrain and different routing choices', detailedAnswer: "Najran's remote location means different routing tools can select genuinely different paths through the southern interior, which is why the range here is wider than usual." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'yanbu-to-makkah': {
+        slug: 'yanbu-to-makkah',
+        origin: 'Yanbu',
+        originFull: 'Yanbu, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Makkah',
+        destinationFull: 'Makkah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 368–383 km',
+        distanceHeadline: '~375 km',
+        drivingTimeRange: 'approximately 6.5–7.5 hours of continuous driving',
+        drivingTimeHeadline: '~6.5–7.5 hrs',
+        routeHeadline: 'Via the Coastal Highway through the Jeddah Area',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Yanbu to Makkah is approximately 368 to 383 km. Yanbu is a Red Sea coastal city in Western Saudi Arabia, and this route runs south along the coastal corridor before turning inland toward Makkah.",
+            "Independent route calculators agree fairly closely on this figure. Your exact pickup point in Yanbu and drop-off point in Makkah shift the total by a modest amount.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 6.5 to 7.5 hours at normal highway speeds — a long but manageable single-day drive.",
+            "Total journey time is a little longer once you add rest stops, meals, and normal traffic, particularly around the Jeddah area which this route passes near.",
+            "Traffic on the approach into Makkah increases during Umrah and Hajj peak periods — build in extra time during those dates.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs south from Yanbu along Saudi Arabia's western coastal corridor, passing near Jeddah before turning inland toward Makkah. As a fully domestic route, there's no border crossing.",
+            "This is a well-serviced corridor given how many pilgrims and travelers use the western coastal route between Yanbu, Jeddah, and Makkah.",
+        ],
+        byCarNote: "At 6.5-7.5 hours, this is a manageable single-day drive — comfortable for a confident self-driver, though many pilgrims and families still prefer a private chauffeur-driven transfer for a more restful journey ahead of Umrah.",
+        journeyPlanningNote: "Non-Muslims are not permitted to enter Makkah itself — relevant if your group includes non-Muslim travelers.",
+        bestTimeNote: "Umrah and Hajj peak seasons bring significantly more traffic on the approach into Makkah, and around the Jeddah area this route passes through — build in extra time during those periods.",
+
+        mapOriginQuery: 'Yanbu, Saudi Arabia',
+        mapDestinationQuery: 'Makkah, Saudi Arabia',
+
+        // No dedicated Yanbu-Makkah commercial route page exists yet in either
+        // direction — per spec we don't guess or create one.
+        relatedTaxiRoutes: [
+            { name: 'Yanbu to Jeddah Taxi', url: '/routes/yanbu-jeddah/', description: 'Private transfer from Yanbu to Jeddah — combine with a Jeddah to Makkah transfer for a two-leg journey.' },
+            { name: 'Jeddah to Makkah Taxi', url: '/routes/jeddah-makkah/', description: 'Private transfer from Jeddah to Makkah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Makkah Transport Guide',
+            url: '/locations/makkah/',
+            description: 'Local Makkah taxi and chauffeur information, including Haram-area pickup rules.',
+        },
+        relatedDistanceSlugs: ['yanbu-to-madinah', 'jeddah-to-makkah', 'madinah-to-makkah'],
+        noDirectRouteNote: "We don't yet have a dedicated Yanbu to Makkah booking page on this site. Contact us directly via WhatsApp for a custom quote — or if your schedule is flexible, our Yanbu to Jeddah service combined with a Jeddah to Makkah transfer covers the same overall journey in two legs.",
+
+        seoTitle: 'Yanbu to Makkah Distance by Road | Driving Time & Map',
+        metaDescription: 'Yanbu to Makkah distance by road, estimated driving time, route map and journey information. See how far Makkah is from Yanbu by car.',
+        h1: 'Yanbu to Makkah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Yanbu from Makkah by road?', shortAnswer: 'Approximately 368–383 km', detailedAnswer: "By road, Yanbu to Makkah is approximately 368 to 383 km, running down Saudi Arabia's western coastal corridor before turning inland." },
+            { question: 'How long does Yanbu to Makkah take by car?', shortAnswer: 'Approximately 6.5–7.5 hours of driving', detailedAnswer: "Pure driving time is approximately 6.5 to 7.5 hours at normal highway speeds. Total journey time is a little longer with rest stops and traffic." },
+            { question: 'Can I book a private transfer from Yanbu to Makkah?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "We don't have a dedicated booking page for this exact route yet, but yes — contact us via WhatsApp for a custom quote, or combine our Yanbu to Jeddah and Jeddah to Makkah services." },
+            { question: 'Is this route relevant for Umrah pilgrims?', shortAnswer: 'Yes, a common western Saudi route', detailedAnswer: "Yes — Yanbu is a Red Sea coastal city, and this route is used by pilgrims and travelers moving along the western coastal corridor toward Makkah for Umrah." },
+            { question: 'What is the Yanbu to Makkah driving distance?', shortAnswer: 'Roughly 375 km by road', detailedAnswer: "Routing tools generally agree closely on approximately 368 to 383 km for this coastal-to-interior route." },
+            { question: 'What route connects Yanbu and Makkah?', shortAnswer: 'The coastal highway via the Jeddah area', detailedAnswer: "The route runs south along the western coastal corridor from Yanbu, passing near Jeddah, before turning inland to Makkah." },
+            { question: 'Can families travel from Yanbu to Makkah by car?', shortAnswer: 'Yes', detailedAnswer: "Yes. At 6.5-7.5 hours, this is a manageable single-day drive for most families." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Yanbu to Makkah distances?', shortAnswer: 'Different exact start/end points and routing engines', detailedAnswer: "Different mapping providers and exact starting/ending points can shift the total by a modest amount. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'yanbu-to-madinah': {
+        slug: 'yanbu-to-madinah',
+        origin: 'Yanbu',
+        originFull: 'Yanbu, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Madinah',
+        destinationFull: 'Madinah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 227–237 km',
+        distanceHeadline: '~230 km',
+        drivingTimeRange: 'approximately 2–2.5 hours of continuous driving',
+        drivingTimeHeadline: '~2–2.5 hrs',
+        routeHeadline: 'Direct via the Interior Highway',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Yanbu to Madinah is approximately 227 to 237 km — one of the shorter routes in our network, connecting the Red Sea coast to Madinah in the Hijaz interior.",
+            "Independent route calculators agree closely on this figure. Your exact pickup point in Yanbu and drop-off point in Madinah shift the total by a small amount.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 2 to 2.5 hours at normal highway speeds — a comfortable, well-established short drive.",
+            "Total journey time is a little longer once you add rest stops and normal traffic around Madinah.",
+            "Traffic on the approach into Madinah increases during Ramadan and the Hajj/Umrah peak season — build in extra time during those dates.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs directly inland from Yanbu on the Red Sea coast to Madinah — a short, well-established domestic corridor. As a fully domestic route, there's no border crossing.",
+            "Given the proximity, this route is also popular for day trips and combined itineraries between the coast and Madinah.",
+        ],
+        byCarNote: "Given the short distance, self-driving, taxi, and private chauffeur are all straightforward options for this route.",
+        journeyPlanningNote: "This is a short trip, so extensive long-distance planning isn't necessary — the main consideration is timing your pickup around Madinah hotel check-in or Prophet's Mosque visit timing.",
+        bestTimeNote: "Ramadan and the Hajj/Umrah peak season bring more traffic into Madinah specifically — outside those periods, this route is generally straightforward.",
+
+        mapOriginQuery: 'Yanbu, Saudi Arabia',
+        mapDestinationQuery: 'Madinah, Saudi Arabia',
+
+        // No dedicated Yanbu-Madinah commercial route page exists yet in either
+        // direction — per spec we don't guess or create one.
+        relatedTaxiRoutes: [
+            { name: 'Yanbu to Jeddah Taxi', url: '/routes/yanbu-jeddah/', description: 'Private transfer from Yanbu to Jeddah.' },
+            { name: 'Jeddah to Madinah Taxi', url: '/routes/jeddah-madinah/', description: 'Private transfer from Jeddah to Madinah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Madinah Transport Guide',
+            url: '/locations/madinah/',
+            description: 'Local Madinah taxi and chauffeur information.',
+        },
+        relatedDistanceSlugs: ['yanbu-to-makkah', 'jeddah-to-madinah'],
+        noDirectRouteNote: "We don't yet have a dedicated Yanbu to Madinah booking page on this site. Contact us directly via WhatsApp for a custom quote, or see our Jeddah to Madinah service if routing via Jeddah suits your schedule.",
+
+        seoTitle: 'Yanbu to Madinah Distance by Road | Driving Time & Map',
+        metaDescription: 'Yanbu to Madinah distance by road, estimated driving time, route map and journey information. See how far Madinah is from Yanbu by car.',
+        h1: 'Yanbu to Madinah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Yanbu from Madinah?', shortAnswer: 'Approximately 227–237 km', detailedAnswer: "By road, Yanbu to Madinah is approximately 227 to 237 km — one of the shorter routes in our network." },
+            { question: 'How long does Yanbu to Madinah take?', shortAnswer: 'Approximately 2–2.5 hours of driving', detailedAnswer: "Pure driving time is approximately 2 to 2.5 hours at normal highway speeds — a comfortable short drive." },
+            { question: 'Can I book a private transfer from Yanbu to Madinah?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "We don't have a dedicated booking page for this exact route yet, but yes — contact us via WhatsApp for a custom quote." },
+            { question: 'Is the route suitable for families?', shortAnswer: 'Yes, easily', detailedAnswer: "Yes. At around 2-2.5 hours, this is one of the easier domestic drives for families in our network." },
+            { question: 'What is the Yanbu to Madinah driving distance?', shortAnswer: 'Roughly 230 km by road', detailedAnswer: "Routing tools generally agree closely on approximately 227 to 237 km for this short, well-established route." },
+            { question: 'Is Yanbu close to other Western Saudi destinations?', shortAnswer: 'Yes, near Jeddah and the Red Sea coast', detailedAnswer: "Yes — Yanbu sits on the Red Sea coast within reasonable driving distance of Jeddah, making it a convenient stop for travelers exploring Western Saudi Arabia alongside Madinah." },
+            { question: 'Is Yanbu to Madinah an international route?', shortAnswer: 'No, fully domestic', detailedAnswer: "No — both are within Saudi Arabia, so there's no border crossing or international documentation required." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely — the actual driving distance is somewhat longer since the road doesn't run perfectly straight." },
+            { question: 'Why do different websites show different Yanbu to Madinah distances?', shortAnswer: 'Different exact start/end points', detailedAnswer: "The biggest source of variation is exactly where in Yanbu and where in Madinah each source measures from." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'abha-to-madinah': {
+        slug: 'abha-to-madinah',
+        origin: 'Abha',
+        originFull: 'Abha, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Madinah',
+        destinationFull: 'Madinah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 1,000–1,070 km',
+        distanceHeadline: '~1,030 km',
+        drivingTimeRange: 'approximately 11–13 hours of continuous driving',
+        drivingTimeHeadline: '~11–13 hrs',
+        routeHeadline: 'Via the Interior, Descending from the Asir Highlands',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Abha to Madinah is approximately 1,000 to 1,070 km — one of the longer domestic routes we cover, running the length of western Saudi Arabia from the southern highlands to the Hijaz.",
+            "Independent route calculators show a genuine spread here, reflecting both the highland descent from Abha and the sheer length of the journey north.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 11 to 13 hours at normal highway speeds — a genuinely long drive best planned across a full day with several stops, or split across two days.",
+            "Total journey time is longer once you add fuel and rest stops and meals over a 1,000+ km trip that starts with a mountain descent.",
+            "Traffic on the approach into Madinah increases during Ramadan and the Hajj/Umrah peak season — build in extra time during those dates.",
+        ],
+        routeJourneyDescription: [
+            "The road route descends from Abha's highland plateau in the Asir mountains, then runs north through the western Saudi interior toward Madinah. As a fully domestic route, there's no border crossing.",
+            "Given the length, many travelers treat this as a long single day with multiple stops, or plan an overnight break partway through.",
+        ],
+        byCarNote: "Given both the distance and the initial mountain descent, most families and travelers prefer a private chauffeur-driven transfer over self-driving the full route — it removes the fatigue of an 11+ hour drive that starts with demanding mountain terrain.",
+        journeyPlanningNote: "We don't currently run a dedicated Abha to Madinah booking page — see the note in the Taxi section below for how to arrange this route with us.",
+        bestTimeNote: "Ramadan and the Hajj/Umrah peak season bring significantly more traffic into Madinah specifically. Weather on the highland descent can occasionally affect conditions — check ahead if traveling in winter months.",
+
+        mapOriginQuery: 'Abha, Saudi Arabia',
+        mapDestinationQuery: 'Madinah, Saudi Arabia',
+
+        // No dedicated Abha-Madinah commercial route page exists yet in either
+        // direction — per spec we don't guess or create one.
+        relatedTaxiRoutes: [
+            { name: 'Jeddah to Abha Taxi', url: '/routes/jeddah-abha/', description: 'Private transfer from Jeddah to Abha — combine with a Jeddah to Madinah transfer for a two-leg journey.' },
+            { name: 'Jeddah to Madinah Taxi', url: '/routes/jeddah-madinah/', description: 'Private transfer from Jeddah to Madinah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Madinah Transport Guide',
+            url: '/locations/madinah/',
+            description: 'Local Madinah taxi and chauffeur information.',
+        },
+        relatedDistanceSlugs: ['abha-to-makkah', 'jeddah-to-madinah'],
+        noDirectRouteNote: "We don't yet have a dedicated Abha to Madinah booking page on this site. Contact us directly via WhatsApp for a custom quote — or if your schedule is flexible, our Jeddah to Abha service combined with a Jeddah to Madinah transfer covers the same overall journey in two legs.",
+
+        seoTitle: 'Abha to Madinah Distance by Road | Driving Time & Map',
+        metaDescription: 'Abha to Madinah distance by road, estimated driving time, route map and journey information. See how far Madinah is from Abha by car.',
+        h1: 'Abha to Madinah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Abha from Madinah by road?', shortAnswer: 'Approximately 1,000–1,070 km', detailedAnswer: "By road, Abha to Madinah is approximately 1,000 to 1,070 km, running the length of western Saudi Arabia from the southern highlands." },
+            { question: 'How long does Abha to Madinah take?', shortAnswer: 'Approximately 11–13 hours of driving', detailedAnswer: "Pure driving time is approximately 11 to 13 hours at normal highway speeds — a genuinely long drive best planned with several stops." },
+            { question: 'Can I book a private transfer from Abha to Madinah?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "We don't have a dedicated booking page for this exact route yet, but yes — contact us via WhatsApp for a custom quote, or combine our Jeddah to Abha and Jeddah to Madinah services." },
+            { question: 'How should I plan this long road journey?', shortAnswer: 'Plan rest stops or an overnight break', detailedAnswer: "Given the 11-13 hour length starting with a mountain descent, plan for regular rest breaks throughout the day, or consider splitting the trip across two days." },
+            { question: 'What is the Abha to Madinah driving distance?', shortAnswer: 'Roughly 1,030 km by road', detailedAnswer: "Routing tools show a range of approximately 1,000 to 1,070 km, reflecting the highland descent and route length." },
+            { question: 'Can families travel from Abha to Madinah by car?', shortAnswer: 'Yes, with the right planning', detailedAnswer: "Yes. Given the length and initial mountain terrain, families typically plan for regular rest breaks, and many prefer a private driver for this journey." },
+            { question: 'Is Abha to Madinah an international route?', shortAnswer: 'No, fully domestic', detailedAnswer: "No — both are within Saudi Arabia, so there's no border crossing or international documentation required." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores the mountainous terrain and roads entirely, and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Abha to Madinah distances?', shortAnswer: 'Different routing through mountainous terrain and route length', detailedAnswer: "The highland terrain around Abha combined with the sheer length of this route means different routing tools can select noticeably different paths, which is why the range is wider than usual." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'najran-to-madinah': {
+        slug: 'najran-to-madinah',
+        origin: 'Najran',
+        originFull: 'Najran, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Madinah',
+        destinationFull: 'Madinah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 1,170–1,385 km',
+        distanceHeadline: '~1,280 km',
+        drivingTimeRange: 'approximately 15–18 hours of continuous driving',
+        drivingTimeHeadline: '~15–18 hrs',
+        routeHeadline: 'Via the Interior Highway (Long-Distance)',
+        travelType: 'Domestic (very long-distance — 2-day journey may be preferable)',
+
+        routeDescription: [
+            "The road distance from Najran to Madinah is approximately 1,170 to 1,385 km — the longest domestic route in our network. Najran sits in Saudi Arabia's far south near the Yemen border, while Madinah is deep in the northwest Hijaz, so this is genuinely one of the most demanding drives within the Kingdom.",
+            "Independent route calculators show a wide spread on this route, more than on most others we cover — a reflection of the sheer distance and the number of plausible interior paths between two such distant points.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 15 to 18 hours of continuous highway driving — the longest domestic drive on this site.",
+            "Given the exceptional length, we don't recommend treating this as a single non-stop push. A two-day journey with a scheduled overnight stop is the realistic, safer way to cover this distance, whether self-driving or booking a private transfer.",
+            "Fuel and rest stops, traffic, and normal delays all add to total journey time on top of the pure driving estimate.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs north from Najran through Saudi Arabia's southern and central interior, then continues northwest to Madinah — a genuinely long diagonal crossing of the Kingdom. As a fully domestic route, there's no border crossing.",
+            "Given the exceptional distance, we plan an overnight stop partway through rather than attempting the full drive in one push. We don't name specific highway numbers here since routing varies by provider and the distance involved.",
+        ],
+        byCarNote: "At 15-18 hours, this is the longest domestic route we cover — we don't recommend a single push. A scheduled overnight stop and a private chauffeur-driven transfer mean you arrive rested rather than exhausted from a genuinely demanding cross-country drive.",
+        journeyPlanningNote: "Because this is realistically a two-day trip, plan overnight accommodation partway through in addition to the usual document and rest-stop planning.",
+        bestTimeNote: "Given the exceptional length of this route, avoid starting late in the day. Ramadan and the Hajj/Umrah peak season add meaningful extra time on top of an already very long journey.",
+
+        mapOriginQuery: 'Najran, Saudi Arabia',
+        mapDestinationQuery: 'Madinah, Saudi Arabia',
+
+        // No dedicated Najran-Madinah commercial route page exists yet in either
+        // direction — per spec we don't guess or create one.
+        relatedTaxiRoutes: [
+            { name: 'Tabuk to Najran Taxi', url: '/routes/tabuk-najran/', description: 'Private transfer connecting Najran to our Tabuk network.' },
+        ],
+        relatedLocationLink: {
+            name: 'Madinah Transport Guide',
+            url: '/locations/madinah/',
+            description: 'Local Madinah taxi and chauffeur information.',
+        },
+        relatedDistanceSlugs: ['najran-to-makkah', 'jeddah-to-madinah'],
+        noDirectRouteNote: "We don't yet have a dedicated Najran to Madinah booking page on this site. Contact us directly via WhatsApp with your travel date and passenger count for a custom quote on this route — given the distance, we'd plan it as a two-day journey.",
+
+        seoTitle: 'Najran to Madinah Distance by Road | Driving Time & Map',
+        metaDescription: 'Najran to Madinah distance by road, estimated driving time, route map and journey information. See how far Madinah is from Najran by car.',
+        h1: 'Najran to Madinah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Najran from Madinah by road?', shortAnswer: 'Approximately 1,170–1,385 km', detailedAnswer: "By road, Najran to Madinah is approximately 1,170 to 1,385 km — the longest domestic route in our network, given Najran's remote southern location." },
+            { question: 'How long does Najran to Madinah take?', shortAnswer: 'Approximately 15–18 hours, usually over two days', detailedAnswer: "Pure driving time is approximately 15 to 18 hours. Given the exceptional length, we plan this as a two-day journey with a scheduled overnight stop." },
+            { question: 'Can I book a private transfer from Najran to Madinah?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "We don't have a dedicated booking page for this exact route yet, but yes — contact us via WhatsApp with your travel date and passenger count for a custom quote." },
+            { question: 'How should I plan this long road journey?', shortAnswer: 'Plan for a two-day trip with an overnight stop', detailedAnswer: "Given this is the longest domestic route we cover, plan for two days with a scheduled overnight stop rather than attempting it in one push." },
+            { question: 'What is the Najran to Madinah driving distance?', shortAnswer: 'Roughly 1,280 km by road', detailedAnswer: "Routing tools show a wide range of approximately 1,170 to 1,385 km, reflecting the exceptional distance and multiple plausible interior paths." },
+            { question: 'Can families travel from Najran to Madinah by car?', shortAnswer: 'Yes, with a two-day plan', detailedAnswer: "Yes. Given the genuine length of this route, families typically split it over two days with an overnight stop rather than attempting it in one push." },
+            { question: 'Is Najran to Madinah an international route?', shortAnswer: 'No, fully domestic', detailedAnswer: "No — both are within Saudi Arabia, though Najran's proximity to the Yemen border makes it one of the more remote starting points in our network." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely, and the gap between it and the actual driving distance is especially large on a route this long." },
+            { question: 'Why do different websites show different Najran to Madinah distances?', shortAnswer: 'Exceptional distance and multiple route options', detailedAnswer: "On the longest domestic route in our network, small differences in starting address, destination point, or preferred interior path compound into a wider final gap than on shorter trips." },
+        ],
+        lastVerified: 'August 2026',
+    },
 };
 
 export function getDistanceRoute(slug: string): DistanceRoute | undefined {
@@ -2319,13 +2802,13 @@ export const DISTANCE_HUB_CATEGORIES: DistanceHubCategory[] = [
         id: 'saudi-to-makkah',
         title: 'Saudi Cities to Makkah',
         description: 'Road distance and driving time from other Saudi cities to Makkah.',
-        routeSlugs: ['riyadh-to-makkah', 'dammam-to-makkah', 'jeddah-to-makkah', 'madinah-to-makkah', 'al-khobar-to-makkah'],
+        routeSlugs: ['riyadh-to-makkah', 'dammam-to-makkah', 'jeddah-to-makkah', 'madinah-to-makkah', 'al-khobar-to-makkah', 'tabuk-to-makkah', 'abha-to-makkah', 'najran-to-makkah', 'yanbu-to-makkah'],
     },
     {
         id: 'saudi-to-madinah',
         title: 'Saudi Cities to Madinah',
         description: 'Road distance and driving time from other Saudi cities to Madinah.',
-        routeSlugs: ['riyadh-to-madinah', 'dammam-to-madinah', 'jeddah-to-madinah', 'al-khobar-to-madinah'],
+        routeSlugs: ['riyadh-to-madinah', 'dammam-to-madinah', 'jeddah-to-madinah', 'al-khobar-to-madinah', 'yanbu-to-madinah', 'abha-to-madinah', 'najran-to-madinah'],
     },
     {
         id: 'saudi-city-to-city',
