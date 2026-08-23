@@ -1707,6 +1707,586 @@ export const DISTANCE_ROUTES: Record<string, DistanceRoute> = {
         ],
         lastVerified: 'August 2026',
     },
+
+    'riyadh-to-jeddah': {
+        slug: 'riyadh-to-jeddah',
+        origin: 'Riyadh',
+        originFull: 'Riyadh, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Jeddah',
+        destinationFull: 'Jeddah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 948–967 km',
+        distanceHeadline: '~950 km',
+        drivingTimeRange: 'approximately 9–11 hours of continuous driving',
+        drivingTimeHeadline: '~9–11 hrs',
+        routeHeadline: 'Direct via Highway 40',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Riyadh to Jeddah is approximately 948 to 967 km, running the width of the country via Highway 40 — one of the Kingdom's main east-west corridors. Independent route calculators and our own dispatch figures agree closely on this route.",
+            "Your exact pickup point within Riyadh and drop-off point in Jeddah can still shift the total by a modest amount, but the variance here is smaller than on longer or less-established routes.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 9 to 11 hours at normal highway speeds — a demanding full-day drive on a well-maintained road.",
+            "Total journey time is a little longer once you add rest stops, meals, and normal daytime traffic around both cities. Most travelers on this route drive it as a single day with a couple of planned stops.",
+            "Traffic on the approach into Jeddah can increase during Umrah and Hajj peak periods, and around Ramadan — build in extra time during those dates.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs west from Riyadh across the central Saudi interior to Jeddah on the Red Sea coast, following Highway 40 — a well-established, multi-lane highway for essentially the entire journey. As a fully domestic route, there's no border to cross.",
+            "This is one of the more heavily traveled long-distance corridors in the Kingdom, so services and rest stops along Highway 40 are more frequent than on some of the less-traveled routes we cover.",
+        ],
+        byCarNote: "Riyadh to Jeddah is a genuinely long day's drive at 9-11 hours — manageable for a confident self-driver with regular stops on a well-serviced highway, but many travelers, particularly families or business travelers who want to arrive rested, prefer a private chauffeur-driven transfer instead.",
+        journeyPlanningNote: "If you're continuing on to Makkah after arriving in Jeddah, note that non-Muslims are not permitted to enter Makkah itself.",
+        bestTimeNote: "Weekday daytime traffic is generally lighter than weekends and public holidays. Umrah and Hajj peak seasons bring significantly more traffic on the approach into Jeddah and onward toward Makkah — build in extra time during these periods.",
+
+        mapOriginQuery: 'Riyadh, Saudi Arabia',
+        mapDestinationQuery: 'Jeddah, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Riyadh to Jeddah Taxi',
+            url: '/routes/riyadh-jeddah/',
+            description: 'Pre-booked private transfer from Riyadh to Jeddah.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Jeddah to Riyadh Taxi',
+            url: '/routes/jeddah-riyadh/',
+            description: 'Book the return leg from Jeddah back to Riyadh.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Riyadh to Makkah Taxi', url: '/routes/riyadh-makkah/', description: 'Private transfer from Riyadh to Makkah.' },
+            { name: 'Riyadh to Dammam Taxi', url: '/routes/riyadh-dammam/', description: 'Private transfer from Riyadh to Dammam.' },
+        ],
+        relatedLocationLink: {
+            name: 'Jeddah Transport Guide',
+            url: '/locations/jeddah/',
+            description: 'Local Jeddah taxi and airport transfer information.',
+        },
+        relatedDistanceSlugs: ['riyadh-to-makkah', 'jeddah-to-makkah', 'dammam-to-riyadh'],
+
+        seoTitle: 'Riyadh to Jeddah Distance by Road | Driving Time & Map',
+        metaDescription: 'Riyadh to Jeddah distance by road, estimated driving time, route map and journey information. See how far Jeddah is from Riyadh by car.',
+        h1: 'Riyadh to Jeddah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Riyadh from Jeddah by road?', shortAnswer: 'Approximately 948–967 km', detailedAnswer: "By road via Highway 40, Riyadh to Jeddah is approximately 948 to 967 km — one of the Kingdom's main east-west highway corridors." },
+            { question: 'How long does Riyadh to Jeddah take by car?', shortAnswer: 'Approximately 9–11 hours of driving', detailedAnswer: "Pure driving time is approximately 9 to 11 hours at normal highway speeds. Total journey time is a little longer with rest stops and traffic." },
+            { question: 'What route connects Riyadh and Jeddah?', shortAnswer: 'Highway 40', detailedAnswer: "Highway 40 is the main highway connecting Riyadh to Jeddah, running largely straight across the central Saudi interior to the Red Sea coast." },
+            { question: 'Can I book a private Riyadh to Jeddah taxi?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Riyadh to Jeddah private taxi service, with a single vehicle from your Riyadh pickup through to your Jeddah drop-off point." },
+            { question: 'What is the Riyadh to Jeddah driving distance?', shortAnswer: 'Roughly 950 km by road', detailedAnswer: "Routing tools generally agree closely on approximately 948 to 967 km for this well-established domestic route." },
+            { question: 'Can families travel from Riyadh to Jeddah by car?', shortAnswer: 'Yes', detailedAnswer: "Yes. At 9-11 hours, this is a long but manageable day's drive for most families, especially with a private vehicle and planned rest stops." },
+            { question: 'Can I book a return taxi from Jeddah to Riyadh?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Jeddah to Riyadh taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance, which follows real highways and terrain." },
+            { question: 'Why do different websites show different Riyadh to Jeddah distances?', shortAnswer: 'Different exact start/end points and routing engines', detailedAnswer: "Even on a well-established domestic highway, exact pickup and drop-off points and different mapping providers can shift the total by a modest amount. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'dammam-to-jeddah': {
+        slug: 'dammam-to-jeddah',
+        origin: 'Dammam',
+        originFull: 'Dammam, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Jeddah',
+        destinationFull: 'Jeddah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 1,300–1,370 km',
+        distanceHeadline: '~1,340 km',
+        drivingTimeRange: 'approximately 12–14 hours of continuous driving',
+        drivingTimeHeadline: '~12–14 hrs',
+        routeHeadline: 'Via the Interior, through the Riyadh Area',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Dammam to Jeddah is approximately 1,300 to 1,370 km — one of the longer domestic routes we cover, crossing the full width of the Kingdom from the Gulf coast to the Red Sea coast.",
+            "Independent route calculators and our own figures agree on a range in this vicinity; your exact pickup point in Dammam and drop-off point in Jeddah shift the total modestly.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 12 to 14 hours at normal highway speeds — genuinely one of the longer domestic drives in the Kingdom.",
+            "Total journey time is longer once you add fuel and rest stops and meals over a 1,300+ km trip. Most travelers treat this as a long single-day push with several stops.",
+            "Traffic on the approach into Jeddah increases during Umrah and Hajj peak periods — build in extra time during those dates.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs from Dammam across Saudi Arabia's Eastern Province and interior — generally via the Riyadh area — before continuing west to Jeddah on the Red Sea coast. As a fully domestic route, there's no border crossing.",
+            "We're not naming specific highway numbers for the full corridor here, since routing can vary between providers — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        byCarNote: "At 12-14 hours, this is genuinely one of the longer domestic drives in the Kingdom — most families and business travelers prefer a private chauffeur-driven transfer over self-driving the full distance, arriving rested rather than fatigued.",
+        journeyPlanningNote: "If you're continuing on to Makkah after arriving in Jeddah, note that non-Muslims are not permitted to enter Makkah itself.",
+        bestTimeNote: "Umrah and Hajj peak seasons bring significantly more traffic on the approach into Jeddah — build in extra time if traveling during these periods.",
+
+        mapOriginQuery: 'Dammam, Saudi Arabia',
+        mapDestinationQuery: 'Jeddah, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Dammam to Jeddah Taxi',
+            url: '/routes/dammam-jeddah/',
+            description: 'Pre-booked private transfer from Dammam to Jeddah.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Jeddah to Dammam Taxi',
+            url: '/routes/jeddah-dammam/',
+            description: 'Book the return leg from Jeddah back to Dammam.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Dammam to Makkah Taxi', url: '/routes/dammam-makkah/', description: 'Private transfer from Dammam to Makkah.' },
+            { name: 'Dammam to Riyadh Taxi', url: '/routes/dammam-riyadh/', description: 'Private transfer from Dammam to Riyadh.' },
+        ],
+        relatedLocationLink: {
+            name: 'Jeddah Transport Guide',
+            url: '/locations/jeddah/',
+            description: 'Local Jeddah taxi and airport transfer information.',
+        },
+        relatedDistanceSlugs: ['dammam-to-makkah', 'jeddah-to-makkah', 'dammam-to-riyadh'],
+
+        seoTitle: 'Dammam to Jeddah Distance by Road | Driving Time & Map',
+        metaDescription: 'Dammam to Jeddah distance by road, estimated driving time, route map and journey information. See how far Jeddah is from Dammam by car.',
+        h1: 'Dammam to Jeddah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Dammam from Jeddah by road?', shortAnswer: 'Approximately 1,300–1,370 km', detailedAnswer: "By road, Dammam to Jeddah is approximately 1,300 to 1,370 km, crossing the full width of the Kingdom from the Gulf coast to the Red Sea coast." },
+            { question: 'How long does Dammam to Jeddah take by car?', shortAnswer: 'Approximately 12–14 hours of driving', detailedAnswer: "Pure driving time is approximately 12 to 14 hours at normal highway speeds. Total journey time is longer with rest stops and traffic." },
+            { question: 'What route connects Dammam and Jeddah?', shortAnswer: 'Via the interior, through the Riyadh area', detailedAnswer: "The route runs from Dammam across the Eastern Province and Saudi interior — generally via the Riyadh area — before continuing west to Jeddah." },
+            { question: 'Can I book a private Dammam to Jeddah taxi?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Dammam to Jeddah private taxi service, with a single vehicle from your Dammam pickup through to your Jeddah drop-off point." },
+            { question: 'What is the Dammam to Jeddah driving distance?', shortAnswer: 'Roughly 1,340 km by road', detailedAnswer: "Routing tools generally show approximately 1,300 to 1,370 km for this domestic cross-country route." },
+            { question: 'Can families travel from Dammam to Jeddah by car?', shortAnswer: 'Yes, with the right planning', detailedAnswer: "Yes. Given the 12-14 hour length, families typically plan for regular rest breaks, and many prefer a private vehicle with a professional driver over self-driving the full distance." },
+            { question: 'Can I book a return taxi from Jeddah to Dammam?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Jeddah to Dammam taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Dammam to Jeddah distances?', shortAnswer: 'Different exact start/end points and interior route choices', detailedAnswer: "Different mapping providers can select different interior routes and starting/ending points, which compounds into a noticeable gap on a route this long. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'dammam-to-riyadh': {
+        slug: 'dammam-to-riyadh',
+        origin: 'Dammam',
+        originFull: 'Dammam, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Riyadh',
+        destinationFull: 'Riyadh, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 400–423 km',
+        distanceHeadline: '~410 km',
+        drivingTimeRange: 'approximately 3.5–4 hours of continuous driving',
+        drivingTimeHeadline: '~3.5–4 hrs',
+        routeHeadline: 'Direct via the Interior Highway',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Dammam to Riyadh is approximately 400 to 423 km, one of the more frequently traveled and well-established domestic corridors in the Kingdom, connecting the Eastern Province to the capital.",
+            "Independent route calculators agree fairly closely on this figure. Your exact pickup point in Dammam and drop-off point in Riyadh can still shift the total by a small amount.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 3.5 to 4 hours at normal highway speeds — a comfortable half-day drive on a well-maintained road.",
+            "Total journey time is a little longer once you add rest stops and normal traffic around both cities.",
+            "Traffic around Riyadh itself can add time during peak commuting hours and public holidays — build in a little extra buffer if your arrival time matters.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs directly west from Dammam across the Eastern Province and central Saudi interior to Riyadh — one of the busiest and most heavily serviced domestic corridors in the Kingdom, connecting two of Saudi Arabia's largest metro areas.",
+            "As a fully domestic route, there's no border crossing, and services along the way are frequent given how well-traveled this corridor is.",
+        ],
+        byCarNote: "At around 3.5-4 hours, this is one of the more comfortable domestic drives we cover — very manageable for self-driving, though a private chauffeur transfer is still a popular choice for business travelers who want to work or rest during the trip.",
+        journeyPlanningNote: "This is a well-serviced corridor with frequent rest stops, so extensive advance planning is less critical here than on our longer routes.",
+        bestTimeNote: "Traffic around both Dammam and Riyadh is heavier during normal weekday commuting hours — traveling outside those windows tends to be smoother.",
+
+        mapOriginQuery: 'Dammam, Saudi Arabia',
+        mapDestinationQuery: 'Riyadh, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Dammam to Riyadh Taxi',
+            url: '/routes/dammam-riyadh/',
+            description: 'Pre-booked private transfer from Dammam to Riyadh.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Riyadh to Dammam Taxi',
+            url: '/routes/riyadh-dammam/',
+            description: 'Book the return leg from Riyadh back to Dammam.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Dammam to Makkah Taxi', url: '/routes/dammam-makkah/', description: 'Private transfer from Dammam to Makkah.' },
+            { name: 'Dammam to Jeddah Taxi', url: '/routes/dammam-jeddah/', description: 'Private transfer from Dammam to Jeddah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Riyadh Transport Guide',
+            url: '/locations/riyadh/',
+            description: 'Local Riyadh taxi and chauffeur information.',
+        },
+        relatedDistanceSlugs: ['dammam-to-makkah', 'riyadh-to-makkah', 'riyadh-to-jeddah'],
+
+        seoTitle: 'Dammam to Riyadh Distance by Road | Driving Time & Map',
+        metaDescription: 'Dammam to Riyadh distance by road, estimated driving time, route map and journey information. See how far Riyadh is from Dammam by car.',
+        h1: 'Dammam to Riyadh Distance by Road',
+
+        faqs: [
+            { question: 'How far is Dammam from Riyadh by road?', shortAnswer: 'Approximately 400–423 km', detailedAnswer: "By road, Dammam to Riyadh is approximately 400 to 423 km — one of the most frequently traveled domestic corridors in Saudi Arabia." },
+            { question: 'How long does Dammam to Riyadh take by car?', shortAnswer: 'Approximately 3.5–4 hours of driving', detailedAnswer: "Pure driving time is approximately 3.5 to 4 hours at normal highway speeds — a comfortable half-day drive." },
+            { question: 'What route connects Dammam and Riyadh?', shortAnswer: 'A direct interior highway', detailedAnswer: "A well-established, heavily serviced interior highway runs directly between Dammam and Riyadh, connecting the Eastern Province to the capital." },
+            { question: 'Can I book a private Dammam to Riyadh taxi?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Dammam to Riyadh private taxi service, with a single vehicle from your Dammam pickup through to your Riyadh drop-off point." },
+            { question: 'What is the Dammam to Riyadh driving distance?', shortAnswer: 'Roughly 410 km by road', detailedAnswer: "Routing tools generally agree closely on approximately 400 to 423 km for this well-established domestic route." },
+            { question: 'Can families travel from Dammam to Riyadh by car?', shortAnswer: 'Yes, easily', detailedAnswer: "Yes. At 3.5-4 hours, this is one of the easier domestic drives for families, with frequent rest stops available along the way." },
+            { question: 'Can I book a return taxi from Riyadh to Dammam?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Riyadh to Dammam taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always somewhat shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Dammam to Riyadh distances?', shortAnswer: 'Different exact start/end points and routing engines', detailedAnswer: "Even on a well-established domestic route, exact pickup and drop-off points and different mapping providers can shift the total by a modest amount. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'al-khobar-to-madinah': {
+        slug: 'al-khobar-to-madinah',
+        origin: 'Al Khobar',
+        originFull: 'Al Khobar, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Madinah',
+        destinationFull: 'Madinah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 1,235–1,270 km',
+        distanceHeadline: '~1,250 km',
+        drivingTimeRange: 'approximately 11–13 hours of continuous driving',
+        drivingTimeHeadline: '~11–13 hrs',
+        routeHeadline: 'Via the Interior (Direct or via Riyadh)',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Al Khobar to Madinah is approximately 1,235 to 1,270 km. Al Khobar sits in the same Eastern Province metro area as Dammam — a short local hop apart — so this route closely tracks the distance and route of our Dammam to Madinah journey, with a small variation depending on your exact pickup point.",
+            "As with the Dammam to Madinah route, there are genuinely two general interior corridors that reach Madinah from the Eastern Province — a more direct path and one via the Riyadh area — which is part of why the range here is wider than on shorter routes.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 11 to 13 hours at normal highway speeds — one of the longer domestic drives in the Kingdom.",
+            "Total journey time is longer once you add fuel and rest stops and meals over a 1,200+ km trip. Most travelers treat this as a long single-day push with several stops.",
+            "Traffic on the approach into Madinah increases during Ramadan and the Hajj/Umrah peak season — build in extra time during those dates.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs from Al Khobar across Saudi Arabia's Eastern Province and interior — either a more direct corridor or one via the Riyadh area — before continuing northwest to Madinah, following essentially the same corridor as the Dammam to Madinah route. As a fully domestic route, there's no border crossing.",
+            "We're not naming specific highway numbers here, since routing can vary between providers — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        byCarNote: "At 11-13 hours, this is genuinely one of the longer domestic drives in the Kingdom — most families and business travelers prefer a private chauffeur-driven transfer over self-driving the full distance, arriving rested rather than fatigued.",
+        journeyPlanningNote: "We don't currently run a dedicated Al Khobar to Madinah booking page — see the note in the Taxi section below for how to arrange this route with us.",
+        bestTimeNote: "Ramadan and the Hajj/Umrah peak season bring significantly more traffic into Madinah specifically — build in extra time if traveling during these periods.",
+
+        mapOriginQuery: 'Al Khobar, Saudi Arabia',
+        mapDestinationQuery: 'Madinah, Saudi Arabia',
+
+        // No dedicated Al Khobar-Madinah commercial route page exists yet (checked both
+        // directions) — per spec we don't guess or create one. Dammam to Madinah is the
+        // practical equivalent, since Al Khobar and Dammam share the same metro area.
+        relatedTaxiRoutes: [
+            { name: 'Dammam to Madinah Taxi', url: '/routes/dammam-madinah/', description: 'The closest equivalent service — Al Khobar is a short local pickup from Dammam.' },
+            { name: 'Khobar to Bahrain Taxi', url: '/routes/khobar-bahrain/', description: 'Private transfer from Al Khobar to Bahrain via the King Fahd Causeway.' },
+        ],
+        relatedLocationLink: {
+            name: 'Madinah Transport Guide',
+            url: '/locations/madinah/',
+            description: 'Local Madinah taxi and chauffeur information.',
+        },
+        relatedDistanceSlugs: ['dammam-to-madinah', 'al-khobar-to-makkah', 'al-khobar-to-riyadh'],
+        noDirectRouteNote: "We don't yet have a dedicated Al Khobar to Madinah booking page on this site. Al Khobar sits in the same Eastern Province metro area as Dammam, so our existing Dammam to Madinah taxi service covers this journey with a local Al Khobar pickup available on request — or contact us directly via WhatsApp for a custom quote.",
+
+        seoTitle: 'Al Khobar to Madinah Distance by Road | Driving Time & Map',
+        metaDescription: 'Al Khobar to Madinah distance by road, estimated driving time, route map and journey information. See how far Madinah is from Al Khobar by car.',
+        h1: 'Al Khobar to Madinah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Al Khobar from Madinah by road?', shortAnswer: 'Approximately 1,235–1,270 km', detailedAnswer: "By road, Al Khobar to Madinah is approximately 1,235 to 1,270 km — closely tracking the Dammam to Madinah distance, since Al Khobar is in the same metro area." },
+            { question: 'How long does Al Khobar to Madinah take by car?', shortAnswer: 'Approximately 11–13 hours of driving', detailedAnswer: "Pure driving time is approximately 11 to 13 hours at normal highway speeds. Total journey time is longer with rest stops and traffic." },
+            { question: 'What route connects Al Khobar and Madinah?', shortAnswer: 'The interior — direct or via Riyadh', detailedAnswer: "There are two genuine interior corridors from the Eastern Province to Madinah — a more direct path and one via the Riyadh area — which is why the distance range is wider than usual." },
+            { question: 'Can I book a private Al Khobar to Madinah taxi?', shortAnswer: 'Yes, via our Dammam to Madinah service', detailedAnswer: "We don't have a dedicated Al Khobar to Madinah booking page yet, but our Dammam to Madinah private taxi service covers this journey with a local Al Khobar pickup available on request." },
+            { question: 'What is the Al Khobar to Madinah driving distance?', shortAnswer: 'Roughly 1,250 km by road', detailedAnswer: "Routing tools generally show approximately 1,235 to 1,270 km for this domestic route." },
+            { question: 'Can families travel from Al Khobar to Madinah by car?', shortAnswer: 'Yes, with the right planning', detailedAnswer: "Yes. Given the 11-13 hour length, families typically plan for regular rest breaks, and many prefer a private vehicle with a professional driver over self-driving the full distance." },
+            { question: 'Can I book a return taxi from Madinah to Al Khobar?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "Yes — contact us directly via WhatsApp with your travel date for a custom quote on the return leg, or see our Madinah to Dammam taxi page for the closest equivalent booking option." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Al Khobar to Madinah distances?', shortAnswer: 'Two genuinely different interior routes exist', detailedAnswer: "Unlike most routes where the variance is just measurement differences, this route has two genuinely different interior corridors (direct vs. via Riyadh), which is why the range is wider than usual." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'al-khobar-to-riyadh': {
+        slug: 'al-khobar-to-riyadh',
+        origin: 'Al Khobar',
+        originFull: 'Al Khobar, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Riyadh',
+        destinationFull: 'Riyadh, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 426–430 km',
+        distanceHeadline: '~430 km',
+        drivingTimeRange: 'approximately 3.5–4 hours of continuous driving',
+        drivingTimeHeadline: '~3.5–4 hrs',
+        routeHeadline: 'Direct via the Interior Highway',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Al Khobar to Riyadh is approximately 426 to 430 km. Al Khobar sits in the same Eastern Province metro area as Dammam, so this distance and route closely track our Dammam to Riyadh journey, with only a small local variation.",
+            "Independent route calculators agree closely on this figure, since it's a short, well-established domestic corridor.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 3.5 to 4 hours at normal highway speeds — a comfortable half-day drive on a well-maintained, heavily serviced road.",
+            "Total journey time is a little longer once you add rest stops and normal traffic around both cities.",
+            "Traffic around Riyadh itself can add time during peak commuting hours and public holidays.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs directly west from Al Khobar across the Eastern Province and central Saudi interior to Riyadh, following essentially the same corridor as the Dammam to Riyadh route. As a fully domestic route, there's no border crossing.",
+            "This is a well-traveled corridor connecting two of Saudi Arabia's largest metro areas, so services and rest stops are frequent along the way.",
+        ],
+        byCarNote: "At around 3.5-4 hours, this is one of the more comfortable domestic drives we cover — manageable for self-driving, though a private chauffeur transfer is still a popular choice for business travelers who want to work or rest during the trip.",
+        journeyPlanningNote: "We don't currently run a dedicated Al Khobar to Riyadh booking page — see the note in the Taxi section below for how to arrange this route with us.",
+        bestTimeNote: "Traffic around both Al Khobar/Dammam and Riyadh is heavier during normal weekday commuting hours — traveling outside those windows tends to be smoother.",
+
+        mapOriginQuery: 'Al Khobar, Saudi Arabia',
+        mapDestinationQuery: 'Riyadh, Saudi Arabia',
+
+        // No dedicated Al Khobar-Riyadh commercial route page exists yet (checked both
+        // directions) — per spec we don't guess or create one. Dammam to Riyadh is the
+        // practical equivalent, since Al Khobar and Dammam share the same metro area.
+        relatedTaxiRoutes: [
+            { name: 'Dammam to Riyadh Taxi', url: '/routes/dammam-riyadh/', description: 'The closest equivalent service — Al Khobar is a short local pickup from Dammam.' },
+            { name: 'Khobar to Bahrain Taxi', url: '/routes/khobar-bahrain/', description: 'Private transfer from Al Khobar to Bahrain via the King Fahd Causeway.' },
+        ],
+        relatedLocationLink: {
+            name: 'Riyadh Transport Guide',
+            url: '/locations/riyadh/',
+            description: 'Local Riyadh taxi and chauffeur information.',
+        },
+        relatedDistanceSlugs: ['dammam-to-riyadh', 'al-khobar-to-makkah', 'al-khobar-to-madinah'],
+        noDirectRouteNote: "We don't yet have a dedicated Al Khobar to Riyadh booking page on this site. Al Khobar sits in the same Eastern Province metro area as Dammam, so our existing Dammam to Riyadh taxi service covers this journey with a local Al Khobar pickup available on request — or contact us directly via WhatsApp for a custom quote.",
+
+        seoTitle: 'Al Khobar to Riyadh Distance by Road | Driving Time & Map',
+        metaDescription: 'Al Khobar to Riyadh distance by road, estimated driving time, route map and journey information. See how far Riyadh is from Al Khobar by car.',
+        h1: 'Al Khobar to Riyadh Distance by Road',
+
+        faqs: [
+            { question: 'How far is Al Khobar from Riyadh by road?', shortAnswer: 'Approximately 426–430 km', detailedAnswer: "By road, Al Khobar to Riyadh is approximately 426 to 430 km — a short, well-established domestic corridor closely matching the Dammam to Riyadh distance." },
+            { question: 'How long does Al Khobar to Riyadh take by car?', shortAnswer: 'Approximately 3.5–4 hours of driving', detailedAnswer: "Pure driving time is approximately 3.5 to 4 hours at normal highway speeds — a comfortable half-day drive." },
+            { question: 'What route connects Al Khobar and Riyadh?', shortAnswer: 'A direct interior highway', detailedAnswer: "A well-established interior highway runs directly between Al Khobar/Dammam and Riyadh, connecting the Eastern Province to the capital." },
+            { question: 'Can I book a private Al Khobar to Riyadh taxi?', shortAnswer: 'Yes, via our Dammam to Riyadh service', detailedAnswer: "We don't have a dedicated Al Khobar to Riyadh booking page yet, but our Dammam to Riyadh private taxi service covers this journey with a local Al Khobar pickup available on request." },
+            { question: 'What is the Al Khobar to Riyadh driving distance?', shortAnswer: 'Roughly 430 km by road', detailedAnswer: "Routing tools generally agree closely on approximately 426 to 430 km for this well-established domestic route." },
+            { question: 'Can families travel from Al Khobar to Riyadh by car?', shortAnswer: 'Yes, easily', detailedAnswer: "Yes. At 3.5-4 hours, this is one of the easier domestic drives for families, with frequent rest stops available along the way." },
+            { question: 'Can I book a return taxi from Riyadh to Al Khobar?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "Yes — contact us directly via WhatsApp with your travel date for a custom quote on the return leg, or see our Riyadh to Dammam taxi page for the closest equivalent booking option." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always somewhat shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Al Khobar to Riyadh distances?', shortAnswer: 'Different exact start/end points and routing engines', detailedAnswer: "Even on a well-established domestic route, exact pickup and drop-off points and different mapping providers can shift the total by a modest amount. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'taif-to-makkah': {
+        slug: 'taif-to-makkah',
+        origin: 'Taif',
+        originFull: 'Taif, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Makkah',
+        destinationFull: 'Makkah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 85–100 km',
+        distanceHeadline: '~90 km',
+        drivingTimeRange: 'approximately 1.5–2 hours of continuous driving',
+        drivingTimeHeadline: '~1.5–2 hrs',
+        routeHeadline: 'Via the Al Hada Mountain Road',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Taif to Makkah is approximately 85 to 100 km — a short domestic hop, but one with a genuine mountain descent that makes it slower than the distance alone suggests. Taif sits at a much higher elevation than Makkah, connected by the well-known Al Hada mountain road.",
+            "Independent route calculators and figures published on our own Makkah–Taif route page agree on this range.",
+        ],
+        drivingTimeDescription: [
+            "Driving time is approximately 1.5 to 2 hours — noticeably longer than a flat 90 km highway drive would normally take, because of the winding mountain descent via Al Hada.",
+            "Total journey time can extend further with weekend or holiday traffic on the mountain road, which is a popular route for both pilgrims and local day-trippers heading up to Taif's cooler climate.",
+            "Fog and reduced visibility on the upper sections of the mountain road are more common in cooler months — a private driver familiar with the route is a genuine advantage here.",
+        ],
+        routeJourneyDescription: [
+            "The route runs via the Al Hada mountain road, a well-known winding descent connecting Taif's elevated plateau down to the Makkah plain — one of the more scenic short drives in the Kingdom, with switchbacks and views over the surrounding mountains.",
+            "As a fully domestic route, there's no border crossing, and the short distance means this is a practical same-day trip in either direction.",
+        ],
+        byCarNote: "Given the winding mountain road, many travelers — especially those prone to motion sickness or unfamiliar with mountain driving — prefer a private taxi or chauffeur over self-driving this particular route, even though the distance itself is short.",
+        journeyPlanningNote: "Non-Muslims are not permitted to enter Makkah itself — relevant if your group includes non-Muslim travelers heading toward Makkah from Taif.",
+        bestTimeNote: "Weekends and Saudi public holidays bring more traffic to the Al Hada road, as it's a popular day-trip route for both pilgrims and local visitors escaping to Taif's cooler climate. Weekday mid-mornings tend to be quieter.",
+
+        mapOriginQuery: 'Taif, Saudi Arabia',
+        mapDestinationQuery: 'Makkah, Saudi Arabia',
+
+        // No dedicated Taif-to-Makkah (this direction) commercial route page exists —
+        // only the reverse, Makkah-to-Taif, which our dispatch team already runs as a
+        // scenic day-trip/tour service and naturally includes the return leg.
+        relatedReturnTaxiRoute: {
+            name: 'Makkah to Taif Taxi',
+            url: '/routes/makkah-taif/',
+            description: 'Our scenic mountain transfer service via Al Hada — books both directions.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Jeddah to Taif Taxi', url: '/routes/jeddah-taif/', description: 'Private transfer from Jeddah to Taif.' },
+        ],
+        relatedLocationLink: {
+            name: 'Makkah Transport Guide',
+            url: '/locations/makkah/',
+            description: 'Local Makkah taxi and chauffeur information, including Haram-area pickup rules.',
+        },
+        relatedDistanceSlugs: ['jeddah-to-makkah', 'madinah-to-makkah'],
+        noDirectRouteNote: "We don't have a page specifically for the Taif to Makkah direction, but our Makkah to Taif taxi service is run as a scenic mountain transfer via Al Hada and naturally covers both directions — contact us via WhatsApp to book Taif to Makkah specifically, or see the Makkah to Taif page for full route details.",
+
+        seoTitle: 'Taif to Makkah Distance by Road | Driving Time & Map',
+        metaDescription: 'Taif to Makkah distance by road, estimated driving time, route map and Al Hada mountain road information. See how far Makkah is from Taif by car.',
+        h1: 'Taif to Makkah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Taif from Makkah?', shortAnswer: 'Approximately 85–100 km', detailedAnswer: "Taif to Makkah is approximately 85 to 100 km by road via the Al Hada mountain road — one of the shorter routes on this site, though the mountain descent adds time beyond what the distance alone suggests." },
+            { question: 'How long does Taif to Makkah take by car?', shortAnswer: 'Approximately 1.5–2 hours', detailedAnswer: "Driving time is approximately 1.5 to 2 hours, longer than a flat 90 km drive would normally take because of the winding Al Hada mountain descent." },
+            { question: 'Is Taif to Makkah suitable for a private taxi?', shortAnswer: 'Yes, and often preferred', detailedAnswer: "Yes — given the winding mountain road, many travelers prefer a private taxi or chauffeur familiar with the Al Hada descent over self-driving, even for this relatively short distance." },
+            { question: 'Can families travel from Taif to Makkah by car?', shortAnswer: 'Yes', detailedAnswer: "Yes. At 1.5-2 hours, this is a manageable trip for families, and a private vehicle takes the pressure off navigating the mountain road yourself." },
+            { question: 'What route connects Taif and Makkah?', shortAnswer: 'The Al Hada mountain road', detailedAnswer: "The Al Hada road is the well-known route connecting Taif's elevated plateau down to the Makkah plain, featuring a scenic winding mountain descent." },
+            { question: 'Can I book a private Taif to Makkah taxi?', shortAnswer: 'Yes, via our Makkah to Taif service', detailedAnswer: "We don't have a page dedicated to this exact direction, but our Makkah to Taif scenic mountain transfer service covers both directions — contact us via WhatsApp to book Taif to Makkah." },
+            { question: 'Is Taif to Makkah relevant for Umrah pilgrims?', shortAnswer: 'Yes, as a day trip or extension', detailedAnswer: "Yes — Taif is a popular cooler-climate day trip or extension for Umrah pilgrims based in Makkah, thanks to its short distance and mountain scenery." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores the mountain road entirely — the actual driving distance and time reflect the winding descent, not a flat direct line." },
+            { question: 'Why do different websites show different Taif to Makkah distances?', shortAnswer: 'Different exact start/end points within each city', detailedAnswer: "The biggest source of variation is exactly where in Taif and where in Makkah each source measures from, plus which point along the Al Hada road is used as the reference." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'taif-to-madinah': {
+        slug: 'taif-to-madinah',
+        origin: 'Taif',
+        originFull: 'Taif, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Madinah',
+        destinationFull: 'Madinah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 470–525 km',
+        distanceHeadline: '~500 km',
+        drivingTimeRange: 'approximately 5–6 hours of continuous driving',
+        drivingTimeHeadline: '~5–6 hrs',
+        routeHeadline: 'Via the Interior Highway',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Taif to Madinah is approximately 470 to 525 km. Independent route calculators show a real spread here — a reminder that even domestic routes can vary meaningfully depending on the specific road selected.",
+            "Your exact pickup point in Taif and drop-off point in Madinah both affect the total, as does which interior route a mapping tool selects.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 5 to 6 hours at normal highway speeds — a genuinely long half-day-plus drive best planned with a rest stop.",
+            "Total journey time is longer once you add fuel and rest stops and meals. Most travelers treat this as a single day's drive with a break partway through.",
+            "Traffic on the approach into Madinah increases during Ramadan and the Hajj/Umrah peak season — build in extra time during those dates.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs north from Taif across the Saudi interior toward Madinah in the Hijaz region. As a fully domestic route, there's no border crossing.",
+            "We're not naming specific highway numbers here, since routing can vary between providers — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        byCarNote: "At 5-6 hours, this is a genuinely long drive best suited to a family or group who can share the trip, or handed to a private driver so everyone can rest — particularly relevant for pilgrims or families combining a Taif visit with time in Madinah.",
+        journeyPlanningNote: "We don't currently run a dedicated Taif to Madinah booking page — see the note in the Taxi section below for how to arrange this route with us.",
+        bestTimeNote: "Ramadan and the Hajj/Umrah peak season bring significantly more traffic into Madinah specifically — build in extra time if traveling during these periods.",
+
+        mapOriginQuery: 'Taif, Saudi Arabia',
+        mapDestinationQuery: 'Madinah, Saudi Arabia',
+
+        // No dedicated Taif-Madinah commercial route page exists yet in either
+        // direction — per spec we don't guess or create one.
+        relatedTaxiRoutes: [
+            { name: 'Jeddah to Taif Taxi', url: '/routes/jeddah-taif/', description: 'Private transfer from Jeddah to Taif, in the same region.' },
+            { name: 'Jeddah to Madinah Taxi', url: '/routes/jeddah-madinah/', description: 'Private transfer from Jeddah to Madinah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Madinah Transport Guide',
+            url: '/locations/madinah/',
+            description: 'Local Madinah taxi and chauffeur information.',
+        },
+        relatedDistanceSlugs: ['jeddah-to-madinah', 'taif-to-makkah'],
+        noDirectRouteNote: "We don't yet have a dedicated Taif to Madinah booking page on this site. Contact us directly via WhatsApp with your travel date and passenger count for a custom quote on this route.",
+
+        seoTitle: 'Taif to Madinah Distance by Road | Driving Time & Map',
+        metaDescription: 'Taif to Madinah distance by road, estimated driving time, route map and journey information. See how far Madinah is from Taif by car.',
+        h1: 'Taif to Madinah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Taif from Madinah by road?', shortAnswer: 'Approximately 470–525 km', detailedAnswer: "By road, Taif to Madinah is approximately 470 to 525 km — sources show a genuine spread depending on the exact interior route." },
+            { question: 'How long does Taif to Madinah take by car?', shortAnswer: 'Approximately 5–6 hours of driving', detailedAnswer: "Pure driving time is approximately 5 to 6 hours at normal highway speeds — a long half-day-plus drive best planned with a rest stop." },
+            { question: 'What route connects Taif and Madinah?', shortAnswer: 'The Saudi interior highway network', detailedAnswer: "The route runs north from Taif across the Saudi interior to Madinah — we don't name a specific highway number here since routing can vary by provider." },
+            { question: 'Can I book a private Taif to Madinah taxi?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "We don't have a dedicated booking page for this exact route yet, but yes — contact us via WhatsApp with your travel date and passenger count for a custom quote." },
+            { question: 'What is the Taif to Madinah driving distance?', shortAnswer: 'Roughly 500 km by road', detailedAnswer: "Routing tools show a range of approximately 470 to 525 km for this domestic route, depending on the exact interior road used." },
+            { question: 'Can families travel from Taif to Madinah by car?', shortAnswer: 'Yes, with the right planning', detailedAnswer: "Yes. At 5-6 hours, families typically plan for a rest stop along the way, and many prefer a private vehicle with a professional driver for this length of trip." },
+            { question: 'Can I book a return taxi from Madinah to Taif?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "Yes — contact us directly via WhatsApp with your travel date for a custom quote on the return leg." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Taif to Madinah distances?', shortAnswer: 'Genuinely different interior route options', detailedAnswer: "Sources show a real spread on this route because different interior roads can be selected between the two cities — not just measurement differences." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'alula-to-makkah': {
+        slug: 'alula-to-makkah',
+        origin: 'AlUla',
+        originFull: 'AlUla, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Makkah',
+        destinationFull: 'Makkah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 700–750 km',
+        distanceHeadline: '~730 km',
+        drivingTimeRange: 'approximately 8.5–9.5 hours of continuous driving',
+        drivingTimeHeadline: '~8.5–9.5 hrs',
+        routeHeadline: 'Via the Interior Highway',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from AlUla to Makkah is approximately 700 to 750 km. AlUla is Saudi Arabia's premium heritage tourism destination in the northwest of the country, and this route connects it to Makkah for pilgrims and tourists combining both destinations in one trip.",
+            "Your exact pickup point in AlUla and drop-off point in Makkah shift the total by a modest amount, same as any long domestic route.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 8.5 to 9.5 hours at normal highway speeds — a genuinely long day's drive.",
+            "Total journey time is longer once you add fuel and rest stops and meals. Most travelers treat this as a full day's drive with a couple of planned stops, or split it across two days if combining it with sightseeing along the way.",
+            "Traffic on the approach into Makkah increases during Umrah and Hajj peak periods — build in extra time during those dates.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs south from AlUla across the Saudi interior toward Makkah. As a fully domestic route, there's no border crossing.",
+            "We're not naming specific highway numbers here, since routing can vary between providers — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        byCarNote: "Given the genuine length of this route and that many AlUla visitors are tourists unfamiliar with Saudi long-distance driving, a private chauffeur-driven transfer is a popular choice — it removes the fatigue and navigation burden of an 8.5+ hour drive through unfamiliar terrain.",
+        journeyPlanningNote: "We don't currently run a dedicated AlUla to Makkah booking page — see the note in the Taxi section below for how to arrange this route with us. Also note that non-Muslims are not permitted to enter Makkah itself, which is relevant for tourist groups that may include non-Muslim travelers.",
+        bestTimeNote: "Umrah and Hajj peak seasons bring significantly more traffic on the approach into Makkah — build in extra time if traveling during these periods. AlUla itself has a distinct tourist season (cooler months), which is worth factoring into your overall trip planning.",
+
+        mapOriginQuery: 'AlUla, Saudi Arabia',
+        mapDestinationQuery: 'Makkah, Saudi Arabia',
+
+        // No dedicated AlUla-Makkah commercial route page exists yet in either
+        // direction — per spec we don't guess or create one.
+        relatedTaxiRoutes: [
+            { name: 'AlUla to Jeddah Taxi', url: '/routes/alula-jeddah/', description: 'Private transfer from AlUla to Jeddah — combine with a Jeddah to Makkah transfer for a two-leg journey.' },
+            { name: 'Jeddah to Makkah Taxi', url: '/routes/jeddah-makkah/', description: 'Private transfer from Jeddah to Makkah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Makkah Transport Guide',
+            url: '/locations/makkah/',
+            description: 'Local Makkah taxi and chauffeur information, including Haram-area pickup rules.',
+        },
+        relatedDistanceSlugs: ['jeddah-to-makkah', 'taif-to-makkah'],
+        noDirectRouteNote: "We don't yet have a dedicated AlUla to Makkah booking page on this site. Contact us directly via WhatsApp for a custom quote — or if your schedule is flexible, our AlUla to Jeddah service combined with a Jeddah to Makkah transfer covers the same overall journey in two legs.",
+
+        seoTitle: 'AlUla to Makkah Distance by Road | Driving Time & Map',
+        metaDescription: 'AlUla to Makkah distance by road, estimated driving time, route map and journey information. See how far Makkah is from AlUla by car.',
+        h1: 'AlUla to Makkah Distance by Road',
+
+        faqs: [
+            { question: 'How far is AlUla from Makkah by road?', shortAnswer: 'Approximately 700–750 km', detailedAnswer: "By road, AlUla to Makkah is approximately 700 to 750 km, connecting Saudi Arabia's premier heritage tourism destination to the holy city." },
+            { question: 'How long does AlUla to Makkah take by car?', shortAnswer: 'Approximately 8.5–9.5 hours of driving', detailedAnswer: "Pure driving time is approximately 8.5 to 9.5 hours at normal highway speeds — a genuinely long day's drive." },
+            { question: 'Can I travel from AlUla to Makkah by private car?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "We don't have a dedicated booking page for this exact route yet, but yes — contact us via WhatsApp for a custom quote, or combine our AlUla to Jeddah and Jeddah to Makkah services." },
+            { question: 'Is the route suitable for families and tourists?', shortAnswer: 'Yes, with rest stops planned', detailedAnswer: "Yes. Given the 8.5+ hour length, families and tourists typically plan for rest stops, and many prefer a private chauffeur given the distance and unfamiliar terrain for visitors." },
+            { question: 'What is the AlUla to Makkah driving distance?', shortAnswer: 'Roughly 730 km by road', detailedAnswer: "Routing tools generally put the AlUla to Makkah driving distance at approximately 700 to 750 km." },
+            { question: 'What route connects AlUla and Makkah?', shortAnswer: 'The Saudi interior highway network', detailedAnswer: "The route runs south from AlUla across the Saudi interior to Makkah — we don't name a specific highway number here since routing can vary by provider." },
+            { question: 'Can I combine AlUla tourism with an Umrah trip to Makkah?', shortAnswer: 'Yes, this is a common combined itinerary', detailedAnswer: "Yes — many travelers combine AlUla's heritage sites with Umrah in Makkah as part of the same Saudi Arabia trip, given both are significant destinations within reasonable driving distance of each other." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different AlUla to Makkah distances?', shortAnswer: 'Different exact start/end points and routing engines', detailedAnswer: "Different mapping providers and different exact starting/ending points within each destination can shift the total. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
 };
 
 export function getDistanceRoute(slug: string): DistanceRoute | undefined {
@@ -1745,7 +2325,19 @@ export const DISTANCE_HUB_CATEGORIES: DistanceHubCategory[] = [
         id: 'saudi-to-madinah',
         title: 'Saudi Cities to Madinah',
         description: 'Road distance and driving time from other Saudi cities to Madinah.',
-        routeSlugs: ['riyadh-to-madinah', 'dammam-to-madinah', 'jeddah-to-madinah'],
+        routeSlugs: ['riyadh-to-madinah', 'dammam-to-madinah', 'jeddah-to-madinah', 'al-khobar-to-madinah'],
+    },
+    {
+        id: 'saudi-city-to-city',
+        title: 'Saudi City-to-City Distances',
+        description: 'Road distance and driving time between other major Saudi cities.',
+        routeSlugs: ['riyadh-to-jeddah', 'dammam-to-jeddah', 'dammam-to-riyadh', 'al-khobar-to-riyadh'],
+    },
+    {
+        id: 'tourist-religious-routes',
+        title: 'Popular Tourist & Religious Routes',
+        description: 'Road distance and driving time for popular tourist and pilgrim routes.',
+        routeSlugs: ['taif-to-makkah', 'taif-to-madinah', 'alula-to-makkah'],
     },
     {
         id: 'other-saudi',
