@@ -12,6 +12,9 @@ import DistanceRouteMap from '@/components/distance/DistanceRouteMap';
 import { getDistanceRoute } from '@/data/distanceRoutes';
 
 const route = getDistanceRoute('kuwait-to-makkah')!;
+// This page always has a matching commercial route page, so this is guaranteed non-null
+// (the field became optional on DistanceRoute only to support later routes that don't).
+const relatedTaxiRoute = route.relatedTaxiRoute!;
 
 export const metadata: Metadata = {
     title: route.seoTitle,
@@ -106,9 +109,9 @@ export default function KuwaitToMakkahDistancePage() {
                         Kuwait City to Makkah is {route.distanceRange} by road ({route.distanceHeadline}), with {route.drivingTimeRange} of pure driving. The route runs through Saudi Arabia&apos;s Eastern Province and on to Makkah, crossing the border at {route.borderName}.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
-                        <Link href={route.relatedTaxiRoute.url}>
+                        <Link href={relatedTaxiRoute.url}>
                             <span className="inline-flex items-center justify-center gap-2 bg-primary text-white font-bold px-7 py-3.5 rounded-2xl hover:bg-primary/90 transition-colors w-full sm:w-auto">
-                                Book {route.relatedTaxiRoute.name}
+                                Book {relatedTaxiRoute.name}
                                 <ArrowRight className="w-4 h-4" />
                             </span>
                         </Link>
@@ -223,17 +226,17 @@ export default function KuwaitToMakkahDistancePage() {
                     <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">Kuwait to Makkah Taxi</h2>
                     <p className="text-gray-600 text-lg leading-relaxed mb-6">
                         If you'd rather not drive the full distance yourself, a pre-booked private{' '}
-                        <Link href={route.relatedTaxiRoute.url} className="text-primary font-semibold hover:underline">
+                        <Link href={relatedTaxiRoute.url} className="text-primary font-semibold hover:underline">
                             Kuwait to Makkah taxi
                         </Link>{' '}
                         covers the same route with a professional driver, in a single vehicle from your Kuwait pickup point through to your Makkah drop-off point. We don't publish a generic price on this page — fares depend on vehicle type, passenger count, and current conditions, so request a quote for your exact trip.
                     </p>
                     <div className="bg-primary/5 border border-primary/10 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
                         <div>
-                            <h3 className="font-black text-gray-900 text-lg mb-1">{route.relatedTaxiRoute.name}</h3>
-                            <p className="text-sm text-gray-600">{route.relatedTaxiRoute.description}</p>
+                            <h3 className="font-black text-gray-900 text-lg mb-1">{relatedTaxiRoute.name}</h3>
+                            <p className="text-sm text-gray-600">{relatedTaxiRoute.description}</p>
                         </div>
-                        <Link href={route.relatedTaxiRoute.url} className="shrink-0">
+                        <Link href={relatedTaxiRoute.url} className="shrink-0">
                             <span className="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors">
                                 Get a Quote <ArrowRight className="w-4 h-4" />
                             </span>
@@ -321,7 +324,7 @@ export default function KuwaitToMakkahDistancePage() {
                     <p className="text-gray-500 mt-2">Pre-booked private transfers on this corridor</p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                    {[route.relatedTaxiRoute, ...(route.relatedReturnTaxiRoute ? [route.relatedReturnTaxiRoute] : []), ...route.relatedTaxiRoutes].map((link) => (
+                    {[relatedTaxiRoute, ...(route.relatedReturnTaxiRoute ? [route.relatedReturnTaxiRoute] : []), ...route.relatedTaxiRoutes].map((link) => (
                         <Link
                             key={link.url}
                             href={link.url}

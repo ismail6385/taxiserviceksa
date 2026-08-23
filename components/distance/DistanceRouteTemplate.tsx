@@ -60,10 +60,11 @@ export default function DistanceRouteTemplate({ route }: DistanceRouteTemplatePr
         .filter((r): r is DistanceRoute => Boolean(r));
 
     const relatedTaxiLinks = [
-        route.relatedTaxiRoute,
+        ...(route.relatedTaxiRoute ? [route.relatedTaxiRoute] : []),
         ...(route.relatedReturnTaxiRoute ? [route.relatedReturnTaxiRoute] : []),
         ...route.relatedTaxiRoutes,
     ];
+    const whatsappHref = `https://wa.me/966563573531?text=${encodeURIComponent(`Hello, I want a quote for a taxi from ${route.origin} to ${route.destination}.`)}`;
 
     return (
         <div className="bg-gray-50 min-h-screen">
@@ -94,21 +95,35 @@ export default function DistanceRouteTemplate({ route }: DistanceRouteTemplatePr
                             : `This is a fully domestic route within Saudi Arabia, with no border crossing.`}
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center mt-8">
-                        <Link href={route.relatedTaxiRoute.url}>
-                            <span className="inline-flex items-center justify-center gap-2 bg-primary text-white font-bold px-7 py-3.5 rounded-2xl hover:bg-primary/90 transition-colors w-full sm:w-auto">
-                                Book {route.relatedTaxiRoute.name}
-                                <ArrowRight className="w-4 h-4" />
-                            </span>
-                        </Link>
-                        <a
-                            href={`https://wa.me/966563573531?text=${encodeURIComponent(`Hello, I want a quote for a taxi from ${route.origin} to ${route.destination}.`)}`}
-                            target="_blank"
-                            rel="nofollow noopener noreferrer"
-                        >
-                            <span className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/20 text-white font-bold px-7 py-3.5 rounded-2xl hover:bg-white/20 transition-colors w-full sm:w-auto">
-                                WhatsApp a Quote
-                            </span>
-                        </a>
+                        {route.relatedTaxiRoute ? (
+                            <>
+                                <Link href={route.relatedTaxiRoute.url}>
+                                    <span className="inline-flex items-center justify-center gap-2 bg-primary text-white font-bold px-7 py-3.5 rounded-2xl hover:bg-primary/90 transition-colors w-full sm:w-auto">
+                                        Book {route.relatedTaxiRoute.name}
+                                        <ArrowRight className="w-4 h-4" />
+                                    </span>
+                                </Link>
+                                <a href={whatsappHref} target="_blank" rel="nofollow noopener noreferrer">
+                                    <span className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/20 text-white font-bold px-7 py-3.5 rounded-2xl hover:bg-white/20 transition-colors w-full sm:w-auto">
+                                        WhatsApp a Quote
+                                    </span>
+                                </a>
+                            </>
+                        ) : (
+                            <>
+                                <a href={whatsappHref} target="_blank" rel="nofollow noopener noreferrer">
+                                    <span className="inline-flex items-center justify-center gap-2 bg-primary text-white font-bold px-7 py-3.5 rounded-2xl hover:bg-primary/90 transition-colors w-full sm:w-auto">
+                                        Get a Custom Quote via WhatsApp
+                                        <ArrowRight className="w-4 h-4" />
+                                    </span>
+                                </a>
+                                <Link href="/routes/">
+                                    <span className="inline-flex items-center justify-center gap-2 bg-white/10 border-2 border-white/20 text-white font-bold px-7 py-3.5 rounded-2xl hover:bg-white/20 transition-colors w-full sm:w-auto">
+                                        View Our Taxi Routes
+                                    </span>
+                                </Link>
+                            </>
+                        )}
                     </div>
                     <p className="text-white/40 text-xs mt-6 font-bold uppercase tracking-widest">Figures last checked: {route.lastVerified}</p>
                 </div>
@@ -211,24 +226,43 @@ export default function DistanceRouteTemplate({ route }: DistanceRouteTemplatePr
                 {/* Section: Taxi (commercial bridge) */}
                 <section className="py-10 border-t border-gray-200">
                     <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-5">{route.origin} to {route.destination} Taxi</h2>
-                    <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                        If you&apos;d rather not drive the full distance yourself, a pre-booked private{' '}
-                        <Link href={route.relatedTaxiRoute.url} className="text-primary font-semibold hover:underline">
-                            {route.origin} to {route.destination} taxi
-                        </Link>{' '}
-                        covers the same route with a professional driver, in a single vehicle from your {route.origin} pickup point through to your {route.destination} drop-off point. We don&apos;t publish a generic price on this page — fares depend on vehicle type, passenger count, and current conditions, so request a quote for your exact trip.
-                    </p>
-                    <div className="bg-primary/5 border border-primary/10 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-                        <div>
-                            <h3 className="font-black text-gray-900 text-lg mb-1">{route.relatedTaxiRoute.name}</h3>
-                            <p className="text-sm text-gray-600">{route.relatedTaxiRoute.description}</p>
-                        </div>
-                        <Link href={route.relatedTaxiRoute.url} className="shrink-0">
-                            <span className="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors">
-                                Get a Quote <ArrowRight className="w-4 h-4" />
-                            </span>
-                        </Link>
-                    </div>
+                    {route.relatedTaxiRoute ? (
+                        <>
+                            <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                                If you&apos;d rather not drive the full distance yourself, a pre-booked private{' '}
+                                <Link href={route.relatedTaxiRoute.url} className="text-primary font-semibold hover:underline">
+                                    {route.origin} to {route.destination} taxi
+                                </Link>{' '}
+                                covers the same route with a professional driver, in a single vehicle from your {route.origin} pickup point through to your {route.destination} drop-off point. We don&apos;t publish a generic price on this page — fares depend on vehicle type, passenger count, and current conditions, so request a quote for your exact trip.
+                            </p>
+                            <div className="bg-primary/5 border border-primary/10 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+                                <div>
+                                    <h3 className="font-black text-gray-900 text-lg mb-1">{route.relatedTaxiRoute.name}</h3>
+                                    <p className="text-sm text-gray-600">{route.relatedTaxiRoute.description}</p>
+                                </div>
+                                <Link href={route.relatedTaxiRoute.url} className="shrink-0">
+                                    <span className="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors">
+                                        Get a Quote <ArrowRight className="w-4 h-4" />
+                                    </span>
+                                </Link>
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <p className="text-gray-600 text-lg leading-relaxed mb-6">{route.noDirectRouteNote}</p>
+                            <div className="bg-primary/5 border border-primary/10 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+                                <div>
+                                    <h3 className="font-black text-gray-900 text-lg mb-1">Request a Custom Quote</h3>
+                                    <p className="text-sm text-gray-600">Send your pickup point, destination and travel date via WhatsApp for a fixed quote on this route.</p>
+                                </div>
+                                <a href={whatsappHref} target="_blank" rel="nofollow noopener noreferrer" className="shrink-0">
+                                    <span className="inline-flex items-center gap-2 bg-primary text-white font-bold px-6 py-3 rounded-xl hover:bg-primary/90 transition-colors">
+                                        WhatsApp Us <ArrowRight className="w-4 h-4" />
+                                    </span>
+                                </a>
+                            </div>
+                        </>
+                    )}
                 </section>
 
                 {/* Section: Journey Planning */}
@@ -360,7 +394,7 @@ export default function DistanceRouteTemplate({ route }: DistanceRouteTemplatePr
                         <p className="text-gray-400">Send your travel date and passenger count via WhatsApp for a fixed quote on the {route.origin} to {route.destination} route.</p>
                     </div>
                     <a
-                        href={`https://wa.me/966563573531?text=${encodeURIComponent(`Hello, I want a quote for a taxi from ${route.origin} to ${route.destination}.`)}`}
+                        href={whatsappHref}
                         target="_blank"
                         rel="nofollow noopener noreferrer"
                         className="shrink-0"

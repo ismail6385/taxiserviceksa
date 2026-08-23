@@ -60,12 +60,18 @@ export interface DistanceRoute {
     mapDestinationQuery: string;
 
     // Internal linking
-    relatedTaxiRoute: DistanceRelatedLink;         // the primary commercial route page (required)
+    // Optional: a few routes (e.g. Riyadh-Madinah, Al Khobar-Makkah) have no matching
+    // commercial /routes/ page at all. Per spec we never guess/create one — when this is
+    // undefined, the template falls back to a generic WhatsApp CTA and shows
+    // noDirectRouteNote instead of a "book this route" card.
+    relatedTaxiRoute?: DistanceRelatedLink;
     relatedReturnTaxiRoute?: DistanceRelatedLink;   // reverse-direction commercial route, if it exists
     relatedTaxiRoutes: DistanceRelatedLink[];      // additional sibling commercial routes
     relatedLocationLink?: DistanceRelatedLink;      // existing destination location page, if any
     relatedBorderLink?: DistanceRelatedLink;        // existing border-crossing detail page, if any
     relatedDistanceSlugs?: string[];                // slugs of other DISTANCE_ROUTES entries to cross-link (only real ones)
+    /** Shown instead of the "book this route" card when relatedTaxiRoute is undefined. */
+    noDirectRouteNote?: string;
 
     // SEO
     seoTitle: string;
@@ -960,6 +966,747 @@ export const DISTANCE_ROUTES: Record<string, DistanceRoute> = {
         ],
         lastVerified: 'August 2026',
     },
+
+    'bahrain-to-madinah': {
+        slug: 'bahrain-to-madinah',
+        origin: 'Bahrain',
+        originFull: 'Manama, Bahrain',
+        originCountry: 'Bahrain',
+        destination: 'Madinah',
+        destinationFull: 'Madinah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 1,287–1,290 km',
+        distanceHeadline: '~1,290 km',
+        drivingTimeRange: 'approximately 10–12 hours of continuous driving',
+        drivingTimeHeadline: '~10–12 hrs',
+        routeHeadline: 'Via King Fahd Causeway & the Interior',
+        borderName: 'King Fahd Causeway',
+        travelType: 'International (cross-border)',
+
+        routeDescription: [
+            "The road distance from Bahrain to Madinah is approximately 1,287 to 1,290 km. Independent route calculators and our own dispatch figures agree closely on this route — one of the more tightly-agreed distances among our GCC-to-Madinah routes.",
+            "As with any causeway route, your exact pickup point on Bahrain's side and drop-off point in Madinah both affect the total by a modest amount.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 10 to 12 hours of continuous highway driving, not counting the causeway crossing itself.",
+            "Total journey time is longer once you add the causeway border crossing, fuel and rest stops, and meals over a 1,280+ km trip. Most travelers treat this as a long single-day push with a few stops.",
+            "Weekends (Thursdays and Saturdays) and public holidays on either side tend to bring heavier causeway traffic, adding to total journey time beyond the pure driving estimate above.",
+        ],
+        routeJourneyDescription: [
+            "The journey starts by crossing the King Fahd Causeway from Bahrain into Saudi Arabia's Eastern Province, then continues through the Kingdom's interior toward Madinah in the northwest Hijaz region.",
+            "We're not naming specific interior highway numbers here, since routing can vary by provider. Use the map below or a live navigation app for turn-by-turn directions closer to your travel date.",
+        ],
+        borderDescription: [
+            "This route crosses the King Fahd Causeway, the only land link between Bahrain and Saudi Arabia — a 25 km bridge with border facilities partway across.",
+            "You'll go through Bahraini exit procedures on the Bahrain side and Saudi entry procedures — passport control, visa verification, and vehicle documentation checks — on the Saudi side.",
+            "Every passenger needs a valid passport and the correct visa or entry permission for Saudi Arabia. Requirements vary by nationality and residency status, so confirm your own eligibility before traveling — we're a transport provider, not an immigration authority.",
+            "Causeway wait times vary meaningfully by day and hour; see our dedicated King Fahd Causeway border crossing guide for more detail on what affects wait times.",
+        ],
+        byCarNote: "At around 1,290 km and 11+ hours before reaching Madinah, most pilgrims and families crossing from Bahrain choose a pre-booked private transfer over self-driving, since it removes the driving fatigue while someone else manages both the causeway crossing and the interior drive.",
+        journeyPlanningNote: "If you're continuing on to Makkah afterwards, note that non-Muslims are not permitted to enter Makkah itself — Madinah has no such restriction.",
+        bestTimeNote: "Weekend causeway traffic (Thursdays/Saturdays) and the Hajj/Umrah peak season both add real time to this journey — build in extra buffer during those periods.",
+
+        mapOriginQuery: 'Manama, Bahrain',
+        mapDestinationQuery: 'Madinah, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Bahrain to Madinah Taxi',
+            url: '/routes/bahrain-madinah/',
+            description: 'Pre-booked private cross-border transfer from Bahrain to Madinah.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Madinah to Bahrain Taxi',
+            url: '/routes/madinah-bahrain/',
+            description: 'Book the return leg from Madinah back to Bahrain.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Bahrain to Makkah Taxi', url: '/routes/bahrain-makkah/', description: 'Continue on to Makkah after Madinah, or book directly.' },
+            { name: 'Bahrain to Riyadh Taxi', url: '/routes/bahrain-riyadh/', description: 'Private transfer from Bahrain to Riyadh.' },
+        ],
+        relatedLocationLink: {
+            name: 'Madinah Transport Guide',
+            url: '/locations/madinah/',
+            description: 'Local Madinah taxi and chauffeur information.',
+        },
+        relatedBorderLink: {
+            name: 'King Fahd Causeway Border Guide',
+            url: '/border-crossings/taxi-king-fahd-causeway-border-crossing/',
+            description: 'What to expect crossing the Bahrain-Saudi causeway.',
+        },
+        relatedDistanceSlugs: ['bahrain-to-makkah', 'doha-to-madinah'],
+
+        seoTitle: 'Bahrain to Madinah Distance by Road | Driving Time & Map',
+        metaDescription: 'Bahrain to Madinah distance by road, estimated driving time, route map and border information. See how far Madinah is from Bahrain by car.',
+        h1: 'Bahrain to Madinah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Bahrain from Madinah by road?', shortAnswer: 'Approximately 1,287–1,290 km', detailedAnswer: "By road via the King Fahd Causeway, Bahrain to Madinah is approximately 1,287 to 1,290 km — one of our more consistently-reported GCC-to-Madinah distances." },
+            { question: 'How long does it take to drive from Bahrain to Madinah?', shortAnswer: 'Approximately 10–12 hours of driving', detailedAnswer: "Pure driving time (excluding the causeway crossing) is approximately 10 to 12 hours. Total journey time is longer once you add the causeway crossing, fuel/rest stops, and meals." },
+            { question: 'What is the Bahrain to Madinah driving distance?', shortAnswer: 'Roughly 1,290 km by road', detailedAnswer: "Routing tools generally put the Bahrain to Madinah driving distance close to 1,287 to 1,290 km." },
+            { question: 'Can I travel from Bahrain to Madinah by car?', shortAnswer: 'Yes, with valid travel documents', detailedAnswer: "Yes — self-driving and private chauffeur transfer are both common. Every passenger needs a valid passport and the correct Saudi visa or entry permission, and the vehicle needs correct causeway documentation." },
+            { question: 'Which border do you cross from Bahrain to Saudi Arabia?', shortAnswer: 'The King Fahd Causeway', detailedAnswer: "The only land link between Bahrain and Saudi Arabia is the King Fahd Causeway, a 25 km bridge with border facilities partway across." },
+            { question: 'Is Bahrain to Madinah possible by private taxi?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Bahrain to Madinah private taxi service, with a single vehicle from your Bahrain pickup through to your Madinah drop-off point." },
+            { question: 'Can families travel from Bahrain to Madinah by car?', shortAnswer: 'Yes, with the right planning', detailedAnswer: "Yes. Given the length of the drive, families typically plan for regular rest breaks, extra luggage space, and realistic expectations around an 11+ hour trip including the causeway crossing." },
+            { question: 'Can I book a return taxi from Madinah to Bahrain?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Madinah to Bahrain taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the causeway entirely, and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Bahrain to Madinah distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "Figures vary because each source may use a different exact starting address, destination point, mapping provider, or preferred interior route across Saudi Arabia. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'doha-to-madinah': {
+        slug: 'doha-to-madinah',
+        origin: 'Doha',
+        originFull: 'Doha, Qatar',
+        originCountry: 'Qatar',
+        destination: 'Madinah',
+        destinationFull: 'Madinah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 1,396–1,405 km',
+        distanceHeadline: '~1,400 km',
+        drivingTimeRange: 'approximately 13–14 hours of continuous driving',
+        drivingTimeHeadline: '~13–14 hrs',
+        routeHeadline: 'Via Salwa Border & the Interior',
+        borderName: 'Salwa / Abu Samra',
+        travelType: 'International (cross-border)',
+
+        routeDescription: [
+            "The road distance from Doha to Madinah is approximately 1,396 to 1,405 km. Independent route calculators and the figure our own dispatch team sees on this run agree closely, making this one of the more consistently reported distances among our GCC-to-Madinah routes.",
+            "Your exact pickup point in Doha and drop-off point in Madinah both shift the total by a modest amount, same as any long international route.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 13 to 14 hours at normal highway speeds — a genuinely long drive best planned with proper rest stops.",
+            "Total journey time is longer once you add the Salwa border crossing, fuel/rest stops, and meals across the Kingdom. Many travelers on this route plan for a long single day with several stops.",
+            "Border volume and interior road traffic both vary by day and season, adding uncertainty on top of the pure driving estimate.",
+        ],
+        routeJourneyDescription: [
+            "The road route crosses from Qatar into Saudi Arabia at the Salwa border (called Abu Samra on the Qatar side), then continues north and west through the Kingdom's Eastern Province and interior toward Madinah.",
+            "We don't name specific interior highway numbers here, since exact numbering varies by routing provider — use the map below or live navigation for your actual travel date.",
+        ],
+        borderDescription: [
+            "This is the only land crossing between Qatar and Saudi Arabia — known as Salwa on the Saudi side and Abu Samra on the Qatar side.",
+            "You'll go through Qatari exit procedures on the Doha side and Saudi entry procedures — passport control, visa verification and vehicle documentation checks — on the Saudi side.",
+            "Every passenger needs a valid passport and correct Saudi visa/entry permission; requirements vary by nationality, so confirm your own eligibility before traveling. We are a transport provider, not an immigration authority.",
+            "Border processing time varies by day and volume — we don't promise a fixed crossing time.",
+        ],
+        byCarNote: "At 13-14 hours of driving before reaching Madinah, most pilgrims from Doha choose a pre-booked private transfer rather than self-driving — it removes the fatigue of a genuinely demanding route and the responsibility of managing cross-border vehicle documentation yourself.",
+        journeyPlanningNote: "If you're continuing on to Makkah afterwards, note that non-Muslims are not permitted to enter Makkah itself — Madinah has no such restriction.",
+        bestTimeNote: "Hajj and Umrah peak seasons bring significantly more traffic on the interior roads and around Madinah itself — build in extra time if traveling during these periods.",
+
+        mapOriginQuery: 'Doha, Qatar',
+        mapDestinationQuery: 'Madinah, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Doha to Madinah Taxi',
+            url: '/routes/doha-madinah/',
+            description: 'Pre-booked private cross-border transfer from Doha to Madinah.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Madinah to Doha Taxi',
+            url: '/routes/madinah-doha/',
+            description: 'Book the return leg from Madinah back to Doha.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Doha to Makkah Taxi', url: '/routes/doha-makkah/', description: 'Continue on to Makkah after Madinah, or book directly.' },
+            { name: 'Doha to Riyadh Taxi', url: '/routes/doha-riyadh/', description: 'Private transfer from Doha to Riyadh.' },
+        ],
+        relatedLocationLink: {
+            name: 'Madinah Transport Guide',
+            url: '/locations/madinah/',
+            description: 'Local Madinah taxi and chauffeur information.',
+        },
+        relatedBorderLink: {
+            name: 'Salwa Border Crossing Guide',
+            url: '/border-crossings/taxi-salwa-border-crossing/',
+            description: 'What to expect crossing the Qatar-Saudi border by private vehicle.',
+        },
+        relatedDistanceSlugs: ['doha-to-makkah', 'bahrain-to-madinah'],
+
+        seoTitle: 'Doha to Madinah Distance by Road | Driving Time & Map',
+        metaDescription: 'Doha to Madinah distance by road, estimated driving time, route map and border information. See how far Madinah is from Doha by car.',
+        h1: 'Doha to Madinah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Doha from Madinah by road?', shortAnswer: 'Approximately 1,396–1,405 km', detailedAnswer: "By road via the Salwa border, Doha to Madinah is approximately 1,396 to 1,405 km." },
+            { question: 'How long does it take to drive from Doha to Madinah?', shortAnswer: 'Approximately 13–14 hours of driving', detailedAnswer: "Pure driving time is approximately 13 to 14 hours. Total journey time is longer once you add the border crossing, fuel/rest stops, and meals." },
+            { question: 'What is the Doha to Madinah driving distance?', shortAnswer: 'Roughly 1,400 km by road', detailedAnswer: "Routing tools generally cluster closely around 1,396 to 1,405 km for this route." },
+            { question: 'Can I travel from Doha to Madinah by car?', shortAnswer: 'Yes, with valid travel documents', detailedAnswer: "Yes — self-driving and private chauffeur transfer are both common. Every passenger needs a valid passport and the correct Saudi visa or entry permission." },
+            { question: 'Which border do you cross from Doha to Saudi Arabia?', shortAnswer: 'Salwa (Saudi side) / Abu Samra (Qatar side)', detailedAnswer: "The only land crossing between Qatar and Saudi Arabia is known as Salwa on the Saudi side and Abu Samra on the Qatar side — the same physical crossing under two names." },
+            { question: 'Is Doha to Madinah possible by private taxi?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Doha to Madinah private taxi service, with a single vehicle from your Doha pickup through to your Madinah drop-off point." },
+            { question: 'Can families travel from Doha to Madinah by car?', shortAnswer: 'Yes, with the right planning', detailedAnswer: "Yes. Given the length of the drive, families typically plan for regular rest breaks and realistic expectations around a 13+ hour trip." },
+            { question: 'Can I book a return taxi from Madinah to Doha?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Madinah to Doha taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the border crossing entirely, and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Doha to Madinah distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "Figures vary because each source may use a different exact starting address, destination point, mapping provider, or preferred interior route. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'dubai-to-madinah': {
+        slug: 'dubai-to-madinah',
+        origin: 'Dubai',
+        originFull: 'Dubai, UAE',
+        originCountry: 'UAE',
+        destination: 'Madinah',
+        destinationFull: 'Madinah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 1,834–1,933 km',
+        distanceHeadline: '~1,880 km',
+        drivingTimeRange: 'approximately 17–19 hours of continuous driving',
+        drivingTimeHeadline: '~17–19 hrs',
+        routeHeadline: 'Via Al Batha Border & the Interior',
+        borderName: 'Al Batha',
+        travelType: 'International (cross-border, 2-day journey recommended)',
+
+        routeDescription: [
+            "The road distance from Dubai to Madinah is approximately 1,834 to 1,933 km — one of the longer GCC-to-Madinah routes. Independent route calculators show a genuine spread across that range, reflecting the different possible interior paths across Saudi Arabia.",
+            "This is a long enough international trip that different calculators can disagree by a meaningful margin — treat the figure above as a planning range rather than an exact number.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 17 to 19 hours of continuous highway driving.",
+            "Given the length of this drive, we don't recommend treating it as a single non-stop push. A two-day journey with a scheduled overnight stop is the realistic, safer way to cover this distance — whether self-driving or booking a private transfer.",
+            "Border processing, interior traffic, and rest stops all add to total journey time on top of the pure driving estimate.",
+        ],
+        routeJourneyDescription: [
+            "The road route crosses from the UAE into Saudi Arabia at the Al Batha border, then continues a long way north and west through the Kingdom's interior toward Madinah.",
+            "Given the distance, we plan an overnight stop partway through rather than attempting the full drive in one push. We don't name specific interior highway numbers here since routing varies by provider.",
+        ],
+        borderDescription: [
+            "This route crosses into Saudi Arabia at the Al Batha border, the crossing point used for UAE-Saudi road travel.",
+            "You'll go through UAE exit procedures on the Dubai side and Saudi entry procedures — passport control, visa verification and vehicle documentation checks — on the Saudi side.",
+            "Every passenger needs a valid passport and correct Saudi visa/entry permission; requirements vary by nationality and residency status, so confirm your own eligibility before traveling. We're a transport provider, not an immigration authority.",
+            "Border processing time varies by day and volume, and we don't promise a fixed crossing time.",
+        ],
+        byCarNote: "Given the genuine length of this route — close to 1,900 km and a realistic two-day journey — we plan it with a scheduled overnight stop rather than a single marathon push, whether you're self-driving or booking with us. A private chauffeur-driven transfer removes the burden of managing that distance, the overnight logistics, and the border crossing yourself.",
+        journeyPlanningNote: "Because this is realistically a two-day trip, plan overnight accommodation partway through in addition to the usual document and rest-stop planning. If you're continuing on to Makkah afterwards, non-Muslims are not permitted to enter Makkah itself.",
+        bestTimeNote: "Given the length of this route, avoid starting late in the day if you're aiming to reach the scheduled overnight stop before dark. Hajj/Umrah peak season adds meaningful extra time on top of an already long journey.",
+
+        mapOriginQuery: 'Dubai, UAE',
+        mapDestinationQuery: 'Madinah, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Dubai to Madinah Taxi',
+            url: '/routes/dubai-madinah/',
+            description: 'Pre-booked private cross-border transfer from Dubai to Madinah, planned as a two-day journey.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Madinah to Dubai Taxi',
+            url: '/routes/madinah-dubai/',
+            description: 'Book the return leg from Madinah back to Dubai.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Dubai to Makkah Taxi', url: '/routes/dubai-makkah/', description: 'Continue on to Makkah after Madinah, or book directly.' },
+            { name: 'Dubai to Riyadh Taxi', url: '/routes/dubai-riyadh/', description: 'Private transfer from Dubai to Riyadh.' },
+        ],
+        relatedLocationLink: {
+            name: 'Madinah Transport Guide',
+            url: '/locations/madinah/',
+            description: 'Local Madinah taxi and chauffeur information.',
+        },
+        relatedBorderLink: {
+            name: 'Al Batha Border Crossing Guide',
+            url: '/border-crossings/taxi-al-batha-border-crossing/',
+            description: 'What to expect crossing the UAE-Saudi border by private vehicle.',
+        },
+        relatedDistanceSlugs: ['dubai-to-makkah', 'abu-dhabi-to-madinah'],
+
+        seoTitle: 'Dubai to Madinah Distance by Road | Driving Time & Map',
+        metaDescription: 'Dubai to Madinah distance by road, estimated driving time, route map and border information. See how far Madinah is from Dubai by car.',
+        h1: 'Dubai to Madinah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Dubai from Madinah by road?', shortAnswer: 'Approximately 1,834–1,933 km', detailedAnswer: "By road via the Al Batha border, Dubai to Madinah is approximately 1,834 to 1,933 km — one of the longer GCC routes, so different calculators show a wider spread than on shorter trips." },
+            { question: 'How long does it take to drive from Dubai to Madinah?', shortAnswer: 'Approximately 17–19 hours, usually over two days', detailedAnswer: "Pure driving time is approximately 17 to 19 hours. Given the length, we plan this as a two-day journey with a scheduled overnight stop rather than a single push." },
+            { question: 'What is the Dubai to Madinah driving distance?', shortAnswer: 'Roughly 1,880 km by road', detailedAnswer: "Routing tools generally put the Dubai to Madinah driving distance between roughly 1,834 and 1,933 km, depending on the exact route across Saudi Arabia." },
+            { question: 'Can I travel from Dubai to Madinah by car?', shortAnswer: 'Yes, with valid travel documents and a realistic 2-day plan', detailedAnswer: "Yes — self-driving and private chauffeur transfer are both possible. Given the distance, plan for an overnight stop. Every passenger needs a valid passport and correct Saudi visa/entry permission." },
+            { question: 'Which border do you cross from Dubai to Saudi Arabia?', shortAnswer: 'Al Batha', detailedAnswer: "The Al Batha border is the crossing point used for UAE-Saudi road travel on this route." },
+            { question: 'Is Dubai to Madinah possible by private taxi?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Dubai to Madinah private taxi service, planned as a two-day journey with a scheduled overnight stop." },
+            { question: 'Can families travel from Dubai to Madinah by car?', shortAnswer: 'Yes, with a two-day plan', detailedAnswer: "Yes. Given the genuine length of this route, families typically split it over two days with an overnight stop rather than attempting it in one push." },
+            { question: 'Can I book a return taxi from Madinah to Dubai?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction, also planned as a two-day journey. See our Madinah to Dubai taxi page." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the border entirely, and is always shorter than the actual driving distance — the gap is especially large on a route this long." },
+            { question: 'Why do different websites show different Dubai to Madinah distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "On a route this long, small differences in starting address, destination point, or preferred interior route compound into a wider final gap than on shorter trips. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'abu-dhabi-to-madinah': {
+        slug: 'abu-dhabi-to-madinah',
+        origin: 'Abu Dhabi',
+        originFull: 'Abu Dhabi, UAE',
+        originCountry: 'UAE',
+        destination: 'Madinah',
+        destinationFull: 'Madinah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 1,727–1,822 km',
+        distanceHeadline: '~1,790 km',
+        drivingTimeRange: 'approximately 17.5–18 hours of continuous driving',
+        drivingTimeHeadline: '~17.5–18 hrs',
+        routeHeadline: 'Via Al Batha Border & the Interior',
+        borderName: 'Al Batha',
+        travelType: 'International (cross-border, 2-day journey recommended)',
+
+        routeDescription: [
+            "The road distance from Abu Dhabi to Madinah is approximately 1,727 to 1,822 km — slightly shorter than the Dubai to Madinah route, but still one of the longer GCC-to-Madinah journeys. Independent calculators show a genuine spread across that range.",
+            "As with the Dubai route, this is a long enough trip that different calculators can disagree by a meaningful margin — treat the figure above as a planning range.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 17.5 to 18 hours of continuous highway driving.",
+            "Given the length of this drive, we recommend a two-day journey with a scheduled overnight stop rather than a single non-stop push, whether self-driving or booking a private transfer.",
+            "Border processing, interior traffic, and rest stops all add to total journey time on top of the pure driving estimate.",
+        ],
+        routeJourneyDescription: [
+            "The road route crosses from the UAE into Saudi Arabia at the Al Batha border, then continues north and west through the Kingdom's interior toward Madinah.",
+            "Given the distance, we plan an overnight stop partway through rather than attempting the full drive in one push. We don't name specific interior highway numbers here since routing varies by provider.",
+        ],
+        borderDescription: [
+            "This route crosses into Saudi Arabia at the Al Batha border, the crossing point used for UAE-Saudi road travel.",
+            "You'll go through UAE exit procedures on the Abu Dhabi side and Saudi entry procedures — passport control, visa verification and vehicle documentation checks — on the Saudi side.",
+            "Every passenger needs a valid passport and correct Saudi visa/entry permission; requirements vary by nationality and residency status, so confirm your own eligibility before traveling. We're a transport provider, not an immigration authority.",
+            "Border processing time varies by day and volume, and we don't promise a fixed crossing time.",
+        ],
+        byCarNote: "At close to 1,790 km and a genuine two-day journey, we plan this route with a scheduled overnight stop rather than a single marathon push. A private chauffeur-driven transfer removes the burden of managing that distance, the overnight logistics, and the border crossing yourself.",
+        journeyPlanningNote: "Because this is realistically a two-day trip, plan overnight accommodation partway through in addition to the usual document and rest-stop planning. If you're continuing on to Makkah afterwards, non-Muslims are not permitted to enter Makkah itself.",
+        bestTimeNote: "Given the length of this route, avoid starting late in the day if you're aiming to reach the scheduled overnight stop before dark. Hajj/Umrah peak season adds meaningful extra time on top of an already long journey.",
+
+        mapOriginQuery: 'Abu Dhabi, UAE',
+        mapDestinationQuery: 'Madinah, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Abu Dhabi to Madinah Taxi',
+            url: '/routes/abu-dhabi-madinah/',
+            description: 'Pre-booked private cross-border transfer from Abu Dhabi to Madinah, planned as a two-day journey.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Madinah to Abu Dhabi Taxi',
+            url: '/routes/madinah-abu-dhabi/',
+            description: 'Book the return leg from Madinah back to Abu Dhabi.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Abu Dhabi to Makkah Taxi', url: '/routes/abu-dhabi-makkah/', description: 'Continue on to Makkah after Madinah, or book directly.' },
+            { name: 'Abu Dhabi to Riyadh Taxi', url: '/routes/abu-dhabi-riyadh/', description: 'Private transfer from Abu Dhabi to Riyadh.' },
+        ],
+        relatedLocationLink: {
+            name: 'Madinah Transport Guide',
+            url: '/locations/madinah/',
+            description: 'Local Madinah taxi and chauffeur information.',
+        },
+        relatedBorderLink: {
+            name: 'Al Batha Border Crossing Guide',
+            url: '/border-crossings/taxi-al-batha-border-crossing/',
+            description: 'What to expect crossing the UAE-Saudi border by private vehicle.',
+        },
+        relatedDistanceSlugs: ['abu-dhabi-to-makkah', 'dubai-to-madinah'],
+
+        seoTitle: 'Abu Dhabi to Madinah Distance by Road | Driving Time & Map',
+        metaDescription: 'Abu Dhabi to Madinah distance by road, estimated driving time, route map and border information. See how far Madinah is from Abu Dhabi by car.',
+        h1: 'Abu Dhabi to Madinah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Abu Dhabi from Madinah by road?', shortAnswer: 'Approximately 1,727–1,822 km', detailedAnswer: "By road via the Al Batha border, Abu Dhabi to Madinah is approximately 1,727 to 1,822 km — one of the longer GCC routes." },
+            { question: 'How long does it take to drive from Abu Dhabi to Madinah?', shortAnswer: 'Approximately 17.5–18 hours, usually over two days', detailedAnswer: "Pure driving time is approximately 17.5 to 18 hours. Given the length, we plan this as a two-day journey with a scheduled overnight stop." },
+            { question: 'What is the Abu Dhabi to Madinah driving distance?', shortAnswer: 'Roughly 1,790 km by road', detailedAnswer: "Routing tools generally put the Abu Dhabi to Madinah driving distance between roughly 1,727 and 1,822 km, depending on the exact route across Saudi Arabia." },
+            { question: 'Can I travel from Abu Dhabi to Madinah by car?', shortAnswer: 'Yes, with valid travel documents and a realistic 2-day plan', detailedAnswer: "Yes — self-driving and private chauffeur transfer are both possible. Given the distance, plan for an overnight stop. Every passenger needs a valid passport and correct Saudi visa/entry permission." },
+            { question: 'Which border do you cross from Abu Dhabi to Saudi Arabia?', shortAnswer: 'Al Batha', detailedAnswer: "The Al Batha border is the crossing point used for UAE-Saudi road travel on this route." },
+            { question: 'Is Abu Dhabi to Madinah possible by private taxi?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Abu Dhabi to Madinah private taxi service, planned as a two-day journey with a scheduled overnight stop." },
+            { question: 'Can families travel from Abu Dhabi to Madinah by car?', shortAnswer: 'Yes, with a two-day plan', detailedAnswer: "Yes. Given the genuine length of this route, families typically split it over two days with an overnight stop rather than attempting it in one push." },
+            { question: 'Can I book a return taxi from Madinah to Abu Dhabi?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction, also planned as a two-day journey. See our Madinah to Abu Dhabi taxi page." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the border entirely, and is always shorter than the actual driving distance — the gap is especially large on a route this long." },
+            { question: 'Why do different websites show different Abu Dhabi to Madinah distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "On a route this long, small differences in starting address, destination point, or preferred interior route compound into a wider final gap than on shorter trips. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'riyadh-to-madinah': {
+        slug: 'riyadh-to-madinah',
+        origin: 'Riyadh',
+        originFull: 'Riyadh, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Madinah',
+        destinationFull: 'Madinah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 830–840 km',
+        distanceHeadline: '~835 km',
+        drivingTimeRange: 'approximately 7–8.5 hours of continuous driving',
+        drivingTimeHeadline: '~7–8.5 hrs',
+        routeHeadline: 'Direct via the Interior Highway',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Riyadh to Madinah is approximately 830 to 840 km. Independent route calculators agree fairly closely on this figure, since it's a well-established domestic route.",
+            "Your exact pickup point within Riyadh and drop-off point in Madinah can still shift the total by a small amount, but the variance here is modest compared to the longer international routes.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 7 to 8.5 hours at normal highway speeds — a demanding but manageable single-day drive.",
+            "Total journey time is a little longer once you add rest stops, meals, and normal daytime traffic around both cities. Most travelers on this route drive it as a single day with one or two rest stops.",
+            "Traffic on the approach into Madinah can increase during Ramadan and the Hajj/Umrah peak season — build in extra time during those dates.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs northwest from Riyadh across the central Saudi interior toward Madinah in the Hijaz region. As a fully domestic route, there's no border to cross.",
+            "We're not naming specific highway numbers here, since routing can vary between providers — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        byCarNote: "Riyadh to Madinah is a solid day's drive at 7-8.5 hours — manageable for a confident self-driver with a rest stop, but many travelers, particularly families or business travelers who want to arrive rested, prefer a private chauffeur-driven transfer instead.",
+        journeyPlanningNote: "We don't currently run a dedicated Riyadh to Madinah booking page — see the note in the Taxi section below for how to arrange this route with us.",
+        bestTimeNote: "Weekday daytime traffic is generally lighter than weekends and public holidays. Ramadan and the Hajj/Umrah peak season bring significantly more traffic into Madinah specifically — build in extra time during these periods.",
+
+        mapOriginQuery: 'Riyadh, Saudi Arabia',
+        mapDestinationQuery: 'Madinah, Saudi Arabia',
+
+        // No dedicated Riyadh-Madinah commercial route page exists yet (checked both
+        // directions) — per spec we don't guess or create one. See noDirectRouteNote.
+        relatedTaxiRoutes: [
+            { name: 'Riyadh to Makkah Taxi', url: '/routes/riyadh-makkah/', description: 'If continuing on to Makkah as part of the same trip.' },
+            { name: 'Riyadh to Jeddah Taxi', url: '/routes/riyadh-jeddah/', description: 'Private transfer from Riyadh to Jeddah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Madinah Transport Guide',
+            url: '/locations/madinah/',
+            description: 'Local Madinah taxi and chauffeur information.',
+        },
+        relatedDistanceSlugs: ['riyadh-to-makkah', 'jeddah-to-madinah'],
+        noDirectRouteNote: "We don't yet have a dedicated Riyadh to Madinah booking page on this site. Contact us directly via WhatsApp with your travel date and passenger count for a custom quote on this route — or see our Riyadh to Makkah taxi service if you're continuing on to Makkah as part of the same trip.",
+
+        seoTitle: 'Riyadh to Madinah Distance by Road | Driving Time & Map',
+        metaDescription: 'Riyadh to Madinah distance by road, estimated driving time, route map and journey information. See how far Madinah is from Riyadh by car.',
+        h1: 'Riyadh to Madinah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Riyadh from Madinah by road?', shortAnswer: 'Approximately 830–840 km', detailedAnswer: "By road, Riyadh to Madinah is approximately 830 to 840 km — a well-established domestic route with fairly consistent figures across routing tools." },
+            { question: 'How long does it take to drive from Riyadh to Madinah?', shortAnswer: 'Approximately 7–8.5 hours of driving', detailedAnswer: "Pure driving time is approximately 7 to 8.5 hours at normal highway speeds. Total journey time is a little longer with rest stops and traffic." },
+            { question: 'What is the Riyadh to Madinah driving distance?', shortAnswer: 'Roughly 835 km by road', detailedAnswer: "Routing tools generally agree closely on approximately 830 to 840 km for this domestic route." },
+            { question: 'Can I travel from Riyadh to Madinah by car?', shortAnswer: 'Yes', detailedAnswer: "Yes — self-driving and private chauffeur transfer are both options for this fully domestic route." },
+            { question: 'Is Riyadh to Madinah an international route?', shortAnswer: 'No, fully domestic', detailedAnswer: "No — Riyadh and Madinah are both within Saudi Arabia, so there's no border crossing or international documentation required." },
+            { question: 'Is Riyadh to Madinah possible by private taxi?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "We don't have a dedicated booking page for this exact route yet, but yes — contact us via WhatsApp with your travel date and passenger count for a custom quote." },
+            { question: 'Can families travel from Riyadh to Madinah by car?', shortAnswer: 'Yes', detailedAnswer: "Yes. At 7-8.5 hours, this is a manageable single-day drive for most families, especially with a private vehicle and a rest stop." },
+            { question: 'Can I book a return taxi from Madinah to Riyadh?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "Yes — contact us directly via WhatsApp with your travel date for a custom quote on the return leg." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance, which follows real highways and terrain." },
+            { question: 'Why do different websites show different Riyadh to Madinah distances?', shortAnswer: 'Different exact start/end points and routing engines', detailedAnswer: "Even on a well-established domestic route, exact pickup and drop-off points and different mapping providers can shift the total by a small amount. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'dammam-to-madinah': {
+        slug: 'dammam-to-madinah',
+        origin: 'Dammam',
+        originFull: 'Dammam, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Madinah',
+        destinationFull: 'Madinah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 950 km to 1,220 km depending on the exact interior route',
+        distanceHeadline: '~950 km',
+        drivingTimeRange: 'approximately 9–11 hours of continuous driving',
+        drivingTimeHeadline: '~9–11 hrs',
+        routeHeadline: 'Via the Interior (Direct or via Riyadh)',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Dammam to Madinah is genuinely route-dependent: a more direct interior corridor puts it around 950 km, while calculators that route via Riyadh show closer to 1,220 km. Both are real, driveable routes — the gap comes down to which interior highway corridor is selected, not an error in either figure.",
+            "Because of this, we present the fuller range rather than picking one number. Your dispatcher will confirm the specific route for your booking.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 9 to 11 hours at normal highway speeds, depending on which of the two general routes is used.",
+            "Total journey time is longer once you add fuel and rest stops and meals. Most travelers treat this as a long single-day push with a few stops.",
+            "Traffic on the approach into Madinah increases during Ramadan and the Hajj/Umrah peak season — build in extra time during those dates.",
+        ],
+        routeJourneyDescription: [
+            "There are two general ways to make this domestic journey: a more direct interior corridor heading northwest from Dammam, or a route that passes via the Riyadh area before continuing northwest to Madinah. As a fully domestic route, there's no border crossing either way.",
+            "We're not naming specific highway numbers here, since routing can vary between providers and by which corridor is selected — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        byCarNote: "At 9-11 hours, this is genuinely one of the longer domestic drives in the Kingdom — most families and business travelers prefer a private chauffeur-driven transfer over self-driving the full distance, arriving rested rather than fatigued.",
+        journeyPlanningNote: "Non-Muslims are not permitted to enter Makkah itself, though this restriction doesn't apply to Madinah — relevant if you're combining this trip with a Makkah visit.",
+        bestTimeNote: "Ramadan and the Hajj/Umrah peak season bring significantly more traffic into Madinah specifically — build in extra time if traveling during these periods.",
+
+        mapOriginQuery: 'Dammam, Saudi Arabia',
+        mapDestinationQuery: 'Madinah, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Dammam to Madinah Taxi',
+            url: '/routes/dammam-madinah/',
+            description: 'Pre-booked private transfer from Dammam to Madinah.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Madinah to Dammam Taxi',
+            url: '/routes/madinah-dammam/',
+            description: 'Book the return leg from Madinah back to Dammam.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Dammam to Makkah Taxi', url: '/routes/dammam-makkah/', description: 'Continue on to Makkah after Madinah, or book directly.' },
+            { name: 'Dammam to Jeddah Taxi', url: '/routes/dammam-jeddah/', description: 'Private transfer from Dammam to Jeddah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Madinah Transport Guide',
+            url: '/locations/madinah/',
+            description: 'Local Madinah taxi and chauffeur information.',
+        },
+        relatedDistanceSlugs: ['dammam-to-makkah', 'jeddah-to-madinah'],
+
+        seoTitle: 'Dammam to Madinah Distance by Road | Driving Time & Map',
+        metaDescription: 'Dammam to Madinah distance by road, estimated driving time, route map and journey information. See how far Madinah is from Dammam by car.',
+        h1: 'Dammam to Madinah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Dammam from Madinah by road?', shortAnswer: 'Approximately 950–1,220 km, depending on route', detailedAnswer: "By road, Dammam to Madinah is approximately 950 km via a more direct interior corridor, or closer to 1,220 km via a route through the Riyadh area — both are genuine driving routes." },
+            { question: 'How long does it take to drive from Dammam to Madinah?', shortAnswer: 'Approximately 9–11 hours of driving', detailedAnswer: "Pure driving time is approximately 9 to 11 hours depending on the route used. Total journey time is longer with rest stops and traffic." },
+            { question: 'What is the Dammam to Madinah driving distance?', shortAnswer: 'Roughly 950 km to 1,220 km by road', detailedAnswer: "Routing tools show a genuine spread here because there are two different real interior routes — a more direct corridor and one via Riyadh." },
+            { question: 'Can I travel from Dammam to Madinah by car?', shortAnswer: 'Yes', detailedAnswer: "Yes — self-driving, taxi, and private chauffeur transfer are all common options for this domestic route." },
+            { question: 'Is Dammam to Madinah an international route?', shortAnswer: 'No, fully domestic', detailedAnswer: "No — Dammam and Madinah are both within Saudi Arabia, so there's no border crossing or international documentation required." },
+            { question: 'Is Dammam to Madinah possible by private taxi?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Dammam to Madinah private taxi service, with a single vehicle from your Dammam pickup through to your Madinah drop-off point." },
+            { question: 'Can families travel from Dammam to Madinah by car?', shortAnswer: 'Yes, with the right planning', detailedAnswer: "Yes. Given the 9-11 hour length, families typically plan for regular rest breaks, and many prefer a private vehicle with a professional driver over self-driving the full distance." },
+            { question: 'Can I book a return taxi from Madinah to Dammam?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Madinah to Dammam taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Dammam to Madinah distances?', shortAnswer: 'Two genuinely different interior routes exist', detailedAnswer: "Unlike most routes where the variance is just measurement differences, this route has two genuinely different interior corridors (direct vs. via Riyadh), which is why the range is wider than usual." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'jeddah-to-madinah': {
+        slug: 'jeddah-to-madinah',
+        origin: 'Jeddah',
+        originFull: 'Jeddah, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Madinah',
+        destinationFull: 'Madinah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 410–415 km',
+        distanceHeadline: '~415 km',
+        drivingTimeRange: 'approximately 4–4.5 hours of continuous driving',
+        drivingTimeHeadline: '~4–4.5 hrs',
+        routeHeadline: 'Direct via the Jeddah-Madinah Highway',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Jeddah to Madinah is approximately 410 to 415 km. Independent route calculators agree closely on this figure, making it one of the more consistently reported distances in our network.",
+            "Your exact pickup point in Jeddah (city versus airport) and drop-off point in Madinah shift the total slightly, but the variance here is modest.",
+        ],
+        drivingTimeDescription: [
+            "Total travel time for this route is approximately 4 to 4.5 hours, depending on traffic within Jeddah and how many rest breaks you take along the way.",
+            "This road can be windy in places, so a stable vehicle and a planned rest stop partway through make for a more comfortable trip than pushing straight through.",
+            "Traffic increases during Hajj and Umrah peak periods and around major Islamic holidays — build in extra time during those dates.",
+        ],
+        routeJourneyDescription: [
+            "The route runs directly from Jeddah north to Madinah via a well-established highway connection along the coastal plain before turning inland toward the city — one of the most heavily traveled pilgrim routes in the Kingdom.",
+            "No border crossing on this fully domestic route. A short rest stop partway through (commonly around Rabigh or Masturah) is a common and sensible break on this run.",
+        ],
+        byCarNote: "Given the well-traveled highway and moderate distance, self-driving, taxi, and private chauffeur are all common options — many travelers prefer a private vehicle for the extra stability on the windier stretches and to avoid navigating an unfamiliar highway after a long flight into Jeddah.",
+        journeyPlanningNote: "If you're continuing on to Makkah at any point in your trip, note that non-Muslims are not permitted to enter Makkah itself — Madinah has no such restriction.",
+        bestTimeNote: "This route sees significant extra traffic during Hajj and Umrah peak seasons and around major Islamic holidays — build in extra time during these periods.",
+
+        mapOriginQuery: 'Jeddah, Saudi Arabia',
+        mapDestinationQuery: 'Madinah, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Jeddah to Madinah Taxi',
+            url: '/routes/jeddah-madinah/',
+            description: 'Pre-booked private transfer from Jeddah (including the airport) to Madinah.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Madinah to Jeddah Taxi',
+            url: '/routes/madinah-jeddah/',
+            description: 'Book the return leg from Madinah back to Jeddah.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Jeddah to Makkah Taxi', url: '/routes/jeddah-makkah/', description: 'Private transfer from Jeddah to Makkah.' },
+            { name: 'Jeddah to Riyadh Taxi', url: '/routes/jeddah-riyadh/', description: 'Private transfer from Jeddah to Riyadh.' },
+        ],
+        relatedLocationLink: {
+            name: 'Madinah Transport Guide',
+            url: '/locations/madinah/',
+            description: 'Local Madinah taxi and chauffeur information.',
+        },
+        relatedDistanceSlugs: ['jeddah-to-makkah', 'madinah-to-makkah'],
+
+        seoTitle: 'Jeddah to Madinah Distance by Road | Driving Time & Map',
+        metaDescription: 'Jeddah to Madinah distance by road, estimated driving time, route map and journey information. See how far Madinah is from Jeddah by car.',
+        h1: 'Jeddah to Madinah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Jeddah from Madinah by road?', shortAnswer: 'Approximately 410–415 km', detailedAnswer: "By road, Jeddah to Madinah is approximately 410 to 415 km, one of the more consistently reported distances in our network." },
+            { question: 'How long does it take to drive from Jeddah to Madinah?', shortAnswer: 'Approximately 4–4.5 hours of driving', detailedAnswer: "Total travel time is approximately 4 to 4.5 hours, depending on traffic within Jeddah and the number of rest breaks taken." },
+            { question: 'What is the Jeddah to Madinah driving distance?', shortAnswer: 'Roughly 415 km by road', detailedAnswer: "Routing tools generally agree closely on approximately 410 to 415 km for this well-established route." },
+            { question: 'Can I travel from Jeddah to Madinah by car?', shortAnswer: 'Yes', detailedAnswer: "Yes — self-driving, taxi, and private chauffeur transfer are all common options via the coastal highway." },
+            { question: 'Is Jeddah to Madinah an international route?', shortAnswer: 'No, fully domestic', detailedAnswer: "No — both cities are within Saudi Arabia, so there's no border crossing or international documentation required." },
+            { question: 'Is Jeddah to Madinah possible by private taxi?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Jeddah to Madinah private taxi service, including direct pickups from Jeddah's King Abdulaziz International Airport." },
+            { question: 'Can families travel from Jeddah to Madinah by car?', shortAnswer: 'Yes', detailedAnswer: "Yes. At around 4-4.5 hours, this is a manageable trip for most families, with a rest stop along the way if needed." },
+            { question: 'Can I book a return taxi from Madinah to Jeddah?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction, including drop-offs at Jeddah Airport. See our Madinah to Jeddah taxi page." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely — the driving distance is somewhat longer since the road doesn't run perfectly straight between the two cities." },
+            { question: 'Why do different websites show different Jeddah to Madinah distances?', shortAnswer: 'Different exact start/end points within each city', detailedAnswer: "The biggest source of variation is simply where in Jeddah (downtown vs. airport) and where in Madinah each source measures from. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'muscat-to-makkah': {
+        slug: 'muscat-to-makkah',
+        origin: 'Muscat',
+        originFull: 'Muscat, Oman',
+        originCountry: 'Oman',
+        destination: 'Makkah',
+        destinationFull: 'Makkah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 2,175–2,270 km',
+        distanceHeadline: '~2,220 km',
+        drivingTimeRange: 'approximately 20–22.5 hours of continuous driving',
+        drivingTimeHeadline: '~20–22.5 hrs',
+        routeHeadline: 'Via the Rub al Khali Border & the Interior',
+        borderName: 'Rub al Khali / Ramlat Khaliya',
+        travelType: 'International (cross-border, 2-day journey recommended)',
+
+        routeDescription: [
+            "The road distance from Muscat to Makkah is approximately 2,175 to 2,270 km — the longest GCC-to-Makkah route we cover. Independent route calculators show a genuine spread across that range, which is typical for a trip this long.",
+            "Given the distance involved, treat any single precise figure you see online with some skepticism — a range is the more honest answer for a route of this length.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 20 to 22.5 hours of continuous highway driving — the longest of any route in our network.",
+            "We plan this honestly as a two-day journey with a scheduled overnight stop, not a single exhausting push. This applies whether you're self-driving or booking a private transfer with us.",
+            "Border processing, interior traffic, and rest stops all add meaningfully to total journey time on top of the pure driving estimate.",
+        ],
+        routeJourneyDescription: [
+            "The road route crosses from Oman into Saudi Arabia at the border connecting the Ad Dhahirah region of Oman with the Eastern Province of Saudi Arabia, via a road that traverses the Rub' al Khali (Empty Quarter) desert, then continues a long way north and west through the Kingdom's interior toward Makkah.",
+            "Given the exceptional distance, we schedule an overnight stop partway through rather than attempting the full drive in one push. We don't name specific interior highway numbers here since routing varies by provider.",
+        ],
+        borderDescription: [
+            "This is the only land crossing between Oman and Saudi Arabia — known as Ramlat Khaliya on the Omani side and Rub al Khali on the Saudi side (also called the Empty Quarter crossing), connecting the Ad Dhahirah region of Oman with Saudi Arabia's Eastern Province through the Rub' al Khali desert.",
+            "You'll go through Omani exit procedures on the Muscat side and Saudi entry procedures — passport control, visa verification and vehicle documentation checks — on the Saudi side.",
+            "Every passenger needs a valid passport and correct Saudi visa/entry permission; requirements vary by nationality and residency status, so confirm your own eligibility before traveling. We're a transport provider, not an immigration authority.",
+            "Given the remote desert location of this crossing, plan for a genuinely long, isolated stretch of driving on either side — border processing time itself varies by day and volume, and we don't promise a fixed crossing time.",
+        ],
+        byCarNote: "At over 2,200 km and more than 20 hours of driving, this is genuinely the longest route we operate — we don't book it as a single push. A scheduled overnight stop and a private chauffeur-driven transfer mean you arrive rested and ready for Umrah, not exhausted from a marathon desert crossing.",
+        journeyPlanningNote: "Because this is realistically a two-day trip through remote desert terrain, plan overnight accommodation partway through, extra water and supplies, and confirm your vehicle is suited to the distance. Non-Muslims are also not permitted to enter Makkah itself.",
+        bestTimeNote: "Given the remote, desert nature of this route, avoid starting late in the day. Hajj/Umrah peak season adds meaningful extra time on top of an already very long journey — build in significant buffer.",
+
+        mapOriginQuery: 'Muscat, Oman',
+        mapDestinationQuery: 'Makkah, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Muscat to Makkah Taxi',
+            url: '/routes/muscat-makkah/',
+            description: 'Pre-booked private cross-border transfer from Muscat to Makkah, planned as a two-day journey.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Makkah to Muscat Taxi',
+            url: '/routes/makkah-muscat/',
+            description: 'Book the return leg from Makkah back to Muscat.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Muscat to Madinah Taxi', url: '/routes/muscat-madinah/', description: 'Private transfer from Muscat to Madinah.' },
+            { name: 'Muscat to Riyadh Taxi', url: '/routes/muscat-riyadh/', description: 'Private transfer from Muscat to Riyadh.' },
+        ],
+        relatedLocationLink: {
+            name: 'Makkah Transport Guide',
+            url: '/locations/makkah/',
+            description: 'Local Makkah taxi and chauffeur information, including Haram-area pickup rules.',
+        },
+        relatedBorderLink: {
+            name: 'Rub al Khali Border Crossing Guide',
+            url: '/border-crossings/taxi-rub-al-khali-border-crossing/',
+            description: 'What to expect crossing the Oman-Saudi border by private vehicle.',
+        },
+        relatedDistanceSlugs: ['kuwait-to-makkah', 'bahrain-to-makkah'],
+
+        seoTitle: 'Muscat to Makkah Distance by Road | Driving Time & Map',
+        metaDescription: 'Muscat to Makkah distance by road, estimated driving time, route map and border information. See how far Makkah is from Muscat by car.',
+        h1: 'Muscat to Makkah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Muscat from Makkah by road?', shortAnswer: 'Approximately 2,175–2,270 km', detailedAnswer: "By road via the Rub al Khali border, Muscat to Makkah is approximately 2,175 to 2,270 km — the longest GCC-to-Makkah route we cover." },
+            { question: 'How long does it take to drive from Muscat to Makkah?', shortAnswer: 'Approximately 20–22.5 hours, usually over two days', detailedAnswer: "Pure driving time is approximately 20 to 22.5 hours. Given the exceptional length, we plan this as a two-day journey with a scheduled overnight stop." },
+            { question: 'What is the Muscat to Makkah driving distance?', shortAnswer: 'Roughly 2,220 km by road', detailedAnswer: "Routing tools generally put the Muscat to Makkah driving distance between roughly 2,175 and 2,270 km, depending on the exact route." },
+            { question: 'Can I travel from Muscat to Makkah by car?', shortAnswer: 'Yes, with valid travel documents and a realistic 2-day plan', detailedAnswer: "Yes — self-driving and private chauffeur transfer are both possible. Given the distance and remote desert crossing, plan for an overnight stop. Every passenger needs a valid passport and correct Saudi visa/entry permission." },
+            { question: 'Which border do you cross from Muscat to Saudi Arabia?', shortAnswer: 'Ramlat Khaliya (Oman side) / Rub al Khali (Saudi side)', detailedAnswer: "The only land crossing between Oman and Saudi Arabia connects the Ad Dhahirah region of Oman with the Eastern Province of Saudi Arabia through the Rub' al Khali (Empty Quarter) desert." },
+            { question: 'Is Muscat to Makkah possible by private taxi?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Muscat to Makkah private taxi service, planned as a two-day journey with a scheduled overnight stop." },
+            { question: 'Can families travel from Muscat to Makkah by car?', shortAnswer: 'Yes, with a two-day plan', detailedAnswer: "Yes. Given this is the longest route we operate, families should plan for two days with an overnight stop rather than attempting it in one push." },
+            { question: 'Can I book a return taxi from Makkah to Muscat?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction, also planned as a two-day journey. See our Makkah to Muscat taxi page." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the border entirely, and is always shorter than the actual driving distance — the gap is especially large on a route this long." },
+            { question: 'Why do different websites show different Muscat to Makkah distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "On the longest route in our network, small differences in starting address, destination point, or preferred interior route compound into a wider final gap than on shorter trips. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'al-khobar-to-makkah': {
+        slug: 'al-khobar-to-makkah',
+        origin: 'Al Khobar',
+        originFull: 'Al Khobar, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Makkah',
+        destinationFull: 'Makkah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 1,190–1,293 km',
+        distanceHeadline: '~1,250 km',
+        drivingTimeRange: 'approximately 12–14 hours of continuous driving',
+        drivingTimeHeadline: '~12–14 hrs',
+        routeHeadline: 'Via the Interior, through the Riyadh Area',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Al Khobar to Makkah is approximately 1,190 to 1,293 km. Al Khobar sits in the same Eastern Province metro area as Dammam — a short local hop apart — so this route closely tracks the distance and route of our Dammam to Makkah journey, with a small variation depending on your exact pickup point.",
+            "Independent route calculators show figures in this range, consistent with what we see on the closely related Dammam to Makkah run.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 12 to 14 hours at normal highway speeds — one of the longer domestic drives in the Kingdom.",
+            "Total journey time is longer once you add fuel and rest stops and meals over a 1,200+ km domestic trip. Most travelers treat this as a long single-day push with a few stops.",
+            "Traffic on the approach into Makkah increases during Umrah and Hajj peak periods — build in extra time during those dates.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs from Al Khobar across Saudi Arabia's Eastern Province and interior — generally via the Riyadh area — before continuing on to Makkah, following essentially the same corridor as the Dammam to Makkah route. As a fully domestic route, there's no border crossing.",
+            "We're not naming specific highway numbers here, since routing can vary between providers — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        byCarNote: "At 12-14 hours, this is genuinely one of the longer domestic drives in the Kingdom — most families and business travelers prefer a private chauffeur-driven transfer over self-driving the full distance, arriving rested rather than fatigued.",
+        journeyPlanningNote: "We don't currently run a dedicated Al Khobar to Makkah booking page — see the note in the Taxi section below for how to arrange this route with us.",
+        bestTimeNote: "Hajj and Umrah peak seasons bring significantly more traffic into Makkah specifically — build in extra time if traveling during these periods.",
+
+        mapOriginQuery: 'Al Khobar, Saudi Arabia',
+        mapDestinationQuery: 'Makkah, Saudi Arabia',
+
+        // No dedicated Al Khobar-Makkah commercial route page exists yet (checked both
+        // directions and general "Khobar" variants) — per spec we don't guess or create
+        // one. The closely related Dammam to Makkah service covers this journey in
+        // practice, since Al Khobar and Dammam are part of the same metro area.
+        relatedTaxiRoutes: [
+            { name: 'Dammam to Makkah Taxi', url: '/routes/dammam-makkah/', description: 'The closest equivalent service — Al Khobar is a short local pickup from Dammam.' },
+            { name: 'Khobar to Bahrain Taxi', url: '/routes/khobar-bahrain/', description: 'Private transfer from Al Khobar to Bahrain via the King Fahd Causeway.' },
+        ],
+        relatedLocationLink: {
+            name: 'Makkah Transport Guide',
+            url: '/locations/makkah/',
+            description: 'Local Makkah taxi and chauffeur information, including Haram-area pickup rules.',
+        },
+        relatedDistanceSlugs: ['dammam-to-makkah', 'riyadh-to-makkah'],
+        noDirectRouteNote: "We don't yet have a dedicated Al Khobar to Makkah booking page on this site. Al Khobar sits in the same Eastern Province metro area as Dammam, so our existing Dammam to Makkah taxi service covers this journey with a local Al Khobar pickup available on request — or contact us directly via WhatsApp for a custom quote.",
+
+        seoTitle: 'Al Khobar to Makkah Distance by Road | Driving Time & Map',
+        metaDescription: 'Al Khobar to Makkah distance by road, estimated driving time, route map and journey information. See how far Makkah is from Al Khobar by car.',
+        h1: 'Al Khobar to Makkah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Al Khobar from Makkah by road?', shortAnswer: 'Approximately 1,190–1,293 km', detailedAnswer: "By road, Al Khobar to Makkah is approximately 1,190 to 1,293 km — closely tracking the Dammam to Makkah distance, since Al Khobar is in the same metro area." },
+            { question: 'How long does it take to drive from Al Khobar to Makkah?', shortAnswer: 'Approximately 12–14 hours of driving', detailedAnswer: "Pure driving time is approximately 12 to 14 hours at normal highway speeds. Total journey time is longer with rest stops and traffic." },
+            { question: 'What is the Al Khobar to Makkah driving distance?', shortAnswer: 'Roughly 1,250 km by road', detailedAnswer: "Routing tools generally show approximately 1,190 to 1,293 km for this domestic route." },
+            { question: 'Can I travel from Al Khobar to Makkah by car?', shortAnswer: 'Yes', detailedAnswer: "Yes — self-driving, taxi, and private chauffeur transfer are all common options for this domestic route." },
+            { question: 'Is Al Khobar to Makkah an international route?', shortAnswer: 'No, fully domestic', detailedAnswer: "No — Al Khobar and Makkah are both within Saudi Arabia, so there's no border crossing or international documentation required." },
+            { question: 'Is Al Khobar to Makkah possible by private taxi?', shortAnswer: 'Yes, via our Dammam to Makkah service', detailedAnswer: "We don't have a dedicated Al Khobar to Makkah booking page yet, but our Dammam to Makkah private taxi service covers this journey with a local Al Khobar pickup available on request." },
+            { question: 'Can families travel from Al Khobar to Makkah by car?', shortAnswer: 'Yes, with the right planning', detailedAnswer: "Yes. Given the 12-14 hour length, families typically plan for regular rest breaks, and many prefer a private vehicle with a professional driver over self-driving the full distance." },
+            { question: 'Can I book a return taxi from Makkah to Al Khobar?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "Yes — contact us directly via WhatsApp with your travel date for a custom quote on the return leg, or see our Makkah to Dammam taxi page for the closest equivalent booking option." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Al Khobar to Makkah distances?', shortAnswer: 'Different exact start/end points and interior route choices', detailedAnswer: "Different mapping providers can select different interior routes and starting/ending points, which compounds into a noticeable gap on a 1,200+ km trip. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
 };
 
 export function getDistanceRoute(slug: string): DistanceRoute | undefined {
@@ -980,25 +1727,25 @@ export const DISTANCE_HUB_CATEGORIES: DistanceHubCategory[] = [
         id: 'gcc-to-makkah',
         title: 'GCC to Makkah',
         description: 'Road distance and driving time from Gulf cities to Makkah.',
-        routeSlugs: ['kuwait-to-makkah', 'bahrain-to-makkah', 'doha-to-makkah', 'dubai-to-makkah', 'abu-dhabi-to-makkah'],
+        routeSlugs: ['kuwait-to-makkah', 'bahrain-to-makkah', 'doha-to-makkah', 'dubai-to-makkah', 'abu-dhabi-to-makkah', 'muscat-to-makkah'],
     },
     {
         id: 'gcc-to-madinah',
         title: 'GCC to Madinah',
         description: 'Road distance and driving time from Gulf cities to Madinah.',
-        routeSlugs: ['kuwait-to-madinah'],
+        routeSlugs: ['kuwait-to-madinah', 'bahrain-to-madinah', 'doha-to-madinah', 'dubai-to-madinah', 'abu-dhabi-to-madinah'],
     },
     {
         id: 'saudi-to-makkah',
         title: 'Saudi Cities to Makkah',
         description: 'Road distance and driving time from other Saudi cities to Makkah.',
-        routeSlugs: ['riyadh-to-makkah', 'dammam-to-makkah', 'jeddah-to-makkah', 'madinah-to-makkah'],
+        routeSlugs: ['riyadh-to-makkah', 'dammam-to-makkah', 'jeddah-to-makkah', 'madinah-to-makkah', 'al-khobar-to-makkah'],
     },
     {
         id: 'saudi-to-madinah',
         title: 'Saudi Cities to Madinah',
         description: 'Road distance and driving time from other Saudi cities to Madinah.',
-        routeSlugs: [],
+        routeSlugs: ['riyadh-to-madinah', 'dammam-to-madinah', 'jeddah-to-madinah'],
     },
     {
         id: 'other-saudi',
