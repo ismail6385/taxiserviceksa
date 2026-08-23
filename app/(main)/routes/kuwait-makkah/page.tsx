@@ -87,7 +87,11 @@ export default function KuwaitMakkahRoutePage() {
                                 The Direct Route for Umrah Pilgrims
                             </h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                                Kuwait to Makkah covers approximately 1,650 km — the longest of our Kuwait routes, at around 16.5 hours of driving. This is a dedicated Umrah transfer for pilgrims who want a single private vehicle from Kuwait straight to the Haram, without a connecting flight or shared transport.
+                                Kuwait to Makkah covers approximately 1,650 km — the longest of our Kuwait routes, at around 16.5 hours of driving. This is a dedicated Umrah transfer for pilgrims who want a single private vehicle from Kuwait straight to the Haram, without a connecting flight or shared transport. For a full breakdown of the road distance, driving time, route and border crossing, see our{' '}
+                                <Link href="/distance/kuwait-to-makkah/" className="text-primary font-semibold hover:underline">
+                                    Kuwait to Makkah distance and driving time
+                                </Link>{' '}
+                                guide.
                             </p>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                                 Vehicles on this route are set up for pilgrims, with extra space for Ihram bags, and Muslim drivers who know the approved drop-off points near the Grand Mosque given the vehicle access restrictions close to the Haram.

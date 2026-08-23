@@ -19,6 +19,8 @@ export default function Breadcrumbs() {
         'locations': 'Locations',
         'routes': 'Routes',
         'fleet': 'Fleet',
+        'distance': 'Distance',
+        'kuwait-to-makkah': 'Kuwait to Makkah Distance',
         'blog': 'Blog',
         'about': 'About Us',
         'contact': 'Contact',
