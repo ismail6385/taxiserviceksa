@@ -3932,6 +3932,598 @@ export const DISTANCE_ROUTES: Record<string, DistanceRoute> = {
         ],
         lastVerified: 'August 2026',
     },
+
+    'kuwait-to-dammam': {
+        slug: 'kuwait-to-dammam',
+        origin: 'Kuwait',
+        originFull: 'Kuwait City, Kuwait',
+        originCountry: 'Kuwait',
+        destination: 'Dammam',
+        destinationFull: 'Dammam, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 416–469 km',
+        distanceHeadline: '~440 km',
+        drivingTimeRange: 'approximately 4–4.5 hours of continuous driving',
+        drivingTimeHeadline: '~4–4.5 hrs',
+        routeHeadline: 'Via Khafji / Nuwaiseeb Border',
+        borderName: 'Khafji / Nuwaiseeb',
+        travelType: 'International (cross-border)',
+
+        routeDescription: [
+            "The road distance from Kuwait City to Dammam is approximately 416 to 469 km. Independent route calculators show some spread here; our own dispatch figure of around 440 km sits comfortably in the middle.",
+            "This is the shortest of our Kuwait-Saudi routes given Dammam's position just across the border in the Eastern Province.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 4 to 4.5 hours at normal highway speeds — a comfortable single-day drive rather than an overnight trip.",
+            "Total journey time is longer once you add the border crossing, fuel and rest stops, and meals. Border processing time depends on traffic at the crossing.",
+            "Traffic and border volume both vary by day and season — build in extra time during peak travel periods.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs south from Kuwait City to the Kuwait-Saudi border, crossing into Saudi Arabia's Eastern Province at Khafji, with Dammam a relatively short drive further south along the coast.",
+            "We're not naming specific highway numbers here, since routing can vary between providers — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        borderDescription: [
+            "This is an international route, crossing the land border between Kuwait and Saudi Arabia at the crossing known as Khafji on the Saudi side and Nuwaiseeb on the Kuwait side — the main land route connecting Kuwait to Saudi Arabia's Eastern Province.",
+            "On the Kuwait side you'll go through Kuwaiti exit procedures — passport control and any applicable vehicle checks. On the Saudi side, Saudi entry procedures apply — passport control, visa verification, and vehicle documentation checks.",
+            "Every passenger needs a valid passport and the correct visa or entry permission for Saudi Arabia — requirements vary by nationality and residency status, so confirm your own eligibility with the relevant embassy or a licensed visa service before traveling. We are a transport provider, not an immigration authority.",
+            "Border processing time genuinely varies by day, time and season, and we don't promise a fixed crossing time.",
+        ],
+        byCarNote: "At 4-4.5 hours plus the border crossing, this is one of the more manageable Kuwait-Saudi routes — still, many business travelers and families prefer a pre-booked private transfer over self-driving, since it removes the fatigue and cross-border documentation burden.",
+        journeyPlanningNote: "Confirm your visa/entry requirements for Saudi Arabia before traveling, since these vary by nationality and residency status.",
+        bestTimeNote: "Border traffic at Khafji/Nuwaiseeb varies by day and volume, and can be busier around weekends and holidays.",
+
+        mapOriginQuery: 'Kuwait City, Kuwait',
+        mapDestinationQuery: 'Dammam, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Kuwait to Dammam Taxi',
+            url: '/routes/kuwait-dammam/',
+            description: 'Pre-booked private cross-border transfer from Kuwait to Dammam.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Dammam to Kuwait Taxi',
+            url: '/routes/dammam-kuwait/',
+            description: 'Book the return leg from Dammam back to Kuwait.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Kuwait to Makkah Taxi', url: '/routes/kuwait-makkah/', description: 'Private transfer from Kuwait to Makkah.' },
+            { name: 'Kuwait to Riyadh Taxi', url: '/routes/kuwait-riyadh/', description: 'Private transfer from Kuwait to Riyadh.' },
+        ],
+        relatedLocationLink: {
+            name: 'Dammam Transport Guide',
+            url: '/locations/dammam/',
+            description: 'Local Dammam taxi and chauffeur information.',
+        },
+        relatedBorderLink: {
+            name: 'Khafji Border Crossing Guide',
+            url: '/border-crossings/taxi-khafji-border-crossing/',
+            description: 'What to expect crossing the Kuwait-Saudi border by private vehicle.',
+        },
+        relatedDistanceSlugs: ['kuwait-to-makkah', 'kuwait-to-madinah', 'kuwait-to-riyadh'],
+
+        seoTitle: 'Kuwait to Dammam Distance by Road | Driving Time & Map',
+        metaDescription: 'Kuwait to Dammam distance by road, estimated driving time, route map and border information. See how far Dammam is from Kuwait by car.',
+        h1: 'Kuwait to Dammam Distance by Road',
+
+        faqs: [
+            { question: 'How far is Kuwait from Dammam by road?', shortAnswer: 'Approximately 416–469 km', detailedAnswer: "By road, Kuwait City to Dammam is approximately 416 to 469 km — the shortest of our Kuwait-Saudi routes." },
+            { question: 'How long does Kuwait to Dammam take by car?', shortAnswer: 'Approximately 4–4.5 hours of driving', detailedAnswer: "Pure driving time is approximately 4 to 4.5 hours. Total journey time is longer once you add the border crossing, fuel/rest stops, and meals." },
+            { question: 'Which border do you cross from Kuwait to Dammam?', shortAnswer: 'Khafji (Saudi side) / Nuwaiseeb (Kuwait side)', detailedAnswer: "The main Kuwait-Saudi land crossing is known as Khafji on the Saudi side and Nuwaiseeb on the Kuwait side — the same physical crossing point under two names." },
+            { question: 'What documents do I need?', shortAnswer: 'A valid passport and correct Saudi visa/entry permission', detailedAnswer: "Every passenger needs a valid passport and correct Saudi visa or entry permission; requirements vary by nationality, so confirm your own eligibility before traveling." },
+            { question: 'Can I book a private transfer from Kuwait to Dammam?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Kuwait to Dammam private taxi service, with a single vehicle from your Kuwait pickup through to your Dammam drop-off point." },
+            { question: 'What is the Kuwait to Dammam driving distance?', shortAnswer: 'Roughly 440 km by road', detailedAnswer: "Routing tools show a range of approximately 416 to 469 km for this route." },
+            { question: 'Can I book a return taxi from Dammam to Kuwait?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Dammam to Kuwait taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the border crossing entirely, and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Kuwait to Dammam distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "Figures vary because each source may use a different exact starting address, destination point, or mapping provider. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'doha-to-dammam': {
+        slug: 'doha-to-dammam',
+        origin: 'Doha',
+        originFull: 'Doha, Qatar',
+        originCountry: 'Qatar',
+        destination: 'Dammam',
+        destinationFull: 'Dammam, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 396–410 km',
+        distanceHeadline: '~400 km',
+        drivingTimeRange: 'approximately 4–4.5 hours of continuous driving',
+        drivingTimeHeadline: '~4–4.5 hrs',
+        routeHeadline: 'Via Salwa Border',
+        borderName: 'Salwa / Abu Samra',
+        travelType: 'International (cross-border)',
+
+        routeDescription: [
+            "The road distance from Doha to Dammam is approximately 396 to 410 km. Independent route calculators and our own dispatch figures agree closely on this range — one of the shorter GCC-to-Saudi routes we cover.",
+            "Your exact pickup point in Doha and drop-off point in Dammam both affect the total by a modest amount.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 4 to 4.5 hours at normal highway speeds — a comfortable single-day drive rather than an overnight trip.",
+            "Total journey time is longer once you add the Salwa border crossing, fuel and rest stops, and meals. Border processing can typically add anywhere from 30 minutes to 2 hours depending on the season and time of day.",
+            "Traffic and border volume both vary by day and season — build in extra time during peak travel periods.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs from Doha via the Salwa Road to the Abu Samra/Salwa border, then continues a relatively short distance into Saudi Arabia's Eastern Province to reach Dammam.",
+            "We're not naming specific interior highway numbers here, since routing can vary by provider — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        borderDescription: [
+            "This is the only land crossing between Qatar and Saudi Arabia — known as Salwa on the Saudi side and Abu Samra on the Qatar side.",
+            "You'll go through Qatari exit procedures on the Doha side and Saudi entry procedures — passport control, visa verification and vehicle documentation checks — on the Saudi side.",
+            "Every passenger needs a valid passport and correct Saudi visa/entry permission; requirements vary by nationality, so confirm your own eligibility before traveling. We are a transport provider, not an immigration authority.",
+            "Border processing time varies by day and volume — typically 30 minutes to 2 hours, though we don't promise a fixed crossing time.",
+        ],
+        byCarNote: "At 4-4.5 hours plus the border crossing, this is one of the shorter GCC-to-Saudi routes we cover — still, many business travelers and families prefer a pre-booked private transfer over self-driving, since it removes the fatigue and border-documentation burden.",
+        journeyPlanningNote: "Confirm your visa/entry requirements for Saudi Arabia before traveling, since these vary by nationality and residency status.",
+        bestTimeNote: "Border traffic at Salwa varies by day and volume, and can be busier around weekends and holidays.",
+
+        mapOriginQuery: 'Doha, Qatar',
+        mapDestinationQuery: 'Dammam, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Doha to Dammam Taxi',
+            url: '/routes/doha-dammam/',
+            description: 'Pre-booked private cross-border transfer from Doha to Dammam.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Dammam to Doha Taxi',
+            url: '/routes/dammam-doha/',
+            description: 'Book the return leg from Dammam back to Doha.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Doha to Makkah Taxi', url: '/routes/doha-makkah/', description: 'Private transfer from Doha to Makkah.' },
+            { name: 'Doha to Riyadh Taxi', url: '/routes/doha-riyadh/', description: 'Private transfer from Doha to Riyadh.' },
+        ],
+        relatedLocationLink: {
+            name: 'Dammam Transport Guide',
+            url: '/locations/dammam/',
+            description: 'Local Dammam taxi and chauffeur information.',
+        },
+        relatedBorderLink: {
+            name: 'Salwa Border Crossing Guide',
+            url: '/border-crossings/taxi-salwa-border-crossing/',
+            description: 'What to expect crossing the Qatar-Saudi border by private vehicle.',
+        },
+        relatedDistanceSlugs: ['doha-to-makkah', 'doha-to-madinah', 'doha-to-riyadh'],
+
+        seoTitle: 'Doha to Dammam Distance by Road | Driving Time & Map',
+        metaDescription: 'Doha to Dammam distance by road, estimated driving time, route map and border information. See how far Dammam is from Doha by car.',
+        h1: 'Doha to Dammam Distance by Road',
+
+        faqs: [
+            { question: 'How far is Doha from Dammam by road?', shortAnswer: 'Approximately 396–410 km', detailedAnswer: "By road via the Salwa border, Doha to Dammam is approximately 396 to 410 km — one of the shorter GCC-to-Saudi routes." },
+            { question: 'How long does Doha to Dammam take by car?', shortAnswer: 'Approximately 4–4.5 hours of driving', detailedAnswer: "Pure driving time is approximately 4 to 4.5 hours. Border processing can add 30 minutes to 2 hours on top of that." },
+            { question: 'Which border do you cross from Doha to Dammam?', shortAnswer: 'Salwa (Saudi side) / Abu Samra (Qatar side)', detailedAnswer: "The only land crossing between Qatar and Saudi Arabia is known as Salwa on the Saudi side and Abu Samra on the Qatar side." },
+            { question: 'What documents do I need?', shortAnswer: 'A valid passport and correct Saudi visa/entry permission', detailedAnswer: "Every passenger needs a valid passport and correct Saudi visa or entry permission; requirements vary by nationality, so confirm your own eligibility before traveling." },
+            { question: 'Can I book a private transfer from Doha to Dammam?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Doha to Dammam private taxi service, with a single vehicle from your Doha pickup through to your Dammam drop-off point." },
+            { question: 'What is the Doha to Dammam driving distance?', shortAnswer: 'Roughly 400 km by road', detailedAnswer: "Routing tools and our own commercial route data agree closely on approximately 396 to 410 km." },
+            { question: 'Can I book a return taxi from Dammam to Doha?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Dammam to Doha taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the border entirely, and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Doha to Dammam distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "Figures vary because each source may use a different exact starting address, destination point, or mapping provider. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'dubai-to-dammam': {
+        slug: 'dubai-to-dammam',
+        origin: 'Dubai',
+        originFull: 'Dubai, UAE',
+        originCountry: 'UAE',
+        destination: 'Dammam',
+        destinationFull: 'Dammam, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 869–892 km',
+        distanceHeadline: '~880 km',
+        drivingTimeRange: 'approximately 8–9 hours of continuous driving',
+        drivingTimeHeadline: '~8–9 hrs',
+        routeHeadline: 'Via Al Batha Border, along the Gulf Coast',
+        borderName: 'Al Batha',
+        travelType: 'International (cross-border)',
+
+        routeDescription: [
+            "The road distance from Dubai to Dammam is approximately 869 to 892 km. Independent route calculators and our own dispatch figures agree closely on this range — despite being further north than Riyadh, this route is actually somewhat shorter overall since it hugs the Gulf coast.",
+            "Your exact pickup point in Dubai and drop-off point in Dammam both affect the total by a modest amount.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 8 to 9 hours at normal highway speeds.",
+            "Total journey time is longer once you add the Al Batha border crossing, fuel and rest stops, and meals. Border processing can typically add anywhere from 30 minutes to 2 hours depending on the season and time of day.",
+            "Traffic and border volume both vary by day and season — build in extra time during peak travel periods.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs from Dubai to the Al Batha border crossing, then continues north along the Gulf side of the Kingdom into Saudi Arabia's Eastern Province to reach Dammam.",
+            "We're not naming specific interior highway numbers here, since routing can vary by provider — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        borderDescription: [
+            "This route crosses into Saudi Arabia at the Al Batha border, the crossing point used for UAE-Saudi road travel — known as Al Ghuwaifat on the UAE side.",
+            "You'll go through UAE exit procedures on the Dubai side and Saudi entry procedures — passport control, visa verification and vehicle documentation checks — on the Saudi side.",
+            "Every passenger needs a valid passport and correct Saudi visa/entry permission; requirements vary by nationality and residency status, so confirm your own eligibility before traveling. We're a transport provider, not an immigration authority.",
+            "Border processing time varies by day and volume — typically 30 minutes to 2 hours, though we don't promise a fixed crossing time.",
+        ],
+        byCarNote: "At 8-9 hours plus the border crossing, most business travelers and families crossing from Dubai choose a pre-booked private transfer over self-driving — it removes the driving fatigue while someone else manages the border formalities.",
+        journeyPlanningNote: "Confirm your visa/entry requirements for Saudi Arabia before traveling, since these vary by nationality and residency status.",
+        bestTimeNote: "Border traffic at Al Batha varies by day and volume, and can be busier around weekends and holidays.",
+
+        mapOriginQuery: 'Dubai, UAE',
+        mapDestinationQuery: 'Dammam, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Dubai to Dammam Taxi',
+            url: '/routes/dubai-dammam/',
+            description: 'Pre-booked private cross-border transfer from Dubai to Dammam.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Dammam to Dubai Taxi',
+            url: '/routes/dammam-dubai/',
+            description: 'Book the return leg from Dammam back to Dubai.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Dubai to Makkah Taxi', url: '/routes/dubai-makkah/', description: 'Private transfer from Dubai to Makkah.' },
+            { name: 'Dubai to Madinah Taxi', url: '/routes/dubai-madinah/', description: 'Private transfer from Dubai to Madinah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Dammam Transport Guide',
+            url: '/locations/dammam/',
+            description: 'Local Dammam taxi and chauffeur information.',
+        },
+        relatedBorderLink: {
+            name: 'Al Batha Border Crossing Guide',
+            url: '/border-crossings/taxi-al-batha-border-crossing/',
+            description: 'What to expect crossing the UAE-Saudi border by private vehicle.',
+        },
+        relatedDistanceSlugs: ['dubai-to-makkah', 'dubai-to-madinah'],
+
+        seoTitle: 'Dubai to Dammam Distance by Road | Driving Time & Map',
+        metaDescription: 'Dubai to Dammam distance by road, estimated driving time, route map and border information. See how far Dammam is from Dubai by car.',
+        h1: 'Dubai to Dammam Distance by Road',
+
+        faqs: [
+            { question: 'How far is Dubai from Dammam by road?', shortAnswer: 'Approximately 869–892 km', detailedAnswer: "By road via the Al Batha border, Dubai to Dammam is approximately 869 to 892 km." },
+            { question: 'How long does Dubai to Dammam take by car?', shortAnswer: 'Approximately 8–9 hours of driving', detailedAnswer: "Pure driving time is approximately 8 to 9 hours. Border processing can add 30 minutes to 2 hours on top of that." },
+            { question: 'Which border do you cross from Dubai to Dammam?', shortAnswer: 'Al Batha', detailedAnswer: "The Al Batha border (Al Ghuwaifat on the UAE side) is the crossing point used for UAE-Saudi road travel on this route." },
+            { question: 'What documents do I need?', shortAnswer: 'A valid passport and correct Saudi visa/entry permission', detailedAnswer: "Every passenger needs a valid passport and correct Saudi visa or entry permission; requirements vary by nationality, so confirm your own eligibility before traveling." },
+            { question: 'Can I book a private transfer from Dubai to Dammam?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Dubai to Dammam private taxi service, with a single vehicle from your Dubai pickup through to your Dammam drop-off point." },
+            { question: 'What is the Dubai to Dammam driving distance?', shortAnswer: 'Roughly 880 km by road', detailedAnswer: "Routing tools generally agree closely on approximately 869 to 892 km for this route." },
+            { question: 'Can I book a return taxi from Dammam to Dubai?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Dammam to Dubai taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the border entirely, and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Dubai to Dammam distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "Figures vary because each source may use a different exact starting address, destination point, or mapping provider. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'abu-dhabi-to-dammam': {
+        slug: 'abu-dhabi-to-dammam',
+        origin: 'Abu Dhabi',
+        originFull: 'Abu Dhabi, UAE',
+        originCountry: 'UAE',
+        destination: 'Dammam',
+        destinationFull: 'Dammam, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 700–780 km',
+        distanceHeadline: '~740 km',
+        drivingTimeRange: 'approximately 6–8 hours of continuous driving',
+        drivingTimeHeadline: '~6–8 hrs',
+        routeHeadline: 'Via Al Batha Border, along the Gulf Coast',
+        borderName: 'Al Batha',
+        travelType: 'International (cross-border)',
+
+        routeDescription: [
+            "The road distance from Abu Dhabi to Dammam is approximately 700 to 780 km. The exact figure depends heavily on your pickup point in Abu Dhabi, your destination in Dammam, and the exact route used — current route estimates genuinely vary across this range.",
+            "This is one of the routes where we present a wider range deliberately, since different mapping tools consistently disagree by a meaningful margin here.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 6 to 8 hours at normal highway speeds, depending on the exact route and distance within the range above.",
+            "Total journey time is longer once you add the Al Batha border crossing, fuel and rest stops, and meals. Border processing can typically add anywhere from 30 minutes to 2 hours depending on the season and time of day.",
+            "Traffic and border volume both vary by day and season — build in extra time during peak travel periods.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs from Abu Dhabi to the Al Batha border crossing, then continues along the Gulf side of the Kingdom into Saudi Arabia's Eastern Province to reach Dammam.",
+            "We're not naming specific interior highway numbers here, since routing can vary by provider — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        borderDescription: [
+            "This route crosses into Saudi Arabia at the Al Batha border, the crossing point used for UAE-Saudi road travel — known as Al Ghuwaifat on the UAE side.",
+            "You'll go through UAE exit procedures on the Abu Dhabi side and Saudi entry procedures — passport control, visa verification and vehicle documentation checks — on the Saudi side.",
+            "Every passenger needs a valid passport and correct Saudi visa/entry permission; requirements vary by nationality and residency status, so confirm your own eligibility before traveling. We're a transport provider, not an immigration authority.",
+            "Border processing time varies by day and volume — typically 30 minutes to 2 hours, though we don't promise a fixed crossing time.",
+        ],
+        byCarNote: "Given both the distance and the border crossing, most business travelers and families crossing from Abu Dhabi choose a pre-booked private transfer over self-driving — it removes the driving fatigue while someone else manages the border formalities.",
+        journeyPlanningNote: "Confirm your visa/entry requirements for Saudi Arabia before traveling, since these vary by nationality and residency status.",
+        bestTimeNote: "Border traffic at Al Batha varies by day and volume, and can be busier around weekends and holidays.",
+
+        mapOriginQuery: 'Abu Dhabi, UAE',
+        mapDestinationQuery: 'Dammam, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Abu Dhabi to Dammam Taxi',
+            url: '/routes/abu-dhabi-dammam/',
+            description: 'Pre-booked private cross-border transfer from Abu Dhabi to Dammam.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Dammam to Abu Dhabi Taxi',
+            url: '/routes/dammam-abu-dhabi/',
+            description: 'Book the return leg from Dammam back to Abu Dhabi.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Abu Dhabi to Makkah Taxi', url: '/routes/abu-dhabi-makkah/', description: 'Private transfer from Abu Dhabi to Makkah.' },
+            { name: 'Abu Dhabi to Riyadh Taxi', url: '/routes/abu-dhabi-riyadh/', description: 'Private transfer from Abu Dhabi to Riyadh.' },
+        ],
+        relatedLocationLink: {
+            name: 'Dammam Transport Guide',
+            url: '/locations/dammam/',
+            description: 'Local Dammam taxi and chauffeur information.',
+        },
+        relatedBorderLink: {
+            name: 'Al Batha Border Crossing Guide',
+            url: '/border-crossings/taxi-al-batha-border-crossing/',
+            description: 'What to expect crossing the UAE-Saudi border by private vehicle.',
+        },
+        relatedDistanceSlugs: ['abu-dhabi-to-makkah', 'abu-dhabi-to-madinah', 'abu-dhabi-to-riyadh'],
+
+        seoTitle: 'Abu Dhabi to Dammam Distance by Road | Driving Time & Map',
+        metaDescription: 'Abu Dhabi to Dammam distance by road, estimated driving time, route map and border information. See how far Dammam is from Abu Dhabi by car.',
+        h1: 'Abu Dhabi to Dammam Distance by Road',
+
+        faqs: [
+            { question: 'How far is Abu Dhabi from Dammam by road?', shortAnswer: 'Approximately 700–780 km', detailedAnswer: "By road via the Al Batha border, Abu Dhabi to Dammam is approximately 700 to 780 km — the exact figure depends on your pickup and destination points." },
+            { question: 'How long does Abu Dhabi to Dammam take by car?', shortAnswer: 'Approximately 6–8 hours of driving', detailedAnswer: "Pure driving time is approximately 6 to 8 hours depending on the exact route. Border processing can add 30 minutes to 2 hours on top of that." },
+            { question: 'Which border do you cross from Abu Dhabi to Dammam?', shortAnswer: 'Al Batha', detailedAnswer: "The Al Batha border (Al Ghuwaifat on the UAE side) is the crossing point used for UAE-Saudi road travel on this route." },
+            { question: 'What documents do I need?', shortAnswer: 'A valid passport and correct Saudi visa/entry permission', detailedAnswer: "Every passenger needs a valid passport and correct Saudi visa or entry permission; requirements vary by nationality, so confirm your own eligibility before traveling." },
+            { question: 'Can I book a private transfer from Abu Dhabi to Dammam?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Abu Dhabi to Dammam private taxi service, with a single vehicle from your Abu Dhabi pickup through to your Dammam drop-off point." },
+            { question: 'What is the Abu Dhabi to Dammam driving distance?', shortAnswer: 'Roughly 700–780 km by road', detailedAnswer: "Current route estimates vary by exact pickup point, destination and route used, with distances of roughly 700 to 780 km commonly reported." },
+            { question: 'Can I book a return taxi from Dammam to Abu Dhabi?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Dammam to Abu Dhabi taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the border entirely, and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Abu Dhabi to Dammam distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "Figures vary because each source may use a different exact starting address, destination point, or mapping provider — the spread is wider on this route than on some others we cover." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'muscat-to-dammam': {
+        slug: 'muscat-to-dammam',
+        origin: 'Muscat',
+        originFull: 'Muscat, Oman',
+        originCountry: 'Oman',
+        destination: 'Dammam',
+        destinationFull: 'Dammam, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 1,118–1,233 km',
+        distanceHeadline: '~1,150 km',
+        drivingTimeRange: 'approximately 12–13 hours of continuous driving',
+        drivingTimeHeadline: '~12–13 hrs',
+        routeHeadline: 'Via the Rub al Khali Border, near Ibri',
+        borderName: 'Rub al Khali / Ramlat Khaliya',
+        travelType: 'International (cross-border, 2-day journey may be preferable)',
+
+        routeDescription: [
+            "The road distance from Muscat to Dammam is approximately 1,118 to 1,233 km — genuinely the shortest of our Muscat-Saudi routes, since Dammam and the Eastern Province sit closer along this corridor than Riyadh does, despite being further north.",
+            "Independent route calculators show some spread here; our own dispatch figure of around 1,149 km sits comfortably within that range.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 12 to 13 hours of continuous highway driving — a comfortable single-day journey by the standards of our longer Muscat routes, though still a genuine full day.",
+            "Given the length, some travelers still prefer to split this into two days with an overnight stop. Border processing, fuel and rest stops all add to total journey time.",
+            "Border volume and interior road conditions both vary by day and season, adding uncertainty on top of the pure driving estimate.",
+        ],
+        routeJourneyDescription: [
+            "The road route crosses Oman's interior near the town of Ibri before reaching the border with Saudi Arabia, then continues into the Kingdom's Eastern Province to reach Dammam.",
+            "We're not naming specific interior highway numbers here, since routing can vary by provider. Use the map below or live navigation for your actual travel date.",
+        ],
+        borderDescription: [
+            "This is the only land crossing between Oman and Saudi Arabia — known as Ramlat Khaliya on the Omani side and Rub al Khali on the Saudi side, connecting Oman's Ad Dhahirah region (near Ibri) with Saudi Arabia's Eastern Province through the Rub' al Khali (Empty Quarter) desert.",
+            "You'll go through Omani exit procedures on the Muscat side and Saudi entry procedures — passport control, visa verification and vehicle documentation checks — on the Saudi side.",
+            "Every passenger needs a valid passport and correct Saudi visa/entry permission; requirements vary by nationality and residency status, so confirm your own eligibility before traveling. We're a transport provider, not an immigration authority.",
+            "Given the remote desert location of this crossing, plan for a genuinely long, isolated stretch of driving on either side — border processing time itself varies by day and volume, typically 30 minutes to 2 hours, though we don't promise a fixed crossing time.",
+        ],
+        byCarNote: "At 12-13 hours plus a remote desert border crossing, this is genuinely the closer of our Muscat-Saudi routes — still, most travelers prefer a private chauffeur-driven transfer, and for the long drive, a second driver joining partway can make for a safer, more comfortable journey.",
+        journeyPlanningNote: "Confirm your visa/entry requirements for Saudi Arabia before traveling. Given the remote desert terrain on parts of this route, plan for extra water and supplies.",
+        bestTimeNote: "Given the length and remoteness of this route, avoid starting late in the day. Border processing time can vary between 30 minutes and 2 hours depending on the season and time of day.",
+
+        mapOriginQuery: 'Muscat, Oman',
+        mapDestinationQuery: 'Dammam, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Muscat to Dammam Taxi',
+            url: '/routes/muscat-dammam/',
+            description: 'Pre-booked private cross-border transfer from Muscat to Dammam.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Dammam to Muscat Taxi',
+            url: '/routes/dammam-muscat/',
+            description: 'Book the return leg from Dammam back to Muscat.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Muscat to Makkah Taxi', url: '/routes/muscat-makkah/', description: 'Private transfer from Muscat to Makkah.' },
+            { name: 'Muscat to Riyadh Taxi', url: '/routes/muscat-riyadh/', description: 'Private transfer from Muscat to Riyadh.' },
+        ],
+        relatedLocationLink: {
+            name: 'Dammam Transport Guide',
+            url: '/locations/dammam/',
+            description: 'Local Dammam taxi and chauffeur information.',
+        },
+        relatedBorderLink: {
+            name: 'Rub al Khali Border Crossing Guide',
+            url: '/border-crossings/taxi-rub-al-khali-border-crossing/',
+            description: 'What to expect crossing the Oman-Saudi border by private vehicle.',
+        },
+        relatedDistanceSlugs: ['muscat-to-makkah', 'muscat-to-riyadh'],
+
+        seoTitle: 'Muscat to Dammam Distance by Road | Driving Time & Map',
+        metaDescription: 'Muscat to Dammam distance by road, estimated driving time, route map and border information. See how far Dammam is from Muscat by car.',
+        h1: 'Muscat to Dammam Distance by Road',
+
+        faqs: [
+            { question: 'How far is Muscat from Dammam by road?', shortAnswer: 'Approximately 1,118–1,233 km', detailedAnswer: "By road via the Rub al Khali border, Muscat to Dammam is approximately 1,118 to 1,233 km — the shortest of our Muscat-Saudi routes." },
+            { question: 'How long does Muscat to Dammam take by car?', shortAnswer: 'Approximately 12–13 hours of driving', detailedAnswer: "Pure driving time is approximately 12 to 13 hours. Some travelers still split this into two days with an overnight stop." },
+            { question: 'Which border do you cross from Muscat to Dammam?', shortAnswer: 'Ramlat Khaliya (Oman side) / Rub al Khali (Saudi side)', detailedAnswer: "The only land crossing between Oman and Saudi Arabia connects Oman's Ad Dhahirah region (near Ibri) with Saudi Arabia's Eastern Province through the Rub' al Khali (Empty Quarter) desert." },
+            { question: 'What documents do I need?', shortAnswer: 'A valid passport and correct Saudi visa/entry permission', detailedAnswer: "Every passenger needs a valid passport and correct Saudi visa or entry permission; requirements vary by nationality, so confirm your own eligibility before traveling." },
+            { question: 'Can I book a private transfer from Muscat to Dammam?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Muscat to Dammam private taxi service. For the long drive, ask about a second driver joining partway for a safer, more comfortable journey." },
+            { question: 'What is the Muscat to Dammam driving distance?', shortAnswer: 'Roughly 1,150 km by road', detailedAnswer: "Routing tools show a range of approximately 1,118 to 1,233 km for this route." },
+            { question: 'Can I book a return taxi from Dammam to Muscat?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Dammam to Muscat taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the border entirely, and is always shorter than the actual driving distance — the gap is especially large on a route this long." },
+            { question: 'Why do different websites show different Muscat to Dammam distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "Figures vary because each source may use a different exact starting address, destination point, or mapping provider. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'jeddah-to-dammam': {
+        slug: 'jeddah-to-dammam',
+        origin: 'Jeddah',
+        originFull: 'Jeddah, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Dammam',
+        destinationFull: 'Dammam, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 1,238–1,370 km',
+        distanceHeadline: '~1,300 km',
+        drivingTimeRange: 'approximately 12–14 hours of continuous driving',
+        drivingTimeHeadline: '~12–14 hrs',
+        routeHeadline: 'Via the Interior, through the Riyadh Area',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Jeddah to Dammam is approximately 1,238 to 1,370 km — one of the longer domestic routes we cover, crossing the width of the Kingdom from the Red Sea coast to the Gulf coast.",
+            "Independent route calculators show some spread on this route; your exact pickup point in Jeddah and drop-off point in Dammam both affect the total.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 12 to 14 hours at normal highway speeds — genuinely one of the longer domestic drives in the Kingdom.",
+            "Total journey time is longer once you add fuel and rest stops and meals over a 1,200+ km trip. Most travelers treat this as a long single-day push with several stops, or split it across two days.",
+            "Traffic is generally light on this route outside the two cities themselves.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs from Jeddah across Saudi Arabia's interior — generally via the Riyadh area — before continuing east to Dammam on the Gulf coast. As a fully domestic route, there's no border crossing.",
+            "We're not naming specific highway numbers here, since routing can vary between providers — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        byCarNote: "At 12-14 hours, this is genuinely one of the longer domestic drives in the Kingdom — most families and business travelers prefer a private chauffeur-driven transfer over self-driving the full distance, arriving rested rather than fatigued.",
+        journeyPlanningNote: "Given the length, plan for regular rest breaks and realistic timing, or consider splitting the trip across two days.",
+        bestTimeNote: "Traffic is generally predictable on this route outside the two cities themselves, though weekday travel tends to be smoother around both endpoints.",
+
+        mapOriginQuery: 'Jeddah, Saudi Arabia',
+        mapDestinationQuery: 'Dammam, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Jeddah to Dammam Taxi',
+            url: '/routes/jeddah-dammam/',
+            description: 'Pre-booked private transfer from Jeddah to Dammam.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Dammam to Jeddah Taxi',
+            url: '/routes/dammam-jeddah/',
+            description: 'Book the return leg from Dammam back to Jeddah.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Jeddah to Makkah Taxi', url: '/routes/jeddah-makkah/', description: 'Private transfer from Jeddah to Makkah.' },
+            { name: 'Jeddah to Riyadh Taxi', url: '/routes/jeddah-riyadh/', description: 'Private transfer from Jeddah to Riyadh.' },
+        ],
+        relatedLocationLink: {
+            name: 'Dammam Transport Guide',
+            url: '/locations/dammam/',
+            description: 'Local Dammam taxi and chauffeur information.',
+        },
+        relatedDistanceSlugs: ['jeddah-to-makkah', 'jeddah-to-madinah', 'jeddah-to-riyadh'],
+
+        seoTitle: 'Jeddah to Dammam Distance by Road | Driving Time & Map',
+        metaDescription: 'Jeddah to Dammam distance by road, estimated driving time, route map and journey information. See how far Dammam is from Jeddah by car.',
+        h1: 'Jeddah to Dammam Distance by Road',
+
+        faqs: [
+            { question: 'How far is Jeddah from Dammam by road?', shortAnswer: 'Approximately 1,238–1,370 km', detailedAnswer: "By road, Jeddah to Dammam is approximately 1,238 to 1,370 km, crossing the width of the Kingdom from the Red Sea coast to the Gulf coast." },
+            { question: 'How long does Jeddah to Dammam take by car?', shortAnswer: 'Approximately 12–14 hours of driving', detailedAnswer: "Pure driving time is approximately 12 to 14 hours at normal highway speeds. Total journey time is longer with rest stops." },
+            { question: 'What route connects Jeddah and Dammam?', shortAnswer: 'Via the interior, through the Riyadh area', detailedAnswer: "The route runs from Jeddah across the Saudi interior — generally via the Riyadh area — before continuing east to Dammam." },
+            { question: 'Can I book a private Jeddah to Dammam taxi?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Jeddah to Dammam private taxi service, with a single vehicle from your Jeddah pickup through to your Dammam drop-off point." },
+            { question: 'What is the Jeddah to Dammam driving distance?', shortAnswer: 'Roughly 1,300 km by road', detailedAnswer: "Routing tools generally show approximately 1,238 to 1,370 km for this domestic route." },
+            { question: 'Can families travel from Jeddah to Dammam by car?', shortAnswer: 'Yes, with the right planning', detailedAnswer: "Yes. Given the 12-14 hour length, families typically plan for regular rest breaks, and many prefer a private vehicle with a professional driver." },
+            { question: 'Can I book a return taxi from Dammam to Jeddah?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Dammam to Jeddah taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Jeddah to Dammam distances?', shortAnswer: 'Different exact start/end points and interior route choices', detailedAnswer: "Different mapping providers can select different interior routes and starting/ending points, which compounds into a noticeable gap on a route this long." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'riyadh-to-dammam': {
+        slug: 'riyadh-to-dammam',
+        origin: 'Riyadh',
+        originFull: 'Riyadh, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Dammam',
+        destinationFull: 'Dammam, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 400–423 km',
+        distanceHeadline: '~410 km',
+        drivingTimeRange: 'approximately 3.5–4 hours of continuous driving',
+        drivingTimeHeadline: '~3.5–4 hrs',
+        routeHeadline: 'Direct via the Interior Highway',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Riyadh to Dammam is approximately 400 to 423 km, one of the more frequently traveled and well-established domestic corridors in the Kingdom, connecting the capital to the Eastern Province.",
+            "Independent route calculators and our own commercial route data agree fairly closely on this figure. Your exact pickup point in Riyadh and drop-off point in Dammam can still shift the total by a small amount.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 3.5 to 4 hours at normal highway speeds — a comfortable half-day drive on a well-maintained road.",
+            "Total journey time is a little longer once you add rest stops and normal traffic around both cities.",
+            "Traffic around Riyadh itself can add time during peak commuting hours and public holidays — build in a little extra buffer if your arrival time matters.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs directly east from Riyadh across the central Saudi interior to Dammam — one of the busiest and most heavily serviced domestic corridors in the Kingdom, connecting two of Saudi Arabia's largest metro areas.",
+            "As a fully domestic route, there's no border crossing, and services along the way are frequent given how well-traveled this corridor is.",
+        ],
+        byCarNote: "At around 3.5-4 hours, this is one of the more comfortable domestic drives we cover — very manageable for self-driving, though a private chauffeur transfer is still a popular choice for business travelers who want to work or rest during the trip.",
+        journeyPlanningNote: "This is a well-serviced corridor with frequent rest stops, so extensive advance planning is less critical here than on our longer routes.",
+        bestTimeNote: "Traffic around both Riyadh and Dammam is heavier during normal weekday commuting hours — traveling outside those windows tends to be smoother.",
+
+        mapOriginQuery: 'Riyadh, Saudi Arabia',
+        mapDestinationQuery: 'Dammam, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Riyadh to Dammam Taxi',
+            url: '/routes/riyadh-dammam/',
+            description: 'Pre-booked private transfer from Riyadh to Dammam.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Dammam to Riyadh Taxi',
+            url: '/routes/dammam-riyadh/',
+            description: 'Book the return leg from Dammam back to Riyadh.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Riyadh to Makkah Taxi', url: '/routes/riyadh-makkah/', description: 'Private transfer from Riyadh to Makkah.' },
+            { name: 'Riyadh to Jeddah Taxi', url: '/routes/riyadh-jeddah/', description: 'Private transfer from Riyadh to Jeddah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Dammam Transport Guide',
+            url: '/locations/dammam/',
+            description: 'Local Dammam taxi and chauffeur information.',
+        },
+        relatedDistanceSlugs: ['dammam-to-riyadh', 'riyadh-to-makkah', 'riyadh-to-madinah'],
+
+        seoTitle: 'Riyadh to Dammam Distance by Road | Driving Time & Map',
+        metaDescription: 'Riyadh to Dammam distance by road, estimated driving time, route map and journey information. See how far Dammam is from Riyadh by car.',
+        h1: 'Riyadh to Dammam Distance by Road',
+
+        faqs: [
+            { question: 'How far is Riyadh from Dammam by road?', shortAnswer: 'Approximately 400–423 km', detailedAnswer: "By road, Riyadh to Dammam is approximately 400 to 423 km — one of the most frequently traveled domestic corridors in Saudi Arabia." },
+            { question: 'How long does Riyadh to Dammam take by car?', shortAnswer: 'Approximately 3.5–4 hours of driving', detailedAnswer: "Pure driving time is approximately 3.5 to 4 hours at normal highway speeds — a comfortable half-day drive." },
+            { question: 'What route connects Riyadh and Dammam?', shortAnswer: 'A direct interior highway', detailedAnswer: "A well-established, heavily serviced interior highway runs directly between Riyadh and Dammam, connecting the capital to the Eastern Province." },
+            { question: 'Can I book a private Riyadh to Dammam taxi?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Riyadh to Dammam private taxi service, with a single vehicle from your Riyadh pickup through to your Dammam drop-off point." },
+            { question: 'What is the Riyadh to Dammam driving distance?', shortAnswer: 'Roughly 410 km by road', detailedAnswer: "Routing tools generally agree closely on approximately 400 to 423 km for this well-established domestic route." },
+            { question: 'Can families travel from Riyadh to Dammam by car?', shortAnswer: 'Yes, easily', detailedAnswer: "Yes. At 3.5-4 hours, this is one of the easier domestic drives for families, with frequent rest stops available along the way." },
+            { question: 'Can I book a return taxi from Dammam to Riyadh?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Dammam to Riyadh taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always somewhat shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Riyadh to Dammam distances?', shortAnswer: 'Different exact start/end points and routing engines', detailedAnswer: "Even on a well-established domestic route, exact pickup and drop-off points and different mapping providers can shift the total by a modest amount. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
 };
 
 export function getDistanceRoute(slug: string): DistanceRoute | undefined {
@@ -3967,6 +4559,12 @@ export const DISTANCE_HUB_CATEGORIES: DistanceHubCategory[] = [
         routeSlugs: ['abu-dhabi-to-riyadh', 'doha-to-riyadh', 'bahrain-to-riyadh', 'kuwait-to-riyadh', 'muscat-to-riyadh'],
     },
     {
+        id: 'gcc-to-dammam',
+        title: 'GCC to Dammam',
+        description: 'Road distance and driving time from Gulf cities to Dammam.',
+        routeSlugs: ['kuwait-to-dammam', 'doha-to-dammam', 'dubai-to-dammam', 'abu-dhabi-to-dammam', 'muscat-to-dammam'],
+    },
+    {
         id: 'saudi-to-makkah',
         title: 'Saudi Cities to Makkah',
         description: 'Road distance and driving time from other Saudi cities to Makkah.',
@@ -3982,7 +4580,7 @@ export const DISTANCE_HUB_CATEGORIES: DistanceHubCategory[] = [
         id: 'saudi-city-to-city',
         title: 'Saudi City-to-City Distances',
         description: 'Road distance and driving time between other major Saudi cities.',
-        routeSlugs: ['riyadh-to-jeddah', 'dammam-to-jeddah', 'dammam-to-riyadh', 'al-khobar-to-riyadh', 'jeddah-to-riyadh', 'riyadh-to-yanbu', 'jeddah-to-yanbu'],
+        routeSlugs: ['riyadh-to-jeddah', 'dammam-to-jeddah', 'dammam-to-riyadh', 'al-khobar-to-riyadh', 'jeddah-to-riyadh', 'riyadh-to-yanbu', 'jeddah-to-yanbu', 'jeddah-to-dammam', 'riyadh-to-dammam'],
     },
     {
         id: 'tourist-religious-routes',
