@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { cities, CityData } from '@/data/cities';
 import Hero from '@/components/Hero';
+import ApprovedDriversForLocation from '@/components/ApprovedDriversForLocation';
 import { Button } from '@/components/ui/button';
 import JsonLdFAQ from '@/components/JsonLdFAQ';
 import Script from 'next/script';
@@ -315,6 +316,8 @@ export default function LocationPage({ params }: Props) {
                     </Link>
                 </div>
             </section>
+
+            <ApprovedDriversForLocation location={city.slug} />
 
             {/* FAQ Section */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">

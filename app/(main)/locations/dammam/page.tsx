@@ -8,6 +8,7 @@ import DistanceTable from '@/components/seo/DistanceTable';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import JsonLdLocation from '@/components/JsonLdLocation';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import ApprovedDriversForLocation from '@/components/ApprovedDriversForLocation';
 
 export const metadata: Metadata = {
     title: 'Dammam: Private Taxi, Airport & Intercity Transfers | Taxi Service KSA',
@@ -277,6 +278,8 @@ export default function DammamPage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <ApprovedDriversForLocation location="dammam" />
+
                 <RelatedLocations
                     currentCity="Dammam"
                     customLinks={nearbyLinks}

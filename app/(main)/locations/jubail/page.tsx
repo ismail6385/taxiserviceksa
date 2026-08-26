@@ -11,6 +11,7 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 import { toyotaVelozHighlight } from '@/data/areaFleetHighlights';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
+import ApprovedDriversForLocation from '@/components/ApprovedDriversForLocation';
 
 export const metadata: Metadata = {
     title: 'Taxi Service in Jubail 2026 | Private Car & Airport Transfer | Taxi Service KSA',
@@ -195,6 +196,8 @@ export default function JubailPage() {
             <RouteFleetSection areaHighlight={toyotaVelozHighlight} />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
+                <ApprovedDriversForLocation location="jubail" />
+
                 <RelatedLocations currentCity="Jubail" />
             </div>
 

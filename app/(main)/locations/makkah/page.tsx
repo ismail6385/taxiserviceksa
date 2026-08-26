@@ -24,6 +24,7 @@ import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
+import ApprovedDriversForLocation from '@/components/ApprovedDriversForLocation';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Umrah Chauffeur Service in Makkah 2026 | Premium Transport | Taxi Service KSA',
@@ -593,6 +594,8 @@ export default async function MakkahPage() {
                         </div>
                     </div>
                 </div>
+
+                <ApprovedDriversForLocation location="makkah" />
 
                 <RelatedLocations currentCity="Makkah" />
             </div>

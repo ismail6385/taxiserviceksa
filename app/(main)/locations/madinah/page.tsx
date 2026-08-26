@@ -38,6 +38,7 @@ import ZiyaratSites from '@/components/ZiyaratSites';
 
 
 import JsonLdLocation from '@/components/JsonLdLocation';
+import ApprovedDriversForLocation from '@/components/ApprovedDriversForLocation';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Ziyarat Chauffeur Service in Madinah 2026 | Premium Chauffeur | Taxi Service KSA',
@@ -601,6 +602,8 @@ export default async function MadinahPage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <ApprovedDriversForLocation location="madinah" />
+
                 <RelatedLocations currentCity="Madinah" />
             </div>
         </div >

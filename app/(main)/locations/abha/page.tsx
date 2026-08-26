@@ -9,6 +9,7 @@ import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 import JsonLdLocation from '@/components/JsonLdLocation';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import ApprovedDriversForLocation from '@/components/ApprovedDriversForLocation';
 
 
 export const metadata: Metadata = {
@@ -181,6 +182,8 @@ export default function AbhaPage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
+                <ApprovedDriversForLocation location="abha" />
+
                 <RelatedLocations currentCity="Abha" />
             </div>
 

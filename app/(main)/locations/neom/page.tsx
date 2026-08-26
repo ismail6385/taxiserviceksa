@@ -9,6 +9,7 @@ import Hero from '@/components/Hero';
 import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
+import ApprovedDriversForLocation from '@/components/ApprovedDriversForLocation';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in NEOM | Tabuk to The Line | Taxi Service KSA',
@@ -176,6 +177,8 @@ export default function NeomPage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
+                <ApprovedDriversForLocation location="neom" />
+
                 <RelatedLocations currentCity="Tabuk" citySlug="neom" />
             </div>
 

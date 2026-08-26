@@ -7,6 +7,7 @@ import RelatedLocations from '@/components/seo/RelatedLocations';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import JsonLdLocation from '@/components/JsonLdLocation';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import ApprovedDriversForLocation from '@/components/ApprovedDriversForLocation';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Najran | Taxi Service KSA',
@@ -142,6 +143,8 @@ export default function NajranLocationPage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
+                <ApprovedDriversForLocation location="najran" />
+
                 <RelatedLocations currentCity="Najran" />
             </div>
 

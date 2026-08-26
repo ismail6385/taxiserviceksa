@@ -22,6 +22,7 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 import JsonLdLocation from '@/components/JsonLdLocation';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { jeddahHotels } from '@/data/jeddahHotels';
+import ApprovedDriversForLocation from '@/components/ApprovedDriversForLocation';
 
 
 
@@ -657,6 +658,8 @@ export default async function JeddahPage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <ApprovedDriversForLocation location="jeddah" />
+
                 <RelatedLocations currentCity="Jeddah" />
 
                 <TopicCluster

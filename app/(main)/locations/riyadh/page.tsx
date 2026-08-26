@@ -12,6 +12,7 @@ import QuestionsDisplay from '@/components/QuestionsDisplay';
 import ReviewsDisplay from '@/components/ReviewsDisplay';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import JsonLdLocation from '@/components/JsonLdLocation';
+import ApprovedDriversForLocation from '@/components/ApprovedDriversForLocation';
 
 export const metadata: Metadata = {
     title: 'Riyadh Taxi, Private Car & Chauffeur Service | Taxi Service KSA',
@@ -391,6 +392,8 @@ export default function RiyadhPage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <ApprovedDriversForLocation location="riyadh" />
+
                 <RelatedLocations currentCity="Riyadh" />
             </div>
         </div>

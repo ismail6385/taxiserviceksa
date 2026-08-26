@@ -28,6 +28,7 @@ import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
 import SemanticField from '@/components/seo/SemanticField';
 import TopicCluster from '@/components/seo/TopicCluster';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import ApprovedDriversForLocation from '@/components/ApprovedDriversForLocation';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Khaybar Fort | Madinah & AlUla | Taxi Service KSA',
@@ -565,6 +566,8 @@ export default function KhayberPage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <ApprovedDriversForLocation location="khayber-fort" />
+
                 <RelatedLocations currentCity="Khaybar" />
             </div>
 

@@ -15,6 +15,7 @@ import SemanticField from '@/components/seo/SemanticField';
 import TopicCluster from '@/components/seo/TopicCluster';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import ApprovedDriversForLocation from '@/components/ApprovedDriversForLocation';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service Jeddah to Makkah | Premium Chauffeur | Taxi Service KSA',
@@ -288,6 +289,8 @@ export default function JeddahMakkahRoutePage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <ApprovedDriversForLocation location="jeddah-makkah" />
+
                 <RelatedLocations currentCity="Jeddah" />
             </div>
 

@@ -26,6 +26,7 @@ import TravelConsensus from '@/components/seo/TravelConsensus';
 import RoutePerspective from '@/components/seo/RoutePerspective';
 import ExpertReview from '@/components/seo/ExpertReview';
 import JsonLdLocation from '@/components/JsonLdLocation';
+import ApprovedDriversForLocation from '@/components/ApprovedDriversForLocation';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Yanbu | Airport & Industrial Port | Taxi Service KSA',
@@ -479,6 +480,8 @@ export default function YanbuPage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <ApprovedDriversForLocation location="yanbu" />
+
                 <RelatedLocations currentCity="Yanbu" />
             </div>
 

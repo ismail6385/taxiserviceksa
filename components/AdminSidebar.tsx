@@ -46,6 +46,7 @@ const menuItems = [
     { name: 'B2B Leads',       href: '/admin/b2b-leads',           icon: Building2 },
     { name: 'B2B Rate Cards',  href: '/admin/b2b-rate-cards',       icon: Receipt },
     { name: 'Drivers',         href: '/admin/drivers',             icon: UserCog },
+    { name: 'Driver Onboarding', href: '/admin/driver-management', icon: UserCog },
     { name: 'Reports',         href: '/admin/reports',             icon: BarChart2 },
     { name: 'Pricing',         href: '/admin/pricing',             icon: DollarSign },
     { name: 'WA Templates',    href: '/admin/whatsapp-templates',  icon: MessageSquare },

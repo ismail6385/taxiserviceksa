@@ -13,6 +13,7 @@ import TopicCluster from '@/components/seo/TopicCluster';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 import ExpertReview from '@/components/seo/ExpertReview';
 import RelatedLocations from '@/components/seo/RelatedLocations';
+import ApprovedDriversForLocation from '@/components/ApprovedDriversForLocation';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Ziyarat Tour Service in Makkah | Premium Chauffeur Heritage | Taxi Service KSA',
@@ -337,6 +338,8 @@ export default function MakkahZiyaratPage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+                <ApprovedDriversForLocation location="makkah-ziyarat" />
+
                 <RelatedLocations currentCity="Makkah" />
             </div>
         </div>
