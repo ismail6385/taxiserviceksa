@@ -4524,6 +4524,605 @@ export const DISTANCE_ROUTES: Record<string, DistanceRoute> = {
         ],
         lastVerified: 'August 2026',
     },
+
+    'dubai-to-jeddah': {
+        slug: 'dubai-to-jeddah',
+        origin: 'Dubai',
+        originFull: 'Dubai, UAE',
+        originCountry: 'UAE',
+        destination: 'Jeddah',
+        destinationFull: 'Jeddah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 1,930–2,024 km',
+        distanceHeadline: '~1,980 km',
+        drivingTimeRange: 'approximately 18–21 hours of continuous driving',
+        drivingTimeHeadline: '~18–21 hrs',
+        routeHeadline: 'Via Al Batha Border, the Length of the Kingdom',
+        borderName: 'Al Batha',
+        travelType: 'International (cross-border, 2-day journey recommended)',
+
+        routeDescription: [
+            "The road distance from Dubai to Jeddah is approximately 1,930 to 2,024 km — one of the longest routes we operate, crossing the entire width of Saudi Arabia from the Gulf side to the Red Sea coast.",
+            "Independent route calculators and our own dispatch figures cluster within this range, though on a route this long, small differences in starting/ending points and route choice compound into a wider gap than on shorter trips.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 18 to 21 hours of continuous highway driving. We're upfront about this: it is not a one-day trip.",
+            "We plan this as a two-day journey with a scheduled overnight stop, rather than a single marathon drive — fatigue risk on a route this long is real. Border processing, fuel and rest stops all add further to total journey time.",
+            "Border volume and interior road conditions both vary by day and season, adding uncertainty on top of the pure driving estimate.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs from Dubai to the Al Batha border crossing, then continues the length of Saudi Arabia's interior to reach Jeddah on the Red Sea coast.",
+            "Given the exceptional distance, we schedule an overnight stop partway through rather than attempting the full drive in one push. We don't name specific interior highway numbers here since routing varies by provider.",
+        ],
+        borderDescription: [
+            "This route crosses into Saudi Arabia at the Al Batha border, the crossing point used for UAE-Saudi road travel — known as Al Ghuwaifat on the UAE side.",
+            "You'll go through UAE exit procedures on the Dubai side and Saudi entry procedures — passport control, visa verification and vehicle documentation checks — on the Saudi side.",
+            "Every passenger needs a valid passport and correct Saudi visa/entry permission; requirements vary by nationality and residency status, so confirm your own eligibility before traveling. We're a transport provider, not an immigration authority.",
+            "Border processing time varies by day and volume — typically 30 minutes to 2 hours, though we don't promise a fixed crossing time.",
+        ],
+        byCarNote: "At close to 2,000 km, we don't offer this as a single non-stop drive — a scheduled overnight stop partway through means you arrive rested rather than exhausted from a marathon push, whether self-driving or booking with us.",
+        journeyPlanningNote: "Because this is realistically a two-day trip, plan overnight accommodation partway through in addition to the usual document and rest-stop planning.",
+        bestTimeNote: "Given the exceptional length of this route, avoid starting late in the day if you're aiming to reach the scheduled overnight stop before dark. Hajj/Umrah peak season adds meaningful extra time on top of an already long journey.",
+
+        mapOriginQuery: 'Dubai, UAE',
+        mapDestinationQuery: 'Jeddah, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Dubai to Jeddah Taxi',
+            url: '/routes/dubai-jeddah/',
+            description: 'Pre-booked private cross-border transfer from Dubai to Jeddah, planned as a two-day journey.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Jeddah to Dubai Taxi',
+            url: '/routes/jeddah-dubai/',
+            description: 'Book the return leg from Jeddah back to Dubai.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Dubai to Makkah Taxi', url: '/routes/dubai-makkah/', description: 'Private transfer from Dubai to Makkah.' },
+            { name: 'Dubai to Madinah Taxi', url: '/routes/dubai-madinah/', description: 'Private transfer from Dubai to Madinah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Jeddah Transport Guide',
+            url: '/locations/jeddah/',
+            description: 'Local Jeddah taxi and airport transfer information.',
+        },
+        relatedBorderLink: {
+            name: 'Al Batha Border Crossing Guide',
+            url: '/border-crossings/taxi-al-batha-border-crossing/',
+            description: 'What to expect crossing the UAE-Saudi border by private vehicle.',
+        },
+        relatedDistanceSlugs: ['dubai-to-makkah', 'dubai-to-madinah'],
+
+        seoTitle: 'Dubai to Jeddah Distance by Road | Driving Time & Map',
+        metaDescription: 'Dubai to Jeddah distance by road, estimated driving time, route map and border information. See how far Jeddah is from Dubai by car.',
+        h1: 'Dubai to Jeddah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Dubai from Jeddah by road?', shortAnswer: 'Approximately 1,930–2,024 km', detailedAnswer: "By road via the Al Batha border, Dubai to Jeddah is approximately 1,930 to 2,024 km — one of the longest routes in our network." },
+            { question: 'How long does Dubai to Jeddah take by car?', shortAnswer: 'Approximately 18–21 hours, usually over two days', detailedAnswer: "Pure driving time is approximately 18 to 21 hours. Given the length, we plan this as a two-day journey with a scheduled overnight stop rather than a single push." },
+            { question: 'Which border do you cross from Dubai to Jeddah?', shortAnswer: 'Al Batha', detailedAnswer: "The Al Batha border (Al Ghuwaifat on the UAE side) is the crossing point used for UAE-Saudi road travel on this route." },
+            { question: 'What documents do I need?', shortAnswer: 'A valid passport and correct Saudi visa/entry permission', detailedAnswer: "Every passenger needs a valid passport and correct Saudi visa or entry permission; requirements vary by nationality, so confirm your own eligibility before traveling." },
+            { question: 'Can I book a private transfer from Dubai to Jeddah?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Dubai to Jeddah private taxi service, planned as a two-day journey with a scheduled overnight stop." },
+            { question: 'What is the Dubai to Jeddah driving distance?', shortAnswer: 'Roughly 1,980 km by road', detailedAnswer: "Routing tools generally put the Dubai to Jeddah driving distance between roughly 1,930 and 2,024 km." },
+            { question: 'Can I book a return taxi from Jeddah to Dubai?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction, also planned as a two-day journey. See our Jeddah to Dubai taxi page." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the border entirely, and is always shorter than the actual driving distance — the gap is especially large on a route this long." },
+            { question: 'Why do different websites show different Dubai to Jeddah distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "On a route this long, small differences in starting address, destination point, or preferred interior route compound into a wider final gap than on shorter trips." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'abu-dhabi-to-jeddah': {
+        slug: 'abu-dhabi-to-jeddah',
+        origin: 'Abu Dhabi',
+        originFull: 'Abu Dhabi, UAE',
+        originCountry: 'UAE',
+        destination: 'Jeddah',
+        destinationFull: 'Jeddah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 1,900–1,956 km',
+        distanceHeadline: '~1,930 km',
+        drivingTimeRange: 'approximately 19.5–20 hours of continuous driving',
+        drivingTimeHeadline: '~19.5–20 hrs',
+        routeHeadline: 'Via Al Batha Border, the Length of the Kingdom',
+        borderName: 'Al Batha',
+        travelType: 'International (cross-border, 2-day journey recommended)',
+
+        routeDescription: [
+            "The road distance from Abu Dhabi to Jeddah is approximately 1,900 to 1,956 km — one of the longest routes we operate, crossing the entire width of Saudi Arabia from the Gulf side to the Red Sea coast.",
+            "Independent route calculators and our own dispatch figures converge closely on this range.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 19.5 to 20 hours of continuous highway driving. We're upfront about this: it is not a one-day trip.",
+            "We plan this as a two-day journey with a scheduled overnight stop, rather than a single marathon drive — fatigue risk on a route this long is real. Border processing, fuel and rest stops all add further to total journey time.",
+            "Border volume and interior road conditions both vary by day and season, adding uncertainty on top of the pure driving estimate.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs from Abu Dhabi to the Al Batha border crossing, then continues the length of Saudi Arabia's interior to reach Jeddah on the Red Sea coast.",
+            "Given the exceptional distance, we schedule an overnight stop partway through rather than attempting the full drive in one push. We don't name specific interior highway numbers here since routing varies by provider.",
+        ],
+        borderDescription: [
+            "This route crosses into Saudi Arabia at the Al Batha border, the crossing point used for UAE-Saudi road travel — known as Al Ghuwaifat on the UAE side.",
+            "You'll go through UAE exit procedures on the Abu Dhabi side and Saudi entry procedures — passport control, visa verification and vehicle documentation checks — on the Saudi side.",
+            "Every passenger needs a valid passport and correct Saudi visa/entry permission; requirements vary by nationality and residency status, so confirm your own eligibility before traveling. We're a transport provider, not an immigration authority.",
+            "Border processing time varies by day and volume — typically 30 minutes to 2 hours, though we don't promise a fixed crossing time.",
+        ],
+        byCarNote: "At close to 1,930 km, we don't offer this as a single non-stop drive — a scheduled overnight stop partway through means you arrive rested rather than exhausted from a marathon push, whether self-driving or booking with us.",
+        journeyPlanningNote: "Because this is realistically a two-day trip, plan overnight accommodation partway through in addition to the usual document and rest-stop planning.",
+        bestTimeNote: "Given the exceptional length of this route, avoid starting late in the day if you're aiming to reach the scheduled overnight stop before dark. Hajj/Umrah peak season adds meaningful extra time on top of an already long journey.",
+
+        mapOriginQuery: 'Abu Dhabi, UAE',
+        mapDestinationQuery: 'Jeddah, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Abu Dhabi to Jeddah Taxi',
+            url: '/routes/abu-dhabi-jeddah/',
+            description: 'Pre-booked private cross-border transfer from Abu Dhabi to Jeddah, planned as a two-day journey.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Jeddah to Abu Dhabi Taxi',
+            url: '/routes/jeddah-abu-dhabi/',
+            description: 'Book the return leg from Jeddah back to Abu Dhabi.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Abu Dhabi to Makkah Taxi', url: '/routes/abu-dhabi-makkah/', description: 'Private transfer from Abu Dhabi to Makkah.' },
+            { name: 'Abu Dhabi to Riyadh Taxi', url: '/routes/abu-dhabi-riyadh/', description: 'Private transfer from Abu Dhabi to Riyadh.' },
+        ],
+        relatedLocationLink: {
+            name: 'Jeddah Transport Guide',
+            url: '/locations/jeddah/',
+            description: 'Local Jeddah taxi and airport transfer information.',
+        },
+        relatedBorderLink: {
+            name: 'Al Batha Border Crossing Guide',
+            url: '/border-crossings/taxi-al-batha-border-crossing/',
+            description: 'What to expect crossing the UAE-Saudi border by private vehicle.',
+        },
+        relatedDistanceSlugs: ['abu-dhabi-to-makkah', 'abu-dhabi-to-madinah', 'abu-dhabi-to-riyadh'],
+
+        seoTitle: 'Abu Dhabi to Jeddah Distance by Road | Driving Time & Map',
+        metaDescription: 'Abu Dhabi to Jeddah distance by road, estimated driving time, route map and border information. See how far Jeddah is from Abu Dhabi by car.',
+        h1: 'Abu Dhabi to Jeddah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Abu Dhabi from Jeddah by road?', shortAnswer: 'Approximately 1,900–1,956 km', detailedAnswer: "By road via the Al Batha border, Abu Dhabi to Jeddah is approximately 1,900 to 1,956 km — one of the longest routes in our network." },
+            { question: 'How long does Abu Dhabi to Jeddah take by car?', shortAnswer: 'Approximately 19.5–20 hours, usually over two days', detailedAnswer: "Pure driving time is approximately 19.5 to 20 hours. Given the length, we plan this as a two-day journey with a scheduled overnight stop." },
+            { question: 'Which border do you cross from Abu Dhabi to Jeddah?', shortAnswer: 'Al Batha', detailedAnswer: "The Al Batha border (Al Ghuwaifat on the UAE side) is the crossing point used for UAE-Saudi road travel on this route." },
+            { question: 'What documents do I need?', shortAnswer: 'A valid passport and correct Saudi visa/entry permission', detailedAnswer: "Every passenger needs a valid passport and correct Saudi visa or entry permission; requirements vary by nationality, so confirm your own eligibility before traveling." },
+            { question: 'Can I book a private transfer from Abu Dhabi to Jeddah?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Abu Dhabi to Jeddah private taxi service, planned as a two-day journey with a scheduled overnight stop." },
+            { question: 'What is the Abu Dhabi to Jeddah driving distance?', shortAnswer: 'Roughly 1,930 km by road', detailedAnswer: "Routing tools generally put the Abu Dhabi to Jeddah driving distance between roughly 1,900 and 1,956 km." },
+            { question: 'Can I book a return taxi from Jeddah to Abu Dhabi?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction, also planned as a two-day journey. See our Jeddah to Abu Dhabi taxi page." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the border entirely, and is always shorter than the actual driving distance — the gap is especially large on a route this long." },
+            { question: 'Why do different websites show different Abu Dhabi to Jeddah distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "On a route this long, small differences in starting address, destination point, or preferred interior route compound into a wider final gap than on shorter trips." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'doha-to-jeddah': {
+        slug: 'doha-to-jeddah',
+        origin: 'Doha',
+        originFull: 'Doha, Qatar',
+        originCountry: 'Qatar',
+        destination: 'Jeddah',
+        destinationFull: 'Jeddah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 1,530–1,578 km',
+        distanceHeadline: '~1,550 km',
+        drivingTimeRange: 'approximately 14.5–16.5 hours of continuous driving',
+        drivingTimeHeadline: '~14.5–16.5 hrs',
+        routeHeadline: 'Via Salwa Border, the Length of the Kingdom',
+        borderName: 'Salwa / Abu Samra',
+        travelType: 'International (cross-border)',
+
+        routeDescription: [
+            "The road distance from Doha to Jeddah is approximately 1,530 to 1,578 km — from the Salwa border, essentially the length of Saudi Arabia to the Red Sea coast.",
+            "Independent route calculators and our own dispatch figures cluster closely around this range.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 14.5 to 16.5 hours of continuous driving — a genuine full-day private hire, not a quick transfer.",
+            "For the full drive, a second driver joining partway is worth asking about for a safer, more comfortable journey. Border processing, fuel and rest stops all add to total journey time.",
+            "Border volume and interior road conditions both vary by day and season, adding uncertainty on top of the pure driving estimate.",
+        ],
+        routeJourneyDescription: [
+            "The road route crosses from Qatar into Saudi Arabia at the Salwa border, then continues essentially the length of the Kingdom to reach Jeddah on the Red Sea coast.",
+            "We don't name specific interior highway numbers here, since exact numbering varies by routing provider — use the map below or live navigation for your actual travel date.",
+        ],
+        borderDescription: [
+            "This is the only land crossing between Qatar and Saudi Arabia — known as Salwa on the Saudi side and Abu Samra on the Qatar side.",
+            "You'll go through Qatari exit procedures on the Doha side and Saudi entry procedures — passport control, visa verification and vehicle documentation checks — on the Saudi side.",
+            "Every passenger needs a valid passport and correct Saudi visa/entry permission; requirements vary by nationality, so confirm your own eligibility before traveling. We are a transport provider, not an immigration authority.",
+            "Border processing time varies by day and volume — we don't promise a fixed crossing time.",
+        ],
+        byCarNote: "At 14.5-16.5 hours of driving, this is a genuine full-day private hire — for the full drive, ask about a second driver joining partway for a safer, more comfortable journey rather than one driver covering it alone.",
+        journeyPlanningNote: "Given the length of this drive, plan for meaningful rest breaks and realistic timing rather than treating it as a routine transfer.",
+        bestTimeNote: "Hajj and Umrah peak seasons bring significantly more traffic on the approach into Jeddah — build in extra time if traveling during these periods.",
+
+        mapOriginQuery: 'Doha, Qatar',
+        mapDestinationQuery: 'Jeddah, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Doha to Jeddah Taxi',
+            url: '/routes/doha-jeddah/',
+            description: 'Pre-booked private cross-border transfer from Doha to Jeddah.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Jeddah to Doha Taxi',
+            url: '/routes/jeddah-doha/',
+            description: 'Book the return leg from Jeddah back to Doha.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Doha to Makkah Taxi', url: '/routes/doha-makkah/', description: 'Private transfer from Doha to Makkah.' },
+            { name: 'Doha to Madinah Taxi', url: '/routes/doha-madinah/', description: 'Private transfer from Doha to Madinah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Jeddah Transport Guide',
+            url: '/locations/jeddah/',
+            description: 'Local Jeddah taxi and airport transfer information.',
+        },
+        relatedBorderLink: {
+            name: 'Salwa Border Crossing Guide',
+            url: '/border-crossings/taxi-salwa-border-crossing/',
+            description: 'What to expect crossing the Qatar-Saudi border by private vehicle.',
+        },
+        relatedDistanceSlugs: ['doha-to-makkah', 'doha-to-madinah', 'doha-to-riyadh'],
+
+        seoTitle: 'Doha to Jeddah Distance by Road | Driving Time & Map',
+        metaDescription: 'Doha to Jeddah distance by road, estimated driving time, route map and border information. See how far Jeddah is from Doha by car.',
+        h1: 'Doha to Jeddah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Doha from Jeddah by road?', shortAnswer: 'Approximately 1,530–1,578 km', detailedAnswer: "By road via the Salwa border, Doha to Jeddah is approximately 1,530 to 1,578 km." },
+            { question: 'How long does Doha to Jeddah take by car?', shortAnswer: 'Approximately 14.5–16.5 hours of driving', detailedAnswer: "Pure driving time is approximately 14.5 to 16.5 hours — a genuine full-day private hire." },
+            { question: 'Which border do you cross from Doha to Jeddah?', shortAnswer: 'Salwa (Saudi side) / Abu Samra (Qatar side)', detailedAnswer: "The only land crossing between Qatar and Saudi Arabia is known as Salwa on the Saudi side and Abu Samra on the Qatar side." },
+            { question: 'What documents do I need?', shortAnswer: 'A valid passport and correct Saudi visa/entry permission', detailedAnswer: "Every passenger needs a valid passport and correct Saudi visa or entry permission; requirements vary by nationality, so confirm your own eligibility before traveling." },
+            { question: 'Can I book a private transfer from Doha to Jeddah?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Doha to Jeddah private taxi service. For the full drive, ask about a second driver joining partway for a more comfortable journey." },
+            { question: 'What is the Doha to Jeddah driving distance?', shortAnswer: 'Roughly 1,550 km by road', detailedAnswer: "Routing tools generally show approximately 1,530 to 1,578 km for this route." },
+            { question: 'Can I book a return taxi from Jeddah to Doha?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Jeddah to Doha taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the border entirely, and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Doha to Jeddah distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "Figures vary because each source may use a different exact starting address, destination point, or mapping provider. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'bahrain-to-jeddah': {
+        slug: 'bahrain-to-jeddah',
+        origin: 'Bahrain',
+        originFull: 'Manama, Bahrain',
+        originCountry: 'Bahrain',
+        destination: 'Jeddah',
+        destinationFull: 'Jeddah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 1,420–1,431 km',
+        distanceHeadline: '~1,425 km',
+        drivingTimeRange: 'approximately 14–14.5 hours of continuous driving',
+        drivingTimeHeadline: '~14–14.5 hrs',
+        routeHeadline: 'Via King Fahd Causeway, the Length of the Kingdom',
+        borderName: 'King Fahd Causeway',
+        travelType: 'International (cross-border)',
+
+        routeDescription: [
+            "The road distance from Bahrain to Jeddah is approximately 1,420 to 1,431 km — across the causeway and the length of Saudi Arabia's east-west corridor. Independent route calculators and our own dispatch figures converge unusually closely on this one.",
+            "This is a genuine long-distance drive, best suited to travelers who value door-to-door privacy over a connecting flight.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 14 to 14.5 hours behind the wheel, not counting the causeway crossing itself — a full-day private hire, not a quick transfer.",
+            "For the full drive, a second driver joining partway is worth asking about — safer and more comfortable than one driver covering it alone. Causeway processing, fuel and rest stops all add to total journey time.",
+            "Weekends (Thursdays and Saturdays) and public holidays tend to bring heavier causeway traffic.",
+        ],
+        routeJourneyDescription: [
+            "The journey starts by crossing the King Fahd Causeway from Bahrain into Saudi Arabia's Eastern Province, then continues across the length of the Kingdom's east-west corridor to reach Jeddah on the Red Sea coast.",
+            "We're not naming specific interior highway numbers here, since routing can vary by provider. Use the map below or a live navigation app for turn-by-turn directions closer to your travel date.",
+        ],
+        borderDescription: [
+            "This route crosses the King Fahd Causeway, the only land link between Bahrain and Saudi Arabia — a 25 km bridge with border facilities partway across.",
+            "You'll go through Bahraini exit procedures on the Bahrain side and Saudi entry procedures — passport control, visa verification, and vehicle documentation checks — on the Saudi side.",
+            "Every passenger needs a valid passport and the correct visa or entry permission for Saudi Arabia. Requirements vary by nationality and residency status, so confirm your own eligibility before traveling — we're a transport provider, not an immigration authority.",
+            "Causeway wait times vary meaningfully by day and hour; see our dedicated King Fahd Causeway border crossing guide for more detail on what affects wait times.",
+        ],
+        byCarNote: "At 14-14.5 hours plus the causeway crossing, this is a genuine full-day private hire — for the full drive, ask about a second driver joining partway for a safer, more comfortable journey rather than one driver covering it alone.",
+        journeyPlanningNote: "Given the length of this drive, plan for meaningful rest breaks and realistic timing rather than treating it as a routine transfer.",
+        bestTimeNote: "Weekend causeway traffic (Thursdays/Saturdays) and Hajj/Umrah peak season both add real time to this journey — build in extra buffer during those periods.",
+
+        mapOriginQuery: 'Manama, Bahrain',
+        mapDestinationQuery: 'Jeddah, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Bahrain to Jeddah Taxi',
+            url: '/routes/bahrain-jeddah/',
+            description: 'Pre-booked private cross-border transfer from Bahrain to Jeddah.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Jeddah to Bahrain Taxi',
+            url: '/routes/jeddah-bahrain/',
+            description: 'Book the return leg from Jeddah back to Bahrain.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Bahrain to Makkah Taxi', url: '/routes/bahrain-makkah/', description: 'Private transfer from Bahrain to Makkah.' },
+            { name: 'Bahrain to Madinah Taxi', url: '/routes/bahrain-madinah/', description: 'Private transfer from Bahrain to Madinah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Jeddah Transport Guide',
+            url: '/locations/jeddah/',
+            description: 'Local Jeddah taxi and airport transfer information.',
+        },
+        relatedBorderLink: {
+            name: 'King Fahd Causeway Border Guide',
+            url: '/border-crossings/taxi-king-fahd-causeway-border-crossing/',
+            description: 'What to expect crossing the Bahrain-Saudi causeway.',
+        },
+        relatedDistanceSlugs: ['bahrain-to-makkah', 'bahrain-to-madinah', 'bahrain-to-riyadh'],
+
+        seoTitle: 'Bahrain to Jeddah Distance by Road | Driving Time & Map',
+        metaDescription: 'Bahrain to Jeddah distance by road, estimated driving time, route map and border information. See how far Jeddah is from Bahrain by car.',
+        h1: 'Bahrain to Jeddah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Bahrain from Jeddah by road?', shortAnswer: 'Approximately 1,420–1,431 km', detailedAnswer: "By road via the King Fahd Causeway, Bahrain to Jeddah is approximately 1,420 to 1,431 km." },
+            { question: 'How long does Bahrain to Jeddah take by car?', shortAnswer: 'Approximately 14–14.5 hours of driving', detailedAnswer: "Pure driving time (excluding the causeway crossing) is approximately 14 to 14.5 hours — a full-day private hire." },
+            { question: 'Which border do you cross from Bahrain to Jeddah?', shortAnswer: 'The King Fahd Causeway', detailedAnswer: "The only land link between Bahrain and Saudi Arabia is the King Fahd Causeway, a 25 km bridge with border facilities partway across." },
+            { question: 'What documents do I need?', shortAnswer: 'A valid passport and correct Saudi visa/entry permission', detailedAnswer: "Every passenger needs a valid passport and correct Saudi visa or entry permission; requirements vary by nationality, so confirm your own eligibility before traveling." },
+            { question: 'Can I book a private transfer from Bahrain to Jeddah?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Bahrain to Jeddah private taxi service. For the full drive, ask about a second driver joining partway for a more comfortable journey." },
+            { question: 'What is the Bahrain to Jeddah driving distance?', shortAnswer: 'Roughly 1,425 km by road', detailedAnswer: "Routing tools generally agree closely on approximately 1,420 to 1,431 km for this route." },
+            { question: 'Can I book a return taxi from Jeddah to Bahrain?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Jeddah to Bahrain taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the causeway entirely, and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Bahrain to Jeddah distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "Figures vary because each source may use a different exact starting address, destination point, or mapping provider. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'kuwait-to-jeddah': {
+        slug: 'kuwait-to-jeddah',
+        origin: 'Kuwait',
+        originFull: 'Kuwait City, Kuwait',
+        originCountry: 'Kuwait',
+        destination: 'Jeddah',
+        destinationFull: 'Jeddah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 1,450–1,570 km',
+        distanceHeadline: '~1,520 km',
+        drivingTimeRange: 'approximately 15–16.5 hours of continuous driving',
+        drivingTimeHeadline: '~15–16.5 hrs',
+        routeHeadline: 'Via Khafji / Nuwaiseeb Border, the Length of the Kingdom',
+        borderName: 'Khafji / Nuwaiseeb',
+        travelType: 'International (cross-border)',
+
+        routeDescription: [
+            "The road distance from Kuwait City to Jeddah is approximately 1,450 to 1,570 km — from the Nuwaiseeb border, essentially the length of the Kingdom to the Red Sea coast.",
+            "Independent route calculators show a real spread across this range, reflecting the genuine distance involved and different possible interior paths.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 15 to 16.5 hours of continuous driving — a genuine full-day private hire, not a quick transfer.",
+            "For the full drive, a second driver joining partway is worth asking about for a safer, more comfortable journey. Border processing, fuel and rest stops all add to total journey time.",
+            "Border volume and interior road conditions both vary by day and season, adding uncertainty on top of the pure driving estimate.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs south from Kuwait City to the Kuwait-Saudi border, crosses into Saudi Arabia's Eastern Province at Khafji, then continues the length of the Kingdom to reach Jeddah on the Red Sea coast.",
+            "We're not naming specific interior highway numbers here, since routing can vary between providers — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        borderDescription: [
+            "This is an international route, crossing the land border between Kuwait and Saudi Arabia at the crossing known as Khafji on the Saudi side and Nuwaiseeb on the Kuwait side.",
+            "On the Kuwait side you'll go through Kuwaiti exit procedures — passport control and any applicable vehicle checks. On the Saudi side, Saudi entry procedures apply — passport control, visa verification, and vehicle documentation checks.",
+            "Every passenger needs a valid passport and the correct visa or entry permission for Saudi Arabia — requirements vary by nationality and residency status, so confirm your own eligibility with the relevant embassy or a licensed visa service before traveling. We are a transport provider, not an immigration authority.",
+            "Border processing time genuinely varies by day, time and season, and we don't promise a fixed crossing time.",
+        ],
+        byCarNote: "At 15-16.5 hours of driving, this is a genuine full-day private hire — for the full drive, ask about a second driver joining partway for a safer, more comfortable journey rather than one driver covering it alone.",
+        journeyPlanningNote: "Given the length of this drive, plan for meaningful rest breaks and realistic timing rather than treating it as a routine transfer.",
+        bestTimeNote: "Border traffic at Khafji/Nuwaiseeb varies by day and volume, and Hajj/Umrah peak season adds meaningful extra time to the approach into Jeddah.",
+
+        mapOriginQuery: 'Kuwait City, Kuwait',
+        mapDestinationQuery: 'Jeddah, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Kuwait to Jeddah Taxi',
+            url: '/routes/kuwait-jeddah/',
+            description: 'Pre-booked private cross-border transfer from Kuwait to Jeddah.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Jeddah to Kuwait Taxi',
+            url: '/routes/jeddah-kuwait/',
+            description: 'Book the return leg from Jeddah back to Kuwait.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Kuwait to Makkah Taxi', url: '/routes/kuwait-makkah/', description: 'Private transfer from Kuwait to Makkah.' },
+            { name: 'Kuwait to Madinah Taxi', url: '/routes/kuwait-madinah/', description: 'Private transfer from Kuwait to Madinah.' },
+        ],
+        relatedLocationLink: {
+            name: 'Jeddah Transport Guide',
+            url: '/locations/jeddah/',
+            description: 'Local Jeddah taxi and airport transfer information.',
+        },
+        relatedBorderLink: {
+            name: 'Khafji Border Crossing Guide',
+            url: '/border-crossings/taxi-khafji-border-crossing/',
+            description: 'What to expect crossing the Kuwait-Saudi border by private vehicle.',
+        },
+        relatedDistanceSlugs: ['kuwait-to-makkah', 'kuwait-to-madinah', 'kuwait-to-riyadh'],
+
+        seoTitle: 'Kuwait to Jeddah Distance by Road | Driving Time & Map',
+        metaDescription: 'Kuwait to Jeddah distance by road, estimated driving time, route map and border information. See how far Jeddah is from Kuwait by car.',
+        h1: 'Kuwait to Jeddah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Kuwait from Jeddah by road?', shortAnswer: 'Approximately 1,450–1,570 km', detailedAnswer: "By road, Kuwait City to Jeddah is approximately 1,450 to 1,570 km — from the Nuwaiseeb border, essentially the length of the Kingdom." },
+            { question: 'How long does Kuwait to Jeddah take by car?', shortAnswer: 'Approximately 15–16.5 hours of driving', detailedAnswer: "Pure driving time is approximately 15 to 16.5 hours — a genuine full-day private hire." },
+            { question: 'Which border do you cross from Kuwait to Jeddah?', shortAnswer: 'Khafji (Saudi side) / Nuwaiseeb (Kuwait side)', detailedAnswer: "The main Kuwait-Saudi land crossing is known as Khafji on the Saudi side and Nuwaiseeb on the Kuwait side — the same physical crossing point under two names." },
+            { question: 'What documents do I need?', shortAnswer: 'A valid passport and correct Saudi visa/entry permission', detailedAnswer: "Every passenger needs a valid passport and correct Saudi visa or entry permission; requirements vary by nationality, so confirm your own eligibility before traveling." },
+            { question: 'Can I book a private transfer from Kuwait to Jeddah?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Kuwait to Jeddah private taxi service. For the full drive, ask about a second driver joining partway for a more comfortable journey." },
+            { question: 'What is the Kuwait to Jeddah driving distance?', shortAnswer: 'Roughly 1,520 km by road', detailedAnswer: "Routing tools show a range of approximately 1,450 to 1,570 km for this route." },
+            { question: 'Can I book a return taxi from Jeddah to Kuwait?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction. See our Jeddah to Kuwait taxi page to book the return journey." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the border crossing entirely, and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Kuwait to Jeddah distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "Figures vary because each source may use a different exact starting address, destination point, or mapping provider. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'muscat-to-jeddah': {
+        slug: 'muscat-to-jeddah',
+        origin: 'Muscat',
+        originFull: 'Muscat, Oman',
+        originCountry: 'Oman',
+        destination: 'Jeddah',
+        destinationFull: 'Jeddah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: true,
+
+        distanceRange: 'approximately 2,271–2,371 km',
+        distanceHeadline: '~2,320 km',
+        drivingTimeRange: 'approximately 20–23.5 hours of continuous driving',
+        drivingTimeHeadline: '~20–23.5 hrs',
+        routeHeadline: 'Via the Rub al Khali Border, the Length of the Kingdom',
+        borderName: 'Rub al Khali / Ramlat Khaliya',
+        travelType: 'International (cross-border, 2-day journey recommended)',
+
+        routeDescription: [
+            "The road distance from Muscat to Jeddah is approximately 2,271 to 2,371 km — the longest single route in our entire network, given Jeddah's position on the far side of the Kingdom from Oman.",
+            "Independent route calculators show a genuine spread here, which is typical for a trip this long — treat any single precise figure with some skepticism.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 20 to 23.5 hours of continuous highway driving. We're completely upfront about this: it is a two-day journey with a scheduled overnight stop, never a single non-stop push.",
+            "This is genuinely our longest route, and we treat it that way for basic driver safety, not just comfort. Border processing, fuel and rest stops all add further to total journey time.",
+            "Border volume and interior road conditions both vary by day and season, adding meaningful uncertainty on top of the pure driving estimate.",
+        ],
+        routeJourneyDescription: [
+            "The road route crosses Oman's interior near the town of Ibri before reaching the border with Saudi Arabia, then continues the full length of the Kingdom's interior to reach Jeddah on the Red Sea coast.",
+            "Given the exceptional distance, we always schedule an overnight stop partway through. We don't name specific interior highway numbers here since routing varies by provider.",
+        ],
+        borderDescription: [
+            "This is the only land crossing between Oman and Saudi Arabia — known as Ramlat Khaliya on the Omani side and Rub al Khali on the Saudi side, connecting Oman's Ad Dhahirah region (near Ibri) with Saudi Arabia's Eastern Province through the Rub' al Khali (Empty Quarter) desert.",
+            "You'll go through Omani exit procedures on the Muscat side and Saudi entry procedures — passport control, visa verification and vehicle documentation checks — on the Saudi side.",
+            "Every passenger needs a valid passport and correct Saudi visa/entry permission; requirements vary by nationality and residency status, so confirm your own eligibility before traveling. We're a transport provider, not an immigration authority.",
+            "Given the remote desert location of this crossing, plan for a genuinely long, isolated stretch of driving on either side — border processing time itself varies by day and volume, typically 30 minutes to 2 hours, though we don't promise a fixed crossing time.",
+        ],
+        byCarNote: "At over 2,300 km and more than 20 hours of driving, this is genuinely the longest route we operate — we never treat it as a single push. A scheduled overnight stop and a private chauffeur-driven transfer mean you arrive rested rather than exhausted from a marathon desert-to-coast crossing.",
+        journeyPlanningNote: "Because this is realistically a two-day trip through remote desert terrain for part of the way, plan overnight accommodation partway through, extra water and supplies, and confirm your vehicle is suited to the distance.",
+        bestTimeNote: "Given the remote, desert nature of part of this route, avoid starting late in the day. Hajj/Umrah peak season adds meaningful extra time on top of an already very long journey — build in significant buffer.",
+
+        mapOriginQuery: 'Muscat, Oman',
+        mapDestinationQuery: 'Jeddah, Saudi Arabia',
+
+        relatedTaxiRoute: {
+            name: 'Muscat to Jeddah Taxi',
+            url: '/routes/muscat-jeddah/',
+            description: 'Pre-booked private cross-border transfer from Muscat to Jeddah, planned as a two-day journey.',
+        },
+        relatedReturnTaxiRoute: {
+            name: 'Jeddah to Muscat Taxi',
+            url: '/routes/jeddah-muscat/',
+            description: 'Book the return leg from Jeddah back to Muscat.',
+        },
+        relatedTaxiRoutes: [
+            { name: 'Muscat to Makkah Taxi', url: '/routes/muscat-makkah/', description: 'Private transfer from Muscat to Makkah.' },
+            { name: 'Muscat to Riyadh Taxi', url: '/routes/muscat-riyadh/', description: 'Private transfer from Muscat to Riyadh.' },
+        ],
+        relatedLocationLink: {
+            name: 'Jeddah Transport Guide',
+            url: '/locations/jeddah/',
+            description: 'Local Jeddah taxi and airport transfer information.',
+        },
+        relatedBorderLink: {
+            name: 'Rub al Khali Border Crossing Guide',
+            url: '/border-crossings/taxi-rub-al-khali-border-crossing/',
+            description: 'What to expect crossing the Oman-Saudi border by private vehicle.',
+        },
+        relatedDistanceSlugs: ['muscat-to-makkah', 'muscat-to-riyadh'],
+
+        seoTitle: 'Muscat to Jeddah Distance by Road | Driving Time & Map',
+        metaDescription: 'Muscat to Jeddah distance by road, estimated driving time, route map and border information. See how far Jeddah is from Muscat by car.',
+        h1: 'Muscat to Jeddah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Muscat from Jeddah by road?', shortAnswer: 'Approximately 2,271–2,371 km', detailedAnswer: "By road via the Rub al Khali border, Muscat to Jeddah is approximately 2,271 to 2,371 km — the longest single route in our entire network." },
+            { question: 'How long does Muscat to Jeddah take by car?', shortAnswer: 'Approximately 20–23.5 hours, always over two days', detailedAnswer: "Pure driving time is approximately 20 to 23.5 hours. Given this is our longest route, we always plan it as a two-day journey with a scheduled overnight stop." },
+            { question: 'Which border do you cross from Muscat to Jeddah?', shortAnswer: 'Ramlat Khaliya (Oman side) / Rub al Khali (Saudi side)', detailedAnswer: "The only land crossing between Oman and Saudi Arabia connects Oman's Ad Dhahirah region (near Ibri) with Saudi Arabia's Eastern Province through the Rub' al Khali (Empty Quarter) desert." },
+            { question: 'What documents do I need?', shortAnswer: 'A valid passport and correct Saudi visa/entry permission', detailedAnswer: "Every passenger needs a valid passport and correct Saudi visa or entry permission; requirements vary by nationality, so confirm your own eligibility before traveling." },
+            { question: 'Can I book a private transfer from Muscat to Jeddah?', shortAnswer: 'Yes', detailedAnswer: "Yes — we run a dedicated Muscat to Jeddah private taxi service, planned as a two-day journey with a scheduled overnight stop for basic driver safety." },
+            { question: 'What is the Muscat to Jeddah driving distance?', shortAnswer: 'Roughly 2,320 km by road', detailedAnswer: "Routing tools generally put the Muscat to Jeddah driving distance between roughly 2,271 and 2,371 km — the longest route in our network." },
+            { question: 'Can I book a return taxi from Jeddah to Muscat?', shortAnswer: 'Yes', detailedAnswer: "Yes — the return leg runs the same route in the opposite direction, also planned as a two-day journey. See our Jeddah to Muscat taxi page." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads and the border entirely, and is always shorter than the actual driving distance — the gap is especially large on the longest route we cover." },
+            { question: 'Why do different websites show different Muscat to Jeddah distances?', shortAnswer: 'Different routing engines, start/end points and route choices', detailedAnswer: "On the longest route in our network, small differences in starting address, destination point, or preferred interior route compound into a wider final gap than on shorter trips." },
+        ],
+        lastVerified: 'August 2026',
+    },
+
+    'al-khobar-to-jeddah': {
+        slug: 'al-khobar-to-jeddah',
+        origin: 'Al Khobar',
+        originFull: 'Al Khobar, Saudi Arabia',
+        originCountry: 'Saudi Arabia',
+        destination: 'Jeddah',
+        destinationFull: 'Jeddah, Saudi Arabia',
+        destinationCountry: 'Saudi Arabia',
+        isInternational: false,
+
+        distanceRange: 'approximately 1,238–1,374 km',
+        distanceHeadline: '~1,300 km',
+        drivingTimeRange: 'approximately 12–14 hours of continuous driving',
+        drivingTimeHeadline: '~12–14 hrs',
+        routeHeadline: 'Via the Interior, through the Riyadh Area',
+        travelType: 'Domestic (within Saudi Arabia)',
+
+        routeDescription: [
+            "The road distance from Al Khobar to Jeddah is approximately 1,238 to 1,374 km. Al Khobar sits in the same Eastern Province metro area as Dammam — a short local hop apart — so this route closely tracks the distance and route of our Dammam to Jeddah journey, with a small variation depending on your exact pickup point.",
+            "Independent route calculators show figures in this range, consistent with what we see on the closely related Dammam to Jeddah run.",
+        ],
+        drivingTimeDescription: [
+            "Pure driving time is approximately 12 to 14 hours at normal highway speeds — one of the longer domestic drives in the Kingdom.",
+            "Total journey time is longer once you add fuel and rest stops and meals over a 1,200+ km trip. Most travelers treat this as a long single-day push with several stops.",
+            "Traffic is generally light on this route outside the two cities themselves.",
+        ],
+        routeJourneyDescription: [
+            "The road route runs from Al Khobar across Saudi Arabia's Eastern Province and interior — generally via the Riyadh area — before continuing west to Jeddah on the Red Sea coast, following essentially the same corridor as the Dammam to Jeddah route. As a fully domestic route, there's no border crossing.",
+            "We're not naming specific highway numbers here, since routing can vary between providers — use the map below or a live navigation app for turn-by-turn directions.",
+        ],
+        byCarNote: "At 12-14 hours, this is genuinely one of the longer domestic drives in the Kingdom — most families and business travelers prefer a private chauffeur-driven transfer over self-driving the full distance, arriving rested rather than fatigued.",
+        journeyPlanningNote: "We don't currently run a dedicated Al Khobar to Jeddah booking page — see the note in the Taxi section below for how to arrange this route with us.",
+        bestTimeNote: "Traffic is generally predictable on this route outside the two cities themselves, though weekday travel tends to be smoother around both endpoints.",
+
+        mapOriginQuery: 'Al Khobar, Saudi Arabia',
+        mapDestinationQuery: 'Jeddah, Saudi Arabia',
+
+        // No dedicated Al Khobar-Jeddah commercial route page exists yet (checked both
+        // directions and general "Khobar" variants) — per spec we don't guess or create
+        // one. The closely related Dammam to Jeddah service covers this journey in
+        // practice, since Al Khobar and Dammam are part of the same metro area.
+        relatedTaxiRoutes: [
+            { name: 'Dammam to Jeddah Taxi', url: '/routes/dammam-jeddah/', description: 'The closest equivalent service — Al Khobar is a short local pickup from Dammam.' },
+            { name: 'Khobar to Bahrain Taxi', url: '/routes/khobar-bahrain/', description: 'Private transfer from Al Khobar to Bahrain via the King Fahd Causeway.' },
+        ],
+        relatedLocationLink: {
+            name: 'Jeddah Transport Guide',
+            url: '/locations/jeddah/',
+            description: 'Local Jeddah taxi and airport transfer information.',
+        },
+        relatedDistanceSlugs: ['al-khobar-to-makkah', 'al-khobar-to-madinah', 'al-khobar-to-riyadh'],
+        noDirectRouteNote: "We don't yet have a dedicated Al Khobar to Jeddah booking page on this site. Al Khobar sits in the same Eastern Province metro area as Dammam, so our existing Dammam to Jeddah taxi service covers this journey with a local Al Khobar pickup available on request — or contact us directly via WhatsApp for a custom quote.",
+
+        seoTitle: 'Al Khobar to Jeddah Distance by Road | Driving Time & Map',
+        metaDescription: 'Al Khobar to Jeddah distance by road, estimated driving time, route map and journey information. See how far Jeddah is from Al Khobar by car.',
+        h1: 'Al Khobar to Jeddah Distance by Road',
+
+        faqs: [
+            { question: 'How far is Al Khobar from Jeddah by road?', shortAnswer: 'Approximately 1,238–1,374 km', detailedAnswer: "By road, Al Khobar to Jeddah is approximately 1,238 to 1,374 km — closely tracking the Dammam to Jeddah distance, since Al Khobar is in the same metro area." },
+            { question: 'How long does Al Khobar to Jeddah take by car?', shortAnswer: 'Approximately 12–14 hours of driving', detailedAnswer: "Pure driving time is approximately 12 to 14 hours at normal highway speeds. Total journey time is longer with rest stops." },
+            { question: 'What route connects Al Khobar and Jeddah?', shortAnswer: 'The interior, generally via the Riyadh area', detailedAnswer: "The route runs from Al Khobar across the Eastern Province and Saudi interior — generally via the Riyadh area — before continuing west to Jeddah." },
+            { question: 'Can I book a private Al Khobar to Jeddah taxi?', shortAnswer: 'Yes, via our Dammam to Jeddah service', detailedAnswer: "We don't have a dedicated Al Khobar to Jeddah booking page yet, but our Dammam to Jeddah private taxi service covers this journey with a local Al Khobar pickup available on request." },
+            { question: 'What is the Al Khobar to Jeddah driving distance?', shortAnswer: 'Roughly 1,300 km by road', detailedAnswer: "Routing tools generally show approximately 1,238 to 1,374 km for this domestic route." },
+            { question: 'Can families travel from Al Khobar to Jeddah by car?', shortAnswer: 'Yes, with the right planning', detailedAnswer: "Yes. Given the 12-14 hour length, families typically plan for regular rest breaks, and many prefer a private vehicle with a professional driver over self-driving the full distance." },
+            { question: 'Can I book a return taxi from Jeddah to Al Khobar?', shortAnswer: 'Yes, by custom quote', detailedAnswer: "Yes — contact us directly via WhatsApp with your travel date for a custom quote on the return leg, or see our Jeddah to Dammam taxi page for the closest equivalent booking option." },
+            { question: 'Is driving distance the same as straight-line distance?', shortAnswer: 'No', detailedAnswer: "No. Straight-line distance ignores roads entirely and is always shorter than the actual driving distance." },
+            { question: 'Why do different websites show different Al Khobar to Jeddah distances?', shortAnswer: 'Different exact start/end points and interior route choices', detailedAnswer: "Different mapping providers can select different interior routes and starting/ending points, which compounds into a noticeable gap on a 1,200+ km trip. That's why we present a range." },
+        ],
+        lastVerified: 'August 2026',
+    },
 };
 
 export function getDistanceRoute(slug: string): DistanceRoute | undefined {
@@ -4565,6 +5164,12 @@ export const DISTANCE_HUB_CATEGORIES: DistanceHubCategory[] = [
         routeSlugs: ['kuwait-to-dammam', 'doha-to-dammam', 'dubai-to-dammam', 'abu-dhabi-to-dammam', 'muscat-to-dammam'],
     },
     {
+        id: 'gcc-to-jeddah',
+        title: 'GCC to Jeddah',
+        description: 'Road distance and driving time from Gulf cities to Jeddah.',
+        routeSlugs: ['dubai-to-jeddah', 'abu-dhabi-to-jeddah', 'doha-to-jeddah', 'bahrain-to-jeddah', 'kuwait-to-jeddah', 'muscat-to-jeddah'],
+    },
+    {
         id: 'saudi-to-makkah',
         title: 'Saudi Cities to Makkah',
         description: 'Road distance and driving time from other Saudi cities to Makkah.',
@@ -4580,7 +5185,7 @@ export const DISTANCE_HUB_CATEGORIES: DistanceHubCategory[] = [
         id: 'saudi-city-to-city',
         title: 'Saudi City-to-City Distances',
         description: 'Road distance and driving time between other major Saudi cities.',
-        routeSlugs: ['riyadh-to-jeddah', 'dammam-to-jeddah', 'dammam-to-riyadh', 'al-khobar-to-riyadh', 'jeddah-to-riyadh', 'riyadh-to-yanbu', 'jeddah-to-yanbu', 'jeddah-to-dammam', 'riyadh-to-dammam'],
+        routeSlugs: ['riyadh-to-jeddah', 'dammam-to-jeddah', 'dammam-to-riyadh', 'al-khobar-to-riyadh', 'jeddah-to-riyadh', 'riyadh-to-yanbu', 'jeddah-to-yanbu', 'jeddah-to-dammam', 'riyadh-to-dammam', 'al-khobar-to-jeddah'],
     },
     {
         id: 'tourist-religious-routes',
