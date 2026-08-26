@@ -11,6 +11,7 @@ export async function GET() {
         `${baseUrl}/sitemap-fleet.xml`,
         `${baseUrl}/sitemap-borders.xml`,
         `${baseUrl}/sitemap-distance.xml`,
+        `${baseUrl}/sitemap-bus.xml`,
         `${baseUrl}/sitemap-ur.xml`,
         `${baseUrl}/sitemap-ar.xml`,
     ];
