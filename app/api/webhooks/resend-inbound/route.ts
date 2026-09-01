@@ -16,7 +16,13 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 // Setup required in the Resend dashboard (see driver-onboarding report):
 //   1. Add + verify a Receiving domain (MX record) for taxiserviceksa.com.
 //   2. Dashboard -> Webhooks -> Add Webhook -> event "email.received" ->
-//      endpoint https://taxiserviceksa.com/api/webhooks/resend-inbound
+//      endpoint https://taxiserviceksa.com/api/webhooks/resend-inbound/
+//      MUST include the trailing slash — next.config.js sets
+//      trailingSlash: true, so the no-slash URL 308-redirects and Resend
+//      does not follow redirects on webhook delivery (confirmed via its
+//      delivery logs: http_status_code 308, endless "attempting" retries,
+//      including the very Gmail "Send mail as" verification email getting
+//      silently lost this way once already — don't reintroduce this).
 //   3. Copy the webhook's signing secret into RESEND_WEBHOOK_SECRET
 //      (.env.local locally, and the Vercel project's env vars in prod).
 export async function POST(request: NextRequest) {
