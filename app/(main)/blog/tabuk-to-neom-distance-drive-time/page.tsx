@@ -235,7 +235,7 @@ export default function TabukToNeomDistancePage() {
                 <section className="mb-16 bg-black text-white rounded-3xl p-8 text-center">
                     <h2 className="text-2xl font-bold mb-4">Book Your Tabuk → NEOM Transfer</h2>
                     <p className="text-gray-400 mb-6">Driver picks you up from Tabuk city or TUU airport. Fixed price. Arrives at NEOM checkpoint with you.</p>
-                    <Link href="https://wa.me/966563573531?text=Hello,%20I%20need%20a%20private%20car%20from%20Tabuk%20to%20NEOM" target="_blank">
+                    <Link href="https://wa.me/966569487569?text=Hello,%20I%20need%20a%20private%20car%20from%20Tabuk%20to%20NEOM" target="_blank">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-100 font-bold px-10">
                             WhatsApp Booking <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>

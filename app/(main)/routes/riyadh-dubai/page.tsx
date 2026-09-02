@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     },
 };
 
-const WA_LINK = "https://wa.me/966563573531?text=Hello%2C%20I%20want%20to%20book%20a%20VIP%20taxi%20from%20Riyadh%20to%20Dubai.%20Please%20share%20availability.";
+const WA_LINK = "https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20book%20a%20VIP%20taxi%20from%20Riyadh%20to%20Dubai.%20Please%20share%20availability.";
 
 export default function RiyadhDubaiRoutePage() {
     const images = [

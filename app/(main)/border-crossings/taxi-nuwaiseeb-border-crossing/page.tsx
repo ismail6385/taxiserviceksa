@@ -78,7 +78,7 @@ export default function NuwaiseebBorderPage() {
                 location="24/7 Border Pickups"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <a href="https://wa.me/966563573531?text=Hello%2C%20I%20want%20to%20book%20a%20taxi%20from%20Nuwaiseeb%20Border%20Crossing" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20book%20a%20taxi%20from%20Nuwaiseeb%20Border%20Crossing" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                         <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full">
                             <WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Book via WhatsApp
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -116,7 +116,7 @@ export default function PrivacyPolicyPage() {
                         <div className="mt-3 p-4 bg-gray-50 rounded-xl border border-gray-200 space-y-1">
                             <p><strong>Taxi Service KSA</strong></p>
                             <p>Email: <a href="mailto:taxiserviceksa9988@gmail.com" className="text-primary hover:underline">taxiserviceksa9988@gmail.com</a></p>
-                            <p>WhatsApp: <a href="https://wa.me/966563573531" className="text-primary hover:underline">+966 56 357 3531</a></p>
+                            <p>WhatsApp: <a href="https://wa.me/966569487569" className="text-primary hover:underline">+966 56 948 7569</a></p>
                             <p>Website: <a href="https://taxiserviceksa.com" className="text-primary hover:underline">taxiserviceksa.com</a></p>
                         </div>
                     </section>

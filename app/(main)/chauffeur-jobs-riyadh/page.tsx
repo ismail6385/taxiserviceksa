@@ -102,7 +102,7 @@ export default function ChauffeurJobsRiyadhPage() {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Link href="https://wa.me/966555555555" className="bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-4 rounded-2xl font-black text-lg transition-all shadow-xl shadow-emerald-900/20 flex items-center gap-3">
+                        <Link href="https://wa.me/966569487569" className="bg-emerald-600 hover:bg-emerald-500 text-white px-8 py-4 rounded-2xl font-black text-lg transition-all shadow-xl shadow-emerald-900/20 flex items-center gap-3">
                             <MessageCircle className="w-6 h-6" /> Apply via WhatsApp
                         </Link>
                         <div className="flex items-center gap-3 px-6 py-4 bg-white/5 rounded-2xl border border-white/10">
@@ -187,7 +187,7 @@ export default function ChauffeurJobsRiyadhPage() {
                     <p className="text-emerald-100 text-xl mb-12 font-medium">
                         Limited slots available for Riyadh's premium 2026 fleet. Apply now and start receiving bookings this week.
                     </p>
-                    <Link href="https://wa.me/966555555555" className="inline-flex items-center gap-3 bg-white text-emerald-600 px-12 py-5 rounded-2xl font-black text-xl hover:bg-emerald-50 transition-all shadow-2xl">
+                    <Link href="https://wa.me/966569487569" className="inline-flex items-center gap-3 bg-white text-emerald-600 px-12 py-5 rounded-2xl font-black text-xl hover:bg-emerald-50 transition-all shadow-2xl">
                         <MessageCircle className="w-6 h-6" /> Message Recruiter
                     </Link>
                 </div>

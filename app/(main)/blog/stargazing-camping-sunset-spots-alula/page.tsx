@@ -80,7 +80,7 @@ export default function AlUlaNightSkiesPage() {
                     <h2 className="text-3xl font-black mb-4">Book Your Sunset & Night Taxi</h2>
                     <p className="text-gray-300 max-w-xl mx-auto mb-8">Gharameel is located 1 hour north of AlUla through unlit desert highways. Don\'t stress about night driving — book a private taxi and enjoy the ride.</p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20taxi%20transfer%20to%20Gharameel%20or%20Harrat%20Viewpoint%20in%20AlUla" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"><Phone className="w-5 h-5" /> Book via WhatsApp</a>
+                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20taxi%20transfer%20to%20Gharameel%20or%20Harrat%20Viewpoint%20in%20AlUla" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"><Phone className="w-5 h-5" /> Book via WhatsApp</a>
                         <Link href="/blog/top-places-visit-things-do-alula/" className="inline-flex items-center gap-2 bg-white text-slate-900 font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">Explore Sights <ArrowRight className="w-5 h-5" /></Link>
                     </div>
                 </section>

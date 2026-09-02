@@ -116,7 +116,7 @@ export default function KuwaitToMakkahDistancePage() {
                             </span>
                         </Link>
                         <a
-                            href="https://wa.me/966563573531?text=Hello%2C%20I%20want%20a%20quote%20for%20a%20taxi%20from%20Kuwait%20to%20Makkah."
+                            href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20a%20quote%20for%20a%20taxi%20from%20Kuwait%20to%20Makkah."
                             target="_blank"
                             rel="nofollow noopener noreferrer"
                         >
@@ -351,7 +351,7 @@ export default function KuwaitToMakkahDistancePage() {
                         <p className="text-gray-400">Send your travel date and passenger count via WhatsApp for a fixed quote on the Kuwait to Makkah route.</p>
                     </div>
                     <a
-                        href="https://wa.me/966563573531?text=Hello%2C%20I%20want%20a%20quote%20for%20a%20taxi%20from%20Kuwait%20to%20Makkah."
+                        href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20a%20quote%20for%20a%20taxi%20from%20Kuwait%20to%20Makkah."
                         target="_blank"
                         rel="nofollow noopener noreferrer"
                         className="shrink-0"

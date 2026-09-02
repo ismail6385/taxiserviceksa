@@ -64,7 +64,7 @@ export default function DistanceRouteTemplate({ route }: DistanceRouteTemplatePr
         ...(route.relatedReturnTaxiRoute ? [route.relatedReturnTaxiRoute] : []),
         ...route.relatedTaxiRoutes,
     ];
-    const whatsappHref = `https://wa.me/966563573531?text=${encodeURIComponent(`Hello, I want a quote for a taxi from ${route.origin} to ${route.destination}.`)}`;
+    const whatsappHref = `https://wa.me/966569487569?text=${encodeURIComponent(`Hello, I want a quote for a taxi from ${route.origin} to ${route.destination}.`)}`;
 
     return (
         <div className="bg-gray-50 min-h-screen">

@@ -265,7 +265,7 @@ export default function AirportTransfersPage() {
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4 mb-12">
                         <Button asChild size="lg" className="bg-primary hover:bg-emerald-600 text-white font-black text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            <Link href="https://wa.me/966563573531?text=Hello,%20I%20want%20to%20book%20Airport%20Transfer" target="_blank">
+                            <Link href="https://wa.me/966569487569?text=Hello,%20I%20want%20to%20book%20Airport%20Transfer" target="_blank">
                                 Book via WhatsApp
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Link>

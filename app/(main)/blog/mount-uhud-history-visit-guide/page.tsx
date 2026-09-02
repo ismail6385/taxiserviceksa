@@ -76,7 +76,7 @@ export default function MountUhudGuidePage() {
                     <h2 className="text-3xl font-black mb-4">Book a Madinah Ziyarat Taxi</h2>
                     <p className="text-gray-300 max-w-xl mx-auto mb-8">Include Uhud in your Madinah Ziyarat tour alongside Quba, Qiblatain, Seven Mosques, and Jannat al-Baqi.</p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20Ziyarat%20taxi%20including%20Mount%20Uhud%20in%20Madinah" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"><Phone className="w-5 h-5" /> Book via WhatsApp</a>
+                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20Ziyarat%20taxi%20including%20Mount%20Uhud%20in%20Madinah" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"><Phone className="w-5 h-5" /> Book via WhatsApp</a>
                         <Link href="/blog/madinah-ziyarat-places-museums-landmarks/" className="inline-flex items-center gap-2 bg-white text-slate-900 font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">Full Ziyarat Guide <ArrowRight className="w-5 h-5" /></Link>
                     </div>
                 </section>

@@ -88,7 +88,7 @@ export async function POST(request: NextRequest) {
                     <p style="font-size: 14px; color: #666;">The PDF invoice is attached to this email. Please save it for your records.</p>
 
                     <div style="text-align: center; margin: 30px 0;">
-                        <a href="https://wa.me/966563573531" style="background-color: #25D366; color: white; padding: 14px 28px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; font-size: 16px;">💬 Contact Us on WhatsApp</a>
+                        <a href="https://wa.me/966569487569" style="background-color: #25D366; color: white; padding: 14px 28px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; font-size: 16px;">💬 Contact Us on WhatsApp</a>
                     </div>
 
                     <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">

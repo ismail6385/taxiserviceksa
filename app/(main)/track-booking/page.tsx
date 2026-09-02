@@ -285,7 +285,7 @@ function TrackBookingContent() {
 
                             {/* WhatsApp CTA */}
                             <a
-                                href={`https://wa.me/966563573531?text=${encodeURIComponent(`Hello, I'd like to ask about my booking.\n\nRef: #${booking.id.slice(0,8).toUpperCase()}\nName: ${booking.customer_name}`)}`}
+                                href={`https://wa.me/966569487569?text=${encodeURIComponent(`Hello, I'd like to ask about my booking.\n\nRef: #${booking.id.slice(0,8).toUpperCase()}\nName: ${booking.customer_name}`)}`}
                                 className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white font-bold py-3 rounded-xl hover:bg-[#20bd5a] transition-colors"
                             >
                                 💬 Contact Support on WhatsApp
@@ -297,7 +297,7 @@ function TrackBookingContent() {
                 {/* Help Text */}
                 {!booking && !notFound && (
                     <div className="text-center text-sm text-gray-400 mt-6">
-                        <p>Can't find your booking? <a href="https://wa.me/966563573531" className="text-black font-bold underline">Contact us on WhatsApp</a></p>
+                        <p>Can't find your booking? <a href="https://wa.me/966569487569" className="text-black font-bold underline">Contact us on WhatsApp</a></p>
                     </div>
                 )}
             </div>

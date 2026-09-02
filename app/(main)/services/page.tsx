@@ -354,7 +354,7 @@ export default function ServicesPage() {
                         Message us on WhatsApp with your travel dates and destination. We&apos;ll recommend the right service and vehicle for your group.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966563573531?text=Hello,%20I%20need%20help%20choosing%20a%20transport%20service" target="_blank">
+                        <Link href="https://wa.me/966569487569?text=Hello,%20I%20need%20help%20choosing%20a%20transport%20service" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold">
                                 WhatsApp Us
                             </Button>

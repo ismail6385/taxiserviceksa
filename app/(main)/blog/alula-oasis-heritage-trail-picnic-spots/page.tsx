@@ -82,7 +82,7 @@ export default function AlUlaOasisTrailPage() {
                     <h2 className="text-3xl font-black mb-4">Book a Taxi to the Trailhead</h2>
                     <p className="text-gray-300 max-w-xl mx-auto mb-8">We provide private taxi transfers direct to the start of the Orange Path or the Al-Jadidah trailheads. Book your ride now.</p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20taxi%20transfer%20to%20AlUla%20Oasis%20Trail" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"><Phone className="w-5 h-5" /> Book via WhatsApp</a>
+                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20taxi%20transfer%20to%20AlUla%20Oasis%20Trail" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"><Phone className="w-5 h-5" /> Book via WhatsApp</a>
                         <Link href="/blog/top-places-visit-things-do-alula/" className="inline-flex items-center gap-2 bg-white text-slate-900 font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">Top Attractions <ArrowRight className="w-5 h-5" /></Link>
                     </div>
                 </section>

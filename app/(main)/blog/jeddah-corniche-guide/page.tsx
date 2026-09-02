@@ -280,7 +280,7 @@ export default function JeddahCornicheGuidePage() {
                         The Jeddah Corniche is the most iconic 30 km stretch of Red Sea coastline in Saudi Arabia — a world-class promenade of iconic landmarks, luxury hotels, seafood restaurants, and breathtaking views. Here's everything you need to know.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-4">
-                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20transfer%20to%20the%20Jeddah%20Corniche" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20transfer%20to%20the%20Jeddah%20Corniche" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-4 h-4" /> Book Corniche Transfer
                         </a>
@@ -538,7 +538,7 @@ export default function JeddahCornicheGuidePage() {
                                 <h3 className={`font-bold text-lg mb-2 ${opt.highlight ? 'text-emerald-900' : 'text-gray-900'}`}>{opt.title}</h3>
                                 <p className={`leading-relaxed ${opt.highlight ? 'text-emerald-800' : 'text-gray-600'}`}>{opt.content}</p>
                                 {opt.highlight && (
-                                    <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20transfer%20to%20the%20Jeddah%20Corniche" target="_blank" rel="noopener noreferrer"
+                                    <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20transfer%20to%20the%20Jeddah%20Corniche" target="_blank" rel="noopener noreferrer"
                                         className="inline-flex items-center gap-2 mt-4 bg-green-500 hover:bg-green-400 text-white font-bold px-5 py-2.5 rounded-xl text-sm transition-colors">
                                         <Phone className="w-4 h-4" /> Book Corniche Transfer on WhatsApp
                                     </a>
@@ -642,7 +642,7 @@ export default function JeddahCornicheGuidePage() {
                         Book a private taxi or chauffeur from your hotel or the airport to the Jeddah Corniche. English-speaking drivers, fixed rates, and 24/7 availability.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20transfer%20to%20the%20Jeddah%20Corniche" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20transfer%20to%20the%20Jeddah%20Corniche" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> WhatsApp Booking
                         </a>

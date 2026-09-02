@@ -70,7 +70,7 @@ export default function RiyadhExhibitionTransportationPage() {
                 location="Riyadh Exhibition & Convention Centre • KAICC"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <a href={`https://wa.me/966563573531?text=${quoteMessage}`}>
+                    <a href={`https://wa.me/966569487569?text=${quoteMessage}`}>
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                             Get an Exhibition Transportation Quote
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -145,7 +145,7 @@ export default function RiyadhExhibitionTransportationPage() {
                     <h2 className="text-3xl md:text-4xl font-black mb-4">Exhibiting in Riyadh?</h2>
                     <p className="text-gray-400 text-lg mb-8 max-w-xl mx-auto">Tell us your show, team size, and dates for a fixed-rate transportation quote.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href={`https://wa.me/966563573531?text=${quoteMessage}`}>
+                        <a href={`https://wa.me/966569487569?text=${quoteMessage}`}>
                             <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">WhatsApp Booking</Button>
                         </a>
                         <a href="mailto:taxiserviceksa9988@gmail.com">

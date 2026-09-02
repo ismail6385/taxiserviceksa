@@ -276,7 +276,7 @@ export default function CarRentalTabukAirportPage() {
                         No licence worries, no fuel stress, no speed camera fines. A private driver from Tabuk Airport to your destination is fixed price and often comparable to car rental once you factor in insurance, fuel, and fines.
                     </p>
                     <a
-                        href="https://wa.me/966563573531?text=Hi%2C%20I%20am%20arriving%20at%20Tabuk%20Airport%20and%20need%20a%20private%20driver.%20Please%20share%20availability%20and%20prices."
+                        href="https://wa.me/966569487569?text=Hi%2C%20I%20am%20arriving%20at%20Tabuk%20Airport%20and%20need%20a%20private%20driver.%20Please%20share%20availability%20and%20prices."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"

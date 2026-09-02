@@ -146,7 +146,7 @@ export default function DammamAirportKuwaitRoutePage() {
                         ></iframe>
                     </div>
                     <div className="flex justify-center">
-                        <a href="https://wa.me/966563573531?text=Hello,%20I%20saw%20your%20journey%20video%20and%20want%20to%20book%20DMM%20to%20Kuwait%20taxi" className="inline-flex items-center gap-2 bg-emerald-600 text-white hover:bg-emerald-700 font-bold py-4 px-10 rounded-2xl shadow-xl transition-all hover:scale-105">
+                        <a href="https://wa.me/966569487569?text=Hello,%20I%20saw%20your%20journey%20video%20and%20want%20to%20book%20DMM%20to%20Kuwait%20taxi" className="inline-flex items-center gap-2 bg-emerald-600 text-white hover:bg-emerald-700 font-bold py-4 px-10 rounded-2xl shadow-xl transition-all hover:scale-105">
                             <WhatsAppIcon className="w-5 h-5 fill-white" />
                             Book Your Ride Now
                         </a>
@@ -241,7 +241,7 @@ export default function DammamAirportKuwaitRoutePage() {
                                         <span className="text-xs font-semibold">Border Assistance Included</span>
                                     </div>
                                 </div>
-                                <a href="https://wa.me/966563573531?text=Hello,%20I%20want%20to%20book%20a%20taxi%20from%20Dammam%20Airport%20to%20Kuwait" className="w-full bg-white text-emerald-600 hover:bg-gray-100 font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-xl">
+                                <a href="https://wa.me/966569487569?text=Hello,%20I%20want%20to%20book%20a%20taxi%20from%20Dammam%20Airport%20to%20Kuwait" className="w-full bg-white text-emerald-600 hover:bg-gray-100 font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-xl">
                                     <WhatsAppIcon className="w-5 h-5 fill-emerald-600" />
                                     Book Now
                                 </a>

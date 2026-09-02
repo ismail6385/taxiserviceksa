@@ -283,7 +283,7 @@ export default function AlulaVisitorGuidePage() {
                         We offer door-to-door transfers from Tabuk to AlUla. One-way, round trip, or full-day tours with an English-speaking driver who knows the route.
                     </p>
                     <a
-                        href="https://wa.me/966563573531?text=Hi%2C%20I%20want%20to%20book%20a%20private%20transfer%20from%20Tabuk%20to%20AlUla.%20Please%20share%20availability%20and%20price."
+                        href="https://wa.me/966569487569?text=Hi%2C%20I%20want%20to%20book%20a%20private%20transfer%20from%20Tabuk%20to%20AlUla.%20Please%20share%20availability%20and%20price."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"

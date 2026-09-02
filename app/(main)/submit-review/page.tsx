@@ -92,7 +92,7 @@ export default function SubmitReviewPage() {
                                 <p className="text-xs text-emerald-700/70">Encountered an issue? Talk to us directly on WhatsApp.</p>
                             </div>
                             <a
-                                href="https://wa.me/966563573531?text=Hello%2C%20I%20would%20like%20to%20share%20feedback%20about%20my%20recent%20trip."
+                                href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20share%20feedback%20about%20my%20recent%20trip."
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-full"

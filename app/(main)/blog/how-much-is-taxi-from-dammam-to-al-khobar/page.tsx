@@ -209,7 +209,7 @@ export default function DammamToAlKhobarTaxiPricePage() {
                         Fixed rate, no surge pricing. Toyota Camry to GMC Yukon XL. English-speaking driver available. Half-day hire if you need waiting time between stops.
                     </p>
                     <a
-                        href="https://wa.me/966563573531?text=Hi%2C%20I%20need%20a%20taxi%20from%20Dammam%20to%20Al%20Khobar.%20Please%20send%20the%20price."
+                        href="https://wa.me/966569487569?text=Hi%2C%20I%20need%20a%20taxi%20from%20Dammam%20to%20Al%20Khobar.%20Please%20send%20the%20price."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"

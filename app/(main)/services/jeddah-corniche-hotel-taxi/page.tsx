@@ -50,7 +50,7 @@ const serviceSchema = {
     '@type': 'Service',
     name: 'Jeddah Corniche Hotel Chauffeur & Taxi Transfer',
     serviceType: 'Hotel Chauffeur & Private Taxi',
-    provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: '+966563573531' },
+    provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: '+966569487569' },
     areaServed: { '@type': 'City', name: 'Jeddah' },
     description: 'Luxury hotel taxi and chauffeur transfers along the Jeddah Corniche for premium hotel guests.',
     offers: { '@type': 'Offer', priceCurrency: 'SAR', price: '80', availability: 'https://schema.org/InStock' },
@@ -84,7 +84,7 @@ export default function JeddahCornicheHotelTaxiPage() {
                         Chauffeur-driven private hotel transfers starting directly from your hotel lobby on the Jeddah Corniche. Seamless transport to Jeddah Airport, Makkah Haram, and central business hubs.
                     </p>
                     <div className="flex flex-wrap gap-4">
-                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20hotel%20transfer%20on%20Jeddah%20Corniche" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20hotel%20transfer%20on%20Jeddah%20Corniche" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> WhatsApp Booking
                         </a>

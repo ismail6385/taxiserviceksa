@@ -61,7 +61,7 @@ export default function MakkahTaifRoutePage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="https://wa.me/966563573531?text=Hello%2C%20I%20want%20to%20get%20a%20VIP%20taxi%20quote%20for%20Makkah%20to%20Taif.">
+                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20get%20a%20VIP%20taxi%20quote%20for%20Makkah%20to%20Taif.">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             WhatsApp Quote
                         </Button>

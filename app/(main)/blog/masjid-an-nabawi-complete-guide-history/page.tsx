@@ -105,7 +105,7 @@ export default function MasjidNabawiGuidePage() {
                     <h2 className="text-3xl font-black mb-4">Arrive at Madinah in Comfort</h2>
                     <p className="text-gray-300 max-w-xl mx-auto mb-8">Book a direct private transfer from Makkah, Jeddah, or Madinah Airport to your hotel near Masjid an-Nabawi.</p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20taxi%20to%20Madinah%20near%20Masjid%20an-Nabawi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"><Phone className="w-5 h-5" /> Book via WhatsApp</a>
+                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20taxi%20to%20Madinah%20near%20Masjid%20an-Nabawi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"><Phone className="w-5 h-5" /> Book via WhatsApp</a>
                         <Link href="/routes/makkah-madinah/" className="inline-flex items-center gap-2 bg-white text-slate-900 font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">Makkah → Madinah <ArrowRight className="w-5 h-5" /></Link>
                     </div>
                 </section>

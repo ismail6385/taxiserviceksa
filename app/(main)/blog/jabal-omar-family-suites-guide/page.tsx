@@ -149,7 +149,7 @@ export default function JabalOmarFamilySuitesGuidePage() {
                         Two adults, an elderly parent, and three kids — one room, or two? Here's an honest comparison of which Jabal Omar hotels actually have suites or connecting rooms built for a family that size.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-4">
-                        <a href="https://wa.me/966563573531?text=Hi,%20I%20am%20booking%20a%20Jabal%20Omar%20hotel%20for%206%20people%20and%20need%20a%20large%20taxi%20from%20Jeddah%20airport" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966569487569?text=Hi,%20I%20am%20booking%20a%20Jabal%20Omar%20hotel%20for%206%20people%20and%20need%20a%20large%20taxi%20from%20Jeddah%20airport" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-4 h-4" /> Ask About a 6-Seater Transfer
                         </a>
@@ -283,7 +283,7 @@ export default function JabalOmarFamilySuitesGuidePage() {
                         A standard sedan won't fit 2 adults, a senior parent, 3 kids, and luggage. Book our GMC Yukon XL or Hyundai Staria — spacious, air-conditioned, with room for everyone and every suitcase — direct from Jeddah Airport to your Jabal Omar hotel entrance.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20large%20taxi%20for%206%20people%20from%20Jeddah%20Airport%20to%20Jabal%20Omar" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20large%20taxi%20for%206%20people%20from%20Jeddah%20Airport%20to%20Jabal%20Omar" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> Book via WhatsApp
                         </a>

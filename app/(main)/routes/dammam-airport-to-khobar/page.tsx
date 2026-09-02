@@ -177,7 +177,7 @@ export default function DammamAirportKhobarRoutePage() {
                                     <span className="text-xs font-semibold">No Hidden Charges</span>
                                 </div>
                             </div>
-                            <a href="https://wa.me/966563573531?text=Hello,%20I%20want%20to%20book%20a%20taxi%20from%20Dammam%20Airport%20to%20Khobar" className="w-full bg-emerald-600 text-white hover:bg-emerald-700 font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-xl">
+                            <a href="https://wa.me/966569487569?text=Hello,%20I%20want%20to%20book%20a%20taxi%20from%20Dammam%20Airport%20to%20Khobar" className="w-full bg-emerald-600 text-white hover:bg-emerald-700 font-bold py-4 px-6 rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-xl">
                                 <WhatsAppIcon className="w-5 h-5 fill-white" />
                                 Book on WhatsApp
                             </a>

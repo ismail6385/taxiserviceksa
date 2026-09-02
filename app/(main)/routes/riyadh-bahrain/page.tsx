@@ -167,7 +167,7 @@ export default function RiyadhBahrainRoutePage() {
                 location="Approx. 430-480 km | From 800 SAR | 24/7 Booking"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <a href="https://wa.me/966563573531?text=Hello%2C%20I%20want%20to%20book%20a%20taxi%20from%20Riyadh%20to%20Bahrain" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20book%20a%20taxi%20from%20Riyadh%20to%20Bahrain" target="_blank" rel="noopener noreferrer">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                             <WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Get Your Riyadh to Bahrain Taxi Quote
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -416,7 +416,7 @@ export default function RiyadhBahrainRoutePage() {
                 <div className="max-w-2xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-black mb-6">Get Your Riyadh to Bahrain Taxi Quote</h2>
                     <p className="text-gray-400 mb-10 text-lg">Send your pickup location, travel date, passenger count and preferred vehicle to receive a quote.</p>
-                    <a href="https://wa.me/966563573531?text=Hello%2C%20I%20want%20to%20book%20a%20taxi%20from%20Riyadh%20to%20Bahrain" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20book%20a%20taxi%20from%20Riyadh%20to%20Bahrain" target="_blank" rel="noopener noreferrer">
                         <Button size="lg" className="bg-primary text-black hover:bg-white font-black text-lg px-10 py-7 h-auto rounded-2xl shadow-2xl transition-all transform hover:-translate-y-1"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> Book on WhatsApp</Button>
                     </a>
                 </div>

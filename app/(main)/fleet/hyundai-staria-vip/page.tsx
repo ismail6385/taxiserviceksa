@@ -63,7 +63,7 @@ export default function HyundaiStariaVIPPage() {
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="https://wa.me/966563573531?text=Hi,%20I%20want%20to%20book%20a%20Hyundai%20Staria%20VIP">
+                    <a href="https://wa.me/966569487569?text=Hi,%20I%20want%20to%20book%20a%20Hyundai%20Staria%20VIP">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             Book via WhatsApp
                         </Button>
@@ -191,7 +191,7 @@ export default function HyundaiStariaVIPPage() {
                 <div className="max-w-4xl mx-auto relative z-10">
                     <h2 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-none">Experience Luxury With<br/><span className="text-indigo-400 uppercase font-sans">STARIA VIP</span></h2>
                     <p className="text-indigo-100/60 text-xl mb-12 max-w-2xl mx-auto">Book your first-class private transfer via WhatsApp. Transparent pricing, professional drivers, and pristine luxury guaranteed.</p>
-                    <a href="https://wa.me/966563573531?text=Hi,%20I%20want%20to%20book%20a%20Hyundai%20Staria%20VIP">
+                    <a href="https://wa.me/966569487569?text=Hi,%20I%20want%20to%20book%20a%20Hyundai%20Staria%20VIP">
                         <Button size="lg" className="bg-white hover:bg-indigo-50 text-indigo-950 font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl transition-all hover:scale-105">
                             BOOK HYUNDAI STARIA VIP NOW
                         </Button>

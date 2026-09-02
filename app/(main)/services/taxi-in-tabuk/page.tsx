@@ -169,7 +169,7 @@ export default function TaxiInTabukPage() {
             '@type': 'Organization',
             name: 'Taxi Service KSA',
             url: 'https://taxiserviceksa.com',
-            telephone: '+966563573531',
+            telephone: '+966569487569',
         },
         areaServed: [
             { '@type': 'City', name: 'Tabuk' },
@@ -243,12 +243,12 @@ export default function TaxiInTabukPage() {
                             <li><strong className="text-white">AlUla:</strong> 330 km — 3.5–4 hrs from Tabuk</li>
                             <li><strong className="text-white">Languages:</strong> English, Arabic, Urdu</li>
                             <li><strong className="text-white">Pricing:</strong> Fixed rates — no surge ever</li>
-                            <li><strong className="text-white">Booking:</strong> WhatsApp +966 56 357 3531</li>
+                            <li><strong className="text-white">Booking:</strong> WhatsApp +966 56 948 7569</li>
                         </ul>
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966563573531?text=Hello,%20I%20need%20a%20taxi%20in%20Tabuk" target="_blank">
+                        <Link href="https://wa.me/966569487569?text=Hello,%20I%20need%20a%20taxi%20in%20Tabuk" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
                                 Book Tabuk Taxi
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -435,7 +435,7 @@ export default function TaxiInTabukPage() {
                         ))}
                     </div>
                     <div className="text-center mt-10">
-                        <Link href="https://wa.me/966563573531?text=Hello,%20I%20need%20a%20taxi%20in%20Tabuk" target="_blank">
+                        <Link href="https://wa.me/966569487569?text=Hello,%20I%20need%20a%20taxi%20in%20Tabuk" target="_blank">
                             <Button size="lg" className="bg-black text-white hover:bg-gray-800 font-bold text-lg px-10 py-6 h-auto rounded-2xl">
                                 Book via WhatsApp <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
@@ -592,7 +592,7 @@ export default function TaxiInTabukPage() {
                         NEOM transfers, AlUla trips, airport pickup, or city rides — one professional driver for every Tabuk journey. Fixed rates, luxury fleet, 24/7.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966563573531?text=Hello,%20I%20need%20a%20taxi%20in%20Tabuk" target="_blank">
+                        <Link href="https://wa.me/966569487569?text=Hello,%20I%20need%20a%20taxi%20in%20Tabuk" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[220px]">
                                 WhatsApp Booking
                             </Button>

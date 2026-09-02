@@ -107,7 +107,7 @@ export default function MadinahZiyaratPage() {
                 location="Madinah Al Munawwarah"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <a href="https://wa.me/966563573531?text=Hello%2C%20I%20want%20to%20book%20a%20Madinah%20Ziyarat%20tour.">
+                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20book%20a%20Madinah%20Ziyarat%20tour.">
                         <Button size="lg" className="bg-emerald-600 hover:bg-emerald-500 text-white font-black py-7 px-10 rounded-2xl text-xl shadow-2xl shadow-emerald-500/30 transition-all hover:scale-105 active:scale-95 animate-pulse-slow">
                             <WhatsAppIcon className="w-6 h-6 mr-2 fill-current" />
                             Book Ziyarat Now

@@ -74,7 +74,7 @@ const serviceSchema = {
     '@type': 'Service',
     name: 'Private Taxi Madinah',
     serviceType: 'Private Taxi & Ziyarat Tours',
-    provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: '+966563573531' },
+    provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: '+966569487569' },
     areaServed: { '@type': 'City', name: 'Madinah' },
     description: 'Private taxi and chauffeur in Madinah. Ziyarat tours, airport transfers, Makkah connections. Fixed rates, Muslim-certified drivers.',
     offers: { '@type': 'Offer', priceCurrency: 'SAR', price: '70', availability: 'https://schema.org/InStock' },
@@ -108,7 +108,7 @@ export default function PrivateTaxiMadinahPage() {
                         Respectful, professional taxi service in Madinah Al-Munawwarah. Airport pickups, Ziyarat tours, Makkah transfers, and hotel-to-hotel service. Muslim-certified drivers.
                     </p>
                     <div className="flex flex-wrap gap-4">
-                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20private%20taxi%20in%20Madinah" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20private%20taxi%20in%20Madinah" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> Book via WhatsApp
                         </a>
@@ -200,7 +200,7 @@ export default function PrivateTaxiMadinahPage() {
                     <p className="text-gray-300 text-lg mb-8 max-w-xl mx-auto">
                         WhatsApp us with your arrival time and hotel. We'll confirm your driver details instantly.
                     </p>
-                    <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20private%20taxi%20in%20Madinah" target="_blank" rel="noopener noreferrer"
+                    <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20private%20taxi%20in%20Madinah" target="_blank" rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-10 py-5 rounded-xl text-lg transition-all shadow-lg">
                         <Phone className="w-5 h-5" /> WhatsApp Now
                     </a>

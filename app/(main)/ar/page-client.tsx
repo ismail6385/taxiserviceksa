@@ -396,7 +396,7 @@ export default function HomeClientArabic({ latestBlogs = [] }: HomeClientArabicP
                                         الحجز عبر واتساب أونلاين
                                     </Button>
                                 </Link>
-                                <a href="https://wa.me/966563573531?text=مرحباً،%20أرغب%20في%20الحصول%20على%20عرض%20سعر%20تاكسي%20VIP" target="_blank" rel="nofollow noopener noreferrer">
+                                <a href="https://wa.me/966569487569?text=مرحباً،%20أرغب%20في%20الحصول%20على%20عرض%20سعر%20تاكسي%20VIP" target="_blank" rel="nofollow noopener noreferrer">
                                     <Button size="lg" className="bg-emerald-600 border-none text-white hover:bg-emerald-700 font-bold transition-all shadow-lg flex items-center gap-2 h-14 px-8 rounded-2xl">
                                         <WhatsAppIcon className="w-6 h-6 fill-current" />
                                         احصل على عرض سعر عبر واتساب
@@ -454,7 +454,7 @@ export default function HomeClientArabic({ latestBlogs = [] }: HomeClientArabicP
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                                 متخصصون في الرحلات الطويلة، واستقبال المطار VIP، وخدمات نقل العمرة المخصصة للمسافر المميز.
                             </p>
-                             <a href="https://wa.me/966563573531?text=مرحباً،%20أرغب%20في%20الحصول%20على%20عرض%20سعر%20تاكسي%20VIP" target="_blank" rel="nofollow noopener noreferrer">
+                             <a href="https://wa.me/966569487569?text=مرحباً،%20أرغب%20في%20الحصول%20على%20عرض%20سعر%20تاكسي%20VIP" target="_blank" rel="nofollow noopener noreferrer">
                                 <Button className="bg-emerald-600 text-white hover:bg-emerald-700 rounded-full px-8 py-6 text-lg font-bold min-h-[48px] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-emerald-500/30 flex items-center gap-2">
                                     <WhatsAppIcon className="w-6 h-6 fill-current" />
                                     احصل على عرض سعر عبر واتساب
@@ -624,7 +624,7 @@ export default function HomeClientArabic({ latestBlogs = [] }: HomeClientArabicP
                             </div>
 
                              <div className="flex flex-col sm:flex-row items-center gap-6 pt-4">
-                                <a href="https://wa.me/966563573531?text=مرحباً،%20أرغب%20في%20الحصول%20على%20عرض%20سعر%20تاكسي%20VIP" target="_blank" rel="nofollow noopener noreferrer" className="w-full sm:w-auto">
+                                <a href="https://wa.me/966569487569?text=مرحباً،%20أرغب%20في%20الحصول%20على%20عرض%20سعر%20تاكسي%20VIP" target="_blank" rel="nofollow noopener noreferrer" className="w-full sm:w-auto">
                                     <Button className="w-full bg-emerald-600 hover:bg-emerald-700 text-white px-10 h-16 rounded-2xl text-lg font-black transition-all hover:scale-105 active:scale-95 shadow-xl shadow-emerald-500/20 flex items-center gap-3">
                                         <WhatsAppIcon className="w-6 h-6 fill-current" />
                                         احصل على عرض سعر عبر واتساب
@@ -703,7 +703,7 @@ export default function HomeClientArabic({ latestBlogs = [] }: HomeClientArabicP
                                                 <Button className="w-full bg-primary text-white hover:bg-blue-600 font-bold transition-all min-h-[48px] hover:scale-[1.02] active:scale-95 shadow-md shadow-primary/20 text-xs"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> حجز واتساب</Button>
                                             </Link>
                                             <a
-                                                href={`https://wa.me/966563573531?text=مرحباً،%20أرغب%20في%20الحصول%20على%20عرض%20سعر%20VIP%20لسيارة%20${encodeURIComponent(vehicle.name)}.`}
+                                                href={`https://wa.me/966569487569?text=مرحباً،%20أرغب%20في%20الحصول%20على%20عرض%20سعر%20VIP%20لسيارة%20${encodeURIComponent(vehicle.name)}.`}
                                                 target="_blank"
                                                 rel="nofollow noopener noreferrer"
                                                 className="w-full"

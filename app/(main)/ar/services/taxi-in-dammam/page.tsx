@@ -168,7 +168,7 @@ export default function TaxiInDammamPageArabic() {
             '@type': 'Organization',
             name: 'Taxi Service KSA',
             url: 'https://taxiserviceksa.com',
-            telephone: '+966563573531',
+            telephone: '+966569487569',
         },
         areaServed: [
             { '@type': 'City', name: 'الدمام' },
@@ -242,12 +242,12 @@ export default function TaxiInDammamPageArabic() {
                             <li><strong className="text-white">البحرين:</strong> 95 كم — 1.5–2.5 ساعة (يشمل عبور الجسر)</li>
                             <li><strong className="text-white">اللغات:</strong> الإنجليزية والعربية والأردية</li>
                             <li><strong className="text-white">الأسعار:</strong> ثابتة — بدون تسعير مرتفع أبداً</li>
-                            <li><strong className="text-white">الحجز:</strong> واتساب +966 56 357 3531</li>
+                            <li><strong className="text-white">الحجز:</strong> واتساب +966 56 948 7569</li>
                         </ul>
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966563573531?text=مرحباً،%20أحتاج%20تاكسي%20في%20الدمام" target="_blank">
+                        <Link href="https://wa.me/966569487569?text=مرحباً،%20أحتاج%20تاكسي%20في%20الدمام" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
                                 احجز تاكسي الدمام
                                 <ArrowRight className="mr-2 w-5 h-5 rotate-180 group-hover:-translate-x-1 transition-transform" />
@@ -440,7 +440,7 @@ export default function TaxiInDammamPageArabic() {
                         ))}
                     </div>
                     <div className="text-center mt-10">
-                        <Link href="https://wa.me/966563573531?text=مرحباً،%20أحتاج%20تاكسي%20في%20الدمام" target="_blank">
+                        <Link href="https://wa.me/966569487569?text=مرحباً،%20أحتاج%20تاكسي%20في%20الدمام" target="_blank">
                             <Button size="lg" className="bg-black text-white hover:bg-gray-800 font-bold text-lg px-10 py-6 h-auto rounded-2xl">
                                 احجز عبر واتساب <ArrowRight className="mr-2 w-5 h-5 rotate-180" />
                             </Button>
@@ -531,7 +531,7 @@ export default function TaxiInDammamPageArabic() {
                         جسر البحرين، أرامكو الظهران، استقبال المطار، أو تنقلات مدينة الخبر — سائق محترف واحد لكل رحلة في المنطقة الشرقية. أسعار ثابتة، أسطول فاخر، على مدار الساعة.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966563573531?text=مرحباً،%20أحتاج%20تاكسي%20في%20الدمام" target="_blank">
+                        <Link href="https://wa.me/966569487569?text=مرحباً،%20أحتاج%20تاكسي%20في%20الدمام" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[220px]">
                                 حجز عبر واتساب
                             </Button>

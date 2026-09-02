@@ -55,7 +55,7 @@ const faqs = [
     },
     {
         question: 'Can I book a taxi from Makkah to Jeddah for the same day?',
-        answer: 'Yes, same-day bookings are available subject to driver availability. WhatsApp us at +966 56 357 3531 with your hotel name and required departure time. During Hajj and Umrah peak seasons, we recommend booking at least 24 hours in advance to guarantee your vehicle.',
+        answer: 'Yes, same-day bookings are available subject to driver availability. WhatsApp us at +966 56 948 7569 with your hotel name and required departure time. During Hajj and Umrah peak seasons, we recommend booking at least 24 hours in advance to guarantee your vehicle.',
     },
 ];
 
@@ -72,7 +72,7 @@ const serviceSchema = {
     '@type': 'Service',
     name: 'Makkah to Jeddah Private Taxi',
     serviceType: 'Intercity Taxi Transfer',
-    provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: '+966563573531' },
+    provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: '+966569487569' },
     description: 'Private taxi from Makkah to Jeddah (85 km). Airport, city centre, Corniche. Fixed rates, Muslim drivers.',
     offers: { '@type': 'Offer', priceCurrency: 'SAR', price: '150', availability: 'https://schema.org/InStock' },
 };
@@ -106,7 +106,7 @@ export default function MakkahToJeddahPage() {
                         Muslim-certified drivers. Fixed price. No surge during Umrah season.
                     </p>
                     <div className="flex flex-wrap gap-4">
-                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20taxi%20from%20Makkah%20to%20Jeddah" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20taxi%20from%20Makkah%20to%20Jeddah" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> Book via WhatsApp
                         </a>
@@ -191,7 +191,7 @@ export default function MakkahToJeddahPage() {
                 <section className="text-center bg-gradient-to-r from-teal-900 to-emerald-900 rounded-3xl p-12 text-white">
                     <h2 className="text-3xl font-black mb-3">Book Makkah → Jeddah Now</h2>
                     <p className="text-gray-300 mb-8">Share your hotel name and departure time. Fixed price confirmed in minutes.</p>
-                    <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20taxi%20from%20Makkah%20to%20Jeddah" target="_blank" rel="noopener noreferrer"
+                    <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20taxi%20from%20Makkah%20to%20Jeddah" target="_blank" rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-10 py-5 rounded-xl text-lg transition-all shadow-lg">
                         <Phone className="w-5 h-5" /> WhatsApp — Instant Quote
                     </a>

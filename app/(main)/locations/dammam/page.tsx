@@ -129,7 +129,7 @@ export default function DammamPage() {
                         </Link>
                     </Button>
                     <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                        <a href="https://wa.me/966563573531?text=Hello,%20I%20need%20a%20taxi%20in%20Dammam" target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/966569487569?text=Hello,%20I%20need%20a%20taxi%20in%20Dammam" target="_blank" rel="noopener noreferrer">
                             <WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> Get a Quote
                         </a>
                     </Button>
@@ -310,7 +310,7 @@ export default function DammamPage() {
                             </Link>
                         </Button>
                         <Button asChild variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                            <a href="https://wa.me/966563573531?text=Hello,%20I%20need%20a%20taxi%20in%20Dammam" target="_blank" rel="noopener noreferrer">
+                            <a href="https://wa.me/966569487569?text=Hello,%20I%20need%20a%20taxi%20in%20Dammam" target="_blank" rel="noopener noreferrer">
                                 WhatsApp Us
                             </a>
                         </Button>

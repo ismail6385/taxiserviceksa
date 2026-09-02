@@ -232,7 +232,7 @@ export default function TabukToSharmaBeachPage() {
                         We run transfers from Tabuk to the Sharma coastal area. Day trip round trips with driver waiting available from SAR 900.
                     </p>
                     <a
-                        href="https://wa.me/966563573531?text=Hi%2C%20I%20want%20to%20visit%20Sharma%20beach%20from%20Tabuk.%20Please%20share%20availability%20and%20prices."
+                        href="https://wa.me/966569487569?text=Hi%2C%20I%20want%20to%20visit%20Sharma%20beach%20from%20Tabuk.%20Please%20share%20availability%20and%20prices."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"

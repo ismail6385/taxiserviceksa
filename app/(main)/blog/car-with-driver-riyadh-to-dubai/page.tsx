@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     },
 };
 
-const WA_LINK = "https://wa.me/966563573531?text=Hello%2C%20I%20want%20a%20quote%20for%20a%20car%20with%20driver%20from%20Riyadh%20to%20Dubai.";
+const WA_LINK = "https://wa.me/966569487569?text=Hello%2C%20I%20want%20a%20quote%20for%20a%20car%20with%20driver%20from%20Riyadh%20to%20Dubai.";
 
 const faqSchema = {
     '@context': 'https://schema.org',

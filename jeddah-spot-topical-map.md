@@ -143,7 +143,7 @@ Each page in `app/(main)/transfers/[spot]/page.tsx` with:
 - Unique `metadata` title + description
 - `Service` JSON-LD schema
 - `FAQPage` JSON-LD schema (auto-extracted)
-- WhatsApp CTA pointing to `+966563573531`
+- WhatsApp CTA pointing to `+966569487569`
 - Internal links to related spots
 
 ### Step 3 — Internal Linking Hub

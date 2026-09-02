@@ -63,7 +63,7 @@ export default function BookingPage({ searchParams }: { searchParams: { [key: st
                             Prefer instant booking? 
                         </div>
                         <a 
-                            href="https://wa.me/966563573531?text=Hello%2C%20I%20would%20like%20to%20book%20a%20transfer."
+                            href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20book%20a%20transfer."
                             target="_blank"
                             rel="nofollow noopener noreferrer"
                             className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-xl font-bold transition-all shadow-lg shadow-emerald-200"

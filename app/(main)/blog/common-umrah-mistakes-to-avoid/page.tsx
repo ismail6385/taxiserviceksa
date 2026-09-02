@@ -227,7 +227,7 @@ export default function UmrahMistakesPage() {
                         An accepted Umrah (Umrah Maqboolah) requires following the authentic Sunnah of the Prophet ﷺ. Learn the most common errors during Miqat, Ihram, Tawaf, Sa&apos;i, and hair cutting to keep your worship valid.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-4">
-                        <a href="https://wa.me/966563573531?text=Hi,%20I%20need%20a%20private%20taxi%20from%20Jeddah%20Airport%20to%20Makkah%20for%20Umrah" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20private%20taxi%20from%20Jeddah%20Airport%20to%20Makkah%20for%20Umrah" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-4 h-4" /> Book Jeddah → Makkah Taxi
                         </a>
@@ -391,7 +391,7 @@ export default function UmrahMistakesPage() {
                         Do not let travel exhaustion affect your focus. Book your private, air-conditioned taxi from Jeddah Airport (JED) straight to your Makkah hotel door. Muslim-certified drivers, fixed prices, 24/7 service.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966563573531?text=Hi,%20I%20am%20performing%20Umrah%20and%20need%20a%20taxi%20transfer%20to%20Makkah" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966569487569?text=Hi,%20I%20am%20performing%20Umrah%20and%20need%20a%20taxi%20transfer%20to%20Makkah" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> Book via WhatsApp
                         </a>

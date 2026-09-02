@@ -9,7 +9,7 @@ const t = `                    {/* CTA Buttons */}
                             </Button>
                         </Link>
                         <a 
-                            href={\`https://wa.me/966563573531?text=Hello%2C%20I%20would%20like%20to%20book%20a%20\${encodeURIComponent(name)}.\`} 
+                            href={\`https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20book%20a%20\${encodeURIComponent(name)}.\`} 
                             target="_blank" 
                             className="block"
                         >

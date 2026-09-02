@@ -114,7 +114,7 @@ export default function GccChauffeurServicePageArabic() {
                             <ArrowRight className="mr-2 w-5 h-5 rotate-180 group-hover:-translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="https://wa.me/966563573531?text=مرحباً،%20أحتاج%20عرض%20سعر%20لخدمة%20شوفير%20عبر%20حدود%20دول%20الخليج" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/966569487569?text=مرحباً،%20أحتاج%20عرض%20سعر%20لخدمة%20شوفير%20عبر%20حدود%20دول%20الخليج" target="_blank" rel="noopener noreferrer">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             <WhatsAppIcon className="w-5 h-5 ml-2 fill-current" />
                             تواصل عبر واتساب

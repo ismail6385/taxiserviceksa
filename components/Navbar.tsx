@@ -266,7 +266,7 @@ export default function Navbar() {
 
                             <div className="ml-6 flex items-center gap-3">
                                 <Link
-                                    href="https://wa.me/966563573531"
+                                    href="https://wa.me/966569487569"
                                     target="_blank"
                                     className="bg-emerald-500 hover:bg-emerald-600 text-white font-black px-6 py-3 rounded-xl text-sm shadow-lg shadow-emerald-500/20 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
                                 >
@@ -279,7 +279,7 @@ export default function Navbar() {
                         {/* Mobile Toggle */}
                         <div className="xl:hidden flex items-center gap-1.5 sm:gap-2 shrink-0">
                             <Link
-                                href="https://wa.me/966563573531"
+                                href="https://wa.me/966569487569"
                                 target="_blank"
                                 className="bg-emerald-500 text-white font-black rounded-xl px-2.5 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm shadow-lg shadow-emerald-500/20 active:scale-95 transition-all flex items-center gap-1 sm:gap-1.5 whitespace-nowrap"
                             >
@@ -381,7 +381,7 @@ export default function Navbar() {
                     </div>
 
                     <div className="p-8 bg-gray-50 border-t space-y-6">
-                        <Link href="https://wa.me/966563573531" onClick={() => setIsOpen(false)} className="block w-full">
+                        <Link href="https://wa.me/966569487569" onClick={() => setIsOpen(false)} className="block w-full">
                             <div className="w-full bg-primary hover:bg-black text-white font-black h-16 rounded-2xl shadow-xl shadow-primary/20 flex items-center justify-center transition-all active:scale-95">
                                 Book via WhatsApp
                             </div>
