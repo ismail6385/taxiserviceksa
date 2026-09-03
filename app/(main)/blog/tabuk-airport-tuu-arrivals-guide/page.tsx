@@ -267,7 +267,7 @@ export default function TabukAirportArrivalsPage() {
                         We offer meet-and-greet transfers from Tabuk Airport to your hotel, NEOM, AlUla, and all destinations in the region. Book before you fly — your driver will be waiting.
                     </p>
                     <a
-                        href="https://wa.me/966569487569?text=Hi%2C%20I%20need%20an%20airport%20transfer%20from%20Tabuk%20Airport%20(TUU).%20Please%20share%20availability%20and%20price."
+                        href="https://wa.me/966590209905?text=Hi%2C%20I%20need%20an%20airport%20transfer%20from%20Tabuk%20Airport%20(TUU).%20Please%20share%20availability%20and%20price."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"

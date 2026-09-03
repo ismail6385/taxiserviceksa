@@ -286,7 +286,7 @@ export default function PrivateDriverVsUberRiyadhPage() {
                     <h2 className="text-2xl font-bold mb-4">Book a Private Driver for Your Riyadh Visit</h2>
                     <p className="text-gray-400 mb-6 max-w-xl mx-auto">Airport pickup, full-day sightseeing, or business meetings — one professional English-speaking driver for your entire trip. Fixed rate, no surge.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966569487569?text=Hello,%20I%20need%20a%20private%20driver%20in%20Riyadh%20for%20tourism" target="_blank">
+                        <Link href="https://wa.me/966590209905?text=Hello,%20I%20need%20a%20private%20driver%20in%20Riyadh%20for%20tourism" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-100 font-bold px-8">
                                 Book via WhatsApp <ArrowRight className="ml-2 w-4 h-4" />
                             </Button>

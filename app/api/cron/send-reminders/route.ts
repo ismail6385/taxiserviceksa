@@ -93,7 +93,7 @@ export async function GET(request: NextRequest) {
                         </div>
 
                         <div style="text-align: center; margin: 25px 0;">
-                            <a href="https://wa.me/966569487569?text=${whatsappMsg}" style="background-color: #25D366; color: white; padding: 13px 28px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; font-size: 15px;">💬 Contact Driver / Support</a>
+                            <a href="https://wa.me/966590209905?text=${whatsappMsg}" style="background-color: #25D366; color: white; padding: 13px 28px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; font-size: 15px;">💬 Contact Driver / Support</a>
                         </div>
 
                         <hr style="border: none; border-top: 1px solid #eee; margin: 25px 0;">

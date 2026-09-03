@@ -87,7 +87,7 @@ export default function RiyadhJeddahRoutePage() {
                 location="Sedan, SUV and VIP van options with professional chauffeurs"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20a%20quote%20for%20Riyadh%20to%20Jeddah%20taxi" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/966590209905?text=Hello%2C%20I%20want%20a%20quote%20for%20Riyadh%20to%20Jeddah%20taxi" target="_blank" rel="noopener noreferrer">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                             <WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Get Quote on WhatsApp
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -275,7 +275,7 @@ export default function RiyadhJeddahRoutePage() {
                 <div className="max-w-4xl mx-auto relative z-10">
                     <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight">Ready to Book Your <br className="hidden sm:block" /> Riyadh to Jeddah Taxi?</h2>
                     <p className="text-emerald-100/60 text-lg mb-10 max-w-2xl mx-auto">Share your pickup location, travel date, passengers and preferred vehicle. We'll confirm availability and price.</p>
-                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20a%20quote%20for%20Riyadh%20to%20Jeddah%20taxi" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/966590209905?text=Hello%2C%20I%20want%20a%20quote%20for%20Riyadh%20to%20Jeddah%20taxi" target="_blank" rel="noopener noreferrer">
                         <Button size="lg" className="bg-white hover:bg-emerald-50 text-emerald-900 font-black px-16 py-10 text-2xl rounded-3xl h-auto shadow-2xl transition-transform hover:scale-110"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> Get Quote on WhatsApp</Button>
                     </a>
                 </div>

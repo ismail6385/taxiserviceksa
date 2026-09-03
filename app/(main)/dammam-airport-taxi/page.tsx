@@ -114,7 +114,7 @@ export default function DammamAirportTaxiPage() {
         },
         {
             question: 'How do I book a private transfer from Dammam Airport?',
-            answer: 'Book via WhatsApp at +966 56 948 7569. Send your flight number, arrival date, number of passengers, and destination (Dammam city, Al Khobar, Dhahran, Bahrain, or other). We confirm your booking and send driver details — name, photo, vehicle plate — before your flight lands. The driver meets you at arrivals with a name sign.',
+            answer: 'Book via WhatsApp at +966 59 020 9905. Send your flight number, arrival date, number of passengers, and destination (Dammam city, Al Khobar, Dhahran, Bahrain, or other). We confirm your booking and send driver details — name, photo, vehicle plate — before your flight lands. The driver meets you at arrivals with a name sign.',
         },
     ];
 
@@ -127,7 +127,7 @@ export default function DammamAirportTaxiPage() {
             '@type': 'Organization',
             name: 'Taxi Service KSA',
             url: 'https://taxiserviceksa.com',
-            telephone: '+966569487569',
+            telephone: '+966590209905',
         },
         areaServed: [
             { '@type': 'City', name: 'Dammam' },
@@ -206,12 +206,12 @@ export default function DammamAirportTaxiPage() {
                             <li><strong className="text-white">Al Khobar:</strong> 40 km — 35–45 min drive</li>
                             <li><strong className="text-white">Dhahran / Aramco:</strong> 30 km — 25–35 min drive</li>
                             <li><strong className="text-white">Service:</strong> 24/7 · Meet-and-greet · Fixed rates</li>
-                            <li><strong className="text-white">Booking:</strong> WhatsApp +966 56 948 7569</li>
+                            <li><strong className="text-white">Booking:</strong> WhatsApp +966 59 020 9905</li>
                         </ul>
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966569487569?text=Hello,%20I%20need%20an%20airport%20transfer%20at%20Dammam%20Airport%20(DMM)" target="_blank">
+                        <Link href="https://wa.me/966590209905?text=Hello,%20I%20need%20an%20airport%20transfer%20at%20Dammam%20Airport%20(DMM)" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
                                 Book DMM Airport Transfer
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -489,7 +489,7 @@ export default function DammamAirportTaxiPage() {
                         Arriving at DMM — heading to Dammam, Al Khobar, Dhahran, or Bahrain. Your driver is ready. Fixed rates, meet-and-greet, 24/7.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966569487569?text=Hello,%20I%20need%20an%20airport%20transfer%20at%20Dammam%20Airport%20(DMM)" target="_blank">
+                        <Link href="https://wa.me/966590209905?text=Hello,%20I%20need%20an%20airport%20transfer%20at%20Dammam%20Airport%20(DMM)" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[220px]">
                                 WhatsApp Booking
                             </Button>

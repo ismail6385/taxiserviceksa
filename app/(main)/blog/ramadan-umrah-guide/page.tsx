@@ -121,7 +121,7 @@ export default function RamadanUmrahGuidePage() {
                         Performing Umrah in Ramadan is a life-changing experience equivalent in reward to Hajj with the Prophet ﷺ. Discover critical advice on Nusuk bookings, Makkah crowd safety, and travel arrangements.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20private%20taxi%20from%20Jeddah%20Airport%20to%20Makkah%20for%20Umrah%20in%20Ramadan" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966590209905?text=Hi,%20I%20need%20a%20private%20taxi%20from%20Jeddah%20Airport%20to%20Makkah%20for%20Umrah%20in%20Ramadan" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-4 h-4" /> Book Ramadan Makkah Taxi
                         </a>
@@ -260,7 +260,7 @@ export default function RamadanUmrahGuidePage() {
                         With heavy traffic and road closures in Makkah, reliable transport is critical. Book your comfortable private taxi from Jeddah Airport (JED) straight to Makkah in advance to ensure a smooth transition.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20am%20performing%20Umrah%20in%20Ramadan%20and%20need%20a%20taxi%20transfer" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966590209905?text=Hi,%20I%20am%20performing%20Umrah%20in%20Ramadan%20and%20need%20a%20taxi%20transfer" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> Book via WhatsApp
                         </a>

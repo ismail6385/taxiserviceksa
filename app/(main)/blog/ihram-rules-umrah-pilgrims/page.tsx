@@ -115,7 +115,7 @@ export default function IhramRulesBlogPage() {
                         Entering the sacred state of Ihram is the first step of your spiritual journey. Learn the clothing requirements, key prohibitions, Miqat points, and practical tips for a valid pilgrimage.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20am%20in%20Ihram%20and%20need%20a%20private%20taxi%20from%20Jeddah%20to%20Makkah" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966590209905?text=Hi,%20I%20am%20in%20Ihram%20and%20need%20a%20private%20taxi%20from%20Jeddah%20to%20Makkah" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-4 h-4" /> Book private Ihram Taxi
                         </a>
@@ -301,7 +301,7 @@ export default function IhramRulesBlogPage() {
                         Pre-book your private Muslim driver for a comfortable journey to Makkah in a state of Ihram. Fixed rates, meet & greet at Jeddah Airport arrivals, and no surge pricing.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20will%20be%20in%20Ihram%20and%20need%20a%20taxi%20from%20Jeddah%20Airport%20to%20Makkah" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966590209905?text=Hi,%20I%20will%20be%20in%20Ihram%20and%20need%20a%20taxi%20from%20Jeddah%20Airport%20to%20Makkah" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> Book via WhatsApp (English)
                         </a>

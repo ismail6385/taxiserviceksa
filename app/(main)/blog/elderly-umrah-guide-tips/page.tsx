@@ -121,7 +121,7 @@ export default function ElderlyUmrahGuidePage() {
                         Taking your parents or elderly relatives for Umrah is a blessing. Ensure their safety, physical comfort, and peace of mind by planning for healthcare, mobility devices, and reliable private transport.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20am%20performing%20Umrah%20with%20elderly%20relatives%20and%20need%20a%20comfortable%20Staria/GMC%20taxi" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966590209905?text=Hi,%20I%20am%20performing%20Umrah%20with%20elderly%20relatives%20and%20need%20a%20comfortable%20Staria/GMC%20taxi" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-4 h-4" /> Book Senior-Friendly Taxi
                         </a>
@@ -251,7 +251,7 @@ export default function ElderlyUmrahGuidePage() {
                         Do not let long transfers exhaust your parents. Book our premium, smooth Hyundai Staria or spacious GMC Yukon XL with extra legroom and large trunk space for wheelchairs. Fixed rates, door-to-door.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20am%20performing%20Umrah%20with%20seniors%20and%20need%20a%20comfortable%20taxi%20transfer" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966590209905?text=Hi,%20I%20am%20performing%20Umrah%20with%20seniors%20and%20need%20a%20comfortable%20taxi%20transfer" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> Book via WhatsApp
                         </a>

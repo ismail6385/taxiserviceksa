@@ -80,7 +80,7 @@ export default function MadinahAirportTaxiGuidePage() {
                     <h2 className="text-3xl font-black mb-4">Pre-Book Your Madinah Airport Transfer</h2>
                     <p className="text-gray-300 max-w-xl mx-auto mb-8">Skip the long taxi queues and negotiation at the terminal. Get a professional driver waiting for you with a name plaque.</p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20to%20book%20a%20private%20transfer%20from%20Madinah%20Airport%20to%20my%20hotel" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"><Phone className="w-5 h-5" /> Book via WhatsApp</a>
+                        <a href="https://wa.me/966590209905?text=Hi,%20I%20need%20to%20book%20a%20private%20transfer%20from%20Madinah%20Airport%20to%20my%20hotel" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"><Phone className="w-5 h-5" /> Book via WhatsApp</a>
                         <Link href="/routes/madinah-makkah/" className="inline-flex items-center gap-2 bg-white text-slate-900 font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">Rates & Route info <ArrowRight className="w-5 h-5" /></Link>
                     </div>
                 </section>

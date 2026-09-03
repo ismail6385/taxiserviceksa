@@ -534,7 +534,7 @@ export default function Top15JeddahPlacesPage() {
                         From the UNESCO-listed streets of Al Balad to the world's tallest fountain, a floating mosque, and world-class diving — Jeddah's best experiences ranked and explained for international visitors.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20driver%20to%20explore%20Jeddah%20attractions" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966590209905?text=Hi,%20I%20need%20a%20driver%20to%20explore%20Jeddah%20attractions" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-4 h-4" /> Book City Tour Driver
                         </a>
@@ -625,7 +625,7 @@ export default function Top15JeddahPlacesPage() {
                                     className="inline-flex items-center gap-2 bg-gray-900 text-white text-sm font-bold px-5 py-2.5 rounded-xl hover:bg-gray-700 transition-colors">
                                     <Navigation className="w-4 h-4" /> {place.transportLabel}
                                 </Link>
-                                <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20private%20driver%20for%20Jeddah%20sightseeing" target="_blank" rel="noopener noreferrer"
+                                <a href="https://wa.me/966590209905?text=Hi,%20I%20need%20a%20private%20driver%20for%20Jeddah%20sightseeing" target="_blank" rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-colors">
                                     <Phone className="w-4 h-4" /> WhatsApp Driver
                                 </a>
@@ -654,7 +654,7 @@ export default function Top15JeddahPlacesPage() {
                         Explore all 15 places comfortably with a pre-booked English-speaking private driver. Fixed rates, meet & greet service, and 24/7 WhatsApp support.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20want%20to%20book%20a%20full%20day%20sightseeing%20driver%20in%20Jeddah" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966590209905?text=Hi,%20I%20want%20to%20book%20a%20full%20day%20sightseeing%20driver%20in%20Jeddah" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> Book Full-Day Driver
                         </a>

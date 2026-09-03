@@ -138,7 +138,7 @@ export default function TabukMadinahRoutePage() {
                     Travel from Tabuk to Madinah in a private, air-conditioned vehicle with a professional driver. Pickup is available from your hotel, home, airport or any address in Tabuk.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20a%20quote%20for%20a%20taxi%20from%20Tabuk%20to%20Madinah" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/966590209905?text=Hello%2C%20I%20want%20a%20quote%20for%20a%20taxi%20from%20Tabuk%20to%20Madinah" target="_blank" rel="noopener noreferrer">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                             <WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Get Exact Quote on WhatsApp
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -174,7 +174,7 @@ export default function TabukMadinahRoutePage() {
                     <p className="text-gray-300 leading-relaxed mb-8">
                         Prices depend on vehicle type, passenger count, luggage and pickup location. Send us your travel date and number of passengers on WhatsApp and we'll provide the exact fare before you book.
                     </p>
-                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20a%20quote%20for%20a%20taxi%20from%20Tabuk%20to%20Madinah" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/966590209905?text=Hello%2C%20I%20want%20a%20quote%20for%20a%20taxi%20from%20Tabuk%20to%20Madinah" target="_blank" rel="noopener noreferrer">
                         <Button size="lg" className="bg-primary text-black hover:bg-white font-bold">
                             Get a Fixed Quote <ArrowRight className="ml-2 w-5 h-5" />
                         </Button>
@@ -350,7 +350,7 @@ export default function TabukMadinahRoutePage() {
                 <div className="max-w-2xl mx-auto">
                     <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tighter">Book Your Tabuk to Madinah Taxi</h2>
                     <p className="text-gray-400 mb-10 text-lg">Send your travel date, pickup location and number of passengers. We'll confirm the available vehicle and provide your exact fare.</p>
-                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20a%20quote%20for%20a%20taxi%20from%20Tabuk%20to%20Madinah" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/966590209905?text=Hello%2C%20I%20want%20a%20quote%20for%20a%20taxi%20from%20Tabuk%20to%20Madinah" target="_blank" rel="noopener noreferrer">
                         <Button size="lg" className="bg-primary text-black hover:bg-white font-black text-lg px-10 py-7 h-auto rounded-2xl shadow-2xl transition-all transform hover:-translate-y-1"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> Get a Tabuk-Madinah Taxi Quote</Button>
                     </a>
                 </div>

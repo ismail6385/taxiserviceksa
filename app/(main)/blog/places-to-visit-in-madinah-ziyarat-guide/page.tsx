@@ -173,7 +173,7 @@ export default function MadinahZiyaratListPage() {
                         Ziyarat — from the Arabic for "visit" — means walking through the places connected to the Prophet Muhammad ﷺ, his companions, and the earliest years of Islam. Most pilgrims land in Madinah wanting to "do Ziyarat" with no real plan for order or timing. Here are the 10 sites worth knowing, grouped into a route you can actually follow.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20private%20Madinah%20Ziyarat%20taxi%20tour" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966590209905?text=Hi,%20I%20need%20a%20private%20Madinah%20Ziyarat%20taxi%20tour" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-4 h-4" /> Book a Ziyarat Taxi Tour
                         </a>
@@ -282,7 +282,7 @@ export default function MadinahZiyaratListPage() {
                         Skip the back-and-forth of figuring out routes between Quba, Uhud, and the Seven Mosques. Book a private, air-conditioned Ziyarat taxi tour — our drivers know every stop on this list and the order that makes sense.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20private%20Madinah%20Ziyarat%20taxi%20tour" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966590209905?text=Hi,%20I%20need%20a%20private%20Madinah%20Ziyarat%20taxi%20tour" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> Book via WhatsApp
                         </a>

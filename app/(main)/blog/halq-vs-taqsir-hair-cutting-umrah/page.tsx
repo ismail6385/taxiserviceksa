@@ -124,7 +124,7 @@ export default function HalqVsTaqsirPage() {
                         To successfully complete your Umrah or Hajj and exit the restrictions of Ihram, you must perform either Halq (shaving) or Taqsir (trimming). Discover the rules, virtues, and vital safety guidelines for this final ritual.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20private%20taxi%20from%20Jeddah%20Airport%20to%20Makkah%20for%20Umrah" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966590209905?text=Hi,%20I%20need%20a%20private%20taxi%20from%20Jeddah%20Airport%20to%20Makkah%20for%20Umrah" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-4 h-4" /> Book Jeddah → Makkah Taxi
                         </a>
@@ -374,7 +374,7 @@ export default function HalqVsTaqsirPage() {
                         Ensure a smooth, comfortable transition from Makkah back to Jeddah Airport (JED) or to your next hotel destination. Book your certified private taxi with fixed rates and premium air conditioning.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20am%20performing%20Umrah%20and%20need%20a%20taxi%20booking" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966590209905?text=Hi,%20I%20am%20performing%20Umrah%20and%20need%20a%20taxi%20booking" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> Book via WhatsApp
                         </a>

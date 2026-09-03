@@ -84,7 +84,7 @@ const hubFaqs = [
 export default function BusHubPage() {
     const routes = getAllBusRoutes();
     const internationalRoutes = routes.filter((r) => r.isInternational);
-    const whatsappHref = "https://wa.me/966569487569?text=Hello%2C%20I%20want%20a%20quote%20for%20a%20bus%2Fcoach%20charter.";
+    const whatsappHref = "https://wa.me/966590209905?text=Hello%2C%20I%20want%20a%20quote%20for%20a%20bus%2Fcoach%20charter.";
 
     return (
         <div className="bg-gray-50 min-h-screen">

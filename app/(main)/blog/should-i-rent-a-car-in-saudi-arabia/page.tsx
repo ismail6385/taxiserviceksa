@@ -340,7 +340,7 @@ export default function ShouldIRentCarSaudiPage() {
                     <h2 className="text-2xl font-bold mb-4">Skip the Rental — Book a Private Driver Instead</h2>
                     <p className="text-gray-400 mb-6 max-w-xl mx-auto">No IDP needed, no parking stress, no speed camera risk. A professional English-speaking driver ready for your Riyadh trip.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966569487569?text=Hello,%20I%20need%20a%20private%20driver%20in%20Riyadh" target="_blank">
+                        <Link href="https://wa.me/966590209905?text=Hello,%20I%20need%20a%20private%20driver%20in%20Riyadh" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-100 font-bold px-8">
                                 Book Private Driver <ArrowRight className="ml-2 w-4 h-4" />
                             </Button>

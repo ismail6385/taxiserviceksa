@@ -248,7 +248,7 @@ export default function AlDisahValleyTabukPage() {
                         4WD round trips from Tabuk to Al Disah Valley. Driver waits while you explore — day trips or drop-off for camping overnight.
                     </p>
                     <a
-                        href="https://wa.me/966569487569?text=Hi%2C%20I%20want%20to%20visit%20Al%20Disah%20Valley%20from%20Tabuk.%20Please%20share%204WD%20options%20and%20prices."
+                        href="https://wa.me/966590209905?text=Hi%2C%20I%20want%20to%20visit%20Al%20Disah%20Valley%20from%20Tabuk.%20Please%20share%204WD%20options%20and%20prices."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"

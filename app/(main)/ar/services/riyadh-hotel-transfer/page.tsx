@@ -142,7 +142,7 @@ export default function RiyadhHotelTransferPageArabic() {
                         </ul>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966569487569?text=مرحباً،%20أحتاج%20توصيل%20فندقي%20في%20الرياض" target="_blank">
+                        <Link href="https://wa.me/966590209905?text=مرحباً،%20أحتاج%20توصيل%20فندقي%20في%20الرياض" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
                                 احجز توصيل الفندق <ArrowRight className="mr-2 w-5 h-5 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </Button>
@@ -187,7 +187,7 @@ export default function RiyadhHotelTransferPageArabic() {
                             </div>
                         ))}
                     </div>
-                    <p className="text-center mt-8 text-sm text-gray-500">لم تجد فندقك؟ نغطي <strong>جميع الفنادق</strong> في الرياض. <Link href="https://wa.me/966569487569?text=مرحباً،%20أحتاج%20توصيل%20فندقي%20في%20الرياض" className="text-black font-bold hover:underline">تواصل معنا ←</Link></p>
+                    <p className="text-center mt-8 text-sm text-gray-500">لم تجد فندقك؟ نغطي <strong>جميع الفنادق</strong> في الرياض. <Link href="https://wa.me/966590209905?text=مرحباً،%20أحتاج%20توصيل%20فندقي%20في%20الرياض" className="text-black font-bold hover:underline">تواصل معنا ←</Link></p>
                 </div>
             </section>
 
@@ -265,7 +265,7 @@ export default function RiyadhHotelTransferPageArabic() {
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">احجز توصيل فندقك في الرياض</h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">وصول من المطار، أو توصيل للحي التجاري، أو جولات المدينة، أو عودة في وقت متأخر — سيارات خاصة مع سائقين محترفين متوفرة على مدار الساعة في جميع أنحاء الرياض.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966569487569?text=مرحباً،%20أحتاج%20توصيل%20فندقي%20في%20الرياض" target="_blank">
+                        <Link href="https://wa.me/966590209905?text=مرحباً،%20أحتاج%20توصيل%20فندقي%20في%20الرياض" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">حجز عبر واتساب</Button>
                         </Link>
                         <a href="mailto:taxiserviceksa9988@gmail.com">

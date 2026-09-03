@@ -233,7 +233,7 @@ export default function RiyadhAirportTaxiFarePage() {
                 <section className="mb-16 bg-black text-white rounded-3xl p-8 text-center">
                     <h2 className="text-2xl font-bold mb-4">Get Your Fixed Quote from RUH Airport</h2>
                     <p className="text-gray-400 mb-6">Message us on WhatsApp with your flight number, arrival date, and hotel — we reply with your fixed price in 30 minutes.</p>
-                    <Link href="https://wa.me/966569487569?text=Hello,%20I%20need%20a%20fixed-price%20transfer%20from%20King%20Khalid%20Airport%20Riyadh" target="_blank">
+                    <Link href="https://wa.me/966590209905?text=Hello,%20I%20need%20a%20fixed-price%20transfer%20from%20King%20Khalid%20Airport%20Riyadh" target="_blank">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-100 font-bold px-10">
                             Get My Quote <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>

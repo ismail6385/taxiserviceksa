@@ -129,7 +129,7 @@ export async function POST(request: NextRequest) {
 
                     <div style="text-align: center; margin: 30px 0; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
                         <a href="https://taxiserviceksa.com/booking/quote?ref=${booking.id.slice(0, 8)}" style="background-color: #C6FF00; color: #000; padding: 14px 28px; text-decoration: none; font-weight: 900; border-radius: 30px; display: inline-block; font-size: 15px;">✅ Accept Quote Online</a>
-                        <a href="https://wa.me/966569487569?text=${whatsappMsg}" style="background-color: #25D366; color: white; padding: 14px 28px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; font-size: 15px;">💬 Confirm on WhatsApp</a>
+                        <a href="https://wa.me/966590209905?text=${whatsappMsg}" style="background-color: #25D366; color: white; padding: 14px 28px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; font-size: 15px;">💬 Confirm on WhatsApp</a>
                     </div>
 
                     <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">

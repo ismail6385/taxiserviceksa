@@ -25,7 +25,7 @@ export default function BusRouteTemplate({ route }: BusRouteTemplateProps) {
         perspectives: [],
     }));
 
-    const whatsappHref = `https://wa.me/966569487569?text=${encodeURIComponent(`Hello, I want a quote for a bus/coach from ${route.origin} to ${route.destination}.`)}`;
+    const whatsappHref = `https://wa.me/966590209905?text=${encodeURIComponent(`Hello, I want a quote for a bus/coach from ${route.origin} to ${route.destination}.`)}`;
 
     const serviceSchema = {
         '@context': 'https://schema.org',

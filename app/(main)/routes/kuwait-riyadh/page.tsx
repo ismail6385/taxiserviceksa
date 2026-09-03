@@ -129,7 +129,7 @@ export default function KuwaitRiyadhRoutePage() {
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Button>
                         </Link>
-                        <a href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20book%20a%20Kuwait%20to%20Riyadh%20taxi" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                        <a href="https://wa.me/966590209905?text=Hello%2C%20I%20want%20to%20book%20a%20Kuwait%20to%20Riyadh%20taxi" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                             <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full">
                                 <WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Quotation
                             </Button>
@@ -610,7 +610,7 @@ export default function KuwaitRiyadhRoutePage() {
                                 time: "~10-12 hrs",
                                 distance: "~1,150 km",
                                 note: "Via Nuwaiseeb border → Hafr Al-Batin → Riyadh bypass → Taif → Jeddah. Popular for Umrah travelers flying out of Jeddah or visiting the Red Sea coast.",
-                                href: "https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20book%20a%20Kuwait%20to%20Jeddah%20transfer"
+                                href: "https://wa.me/966590209905?text=Hello%2C%20I%20want%20to%20book%20a%20Kuwait%20to%20Jeddah%20transfer"
                             },
                             {
                                 from: "Kuwait City",
@@ -618,7 +618,7 @@ export default function KuwaitRiyadhRoutePage() {
                                 time: "~4-5 hrs",
                                 distance: "~430 km",
                                 note: "The shortest Kuwait-Saudi road route. Via Nuwaiseeb border into the Eastern Province.",
-                                href: "https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20book%20a%20Kuwait%20to%20Dammam%20transfer"
+                                href: "https://wa.me/966590209905?text=Hello%2C%20I%20want%20to%20book%20a%20Kuwait%20to%20Dammam%20transfer"
                             },
                             {
                                 from: "Kuwait City",
@@ -626,7 +626,7 @@ export default function KuwaitRiyadhRoutePage() {
                                 time: "~12-14 hrs",
                                 distance: "~1,350 km",
                                 note: "Direct Umrah transfer from Kuwait. Drivers accommodate prayer stops. We also coordinate Makkah → Madinah onward transfers.",
-                                href: "https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20book%20a%20Kuwait%20to%20Makkah%20transfer"
+                                href: "https://wa.me/966590209905?text=Hello%2C%20I%20want%20to%20book%20a%20Kuwait%20to%20Makkah%20transfer"
                             },
                             {
                                 from: "Kuwait City",
@@ -634,7 +634,7 @@ export default function KuwaitRiyadhRoutePage() {
                                 time: "~13-15 hrs",
                                 distance: "~1,450 km",
                                 note: "Door-to-door transfer for Ziyarat and Umrah travelers. Available as a round-trip or one-way booking.",
-                                href: "https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20book%20a%20Kuwait%20to%20Madinah%20transfer"
+                                href: "https://wa.me/966590209905?text=Hello%2C%20I%20want%20to%20book%20a%20Kuwait%20to%20Madinah%20transfer"
                             },
                             {
                                 from: "Kuwait City",
@@ -642,7 +642,7 @@ export default function KuwaitRiyadhRoutePage() {
                                 time: "~3-4 hrs",
                                 distance: "~340 km",
                                 note: "A UNESCO-listed oasis city — our shortest regular route from Kuwait, ideal for a quick trip.",
-                                href: "https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20book%20a%20Kuwait%20to%20Al%20Ahsa%20transfer"
+                                href: "https://wa.me/966590209905?text=Hello%2C%20I%20want%20to%20book%20a%20Kuwait%20to%20Al%20Ahsa%20transfer"
                             },
                         ].map(({ from, to, time, distance, note, href }) => (
                             <div key={to} className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-shadow flex flex-col">
@@ -679,7 +679,7 @@ export default function KuwaitRiyadhRoutePage() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
-                            href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20book%20a%20Kuwait%20to%20Riyadh%20private%20car%20transfer"
+                            href="https://wa.me/966590209905?text=Hello%2C%20I%20want%20to%20book%20a%20Kuwait%20to%20Riyadh%20private%20car%20transfer"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center justify-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-white font-black text-lg px-10 py-5 rounded-2xl shadow-xl transition-all hover:scale-105"

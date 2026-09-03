@@ -119,7 +119,7 @@ export default function DammamToBahrainPrivateCarPage() {
                         <li>⏱️ <strong>Drive time:</strong> 50–60 min driving + 20–60 min at border = 1.5–2.5 hrs total</li>
                         <li>💰 <strong>Private car cost:</strong> SAR 300–500 depending on vehicle</li>
                         <li>❌ <strong>Uber/Careem:</strong> Not available for cross-border trips</li>
-                        <li>✅ <strong>How to book:</strong> WhatsApp +966 56 948 7569 — 24 hours advance booking recommended</li>
+                        <li>✅ <strong>How to book:</strong> WhatsApp +966 59 020 9905 — 24 hours advance booking recommended</li>
                     </ul>
                 </div>
 
@@ -196,7 +196,7 @@ export default function DammamToBahrainPrivateCarPage() {
                         Book at least 24 hours in advance for Bahrain Causeway transfers. GMC Yukon XL recommended for families. Driver experienced with the border crossing.
                     </p>
                     <a
-                        href="https://wa.me/966569487569?text=Hi%2C%20I%20need%20a%20private%20car%20from%20Dammam%20to%20Bahrain.%20Please%20share%20availability%20and%20pricing."
+                        href="https://wa.me/966590209905?text=Hi%2C%20I%20need%20a%20private%20car%20from%20Dammam%20to%20Bahrain.%20Please%20share%20availability%20and%20pricing."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"

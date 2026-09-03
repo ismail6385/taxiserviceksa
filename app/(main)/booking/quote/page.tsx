@@ -239,7 +239,7 @@ function QuoteContent() {
                     ) : null}
 
                     <a
-                        href={`https://wa.me/966569487569?text=${whatsappMsg}`}
+                        href={`https://wa.me/966590209905?text=${whatsappMsg}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white font-bold py-4 rounded-xl hover:bg-[#20bd5a] transition-colors text-base"

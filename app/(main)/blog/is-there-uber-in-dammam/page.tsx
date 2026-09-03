@@ -231,7 +231,7 @@ export default function IsThereUberInDammamPage() {
                         Available for DMM Airport pickups, Bahrain Causeway transfers, Aramco Dhahran visits, and all Eastern Province routes. English-speaking drivers, fixed prices, 24/7 availability.
                     </p>
                     <a
-                        href="https://wa.me/966569487569?text=Hi%2C%20I%20need%20a%20private%20driver%20in%20Dammam.%20Please%20share%20availability%20and%20pricing."
+                        href="https://wa.me/966590209905?text=Hi%2C%20I%20need%20a%20private%20driver%20in%20Dammam.%20Please%20share%20availability%20and%20pricing."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"

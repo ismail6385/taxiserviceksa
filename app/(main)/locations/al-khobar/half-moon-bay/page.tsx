@@ -111,7 +111,7 @@ export default function HalfMoonBayPage() {
                 location="Private Vehicle • Professional Driver"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20get%20a%20taxi%20quote%20for%20Half%20Moon%20Bay" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/966590209905?text=Hello%2C%20I%20want%20to%20get%20a%20taxi%20quote%20for%20Half%20Moon%20Bay" target="_blank" rel="noopener noreferrer">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                             <WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Book via WhatsApp
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -166,7 +166,7 @@ export default function HalfMoonBayPage() {
                     <p className="text-gray-600 text-sm leading-relaxed mb-6">
                         For resort bookings, it's best to send the resort or villa name, pickup location, date, time and number of passengers when contacting us. This allows the vehicle to be matched to your trip requirements.
                     </p>
-                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20get%20a%20taxi%20quote%20for%20Half%20Moon%20Bay" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/966590209905?text=Hello%2C%20I%20want%20to%20get%20a%20taxi%20quote%20for%20Half%20Moon%20Bay" target="_blank" rel="noopener noreferrer">
                         <Button className="bg-primary text-black hover:bg-primary/90 font-bold">
                             Request a Half Moon Bay Quote <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
@@ -296,7 +296,7 @@ export default function HalfMoonBayPage() {
                     <h2 className="text-3xl md:text-4xl font-bold mb-6">Book Your Half Moon Bay Transfer</h2>
                     <p className="text-gray-400 mb-10 text-lg">Whether you're heading to the coast for a day trip or staying at a resort for several nights, booking your private transportation in advance can make the journey much easier.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20get%20a%20taxi%20quote%20for%20Half%20Moon%20Bay" target="_blank" rel="noopener noreferrer">
+                        <a href="https://wa.me/966590209905?text=Hello%2C%20I%20want%20to%20get%20a%20taxi%20quote%20for%20Half%20Moon%20Bay" target="_blank" rel="noopener noreferrer">
                             <Button size="lg" className="bg-primary text-black hover:bg-white font-black text-lg px-10 py-7 h-auto rounded-2xl shadow-2xl transition-all transform hover:-translate-y-1"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> Get a Quote for Half Moon Bay</Button>
                         </a>
                         <Link href="/booking/?pickup=Khobar%20City&dropoff=Half%20Moon%20Bay">

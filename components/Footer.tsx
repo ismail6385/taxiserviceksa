@@ -54,7 +54,7 @@ export default function Footer() {
                         <ul className="space-y-3.5">
                             <li>
                                 <a
-                                    href="https://wa.me/966569487569?text=Hello%2C%20I%20would%20like%20to%20get%20a%20transfer%20quote."
+                                    href="https://wa.me/966590209905?text=Hello%2C%20I%20would%20like%20to%20get%20a%20transfer%20quote."
                                     target="_blank"
                                     rel="nofollow noopener noreferrer"
                                     className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors"
@@ -65,9 +65,9 @@ export default function Footer() {
                                 </a>
                             </li>
                             <li>
-                                <a href="tel:+966569487569" className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors">
+                                <a href="tel:+966590209905" className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors">
                                     <Phone className="w-4 h-4 shrink-0" />
-                                    +966 56 948 7569
+                                    +966 59 020 9905
                                 </a>
                             </li>
                             <li>
@@ -109,7 +109,7 @@ export default function Footer() {
                         </div>
 
                         <a
-                            href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20get%20a%20taxi%20quote."
+                            href="https://wa.me/966590209905?text=Hello%2C%20I%20want%20to%20get%20a%20taxi%20quote."
                             target="_blank"
                             rel="nofollow noopener noreferrer"
                             className="flex items-center gap-3 bg-white rounded-2xl p-4 hover:bg-gray-100 transition-colors"

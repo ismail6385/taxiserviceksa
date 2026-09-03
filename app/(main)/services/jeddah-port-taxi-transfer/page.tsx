@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const faqs = [
     {
         question: 'How do I book a taxi from Jeddah Islamic Port?',
-        answer: 'You can pre-book a private car via WhatsApp at +966 56 948 7569 or through our online form. Provide your cruise arrival time and ship name. Your chauffeur will be waiting outside the cruise terminal gate with a name sign.',
+        answer: 'You can pre-book a private car via WhatsApp at +966 59 020 9905 or through our online form. Provide your cruise arrival time and ship name. Your chauffeur will be waiting outside the cruise terminal gate with a name sign.',
     },
     {
         question: 'Can cruise passengers travel from Jeddah Port to Makkah for Umrah?',
@@ -50,7 +50,7 @@ const serviceSchema = {
     '@type': 'Service',
     name: 'Jeddah Port Cruise Chauffeur & Taxi Transfer',
     serviceType: 'Port Chauffeur & Private Taxi',
-    provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: '+966569487569' },
+    provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: '+966590209905' },
     areaServed: { '@type': 'City', name: 'Jeddah' },
     description: 'Private taxi transfers from Jeddah Islamic Port cruise ship terminal to Makkah, JED airport, and city hotels.',
     offers: { '@type': 'Offer', priceCurrency: 'SAR', price: '180', availability: 'https://schema.org/InStock' },
@@ -84,7 +84,7 @@ export default function JeddahPortTaxiTransferPage() {
                         Pre-booked private transfers from the Jeddah Islamic Port Cruise terminal. Direct rides to Makkah Al Haram, KAIA Airport (JED), and Jeddah hotels. Professional chauffeurs, fixed rates.
                     </p>
                     <div className="flex flex-wrap gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20taxi%20from%20Jeddah%20Islamic%20Port" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966590209905?text=Hi,%20I%20need%20a%20taxi%20from%20Jeddah%20Islamic%20Port" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> Book via WhatsApp
                         </a>

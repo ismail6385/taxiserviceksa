@@ -271,7 +271,7 @@ export default function BestRedSeaBeachesTabukPage() {
                         Private driver day trips to Haql, Sharma, Al Wajh, and all Red Sea coastal areas. Driver waits while you explore.
                     </p>
                     <a
-                        href="https://wa.me/966569487569?text=Hi%2C%20I%20want%20to%20book%20a%20day%20trip%20to%20the%20Red%20Sea%20coast%20from%20Tabuk.%20Please%20share%20options%20and%20prices."
+                        href="https://wa.me/966590209905?text=Hi%2C%20I%20want%20to%20book%20a%20day%20trip%20to%20the%20Red%20Sea%20coast%20from%20Tabuk.%20Please%20share%20options%20and%20prices."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"

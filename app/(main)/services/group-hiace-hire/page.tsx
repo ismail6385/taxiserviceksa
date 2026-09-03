@@ -148,7 +148,7 @@ export default function GroupHiaceHirePage() {
                         </ul>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966569487569?text=Hello,%20I%20want%20to%20hire%20a%20Toyota%20Hiace%20with%20driver%20in%20Saudi%20Arabia" target="_blank">
+                        <Link href="https://wa.me/966590209905?text=Hello,%20I%20want%20to%20hire%20a%20Toyota%20Hiace%20with%20driver%20in%20Saudi%20Arabia" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
                                 Book Hiace Group Hire <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Button>
@@ -274,7 +274,7 @@ export default function GroupHiaceHirePage() {
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Book Toyota Hiace with Driver in Saudi Arabia</h2>
                     <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">Private 11-seat van with professional driver for families, pilgrim groups, tourists, and corporate teams. Available 24/7 across Riyadh, Jeddah, Makkah, and Madinah.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966569487569?text=Hello,%20I%20want%20to%20hire%20a%20Toyota%20Hiace%20with%20driver%20in%20Saudi%20Arabia" target="_blank">
+                        <Link href="https://wa.me/966590209905?text=Hello,%20I%20want%20to%20hire%20a%20Toyota%20Hiace%20with%20driver%20in%20Saudi%20Arabia" target="_blank">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">WhatsApp Booking</Button>
                         </Link>
                         <a href="mailto:taxiserviceksa9988@gmail.com">

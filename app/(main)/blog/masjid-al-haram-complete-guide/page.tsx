@@ -104,7 +104,7 @@ export default function MasjidAlHaramGuidePage() {
                         Masjid al-Haram, the Grand Mosque of Makkah, is the most sacred site in Islam. Learn how to navigate the massive complex, its key gates, prayer areas, and rules for a smooth experience.
                     </p>
                     <div className="mt-8 flex flex-wrap gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20private%20taxi%20transfer%20to%20Masjid%20al-Haram%20in%20Makkah" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966590209905?text=Hi,%20I%20need%20a%20private%20taxi%20transfer%20to%20Masjid%20al-Haram%20in%20Makkah" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-6 py-3.5 rounded-xl transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-4 h-4" /> Book Makkah Taxi
                         </a>
@@ -195,7 +195,7 @@ export default function MasjidAlHaramGuidePage() {
                         Arriving at Jeddah Airport? Book a direct, premium airport transfer to Masjid al-Haram with our professional drivers. We provide clean, comfortable SUVs and Sedans.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20taxi%20transfer%20to%20Masjid%20al-Haram" target="_blank" rel="noopener noreferrer"
+                        <a href="https://wa.me/966590209905?text=Hi,%20I%20need%20a%20taxi%20transfer%20to%20Masjid%20al-Haram" target="_blank" rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">
                             <Phone className="w-5 h-5" /> Book via WhatsApp
                         </a>

@@ -125,7 +125,7 @@ export default function TabukRiyadhRoutePage() {
                 location="12-13 Hours | Private Car | Door-to-Door"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20book%20a%20taxi%20from%20Tabuk%20to%20Riyadh" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/966590209905?text=Hello%2C%20I%20want%20to%20book%20a%20taxi%20from%20Tabuk%20to%20Riyadh" target="_blank" rel="noopener noreferrer">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                             <WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Request Your Fare
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -167,7 +167,7 @@ export default function TabukRiyadhRoutePage() {
                     <p className="text-gray-300 leading-relaxed mb-8">
                         The fare depends on the vehicle, passenger count, luggage, and whether the booking is one-way or round trip. Contact us on WhatsApp with your travel date and passenger details for a fixed quote before booking.
                     </p>
-                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20a%20quote%20for%20a%20taxi%20from%20Tabuk%20to%20Riyadh" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/966590209905?text=Hello%2C%20I%20want%20a%20quote%20for%20a%20taxi%20from%20Tabuk%20to%20Riyadh" target="_blank" rel="noopener noreferrer">
                         <Button size="lg" className="bg-primary text-black hover:bg-white font-bold">
                             Get a Quote <ArrowRight className="ml-2 w-5 h-5" />
                         </Button>
@@ -305,7 +305,7 @@ export default function TabukRiyadhRoutePage() {
                 <div className="max-w-2xl mx-auto">
                     <h2 className="text-4xl md:text-6xl font-black mb-8 tracking-tighter">Ready to go to Riyadh?</h2>
                     <p className="text-gray-400 mb-10 text-lg">Contact us now for your fixed quote and driver details.</p>
-                    <a href="https://wa.me/966569487569?text=Hello%2C%20I%20want%20to%20book%20a%20taxi%20from%20Tabuk%20to%20Riyadh" target="_blank" rel="noopener noreferrer">
+                    <a href="https://wa.me/966590209905?text=Hello%2C%20I%20want%20to%20book%20a%20taxi%20from%20Tabuk%20to%20Riyadh" target="_blank" rel="noopener noreferrer">
                         <Button size="lg" className="bg-primary text-black hover:bg-white font-black text-xl px-12 py-9 h-auto rounded-[2rem] shadow-2xl transition-all transform hover:-translate-y-1"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                     </a>
                 </div>

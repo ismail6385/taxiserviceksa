@@ -79,7 +79,7 @@ export default function AlUlaOldTownDadanPage() {
                     <h2 className="text-3xl font-black mb-4">Hire an AlUla Private Tour Taxi</h2>
                     <p className="text-gray-300 max-w-xl mx-auto mb-8">Reach Old Town, Dadan, and Jabal Ikmah comfortably. Pre-book your taxi to drop you at the visitor centers.</p>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <a href="https://wa.me/966569487569?text=Hi,%20I%20need%20a%20taxi%20transfer%20to%20AlUla%20Old%20Town%20and%20archaeological%20sites" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"><Phone className="w-5 h-5" /> Book via WhatsApp</a>
+                        <a href="https://wa.me/966590209905?text=Hi,%20I%20need%20a%20taxi%20transfer%20to%20AlUla%20Old%20Town%20and%20archaeological%20sites" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5"><Phone className="w-5 h-5" /> Book via WhatsApp</a>
                         <Link href="/blog/top-places-visit-things-do-alula/" className="inline-flex items-center gap-2 bg-white text-slate-900 font-bold px-8 py-4 rounded-xl text-lg transition-all shadow-lg hover:-translate-y-0.5">Top Attractions <ArrowRight className="w-5 h-5" /></Link>
                     </div>
                 </section>

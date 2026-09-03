@@ -231,7 +231,7 @@ export default function TabukCastleVisitorGuidePage() {
                         Half-day and full-day city tours from your hotel. Tabuk Castle, Al Disah Valley, and all main attractions in one comfortable trip.
                     </p>
                     <a
-                        href="https://wa.me/966569487569?text=Hi%2C%20I%20want%20a%20driver%20for%20Tabuk%20city%20sightseeing.%20Please%20share%20options%20and%20prices."
+                        href="https://wa.me/966590209905?text=Hi%2C%20I%20want%20a%20driver%20for%20Tabuk%20city%20sightseeing.%20Please%20share%20options%20and%20prices."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"

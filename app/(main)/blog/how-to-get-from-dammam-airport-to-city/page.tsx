@@ -72,7 +72,7 @@ const faqJsonLd = {
             name: 'How do I book a private transfer from Dammam Airport?',
             acceptedAnswer: {
                 '@type': 'Answer',
-                text: 'Book via WhatsApp at +966 56 948 7569. Send your flight number, arrival date, number of passengers, and destination. We confirm within 30 minutes and send driver details — name, photo, vehicle plate — before your flight lands. The driver meets you at DMM arrivals with a name sign.',
+                text: 'Book via WhatsApp at +966 59 020 9905. Send your flight number, arrival date, number of passengers, and destination. We confirm within 30 minutes and send driver details — name, photo, vehicle plate — before your flight lands. The driver meets you at DMM arrivals with a name sign.',
             },
         },
     ],
@@ -237,7 +237,7 @@ export default function HowToGetFromDammamAirportToCityPage() {
                         Driver at DMM arrivals with your name sign. Flight tracking included. Fixed rates to Dammam, Al Khobar, Dhahran, Bahrain, and Jubail.
                     </p>
                     <a
-                        href="https://wa.me/966569487569?text=Hi%2C%20I%20need%20a%20transfer%20from%20Dammam%20Airport%20(DMM).%20Please%20share%20availability%20and%20pricing."
+                        href="https://wa.me/966590209905?text=Hi%2C%20I%20need%20a%20transfer%20from%20Dammam%20Airport%20(DMM).%20Please%20share%20availability%20and%20pricing."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-block bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
@@ -264,7 +264,7 @@ export default function HowToGetFromDammamAirportToCityPage() {
                             },
                             {
                                 q: 'How do I book a private transfer from Dammam Airport?',
-                                a: 'Book via WhatsApp at +966 56 948 7569. Send your flight number, arrival date, number of passengers, and destination. We confirm within 30 minutes and send driver details before your flight lands. The driver meets you at DMM arrivals with a name sign.',
+                                a: 'Book via WhatsApp at +966 59 020 9905. Send your flight number, arrival date, number of passengers, and destination. We confirm within 30 minutes and send driver details before your flight lands. The driver meets you at DMM arrivals with a name sign.',
                             },
                         ].map((item, i) => (
                             <div key={i} className="border rounded-lg p-4">

@@ -146,7 +146,7 @@ export default function BusinessPage() {
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4 mb-12">
                         <Button asChild size="lg" className="bg-primary hover:bg-emerald-600 text-white font-black text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            <Link href="https://wa.me/966569487569?text=Hello,%20I%20need%20a%20car%20for%20a%20business%20trip" target="_blank">
+                            <Link href="https://wa.me/966590209905?text=Hello,%20I%20need%20a%20car%20for%20a%20business%20trip" target="_blank">
                                 Book via WhatsApp
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
@@ -444,7 +444,7 @@ export default function BusinessPage() {
                     <p className="text-gray-400 mb-8 max-w-xl mx-auto">Send your pickup, destination, date and passenger count for a fixed-rate quote.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button asChild size="lg" className="bg-white text-gray-900 hover:bg-gray-100 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            <Link href="https://wa.me/966569487569?text=Hello,%20I%20need%20a%20business%20chauffeur" target="_blank">
+                            <Link href="https://wa.me/966590209905?text=Hello,%20I%20need%20a%20business%20chauffeur" target="_blank">
                                 WhatsApp Booking
                             </Link>
                         </Button>
