@@ -86,6 +86,15 @@ export async function POST(request: NextRequest) {
                 </table>
             </div>` : '';
 
+        const additionalStops: { time?: string | null; location: string }[] = Array.isArray(booking.additional_stops) ? booking.additional_stops : [];
+        const additionalStopsHtml = additionalStops.length > 0 ? `
+            <div style="background-color: #f8f9fa; padding: 20px; border-radius: 12px; margin: 15px 0; border: 1px solid #ebedf0;">
+                <h3 style="margin-top: 0; color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 8px; display: inline-block;">Sites to Visit</h3>
+                <ul style="margin: 10px 0 0; padding-left: 20px; font-size: 13px; color: #333;">
+                    ${additionalStops.map((stop) => `<li style="margin-bottom: 4px;">${stop.time ? `<strong>${formatTime12h(stop.time)}</strong> — ` : ''}${escapeHtml(stop.location)}</li>`).join('')}
+                </ul>
+            </div>` : '';
+
         const whatsappMsg = encodeURIComponent(
             `Hello, I'd like to confirm my booking.\n\n*Quote Ref:* ${refId}\n*Route:* ${booking.pickup_location} → ${booking.destination}\n*Date:* ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}${hasStructuredReturnLeg(booking) ? `\n*Return Route:* ${getReturnRoute(booking).pickupLocation} → ${getReturnRoute(booking).destination}\n*Return:* ${booking.return_date} at ${formatTime12h(booking.return_time)}` : ''}\n*Vehicle:* ${booking.vehicle_type}\n*Quote:* ${curr} ${price}`
         );
@@ -113,6 +122,7 @@ export async function POST(request: NextRequest) {
                         </table>
                     </div>
                     ${itineraryHtml}
+                    ${additionalStopsHtml}
 
                     <div style="background-color: #000; color: #fff; padding: 20px 25px; border-radius: 12px; margin: 25px 0; text-align: center;">
                         <p style="margin: 0 0 5px; font-size: 13px; color: #aaa; text-transform: uppercase; letter-spacing: 2px;">Total Quote Price</p>

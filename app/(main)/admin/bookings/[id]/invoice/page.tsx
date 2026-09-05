@@ -158,6 +158,7 @@ interface Booking {
     return_pickup_location?: string | null;
     return_destination?: string | null;
     itinerary_legs?: { date: string; time: string; pickup: string; dropoff: string }[] | null;
+    additional_stops?: Stop[] | null;
     deposit_amount?: number | null;
 }
 
@@ -228,6 +229,7 @@ export default function InvoicePage() {
                 }
                 setBooking(bookingData);
                 // Initialize editable fields from booking data if they exist
+                if (Array.isArray(data.additional_stops)) setStops(data.additional_stops);
                 if (data.currency) setCurrency(data.currency);
                 if (data.payment_status) {
                     const s = normalizeStatus(data.payment_status);
@@ -279,10 +281,17 @@ export default function InvoicePage() {
             const filename = buildInvoiceFilename();
             const base64 = await documentPdfToBase64('invoice-print', filename);
 
-            // Persist currency, paymentStatus, paymentMethod back to DB
+            // Persist currency, paymentStatus, paymentMethod, and any extra
+            // stops added on this screen back to DB — previously `stops`
+            // only lived in local state and was lost on every reload.
             await supabase
                 .from('bookings')
-                .update({ currency, payment_status: paymentStatus, payment_method: paymentMethod })
+                .update({
+                    currency,
+                    payment_status: paymentStatus,
+                    payment_method: paymentMethod,
+                    additional_stops: stops.filter(s => s.location.trim()).length > 0 ? stops.filter(s => s.location.trim()) : null,
+                })
                 .eq('id', booking.id);
 
             const res = await adminFetch('/api/send-invoice-email', {

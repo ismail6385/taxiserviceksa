@@ -276,6 +276,15 @@ const bookingFieldsShape = {
             pickup: z.string(),
             dropoff: z.string(),
         })).optional().nullable(),
+        // Named intermediate waypoints for a single-trip booking (e.g.
+        // Ziyarat sites: "Masjid Quba", "Jabal Uhud") — distinct from
+        // itinerary_legs, which models separate date+time+pickup+dropoff
+        // transport legs for multi-day bookings, not a list of named stops
+        // visited during one outing.
+        additional_stops: z.array(z.object({
+            time: z.string().optional().nullable(),
+            location: z.string(),
+        })).optional().nullable(),
 };
 
 /** Shared by both schemas below so round-trip/trip-type rules can never drift

@@ -46,6 +46,7 @@ import {
 import { getPrice } from '@/lib/pricing';
 import { validateRoundTrip, hasStructuredReturnLeg, getReturnRoute, isSameDate } from '@/lib/booking-validation';
 import ItineraryLegsEditor, { type ItineraryLeg } from '@/components/admin/ItineraryLegsEditor';
+import AdditionalStopsEditor, { type AdditionalStop } from '@/components/admin/AdditionalStopsEditor';
 import { CounterControl } from '@/components/PassengerLuggageSelector';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -137,6 +138,7 @@ interface Booking {
     duration_estimate?: string;
     commission_rate?: number;
     itinerary_legs?: ItineraryLeg[] | null;
+    additional_stops?: AdditionalStop[] | null;
 }
 
 export default function BookingsPage() {
@@ -264,7 +266,8 @@ export default function BookingsPage() {
         return_pickup_location: '',
         return_destination: '',
         trip_type: 'point_to_point',
-        itinerary_legs: []
+        itinerary_legs: [],
+        additional_stops: []
     });
     const [bookingFieldErrors, setBookingFieldErrors] = useState<Record<string, string>>({});
 
@@ -705,6 +708,7 @@ export default function BookingsPage() {
                     return_pickup_location: updateData.has_return_trip ? (updateData.return_pickup_location || null) : null,
                     return_destination: updateData.has_return_trip ? (updateData.return_destination || null) : null,
                     itinerary_legs: (updateData.itinerary_legs && updateData.itinerary_legs.length > 0) ? updateData.itinerary_legs : null,
+                    additional_stops: (updateData.additional_stops && updateData.additional_stops.length > 0) ? updateData.additional_stops : null,
                 }),
             });
             const result = await response.json().catch(() => ({}));
@@ -770,6 +774,7 @@ export default function BookingsPage() {
                     return_pickup_location: newBooking.has_return_trip ? (newBooking.return_pickup_location || null) : null,
                     return_destination: newBooking.has_return_trip ? (newBooking.return_destination || null) : null,
                     itinerary_legs: (newBooking.itinerary_legs && newBooking.itinerary_legs.length > 0) ? newBooking.itinerary_legs : null,
+                    additional_stops: (newBooking.additional_stops && newBooking.additional_stops.length > 0) ? newBooking.additional_stops : null,
                     // Admin-created bookings don't auto-email the customer today.
                     sendCustomerEmail: false,
                 }),
@@ -816,6 +821,7 @@ export default function BookingsPage() {
                     return_pickup_location: '',
                     return_destination: '',
                     itinerary_legs: [],
+                    additional_stops: [],
                 });
                 alert('Booking created successfully!');
             }
@@ -2213,6 +2219,27 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         </div>
                                     ) : null}
 
+                                    {isEditing ? (
+                                        <div className="pl-4 bg-white border border-gray-200 rounded-lg p-3">
+                                            <AdditionalStopsEditor
+                                                stops={editedBooking.additional_stops || []}
+                                                onChange={(stops) => setEditedBooking({ ...editedBooking, additional_stops: stops })}
+                                            />
+                                        </div>
+                                    ) : selectedBooking.additional_stops && selectedBooking.additional_stops.length > 0 ? (
+                                        <div className="pl-4">
+                                            <span className="block text-xs text-gray-500 mb-1.5">Additional Stops / Ziyarat Sites</span>
+                                            <div className="space-y-1.5">
+                                                {selectedBooking.additional_stops.map((stop, i) => (
+                                                    <div key={i} className="text-sm bg-white border border-gray-200 rounded-lg px-3 py-2 flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                                                        {stop.time && <span className="font-mono text-xs text-gray-500">{formatTime12h(stop.time)}</span>}
+                                                        <span className="font-medium text-gray-900">{stop.location}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    ) : null}
+
                                     <div className="grid grid-cols-2 gap-4 pl-4">
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Distance (km)</span>
@@ -3366,6 +3393,12 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         legs={newBooking.itinerary_legs || []}
                                         onChange={(legs) => setNewBooking({ ...newBooking, itinerary_legs: legs })}
                                         minDate={newBooking.pickup_date}
+                                    />
+                                </div>
+                                <div className="bg-gray-50 border border-gray-200 rounded-xl p-3">
+                                    <AdditionalStopsEditor
+                                        stops={newBooking.additional_stops || []}
+                                        onChange={(stops) => setNewBooking({ ...newBooking, additional_stops: stops })}
                                     />
                                 </div>
                                     <div className="grid grid-cols-2 gap-4">
