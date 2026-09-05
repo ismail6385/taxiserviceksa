@@ -31,7 +31,7 @@ export const ZIYARAT_SITE_PRESETS: ZiyaratCityPreset[] = [
             'Mount Uhud',
             'Masjid Qiblatain',
             "Jannat al-Baqi'",
-            'Seven Mosques (Sab'ah Masajid)',
+            "Seven Mosques (Sab'ah Masajid)",
             'Masjid al-Ghamama',
         ],
     },
