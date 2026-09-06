@@ -65,7 +65,7 @@ export default function HomeUrdu() {
             "contactPoint": [
               {
                 "@type": "ContactPoint",
-                "telephone": "+966 59 020 9905",
+                "telephone": "+966 57 580 6733",
                 "contactType": "کسٹمر سروس"
               }
             ]

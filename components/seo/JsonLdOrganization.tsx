@@ -21,14 +21,14 @@ export default function JsonLdOrganization() {
         "contactPoint": [
             {
                 "@type": "ContactPoint",
-                "telephone": "+966 59 020 9905",
+                "telephone": "+966 57 580 6733",
                 "contactType": "customer service",
                 "areaServed": "SA",
                 "availableLanguage": ["en", "ar", "ur"]
             },
             {
                 "@type": "ContactPoint",
-                "telephone": "+966 59 020 9905",
+                "telephone": "+966 57 580 6733",
                 "contactType": "WhatsApp Booking",
                 "areaServed": "SA",
                 "availableLanguage": ["en", "ar", "ur"]

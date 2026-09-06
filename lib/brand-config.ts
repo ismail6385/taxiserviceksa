@@ -13,8 +13,8 @@ export const BRAND = {
     headquarters: "Jeddah, Saudi Arabia",
     contact: {
         email: "taxiserviceksa9988@gmail.com",
-        whatsapp: "+966590209905",
-        phone: "+966590209905"
+        whatsapp: "+966575806733",
+        phone: "+966575806733"
     },
     vipOnly: true,
     socialLinks: {
