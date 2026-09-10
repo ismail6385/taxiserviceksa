@@ -6,7 +6,13 @@ const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KE
 
 // SMTP Config (Fallback)
 const emailUser = process.env.EMAIL_USER || 'info@taxiserviceksa.com';
-const emailPass = process.env.EMAIL_PASS;
+// Google displays app passwords grouped as "xxxx xxxx xxxx xxxx" for
+// readability, but the real credential has no spaces — a copy-paste of
+// the displayed form (as happened once already) fails Gmail auth with a
+// generic "Username and Password not accepted" error that gives no hint
+// the spaces are the problem. Stripping them here makes that mistake
+// harmless regardless of how the env var gets set.
+const emailPass = process.env.EMAIL_PASS?.replace(/\s+/g, '');
 let smtpHost = process.env.SMTP_HOST;
 if (!smtpHost) {
     smtpHost = emailUser.endsWith('@gmail.com') ? 'smtp.gmail.com' : 'smtp.gmail.com';
