@@ -44,6 +44,16 @@ export type BookingData = {
     flight_number?: string;
     trip_type?: 'point_to_point' | 'hourly';
     duration_hours?: number;
+    // Delivery / Item Transfer — see lib/booking-validation.ts for the full
+    // rules. Sender is customer_name/customer_email/customer_phone, pickup
+    // point is pickup_location, drop-off is destination — all reused as-is.
+    booking_type?: 'passenger' | 'delivery';
+    recipient_name?: string | null;
+    recipient_phone?: string | null;
+    item_type?: string | null;
+    item_description?: string | null;
+    item_count?: number | null;
+    item_size_weight?: string | null;
 };
 
 export const vehicles = [

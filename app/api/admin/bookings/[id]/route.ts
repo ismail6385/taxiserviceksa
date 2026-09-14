@@ -34,12 +34,22 @@ export async function PUT(
         }
 
         const data = parsed.data;
+        const isDelivery = data.booking_type === 'delivery';
         const updatePayload = {
             ...data,
             return_date: data.has_return_trip ? data.return_date ?? null : null,
             return_time: data.has_return_trip ? data.return_time ?? null : null,
             return_pickup_location: data.has_return_trip ? data.return_pickup_location ?? null : null,
             return_destination: data.has_return_trip ? data.return_destination ?? null : null,
+            booking_type: data.booking_type || 'passenger',
+            passengers: isDelivery ? null : data.passengers,
+            luggage: isDelivery ? null : data.luggage,
+            recipient_name: isDelivery ? data.recipient_name ?? null : null,
+            recipient_phone: isDelivery ? data.recipient_phone ?? null : null,
+            item_type: isDelivery ? data.item_type ?? null : null,
+            item_description: isDelivery ? data.item_description ?? null : null,
+            item_count: isDelivery ? data.item_count ?? null : null,
+            item_size_weight: isDelivery ? data.item_size_weight ?? null : null,
         };
 
         const { data: updated, error } = await supabaseAdmin

@@ -41,10 +41,11 @@ import {
     Activity,
     Users,
     Mail,
-    Truck
+    Truck,
+    Package
 } from 'lucide-react';
 import { getPrice } from '@/lib/pricing';
-import { validateRoundTrip, hasStructuredReturnLeg, getReturnRoute, isSameDate } from '@/lib/booking-validation';
+import { validateRoundTrip, hasStructuredReturnLeg, getReturnRoute, isSameDate, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 import ItineraryLegsEditor, { type ItineraryLeg } from '@/components/admin/ItineraryLegsEditor';
 import AdditionalStopsEditor, { type AdditionalStop } from '@/components/admin/AdditionalStopsEditor';
 import { CounterControl } from '@/components/PassengerLuggageSelector';
@@ -139,6 +140,17 @@ interface Booking {
     commission_rate?: number;
     itinerary_legs?: ItineraryLeg[] | null;
     additional_stops?: AdditionalStop[] | null;
+    // Delivery / Item Transfer — see lib/booking-validation.ts. Sender is
+    // customer_name/customer_email/customer_phone; pickup/drop-off reuse
+    // pickup_location/destination; special_requests doubles as delivery
+    // instructions.
+    booking_type?: 'passenger' | 'delivery';
+    recipient_name?: string | null;
+    recipient_phone?: string | null;
+    item_type?: string | null;
+    item_description?: string | null;
+    item_count?: number | null;
+    item_size_weight?: string | null;
 }
 
 export default function BookingsPage() {
@@ -148,6 +160,7 @@ export default function BookingsPage() {
     const [statusFilter, setStatusFilter] = useState('all');
     const [paymentFilter, setPaymentFilter] = useState('all');
     const [tripTypeFilter, setTripTypeFilter] = useState('all');
+    const [bookingTypeFilter, setBookingTypeFilter] = useState('all');
     const [dbPrices, setDbPrices] = useState<Record<string, Record<string, number>>>({});
     const [approvedDrivers, setApprovedDrivers] = useState<{ id: string; full_name: string; phone_number: string; commission_rate?: number }[]>([]);
     const [rateCards, setRateCards] = useState<{ id: string; company_name: string; pickup_location: string; destination: string; vehicle_type: string; rate: number; currency: string }[]>([]);
@@ -217,7 +230,7 @@ export default function BookingsPage() {
     // Reset to page 1 whenever any filter changes
     useEffect(() => {
         setCurrentPage(1);
-    }, [searchTerm, statusFilter, paymentFilter, tripTypeFilter, startDate, endDate]);
+    }, [searchTerm, statusFilter, paymentFilter, tripTypeFilter, bookingTypeFilter, startDate, endDate]);
     
     const [sendingQuote, setSendingQuote] = useState(false);
     const [quoteSent, setQuoteSent] = useState(false);
@@ -267,7 +280,14 @@ export default function BookingsPage() {
         return_destination: '',
         trip_type: 'point_to_point',
         itinerary_legs: [],
-        additional_stops: []
+        additional_stops: [],
+        booking_type: 'passenger',
+        recipient_name: '',
+        recipient_phone: '',
+        item_type: '',
+        item_description: '',
+        item_count: 1,
+        item_size_weight: '',
     });
     const [bookingFieldErrors, setBookingFieldErrors] = useState<Record<string, string>>({});
 
@@ -822,6 +842,13 @@ export default function BookingsPage() {
                     return_destination: '',
                     itinerary_legs: [],
                     additional_stops: [],
+                    booking_type: 'passenger',
+                    recipient_name: '',
+                    recipient_phone: '',
+                    item_type: '',
+                    item_description: '',
+                    item_count: 1,
+                    item_size_weight: '',
                 });
                 alert('Booking created successfully!');
             }
@@ -908,10 +935,18 @@ export default function BookingsPage() {
             matchesTripType = booking.trip_type !== 'hourly';
         }
 
+        // Booking Type Filter — Passenger vs Delivery
+        let matchesBookingType = true;
+        if (bookingTypeFilter === 'delivery') {
+            matchesBookingType = booking.booking_type === 'delivery';
+        } else if (bookingTypeFilter === 'passenger') {
+            matchesBookingType = booking.booking_type !== 'delivery';
+        }
+
         const dateInRange = (!startDate || booking.pickup_date >= startDate) &&
                           (!endDate || booking.pickup_date <= endDate);
 
-        return matchesSearch && matchesStatus && matchesPayment && matchesTripType && dateInRange;
+        return matchesSearch && matchesStatus && matchesPayment && matchesTripType && matchesBookingType && dateInRange;
     }).sort((a, b) => {
         if (!sortConfig) return 0;
         const { key, direction } = sortConfig;
@@ -1003,8 +1038,12 @@ export default function BookingsPage() {
         }
     };
 
+    const itemTypeLabel = (booking: Booking) => DELIVERY_ITEM_TYPES.find(it => it.value === booking.item_type)?.label || booking.item_type || 'Item';
+
     const shareB2BOptions = (booking: Booking) => {
-        const text = `*B2B Booking Request* \n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*From:* ${booking.pickup_location}\n*To:* ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}\n*Vehicle:* ${booking.vehicle_type}\n*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}\n\n*Notes:* ${booking.special_requests || 'N/A'}\n\nPlease confirm if you can cover this.`;
+        const isDelivery = booking.booking_type === 'delivery';
+        const loadLine = isDelivery ? `*Item:* ${itemTypeLabel(booking)} × ${booking.item_count || 1}` : `*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}`;
+        const text = `${isDelivery ? '*B2B DELIVERY Request*' : '*B2B Booking Request*'} \n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*From:* ${booking.pickup_location}\n*To:* ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}\n*Vehicle:* ${booking.vehicle_type}\n${loadLine}\n\n*Notes:* ${booking.special_requests || 'N/A'}\n\nPlease confirm if you can cover this.`;
 
         navigator.clipboard.writeText(text).then(() => {
             alert('B2B details copied to clipboard!');
@@ -1012,9 +1051,13 @@ export default function BookingsPage() {
     };
 
     const shareClientDetails = (booking: Booking) => {
-        const hourlyLine = booking.trip_type === 'hourly' ? `\n*Duration:* ${booking.duration_hours || '?'} hours (Hourly Hire)` : '';
+        const isDelivery = booking.booking_type === 'delivery';
+        const hourlyLine = !isDelivery && booking.trip_type === 'hourly' ? `\n*Duration:* ${booking.duration_hours || '?'} hours (Hourly Hire)` : '';
         const contractLine = booking.contract_id ? `\n*Contract:* Recurring Monthly Client` : '';
-        const text = `*Booking Details (Client)* \n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*Client:* ${booking.customer_name}\n*Phone:* ${booking.customer_phone}\n*Pickup:* ${booking.pickup_location}\n*Dropoff:* ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}${hourlyLine}${contractLine}\n*Vehicle:* ${booking.vehicle_type}\n*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}\n\n*Fare:* ${booking.currency || 'SAR'} ${booking.total_price || 'Confirming'}\n\n*Notes:* ${booking.special_requests || 'N/A'}\n\nThank you for choosing Taxi Service KSA.`;
+        const loadLine = isDelivery
+            ? `*Recipient:* ${booking.recipient_name || '—'} (${booking.recipient_phone || '—'})\n*Item:* ${itemTypeLabel(booking)} × ${booking.item_count || 1}`
+            : `*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}`;
+        const text = `${isDelivery ? '*DELIVERY Details (Sender)*' : '*Booking Details (Client)*'} \n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*${isDelivery ? 'Sender' : 'Client'}:* ${booking.customer_name}\n*Phone:* ${booking.customer_phone}\n*Pickup:* ${booking.pickup_location}\n*Dropoff:* ${booking.destination}\n*Date:* ${booking.pickup_date} at ${booking.pickup_time}${hourlyLine}${contractLine}\n*Vehicle:* ${booking.vehicle_type}\n${loadLine}\n\n*Fare:* ${booking.currency || 'SAR'} ${booking.total_price || 'Confirming'}\n\n*Notes:* ${booking.special_requests || 'N/A'}\n\nThank you for choosing Taxi Service KSA.`;
 
         navigator.clipboard.writeText(text).then(() => {
             alert('Client details copied to clipboard!');
@@ -1022,9 +1065,13 @@ export default function BookingsPage() {
     };
 
     const shareDriverDetails = (booking: Booking) => {
-        const hourlyLine = booking.trip_type === 'hourly' ? `\n*Duration:* ${booking.duration_hours || '?'} hours (Hourly Hire)` : '';
+        const isDelivery = booking.booking_type === 'delivery';
+        const hourlyLine = !isDelivery && booking.trip_type === 'hourly' ? `\n*Duration:* ${booking.duration_hours || '?'} hours (Hourly Hire)` : '';
         const contractLine = booking.contract_id ? `\n*Contract:* Recurring Monthly Client` : '';
-        const text = `*NEW TRIP FOR DRIVER* \n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*Client:* ${booking.customer_name}\n*Phone:* ${booking.customer_phone}\n\n*Pickup:* ${booking.pickup_location}\n*Dropoff:* ${booking.destination}\n*Date:* ${booking.pickup_date}\n*Time:* ${booking.pickup_time}${hourlyLine}${contractLine}\n\n*Vehicle:* ${booking.vehicle_type}\n*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}\n\n*Notes:* ${booking.special_requests || 'None'}`;
+        const loadLine = isDelivery
+            ? `*Recipient:* ${booking.recipient_name || '—'} (${booking.recipient_phone || '—'})\n*Item:* ${itemTypeLabel(booking)} × ${booking.item_count || 1}${booking.item_size_weight ? ` (${booking.item_size_weight})` : ''}`
+            : `*Pax:* ${booking.passengers} | *Bags:* ${booking.luggage}`;
+        const text = `${isDelivery ? '*NEW DELIVERY FOR DRIVER — NO PASSENGER*' : '*NEW TRIP FOR DRIVER*'} \n\n*Ref:* #${booking.id.slice(0, 8).toUpperCase()}\n*${isDelivery ? 'Sender' : 'Client'}:* ${booking.customer_name}\n*Phone:* ${booking.customer_phone}\n\n*Pickup:* ${booking.pickup_location}\n*Dropoff:* ${booking.destination}\n*Date:* ${booking.pickup_date}\n*Time:* ${booking.pickup_time}${hourlyLine}${contractLine}\n\n*Vehicle:* ${booking.vehicle_type}\n${loadLine}\n\n*Notes:* ${booking.special_requests || 'None'}`;
 
         navigator.clipboard.writeText(text).then(() => {
             alert('Driver details (No Price) copied!');
@@ -1032,16 +1079,21 @@ export default function BookingsPage() {
     };
 
     const sendWhatsAppHello = (booking: Booking) => {
-        const returnText = hasStructuredReturnLeg(booking)
+        const isDelivery = booking.booking_type === 'delivery';
+        const returnText = !isDelivery && hasStructuredReturnLeg(booking)
             ? ` (Round Trip 🔄 — returning ${booking.return_date}${booking.return_time ? ` at ${formatTime12h(booking.return_time)}` : ''})`
-            : booking.has_return_trip ? " (Including Round Trip 🔄)" : "";
-        const childSeatText = booking.child_seats ? ` (With ${booking.child_seats} Child Seat(s) 👶)` : "";
+            : !isDelivery && booking.has_return_trip ? " (Including Round Trip 🔄)" : "";
+        const childSeatText = !isDelivery && booking.child_seats ? ` (With ${booking.child_seats} Child Seat(s) 👶)` : "";
         const contractText = booking.contract_id ? " — as part of your Monthly Contract 📋" : "";
-        const tripDescription = booking.trip_type === 'hourly'
+        const tripDescription = !isDelivery && booking.trip_type === 'hourly'
             ? `from *${booking.pickup_location}* for *${booking.duration_hours || '?'} hours* (Hourly Hire ⏱)`
             : `from *${booking.pickup_location}* to *${booking.destination}*`;
 
-        const text = `Hello ${booking.customer_name}! 🚕 *Taxi Service KSA* here.
+        const text = isDelivery ? `Hello ${booking.customer_name}! 📦 *Taxi Service KSA* here.
+
+We have received your DELIVERY request (${itemTypeLabel(booking)}) ${tripDescription} on *${booking.pickup_date}*, for recipient *${booking.recipient_name || '—'}*${contractText}.
+
+Our team is reviewing the availability and will send you the quotation shortly. Thank you!` : `Hello ${booking.customer_name}! 🚕 *Taxi Service KSA* here.
 
 We have received your booking request ${tripDescription} on *${booking.pickup_date}*${returnText}${childSeatText}${contractText}.
 
@@ -1050,10 +1102,19 @@ Our team is reviewing the availability and will send you the quotation shortly. 
     };
 
     const sendWhatsAppDriver = (booking: Booking) => {
+        const isDelivery = booking.booking_type === 'delivery';
         const driverName = booking.driver_name || "[Assign Driver]";
         const vehicle = booking.actual_vehicle || booking.vehicle_type;
-        const text = `Hi ${booking.customer_name}! Your trip for *${booking.pickup_date} at ${booking.pickup_time}* is confirmed. ✅
-        
+        const text = isDelivery ? `Hi ${booking.customer_name}! Your DELIVERY for *${booking.pickup_date} at ${booking.pickup_time}* is confirmed. ✅
+
+🚗 *Vehicle:* ${vehicle}
+👤 *Driver:* ${driverName}
+📍 *Pickup:* ${booking.pickup_location}
+📦 *Item:* ${itemTypeLabel(booking)} × ${booking.item_count || 1}
+👤 *Recipient:* ${booking.recipient_name || '—'} (${booking.recipient_phone || '—'})
+
+Your professional driver will contact you shortly via WhatsApp/Call. Thank you for choosing *Taxi Service KSA*!` : `Hi ${booking.customer_name}! Your trip for *${booking.pickup_date} at ${booking.pickup_time}* is confirmed. ✅
+
 🚗 *Vehicle:* ${vehicle}
 👤 *Driver:* ${driverName}
 📍 *Pickup:* ${booking.pickup_location}
@@ -1064,13 +1125,14 @@ Your professional chauffeur will contact you shortly via WhatsApp/Call. Have a s
     };
 
     const sendWhatsAppPrice = (booking: Booking) => {
-        const hasReturn = booking.has_return_trip || booking.special_requests?.includes('RETURN TRIP');
-        const tripNote = booking.trip_type === 'hourly'
+        const isDelivery = booking.booking_type === 'delivery';
+        const hasReturn = !isDelivery && (booking.has_return_trip || booking.special_requests?.includes('RETURN TRIP'));
+        const tripNote = !isDelivery && booking.trip_type === 'hourly'
             ? `(Hourly Hire — ${booking.duration_hours || '?'} hours)`
             : hasReturn ? '(Round Trip Included)' : '';
         const contractNote = booking.contract_id ? '\n\n📋 This trip is part of your active Monthly Contract.' : '';
 
-        const text = `Hi ${booking.customer_name}! The total fare for your trip is *${booking.currency || 'SAR'} ${booking.total_price || 0}* ${tripNote}.${contractNote}
+        const text = `Hi ${booking.customer_name}! The total fare for your ${isDelivery ? 'delivery' : 'trip'} is *${booking.currency || 'SAR'} ${booking.total_price || 0}* ${tripNote}.${contractNote}
 
 💳 *Payment Status:* ${(booking.payment_status || 'unpaid').toUpperCase()}
 
@@ -1270,9 +1332,10 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
 
         if (dataToExport.length === 0) return;
         
-        const headers = ["ID", "Customer", "Phone", "From", "To", "Date", "Time", "Vehicle", "Price", "Status", "Payment", "Trip Type", "Duration (Hrs)", "Contract"];
+        const headers = ["ID", "Booking Type", "Customer", "Phone", "From", "To", "Date", "Time", "Vehicle", "Price", "Status", "Payment", "Trip Type", "Duration (Hrs)", "Contract", "Recipient", "Recipient Phone", "Item Type", "Item Count"];
         const rows = dataToExport.map(b => [
             b.id,
+            b.booking_type === 'delivery' ? 'Delivery' : 'Passenger',
             b.customer_name,
             b.customer_phone,
             b.pickup_location,
@@ -1285,7 +1348,11 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
             b.payment_status,
             b.trip_type === 'hourly' ? 'Hourly' : 'Point to Point',
             b.trip_type === 'hourly' ? (b.duration_hours || '') : '',
-            b.contract_id ? 'Yes' : 'No'
+            b.contract_id ? 'Yes' : 'No',
+            b.booking_type === 'delivery' ? (b.recipient_name || '') : '',
+            b.booking_type === 'delivery' ? (b.recipient_phone || '') : '',
+            b.booking_type === 'delivery' ? (DELIVERY_ITEM_TYPES.find(it => it.value === b.item_type)?.label || b.item_type || '') : '',
+            b.booking_type === 'delivery' ? (b.item_count || '') : ''
         ]);
         
         const csvContent = [headers, ...rows].map(e => e.join(",")).join("\n");
@@ -1537,8 +1604,23 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                         </SelectContent>
                     </Select>
                 </div>
+                <div className="flex-1">
+                    <Select value={bookingTypeFilter} onValueChange={setBookingTypeFilter}>
+                        <SelectTrigger className="bg-white border-gray-200 text-gray-900 shadow-sm">
+                            <div className="flex items-center gap-2">
+                                <Package className="w-4 h-4" />
+                                <SelectValue placeholder="Booking Type" />
+                            </div>
+                        </SelectTrigger>
+                        <SelectContent className="bg-white border-gray-200 text-gray-900 shadow-lg">
+                            <SelectItem value="all">All Bookings</SelectItem>
+                            <SelectItem value="passenger">Passenger</SelectItem>
+                            <SelectItem value="delivery">Delivery</SelectItem>
+                        </SelectContent>
+                    </Select>
                 </div>
-                {(searchTerm || statusFilter !== 'all' || paymentFilter !== 'all' || tripTypeFilter !== 'all' || startDate || endDate) && (
+                </div>
+                {(searchTerm || statusFilter !== 'all' || paymentFilter !== 'all' || tripTypeFilter !== 'all' || bookingTypeFilter !== 'all' || startDate || endDate) && (
                     <Button
                         variant="ghost"
                         size="sm"
@@ -1547,6 +1629,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                             setStatusFilter('all');
                             setPaymentFilter('all');
                             setTripTypeFilter('all');
+                            setBookingTypeFilter('all');
                             setStartDate('');
                             setEndDate('');
                             setCurrentPage(1);
@@ -1690,6 +1773,11 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             <div className="flex flex-col">
                                                 <div className="flex items-center gap-2">
                                                     <span className="font-medium text-gray-900">{booking.customer_name}</span>
+                                                    {booking.booking_type === 'delivery' && (
+                                                        <Badge className="bg-amber-500 hover:bg-amber-600 text-white border-none text-[9px] font-black uppercase tracking-widest px-1.5 py-0 gap-1">
+                                                            <Package className="w-2.5 h-2.5" /> Delivery
+                                                        </Badge>
+                                                    )}
                                                     {customerStats[booking.customer_phone] >= 3 && (
                                                         <span title="Platinum Client (Repeat)">
                                                             <Crown className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
@@ -1894,6 +1982,11 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         <div className="min-w-0">
                                             <div className="flex items-center gap-1.5 flex-wrap">
                                                 <span className="font-bold text-gray-900 truncate">{booking.customer_name}</span>
+                                                {booking.booking_type === 'delivery' && (
+                                                    <Badge className="bg-amber-500 hover:bg-amber-600 text-white border-none text-[9px] font-black uppercase tracking-widest px-1.5 py-0 gap-1 shrink-0">
+                                                        <Package className="w-2.5 h-2.5" /> Delivery
+                                                    </Badge>
+                                                )}
                                                 {customerStats[booking.customer_phone] >= 3 && (
                                                     <Crown className="w-3.5 h-3.5 text-amber-500 fill-amber-500 shrink-0" />
                                                 )}
@@ -2115,10 +2208,43 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                 </div>
                             </div>
 
+                            {/* Booking Type — Passenger Transfer vs Delivery / Item Transfer */}
+                            <div className={`p-4 rounded-lg border ${(isEditing ? editedBooking : selectedBooking).booking_type === 'delivery' ? 'bg-amber-50 border-amber-200' : 'bg-gray-50 border-gray-200'}`}>
+                                <label className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2 block">Booking Type</label>
+                                {isEditing ? (
+                                    <div className="grid grid-cols-2 gap-1.5 p-1 bg-white rounded-lg border border-gray-200 w-fit">
+                                        <button
+                                            type="button"
+                                            onClick={() => setEditedBooking({ ...editedBooking, booking_type: 'passenger' })}
+                                            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-bold transition-all ${editedBooking.booking_type !== 'delivery' ? 'bg-gray-900 text-white' : 'text-gray-500'}`}
+                                        >
+                                            <Users className="w-3.5 h-3.5" /> Passenger
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={() => setEditedBooking({ ...editedBooking, booking_type: 'delivery', has_return_trip: false })}
+                                            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-bold transition-all ${editedBooking.booking_type === 'delivery' ? 'bg-amber-500 text-white' : 'text-gray-500'}`}
+                                        >
+                                            <Package className="w-3.5 h-3.5" /> Delivery
+                                        </button>
+                                    </div>
+                                ) : selectedBooking.booking_type === 'delivery' ? (
+                                    <div className="flex items-center gap-2">
+                                        <Badge className="bg-amber-500 hover:bg-amber-600 text-white border-none text-sm px-3 py-1 gap-1.5">
+                                            <Package className="w-3.5 h-3.5" /> DELIVERY — NO PASSENGER
+                                        </Badge>
+                                    </div>
+                                ) : (
+                                    <Badge variant="outline" className="bg-white text-gray-500 border-gray-200 text-sm px-3 py-1 gap-1.5">
+                                        <Users className="w-3.5 h-3.5" /> Passenger Transfer
+                                    </Badge>
+                                )}
+                            </div>
+
                             {/* Customer Info */}
                             <div>
                                 <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                                    Customer Information
+                                    {(isEditing ? editedBooking : selectedBooking).booking_type === 'delivery' ? 'Sender Information' : 'Customer Information'}
                                 </h3>
                                 <div className="space-y-3 bg-gray-50 p-4 rounded-lg border border-gray-100">
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -2170,6 +2296,95 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     </div>
                                 </div>
                             </div>
+
+                            {/* Recipient & Item Details — delivery bookings only */}
+                            {(isEditing ? editedBooking : selectedBooking).booking_type === 'delivery' && (
+                                <div>
+                                    <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                                        <Package className="w-4 h-4 text-amber-600" /> Recipient &amp; Item Details
+                                    </h3>
+                                    <div className="space-y-3 bg-amber-50/50 p-4 rounded-lg border border-amber-100">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                            <div>
+                                                <span className="block text-xs text-gray-500 mb-1">Recipient Name</span>
+                                                {isEditing ? (
+                                                    <Input value={editedBooking.recipient_name || ''} onChange={(e) => setEditedBooking({ ...editedBooking, recipient_name: e.target.value })} className="h-8 text-sm bg-white" />
+                                                ) : (
+                                                    <span className="text-sm font-medium text-gray-900">{selectedBooking.recipient_name || '—'}</span>
+                                                )}
+                                                {bookingFieldErrors.recipient_name && <p className="text-red-500 text-xs mt-1">{bookingFieldErrors.recipient_name}</p>}
+                                            </div>
+                                            <div>
+                                                <span className="block text-xs text-gray-500 mb-1">Recipient Phone</span>
+                                                {isEditing ? (
+                                                    <Input value={editedBooking.recipient_phone || ''} onChange={(e) => setEditedBooking({ ...editedBooking, recipient_phone: e.target.value })} className="h-8 text-sm bg-white" />
+                                                ) : (
+                                                    <div className="flex items-center gap-2">
+                                                        <span className="text-sm font-medium text-gray-900">{selectedBooking.recipient_phone || '—'}</span>
+                                                        {selectedBooking.recipient_phone && (
+                                                            <Button variant="ghost" size="icon" className="h-6 w-6 text-emerald-600" onClick={() => openWhatsApp(selectedBooking.recipient_phone!)}>
+                                                                <MessageSquare className="h-4 w-4" />
+                                                            </Button>
+                                                        )}
+                                                    </div>
+                                                )}
+                                                {bookingFieldErrors.recipient_phone && <p className="text-red-500 text-xs mt-1">{bookingFieldErrors.recipient_phone}</p>}
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span className="block text-xs text-gray-500 mb-1">Item Type</span>
+                                            {isEditing ? (
+                                                <div className="flex flex-wrap gap-1">
+                                                    {DELIVERY_ITEM_TYPES.map((it) => (
+                                                        <span
+                                                            key={it.value}
+                                                            onClick={() => setEditedBooking({ ...editedBooking, item_type: it.value })}
+                                                            className={`text-[10px] px-1.5 py-0.5 rounded cursor-pointer transition-colors border ${editedBooking.item_type === it.value ? 'bg-amber-500 border-amber-600 text-white font-bold' : 'bg-white border-gray-200 text-gray-700 hover:bg-gray-100'}`}
+                                                        >
+                                                            {it.label}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            ) : (
+                                                <span className="text-sm font-medium text-gray-900">{DELIVERY_ITEM_TYPES.find(it => it.value === selectedBooking.item_type)?.label || selectedBooking.item_type || '—'}</span>
+                                            )}
+                                            {bookingFieldErrors.item_type && <p className="text-red-500 text-xs mt-1">{bookingFieldErrors.item_type}</p>}
+                                        </div>
+                                        <div>
+                                            <span className="block text-xs text-gray-500 mb-1">Item Description</span>
+                                            {isEditing ? (
+                                                <Input value={editedBooking.item_description || ''} onChange={(e) => setEditedBooking({ ...editedBooking, item_description: e.target.value })} className="h-8 text-sm bg-white" placeholder="e.g. Brown leather bag" />
+                                            ) : (
+                                                <span className="text-sm text-gray-700">{selectedBooking.item_description || '—'}</span>
+                                            )}
+                                        </div>
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <div>
+                                                <span className="block text-xs text-gray-500 mb-1">Number of Items</span>
+                                                {isEditing ? (
+                                                    <CounterControl
+                                                        value={editedBooking.item_count || 1}
+                                                        onChange={(n) => setEditedBooking({ ...editedBooking, item_count: n })}
+                                                        min={1}
+                                                        size="sm"
+                                                        aria-label="item count"
+                                                    />
+                                                ) : (
+                                                    <span className="font-medium text-gray-900">{selectedBooking.item_count || 1}</span>
+                                                )}
+                                            </div>
+                                            <div>
+                                                <span className="block text-xs text-gray-500 mb-1">Size / Weight</span>
+                                                {isEditing ? (
+                                                    <Input value={editedBooking.item_size_weight || ''} onChange={(e) => setEditedBooking({ ...editedBooking, item_size_weight: e.target.value })} className="h-8 text-sm bg-white" placeholder="e.g. Small bag, ~2kg" />
+                                                ) : (
+                                                    <span className="font-medium text-gray-900">{selectedBooking.item_size_weight || '—'}</span>
+                                                )}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
 
                             {/* Trip Details */}
                             <div>
@@ -2657,12 +2872,13 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         )}
                                     </div>
 
+                                    {(isEditing ? editedBooking : selectedBooking).booking_type !== 'delivery' && (
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Passengers</span>
                                             {isEditing ? (
                                                 <CounterControl
-                                                    value={editedBooking.passengers}
+                                                    value={editedBooking.passengers || 1}
                                                     onChange={(n) => setEditedBooking({ ...editedBooking, passengers: n })}
                                                     min={1}
                                                     size="sm"
@@ -2677,7 +2893,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             {isEditing ? (
                                                 // Never capped to vehicle capacity — admin can always record more bags than nominal.
                                                 <CounterControl
-                                                    value={editedBooking.luggage}
+                                                    value={editedBooking.luggage || 0}
                                                     onChange={(n) => setEditedBooking({ ...editedBooking, luggage: n })}
                                                     min={0}
                                                     max={50}
@@ -2690,6 +2906,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                             )}
                                         </div>
                                     </div>
+                                    )}
 
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
@@ -3248,9 +3465,30 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                     </SheetHeader>
 
                     <div className="space-y-6">
+                        {/* Booking Type */}
+                        <div className="space-y-2">
+                            <label className="text-sm font-medium text-gray-700">Booking Type</label>
+                            <div className="grid grid-cols-2 gap-1.5 p-1.5 bg-gray-100 rounded-xl">
+                                <button
+                                    type="button"
+                                    onClick={() => setNewBooking({ ...newBooking, booking_type: 'passenger' })}
+                                    className={`flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-bold transition-all ${newBooking.booking_type !== 'delivery' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500'}`}
+                                >
+                                    <Users className="w-4 h-4" /> Passenger Transfer
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => setNewBooking({ ...newBooking, booking_type: 'delivery', has_return_trip: false, trip_type: 'point_to_point' })}
+                                    className={`flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-bold transition-all ${newBooking.booking_type === 'delivery' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500'}`}
+                                >
+                                    <Package className="w-4 h-4" /> Delivery / Item Transfer
+                                </button>
+                            </div>
+                        </div>
+
                         {/* Customer Info */}
                         <div className="space-y-4">
-                            <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">Customer Details</h3>
+                            <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">{newBooking.booking_type === 'delivery' ? 'Sender Details' : 'Customer Details'}</h3>
                             {duplicateFound && (
                                 <div className="bg-red-50 border border-red-200 p-3 rounded-lg flex items-center gap-3 animate-pulse">
                                     <AlertTriangle className="w-5 h-5 text-red-600" />
@@ -3380,7 +3618,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     />
                                 </div>
                                 <div className="space-y-1">
-                                    <label className="text-sm font-medium text-gray-700">Destination</label>
+                                    <label className="text-sm font-medium text-gray-700">{newBooking.booking_type === 'delivery' ? 'Delivery Location' : 'Destination'}</label>
                                     <Input
                                         placeholder="Hotel, Airport, etc."
                                         value={newBooking.destination}
@@ -3388,6 +3626,83 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         className="bg-white border-gray-200"
                                     />
                                 </div>
+
+                                {newBooking.booking_type === 'delivery' && (
+                                    <div className="space-y-4 p-4 bg-amber-50/50 border border-dashed border-amber-200 rounded-xl">
+                                        <div className="flex items-center gap-2 -mb-1">
+                                            <Package className="w-4 h-4 text-amber-600" />
+                                            <span className="text-xs font-bold text-amber-700 uppercase tracking-wide">Recipient &amp; Item Details</span>
+                                        </div>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                            <div className="space-y-1">
+                                                <label className="text-sm font-medium text-gray-700">Recipient Name</label>
+                                                <Input
+                                                    value={newBooking.recipient_name || ''}
+                                                    onChange={(e) => setNewBooking({ ...newBooking, recipient_name: e.target.value })}
+                                                    className="bg-white border-gray-200"
+                                                    placeholder="Who will receive the item?"
+                                                />
+                                                {bookingFieldErrors.recipient_name && <p className="text-red-500 text-xs mt-1">{bookingFieldErrors.recipient_name}</p>}
+                                            </div>
+                                            <div className="space-y-1">
+                                                <label className="text-sm font-medium text-gray-700">Recipient Phone</label>
+                                                <Input
+                                                    value={newBooking.recipient_phone || ''}
+                                                    onChange={(e) => setNewBooking({ ...newBooking, recipient_phone: e.target.value })}
+                                                    className="bg-white border-gray-200"
+                                                    placeholder="+966..."
+                                                />
+                                                {bookingFieldErrors.recipient_phone && <p className="text-red-500 text-xs mt-1">{bookingFieldErrors.recipient_phone}</p>}
+                                            </div>
+                                        </div>
+                                        <div className="space-y-1">
+                                            <label className="text-sm font-medium text-gray-700">Item Type</label>
+                                            <div className="flex flex-wrap gap-1">
+                                                {DELIVERY_ITEM_TYPES.map((it) => (
+                                                    <span
+                                                        key={it.value}
+                                                        onClick={() => setNewBooking({ ...newBooking, item_type: it.value })}
+                                                        className={`text-[11px] px-2 py-1 rounded cursor-pointer transition-colors border ${newBooking.item_type === it.value ? 'bg-amber-500 border-amber-600 text-white font-bold' : 'bg-white border-gray-200 text-gray-700 hover:bg-gray-100'}`}
+                                                    >
+                                                        {it.label}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                            {bookingFieldErrors.item_type && <p className="text-red-500 text-xs mt-1">{bookingFieldErrors.item_type}</p>}
+                                        </div>
+                                        <div className="space-y-1">
+                                            <label className="text-sm font-medium text-gray-700">Item Description</label>
+                                            <Input
+                                                value={newBooking.item_description || ''}
+                                                onChange={(e) => setNewBooking({ ...newBooking, item_description: e.target.value })}
+                                                className="bg-white border-gray-200"
+                                                placeholder="e.g. Brown leather bag with a red ribbon"
+                                            />
+                                        </div>
+                                        <div className="grid grid-cols-2 gap-4">
+                                            <div className="space-y-1">
+                                                <label className="text-sm font-medium text-gray-700">Number of Items</label>
+                                                <CounterControl
+                                                    value={newBooking.item_count ?? 1}
+                                                    onChange={(n) => setNewBooking({ ...newBooking, item_count: n })}
+                                                    min={1}
+                                                    size="sm"
+                                                    aria-label="item count"
+                                                />
+                                            </div>
+                                            <div className="space-y-1">
+                                                <label className="text-sm font-medium text-gray-700">Size / Weight</label>
+                                                <Input
+                                                    value={newBooking.item_size_weight || ''}
+                                                    onChange={(e) => setNewBooking({ ...newBooking, item_size_weight: e.target.value })}
+                                                    className="bg-white border-gray-200"
+                                                    placeholder="e.g. Small bag, ~2kg"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
                                 <div className="bg-gray-50 border border-gray-200 rounded-xl p-3">
                                     <ItineraryLegsEditor
                                         legs={newBooking.itinerary_legs || []}
@@ -3548,6 +3863,8 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         </p>
                                     )}
                                 </div>
+                                {newBooking.booking_type !== 'delivery' && (
+                                <>
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Passengers</label>
                                     <CounterControl
@@ -3571,6 +3888,8 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         aria-label="luggage"
                                     />
                                 </div>
+                                </>
+                                )}
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Payment Status</label>
                                     <Select
@@ -3667,6 +3986,8 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         </SelectContent>
                                     </Select>
                                 </div>
+                                {newBooking.booking_type !== 'delivery' && (
+                                <>
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Trip Type</label>
                                     <button
@@ -3722,8 +4043,10 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         </button>
                                     </div>
                                 )}
+                                </>
+                                )}
                             </div>
-                            {newBooking.has_return_trip && (
+                            {newBooking.booking_type !== 'delivery' && newBooking.has_return_trip && (
                                 <div className="space-y-4 p-4 bg-blue-50/40 border border-dashed border-blue-200 rounded-xl">
                                     <div className="flex items-center justify-between">
                                         <span className="text-xs font-bold text-blue-700 uppercase tracking-wide">Return Journey</span>
@@ -3792,7 +4115,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                             )}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="space-y-1">
-                                    <label className="text-sm font-medium text-gray-700">Special Requests / Notes (Client Facing)</label>
+                                    <label className="text-sm font-medium text-gray-700">{newBooking.booking_type === 'delivery' ? 'Special Instructions (Client Facing)' : 'Special Requests / Notes (Client Facing)'}</label>
                                     <textarea
                                         value={newBooking.special_requests}
                                         onChange={(e) => setNewBooking({ ...newBooking, special_requests: e.target.value })}

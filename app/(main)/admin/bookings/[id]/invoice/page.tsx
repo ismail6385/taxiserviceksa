@@ -8,7 +8,7 @@ import { supabase } from '@/lib/supabase';
 import { adminFetch } from '@/lib/admin-fetch';
 import { formatTime12h } from '@/lib/format-time';
 import { downloadDocumentPdf, documentPdfToBase64 } from '@/lib/document-pdf';
-import { getReturnRoute } from '@/lib/booking-validation';
+import { getReturnRoute, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 import {
     Printer,
     ArrowLeft,
@@ -160,6 +160,11 @@ interface Booking {
     itinerary_legs?: { date: string; time: string; pickup: string; dropoff: string }[] | null;
     additional_stops?: Stop[] | null;
     deposit_amount?: number | null;
+    booking_type?: 'passenger' | 'delivery';
+    recipient_name?: string | null;
+    recipient_phone?: string | null;
+    item_type?: string | null;
+    item_count?: number | null;
 }
 
 export default function InvoicePage() {
@@ -838,7 +843,9 @@ export default function InvoicePage() {
                                     { label: t.serviceDate, value: serviceDateLabel },
                                     { label: t.timeLabel, value: formatTime12h(booking.pickup_time) },
                                     { label: t.vehicleLabel, value: booking.vehicle_type },
-                                    { label: t.passengersLabel, value: `${booking.passengers} ${t.pax} · ${booking.luggage} ${t.bags}` },
+                                    booking.booking_type === 'delivery'
+                                        ? { label: t.passengersLabel, value: `${DELIVERY_ITEM_TYPES.find(it => it.value === booking.item_type)?.label || booking.item_type || 'Item'} × ${booking.item_count || 1}` }
+                                        : { label: t.passengersLabel, value: `${booking.passengers} ${t.pax} · ${booking.luggage} ${t.bags}` },
                                     { label: t.serviceTypeLabel, value: serviceTitle },
                                     ...(booking.trip_type === 'hourly' ? [{ label: t.durationLabel, value: `${booking.duration_hours || '?'} ${t.hours}` }] : []),
                                 ].map(({ label, value }) => (
@@ -856,7 +863,9 @@ export default function InvoicePage() {
                         {[
                             { label: t.serviceDate, value: serviceDateLabel },
                             { label: t.vehiclesLabel, value: booking.vehicle_type },
-                            { label: t.passengersLabel, value: `${booking.passengers} ${t.pax}` },
+                            booking.booking_type === 'delivery'
+                                ? { label: t.passengersLabel, value: `${DELIVERY_ITEM_TYPES.find(it => it.value === booking.item_type)?.label || booking.item_type || 'Item'} × ${booking.item_count || 1}` }
+                                : { label: t.passengersLabel, value: `${booking.passengers} ${t.pax}` },
                             { label: t.serviceTypeLabel, value: serviceTitle },
                         ].map(({ label, value }) => (
                             <div key={label} className="bg-gray-50 px-3 py-2.5">

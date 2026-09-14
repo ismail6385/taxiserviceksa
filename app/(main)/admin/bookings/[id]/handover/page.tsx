@@ -2,21 +2,24 @@
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
-import { 
-    Printer, 
-    ArrowLeft, 
-    MapPin, 
-    Phone, 
-    Calendar, 
-    Clock, 
+import {
+    Printer,
+    ArrowLeft,
+    MapPin,
+    Phone,
+    Calendar,
+    Clock,
     Car,
     User,
     ClipboardCheck,
     AlertCircle,
-    CheckCircle2
+    CheckCircle2,
+    Package,
+    UserCheck
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
+import { DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 
 interface Booking {
     id: string;
@@ -38,6 +41,13 @@ interface Booking {
     flight_number?: string;
     driver_name?: string;
     actual_vehicle?: string;
+    booking_type?: 'passenger' | 'delivery';
+    recipient_name?: string | null;
+    recipient_phone?: string | null;
+    item_type?: string | null;
+    item_description?: string | null;
+    item_count?: number | null;
+    item_size_weight?: string | null;
 }
 
 export default function HandoverPage() {
@@ -134,6 +144,13 @@ export default function HandoverPage() {
                     </div>
                 </div>
 
+                {booking.booking_type === 'delivery' && (
+                    <div className="bg-amber-400 text-slate-900 py-3 px-6 flex items-center justify-center gap-2 print:border-b-2 print:border-amber-500">
+                        <Package className="w-5 h-5" />
+                        <span className="font-black uppercase tracking-widest text-sm">DELIVERY — NO PASSENGER</span>
+                    </div>
+                )}
+
                 <div className="p-8 space-y-8">
                     {/* Primary Info Grid */}
                     <div className="grid grid-cols-2 gap-8">
@@ -168,7 +185,7 @@ export default function HandoverPage() {
 
                         <div className="space-y-4">
                             <div className="bg-slate-50 p-4 rounded-lg border border-slate-100">
-                                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Customer Details</p>
+                                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">{booking.booking_type === 'delivery' ? 'Sender Details' : 'Customer Details'}</p>
                                 <div className="space-y-2">
                                     <p className="flex items-center gap-2 text-base font-black text-slate-900">
                                         <User className="w-4 h-4 text-slate-400" /> {booking.customer_name}
@@ -176,11 +193,31 @@ export default function HandoverPage() {
                                     <p className="flex items-center gap-2 text-sm font-bold text-slate-700">
                                         <Phone className="w-4 h-4 text-slate-400" /> {booking.customer_phone}
                                     </p>
-                                    <p className="text-xs font-bold text-slate-500 uppercase tracking-tighter">
-                                        {booking.passengers} Pax | {booking.luggage} Bags
-                                    </p>
+                                    {booking.booking_type === 'delivery' ? (
+                                        <p className="text-xs font-bold text-slate-500 uppercase tracking-tighter">
+                                            {DELIVERY_ITEM_TYPES.find(it => it.value === booking.item_type)?.label || booking.item_type || 'Item'} × {booking.item_count || 1}
+                                        </p>
+                                    ) : (
+                                        <p className="text-xs font-bold text-slate-500 uppercase tracking-tighter">
+                                            {booking.passengers} Pax | {booking.luggage} Bags
+                                        </p>
+                                    )}
                                 </div>
                             </div>
+
+                            {booking.booking_type === 'delivery' && (
+                                <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                    <p className="text-[10px] font-bold text-blue-500 uppercase tracking-widest mb-1">Recipient Details</p>
+                                    <div className="space-y-2">
+                                        <p className="flex items-center gap-2 text-base font-black text-slate-900">
+                                            <UserCheck className="w-4 h-4 text-blue-400" /> {booking.recipient_name || '—'}
+                                        </p>
+                                        <p className="flex items-center gap-2 text-sm font-bold text-slate-700">
+                                            <Phone className="w-4 h-4 text-blue-400" /> {booking.recipient_phone || '—'}
+                                        </p>
+                                    </div>
+                                </div>
+                            )}
 
                             <div className="bg-amber-50 p-4 rounded-lg border border-amber-100">
                                 <p className="text-[10px] font-bold text-amber-600 uppercase tracking-widest mb-1">Driver Assigned To</p>
@@ -202,37 +239,68 @@ export default function HandoverPage() {
                             </div>
                             <div className="relative">
                                 <div className="absolute -left-6 top-1 w-3 h-3 rounded-full bg-rose-500 border-2 border-white shadow-sm ring-2 ring-rose-500/20"></div>
-                                <p className="text-[10px] font-bold text-slate-400 uppercase leading-none mb-1">Final Destination</p>
+                                <p className="text-[10px] font-bold text-slate-400 uppercase leading-none mb-1">{booking.booking_type === 'delivery' ? 'Delivery / Drop-off Location' : 'Final Destination'}</p>
                                 <p className="text-sm font-bold text-slate-900">{booking.destination}</p>
                             </div>
                         </div>
                     </div>
 
+                    {booking.booking_type === 'delivery' && (booking.item_description || booking.item_size_weight) && (
+                        <div className="bg-amber-50 p-4 rounded-lg border border-amber-100">
+                            <p className="text-[10px] font-bold text-amber-600 uppercase tracking-widest mb-2">Item Details</p>
+                            <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-slate-800">
+                                {booking.item_description && <p><span className="font-bold">Description:</span> {booking.item_description}</p>}
+                                {booking.item_size_weight && <p><span className="font-bold">Size/Weight:</span> {booking.item_size_weight}</p>}
+                            </div>
+                        </div>
+                    )}
+
                     {/* Instruction Checklist */}
                     <div className="grid grid-cols-2 gap-8 border-t border-slate-100 pt-8">
                         <div>
                             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Driver Instructions</p>
-                            <ul className="space-y-2">
-                                <li className="flex items-start gap-2 text-xs text-slate-600 font-medium">
-                                    <div className="w-4 h-4 border border-slate-300 rounded mt-0.5" />
-                                    Arrive 15 minutes before pickup time.
-                                </li>
-                                <li className="flex items-start gap-2 text-xs text-slate-600 font-medium">
-                                    <div className="w-4 h-4 border border-slate-300 rounded mt-0.5" />
-                                    Vehicle must be clean (interior & exterior).
-                                </li>
-                                <li className="flex items-start gap-2 text-xs text-slate-600 font-medium">
-                                    <div className="w-4 h-4 border border-slate-300 rounded mt-0.5" />
-                                    Assist passenger with luggage.
-                                </li>
-                                <li className="flex items-start gap-2 text-xs text-slate-600 font-medium">
-                                    <div className="w-4 h-4 border border-slate-300 rounded mt-0.5" />
-                                    Water and tissues available for client.
-                                </li>
-                            </ul>
+                            {booking.booking_type === 'delivery' ? (
+                                <ul className="space-y-2">
+                                    <li className="flex items-start gap-2 text-xs text-slate-600 font-medium">
+                                        <div className="w-4 h-4 border border-slate-300 rounded mt-0.5" />
+                                        Arrive 15 minutes before pickup time.
+                                    </li>
+                                    <li className="flex items-start gap-2 text-xs text-slate-600 font-medium">
+                                        <div className="w-4 h-4 border border-slate-300 rounded mt-0.5" />
+                                        Confirm the item with the sender before departure.
+                                    </li>
+                                    <li className="flex items-start gap-2 text-xs text-slate-600 font-medium">
+                                        <div className="w-4 h-4 border border-slate-300 rounded mt-0.5" />
+                                        Call the recipient before arriving at drop-off.
+                                    </li>
+                                    <li className="flex items-start gap-2 text-xs text-slate-600 font-medium">
+                                        <div className="w-4 h-4 border border-slate-300 rounded mt-0.5" />
+                                        Hand over only to the named recipient; verify identity if needed.
+                                    </li>
+                                </ul>
+                            ) : (
+                                <ul className="space-y-2">
+                                    <li className="flex items-start gap-2 text-xs text-slate-600 font-medium">
+                                        <div className="w-4 h-4 border border-slate-300 rounded mt-0.5" />
+                                        Arrive 15 minutes before pickup time.
+                                    </li>
+                                    <li className="flex items-start gap-2 text-xs text-slate-600 font-medium">
+                                        <div className="w-4 h-4 border border-slate-300 rounded mt-0.5" />
+                                        Vehicle must be clean (interior & exterior).
+                                    </li>
+                                    <li className="flex items-start gap-2 text-xs text-slate-600 font-medium">
+                                        <div className="w-4 h-4 border border-slate-300 rounded mt-0.5" />
+                                        Assist passenger with luggage.
+                                    </li>
+                                    <li className="flex items-start gap-2 text-xs text-slate-600 font-medium">
+                                        <div className="w-4 h-4 border border-slate-300 rounded mt-0.5" />
+                                        Water and tissues available for client.
+                                    </li>
+                                </ul>
+                            )}
                         </div>
                         <div>
-                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">Special Requirements</p>
+                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-3">{booking.booking_type === 'delivery' ? 'Special Instructions' : 'Special Requirements'}</p>
                             <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 min-h-[100px]">
                                 <p className="text-sm text-slate-700 italic font-medium leading-relaxed">
                                     {booking.special_requests || "No special requests mentioned for this trip."}
@@ -249,7 +317,7 @@ export default function HandoverPage() {
                         </div>
                         <div className="text-center space-y-2">
                             <div className="h-12 border-b border-slate-300 mx-auto w-4/5 pt-8"></div>
-                            <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Client Signature</p>
+                            <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{booking.booking_type === 'delivery' ? 'Recipient Signature' : 'Client Signature'}</p>
                         </div>
                         <div className="text-center space-y-2">
                              <div className="flex gap-4 items-center justify-center h-12">

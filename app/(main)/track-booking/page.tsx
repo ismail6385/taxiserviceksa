@@ -4,8 +4,8 @@ import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Search, MapPin, Calendar, Clock, Car, Users, CheckCircle2, XCircle, AlertCircle, Loader2, Phone, Mail, FileText, Truck, ArrowLeftRight } from 'lucide-react';
-import { hasStructuredReturnLeg, getReturnRoute } from '@/lib/booking-validation';
+import { Search, MapPin, Calendar, Clock, Car, Users, CheckCircle2, XCircle, AlertCircle, Loader2, Phone, Mail, FileText, Truck, ArrowLeftRight, Package } from 'lucide-react';
+import { hasStructuredReturnLeg, getReturnRoute, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 
 interface Booking {
     id: string;
@@ -31,6 +31,11 @@ interface Booking {
     return_time?: string | null;
     return_pickup_location?: string | null;
     return_destination?: string | null;
+    booking_type?: 'passenger' | 'delivery';
+    recipient_name?: string | null;
+    recipient_phone?: string | null;
+    item_type?: string | null;
+    item_count?: number | null;
 }
 
 const STATUS_CONFIG: Record<string, { label: string; color: string; bg: string; icon: any }> = {
@@ -167,7 +172,14 @@ function TrackBookingContent() {
                         <div className={`flex items-center gap-3 px-6 py-4 border-b ${statusCfg.bg} ${statusCfg.color}`}>
                             {StatusIcon && <StatusIcon className="w-5 h-5" />}
                             <div>
-                                <p className="font-black text-base uppercase tracking-wide">{statusCfg.label}</p>
+                                <p className="font-black text-base uppercase tracking-wide flex items-center gap-2">
+                                    {statusCfg.label}
+                                    {booking.booking_type === 'delivery' && (
+                                        <span className="inline-flex items-center gap-1 bg-amber-500 text-white text-[9px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full">
+                                            <Package className="w-2.5 h-2.5" /> Delivery
+                                        </span>
+                                    )}
+                                </p>
                                 <p className="text-xs opacity-70">Ref: #{booking.id.slice(0, 8).toUpperCase()}</p>
                             </div>
                             {booking.total_price ? (
@@ -183,13 +195,24 @@ function TrackBookingContent() {
                             <BookingTimeline status={booking.status} />
                             {/* Customer */}
                             <div>
-                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Passenger</p>
+                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">{booking.booking_type === 'delivery' ? 'Sender' : 'Passenger'}</p>
                                 <p className="font-bold text-gray-900">{booking.customer_name}</p>
                                 <div className="flex items-center gap-4 mt-1 text-xs text-gray-500">
                                     <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> {booking.customer_phone}</span>
                                     <span className="flex items-center gap-1"><Mail className="w-3 h-3" /> {booking.customer_email}</span>
                                 </div>
                             </div>
+
+                            {/* Recipient — delivery bookings only */}
+                            {booking.booking_type === 'delivery' && (
+                                <div className="bg-amber-50 border border-amber-100 rounded-xl p-3">
+                                    <p className="text-[10px] font-bold text-amber-600 uppercase tracking-widest mb-2">Recipient</p>
+                                    <p className="font-bold text-gray-900">{booking.recipient_name || '—'}</p>
+                                    <div className="flex items-center gap-4 mt-1 text-xs text-gray-500">
+                                        <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> {booking.recipient_phone || '—'}</span>
+                                    </div>
+                                </div>
+                            )}
 
                             {/* Route */}
                             <div className="relative pl-5 space-y-3 before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-px before:border-l-2 before:border-dashed before:border-gray-200">
@@ -200,7 +223,7 @@ function TrackBookingContent() {
                                 </div>
                                 <div className="relative">
                                     <span className="absolute -left-5 top-1 w-3 h-3 rounded-full bg-red-500 border-2 border-white shadow"></span>
-                                    <p className="text-[10px] text-gray-400 font-bold uppercase">Destination</p>
+                                    <p className="text-[10px] text-gray-400 font-bold uppercase">{booking.booking_type === 'delivery' ? 'Delivery To' : 'Destination'}</p>
                                     <p className="text-sm font-bold text-gray-900">{booking.destination}</p>
                                 </div>
                             </div>
@@ -240,11 +263,19 @@ function TrackBookingContent() {
                                     <p className="text-[10px] text-gray-400 font-bold uppercase">Time</p>
                                     <p className="text-sm font-bold text-gray-900">{booking.pickup_time}</p>
                                 </div>
-                                <div className="bg-gray-50 rounded-xl p-3 border border-gray-100">
-                                    <Users className="w-4 h-4 text-gray-400 mb-1" />
-                                    <p className="text-[10px] text-gray-400 font-bold uppercase">Pax</p>
-                                    <p className="text-sm font-bold text-gray-900">{booking.passengers}</p>
-                                </div>
+                                {booking.booking_type === 'delivery' ? (
+                                    <div className="bg-gray-50 rounded-xl p-3 border border-gray-100">
+                                        <Package className="w-4 h-4 text-gray-400 mb-1" />
+                                        <p className="text-[10px] text-gray-400 font-bold uppercase">Item</p>
+                                        <p className="text-sm font-bold text-gray-900">{DELIVERY_ITEM_TYPES.find(it => it.value === booking.item_type)?.label || booking.item_type || '—'} × {booking.item_count || 1}</p>
+                                    </div>
+                                ) : (
+                                    <div className="bg-gray-50 rounded-xl p-3 border border-gray-100">
+                                        <Users className="w-4 h-4 text-gray-400 mb-1" />
+                                        <p className="text-[10px] text-gray-400 font-bold uppercase">Pax</p>
+                                        <p className="text-sm font-bold text-gray-900">{booking.passengers}</p>
+                                    </div>
+                                )}
                             </div>
 
                             {/* Vehicle */}

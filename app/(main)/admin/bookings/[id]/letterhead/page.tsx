@@ -21,7 +21,7 @@ import {
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { formatTime12h } from '@/lib/format-time';
-import { getReturnRoute } from '@/lib/booking-validation';
+import { getReturnRoute, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 
 type DocLang = 'en' | 'ar';
 
@@ -98,6 +98,9 @@ interface Booking {
     return_pickup_location?: string | null;
     return_destination?: string | null;
     itinerary_legs?: { date: string; time: string; pickup: string; dropoff: string }[] | null;
+    booking_type?: 'passenger' | 'delivery';
+    item_type?: string | null;
+    item_count?: number | null;
 }
 
 export default function LetterheadPage() {
@@ -553,7 +556,7 @@ export default function LetterheadPage() {
                                     </div>
                                     <div>
                                         <p className="text-gray-500 text-[10px] uppercase font-bold tracking-wider">{t.occupancy}</p>
-                                        <p className="font-semibold text-gray-900">{booking.passengers} {t.passengers}, {booking.luggage} {t.bags}</p>
+                                        <p className="font-semibold text-gray-900">{booking.booking_type === 'delivery' ? `${DELIVERY_ITEM_TYPES.find(it => it.value === booking.item_type)?.label || booking.item_type || 'Item'} × ${booking.item_count || 1}` : `${booking.passengers} ${t.passengers}, ${booking.luggage} ${t.bags}`}</p>
                                     </div>
                                     {booking.special_requests && (
                                         <div className="col-span-2">

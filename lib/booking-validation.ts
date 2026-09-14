@@ -113,6 +113,32 @@ export function validateRoundTrip(input: RoundTripInput): ValidationResult {
 }
 
 // ---------------------------------------------------------------------------
+// Delivery / Item Transfer
+// ---------------------------------------------------------------------------
+
+/**
+ * A booking is either a normal passenger transfer or a delivery (driver
+ * carries an item, no passenger). Delivery is additive on the same
+ * `bookings` row, not a separate booking system: it reuses
+ * customer_name/customer_email/customer_phone as the SENDER,
+ * pickup_location/destination as pickup/drop-off, and special_requests as
+ * delivery instructions — so every existing flow (driver assignment,
+ * pricing, status, WhatsApp, tracking, documents) keeps working unchanged.
+ * Only the recipient + item fields below are new, and only booking_type
+ * changes which fields are required (see refineTripRules).
+ */
+export const DELIVERY_ITEM_TYPES = [
+    { value: 'bag_luggage', label: 'Bag / Luggage' },
+    { value: 'documents', label: 'Documents' },
+    { value: 'parcel', label: 'Parcel' },
+    { value: 'flowers', label: 'Flowers' },
+    { value: 'small_package', label: 'Small Package' },
+    { value: 'other', label: 'Other' },
+] as const;
+
+export type DeliveryItemType = typeof DELIVERY_ITEM_TYPES[number]['value'];
+
+// ---------------------------------------------------------------------------
 // Full booking-form validation (contact + trip + round-trip)
 // ---------------------------------------------------------------------------
 
@@ -127,21 +153,26 @@ export interface BookingFormInput extends RoundTripInput {
     vehicle_type?: string | null;
     passengers?: number | null;
     luggage?: number | null;
+    booking_type?: 'passenger' | 'delivery' | null;
+    recipient_name?: string | null;
+    recipient_phone?: string | null;
+    item_type?: string | null;
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function validateBookingForm(input: BookingFormInput): ValidationResult {
     const fieldErrors: Record<string, string> = {};
+    const isDelivery = input.booking_type === 'delivery';
 
     if (!input.customer_name || !input.customer_name.trim()) {
-        fieldErrors.customer_name = 'Please enter your full name.';
+        fieldErrors.customer_name = isDelivery ? 'Please enter the sender\'s full name.' : 'Please enter your full name.';
     }
     if (!input.customer_email || !EMAIL_RE.test(input.customer_email)) {
         fieldErrors.customer_email = 'Please enter a valid email address.';
     }
     if (!input.customer_phone || input.customer_phone.replace(/\D/g, '').length < 6) {
-        fieldErrors.customer_phone = 'Please enter a valid phone number.';
+        fieldErrors.customer_phone = isDelivery ? 'Please enter a valid sender phone number.' : 'Please enter a valid phone number.';
     }
     if (!input.pickup_location || !input.pickup_location.trim()) {
         fieldErrors.pickup_location = 'Pickup location is required.';
@@ -161,14 +192,29 @@ export function validateBookingForm(input: BookingFormInput): ValidationResult {
             fieldErrors.duration_hours = 'Please enter the hire duration in hours.';
         }
     } else if (!input.destination || !input.destination.trim()) {
-        fieldErrors.destination = 'Destination is required.';
+        fieldErrors.destination = isDelivery ? 'Delivery/drop-off location is required.' : 'Destination is required.';
     }
 
-    if (input.passengers != null && input.passengers < 1) {
-        fieldErrors.passengers = 'At least 1 passenger is required.';
-    }
-    if (input.luggage != null && input.luggage < 0) {
-        fieldErrors.luggage = 'Luggage count cannot be negative.';
+    if (isDelivery) {
+        // A delivery booking carries an item, not a passenger — no
+        // passenger/luggage count required. Instead it needs a recipient
+        // and an item type.
+        if (!input.recipient_name || !input.recipient_name.trim()) {
+            fieldErrors.recipient_name = "Please enter the recipient's name.";
+        }
+        if (!input.recipient_phone || input.recipient_phone.replace(/\D/g, '').length < 6) {
+            fieldErrors.recipient_phone = "Please enter a valid recipient phone number.";
+        }
+        if (!input.item_type) {
+            fieldErrors.item_type = 'Please select an item type.';
+        }
+    } else {
+        if (input.passengers != null && input.passengers < 1) {
+            fieldErrors.passengers = 'At least 1 passenger is required.';
+        }
+        if (input.luggage != null && input.luggage < 0) {
+            fieldErrors.luggage = 'Luggage count cannot be negative.';
+        }
     }
 
     const roundTrip = validateRoundTrip(input);
@@ -232,8 +278,22 @@ const bookingFieldsShape = {
         duration_hours: z.number().positive().optional().nullable(),
         vehicle_type: z.string().min(1, 'Please select a vehicle.'),
         vehicle_image: z.string().optional().nullable(),
-        passengers: z.number().int().min(1, 'At least 1 passenger is required.'),
-        luggage: z.number().int().min(0, 'Luggage count cannot be negative.'),
+        // Required for a passenger booking, meaningless for a delivery —
+        // enforced conditionally in refineTripRules, not here.
+        passengers: z.number().int().min(1, 'At least 1 passenger is required.').optional().nullable(),
+        luggage: z.number().int().min(0, 'Luggage count cannot be negative.').optional().nullable(),
+        // Delivery / Item Transfer — see DELIVERY_ITEM_TYPES. Sender is
+        // customer_name/customer_email/customer_phone; pickup/drop-off reuse
+        // pickup_location/destination; special_requests doubles as delivery
+        // instructions. Required recipient/item fields are enforced
+        // conditionally in refineTripRules.
+        booking_type: z.enum(['passenger', 'delivery']).optional().nullable(),
+        recipient_name: z.string().optional().nullable(),
+        recipient_phone: z.string().optional().nullable(),
+        item_type: z.enum(['bag_luggage', 'documents', 'parcel', 'flowers', 'small_package', 'other']).optional().nullable(),
+        item_description: z.string().optional().nullable(),
+        item_count: z.number().int().min(1).optional().nullable(),
+        item_size_weight: z.string().optional().nullable(),
         has_return_trip: z.boolean().optional(),
         return_date: z.string().nullable().optional(),
         return_time: z.string().nullable().optional(),
@@ -290,7 +350,16 @@ const bookingFieldsShape = {
 /** Shared by both schemas below so round-trip/trip-type rules can never drift
  *  between the public and admin validation paths — there is exactly one
  *  implementation, referenced twice. */
-function refineTripRules(data: RoundTripInput & { trip_type?: string | null; duration_hours?: number | null; destination?: string | null }, ctx: z.RefinementCtx) {
+function refineTripRules(data: RoundTripInput & {
+    trip_type?: string | null;
+    duration_hours?: number | null;
+    destination?: string | null;
+    booking_type?: string | null;
+    passengers?: number | null;
+    recipient_name?: string | null;
+    recipient_phone?: string | null;
+    item_type?: string | null;
+}, ctx: z.RefinementCtx) {
     if (data.trip_type === 'hourly') {
         if (!data.duration_hours || data.duration_hours <= 0) {
             ctx.addIssue({
@@ -303,8 +372,24 @@ function refineTripRules(data: RoundTripInput & { trip_type?: string | null; dur
         ctx.addIssue({
             code: z.ZodIssueCode.custom,
             path: ['destination'],
-            message: 'Destination is required.',
+            message: data.booking_type === 'delivery' ? 'Delivery/drop-off location is required.' : 'Destination is required.',
         });
+    }
+
+    if (data.booking_type === 'delivery') {
+        // Delivery carries an item, not a passenger — no passenger count
+        // required. It needs a recipient and an item type instead.
+        if (!data.recipient_name || !data.recipient_name.trim()) {
+            ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['recipient_name'], message: "Please enter the recipient's name." });
+        }
+        if (!data.recipient_phone || data.recipient_phone.replace(/\D/g, '').length < 6) {
+            ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['recipient_phone'], message: 'Please enter a valid recipient phone number.' });
+        }
+        if (!data.item_type) {
+            ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['item_type'], message: 'Please select an item type.' });
+        }
+    } else if (data.passengers == null || data.passengers < 1) {
+        ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['passengers'], message: 'At least 1 passenger is required.' });
     }
 
     const { valid, fieldErrors } = validateRoundTrip(data);

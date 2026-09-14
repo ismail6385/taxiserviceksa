@@ -45,14 +45,27 @@ export async function POST(request: NextRequest) {
     }
 
     // Round-trip fields should never be persisted as stray values on a
-    // one-way booking, even if a client accidentally sends them.
+    // one-way booking, even if a client accidentally sends them. Likewise,
+    // passenger fields and delivery fields (recipient/item) are mutually
+    // exclusive on a single booking row — never persist the ones that don't
+    // match the booking's own type.
     const data = parsed.data;
+    const isDelivery = data.booking_type === 'delivery';
     const insertPayload = {
         ...data,
         return_date: data.has_return_trip ? data.return_date ?? null : null,
         return_time: data.has_return_trip ? data.return_time ?? null : null,
         return_pickup_location: data.has_return_trip ? data.return_pickup_location ?? null : null,
         return_destination: data.has_return_trip ? data.return_destination ?? null : null,
+        booking_type: data.booking_type || 'passenger',
+        passengers: isDelivery ? null : data.passengers,
+        luggage: isDelivery ? null : data.luggage,
+        recipient_name: isDelivery ? data.recipient_name ?? null : null,
+        recipient_phone: isDelivery ? data.recipient_phone ?? null : null,
+        item_type: isDelivery ? data.item_type ?? null : null,
+        item_description: isDelivery ? data.item_description ?? null : null,
+        item_count: isDelivery ? data.item_count ?? null : null,
+        item_size_weight: isDelivery ? data.item_size_weight ?? null : null,
         status: data.status || 'pending',
     };
 

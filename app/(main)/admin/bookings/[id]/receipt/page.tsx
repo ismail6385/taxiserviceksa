@@ -6,7 +6,7 @@ import { supabase } from '@/lib/supabase';
 import { adminFetch } from '@/lib/admin-fetch';
 import { formatTime12h } from '@/lib/format-time';
 import { downloadDocumentPdf, documentPdfToBase64 } from '@/lib/document-pdf';
-import { getReturnRoute } from '@/lib/booking-validation';
+import { getReturnRoute, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 import { ArrowLeft, Mail, Printer, Languages, Repeat } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -83,6 +83,9 @@ interface Booking {
     return_time?: string | null;
     return_pickup_location?: string | null;
     return_destination?: string | null;
+    booking_type?: 'passenger' | 'delivery';
+    item_type?: string | null;
+    item_count?: number | null;
 }
 
 export default function ReceiptPage() {
@@ -340,7 +343,7 @@ export default function ReceiptPage() {
                                 </tr>
                                 <tr className="border-b border-gray-100">
                                     <td className="px-4 py-3 text-gray-700 font-medium">{t.vehicle}</td>
-                                    <td className="px-4 py-3 text-gray-600">{booking.vehicle_type} · {booking.passengers} {t.passengers}</td>
+                                    <td className="px-4 py-3 text-gray-600">{booking.vehicle_type} · {booking.booking_type === 'delivery' ? `${DELIVERY_ITEM_TYPES.find(it => it.value === booking.item_type)?.label || booking.item_type || 'Item'} × ${booking.item_count || 1}` : `${booking.passengers} ${t.passengers}`}</td>
                                     <td className="px-4 py-3"></td>
                                 </tr>
                                 <tr className="border-b border-gray-100">

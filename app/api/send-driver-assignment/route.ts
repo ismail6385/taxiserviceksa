@@ -42,6 +42,7 @@ export async function POST(request: NextRequest) {
         const safeTo = escapeHtml(booking.destination);
         const refId = `#${String(booking.id).slice(0, 8).toUpperCase()}`;
         const cleanPhone = (booking.driver_phone as string).replace(/\s/g, '');
+        const isDelivery = booking.booking_type === 'delivery';
 
         const formatTime12h = (timeStr?: string): string => {
             if (!timeStr) return '—';
@@ -66,16 +67,16 @@ export async function POST(request: NextRequest) {
 
         await sendMail({
             to: booking.customer_email,
-            subject: `🚗 Your Driver is Assigned — ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}`,
+            subject: isDelivery ? `🚗 Your Driver is Assigned — Delivery ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}` : `🚗 Your Driver is Assigned — ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}`,
             html: `
             <div style="font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
                 <div style="background-color: #000; padding: 25px; text-align: center; border-radius: 10px 10px 0 0;">
                     <h1 style="margin: 0; color: #C6FF00; text-transform: uppercase; letter-spacing: 2px;">Driver Assigned</h1>
-                    <p style="color: #aaa; margin: 6px 0 0; font-size: 13px;">Your chauffeur details are ready</p>
+                    <p style="color: #aaa; margin: 6px 0 0; font-size: 13px;">${isDelivery ? 'Your delivery driver details are ready' : 'Your chauffeur details are ready'}</p>
                 </div>
                 <div style="padding: 30px; border: 1px solid #eee; border-top: none; border-radius: 0 0 10px 10px; background-color: #fff;">
                     <p style="font-size: 16px;">Dear <strong>${safeName}</strong>,</p>
-                    <p>A driver has been assigned to your upcoming trip. Here are your chauffeur's details:</p>
+                    <p>A driver has been assigned to your ${isDelivery ? 'upcoming delivery' : 'upcoming trip'}. Here are the driver's details:</p>
 
                     <div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 12px; padding: 24px; margin: 25px 0;">
                         <table style="width: 100%; border-collapse: collapse; font-size: 14px;">

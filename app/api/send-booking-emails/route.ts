@@ -55,6 +55,14 @@ export async function POST(request: NextRequest) {
         const safeVehicle  = escapeHtml(booking.vehicle_type);
         const safeRequests = escapeHtml(booking.special_requests) || 'None';
         const safeFlightNumber = escapeHtml(booking.flight_number);
+        const isDelivery = booking.booking_type === 'delivery';
+        const itemTypeLabels: Record<string, string> = { bag_luggage: 'Bag / Luggage', documents: 'Documents', parcel: 'Parcel', flowers: 'Flowers', small_package: 'Small Package', other: 'Other' };
+        const safeItemType = escapeHtml(itemTypeLabels[booking.item_type] || booking.item_type) || 'Item';
+        const safeRecipientName = escapeHtml(booking.recipient_name) || '—';
+        const safeRecipientPhone = escapeHtml(booking.recipient_phone) || '—';
+        const loadLineHtml = isDelivery
+            ? `<p style="margin: 5px 0;"><strong>Item:</strong> ${safeItemType} × ${booking.item_count || 1}</p><p style="margin: 5px 0;"><strong>Recipient:</strong> ${safeRecipientName} (${safeRecipientPhone})</p>`
+            : `<p style="margin: 5px 0;"><strong>Passengers:</strong> ${booking.passengers} Pax</p>`;
 
         const formatTime12h = (timeStr?: string): string => {
             if (!timeStr) return '—';
@@ -82,11 +90,11 @@ export async function POST(request: NextRequest) {
         // 1. Send email to customer
         await sendMail({
             to: booking.customer_email,
-            subject: 'Quotation Request Received - Taxi Service KSA',
+            subject: isDelivery ? 'Delivery Request Received - Taxi Service KSA' : 'Quotation Request Received - Taxi Service KSA',
             html: `
             <div style="font-family: Arial, sans-serif; padding: 20px; line-height: 1.6; color: #333;">
                 <div style="background-color: #000; padding: 25px; text-align: center; border-radius: 10px 10px 0 0;">
-                    <h1 style="margin: 0; color: #C6FF00; text-transform: uppercase; letter-spacing: 2px;">Quotation Request</h1>
+                    <h1 style="margin: 0; color: #C6FF00; text-transform: uppercase; letter-spacing: 2px;">${isDelivery ? 'Delivery Request — No Passenger' : 'Quotation Request'}</h1>
                 </div>
                 <div style="padding: 30px; border: 1px solid #eee; border-top: none; border-radius: 0 0 10px 10px; background-color: #fff;">
                     <p style="font-size: 16px;">Dear <strong>${safeName}</strong>,</p>
@@ -100,7 +108,7 @@ export async function POST(request: NextRequest) {
                         <p style="margin: 5px 0;"><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
                         ${returnLegLine}
                         <p style="margin: 5px 0;"><strong>Vehicle Type:</strong> ${safeVehicle}</p>
-                        <p style="margin: 5px 0;"><strong>Passengers:</strong> ${booking.passengers} Pax</p>
+                        ${loadLineHtml}
                     </div>
 
                     <div style="background-color: #000; color: #fff; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 25px;">
@@ -124,19 +132,20 @@ export async function POST(request: NextRequest) {
         await sendMail({
             to: emailAdmin,
             replyTo: booking.customer_email,
-            subject: `📋 New Quote Request - ${safeName}`,
+            subject: isDelivery ? `📦 New DELIVERY Request - ${safeName}` : `📋 New Quote Request - ${safeName}`,
             html: `
             <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-                <h2 style="color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 10px;">New Quotation Request</h2>
-                <p><strong>Customer Name:</strong> ${safeName}</p>
+                <h2 style="color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 10px;">${isDelivery ? 'New DELIVERY Request — No Passenger' : 'New Quotation Request'}</h2>
+                <p><strong>${isDelivery ? 'Sender' : 'Customer'} Name:</strong> ${safeName}</p>
                 <p><strong>Email:</strong> ${escapeHtml(booking.customer_email)}</p>
                 <p><strong>Phone:</strong> ${escapeHtml(booking.customer_phone)}</p>
                 <p><strong>Route:</strong> ${safePickup} to ${safeDest}</p>
                 <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
                 ${returnLegLine}
                 <p><strong>Vehicle:</strong> ${safeVehicle}</p>
-                <p><strong>Passengers:</strong> ${booking.passengers}</p>
-                <p><strong>Luggage:</strong> ${booking.luggage ?? 0} bags</p>
+                ${isDelivery
+                    ? `<p><strong>Item:</strong> ${safeItemType} × ${booking.item_count || 1}</p><p><strong>Recipient:</strong> ${safeRecipientName} (${safeRecipientPhone})</p>`
+                    : `<p><strong>Passengers:</strong> ${booking.passengers}</p><p><strong>Luggage:</strong> ${booking.luggage ?? 0} bags</p>`}
                 ${safeFlightNumber ? `<p><strong>Flight Number:</strong> ${safeFlightNumber}</p>` : ''}
                 <p><strong>Special Requests:</strong> ${safeRequests}</p>
                 <hr>

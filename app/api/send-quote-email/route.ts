@@ -54,6 +54,11 @@ export async function POST(request: NextRequest) {
         const safePickup  = escapeHtml(booking.pickup_location);
         const safeDest    = escapeHtml(booking.destination);
         const safeVehicle = escapeHtml(booking.vehicle_type);
+        const isDelivery  = booking.booking_type === 'delivery';
+        const itemTypeLabels: Record<string, string> = { bag_luggage: 'Bag / Luggage', documents: 'Documents', parcel: 'Parcel', flowers: 'Flowers', small_package: 'Small Package', other: 'Other' };
+        const loadRow = isDelivery
+            ? `<tr><td style="padding: 5px 0; color: #666;">Item</td><td style="font-weight: bold; color: #000;">${escapeHtml(itemTypeLabels[booking.item_type] || booking.item_type) || 'Item'} × ${booking.item_count || 1}</td></tr><tr><td style="padding: 5px 0; color: #666;">Recipient</td><td style="font-weight: bold; color: #000;">${escapeHtml(booking.recipient_name) || '—'} (${escapeHtml(booking.recipient_phone) || '—'})</td></tr>`
+            : `<tr><td style="padding: 5px 0; color: #666;">Passengers</td><td style="font-weight: bold; color: #000;">${booking.passengers} Pax</td></tr>`;
 
         const formatTime12h = (timeStr?: string): string => {
             if (!timeStr) return '—';
@@ -118,7 +123,7 @@ export async function POST(request: NextRequest) {
                             <tr><td style="padding: 5px 0; color: #666;">Date &amp; Time</td><td style="font-weight: bold; color: #000;">${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</td></tr>
                             ${returnLegRow}
                             <tr><td style="padding: 5px 0; color: #666;">Vehicle</td><td style="font-weight: bold; color: #000;">${safeVehicle}</td></tr>
-                            <tr><td style="padding: 5px 0; color: #666;">Passengers</td><td style="font-weight: bold; color: #000;">${booking.passengers} Pax</td></tr>
+                            ${loadRow}
                         </table>
                     </div>
                     ${itineraryHtml}

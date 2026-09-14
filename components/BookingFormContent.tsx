@@ -25,12 +25,12 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
-import { MapPin, Phone, User, Clock, Car, Mail, ArrowRight, ArrowLeft, Check, Users, Briefcase, Wallet, ChevronsUpDown, Search, Calendar as CalendarIcon, Info } from 'lucide-react';
+import { MapPin, Phone, User, Clock, Car, Mail, ArrowRight, ArrowLeft, Check, Users, Briefcase, Wallet, ChevronsUpDown, Search, Calendar as CalendarIcon, Info, Package, UserCheck } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import LocationAutocomplete from '@/components/LocationAutocomplete';
 import { CounterControl } from '@/components/PassengerLuggageSelector';
 import { vehicles, type BookingData } from '@/lib/supabase';
-import { validateBookingForm, validateRoundTrip } from '@/lib/booking-validation';
+import { validateBookingForm, validateRoundTrip, DELIVERY_ITEM_TYPES } from '@/lib/booking-validation';
 
 import { countryCodes } from '@/data/countryCodes';
 import { format } from "date-fns";
@@ -101,7 +101,14 @@ export default function BookingFormContent({ prefilledData, className }: Booking
         has_return_trip: false,
         child_seats: 0,
         flight_number: '',
-        trip_type: 'point_to_point'
+        trip_type: 'point_to_point',
+        booking_type: 'passenger',
+        recipient_name: '',
+        recipient_phone: '',
+        item_type: '',
+        item_description: '',
+        item_count: 1,
+        item_size_weight: '',
     });
 
     const searchParams = useSearchParams();
@@ -217,16 +224,18 @@ export default function BookingFormContent({ prefilledData, className }: Booking
         setLoading(true);
         try {
             const fullPhoneNumber = `${countryCode}${formData.customer_phone}`;
-            const isHourly = formData.trip_type === 'hourly';
+            const isDelivery = formData.booking_type === 'delivery';
+            const isHourly = !isDelivery && formData.trip_type === 'hourly';
             const { child_seats, ...insertData } = formData;
             const finalFormData = {
                 ...insertData,
                 destination: isHourly && !formData.destination.trim() ? 'As Directed (Hourly Hire)' : formData.destination,
                 customer_phone: fullPhoneNumber,
-                return_date: formData.has_return_trip ? returnDate : null,
-                return_time: formData.has_return_trip ? returnTime : null,
-                return_pickup_location: formData.has_return_trip ? returnPickupLocation : null,
-                return_destination: formData.has_return_trip ? returnDropoffLocation : null,
+                has_return_trip: isDelivery ? false : formData.has_return_trip,
+                return_date: !isDelivery && formData.has_return_trip ? returnDate : null,
+                return_time: !isDelivery && formData.has_return_trip ? returnTime : null,
+                return_pickup_location: !isDelivery && formData.has_return_trip ? returnPickupLocation : null,
+                return_destination: !isDelivery && formData.has_return_trip ? returnDropoffLocation : null,
                 special_requests: `${isHourly ? `[HOURLY HIRE: ${formData.duration_hours || '?'} hours] ` : ''}${formData.child_seats ? `[CHILD SEATS: ${formData.child_seats}] ` : ''}${preferredTimeNote.trim() ? `[PREFERRED TIME: ${preferredTimeNote.trim()}] ` : ''}${promoApplied ? `[PROMO: ${promoApplied.code} - ${promoApplied.discount_value}${promoApplied.discount_type === 'percentage' ? '%' : ' SAR'} off] ` : ''}${(formData.special_requests ? formData.special_requests + '. ' : '') + 'Please Provide Quote'}`
             };
 
@@ -284,34 +293,45 @@ export default function BookingFormContent({ prefilledData, className }: Booking
         }
     };
 
+    const isDelivery = formData.booking_type === 'delivery';
+
     // Step 1 only collects trip details (not customer/vehicle info yet), so
     // it's validated with a scoped check + validateRoundTrip rather than the
     // full validateBookingForm (which requires fields not yet on screen).
-    const isStep1TripValid = formData.trip_type === 'hourly'
+    // Delivery bookings are never hourly, so they always need a destination
+    // (the drop-off location), plus a recipient and an item type.
+    const isStep1TripValid = (!isDelivery && formData.trip_type === 'hourly')
         ? !!(formData.pickup_location && formData.pickup_date && formData.pickup_time && formData.duration_hours && formData.duration_hours > 0)
-        : !!(formData.pickup_location && formData.destination && formData.pickup_date && formData.pickup_time);
+        : !!(formData.pickup_location && formData.destination && formData.pickup_date && formData.pickup_time)
+            && (!isDelivery || !!(formData.recipient_name && formData.recipient_phone && formData.item_type));
 
     const getStep1FieldErrors = (): Record<string, string> => {
         const errors: Record<string, string> = {};
         if (!formData.pickup_location) errors.pickup_location = 'Pickup location is required.';
-        if (formData.trip_type === 'hourly') {
+        if (!isDelivery && formData.trip_type === 'hourly') {
             if (!formData.duration_hours || formData.duration_hours <= 0) {
                 errors.duration_hours = 'Please enter the hire duration in hours.';
             }
         } else if (!formData.destination) {
-            errors.destination = 'Destination is required.';
+            errors.destination = isDelivery ? 'Delivery/drop-off location is required.' : 'Destination is required.';
         }
         if (!formData.pickup_date) errors.pickup_date = 'Pickup date is required.';
         if (!formData.pickup_time) errors.pickup_time = 'Pickup time is required.';
 
+        if (isDelivery) {
+            if (!formData.recipient_name?.trim()) errors.recipient_name = "Please enter the recipient's name.";
+            if (!formData.recipient_phone?.trim()) errors.recipient_phone = 'Please enter a valid recipient phone number.';
+            if (!formData.item_type) errors.item_type = 'Please select an item type.';
+        }
+
         const roundTrip = validateRoundTrip({
             pickup_date: formData.pickup_date,
             pickup_time: formData.pickup_time,
-            has_return_trip: formData.has_return_trip,
-            return_date: formData.has_return_trip ? returnDate : null,
-            return_time: formData.has_return_trip ? returnTime : null,
-            return_pickup_location: formData.has_return_trip ? returnPickupLocation : null,
-            return_destination: formData.has_return_trip ? returnDropoffLocation : null,
+            has_return_trip: !isDelivery && formData.has_return_trip,
+            return_date: !isDelivery && formData.has_return_trip ? returnDate : null,
+            return_time: !isDelivery && formData.has_return_trip ? returnTime : null,
+            return_pickup_location: !isDelivery && formData.has_return_trip ? returnPickupLocation : null,
+            return_destination: !isDelivery && formData.has_return_trip ? returnDropoffLocation : null,
         });
         return { ...errors, ...roundTrip.fieldErrors };
     };
@@ -371,25 +391,47 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             </p>
                         </div>
 
-                        {/* Trip Type Selector */}
+                        {/* Booking Type Selector — Passenger Transfer vs Delivery / Item Transfer.
+                            Delivery reuses the same trip/vehicle/driver flow, just swaps
+                            passenger fields for recipient + item fields (see isDelivery below). */}
                         <div className="grid grid-cols-2 gap-1.5 p-1.5 bg-gray-100 rounded-2xl">
                             <button
                                 type="button"
-                                onClick={() => setFormData(prev => ({ ...prev, trip_type: 'point_to_point', duration_hours: undefined }))}
-                                className={`flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold transition-all ${(formData.trip_type ?? 'point_to_point') === 'point_to_point' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500'}`}
+                                onClick={() => setFormData(prev => ({ ...prev, booking_type: 'passenger' }))}
+                                className={`flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold transition-all ${!isDelivery ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500'}`}
                             >
-                                <MapPin className="w-4 h-4" /> Point to Point
+                                <Users className="w-4 h-4" /> Passenger Transfer
                             </button>
                             <button
                                 type="button"
-                                onClick={() => setFormData(prev => ({ ...prev, trip_type: 'hourly', has_return_trip: false }))}
-                                className={`flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold transition-all ${formData.trip_type === 'hourly' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500'}`}
+                                onClick={() => setFormData(prev => ({ ...prev, booking_type: 'delivery', trip_type: 'point_to_point', duration_hours: undefined, has_return_trip: false }))}
+                                className={`flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold transition-all ${isDelivery ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500'}`}
                             >
-                                <Clock className="w-4 h-4" /> Hourly Hire
+                                <Package className="w-4 h-4" /> Delivery / Item Transfer
                             </button>
                         </div>
 
-                        {formData.trip_type !== 'hourly' && (
+                        {/* Trip Type Selector — hourly hire doesn't apply to a delivery */}
+                        {!isDelivery && (
+                            <div className="grid grid-cols-2 gap-1.5 p-1.5 bg-gray-100 rounded-2xl">
+                                <button
+                                    type="button"
+                                    onClick={() => setFormData(prev => ({ ...prev, trip_type: 'point_to_point', duration_hours: undefined }))}
+                                    className={`flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold transition-all ${(formData.trip_type ?? 'point_to_point') === 'point_to_point' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500'}`}
+                                >
+                                    <MapPin className="w-4 h-4" /> Point to Point
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => setFormData(prev => ({ ...prev, trip_type: 'hourly', has_return_trip: false }))}
+                                    className={`flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-bold transition-all ${formData.trip_type === 'hourly' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500'}`}
+                                >
+                                    <Clock className="w-4 h-4" /> Hourly Hire
+                                </button>
+                            </div>
+                        )}
+
+                        {!isDelivery && formData.trip_type !== 'hourly' && (
                             <div className="bg-gray-50/50 p-3 rounded-xl border border-dashed border-gray-200">
                                 <label className="text-xs font-semibold text-gray-500 ml-2 mb-1 block">Quick Select Route</label>
                                 <Select onValueChange={(val) => {
@@ -407,7 +449,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="space-y-1.5">
-                                <label className="text-sm font-semibold text-gray-700 ml-1">From</label>
+                                <label className="text-sm font-semibold text-gray-700 ml-1">{isDelivery ? 'Pickup Location (from Sender)' : 'From'}</label>
                                 <div className="relative group/input">
                                     <MapPin className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors z-10" />
                                     <LocationAutocomplete
@@ -424,13 +466,13 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                 )}
                             </div>
                             <div className="space-y-1.5">
-                                <label className="text-sm font-semibold text-gray-700 ml-1">{formData.trip_type === 'hourly' ? 'Destination (optional)' : 'To'}</label>
+                                <label className="text-sm font-semibold text-gray-700 ml-1">{isDelivery ? 'Delivery Location (to Recipient)' : formData.trip_type === 'hourly' ? 'Destination (optional)' : 'To'}</label>
                                 <div className="relative group/input">
                                     <MapPin className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors z-10" />
                                     <LocationAutocomplete
                                         name="destination"
-                                        placeholder={formData.trip_type === 'hourly' ? 'Leave blank for "as directed"' : 'Makkah Hotel, Kaaba...'}
-                                        required={formData.trip_type !== 'hourly'}
+                                        placeholder={isDelivery ? 'Recipient hotel, address...' : formData.trip_type === 'hourly' ? 'Leave blank for "as directed"' : 'Makkah Hotel, Kaaba...'}
+                                        required={isDelivery || formData.trip_type !== 'hourly'}
                                         value={formData.destination}
                                         onChange={(val) => setFormData(prev => ({ ...prev, destination: val }))}
                                         className="w-full pl-10 pr-9 h-12 bg-gray-50 border border-gray-300 rounded-xl text-sm outline-none focus:border-primary"
@@ -441,6 +483,94 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                 )}
                             </div>
                         </div>
+
+                        {isDelivery && (
+                            <div className="space-y-4 p-4 bg-amber-50/50 rounded-2xl border border-dashed border-amber-200 animate-fade-in-up">
+                                <div className="flex items-center gap-2 -mb-1">
+                                    <Package className="w-4 h-4 text-amber-600" />
+                                    <span className="text-xs font-bold text-amber-700 uppercase tracking-wide">Recipient &amp; Item Details</span>
+                                </div>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div className="space-y-1.5">
+                                        <label className="text-sm font-semibold text-gray-700 ml-1">Recipient Name</label>
+                                        <div className="relative group/input">
+                                            <UserCheck className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 z-10" />
+                                            <Input
+                                                value={formData.recipient_name || ''}
+                                                onChange={(e) => setFormData(prev => ({ ...prev, recipient_name: e.target.value }))}
+                                                placeholder="Who will receive the item?"
+                                                className={`w-full pl-10 h-12 bg-white rounded-xl text-sm ${fieldErrors.recipient_name ? 'border-red-400' : 'border-gray-300'}`}
+                                            />
+                                        </div>
+                                        {fieldErrors.recipient_name && <p className="text-red-500 text-xs mt-1 ml-1">{fieldErrors.recipient_name}</p>}
+                                    </div>
+                                    <div className="space-y-1.5">
+                                        <label className="text-sm font-semibold text-gray-700 ml-1">Recipient Phone</label>
+                                        <div className="relative group/input">
+                                            <Phone className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 z-10" />
+                                            <Input
+                                                type="tel"
+                                                value={formData.recipient_phone || ''}
+                                                onChange={(e) => setFormData(prev => ({ ...prev, recipient_phone: e.target.value }))}
+                                                placeholder="+966..."
+                                                className={`w-full pl-10 h-12 bg-white rounded-xl text-sm ${fieldErrors.recipient_phone ? 'border-red-400' : 'border-gray-300'}`}
+                                            />
+                                        </div>
+                                        {fieldErrors.recipient_phone && <p className="text-red-500 text-xs mt-1 ml-1">{fieldErrors.recipient_phone}</p>}
+                                    </div>
+                                </div>
+
+                                <div className="space-y-1.5">
+                                    <label className="text-sm font-semibold text-gray-700 ml-1">Item Type</label>
+                                    <div className="grid grid-cols-3 gap-1.5">
+                                        {DELIVERY_ITEM_TYPES.map((it) => (
+                                            <button
+                                                key={it.value}
+                                                type="button"
+                                                onClick={() => setFormData(prev => ({ ...prev, item_type: it.value }))}
+                                                className={`py-2 px-2 rounded-lg text-xs font-bold border transition-all ${formData.item_type === it.value ? 'bg-amber-500 text-white border-amber-600 shadow-sm' : 'bg-white text-gray-500 border-gray-200 hover:border-amber-300'}`}
+                                            >
+                                                {it.label}
+                                            </button>
+                                        ))}
+                                    </div>
+                                    {fieldErrors.item_type && <p className="text-red-500 text-xs mt-1 ml-1">{fieldErrors.item_type}</p>}
+                                </div>
+
+                                <div className="space-y-1.5">
+                                    <label className="text-sm font-semibold text-gray-700 ml-1">Item Description (optional)</label>
+                                    <Input
+                                        value={formData.item_description || ''}
+                                        onChange={(e) => setFormData(prev => ({ ...prev, item_description: e.target.value }))}
+                                        placeholder="e.g. Brown leather bag with a red ribbon"
+                                        className="h-11 bg-white border-gray-300 rounded-xl text-sm"
+                                    />
+                                </div>
+
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div className="space-y-1.5">
+                                        <label className="text-sm font-semibold text-gray-700 ml-1">Number of Items</label>
+                                        <CounterControl
+                                            value={formData.item_count ?? 1}
+                                            onChange={(n) => setFormData(prev => ({ ...prev, item_count: n }))}
+                                            min={1}
+                                            max={50}
+                                            enforceMax
+                                            aria-label="item count"
+                                        />
+                                    </div>
+                                    <div className="space-y-1.5">
+                                        <label className="text-sm font-semibold text-gray-700 ml-1">Approx. Size / Weight (optional)</label>
+                                        <Input
+                                            value={formData.item_size_weight || ''}
+                                            onChange={(e) => setFormData(prev => ({ ...prev, item_size_weight: e.target.value }))}
+                                            placeholder="e.g. Small bag, ~2kg"
+                                            className="h-11 bg-white border-gray-300 rounded-xl text-sm"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        )}
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="relative group/input flex flex-col gap-1.5">
@@ -529,7 +659,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             />
                         </div>
 
-                        {formData.trip_type === 'hourly' ? (
+                        {!isDelivery && (formData.trip_type === 'hourly' ? (
                             /* Duration */
                             <div className="space-y-1.5">
                                 <label className="text-sm font-semibold text-gray-700 ml-1">Duration (hours)</label>
@@ -677,16 +807,16 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                     </div>
                                 )}
                             </>
-                        )}
+                        ))}
 
                         {/* Special Requests */}
                         <div className="space-y-1.5">
-                            <label className="text-sm font-semibold text-gray-700 ml-1">Special Requests / Notes (optional)</label>
+                            <label className="text-sm font-semibold text-gray-700 ml-1">{isDelivery ? 'Special Instructions (optional)' : 'Special Requests / Notes (optional)'}</label>
                             <textarea
                                 name="special_requests"
                                 value={formData.special_requests}
                                 onChange={handleChange}
-                                placeholder="e.g. Meeting a colleague too, extra bags, gate number..."
+                                placeholder={isDelivery ? "e.g. Call before arriving, fragile — handle with care..." : "e.g. Meeting a colleague too, extra bags, gate number..."}
                                 rows={2}
                                 className="w-full p-3 bg-gray-50 border border-gray-300 rounded-xl text-sm outline-none focus:border-primary resize-none"
                             />
@@ -701,9 +831,14 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                 {step === 2 && (
                     <div className="space-y-6 animate-fade-in-up">
                         <div className="text-center">
+                            {isDelivery && (
+                                <span className="inline-flex items-center gap-1 bg-amber-500 text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full mb-2">
+                                    <Package className="w-3 h-3" /> Delivery
+                                </span>
+                            )}
                             <h2 className="text-2xl font-bold text-gray-900">Select Your Vehicle</h2>
                             <p className="text-gray-500 text-sm mt-1">
-                                {formData.trip_type === 'hourly'
+                                {!isDelivery && formData.trip_type === 'hourly'
                                     ? `${formData.pickup_location} — Hourly Hire (${formData.duration_hours || '?'}h)`
                                     : <>{formData.pickup_location} <ArrowRight className="w-3 h-3 inline mx-1" /> {formData.destination}</>}
                             </p>
@@ -753,8 +888,27 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                             ))}
                         </div>
 
+                        {/* Delivery Summary — replaces passenger/luggage/child-seat pickers,
+                            which don't apply to a delivery (no passenger on board). */}
+                        {isDelivery && formData.vehicle_type && (
+                            <div className="bg-amber-50/50 p-5 rounded-3xl border border-dashed border-amber-200">
+                                <div className="flex items-center gap-3 mb-3">
+                                    <div className="p-2 bg-white rounded-xl shadow-sm">
+                                        <Package className="w-5 h-5 text-amber-600" />
+                                    </div>
+                                    <h4 className="font-black text-gray-900 leading-none">Delivery Summary</h4>
+                                </div>
+                                <div className="grid grid-cols-2 gap-2 text-sm">
+                                    <div><span className="text-gray-500 text-xs block">Item Type</span><span className="font-bold text-gray-900">{DELIVERY_ITEM_TYPES.find(it => it.value === formData.item_type)?.label || '—'}</span></div>
+                                    <div><span className="text-gray-500 text-xs block">Items</span><span className="font-bold text-gray-900">{formData.item_count || 1}</span></div>
+                                    <div><span className="text-gray-500 text-xs block">Recipient</span><span className="font-bold text-gray-900">{formData.recipient_name || '—'}</span></div>
+                                    <div><span className="text-gray-500 text-xs block">Size / Weight</span><span className="font-bold text-gray-900">{formData.item_size_weight || '—'}</span></div>
+                                </div>
+                            </div>
+                        )}
+
                         {/* Number of Passengers */}
-                        {formData.vehicle_type && (() => {
+                        {!isDelivery && formData.vehicle_type && (() => {
                             const selectedVehicle = vehicles.find(v => v.name === formData.vehicle_type);
                             const maxPax = selectedVehicle?.passengers || 1;
                             return (
@@ -785,7 +939,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                         })()}
 
                         {/* Number of Luggage/Bags */}
-                        {formData.vehicle_type && (() => {
+                        {!isDelivery && formData.vehicle_type && (() => {
                             const selectedVehicle = vehicles.find(v => v.name === formData.vehicle_type);
                             const vehicleLuggageCapacity = selectedVehicle?.luggage || 0;
                             return (
@@ -819,6 +973,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                         })()}
 
                         {/* Extras: Child Seats */}
+                        {!isDelivery && (
                         <div className="bg-amber-50/50 p-5 rounded-3xl border border-dashed border-amber-200">
                              <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-3">
@@ -849,6 +1004,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                 </div>
                              </div>
                         </div>
+                        )}
 
                         <div className="flex gap-3 mt-6">
                             <Button type="button" onClick={prevStep} variant="ghost" className="flex-1 py-4 text-base rounded-xl text-gray-500">Back</Button>
@@ -862,8 +1018,13 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                 {step === 3 && (
                     <div className="space-y-5 animate-fade-in-up">
                         <div className="text-center">
-                            <h2 className="text-2xl font-bold text-gray-900">Contact Details</h2>
-                            <p className="text-gray-500 text-sm">Where should we send the booking confirmation?</p>
+                            {isDelivery && (
+                                <span className="inline-flex items-center gap-1 bg-amber-500 text-white text-[10px] font-black uppercase tracking-widest px-2.5 py-1 rounded-full mb-2">
+                                    <Package className="w-3 h-3" /> Delivery
+                                </span>
+                            )}
+                            <h2 className="text-2xl font-bold text-gray-900">{isDelivery ? 'Sender Details' : 'Contact Details'}</h2>
+                            <p className="text-gray-500 text-sm">{isDelivery ? "Your details as the sender — where should we send the booking confirmation?" : 'Where should we send the booking confirmation?'}</p>
                         </div>
 
                         <div className="bg-gray-50 p-4 rounded-xl border border-gray-100 text-sm space-y-2">
@@ -875,6 +1036,12 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                 <span className="text-gray-500">Date:</span>
                                 <span className="text-gray-900">{formData.pickup_date} at {formData.pickup_time}</span>
                             </div>
+                            {isDelivery && (
+                                <div className="flex justify-between font-medium">
+                                    <span className="text-gray-500">Recipient:</span>
+                                    <span className="text-gray-900">{formData.recipient_name}</span>
+                                </div>
+                            )}
                             <div className="flex justify-between font-bold text-primary pt-2 border-t border-gray-200 mt-2">
                                 <span>Total Estimate:</span>
                                 <span>Custom Quote</span>
@@ -884,11 +1051,11 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                         <div className="space-y-4">
                             <div className="relative group/input">
                                 <User className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors" />
-                                <Input name="customer_name" placeholder="Full Name *" required value={formData.customer_name} className="pl-10 h-12 bg-gray-50 border-gray-300 rounded-xl" onChange={handleChange} />
+                                <Input name="customer_name" placeholder={isDelivery ? "Sender Full Name *" : "Full Name *"} required value={formData.customer_name} className="pl-10 h-12 bg-gray-50 border-gray-300 rounded-xl" onChange={handleChange} />
                             </div>
                             <div className="relative group/input">
                                 <Mail className="absolute left-3 top-3.5 w-4 h-4 text-gray-400 group-focus-within/input:text-primary transition-colors" />
-                                <Input name="customer_email" type="email" placeholder="Email Address *" required value={formData.customer_email} className="pl-10 h-12 bg-gray-50 border-gray-300 rounded-xl" onChange={handleChange} />
+                                <Input name="customer_email" type="email" placeholder={isDelivery ? "Sender Email Address *" : "Email Address *"} required value={formData.customer_email} className="pl-10 h-12 bg-gray-50 border-gray-300 rounded-xl" onChange={handleChange} />
                             </div>
                             <div className="relative group/input">
                                 <div className="flex gap-2">
@@ -914,7 +1081,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                             </Command>
                                         </PopoverContent>
                                     </Popover>
-                                    <Input name="customer_phone" type="tel" placeholder="Mobile Number *" required value={formData.customer_phone} className="flex-1 h-12 bg-gray-50 border-gray-300 rounded-xl" onChange={handleChange} />
+                                    <Input name="customer_phone" type="tel" placeholder={isDelivery ? "Sender Mobile Number *" : "Mobile Number *"} required value={formData.customer_phone} className="flex-1 h-12 bg-gray-50 border-gray-300 rounded-xl" onChange={handleChange} />
                                 </div>
                             </div>
                         </div>
@@ -1000,7 +1167,23 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                 type="button" 
                                 onClick={() => {
                                     const fullPhoneNumber = `${countryCode}${formData.customer_phone}`;
-                                    const whatsappMsg = `*New Booking Request - ${BRAND.name}*
+                                    const whatsappMsg = isDelivery ? `*New DELIVERY Request - ${BRAND.name}*
+*DELIVERY — NO PASSENGER*
+*Sender:* ${formData.customer_name}
+*Sender Email:* ${formData.customer_email}
+*Sender Phone:* ${fullPhoneNumber}
+*Recipient:* ${formData.recipient_name}
+*Recipient Phone:* ${formData.recipient_phone}
+*Pickup:* ${formData.pickup_location}
+*Delivery To:* ${formData.destination}
+*Date:* ${formData.pickup_date}
+*Time:* ${formData.pickup_time}
+*Vehicle:* ${formData.vehicle_type}
+*Item Type:* ${DELIVERY_ITEM_TYPES.find(it => it.value === formData.item_type)?.label || formData.item_type}
+*Item Count:* ${formData.item_count || 1}${formData.item_size_weight ? `\n*Size/Weight:* ${formData.item_size_weight}` : ''}${formData.item_description ? `\n*Item Description:* ${formData.item_description}` : ''}
+*Special Instructions:* ${formData.special_requests || 'None'}
+---
+Please provide a quote for this delivery.` : `*New Booking Request - ${BRAND.name}*
 *Name:* ${formData.customer_name}
 *Email:* ${formData.customer_email}
 *Phone:* ${fullPhoneNumber}
@@ -1047,7 +1230,14 @@ Please provide a quote for this journey.`;
                                         child_seats: 0,
                                         flight_number: '',
                                         trip_type: 'point_to_point',
-                                        duration_hours: undefined
+                                        duration_hours: undefined,
+                                        booking_type: 'passenger',
+                                        recipient_name: '',
+                                        recipient_phone: '',
+                                        item_type: '',
+                                        item_description: '',
+                                        item_count: 1,
+                                        item_size_weight: '',
                                     }));
                                 }}
                                 className="border-2 border-gray-200 hover:bg-gray-50 text-gray-700 font-bold py-4 px-8 rounded-xl transition-colors"
