@@ -3,6 +3,9 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Makkah to Madinah 7-Seater Hyundai Staria Taxi | Taxi Service KSA',
   description: 'Book a spacious 7-seater Hyundai Staria for your journey from Makkah to Madinah. Ideal for families and groups performing Umrah. Fixed rates.',
+  alternates: {
+    canonical: 'https://taxiserviceksa.com/makkah-taxi/makkah-to-madinah-staria-7-seater/',
+  },
 };
 
 export default function MakkahToMadinahStaria() {

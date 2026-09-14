@@ -4,6 +4,9 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Interactive City Map | TaxiServiceKSA',
     description: 'Explore Makkah, Madinah, and Riyadh with our interactive map. Find holy sites, hotels, and transport hubs.',
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/map/',
+    },
 };
 
 // Dynamically import the map component to avoid SSR issues with Leaflet

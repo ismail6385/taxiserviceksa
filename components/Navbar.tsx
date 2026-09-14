@@ -267,7 +267,7 @@ export default function Navbar() {
                             <div className="ml-6 flex items-center gap-3">
                                 <Link
                                     href="https://wa.me/966575806733"
-                                    target="_blank"
+                                    target="_blank" rel="noopener noreferrer"
                                     className="bg-emerald-500 hover:bg-emerald-600 text-white font-black px-6 py-3 rounded-xl text-sm shadow-lg shadow-emerald-500/20 transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2"
                                 >
                                     <WhatsAppIcon className="w-4 h-4 fill-current" />
@@ -280,7 +280,7 @@ export default function Navbar() {
                         <div className="xl:hidden flex items-center gap-1.5 sm:gap-2 shrink-0">
                             <Link
                                 href="https://wa.me/966575806733"
-                                target="_blank"
+                                target="_blank" rel="noopener noreferrer"
                                 className="bg-emerald-500 text-white font-black rounded-xl px-2.5 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm shadow-lg shadow-emerald-500/20 active:scale-95 transition-all flex items-center gap-1 sm:gap-1.5 whitespace-nowrap"
                             >
                                 <WhatsAppIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current shrink-0" />

@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     title: 'FAQs | Taxi Service KSA - Common Questions',
     description: 'Find answers to frequently asked questions about booking, payments, vehicles, and services at Taxi Service KSA.',
     keywords: ['taxi FAQ Saudi Arabia', 'booking help', 'payment questions', 'service coverage', 'airport transfer FAQ'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/faq/',
+    },
 };
 
 export default function FAQPage() {

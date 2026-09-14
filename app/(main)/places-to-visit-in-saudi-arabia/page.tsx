@@ -3,6 +3,9 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Top Places to Visit in Saudi Arabia | Taxi Service KSA',
   description: 'Explore the best tourist destinations in Saudi Arabia, from the historical ruins of AlUla to the modern skyline of Riyadh and the beautiful Red Sea coast.',
+  alternates: {
+    canonical: 'https://taxiserviceksa.com/places-to-visit-in-saudi-arabia/',
+  },
 };
 
 export default function PlacesToVisitSaudiArabia() {

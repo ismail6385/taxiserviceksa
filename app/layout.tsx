@@ -73,31 +73,42 @@ export const metadata = {
   },
 };
 
-import { headers } from 'next/headers';
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const headersList = headers();
-  const pathname = headersList.get('x-pathname') || '';
-
-  // Detect language and direction
-  let lang = 'en';
-  let dir = 'ltr';
-
-  if (pathname.startsWith('/ar/') || pathname === '/ar') {
-    lang = 'ar';
-    dir = 'rtl';
-  } else if (pathname.startsWith('/ur/') || pathname === '/ur') {
-    lang = 'ur';
-    dir = 'rtl';
-  }
-
+  // lang/dir default to English — correct for the vast majority of pages.
+  // /ar/* and /ur/* are corrected below by a synchronous, render-blocking
+  // inline script (not a headers()/usePathname() effect) so there's no
+  // flash of LTR-then-RTL on Arabic/Urdu pages. This intentionally avoids
+  // reading the request pathname on the server (via next/headers) here:
+  // headers() is a Dynamic Function, and calling it in the ROOT layout
+  // forced every single page on the site — including fully static ones
+  // like /routes/*, /services/*, /guides/* — out of static rendering and
+  // into a fresh, uncached render on every request (confirmed via
+  // `Cache-Control: private, no-cache, no-store` on pages with zero
+  // dynamic data). That made the whole site slower and meant a burst of
+  // crawler traffic could occasionally hit a slow/incomplete render.
   return (
-    <html lang={lang} dir={dir} suppressHydrationWarning>
+    <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            (function () {
+              var p = window.location.pathname;
+              if (p === '/ar' || p.indexOf('/ar/') === 0) {
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+              } else if (p === '/ur' || p.indexOf('/ur/') === 0) {
+                document.documentElement.lang = 'ur';
+                document.documentElement.dir = 'rtl';
+              }
+            })();
+            `
+          }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `

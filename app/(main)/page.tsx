@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   description: 'Book private car transfers, round-trip day trips, or hire an hourly driver. Enjoy door-to-door rides and sightseeing in 80+ cities with local drivers.',
   alternates: {
     canonical: 'https://taxiserviceksa.com/',
+    languages: {
+      'en': 'https://taxiserviceksa.com/',
+      'ar': 'https://taxiserviceksa.com/ar/',
+      'ur': 'https://taxiserviceksa.com/ur/',
+      'x-default': 'https://taxiserviceksa.com/',
+    },
   },
   openGraph: {
     images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Transfers, Day Trips and Hourly Drivers with Taxi Service KSA' }],

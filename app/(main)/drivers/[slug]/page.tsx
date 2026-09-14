@@ -22,10 +22,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: `${name} | Professional Driver | Taxi Service KSA`,
         description: driver.bio || `Book a ride with ${name}, a professional chauffeur on Taxi Service KSA.`,
         alternates: { canonical: `https://taxiserviceksa.com/drivers/${driver.slug}/` },
-        // Individual driver profiles start noindex — location/route pages
-        // remain the site's primary SEO surface (see driver onboarding
-        // report for how to opt a profile into indexing later).
-        robots: { index: false, follow: true },
+        // Indexable — only reachable at all once an admin has approved the
+        // driver (getApprovedDriverBySlug gates on onboarding_status ===
+        // 'APPROVED'), by which point their profile has real, unique
+        // content (bio, vehicle, locations/services served), not a thin
+        // placeholder. Previously hardcoded noindex; removed 2026-09-14 per
+        // owner request.
     };
 }
 

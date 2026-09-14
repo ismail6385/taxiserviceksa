@@ -16,6 +16,12 @@ export const metadata: Metadata = {
     keywords: ['al khobar taxi', 'khobar to bahrain taxi', 'king fahd causeway taxi', 'al khobar private car', 'dmm airport taxi from khobar'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/locations/al-khobar/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/locations/al-khobar/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/al-khobar/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/al-khobar/',
+            'x-default': 'https://taxiserviceksa.com/locations/al-khobar/',
+        },
     },
     openGraph: {
         images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Al Khobar private taxi and Bahrain Causeway transfer' }],

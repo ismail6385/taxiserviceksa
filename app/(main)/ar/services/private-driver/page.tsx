@@ -243,7 +243,7 @@ export default function PrivateDriverPageArabic() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966575806733?text=مرحباً،%20أريد%20استئجار%20سائق%20خاص%20في%20السعودية" target="_blank">
+                        <Link href="https://wa.me/966575806733?text=مرحباً،%20أريد%20استئجار%20سائق%20خاص%20في%20السعودية" target="_blank" rel="noopener noreferrer">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
                                 استأجر سائقاً خاصاً
                                 <ArrowRight className="mr-2 w-5 h-5 rotate-180 group-hover:-translate-x-1 transition-transform" />
@@ -452,7 +452,7 @@ export default function PrivateDriverPageArabic() {
                         بالساعة أو اليوم الكامل أو الأسبوع أو الشهر — سائقك الشخصي بانتظارك في الرياض وجدة. أسعار ثابتة، أسطول فاخر، يتحدث الإنجليزية.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966575806733?text=مرحباً،%20أريد%20استئجار%20سائق%20خاص%20في%20السعودية" target="_blank">
+                        <Link href="https://wa.me/966575806733?text=مرحباً،%20أريد%20استئجار%20سائق%20خاص%20في%20السعودية" target="_blank" rel="noopener noreferrer">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 حجز عبر واتساب
                             </Button>

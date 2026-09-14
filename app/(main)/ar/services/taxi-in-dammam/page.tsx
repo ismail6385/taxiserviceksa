@@ -247,7 +247,7 @@ export default function TaxiInDammamPageArabic() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966575806733?text=مرحباً،%20أحتاج%20تاكسي%20في%20الدمام" target="_blank">
+                        <Link href="https://wa.me/966575806733?text=مرحباً،%20أحتاج%20تاكسي%20في%20الدمام" target="_blank" rel="noopener noreferrer">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
                                 احجز تاكسي الدمام
                                 <ArrowRight className="mr-2 w-5 h-5 rotate-180 group-hover:-translate-x-1 transition-transform" />
@@ -440,7 +440,7 @@ export default function TaxiInDammamPageArabic() {
                         ))}
                     </div>
                     <div className="text-center mt-10">
-                        <Link href="https://wa.me/966575806733?text=مرحباً،%20أحتاج%20تاكسي%20في%20الدمام" target="_blank">
+                        <Link href="https://wa.me/966575806733?text=مرحباً،%20أحتاج%20تاكسي%20في%20الدمام" target="_blank" rel="noopener noreferrer">
                             <Button size="lg" className="bg-black text-white hover:bg-gray-800 font-bold text-lg px-10 py-6 h-auto rounded-2xl">
                                 احجز عبر واتساب <ArrowRight className="mr-2 w-5 h-5 rotate-180" />
                             </Button>
@@ -531,7 +531,7 @@ export default function TaxiInDammamPageArabic() {
                         جسر البحرين، أرامكو الظهران، استقبال المطار، أو تنقلات مدينة الخبر — سائق محترف واحد لكل رحلة في المنطقة الشرقية. أسعار ثابتة، أسطول فاخر، على مدار الساعة.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966575806733?text=مرحباً،%20أحتاج%20تاكسي%20في%20الدمام" target="_blank">
+                        <Link href="https://wa.me/966575806733?text=مرحباً،%20أحتاج%20تاكسي%20في%20الدمام" target="_blank" rel="noopener noreferrer">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[220px]">
                                 حجز عبر واتساب
                             </Button>

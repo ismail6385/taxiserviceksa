@@ -33,9 +33,15 @@ interface Props {
 
 // Cities that have a real, published /ur/locations/{slug}/ page — only these
 // should get a `ur` hreflang entry, otherwise it would point at a 404.
+// Covers both the hand-written static /ur/locations/{slug}/ folders AND
+// every slug in data/cities.ts (ur/locations/[city]/page.tsx statically
+// generates all of them unconditionally, with no allowlist of its own —
+// al-khobar and dhahran were previously missing here even though their
+// /ur/ page is real, which broke hreflang reciprocity).
 const UR_TRANSLATED_CITIES = new Set([
     'abha', 'alula', 'dammam', 'jeddah', 'khayber-fort', 'madinah',
     'makkah', 'makkah-ziyarat', 'riyadh', 'tabuk', 'taif', 'yanbu',
+    'al-khobar', 'dhahran',
 ]);
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -48,8 +54,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
 
     return {
-        title: city.metaTitle,
-        description: city.metaDescription,
+        title: city.metaTitleAr || city.metaTitle,
+        description: city.metaDescriptionAr || city.metaDescription,
         alternates: {
             canonical: `https://taxiserviceksa.com/ar/locations/${city.slug}/`,
             languages: {
@@ -62,8 +68,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         openGraph: {
             images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Taxi Service KSA' }],
             siteName: 'Taxi Service KSA',
-            title: city.metaTitle,
-            description: city.metaDescription,
+            title: city.metaTitleAr || city.metaTitle,
+            description: city.metaDescriptionAr || city.metaDescription,
             url: `https://taxiserviceksa.com/ar/locations/${city.slug}/`,
             type: 'website',
         }

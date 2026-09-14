@@ -21,6 +21,16 @@ export interface CityData {
     slug: string;
     metaTitle: string;
     metaDescription: string;
+    // Optional per-language overrides for cities served only by the
+    // ar/locations/[city] and ur/locations/[city] dynamic templates (no
+    // dedicated static folder in that language) — without these, those
+    // templates fell back to the English metaTitle/metaDescription
+    // verbatim, producing duplicate <title>/<meta description> across
+    // languages. Falls back to metaTitle/metaDescription when absent.
+    metaTitleAr?: string;
+    metaDescriptionAr?: string;
+    metaTitleUr?: string;
+    metaDescriptionUr?: string;
     primaryAudience: string;
     serviceFocus: string;
     landmarks: string[];
@@ -151,6 +161,8 @@ export const cities: Record<string, CityData> = {
         slug: "riyadh",
         metaTitle: "Taxi Service in Riyadh | Premium Chauffeur & City Transfers",
         metaDescription: "Safe & reliable taxi service in Riyadh for business & leisure. Airport transfers, city tours & VIP chauffeur service. Book now!",
+        metaTitleAr: "تاكسي الرياض | خدمة شوفير فاخرة وتوصيل داخل المدينة",
+        metaDescriptionAr: "خدمة تاكسي آمنة وموثوقة في الرياض للأعمال والسياحة. توصيل المطار، جولات داخل المدينة، وخدمة شوفير VIP. احجز الآن!",
         primaryAudience: "Business Executives, Tourists",
         serviceFocus: "Corporate Travel & Events",
         landmarks: ["Kingdom Centre", "King Khalid International Airport", "Ad Diriyah", "Riyadh Boulevard"],
@@ -345,6 +357,8 @@ export const cities: Record<string, CityData> = {
         slug: "dammam",
         metaTitle: "Taxi Service in Dammam | Airport & City Travel",
         metaDescription: "Book the best taxi service in Dammam. fast airport transfers, corniche rides & intercity travel to Khobar/Jubail. 24/7 availability.",
+        metaTitleAr: "تاكسي الدمام | توصيل المطار وتنقلات المدينة",
+        metaDescriptionAr: "احجز أفضل خدمة تاكسي في الدمام. توصيل سريع من المطار، جولات الكورنيش، وسفر بين المدن إلى الخبر والجبيل. متاح على مدار الساعة.",
         primaryAudience: "Residents, Business, Tourists",
         serviceFocus: "Local & Intercity Travel",
         landmarks: ["King Fahd International Airport", "Dammam Corniche", "Half Moon Bay", "Ithra Center"],
@@ -539,6 +553,10 @@ export const cities: Record<string, CityData> = {
         slug: "al-khobar",
         metaTitle: "Taxi Service in Al Khobar | Corniche & Causeway Transfers",
         metaDescription: "Best taxi service in Al Khobar for local travel & Causeway trips to Bahrain. Reliable, comfortable rides to Dammam Airport and Corniche.",
+        metaTitleAr: "تاكسي الخبر | توصيل الكورنيش وجسر الملك فهد",
+        metaDescriptionAr: "أفضل خدمة تاكسي في الخبر للتنقل المحلي ورحلات جسر الملك فهد إلى البحرين. توصيل مريح وموثوق إلى مطار الدمام والكورنيش.",
+        metaTitleUr: "الخبر ٹیکسی سروس | کورنیش اور کاز وے ٹرانسفر",
+        metaDescriptionUr: "الخبر میں بہترین ٹیکسی سروس، مقامی سفر اور بحرین کاز وے ٹرپس کے لیے۔ دمام ایئرپورٹ اور کورنیش کے لیے آرام دہ اور محفوظ سواری۔",
         primaryAudience: "Business, Residents, Visitors",
         serviceFocus: "Business & Cross-Border Travel",
         landmarks: ["Khobar Corniche", "King Fahd Causeway", "Half Moon Beach", "Al Rashid Mall"],
@@ -636,6 +654,10 @@ export const cities: Record<string, CityData> = {
         slug: "dhahran",
         metaTitle: "Taxi Service in Dhahran | Aramco & Ithra Transfers",
         metaDescription: "Reliable taxi service in Dhahran. Transfers to Saudi Aramco, KFUPM, and Ithra Center. Professional drivers for business & city travel.",
+        metaTitleAr: "تاكسي الظهران | توصيل أرامكو ومركز إثراء",
+        metaDescriptionAr: "خدمة تاكسي موثوقة في الظهران. توصيل إلى أرامكو السعودية، جامعة الملك فهد، ومركز إثراء. سائقون محترفون للأعمال والتنقل داخل المدينة.",
+        metaTitleUr: "ظہران ٹیکسی سروس | آرامکو اور اثراء ٹرانسفر",
+        metaDescriptionUr: "ظہران میں قابل اعتماد ٹیکسی سروس۔ سعودی آرامکو، KFUPM، اور اثراء سینٹر کے لیے ٹرانسفر۔ بزنس اور شہر کے سفر کے لیے پیشہ ور ڈرائیورز۔",
         primaryAudience: "Business Professionals, Aramco Employees, Visitors",
         serviceFocus: "Corporate & Cultural Travel",
         landmarks: ["King Abdulaziz Center for World Culture (Ithra)", "KFUPM", "Saudi Aramco", "Mall of Dhahran"],
@@ -733,6 +755,8 @@ export const cities: Record<string, CityData> = {
         slug: "tabuk",
         metaTitle: "Taxi Service in Tabuk | Reliable Intercity Transfers & Airport Taxi",
         metaDescription: "Book a reliable taxi service in Tabuk. Professional drivers for intercity transfers to NEOM, AlUla, and across KSA. Safe & fixed rates.",
+        metaTitleAr: "تاكسي تبوك | توصيل موثوق بين المدن ومطار تبوك",
+        metaDescriptionAr: "احجز خدمة تاكسي موثوقة في تبوك. سائقون محترفون لتوصيل بين المدن إلى نيوم والعلا وجميع أنحاء المملكة. أسعار ثابتة وآمنة.",
         primaryAudience: "Tourists, Business, NEOM Commuters",
         serviceFocus: "Northwestern Intercity Transfers",
         landmarks: ["Tabuk Castle", "Prince Sultan Bin Abdulaziz Airport", "Prophet's Mosque (Tabuk)", "Souq Twaheen"],

@@ -9,6 +9,7 @@ export async function GET() {
         `${baseUrl}/sitemap-blog.xml`,
         `${baseUrl}/sitemap-routes.xml`,
         `${baseUrl}/sitemap-fleet.xml`,
+        `${baseUrl}/sitemap-drivers.xml`,
         `${baseUrl}/sitemap-borders.xml`,
         `${baseUrl}/sitemap-distance.xml`,
         `${baseUrl}/sitemap-bus.xml`,

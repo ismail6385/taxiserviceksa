@@ -143,7 +143,7 @@ export default function AdminCommentsPage() {
                                     <div className="flex items-center gap-3">
                                         <span className="flex items-center gap-1 text-sm text-gray-500">
                                             <FileText className="w-3.5 h-3.5" />
-                                            <a href={`/blog/${comment.blog_slug}/`} target="_blank" className="text-primary hover:underline">
+                                            <a href={`/blog/${comment.blog_slug}/`} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
                                                 /blog/{comment.blog_slug}/
                                             </a>
                                         </span>

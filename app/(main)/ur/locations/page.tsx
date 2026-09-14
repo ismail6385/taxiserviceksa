@@ -11,6 +11,7 @@ export const metadata: Metadata = {
         canonical: 'https://taxiserviceksa.com/ur/locations/',
         languages: {
             'en': 'https://taxiserviceksa.com/locations/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/',
             'ur': 'https://taxiserviceksa.com/ur/locations/',
             'x-default': 'https://taxiserviceksa.com/locations/',
         },

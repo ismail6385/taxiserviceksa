@@ -5,8 +5,8 @@ import { ArrowRight, MapPin, Plane, Building2, Star } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 
 export const metadata: Metadata = {
-    title: 'Travel Guides | Taxi Service KSA - Expert Insights for Saudi Arabia',
-    description: 'Comprehensive travel guides for Jeddah Airport, Makkah Umrah, and Riyadh Business Travel. Expert insights from professional drivers with years of local experience.',
+    title: 'أدلة السفر | رؤى الخبراء للسفر في السعودية',
+    description: 'أدلة سفر شاملة لمطار جدة، عمرة مكة، والسفر التجاري في الرياض. رؤى الخبراء من سائقين محترفين بسنوات من الخبرة المحلية.',
     keywords: ['Jeddah Airport Guide', 'Makkah Umrah Guide', 'Riyadh Business Guide', 'Saudi Arabia Travel', 'Taxi Service KSA'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ar/guides/',

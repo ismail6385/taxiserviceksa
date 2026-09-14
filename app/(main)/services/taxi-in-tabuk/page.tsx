@@ -248,7 +248,7 @@ export default function TaxiInTabukPage() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966575806733?text=Hello,%20I%20need%20a%20taxi%20in%20Tabuk" target="_blank">
+                        <Link href="https://wa.me/966575806733?text=Hello,%20I%20need%20a%20taxi%20in%20Tabuk" target="_blank" rel="noopener noreferrer">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
                                 Book Tabuk Taxi
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -435,7 +435,7 @@ export default function TaxiInTabukPage() {
                         ))}
                     </div>
                     <div className="text-center mt-10">
-                        <Link href="https://wa.me/966575806733?text=Hello,%20I%20need%20a%20taxi%20in%20Tabuk" target="_blank">
+                        <Link href="https://wa.me/966575806733?text=Hello,%20I%20need%20a%20taxi%20in%20Tabuk" target="_blank" rel="noopener noreferrer">
                             <Button size="lg" className="bg-black text-white hover:bg-gray-800 font-bold text-lg px-10 py-6 h-auto rounded-2xl">
                                 Book via WhatsApp <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
@@ -592,7 +592,7 @@ export default function TaxiInTabukPage() {
                         NEOM transfers, AlUla trips, airport pickup, or city rides — one professional driver for every Tabuk journey. Fixed rates, luxury fleet, 24/7.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966575806733?text=Hello,%20I%20need%20a%20taxi%20in%20Tabuk" target="_blank">
+                        <Link href="https://wa.me/966575806733?text=Hello,%20I%20need%20a%20taxi%20in%20Tabuk" target="_blank" rel="noopener noreferrer">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[220px]">
                                 WhatsApp Booking
                             </Button>

@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     title: 'Jeddah Shopping Guide 2026 | Best Malls & Souqs',
     description: 'Ultimate guide to shopping in Jeddah. From luxury brands at Red Sea Mall to traditional bargains in Al-Balad. Taxi transfers available for shopping tours.',
     keywords: ['Jeddah Shopping Malls', 'Red Sea Mall', 'Mall of Arabia', 'Al Balad Souq', 'Jeddah Souvenirs', 'Shopping Taxi Jeddah'],
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/blog/jeddah-shopping-guide/',
+    },
     openGraph: {
         images: [{ url: '/jeddah-shopping.webp', alt: 'Jeddah Shopping Mall' }],
     },

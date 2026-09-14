@@ -3,6 +3,9 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Madinah to Jeddah Airport (JED) Departures Taxi | Taxi Service KSA',
   description: 'Book your departure transfer from Madinah to Jeddah Airport (JED). Reliable, on-time private taxis ensuring you never miss your flight.',
+  alternates: {
+    canonical: 'https://taxiserviceksa.com/madinah-to-jeddah-airport-departures/',
+  },
 };
 
 export default function MadinahToJeddahAirport() {

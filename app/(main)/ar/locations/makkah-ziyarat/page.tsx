@@ -18,7 +18,13 @@ export const metadata: Metadata = {
     description: 'Book Makkah Ziyarat taxi tour. Visit Jabal Al-Nour (Cave Hira), Jabal Thawr, Arafat, Mina, and Muzdalifah. Comprehensive guided tours of Makkah\'s holy sites.',
     keywords: ['Makkah Ziyarat places', 'Jabal Nour taxi', 'Cave Hira visit', 'Arafat Mina tour', 'Makkah holy sites taxi'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/makkah-ziyarat/',
+        canonical: 'https://taxiserviceksa.com/ar/locations/makkah-ziyarat/',
+        languages: {
+            'en': 'https://taxiserviceksa.com/locations/makkah-ziyarat/',
+            'ar': 'https://taxiserviceksa.com/ar/locations/makkah-ziyarat/',
+            'ur': 'https://taxiserviceksa.com/ur/locations/makkah-ziyarat/',
+            'x-default': 'https://taxiserviceksa.com/locations/makkah-ziyarat/',
+        },
     },
 };
 

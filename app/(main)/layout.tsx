@@ -72,8 +72,6 @@ export const metadata = {
   },
 };
 
-import { headers } from 'next/headers';
-
 export default function MainLayout({
   children,
 }: {

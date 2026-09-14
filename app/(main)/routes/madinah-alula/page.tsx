@@ -32,11 +32,6 @@ export const metadata: Metadata = {
     ],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/madinah-alula/',
-        languages: {
-            'en': 'https://taxiserviceksa.com/routes/madinah-alula/',
-            'ar': 'https://taxiserviceksa.com/ar/routes/madinah-alula/',
-            'x-default': 'https://taxiserviceksa.com/routes/madinah-alula/',
-        },
     },
     openGraph: {
         title: 'Madinah to AlUla Taxi | Private Transfer - Fixed Price | Taxi Service KSA',

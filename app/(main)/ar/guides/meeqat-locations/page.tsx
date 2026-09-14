@@ -15,8 +15,8 @@ import ReviewsDisplay from '@/components/ReviewsDisplay';
 import QuestionsDisplay from '@/components/QuestionsDisplay';
 
 export const metadata: Metadata = {
-    title: 'Meeqat Locations for Umrah | 5 Miqats Map & Guide',
-    description: 'Comprehensive guide to the 5 Miqat locations for Umrah pilgrims. Dhul Hulaifah (Abyar Ali), Al-Juhfah, Qarn al-Manazil, Yalamlam, and Dhat Irq. Distances and rules.',
+    title: 'مواقع المواقيت للعمرة | خريطة ودليل المواقيت الخمسة',
+    description: 'دليل شامل لمواقع المواقيت الخمسة لمعتمري العمرة: ذو الحليفة (أبيار علي)، الجحفة، قرن المنازل، يلملم، وذات عرق. المسافات والأحكام.',
     keywords: ['Meeqat locations', 'Miqat maps', 'Dhul Hulaifah', 'Abyar Ali', 'Yalamlam miqat', 'Qarn al Manazil', 'Umrah ihram boundary'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ar/guides/meeqat-locations/',

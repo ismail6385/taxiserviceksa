@@ -3,6 +3,9 @@ import Link from 'next/link';
 export const metadata = {
   title: 'Al Rajhi Grand Mosque: Riyadh\'s Prayer Space | Taxi Service KSA',
   description: 'Learn about Al Rajhi Grand Mosque, the largest mosque in Riyadh, offering massive prayer spaces and architectural beauty.',
+  alternates: {
+    canonical: 'https://taxiserviceksa.com/al-rajhi-grand-mosque-riyadhs-prayer-space/',
+  },
 };
 
 export default function AlRajhiGrandMosque() {
