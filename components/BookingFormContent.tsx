@@ -249,9 +249,19 @@ export default function BookingFormContent({ prefilledData, className }: Booking
             if (!res.ok) {
                 if (result.fieldErrors) {
                     setFieldErrors(result.fieldErrors);
-                    if (result.fieldErrors.return_date || result.fieldErrors.return_time || result.fieldErrors.return_pickup_location || result.fieldErrors.return_destination || result.fieldErrors.pickup_date || result.fieldErrors.pickup_time) {
+                    // Every one of these lives on step 1 — jump back there so
+                    // the error is actually visible instead of silently
+                    // failing while the user sits on step 3 (contact
+                    // details), which has none of these fields on screen.
+                    if (result.fieldErrors.return_date || result.fieldErrors.return_time || result.fieldErrors.return_pickup_location || result.fieldErrors.return_destination || result.fieldErrors.pickup_date || result.fieldErrors.pickup_time || result.fieldErrors.pickup_location || result.fieldErrors.destination || result.fieldErrors.duration_hours || result.fieldErrors.recipient_name || result.fieldErrors.recipient_phone || result.fieldErrors.item_type) {
                         setStep(1);
+                    } else if (result.fieldErrors.vehicle_type) {
+                        setStep(2);
                     }
+                    // Field-level red text can be off-screen or easy to miss —
+                    // an alert guarantees the user actually notices something
+                    // needs fixing instead of the submit just silently failing.
+                    alert('Please check the highlighted fields: ' + Object.values(result.fieldErrors).join(' '));
                     return;
                 }
                 throw new Error(result.error || 'Booking failed');

@@ -133,6 +133,10 @@ Please provide a quote for this journey.`;
                 if (result.fieldErrors) {
                     setFieldErrors(result.fieldErrors);
                     setLoading(false);
+                    // Inline red text can be below the fold on mobile — an
+                    // alert guarantees the visitor actually sees why the
+                    // request didn't go through.
+                    alert('Please check the highlighted fields: ' + Object.values(result.fieldErrors).join(' '));
                     return;
                 }
                 throw new Error(result.error || 'Booking failed');

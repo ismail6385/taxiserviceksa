@@ -735,6 +735,10 @@ export default function BookingsPage() {
             if (!response.ok) {
                 if (result.fieldErrors) {
                     setBookingFieldErrors(result.fieldErrors);
+                    // Inline red text under a field can be scrolled off-screen
+                    // in this long panel — an alert guarantees the admin
+                    // actually sees why Save didn't go through.
+                    alert('Please fix the following before saving: ' + Object.values(result.fieldErrors).join(' '));
                     return;
                 }
                 throw new Error(result.error || 'Failed to update booking details.');
@@ -803,6 +807,12 @@ export default function BookingsPage() {
             if (!response.ok) {
                 if (result.fieldErrors) {
                     setBookingFieldErrors(result.fieldErrors);
+                    // Inline red text under a field can be scrolled off-screen
+                    // in this long panel — an alert guarantees the admin
+                    // actually sees why Create Booking didn't go through
+                    // (e.g. missing Recipient Name/Phone/Item Type on a
+                    // Delivery booking).
+                    alert('Please fix the following before creating: ' + Object.values(result.fieldErrors).join(' '));
                     return;
                 }
                 throw new Error(result.error || 'Failed to create booking.');
