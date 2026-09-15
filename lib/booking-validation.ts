@@ -290,7 +290,15 @@ const bookingFieldsShape = {
         booking_type: z.enum(['passenger', 'delivery']).optional().nullable(),
         recipient_name: z.string().optional().nullable(),
         recipient_phone: z.string().optional().nullable(),
-        item_type: z.enum(['bag_luggage', 'documents', 'parcel', 'flowers', 'small_package', 'other']).optional().nullable(),
+        // Plain string, not z.enum — both the public and admin forms
+        // initialize item_type as '' (empty string) before the user picks
+        // one, and z.enum rejects '' outright (it's not one of the listed
+        // values, and .nullable() only exempts null/undefined) with a
+        // technical "Invalid enum value" error instead of ever reaching
+        // refineTripRules' friendlier "Please select an item type."
+        // message. The UI (DELIVERY_ITEM_TYPES) is what actually
+        // constrains which values get sent in practice.
+        item_type: z.string().optional().nullable(),
         item_description: z.string().optional().nullable(),
         item_count: z.number().int().min(1).optional().nullable(),
         item_size_weight: z.string().optional().nullable(),
