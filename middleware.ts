@@ -10,7 +10,7 @@ export function middleware(request: NextRequest) {
         accept.includes('text/markdown') &&
         !pathname.startsWith('/api/') &&
         !pathname.startsWith('/.well-known/') &&
-        !pathname.match(/\.(ico|png|jpg|jpeg|gif|svg|webp|css|js|json|xml|txt|pdf)$/i)
+        !pathname.match(/\.[a-zA-Z0-9]{1,8}$/)
     ) {
         const url = request.nextUrl.clone();
         url.pathname = '/api/markdown';
@@ -51,14 +51,22 @@ export function middleware(request: NextRequest) {
     }
 
     // Redirect URLs without trailing slash to trailing slash (except for files and API routes)
-    // Skip if it's already a file extension, API route, or has trailing slash
+    // Skip if it's already a file extension, API route, or has trailing slash.
+    // The extension check used to be a fixed whitelist (.ico|.png|...) — any
+    // extension not on that list (e.g. .md, requested by AI-agent-discovery
+    // scanners hitting /auth.md) fell through to here, got a trailing slash
+    // appended, and then whatever's on the serving/CDN side treats a
+    // dotted-path + trailing slash as ambiguous and strips it again —
+    // this route added the slash back, forever (site-breaking redirect
+    // loop, found 2026-09-16). A general "ends in a dot-extension" check
+    // avoids this for any current or future extension, not just this list.
     if (
         pathname !== '/' &&
         !pathname.endsWith('/') &&
         !pathname.startsWith('/api/') &&
         !pathname.startsWith('/_next/') &&
         !pathname.startsWith('/.well-known/') &&
-        !pathname.match(/\.(ico|png|jpg|jpeg|gif|svg|webp|css|js|json|xml|txt|pdf|woff|woff2|ttf|eot)$/i)
+        !pathname.match(/\.[a-zA-Z0-9]{1,8}$/)
     ) {
         const url = request.nextUrl.clone();
         url.pathname = pathname + '/';
