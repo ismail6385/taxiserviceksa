@@ -1,4 +1,4 @@
-# Authentication — Taxi Service KSA
+# auth.md — Taxi Service KSA
 
 ## Booking a transfer: no authentication required
 
@@ -16,6 +16,20 @@ kind. Any agent (human or AI) can submit a booking request directly:
 There is no per-user account, API key, or bearer token needed to create
 a booking, look one up, or track its status
 (`https://taxiserviceksa.com/track-booking/`).
+
+## Agent auth flow
+
+[`/.well-known/oauth-protected-resource`](https://taxiserviceksa.com/.well-known/oauth-protected-resource)
+declares this as `agent_auth`:
+
+- `skill`: `book-taxi`
+- `identity_types_supported`: `["anonymous"]` — no credential of any kind
+- `register_uri`: `POST https://taxiserviceksa.com/api/booking/create/` —
+  there's no separate "registration" step; submitting a booking *is* the
+  action, and it returns a booking `id`
+- `claim_uri`: `POST https://taxiserviceksa.com/api/booking/lookup/` —
+  look up that booking's current status later using its `id` or the
+  sender's email, again with no credential
 
 ## Administrative access
 
