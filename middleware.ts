@@ -18,12 +18,15 @@ export function middleware(request: NextRequest) {
         return NextResponse.rewrite(url);
     }
 
-    const hostname = request.headers.get('host') || '';
-    if (hostname.startsWith('www.')) {
-        const url = request.nextUrl.clone();
-        url.hostname = hostname.replace('www.', '');
-        return NextResponse.redirect(url, 308);
-    }
+    // NOTE: a www <-> non-www redirect used to live here (redirecting
+    // www.taxiserviceksa.com -> taxiserviceksa.com). Removed 2026-09-16
+    // because Vercel's own domain settings are currently redirecting the
+    // apex (taxiserviceksa.com) -> www.taxiserviceksa.com — with BOTH
+    // redirects active at once, every request bounced back and forth
+    // forever (ERR_TOO_MANY_REDIRECTS, site completely unreachable). Do
+    // not re-add an app-level www redirect unless the Vercel dashboard's
+    // domain redirect is also removed/reconciled first, or this will
+    // break the site again the same way.
 
     // Handle WordPress paths - return 410 Gone (permanently removed)
     if (pathname.startsWith('/wp-content/') || pathname.startsWith('/wp-admin/') || pathname.startsWith('/wp-includes/')) {
