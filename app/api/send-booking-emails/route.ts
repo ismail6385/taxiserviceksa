@@ -1,10 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { sendMail } from '@/lib/mail-server';
+import { supabaseAdmin } from '@/lib/supabase-admin';
 import { checkRateLimit, getClientIp } from '@/lib/rate-limit';
 import { hasStructuredReturnLeg, getReturnRoute } from '@/lib/booking-validation';
 
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
+
+async function appendEmailLog(bookingId: string, entry: string) {
+    const { data } = await supabaseAdmin.from('bookings').select('internal_notes').eq('id', bookingId).single();
+    const existing = data?.internal_notes || '';
+    const updated = existing ? `${existing}\n${entry}` : entry;
+    await supabaseAdmin.from('bookings').update({ internal_notes: updated }).eq('id', bookingId);
+}
 
 // Helper function to format booking ID
 function formatBookingId(id: string | number | undefined): string {
@@ -47,7 +55,6 @@ export async function POST(request: NextRequest) {
         }
 
         const { booking } = body;
-        const emailAdmin = process.env.ADMIN_EMAIL || 'info@taxiserviceksa.com';
 
         const safeName     = escapeHtml(booking.customer_name);
         const safePickup   = escapeHtml(booking.pickup_location);
@@ -128,31 +135,12 @@ export async function POST(request: NextRequest) {
             `,
         });
 
-        // 2. Send email to admin
-        await sendMail({
-            to: emailAdmin,
-            replyTo: booking.customer_email,
-            subject: isDelivery ? `📦 New DELIVERY Request - ${safeName}` : `📋 New Quote Request - ${safeName}`,
-            html: `
-            <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-                <h2 style="color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 10px;">${isDelivery ? 'New DELIVERY Request — No Passenger' : 'New Quotation Request'}</h2>
-                <p><strong>${isDelivery ? 'Sender' : 'Customer'} Name:</strong> ${safeName}</p>
-                <p><strong>Email:</strong> ${escapeHtml(booking.customer_email)}</p>
-                <p><strong>Phone:</strong> ${escapeHtml(booking.customer_phone)}</p>
-                <p><strong>Route:</strong> ${safePickup} to ${safeDest}</p>
-                <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
-                ${returnLegLine}
-                <p><strong>Vehicle:</strong> ${safeVehicle}</p>
-                ${isDelivery
-                    ? `<p><strong>Item:</strong> ${safeItemType} × ${booking.item_count || 1}</p><p><strong>Recipient:</strong> ${safeRecipientName} (${safeRecipientPhone})</p>`
-                    : `<p><strong>Passengers:</strong> ${booking.passengers}</p><p><strong>Luggage:</strong> ${booking.luggage ?? 0} bags</p>`}
-                ${safeFlightNumber ? `<p><strong>Flight Number:</strong> ${safeFlightNumber}</p>` : ''}
-                <p><strong>Special Requests:</strong> ${safeRequests}</p>
-                <hr>
-                <p style="font-size: 12px; color: #666;">View this in the Admin Dashboard to generate a PDF Quotation.</p>
-            </div>
-            `,
-        });
+        // 2. Log the new request as an internal note instead of emailing admin
+        // (admin checks the dashboard/Notifications page directly).
+        const logTime = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Riyadh', day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
+        if (booking.id) {
+            await appendEmailLog(booking.id, `📧 [${logTime}] ${isDelivery ? 'New delivery request received' : 'New quote request received'}`).catch(() => {});
+        }
 
         return NextResponse.json({
             success: true,

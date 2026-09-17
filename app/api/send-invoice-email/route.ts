@@ -32,7 +32,6 @@ export async function POST(request: NextRequest) {
             : [];
 
         const refId = `#${String(booking.id).slice(0, 8).toUpperCase()}`;
-        const emailAdmin = process.env.ADMIN_EMAIL || 'info@taxiserviceksa.com';
         const curr = currency || 'SAR';
         const amount = booking.total_price?.toFixed(2) || '0.00';
 
@@ -102,28 +101,6 @@ export async function POST(request: NextRequest) {
                     content: pdfBase64,
                 },
             ],
-        });
-
-        // 2. Notify admin that invoice was sent
-        await sendMail({
-            to: emailAdmin,
-            replyTo: booking.customer_email,
-            subject: `🧾 Invoice Sent — ${booking.customer_name} | ${curr} ${amount}`,
-            html: `
-            <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-                <h2 style="color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 10px;">Invoice Sent to Customer</h2>
-                <p><strong>Customer:</strong> ${booking.customer_name}</p>
-                <p><strong>Email:</strong> ${booking.customer_email}</p>
-                <p><strong>Phone:</strong> ${booking.customer_phone || 'N/A'}</p>
-                <p><strong>Route:</strong> ${booking.pickup_location} → ${booking.destination}</p>
-                <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
-                ${returnLegLine}
-                <p><strong>Vehicle:</strong> ${booking.vehicle_type}</p>
-                <p><strong>Amount:</strong> <span style="font-size:18px; font-weight:900; color:#000;">${curr} ${amount}</span></p>
-                <p><strong>Payment Status:</strong> ${paymentStatus || 'Unpaid'}</p>
-                <p><strong>Payment Method:</strong> ${paymentMethod || 'Cash to Driver'}</p>
-                <p style="font-size:12px; color:#666;">Ref: ${refId} — PDF invoice was attached to customer email.</p>
-            </div>`,
         });
 
         // Log email activity to booking

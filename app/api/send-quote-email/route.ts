@@ -45,7 +45,6 @@ export async function POST(request: NextRequest) {
             ? additionalEmails.filter((e: string) => e && e.includes('@'))
             : [];
 
-        const emailAdmin = process.env.ADMIN_EMAIL || 'info@taxiserviceksa.com';
         const refId      = `#${String(booking.id).slice(0, 8).toUpperCase()}`;
         const curr       = currency || booking.currency || 'SAR';
         const price      = Number(booking.total_price).toFixed(2);
@@ -168,26 +167,7 @@ export async function POST(request: NextRequest) {
             attachments,
         });
 
-        // 2. Notify admin that a quote was sent
-        await sendMail({
-            to: emailAdmin,
-            replyTo: booking.customer_email,
-            subject: `💰 Quote Sent — ${safeName} | ${curr} ${price}`,
-            html: `
-            <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-                <h2 style="color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 10px;">Quote Sent to Customer</h2>
-                <p><strong>Customer:</strong> ${safeName} (${escapeHtml(booking.customer_email)})</p>
-                <p><strong>Phone:</strong> ${escapeHtml(booking.customer_phone)}</p>
-                <p><strong>Route:</strong> ${safePickup} → ${safeDest}</p>
-                <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
-                ${hasStructuredReturnLeg(booking) ? `<p><strong>Return Route:</strong> ${escapeHtml(getReturnRoute(booking).pickupLocation)} → ${escapeHtml(getReturnRoute(booking).destination)}</p><p><strong>Return:</strong> ${booking.return_date} at ${formatTime12h(booking.return_time)}${booking.return_date === booking.pickup_date ? ' (same day)' : ''}</p>` : ''}
-                <p><strong>Vehicle:</strong> ${safeVehicle}</p>
-                <p><strong>Quoted Price:</strong> <span style="font-size:18px; font-weight:900; color:#000;">${curr} ${price}</span></p>
-                <p style="font-size: 12px; color: #666;">Quote ref: ${refId} — valid 48 hours</p>
-            </div>`,
-        });
-
-        // Log email activity to booking
+        // Log email activity to booking (shows in Admin > Notifications instead of a separate admin email)
         const logTime = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Riyadh', day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
         await appendEmailLog(booking.id, `📧 [${logTime}] Quote sent — ${curr} ${price}`).catch(() => {});
 

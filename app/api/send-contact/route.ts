@@ -36,39 +36,17 @@ export async function POST(req: NextRequest) {
         const safeName = escapeHtml(name);
         const safeSubject = escapeHtml(subject);
         const safeMessage = escapeHtml(message);
-        const adminEmail = process.env.ADMIN_EMAIL || 'info@taxiserviceksa.com';
 
-        // Save to support_inquiries so it shows up in the admin Support inbox,
-        // not just as an email. Best-effort — a DB hiccup shouldn't block the
-        // customer's message from emailing through.
+        // Save to support_inquiries so it shows up in the admin Support inbox
+        // instead of emailing the admin. Best-effort — a DB hiccup shouldn't
+        // block the customer's auto-reply from sending.
         await supabaseAdmin.from('support_inquiries').insert([{
             name, email, phone, subject, message, status: 'open',
         }]).then(({ error }) => {
             if (error) console.error('Failed to save support inquiry:', error);
         });
 
-        // 1. Send Alert to Admin
-        await sendMail({
-            to: adminEmail,
-            replyTo: email,
-            subject: `📧 Contact Form: ${subject}`,
-            html: `
-            <div style="font-family: Arial, sans-serif; padding: 25px; border: 1px solid #efefef; border-radius: 12px; max-width: 600px;">
-              <h2 style="color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 10px; margin-top: 0;">New Contact Inquiry</h2>
-              <div style="background-color: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                <p style="margin: 5px 0;"><strong>From:</strong> ${safeName}</p>
-                <p style="margin: 5px 0;"><strong>Email:</strong> ${escapeHtml(email)}</p>
-                <p style="margin: 5px 0;"><strong>Phone:</strong> ${escapeHtml(phone)}</p>
-                <p style="margin: 5px 0;"><strong>Subject:</strong> ${safeSubject}</p>
-              </div>
-              <p style="color: #666; font-size: 14px; text-transform: uppercase; font-weight: bold; margin-bottom: 5px;">Message Content:</p>
-              <div style="padding: 15px; border: 1px dashed #ddd; border-radius: 8px; background-color: #fff; white-space: pre-wrap; color: #333; line-height: 1.6;">${safeMessage}</div>
-              <p style="font-size: 12px; color: #999; margin-top: 20px;">Sent via Contact Form at taxiserviceksa.com</p>
-            </div>
-            `,
-        });
-
-        // 2. Send Auto-Reply to Customer
+        // Send Auto-Reply to Customer
         try {
             await sendMail({
                 to: email,

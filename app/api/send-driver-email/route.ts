@@ -35,36 +35,13 @@ export async function POST(request: NextRequest) {
             vehicle_model: escapeHtml(rawDriver.vehicle_model),
             owns_car: rawDriver.owns_car,
         };
-        const adminEmail = process.env.ADMIN_EMAIL || 'info@taxiserviceksa.com';
-
         console.log('Sending driver application emails for:', driver.full_name);
 
-        // 1. Send Admin Alert Email
-        try {
-            await sendMail({
-                to: adminEmail,
-                replyTo: driver.email,
-                subject: `🚖 Driver Application: ${driver.full_name}`,
-                html: `
-                <div style="font-family: Arial, sans-serif; padding: 25px; border: 1px solid #efefef; border-radius: 12px; max-width: 600px;">
-                  <h2 style="color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 10px; margin-top: 0;">New Partner Application</h2>
-                  <div style="background-color: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                    <p style="margin: 5px 0;"><strong>Driver Name:</strong> ${driver.full_name}</p>
-                    <p style="margin: 5px 0;"><strong>Phone:</strong> ${driver.phone_number}</p>
-                    <p style="margin: 5px 0;"><strong>Email:</strong> ${escapeHtml(driver.email)}</p>
-                    <p style="margin: 5px 0;"><strong>City:</strong> ${driver.city}</p>
-                    <p style="margin: 5px 0;"><strong>Vehicle:</strong> ${driver.vehicle_model}</p>
-                    <p style="margin: 5px 0;"><strong>Owns Car:</strong> ${driver.owns_car ? 'Yes' : 'No'}</p>
-                  </div>
-                  <p style="font-size: 12px; color: #999;">This driver has agreed to the code of conduct and background checks.</p>
-                </div>
-                `,
-            });
-        } catch (error) {
-            console.error('Failed to send admin email:', error);
-        }
+        // Applications are already saved to the `drivers` table (see
+        // partners/driver-registration) so they show up in Admin > Drivers —
+        // no separate admin alert email needed.
 
-        // 2. Send Applicant Confirmation Email
+        // Send Applicant Confirmation Email
         try {
             await sendMail({
                 to: driver.email,

@@ -31,7 +31,6 @@ export async function POST(request: NextRequest) {
         }
 
         const refId = `#${String(booking.id).slice(0, 8).toUpperCase()}`;
-        const emailAdmin = process.env.ADMIN_EMAIL || 'info@taxiserviceksa.com';
         const curr = currency || 'SAR';
         const amount = amountPaid ?? booking.total_price?.toFixed(2) ?? '0.00';
 
@@ -83,26 +82,6 @@ export async function POST(request: NextRequest) {
             ...((!textOnly && pdfBase64) ? {
                 attachments: [{ filename: filename || `Receipt-${refId}.pdf`, content: pdfBase64 }],
             } : {}),
-        });
-
-        await sendMail({
-            to: emailAdmin,
-            replyTo: booking.customer_email,
-            subject: `🧾 Receipt Sent — ${booking.customer_name} | ${curr} ${amount}`,
-            html: `
-            <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-                <h2 style="color: #000; border-bottom: 2px solid #C6FF00; padding-bottom: 10px;">Receipt Sent to Customer</h2>
-                <p><strong>Customer:</strong> ${booking.customer_name}</p>
-                <p><strong>Email:</strong> ${booking.customer_email}</p>
-                <p><strong>Phone:</strong> ${booking.customer_phone || 'N/A'}</p>
-                <p><strong>Route:</strong> ${booking.pickup_location} → ${booking.destination}</p>
-                <p><strong>Date/Time:</strong> ${booking.pickup_date} at ${formatTime12h(booking.pickup_time)}</p>
-                ${returnLegLine}
-                <p><strong>Vehicle:</strong> ${booking.vehicle_type}</p>
-                <p><strong>Amount Paid:</strong> <span style="font-size:18px; font-weight:900; color:#15803d;">${curr} ${amount}</span></p>
-                <p><strong>Payment Method:</strong> ${paymentMethod || 'Cash to Driver'}</p>
-                <p style="font-size:12px; color:#666;">Ref: ${refId} — PDF receipt was attached to customer email.</p>
-            </div>`,
         });
 
         const logTime = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Riyadh', day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' });
