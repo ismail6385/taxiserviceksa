@@ -449,7 +449,7 @@ export default function BusinessPage() {
                             </Link>
                         </Button>
                         <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            <a href="mailto:taxiserviceksa9988@gmail.com">
+                            <a href="mailto:info@taxiserviceksa.com">
                                 Email for Quote
                             </a>
                         </Button>

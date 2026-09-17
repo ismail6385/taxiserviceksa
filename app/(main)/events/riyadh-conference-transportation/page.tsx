@@ -148,7 +148,7 @@ export default function RiyadhConferenceTransportationPage() {
                         <a href={`https://wa.me/966575806733?text=${quoteMessage}`}>
                             <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">WhatsApp Booking</Button>
                         </a>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">Request a Quote</Button>
                         </a>
                     </div>

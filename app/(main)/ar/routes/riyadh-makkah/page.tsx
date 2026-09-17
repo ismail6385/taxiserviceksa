@@ -70,7 +70,7 @@ export default function RiyadhMakkahRoutePageArabic() {
                             <ArrowRight className="mr-2 w-5 h-5 rotate-180 group-hover:-translate-x-1 transition-transform" />
                         </Button>
                     </Link>
-                    <a href="mailto:taxiserviceksa9988@gmail.com">
+                    <a href="mailto:info@taxiserviceksa.com">
                         <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
                             احصل على عرض سعر مخصص
                         </Button>
@@ -228,7 +228,7 @@ export default function RiyadhMakkahRoutePageArabic() {
                                 احجز رحلتي
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com" className="text-white/60 hover:text-white font-bold underline underline-offset-8 transition-colors">
+                        <a href="mailto:info@taxiserviceksa.com" className="text-white/60 hover:text-white font-bold underline underline-offset-8 transition-colors">
                             اطلب عرض سعر مخصص
                         </a>
                     </div>

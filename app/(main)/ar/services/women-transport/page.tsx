@@ -204,7 +204,7 @@ export default function WomenTransportPageArabic() {
                                 <ArrowRight className="mr-2 w-5 h-5 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
                                 استفسار عبر البريد
                             </Button>
@@ -331,7 +331,7 @@ export default function WomenTransportPageArabic() {
                         <Link href="https://wa.me/966575806733?text=مرحباً،%20أحتاج%20نقل%20خاص%20للسيدات%20في%20السعودية" target="_blank" rel="noopener noreferrer">
                             <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">حجز عبر واتساب</Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">التفاصيل عبر البريد</Button>
                         </a>
                     </div>

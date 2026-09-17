@@ -60,7 +60,7 @@ export default function JsonLdOrganization() {
             },
             {
                 "@type": "ContactPoint",
-                "email": "taxiserviceksa9988@gmail.com",
+                "email": "info@taxiserviceksa.com",
                 "contactType": "reservations",
                 "availableLanguage": ["English", "Arabic", "Urdu"],
                 "areaServed": "SA"

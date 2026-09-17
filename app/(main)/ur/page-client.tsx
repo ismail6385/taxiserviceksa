@@ -787,7 +787,7 @@ export default function HomeClientUrdu() {
                         <Link href="/booking/" className="w-full sm:w-auto">
                             <Button size="lg" className="w-full bg-primary text-white hover:bg-blue-600 font-bold text-lg px-10 py-6 h-auto min-h-[56px] min-w-[200px] transition-all hover:scale-105 active:scale-95 shadow-xl shadow-primary/40"><WhatsAppIcon className="w-4 h-4 ml-2 fill-current" /> واٹس ایپ پر بکنگ</Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com" className="w-full sm:w-auto">
+                        <a href="mailto:info@taxiserviceksa.com" className="w-full sm:w-auto">
                             <Button variant="outline" className="w-full bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-h-[56px] min-w-[200px] transition-all hover:scale-105 active:scale-95">
                                 ای میل کریں
                             </Button>

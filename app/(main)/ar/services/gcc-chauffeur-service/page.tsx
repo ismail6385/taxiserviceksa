@@ -254,7 +254,7 @@ export default function GccChauffeurServicePageArabic() {
                                 احجز سيارة خاصة
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 font-black px-12 py-8 text-xl rounded-2xl h-auto">
                                 استفسار عبر البريد
                             </Button>

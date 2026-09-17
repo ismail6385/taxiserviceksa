@@ -140,7 +140,7 @@ export default function AlKhobarPage() {
                         </Link>
                     </Button>
                     <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> Get a Quote
                         </a>
                     </Button>
@@ -352,7 +352,7 @@ export default function AlKhobarPage() {
                                 Book Your Al Khobar Transfer
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email Us
                             </Button>

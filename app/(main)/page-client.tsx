@@ -96,7 +96,7 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
         },
         {
             question: "How do I request a quote for a VIP transfer in Saudi Arabia?",
-            answer: "VIP transfer quotes are available through the <a href='/booking/' class='text-primary hover:underline font-bold'>online quote form</a> or email at taxiserviceksa9988@gmail.com. Your request requires pickup location, destination, and preferred vehicle type. Quotations are sent via email."
+            answer: "VIP transfer quotes are available through the <a href='/booking/' class='text-primary hover:underline font-bold'>online quote form</a> or email at info@taxiserviceksa.com. Your request requires pickup location, destination, and preferred vehicle type. Quotations are sent via email."
         },
         {
             question: "Is Taxi Service KSA a licensed company?",

@@ -4,6 +4,13 @@ import { listApprovedDrivers } from '@/lib/driverOnboardingService';
 // 2026-09-14 (see app/(main)/drivers/[slug]/page.tsx) — this sitemap is
 // what actually gets them discovered/crawled, since they were previously
 // noindex and never listed anywhere.
+//
+// force-dynamic: this route queries Supabase, so it must not run during
+// `next build` (no DB egress in the build environment — it would hang the
+// build forever). Deferring it to request time also keeps the driver list
+// fresh on every crawl.
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
     const baseUrl = 'https://taxiserviceksa.com';
 

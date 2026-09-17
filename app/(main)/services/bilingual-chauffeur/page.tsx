@@ -149,7 +149,7 @@ export default function BilingualChauffeurPage() {
         },
         {
             question: 'How do I book an English-speaking driver in Saudi Arabia from abroad?',
-            answer: 'Booking is done via WhatsApp (+966 57 580 6733) or email (taxiserviceksa9988@gmail.com) entirely in English. No Saudi SIM card or local number is required. Provide your arrival date, flight number if applicable, pickup location, and destination. We confirm via WhatsApp and send driver details before your trip.',
+            answer: 'Booking is done via WhatsApp (+966 57 580 6733) or email (info@taxiserviceksa.com) entirely in English. No Saudi SIM card or local number is required. Provide your arrival date, flight number if applicable, pickup location, and destination. We confirm via WhatsApp and send driver details before your trip.',
         },
         {
             question: 'Is there a driver for international tourists who do not speak Arabic?',
@@ -232,7 +232,7 @@ export default function BilingualChauffeurPage() {
                                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
                                 Email for Enquiry
                             </Button>
@@ -390,7 +390,7 @@ export default function BilingualChauffeurPage() {
                                 WhatsApp Booking
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 Email for Details
                             </Button>

@@ -133,7 +133,7 @@ export default function ContactPage() {
                             "name": "Taxi Service KSA",
                             "image": "https://taxiserviceksa.com/logo.png",
                             "telephone": "+966575806733",
-                            "email": "taxiserviceksa9988@gmail.com",
+                            "email": "info@taxiserviceksa.com",
                             "address": {
                                 "@type": "PostalAddress",
                                 "addressLocality": "Jeddah",
@@ -212,12 +212,12 @@ export default function ContactPage() {
                                     {copiedPhone ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-4 h-4 text-gray-400 group-hover:text-gray-900 transition-colors" />}
                                 </div>
 
-                                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl group cursor-pointer" onClick={() => handleCopy('taxiserviceksa9988@gmail.com', 'email')}>
+                                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl group cursor-pointer" onClick={() => handleCopy('info@taxiserviceksa.com', 'email')}>
                                     <div className="flex items-center gap-3">
                                         <div className="bg-black/5 p-2 rounded-lg"><Mail className="w-5 h-5 text-gray-700" /></div>
                                         <div>
                                             <p className="text-xs text-gray-500 font-medium">Email Dispatch</p>
-                                            <p className="text-sm font-bold text-gray-900">taxiserviceksa9988@gmail.com</p>
+                                            <p className="text-sm font-bold text-gray-900">info@taxiserviceksa.com</p>
                                         </div>
                                     </div>
                                     {copiedEmail ? <Check className="w-5 h-5 text-green-500" /> : <Copy className="w-4 h-4 text-gray-400 group-hover:text-gray-900 transition-colors" />}

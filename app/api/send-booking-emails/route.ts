@@ -115,7 +115,7 @@ export async function POST(request: NextRequest) {
                         <p style="margin: 0; font-weight: bold;">Our team will reply with your official quote via email/WhatsApp within 15-30 minutes.</p>
                     </div>
 
-                    <p style="font-size: 15px;">If you have any urgent changes, please reply to this email or contact us <a href="mailto:taxiserviceksa9988@gmail.com" style="color: #000; font-weight: bold;">taxiserviceksa9988@gmail.com</a></p>
+                    <p style="font-size: 15px;">If you have any urgent changes, please reply to this email or contact us <a href="mailto:info@taxiserviceksa.com" style="color: #000; font-weight: bold;">info@taxiserviceksa.com</a></p>
 
                     <div style="text-align: center; margin: 30px 0;">
                         <a href="https://wa.me/966575806733?text=Hello%2C%20I%20want%20to%20discuss%20my%20booking.%0A%0A*Booking%20Details%3A*%0A%E2%96%B6%20ID%3A%20${formatBookingId(booking.id)}%0A%E2%96%B6%20Name%3A%20${encodeURIComponent(booking.customer_name)}%0A%E2%96%B6%20Route%3A%20${encodeURIComponent(booking.pickup_location)}%20to%20${encodeURIComponent(booking.destination)}%0A%E2%96%B6%20Date%3A%20${encodeURIComponent(booking.pickup_date)}%20at%20${encodeURIComponent(booking.pickup_time)}%0A%E2%96%B6%20Vehicle%3A%20${encodeURIComponent(booking.vehicle_type)}" style="background-color: #25D366; color: white; padding: 14px 28px; text-decoration: none; font-weight: bold; border-radius: 30px; display: inline-block; font-size: 16px;">💬 Chat on WhatsApp</a>

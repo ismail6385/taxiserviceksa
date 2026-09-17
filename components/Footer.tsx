@@ -71,9 +71,9 @@ export default function Footer() {
                                 </a>
                             </li>
                             <li>
-                                <a href="mailto:taxiserviceksa9988@gmail.com" className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors">
+                                <a href="mailto:info@taxiserviceksa.com" className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors">
                                     <Mail className="w-4 h-4 shrink-0" />
-                                    taxiserviceksa9988@gmail.com
+                                    info@taxiserviceksa.com
                                 </a>
                             </li>
                         </ul>

@@ -15,7 +15,7 @@ type Trip = {
 
 const T = {
     madinahZiyarat: { name: 'Madinah Ziyarat Tour', duration: '3-4 hours', spots: 'Quba · Mount Uhud · Seven Mosques · Qiblatain', image: '/madinah-prophets-mosque.webp', href: '/services/madinah-ziyarat/' },
-    makkahZiyarat: { name: 'Makkah Ziyarat Tour', duration: '3-4 hours', spots: 'Jabal Al-Nour · Jabal Thawr · Mina & Arafat', image: '/makkah-grand-mosque.webp', href: '/services/makkah-ziyarat/' },
+    makkahZiyarat: { name: 'Makkah Ziyarat Tour', duration: '3-4 hours', spots: 'Jabal Al-Nour · Jabal Thawr · Mina & Arafat', image: '/makkah-grand-mosque.webp', href: '/locations/makkah-ziyarat/' },
     aluaHeritage: { name: 'AlUla Heritage Circuit', duration: 'Full day (8-10 hours)', spots: 'Hegra UNESCO Site · Elephant Rock · Old Town', image: '/alula-hegra-tombs.webp', href: '/locations/alula/' },
     taifCity: { name: 'Taif City Tour', duration: '4-6 hours', spots: 'Shubra Palace · Al Rudaf Park · Rose Factory', image: '/taif-rose-gardens.webp', href: '/locations/taif/' },
     jeddahHistorical: { name: 'Jeddah Historical Tour', duration: '4 hours', spots: 'Al-Balad · Corniche · King Fahd Fountain', image: '/jeddah-corniche-sunset.webp', href: '/locations/jeddah/' },

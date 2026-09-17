@@ -148,7 +148,7 @@ export async function POST(request: NextRequest) {
                     </div>
 
                     <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
-                    <p style="font-size: 12px; color: #999; text-align: center;">Taxi Service KSA • Premium Chauffeur &amp; Private Transport Service<br>taxiserviceksa9988@gmail.com • www.taxiserviceksa.com</p>
+                    <p style="font-size: 12px; color: #999; text-align: center;">Taxi Service KSA • Premium Chauffeur &amp; Private Transport Service<br>info@taxiserviceksa.com • www.taxiserviceksa.com</p>
                 </div>
             </div>`;
 

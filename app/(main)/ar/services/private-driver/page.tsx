@@ -164,7 +164,7 @@ export default function PrivateDriverPageArabic() {
         },
         {
             question: 'كيف أحجز سائقاً خاصاً في السعودية؟',
-            answer: 'يتم الحجز عبر واتساب (966575806733+) أو البريد الإلكتروني (taxiserviceksa9988@gmail.com). زودونا بالتواريخ وعدد الركاب ونوع السيارة المفضل والوجهات المخطط لها. للاستئجار ليوم كامل أو عدة أيام، يُنصح بالحجز قبل ٢٤–٤٨ ساعة. لا حاجة لرقم هاتف سعودي أو حساب محلي — نقبل الحجوزات الدولية.',
+            answer: 'يتم الحجز عبر واتساب (966575806733+) أو البريد الإلكتروني (info@taxiserviceksa.com). زودونا بالتواريخ وعدد الركاب ونوع السيارة المفضل والوجهات المخطط لها. للاستئجار ليوم كامل أو عدة أيام، يُنصح بالحجز قبل ٢٤–٤٨ ساعة. لا حاجة لرقم هاتف سعودي أو حساب محلي — نقبل الحجوزات الدولية.',
         },
     ];
 
@@ -249,7 +249,7 @@ export default function PrivateDriverPageArabic() {
                                 <ArrowRight className="mr-2 w-5 h-5 rotate-180 group-hover:-translate-x-1 transition-transform" />
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
                                 راسلنا للحصول على سعر خاص
                             </Button>
@@ -457,7 +457,7 @@ export default function PrivateDriverPageArabic() {
                                 حجز عبر واتساب
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
                                 راسلنا لطلب قائمة الأسعار
                             </Button>

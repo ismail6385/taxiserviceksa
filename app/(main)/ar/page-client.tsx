@@ -292,7 +292,7 @@ export default function HomeClientArabic({ latestBlogs = [] }: HomeClientArabicP
         },
         {
             question: "كيف أطلب عرض سعر لنقل VIP في السعودية؟",
-            answer: "يمكنك الحصول على عرض سعر لنقل VIP عبر <a href='/booking/' class='text-primary hover:underline font-bold'>نموذج طلب عرض السعر الإلكتروني</a> أو عبر البريد الإلكتروني taxiserviceksa9988@gmail.com. يتطلب طلبك تحديد موقع الاستلام والوجهة ونوع المركبة المفضل. تُرسل عروض الأسعار عبر البريد الإلكتروني."
+            answer: "يمكنك الحصول على عرض سعر لنقل VIP عبر <a href='/booking/' class='text-primary hover:underline font-bold'>نموذج طلب عرض السعر الإلكتروني</a> أو عبر البريد الإلكتروني info@taxiserviceksa.com. يتطلب طلبك تحديد موقع الاستلام والوجهة ونوع المركبة المفضل. تُرسل عروض الأسعار عبر البريد الإلكتروني."
         },
         {
             question: "هل Taxi Service KSA شركة مرخصة؟",
@@ -1119,7 +1119,7 @@ export default function HomeClientArabic({ latestBlogs = [] }: HomeClientArabicP
                         </Link>
 
                         {/* Secondary CTA - Email */}
-                        <a href="mailto:taxiserviceksa9988@gmail.com" className="w-full sm:w-auto">
+                        <a href="mailto:info@taxiserviceksa.com" className="w-full sm:w-auto">
                             <Button variant="outline" className="w-full bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-h-[56px] min-w-[200px] transition-all hover:scale-105 active:scale-95">
                                 راسلنا عبر البريد الإلكتروني
                             </Button>

@@ -382,7 +382,7 @@ export default function RiyadhPage() {
                                 <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </Link>
-                        <a href="mailto:taxiserviceksa9988@gmail.com">
+                        <a href="mailto:info@taxiserviceksa.com">
                             <Button size="lg" variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20 font-bold px-10 py-6 h-auto text-lg rounded-2xl">
                                 Email Us
                             </Button>
