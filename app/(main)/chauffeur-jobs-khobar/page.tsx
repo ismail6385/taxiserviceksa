@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Looking for chauffeur jobs in Khobar? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Khobar', 'chauffeur jobs in Khobar', 'VIP drivers Khobar'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-khobar',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-khobar/',
     }
 };
 

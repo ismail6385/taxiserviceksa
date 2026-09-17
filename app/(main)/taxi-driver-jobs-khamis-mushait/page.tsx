@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'Looking for taxi driver jobs in Khamis Mushait? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['taxi driver jobs Khamis Mushait', 'taxi driver jobs in Khamis Mushait', 'VIP drivers Khamis Mushait'],
     alternates: {
-        canonical: '/taxi-driver-jobs-khamis-mushait',
+        canonical: '/taxi-driver-jobs-khamis-mushait/',
     }
 };
 

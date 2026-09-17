@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Looking for chauffeur jobs in Hail? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Hail', 'chauffeur jobs in Hail', 'VIP drivers Hail'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-hail',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-hail/',
     }
 };
 

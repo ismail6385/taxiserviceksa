@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     description: 'Learn the step-by-step process of becoming a private driver or chauffeur in Saudi Arabia. Discover requirements, licenses, and top driver jobs in major cities.',
     keywords: ['driver jobs Saudi Arabia', 'taxi driver jobs KSA', 'chauffeur jobs Saudi', 'how to become a driver in saudi arabia'],
     alternates: {
-        canonical: '/blog/how-to-become-a-driver-in-saudi-arabia',
+        canonical: '/blog/how-to-become-a-driver-in-saudi-arabia/',
     }
 };
 

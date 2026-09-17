@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Looking for chauffeur jobs in Al Qassim? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Al Qassim', 'chauffeur jobs in Al Qassim', 'VIP drivers Al Qassim'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-al-qassim',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-al-qassim/',
     }
 };
 

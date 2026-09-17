@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Looking for chauffeur jobs in Al Ahsa? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Al Ahsa', 'chauffeur jobs in Al Ahsa', 'VIP drivers Al Ahsa'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-al-ahsa',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-al-ahsa/',
     }
 };
 

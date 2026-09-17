@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'Looking for taxi driver jobs in Al Qassim? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['taxi driver jobs Al Qassim', 'taxi driver jobs in Al Qassim', 'VIP drivers Al Qassim'],
     alternates: {
-        canonical: '/taxi-driver-jobs-al-qassim',
+        canonical: '/taxi-driver-jobs-al-qassim/',
     }
 };
 

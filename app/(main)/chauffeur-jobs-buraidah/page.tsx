@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Looking for chauffeur jobs in Buraidah? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Buraidah', 'chauffeur jobs in Buraidah', 'VIP drivers Buraidah'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-buraidah',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-buraidah/',
     }
 };
 

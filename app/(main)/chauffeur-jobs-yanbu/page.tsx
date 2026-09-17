@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Looking for chauffeur jobs in Yanbu? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Yanbu', 'chauffeur jobs in Yanbu', 'VIP drivers Yanbu'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-yanbu',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-yanbu/',
     }
 };
 

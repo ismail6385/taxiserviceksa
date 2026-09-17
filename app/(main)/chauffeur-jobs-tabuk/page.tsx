@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Looking for chauffeur jobs in Tabuk? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Tabuk', 'chauffeur jobs in Tabuk', 'VIP drivers Tabuk'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-tabuk',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-tabuk/',
     }
 };
 

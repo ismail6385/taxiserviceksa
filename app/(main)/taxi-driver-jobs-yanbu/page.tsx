@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'Looking for taxi driver jobs in Yanbu? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['taxi driver jobs Yanbu', 'taxi driver jobs in Yanbu', 'VIP drivers Yanbu'],
     alternates: {
-        canonical: '/taxi-driver-jobs-yanbu',
+        canonical: '/taxi-driver-jobs-yanbu/',
     }
 };
 

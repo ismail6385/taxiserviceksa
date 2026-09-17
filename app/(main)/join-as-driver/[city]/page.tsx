@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: { params: { city: string } })
             description: `We are hiring professional VIP chauffeurs in ${name}. Earn 7000-15000 SAR/month with direct bookings and premium clients.`,
         },
         alternates: {
-            canonical: `/join-as-driver/${params.city}`,
+            canonical: `/join-as-driver/${params.city}/`,
         }
     };
 }

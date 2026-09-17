@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Looking for driver jobs Saudi Arabia? Join our chauffeur network. Find premium taxi driver jobs KSA in Riyadh, Jeddah, Makkah, and 15+ other cities.',
     keywords: ['driver jobs Saudi Arabia', 'taxi driver jobs KSA', 'chauffeur jobs Saudi', 'VIP driver KSA', 'private driver network'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/driver-jobs-saudi-arabia',
+        canonical: 'https://taxiserviceksa.com/driver-jobs-saudi-arabia/',
     }
 };
 

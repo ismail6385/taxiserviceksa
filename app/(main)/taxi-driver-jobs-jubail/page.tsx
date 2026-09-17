@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'Looking for taxi driver jobs in Jubail? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['taxi driver jobs Jubail', 'taxi driver jobs in Jubail', 'VIP drivers Jubail'],
     alternates: {
-        canonical: '/taxi-driver-jobs-jubail',
+        canonical: '/taxi-driver-jobs-jubail/',
     }
 };
 

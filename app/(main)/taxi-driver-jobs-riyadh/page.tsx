@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'Looking for taxi driver jobs in Riyadh? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['taxi driver jobs Riyadh', 'taxi driver jobs in Riyadh', 'VIP drivers Riyadh'],
     alternates: {
-        canonical: '/taxi-driver-jobs-riyadh',
+        canonical: '/taxi-driver-jobs-riyadh/',
     }
 };
 

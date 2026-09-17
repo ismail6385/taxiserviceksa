@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Looking for chauffeur jobs in Dhahran? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Dhahran', 'chauffeur jobs in Dhahran', 'VIP drivers Dhahran'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-dhahran',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-dhahran/',
     }
 };
 

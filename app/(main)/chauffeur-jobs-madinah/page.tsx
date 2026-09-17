@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Looking for chauffeur jobs in Madinah? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Madinah', 'chauffeur jobs in Madinah', 'VIP drivers Madinah'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-madinah',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-madinah/',
     }
 };
 

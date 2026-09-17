@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Looking for chauffeur jobs in Makkah? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Makkah', 'chauffeur jobs in Makkah', 'VIP drivers Makkah'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-makkah',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-makkah/',
     }
 };
 

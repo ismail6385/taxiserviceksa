@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     description: 'An in-depth guide on earnings for driver jobs Saudi Arabia. Understand the salary, tips, and average income for taxi drivers and private chauffeurs.',
     keywords: ['how much do drivers earn in saudi arabia', 'chauffeur jobs Saudi', 'taxi driver jobs KSA', 'driver jobs Saudi Arabia'],
     alternates: {
-        canonical: '/blog/how-much-do-drivers-earn-in-saudi',
+        canonical: '/blog/how-much-do-drivers-earn-in-saudi/',
     }
 };
 

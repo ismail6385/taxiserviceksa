@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'Looking for taxi driver jobs in Hail? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['taxi driver jobs Hail', 'taxi driver jobs in Hail', 'VIP drivers Hail'],
     alternates: {
-        canonical: '/taxi-driver-jobs-hail',
+        canonical: '/taxi-driver-jobs-hail/',
     }
 };
 

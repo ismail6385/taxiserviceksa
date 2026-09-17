@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     description: 'Discover the most profitable and reliable cars for taxi driver jobs KSA. We review the top sedans and SUVs for chauffeurs and long-distance drivers.',
     keywords: ['best cars for taxi Saudi', 'driver jobs Saudi Arabia', 'chauffeur jobs Saudi', 'taxi driver jobs KSA'],
     alternates: {
-        canonical: '/blog/best-cars-for-taxi-drivers-saudi',
+        canonical: '/blog/best-cars-for-taxi-drivers-saudi/',
     }
 };
 

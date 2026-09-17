@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Looking for chauffeur jobs in Jeddah? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Jeddah', 'chauffeur jobs in Jeddah', 'VIP drivers Jeddah'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-jeddah',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-jeddah/',
     }
 };
 

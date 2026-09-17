@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'Looking for taxi driver jobs in Abha? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['taxi driver jobs Abha', 'taxi driver jobs in Abha', 'VIP drivers Abha'],
     alternates: {
-        canonical: '/taxi-driver-jobs-abha',
+        canonical: '/taxi-driver-jobs-abha/',
     }
 };
 

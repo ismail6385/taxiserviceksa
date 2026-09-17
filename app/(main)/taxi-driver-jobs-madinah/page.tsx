@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'Looking for taxi driver jobs in Madinah? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['taxi driver jobs Madinah', 'taxi driver jobs in Madinah', 'VIP drivers Madinah'],
     alternates: {
-        canonical: '/taxi-driver-jobs-madinah',
+        canonical: '/taxi-driver-jobs-madinah/',
     }
 };
 

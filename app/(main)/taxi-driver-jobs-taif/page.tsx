@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     description: 'Looking for taxi driver jobs in Taif? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['taxi driver jobs Taif', 'taxi driver jobs in Taif', 'VIP drivers Taif'],
     alternates: {
-        canonical: '/taxi-driver-jobs-taif',
+        canonical: '/taxi-driver-jobs-taif/',
     }
 };
 

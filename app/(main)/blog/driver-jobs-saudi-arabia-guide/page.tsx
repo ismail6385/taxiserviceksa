@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     description: 'Everything you need to know about navigating chauffeur jobs Saudi. From city specifics to earning potentials and applying for premium positions.',
     keywords: ['driver jobs Saudi Arabia', 'taxi driver jobs KSA', 'chauffeur jobs Saudi', 'private driver saudi guide'],
     alternates: {
-        canonical: '/blog/driver-jobs-saudi-arabia-guide',
+        canonical: '/blog/driver-jobs-saudi-arabia-guide/',
     }
 };
 

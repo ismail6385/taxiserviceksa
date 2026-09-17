@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Looking for chauffeur jobs in Najran? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Najran', 'chauffeur jobs in Najran', 'VIP drivers Najran'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-najran',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-najran/',
     }
 };
 

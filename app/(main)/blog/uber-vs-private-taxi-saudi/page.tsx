@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     description: 'Compare earning potential, benefits, and working conditions of Uber/Careem against private chauffeur jobs Saudi. See which option is best for your career.',
     keywords: ['Uber vs private taxi saudi', 'driver jobs Saudi Arabia', 'chauffeur jobs Saudi', 'taxi driver jobs KSA'],
     alternates: {
-        canonical: '/blog/uber-vs-private-taxi-saudi',
+        canonical: '/blog/uber-vs-private-taxi-saudi/',
     }
 };
 

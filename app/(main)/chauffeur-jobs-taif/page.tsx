@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     description: 'Looking for chauffeur jobs in Taif? Join as a professional driver. High income, own car (2020+), premium clients, and long trips.',
     keywords: ['chauffeur jobs Taif', 'chauffeur jobs in Taif', 'VIP drivers Taif'],
     alternates: {
-        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-taif',
+        canonical: 'https://taxiserviceksa.com/chauffeur-jobs-taif/',
     }
 };
 
