@@ -16,9 +16,9 @@ import FreshnessStatus from '@/components/seo/FreshnessStatus';
 import ServiceComparison from '@/components/ServiceComparison';
 
 export const metadata: Metadata = {
-    title: 'Makkah to Madinah Taxi | Direct Hotel-to-Hotel Transfer',
-    description: 'Request a quote for a private taxi from Makkah to Madinah. Direct travel with no stops (unless requested). 4.5 hour journey. Comfortable GMCs and sedans.',
-    keywords: ['Makkah to Madinah taxi', 'Makkah to Madinah car rental', 'Makkah Madinah transfer', 'Taxi fare Makkah to Madinah', 'Private driver Makkah to Madinah'],
+    title: 'Makkah to Madinah Taxi vs Train: Travel Guide (Miqat, Timing & Comfort)',
+    description: 'Planning your Makkah to Madinah journey? Compare taxi vs train, learn about the Badr detour, night-travel safety and hotel drop-off — everything to know before booking. For fixed rates and vehicle options, see our route pricing page.',
+    keywords: ['Makkah to Madinah taxi vs train', 'Makkah to Madinah travel guide', 'Makkah Madinah journey time', 'Badr detour Makkah Madinah', 'Makkah to Madinah night travel'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/makkah-to-madinah-taxi/',
     },
@@ -37,20 +37,20 @@ export default function MakkahToMadinahPage() {
                         "name": "Makkah to Madinah Transfer",
 
                         "areaServed": { "@type": "City", "name": "Madinah" },
-                        "offers": { "@type": "Offer", "price": "450", "priceCurrency": "SAR", "priceValidUntil": "2026-12-31" }
+                        "offers": { "@type": "Offer", "price": "400", "priceCurrency": "SAR", "priceValidUntil": "2026-12-31" }
                     })
                 }}
             />
 
             <Hero
                 images={['/locations/makkah.webp', '/hero-slide-3.webp']}
-                h1Text="Makkah to Madinah Direct Taxi"
+                h1Text="Makkah to Madinah: Taxi vs Train Travel Guide"
                 title={
                     <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Direct Journey
+                        Travel Guide
                     </span>
                 }
-                subtitle="Hotel to Hotel Transfer"
+                subtitle="Miqat, Badr Detour, Timing & Night-Travel Safety"
                 location="KSA Highway Journey"
             >
                 <div className="max-w-3xl mx-auto mt-8 mb-6">
@@ -93,13 +93,17 @@ export default function MakkahToMadinahPage() {
                         summary="The Makkah-to-Madinah journey is the most important intercity link for pilgrims. A private taxi offers door-to-door convenience that the train and bus cannot match, especially for families with heavy luggage."
                         points={[
                             "Door-to-door service from your Makkah hotel to your Madinah hotel.",
-                            "Fixed pricing starting at 550 SAR for standard sedans.",
+                            "Fixed pricing starting at 400 SAR for standard sedans.",
                             "4.5 hours travel time with flexible stops for prayer/food.",
                             "No luggage hauling or station transfers required."
                         ]}
-                        pricing="550 - 1,000 SAR"
+                        pricing="400 - 800 SAR"
                         duration="4.5 Hours"
                     />
+                    <p className="text-center text-sm text-gray-500 mt-4">
+                        For the full vehicle lineup and current fixed rates, see our{' '}
+                        <Link href="/routes/makkah-madinah/" className="text-emerald-700 font-semibold hover:underline">Makkah to Madinah pricing &amp; booking page</Link>.
+                    </p>
                 </div>
             </div>
 

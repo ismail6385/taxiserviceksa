@@ -17,7 +17,7 @@ import BookingProcess from '@/components/BookingProcess';
 
 export const metadata: Metadata = {
     title: 'Makkah to Madinah Taxi 2026 | Private Transfers | Fixed Rates',
-    description: 'Book the best Makkah to Madinah Taxi for 2026. Premium intercity transfer with professional chauffeurs. Fixed rates starting from 550 SAR. Door-to-door service.',
+    description: 'Book the best Makkah to Madinah Taxi for 2026. Premium intercity transfer with professional chauffeurs. Fixed rates starting from 400 SAR. Door-to-door service.',
     keywords: ['Taxi Makkah to Madinah 2026', 'Makkah to Madinah Taxi price', 'Makkah to Madinah private car'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/makkah-madinah/',
@@ -33,7 +33,7 @@ export default function MakkahMadinahRoutePage() {
     const routeDetails = [
         { label: 'Distance', value: '450 km', icon: Navigation },
         { label: 'Travel Time', value: '4-5 hours', icon: Clock },
-        { label: '2026 Base Fare', value: 'From 550 SAR', icon: DollarSign },
+        { label: '2026 Base Fare', value: 'From 400 SAR', icon: DollarSign },
         { label: 'Service', value: 'Door-to-Door', icon: CheckCircle2 },
     ];
 
@@ -233,13 +233,22 @@ export default function MakkahMadinahRoutePage() {
             <div className="max-w-4xl mx-auto py-20 px-4">
                 <RouteFleetSection />
 
+                <div className="bg-emerald-50 border border-emerald-100 rounded-2xl p-6 mb-16 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p className="text-emerald-900 font-semibold text-sm">
+                        Still deciding between taxi and train, or planning a Miqat/Badr stop?
+                    </p>
+                    <Link href="/makkah-to-madinah-taxi/" className="text-emerald-700 font-bold text-sm hover:underline whitespace-nowrap inline-flex items-center gap-1">
+                        Read the full travel guide <ArrowRight className="w-4 h-4" />
+                    </Link>
+                </div>
+
             <MicroSemanticFAQ
                     contextName="Makkah to Madinah 2026" 
                     faqs={[
                         {
                             question: "How much is a taxi from Makkah to Madinah in 2026?",
-                            shortAnswer: "Starting from 550 SAR",
-                            detailedAnswer: "In 2026, the fixed rate for a standard sedan is 550 SAR, and for a GMC Yukon, it is 1,000 SAR. These rates cover the entire 450km journey door-to-door.",
+                            shortAnswer: "Starting from 400 SAR",
+                            detailedAnswer: "In 2026, the fixed rate for a standard sedan is 400 SAR, and for a GMC Yukon, it is 600 SAR. These rates cover the entire 450km journey door-to-door.",
                             perspectives: [
                                 { role: 'Pricing Expert', icon: 'DollarSign', insight: 'Fixed rates protect you from route changes or traffic delays on the Hijrah Road.' },
                                 { role: 'Ops Manager', icon: 'Shield', insight: 'Our enterprise pricing model ensures no fuel or toll surcharges ever.' }
