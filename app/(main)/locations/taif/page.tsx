@@ -1,611 +1,531 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
+import { ArrowRight, Plane, Mountain, CableCar, Flower2, CloudFog, Users, Briefcase, Check, Info, Route, Building2 } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
-import { MapPin, Phone, Clock, Star, CheckCircle2, Car, Users, Shield, Mountain, CloudFog, Flower2, ArrowRight, Plane } from 'lucide-react';
-import Hero from '@/components/Hero';
-import ExpertReview from '@/components/seo/ExpertReview';
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from '@/components/ui/accordion';
-import QuestionsDisplay from '@/components/QuestionsDisplay';
-import ReviewsDisplay from '@/components/ReviewsDisplay';
-import ReviewForm from '@/components/seo/ReviewForm';
-import QuestionForm from '@/components/seo/QuestionForm';
-import JsonLdFAQ from '@/components/JsonLdFAQ';
-import DistanceTable from '@/components/seo/DistanceTable';
-import SeasonalTravelTips from '@/components/seo/SeasonalTravelTips';
-import TravelConsensus from '@/components/seo/TravelConsensus';
-import RoutePerspective from '@/components/seo/RoutePerspective';
-import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
-import TrendingTravelNote from '@/components/seo/TrendingTravelNote';
-import QuestionGrouper from '@/components/seo/QuestionGrouper';
-import EntityTrustSignal from '@/components/seo/EntityTrustSignal';
-import SemanticField from '@/components/seo/SemanticField';
-import TopicCluster from '@/components/seo/TopicCluster';
-import RelatedLocations from '@/components/seo/RelatedLocations';
-import JsonLdLocation from '@/components/JsonLdLocation';
-import ApprovedDriversForLocation from '@/components/ApprovedDriversForLocation';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+import Reveal from '@/components/alula/Reveal';
+import AlUlaReviews from '@/components/alula/AlUlaReviews';
+import RouteQuoteCard from '@/components/routes/RouteQuoteCard';
+import TaifTripPicker from '@/components/taif/TaifTripPicker';
+import TaifLevels from '@/components/taif/TaifLevels';
+import TaifServiceChooser from '@/components/taif/TaifServiceChooser';
+import TaifFleet from '@/components/taif/TaifFleet';
+import { PRICING_RULES } from '@/lib/pricing';
+import { getDistanceRoute } from '@/data/distanceRoutes';
+
+const PAGE_URL = 'https://taxiserviceksa.com/locations/taif/';
+const QUOTE_HREF = '#quote';
+const WHATSAPP_HREF = `https://wa.me/966575806733?text=${encodeURIComponent('Hello, I would like a quote for a transfer in Taif. Pickup, destination, date and passengers: ')}`;
 
 export const metadata: Metadata = {
-    title: 'Private Car Transfer, Taxi and Chauffeur Service in Taif | Al Hada Mountain | Taxi Service KSA',
-    description: 'Premium private transfer and executive chauffeur service in Taif. Specialized Makkah to Taif mountain transfers via Al Hada and Jeddah Airport pickups. Professional high-altitude driving expertise.',
-    keywords: ['Taif VIP private transfer', 'Executive chauffeur Taif', 'Al Hada VIP transport', 'Premium Makkah to Taif transfer', 'Taif mountain chauffeur service'],
-    alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/taif/',
-        languages: {
-            'en': 'https://taxiserviceksa.com/locations/taif/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/taif/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/taif/',
-            'x-default': 'https://taxiserviceksa.com/locations/taif/',
-        }
-    },
+    title: 'Taif Taxi & Private Transfers | TIF Airport, Al Hada, Makkah & Jeddah',
+    description:
+        'Private transfers in Taif: TIF Airport pickups, Al Hada and Al Shafa mountain trips, cable-car and rose-season transport, hourly drivers and journeys to Makkah and Jeddah. Request a quote.',
+    alternates: { canonical: PAGE_URL },
     openGraph: {
-        title: 'Private Car Transfer, Taxi and Chauffeur Service in Taif | Makkah Transfers & Al Hada Tours | Taxi Service KSA',
-        description: 'Premium transfer to Taif via Al Hada mountain road. Service includes stops at cable car and rose factories.',
-        url: 'https://taxiserviceksa.com/locations/taif/',
+        title: 'Taif Taxi & Private Transfer Service',
+        description: 'Airport transfers, mountain transportation, chauffeur service and intercity journeys from Taif to Makkah, Jeddah and the highlands.',
+        url: PAGE_URL,
+        siteName: 'Taxi Service KSA',
         type: 'website',
-        images: [{ url: 'https://taxiserviceksa.com/taif-mountains-view.webp', alt: 'Taif Al Hada Mountain Road' }],
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private transfers in Taif' }],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Taif Taxi & Private Transfer Service',
+        description: 'Airport transfers, mountain transportation, chauffeur service and intercity journeys from Taif to Makkah, Jeddah and the highlands.',
+        images: ['https://taxiserviceksa.com/og-image.jpg'],
     },
 };
 
-export default function TaifPage() {
-    const services = [
-        { name: 'Makkah to Taif Transfer', description: 'Cool mountain escape (1 hr) - Luxury SUV', icon: Car },
-        { name: 'Jeddah Airport to Taif', description: 'Direct transfer (2 hrs)', icon: MapPin },
-        { name: 'Al Hada & Cable Car', description: 'Drop-off at top station', icon: CloudFog },
-        { name: 'Rose Farm Tours', description: 'Seasonal factory visits (Mar-Apr)', icon: Flower2 },
-    ];
+const q = (p: Record<string, string>) => `/booking/?${new URLSearchParams(p).toString()}`;
 
-    const taifImages = [
-        '/taif-mountains-view.webp',
-        '/taif-rose-gardens.webp',
-        '/hero-slide-5.webp',
-    ];
+// Distance/time ranges come from the site's distance data so pages agree.
+const toMakkah = getDistanceRoute('taif-to-makkah');
+const toJeddah = getDistanceRoute('jeddah-to-taif');
+const tidy = (s?: string) => (s ?? '').replace(/^approximately\s*/i, '').replace(/ of continuous driving$/, '');
 
-    const distanceData = [
-        { destination: 'Makkah (Haram)', distance: '88 km', time: '1h 10m', route: 'Al Hada Rd' },
-        { destination: 'Jeddah Airport', distance: '170 km', time: '2h', route: 'Taif-Jeddah Hwy' },
-        { destination: 'Riyadh', distance: '780 km', time: '7h 30m', route: 'Route 40' },
-        { destination: 'Miqat (Qarn al Manazil)', distance: '55 km', time: '45 mins', route: 'Non-Mountain' },
-        { destination: 'Al Shafa Mountains', distance: '25 km (from City)', time: '30 mins', route: 'Shafa Rd' }
-    ];
+// One-way Taif <-> Makkah fares from the site's fare table (lib/pricing.ts).
+const FARE_ROWS = [
+    { key: 'Toyota Camry', label: 'Toyota Camry' },
+    { key: 'Hyundai Staria VIP', label: 'Hyundai Staria' },
+    { key: 'GMC Yukon XL / Denali', label: 'GMC Yukon' },
+    { key: 'Toyota Hiace', label: 'Toyota Hiace' },
+    { key: 'Toyota Coaster', label: 'Toyota Coaster' },
+];
+const rules = PRICING_RULES['makkah-taif'] ?? {};
+const fares = FARE_ROWS.filter((r) => rules[r.key]).map((r) => ({ label: r.label, price: rules[r.key].price }));
 
+const faqs = [
+    { q: 'Do you provide transfers from Taif Airport?', a: 'Yes - from TIF to hotels in Taif, Al Hada, Al Shafa, Makkah or Jeddah. Share your flight number so the pickup can be coordinated around your arrival.' },
+    { q: 'Can I book a private car from Taif to Makkah?', a: `Yes, one way or return. It is roughly ${tidy(toMakkah?.distanceRange) || '85–100 km'}, often ${tidy(toMakkah?.drivingTimeRange) || '1.5–2 hours'} depending on route and traffic.` },
+    { q: 'Can I book a private car from Taif to Jeddah or Jeddah Airport?', a: 'Yes. The route used may depend on current road conditions and access, so allow extra time before a flight.' },
+    { q: 'Can I go up to Al Hada and come back?', a: 'Yes - book a return with waiting time, or a driver by the hour if you plan several stops.' },
+    { q: 'Does the transfer include the cable car?', a: 'No. We drive you to and from the cable-car area; tickets and operation are separate unless they are explicitly included in your booking.' },
+    { q: 'Can you take us to rose farms?', a: 'Yes, during the season. Rose-farm visits are seasonal, so confirm current availability with the farm; an hourly driver works best for several stops.' },
+    { q: 'Can I hire a driver for a day in Taif?', a: 'Yes. Choose hourly hire on the booking form and say how many hours you need.' },
+    { q: 'Which vehicle is best for mountain trips?', a: 'Choose by people and luggage. A sedan suits couples; a Staria or Yukon gives families more room on longer, winding drives.' },
+    { q: 'Does weather affect mountain journeys?', a: 'It can. Fog and rain are more common on the ridges than in the city, so allow flexibility - especially before a flight.' },
+    { q: 'Can you pick us up from our hotel in Taif?', a: 'Yes. Give us the hotel name and pickup time; the driver meets you at the entrance.' },
+];
+
+const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'TaxiService',
+            '@id': `${PAGE_URL}#service`,
+            name: 'Private transfers in Taif',
+            url: PAGE_URL,
+            serviceType: 'Pre-booked private transfer',
+            description:
+                'Pre-booked private transfers in Taif: Taif International Airport (TIF) pickups, trips to Al Hada and Al Shafa, cable-car and rose-season transport, hourly drivers, and journeys to Makkah and Jeddah.',
+            provider: { '@type': 'Organization', '@id': 'https://taxiserviceksa.com/#organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com' },
+            areaServed: { '@type': 'City', name: 'Taif' },
+        },
+        {
+            '@type': 'FAQPage',
+            '@id': `${PAGE_URL}#faq`,
+            mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+        },
+    ],
+};
+
+function Arrow() {
+    return <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" />;
+}
+const link = 'font-semibold text-[#be185d] hover:underline';
+
+// Five-petal rose mark used as a subtle botanical accent.
+function Rose({ className = '' }: { className?: string }) {
     return (
-        <div className="bg-gray-50 min-h-screen">
-            <JsonLdLocation 
-                cityName="Taif"
-                description="Professional mountain transfers in Taif. Specializing in Al Hada road, seasonal rose farm tours, and executive Jeddah Airport pickups."
-                services={services}
-                
-                image="https://taxiserviceksa.com/taif-mountains-view.webp"
-            />
+        <svg viewBox="0 0 100 100" className={className} aria-hidden="true">
+            {[0, 72, 144, 216, 288].map((a) => (
+                <ellipse key={a} cx="50" cy="30" rx="16" ry="24" transform={`rotate(${a} 50 50)`} fill="currentColor" fillOpacity="0.5" />
+            ))}
+            <circle cx="50" cy="50" r="10" fill="currentColor" />
+        </svg>
+    );
+}
 
+export default function TaifPage() {
+    return (
+        <div className="taif-page bg-[#faf6f2]">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-            <Hero
-                images={taifImages}
-                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Taif"
-                bookingFormTitle="WhatsApp Booking for Premium Transfer in Taif"
-                title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug"> Chauffeur Service Taif
-                    </span>
-                }
-                subtitle="High-Altitude Excellence & Mountain Comfort"
-                location="Al Hada • Shafa • Tours"
-            >
-                <div className="max-w-3xl mx-auto mt-8 mb-6">
-                    <EntityTrustSignal
-                        brandName="Taxi Service KSA™ Taif"
-                        description="Professional chauffeur and airport transfer services in Taif. We help travelers and rose festival visitors with luxury vehicles and 24/7 availability for Al Hada mountain road and Jeddah Airport transfers."
-                        foundingDate="2012"
-                        metrics={[
-                            { label: 'Mountain Trips', value: '5,000+', icon: Mountain },
-                            { label: 'Pilgrims Served', value: '12k+', icon: Users },
-                            { label: 'Fog Driving', value: 'Expert', icon: CloudFog }
-                        ]}
-                    />
-                </div>
+            {/* ================= HERO ================= */}
+            <section className="relative isolate overflow-hidden bg-[#2a1a22]">
+                <svg className="absolute bottom-0 left-0 -z-10 w-full h-[70%]" viewBox="0 0 1440 500" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0 500 L0 300 C 140 250, 260 160, 380 190 S 560 90, 700 130 S 900 60, 1060 120 S 1300 80, 1440 150 L1440 500 Z" fill="#3a2530" />
+                    <path d="M0 500 L0 380 C 200 340, 380 300, 560 330 S 900 270, 1100 310 S 1320 290, 1440 320 L1440 500 Z" fill="#46303a" />
+                    {/* winding Al Hada road */}
+                    <path d="M60 470 C 160 420, 120 380, 230 360 S 300 300, 400 300 S 480 240, 580 230 S 700 180, 820 190" fill="none" stroke="#f472b6" strokeWidth="2.5" strokeLinecap="round" pathLength={1} className="route-draw" />
+                </svg>
+                <div className="absolute inset-x-0 top-[35%] -z-10 h-24 fog-drift bg-gradient-to-r from-transparent via-white/10 to-transparent blur-2xl" aria-hidden="true" />
+                <Rose className="absolute -right-10 -top-10 -z-10 w-72 h-72 text-pink-400/10" />
+                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#2a1a22] via-[#2a1a22]/85 to-[#2a1a22]/20" aria-hidden="true" />
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                        <Link href="/booking/">
-                            Book Your Taif Transfer
-                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                    </Button>
-                    <Button asChild size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                        <Link href="#pricing"> View Rates
-                        </Link>
-                    </Button>
-                </div>
-            </Hero>
-
-            {/* Premium Service Disclaimer */}
-            <div className="bg-amber-50 border-y border-amber-200 py-3 relative z-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" /> OFFICIAL NOTE: We specialize in pre-booked Mountain, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
-                    </p>
-                </div>
-            </div>
-
-            {/* Trending Note */}
-            <div className="max-w-4xl mx-auto px-4 -mt-8 relative z-20">
-                <TrendingTravelNote
-                    topic="Al Hada Road Status: Fog Alerts"
-                    status="Traffic Alert"
-                    lastUpdated="Winter 2026"
-                    content="The Al Hada mountain road frequently closes during heavy rain or dense fog for safety. When closed, the alternative route (As-Sayl) adds 45 minutes to the trip. Our drivers monitor traffic police updates in real-time to choose the open route."
-                    tags={["RoadClosure", "AlHada", "FogSafety", "DetourAlert"]}
-                />
-            </div>
-
-            {/* SEO Content Semantic Hub - Wrapped for Desktop Responsiveness */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-16">
-                <QuestionGrouper
-                    mainQuestion="Is the drive from Makkah just about the destination?"
-                    intro="No. The drive up the Al Hada escarpment is an experience in itself, often called the 'Road above the Clouds'. However, it comes with specific considerations."
-                    subQuestions={[
-                        {
-                            id: 'q1',
-                            condition: 'Motion Sickness',
-                            question: 'Is the road curvy?',
-                            answer: 'Extremely. The road has dual carriageways but winds sharply up the cliff face. We recommend sitting in the front seat if you are prone to car sickness.',
-                            citation: 'Traveler Health Tip'
-                        },
-                        {
-                            id: 'q2',
-                            condition: 'Temperature Drop',
-                            question: 'Is it really cooler?',
-                            answer: 'Yes. Expect a 10-15°C drop in temperature compared to Makkah. You might need a light jacket even in summer.',
-                            citation: 'Weather Data'
-                        },
-                        {
-                            id: 'q3',
-                            condition: 'Fruit Markets',
-                            question: 'Can we stop for fruit?',
-                            answer: 'Absolutely. The road is lined with stalls selling seasonal Taif fruits (Pomegranates, Grapes, Figs, Prickly Pear). Just ask your driver.',
-                            citation: 'Local Culture'
-                        }
-                    ]}
-                />
-
-                <SemanticField
-                    title="Taif: The Fragrant Summit"
-                    explanation="Taif usually serves two distinct purposes for our clients: a summer escape from the heat, or a transit point for pilgrims."
-                    concepts={[
-                        {
-                            label: 'Al Hada',
-                            description: 'The first mountain resort area you reach from Makkah. Famous for the Cable Car (Teleferic) and water park.',
-                            wikiLink: 'https://en.wikipedia.org/wiki/Hada'
-                        },
-                        {
-                            label: 'Al Shafa',
-                            description: 'Higher elevation than Al Hada, more rural, and home to the best rose farms. The road is steeper here.',
-                            internalLink: '/locations/taif'
-                        },
-                        {
-                            label: 'Souq Okaz',
-                            description: 'An ancient pre-Islamic market revived as a massive cultural festival. located north of the city.',
-                            wikiLink: 'https://en.wikipedia.org/wiki/Souq_Okaz'
-                        },
-                        {
-                            label: 'Shubra Palace',
-                            description: 'The historical royal residence turned museum. A key stop for history lovers inside the city.',
-                            wikiLink: 'https://en.wikipedia.org/wiki/Shubra_Palace'
-                        }
-                    ]}
-                />
-
-                <TopicCluster
-                    mainTopic="Taif Travel Hub"
-                    clusters={[
-                        {
-                            category: "Key Routes",
-                            relevance: "Primary",
-                            items: [
-                                { label: "Makkah to Taif Transfer", url: "/locations/makkah" },
-                                { label: "Jeddah Airport to Taif", url: "/locations/jeddah" },
-                                { label: "Riyadh to Taif (Overland)", url: "/services/intercity" }
-                            ]
-                        },
-                        {
-                            category: "Attractions",
-                            relevance: "Secondary",
-                            items: [
-                                { label: "Rose Festival Tours", url: "/blog/taif-rose-festival-guide/", description: "March/April Only" },
-                                { label: "Cable Car Transfers", url: "/services/cable-car", description: "Top Station Dropoff" },
-                                { label: "Miqat Ziyarat", url: "/guides/meeqat-locations", description: "Qarn al-Manazil" }
-                            ]
-                        },
-                        {
-                            category: "More Taif Guides",
-                            relevance: "Tertiary",
-                            items: [
-                                { label: "Adventure Activities", url: "/blog/adventure-activities-in-taif/" },
-                                { label: "Al Hada Mountain Guide", url: "/blog/al-hada-mountain-taif-guide/" },
-                                { label: "Al Hada vs Al Shafa", url: "/blog/al-hada-vs-al-shafa-comparison/" },
-                                { label: "Al Shafa Mountain Guide", url: "/blog/al-shafa-mountain-taif-guide/" },
-                                { label: "Best Day Trips", url: "/blog/best-day-trips-from-taif/" },
-                                { label: "Best Parks & Nature", url: "/blog/best-parks-nature-taif/" },
-                                { label: "Best Picnic Spots", url: "/blog/best-picnic-spots-in-taif/" },
-                                { label: "Scenic Viewpoints", url: "/blog/best-scenic-viewpoints-taif/" },
-                                { label: "Camping & Campsites", url: "/blog/camping-in-taif-best-campsites-tips/" },
-                                { label: "Family-Friendly Activities", url: "/blog/family-friendly-things-to-do-in-taif/" },
-                                { label: "Taif FAQs", url: "/blog/frequently-asked-questions-about-taif/" },
-                                { label: "Fruit Farms", url: "/blog/fruit-farms-seasonal-experiences-taif/" },
-                                { label: "Hiking Trails", url: "/blog/hiking-in-taif-best-trails-routes/" },
-                                { label: "Historic Mosques", url: "/blog/historic-mosques-in-taif/" },
-                                { label: "Complete History Guide", url: "/blog/history-of-taif-complete-heritage-guide/" },
-                                { label: "SIM Cards & WiFi", url: "/blog/internet-sim-cards-wifi-taif/" },
-                                { label: "Is Taif Safe?", url: "/blog/is-taif-safe-for-tourists/" },
-                                { label: "Romantic Places", url: "/blog/romantic-places-to-visit-in-taif/" },
-                                { label: "Cable Car Guide", url: "/blog/taif-cable-car-guide-2026/" },
-                                { label: "Culture & Traditions", url: "/blog/taif-culture-local-traditions/" },
-                                { label: "Day Trip & Cable Car Guide", url: "/blog/taif-day-trip-guide-cable-car/" },
-                                { label: "Rose Gardens & Factory", url: "/blog/taif-rose-gardens-factory-guide/" },
-                                { label: "Travel Budget Guide", url: "/blog/taif-travel-budget-guide-2026/" },
-                                { label: "Taif vs Abha", url: "/blog/taif-vs-abha-comparison/" },
-                                { label: "Taif vs Al Baha", url: "/blog/taif-vs-al-baha-comparison/" },
-                                { label: "Taif Zoo", url: "/blog/taif-zoo-family-attractions/" },
-                                { label: "What to Pack", url: "/blog/what-to-pack-for-taif/" },
-                                { label: "What to Wear", url: "/blog/what-to-wear-in-taif/" },
-                                { label: "City of Roses (Why?)", url: "/blog/why-is-taif-called-city-of-roses/" }
-                            ]
-                        }
-                    ]}
-                />
-            </div>
-
-            {/* Breadcrumb */}
-            <section className="bg-white border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                    <nav className="flex items-center space-x-2 text-sm">
-                        <Link href="/" className="text-gray-500 hover:text-gray-900 transition-colors">Home</Link>
-                        <span className="text-gray-400">/</span>
-                        <Link href="/locations" className="text-gray-500 hover:text-gray-900 transition-colors">Locations</Link>
-                        <span className="text-gray-400">/</span>
-                        <span className="text-gray-900 font-semibold">Taif</span>
-                    </nav>
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-20 grid grid-cols-1 lg:grid-cols-[1fr_0.95fr] gap-6 lg:gap-10 items-center">
+                    <div className="text-white animate-fade-in-up motion-reduce:animate-none motion-reduce:opacity-100">
+                        <p className="hidden sm:block text-sm font-semibold text-pink-200/90 mb-6">Taif • Al Hada • Al Shafa • TIF Airport • Makkah • Jeddah</p>
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.04] tracking-tight mb-5">Taif Taxi &amp; Private Transfer Service</h1>
+                        <p className="text-base sm:text-lg text-white/85 leading-relaxed sm:mb-8 max-w-xl">
+                            Private airport transfers, mountain transportation, chauffeur service and intercity journeys from Taif to Makkah, Jeddah and the surrounding highlands.
+                        </p>
+                        <div className="hidden sm:flex gap-3">
+                            <Button asChild size="lg" className="group h-auto py-4 px-7 rounded-xl font-bold text-base bg-[#f472b6] text-[#2a1a22] hover:bg-pink-300">
+                                <a href={QUOTE_HREF}>Get Taif Quote <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" /></a>
+                            </Button>
+                            <Button asChild size="lg" variant="outline" className="h-auto py-4 px-7 rounded-xl font-bold text-base bg-white/10 text-white border-white/40 hover:bg-white/20 hover:text-white">
+                                <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer"><WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Book via WhatsApp</a>
+                            </Button>
+                        </div>
+                    </div>
+                    <div id="quote" className="scroll-mt-40">
+                        <RouteQuoteCard
+                            title="Your Taif journey"
+                            cta="Get Taif Quote"
+                            fromPlaceholder="Airport, hotel or exact address"
+                            toPlaceholder="Hotel, mountain area or city"
+                            fromChips={['Taif International Airport (TIF)', 'Taif city', 'Taif hotel', 'Al Hada', 'Al Shafa']}
+                            toChips={['Makkah', 'Jeddah', 'Al Hada', 'Al Shafa', 'Al Hada cable car area', 'Taif International Airport (TIF)']}
+                            showFlight
+                            buttonClass="bg-[#be185d] hover:bg-[#9d174d] focus-visible:ring-pink-400"
+                        />
+                    </div>
                 </div>
             </section>
 
-            {/* Authoritative Signal */}
-            <section className="bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <ExpertReview
-                        reviewerName='Captain Waleed Al-Thaqafi'
-                        reviewerTitle='High-Altitude Driving Specialist'
-                        reviewDate="26 Jun 2026"
-                        expertise={["Mountain Safety", "Fog Navigation", "Local Farm Access"]}
-                    />
+            {/* ================= TRIP PICKER ================= */}
+            <section aria-labelledby="trip" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="trip" className="text-3xl md:text-5xl font-bold text-[#2a1a22] mb-3">What Kind of Taif Trip?</h2>
+                    <p className="text-slate-600 max-w-2xl mb-8">Staying in the city, going up to the mountains, heading down to Makkah or Jeddah, or visiting several places - each is booked a little differently.</p>
+                    <TaifTripPicker />
                 </div>
             </section>
 
-            {/* Main Services Grid */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <span className="bg-primary/10 text-gray-900 font-semibold tracking-wider uppercase text-sm px-4 py-2 rounded-full inline-block border border-primary/20">
-                            Our Fleet Services
-                        </span>
-                        <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-gray-900 mt-6 mb-4">
-                            Mountain Transport Services
-                        </h2>
-                        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                            Transport options include transfers to Al Hada, Al Shafa, and Qarn al-Manazil Miqat. Vehicles are maintained for steep mountain ascents.
+            {/* ================= CITY TO MOUNTAIN (signature) ================= */}
+            <section aria-labelledby="levels" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <div className="max-w-3xl mb-10">
+                        <h2 id="levels" className="text-3xl md:text-5xl font-bold text-[#2a1a22] mb-4">Taif Has Two Travel Levels</h2>
+                        <p className="text-lg text-slate-700 leading-relaxed">
+                            The city and the airport sit on a high plateau; Al Hada and Al Shafa rise above it on the ridges; Makkah and Jeddah lie far below the escarpment. Trips up to the ridges or down the mountain road involve different conditions, weather and journey times from a run across town.
                         </p>
                     </div>
+                    <TaifLevels />
+                </div>
+            </section>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-                        {services.map((service, index) => (
-                            <div
-                                key={index}
-                                className="bg-white p-8 rounded-2xl border-2 border-gray-100 hover:border-primary/50 hover:shadow-xl transition-all duration-300 text-center group"
-                            >
-                                <div className="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
-                                    <service.icon className="w-8 h-8 text-primary" />
+            {/* ================= AIRPORT ================= */}
+            <section aria-labelledby="airport" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-start">
+                    <Reveal>
+                        <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#be185d] mb-3 flex items-center gap-2"><Plane className="w-4 h-4" aria-hidden="true" /> TIF</p>
+                        <h2 id="airport" className="text-3xl md:text-4xl font-bold text-[#2a1a22] mb-4">Taif Airport Private Transfers</h2>
+                        <p className="text-lg text-slate-700 leading-relaxed mb-6">Taif International Airport is about 27 km north-east of the city centre. From the terminal the same car can take you into Taif, up to the mountains, or on down to Makkah or Jeddah.</p>
+                        <div className="flex flex-wrap gap-2">
+                            {['TIF → Taif hotel', 'TIF → Al Hada', 'TIF → Al Shafa', 'TIF → Makkah', 'TIF → Jeddah', 'Hotel → TIF'].map((r) => (
+                                <span key={r} className="rounded-full bg-white border border-[#2a1a22]/10 px-4 py-2 text-sm font-semibold text-[#2a1a22]">{r}</span>
+                            ))}
+                        </div>
+                    </Reveal>
+                    <Reveal delay={100}>
+                        <aside className="rounded-3xl bg-[#2a1a22] text-white p-7">
+                            <h3 className="mb-3">Landing at TIF?</h3>
+                            <p className="text-sm text-white/70 mb-5">Share your flight number when booking so the pickup can be coordinated around your arrival. Also send:</p>
+                            <ul className="grid grid-cols-2 gap-2 text-sm mb-7">
+                                {['Arrival time', 'Passengers', 'Luggage', 'Destination'].map((i) => (
+                                    <li key={i} className="flex gap-2"><Check className="w-4 h-4 text-pink-300 mt-0.5 shrink-0" aria-hidden="true" />{i}</li>
+                                ))}
+                            </ul>
+                            <Link href={q({ from: 'Taif International Airport (TIF)' })} className="group inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#f472b6] px-5 py-3.5 font-bold text-[#2a1a22] hover:bg-pink-300">Book a TIF pickup <Arrow /></Link>
+                        </aside>
+                    </Reveal>
+                </div>
+            </section>
+
+            {/* ================= MAKKAH + JEDDAH ================= */}
+            <section aria-label="Taif to Makkah and Jeddah" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <Reveal className="h-full">
+                        <article className="h-full rounded-3xl bg-[#faf6f2] p-7 md:p-9 flex flex-col">
+                            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#be185d] mb-2">Down the mountain</p>
+                            <h2 className="text-2xl md:text-3xl font-bold text-[#2a1a22] mb-3">Taif to Makkah Private Transfer</h2>
+                            <p className="text-slate-700 leading-relaxed mb-4">
+                                About {tidy(toMakkah?.distanceRange) || '85–100 km'}, often {tidy(toMakkah?.drivingTimeRange) || '1.5–2 hours'} depending on the route and traffic. Hotel or airport pickup, family transfers and returns for pilgrims travelling to and from Makkah.
+                            </p>
+                            <p className="text-sm text-slate-600 mb-5">Travelling for Umrah? The Miqat on this side is Qarn al-Manazil - see <Link href="/locations/taif/miqat-qarn-al-manazil/" className={link}>Miqat transport</Link>. For religious guidance, follow a qualified scholar.</p>
+                            {fares.length > 0 && (
+                                <div className="rounded-2xl bg-white border border-[#2a1a22]/10 p-5 mb-6">
+                                    <p className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">One-way fares, Taif ↔ Makkah</p>
+                                    <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1.5 text-sm">
+                                        {fares.map((f) => (
+                                            <div key={f.label} className="flex justify-between gap-3"><dt className="text-slate-700">{f.label}</dt><dd className="font-bold text-[#2a1a22]">SAR {f.price}</dd></div>
+                                        ))}
+                                    </dl>
+                                    <p className="text-xs text-slate-500 mt-3">From our fare table for standard pickups and drop-offs. Your confirmed price is shown before you book.</p>
                                 </div>
-                                <h3 className="text-lg font-bold text-gray-900 mb-2">{service.name}</h3>
-                                <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+                            )}
+                            <Link href="/routes/makkah-taif/" className="group mt-auto inline-flex items-center justify-center gap-2 rounded-xl bg-[#2a1a22] px-5 py-3.5 font-bold text-white hover:bg-black">View Taif → Makkah Transfer <Arrow /></Link>
+                        </article>
+                    </Reveal>
+                    <Reveal className="h-full" delay={100}>
+                        <article className="h-full rounded-3xl bg-[#faf6f2] p-7 md:p-9 flex flex-col">
+                            <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#be185d] mb-2">To the coast</p>
+                            <h2 className="text-2xl md:text-3xl font-bold text-[#2a1a22] mb-3">Taif to Jeddah Private Transfer</h2>
+                            <p className="text-slate-700 leading-relaxed mb-4">
+                                About {tidy(toJeddah?.distanceRange) || '167–200 km'}, often {tidy(toJeddah?.drivingTimeRange) || '2–2.5 hours'}. To Jeddah hotels, offices or King Abdulaziz International Airport - for family trips, business travel and return journeys.
+                            </p>
+                            <p className="text-sm text-slate-600 flex gap-2 mb-6"><Info className="w-4 h-4 mt-0.5 shrink-0 text-[#be185d]" aria-hidden="true" />The route used may depend on current road conditions and access. Allow extra time before a flight.</p>
+                            <div className="mt-auto flex flex-col gap-2">
+                                <Link href="/routes/taif-jeddah/" className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#2a1a22] px-5 py-3.5 font-bold text-white hover:bg-black">View Taif → Jeddah Transfer <Arrow /></Link>
+                                <Link href="/routes/jeddah-taif/" className="text-center text-sm font-bold text-[#be185d] hover:underline py-2">Coming from Jeddah? Private Jeddah transfer to Taif</Link>
                             </div>
+                        </article>
+                    </Reveal>
+                </div>
+            </section>
+
+            {/* ================= MOUNTAINS: HADA, SHAFA, CABLE CAR ================= */}
+            <section aria-labelledby="mountains" className="relative isolate overflow-hidden bg-[#2a1a22] text-white py-20 px-4 sm:px-6 lg:px-8">
+                <svg className="absolute inset-0 -z-10 w-full h-full" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                    <g fill="none" stroke="#f472b6" strokeOpacity="0.07">
+                        {Array.from({ length: 8 }, (_, i) => <path key={i} d={`M-50 ${500 - i * 50} C 200 ${420 - i * 55}, 400 ${520 - i * 40}, 850 ${380 - i * 45}`} />)}
+                    </g>
+                </svg>
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="mountains" className="text-3xl md:text-5xl font-bold mb-4 max-w-3xl">Private Transportation Through Taif&apos;s Mountain Roads</h2>
+                    <p className="text-white/70 max-w-2xl mb-10">Point-to-point from your hotel to a mountain destination, a return with the car waiting, or a private driver for several stops.</p>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                        <Reveal className="h-full">
+                            <article className="h-full rounded-3xl bg-white/[0.06] border border-white/10 p-7 flex flex-col">
+                                <Mountain className="w-7 h-7 text-pink-300 mb-4" aria-hidden="true" />
+                                <h3 className="mb-3">Al Hada Mountain Transfers</h3>
+                                <p className="text-sm text-white/70 mb-4">About 20 km west of the city on the escarpment edge - resorts, viewpoints and the cable-car area.</p>
+                                <ul className="text-sm text-white/80 space-y-1.5 mb-6">
+                                    <li>Taif → Al Hada</li><li>Jeddah or Makkah → Al Hada</li><li>Hotel → cable car → hotel</li>
+                                </ul>
+                                <Link href="/locations/taif/al-hada/" className="group mt-auto inline-flex items-center gap-2 font-bold text-pink-300">Al Hada transfer <Arrow /></Link>
+                            </article>
+                        </Reveal>
+                        <Reveal className="h-full" delay={80}>
+                            <article className="h-full rounded-3xl bg-white/[0.06] border border-white/10 p-7 flex flex-col">
+                                <Mountain className="w-7 h-7 text-pink-300 mb-4" aria-hidden="true" />
+                                <h3 className="mb-3">Al Shafa Private Transportation</h3>
+                                <p className="text-sm text-white/70 mb-4">Around 25 km south-west, higher up. Hotel pickups, mountain stays and family days - and the ride back down.</p>
+                                <ul className="text-sm text-white/80 space-y-1.5 mb-6">
+                                    <li>Hotel → Al Shafa → hotel</li><li>Resort drop-off</li><li>Several viewpoints with a driver</li>
+                                </ul>
+                                <Link href="/locations/taif/al-shafa/" className="group mt-auto inline-flex items-center gap-2 font-bold text-pink-300">Al Shafa transport <Arrow /></Link>
+                            </article>
+                        </Reveal>
+                        <Reveal className="h-full" delay={160}>
+                            <article className="h-full rounded-3xl bg-[#fdf2f6] text-[#2a1a22] p-7 flex flex-col">
+                                <CableCar className="w-7 h-7 text-[#be185d] mb-4" aria-hidden="true" />
+                                <h3 className="mb-3">Taif Cable Car Transfers</h3>
+                                <p className="text-sm text-slate-700 mb-4">We provide transportation to the relevant cable-car departure area; cable-car tickets and operation are separate unless explicitly included in the booking. Check the cable car is running before you travel.</p>
+                                <Link href="/services/cable-car/" className="group mt-auto inline-flex items-center justify-center gap-2 rounded-xl bg-[#be185d] px-5 py-3.5 font-bold text-white hover:bg-[#9d174d]">Plan Your Cable Car Transfer <Arrow /></Link>
+                            </article>
+                        </Reveal>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= ROSE SEASON ================= */}
+            <section aria-labelledby="roses" className="relative isolate overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
+                <Rose className="absolute -left-16 top-10 -z-10 w-80 h-80 text-pink-300/20" />
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+                    <Reveal>
+                        <Flower2 className="w-8 h-8 text-[#be185d] mb-4" aria-hidden="true" />
+                        <h2 id="roses" className="text-3xl md:text-4xl font-bold text-[#2a1a22] mb-4">Taif Rose Season Transportation</h2>
+                        <p className="text-lg text-slate-700 leading-relaxed mb-5">
+                            Harvest usually falls in spring, around late March and April - but the exact weeks change from year to year. Rose-farm visits are seasonal, so confirm current availability when planning your trip.
+                        </p>
+                        <ul className="space-y-2.5 text-slate-700">
+                            <li className="flex gap-3"><Check className="w-5 h-5 text-[#be185d] shrink-0 mt-0.5" aria-hidden="true" />Picking happens early, so many visitors book a morning pickup.</li>
+                            <li className="flex gap-3"><Check className="w-5 h-5 text-[#be185d] shrink-0 mt-0.5" aria-hidden="true" />Several farms or a distillery in one morning suit an hourly driver.</li>
+                            <li className="flex gap-3"><Check className="w-5 h-5 text-[#be185d] shrink-0 mt-0.5" aria-hidden="true" />We provide the transport; entry to any farm is up to the farm.</li>
+                        </ul>
+                    </Reveal>
+                    <Reveal delay={100}>
+                        <div className="rounded-3xl bg-white border border-pink-200 p-7">
+                            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#be185d] mb-4">A rose-season morning</p>
+                            <ol className="space-y-3 mb-7">
+                                {['Early pickup at your hotel', 'Rose farm', 'Distillery or second farm', 'Back to the hotel'].map((s, i) => (
+                                    <li key={s} className="flex items-center gap-3 font-semibold text-[#2a1a22]">
+                                        <span className="w-7 h-7 rounded-full bg-pink-100 text-[#be185d] text-xs font-black flex items-center justify-center" aria-hidden="true">{i + 1}</span>{s}
+                                    </li>
+                                ))}
+                            </ol>
+                            <Link href={q({ trip: 'hourly', hours: '4', from: 'Taif hotel', notes: 'Rose season visit - farms / times: ' })} className="group inline-flex items-center gap-2 rounded-xl bg-[#2a1a22] px-5 py-3.5 font-bold text-white hover:bg-black">Book a rose-season driver <Arrow /></Link>
+                        </div>
+                    </Reveal>
+                </div>
+            </section>
+
+            {/* ================= SERVICE CHOOSER ================= */}
+            <section aria-labelledby="driver" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-10 items-start">
+                    <div>
+                        <h2 id="driver" className="text-3xl md:text-4xl font-bold text-[#2a1a22] mb-4">Private Driver for a Taif Day</h2>
+                        <p className="text-slate-700 leading-relaxed mb-5">
+                            Taif&apos;s attractions are spread between the city, the ridges and the farms, so a car that stays with you often makes more sense than a string of transfers. Choose the option that fits your plan.
+                        </p>
+                        <p className="text-sm text-slate-600">More on the <Link href="/services/private-driver/" className={link}>private driver for Taif</Link> and elsewhere.</p>
+                    </div>
+                    <TaifServiceChooser />
+                </div>
+            </section>
+
+            {/* ================= FLEET + WEATHER ================= */}
+            <section aria-labelledby="fleet" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="fleet" className="text-3xl md:text-4xl font-bold text-[#2a1a22] mb-3">Choose Your Vehicle</h2>
+                    <p className="text-slate-600 max-w-2xl mb-8">Winding mountain roads and intercity drives reward a bit of extra space. Set your group and bags.</p>
+                    <TaifFleet />
+
+                    <details className="group mt-10 rounded-3xl bg-white border border-[#2a1a22]/10 p-6 md:p-8 open:shadow-sm">
+                        <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-[#2a1a22] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 rounded-lg">
+                            <span className="flex items-center gap-3 text-xl"><CloudFog className="w-6 h-6 text-[#be185d]" aria-hidden="true" /> Planning a Taif Mountain Journey?</span>
+                            <span className="text-2xl text-[#be185d] transition-transform group-open:rotate-45 motion-reduce:transition-none" aria-hidden="true">+</span>
+                        </summary>
+                        <ul className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3 text-slate-700">
+                            <li>Mountain weather can differ from the city and from Makkah or Jeddah below.</li>
+                            <li>Fog and rain can reduce visibility on the ridges.</li>
+                            <li>Road conditions can affect which route is used.</li>
+                            <li>Journey times change - allow extra time for flights and intercity connections.</li>
+                        </ul>
+                        <p className="text-xs text-slate-500 mt-4">General planning guidance, not a live forecast.</p>
+                    </details>
+                </div>
+            </section>
+
+            {/* ================= DECISION + FAMILY + BUSINESS ================= */}
+            <section aria-labelledby="decide" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="decide" className="text-3xl md:text-4xl font-bold text-[#2a1a22] mb-8">Airport, City or Mountain?</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+                        {[
+                            { i: Plane, a: 'Landing at TIF', b: 'Airport transfer', h: q({ from: 'Taif International Airport (TIF)' }) },
+                            { i: Building2, a: 'Staying in Taif', b: 'City / hotel transfer', h: q({ from: 'Taif' }) },
+                            { i: Mountain, a: 'Going into the mountains', b: 'SUV, return or private driver', h: q({ from: 'Taif', to: 'Al Hada', notes: 'Return / waiting time: ' }) },
+                        ].map((c) => (
+                            <Link key={c.a} href={c.h} className="group rounded-3xl border border-[#2a1a22]/10 bg-[#faf6f2] p-7 hover:border-[#be185d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400">
+                                <c.i className="w-7 h-7 text-[#be185d] mb-5" aria-hidden="true" />
+                                <p className="text-slate-500 text-sm">{c.a}</p>
+                                <p className="text-xl font-bold text-[#2a1a22] flex items-center gap-2">{c.b} <Arrow /></p>
+                            </Link>
+                        ))}
+                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <article className="rounded-3xl bg-[#fdf2f6] p-7 md:p-9">
+                            <Users className="w-7 h-7 text-[#be185d] mb-4" aria-hidden="true" />
+                            <h2 className="text-2xl font-bold text-[#2a1a22] mb-4">Travelling With Family?</h2>
+                            <ul className="space-y-2.5 text-slate-700">
+                                <li>Tell us every suitcase - airport and intercity trips carry the most luggage.</li>
+                                <li>A Staria, Yukon or Hiace gives room on mountain and intercity drives.</li>
+                                <li>Book the return from Al Hada or Al Shafa together with the outbound trip.</li>
+                                <li>Need child seats? Mention it and we confirm what we can provide.</li>
+                            </ul>
+                        </article>
+                        <article className="rounded-3xl bg-[#2a1a22] text-white p-7 md:p-9">
+                            <Briefcase className="w-7 h-7 text-pink-300 mb-4" aria-hidden="true" />
+                            <h2 className="text-2xl font-bold mb-4">Business Transportation in Taif</h2>
+                            <ul className="space-y-2.5 text-white/80">
+                                <li>TIF → hotel on arrival, hotel → TIF for departure.</li>
+                                <li>Hotel → meetings, or a chauffeur for the full day.</li>
+                                <li>Taif ↔ Jeddah and Taif ↔ Makkah for meetings further afield.</li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= ROUTE NETWORK ================= */}
+            <section aria-labelledby="network" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="network" className="text-3xl md:text-4xl font-bold text-[#2a1a22] mb-3">From Taif to…</h2>
+                    <p className="text-slate-600 max-w-2xl mb-8">Routes with their own pages. Figures are approximate.</p>
+                    <ul className="flex gap-3 overflow-x-auto snap-x pb-3 -mx-4 px-4 md:grid md:grid-cols-3 lg:grid-cols-6 md:overflow-visible md:mx-0 md:px-0">
+                        {[
+                            { n: 'Makkah', d: tidy(toMakkah?.distanceRange) || '85–100 km', h: '/routes/makkah-taif/' },
+                            { n: 'Jeddah', d: tidy(toJeddah?.distanceRange) || '167–200 km', h: '/routes/taif-jeddah/' },
+                            { n: 'Al Hada', d: 'About 20 km', h: '/locations/taif/al-hada/' },
+                            { n: 'Al Shafa', d: 'About 25 km', h: '/locations/taif/al-shafa/' },
+                            { n: 'Madinah', d: 'About 470–525 km', h: '/distance/taif-to-madinah/' },
+                            { n: 'Riyadh', d: 'About 785–800 km', h: '/distance/riyadh-to-taif/' },
+                        ].map((r) => (
+                            <li key={r.n} className="snap-start shrink-0 w-44 md:w-auto">
+                                <Link href={r.h} className="group block h-full rounded-2xl bg-white border border-[#2a1a22]/10 p-5 hover:border-[#be185d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400">
+                                    <Route className="w-5 h-5 text-[#be185d] mb-3" aria-hidden="true" />
+                                    <p className="font-bold text-[#2a1a22]">Taif → {r.n}</p>
+                                    <p className="text-xs text-slate-500 mt-1">{r.d}</p>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </section>
+
+            {/* ================= PRICING + PROCESS ================= */}
+            <section aria-labelledby="pricing" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    <Reveal>
+                        <h2 id="pricing" className="text-3xl md:text-4xl font-bold text-[#2a1a22] mb-4">Request a Current Taif Transfer Quote</h2>
+                        <p className="text-slate-700 leading-relaxed mb-5">Apart from the Taif ↔ Makkah fares above, trips are quoted individually - a hotel run and a day in the mountains are priced differently. You see the price before you confirm. It depends on:</p>
+                        <div className="flex flex-wrap gap-2">
+                            {['Route', 'Vehicle', 'Passengers', 'Luggage', 'Waiting', 'Return', 'Duration', 'Mountain destination'].map((f) => (
+                                <span key={f} className="rounded-full bg-[#faf6f2] px-4 py-2 text-sm text-[#2a1a22]">{f}</span>
+                            ))}
+                        </div>
+                    </Reveal>
+                    <Reveal delay={100}>
+                        <h2 className="text-3xl md:text-4xl font-bold text-[#2a1a22] mb-6">How Booking Works</h2>
+                        <ol className="space-y-4">
+                            {[
+                                ['Tell us the trip', 'Pickup, destination, date and time.'],
+                                ['Add your group', 'Passengers, luggage and vehicle - plus flight number or waiting time.'],
+                                ['Confirm', 'Price and trip details before you commit.'],
+                                ['Travel', 'Driver and vehicle details come with your confirmed booking.'],
+                            ].map(([t, d], i) => (
+                                <li key={t} className="flex gap-4">
+                                    <Rose className="w-8 h-8 shrink-0 text-pink-400" />
+                                    <div>
+                                        <p className="font-bold text-[#2a1a22]"><span className="sr-only">Step {i + 1}: </span>{t}</p>
+                                        <p className="text-sm text-slate-600">{d}</p>
+                                    </div>
+                                </li>
+                            ))}
+                        </ol>
+                    </Reveal>
+                </div>
+            </section>
+
+            <AlUlaReviews place="taif" title="What travellers said about their Taif trips" />
+
+            {/* ================= FAQ ================= */}
+            <section aria-labelledby="faq" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-3xl mx-auto">
+                    <h2 id="faq" className="text-3xl md:text-4xl font-bold text-[#2a1a22] mb-8">Taif Transfer Questions</h2>
+                    <Accordion type="single" collapsible className="w-full rounded-2xl border border-[#2a1a22]/10 bg-white px-5">
+                        {faqs.map((f, i) => (
+                            <AccordionItem key={f.q} value={`faq-${i}`} className="last:border-0">
+                                <AccordionTrigger className="text-left text-base font-semibold text-[#2a1a22] hover:no-underline">{f.q}</AccordionTrigger>
+                                <AccordionContent className="text-slate-600 leading-relaxed">{f.a}</AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
+                </div>
+            </section>
+
+            {/* ================= RELATED ================= */}
+            <section aria-labelledby="related" className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="related" className="text-2xl md:text-3xl font-bold text-[#2a1a22] mb-6">Related Routes &amp; Services</h2>
+                    <div className="flex flex-wrap gap-2">
+                        {[
+                            ['Private Jeddah transfer to Taif', '/routes/jeddah-taif/'],
+                            ['Taif to Jeddah', '/routes/taif-jeddah/'],
+                            ['Makkah to Taif route', '/routes/makkah-taif/'],
+                            ['Taif cable-car transportation', '/services/cable-car/'],
+                            ['Al Hada transfer', '/locations/taif/al-hada/'],
+                            ['Al Shafa', '/locations/taif/al-shafa/'],
+                            ['Miqat Qarn al-Manazil', '/locations/taif/miqat-qarn-al-manazil/'],
+                            ['Transport in Makkah', '/locations/makkah/'],
+                            ['Rabigh', '/locations/rabigh/'],
+                            ['Al-Qunfudhah', '/locations/al-qunfudhah/'],
+                            ['Private driver service', '/services/private-driver/'],
+                            ['Airport transfers', '/services/airport-transfers/'],
+                        ].map(([l, h]) => (
+                            <Link key={h} href={h} className="rounded-full border border-[#2a1a22]/15 px-4 py-2.5 text-sm font-semibold text-[#2a1a22] hover:border-[#be185d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400">{l}</Link>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* SEO Content Block */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div className="order-2 lg:order-1">
-                            <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full mb-6">
-                                <CloudFog className="w-4 h-4 text-primary" />
-                                <span className="text-sm font-semibold text-gray-900">Weather & Terrain</span>
-                            </div>
-                            <h2 className="text-4xl sm:text-5xl font-black text-gray-900 mb-6">
-                                Why You Need a Pro Driver for Taif
-                            </h2>
-                            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                                The road from Makkah to Taif is an engineering marvel, but it is steep. Driving it in a rented small sedan can be stressful due to overheating engines and brake fade on the descent.
-                            </p>
-                            <p className="text-gray-700 mb-6 leading-relaxed">
-                                Our fleet consists of powerful V6/V8 SUVs (GMC Yukon, Chevy Tahoe) that handle the incline effortlessly. Plus, our drivers know exactly where the <span className="italic">monkeys gathering spots</span> are for photos (and how to keep your windows safe!).
-                            </p>
-
-                            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div className="flex items-start gap-3 bg-gray-50 p-4 rounded-xl border border-gray-200">
-                                    <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
-                                    <div><h3 className="font-bold text-lg">Brake Check</h3><p className="text-sm text-gray-500">Compulsory safety stops included</p></div>
-                                </div>
-                                <div className="flex items-start gap-3 bg-gray-50 p-4 rounded-xl border border-gray-200">
-                                    <CheckCircle2 className="w-5 h-5 text-emerald-600 mt-0.5" />
-                                    <div><h3 className="font-bold text-lg">Family Space</h3><p className="text-sm text-gray-500">Room for picnic gear & strollers</p></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="order-1 lg:order-2">
-                            <div className="relative">
-                                <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-transparent rounded-3xl blur-2xl opacity-30"></div>
-                                <Image
-                                    src="/taif-mountains-view.webp"
-                                    alt="Winding Al Hada mountain road to Taif"
-                                    width={700}
-                                    height={600}
-                                    className="relative rounded-2xl shadow-2xl w-full h-auto border-4 border-white object-cover"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <SeasonalTravelTips city="Taif" />
-                    <div className="mt-12">
-                        <DistanceTable origin="Taif City Center" locations={distanceData} />
-                    </div>
-
-                    <div className="mt-16">
-                        <TravelConsensus
-                        contextName="Taif"
-                            points={[
-                                {
-                                    topic: "Cable Car Start Point",
-                                    commonBelief: "It starts from the bottom.",
-                                    reality: "Most tourists take the Cable Car from the TOP (Al Hada Ring Road) down to the water park resort, and then back up. Finding a taxi at the bottom station is difficult.",
-                                    truthRange: "Start at Top Station",
-                                    factors: ["Parking", "Taxi Availability", "Views"]
-                                },
-                                {
-                                    topic: "Visiting Rose Farms",
-                                    commonBelief: "Open all year.",
-                                    reality: "The factories are open, but the ROSES are only blooming and being harvested in cool mornings of March & April. Other times, it's just green bushes.",
-                                    truthRange: "Seasonal (Spring)",
-                                    factors: ["Harvest Season"]
-                                }
-                            ]}
-                        />
-                    </div>
-
-                    <div className="mt-16">
-                        <RoutePerspective
-                            route="Makkah to Taif (Al Hada Ascent)"
-                            perspectives={[
-                                {
-                                    id: "family",
-                                    targetAudience: "Summer Vacationer",
-                                    icon: Users,
-                                    intent: "Leisure",
-                                    description: "A fun escape from Makkah heat. The goal is the Cable Car and the Strawberry farms. Many families rent villas in Al Shafa.",
-                                    structuredFeatures: [
-                                        { label: "Stops", value: "Fruit Stalls" },
-                                        { label: "Vibe", value: "Excited / Scenic" },
-                                        { label: "Luggage", value: "Heavy (Picnic gear)" }
-                                    ],
-                                    visualContext: "Road overlooks Makkah Clock Tower at night."
-                                },
-                                {
-                                    id: "pilgrim",
-                                    targetAudience: "Umrah Traveler",
-                                    icon: Star,
-                                    intent: "Religious",
-                                    description: "Visiting the Miqat (Qarn al Manazil) to enter Ihram before going to Makkah. Or visiting the mosques of Ibn Abbas.",
-                                    structuredFeatures: [
-                                        { label: "Stop", value: "Qarn al Manazil" },
-                                        { label: "Dress", value: "Changing to Ihram" },
-                                        { label: "Timing", value: "Pre-Maghrib" }
-                                    ],
-                                    visualContext: "Route diverts to Sayl al Kabir."
-                                }
-                            ]}
-                        />
-                    </div>
-
-                    <div className="mt-16">
-                        <MicroSemanticFAQ
-                            faqs={[
-                                {
-                                    question: "How much is a transfer from Makkah to Taif?",
-                                    shortAnswer: "200-300 SAR",
-                                    detailedAnswer: "Standard sedan rates for the one-way drop to Taif city start from 200 SAR. Visiting Al Hada (Cable car point) or Al Shafa requires a different rate due to the steep ascent.",
-                                    perspectives: [
-                                        { role: "Tourist", icon: "Mountain", insight: "Much cheaper than executive Ubers which often cancel on the mountain." },
-                                        { role: "Local", icon: "Shield", insight: "Fixed price is better than meter in steep terrain." }
-                                    ]
-                                },
-                                {
-                                    question: "Is the Al Hada mountain road safe?",
-                                    shortAnswer: "Yes (Dual Highway)",
-                                    detailedAnswer: "It is a world-class engineered road. However, it is steep. We use V6/V8 SUVs to ensure engine braking power and safety. We avoid it during heavy fog warnings.",
-                                    perspectives: [
-                                        { role: "Safety", icon: "CloudFog", insight: "If the road is closed due to rain, we take the alternative As-Sayl route (safe but 45 mins longer)." }
-                                    ]
-                                },
-                                {
-                                    question: "When can we see the Taif Roses?",
-                                    shortAnswer: "March & April Only",
-                                    detailedAnswer: "The famous Taif Rose harvest happens in spring (March-April). Factories in Al Shafa are open for distillation demos. Off-season, you can still visit the green farms, but no pink flowers.",
-                                    perspectives: [
-                                        { role: "Photographer", icon: "Flower2", insight: "Best light is early morning 6-8 AM before farmers harvest the blooms." }
-                                    ]
-                                },
-                                {
-                                    question: "Is Uber available in Taif for mountain trips?",
-                                    shortAnswer: "Limited Reliability",
-                                    detailedAnswer: "Uber works in the city center but is very difficult to find near remote resorts in Al Shafa or Al Hada. You risk getting stranded at the top of the mountain.",
-                                    perspectives: [
-                                        { role: "Solo Traveler", icon: "User", insight: "I got stuck at the cable car for 2 hours waiting for a ride. Pre-booking is essential." }
-                                    ]
-                                },
-                                {
-                                    question: "Are there wild monkeys in Al Hada?",
-                                    shortAnswer: "Yes, many.",
-                                    detailedAnswer: "You will see baboons along the Al Hada road. They are generally harmless if you stay in the car, but they will steal food if windows are open.",
-                                    perspectives: [
-                                        { role: "Local", icon: "Shield", insight: "Do not feed them. It causes traffic jams and aggression." }
-                                    ]
-                                },
-                                {
-                                    question: "Can we swim in Taif?",
-                                    shortAnswer: "At Water Parks",
-                                    detailedAnswer: "Taif has no sea, but it has excellent water parks (Al Kar Tourist Village) at the bottom of the cable car ride.",
-                                    perspectives: [
-                                        { role: "Family", icon: "Sun", insight: "Great cooling option for kids." }
-                                    ]
-                                }
-                            ]}
-                        />
-                    </div>
-                </div>
-            </section>
-
-            {/* Pricing Information */}
-            <section className="py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="pricing">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <div className="inline-flex items-center gap-2 bg-yellow-100 px-4 py-2 rounded-full mb-6">
-                            <Star className="w-4 h-4 text-yellow-600" />
-                            <span className="text-sm font-semibold text-yellow-900">Fixed Fares</span>
-                        </div>
-
-                        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6"> Taif Transfer Rates
-                        </h3>
-                        <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                            Transparent pricing for mountain journeys and executive city disposal.
-                        </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all text-center">
-                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                <Car className="w-6 h-6 text-primary" />
-                            </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">Makkah to Taif</div>
-                            <div className="text-4xl font-black text-primary mb-3">
-                                <span className="text-2xl">From</span> SAR 250
-                            </div>
-                            <div className="text-sm text-gray-600 leading-relaxed">
-                                One-Way Drop (Sedan)
-                            </div>
-                        </div>
-
-                        <div className="bg-white p-8 rounded-2xl border-2 border-primary/30 hover:border-primary hover:shadow-xl transition-all text-center relative">
-                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-white hover:text-black px-4 py-1 rounded-full text-xs font-bold">
-                                BEST SELLER
-                            </div>
-                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                <Mountain className="w-6 h-6 text-primary" />
-                            </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">Taif City Tour</div>
-                            <div className="text-4xl font-black text-primary mb-3">
-                                <span className="text-2xl">From</span> SAR 300
-                            </div>
-                            <div className="text-sm text-gray-600 leading-relaxed">
-                                5-Hour Tour (Al Hada/Shafa)
-                            </div>
-                        </div>
-
-                        <div className="bg-white p-8 rounded-2xl border-2 border-gray-200 hover:border-primary/50 hover:shadow-xl transition-all text-center">
-                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                <MapPin className="w-6 h-6 text-primary" />
-                            </div>
-                            <div className="text-xl font-bold text-gray-900 mb-3">Jeddah Airport</div>
-                            <div className="text-4xl font-black text-primary mb-3">
-                                <span className="text-2xl">From</span> SAR 400
-                            </div>
-                            <div className="text-sm text-gray-600 leading-relaxed">
-                                Direct Airport Transfer
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* UGC Section */}
-            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full mb-6">
-                            <Users className="w-4 h-4" />
-                            <span className="text-sm font-semibold">Community Feedback</span>
-                        </div>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-gray-900 mb-6">
-                            Taif Travel Insights
-                        </h2>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto"> Share your experience or ask a question about our transfer services in Taif.
-                        </p>
-                    </div>
-
-                    <div className="space-y-16 mb-16">
-                        <ReviewsDisplay location="Taif" />
-                        <QuestionsDisplay location="Taif" />
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <ReviewForm locationName="Taif" />
-                        <QuestionForm locationName="Taif" />
-                    </div>
-                </div>
-            </section>
-
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
-                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-                    <h4 className="font-bold text-gray-900 mb-4">Plan Your Taif Trip</h4>
-                    <div className="flex flex-wrap gap-4">
-                        <Link href="/taif-day-trip/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-primary hover:text-primary transition-colors shadow-sm">
-                            Taif Day Trip Tour
-                        </Link>
-                        <Link href="/routes/jeddah-to-shaza-al-hada-taif/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-primary hover:text-primary transition-colors shadow-sm">
-                            Shaza Al Hada Resort Transfer
-                        </Link>
-                        <Link href="/locations/taif/al-hada/" className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-primary hover:text-primary transition-colors shadow-sm">
-                            Al Hada Cable Car
-                        </Link>
-                    </div>
-                </div>
-            </div>
-
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <ApprovedDriversForLocation location="taif" />
-
-                <RelatedLocations currentCity="Taif" />
-            </div>
-
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white text-center">
-                <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl md:text-5xl font-black mb-8">Elevate Your Taif Journey</h2>
-                    <p className="text-xl text-gray-400 mb-8 leading-relaxed">
-                        Premium SUVs and professional chauffeurs ready for your Makkah to Taif mountain transfer.
+            {/* ================= FINAL CTA ================= */}
+            <section className="relative isolate overflow-hidden py-24 px-4 sm:px-6 lg:px-8 bg-[#2a1a22]">
+                <svg className="absolute bottom-0 left-0 -z-10 w-full h-1/2" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0 300 L0 190 C 200 130, 380 180, 560 140 S 900 80, 1100 140 S 1300 110, 1440 150 L1440 300 Z" fill="#3a2530" />
+                </svg>
+                <Rose className="absolute right-6 top-6 -z-10 w-40 h-40 text-pink-400/10" />
+                <div className="max-w-3xl mx-auto text-center text-white">
+                    <h2 className="text-3xl md:text-5xl font-extrabold mb-5">Planning a Taif Journey?</h2>
+                    <p className="text-lg text-white/75 mb-10">
+                        Tell us your pickup location, destination, travel date, passengers and luggage. Whether you&apos;re heading to the airport, Makkah, Jeddah, Al Hada or the mountains, we&apos;ll help arrange the appropriate private vehicle.
                     </p>
-                    <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-12 py-8 rounded-full">
-                        <Link href="/booking/"> Reserve Transfer
-                        </Link>
-                    </Button>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                        <Button asChild size="lg" className="h-auto py-4 px-7 rounded-xl font-bold bg-[#f472b6] text-[#2a1a22] hover:bg-pink-300">
+                            <a href={QUOTE_HREF}>Get Taif Quote</a>
+                        </Button>
+                        <Button asChild size="lg" variant="outline" className="h-auto py-4 px-7 rounded-xl font-bold bg-white/10 text-white border-white/40 hover:bg-white/20 hover:text-white">
+                            <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer"><WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Book via WhatsApp</a>
+                        </Button>
+                    </div>
                 </div>
             </section>
         </div>
