@@ -262,7 +262,13 @@
 @media (prefers-reduced-motion: reduce) {
   .route-draw { animation: none; stroke-dashoffset: 0; }
 }
-.madinah-page h3 {
+.route-quote-title {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+}
+.madinah-page h3,
+.dammam-page h3 {
   font-size: 1.2rem !important;
   font-weight: 700 !important;
   line-height: 1.35 !important;

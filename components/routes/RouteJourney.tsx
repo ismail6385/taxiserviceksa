@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { Car } from 'lucide-react';
 
 export interface JourneyStop {
     title: string;
@@ -10,7 +11,7 @@ export interface JourneyStop {
 
 // Vertical journey whose line fills as the reader scrolls through it.
 // Stops light up once the line reaches them. Static under reduced motion.
-export default function RouteJourney({ stops }: { stops: JourneyStop[] }) {
+export default function RouteJourney({ stops, vehicle = false }: { stops: JourneyStop[]; vehicle?: boolean }) {
     const ref = useRef<HTMLOListElement>(null);
     const [progress, setProgress] = useState(0);
 
@@ -52,6 +53,15 @@ export default function RouteJourney({ stops }: { stops: JourneyStop[] }) {
                 style={{ height: `calc((100% - 1rem) * ${progress})` }}
                 aria-hidden="true"
             />
+            {vehicle && (
+                <span
+                    className="absolute left-[4px] z-10 w-8 h-8 -mt-4 rounded-full bg-amber-400 text-[#082119] flex items-center justify-center shadow-lg shadow-black/30 transition-[top] duration-150"
+                    style={{ top: `calc(0.5rem + (100% - 1rem) * ${progress})` }}
+                    aria-hidden="true"
+                >
+                    <Car className="w-4 h-4" />
+                </span>
+            )}
             {stops.map((s, i) => {
                 const reached = progress >= (stops.length === 1 ? 0 : i / (stops.length - 1)) - 0.02;
                 return (

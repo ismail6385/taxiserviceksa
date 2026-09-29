@@ -22,18 +22,19 @@ const PAX = [
     { label: '12+', value: 17 },
 ];
 
-const BAGS = [
+const bagOptions = (heavyLabel: string) => [
     { label: '1-2 bags', value: 2 },
     { label: '3-4 bags', value: 4 },
     { label: '5-8 bags', value: 8 },
-    { label: 'A lot (plus Zamzam)', value: 12 },
+    { label: heavyLabel, value: 12 },
 ];
 
 function recommend(pax: number, bags: number) {
     return VEHICLES.find((v) => v.pax >= pax && v.bags >= bags) ?? VEHICLES[VEHICLES.length - 1];
 }
 
-export default function VehicleSelector() {
+export default function VehicleSelector({ heavyLabel = 'A lot (plus Zamzam)' }: { heavyLabel?: string }) {
+    const BAGS = bagOptions(heavyLabel);
     const [pax, setPax] = useState(2);
     const [bags, setBags] = useState(2);
     const pick = recommend(pax, bags);
