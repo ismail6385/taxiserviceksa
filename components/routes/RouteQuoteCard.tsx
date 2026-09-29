@@ -36,10 +36,12 @@ export interface RouteQuoteCardProps {
     /** Show an optional flight number field (sent as the booking's flight param). */
     showFlight?: boolean;
     buttonClass?: string;
+    /** Extra optional text fields; each non-empty value is added to the booking notes with its label. */
+    extraFields?: { id: string; label: string; placeholder?: string }[];
 }
 
 // Intercity route quote card; hands off to /booking/ with stop / return / extras as notes.
-export default function RouteQuoteCard({ title, cta, fromCity = '', toCity = '', fromPlaceholder = 'Hotel or location', toPlaceholder = 'Hotel, resort or location', fromChips = [], toChips = [], stop, returnNote, showFlight = false, buttonClass = 'bg-emerald-800 hover:bg-emerald-900 focus-visible:ring-emerald-700' }: RouteQuoteCardProps) {
+export default function RouteQuoteCard({ title, cta, fromCity = '', toCity = '', fromPlaceholder = 'Hotel or location', toPlaceholder = 'Hotel, resort or location', fromChips = [], toChips = [], stop, returnNote, showFlight = false, extraFields = [], buttonClass = 'bg-emerald-800 hover:bg-emerald-900 focus-visible:ring-emerald-700' }: RouteQuoteCardProps) {
     const router = useRouter();
     const [from, setFrom] = useState('');
     const [to, setTo] = useState('');
@@ -52,12 +54,13 @@ export default function RouteQuoteCard({ title, cta, fromCity = '', toCity = '',
     const [ret, setRet] = useState(false);
     const [notes, setNotes] = useState('');
     const [flight, setFlight] = useState('');
+    const [extra, setExtra] = useState<Record<string, string>>({});
 
     const today = format(new Date(), 'yyyy-MM-dd');
 
     const submit = (e: React.FormEvent) => {
         e.preventDefault();
-        const note = [withStop && stop ? stop.note : '', ret ? returnNote ?? (toCity && fromCity ? `Return trip ${toCity} to ${fromCity} also needed - date to confirm.` : 'Return trip also needed - date and time to confirm.') : '', notes.trim()]
+        const note = [...extraFields.filter((f) => extra[f.id]?.trim()).map((f) => `${f.label}: ${extra[f.id].trim()}.`), withStop && stop ? stop.note : '', ret ? returnNote ?? (toCity && fromCity ? `Return trip ${toCity} to ${fromCity} also needed - date to confirm.` : 'Return trip also needed - date and time to confirm.') : '', notes.trim()]
             .filter(Boolean)
             .join(' ');
         const place = (v: string, city: string) => (v.trim() ? (city ? `${v.trim()}, ${city}` : v.trim()) : city ? `${city} hotel` : '');
@@ -141,6 +144,12 @@ export default function RouteQuoteCard({ title, cta, fromCity = '', toCity = '',
                         I also need a return trip
                     </label>
                 </div>
+                {extraFields.map((f) => (
+                    <div key={f.id} className="sm:col-span-2">
+                        <label htmlFor={`rq-${f.id}`} className={label}>{f.label} (optional)</label>
+                        <input id={`rq-${f.id}`} className={field} value={extra[f.id] ?? ''} onChange={(e) => setExtra((x) => ({ ...x, [f.id]: e.target.value }))} placeholder={f.placeholder} maxLength={150} autoComplete="off" />
+                    </div>
+                ))}
                 {showFlight && (
                     <div className="sm:col-span-2">
                         <label htmlFor="rq-flight" className={label}>Flight number (optional)</label>

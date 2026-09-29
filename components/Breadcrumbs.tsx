@@ -17,6 +17,7 @@ export default function Breadcrumbs() {
     // Map path segments to pretty labels
     const segmentLabels: Record<string, string> = {
         'locations': 'Locations',
+        'neom': 'NEOM',
         'routes': 'Routes',
         'fleet': 'Fleet',
         'distance': 'Distance',
