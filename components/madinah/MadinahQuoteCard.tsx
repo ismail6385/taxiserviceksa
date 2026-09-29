@@ -18,19 +18,30 @@ const VEHICLES = [
     { value: 'Toyota Coaster', label: 'Toyota Coaster (minibus)' },
 ];
 
-const PRESETS = [
-    { key: 'airport', label: 'Airport', icon: Plane, from: AIRPORT, to: '' },
-    { key: 'ziyarat', label: 'Ziyarat', icon: Landmark, from: '', to: 'Madinah Ziyarat (Quba, Uhud, Qiblatain) and back to hotel' },
-    { key: 'station', label: 'Train Station', icon: Train, from: STATION, to: '' },
-    { key: 'makkah', label: 'To Makkah', icon: Route, from: '', to: 'Makkah hotel' },
-];
+const PRESETS_BY_CITY = {
+    madinah: [
+        { key: 'airport', label: 'Airport', icon: Plane, from: AIRPORT, to: '' },
+        { key: 'ziyarat', label: 'Ziyarat', icon: Landmark, from: '', to: 'Madinah Ziyarat (Quba, Uhud, Qiblatain) and back to hotel' },
+        { key: 'station', label: 'Train Station', icon: Train, from: STATION, to: '' },
+        { key: 'makkah', label: 'To Makkah', icon: Route, from: '', to: 'Makkah hotel' },
+    ],
+    makkah: [
+        { key: 'jed', label: 'From JED', icon: Plane, from: 'King Abdulaziz International Airport (JED), Jeddah', to: '' },
+        { key: 'station', label: 'Train Station', icon: Train, from: 'Makkah Haramain Station (Al-Rusaifah)', to: '' },
+        { key: 'ziyarat', label: 'Ziyarat', icon: Landmark, from: '', to: 'Makkah Ziyarat and back to hotel' },
+        { key: 'madinah', label: 'To Madinah', icon: Route, from: '', to: 'Madinah hotel' },
+    ],
+};
 
 const field =
     'w-full h-12 rounded-lg border border-stone-300 bg-white px-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-700/25';
 const label = 'block text-xs font-semibold uppercase tracking-wide text-stone-600 mb-1.5';
 
-// Madinah quote card with quick journey presets; hands off to /booking/.
-export default function MadinahQuoteCard() {
+// City quote card (Madinah or Makkah) with quick journey presets; hands off to /booking/.
+// A round-trip request travels as a booking note.
+export default function MadinahQuoteCard({ city = 'madinah', roundTrip = false }: { city?: 'madinah' | 'makkah'; roundTrip?: boolean }) {
+    const PRESETS = PRESETS_BY_CITY[city];
+    const [isReturn, setIsReturn] = useState(false);
     const router = useRouter();
     const [preset, setPreset] = useState<string | null>(null);
     const [from, setFrom] = useState('');
@@ -63,6 +74,7 @@ export default function MadinahQuoteCard() {
         if (date) params.set('date', date);
         if (time) params.set('time', time);
         if (vehicle) params.set('vehicle', vehicle);
+        if (isReturn) params.set('notes', 'Round trip requested - return time to confirm.');
         router.push(`/booking/?${params.toString()}`);
     };
 
@@ -127,6 +139,12 @@ export default function MadinahQuoteCard() {
                         {VEHICLES.map((v) => <option key={v.label} value={v.value}>{v.label}</option>)}
                     </select>
                 </div>
+                {roundTrip && (
+                    <label className="sm:col-span-2 flex items-center gap-3 rounded-lg border border-stone-300 px-3 py-3 text-sm font-medium text-gray-800 cursor-pointer focus-within:ring-2 focus-within:ring-emerald-700">
+                        <input type="checkbox" checked={isReturn} onChange={(e) => setIsReturn(e.target.checked)} className="w-4 h-4 accent-emerald-700" />
+                        Round trip - I also need a ride back
+                    </label>
+                )}
             </div>
 
             <button

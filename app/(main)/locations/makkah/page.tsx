@@ -1,605 +1,491 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { MapPin, Phone, Clock, Star, CheckCircle2, Car, Users, Shield, Plane, ArrowRight, Compass, Landmark, Briefcase, History, Building2 } from 'lucide-react';
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from "@/components/ui/accordion"
-import Hero from '@/components/Hero';
-import PricingTable from '@/components/PricingTable';
-import TrainComparison from '@/components/TrainComparison';
-import BookingProcess from '@/components/BookingProcess';
-import ZiyaratSites from '@/components/ZiyaratSites';
+import { ArrowRight, Plane, Train, Route, Hotel, Landmark, Clock, Users, Info, TrafficCone, MoonStar, CalendarRange, Signpost } from 'lucide-react';
 
-import JsonLdLocation from '@/components/JsonLdLocation';
-import DistanceTable from '@/components/seo/DistanceTable';
-import SeasonalTravelTips from '@/components/seo/SeasonalTravelTips';
-import TopicCluster from '@/components/seo/TopicCluster';
-import RelatedLocations from '@/components/seo/RelatedLocations';
-import ReviewForm from '@/components/seo/ReviewForm';
-import QuestionForm from '@/components/seo/QuestionForm';
-import QuestionsDisplay from '@/components/QuestionsDisplay';
-import ReviewsDisplay from '@/components/ReviewsDisplay';
+import { Button } from '@/components/ui/button';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 import ApprovedDriversForLocation from '@/components/ApprovedDriversForLocation';
+import AlUlaReviews from '@/components/alula/AlUlaReviews';
+import Reveal from '@/components/alula/Reveal';
+import MadinahQuoteCard from '@/components/madinah/MadinahQuoteCard';
+import VehicleSelector from '@/components/madinah/VehicleSelector';
+import BookingChecklist from '@/components/madinah/BookingChecklist';
+import MakkahJourney from '@/components/makkah/MakkahJourney';
+import NeighborhoodExplorer from '@/components/makkah/NeighborhoodExplorer';
+import { PRICING_RULES } from '@/lib/pricing';
+
+const PAGE_URL = 'https://taxiserviceksa.com/locations/makkah/';
+const QUOTE_HREF = '#quote';
+const WHATSAPP_HREF = `https://wa.me/966575806733?text=${encodeURIComponent('Hello, I would like a quote for transport in Makkah. Pickup, destination and date: ')}`;
 
 export const metadata: Metadata = {
-    title: 'Private Car Transfer, Taxi and Umrah Chauffeur Service in Makkah 2026 | Premium Transport | Taxi Service KSA',
-    description: 'Premium private transfer service in Makkah 2026 for Umrah pilgrims. Executive chauffeur service for Makkah, Madinah, and Jeddah Airport pickups. High-end fleet for a dignified journey.',
-    keywords: ['VIP Umrah transport Makkah 2026', 'Premium private transfer Makkah', 'Makkah VIP chauffeur', 'Executive Umrah taxi', 'Jeddah to Makkah VIP transfer'],
+    title: 'Makkah Taxi & Private Transfer Service | Taxi Service KSA',
+    description:
+        'Private transport in Makkah: Jeddah airport and Haramain station arrivals, hotel transfers around the Haram area, Ziyarat, and journeys on to Madinah, Jeddah and Taif.',
     alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/makkah/',
+        canonical: PAGE_URL,
         languages: {
-            'en': 'https://taxiserviceksa.com/locations/makkah/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/makkah/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/makkah/',
-            'x-default': 'https://taxiserviceksa.com/locations/makkah/',
+            en: PAGE_URL,
+            ar: 'https://taxiserviceksa.com/ar/locations/makkah/',
+            ur: 'https://taxiserviceksa.com/ur/locations/makkah/',
+            'x-default': PAGE_URL,
         },
     },
     openGraph: {
-        title: 'Private Car Transfer, Taxi and Chauffeur Service in Makkah | 24/7 Umrah Transport | Taxi Service KSA',
-        description: 'Book premium private transfers in Makkah specifically for Umrah pilgrims and families. Direct hotel to Haram transfers and Jeddah Airport pickup.',
-        url: 'https://taxiserviceksa.com/locations/makkah/',
+        title: 'Makkah Taxi & Private Transfer Service',
+        description: 'Arrivals, hotel transfers, Ziyarat and intercity journeys from Makkah.',
+        url: PAGE_URL,
+        siteName: 'Taxi Service KSA',
         type: 'website',
-        images: [{ url: 'https://taxiserviceksa.com/makkah-kaaba-night.webp', alt: 'VIP private transfer in Makkah' }],
+        images: [{ url: 'https://taxiserviceksa.com/makkah-clock-tower.webp', width: 1024, height: 1024, alt: 'Makkah skyline at dusk' }],
     },
 };
 
-export default async function MakkahPage() {
-    const services = [
-        { name: 'Airport Pickup', description: 'Executive pickup from KAIA Terminal 1 & North Terminal directly to your Hotel.', icon: Plane },
-        { name: 'Executive Umrah Transfers', description: 'Premium intercity travel between Makkah, Madinah, and Jeddah with hospitality.', icon: Landmark },
-        { name: 'Makkah Ziyarat', description: 'Explore historical sites (Arafat, Mina, Jabal Al-Nour) in a luxury SUV with a professional driver.', icon: Compass },
-        { name: 'Full-Day Chauffeur', description: 'Dedicated private chauffeur for your entire stay in Makkah. Punctual & Professional.', icon: Briefcase },
-    ];
+/* ------------------------------------------------------------------ */
+/* Data                                                                */
+/* ------------------------------------------------------------------ */
 
-    const features = [
-        'Experienced drivers knowing Makkah routes',
-        'Hotels & Haram pickup/drop-off service',
-        'Spacious vehicles for pilgrims & luggage',
-        '24/7 availability for late prayers',
-        'Fixed fares with no hidden charges',
-        'English & Arabic speaking staff',
-    ];
+// Sedan fares from the site's fare table (lib/pricing.ts) - the same source the
+// public fare calculator and admin bookings use.
+const sedanFrom = (key: string) => PRICING_RULES[key]?.['Toyota Camry']?.price;
 
-    // Makkah-specific hero images
-    const makkahImages = [
-        '/makkah-kaaba-night.webp',
-        '/makkah-grand-mosque.webp',
-        '/makkah-clock-tower.webp',
-    ];
+const needs = [
+    { icon: Plane, q: 'Arriving at Jeddah Airport', a: 'Airport to Makkah transfer', href: '/routes/jeddah-makkah/' },
+    { icon: Train, q: 'Arriving on the Haramain train', a: 'Station to hotel transfer', href: '/locations/makkah/train-station/' },
+    { icon: Route, q: 'Coming from Madinah', a: 'Madinah to Makkah', href: '/routes/madinah-makkah/' },
+    { icon: Hotel, q: 'Going to or from the Haram area', a: 'Hotel transfers', href: '#hotels' },
+    { icon: Landmark, q: 'Visiting historical sites', a: 'Makkah Ziyarat', href: '/locations/makkah-ziyarat/' },
+    { icon: Clock, q: 'A car for several hours', a: 'Private driver', href: '/services/private-driver/' },
+    { icon: Users, q: 'Travelling with family', a: 'Family and group vehicles', href: '#vehicles' },
+];
 
-    const distanceData = [
-        { destination: 'Jeddah Airport (KAIA)', distance: '95 km (59 mi)', time: '60-80 mins', route: 'Haramain Hwy' },
-        { destination: 'Madinah (Prophet\'s Mosque)', distance: '450 km (280 mi)', time: '4-5 hours', route: 'Route 15' },
-        { destination: 'Taif (City Center)', distance: '85 km (53 mi)', time: '60-90 mins', route: 'Al Hada Mtn' },
-        { destination: 'Aziziyah (Makkah)', distance: '3-7 km (2-4 mi)', time: '10-20 mins', route: 'Tunnel Access' },
-        { destination: 'Jabal Omar Hotels', distance: '1-3 km (0.6-1.8 mi)', time: '5-10 mins', route: 'King Abdulaziz Rd' }
-    ];
+const departures = [
+    { to: 'Madinah', href: '/routes/makkah-madinah/', fare: sedanFrom('makkah-madinah'), note: 'Hotel to hotel' },
+    { to: 'Jeddah', href: '/routes/makkah-jeddah/', fare: sedanFrom('jeddah-makkah'), note: 'City hotels and Jeddah airport' },
+    { to: 'Taif', href: '/routes/makkah-taif/', fare: sedanFrom('makkah-taif'), note: 'Up to the mountain city' },
+];
 
+const ziyaratStops = ['Your hotel', 'Jabal al-Nour', 'Jabal Thawr', 'Arafat', 'Mina', 'Back to your hotel'];
+
+const faqs = [
+    { q: 'Can you pick me up from my Makkah hotel?', a: 'Yes. Give us the hotel name and we confirm the pickup point, which near the Haram may be the closest place a car can stop.' },
+    { q: 'Can you take us to the Haram?', a: 'We take you as close as vehicles are allowed under the traffic controls in place at the time, then you continue on foot.' },
+    { q: 'Can you pick up from Jabal Omar?', a: 'Yes. Pickups from Jabal Omar hotels use the access point confirmed for your hotel.' },
+    { q: 'Do you cover Aziziyah?', a: 'Yes - transfers from Aziziyah into the centre, to the station or airport, and for Ziyarat.' },
+    { q: 'Can you pick us up from Makkah train station?', a: 'Yes. Share your train arrival time and we meet you at the Haramain station.' },
+    { q: 'Can you arrange Jeddah Airport to Makkah?', a: 'Yes. Send your flight number and hotel; the driver takes you from arrivals to your hotel.' },
+    { q: 'Can you arrange Makkah to Madinah?', a: 'Yes, hotel to hotel in a private car.' },
+    { q: 'Do you offer Makkah Ziyarat transport?', a: 'Yes - a private car to the places you choose, waiting while you visit. Religious guidance is not included.' },
+    { q: 'Can families book an SUV or van?', a: 'Yes - a Staria or Yukon for most families, a Hiace or Coaster for groups.' },
+    { q: 'Can I book a private driver for several hours?', a: 'Yes, you can request hourly hire for several stops in one day.' },
+    { q: 'How much does a Makkah transfer cost?', a: 'It depends on the route, vehicle, date and stops. You receive your trip price before confirming the booking.' },
+    { q: 'Can I request a return trip?', a: 'Yes. Tick "Round trip" in the quote form and tell us when you want to come back.' },
+    { q: 'What happens if road access changes?', a: 'Access around the Haram can change at short notice. The driver will use the nearest permitted point and keep you updated by WhatsApp.' },
+];
+
+const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'TaxiService',
+            '@id': `${PAGE_URL}#service`,
+            name: 'Makkah Taxi & Private Transfer Service',
+            url: PAGE_URL,
+            description:
+                'Pre-booked private transport in Makkah: Jeddah airport and Haramain station arrivals, hotel transfers around the Haram area, Ziyarat, hourly drivers and journeys to Madinah, Jeddah and Taif.',
+            provider: { '@type': 'Organization', '@id': 'https://taxiserviceksa.com/#organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com' },
+            areaServed: { '@type': 'City', name: 'Makkah', alternateName: 'Makkah Al-Mukarramah' },
+            image: 'https://taxiserviceksa.com/makkah-clock-tower.webp',
+            hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: 'Makkah transport',
+                itemListElement: ['Jeddah Airport to Makkah', 'Haramain Station Transfer', 'Hotel Transfers', 'Makkah Ziyarat Transport', 'Private Driver by the Hour', 'Makkah to Madinah', 'Makkah to Jeddah', 'Makkah to Taif'].map((n) => ({
+                    '@type': 'Offer',
+                    itemOffered: { '@type': 'Service', name: n },
+                })),
+            },
+        },
+        {
+            '@type': 'FAQPage',
+            '@id': `${PAGE_URL}#faq`,
+            mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+        },
+    ],
+};
+
+/* ------------------------------------------------------------------ */
+/* Page                                                                */
+/* ------------------------------------------------------------------ */
+
+export default function MakkahPage() {
     return (
-        <div className="bg-gray-50 min-h-screen">
-            <JsonLdLocation 
-                cityName="Makkah" 
-                description="Premium private transfer service in Makkah for Umrah pilgrims. Executive chauffeur service for Makkah, Madinah, and Jeddah Airport pickups. High-end fleet for a dignified journey."
-                services={services}
-                
-                image="https://taxiserviceksa.com/makkah-kaaba-night.webp"
-            />
+        <div className="madinah-page bg-[#faf7f0]">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-
-            {/* Hero Section with Makkah-Focused H1 */}
-            <Hero
-                images={makkahImages}
-                h1Text="Private Car Transfer, Taxi and Chauffeur Service in Makkah — Umrah Pilgrim Transfers"
-                bookingFormTitle="2026 Premium Umrah Transfer"
-                title={
-                    <span className="bg-primary/20 text-primary font-bold tracking-wider uppercase px-4 py-2 rounded-lg inline-block leading-snug">
-                        2026 Chauffeur Service
-                    </span>
-                }
-                subtitle="Dignified & Reliable Transport for Pilgrims"
-                location="Makkah Holy City"
-            />
-
-            {/* Premium Service Disclaimer */}
-            <div className="bg-amber-50 border-y border-amber-200 py-3">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <p className="text-center text-amber-800 text-sm font-bold flex items-center justify-center gap-2">
-                        <Shield className="w-4 h-4" />
-                        OFFICIAL NOTE: We specialize in pre-booked Umrah, Intercity, and Airport transfers. We do NOT provide local short-distance hailing.
-                    </p>
-                </div>
-            </div>
-
-            {/* Contextual Link Hub - Strategic Linking */}
-            <div className="bg-white border-b border-gray-100">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                    <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
-                        <span className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Popular Makkah Routes:</span>
-                        <Link href="/routes/jeddah-makkah/" className="text-gray-600 hover:text-primary transition-colors font-medium border-b border-gray-200">Jeddah to Makkah</Link>
-                        <Link href="/routes/makkah-madinah/" className="text-gray-600 hover:text-primary transition-colors font-medium border-b border-gray-200">Makkah to Madinah</Link>
-                        <Link href="/routes/makkah-jeddah/" className="text-gray-600 hover:text-primary transition-colors font-medium border-b border-gray-200">Makkah to Jeddah Airport</Link>
-                    </div>
-                </div>
-            </div>
-
-            {/* Breadcrumb Navigation */}
-            <section className="bg-white border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                    <nav className="flex items-center space-x-2 text-sm">
-                        <Link href="/" className="text-gray-500 hover:text-gray-900 transition-colors">
-                            Home
-                        </Link>
-                        <span className="text-gray-400">/</span>
-                        <Link href="/locations/" className="text-gray-500 hover:text-gray-900 transition-colors">
-                            Locations
-                        </Link>
-                        <span className="text-gray-400">/</span>
-                        <span className="text-gray-900 font-semibold">Makkah</span>
-                    </nav>
-                </div>
-            </section>
-
-            {/* Main Content & Services */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
-                <div className="max-w-7xl mx-auto">
-                    {/* Section Header */}
-                    <div className="text-center mb-16">
-                        <span className="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">
-                            Our Services
-                        </span>
-                        <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-                            Transport Services
-                        </h2>
-                        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-                            Experience the <Link href="/" className="text-primary font-semibold hover:underline">Best Online Taxi Service in Saudi Arabia</Link>. We offer specialized vehicles for every pilgrim group size.
+            {/* ================= HERO ================= */}
+            <section className="relative isolate overflow-hidden bg-[#1a1208]">
+                <Image
+                    src="/makkah-clock-tower.webp"
+                    alt="Makkah skyline at dusk with the Clock Tower above the hotels around Masjid al-Haram"
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover object-[center_30%] opacity-55 alula-drift -z-10"
+                />
+                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#1a1208] via-[#1a1208]/85 to-[#1a1208]/30" aria-hidden="true" />
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+                    <div className="text-white animate-fade-in-up motion-reduce:animate-none motion-reduce:opacity-100">
+                        <div className="flex flex-wrap items-center gap-2 mb-6 text-xs sm:text-sm font-semibold" aria-hidden="true">
+                            <span className="rounded-md bg-white/10 px-2.5 py-1">Hotel</span>
+                            <svg viewBox="0 0 48 12" className="w-10 h-3"><path d="M2 6 H 46" stroke="#fcd34d" strokeWidth="2" strokeLinecap="round" fill="none" pathLength={1} className="route-draw" /></svg>
+                            <span className="rounded-md bg-amber-300 text-[#1a1208] px-2.5 py-1">Private car</span>
+                            <svg viewBox="0 0 48 12" className="w-10 h-3"><path d="M2 6 H 46" stroke="#fcd34d" strokeWidth="2" strokeLinecap="round" fill="none" pathLength={1} className="route-draw" /></svg>
+                            <span className="rounded-md bg-white/10 px-2.5 py-1">Haram · Station · Airport · Madinah</span>
+                        </div>
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.04] tracking-tight mb-5">Makkah Taxi &amp; Private Transfer Service</h1>
+                        <p className="text-lg text-stone-200 leading-relaxed mb-8 max-w-xl">
+                            Private transport for airport arrivals, hotel transfers, Ziyarat, Haramain station journeys and intercity travel from Makkah.
                         </p>
-                    </div>
-
-                    {/* Services Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
-                        {services.map((service, index) => (
-                            <div
-                                key={index}
-                                className="bg-white p-8 rounded-3xl border border-gray-100 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 group"
-                            >
-                                <div className="bg-gray-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-all">
-                                    <service.icon className="w-6 h-6" />
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.name}</h3>
-                                <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Train vs Taxi Comparison Section */}
-                    <div className="mb-24">
-                        <TrainComparison 
-                            route="Makkah to Madinah"
-                            taxiPrice="400"
-                            trainPrice="150"
-                        />
-                    </div>
-
-                    {/* Recommended Fleet for Makkah */}
-                    <div className="bg-gray-900 rounded-[2.5rem] p-10 md:p-16 text-white relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -mr-32 -mt-32"></div>
-                        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
-                            <div className="lg:max-w-2xl">
-                                <h3 className="text-3xl md:text-4xl font-black mb-6">Recommended Fleet for Makkah</h3>
-                                <p className="text-gray-400 text-lg mb-10 leading-relaxed">For families and large groups performing Umrah, we recommend our spacious SUVs and Vans for maximum comfort and luggage space.</p>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                    <Link href="/fleet/gmc-yukon/" className="flex items-center gap-4 group p-6 bg-white/5 rounded-2xl hover:bg-white/10 transition-all border border-white/10">
-                                        <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:bg-primary transition-colors">
-                                            <Car className="w-6 h-6 text-primary group-hover:text-white" />
-                                        </div>
-                                        <div>
-                                            <span className="font-bold text-lg block">GMC Yukon</span>
-                                            <span className="text-sm text-gray-500">7 Adults | 5 Bags</span>
-                                        </div>
-                                    </Link>
-                                    <Link href="/fleet/toyota-hiace/" className="flex items-center gap-4 group p-6 bg-white/5 rounded-2xl hover:bg-white/10 transition-all border border-white/10">
-                                        <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center group-hover:bg-primary transition-colors">
-                                            <Car className="w-6 h-6 text-primary group-hover:text-white" />
-                                        </div>
-                                        <div>
-                                            <span className="font-bold text-lg block">Toyota HiAce</span>
-                                            <span className="text-sm text-gray-500">12 Adults | 16 Bags</span>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </div>
-                            <Link href="/fleet/" className="w-full lg:w-auto">
-                                <Button className="w-full bg-primary text-white hover:bg-white hover:text-primary font-black px-12 py-8 h-auto text-xl rounded-2xl transition-all shadow-2xl shadow-primary/20">
-                                    Explore All
-                                    <ArrowRight className="ml-2 w-6 h-6" />
-                                </Button>
-                            </Link>
+                        <div className="flex flex-col sm:flex-row gap-3">
+                            <Button asChild size="lg" className="group h-auto py-4 px-7 rounded-xl font-bold text-base bg-amber-300 text-[#1a1208] hover:bg-amber-200">
+                                <a href={QUOTE_HREF}>Get My Makkah Transfer Quote <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" /></a>
+                            </Button>
+                            <Button asChild size="lg" variant="outline" className="h-auto py-4 px-7 rounded-xl font-bold text-base bg-white/10 text-white border-white/40 hover:bg-white/20 hover:text-white">
+                                <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer"><WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> WhatsApp Us</a>
+                            </Button>
                         </div>
                     </div>
+                    <div id="quote" className="scroll-mt-40">
+                        <MadinahQuoteCard city="makkah" roundTrip />
+                    </div>
                 </div>
             </section>
 
+            {/* ================= WHAT DO YOU NEED ================= */}
+            <section aria-labelledby="needs" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="needs" className="text-3xl md:text-5xl font-bold text-gray-900 mb-3">What Do You Need in Makkah?</h2>
+                    <p className="text-lg text-gray-600 max-w-2xl mb-10">Pick the situation that sounds like yours.</p>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                        {needs.map((n, i) => {
+                            const cls = `group h-full flex flex-col justify-between gap-6 rounded-2xl p-6 transition hover:-translate-y-0.5 hover:shadow-lg motion-reduce:transform-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-600 ${i === 0 ? 'bg-[#1a1208] text-white sm:col-span-2 lg:col-span-1 lg:row-span-2' : 'bg-white border border-stone-200'}`;
+                            const inner = (
+                                <>
+                                    <n.icon className={`w-7 h-7 ${i === 0 ? 'text-amber-300' : 'text-amber-700'}`} aria-hidden="true" />
+                                    <span>
+                                        <span className={`block text-sm mb-1 ${i === 0 ? 'text-stone-300' : 'text-gray-500'}`}>{n.q}</span>
+                                        <span className="flex items-center gap-2 text-lg font-bold">
+                                            {n.a} <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" />
+                                        </span>
+                                    </span>
+                                </>
+                            );
+                            return (
+                                <li key={n.q} className={i === 0 ? 'sm:col-span-2 lg:col-span-1 lg:row-span-2' : ''}>
+                                    <Reveal delay={(i % 4) * 60} className="h-full">
+                                        {n.href.startsWith('#') ? <a href={n.href} className={cls}>{inner}</a> : <Link href={n.href} className={cls}>{inner}</Link>}
+                                    </Reveal>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
+            </section>
 
-            {/* Makkah Neighborhood Guides - Micro-Niche Strategy */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
-                <div className="max-w-7xl mx-auto">
-                    <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
-                        <div className="max-w-2xl">
-                            <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 block">Local Expertise</span>
-                            <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">
-                                Makkah Transport by Neighborhood
-                            </h2>
-                            <p className="text-gray-600 mt-4 text-lg">
-                                Whether you are staying in the heart of the luxury district or a quiet residential pocket, we provide specialized taxi services for every corner of Makkah.
+            {/* ================= YOUR MAKKAH JOURNEY (signature) ================= */}
+            <section aria-labelledby="journey" className="bg-[#1a1208] text-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="journey" className="text-3xl md:text-5xl font-bold mb-3">Your Makkah Journey</h2>
+                    <p className="text-stone-300 max-w-2xl mb-10">Most trips have four stages. Choose one to see how a private car fits in.</p>
+                    <MakkahJourney />
+                </div>
+            </section>
+
+            {/* ================= ARRIVALS ================= */}
+            <section aria-label="Arriving in Makkah" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <article className="relative isolate overflow-hidden rounded-3xl text-white p-8 md:p-10 min-h-[420px] flex flex-col justify-end">
+                        <Image src="/umrah-journey-makkah.png" alt="" fill sizes="(min-width: 1024px) 50vw, 100vw" className="-z-10 object-cover" aria-hidden="true" />
+                        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#1a1208] via-[#1a1208]/80 to-[#1a1208]/20" aria-hidden="true" />
+                        <Plane className="w-8 h-8 text-amber-300 mb-3" aria-hidden="true" />
+                        <h2 className="text-2xl md:text-3xl font-bold mb-3">Jeddah Airport to Makkah</h2>
+                        <p className="text-stone-200 leading-relaxed mb-4">
+                            Most visitors fly into King Abdulaziz International Airport in Jeddah. Send your flight number and hotel, and a private car takes you from arrivals to Makkah with your luggage - Staria, Yukon or Hiace for families and groups.
+                        </p>
+                        {sedanFrom('jeddah-makkah') && <p className="text-sm text-amber-200 mb-4">Sedan fare from SAR {sedanFrom('jeddah-makkah')} one way (fare table)</p>}
+                        <Link href="/routes/jeddah-makkah/" className="group inline-flex items-center gap-2 font-bold text-amber-300">Jeddah to Makkah transfer <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" /></Link>
+                    </article>
+                    <article className="rounded-3xl bg-white border border-stone-200 p-8 md:p-10 flex flex-col">
+                        <Train className="w-8 h-8 text-amber-700 mb-3" aria-hidden="true" />
+                        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Makkah Train Station to Your Hotel</h2>
+                        <p className="text-gray-700 leading-relaxed mb-6">
+                            The Haramain train stops at Makkah station in Al-Rusaifah, outside the central hotel area. A private car covers the last part: from the station to your hotel with the bags, and back again when you leave.
+                        </p>
+                        <ol className="flex items-center gap-2 text-sm font-semibold mb-8" aria-label="Station, private car, hotel">
+                            <li className="rounded-lg bg-[#faf7f0] border border-stone-200 px-3 py-2">Makkah station</li>
+                            <li aria-hidden="true"><ArrowRight className="w-4 h-4 text-amber-600" /></li>
+                            <li className="rounded-lg bg-amber-100 border border-amber-200 px-3 py-2">Private car</li>
+                            <li aria-hidden="true"><ArrowRight className="w-4 h-4 text-amber-600" /></li>
+                            <li className="rounded-lg bg-[#faf7f0] border border-stone-200 px-3 py-2">Hotel</li>
+                        </ol>
+                        <div className="mt-auto flex flex-wrap gap-4 items-center">
+                            <Button asChild className="h-auto py-3 px-6 rounded-xl font-bold bg-[#1a1208] text-white hover:bg-black">
+                                <a href={QUOTE_HREF}>Book Station Transfer</a>
+                            </Button>
+                            <Link href="/locations/makkah/train-station/" className="text-sm font-semibold text-amber-800 hover:underline">Station transfer details</Link>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            {/* ================= HOTEL TRANSFERS + ACCESS REALITY ================= */}
+            <section id="hotels" aria-labelledby="hotels-title" className="bg-white py-20 px-4 sm:px-6 lg:px-8 scroll-mt-40">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-12 items-start">
+                    <div>
+                        <h2 id="hotels-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Hotel Transfers Around Makkah</h2>
+                        <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                            Moving between hotels, getting to the Haram area from a hotel further out, or heading to the station - the car is booked for your exact pickup and destination.
+                        </p>
+                        <p className="text-gray-700 leading-relaxed mb-6">
+                            Pickup and drop-off points depend on where your hotel is and on the traffic and access arrangements in place at the time. Roads close to Masjid al-Haram are often controlled, so your confirmed point may be the nearest place a car is allowed to stop, and it can be adjusted on the day.
+                        </p>
+                        <div className="rounded-2xl bg-amber-50 border border-amber-200 p-5 text-sm text-amber-950 flex gap-3">
+                            <Info className="w-5 h-5 shrink-0 mt-0.5" aria-hidden="true" />
+                            <p>We do not have special access to restricted areas around the Haram. Cars stop where the current rules allow, and you continue on foot from there.</p>
+                        </div>
+                        <p className="text-sm text-gray-600 mt-6">
+                            Just need a local ride inside the city? See <Link href="/services/taxi-in-makkah/" className="text-amber-800 font-semibold hover:underline">taxi in Makkah</Link> and <Link href="/services/makkah-city-transport/" className="text-amber-800 font-semibold hover:underline">Makkah city transport</Link>.
+                        </p>
+                    </div>
+                    <div className="rounded-3xl bg-[#1a1208] text-white p-8">
+                        <h2 className="text-2xl font-bold mb-6">Getting Around Makkah</h2>
+                        <p className="text-stone-300 text-sm mb-6">Why the confirmed pickup point matters here more than in most cities:</p>
+                        <ul className="space-y-4">
+                            {[
+                                { icon: TrafficCone, t: 'Access controls', d: 'Temporary closures around the Haram can change where cars may stop.' },
+                                { icon: MoonStar, t: 'Prayer times', d: 'Travel times and access can change around the five daily prayers.' },
+                                { icon: CalendarRange, t: 'Peak seasons', d: 'Ramadan, Hajj and busy Umrah periods bring heavier traffic and more restrictions.' },
+                                { icon: Signpost, t: 'Hotel location', d: 'A hotel beside the Haram and one in Aziziyah need very different routes.' },
+                            ].map((x) => (
+                                <li key={x.t} className="flex gap-4">
+                                    <x.icon className="w-5 h-5 text-amber-300 shrink-0 mt-0.5" aria-hidden="true" />
+                                    <div>
+                                        <p className="font-semibold">{x.t}</p>
+                                        <p className="text-sm text-stone-400">{x.d}</p>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= NEIGHBORHOOD EXPLORER ================= */}
+            <section aria-labelledby="areas" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="areas" className="text-3xl md:text-5xl font-bold text-gray-900 mb-3">Staying in Which Part of Makkah?</h2>
+                    <p className="text-lg text-gray-600 max-w-2xl mb-10">Transport questions depend a lot on the district. Choose yours.</p>
+                    <NeighborhoodExplorer />
+                </div>
+            </section>
+
+            {/* ================= ZIYARAT ================= */}
+            <section aria-labelledby="ziyarat" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 items-center">
+                    <div>
+                        <h2 id="ziyarat" className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Private Makkah Ziyarat Transportation</h2>
+                        <p className="text-gray-700 leading-relaxed mb-4">
+                            Many visitors want to see places outside the central area, such as Jabal al-Nour, Jabal Thawr, Arafat and Mina. A private car collects you at your hotel, waits at each stop and brings you back.
+                        </p>
+                        <p className="text-gray-700 leading-relaxed mb-6">
+                            Access to some sites - particularly Arafat, Mina and Muzdalifah around the Hajj season - depends on current restrictions. We confirm what is possible for your date.
+                        </p>
+                        <p className="text-sm text-stone-500 mb-6">We provide transportation only. Religious guidance is not included.</p>
+                        <Button asChild className="group h-auto py-3 px-6 rounded-xl font-bold bg-amber-300 text-[#1a1208] hover:bg-amber-200">
+                            <Link href="/locations/makkah-ziyarat/">Plan Makkah Ziyarat <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" /></Link>
+                        </Button>
+                    </div>
+                    <figure className="rounded-3xl bg-[#faf7f0] border border-stone-200 p-7 md:p-9">
+                        <figcaption className="text-xs font-bold uppercase tracking-wider text-stone-500 mb-6">Example itinerary only - stops follow your request and current access conditions</figcaption>
+                        <ol className="relative border-l-2 border-dashed border-amber-600/40 ml-3 space-y-5">
+                            {ziyaratStops.map((s, i) => (
+                                <li key={s} className="ml-7">
+                                    <span className={`absolute -left-[9px] mt-1 w-4 h-4 rounded-full ${i === 0 || i === ziyaratStops.length - 1 ? 'bg-[#1a1208]' : 'bg-amber-500'}`} aria-hidden="true" />
+                                    <span className="font-semibold text-gray-900">{s}</span>
+                                </li>
+                            ))}
+                        </ol>
+                    </figure>
+                </div>
+            </section>
+
+            {/* ================= PRIVATE DRIVER + FAMILY + VEHICLES ================= */}
+            <section id="vehicles" aria-labelledby="vehicles-title" className="py-20 px-4 sm:px-6 lg:px-8 scroll-mt-40">
+                <div className="max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-14">
+                        <div className="rounded-3xl bg-[#1a1208] text-white p-8">
+                            <Clock className="w-8 h-8 text-amber-300 mb-3" aria-hidden="true" />
+                            <h2 className="text-2xl md:text-3xl font-bold mb-3">Need a Private Driver in Makkah?</h2>
+                            <p className="text-stone-300 leading-relaxed mb-6">
+                                Keep one car and driver for a set number of hours - for several hotel or destination moves, Ziyarat with extra stops, coordinating an airport run, or business visits.
+                            </p>
+                            <Link href="/services/private-driver/" className="group inline-flex items-center gap-2 font-bold text-amber-300">Private driver service <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" /></Link>
+                        </div>
+                        <div className="relative isolate overflow-hidden rounded-3xl p-8 text-white flex flex-col justify-end min-h-[260px]">
+                            <Image src="/makkah-family-service.png" alt="" fill sizes="(min-width: 1024px) 50vw, 100vw" className="-z-10 object-cover" aria-hidden="true" />
+                            <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#1a1208] via-[#1a1208]/75 to-transparent" aria-hidden="true" />
+                            <h2 className="text-2xl md:text-3xl font-bold mb-3">Travelling With Family?</h2>
+                            <p className="text-stone-200 leading-relaxed">
+                                Tell us about children, older family members, suitcases and any extra help needed getting in and out. Ask before booking if you need a wheelchair-accessible vehicle. Child seats can be requested in the booking form, subject to availability.
                             </p>
                         </div>
-                        <Link href="/locations/" className="text-primary font-bold flex items-center gap-2 group border-b-2 border-primary/20 hover:border-primary transition-all pb-1">
-                            Explore All Locations <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
                     </div>
+                    <h2 id="vehicles-title" className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Choose Your Vehicle</h2>
+                    <p className="text-gray-600 max-w-3xl mb-10">Pick by passengers and suitcases - Umrah trips often come with Zamzam and extra bags on the way home.</p>
+                    <VehicleSelector />
+                </div>
+            </section>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-                        {[
-                            { name: 'Aziziyah', slug: 'aziziyah', desc: 'Pilgrim accommodation heart.', icon: Building2 },
-                            { name: 'Jabal Omar', slug: 'jabal-omar', desc: 'Luxury district near Haram.', icon: Star },
-                            { name: 'Kudai', slug: 'kudai', desc: 'Vital transport hub.', icon: MapPin },
-                            { name: 'Misfalah', slug: 'misfalah', desc: 'Bustling area with hotels.', icon: Users },
-                            { name: 'Jarwal', slug: 'jarwal', desc: 'Modern area near expansion.', icon: Landmark },
-                        ].map((district, idx) => (
-                            <Link
-                                key={idx}
-                                href={`/locations/makkah/${district.slug}/`}
-                                className="group bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:bg-white hover:shadow-xl transition-all duration-300"
-                            >
-                                <div className="bg-white w-12 h-12 rounded-xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary group-hover:text-white transition-colors">
-                                    <district.icon className="w-6 h-6" />
-                                </div>
-                                <h3 className="text-lg font-bold text-gray-900 mb-2">{district.name}</h3>
-                                <p className="text-gray-500 text-xs leading-relaxed mb-4">
-                                    {district.desc}
-                                </p>
-                                <div className="flex items-center gap-2 text-primary font-bold text-[10px] uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-all">
-                                    Guide <ArrowRight className="w-3 h-3" />
-                                </div>
-                            </Link>
+            {/* ================= HEADING OUT ================= */}
+            <section aria-labelledby="out" className="bg-[#1a1208] text-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="out" className="text-3xl md:text-5xl font-bold mb-3">Heading Out of Makkah?</h2>
+                    <p className="text-stone-300 max-w-2xl mb-10">From your hotel door, one private car to where you are going next.</p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                        {departures.map((d, i) => (
+                            <Reveal key={d.to} delay={i * 90} className="h-full">
+                                <Link href={d.href} className="group h-full flex flex-col rounded-2xl border border-white/15 bg-white/[0.04] p-7 transition hover:border-amber-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300">
+                                    <span className="text-sm text-stone-400 mb-1">Makkah →</span>
+                                    <span className="text-3xl font-bold mb-2">{d.to}</span>
+                                    <span className="text-sm text-stone-300 mb-6">{d.note}</span>
+                                    {d.fare && <span className="text-sm text-amber-200 mb-4">Sedan from SAR {d.fare} one way</span>}
+                                    <span className="mt-auto inline-flex items-center gap-2 font-bold text-amber-300">View route <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" /></span>
+                                </Link>
+                            </Reveal>
                         ))}
                     </div>
+                    <p className="text-xs text-stone-500">Fares from our fare table, the same one used by our online fare calculator. Your price is confirmed before you book.</p>
                 </div>
             </section>
 
-
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-gray-50 to-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        {/* Text Content */}
-                        <div className="order-2 lg:order-1">
-                            <span className="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">Premium Experience</span>
-                            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-8 leading-tight">
-                                Private Transfer for Umrah Pilgrims
-                            </h2>
-
-                            <div className="space-y-4 text-gray-700 leading-relaxed text-lg">
-                                <p>
-                                    Experience a <strong>dignified and premium Umrah journey</strong> with our private transfer service. We provide an executive alternative to standard city transport, ensuring that your spiritual focus remains uninterrupted by logistical challenges.
-                                </p>
-
-                                <p>
-                                    Our service is dedicated to <strong>high-end intercity travel and airport pickups</strong>. Whether you are arriving at King Abdulaziz International Airport or require a dedicated chauffeur for the journey to Madinah, we offer a specialized 2026 fleet designed for pilgrims and families. We prioritize international guests, providing professional, English-speaking chauffeurs and a level of hospitality that reflects the sanctity of your visit.
-                                </p>
-                            </div>
-
-                            {/* Key Features */}
-                            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                <div className="flex items-start gap-4">
-                                    <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center shrink-0">
-                                        <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-bold text-gray-900 mb-1">Prayer Time Respect</h3>
-                                        <p className="text-sm text-gray-500">Drivers understand Salah timings</p>
-                                    </div>
-                                </div>
-                                <div className="flex items-start gap-4">
-                                    <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center shrink-0">
-                                        <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-bold text-gray-900 mb-1">Zamzam Safe</h3>
-                                        <p className="text-sm text-gray-500">Secure space for holy water</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Image */}
-                        <div className="order-1 lg:order-2">
-                            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-                                <Image
-                                    src="/makkah-taxi-pilgrims.png"
-                                    alt="Umrah pilgrims in Makkah"
-                                    fill
-                                    className="object-cover"
-                                    priority
-                                />
-                            </div>
-                        </div>
+            {/* ================= COMPARISON ================= */}
+            <section aria-labelledby="compare" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-5xl mx-auto">
+                    <h2 id="compare" className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Private Transfer, Street Taxi or Haramain Train?</h2>
+                    <p className="text-lg text-gray-600 mb-8">All three are used in Makkah. The differences:</p>
+                    <div className="overflow-x-auto rounded-2xl border border-stone-200 bg-white">
+                        <table className="w-full text-sm">
+                            <thead className="bg-[#faf7f0] text-left">
+                                <tr>
+                                    <th scope="col" className="px-4 py-3"></th>
+                                    <th scope="col" className="px-4 py-3 font-semibold text-gray-900">Pre-booked private transfer</th>
+                                    <th scope="col" className="px-4 py-3 font-semibold text-gray-900">Street taxi</th>
+                                    <th scope="col" className="px-4 py-3 font-semibold text-gray-900">Haramain train</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-stone-100">
+                                {[
+                                    ['Pickup', 'Arranged in advance', 'Usually on demand', 'Station'],
+                                    ['Drop-off', 'Confirmed destination', 'Tell the driver', 'Station'],
+                                    ['Vehicle', 'Category you choose', 'Whatever is available', 'Train'],
+                                    ['Group travel', 'One private vehicle', 'Depends on the car', 'A ticket each'],
+                                    ['Luggage', 'Carried in the vehicle', 'Carried in the vehicle', 'You manage it'],
+                                ].map(([k, ...v]) => (
+                                    <tr key={k}>
+                                        <th scope="row" className="px-4 py-3 text-left font-medium text-gray-800">{k}</th>
+                                        {v.map((x, i) => <td key={i} className="px-4 py-3 text-gray-700">{x}</td>)}
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </section>
 
-
-            {/* Essential Makkah Logistics */}
-            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-y border-gray-100" id="logistics-guide">
-                <div className="max-w-7xl mx-auto">
-                    <div className="mb-16">
-                        <span className="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">Travel Logistics</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">Makkah Transport Guide</h2>
-                        <p className="text-gray-600 text-lg max-w-2xl">Key distances and seasonal advice for your pilgrimage journey in 2026.</p>
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <DistanceTable origin="Makkah Haram" locations={distanceData} />
-                        <SeasonalTravelTips city="Makkah" />
-                    </div>
-                </div>
-            </section>
-
-
-            {/* CTA Block 1 - High Contrast */}
-            <section className="py-24 px-4 sm:px-6 lg:px-8">
-                <div className="relative overflow-hidden bg-gray-900 rounded-[3rem] p-12 md:p-20 shadow-2xl">
-                    <div className="absolute top-0 right-0 w-full h-full bg-[url('/makkah-pattern.png')] opacity-10 pointer-events-none"></div>
-                    <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/20 rounded-full blur-[120px]"></div>
-                    
-                    <div className="relative z-10 text-center max-w-4xl mx-auto">
-                        <h2 className="text-4xl md:text-6xl font-black text-white mb-8 leading-tight">
-                            Reliable Umrah Taxi <span className="text-primary">Available 24/7</span>
-                        </h2>
-
-                        <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-                            Book safe, spacious vehicles for your family Ziyarat and Haram transfers with drivers who respect your spiritual focus.
-                        </p>
-
-                        <div className="flex flex-col sm:flex-row justify-center gap-6">
-                            <Link href="/booking/" className="w-full sm:w-auto">
-                                <Button className="w-full bg-primary text-white hover:bg-white hover:text-primary font-black px-12 py-8 h-auto text-xl rounded-2xl transition-all shadow-2xl shadow-primary/20">
-                                    Book Your Makkah Transfer
-                                </Button>
-                            </Link>
-                            <a href="mailto:info@taxiserviceksa.com" className="w-full sm:w-auto">
-                                <Button variant="outline" className="w-full bg-transparent text-white border-2 border-white/20 hover:bg-white/10 font-bold px-12 py-8 h-auto text-xl rounded-2xl">
-                                    Contact Support
-                                </Button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-            {/* Pricing Information */}
-            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 border-y border-gray-100">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">Fixed Rates</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">Makkah Transfer Pricing</h2>
-                        <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
-                            No hidden fees or surge pricing. Fixed, all-inclusive rates for your peace of mind during your spiritual journey in 2026.
-                        </p>
-                    </div>
-
-                    <PricingTable />
-
-                    <div className="mt-24 pt-24 border-t border-gray-200">
-                        <div className="text-center mb-16">
-                            <h3 className="text-3xl font-black text-gray-900 mb-4">How to Book</h3>
-                            <p className="text-gray-600 text-lg">Secure your premium ride in three simple steps.</p>
-                        </div>
-                        <BookingProcess />
-                    </div>
-                </div>
-            </section>
-
-
-            {/* Holy Sites */}
-            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
-                <div className="max-w-7xl mx-auto">
-
-                    <ZiyaratSites 
-                        title="Holy Sites & 2026 Ziyarat Guide"
-                        subtitle="Comprehensive details on sacred places in Makkah, including historical significance and 2026 visitation tips."
-                        locationSlug="makkah"
-                        sites={[
-                            {
-                                name: "Al Masjid Al Haram",
-                                description: "The most sacred point in Islam, housing the Holy Kaaba. It is the focal point for every Muslim and the site of the annual Hajj pilgrimage.",
-                                significance: "Praying in Masjid Al Haram is equivalent to 100,000 prayers performed elsewhere.",
-                                location: "Central Makkah",
-                                image: "/makkah-grand-mosque.webp"
-                            },
-                            {
-                                name: "Jabal Al-Nour (Hira Cave)",
-                                description: "The 'Mountain of Light' housing the Hira Cave, where Prophet Muhammad (PBUH) received the first revelation of the Quran from Angel Jibril.",
-                                significance: "The birthplace of the Islamic message and a site of deep contemplation.",
-                                location: "7km Northeast of Haram",
-                                image: "/makkah-hira.webp"
-                            },
-                            {
-                                name: "Mount Arafat (Jabal al-Rahmah)",
-                                description: "The 'Mountain of Mercy' where the Prophet (PBUH) delivered his Farewell Sermon. It is the most critical site for the Hajj pilgrimage.",
-                                significance: "Standing on Arafat is the pinnacle of Hajj; without it, the pilgrimage is incomplete.",
-                                location: "20km Southeast of Makkah",
-                                image: "/makkah-arafat.webp"
-                            },
-                            {
-                                name: "Mina (City of Tents)",
-                                description: "A valley where pilgrims stay in tents during the Hajj days. It is the site of the Jamarat (Stoning of the Devil) ritual.",
-                                significance: "A massive logistical marvel and a key station of the spiritual journey.",
-                                location: "5km East of Haram",
-                                image: "/makkah-mina.webp"
-                            }
-                        ]}
-                    />
-                    <div className="text-center mt-8">
-                        <Link href="/blog/jabal-al-noor-guide/" className="text-primary font-bold hover:underline inline-flex items-center gap-2">
-                            Read the Full Jabal Al-Noor &amp; Hira Cave Guide <ArrowRight className="w-4 h-4" />
-                        </Link>
-                    </div>
-
-                    <TopicCluster
-                        mainTopic="Makkah Travel Hub"
-                        clusters={[
-                            {
-                                category: "More Makkah Guides",
-                                relevance: "Tertiary",
-                                items: [
-                                    { label: "Masjid Al-Haram Complete Guide", url: "/blog/masjid-al-haram-complete-guide" },
-                                    { label: "Kaaba History & Significance", url: "/blog/kaaba-history-significance" },
-                                    { label: "Hajar Al-Aswad (Black Stone) Guide", url: "/blog/hajar-al-aswad-black-stone-guide" },
-                                    { label: "Maqam Ibrahim Guide", url: "/blog/maqam-ibrahim-guide" },
-                                    { label: "Zamzam Well History & Facts", url: "/blog/zamzam-well-history-facts" },
-                                    { label: "Safa & Marwah Guide", url: "/blog/safa-marwah-guide" },
-                                    { label: "Cave of Hira History", url: "/blog/cave-of-hira-history" },
-                                    { label: "Jabal Thawr Guide", url: "/blog/jabal-thawr-guide" },
-                                    { label: "Jannat Al-Mualla Guide", url: "/blog/jannat-al-mualla-makkah-guide" },
-                                    { label: "Abraj Al-Bait Clock Tower", url: "/blog/abraj-al-bait-clock-tower-makkah" },
-                                    { label: "Makkah Museum Guide", url: "/blog/makkah-museum-guide" },
-                                    { label: "Cave of Thawr (Hijra History)", url: "/blog/cave-of-thawr-hijra-history" },
-                                    { label: "Birthplace of Prophet Muhammad", url: "/blog/birthplace-prophet-muhammad-makkah" },
-                                    { label: "Best Ziyarat Places", url: "/blog/best-ziyarat-places-makkah" },
-                                    { label: "Religious Landmarks Guide", url: "/blog/religious-landmarks-makkah-guide" },
-                                    { label: "Islamic History of Makkah", url: "/blog/islamic-history-makkah" },
-                                    { label: "Sacred Places Guide", url: "/blog/sacred-places-makkah" },
-                                    { label: "Historical Mosques Guide", url: "/blog/historical-mosques-makkah" },
-                                    { label: "Hidden Religious Sites", url: "/blog/hidden-religious-sites-makkah" }
-                                ]
-                            }
-                        ]}
-                    />
-                </div>
-            </section>
-
-
-            {/* Customer Testimonials */}
-            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">Trust Signals</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">Makkah Pilgrim Reviews</h2>
-                        <p className="text-gray-600 text-lg max-w-2xl mx-auto">See why thousands of pilgrims trust us for their spiritual journey every year.</p>
-                    </div>
-                    <ReviewsDisplay location="Makkah" limit={6} />
-                </div>
-            </section>
-
-            {/* FAQ Section */}
-            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 border-y border-gray-100">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">Common Questions</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">Frequently Asked Questions</h2>
-                        <p className="text-gray-600 text-lg">Everything you need to know about Makkah transfers.</p>
-                    </div>
-
-                    <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100">
-                        <Accordion type="single" collapsible className="w-full">
-                            <AccordionItem value="item-1" className="border-b border-gray-100 last:border-0">
-                                <AccordionTrigger className="text-left text-lg font-bold text-gray-900 hover:text-primary transition-colors hover:no-underline py-6">
-                                    How much is a taxi from Jeddah Airport to Makkah?
-                                </AccordionTrigger>
-                                <AccordionContent className="text-gray-600 leading-relaxed text-base pb-6">
-                                    Our fixed rate for a standard sedan starts from SAR 300. For larger families needing a GMC Yukon or HiAce, prices range from SAR 450-600. There are no hidden fees or surge charges.
-                                </AccordionContent>
-                            </AccordionItem>
-                            <AccordionItem value="item-2" className="border-b border-gray-100 last:border-0">
-                                <AccordionTrigger className="text-left text-lg font-bold text-gray-900 hover:text-primary transition-colors hover:no-underline py-6">
-                                    Do you offer 24/7 service to Masjid al-Haram?
-                                </AccordionTrigger>
-                                <AccordionContent className="text-gray-600 leading-relaxed text-base pb-6">
-                                    Yes, we operate 24 hours a day, 7 days a week. We can pick you up from any hotel in Makkah for any prayer time, including Tahajjud and Fajr.
-                                </AccordionContent>
-                            </AccordionItem>
-                            <AccordionItem value="item-3" className="border-b border-gray-100 last:border-0">
-                                <AccordionTrigger className="text-left text-lg font-bold text-gray-900 hover:text-primary transition-colors hover:no-underline py-6">
-                                    How can I book an online taxi in Makkah?
-                                </AccordionTrigger>
-                                <AccordionContent className="text-gray-600 leading-relaxed text-base pb-6">
-                                    The fastest way to book is via our online booking form. You can also contact us via email. We recommend booking 24 hours in advance.
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
-                    </div>
-                </div>
-            </section>
-
-            {/* UGC Section - Pilgrim Stories & Questions */}
-            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="text-primary font-bold tracking-widest uppercase text-xs mb-4 block">Community</span>
-                        <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">Makkah Pilgrim Stories</h2>
-                        <p className="text-gray-600 text-lg max-w-2xl mx-auto">Share your experience or ask a question about specialized transport in the Holy City.</p>
-                    </div>
-
-                    <div className="space-y-24">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                            <div className="bg-gray-50 p-10 rounded-[2.5rem]">
-                                <h3 className="text-2xl font-black text-gray-900 mb-8">Share Your Review</h3>
-                                <ReviewForm locationName="Makkah" />
-                            </div>
-                            <div className="bg-gray-50 p-10 rounded-[2.5rem]">
-                                <h3 className="text-2xl font-black text-gray-900 mb-8">Ask a Question</h3>
-                                <QuestionForm locationName="Makkah" />
-                            </div>
-                        </div>
-                        
-                        <div className="border-t border-gray-100 pt-24">
-                            <QuestionsDisplay location="Makkah" />
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Footer Hub & Related Locations */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-                <div className="bg-gray-900 rounded-[3rem] p-12 md:p-16 mb-24 shadow-2xl">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                        <div>
-                            <h4 className="text-white text-xl font-bold mb-6">Umrah Fleet</h4>
-                            <ul className="space-y-4">
-                                <li><Link href="/fleet/gmc-yukon/" className="text-gray-400 hover:text-primary transition-colors">GMC Yukon (Luxury)</Link></li>
-                                <li><Link href="/fleet/toyota-hiace/" className="text-gray-400 hover:text-primary transition-colors">Toyota Hiace (Van)</Link></li>
-                                <li><Link href="/fleet/" className="text-primary font-bold">Compare All →</Link></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="text-white text-xl font-bold mb-6">Popular Routes</h4>
-                            <ul className="space-y-4">
-                                <li><Link href="/routes/jeddah-makkah/" className="text-gray-400 hover:text-primary transition-colors">Jeddah to Makkah</Link></li>
-                                <li><Link href="/routes/makkah-madinah/" className="text-gray-400 hover:text-primary transition-colors">Makkah to Madinah</Link></li>
-                                <li><Link href="/routes/" className="text-primary font-bold">All Routes →</Link></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="text-white text-xl font-bold mb-6">Travel Guides</h4>
-                            <ul className="space-y-4">
-                                <li><Link href="/guides/makkah-umrah-guide/" className="text-gray-400 hover:text-primary transition-colors">Complete Umrah Guide</Link></li>
-                                <li><Link href="/guides/" className="text-primary font-bold">All Guides →</Link></li>
+            {/* ================= PROCESS + CHECKLIST ================= */}
+            <section className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">How Booking Works</h2>
+                        <ol className="space-y-6">
+                            {[
+                                ['Tell us your journey', 'Pickup and destination - a hotel name is fine.'],
+                                ['Choose your vehicle', 'Based on passengers and luggage.'],
+                                ['Confirm your quote', 'You receive the trip details and price before confirming.'],
+                                ['Meet your driver', 'Follow the pickup instructions in your confirmation.'],
+                            ].map(([t, d], i) => (
+                                <li key={t}>
+                                    <Reveal delay={i * 90}>
+                                        <div className="flex gap-5">
+                                            <span className="w-12 h-12 rounded-2xl bg-[#1a1208] text-amber-300 font-black text-lg flex items-center justify-center shrink-0" aria-hidden="true">0{i + 1}</span>
+                                            <div>
+                                                <h3 className="mb-0.5">{t}</h3>
+                                                <p className="text-sm text-gray-600">{d}</p>
+                                            </div>
+                                        </div>
+                                    </Reveal>
+                                </li>
+                            ))}
+                        </ol>
+                        <div className="mt-10">
+                            <h3 className="mb-3">What decides the price</h3>
+                            <ul className="flex flex-wrap gap-2">
+                                {['Pickup', 'Destination', 'Date', 'Vehicle', 'Passengers', 'Luggage', 'Waiting', 'Extra stops'].map((f) => (
+                                    <li key={f} className="rounded-full border border-stone-200 bg-[#faf7f0] px-3.5 py-1.5 text-sm text-gray-700">{f}</li>
+                                ))}
                             </ul>
                         </div>
                     </div>
+                    <div>
+                        <h2 className="text-3xl font-bold text-gray-900 mb-6">Before Booking Your Makkah Transfer</h2>
+                        <BookingChecklist
+                            items={['Hotel or pickup location', 'Destination', 'Date', 'Time', 'Passenger count', 'Luggage', 'Vehicle preference', 'Special requirements']}
+                            cta="Request My Quote"
+                        />
+                    </div>
                 </div>
+            </section>
 
-                <ApprovedDriversForLocation location="makkah" />
+            <AlUlaReviews place="makkah" title="What travellers said about their Makkah trips" />
 
-                <RelatedLocations currentCity="Makkah" />
-            </div>
+            {/* ================= FAQ ================= */}
+            <section aria-labelledby="faq" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-3xl mx-auto">
+                    <h2 id="faq" className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Makkah Transport Questions</h2>
+                    <Accordion type="single" collapsible className="w-full bg-white rounded-2xl border border-stone-200 px-5">
+                        {faqs.map((f, i) => (
+                            <AccordionItem key={f.q} value={`faq-${i}`} className="last:border-0">
+                                <AccordionTrigger className="text-left text-base font-semibold text-gray-900 hover:no-underline">{f.q}</AccordionTrigger>
+                                <AccordionContent className="text-gray-600 leading-relaxed">{f.a}</AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
+                    <p className="mt-6 text-sm text-gray-600">
+                        Travelling on? See <Link href="/locations/madinah/" className="text-amber-800 font-semibold hover:underline">transport in Madinah</Link> and <Link href="/locations/jeddah/" className="text-amber-800 font-semibold hover:underline">transport in Jeddah</Link>.
+                    </p>
+                </div>
+            </section>
+
+            <ApprovedDriversForLocation location="makkah" />
+
+            {/* ================= FINAL CTA ================= */}
+            <section className="relative isolate overflow-hidden py-24 px-4 sm:px-6 lg:px-8 bg-[#1a1208]">
+                <Image src="/makkah-clock-tower.webp" alt="" fill sizes="100vw" className="object-cover opacity-20 -z-10" aria-hidden="true" />
+                <div className="max-w-3xl mx-auto text-center text-white">
+                    <h2 className="text-3xl md:text-5xl font-extrabold mb-5">Travelling to Makkah Soon?</h2>
+                    <p className="text-lg text-stone-300 mb-10">Tell us how you are arriving, where you are staying and where you go next. We&apos;ll arrange a private vehicle for each part of the trip.</p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                        <Button asChild size="lg" className="h-auto py-4 px-7 rounded-xl font-bold bg-amber-300 text-[#1a1208] hover:bg-amber-200">
+                            <a href={QUOTE_HREF}>Get My Makkah Transfer Quote</a>
+                        </Button>
+                        <Button asChild size="lg" variant="outline" className="h-auto py-4 px-7 rounded-xl font-bold bg-white/10 text-white border-white/40 hover:bg-white/20 hover:text-white">
+                            <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer"><WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> WhatsApp Us</a>
+                        </Button>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 }
-
