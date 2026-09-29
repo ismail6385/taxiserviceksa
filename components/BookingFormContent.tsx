@@ -144,6 +144,15 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                     updates.luggage = vObj.luggage;
                 }
             }
+
+            // Optional prefill from landing-page quote cards (e.g. AlUla airport).
+            // Explicit counts win over the vehicle defaults set above.
+            const flight = searchParams.get('flight');
+            const pax = Number(searchParams.get('passengers'));
+            const bags = searchParams.get('luggage');
+            if (flight) updates.flight_number = flight.slice(0, 20);
+            if (pax > 0) updates.passengers = pax;
+            if (bags !== null && bags !== '' && Number(bags) >= 0) updates.luggage = Number(bags);
         }
 
         if (Object.keys(updates).length > 0) {
