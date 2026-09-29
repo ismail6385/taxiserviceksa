@@ -248,3 +248,22 @@
 .alula-page .alula-h3-lg h3 {
   font-size: 1.5rem !important;
 }
+
+/* Madinah hub: journey line draws once; reduced motion shows it static. */
+@keyframes route-draw {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+.route-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: route-draw 2.4s ease-out 0.3s forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .route-draw { animation: none; stroke-dashoffset: 0; }
+}
+.madinah-page h3 {
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+}
