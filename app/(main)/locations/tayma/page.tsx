@@ -146,6 +146,16 @@ export default function TaymaLocationPage() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16">
                 <ApprovedDriversForLocation location="tayma" />
 
+                <div className="bg-white border border-gray-200 rounded-2xl p-6 mb-10">
+                    <h2 className="text-xl font-bold text-gray-900 mb-2">Continue to AlUla</h2>
+                    <p className="text-gray-600 mb-4">Tayma is often combined with an AlUla trip. Book a private car on to AlUla hotels, the Hegra visitor centre, or a driver for the day in AlUla.</p>
+                    <div className="flex flex-wrap gap-3">
+                        <Link href="/locations/alula/" className="text-primary font-bold hover:underline">AlUla Taxi &amp; Transport →</Link>
+                        <Link href="/locations/alula/private-driver/" className="text-primary font-bold hover:underline">AlUla Private Driver →</Link>
+                        <Link href="/routes/tabuk-alula/" className="text-primary font-bold hover:underline">Tabuk to AlUla →</Link>
+                    </div>
+                </div>
+
                 <RelatedLocations currentCity="Tayma" />
             </div>
 

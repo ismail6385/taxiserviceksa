@@ -78,7 +78,7 @@ export default function JeddahAlulaRoutePage() {
                 location="700 km | ~7.5 Hours | WhatsApp Booking"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <Link href="/booking?route=jeddah-alula">
+                    <Link href="/booking/?from=Jeddah&to=AlUla">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                             Book This Route
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -280,7 +280,7 @@ export default function JeddahAlulaRoutePage() {
                         Don't let flight schedules dictate your adventure. Get a quote for your private ride to Al Ula today.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking?route=jeddah-alula">
+                        <Link href="/booking/?from=Jeddah&to=AlUla">
                             <Button size="lg" className="bg-primary text-white hover:text-black hover:bg-white font-bold text-lg px-10 py-6 h-auto min-w-[200px]"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                         </Link>
                         <a href="mailto:info@taxiserviceksa.com">

@@ -37,7 +37,7 @@ const EXCLUDED_SLUGS = new Set([
 
 const ORIGIN_TOKENS = [
     'abu-dhabi', 'tabuk', 'jeddah', 'madinah', 'makkah', 'riyadh', 'dammam',
-    'alula', 'yanbu', 'taif', 'khobar', 'dubai', 'doha', 'kuwait', 'bahrain',
+    'alula', 'yanbu', 'taif', 'hail', 'khobar', 'dubai', 'doha', 'kuwait', 'bahrain',
     'sharjah', 'muscat', 'amman',
 ].sort((a, b) => b.length - a.length);
 
@@ -71,7 +71,7 @@ function parseSlug(slug: string): { origin: string; destination: string } | null
 // All route folder slugs under app/(main)/routes/.
 const ROUTE_SLUGS = [
     'abu-dhabi-dammam', 'abu-dhabi-jeddah', 'abu-dhabi-madinah', 'abu-dhabi-makkah', 'abu-dhabi-riyadh',
-    'alula-jeddah', 'amman-dammam', 'amman-jeddah', 'amman-madinah', 'amman-makkah', 'amman-riyadh',
+    'alula-jeddah', 'alula-khaybar', 'alula-madinah', 'amman-dammam', 'amman-jeddah', 'amman-madinah', 'amman-makkah', 'amman-riyadh',
     'bahrain-dammam', 'bahrain-jeddah', 'bahrain-madinah', 'bahrain-makkah', 'bahrain-riyadh',
     'dammam-abu-dhabi', 'dammam-airport-to-khobar', 'dammam-airport-to-kuwait', 'dammam-amman',
     'dammam-bahrain', 'dammam-doha', 'dammam-dubai', 'dammam-jeddah', 'dammam-kuwait', 'dammam-madinah',
@@ -108,7 +108,8 @@ const ROUTE_SLUGS = [
     'tabuk-sabya', 'tabuk-sakaka', 'tabuk-samtah', 'tabuk-sharma', 'tabuk-sharurah', 'tabuk-taif',
     'tabuk-tanuma', 'tabuk-tayma', 'tabuk-thadiq', 'tabuk-thuwal', 'tabuk-turaif', 'tabuk-umluj',
     'tabuk-unaizah', 'tabuk-wadi-ad-dawasir', 'tabuk-yanbu', 'tabuk-zulfi',
-    'taif-jeddah', 'yanbu-jeddah',
+    'hail-alula',
+    'taif-jeddah', 'yanbu-alula', 'yanbu-jeddah',
 ];
 
 const ROUTES: RouteNode[] = ROUTE_SLUGS.filter((slug) => !EXCLUDED_SLUGS.has(slug))

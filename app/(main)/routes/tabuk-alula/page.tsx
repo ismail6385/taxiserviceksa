@@ -67,7 +67,7 @@ export default function TabukAlUlaRoutePage() {
                 location="3.5-4 Hours | WhatsApp Booking | Local Drivers"
             >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <Link href="/booking/?route=tabuk-alula">
+                    <Link href="/booking/?from=Tabuk&to=AlUla">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
                             WhatsApp Booking
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -233,7 +233,7 @@ export default function TabukAlUlaRoutePage() {
                 <div className="max-w-2xl mx-auto">
                     <h2 className="text-4xl md:text-6xl font-black mb-8 tracking-tighter">Ready to go to AlUla?</h2>
                     <p className="text-gray-400 mb-10 text-lg">Contact us now to get your fixed price and Get a quote for your driver.</p>
-                    <Link href="/booking/?route=tabuk-alula">
+                    <Link href="/booking/?from=Tabuk&to=AlUla">
                         <Button size="lg" className="bg-primary text-black hover:bg-white font-black text-xl px-12 py-9 h-auto rounded-[2rem] shadow-2xl transition-all transform hover:-translate-y-1"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> WhatsApp Booking</Button>
                     </Link>
                 </div>

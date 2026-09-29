@@ -118,7 +118,7 @@ export default function AlUlaPage() {
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                        <Link href="/booking/">
+                        <Link href="/booking/?to=AlUla">
                             Book Your AlUla Transfer
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
@@ -210,17 +210,30 @@ export default function AlUlaPage() {
                             category: "Site Access",
                             relevance: "Primary",
                             items: [
-                                { label: "Airport to Hotel", url: "/services/airport-transfers" },
-                                { label: "Hegra Drop-off", url: "/services/heritage-tours" },
-                                { label: "Winter Park Transfer", url: "/locations/alula" }
+                                { label: "AlUla Airport (ULH) Taxi", url: "/locations/alula/airport/" },
+                                { label: "Private Driver for the Day", url: "/locations/alula/private-driver/" },
+                                { label: "Hegra Drop-off", url: "/locations/alula/hegra/" },
+                                { label: "Heritage Tours", url: "/services/heritage-tours" }
+                            ]
+                        },
+                        {
+                            category: "Routes to & from AlUla",
+                            relevance: "Primary",
+                            items: [
+                                { label: "Madinah to AlUla", url: "/routes/madinah-alula/" },
+                                { label: "AlUla to Madinah", url: "/routes/alula-madinah/" },
+                                { label: "Jeddah to AlUla", url: "/routes/jeddah-alula/" },
+                                { label: "Tabuk to AlUla", url: "/routes/tabuk-alula/" },
+                                { label: "Yanbu to AlUla", url: "/routes/yanbu-alula/" },
+                                { label: "Hail to AlUla", url: "/routes/hail-alula/" }
                             ]
                         },
                         {
                             category: "Adventure",
                             relevance: "Secondary",
                             items: [
-                                { label: "Elephant Rock Sunset", url: "/locations/alula", description: "Evening Trips" },
-                                { label: "Khaybar Day Trip", url: "/locations/khayber-fort", description: "Volcanic Fields" }
+                                { label: "Elephant Rock Sunset", url: "/locations/alula/elephant-rock/", description: "Evening Trips" },
+                                { label: "Khaybar Day Trip", url: "/routes/alula-khaybar/", description: "Fort & Oasis" }
                             ]
                         },
                         {
@@ -532,7 +545,7 @@ export default function AlUlaPage() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button asChild size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                            <Link href="/booking/">
+                            <Link href="/booking/?to=AlUla">
                                 Book Your AlUla Transfer
                             </Link>
                         </Button>

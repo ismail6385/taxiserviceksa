@@ -191,6 +191,12 @@ export default async function MadinahPage() {
                                         </Link>
                                     </li>
                                     <li>
+                                        <Link href="/routes/madinah-alula/" className="text-gray-600 hover:text-primary transition-colors flex items-center justify-between group">
+                                            <span>Madinah to AlUla (330km)</span>
+                                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                        </Link>
+                                    </li>
+                                    <li>
                                         <Link href="/routes/" className="text-primary font-bold hover:underline">View All Intercity Routes →</Link>
                                     </li>
                                 </ul>
