@@ -225,7 +225,8 @@ export default function AlUlaPage() {
                                 { label: "Jeddah to AlUla", url: "/routes/jeddah-alula/" },
                                 { label: "Tabuk to AlUla", url: "/routes/tabuk-alula/" },
                                 { label: "Yanbu to AlUla", url: "/routes/yanbu-alula/" },
-                                { label: "Hail to AlUla", url: "/routes/hail-alula/" }
+                                { label: "Hail to AlUla", url: "/routes/hail-alula/" },
+                                { label: "AlUla to Jordan (Petra & Amman)", url: "/routes/alula-amman/" }
                             ]
                         },
                         {

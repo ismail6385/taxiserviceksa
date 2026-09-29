@@ -71,7 +71,7 @@ function parseSlug(slug: string): { origin: string; destination: string } | null
 // All route folder slugs under app/(main)/routes/.
 const ROUTE_SLUGS = [
     'abu-dhabi-dammam', 'abu-dhabi-jeddah', 'abu-dhabi-madinah', 'abu-dhabi-makkah', 'abu-dhabi-riyadh',
-    'alula-jeddah', 'alula-khaybar', 'alula-madinah', 'amman-dammam', 'amman-jeddah', 'amman-madinah', 'amman-makkah', 'amman-riyadh',
+    'alula-amman', 'alula-jeddah', 'alula-khaybar', 'alula-madinah', 'amman-dammam', 'amman-jeddah', 'amman-madinah', 'amman-makkah', 'amman-riyadh',
     'bahrain-dammam', 'bahrain-jeddah', 'bahrain-madinah', 'bahrain-makkah', 'bahrain-riyadh',
     'dammam-abu-dhabi', 'dammam-airport-to-khobar', 'dammam-airport-to-kuwait', 'dammam-amman',
     'dammam-bahrain', 'dammam-doha', 'dammam-dubai', 'dammam-jeddah', 'dammam-kuwait', 'dammam-madinah',

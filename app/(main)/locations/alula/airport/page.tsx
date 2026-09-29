@@ -1,12 +1,19 @@
 import { Metadata } from 'next';
-import AlUlaTransferPage from '@/components/alula/AlUlaTransferPage';
-import { alulaLinksExcept } from '@/data/alulaLinks';
+import Link from 'next/link';
+import { Plane, Clock, Luggage, MapPin, ShieldCheck, CircleAlert, ArrowRight, Moon } from 'lucide-react';
+
+import Hero from '@/components/Hero';
+import JsonLdLocation from '@/components/JsonLdLocation';
+import { Button } from '@/components/ui/button';
+import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
+import AlUlaLinkStrip from '@/components/alula/AlUlaLinkStrip';
 
 const URL = 'https://taxiserviceksa.com/locations/alula/airport/';
+const BOOK = '/booking/?from=AlUla%20International%20Airport%20(ULH)&to=AlUla';
 
 export const metadata: Metadata = {
     title: 'AlUla Airport Taxi (ULH) | Hotel & Resort Transfers | Taxi Service KSA',
-    description: 'Pre-book a taxi from AlUla International Airport (ULH) to your hotel, Ashar Valley resorts, Old Town or Hegra. Meet and greet, flight tracking, fixed price quote.',
+    description: 'Pre-book a taxi from AlUla International Airport (ULH) to your hotel, Ashar Valley resort, Old Town or Hegra. Driver waits in arrivals with your name. Fixed quote by email.',
     keywords: [
         'AlUla airport taxi',
         'ULH airport transfer',
@@ -20,7 +27,7 @@ export const metadata: Metadata = {
     alternates: { canonical: URL },
     openGraph: {
         title: 'AlUla Airport Taxi (ULH) | Hotel & Resort Transfers',
-        description: 'Meet and greet pickups at AlUla International Airport with a fixed price quote.',
+        description: 'Driver waiting in arrivals at AlUla International Airport, fixed quote by email.',
         url: URL,
         siteName: 'Taxi Service KSA',
         type: 'website',
@@ -28,76 +35,194 @@ export const metadata: Metadata = {
     },
 };
 
+const dropOffs = [
+    { place: 'AlUla town hotels & Old Town', time: '30-40 min', note: 'Most budget and mid-range hotels, Dar Tantora, Old Town car park.' },
+    { place: 'Ashar Valley resorts', time: '35-50 min', note: 'Banyan Tree, Habitas and nearby resorts. Drop point depends on resort rules.' },
+    { place: 'Desert camps', time: '30-60 min', note: 'Depends on the camp. Send us the camp location pin.' },
+    { place: 'Hegra visitor centre', time: '45-60 min', note: 'Private cars cannot drive inside Hegra; drop at the visitor centre.' },
+    { place: 'Madinah', time: '~3.5 hours', note: 'Straight from arrivals to your Madinah hotel.' },
+    { place: 'Tabuk', time: '~3.5-4 hours', note: 'Direct intercity transfer north.' },
+];
+
+const luggageGuide = [
+    { group: '1-3 people, up to 3 suitcases', car: 'Toyota Camry / sedan' },
+    { group: '4-6 people or 4-6 suitcases', car: 'GMC Yukon or Hyundai Staria' },
+    { group: '7-12 people, group luggage', car: 'Toyota Hiace' },
+    { group: '13+ people, tour groups', car: 'Toyota Coaster' },
+];
+
 export default function AlUlaAirportPage() {
     return (
-        <AlUlaTransferPage
-            contextName="AlUla Airport"
-            schemaDescription="Pre-booked taxi and private transfers from AlUla International Airport (ULH) to hotels, resorts and heritage sites in AlUla."
-            h1="AlUla Airport Taxi (ULH)"
-            badge="AlUla International Airport"
-            subtitle="Pre-Booked Airport Pickup - Fixed Quote"
-            heroLine="Meet & Greet | Flight Tracking | Hotels & Resorts"
-            bookFrom="AlUla International Airport (ULH)"
-            bookTo="AlUla"
-            breadcrumb={[
-                { href: '/locations/', label: 'Locations' },
-                { href: '/locations/alula/', label: 'AlUla' },
-                { href: '/locations/alula/airport/', label: 'Airport Taxi' },
-            ]}
-            stats={[
-                { label: 'Airport Code', value: 'ULH' },
-                { label: 'To AlUla Town', value: '~30-40 min' },
-                { label: 'Pickup', value: 'Meet & Greet' },
-                { label: 'Price', value: 'Fixed Quote' },
-            ]}
-            introTitle="Getting from AlUla Airport to your hotel"
-            intro={[
-                'AlUla International Airport (ULH), formerly Prince Abdul Majeed bin Abdulaziz Airport, is a small airport outside AlUla town. It receives domestic flights from cities such as Riyadh and Jeddah, plus some seasonal international flights.',
-                'Taxis are not always waiting at the terminal, and ride-hailing apps have very few cars in AlUla, especially late at night. Most hotels and resorts are spread out across the valley, so it is best to pre-book your transfer before you land.',
-                'Send us your flight number and hotel name. Your driver tracks the flight, waits in arrivals with your name, helps with luggage and drives you straight to your hotel, resort gate or campsite.',
-            ]}
-            stopsTitle="Popular airport drop-offs"
-            stops={[
-                { name: 'AlUla Old Town & town hotels', detail: 'Around 30-40 minutes from the terminal, depending on your hotel.' },
-                { name: 'Ashar Valley resorts', detail: 'Banyan Tree AlUla, Habitas AlUla and nearby resorts. Drop at reception or the resort gate as the resort allows.' },
-                { name: 'Hegra visitor centre', detail: 'Private cars cannot drive inside Hegra. We drop you at the official visitor centre for the site tour.' },
-                { name: 'Madinah, Tabuk or Khaybar', detail: 'Direct intercity transfer from the airport if you are continuing your trip by road.' },
-            ]}
-            tipsTitle="Before you book"
-            tips={[
-                'Share your flight number so we can adjust pickup time if the flight is late.',
-                'Choose a GMC Yukon or van if you have more than 3 large suitcases.',
-                'Some resorts only allow guest cars up to a gate or reception point. We follow the resort rules.',
-                'You can add a return transfer to the airport on the same booking.',
-                'Payments and price are confirmed by email before the trip. No meter, no surge pricing.',
-            ]}
-            faqs={[
-                {
-                    question: 'Are there taxis at AlUla airport?',
-                    shortAnswer: 'Limited, pre-book',
-                    detailedAnswer: 'Street taxis and ride-hailing cars are limited at AlUla airport, especially for late flights. A pre-booked transfer means a driver is already waiting when you land.',
-                    perspectives: [],
-                },
-                {
-                    question: 'How far is AlUla airport from AlUla Old Town?',
-                    shortAnswer: 'About 30-40 minutes',
-                    detailedAnswer: 'The drive from the airport to AlUla town and Old Town is usually around 30-40 minutes. Resorts in Ashar Valley and the Hegra area take a little longer.',
-                    perspectives: [],
-                },
-                {
-                    question: 'Can you pick me up if my flight is delayed?',
-                    shortAnswer: 'Yes',
-                    detailedAnswer: 'Yes. We track your flight number and adjust the pickup time to the actual landing time.',
-                    perspectives: [],
-                },
-                {
-                    question: 'Can I go from AlUla airport straight to Madinah?',
-                    shortAnswer: 'Yes, about 3.5 hours',
-                    detailedAnswer: 'Yes. Madinah is roughly 330 km from AlUla, about 3.5 hours by road. We can pick you up at arrivals and drive directly to your Madinah hotel.',
-                    perspectives: [],
-                },
-            ]}
-            relatedLinks={alulaLinksExcept('/locations/alula/airport/')}
-        />
+        <div className="bg-white min-h-screen">
+            <JsonLdLocation
+                cityName="AlUla Airport"
+                description="Pre-booked taxi and private transfers from AlUla International Airport (ULH) to hotels, resorts, desert camps and the Hegra visitor centre."
+                services={[
+                    { name: 'AlUla Airport Pickup', description: 'Driver waits in arrivals with a name sign; flight tracked.' },
+                    { name: 'Resort Transfer', description: 'Airport to Ashar Valley resorts and desert camps.' },
+                    { name: 'Airport Drop-off', description: 'Hotel to AlUla airport for departures.' },
+                ]}
+                image="https://taxiserviceksa.com/alula-hegra-tombs.webp"
+            />
+
+            <Hero
+                images={['/alula-hegra.webp', '/alula-hegra-tombs.webp']}
+                h1Text="AlUla Airport Taxi (ULH)"
+                title={
+                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block">
+                        AlUla International Airport
+                    </span>
+                }
+                subtitle="Your driver waits in arrivals - no queue, no app"
+                location="Hotels | Resorts | Camps | Hegra"
+            />
+
+            {/* Breadcrumb */}
+            <div className="border-b border-gray-200">
+                <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-sm flex flex-wrap gap-2 text-gray-500">
+                    <Link href="/" className="hover:text-gray-900">Home</Link> /
+                    <Link href="/locations/alula/" className="hover:text-gray-900">AlUla</Link> /
+                    <span className="text-gray-900 font-semibold">Airport Taxi</span>
+                </nav>
+            </div>
+
+            {/* Problem statement */}
+            <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <h2 className="text-3xl font-bold text-gray-900 mb-6">Why pre-book at AlUla airport?</h2>
+                <div className="space-y-4 text-lg text-gray-700 leading-relaxed">
+                    <p>
+                        AlUla International Airport (ULH), previously called Prince Abdul Majeed bin Abdulaziz Airport, is a small terminal outside AlUla town. It mainly handles domestic flights from cities like Riyadh and Jeddah, with some seasonal international flights in the winter season.
+                    </p>
+                    <p>
+                        Because flights come in waves, the few taxis at the kerb are often taken by the time you collect your bags. Ride-hailing apps have very few cars in AlUla, and after a late arrival there may be none at all. Hotels and resorts are spread across a wide valley, so walking or waiting is not a real option.
+                    </p>
+                    <p>
+                        A pre-booked transfer solves this: send us your flight number and hotel, and a driver will be waiting when you walk out.
+                    </p>
+                </div>
+            </section>
+
+            {/* Arrival steps - horizontal */}
+            <section className="bg-gray-900 text-white py-16 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 className="text-3xl font-bold mb-10 flex items-center gap-3"><Plane className="text-primary" /> What happens when you land</h2>
+                    <ol className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                        {[
+                            ['We track your flight', 'Delays and early arrivals are handled - the pickup time follows the real landing time.'],
+                            ['Driver in arrivals', 'Your driver waits outside baggage claim with a sign showing your name.'],
+                            ['Help with bags', 'Luggage is loaded for you. Child seats can be arranged if requested in advance.'],
+                            ['Straight to your stay', 'Direct drive to your hotel, resort gate, camp or onward city. No shared stops.'],
+                        ].map(([t, d], i) => (
+                            <li key={t} className="border-t-4 border-primary pt-4">
+                                <div className="text-primary font-black text-sm mb-1">STEP {i + 1}</div>
+                                <h3 className="font-bold text-lg mb-2">{t}</h3>
+                                <p className="text-sm text-gray-400">{d}</p>
+                            </li>
+                        ))}
+                    </ol>
+                </div>
+            </section>
+
+            {/* Drive-time table */}
+            <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <h2 className="text-3xl font-bold text-gray-900 mb-2 flex items-center gap-3"><Clock className="text-primary" /> Approximate drive times from the airport</h2>
+                <p className="text-gray-500 mb-8">Times are typical and depend on your exact hotel and traffic at events.</p>
+                <div className="overflow-x-auto rounded-2xl border border-gray-200">
+                    <table className="w-full text-left">
+                        <thead className="bg-gray-50 text-sm uppercase text-gray-500">
+                            <tr>
+                                <th className="px-5 py-4">Drop-off</th>
+                                <th className="px-5 py-4">Drive time</th>
+                                <th className="px-5 py-4 hidden md:table-cell">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-100">
+                            {dropOffs.map((d) => (
+                                <tr key={d.place}>
+                                    <td className="px-5 py-4 font-semibold text-gray-900"><MapPin className="inline w-4 h-4 text-primary mr-1" />{d.place}</td>
+                                    <td className="px-5 py-4 text-gray-700 whitespace-nowrap">{d.time}</td>
+                                    <td className="px-5 py-4 text-gray-500 text-sm hidden md:table-cell">{d.note}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            {/* Resort gate + late flights callouts */}
+            <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="rounded-2xl bg-amber-50 border border-amber-200 p-6">
+                    <h3 className="font-bold text-lg text-amber-900 mb-2 flex items-center gap-2"><CircleAlert className="w-5 h-5" /> Resort gate rules</h3>
+                    <p className="text-amber-900/80 text-sm leading-relaxed">
+                        Some Ashar Valley resorts control vehicle access. Depending on the resort, we drop you at reception or at the gate where the resort buggy collects you. Tell us your resort when booking and we will follow its instructions.
+                    </p>
+                </div>
+                <div className="rounded-2xl bg-gray-50 border border-gray-200 p-6">
+                    <h3 className="font-bold text-lg text-gray-900 mb-2 flex items-center gap-2"><Moon className="w-5 h-5 text-primary" /> Late-night arrivals</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                        Evening and night flights are when finding a car is hardest. Booked pickups run at any hour, and the driver waits if your flight is delayed.
+                    </p>
+                </div>
+            </section>
+
+            {/* Luggage guide */}
+            <section className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-4xl mx-auto">
+                    <h2 className="text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3"><Luggage className="text-primary" /> Which car do you need?</h2>
+                    <div className="space-y-3">
+                        {luggageGuide.map((g) => (
+                            <div key={g.group} className="flex flex-col sm:flex-row sm:items-center justify-between bg-white rounded-xl border border-gray-200 px-5 py-4">
+                                <span className="text-gray-700">{g.group}</span>
+                                <span className="font-bold text-gray-900">{g.car}</span>
+                            </div>
+                        ))}
+                    </div>
+                    <p className="text-sm text-gray-500 mt-4">Golf bags, strollers or camping gear? Mention them in the booking notes so we send the right vehicle.</p>
+                </div>
+            </section>
+
+            <MicroSemanticFAQ
+                contextName="AlUla Airport"
+                faqs={[
+                    {
+                        question: 'Are there taxis waiting at AlUla airport?',
+                        shortAnswer: 'A few - not guaranteed',
+                        detailedAnswer: 'There are some taxis, but numbers are small and they are often taken quickly after a flight lands. Pre-booking guarantees a car.',
+                        perspectives: [],
+                    },
+                    {
+                        question: 'Does Uber or Careem work at AlUla airport?',
+                        shortAnswer: 'Very limited',
+                        detailedAnswer: 'The apps may open, but very few drivers operate in AlUla, so waits can be long or no car may accept, especially late at night.',
+                        perspectives: [],
+                    },
+                    {
+                        question: 'What if my flight is delayed?',
+                        shortAnswer: 'We adjust',
+                        detailedAnswer: 'We track the flight number you give us and move the pickup to the actual landing time.',
+                        perspectives: [],
+                    },
+                    {
+                        question: 'Can you take me to the airport for my departure?',
+                        shortAnswer: 'Yes',
+                        detailedAnswer: 'Yes. Book a hotel-to-airport drop-off, or add it as the return leg of your arrival booking.',
+                        perspectives: [],
+                    },
+                ]}
+            />
+
+            <section className="bg-primary py-14 px-4 text-center">
+                <h2 className="text-3xl font-black text-black mb-3">Landing in AlUla soon?</h2>
+                <p className="text-black/70 mb-6">Send your flight number and hotel - we reply with a fixed price by email.</p>
+                <Link href={BOOK}>
+                    <Button size="lg" className="bg-black text-white hover:bg-gray-800 font-bold px-10 py-6 rounded-xl">
+                        Book Airport Pickup <ArrowRight className="ml-2 w-5 h-5" />
+                    </Button>
+                </Link>
+                <p className="text-sm text-black/60 mt-4 flex items-center justify-center gap-1"><ShieldCheck className="w-4 h-4" /> Or email info@taxiserviceksa.com</p>
+            </section>
+
+            <AlUlaLinkStrip current="/locations/alula/airport/" />
+        </div>
     );
 }

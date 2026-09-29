@@ -12,6 +12,7 @@ export const ALULA_LINKS = [
     { href: '/routes/yanbu-alula/', label: 'Yanbu to AlUla' },
     { href: '/routes/hail-alula/', label: 'Hail to AlUla' },
     { href: '/routes/alula-khaybar/', label: 'AlUla to Khaybar Day Trip' },
+    { href: '/routes/alula-amman/', label: 'AlUla to Jordan (Petra & Amman)' },
 ];
 
 export function alulaLinksExcept(href: string) {
