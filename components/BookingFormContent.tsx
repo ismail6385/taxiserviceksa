@@ -153,12 +153,20 @@ export default function BookingFormContent({ prefilledData, className }: Booking
             if (flight) updates.flight_number = flight.slice(0, 20);
             if (pax > 0) updates.passengers = pax;
             if (bags !== null && bags !== '' && Number(bags) >= 0) updates.luggage = Number(bags);
+            if (searchParams.get('trip') === 'hourly') {
+                updates.trip_type = 'hourly';
+                const hours = Number(searchParams.get('hours'));
+                if (hours > 0) updates.duration_hours = hours;
+            }
+            const notes = searchParams.get('notes');
+            if (notes) updates.special_requests = notes.slice(0, 1000);
         }
 
         if (Object.keys(updates).length > 0) {
             setFormData(prev => {
                 const newData = { ...prev, ...updates };
-                if (newData.pickup_location && newData.destination && newData.pickup_date && newData.pickup_time) {
+                const hasDestinationOrHours = newData.trip_type === 'hourly' ? !!newData.duration_hours : !!newData.destination;
+                if (newData.pickup_location && hasDestinationOrHours && newData.pickup_date && newData.pickup_time) {
                     setStep(2);
                 }
                 return newData;

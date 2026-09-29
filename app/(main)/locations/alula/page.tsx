@@ -94,7 +94,7 @@ const services = [
         text: 'Old Town, Dadan, Jabal Ikmah, Elephant Rock and Hegra are in different parts of the valley. One car that waits for you is simpler than arranging a new ride at every stop.',
         note: 'This is transport only - site tickets and licensed guides are separate.',
         href: '/locations/alula/private-driver/',
-        linkText: 'Half-day and full-day options',
+        linkText: 'Hourly and full-day options',
     },
     {
         icon: Sunset,
@@ -185,7 +185,7 @@ const tips = [
     },
     {
         title: 'Transfer or driver for the day?',
-        text: 'One or two trips a day: book transfers. Three or more stops: a half-day or full-day driver usually works out simpler.',
+        text: 'One or two trips a day: book transfers. Three or more stops: an hourly or full-day driver usually works out simpler.',
     },
     {
         title: 'Coming by road',
@@ -208,7 +208,7 @@ const faqs = [
     },
     {
         q: 'Can I hire a car with a driver for sightseeing?',
-        a: 'Yes - half-day, full-day or several days. The same car stays with you between sites. Site entry and guiding are not included.',
+        a: 'Yes - by the hour, for a full day or over several days. The same car stays with you between sites. Site entry and guiding are not included.',
     },
     {
         q: 'Can you take us to Hegra?',
@@ -474,7 +474,7 @@ export default function AlUlaPage() {
                         <strong>Transport and admission are separate.</strong> Our drivers provide transport; they are not licensed site guides and cannot arrange entry. Tickets for Hegra, Dadan, Maraya and other sites are booked through the official AlUla channels, and some sites are visited only on official tours.
                     </div>
                     <Link href="/locations/alula/private-driver/" className="inline-flex items-center gap-2 font-bold text-gray-900 hover:text-primary">
-                        See half-day, full-day and multi-day driver options <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                        See hourly, full-day and multi-day driver options <ArrowRight className="w-4 h-4" aria-hidden="true" />
                     </Link>
                 </div>
             </section>
