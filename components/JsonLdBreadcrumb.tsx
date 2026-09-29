@@ -2,6 +2,9 @@
 
 import { usePathname } from 'next/navigation';
 
+// Segments whose capitalisation can't be derived from the slug.
+const NAME_OVERRIDES: Record<string, string> = { alula: 'AlUla' };
+
 export default function JsonLdBreadcrumb() {
     const pathname = usePathname();
 
@@ -21,7 +24,7 @@ export default function JsonLdBreadcrumb() {
             const url = `${baseUrl}/${segments.slice(0, index + 1).join('/')}/`;
 
             // Format name: replace hyphens with spaces and capitalize words
-            const name = segment
+            const name = NAME_OVERRIDES[segment] ?? segment
                 .replace(/-/g, ' ')
                 .replace(/\b\w/g, (char) => char.toUpperCase());
 

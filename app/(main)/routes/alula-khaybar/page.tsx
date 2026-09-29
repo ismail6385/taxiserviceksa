@@ -66,13 +66,6 @@ export default function AlUlaKhaybarRoutePage() {
                 location="~180 km | ~2 Hours Each Way"
             />
 
-            <div className="border-b border-gray-200">
-                <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-sm flex flex-wrap gap-2 text-gray-500">
-                    <Link href="/" className="hover:text-gray-900">Home</Link> /
-                    <Link href="/routes/" className="hover:text-gray-900">Routes</Link> /
-                    <span className="text-gray-900 font-semibold">AlUla to Khaybar</span>
-                </nav>
-            </div>
 
             <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-lg text-gray-700 leading-relaxed space-y-4">
                 <h2 className="text-3xl font-bold text-gray-900">Why visit Khaybar from AlUla</h2>

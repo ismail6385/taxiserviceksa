@@ -79,13 +79,6 @@ export default function AlUlaMadinahRoutePage() {
                 location="~330 km | ~3.5 Hours | Door to Door"
             />
 
-            <div className="border-b border-gray-200">
-                <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-sm flex flex-wrap gap-2 text-gray-500">
-                    <Link href="/" className="hover:text-gray-900">Home</Link> /
-                    <Link href="/routes/" className="hover:text-gray-900">Routes</Link> /
-                    <span className="text-gray-900 font-semibold">AlUla to Madinah</span>
-                </nav>
-            </div>
 
             <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-5 gap-12">
                 <div className="lg:col-span-3 space-y-4 text-lg text-gray-700 leading-relaxed">

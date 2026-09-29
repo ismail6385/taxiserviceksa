@@ -215,3 +215,36 @@
     }
   }
 }
+/* AlUla page: slow hero drift + scroll reveal. Disabled for reduced motion. */
+@keyframes alula-drift {
+  from { transform: scale(1.08) translate3d(0, 0, 0); }
+  to { transform: scale(1.16) translate3d(-1.5%, -1%, 0); }
+}
+.alula-drift {
+  animation: alula-drift 24s ease-out forwards;
+  will-change: transform;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .alula-drift { animation: none; transform: scale(1.08); }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* AlUla hub: card-level headings sit inside small cards, so they need to be
+   smaller than the site-wide 32px heading rule. H1/H2 keep the global style. */
+.alula-page h3 {
+  font-size: 1.125rem !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+}
+.alula-page .alula-h3-lg h3 {
+  font-size: 1.5rem !important;
+}

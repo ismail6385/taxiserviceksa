@@ -58,7 +58,7 @@ export default function AlUlaAirportPage() {
                 cityName="AlUla Airport"
                 description="Pre-booked taxi and private transfers from AlUla International Airport (ULH) to hotels, resorts, desert camps and the Hegra visitor centre."
                 services={[
-                    { name: 'AlUla Airport Pickup', description: 'Driver waits in arrivals with a name sign; flight tracked.' },
+                    { name: 'AlUla Airport Pickup', description: 'Pickup planned around your flight arrival time.' },
                     { name: 'Resort Transfer', description: 'Airport to Ashar Valley resorts and desert camps.' },
                     { name: 'Airport Drop-off', description: 'Hotel to AlUla airport for departures.' },
                 ]}
@@ -77,14 +77,6 @@ export default function AlUlaAirportPage() {
                 location="Hotels | Resorts | Camps | Hegra"
             />
 
-            {/* Breadcrumb */}
-            <div className="border-b border-gray-200">
-                <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-sm flex flex-wrap gap-2 text-gray-500">
-                    <Link href="/" className="hover:text-gray-900">Home</Link> /
-                    <Link href="/locations/alula/" className="hover:text-gray-900">AlUla</Link> /
-                    <span className="text-gray-900 font-semibold">Airport Taxi</span>
-                </nav>
-            </div>
 
             {/* Problem statement */}
             <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -108,7 +100,7 @@ export default function AlUlaAirportPage() {
                     <h2 className="text-3xl font-bold mb-10 flex items-center gap-3"><Plane className="text-primary" /> What happens when you land</h2>
                     <ol className="grid grid-cols-1 md:grid-cols-4 gap-6">
                         {[
-                            ['We track your flight', 'Delays and early arrivals are handled - the pickup time follows the real landing time.'],
+                            ['Share your flight details', 'Send your flight number and arrival time when you book. If the flight changes, message us on WhatsApp.'],
                             ['Driver in arrivals', 'Your driver waits outside baggage claim with a sign showing your name.'],
                             ['Help with bags', 'Luggage is loaded for you. Child seats can be arranged if requested in advance.'],
                             ['Straight to your stay', 'Direct drive to your hotel, resort gate, camp or onward city. No shared stops.'],
@@ -160,7 +152,7 @@ export default function AlUlaAirportPage() {
                 <div className="rounded-2xl bg-gray-50 border border-gray-200 p-6">
                     <h3 className="font-bold text-lg text-gray-900 mb-2 flex items-center gap-2"><Moon className="w-5 h-5 text-primary" /> Late-night arrivals</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
-                        Evening and night flights are when finding a car is hardest. Booked pickups run at any hour, and the driver waits if your flight is delayed.
+                        Evening and night flights are when finding a car is hardest. Pickups can be booked for late arrivals too - just tell us about any change to your flight time.
                     </p>
                 </div>
             </section>
@@ -198,8 +190,8 @@ export default function AlUlaAirportPage() {
                     },
                     {
                         question: 'What if my flight is delayed?',
-                        shortAnswer: 'We adjust',
-                        detailedAnswer: 'We track the flight number you give us and move the pickup to the actual landing time.',
+                        shortAnswer: 'Tell us and we adjust',
+                        detailedAnswer: 'Message us on WhatsApp with the new arrival time and we will rearrange the pickup.',
                         perspectives: [],
                     },
                     {

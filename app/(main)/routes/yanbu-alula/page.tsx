@@ -68,13 +68,6 @@ export default function YanbuAlUlaRoutePage() {
                 location="~360-400 km | ~4-4.5 Hours"
             />
 
-            <div className="border-b border-gray-200">
-                <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-sm flex flex-wrap gap-2 text-gray-500">
-                    <Link href="/" className="hover:text-gray-900">Home</Link> /
-                    <Link href="/routes/" className="hover:text-gray-900">Routes</Link> /
-                    <span className="text-gray-900 font-semibold">Yanbu to AlUla</span>
-                </nav>
-            </div>
 
             <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">Who books Yanbu to AlUla?</h2>

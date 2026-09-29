@@ -88,13 +88,6 @@ export default function AlUlaPrivateDriverPage() {
                 location="Half Day | Full Day | 2-3 Days"
             />
 
-            <div className="bg-white border-b border-gray-200">
-                <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-sm flex flex-wrap gap-2 text-gray-500">
-                    <Link href="/" className="hover:text-gray-900">Home</Link> /
-                    <Link href="/locations/alula/" className="hover:text-gray-900">AlUla</Link> /
-                    <span className="text-gray-900 font-semibold">Private Driver</span>
-                </nav>
-            </div>
 
             <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">AlUla is big. Its sites are far apart.</h2>

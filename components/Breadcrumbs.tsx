@@ -36,7 +36,8 @@ export default function Breadcrumbs() {
         'madinah': 'Madinah',
         'riyadh': 'Riyadh',
         'taif': 'Taif',
-        'tabuk': 'Tabuk'
+        'tabuk': 'Tabuk',
+        'alula': 'AlUla'
     };
 
     const breadcrumbs = pathSegments.map((segment, index) => {

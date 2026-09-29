@@ -80,13 +80,6 @@ export default function AlUlaAmmanRoutePage() {
                 location="Via Tabuk & Halat Ammar Border"
             />
 
-            <div className="border-b border-gray-200">
-                <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-sm flex flex-wrap gap-2 text-gray-500">
-                    <Link href="/" className="hover:text-gray-900">Home</Link> /
-                    <Link href="/routes/" className="hover:text-gray-900">Routes</Link> /
-                    <span className="text-gray-900 font-semibold">AlUla to Jordan</span>
-                </nav>
-            </div>
 
             {/* Nabataean story */}
             <section className="bg-stone-900 text-white py-16 px-4 sm:px-6 lg:px-8">
