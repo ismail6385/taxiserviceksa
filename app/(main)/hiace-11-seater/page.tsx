@@ -56,14 +56,14 @@ export default function Hiace11SeaterPage() {
         { name: 'Jeddah Airport → Makkah', href: '/routes/jeddah-makkah/' },
         { name: 'Makkah → Madinah', href: '/routes/makkah-madinah/' },
         { name: 'Madinah → Makkah', href: '/routes/makkah-madinah/' },
-        { name: 'Madinah Airport → Hotel', href: '/madinah-airport-taxi/' },
+        { name: 'Madinah Airport → Hotel', href: '/locations/madinah/madinah-airport/' },
         { name: 'Makkah → Jeddah Airport', href: '/jeddah-airport-transfer/' },
         { name: 'Ziyarat Transportation (Makkah & Madinah)', href: '/services/madinah-ziyarat/' },
     ];
 
     const airports = [
         { name: 'King Abdulaziz International Airport — Jeddah', href: '/jeddah-airport-transfer/' },
-        { name: 'Prince Mohammad bin Abdulaziz International Airport — Madinah', href: '/madinah-airport-taxi/' },
+        { name: 'Prince Mohammad bin Abdulaziz International Airport — Madinah', href: '/locations/madinah/madinah-airport/' },
         { name: 'King Khalid International Airport — Riyadh', href: '/riyadh-airport-taxi/' },
         { name: 'King Fahd International Airport — Dammam', href: '/dammam-airport-taxi/' },
     ];

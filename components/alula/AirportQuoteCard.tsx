@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { format } from 'date-fns';
 import { ArrowRight, PlaneLanding, PlaneTakeoff } from 'lucide-react';
 
-const AIRPORT = 'AlUla International Airport (ULH)';
 
 // Names must match the booking system's vehicle list (lib/supabase.ts) so the
 // booking form can preselect them.
@@ -19,12 +18,28 @@ const VEHICLES = [
 ];
 
 const field =
-    'w-full h-12 rounded-lg border border-stone-300 bg-white px-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30';
+    'w-full h-12 rounded-lg border border-stone-300 bg-white px-3 text-base text-gray-900 placeholder:text-gray-400 focus:border-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500/30';
 const label = 'block text-xs font-semibold uppercase tracking-wide text-stone-600 mb-1.5';
 
-// Airport-specific quote card. It collects the details an AlUla airport transfer
-// needs and hands them to the existing /booking/ flow as URL params.
-export default function AirportQuoteCard() {
+interface AirportQuoteCardProps {
+    /** Full airport name used as pickup (arrivals) or destination (departures). */
+    airport?: string;
+    /** Quick destination suggestions shown as chips under the destination field. */
+    suggestions?: string[];
+    /** Tailwind classes for the submit button. */
+    buttonClass?: string;
+    flightHelp?: string;
+}
+
+// Airport quote card: collects what an airport transfer needs and hands it to the
+// existing /booking/ flow as URL params. Used on the AlUla (ULH) and Madinah (MED) pages.
+export default function AirportQuoteCard({
+    airport = 'AlUla International Airport (ULH)',
+    suggestions = [],
+    buttonClass = 'bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-primary',
+    flightHelp,
+}: AirportQuoteCardProps) {
+    const AIRPORT = airport;
     const router = useRouter();
     const [direction, setDirection] = useState<'arrival' | 'departure'>('arrival');
     const [place, setPlace] = useState('');
@@ -89,12 +104,22 @@ export default function AirportQuoteCard() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="sm:col-span-2">
                     <label htmlFor="aq-place" className={label}>{arrival ? 'Hotel, resort or destination' : 'Pickup: hotel or resort'}</label>
-                    <input id="aq-place" className={field} value={place} onChange={(e) => setPlace(e.target.value)} placeholder={arrival ? 'e.g. your hotel in AlUla' : 'Where should we collect you?'} autoComplete="off" />
+                    <input id="aq-place" className={field} value={place} onChange={(e) => setPlace(e.target.value)} placeholder={arrival ? 'e.g. your hotel' : 'Where should we collect you?'} autoComplete="off" />
+                    {suggestions.length > 0 && (
+                        <div className="flex flex-wrap gap-1.5 mt-2" aria-label="Common destinations">
+                            {suggestions.map((sug) => (
+                                <button key={sug} type="button" onClick={() => setPlace(sug)} className="rounded-full border border-stone-300 px-3 py-1 text-xs font-medium text-stone-700 hover:border-stone-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500">
+                                    {sug}
+                                </button>
+                            ))}
+                        </div>
+                    )}
                     {error && <p className="text-sm text-red-600 mt-1" role="alert">{error}</p>}
                 </div>
                 <div>
                     <label htmlFor="aq-flight" className={label}>Flight number</label>
-                    <input id="aq-flight" className={field} value={flight} onChange={(e) => setFlight(e.target.value)} placeholder="Enter flight number" maxLength={20} autoComplete="off" />
+                    <input id="aq-flight" className={field} value={flight} onChange={(e) => setFlight(e.target.value)} placeholder="e.g. SV123" maxLength={20} autoComplete="off" aria-describedby={flightHelp ? 'aq-flight-help' : undefined} />
+                    {flightHelp && <p id="aq-flight-help" className="text-xs text-stone-500 mt-1">{flightHelp}</p>}
                 </div>
                 <div>
                     <label htmlFor="aq-date" className={label}>Date</label>
@@ -128,7 +153,7 @@ export default function AirportQuoteCard() {
 
             <button
                 type="submit"
-                className="group mt-6 w-full h-14 rounded-xl bg-primary text-primary-foreground font-bold text-base inline-flex items-center justify-center gap-2 transition hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 active:scale-[0.99]"
+                className={`group mt-6 w-full h-14 rounded-xl font-bold text-base inline-flex items-center justify-center gap-2 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 active:scale-[0.99] ${buttonClass}`}
             >
                 Get My Quote
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" />

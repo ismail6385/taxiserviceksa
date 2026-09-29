@@ -402,7 +402,7 @@ export default async function BlogPostPage({ params }: Props) {
                                     {[
                                         { href: '/jeddah-airport-transfer/', label: '✈️ Jeddah Airport Transfer' },
                                         { href: '/riyadh-airport-taxi/', label: '✈️ Riyadh Airport Taxi' },
-                                        { href: '/madinah-airport-taxi/', label: '✈️ Madinah Airport Taxi' },
+                                        { href: '/locations/madinah/madinah-airport/', label: '✈️ Madinah Airport Taxi' },
                                         { href: '/makkah-to-madinah-taxi/', label: '🕌 Makkah → Madinah' },
                                         { href: '/makkah-to-jeddah-taxi/', label: '🚗 Makkah → Jeddah' },
                                         { href: '/riyadh-to-jeddah-private-car/', label: '🚗 Riyadh → Jeddah' },

@@ -431,7 +431,7 @@ export default function TabukAirportTaxiPage() {
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/services/airport-transfers/" className="text-gray-600 hover:text-black">All Saudi Airports</Link></li>
                                 <li><Link href="/riyadh-airport-taxi/" className="text-gray-600 hover:text-black">Riyadh Airport (RUH)</Link></li>
-                                <li><Link href="/madinah-airport-taxi/" className="text-gray-600 hover:text-black">Madinah Airport (MED)</Link></li>
+                                <li><Link href="/locations/madinah/madinah-airport/" className="text-gray-600 hover:text-black">Madinah Airport (MED)</Link></li>
                                 <li><Link href="/jeddah-airport-transfer/" className="text-gray-600 hover:text-black">Jeddah Airport (JED)</Link></li>
                             </ul>
                         </div>

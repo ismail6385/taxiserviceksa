@@ -250,7 +250,7 @@ export default function TabukMadinahRoutePage() {
                         <div className="bg-primary/5 rounded-2xl p-6 border border-primary/10">
                             <h3 className="font-bold text-gray-900 mb-2 flex items-center gap-2"><Plane className="w-5 h-5 text-primary" /> Need Madinah Airport Instead?</h3>
                             <p className="text-gray-600 text-sm leading-relaxed">
-                                We also provide private transfers from Tabuk to Prince Mohammad bin Abdulaziz International Airport. Request a quote with your flight details — see our <Link href="/madinah-airport-taxi/" className="text-primary font-semibold hover:underline">Madinah Airport taxi</Link> page.
+                                We also provide private transfers from Tabuk to Prince Mohammad bin Abdulaziz International Airport. Request a quote with your flight details — see our <Link href="/locations/madinah/madinah-airport/" className="text-primary font-semibold hover:underline">Madinah Airport taxi</Link> page.
                             </p>
                         </div>
                     </div>

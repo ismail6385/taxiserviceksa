@@ -244,7 +244,7 @@ export default function JeddahAirportTransferPage() {
                             { href: '/routes/jeddah-to-pullman-makkah-taxi/', label: 'Jeddah to Pullman Makkah' },
                             { href: '/services/taxi-in-makkah/', label: 'Makkah Taxi Service' },
                             { href: '/makkah-to-madinah-taxi/', label: 'Makkah to Madinah Transfer' },
-                            { href: '/madinah-airport-taxi/', label: 'Madinah Airport Taxi' },
+                            { href: '/locations/madinah/madinah-airport/', label: 'Madinah Airport Taxi' },
                             { href: '/riyadh-airport-taxi/', label: 'Riyadh Airport Taxi' },
                             { href: '/locations/jeddah/', label: 'Jeddah City Transfers' },
                             { href: '/fleet/', label: 'Our Vehicle Fleet' },

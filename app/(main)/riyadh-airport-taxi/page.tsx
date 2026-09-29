@@ -459,7 +459,7 @@ export default function RiyadhAirportTaxiPage() {
                             <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Navigation className="w-4 h-4" /> Other Airports</h4>
                             <ul className="space-y-2 text-sm">
                                 <li><Link href="/services/airport-transfers/" className="text-gray-600 hover:text-black">All Saudi Airports</Link></li>
-                                <li><Link href="/madinah-airport-taxi/" className="text-gray-600 hover:text-black">Madinah Airport (MED)</Link></li>
+                                <li><Link href="/locations/madinah/madinah-airport/" className="text-gray-600 hover:text-black">Madinah Airport (MED)</Link></li>
                                 <li><Link href="/jeddah-airport-transfer/" className="text-gray-600 hover:text-black">Jeddah Airport (JED)</Link></li>
                                 <li><Link href="/locations/riyadh/" className="text-gray-600 hover:text-black">Riyadh City Transport</Link></li>
                             </ul>

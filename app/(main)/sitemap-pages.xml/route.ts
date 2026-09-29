@@ -67,12 +67,14 @@ export async function GET() {
     let dynamicPages: any[] = [];
     try {
         const mainDirectory = path.join(process.cwd(), 'app', '(main)');
+        // Pages whose canonical points to another URL stay out of the sitemap.
+        const canonicalisedElsewhere = ['madinah-airport-taxi'];
         const excludedDirs = [
             'api', 'fleet', 'locations', 'services', 'routes', 'blog', 'guides', 'partners', 'join-as-driver', 'author'
         ];
         
         const topLevelDirs = fs.readdirSync(mainDirectory).filter(file => {
-            if (file.startsWith('sitemap') || excludedDirs.includes(file)) return false;
+            if (file.startsWith('sitemap') || excludedDirs.includes(file) || canonicalisedElsewhere.includes(file)) return false;
             
             const filePath = path.join(mainDirectory, file);
             if (fs.statSync(filePath).isDirectory()) {

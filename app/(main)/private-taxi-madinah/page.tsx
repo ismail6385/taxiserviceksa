@@ -180,7 +180,7 @@ export default function PrivateTaxiMadinahPage() {
                     <h2 className="text-2xl font-black text-gray-900 mb-6">Related Services</h2>
                     <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
                         {[
-                            { href: '/madinah-airport-taxi/', label: 'Madinah Airport Taxi' },
+                            { href: '/locations/madinah/madinah-airport/', label: 'Madinah Airport Taxi' },
                             { href: '/makkah-to-madinah-taxi/', label: 'Makkah to Madinah Transfer' },
                             { href: '/services/taxi-in-makkah/', label: 'Makkah Taxi Service' },
                             { href: '/jeddah-airport-transfer/', label: 'Jeddah Airport Transfer' },

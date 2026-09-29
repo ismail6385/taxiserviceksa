@@ -16,8 +16,10 @@ export const metadata: Metadata = {
     title: 'Madinah Airport Taxi | Prince Mohammad Airport (MED) Transfer',
     description: 'Reliable taxi from Madinah Airport to Masjid Nabawi hotels. 24/7 pickup reliability. Fixed rates starting from 50 SAR. Professional drivers.',
     keywords: ['Madinah airport taxi', 'Prince Mohammad airport transfer', 'MED airport taxi', 'Taxi Madinah airport to Haram', 'Madinah airport pickup'],
+    // Same intent as /locations/madinah/madinah-airport/, which is the maintained
+    // page for MED transfers. Kept live for existing links; canonical consolidates signals.
     alternates: {
-        canonical: 'https://taxiserviceksa.com/madinah-airport-taxi/',
+        canonical: 'https://taxiserviceksa.com/locations/madinah/madinah-airport/',
     },
 };
 
