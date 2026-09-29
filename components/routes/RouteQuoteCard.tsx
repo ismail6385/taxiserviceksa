@@ -33,10 +33,13 @@ export interface RouteQuoteCardProps {
     /** Optional stop checkbox, e.g. a Miqat stop; its note is sent with the booking. */
     stop?: { label: string; note: string; defaultChecked?: boolean };
     returnNote?: string;
+    /** Show an optional flight number field (sent as the booking's flight param). */
+    showFlight?: boolean;
+    buttonClass?: string;
 }
 
 // Intercity route quote card; hands off to /booking/ with stop / return / extras as notes.
-export default function RouteQuoteCard({ title, cta, fromCity = '', toCity = '', fromPlaceholder = 'Hotel or location', toPlaceholder = 'Hotel, resort or location', fromChips = [], toChips = [], stop, returnNote }: RouteQuoteCardProps) {
+export default function RouteQuoteCard({ title, cta, fromCity = '', toCity = '', fromPlaceholder = 'Hotel or location', toPlaceholder = 'Hotel, resort or location', fromChips = [], toChips = [], stop, returnNote, showFlight = false, buttonClass = 'bg-emerald-800 hover:bg-emerald-900 focus-visible:ring-emerald-700' }: RouteQuoteCardProps) {
     const router = useRouter();
     const [from, setFrom] = useState('');
     const [to, setTo] = useState('');
@@ -48,6 +51,7 @@ export default function RouteQuoteCard({ title, cta, fromCity = '', toCity = '',
     const [withStop, setWithStop] = useState(!!stop?.defaultChecked);
     const [ret, setRet] = useState(false);
     const [notes, setNotes] = useState('');
+    const [flight, setFlight] = useState('');
 
     const today = format(new Date(), 'yyyy-MM-dd');
 
@@ -64,6 +68,7 @@ export default function RouteQuoteCard({ title, cta, fromCity = '', toCity = '',
         if (time) params.set('time', time);
         if (vehicle) params.set('vehicle', vehicle);
         if (note) params.set('notes', note);
+        if (flight.trim()) params.set('flight', flight.trim());
         router.push(`/booking/?${params.toString()}`);
     };
 
@@ -136,6 +141,12 @@ export default function RouteQuoteCard({ title, cta, fromCity = '', toCity = '',
                         I also need a return trip
                     </label>
                 </div>
+                {showFlight && (
+                    <div className="sm:col-span-2">
+                        <label htmlFor="rq-flight" className={label}>Flight number (optional)</label>
+                        <input id="rq-flight" className={field} value={flight} onChange={(e) => setFlight(e.target.value)} placeholder="e.g. SV1234" maxLength={12} autoComplete="off" />
+                    </div>
+                )}
                 <div className="sm:col-span-2">
                     <label htmlFor="rq-notes" className={label}>Special requirements (optional)</label>
                     <input id="rq-notes" className={field} value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="e.g. child seat, extra stop" maxLength={300} autoComplete="off" />
@@ -143,7 +154,7 @@ export default function RouteQuoteCard({ title, cta, fromCity = '', toCity = '',
             </div>
             <button
                 type="submit"
-                className="group mt-6 w-full h-14 rounded-xl bg-emerald-800 text-white font-bold text-base inline-flex items-center justify-center gap-2 transition hover:bg-emerald-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2 active:scale-[0.99]"
+                className={`group mt-6 w-full h-14 rounded-xl text-white font-bold text-base inline-flex items-center justify-center gap-2 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${buttonClass} active:scale-[0.99]`}
             >
                 {cta}
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" />
