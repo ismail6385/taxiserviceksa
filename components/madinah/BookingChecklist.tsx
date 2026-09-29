@@ -3,10 +3,11 @@
 import { useState } from 'react';
 import { Check, ArrowRight } from 'lucide-react';
 
-const ITEMS = ['Flight number', 'Arrival date', 'Arrival time', 'Hotel or destination', 'Passenger count', 'Number of suitcases', 'Vehicle preference'];
+const DEFAULT_ITEMS = ['Flight number', 'Arrival date', 'Arrival time', 'Hotel or destination', 'Passenger count', 'Number of suitcases', 'Vehicle preference'];
 
-// Tick-off list of what to have ready before requesting an airport quote.
-export default function BookingChecklist({ quoteHref = '#quote' }: { quoteHref?: string }) {
+// Tick-off list of what to have ready before requesting a quote (airport items by default).
+export default function BookingChecklist({ quoteHref = '#quote', items = DEFAULT_ITEMS, cta = 'Get My Quote' }: { quoteHref?: string; items?: string[]; cta?: string }) {
+    const ITEMS = items;
     const [done, setDone] = useState<string[]>([]);
     const toggle = (i: string) => setDone((d) => (d.includes(i) ? d.filter((x) => x !== i) : [...d, i]));
     const all = done.length === ITEMS.length;
@@ -39,7 +40,7 @@ export default function BookingChecklist({ quoteHref = '#quote' }: { quoteHref?:
                 href={quoteHref}
                 className={`group inline-flex items-center gap-2 rounded-xl px-7 py-4 font-bold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 ${all ? 'bg-emerald-800 text-white hover:bg-emerald-900' : 'bg-stone-900 text-white hover:bg-stone-800'}`}
             >
-                Get My Quote <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" />
+                {cta} <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" />
             </a>
         </div>
     );

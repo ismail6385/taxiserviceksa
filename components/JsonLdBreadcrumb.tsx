@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 
 // Segments whose capitalisation can't be derived from the slug.
-const NAME_OVERRIDES: Record<string, string> = { alula: 'AlUla' };
+const NAME_OVERRIDES: Record<string, string> = { alula: 'AlUla', quba: 'Masjid Quba' };
 
 export default function JsonLdBreadcrumb() {
     const pathname = usePathname();
