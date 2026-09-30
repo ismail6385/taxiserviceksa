@@ -33,8 +33,8 @@ export interface RouteQuoteCardProps {
     /** Optional stop checkbox, e.g. a Miqat stop; its note is sent with the booking. */
     stop?: { label: string; note: string; defaultChecked?: boolean };
     returnNote?: string;
-    /** Show an optional flight number field (sent as the booking's flight param). */
-    showFlight?: boolean;
+    /** Show an optional flight number field (sent as the booking's flight param). 'auto' shows it only once pickup or destination mentions an airport. */
+    showFlight?: boolean | 'auto';
     buttonClass?: string;
     /** Extra optional text fields; each non-empty value is added to the booking notes with its label. */
     extraFields?: { id: string; label: string; placeholder?: string }[];
@@ -82,7 +82,7 @@ export default function RouteQuoteCard({ title, cta, fromCity = '', toCity = '',
         if (time) params.set('time', time);
         if (vehicle) params.set('vehicle', vehicle);
         if (note) params.set('notes', note);
-        if (flight.trim()) params.set('flight', flight.trim());
+        if (flight.trim() && (showFlight === true || /airport|\bRUH\b|\(RUH\)/i.test(`${from} ${to}`))) params.set('flight', flight.trim());
         router.push(`/booking/?${params.toString()}`);
     };
 
@@ -161,7 +161,7 @@ export default function RouteQuoteCard({ title, cta, fromCity = '', toCity = '',
                         <input id={`rq-${f.id}`} className={field} value={extra[f.id] ?? ''} onChange={(e) => setExtra((x) => ({ ...x, [f.id]: e.target.value }))} placeholder={f.placeholder} maxLength={150} autoComplete="off" />
                     </div>
                 ))}
-                {showFlight && (
+                {(showFlight === true || (showFlight === 'auto' && /airport|\bRUH\b|\(RUH\)/i.test(`${from} ${to}`))) && (
                     <div className="sm:col-span-2">
                         <label htmlFor="rq-flight" className={label}>Flight number (optional)</label>
                         <input id="rq-flight" className={field} value={flight} onChange={(e) => setFlight(e.target.value)} placeholder="e.g. SV1234" maxLength={12} autoComplete="off" />

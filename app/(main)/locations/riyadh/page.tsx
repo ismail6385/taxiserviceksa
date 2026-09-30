@@ -1,401 +1,500 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { ArrowRight, Plane, Briefcase, Hotel, Ticket, Building2, Route, Clock, Check, Info, Landmark, MapPin, PlaneLanding, PlaneTakeoff, TrafficCone } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
-import { MapPin, Clock, CheckCircle2, Car, Users, Plane, ArrowRight, Building, Navigation, Briefcase, Building2, CalendarDays } from 'lucide-react';
-import Hero from '@/components/Hero';
-import DistanceTable from '@/components/seo/DistanceTable';
-import SeasonalTravelTips from '@/components/seo/SeasonalTravelTips';
-import RelatedLocations, { RelatedLink } from '@/components/seo/RelatedLocations';
-import ReviewForm from '@/components/seo/ReviewForm';
-import QuestionForm from '@/components/seo/QuestionForm';
-import QuestionsDisplay from '@/components/QuestionsDisplay';
-import ReviewsDisplay from '@/components/ReviewsDisplay';
-import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
-import JsonLdLocation from '@/components/JsonLdLocation';
-import ApprovedDriversForLocation from '@/components/ApprovedDriversForLocation';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+import Reveal from '@/components/alula/Reveal';
+import AlUlaReviews from '@/components/alula/AlUlaReviews';
+import RouteQuoteCard from '@/components/routes/RouteQuoteCard';
+import RiyadhNetwork from '@/components/riyadh/RiyadhNetwork';
+import RiyadhIntentJourneys from '@/components/riyadh/RiyadhIntentJourneys';
+import RiyadhVehicleFit, { type FleetItem } from '@/components/riyadh/RiyadhVehicleFit';
+import { vehicles } from '@/lib/supabase';
+import { getDistanceRoute } from '@/data/distanceRoutes';
+
+const PAGE_URL = 'https://taxiserviceksa.com/locations/riyadh/';
+const QUOTE_HREF = '#quote';
+const WHATSAPP_HREF = `https://wa.me/966575806733?text=${encodeURIComponent('Hello, I would like a quote in Riyadh. Pickup, destination, date, time and passengers: ')}`;
 
 export const metadata: Metadata = {
-    title: 'Riyadh Taxi, Private Car & Chauffeur Service | Taxi Service KSA',
-    description: 'Book a private taxi or chauffeur in Riyadh. Airport transfers, city transportation, corporate travel and intercity journeys to Dammam, Makkah and Jeddah. Pre-booked, fixed quotes.',
-    keywords: ['Riyadh taxi', 'Riyadh private car', 'Riyadh chauffeur service', 'RUH airport transfer', 'Riyadh corporate transport', 'Riyadh to Makkah taxi'],
-    alternates: {
-        canonical: 'https://taxiserviceksa.com/locations/riyadh/',
-        languages: {
-            'en': 'https://taxiserviceksa.com/locations/riyadh/',
-            'ar': 'https://taxiserviceksa.com/ar/locations/riyadh/',
-            'ur': 'https://taxiserviceksa.com/ur/locations/riyadh/',
-            'x-default': 'https://taxiserviceksa.com/locations/riyadh/',
-        },
-    },
+    title: 'Riyadh Taxi & Private Transfers | Airport, Chauffeur & Intercity',
+    description:
+        'Pre-booked private transportation in Riyadh: RUH Airport transfers, hotel and business journeys, hourly chauffeur service, event transport and intercity trips across Saudi Arabia.',
+    alternates: { canonical: PAGE_URL },
     openGraph: {
-        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Riyadh private taxi and chauffeur service' }],
+        title: 'Riyadh Taxi & Private Transfer Service',
+        description: 'Airport pickups, business travel, hotels, events, hourly journeys and long-distance trips from Riyadh.',
+        url: PAGE_URL,
         siteName: 'Taxi Service KSA',
-        title: 'Riyadh Taxi, Private Car & Chauffeur Service | Taxi Service KSA',
-        description: 'Private taxi and chauffeur service in Riyadh — airport transfers, city and corporate transport, intercity journeys.',
-        url: 'https://taxiserviceksa.com/locations/riyadh/',
         type: 'website',
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private transfers in Riyadh' }],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Riyadh Taxi & Private Transfer Service',
+        description: 'Airport pickups, business travel, hotels, events, hourly journeys and long-distance trips from Riyadh.',
+        images: ['https://taxiserviceksa.com/og-image.jpg'],
     },
 };
 
-export default function RiyadhPage() {
-    const jsonLdServices = [
-        { name: 'Riyadh Airport Transfers', description: 'Private pickup and drop-off at King Khalid International Airport (RUH).' },
-        { name: 'Riyadh Chauffeur Service', description: 'Professional driver for business meetings, appointments and hourly bookings.' },
-        { name: 'Riyadh City Transfers', description: 'Pre-booked transportation between hotels, offices and attractions.' },
-        { name: 'Riyadh Intercity Transfers', description: 'Private journeys from Riyadh to Dammam, Makkah, Jeddah and other Saudi cities.' },
-    ];
+const q = (p: Record<string, string>) => `/booking/?${new URLSearchParams(p).toString()}`;
 
-    const riyadhImages = [
-        '/hero-slide-1.webp',
-        '/hero-slide-2.webp',
-        '/hero-slide-3.webp',
-    ];
+// Fleet figures come from the booking system's vehicle list - one source of truth.
+const toItem = (name: string, label: string): FleetItem | null => {
+    const v = vehicles.find((x) => x.name === name);
+    return v ? { name: v.name, image: v.image, passengers: v.passengers, luggage: v.luggage, label } : null;
+};
+const STANDARD = [
+    toItem('Toyota Camry', 'Sedan'),
+    toItem('Hyundai Staria VIP', 'Family van'),
+    toItem('GMC Yukon XL / Denali', 'Large SUV'),
+    toItem('Toyota Hiace', 'Van'),
+    toItem('Toyota Coaster', 'Minibus'),
+].filter(Boolean) as FleetItem[];
+const EXECUTIVE = [
+    toItem('Genesis G80 VIP', 'Executive sedan'),
+    toItem('Mercedes S-Class', 'Luxury sedan'),
+    toItem('GMC Yukon XL / Denali', 'Executive SUV'),
+].filter(Boolean) as FleetItem[];
 
-    const distanceData = [
-        { destination: 'King Khalid Airport (RUH)', distance: '~35 km', time: '~35-45 mins', route: 'King Salman Rd' },
-        { destination: 'KAFD (Financial District)', distance: '~15 km', time: '~20 mins', route: 'King Fahd Rd' },
-        { destination: 'Olaya / Kingdom Centre', distance: '~5 km', time: '~10-15 mins', route: 'Olaya St' },
-        { destination: 'Diplomatic Quarter', distance: '~12 km', time: '~20 mins', route: 'Makkah Rd' },
-        { destination: 'Dammam', distance: '~400 km', time: '~4 hours', route: 'Route 40' },
-        { destination: 'Makkah', distance: '~950 km', time: '~9-10 hours', route: 'Route 40 / Route 15' },
-    ];
+// Route distances from the site's distance data - one source of truth.
+const ROUTES = [
+    { to: 'Dammam / Al Khobar', slug: 'dammam-to-riyadh', href: '/routes/riyadh-dammam/' },
+    { to: 'Jeddah', slug: 'riyadh-to-jeddah', href: '/routes/riyadh-jeddah/' },
+    { to: 'Makkah', slug: 'riyadh-to-makkah', href: '/routes/riyadh-makkah/' },
+    { to: 'Madinah', slug: 'riyadh-to-madinah', href: '/distance/riyadh-to-madinah/' },
+    { to: 'Taif', slug: 'riyadh-to-taif', href: '/distance/riyadh-to-taif/' },
+    { to: 'AlUla', slug: 'riyadh-to-alula', href: '/distance/riyadh-to-alula/' },
+].map((r) => {
+    const d = getDistanceRoute(r.slug);
+    return { ...r, km: d?.distanceHeadline, time: d?.drivingTimeHeadline };
+});
 
-    const serviceMatrix = [
-        { name: 'Airport Transfers', desc: 'Private pickup and drop-off at King Khalid International Airport (RUH).', icon: Plane, href: '/services/airport-transfers/' },
-        { name: 'Chauffeur Service', desc: 'Professional driver for business meetings, appointments, shopping and hourly bookings.', icon: Briefcase, href: '/services/vip-chauffeur/' },
-        { name: 'City Transfers', desc: 'Pre-booked transportation between hotels, offices, attractions and residential areas.', icon: Car, href: '/booking/' },
-        { name: 'Intercity Transfers', desc: 'Private journeys from Riyadh to Dammam, Jeddah, Makkah, Madinah and other Saudi cities.', icon: Navigation, href: '/services/intercity/' },
-        { name: 'Corporate Transportation', desc: 'Regular transportation for companies, executives and visiting employees.', icon: Building2, href: '/services/corporate-travel/' },
-        { name: 'Event Transportation', desc: 'Pre-booked transport for conferences, exhibitions and major Riyadh events.', icon: CalendarDays, href: '/events/riyadh-event-transportation/' },
-    ];
+const faqs = [
+    { q: 'Can I book a private car from RUH Airport to my Riyadh hotel?', a: 'Yes. Send your flight number, arrival time, hotel, passengers and luggage; you receive pickup instructions with your confirmed booking.' },
+    { q: 'Can I book a Riyadh airport transfer for an early-morning flight?', a: 'Yes. Tell us your flight time and pickup address; we suggest a pickup time that leaves room for the road and airport procedures.' },
+    { q: 'Can I book a private driver by the hour in Riyadh?', a: 'Yes. Choose hourly hire on the booking form and say how many hours; the car stays with you between planned stops.' },
+    { q: 'Can I travel from Riyadh to Dammam by private car?', a: 'Yes - door to door to Dammam or Al Khobar. The Riyadh–Dammam route page has the journey details.' },
+    { q: 'Can you pick up from KAFD?', a: 'Yes. Give us the tower or building name; towers often have set drop-off and pickup points.' },
+    { q: 'Can I book transportation for Riyadh events?', a: 'Yes - hotel to venue and back, with a return time you agree in advance. Drop-off points depend on the venue’s traffic arrangements.' },
+    { q: 'Which vehicle should I choose for 5 passengers with luggage?', a: 'A Hyundai Staria or GMC Yukon seats up to 7; if you have a lot of suitcases, a Toyota Hiace gives more room.' },
+    { q: 'Can I book a return transfer?', a: 'Yes. Tick "I also need a return trip" and give the return date and time.' },
+    { q: 'How far in advance should I book?', a: 'As early as you can, especially for airport runs, event days and long-distance trips. Send the details and we confirm availability.' },
+    { q: 'How much does a transfer cost?', a: 'We quote each trip. The price depends on route, vehicle, passengers, date and any waiting, and you see it before you confirm.' },
+];
 
-    const areas: RelatedLink[] = [
-        { name: 'KAFD', url: '/locations/riyadh/kafd/', description: "Riyadh's financial district — private transfers to meetings and offices." },
-        { name: 'Olaya', url: '/locations/riyadh/olaya/', description: 'Central Riyadh, including Kingdom Centre — hotels, restaurants and shopping.' },
-        { name: 'Diplomatic Quarter', url: '/locations/riyadh/diplomatic-quarter/', description: 'Embassies and international residences.' },
-        { name: 'Boulevard World', url: '/locations/riyadh/boulevard-world/', description: 'Entertainment and event venue transfers.' },
-    ];
-
-    const routes: RelatedLink[] = [
-        { name: 'Riyadh to Dammam', url: '/routes/riyadh-dammam/', description: 'Business and Eastern Province travel.' },
-        { name: 'Riyadh to Makkah', url: '/routes/riyadh-makkah/', description: 'Private pilgrimage transfer.' },
-        { name: 'Riyadh to Jeddah', url: '/routes/riyadh-jeddah/', description: 'Long-distance private transfer.' },
-    ];
-
-    const vehicles = [
-        { name: 'Toyota Camry', desc: '1-4 passengers', link: '/fleet/toyota-camry/' },
-        { name: 'GMC Yukon', desc: 'Family / group travel', link: '/fleet/gmc-yukon/' },
-        { name: 'Hyundai Staria', desc: 'Groups, up to 7 passengers', link: '/fleet/hyundai-staria/' },
-        { name: 'Mercedes S-Class', desc: 'Executive travel', link: '/fleet/mercedes-s-class/' },
-    ];
-
-    const faqs = [
+const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
         {
-            question: "How much is a transfer from Riyadh Airport to the city center?",
-            shortAnswer: "From SAR 150",
-            detailedAnswer: "Our starting fare for RUH airport transfers to selected city-center destinations is SAR 150. The final price depends on the exact pickup/drop-off location and vehicle.",
-            perspectives: []
+            '@type': 'TaxiService',
+            '@id': `${PAGE_URL}#service`,
+            name: 'Private transfers in Riyadh',
+            url: PAGE_URL,
+            serviceType: 'Pre-booked private transfer',
+            description: 'Pre-booked private transportation in Riyadh: King Khalid International Airport (RUH) transfers, hotel and business journeys, hourly chauffeur service, event transport and intercity trips.',
+            provider: { '@type': 'Organization', '@id': 'https://taxiserviceksa.com/#organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com' },
+            areaServed: { '@type': 'City', name: 'Riyadh' },
         },
         {
-            question: "What happens if my flight is delayed?",
-            shortAnswer: "Send your flight number when booking",
-            detailedAnswer: "Send us your flight number when booking so the pickup can be coordinated around the scheduled arrival. Any waiting-time conditions are confirmed with your booking.",
-            perspectives: []
+            '@type': 'FAQPage',
+            '@id': `${PAGE_URL}#faq`,
+            mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
         },
-        {
-            question: "Do you provide corporate chauffeur service?",
-            shortAnswer: "Yes",
-            detailedAnswer: "Yes, businesses can book private vehicles for airport pickups, meetings, employee transportation and longer-term arrangements. Contact us for corporate billing options.",
-            perspectives: []
-        },
-        {
-            question: "How much is a transfer from Riyadh to Makkah?",
-            shortAnswer: "From SAR 1,200",
-            detailedAnswer: "Current fares start from SAR 1,200 for selected vehicles. The final fare depends on vehicle type, passenger count and booking requirements.",
-            perspectives: []
-        },
-        {
-            question: "Can I book a transfer from Riyadh to Dammam?",
-            shortAnswer: "Yes, from SAR 800",
-            detailedAnswer: "Yes, intercity transfers to Dammam start from SAR 800. The journey is approximately 400 km and takes around 4 hours.",
-            perspectives: []
-        },
-        {
-            question: "Are Riyadh transfers available 24/7?",
-            shortAnswer: "Yes, subject to availability",
-            detailedAnswer: "Pre-booked transfers can be arranged for early-morning, daytime and late-night travel, subject to vehicle availability.",
-            perspectives: []
-        },
-        {
-            question: "Do you accept card payments?",
-            shortAnswer: "Yes, online payment options are available",
-            detailedAnswer: "Yes, online payment options are available for Riyadh bookings, alongside other payment methods. Confirm your preferred option when booking.",
-            perspectives: []
-        },
-    ];
+    ],
+};
 
+function Arrow() {
+    return <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" />;
+}
+const link = 'font-semibold text-[#9a7432] hover:underline';
+
+// Illustrated skyline (not a photograph): Kingdom Centre, Al Faisaliah and a KAFD cluster.
+function Skyline({ className = '' }: { className?: string }) {
     return (
-        <div className="bg-gray-50 min-h-screen">
-            <JsonLdLocation
-                cityName="Riyadh"
-                description="Private taxi and chauffeur service in Riyadh. King Khalid International Airport (RUH) transfers, corporate transport, and intercity travel."
-                services={jsonLdServices}
-                image="https://taxiserviceksa.com/hero-slide-3.webp"
-            />
+        <svg className={className} viewBox="0 0 1440 420" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+            <defs>
+                <linearGradient id="rs-sky" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stopColor="#d4a857" stopOpacity="0" />
+                    <stop offset="1" stopColor="#d4a857" stopOpacity="0.25" />
+                </linearGradient>
+            </defs>
+            <rect x="0" y="180" width="1440" height="240" fill="url(#rs-sky)" />
+            <g fill="#0e1014">
+                {/* low city */}
+                <path d="M0 420 V 360 H 60 V 340 H 110 V 365 H 170 V 330 H 230 V 355 H 300 V 345 H 360 V 420 Z" />
+                {/* Al Faisaliah: tapering tower with a sphere */}
+                <path d="M520 420 L 548 150 L 576 420 Z" />
+                <circle cx="548" cy="200" r="13" fill="#d4a857" fillOpacity="0.55" />
+                <rect x="545" y="110" width="6" height="45" />
+                {/* Kingdom Centre: tower with the open arch at the top */}
+                <path d="M760 420 V 190 C 760 140, 800 90, 820 70 C 840 90, 880 140, 880 190 V 420 Z M790 190 C 790 150, 810 120, 820 110 C 830 120, 850 150, 850 190 Z" fillRule="evenodd" />
+                <rect x="782" y="186" width="76" height="6" fill="#d4a857" fillOpacity="0.5" />
+                {/* KAFD cluster */}
+                <path d="M1040 420 V 180 L 1070 150 V 420 Z" />
+                <path d="M1080 420 V 210 H 1115 V 420 Z" />
+                <path d="M1125 420 V 160 L 1150 130 L 1175 160 V 420 Z" />
+                <path d="M1185 420 V 240 H 1220 V 420 Z" />
+                {/* low city east */}
+                <path d="M620 420 V 350 H 700 V 330 H 740 V 420 Z M900 420 V 340 H 960 V 360 H 1020 V 420 Z M1240 420 V 350 H 1300 V 330 H 1360 V 360 H 1440 V 420 Z" />
+            </g>
+            {/* road network line */}
+            <path d="M0 400 C 300 380, 520 395, 760 385 S 1160 370, 1440 390" fill="none" stroke="#d4a857" strokeWidth="2" strokeLinecap="round" pathLength={1} className="route-draw" />
+        </svg>
+    );
+}
 
-            <Hero
-                images={riyadhImages}
-                h1Text="Riyadh Taxi, Private Car & Chauffeur Service"
-                bookingFormTitle="WhatsApp Booking for Riyadh Transfer"
-                title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Riyadh
-                    </span>
-                }
-                subtitle="Airport transfers • City transportation • Chauffeur service • Intercity travel"
-                location="Riyadh • RUH Airport • Intercity"
-            >
-                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <Link href="/booking/">
-                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            Book Your Riyadh Transfer
-                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Button>
-                    </Link>
-                </div>
-            </Hero>
+export default function RiyadhPage() {
+    return (
+        <div className="riyadh-page bg-[#f6f3ee]">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-            {/* Breadcrumb */}
-            <section className="bg-white border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                    <nav className="flex items-center space-x-2 text-sm">
-                        <Link href="/" className="text-gray-500 hover:text-gray-900 transition-colors">Home</Link>
-                        <span className="text-gray-400">/</span>
-                        <Link href="/locations/" className="text-gray-500 hover:text-gray-900 transition-colors">Locations</Link>
-                        <span className="text-gray-400">/</span>
-                        <span className="text-gray-900 font-semibold">Riyadh</span>
-                    </nav>
-                </div>
-            </section>
+            {/* ================= HERO ================= */}
+            <section className="relative isolate overflow-hidden bg-[#14161b]">
+                <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_70%_20%,rgba(212,168,87,0.22),transparent_60%)]" aria-hidden="true" />
+                <Skyline className="absolute bottom-0 left-0 -z-10 w-full h-[55%] opacity-90" />
+                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#14161b] via-[#14161b]/80 to-transparent" aria-hidden="true" />
 
-            {/* Intro */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto text-center">
-                    <p className="text-lg text-gray-600 leading-relaxed">
-                        Need a private taxi or chauffeur in Riyadh? Taxi Service KSA provides pre-booked private transportation for airport pickups, business travel, hotel transfers and long-distance journeys from Riyadh. Choose a private sedan, SUV or van and arrange your pickup time in advance.
-                    </p>
-                </div>
-            </section>
-
-            {/* Quick facts */}
-            <div className="max-w-7xl mx-auto px-4 pb-16">
-                <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-8 grid grid-cols-2 md:grid-cols-4 gap-8">
-                    {[
-                        { label: 'RUH Airport', value: 'Private Pickup', icon: Plane },
-                        { label: 'Vehicles', value: 'Sedan, SUV, Van', icon: Car },
-                        { label: 'Booking', value: '24/7 Pre-Booking', icon: Clock },
-                        { label: 'Coverage', value: 'City + Intercity', icon: MapPin },
-                    ].map((f) => (
-                        <div key={f.label} className="flex flex-col items-center text-center">
-                            <f.icon className="w-6 h-6 text-primary mb-3" />
-                            <span className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">{f.label}</span>
-                            <span className="text-sm font-black text-gray-900">{f.value}</span>
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-20 grid grid-cols-1 lg:grid-cols-[1fr_0.95fr] gap-6 lg:gap-10 items-center">
+                    <div className="text-white animate-fade-in-up motion-reduce:animate-none motion-reduce:opacity-100">
+                        <p className="hidden sm:block text-xs font-bold uppercase tracking-[0.25em] text-[#d4a857] mb-6">Riyadh • RUH Airport • Private transfers</p>
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.04] tracking-tight mb-5">Riyadh Taxi &amp; Private Transfer Service</h1>
+                        <p className="text-base sm:text-lg text-white/80 leading-relaxed sm:mb-8 max-w-xl">
+                            Pre-book a private car for airport pickups, business travel, hotels, events, hourly journeys and long-distance trips from Riyadh.
+                        </p>
+                        <div className="hidden sm:flex gap-3 mb-6">
+                            <Button asChild size="lg" className="group h-auto py-4 px-7 rounded-xl font-bold text-base bg-[#d4a857] text-[#14161b] hover:bg-[#e2bb70]">
+                                <a href={QUOTE_HREF}>Get a Riyadh Quote <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" /></a>
+                            </Button>
+                            <Button asChild size="lg" variant="outline" className="h-auto py-4 px-7 rounded-xl font-bold text-base bg-white/10 text-white border-white/40 hover:bg-white/20 hover:text-white">
+                                <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer"><WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> WhatsApp Booking</a>
+                            </Button>
                         </div>
-                    ))}
-                </div>
-            </div>
-
-            {/* Service matrix */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">Riyadh Transportation Services</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {serviceMatrix.map((s) => (
-                            <Link key={s.name} href={s.href} className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-shadow block">
-                                <s.icon className="w-7 h-7 text-primary mb-4" />
-                                <h3 className="font-bold text-gray-900 mb-2">{s.name}</h3>
-                                <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
-                            </Link>
-                        ))}
+                        <p className="hidden sm:block text-sm text-white/60">Private • Pre-booked • Door-to-door</p>
+                    </div>
+                    <div id="quote" className="scroll-mt-32">
+                        <RouteQuoteCard
+                            title="Your Riyadh journey"
+                            cta="Get My Quote"
+                            fromPlaceholder="Airport, hotel, office or district"
+                            toPlaceholder="Hotel, venue, district or another city"
+                            fromChips={['King Khalid International Airport (RUH)', 'Riyadh hotel', 'KAFD, Riyadh', 'Olaya, Riyadh']}
+                            toChips={['King Khalid International Airport (RUH)', 'Riyadh hotel', 'Riyadh Front', 'Diriyah', 'Dammam', 'Jeddah']}
+                            showFlight="auto"
+                            buttonClass="bg-[#14161b] hover:bg-black focus-visible:ring-[#d4a857]"
+                        />
                     </div>
                 </div>
             </section>
 
-            {/* Airport transfers */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Riyadh Airport Taxi &amp; Pickup</h2>
-                    <p className="text-gray-600 leading-relaxed">
-                        Book your RUH airport transfer before your flight and receive pickup instructions in advance. For arrivals, the driver meets you at the agreed terminal pickup point and assists with luggage before taking you directly to your Riyadh hotel, office or residence.
-                    </p>
-                </div>
-            </section>
-
-            {/* Travel times */}
-            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50" id="logistics-guide">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Riyadh Travel Times</h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">Approximate distances and times. Traffic in Riyadh can be heavy, so plan your trips accordingly.</p>
-                    </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <DistanceTable origin="RUH Airport / City Center" locations={distanceData} />
-                        <SeasonalTravelTips city="Riyadh" />
-                    </div>
-                </div>
-            </section>
-
-            {/* Popular areas */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+            {/* ================= WHAT BRINGS YOU ================= */}
+            <section aria-labelledby="brings" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-6xl mx-auto">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">Popular Places We Serve in Riyadh</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {areas.map((a) => (
-                            <Link key={a.name} href={a.url} className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-shadow block">
-                                <h3 className="font-bold text-gray-900 mb-2">{a.name}</h3>
-                                <p className="text-gray-600 text-sm leading-relaxed">{a.description}</p>
-                            </Link>
+                    <h2 id="brings" className="text-3xl md:text-5xl font-bold text-[#14161b] mb-8">What Brings You to Riyadh?</h2>
+                    <ul className="flex gap-3 overflow-x-auto snap-x pb-3 -mx-4 px-4 md:grid md:grid-cols-4 lg:grid-cols-7 md:overflow-visible md:mx-0 md:px-0">
+                        {[
+                            { i: Plane, t: 'Airport', s: 'RUH ↔ Riyadh', h: '/riyadh-airport-taxi/' },
+                            { i: Briefcase, t: 'Business', s: 'KAFD • Olaya • DQ', h: '/locations/riyadh/kafd/' },
+                            { i: Hotel, t: 'Hotels', s: 'Airport, hotel, city', h: '/services/riyadh-hotel-transfer/' },
+                            { i: Ticket, t: 'Events', s: 'Riyadh Front • venues', h: '/services/event-transport/' },
+                            { i: Building2, t: 'City travel', s: 'Across Riyadh', h: q({ from: 'Riyadh' }) },
+                            { i: Route, t: 'Intercity', s: 'Jeddah • Makkah • Dammam', h: '/services/intercity/' },
+                            { i: Clock, t: 'Hourly driver', s: 'Several stops', h: '/riyadh-chauffeur/' },
+                        ].map((c) => (
+                            <li key={c.t} className="snap-start shrink-0 w-40 md:w-auto">
+                                <Link href={c.h} className="group flex h-full flex-col rounded-2xl bg-white border border-[#14161b]/10 p-5 transition hover:-translate-y-1 hover:border-[#d4a857] hover:shadow-lg motion-reduce:hover:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4a857]">
+                                    <c.i className="w-6 h-6 text-[#9a7432] mb-4" aria-hidden="true" />
+                                    <span className="font-bold text-[#14161b]">{c.t}</span>
+                                    <span className="text-xs text-slate-500 mt-1">{c.s}</span>
+                                </Link>
+                            </li>
                         ))}
-                    </div>
-                    <p className="text-center text-sm text-gray-500 mt-8">
-                        Need a hotel transfer? Pre-book a private car from RUH Airport to your Riyadh hotel, or arrange transfers between hotels, offices and other destinations across the city.
-                    </p>
+                    </ul>
                 </div>
             </section>
 
-            {/* Pricing */}
-            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50" id="pricing">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Riyadh Transfer Prices</h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">Fares vary by pickup location, destination, vehicle and travel time. The following are starting prices for selected services.</p>
+            {/* ================= SIGNATURE NETWORK ================= */}
+            <section aria-labelledby="network" className="bg-[#14161b] text-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <div className="max-w-3xl mb-10">
+                        <h2 id="network" className="text-3xl md:text-5xl font-bold mb-4">One Capital. Many Ways to Travel.</h2>
+                        <p className="text-white/70 leading-relaxed">Riyadh is not one pickup area. The airport, business districts, event venues, Diriyah and the roads out to other cities each come with their own drop-off points and timing. Pick one to see what matters.</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {[
-                            { icon: Plane, title: 'RUH Airport → Riyadh', price: '150' },
-                            { icon: MapPin, title: 'Riyadh → Dammam', price: '800', popular: true },
-                            { icon: Car, title: 'Riyadh → Makkah', price: '1,200' },
-                        ].map((p) => (
-                            <div key={p.title} className={`bg-white p-8 rounded-2xl border-2 text-center relative ${p.popular ? 'border-primary/30' : 'border-gray-200'}`}>
-                                {p.popular && <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-primary text-black px-4 py-1 rounded-full text-xs font-bold">POPULAR</div>}
-                                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                                    <p.icon className="w-6 h-6 text-primary" />
+                    <RiyadhNetwork />
+                </div>
+            </section>
+
+            {/* ================= RUH ================= */}
+            <section aria-labelledby="ruh" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#9a7432] mb-3">RUH</p>
+                    <h2 id="ruh" className="text-3xl md:text-5xl font-bold text-[#14161b] mb-10 max-w-3xl">Private Airport Transfers at King Khalid International Airport</h2>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                        <Reveal className="h-full">
+                            <div className="h-full rounded-3xl bg-white border border-[#14161b]/10 p-7">
+                                <h3 className="mb-5 text-[#14161b] flex items-center gap-2"><PlaneLanding className="w-5 h-5 text-[#9a7432]" aria-hidden="true" /> Arriving in Riyadh</h3>
+                                <ol className="space-y-3 text-sm text-slate-700">
+                                    {['Your flight lands', 'You leave the terminal', 'Meet the driver as per the instructions sent with your booking', 'Luggage into the car', 'Straight to your hotel, office or home'].map((s, i) => (
+                                        <li key={s} className="flex gap-3"><span className="w-6 h-6 shrink-0 rounded-full bg-[#f6f3ee] text-[#9a7432] text-xs font-black flex items-center justify-center" aria-hidden="true">{i + 1}</span>{s}</li>
+                                    ))}
+                                </ol>
+                            </div>
+                        </Reveal>
+                        <Reveal className="h-full" delay={80}>
+                            <div className="h-full rounded-3xl bg-white border border-[#14161b]/10 p-7">
+                                <h3 className="mb-5 text-[#14161b] flex items-center gap-2"><PlaneTakeoff className="w-5 h-5 text-[#9a7432]" aria-hidden="true" /> Departing Riyadh</h3>
+                                <p className="text-sm text-slate-700 mb-4">Hotel, office or home to RUH. The airport is well north of the centre, so the road time depends heavily on where you start and when.</p>
+                                <p className="text-sm text-slate-700">Tell us your flight time and we suggest a pickup time that leaves room for the drive and airport procedures.</p>
+                            </div>
+                        </Reveal>
+                        <Reveal className="h-full" delay={160}>
+                            <div className="h-full rounded-3xl bg-[#14161b] text-white p-7 flex flex-col">
+                                <h3 className="mb-4">Why the flight number?</h3>
+                                <p className="text-sm text-white/75 mb-6">It lets us match the pickup to your actual arrival and find your booking quickly if plans change. Add it in the quote form once you choose RUH.</p>
+                                <div className="mt-auto flex flex-col gap-2">
+                                    <Link href={q({ from: 'King Khalid International Airport (RUH)' })} className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#d4a857] px-5 py-3.5 font-bold text-[#14161b] hover:bg-[#e2bb70]">Book a RUH pickup <Arrow /></Link>
+                                    <Link href="/riyadh-airport-taxi/" className="text-center text-sm font-bold text-[#d4a857] hover:underline py-2">Riyadh airport transfer details</Link>
                                 </div>
-                                <div className="text-xl font-bold text-gray-900 mb-3">{p.title}</div>
-                                <div className="text-3xl font-black text-primary mb-1"><span className="text-lg">From</span> SAR {p.price}</div>
+                            </div>
+                        </Reveal>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= INTENT JOURNEYS ================= */}
+            <section aria-labelledby="intent" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="intent" className="text-3xl md:text-4xl font-bold text-[#14161b] mb-3">One City, Different Reasons to Travel</h2>
+                    <p className="text-slate-600 max-w-2xl mb-8">A typical day for each kind of trip - and what usually works best.</p>
+                    <RiyadhIntentJourneys />
+                </div>
+            </section>
+
+            {/* ================= DESTINATION GRID ================= */}
+            <section aria-labelledby="dest" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="dest" className="text-3xl md:text-4xl font-bold text-[#14161b] mb-3">Riyadh Destinations</h2>
+                    <p className="text-slate-600 max-w-2xl mb-8">Each has its own page with the details. Here is why people go, and what to tell us.</p>
+                    <ul className="flex gap-4 overflow-x-auto snap-x pb-4 -mx-4 px-4 md:grid md:grid-cols-2 lg:grid-cols-4 md:overflow-visible md:mx-0 md:px-0">
+                        {[
+                            { t: 'KAFD', c: 'The financial district - towers with set drop-off points.', h: '/locations/riyadh/kafd/', i: Briefcase },
+                            { t: 'Olaya', c: 'Central business and hotel district along King Fahd Road.', h: '/locations/riyadh/olaya/', i: Building2 },
+                            { t: 'Diplomatic Quarter', c: 'Embassies and residences; entry follows DQ access rules.', h: '/locations/riyadh/diplomatic-quarter/', i: Landmark },
+                            { t: 'Diriyah', c: 'At-Turaif and the old town, north-west of the centre.', h: '/locations/riyadh/diriyah/', i: Landmark },
+                            { t: 'Bujairi Terrace', c: 'Restaurants facing At-Turaif - usually an evening return trip.', h: '/locations/riyadh/bujairi-terrace/', i: Hotel },
+                            { t: 'Riyadh Front', c: 'Exhibitions, conferences and events near the airport side of the city.', h: '/locations/riyadh/front/', i: Ticket },
+                            { t: 'Boulevard World', c: 'Seasonal entertainment zone - plan around event traffic.', h: '/locations/riyadh/boulevard-world/', i: Ticket },
+                            { t: 'RUH Airport', c: 'Arrivals and departures, well north of the centre.', h: '/riyadh-airport-taxi/', i: Plane },
+                        ].map((d) => (
+                            <li key={d.t} className="snap-start shrink-0 w-64 md:w-auto">
+                                <Link href={d.h} className="group relative flex h-full flex-col overflow-hidden rounded-3xl bg-[#14161b] text-white p-6 transition hover:-translate-y-1 motion-reduce:hover:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4a857]">
+                                    <svg className="absolute -right-6 -bottom-4 w-40 h-20 opacity-20" viewBox="0 0 120 40" aria-hidden="true"><path d="M0 40 L10 25 L20 40 L30 25 L40 40 L50 25 L60 40 L70 25 L80 40 L90 25 L100 40 L110 25 L120 40" fill="none" stroke="#d4a857" strokeWidth="2" /></svg>
+                                    <d.i className="w-6 h-6 text-[#d4a857] mb-8" aria-hidden="true" />
+                                    <span className="text-xl font-bold mb-2">{d.t}</span>
+                                    <span className="text-sm text-white/70 mb-6">{d.c}</span>
+                                    <span className="mt-auto inline-flex items-center gap-2 text-sm font-bold text-[#d4a857]">Private transfer <Arrow /></span>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </section>
+
+            {/* ================= HOURLY ================= */}
+            <section aria-labelledby="hourly" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="hourly" className="text-3xl md:text-5xl font-bold text-[#14161b] mb-4">Need the Car for More Than One Stop?</h2>
+                    <ol className="flex flex-wrap items-center gap-2 mb-10 text-sm font-bold" aria-label="Example day with an hourly driver">
+                        {['Hotel', 'Meeting', 'Lunch', 'Office', 'Event', 'Hotel'].map((s, i, a) => (
+                            <li key={`${s}-${i}`} className="flex items-center gap-2">
+                                <span className={`rounded-lg px-3 py-2 ${i === 0 || i === a.length - 1 ? 'bg-[#14161b] text-white' : 'bg-[#f6f3ee] text-[#14161b]'}`}>{s}</span>
+                                {i < a.length - 1 && <span className="text-[#9a7432]" aria-hidden="true">→</span>}
+                            </li>
+                        ))}
+                    </ol>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        {[
+                            { t: 'Point-to-point transfer', d: 'One pickup → one destination.', best: ['Airport transfer', 'Hotel transfer', 'A single meeting', 'Intercity route'], cta: 'Book a transfer', h: q({ from: 'Riyadh' }), dark: false },
+                            { t: 'Hourly private driver', d: 'The vehicle stays available for planned stops during the booked period.', best: ['Several meetings', 'Shopping', 'Event day', 'A flexible plan'], cta: 'Book by the hour', h: q({ trip: 'hourly', hours: '4', from: 'Riyadh' }), dark: true },
+                        ].map((c) => (
+                            <div key={c.t} className={`rounded-3xl p-7 md:p-8 flex flex-col ${c.dark ? 'bg-[#14161b] text-white' : 'bg-[#f6f3ee] text-[#14161b]'}`}>
+                                <h3 className="mb-2">{c.t}</h3>
+                                <p className={`mb-5 ${c.dark ? 'text-white/70' : 'text-slate-600'}`}>{c.d}</p>
+                                <p className={`text-xs font-bold uppercase tracking-wider mb-2 ${c.dark ? 'text-[#d4a857]' : 'text-[#9a7432]'}`}>Best when</p>
+                                <ul className="grid grid-cols-2 gap-2 text-sm mb-7">
+                                    {c.best.map((b) => <li key={b} className="flex gap-2"><Check className={`w-4 h-4 mt-0.5 shrink-0 ${c.dark ? 'text-[#d4a857]' : 'text-[#9a7432]'}`} aria-hidden="true" />{b}</li>)}
+                                </ul>
+                                <Link href={c.h} className={`group mt-auto inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-bold ${c.dark ? 'bg-[#d4a857] text-[#14161b] hover:bg-[#e2bb70]' : 'bg-[#14161b] text-white hover:bg-black'}`}>{c.cta} <Arrow /></Link>
                             </div>
                         ))}
                     </div>
-                    <p className="text-center text-sm text-gray-500 mt-8">Get an exact quote for your date and vehicle via WhatsApp or our booking form.</p>
+                    <p className="text-sm text-slate-600 mt-5">More on the <Link href="/riyadh-chauffeur/" className={link}>Riyadh chauffeur service</Link>.</p>
                 </div>
             </section>
 
-            {/* Popular routes */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-5xl mx-auto">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">Popular Routes from Riyadh</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {routes.map((r) => (
-                            <Link key={r.name} href={r.url} className="bg-gray-50 rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-shadow flex items-center justify-between group">
-                                <div>
-                                    <h3 className="font-bold text-gray-900 mb-1">{r.name}</h3>
-                                    <p className="text-gray-500 text-sm">{r.description}</p>
-                                </div>
-                                <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-primary shrink-0 ml-2" />
-                            </Link>
+            {/* ================= BUSINESS + EVENTS ================= */}
+            <section aria-label="Business and events" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    <Reveal className="h-full">
+                        <article className="h-full rounded-3xl bg-white border border-[#14161b]/10 p-7 md:p-9 flex flex-col">
+                            <Briefcase className="w-7 h-7 text-[#9a7432] mb-4" aria-hidden="true" />
+                            <h2 className="text-2xl md:text-3xl font-bold text-[#14161b] mb-4">Riyadh Business Travel, Without the Logistics</h2>
+                            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-700 mb-7">
+                                {['Airport pickup', 'Executive meetings', 'Office transfers', 'Visiting employees', 'Conference transport', 'Multi-stop days', 'Recurring trips', 'Event movements'].map((i) => (
+                                    <li key={i} className="flex gap-2"><Check className="w-4 h-4 text-[#9a7432] mt-0.5 shrink-0" aria-hidden="true" />{i}</li>
+                                ))}
+                            </ul>
+                            <Link href="/services/corporate-travel/" className="group mt-auto inline-flex items-center justify-center gap-2 rounded-xl bg-[#14161b] px-5 py-3.5 font-bold text-white hover:bg-black">Request Corporate Quote <Arrow /></Link>
+                        </article>
+                    </Reveal>
+                    <Reveal className="h-full" delay={100}>
+                        <article className="h-full rounded-3xl bg-[#14161b] text-white p-7 md:p-9 flex flex-col">
+                            <Ticket className="w-7 h-7 text-[#d4a857] mb-4" aria-hidden="true" />
+                            <h2 className="text-2xl md:text-3xl font-bold mb-4">Event Transportation in Riyadh</h2>
+                            <p className="text-white/75 mb-5">Hotel ↔ venue, airport ↔ venue and venue ↔ hotel, for one person or a group - with a return time agreed in advance. On big event days, drop-off points follow the venue&apos;s traffic arrangements.</p>
+                            <div className="flex flex-wrap gap-2 mb-7">
+                                <Link href="/locations/riyadh/front/" className="rounded-full border border-white/20 px-3.5 py-2 text-sm font-semibold hover:border-[#d4a857]">Riyadh Front</Link>
+                                <Link href="/locations/riyadh/boulevard-world/" className="rounded-full border border-white/20 px-3.5 py-2 text-sm font-semibold hover:border-[#d4a857]">Boulevard World</Link>
+                            </div>
+                            <Link href="/services/event-transport/" className="group mt-auto inline-flex items-center gap-2 font-bold text-[#d4a857]">Event transport <Arrow /></Link>
+                        </article>
+                    </Reveal>
+                </div>
+            </section>
+
+            {/* ================= INTERCITY ================= */}
+            <section aria-labelledby="intercity" className="bg-[#14161b] text-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="intercity" className="text-3xl md:text-5xl font-bold mb-4">From Riyadh to the Rest of Saudi Arabia</h2>
+                    <ol className="flex flex-wrap items-center gap-2 mb-10 text-xs font-bold uppercase tracking-wider text-white/60" aria-label="How a long-distance trip works">
+                        {['Riyadh pickup', 'Vehicle chosen for bags', 'Highway', 'Planned stop, if you want one', 'Door drop-off'].map((s, i, a) => (
+                            <li key={s} className="flex items-center gap-2"><span>{s}</span>{i < a.length - 1 && <span className="w-5 h-px bg-[#d4a857]" aria-hidden="true" />}</li>
+                        ))}
+                    </ol>
+                    <ul className="flex gap-4 overflow-x-auto snap-x pb-4 -mx-4 px-4 md:grid md:grid-cols-3 md:overflow-visible md:mx-0 md:px-0">
+                        {ROUTES.map((r) => (
+                            <li key={r.to} className="snap-start shrink-0 w-64 md:w-auto">
+                                <Link href={r.href} className="group flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-6 hover:border-[#d4a857] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4a857]">
+                                    <span className="text-xs font-bold uppercase tracking-wider text-[#d4a857] mb-2">Riyadh →</span>
+                                    <span className="text-2xl font-bold mb-3">{r.to}</span>
+                                    {r.km && <span className="text-sm text-white/60">{r.km} · {r.time}</span>}
+                                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#d4a857]">Route details <Arrow /></span>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                    <p className="text-xs text-white/40 mt-3">Approximate road distance and driving time; the route pages explain what changes them.</p>
+                    <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+                        <p className="text-sm text-white/70">
+                            Nearby: <Link href="/locations/al-kharj/" className="font-semibold text-[#d4a857] hover:underline">Al Kharj</Link>, <Link href="/locations/al-majma-ah/" className="font-semibold text-[#d4a857] hover:underline">Al Majma&apos;ah</Link>, <Link href="/locations/al-ghat/" className="font-semibold text-[#d4a857] hover:underline">Al-Ghat</Link>. Across the border: <Link href="/routes/riyadh-bahrain/" className="font-semibold text-[#d4a857] hover:underline">Bahrain</Link>, <Link href="/routes/riyadh-kuwait/" className="font-semibold text-[#d4a857] hover:underline">Kuwait</Link>, <Link href="/routes/riyadh-doha/" className="font-semibold text-[#d4a857] hover:underline">Qatar</Link>, <Link href="/routes/riyadh-dubai/" className="font-semibold text-[#d4a857] hover:underline">Dubai</Link>.
+                        </p>
+                        <Link href="/routes/" className="group shrink-0 inline-flex items-center gap-2 rounded-xl border border-white/30 px-5 py-3 font-bold hover:border-[#d4a857]">View All Routes <Arrow /></Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= VEHICLE ================= */}
+            <section aria-labelledby="vehicle" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="vehicle" className="text-3xl md:text-4xl font-bold text-[#14161b] mb-3">Which Vehicle Fits Your Journey?</h2>
+                    <p className="text-slate-600 max-w-2xl mb-8">Seats and bag figures come straight from our booking system. See every vehicle on the <Link href="/fleet/" className={link}>fleet page</Link>.</p>
+                    <RiyadhVehicleFit standard={STANDARD} executive={EXECUTIVE} />
+                </div>
+            </section>
+
+            {/* ================= PRICING + NEED + TRAFFIC ================= */}
+            <section aria-labelledby="pricing" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-5">
+                    <Reveal className="h-full">
+                        <div className="h-full rounded-3xl bg-[#14161b] text-white p-7">
+                            <h2 id="pricing" className="text-2xl font-bold mb-4">How Pricing Works</h2>
+                            <p className="text-white/75 text-sm leading-relaxed mb-5">Pricing depends on route, vehicle, passenger count, date and booking requirements. Request a quote for the current fare - you see it before you confirm.</p>
+                            <a href={QUOTE_HREF} className="inline-flex items-center gap-2 font-bold text-[#d4a857]">Request a quote <ArrowRight className="w-4 h-4" aria-hidden="true" /></a>
+                        </div>
+                    </Reveal>
+                    <Reveal className="h-full" delay={80}>
+                        <div className="h-full rounded-3xl bg-[#f6f3ee] p-7">
+                            <h2 className="text-2xl font-bold text-[#14161b] mb-4">To Arrange Your Transfer, Send Us</h2>
+                            <ul className="grid grid-cols-2 gap-x-3 gap-y-2 text-sm text-slate-700">
+                                {['Pickup location', 'Destination', 'Date', 'Pickup time', 'Passengers', 'Luggage', 'Vehicle preference', 'Flight number (airport)', 'Return journey', 'Special requirements'].map((i) => (
+                                    <li key={i} className="flex gap-2"><Check className="w-4 h-4 text-[#9a7432] mt-0.5 shrink-0" aria-hidden="true" />{i}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    </Reveal>
+                    <Reveal className="h-full" delay={160}>
+                        <div className="h-full rounded-3xl border border-[#14161b]/10 p-7">
+                            <h2 className="text-2xl font-bold text-[#14161b] mb-4 flex items-center gap-2"><TrafficCone className="w-6 h-6 text-[#9a7432]" aria-hidden="true" /> Planning Around Riyadh Traffic</h2>
+                            <ul className="space-y-2 text-sm text-slate-700">
+                                <li>Journey times vary a lot by time of day and route.</li>
+                                <li>Airport departures need extra planning.</li>
+                                <li>Event venues can create temporary congestion.</li>
+                                <li>Business districts slow down at peak times.</li>
+                                <li>Give a realistic pickup window for meetings and flights.</li>
+                            </ul>
+                        </div>
+                    </Reveal>
+                </div>
+            </section>
+
+            <AlUlaReviews place="riyadh" title="What travellers said about their Riyadh trips" />
+
+            {/* ================= FAQ ================= */}
+            <section aria-labelledby="faq" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-3xl mx-auto">
+                    <h2 id="faq" className="text-3xl md:text-4xl font-bold text-[#14161b] mb-8">Riyadh Transfer Questions</h2>
+                    <Accordion type="single" collapsible className="w-full rounded-2xl border border-[#14161b]/10 bg-white px-5">
+                        {faqs.map((f, i) => (
+                            <AccordionItem key={f.q} value={`faq-${i}`} className="last:border-0">
+                                <AccordionTrigger className="text-left text-base font-semibold text-[#14161b] hover:no-underline">{f.q}</AccordionTrigger>
+                                <AccordionContent className="text-slate-600 leading-relaxed">{f.a}</AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
+                </div>
+            </section>
+
+            {/* ================= RELATED ================= */}
+            <section aria-labelledby="related" className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="related" className="text-2xl md:text-3xl font-bold text-[#14161b] mb-6">Services from Riyadh</h2>
+                    <div className="flex flex-wrap gap-2">
+                        {[
+                            ['Riyadh airport transfers', '/riyadh-airport-taxi/'],
+                            ['Riyadh hotel transfers', '/services/riyadh-hotel-transfer/'],
+                            ['Chauffeur by the hour', '/riyadh-chauffeur/'],
+                            ['Corporate travel', '/services/corporate-travel/'],
+                            ['Event transport', '/services/event-transport/'],
+                            ['Intercity transfers', '/services/intercity/'],
+                            ['Airport transfers across Saudi', '/services/airport-transfers/'],
+                            ['Our fleet', '/fleet/'],
+                        ].map(([l, h]) => (
+                            <Link key={h} href={h} className="rounded-full border border-[#14161b]/15 px-4 py-2.5 text-sm font-semibold text-[#14161b] hover:border-[#9a7432] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4a857]">{l}</Link>
                         ))}
                     </div>
-                    <div className="text-center mt-8">
-                        <Link href="/routes/" className="text-primary font-semibold hover:underline inline-flex items-center gap-1">
-                            View all routes <ArrowRight className="w-4 h-4" />
-                        </Link>
-                    </div>
                 </div>
             </section>
 
-            {/* Vehicles */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-5xl mx-auto">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">Choose Your Vehicle</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {vehicles.map((v) => (
-                            <Link key={v.name} href={v.link} className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-shadow block">
-                                <Car className="w-6 h-6 text-primary mb-3" />
-                                <h3 className="font-bold text-gray-900 text-sm mb-1">{v.name}</h3>
-                                <p className="text-gray-500 text-xs">{v.desc}</p>
-                            </Link>
-                        ))}
+            {/* ================= FINAL CTA ================= */}
+            <section className="relative isolate overflow-hidden py-24 px-4 sm:px-6 lg:px-8 bg-[#14161b]">
+                <Skyline className="absolute bottom-0 left-0 -z-10 w-full h-1/2 opacity-60" />
+                <div className="max-w-3xl mx-auto text-center text-white">
+                    <MapPin className="w-9 h-9 text-[#d4a857] mx-auto mb-5" aria-hidden="true" />
+                    <h2 className="text-3xl md:text-5xl font-extrabold mb-5">Where Are You Going From Riyadh?</h2>
+                    <p className="text-lg text-white/75 mb-10">Send your pickup point, destination, date and passenger details and we&apos;ll help arrange the right private vehicle for your journey.</p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                        <Button asChild size="lg" className="h-auto py-4 px-7 rounded-xl font-bold bg-[#d4a857] text-[#14161b] hover:bg-[#e2bb70]">
+                            <a href={QUOTE_HREF}>Get a Quote</a>
+                        </Button>
+                        <Button asChild size="lg" variant="outline" className="h-auto py-4 px-7 rounded-xl font-bold bg-white/10 text-white border-white/40 hover:bg-white/20 hover:text-white">
+                            <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer"><WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Book on WhatsApp</a>
+                        </Button>
                     </div>
-                    <div className="text-center mt-6">
-                        <Link href="/fleet/" className="text-primary font-semibold hover:underline inline-flex items-center gap-1">
-                            View full fleet <ArrowRight className="w-4 h-4" />
-                        </Link>
-                    </div>
+                    <p className="text-xs text-white/40 mt-8 flex items-center justify-center gap-2"><Info className="w-3.5 h-3.5" aria-hidden="true" />Skyline shown as an illustration.</p>
                 </div>
             </section>
-
-            {/* Why pre-book */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-3xl mx-auto text-center">
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Why Pre-Book?</h2>
-                    <p className="text-gray-600 leading-relaxed">
-                        A pre-booked vehicle gives you a confirmed pickup time and driver before your journey — useful for airport arrivals, scheduled meetings and longer intercity trips. The fare is agreed before you travel.
-                    </p>
-                </div>
-            </section>
-
-            {/* Reviews & Questions */}
-            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-200">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">Real Customer Reviews</h2>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">Share your experience or ask a question about our Riyadh services.</p>
-                    </div>
-
-                    <div className="space-y-16 mb-16">
-                        <ReviewsDisplay location="Riyadh" />
-                        <QuestionsDisplay location="Riyadh" />
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <ReviewForm locationName="Riyadh" />
-                        <QuestionForm locationName="Riyadh" />
-                    </div>
-                </div>
-            </section>
-
-            {/* FAQ */}
-            <div className="max-w-4xl mx-auto px-4 pb-4 pt-16">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-2">Riyadh Transfer FAQ</h2>
-            </div>
-            <MicroSemanticFAQ faqs={faqs} />
-
-            {/* CTA */}
-            <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white mt-16">
-                <div className="max-w-3xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-black mb-4">Book Riyadh Taxi</h2>
-                    <p className="text-gray-400 text-lg mb-10">Send your pickup location, destination and travel date for a fixed quote.</p>
-                    <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <Link href="/booking/">
-                            <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-200 font-black px-10 py-6 h-auto text-lg rounded-2xl">
-                                Book Your Riyadh Transfer
-                                <ArrowRight className="ml-2 w-5 h-5" />
-                            </Button>
-                        </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
-                            <Button size="lg" variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20 font-bold px-10 py-6 h-auto text-lg rounded-2xl">
-                                Email Us
-                            </Button>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <ApprovedDriversForLocation location="riyadh" />
-
-                <RelatedLocations currentCity="Riyadh" />
-            </div>
         </div>
     );
 }
