@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 
 // Segments whose capitalisation can't be derived from the slug.
-const NAME_OVERRIDES: Record<string, string> = { neom: 'NEOM', 'khobar-to-qatar-taxi': 'Al Khobar to Qatar', 'khayber-fort': 'Khaybar', 'taxi-king-fahd-causeway-border-crossing': 'King Fahd Causeway', alula: 'AlUla', quba: 'Masjid Quba', 'madinah-makkah': 'Madinah to Makkah' };
+const NAME_OVERRIDES: Record<string, string> = { neom: 'NEOM', 'khobar-to-qatar-taxi': 'Al Khobar to Qatar', 'khayber-fort': 'Khaybar', uhud: 'Mount Uhud', 'taxi-king-fahd-causeway-border-crossing': 'King Fahd Causeway', alula: 'AlUla', quba: 'Masjid Quba', 'madinah-makkah': 'Madinah to Makkah' };
 
 export default function JsonLdBreadcrumb() {
     const pathname = usePathname();

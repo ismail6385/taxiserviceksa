@@ -12,6 +12,7 @@ import {
 import Hero from '@/components/Hero';
 import Script from 'next/script';
 import DistanceTable from '@/components/seo/DistanceTable';
+import { madinahToUhud } from '@/data/madinahPlaces';
 
 export const metadata: Metadata = {
     title: 'Private Car Transfer, Taxi and Chauffeur Service in Madinah Central Area | Premium Chauffeur | Taxi Service KSA',
@@ -41,7 +42,7 @@ export default function CentralAreaPage() {
         { destination: 'Masjid An-Nabawi (Green Dome)', distance: '0.1 km (0.05 mi)', time: '1-2 mins walk', route: 'Direct Pedestrian' },
         { destination: 'Madinah Airport (MED)', distance: '19 km (11.8 mi)', time: '20-25 mins', route: 'Airport Rd' },
         { destination: 'Masjid Quba', distance: '11 km (6.8 mi)', time: '15-20 mins', route: 'Quba Rd' },
-        { destination: 'Uhud Martyrs Cemetery', distance: '8 km (5 mi)', time: '15 mins', route: 'King Abdullah Rd' }
+        { destination: 'Mount Uhud', distance: madinahToUhud.distance, time: 'Varies by hotel and traffic', route: 'North of the Haram' }
     ];
 
     return (
@@ -207,7 +208,7 @@ export default function CentralAreaPage() {
                 </div>
                 <div className="max-w-4xl mx-auto px-4 relative z-10">
                     <h2 className="text-4xl md:text-5xl font-black text-white mb-8">Experience Premium Transport in Markaziya.</h2>
-                    <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto"> Don't settle for regular transport. Choose our executive chauffeur service in the heart of Madinah.
+                    <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto"> Don&apos;t settle for regular transport. Choose our executive chauffeur service in the heart of Madinah.
                     </p>
                     <div className="flex flex-wrap justify-center gap-6">
                         <Link href="/booking/">

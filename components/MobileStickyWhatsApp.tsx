@@ -9,6 +9,7 @@ import { useHideNearFooter } from '@/hooks/useHideNearFooter';
 // WhatsApp stays available as the secondary action.
 const PAGE_QUOTE: Record<string, { label: string; href: string; whatsapp: string }> = {
     '/locations/khayber-fort/': { label: 'Get Khaybar Quote', href: '#quote', whatsapp: 'Hello, I would like a quote for a Khaybar trip.' },
+    '/locations/madinah/uhud/': { label: 'Get Uhud Quote', href: '#quote', whatsapp: 'Hello, I would like a quote for a Mount Uhud visit.' },
     '/locations/duba/': { label: 'Get a Duba Quote', href: '#quote', whatsapp: 'Hello, I would like a quote for a journey from Duba.' },
 };
 

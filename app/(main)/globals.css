@@ -287,7 +287,8 @@
 .tabuk-page h3,
 .services-hub-page h3,
 .khaybar-page h3,
-.duba-page h3 {
+.duba-page h3,
+.uhud-page h3 {
   font-size: 1.2rem !important;
   font-weight: 700 !important;
   line-height: 1.35 !important;
