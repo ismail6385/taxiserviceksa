@@ -19,6 +19,7 @@ export default function Breadcrumbs() {
         'locations': 'Locations',
         'neom': 'NEOM',
         'khobar-to-qatar-taxi': 'Al Khobar to Qatar',
+        'khayber-fort': 'Khaybar',
         'taxi-king-fahd-causeway-border-crossing': 'King Fahd Causeway',
         'routes': 'Routes',
         'fleet': 'Fleet',
