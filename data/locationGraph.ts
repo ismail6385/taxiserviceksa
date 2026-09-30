@@ -130,7 +130,8 @@ const LOCATIONS: LocationNode[] = [
     { slug: 'al-uyun', name: 'Al-Uyun', region: 'qassim' },
     { slug: 'al-rais', name: 'Al Rais', region: 'qassim' },
 
-    // Tabuk / NEOM corridor (no standalone /locations/tabuk/ page exists)
+    // Tabuk / NEOM corridor
+    { slug: 'tabuk', name: 'Tabuk', region: 'tabuk' },
     { slug: 'neom', name: 'NEOM', region: 'tabuk' },
     { slug: 'duba', name: 'Duba', region: 'tabuk' },
     { slug: 'al-wajh', name: 'Al Wajh', region: 'tabuk' },
