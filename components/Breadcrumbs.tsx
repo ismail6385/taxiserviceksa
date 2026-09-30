@@ -18,6 +18,7 @@ export default function Breadcrumbs() {
     const segmentLabels: Record<string, string> = {
         'locations': 'Locations',
         'neom': 'NEOM',
+        'khobar-to-qatar-taxi': 'Al Khobar to Qatar',
         'routes': 'Routes',
         'fleet': 'Fleet',
         'distance': 'Distance',

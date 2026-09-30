@@ -278,7 +278,8 @@
 .abha-page h3,
 .neom-page h3,
 .taif-page h3,
-.bahrain-page h3 {
+.bahrain-page h3,
+.qatar-page h3 {
   font-size: 1.2rem !important;
   font-weight: 700 !important;
   line-height: 1.35 !important;
@@ -300,4 +301,13 @@
 .car-travel { animation: car-travel 10s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) {
   .car-travel { animation: none; left: calc(100% - 2.25rem); }
+}
+
+@keyframes car-descend {
+  0%, 6% { top: 0; }
+  88%, 100% { top: calc(100% - 2.25rem); }
+}
+.car-descend { animation: car-descend 11s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .car-descend { animation: none; top: 0; }
 }
