@@ -1,432 +1,638 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
+import Image from 'next/image';
+import { ArrowRight, Check, Minus, Plane, Hotel, Briefcase, Clock, CalendarDays, Ticket, Users, Map, Route, Globe2, Lock, Languages, Info, Car, MessageCircle } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
-import {
-    CheckCircle2, ArrowRight, Star, Shield, Crown, Globe,
-    Car, Users, Clock, MapPin, Phone
-} from 'lucide-react';
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from '@/components/ui/accordion';
-import JsonLdFAQ from '@/components/JsonLdFAQ';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+import Reveal from '@/components/alula/Reveal';
+import RouteJourney from '@/components/routes/RouteJourney';
+import ChauffeurRequestCard from '@/components/vip/ChauffeurRequestCard';
+import VipVehicleMatch, { type VipVehicle } from '@/components/vip/VipVehicleMatch';
+import VipChecklist from '@/components/vip/VipChecklist';
+import { vehicles } from '@/lib/supabase';
+
+const PAGE_URL = 'https://taxiserviceksa.com/services/vip-chauffeur/';
+const QUOTE_HREF = '#arrange';
+const WHATSAPP_HREF = `https://wa.me/966575806733?text=${encodeURIComponent('Hello, I would like a VIP chauffeur quote. Service type, pickup, date, time, passengers and vehicle preference: ')}`;
 
 export const metadata: Metadata = {
-    title: 'VIP Chauffeur Service Saudi Arabia | Royal & Diplomatic Transport | Taxi Service KSA',
-    description: 'Premium VIP chauffeur service for royal guests, diplomats, and elite visitors in Saudi Arabia. Discreet, licensed drivers in Riyadh and Jeddah. Luxury SUVs and sedans available 24/7.',
-    keywords: [
-        'VIP chauffeur Saudi Arabia',
-        'chauffeur for royal guests Riyadh',
-        'private transport for diplomats Riyadh',
-        'chauffeur for embassy guests',
-        'Saudi elite transport services',
-        'VIP family chauffeur Saudi Arabia',
-        'luxury chauffeur Riyadh',
-        'chauffeur for luxury hotels Riyadh',
-        'Saudi Arabia luxury road trips',
-        'executive chauffeur Saudi',
-    ],
-    alternates: {
-        canonical: 'https://taxiserviceksa.com/services/vip-chauffeur/',
-        languages: {
-            'en': 'https://taxiserviceksa.com/services/vip-chauffeur/',
-            'ar': 'https://taxiserviceksa.com/ar/services/vip-chauffeur/',
-            'x-default': 'https://taxiserviceksa.com/services/vip-chauffeur/',
-        },
-    },
+    title: 'VIP Chauffeur Service Saudi Arabia | Private Luxury Driver',
+    description:
+        'Book a private VIP chauffeur in Saudi Arabia for airport arrivals, hotels, executive travel, events, hourly journeys and multi-day itineraries in premium vehicles.',
+    alternates: { canonical: PAGE_URL },
     openGraph: {
-        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'VIP Chauffeur Service Saudi Arabia | Royal & Diplomatic Transport | Taxi Service KSA' }],
+        title: 'Private VIP Chauffeur Service in Saudi Arabia',
+        description: 'Airport arrivals, hotel journeys, meetings, events, hourly and multi-day chauffeur service in premium vehicles.',
+        url: PAGE_URL,
         siteName: 'Taxi Service KSA',
-        title: 'VIP Chauffeur Service Saudi Arabia | Royal & Diplomatic Transport | Taxi Service KSA',
-        description: 'Premium VIP chauffeur for royal guests, diplomats, hotel guests, and elite visitors across Riyadh and Jeddah. Discreet, licensed, 24/7.',
-        url: 'https://taxiserviceksa.com/services/vip-chauffeur/',
         type: 'website',
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private VIP chauffeur service in Saudi Arabia' }],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Private VIP Chauffeur Service in Saudi Arabia',
+        description: 'Airport arrivals, hotel journeys, meetings, events, hourly and multi-day chauffeur service in premium vehicles.',
+        images: ['https://taxiserviceksa.com/og-image.jpg'],
     },
 };
 
-export default function VIPChauffeurPage() {
-    const clientTypes = [
-        {
-            title: 'Royal & Government Guests',
-            description: 'Discreet, protocol-aware transport for royal family guests, government officials, and state visitors. Fully licensed, backgroundchecked drivers trained in formal etiquette.',
-            icon: Crown,
-            examples: ['Royal residence transfers', 'Palace to ministry routes', 'State function arrivals'],
-        },
-        {
-            title: 'Diplomats & Embassy Personnel',
-            description: 'Reliable chauffeur service for ambassadors, consulate staff, and foreign ministry delegations visiting Riyadh\'s Diplomatic Quarter and beyond.',
-            icon: Shield,
-            examples: ['Embassy to MOFA transfers', 'Diplomatic Quarter transport', 'Conference & summit arrivals'],
-        },
-        {
-            title: 'CEOs & Senior Executives',
-            description: 'Executive airport pickup and city transport for C-suite travelers, board members, and business delegations arriving in Riyadh or Jeddah.',
-            icon: Star,
-            examples: ['KAFD executive transfers', 'King Fahd Road business corridor', 'Hotel to boardroom transport'],
-        },
-        {
-            title: 'Luxury Hotel Concierge',
-            description: 'Preferred transport partner for guests of five-star hotels in Riyadh and Jeddah. Seamless hotel-to-destination service on demand.',
-            icon: MapPin,
-            examples: ['Four Seasons Riyadh transfers', 'Ritz-Carlton pickups', 'Mandarin Oriental Jeddah'],
-        },
-        {
-            title: 'International VIP Visitors',
-            description: 'Curated chauffeur experience for international visitors attending Saudi events, sporting fixtures, and cultural tours including Riyadh Season and Formula E.',
-            icon: Globe,
-            examples: ['Riyadh Season event transport', 'Formula E & Diriyah transfers', 'AlUla luxury road trips'],
-        },
-        {
-            title: 'VIP Family Transport',
-            description: 'Private, spacious chauffeur-driven vehicles for high-profile families requiring comfort, privacy, and flexibility across multi-stop city itineraries.',
-            icon: Users,
-            examples: ['Shopping tour with driver', 'Multi-city family travel', 'Airport to villa transfers'],
-        },
-    ];
+const q = (p: Record<string, string>) => `/booking/?${new URLSearchParams(p).toString()}`;
 
-    const features = [
-        'Ministry of Transport licensed drivers',
-        'Background-checked and vetted chauffeurs',
-        'Business & formal attire as standard',
-        'Strict discretion and confidentiality',
-        'English, Arabic, and Urdu speaking drivers',
-        'GMC Yukon, Mercedes S-Class, Cadillac Escalade fleet',
-        'Pre-trip route planning included',
-        '24/7 availability including holidays',
-        'Door-to-door service across KSA',
-        'Female-friendly drivers available',
-    ];
+// Fleet figures come from the booking system's vehicle list - one source of truth.
+const FLEET_META: { name: string; kind: string; href: string; best: string }[] = [
+    { name: 'Mercedes S-Class', kind: 'Luxury sedan', href: '/fleet/mercedes-s-class/', best: 'Executive arrivals, formal meetings, one or two guests travelling light.' },
+    { name: 'Genesis G80 VIP', kind: 'Executive sedan', href: '/fleet/genesis-g80/', best: 'Quiet city travel between hotel, office and dinner.' },
+    { name: 'Cadillac Escalade', kind: 'Luxury SUV', href: '/fleet/cadillac-escalade/', best: 'Small groups or families who want an SUV with presence and room.' },
+    { name: 'GMC Yukon XL / Denali', kind: 'Large SUV', href: '/fleet/gmc-yukon-xl/', best: 'The most luggage space among our SUVs - families and longer drives.' },
+    { name: 'Hyundai Staria VIP', kind: 'Luxury MPV', href: '/fleet/hyundai-staria-vip/', best: 'Groups who want to sit together, with easy step-in and a flat floor.' },
+];
+const FLEET = FLEET_META.flatMap((m) => {
+    const v = vehicles.find((x) => x.name === m.name);
+    return v ? [{ ...m, image: v.image, passengers: v.passengers, luggage: v.luggage }] : [];
+});
+const sprinter = vehicles.find((x) => x.name === 'Mercedes Sprinter');
+const MATCH_FLEET: VipVehicle[] = [
+    ...FLEET.map((f) => ({ name: f.name, image: f.image, passengers: f.passengers, luggage: f.luggage, kind: f.kind, href: f.href })),
+    ...(sprinter ? [{ name: sprinter.name, image: sprinter.image, passengers: sprinter.passengers, luggage: sprinter.luggage, kind: 'Executive van', href: '/fleet/mercedes-sprinter/' }] : []),
+];
 
-    const vehicles = [
-        { name: 'GMC Yukon XL', class: 'Luxury SUV', seats: '6–7', ideal: 'Groups, families, diplomats' },
-        { name: 'Cadillac Escalade', class: 'Ultra-Luxury SUV', seats: '6–7', ideal: 'Royal guests, CEOs' },
-        { name: 'Mercedes-Benz S-Class', class: 'Executive Sedan', seats: '3', ideal: 'Solo executives, VIP arrivals' },
-        { name: 'Genesis G80', class: 'Luxury Sedan', seats: '3', ideal: 'Business executives, hotel guests' },
-        { name: 'Hyundai Staria VIP', class: 'Luxury MPV', seats: '7', ideal: 'VIP families, delegations' },
-    ];
+const faqs = [
+    { q: 'What is a VIP chauffeur service?', a: 'A pre-booked private car with a driver, arranged around your plan rather than a single ride: the vehicle is chosen for your group, the chauffeur is assigned in advance and pickup details are confirmed before you travel.' },
+    { q: 'Can I book a VIP chauffeur from the airport?', a: 'Yes. Choose "Airport transfer", add your flight number, arrival time, passengers and luggage, and you receive pickup instructions with your confirmed booking.' },
+    { q: 'Can I book a luxury car and driver by the hour?', a: 'Yes. Choose hourly on the form and say roughly how many hours and which stops you have in mind. The car stays with you between stops.' },
+    { q: 'Can I request a Mercedes S-Class?', a: 'Yes - request it by name. We confirm whether it is available for your date; if it is not, we suggest the closest alternative before you book.' },
+    { q: 'Is a Cadillac Escalade or GMC Yukon available?', a: 'Both are in our fleet and can be requested. Availability depends on the date and city, and is confirmed with your quote.' },
+    { q: 'Can I book a VIP chauffeur for a full day?', a: 'Yes. Tell us the start time, an approximate end time and the main stops. Full-day plans can change during the day within what was agreed.' },
+    { q: 'Can I arrange a chauffeur for several days?', a: 'Yes. Send the itinerary day by day - cities, hotels and rough timings - and we quote the whole trip. Longer itineraries are easier to arrange with notice.' },
+    { q: 'Can I book for a guest or executive?', a: 'Yes. Book on their behalf and give us the guest’s name and contact number for the pickup, plus any preferences they have.' },
+    { q: 'Can the chauffeur wait between meetings?', a: 'Yes, when you book by the hour or for a full day. For a single transfer, tell us in advance if you expect a wait so it can be included.' },
+    { q: 'Can I travel with multiple passengers and luggage?', a: 'Yes. Give the exact number of passengers and bags; we suggest an SUV, MPV or van that fits, or two vehicles if needed.' },
+    { q: 'Can I request a specific language preference?', a: 'You can tell us your preference. We will confirm whether it can be accommodated for your booking - see our bilingual chauffeur page for more.' },
+    { q: 'Can I book for an event or wedding?', a: 'Yes. Send the venue, the arrival time and when you expect to leave. Access and drop-off follow the venue’s own arrangements on the day.' },
+    { q: 'Do you provide VIP chauffeur service outside Saudi Arabia?', a: 'Some cross-border journeys to neighbouring GCC countries can be arranged. Send the route and dates and we confirm what is possible.' },
+    { q: 'How is a VIP chauffeur quote calculated?', a: 'By service type, vehicle, route, hours, date and any waiting or extra stops. You see the price before you confirm.' },
+];
 
-    const faqs = [
+const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
         {
-            question: 'Do you provide chauffeur service for royal and government guests in Riyadh?',
-            answer: 'Yes. We provide discreet, protocol-aware chauffeur service for royal family guests and government officials in Riyadh. All drivers are Ministry of Transport licensed, background checked, and trained in formal etiquette. Vehicle options include GMC Yukon XL and Cadillac Escalade for multi-passenger delegations.',
+            '@type': 'TaxiService',
+            '@id': `${PAGE_URL}#service`,
+            name: 'Private VIP chauffeur service in Saudi Arabia',
+            url: PAGE_URL,
+            serviceType: 'Pre-booked chauffeur-driven car',
+            description: 'Pre-booked private chauffeur service in Saudi Arabia for airport arrivals, hotel journeys, executive travel, events, hourly bookings and multi-day itineraries in premium vehicles.',
+            provider: { '@type': 'Organization', '@id': 'https://taxiserviceksa.com/#organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com' },
+            areaServed: { '@type': 'Country', name: 'Saudi Arabia' },
         },
         {
-            question: 'Can you arrange private transport for diplomats and embassy staff in Riyadh?',
-            answer: 'Yes. We regularly serve embassy personnel and diplomatic missions in Riyadh\'s Diplomatic Quarter. Our drivers understand protocol requirements and operate with full discretion. Advance booking is recommended for recurring embassy transport needs. Monthly account billing is available for embassies and consulates.',
+            '@type': 'FAQPage',
+            '@id': `${PAGE_URL}#faq`,
+            mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
         },
-        {
-            question: 'What vehicles are used for VIP chauffeur service in Saudi Arabia?',
-            answer: 'VIP clients are assigned Cadillac Escalade, GMC Yukon XL, Mercedes-Benz S-Class, or Hyundai Staria VIP depending on group size and preference. All vehicles are late-model, regularly maintained, and kept to the highest cleanliness standards. Vehicle choice can be specified at the time of booking.',
-        },
-        {
-            question: 'Is a female-friendly chauffeur available in Riyadh or Jeddah?',
-            answer: 'Yes. Female-friendly chauffeur service is available. Female passengers traveling alone or in family groups can request a dedicated driver. All our drivers are professionally trained and respectful. This service is available across Riyadh, Jeddah, Makkah, and Madinah.',
-        },
-        {
-            question: 'Do your drivers speak English for international VIP guests?',
-            answer: 'Yes. All VIP chauffeurs speak English and Arabic fluently. Many also speak Urdu for South Asian delegations. Drivers assigned to VIP clients are specifically selected for communication skills, local knowledge, and professional presentation.',
-        },
-        {
-            question: 'Can I book a VIP chauffeur for a full-day or multi-day itinerary in Saudi Arabia?',
-            answer: 'Yes. Full-day (8–10 hours) and multi-day VIP chauffeur packages are available. The driver remains exclusively assigned to you throughout the booking period. Common itineraries include AlUla luxury road trips, Riyadh city tours, and Jeddah to Makkah private transfers with waiting.',
-        },
-        {
-            question: 'How do I book VIP chauffeur service for a Saudi luxury hotel?',
-            answer: 'VIP hotel chauffeur bookings can be made via WhatsApp or email with 24–48 hours notice for standard requests. For large delegations or multi-day bookings, 72 hours advance notice is recommended. We coordinate directly with hotel concierge teams at Four Seasons Riyadh, Ritz-Carlton, and Mandarin Oriental Jeddah.',
-        },
-        {
-            question: 'Is VIP chauffeur service available for Riyadh Season and major events?',
-            answer: 'Yes. We provide dedicated event chauffeur packages for Riyadh Season, Formula E, Diriyah Biennale, and major conferences. Advance booking during peak event periods (October–February) is strongly recommended. Multi-night packages with a dedicated assigned driver are available for event delegations.',
-        },
-    ];
+    ],
+};
 
-    const serviceSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'Service',
-        name: 'VIP Chauffeur Service Saudi Arabia',
-        serviceType: 'VIP Chauffeur & Luxury Transport',
-        provider: {
-            '@type': 'Organization',
-            name: 'Taxi Service KSA',
-            url: 'https://taxiserviceksa.com',
-        },
-        areaServed: [
-            { '@type': 'City', name: 'Riyadh' },
-            { '@type': 'City', name: 'Jeddah' },
-            { '@type': 'City', name: 'Makkah' },
-            { '@type': 'City', name: 'Madinah' },
-            { '@type': 'AdministrativeArea', name: 'Saudi Arabia' },
-        ],
-        description: 'Premium VIP chauffeur service for royal guests, diplomats, CEOs, and elite visitors across Saudi Arabia. Discreet, licensed drivers with luxury vehicles.',
-        offers: {
-            '@type': 'Offer',
-            availability: 'https://schema.org/InStock',
-            availabilityStarts: '00:00',
-            availabilityEnds: '23:59',
-        },
-        hasOfferCatalog: {
-            '@type': 'OfferCatalog',
-            name: 'VIP Chauffeur Services',
-            itemListElement: [
-                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Royal & Government Guest Transport' } },
-                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Diplomatic Chauffeur Service' } },
-                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Executive Airport Pickup' } },
-                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Luxury Hotel Transfer' } },
-                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'VIP Full-Day Chauffeur' } },
-            ],
-        },
-    };
+const JOURNEY = [
+    { title: 'Airport', text: 'You land with pickup instructions already in hand.' },
+    { title: 'Chauffeur', text: 'The chauffeur and vehicle assigned to you before the day.', accent: true },
+    { title: 'Hotel', text: 'Check in, change, and keep the car if the plan continues.' },
+    { title: 'Meeting', text: 'Dropped at the right entrance; the car waits if you booked by the hour.' },
+    { title: 'Event', text: 'Evening arrival and a pickup planned around when you leave.' },
+    { title: 'Return', text: 'Back to the hotel - or to the airport at the end of the trip.', accent: true },
+];
 
+const eyebrow = 'text-[11px] font-bold uppercase tracking-[0.25em]';
+const link = 'font-semibold text-[#9b8656] hover:underline';
+
+function Arrow() {
+    return <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" />;
+}
+
+// Architectural line art - a canopy entrance and a road leading away. Illustration, not a photo.
+function LineArt({ className = '' }: { className?: string }) {
     return (
-        <div className="bg-gray-50 min-h-screen">
-            <Script
-                id="vip-chauffeur-schema"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-            />
-            <JsonLdFAQ faqs={faqs} />
+        <svg className={className} viewBox="0 0 1440 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+            <g fill="none" stroke="#c9ced6" strokeOpacity="0.13" strokeWidth="1">
+                {Array.from({ length: 14 }, (_, i) => <line key={i} x1={820 + i * 44} y1={80 + (i % 3) * 16} x2={820 + i * 44} y2={430} />)}
+                <path d="M780 180 H 1440 M780 250 H 1440 M780 320 H 1440" />
+                <path d="M700 430 L 900 300 H 1300 L 1440 380" />
+                <path d="M0 430 H 1440" strokeOpacity="0.25" />
+            </g>
+            <path d="M-20 505 C 320 470, 560 450, 820 440 S 1240 432, 1460 436" fill="none" stroke="#d8c7a3" strokeWidth="1.5" strokeLinecap="round" pathLength={1} className="route-draw" />
+        </svg>
+    );
+}
 
-            {/* Hero */}
-            <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                    <div className="absolute inset-0 bg-[url('/hero-slide-1.webp')] bg-cover bg-center" />
-                </div>
-                <div className="max-w-7xl mx-auto relative z-10 text-center">
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-6">
-                        VIP & Luxury Chauffeur
-                    </span>
-                    <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        Private VIP Chauffeur Service<br />
-                        <span className="text-white/80">Saudi Arabia</span>
-                    </h1>
-                    <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                        Discreet, licensed chauffeurs for royal guests, diplomats, executives, and elite visitors across Riyadh, Jeddah, Makkah, and beyond. Luxury fleet. 24/7 availability.
-                    </p>
+export default function VipChauffeurPage() {
+    return (
+        <div className="vip-page bg-[#f7f5f0]">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-                    {/* TL;DR block for AEO */}
-                    <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 max-w-3xl mx-auto text-left mb-10">
-                        <p className="text-base font-bold text-white mb-3 flex items-center gap-2">
-                            <Crown className="w-4 h-4 text-yellow-400" /> VIP Chauffeur — Quick Facts
+            {/* ================= HERO ================= */}
+            <section className="relative isolate overflow-hidden bg-[#0e1116]">
+                <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_80%_10%,rgba(216,199,163,0.14),transparent_55%)]" aria-hidden="true" />
+                <LineArt className="absolute bottom-0 left-0 -z-10 w-full h-full" />
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-24 grid grid-cols-1 lg:grid-cols-[1fr_0.9fr] gap-8 lg:gap-14 items-center">
+                    <div className="text-white animate-fade-in-up motion-reduce:animate-none motion-reduce:opacity-100">
+                        <p className={`${eyebrow} text-[#d8c7a3] mb-6`}>Private • Premium • Chauffeur-driven</p>
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight mb-6">Private VIP Chauffeur Service in Saudi Arabia</h1>
+                        <p className="text-base sm:text-lg text-white/70 leading-relaxed mb-8 max-w-xl">
+                            Pre-book a premium vehicle and a private chauffeur for airport arrivals, hotel journeys, meetings, events, hourly travel and multi-day itineraries - planned around you before the day begins.
                         </p>
-                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-300 text-sm">
-                            <li><strong className="text-white">Fleet:</strong> GMC Yukon, Cadillac Escalade, Mercedes S-Class</li>
-                            <li><strong className="text-white">Languages:</strong> English, Arabic, Urdu</li>
-                            <li><strong className="text-white">Availability:</strong> 24/7 including weekends & holidays</li>
-                            <li><strong className="text-white">Coverage:</strong> Riyadh, Jeddah, Makkah, Madinah, AlUla</li>
-                        </ul>
+                        <div className="flex flex-col sm:flex-row gap-3 mb-8">
+                            <Button asChild size="lg" className="group h-auto py-4 px-7 rounded-xl font-bold text-base bg-[#d8c7a3] text-[#0e1116] hover:bg-[#e6d8b9]">
+                                <a href={QUOTE_HREF}>Book a VIP Chauffeur <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" /></a>
+                            </Button>
+                            <Button asChild size="lg" variant="outline" className="h-auto py-4 px-7 rounded-xl font-bold text-base bg-transparent text-white border-white/30 hover:bg-white/10 hover:text-white">
+                                <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer"><WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Request a Custom Quote</a>
+                            </Button>
+                        </div>
+                        <p className="text-sm text-white/[0.45]">Airport • Hotel • Executive • Events • Hourly • Multi-day</p>
                     </div>
-
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966575806733?text=Hello,%20I%20need%20VIP%20Chauffeur%20Service" target="_blank" rel="noopener noreferrer">
-                            <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
-                                Book VIP Chauffeur
-                                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            </Button>
-                        </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
-                            <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
-                                Email for Custom Quote
-                            </Button>
-                        </a>
+                    <div id="arrange" className="scroll-mt-32">
+                        <ChauffeurRequestCard />
                     </div>
                 </div>
             </section>
 
-            {/* LEAP Riyadh contextual callout */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-                <Link
-                    href="/events/leap-riyadh-transportation/"
-                    className="flex items-center justify-between gap-4 bg-emerald-50 border border-emerald-100 rounded-2xl px-6 py-4 hover:bg-emerald-100/60 transition-colors group"
-                >
-                    <span className="text-sm font-semibold text-emerald-900">
-                        Need VIP transportation for LEAP Riyadh? See our dedicated LEAP transportation page for speakers and executives.
-                    </span>
-                    <ArrowRight className="w-4 h-4 text-emerald-700 shrink-0 group-hover:translate-x-1 transition-transform" />
-                </Link>
-            </div>
-
-            {/* Client Types */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Who We Serve</h2>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                            From royal protocol transport to luxury tourism — our VIP chauffeur service covers every high-profile travel need in the Kingdom.
-                        </p>
+            {/* ================= SIGNATURE JOURNEY ================= */}
+            <section aria-labelledby="journey" className="bg-[#0e1116] text-white py-20 md:py-28 px-4 sm:px-6 lg:px-8 border-t border-white/5">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12">
+                    <div className="lg:sticky lg:top-32 self-start">
+                        <p className={`${eyebrow} text-[#d8c7a3] mb-4`}>One chauffeur, one plan</p>
+                        <h2 id="journey" className="text-3xl md:text-5xl font-semibold mb-5">Your Journey, Privately Arranged</h2>
+                        <p className="text-white/60 leading-relaxed">A VIP booking can be a single airport run or a whole day that moves from arrival to hotel, meeting, dinner and back. You tell us the shape of the day; we match the vehicle and the chauffeur to it.</p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {clientTypes.map((type, index) => (
-                            <div key={index} className="bg-gray-50 rounded-2xl p-8 border-2 border-gray-200 hover:border-black hover:shadow-xl transition-all">
-                                <div className="w-14 h-14 bg-black rounded-full flex items-center justify-center mb-5">
-                                    <type.icon className="w-7 h-7 text-white" />
-                                </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">{type.title}</h3>
-                                <p className="text-gray-600 mb-5 leading-relaxed">{type.description}</p>
-                                <ul className="space-y-2">
-                                    {type.examples.map((ex, i) => (
-                                        <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
-                                            <div className="w-1.5 h-1.5 bg-black rounded-full flex-shrink-0" />
-                                            {ex}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </div>
+                    <RouteJourney stops={JOURNEY} vehicle palette="platinum" />
                 </div>
             </section>
 
-            {/* Vehicle Fleet */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">VIP Fleet Selection</h2>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                            Choose from Saudi Arabia's most trusted luxury vehicles. All chauffeur-driven, all available 24/7.
-                        </p>
-                    </div>
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-left bg-white rounded-2xl border border-gray-200 overflow-hidden">
-                            <thead className="bg-black text-white">
-                                <tr>
-                                    <th className="px-6 py-4 font-bold">Vehicle</th>
-                                    <th className="px-6 py-4 font-bold">Class</th>
-                                    <th className="px-6 py-4 font-bold">Seats</th>
-                                    <th className="px-6 py-4 font-bold">Ideal For</th>
+            {/* ================= WHICH SERVICE ================= */}
+            <section aria-labelledby="which" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <p className={`${eyebrow} text-[#9b8656] mb-4`}>Choosing the right service</p>
+                    <h2 id="which" className="text-3xl md:text-5xl font-semibold text-[#0e1116] mb-4">Is VIP Chauffeur the Right Service?</h2>
+                    <p className="text-slate-600 max-w-2xl mb-10">We run several private services. VIP chauffeur is the one built around premium vehicles and a planned itinerary - if another fits your trip better, use that page.</p>
+                    <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+                        <table className="w-full min-w-[640px] text-left text-sm border-separate border-spacing-0">
+                            <caption className="sr-only">How VIP chauffeur compares with our other private services</caption>
+                            <thead>
+                                <tr className="text-[#0e1116]">
+                                    <th scope="col" className="py-3 pr-4 font-bold border-b border-[#0e1116]/[0.15]">Service</th>
+                                    <th scope="col" className="py-3 pr-4 font-bold border-b border-[#0e1116]/[0.15]">Best for</th>
+                                    <th scope="col" className="py-3 font-bold border-b border-[#0e1116]/[0.15]">Typical vehicle</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-gray-100">
-                                {vehicles.map((v, i) => (
-                                    <tr key={i} className="hover:bg-gray-50 transition-colors">
-                                        <td className="px-6 py-4 font-bold text-gray-900">{v.name}</td>
-                                        <td className="px-6 py-4 text-gray-600">{v.class}</td>
-                                        <td className="px-6 py-4 text-gray-600">{v.seats}</td>
-                                        <td className="px-6 py-4 text-gray-600">{v.ideal}</td>
+                            <tbody className="text-slate-700">
+                                {[
+                                    ['VIP chauffeur', 'Premium arrivals, hosted guests, full days and itineraries', 'S-Class, Escalade, Yukon, Staria VIP, G80', null],
+                                    ['Business chauffeur', 'Meetings, offices and company travel', 'Executive sedan or SUV', '/services/business/'],
+                                    ['Private driver', 'A car and driver by the hour for your own plan', 'Any fleet vehicle', '/services/private-driver/'],
+                                    ['Tourism transport', 'Sightseeing days and heritage visits', 'Sedan, SUV or van', '/services/tourism-transport/'],
+                                    ['Intercity transfer', 'Door-to-door between Saudi cities', 'Sedan, SUV, van or minibus', '/services/intercity/'],
+                                ].map(([s, b, v, h]) => (
+                                    <tr key={s as string} className={h ? '' : 'bg-[#0e1116] text-white'}>
+                                        <th scope="row" className={`py-4 px-4 font-semibold border-b ${h ? 'border-[#0e1116]/10' : 'border-transparent rounded-l-xl'}`}>
+                                            {h ? <Link href={h} className={link}>{s}</Link> : s}
+                                        </th>
+                                        <td className={`py-4 pr-4 border-b ${h ? 'border-[#0e1116]/10' : 'border-transparent'}`}>{b}</td>
+                                        <td className={`py-4 pr-4 border-b ${h ? 'border-[#0e1116]/10' : 'border-transparent rounded-r-xl'}`}>{v}</td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
                     </div>
-                    <p className="text-center mt-6 text-gray-500 text-sm">
-                        View full fleet specifications →{' '}
-                        <Link href="/fleet/" className="text-black font-bold hover:underline">Explore All Vehicles</Link>
-                    </p>
                 </div>
             </section>
 
-            {/* Features */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose Our VIP Chauffeur Service</h2>
+            {/* ================= PLANNED JOURNEY FLOW ================= */}
+            <section aria-labelledby="planned" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="planned" className="text-3xl md:text-5xl font-semibold text-[#0e1116] mb-4">More Than a Car. A Planned Private Journey.</h2>
+                    <p className="text-slate-600 max-w-2xl mb-12">The difference is in what happens before the pickup. Each step is confirmed with you, not assumed.</p>
+                    <ol className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-px bg-[#0e1116]/10 rounded-2xl overflow-hidden">
+                        {[
+                            ['Booking', 'Your plan, passengers and luggage.'],
+                            ['Vehicle confirmed', 'Matched to your group and requested model.'],
+                            ['Chauffeur assigned', 'Before the day, not at the last minute.'],
+                            ['Pickup instructions', 'Where and how you meet.'],
+                            ['Private journey', 'Your car, your stops, your pace.'],
+                            ['Journey complete', 'Drop-off or the next leg of the plan.'],
+                        ].map(([t, d], i) => (
+                            <li key={t} className="bg-white p-5">
+                                <Reveal delay={i * 70}>
+                                    <span className="block text-xs font-bold text-[#9b8656] mb-3">0{i + 1}</span>
+                                    <h3 className="text-[#0e1116] mb-1.5">{t}</h3>
+                                    <p className="text-sm text-slate-600">{d}</p>
+                                </Reveal>
+                            </li>
+                        ))}
+                    </ol>
+                </div>
+            </section>
+
+            {/* ================= AUDIENCE ================= */}
+            <section aria-labelledby="who" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="who" className="text-3xl md:text-5xl font-semibold text-[#0e1116] mb-10">Who Books a VIP Chauffeur?</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {[
+                            { i: Briefcase, t: 'Executives and visiting teams', d: 'Airport to hotel to meetings, with a car that waits between them.' },
+                            { i: Users, t: 'Hosted guests', d: 'Companies and families booking a car for someone arriving - the guest simply gets in.' },
+                            { i: Hotel, t: 'Hotel guests', d: 'A private car at the entrance for dinners, shopping and appointments.' },
+                            { i: Ticket, t: 'Event and wedding guests', d: 'Arrive together and leave when the evening ends, not when a ride app finds a car.' },
+                            { i: Map, t: 'Families on longer trips', d: 'One vehicle and chauffeur across several days and cities.' },
+                            { i: Globe2, t: 'GCC and international visitors', d: 'Travellers who want arrival and transport sorted before they fly.' },
+                        ].map((c, i) => (
+                            <Reveal key={c.t} delay={i * 60} className="h-full">
+                                <div className="h-full rounded-2xl border border-[#0e1116]/10 bg-white p-6">
+                                    <c.i className="w-6 h-6 text-[#9b8656] mb-4" aria-hidden="true" />
+                                    <h3 className="text-[#0e1116] mb-2">{c.t}</h3>
+                                    <p className="text-sm text-slate-600 leading-relaxed">{c.d}</p>
+                                </div>
+                            </Reveal>
+                        ))}
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 max-w-6xl mx-auto">
-                        {features.map((f, i) => (
-                            <div key={i} className="flex items-start gap-3 bg-gray-50 p-5 rounded-xl border border-gray-200">
-                                <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                                <span className="text-gray-700 font-medium text-sm leading-relaxed">{f}</span>
+                </div>
+            </section>
+
+            {/* ================= VIP VS STANDARD ================= */}
+            <section aria-labelledby="vs" className="bg-[#0e1116] text-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-5xl mx-auto">
+                    <h2 id="vs" className="text-3xl md:text-5xl font-semibold mb-4">VIP Chauffeur or Standard Private Transfer?</h2>
+                    <p className="text-white/60 max-w-2xl mb-10">Both are private, pre-booked and door-to-door. The difference is the format of the service - not how safely you travel.</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="rounded-2xl border border-white/10 p-7">
+                            <p className={`${eyebrow} text-white/50 mb-4`}>Standard private transfer</p>
+                            <ul className="space-y-3 text-white/75">
+                                {['A → B journey', 'Vehicle chosen by size', 'Priced per trip', 'Ideal for simple transfers'].map((x) => <li key={x} className="flex gap-3"><Minus className="w-4 h-4 mt-1 text-white/40 shrink-0" aria-hidden="true" />{x}</li>)}
+                            </ul>
+                            <Link href="/services/airport-transfers/" className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-white/80 hover:text-white">Airport transfers <Arrow /></Link>
+                        </div>
+                        <div className="rounded-2xl border border-[#d8c7a3]/40 bg-[#d8c7a3]/[0.06] p-7">
+                            <p className={`${eyebrow} text-[#d8c7a3] mb-4`}>VIP chauffeur</p>
+                            <ul className="space-y-3 text-white/[0.85]">
+                                {['A journey, an afternoon or several days', 'Premium vehicle, requested by model', 'Priced around your plan and hours', 'Chauffeur can stay with you between stops'].map((x) => <li key={x} className="flex gap-3"><Check className="w-4 h-4 mt-1 text-[#d8c7a3] shrink-0" aria-hidden="true" />{x}</li>)}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= VEHICLES ================= */}
+            <section aria-labelledby="vehicles" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <p className={`${eyebrow} text-[#9b8656] mb-4`}>The vehicles</p>
+                    <h2 id="vehicles" className="text-3xl md:text-5xl font-semibold text-[#0e1116] mb-4">Premium Vehicles for Private Travel</h2>
+                    <p className="text-slate-600 max-w-2xl mb-10">Request a model by name. Availability depends on the date and city and is confirmed with your quote.</p>
+                    <ul className="relative flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:mx-0 md:px-0" aria-label="VIP chauffeur vehicles">
+                        {FLEET.map((v) => (
+                            <li key={v.name} className="snap-start shrink-0 w-[82%] sm:w-[60%] md:w-auto">
+                                <article className="h-full rounded-2xl bg-white border border-[#0e1116]/10 overflow-hidden flex flex-col">
+                                    <div className="relative aspect-[16/10] bg-[#f3f1ec]">
+                                        <Image src={v.image} alt={v.name.split(' /')[0]} fill sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 82vw" className={v.image.startsWith('/fleet/') ? 'object-contain p-5' : 'object-cover'} />
+                                    </div>
+                                    <div className="p-6 flex flex-col flex-1">
+                                        <p className={`${eyebrow} text-[#9b8656] mb-1`}>{v.kind}</p>
+                                        <h3 className="text-[#0e1116] mb-2">{v.name}</h3>
+                                        <p className="text-sm text-slate-600 mb-4 flex-1">{v.best}</p>
+                                        <p className="text-sm text-slate-500 mb-5">Up to {v.passengers} passengers · about {v.luggage} large bags</p>
+                                        <div className="flex items-center justify-between gap-3">
+                                            <Link href={q({ vehicle: v.name, notes: 'VIP chauffeur request.' })} className="group inline-flex items-center gap-2 font-bold text-[#0e1116]">Request <Arrow /></Link>
+                                            <Link href={v.href} className="text-sm font-semibold text-[#9b8656] hover:underline">Details<span className="sr-only"> about the {v.name}</span></Link>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+                        ))}
+                    </ul>
+                    <p className="text-sm text-slate-500 mt-4">Other vehicles, including the BMW 7 Series and Mercedes Sprinter, are on our <Link href="/fleet/" className={link}>fleet page</Link>.</p>
+                </div>
+            </section>
+
+            {/* ================= SELECTOR ================= */}
+            <section aria-labelledby="match" className="bg-[#efece5] py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="match" className="text-3xl md:text-5xl font-semibold text-[#0e1116] mb-4">Which Vehicle Suits Your Journey?</h2>
+                    <p className="text-slate-600 max-w-2xl mb-10">Three questions. The suggestion only includes vehicles whose seats and luggage space fit.</p>
+                    <VipVehicleMatch fleet={MATCH_FLEET} />
+                </div>
+            </section>
+
+            {/* ================= AIRPORT ================= */}
+            <section aria-labelledby="airport" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <Plane className="w-7 h-7 text-[#9b8656] mb-5" aria-hidden="true" />
+                        <h2 id="airport" className="text-3xl md:text-5xl font-semibold text-[#0e1116] mb-5">VIP Airport Arrivals</h2>
+                        <p className="text-slate-600 leading-relaxed mb-4">Send your flight number and arrival time with the booking. Your pickup instructions tell you where to meet the chauffeur once you are through arrivals, and the vehicle is chosen for your luggage, not just your headcount.</p>
+                        <p className="text-slate-600 leading-relaxed">Departures work the same way in reverse: we suggest a pickup time that leaves room for the road and airport procedures.</p>
+                    </div>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        {[
+                            ['Riyadh', 'King Khalid International (RUH)', '/riyadh-airport-taxi/'],
+                            ['Jeddah', 'King Abdulaziz International (JED)', '/locations/jeddah/'],
+                            ['Dammam', 'King Fahd International (DMM)', '/locations/dammam/'],
+                            ['Madinah', 'Prince Mohammad bin Abdulaziz (MED)', '/locations/madinah/'],
+                        ].map(([c, a, h]) => (
+                            <li key={c}>
+                                <div className="h-full rounded-2xl bg-white border border-[#0e1116]/10 p-5">
+                                    <h3 className="text-[#0e1116] mb-1">{c}</h3>
+                                    <p className="text-sm text-slate-600 mb-4">{a}</p>
+                                    <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+                                        <Link href={q({ from: a, notes: 'VIP chauffeur - Airport transfer.' })} className="group inline-flex items-center gap-1.5 font-bold text-[#0e1116]">Book arrival <Arrow /></Link>
+                                        <Link href={h} className={link}>{c} guide</Link>
+                                    </div>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </section>
+
+            {/* ================= HOTEL ================= */}
+            <section aria-labelledby="hotel" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <Hotel className="w-7 h-7 text-[#9b8656] mb-5" aria-hidden="true" />
+                    <h2 id="hotel" className="text-3xl md:text-5xl font-semibold text-[#0e1116] mb-4">A Chauffeur From Your Hotel</h2>
+                    <p className="text-slate-600 max-w-2xl mb-10">Book directly with us for pickups at any hotel entrance - give the hotel name and we plan the pickup there.</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        {[
+                            ['Arrival day', 'Airport to hotel with luggage space to match.'],
+                            ['Dinner and evenings', 'Out and back without looking for a car at night.'],
+                            ['Appointments', 'Meetings, clinics or shopping with the car waiting.'],
+                            ['Checkout', 'Hotel to the airport or on to the next city.'],
+                        ].map(([t, d]) => (
+                            <div key={t} className="rounded-2xl border border-[#0e1116]/10 p-6">
+                                <h3 className="text-[#0e1116] mb-2">{t}</h3>
+                                <p className="text-sm text-slate-600">{d}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Internal Links */}
-            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div>
-                            <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                <Car className="w-4 h-4" /> VIP Fleet
-                            </h4>
-                            <ul className="space-y-2 text-sm">
-                                <li><Link href="/fleet/cadillac-escalade/" className="text-gray-600 hover:text-black transition-colors">Cadillac Escalade</Link></li>
-                                <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black transition-colors">GMC Yukon XL</Link></li>
-                                <li><Link href="/fleet/mercedes-s-class/" className="text-gray-600 hover:text-black transition-colors">Mercedes-Benz S-Class</Link></li>
-                                <li><Link href="/fleet/" className="text-black font-bold hover:underline">All Vehicles →</Link></li>
+            {/* ================= HOURLY ================= */}
+            <section aria-labelledby="hourly" className="bg-[#0e1116] text-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <Clock className="w-7 h-7 text-[#d8c7a3] mb-5" aria-hidden="true" />
+                        <h2 id="hourly" className="text-3xl md:text-5xl font-semibold mb-5">Keep Your Chauffeur With You</h2>
+                        <p className="text-white/[0.65] leading-relaxed mb-6">Book by the hour and the car stays with you between stops. Useful when the day has several meetings, or when you do not know exactly how long each stop will take.</p>
+                        <div className="flex flex-col sm:flex-row gap-3">
+                            <Button asChild size="lg" className="group h-auto py-4 px-6 rounded-xl font-bold bg-[#d8c7a3] text-[#0e1116] hover:bg-[#e6d8b9]">
+                                <Link href={q({ trip: 'hourly', hours: '4', notes: 'VIP chauffeur - Hourly chauffeur.' })}>Book by the hour <ArrowRight className="ml-2 w-4 h-4" aria-hidden="true" /></Link>
+                            </Button>
+                            <Link href="/services/private-driver/" className="group inline-flex items-center gap-2 px-2 py-3 font-semibold text-white/80 hover:text-white">Private driver by the hour <Arrow /></Link>
+                        </div>
+                    </div>
+                    <div>
+                        <p className={`${eyebrow} text-white/[0.45] mb-5`}>An example afternoon</p>
+                        <ol className="relative border-l border-white/[0.15] ml-2 space-y-7">
+                            {[
+                                ['1:00 pm', 'Pickup at the hotel entrance'],
+                                ['1:30 pm', 'First meeting - the chauffeur waits nearby'],
+                                ['3:15 pm', 'Second meeting across the city'],
+                                ['5:00 pm', 'A stop for shopping or a coffee'],
+                                ['6:00 pm', 'Back to the hotel'],
+                            ].map(([t, d]) => (
+                                <li key={t} className="pl-7 relative">
+                                    <span className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-[#d8c7a3]" aria-hidden="true" />
+                                    <p className="text-sm font-bold text-[#d8c7a3]">{t}</p>
+                                    <p className="text-white/80">{d}</p>
+                                </li>
+                            ))}
+                        </ol>
+                        <p className="text-xs text-white/40 mt-6">Illustrative only - your plan sets the times.</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= FULL / MULTI-DAY ================= */}
+            <section aria-labelledby="days" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="days" className="text-3xl md:text-5xl font-semibold text-[#0e1116] mb-10">Full-Day and Multi-Day Chauffeur Service</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <Reveal className="h-full">
+                            <div className="h-full rounded-2xl bg-white border border-[#0e1116]/10 p-7">
+                                <Clock className="w-6 h-6 text-[#9b8656] mb-4" aria-hidden="true" />
+                                <h3 className="text-[#0e1116] mb-3">Full day</h3>
+                                <p className="text-slate-600 leading-relaxed mb-5">One vehicle and chauffeur from morning to evening. Tell us the start time, an approximate finish and the main stops; the order can change during the day within what was agreed.</p>
+                                <Link href={q({ trip: 'hourly', hours: '10', notes: 'VIP chauffeur - Full-day chauffeur.' })} className="group inline-flex items-center gap-2 font-bold text-[#0e1116]">Plan a full day <Arrow /></Link>
+                            </div>
+                        </Reveal>
+                        <Reveal className="h-full" delay={100}>
+                            <div className="h-full rounded-2xl bg-white border border-[#0e1116]/10 p-7">
+                                <CalendarDays className="w-6 h-6 text-[#9b8656] mb-4" aria-hidden="true" />
+                                <h3 className="text-[#0e1116] mb-3">Several days</h3>
+                                <p className="text-slate-600 leading-relaxed mb-5">Send the itinerary day by day - cities, hotels and rough timings. We quote the whole trip and confirm the vehicle and chauffeur arrangement for each day before you travel.</p>
+                                <Link href={q({ notes: 'VIP chauffeur - Multi-day itinerary. Day 1: ' })} className="group inline-flex items-center gap-2 font-bold text-[#0e1116]">Send an itinerary <Arrow /></Link>
+                            </div>
+                        </Reveal>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= EXECUTIVE & EVENTS ================= */}
+            <section aria-label="Executive travel and events" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <Briefcase className="w-7 h-7 text-[#9b8656] mb-5" aria-hidden="true" />
+                        <h2 className="text-3xl md:text-4xl font-semibold text-[#0e1116] mb-4">Executive Travel</h2>
+                        <p className="text-slate-600 leading-relaxed mb-4">Book for yourself or for a visiting executive. Give us the guest&apos;s name and contact number, the office tower or gate, and meeting times; business districts often have set drop-off points, so the exact entrance helps.</p>
+                        <p className="text-slate-600 leading-relaxed mb-5">For regular company bookings, see our business service.</p>
+                        <div className="flex flex-wrap gap-x-5 gap-y-2">
+                            <Link href="/services/business/" className="group inline-flex items-center gap-2 font-bold text-[#0e1116]">Business chauffeur <Arrow /></Link>
+                            <Link href="/services/corporate-travel/" className={link}>Corporate travel</Link>
+                        </div>
+                    </div>
+                    <div>
+                        <Ticket className="w-7 h-7 text-[#9b8656] mb-5" aria-hidden="true" />
+                        <h2 className="text-3xl md:text-4xl font-semibold text-[#0e1116] mb-4">Events and Special Occasions</h2>
+                        <p className="text-slate-600 leading-relaxed mb-4">Weddings, gala dinners, concerts and conferences. Send the venue, arrival time and when you expect to leave. Drop-off and pickup follow each venue&apos;s own access arrangements on the day, which can change for large events.</p>
+                        <p className="text-slate-600 leading-relaxed mb-5">Several guests? We can suggest one larger vehicle or a few cars arriving together.</p>
+                        <Link href="/services/event-transport/" className="group inline-flex items-center gap-2 font-bold text-[#0e1116]">Event transport <Arrow /></Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= PRIVACY / LANGUAGE / PREFERENCES ================= */}
+            <section aria-labelledby="private" className="bg-[#0e1116] text-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <Lock className="w-7 h-7 text-[#d8c7a3] mb-5" aria-hidden="true" />
+                    <h2 id="private" className="text-3xl md:text-5xl font-semibold mb-5">A More Private Way to Travel</h2>
+                    <p className="text-white/[0.65] max-w-2xl leading-relaxed mb-10">A private booking means the car is yours - no shared rides and no other passengers. Your booking details are used to arrange the journey and handled as described in our <Link href="/privacy-policy/" className="text-[#d8c7a3] hover:underline">privacy policy</Link>.</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="rounded-2xl border border-white/10 p-7">
+                            <Languages className="w-6 h-6 text-[#d8c7a3] mb-4" aria-hidden="true" />
+                            <h3 className="mb-2">Language preference</h3>
+                            <p className="text-white/[0.65] text-sm leading-relaxed mb-4">Tell us your preferred language when you book. We confirm whether it can be accommodated for your date.</p>
+                            <Link href="/services/bilingual-chauffeur/" className="group inline-flex items-center gap-2 text-sm font-semibold text-[#d8c7a3]">Bilingual chauffeur <Arrow /></Link>
+                        </div>
+                        <div className="rounded-2xl border border-white/10 p-7">
+                            <Users className="w-6 h-6 text-[#d8c7a3] mb-4" aria-hidden="true" />
+                            <h3 className="mb-2">Travelling as a woman or family</h3>
+                            <p className="text-white/[0.65] text-sm leading-relaxed">If you have preferences for how the journey is arranged, include them in special requirements. We tell you what is possible before you confirm.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= AREAS & GCC ================= */}
+            <section aria-labelledby="areas" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12">
+                    <div>
+                        <Route className="w-7 h-7 text-[#9b8656] mb-5" aria-hidden="true" />
+                        <h2 id="areas" className="text-3xl md:text-5xl font-semibold text-[#0e1116] mb-4">Where We Arrange Chauffeurs</h2>
+                        <p className="text-slate-600 mb-8">Pickups in the main cities, plus longer journeys between them. Send your route and we confirm availability.</p>
+                        <div className="flex flex-wrap gap-2">
+                            {[
+                                ['Riyadh', '/locations/riyadh/'],
+                                ['Jeddah', '/locations/jeddah/'],
+                                ['Makkah', '/locations/makkah/'],
+                                ['Madinah', '/locations/madinah/'],
+                                ['Dammam', '/locations/dammam/'],
+                                ['Al Khobar', '/locations/al-khobar/'],
+                                ['Taif', '/locations/taif/'],
+                                ['AlUla', '/locations/alula/'],
+                                ['Abha', '/locations/abha/'],
+                                ['Intercity journeys', '/services/intercity/'],
+                            ].map(([l, h]) => (
+                                <Link key={h} href={h} className="rounded-full border border-[#0e1116]/[0.15] bg-white px-4 py-2.5 text-sm font-semibold text-[#0e1116] hover:border-[#9b8656] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#9b8656]">{l}</Link>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="rounded-2xl bg-white border border-[#0e1116]/10 p-7 self-start">
+                        <Globe2 className="w-6 h-6 text-[#9b8656] mb-4" aria-hidden="true" />
+                        <h3 className="text-[#0e1116] mb-2">Beyond Saudi Arabia</h3>
+                        <p className="text-sm text-slate-600 leading-relaxed mb-5">Some cross-border journeys to neighbouring GCC countries can be arranged, subject to border requirements and vehicle permissions for the route.</p>
+                        <Link href="/services/gcc-chauffeur-service/" className="group inline-flex items-center gap-2 font-bold text-[#0e1116]">GCC chauffeur service <Arrow /></Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= PRICING ================= */}
+            <section aria-labelledby="pricing" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="pricing" className="text-3xl md:text-5xl font-semibold text-[#0e1116] mb-4">Request a Tailored VIP Quote</h2>
+                    <p className="text-slate-600 max-w-2xl mb-10">VIP bookings vary too much for a fixed price list. Your quote depends on the service type, vehicle, route, hours, date and any waiting or extra stops - and you see it before you confirm.</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div className="rounded-2xl border border-[#0e1116]/10 p-7">
+                            <h3 className="text-[#0e1116] mb-4">Usually included</h3>
+                            <ul className="space-y-3 text-slate-700">
+                                {['The vehicle and chauffeur for the agreed journey or hours', 'Pickup at your address, hotel or airport', 'Pickup instructions before the day'].map((x) => <li key={x} className="flex gap-3"><Check className="w-4 h-4 mt-1 text-[#9b8656] shrink-0" aria-hidden="true" />{x}</li>)}
                             </ul>
                         </div>
-                        <div>
-                            <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                <MapPin className="w-4 h-4" /> Key Locations
-                            </h4>
-                            <ul className="space-y-2 text-sm">
-                                <li><Link href="/locations/riyadh/" className="text-gray-600 hover:text-black transition-colors">VIP Chauffeur Riyadh</Link></li>
-                                <li><Link href="/locations/jeddah/" className="text-gray-600 hover:text-black transition-colors">VIP Chauffeur Jeddah</Link></li>
-                                <li><Link href="/locations/makkah/" className="text-gray-600 hover:text-black transition-colors">VIP Transport Makkah</Link></li>
-                                <li><Link href="/locations/" className="text-black font-bold hover:underline">All Locations →</Link></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2">
-                                <Shield className="w-4 h-4" /> Related Services
-                            </h4>
-                            <ul className="space-y-2 text-sm">
-                                <li><Link href="/services/corporate-travel/" className="text-gray-600 hover:text-black transition-colors">Corporate Travel</Link></li>
-                                <li><Link href="/services/airport-transfers/" className="text-gray-600 hover:text-black transition-colors">Airport Transfers</Link></li>
-                                <li><Link href="/services/private-driver/" className="text-gray-600 hover:text-black transition-colors">Private Driver (Hourly)</Link></li>
-                                <li><Link href="/services/tourism-transport/" className="text-gray-600 hover:text-black transition-colors">Tourism Transport</Link></li>
+                        <div className="rounded-2xl border border-[#0e1116]/10 bg-[#f7f5f0] p-7">
+                            <h3 className="text-[#0e1116] mb-4">May require additional arrangement</h3>
+                            <ul className="space-y-3 text-slate-700">
+                                {['Extra hours beyond the booking', 'Unplanned waiting or added stops', 'Late-night or very early changes', 'Cross-border journeys', 'Additional vehicles for larger groups'].map((x) => <li key={x} className="flex gap-3"><Info className="w-4 h-4 mt-1 text-slate-400 shrink-0" aria-hidden="true" />{x}</li>)}
                             </ul>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* FAQ */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-16">
-                        <span className="bg-black text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">FAQ</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">VIP Chauffeur Questions</h2>
-                        <p className="text-gray-600 max-w-xl mx-auto">Everything you need to know about booking private VIP transport in Saudi Arabia.</p>
+            {/* ================= PROCESS & TIMING ================= */}
+            <section aria-labelledby="process" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12">
+                    <div>
+                        <h2 id="process" className="text-3xl md:text-5xl font-semibold text-[#0e1116] mb-10">How to Book</h2>
+                        <ol className="space-y-6">
+                            {[
+                                ['Send your plan', 'Service type, pickup, date, time, passengers, luggage and any vehicle preference.'],
+                                ['Receive your quote', 'With the vehicle we can confirm for your date.'],
+                                ['Confirm the booking', 'Once you are happy with the price and details.'],
+                                ['Get pickup instructions', 'Where to meet and how to reach the chauffeur on the day.'],
+                            ].map(([t, d], i) => (
+                                <li key={t} className="flex gap-5">
+                                    <span className="w-10 h-10 shrink-0 rounded-full bg-[#0e1116] text-[#d8c7a3] font-bold flex items-center justify-center" aria-hidden="true">{i + 1}</span>
+                                    <div>
+                                        <h3 className="text-[#0e1116] mb-1">{t}</h3>
+                                        <p className="text-slate-600">{d}</p>
+                                    </div>
+                                </li>
+                            ))}
+                        </ol>
                     </div>
-                    <Accordion type="single" collapsible className="space-y-4">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left hover:no-underline py-4">
-                                    <h3 className="text-base font-bold text-gray-900 pr-4">{faq.question}</h3>
-                                </AccordionTrigger>
-                                <AccordionContent className="pb-4">
-                                    <p className="text-gray-600 leading-relaxed pt-2">{faq.answer}</p>
-                                </AccordionContent>
+                    <div className="rounded-2xl bg-white border border-[#0e1116]/10 p-7 self-start">
+                        <CalendarDays className="w-6 h-6 text-[#9b8656] mb-4" aria-hidden="true" />
+                        <h2 className="text-2xl font-semibold text-[#0e1116] mb-3">When Should I Book?</h2>
+                        <p className="text-slate-600 leading-relaxed mb-3">As early as your plans allow. A specific model, a full day, several days or an event date all depend on availability, so earlier requests give more choice.</p>
+                        <p className="text-slate-600 leading-relaxed">Short-notice requests are worth sending too - we tell you straight away what we can confirm.</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= CHECKLIST ================= */}
+            <section aria-labelledby="checklist" className="bg-[#0e1116] text-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="checklist" className="text-3xl md:text-5xl font-semibold mb-4">What Does Your Journey Need?</h2>
+                    <p className="text-white/60 max-w-2xl mb-10">Tick what applies. It goes into your booking notes so the quote reflects it.</p>
+                    <VipChecklist />
+                </div>
+            </section>
+
+            {/* ================= TRUST ================= */}
+            <section aria-labelledby="trust" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="trust" className="text-3xl md:text-5xl font-semibold text-[#0e1116] mb-10">What You Can Expect From Us</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        {[
+                            [Car, 'Vehicle confirmed first', 'You know which vehicle is booked before you confirm.'],
+                            [Info, 'Price before you confirm', 'The quote is agreed before the booking is confirmed.'],
+                            [Map, 'Clear pickup instructions', 'Sent with your confirmed booking.'],
+                            [MessageCircle, 'One contact channel', 'Changes and questions on WhatsApp.'],
+                        ].map(([I, t, d]) => {
+                            const Icon = I as typeof Car;
+                            return (
+                                <div key={t as string} className="rounded-2xl border border-[#0e1116]/10 bg-white p-6">
+                                    <Icon className="w-6 h-6 text-[#9b8656] mb-4" aria-hidden="true" />
+                                    <h3 className="text-[#0e1116] mb-2">{t as string}</h3>
+                                    <p className="text-sm text-slate-600">{d as string}</p>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= FAQ ================= */}
+            <section aria-labelledby="faq" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-3xl mx-auto">
+                    <h2 id="faq" className="text-3xl md:text-4xl font-semibold text-[#0e1116] mb-8">VIP Chauffeur Questions</h2>
+                    <Accordion type="single" collapsible className="w-full rounded-2xl border border-[#0e1116]/10 bg-white px-5">
+                        {faqs.map((f, i) => (
+                            <AccordionItem key={f.q} value={`faq-${i}`} className="last:border-0">
+                                <AccordionTrigger className="text-left text-base font-semibold text-[#0e1116] hover:no-underline">{f.q}</AccordionTrigger>
+                                <AccordionContent className="text-slate-600 leading-relaxed">{f.a}</AccordionContent>
                             </AccordionItem>
                         ))}
                     </Accordion>
                 </div>
             </section>
 
-            {/* CTA */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book Your Private VIP Chauffeur in Saudi Arabia
-                    </h2>
-                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        Discreet, punctual, and professional. Reserve your luxury chauffeur for royal guests, diplomats, executives, or elite family travel across the Kingdom.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966575806733?text=Hello,%20I%20need%20VIP%20Chauffeur%20Service" target="_blank" rel="noopener noreferrer">
-                            <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                WhatsApp Booking
-                            </Button>
-                        </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
-                            <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[200px]">
-                                Email for Quote
-                            </Button>
-                        </a>
+            {/* ================= FINAL CTA ================= */}
+            <section className="relative isolate overflow-hidden py-24 px-4 sm:px-6 lg:px-8 bg-[#0e1116]">
+                <LineArt className="absolute bottom-0 left-0 -z-10 w-full h-full opacity-70" />
+                <div className="max-w-3xl mx-auto text-center text-white">
+                    <h2 className="text-3xl md:text-5xl font-semibold mb-5">Your Journey. Your Vehicle. Your Chauffeur.</h2>
+                    <p className="text-lg text-white/[0.65] mb-10">Send your plan and we will confirm the vehicle, the chauffeur arrangement and the price before you travel.</p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                        <Button asChild size="lg" className="h-auto py-4 px-7 rounded-xl font-bold bg-[#d8c7a3] text-[#0e1116] hover:bg-[#e6d8b9]">
+                            <a href={QUOTE_HREF}>Request VIP Quote</a>
+                        </Button>
+                        <Button asChild size="lg" variant="outline" className="h-auto py-4 px-7 rounded-xl font-bold bg-transparent text-white border-white/30 hover:bg-white/10 hover:text-white">
+                            <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer"><WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Book on WhatsApp</a>
+                        </Button>
+                        <Button asChild size="lg" variant="outline" className="h-auto py-4 px-7 rounded-xl font-bold bg-transparent text-white border-white/30 hover:bg-white/10 hover:text-white">
+                            <Link href="/fleet/">Explore the Fleet</Link>
+                        </Button>
                     </div>
-                    <p className="text-gray-500 text-sm mt-6">
-                        Also available:{' '}
-                        <Link href="/services/corporate-travel/" className="text-gray-400 hover:text-white underline">Corporate Travel</Link>
-                        {' · '}
-                        <Link href="/services/airport-transfers/" className="text-gray-400 hover:text-white underline">Airport Transfers</Link>
-                        {' · '}
-                        <Link href="/services/tourism-transport/" className="text-gray-400 hover:text-white underline">Tourism Transport</Link>
-                    </p>
                 </div>
             </section>
         </div>

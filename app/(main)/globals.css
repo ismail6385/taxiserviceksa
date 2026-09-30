@@ -280,7 +280,8 @@
 .taif-page h3,
 .bahrain-page h3,
 .qatar-page h3,
-.riyadh-page h3 {
+.riyadh-page h3,
+.vip-page h3 {
   font-size: 1.2rem !important;
   font-weight: 700 !important;
   line-height: 1.35 !important;
