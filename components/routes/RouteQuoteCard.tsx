@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { format } from 'date-fns';
 import { ArrowRight } from 'lucide-react';
@@ -55,6 +55,17 @@ export default function RouteQuoteCard({ title, cta, fromCity = '', toCity = '',
     const [notes, setNotes] = useState('');
     const [flight, setFlight] = useState('');
     const [extra, setExtra] = useState<Record<string, string>>({});
+
+    // Other components on the page can prefill the card: window.dispatchEvent(new CustomEvent('routequote:set', { detail: { to: 'Manama' } }))
+    useEffect(() => {
+        const onSet = (e: Event) => {
+            const d = (e as CustomEvent<{ from?: string; to?: string }>).detail ?? {};
+            if (d.from !== undefined) setFrom(d.from);
+            if (d.to !== undefined) setTo(d.to);
+        };
+        window.addEventListener('routequote:set', onSet);
+        return () => window.removeEventListener('routequote:set', onSet);
+    }, []);
 
     const today = format(new Date(), 'yyyy-MM-dd');
 

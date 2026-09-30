@@ -1,400 +1,492 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { ArrowRight, Car, Check, X, FileText, ShieldAlert, Plane, PlaneTakeoff, Briefcase, Repeat, Users, Clock, CalendarDays, Info, Flag } from 'lucide-react';
 
-import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
-import { MapPin, Clock, CheckCircle2, Car, ArrowRight, FileText, Plane, Building2, Users } from 'lucide-react';
-import Hero from '@/components/Hero';
-import RelatedLocations, { RelatedLink } from '@/components/seo/RelatedLocations';
-import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import Reveal from '@/components/alula/Reveal';
+import RouteQuoteCard from '@/components/routes/RouteQuoteCard';
+import BahrainDestinationPicker from '@/components/bahrain/BahrainDestinationPicker';
+import BahrainFleet from '@/components/bahrain/BahrainFleet';
+
+const PAGE_URL = 'https://taxiserviceksa.com/routes/dammam-bahrain/';
+const QUOTE_HREF = '#quote';
+const WHATSAPP_HREF = `https://wa.me/966575806733?text=${encodeURIComponent('Hello, I would like a quote from Dammam to Bahrain. Pickup, Bahrain destination, date, passengers and bags: ')}`;
 
 export const metadata: Metadata = {
-    title: 'Dammam to Bahrain Taxi | Private Transfer from 400 SAR',
-    description: 'Book a private Dammam to Bahrain taxi via King Fahd Causeway. Door-to-door transfers, professional drivers, fixed fares from 400 SAR and 24/7 booking.',
-    keywords: ['Dammam to Bahrain taxi', 'Dammam to Bahrain taxi price', 'Dammam Bahrain taxi fare', 'Dammam to Bahrain transfer', 'Dammam to Manama taxi', 'Dammam Bahrain private taxi'],
-    alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/dammam-bahrain/',
-        languages: {
-            'en': 'https://taxiserviceksa.com/routes/dammam-bahrain/',
-            'ar': 'https://taxiserviceksa.com/ar/routes/dammam-bahrain/',
-            'x-default': 'https://taxiserviceksa.com/routes/dammam-bahrain/',
-        },
-    },
+    title: 'Dammam to Bahrain Private Transfer | King Fahd Causeway',
+    description:
+        'Private transfer from Dammam or DMM Airport to your Bahrain hotel, airport or address via the King Fahd Causeway. Sedan, SUV and group vehicles - request a quote.',
+    alternates: { canonical: PAGE_URL },
     openGraph: {
-        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Dammam to Bahrain taxi via King Fahd Causeway' }],
+        title: 'Dammam to Bahrain Private Transfer',
+        description: 'Door-to-door from Dammam to Bahrain via the King Fahd Causeway, with sedan, SUV and group vehicle options.',
+        url: PAGE_URL,
         siteName: 'Taxi Service KSA',
-        title: 'Dammam to Bahrain Taxi | Private Transfer from 400 SAR',
-        description: 'Private door-to-door taxi from Dammam to Bahrain via the King Fahd Causeway, with fixed vehicle pricing and professional drivers.',
-        url: 'https://taxiserviceksa.com/routes/dammam-bahrain/',
         type: 'website',
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Dammam to Bahrain private transfer' }],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Dammam to Bahrain Private Transfer',
+        description: 'Door-to-door from Dammam to Bahrain via the King Fahd Causeway.',
+        images: ['https://taxiserviceksa.com/og-image.jpg'],
     },
 };
 
-export default function DammamBahrainRoutePage() {
-    const images = ['/hero-slide-3.webp', '/hero-slide-2.webp', '/jeddah-airport.webp'];
+const q = (p: Record<string, string>) => `/booking/?${new URLSearchParams(p).toString()}`;
 
-    const glance = [
-        ['Distance', 'Approx. 90 km'],
-        ['Driving Time', 'Around 1.5-2 hours in normal conditions'],
-        ['Border Processing', 'Variable — adds to total journey time'],
-        ['Total Journey', 'Often 1-3+ hours depending on Causeway traffic'],
-        ['Route', 'Dammam → Al Khobar → King Fahd Causeway → Bahrain'],
-        ['Booking', '24/7'],
-    ];
+// One methodology for every figure on the page: central Dammam to Manama, road only; border time separate.
+const DISTANCE = 'About 70–95 km';
+const DRIVING = 'Roughly 1–1.5 hours';
 
-    const pricing = [
-        { pickup: 'Dammam City — Sedan', price: '400' },
-        { pickup: 'Dammam City — SUV', price: '400-500' },
-        { pickup: 'Dammam Airport (DMM) — Sedan', price: '450' },
-        { pickup: 'Dammam Airport (DMM) — SUV', price: '450-600' },
-    ];
+const JOURNEY = [
+    { n: 'Pickup', t: 'Your Dammam address', d: 'Home, hotel, office or DMM Airport.' },
+    { n: 'Al Khobar', t: 'Dammam → Al Khobar', d: 'South through the city towards the causeway approach.' },
+    { n: 'Saudi exit', t: 'Saudi border', d: 'Exit procedures on the Saudi side of the causeway.' },
+    { n: 'Causeway', t: 'King Fahd Causeway', d: 'About 25 km of bridges and embankments over the Gulf.' },
+    { n: 'Bahrain entry', t: 'Bahrain border', d: 'Immigration and customs on arrival in Bahrain.' },
+    { n: 'Destination', t: 'Manama / BAH / your address', d: 'Drop-off at your hotel, the airport or another address.' },
+];
 
-    const vehicles = [
-        { name: 'Toyota Veloz (2024)', cap: 'Up to 7 passengers, 4 luggage', desc: 'Dammam-based, featured for this route.', link: '/fleet/toyota-veloz/' },
-        { name: 'Toyota Camry', cap: '1-3/4 passengers, 2 luggage', desc: 'A practical option for smaller groups.', link: '/fleet/toyota-camry/' },
-        { name: 'GMC Yukon XL', cap: 'Up to 7 passengers, 5 luggage', desc: 'Premium families and groups.', link: '/fleet/gmc-yukon-xl/' },
-        { name: 'Mercedes Sprinter', cap: 'Up to 14 passengers', desc: 'Larger groups travelling together.', link: '/fleet/mercedes-sprinter/' },
-    ];
+const faqs = [
+    { q: 'How much is a private transfer from Dammam to Bahrain?', a: 'We quote each trip. The price depends on your exact pickup, Bahrain destination, vehicle, one-way or return, and any waiting. You receive the price before you confirm.' },
+    { q: 'How long does Dammam to Bahrain take?', a: `${DRIVING} of driving from central Dammam to Manama, plus border processing - which varies with traffic, day and time, so allow extra time.` },
+    { q: 'Does the car cross the King Fahd Causeway?', a: 'Yes. You stay in the same private car from your Dammam pickup to your Bahrain destination.' },
+    { q: 'What documents do I need?', a: 'A valid passport and any Bahrain visa or entry permission that applies to you, plus Saudi residency documents if relevant. Requirements vary by nationality and status - confirm current Bahrain entry requirements before travelling.' },
+    { q: 'Is the price per person or per vehicle?', a: 'Per vehicle - the whole car is booked for your group.' },
+    { q: 'Are Causeway fees included?', a: 'Ask when you request your quote; we confirm exactly what the price covers, including any causeway vehicle charges, before you book.' },
+    { q: 'Can I book DMM Airport to Bahrain?', a: 'Yes. Choose DMM Airport as the pickup and add your flight number.' },
+    { q: 'Can I go directly to Bahrain Airport?', a: 'Yes. Add your departure time and allow extra buffer for the border crossing before your flight.' },
+    { q: 'Can I book a return trip?', a: 'Yes - the same day or on a later date. Tick "I also need a return trip" and give the return time.' },
+    { q: 'Can I travel with children?', a: 'Yes. If you need child seats, mention it in your booking and we confirm what we can provide.' },
+    { q: 'Can I book for 6–7 passengers?', a: 'Yes. A Toyota Veloz or GMC Yukon seats up to 7; with a lot of luggage, a Toyota Hiace gives more room.' },
+    { q: 'Can I book from Al Khobar instead of Dammam?', a: 'Yes - see the Al Khobar to Bahrain route, which starts closer to the causeway.' },
+];
 
-    const documents = ['Valid passport', 'Bahrain visa or entry permission where required', 'Valid Saudi residency documentation (Iqama) where applicable', 'GCC residency requirements where applicable'];
+const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'TaxiService',
+            '@id': `${PAGE_URL}#service`,
+            name: 'Dammam to Bahrain private transfer',
+            url: PAGE_URL,
+            serviceType: 'Cross-border private transfer',
+            description: 'Private door-to-door transfer from Dammam or King Fahd International Airport (DMM) to destinations in Bahrain via the King Fahd Causeway.',
+            provider: { '@type': 'Organization', '@id': 'https://taxiserviceksa.com/#organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com' },
+            areaServed: [
+                { '@type': 'City', name: 'Dammam' },
+                { '@type': 'Country', name: 'Bahrain' },
+            ],
+        },
+        {
+            '@type': 'FAQPage',
+            '@id': `${PAGE_URL}#faq`,
+            mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+        },
+    ],
+};
 
-    const bahrainDestinations = [
-        { name: 'Dammam Airport to Manama', href: '/routes/dammam-airport-to-manama-taxi/' },
-        { name: 'Dammam Airport to Bahrain Airport', href: '/routes/dammam-airport-to-bahrain-airport-taxi/' },
-        { name: 'Dammam Airport to Muharraq', href: '/routes/dammam-airport-to-muharraq-taxi/' },
-        { name: 'Dammam Airport to Riffa', href: '/routes/dammam-airport-to-riffa-taxi/' },
-        { name: 'Dammam Airport to Amwaj Islands', href: '/routes/dammam-airport-to-amwaj-islands-taxi/' },
-    ];
+function Arrow() {
+    return <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" />;
+}
+const link = 'font-semibold text-[#ce1126] hover:underline';
 
-    const nearby: RelatedLink[] = [
-        { name: 'Al Khobar', url: '/locations/al-khobar/', description: 'Taxi transfers between Dammam and Al Khobar, including onward Bahrain Causeway trips.' },
-        { name: 'Dhahran', url: '/locations/dhahran/', description: 'Taxi transfers between Dammam and Dhahran.' },
-        { name: 'Jubail', url: '/locations/jubail/', description: 'Taxi transfers between Dammam and Jubail.' },
-        { name: 'Hofuf', url: '/locations/hofuf/', description: 'Taxi transfers between Dammam and Hofuf.' },
-    ];
-
-    const corporateCompanies = [
-        { slug: 'abb-dammam-to-bahrain-taxi', name: 'ABB' },
-        { slug: 'baker-hughes-dammam-to-bahrain-taxi', name: 'Baker Hughes' },
-        { slug: 'bechtel-dammam-to-bahrain-taxi', name: 'Bechtel' },
-        { slug: 'carrefour-dammam-to-bahrain-taxi', name: 'Carrefour' },
-        { slug: 'db-schenker-dammam-to-bahrain-taxi', name: 'DB Schenker' },
-        { slug: 'dhl-dammam-to-bahrain-taxi', name: 'DHL' },
-        { slug: 'emerson-dammam-to-bahrain-taxi', name: 'Emerson Electric' },
-        { slug: 'exxonmobil-dammam-to-bahrain-taxi', name: 'ExxonMobil' },
-        { slug: 'fedex-dammam-to-bahrain-taxi', name: 'FedEx' },
-        { slug: 'fluor-dammam-to-bahrain-taxi', name: 'Fluor' },
-        { slug: 'ge-dammam-to-bahrain-taxi', name: 'GE' },
-        { slug: 'halliburton-dammam-to-bahrain-taxi', name: 'Halliburton' },
-        { slug: 'hilton-dammam-to-bahrain-taxi', name: 'Hilton' },
-        { slug: 'honeywell-dammam-to-bahrain-taxi', name: 'Honeywell' },
-        { slug: 'hyundai-enc-dammam-to-bahrain-taxi', name: 'Hyundai E&C' },
-        { slug: 'hyundai-motor-dammam-to-bahrain-taxi', name: 'Hyundai Motor' },
-        { slug: 'ikea-dammam-to-bahrain-taxi', name: 'IKEA' },
-        { slug: 'intercontinental-dammam-to-bahrain-taxi', name: 'InterContinental' },
-        { slug: 'jacobs-dammam-to-bahrain-taxi', name: 'Jacobs Engineering' },
-        { slug: 'johnson-controls-dammam-to-bahrain-taxi', name: 'Johnson Controls' },
-        { slug: 'lt-dammam-to-bahrain-taxi', name: 'Larsen & Toubro (L&T)' },
-        { slug: 'maersk-dammam-to-bahrain-taxi', name: 'Maersk' },
-        { slug: 'marriott-dammam-to-bahrain-taxi', name: 'Marriott' },
-        { slug: 'mcdermott-dammam-to-bahrain-taxi', name: 'McDermott' },
-        { slug: 'msc-dammam-to-bahrain-taxi', name: 'MSC' },
-        { slug: 'nissan-dammam-to-bahrain-taxi', name: 'Nissan' },
-        { slug: 'samsung-engineering-dammam-to-bahrain-taxi', name: 'Samsung Engineering' },
-        { slug: 'schlumberger-dammam-to-bahrain-taxi', name: 'Schlumberger (SLB)' },
-        { slug: 'shell-dammam-to-bahrain-taxi', name: 'Shell' },
-        { slug: 'siemens-dammam-to-bahrain-taxi', name: 'Siemens' },
-        { slug: 'sinopec-dammam-to-bahrain-taxi', name: 'Sinopec' },
-        { slug: 'technip-energies-dammam-to-bahrain-taxi', name: 'Technip Energies' },
-        { slug: 'totalenergies-dammam-to-bahrain-taxi', name: 'TotalEnergies' },
-        { slug: 'toyota-dammam-to-bahrain-taxi', name: 'Toyota' },
-        { slug: 'weatherford-dammam-to-bahrain-taxi', name: 'Weatherford' },
-    ];
-
-    const faqs = [
-        { question: "How much is a taxi from Dammam to Bahrain?", shortAnswer: "From 400 SAR", detailedAnswer: "Private transfers start from 400 SAR for a sedan from Dammam city (450 SAR from Dammam Airport), and 400-500 SAR for an SUV (450-600 SAR from the airport). Prices are per vehicle, not per passenger.", perspectives: [] },
-        { question: "How long does Dammam to Bahrain take?", shortAnswer: "Often 1-3+ hours total", detailedAnswer: "Driving time is around 1.5-2 hours in normal conditions. Border processing at the King Fahd Causeway adds further time and can vary significantly, especially on weekends and holidays — plan for a full journey rather than a fixed arrival time.", perspectives: [] },
-        { question: "How far is Dammam from Bahrain?", shortAnswer: "Approx. 90 km", detailedAnswer: "The road distance is approximately 90 km, primarily via Al Khobar and the King Fahd Causeway.", perspectives: [] },
-        { question: "Does the taxi cross the King Fahd Causeway?", shortAnswer: "Yes", detailedAnswer: "Yes, this route uses the King Fahd Causeway. See our full King Fahd Causeway guide for the detailed border process.", perspectives: [] },
-        { question: "What documents do I need?", shortAnswer: "Passport and valid entry documentation", detailedAnswer: "Bring your passport, the Bahrain entry permission/visa required for your nationality, and any valid Saudi residency documentation if applicable. Requirements vary by nationality and status — check current requirements before travelling.", perspectives: [] },
-        { question: "Is a Bahrain visa included in the price?", shortAnswer: "No", detailedAnswer: "No, visa arrangements and fees are the passenger's own responsibility. The quoted vehicle price does not include personal visa costs.", perspectives: [] },
-        { question: "Are Causeway fees included?", shortAnswer: "Yes", detailedAnswer: "Yes, applicable bridge tolls and vehicle crossing insurance are included in the quoted vehicle price.", perspectives: [] },
-        { question: "Is the price per vehicle or per passenger?", shortAnswer: "Per vehicle", detailedAnswer: "This is a private vehicle service, so the quoted price is for the vehicle and journey, not per seat.", perspectives: [] },
-        { question: "Can I book a return trip?", shortAnswer: "Yes", detailedAnswer: "Yes, a return transfer from Bahrain to Dammam can be requested. Provide your return date and time when booking.", perspectives: [] },
-        { question: "Can you pick me up from Dammam Airport?", shortAnswer: "Yes", detailedAnswer: "Yes, pickup can be arranged from Dammam Airport (DMM), your hotel, home or office.", perspectives: [] },
-        { question: "Can you drop me at Bahrain Airport?", shortAnswer: "Yes", detailedAnswer: "Yes, we can drop you directly at Bahrain International Airport instead of a city address.", perspectives: [] },
-        { question: "Which vehicle is best for 6-7 passengers?", shortAnswer: "GMC Yukon XL or Toyota Veloz", detailedAnswer: "For 6-7 passengers, a GMC Yukon XL or Toyota Veloz is recommended. Tell us your luggage count as well so we can confirm it fits comfortably.", perspectives: [] },
-        { question: "Can corporate clients book recurring transfers?", shortAnswer: "Yes", detailedAnswer: "Yes, we support recurring corporate bookings for companies with regular Dammam-Bahrain staff travel. See our corporate transfer options below or contact us to discuss recurring arrangements.", perspectives: [] },
-    ];
-
+export default function DammamBahrainPage() {
     return (
-        <div className="bg-gray-50 min-h-screen">
-            <JsonLdLocation
-                cityName="Dammam to Bahrain"
-                description="Private taxi and car transfer from Dammam to Bahrain via King Fahd Causeway. Door-to-door cross-border transportation with a professional driver."
-                services={[
-                    { name: 'Dammam to Bahrain Taxi', description: 'Private one-way or return cross-border transfer via King Fahd Causeway.' },
-                    { name: 'Family & Group Vehicles', description: 'Vehicles selected based on passenger and luggage requirements.' },
-                    { name: 'Corporate Transfers', description: 'Recurring transfers for companies with regular Dammam-Bahrain staff travel.' },
-                ]}
-                image="https://taxiserviceksa.com/hero-slide-1.webp"
-            />
+        <div className="bahrain-page bg-[#f5f6f9]">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-            <Hero
-                images={images}
-                h1Text="Dammam to Bahrain Taxi"
-                title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Private Transfer via King Fahd Causeway
-                    </span>
-                }
-                subtitle="Private door-to-door taxi from Dammam to Bahrain via the King Fahd Causeway. Choose a sedan, family MPV, premium SUV or van for one-way or return travel."
-                location="Approx. 90 km | From 400 SAR | 24/7 Booking"
-            >
-                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <a href="https://wa.me/966575806733?text=Hello%2C%20I%20want%20to%20book%20a%20taxi%20from%20Dammam%20to%20Bahrain" target="_blank" rel="noopener noreferrer">
-                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            <WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Get a Quote from 400 SAR
-                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Button>
-                    </a>
-                    <Link href="/booking?pickup=Dammam&dropoff=Bahrain">
-                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            Book Online
-                        </Button>
-                    </Link>
-                </div>
-            </Hero>
+            {/* ================= HERO ================= */}
+            <section className="relative isolate overflow-hidden bg-[#0a1a3a]">
+                <svg className="absolute inset-0 -z-10 w-full h-full" viewBox="0 0 1440 860" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="db-sea" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0" stopColor="#0a1a3a" stopOpacity="0" />
+                            <stop offset="1" stopColor="#15356e" stopOpacity="0.9" />
+                        </linearGradient>
+                    </defs>
+                    <rect x="700" y="0" width="740" height="860" fill="url(#db-sea)" />
+                    {/* causeway */}
+                    <path d="M760 620 L 1240 540" stroke="#ffffff" strokeOpacity="0.15" strokeWidth="14" strokeLinecap="round" />
+                    <path d="M760 620 L 1240 540" stroke="#ffffff" strokeOpacity="0.8" strokeWidth="2" strokeDasharray="1" pathLength={1} className="route-draw" />
+                    <rect x="990" y="568" width="22" height="22" rx="4" fill="#ce1126" transform="rotate(-9 1001 579)" />
+                </svg>
+                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#0a1a3a] via-[#0a1a3a]/90 to-[#0a1a3a]/30" aria-hidden="true" />
 
-            {/* Quick facts */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-3xl mx-auto">
-                    <div className="overflow-hidden rounded-2xl border border-gray-100">
-                        <table className="w-full text-sm">
-                            <tbody className="divide-y divide-gray-100">
-                                {glance.map(([label, value]) => (
-                                    <tr key={label} className="odd:bg-gray-50">
-                                        <td className="py-3 px-4 font-semibold text-gray-800 w-1/3">{label}</td>
-                                        <td className="py-3 px-4 text-gray-600">{value}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
-
-            {/* Pricing */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
-                <div className="max-w-3xl mx-auto">
-                    <h2 className="text-3xl font-bold mb-3 text-center">Dammam to Bahrain Taxi Price</h2>
-                    <p className="text-gray-400 text-center mb-10 max-w-2xl mx-auto">Prices are per vehicle, not per passenger. Final fare may vary based on exact pickup/drop-off location, passenger count, luggage and travel date.</p>
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-sm border-collapse bg-white/5 rounded-2xl overflow-hidden">
-                            <thead>
-                                <tr className="bg-white/10 text-left">
-                                    <th className="py-3 px-4 font-bold">Pickup / Vehicle</th>
-                                    <th className="py-3 px-4 font-bold text-right">From</th>
-                                </tr>
-                            </thead>
-                            <tbody className="divide-y divide-white/10">
-                                {pricing.map((p) => (
-                                    <tr key={p.pickup}>
-                                        <td className="py-3 px-4 font-semibold">{p.pickup}</td>
-                                        <td className="py-3 px-4 text-right font-bold text-primary">{p.price} SAR</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                    <p className="text-gray-500 text-xs text-center mt-4">Standard luggage is included within the vehicle's capacity. Oversized or unusually large items may require a larger vehicle — let us know when booking. Causeway tolls and vehicle crossing insurance are included.</p>
-                </div>
-            </section>
-
-            {/* Journey breakdown */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">How the Journey Works</h2>
-                    <div className="flex flex-col gap-3">
-                        {[
-                            'Pickup in Dammam (home, hotel, office or airport)',
-                            'Drive toward Al Khobar',
-                            'Saudi border — exit procedures',
-                            'King Fahd Causeway crossing',
-                            'Bahrain entry — immigration and customs',
-                            'Final destination (Manama, airport, hotel, etc.)',
-                        ].map((step, i) => (
-                            <div key={step} className="flex items-center gap-4 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                                <span className="w-7 h-7 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-xs shrink-0">{i + 1}</span>
-                                <span className="text-sm text-gray-700">{step}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Causeway + documents */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div>
-                        <h2 className="text-2xl font-bold text-gray-900 mb-4">Dammam to Bahrain via King Fahd Causeway</h2>
-                        <p className="text-gray-600 leading-relaxed mb-4">
-                            Our driver manages the vehicle-side requirements and guides you through the journey. Passengers remain responsible for carrying the passport, visa, residency permit and other documents required for entry into Bahrain.
-                        </p>
-                        <p className="text-gray-600 leading-relaxed mb-4 text-sm">
-                            Our driver can guide you through the cross-border process and explain where to go, while immigration and customs decisions remain with the relevant authorities.
-                        </p>
-                        <Link href="/border-crossings/taxi-king-fahd-causeway-border-crossing/" className="text-primary font-semibold hover:underline inline-flex items-center gap-1">
-                            Read our full King Fahd Causeway guide <ArrowRight className="w-4 h-4" />
-                        </Link>
-                    </div>
-                    <div>
-                        <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2"><FileText className="w-6 h-6 text-primary" /> Documents for Dammam to Bahrain Travel</h2>
-                        <div className="space-y-2 mb-4">
-                            {documents.map((d) => (
-                                <div key={d} className="flex items-start gap-2 bg-white p-3 rounded-xl border border-gray-100">
-                                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                                    <span className="text-sm text-gray-700">{d}</span>
-                                </div>
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-20 grid grid-cols-1 lg:grid-cols-[1fr_0.95fr] gap-6 lg:gap-10 items-center">
+                    <div className="text-white animate-fade-in-up motion-reduce:animate-none motion-reduce:opacity-100">
+                        <ol className="hidden sm:flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-white/70 mb-6" aria-label="Route">
+                            {['Dammam', 'Al Khobar', 'King Fahd Causeway', 'Bahrain'].map((s, i, a) => (
+                                <li key={s} className="flex items-center gap-2">
+                                    <span className={i === 2 ? 'text-[#ff8a95]' : ''}>{s}</span>
+                                    {i < a.length - 1 && <span className="w-5 h-px bg-white/40" aria-hidden="true" />}
+                                </li>
                             ))}
+                        </ol>
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.04] tracking-tight mb-5">Dammam to Bahrain Private Transfer</h1>
+                        <p className="text-base sm:text-lg text-white/85 leading-relaxed sm:mb-8 max-w-xl">
+                            Travel privately from Dammam to your Bahrain hotel, airport or destination via the King Fahd Causeway - with sedan, SUV and group vehicle options.
+                        </p>
+                        <div className="hidden sm:flex gap-3">
+                            <Button asChild size="lg" className="group h-auto py-4 px-7 rounded-xl font-bold text-base bg-white text-[#0a1a3a] hover:bg-slate-100">
+                                <a href={QUOTE_HREF}>Get Dammam → Bahrain Quote <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" /></a>
+                            </Button>
+                            <Button asChild size="lg" variant="outline" className="h-auto py-4 px-7 rounded-xl font-bold text-base bg-white/10 text-white border-white/40 hover:bg-white/20 hover:text-white">
+                                <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer"><WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Book via WhatsApp</a>
+                            </Button>
                         </div>
-                        <p className="text-gray-500 text-xs">Visa eligibility depends on nationality and residency status. Check current Bahrain entry requirements before travel.</p>
+                    </div>
+                    <div id="quote" className="scroll-mt-32">
+                        <RouteQuoteCard
+                            title="Dammam → Bahrain"
+                            cta="Get Dammam → Bahrain Quote"
+                            fromPlaceholder="Dammam address, hotel or DMM"
+                            toPlaceholder="Bahrain hotel, airport or address"
+                            fromChips={['Dammam city', 'King Fahd International Airport (DMM)', 'Dammam hotel']}
+                            toChips={['Manama, Bahrain', 'Bahrain International Airport (BAH)', 'Muharraq, Bahrain', 'Riffa, Bahrain']}
+                            showFlight
+                            returnNote="Return trip Bahrain to Dammam also needed - date and time to confirm."
+                            buttonClass="bg-[#0a1a3a] hover:bg-black focus-visible:ring-[#ce1126]"
+                        />
                     </div>
                 </div>
             </section>
 
-            {/* Taxi vs own car */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">Taxi vs Driving Your Own Car</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-                            <h3 className="font-bold text-gray-900 mb-2">Private Taxi</h3>
-                            <ul className="text-sm text-gray-600 space-y-1 list-disc pl-4">
-                                <li>Chauffeur-driven, no driving fatigue</li>
-                                <li>Door-to-door pickup and drop-off</li>
-                                <li>Vehicle-side cross-border requirements handled for you</li>
-                                <li>Useful for business travel and groups</li>
-                            </ul>
-                        </div>
-                        <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-                            <h3 className="font-bold text-gray-900 mb-2">Your Own Vehicle</h3>
-                            <ul className="text-sm text-gray-600 space-y-1 list-disc pl-4">
-                                <li>More flexibility on timing</li>
-                                <li>You handle your own vehicle documentation and insurance</li>
-                                <li>You drive both sides of the border yourself</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Vehicles */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-5xl mx-auto">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">Best Vehicles for Dammam to Bahrain</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {vehicles.map((v) => (
-                            <Link key={v.name} href={v.link} className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-md transition-shadow block">
-                                <Car className="w-6 h-6 text-primary mb-3" />
-                                <h3 className="font-bold text-gray-900 text-sm mb-1">{v.name}</h3>
-                                <p className="text-xs font-bold text-primary mb-2">{v.cap}</p>
-                                <p className="text-gray-500 text-xs">{v.desc}</p>
-                            </Link>
-                        ))}
-                    </div>
-                    <div className="text-center mt-6">
-                        <Link href="/fleet/" className="text-primary font-semibold hover:underline inline-flex items-center gap-1">
-                            View all vehicles <ArrowRight className="w-4 h-4" />
-                        </Link>
-                    </div>
-                </div>
-            </section>
-
-            {/* Who uses this */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-5xl mx-auto">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">Who Uses Dammam to Bahrain Taxi Transfers?</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            {/* ================= ROUTE SUMMARY ================= */}
+            <section aria-label="Route summary" className="bg-white border-b border-slate-200 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto py-6">
+                    <dl className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         {[
-                            { icon: Users, title: 'Families', desc: 'Direct journey with luggage, no transfers.' },
-                            { icon: Building2, title: 'Business Travelers', desc: 'Flexible departure, hotel or office pickup.' },
-                            { icon: MapPin, title: 'GCC Residents', desc: 'Cross-border convenience.' },
-                            { icon: Plane, title: 'Bahrain Airport Passengers', desc: 'Direct transfer to or from the airport.' },
-                            { icon: Car, title: 'Groups', desc: 'One shared private vehicle instead of separate cars.' },
-                        ].map((p) => (
-                            <div key={p.title} className="bg-gray-50 rounded-2xl p-5 border border-gray-100 text-center">
-                                <p.icon className="w-6 h-6 text-primary mx-auto mb-3" />
-                                <h3 className="font-bold text-gray-900 text-xs mb-1">{p.title}</h3>
-                                <p className="text-gray-500 text-xs">{p.desc}</p>
+                            ['Road distance', DISTANCE, 'Central Dammam to Manama; depends on exact pickup and destination'],
+                            ['Driving time', DRIVING, 'Road journey only, excluding border processing'],
+                            ['Total journey', 'Varies', 'Depends on causeway traffic and border processing'],
+                        ].map(([k, v, d]) => (
+                            <div key={k} className="rounded-xl bg-[#f5f6f9] px-4 py-3">
+                                <dt className="text-xs font-bold uppercase tracking-wider text-slate-500">{k}</dt>
+                                <dd className="text-xl font-bold text-[#0a1a3a]">{v}</dd>
+                                <dd className="text-xs text-slate-500 mt-0.5">{d}</dd>
                             </div>
                         ))}
+                    </dl>
+                    <p className="text-sm text-[#0a1a3a] mt-4 flex gap-2"><Clock className="w-4 h-4 mt-0.5 shrink-0 text-[#ce1126]" aria-hidden="true" />Allow additional time for border processing. No arrival time is guaranteed.</p>
+                </div>
+            </section>
+
+            {/* ================= DESTINATION PICKER ================= */}
+            <section aria-labelledby="where" className="py-14 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="where" className="text-3xl md:text-4xl font-bold text-[#0a1a3a] mb-6">Where Are You Going in Bahrain?</h2>
+                    <BahrainDestinationPicker />
+                </div>
+            </section>
+
+            {/* ================= ONE JOURNEY, TWO COUNTRIES ================= */}
+            <section aria-labelledby="journey" className="bg-[#0a1a3a] text-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <p className="flex items-center gap-3 text-sm font-bold text-white/70 mb-3"><span>Saudi Arabia</span><span className="w-8 h-px bg-[#ce1126]" aria-hidden="true" /><span>Bahrain</span></p>
+                    <h2 id="journey" className="text-3xl md:text-5xl font-bold mb-4">One Journey, Two Countries</h2>
+                    <p className="text-white/70 max-w-2xl mb-12">One private car from your Dammam door to your Bahrain destination. The drive is short; the two border stops are what make timing vary.</p>
+
+                    {/* Desktop: horizontal line with a moving car marker */}
+                    <div className="hidden lg:block relative mb-10" aria-hidden="true">
+                        <div className="absolute left-4 right-4 top-4 h-0.5 bg-white/20" />
+                        <div className="absolute left-[calc(33.33%+0.5rem)] right-[calc(16.66%+0.5rem)] top-4 h-0.5 bg-[#ce1126]/70" />
+                        <div className="relative h-9 mx-0">
+                            <span className="car-travel absolute top-0 w-9 h-9 rounded-full bg-white text-[#0a1a3a] flex items-center justify-center shadow-lg">
+                                <Car className="w-4 h-4" />
+                            </span>
+                        </div>
+                    </div>
+
+                    <ol className="grid grid-cols-1 lg:grid-cols-6 gap-3 lg:gap-4">
+                        {JOURNEY.map((s, i) => {
+                            const border = i === 2 || i === 4;
+                            const bridge = i === 3;
+                            return (
+                                <li key={s.n} className={`relative rounded-2xl p-5 flex lg:block gap-4 ${bridge ? 'bg-white text-[#0a1a3a]' : border ? 'bg-[#ce1126]/15 border border-[#ce1126]/40' : 'bg-white/[0.06] border border-white/10'}`}>
+                                    <span className={`shrink-0 w-9 h-9 lg:mb-3 rounded-full flex items-center justify-center text-sm font-black ${bridge ? 'bg-[#0a1a3a] text-white' : border ? 'bg-[#ce1126] text-white' : 'bg-white/10 text-white'}`} aria-hidden="true">
+                                        {border ? <Flag className="w-4 h-4" /> : String(i + 1).padStart(2, '0')}
+                                    </span>
+                                    <div>
+                                        <p className={`text-xs font-bold uppercase tracking-wider ${bridge ? 'text-[#ce1126]' : 'text-white/50'}`}>{s.n}</p>
+                                        <h3 className="mb-1">{s.t}</h3>
+                                        <p className={`text-sm ${bridge ? 'text-slate-600' : 'text-white/65'}`}>{s.d}</p>
+                                    </div>
+                                </li>
+                            );
+                        })}
+                    </ol>
+                    <p className="text-xs text-white/45 mt-4">Diagram of the journey stages - not a navigational map.</p>
+                </div>
+            </section>
+
+            {/* ================= CAUSEWAY PROCESS ================= */}
+            <section aria-labelledby="causeway" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="causeway" className="text-3xl md:text-5xl font-bold text-[#0a1a3a] mb-4 max-w-3xl">Crossing the King Fahd Causeway</h2>
+                    <p className="text-lg text-slate-700 leading-relaxed max-w-3xl mb-10">
+                        The causeway starts just south of Al Khobar and runs about 25 km to Bahrain. Saudi exit and Bahrain entry procedures both happen along it, and the time they take varies with traffic, travel date, time of day, immigration processing and other operational factors.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <Reveal className="h-full">
+                            <div className="h-full rounded-3xl bg-white border border-slate-200 p-7">
+                                <p className="text-xs font-bold uppercase tracking-wider text-[#0a1a3a]/60 mb-3 flex items-center gap-2"><Car className="w-4 h-4" aria-hidden="true" /> The driver</p>
+                                <h3 className="mb-3 text-[#0a1a3a]">Handles the vehicle side</h3>
+                                <p className="text-slate-700 leading-relaxed">The driver can assist with the vehicle-side journey and direct passengers to the relevant procedures.</p>
+                            </div>
+                        </Reveal>
+                        <Reveal className="h-full" delay={100}>
+                            <div className="h-full rounded-3xl bg-[#0a1a3a] text-white p-7">
+                                <p className="text-xs font-bold uppercase tracking-wider text-[#ff8a95] mb-3 flex items-center gap-2"><ShieldAlert className="w-4 h-4" aria-hidden="true" /> The authorities</p>
+                                <h3 className="mb-3">Decide immigration and customs</h3>
+                                <p className="text-white/80 leading-relaxed">Immigration and customs decisions remain with the authorities. No driver can speed up processing, bypass queues or guarantee entry.</p>
+                            </div>
+                        </Reveal>
+                    </div>
+                    <p className="text-sm text-slate-600 mt-6">More on the crossing itself: <Link href="/border-crossings/taxi-king-fahd-causeway-border-crossing/" className={link}>King Fahd Causeway guide</Link>.</p>
+                </div>
+            </section>
+
+            {/* ================= DOCUMENTS ================= */}
+            <section aria-labelledby="docs" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8 items-start">
+                    <div>
+                        <h2 id="docs" className="text-3xl md:text-4xl font-bold text-[#0a1a3a] mb-6">Documents &amp; Entry Requirements</h2>
+                        <details className="group rounded-3xl border border-slate-200 bg-[#f5f6f9] p-6 md:p-7" open>
+                            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold text-[#0a1a3a] text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ce1126] rounded-lg">
+                                <span className="flex items-center gap-3"><FileText className="w-5 h-5 text-[#ce1126]" aria-hidden="true" /> What should I bring?</span>
+                                <span className="text-2xl text-[#ce1126] transition-transform group-open:rotate-45 motion-reduce:transition-none" aria-hidden="true">+</span>
+                            </summary>
+                            <ul className="mt-5 space-y-3 text-slate-700">
+                                {[
+                                    'Passport',
+                                    'Bahrain visa or entry permission, where required',
+                                    'Saudi residency documentation, where applicable',
+                                    'Any additional documents required for your specific status',
+                                ].map((i) => (
+                                    <li key={i} className="flex gap-3"><span className="mt-1 w-4 h-4 rounded border-2 border-[#0a1a3a]/40 shrink-0" aria-hidden="true" />{i}</li>
+                                ))}
+                            </ul>
+                            <p className="text-sm text-slate-600 mt-5">Entry requirements vary by nationality, residency status and travel purpose. Confirm current Bahrain entry requirements before travelling.</p>
+                        </details>
+                    </div>
+                    <aside className="rounded-3xl border-2 border-[#ce1126] bg-[#fff5f6] p-7 lg:mt-16">
+                        <h3 className="mb-3 text-[#0a1a3a] flex items-center gap-2"><ShieldAlert className="w-5 h-5 text-[#ce1126]" aria-hidden="true" /> Can I enter Bahrain?</h3>
+                        <p className="text-sm text-[#0a1a3a]/85 leading-relaxed">Booking a vehicle does not guarantee admission to Bahrain. Each passenger is responsible for meeting the applicable entry and immigration requirements.</p>
+                    </aside>
+                </div>
+            </section>
+
+            {/* ================= PRICING / INCLUDED ================= */}
+            <section aria-labelledby="pricing" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="pricing" className="text-3xl md:text-4xl font-bold text-[#0a1a3a] mb-4">Request a Current Quote</h2>
+                    <p className="text-slate-700 max-w-3xl mb-8">
+                        Prices are per vehicle and depend on your exact pickup, Bahrain destination, vehicle, one-way or return, and waiting. We send the price - and exactly what it covers - before you confirm.
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div className="rounded-3xl bg-white border border-slate-200 p-7">
+                            <h3 className="mb-4 text-[#0a1a3a]">Included in every transfer</h3>
+                            <ul className="space-y-2.5 text-slate-700">
+                                {['Private vehicle for your group only', 'Driver', 'Pickup at your Dammam address', 'Drop-off at your Bahrain destination', 'The agreed route'].map((i) => (
+                                    <li key={i} className="flex gap-3"><Check className="w-5 h-5 text-emerald-600 shrink-0" aria-hidden="true" />{i}</li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="rounded-3xl bg-white border border-slate-200 p-7">
+                            <h3 className="mb-4 text-[#0a1a3a]">Not included / confirmed with your quote</h3>
+                            <ul className="space-y-2.5 text-slate-700">
+                                <li className="flex gap-3"><X className="w-5 h-5 text-[#ce1126] shrink-0" aria-hidden="true" />Passenger visa and personal immigration fees</li>
+                                <li className="flex gap-3"><X className="w-5 h-5 text-[#ce1126] shrink-0" aria-hidden="true" />Government penalties</li>
+                                <li className="flex gap-3"><Info className="w-5 h-5 text-slate-500 shrink-0" aria-hidden="true" />Causeway vehicle charges, extra waiting, unusual luggage and changes after booking - confirmed in your quote</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Bahrain destinations */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
-                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-                    <h4 className="font-bold text-gray-900 mb-4">Popular Dammam to Bahrain Taxi Routes</h4>
-                    <div className="flex flex-wrap gap-4">
-                        {bahrainDestinations.map((d) => (
-                            <Link key={d.href} href={d.href} className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-primary hover:text-primary transition-colors shadow-sm">
-                                {d.name}
-                            </Link>
+            {/* ================= FLEET ================= */}
+            <section aria-labelledby="fleet" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="fleet" className="text-3xl md:text-4xl font-bold text-[#0a1a3a] mb-3">Choose Your Vehicle</h2>
+                    <p className="text-slate-600 max-w-2xl mb-8">Pick passengers and luggage together - luggage decides the vehicle as often as seats do.</p>
+                    <BahrainFleet />
+                </div>
+            </section>
+
+            {/* ================= AIRPORT + BUSINESS + SAME-DAY ================= */}
+            <section aria-label="Airport, business and same-day trips" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    <Reveal className="h-full">
+                        <article className="h-full rounded-3xl bg-white border border-slate-200 p-7 flex flex-col">
+                            <Plane className="w-7 h-7 text-[#ce1126] mb-4" aria-hidden="true" />
+                            <h2 className="text-2xl font-bold text-[#0a1a3a] mb-3">Dammam Airport to Bahrain</h2>
+                            <p className="text-sm font-bold text-slate-500 mb-3">DMM → King Fahd Causeway → Bahrain</p>
+                            <p className="text-slate-700 mb-6">Land at DMM and go straight on to a Bahrain hotel, a meeting in Manama or Bahrain Airport - without going into Dammam first. Add your flight number when booking.</p>
+                            <div className="mt-auto flex flex-col sm:flex-row gap-3">
+                                <Link href={q({ from: 'King Fahd International Airport (DMM)', to: 'Bahrain' })} className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#0a1a3a] px-5 py-3.5 font-bold text-white hover:bg-black">DMM → Bahrain quote <Arrow /></Link>
+                                <Link href="/routes/dammam-airport-to-bahrain-airport-taxi/" className="inline-flex items-center justify-center px-4 py-3 text-sm font-bold text-[#ce1126] hover:underline">DMM Airport → Bahrain Airport</Link>
+                            </div>
+                        </article>
+                    </Reveal>
+                    <Reveal className="h-full" delay={80}>
+                        <article className="h-full rounded-3xl bg-white border border-slate-200 p-7 flex flex-col">
+                            <PlaneTakeoff className="w-7 h-7 text-[#ce1126] mb-4" aria-hidden="true" />
+                            <h2 className="text-2xl font-bold text-[#0a1a3a] mb-3">Dammam → Bahrain Airport</h2>
+                            <p className="text-slate-700 mb-4">For flights from BAH. Send your flight number, departure time, pickup address, passengers and luggage.</p>
+                            <p className="text-sm text-[#0a1a3a] rounded-xl bg-[#fff5f6] px-4 py-3 mb-6">We recommend allowing additional buffer time for the border crossing before your flight.</p>
+                            <Link href={q({ from: 'Dammam', to: 'Bahrain International Airport (BAH)' })} className="group mt-auto inline-flex items-center gap-2 font-bold text-[#ce1126]">Bahrain Airport transfer quote <Arrow /></Link>
+                        </article>
+                    </Reveal>
+                    <Reveal className="h-full" delay={160}>
+                        <article className="h-full rounded-3xl bg-[#0a1a3a] text-white p-7 flex flex-col">
+                            <Briefcase className="w-7 h-7 text-[#ff8a95] mb-4" aria-hidden="true" />
+                            <h2 className="text-2xl font-bold mb-3">Dammam ↔ Bahrain for Business</h2>
+                            <ul className="space-y-2 text-white/80 mb-6">
+                                <li>Meetings, conferences and office visits</li>
+                                <li>Hotel or office pickup, executive vehicles on request</li>
+                                <li>Same-day return when the meeting ends</li>
+                            </ul>
+                            <Link href="/services/corporate-travel/" className="group mt-auto inline-flex items-center gap-2 font-bold text-[#ff8a95]">Corporate transfers <Arrow /></Link>
+                        </article>
+                    </Reveal>
+                    <Reveal className="h-full" delay={240}>
+                        <article className="h-full rounded-3xl bg-white border border-slate-200 p-7 flex flex-col">
+                            <Repeat className="w-7 h-7 text-[#ce1126] mb-4" aria-hidden="true" />
+                            <h2 className="text-2xl font-bold text-[#0a1a3a] mb-3">Dammam → Bahrain → Dammam Same Day</h2>
+                            <p className="text-slate-700 mb-4">For a meeting, a flight connection, shopping or a family visit. Tell us:</p>
+                            <ul className="grid grid-cols-2 gap-2 text-sm text-[#0a1a3a] mb-6">
+                                {['Outbound date and time', 'Return time', 'Waiting needed or not', 'Bahrain destination'].map((i) => (
+                                    <li key={i} className="flex gap-2"><Check className="w-4 h-4 text-[#ce1126] mt-0.5 shrink-0" aria-hidden="true" />{i}</li>
+                                ))}
+                            </ul>
+                            <Link href={q({ from: 'Dammam', to: 'Bahrain', notes: 'Same-day return to Dammam - return time and waiting: ' })} className="group mt-auto inline-flex items-center gap-2 font-bold text-[#ce1126]">Same-day return quote <Arrow /></Link>
+                        </article>
+                    </Reveal>
+                </div>
+            </section>
+
+            {/* ================= COMPARISON + PLANNING ================= */}
+            <section aria-labelledby="compare" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-10 items-start">
+                    <div>
+                        <h2 id="compare" className="text-3xl md:text-4xl font-bold text-[#0a1a3a] mb-3">Private Transfer or Your Own Car?</h2>
+                        <p className="text-slate-600 mb-6">Both work - it depends on what you need in Bahrain.</p>
+                        <div className="overflow-hidden rounded-2xl border border-slate-200">
+                            <table className="w-full text-sm">
+                                <caption className="sr-only">Private transfer compared with driving your own car to Bahrain</caption>
+                                <thead className="bg-[#0a1a3a] text-white">
+                                    <tr><th scope="col" className="text-left px-4 py-3">Private transfer</th><th scope="col" className="text-left px-4 py-3">Own vehicle</th></tr>
+                                </thead>
+                                <tbody>
+                                    {[
+                                        ['Chauffeur-driven', 'You drive'],
+                                        ['Door-to-door', 'You manage the route'],
+                                        ['Driver handles the vehicle-side requirements', 'You manage vehicle documents and insurance'],
+                                        ['No need to drive after the crossing', 'You remain responsible for driving'],
+                                        ['Useful for groups and airport runs', 'Useful when you need your own car in Bahrain'],
+                                    ].map(([a, b]) => (
+                                        <tr key={a} className="border-t border-slate-200 even:bg-slate-50"><td className="px-4 py-3 text-[#0a1a3a]">{a}</td><td className="px-4 py-3 text-slate-600">{b}</td></tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <aside className="rounded-3xl bg-[#f5f6f9] p-7">
+                        <h3 className="mb-4 text-[#0a1a3a] flex items-center gap-2"><CalendarDays className="w-5 h-5 text-[#ce1126]" aria-hidden="true" /> When should I leave?</h3>
+                        <ul className="space-y-2.5 text-sm text-slate-700">
+                            <li>Border demand varies, and weekends and public holidays can be busier.</li>
+                            <li>Airport passengers should allow an extra buffer.</li>
+                            <li>For meetings, schedule conservatively.</li>
+                        </ul>
+                        <p className="text-xs text-slate-500 mt-4">Border processing time varies with traffic, travel date, time of day, immigration processing and other operational factors. We do not show live wait times.</p>
+                    </aside>
+                </div>
+            </section>
+
+            {/* ================= PROCESS ================= */}
+            <section aria-labelledby="process" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="process" className="text-3xl md:text-4xl font-bold text-[#0a1a3a] mb-8">How Booking Works</h2>
+                    <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        {[
+                            ['Send your trip', 'Pickup, Bahrain destination, date, time, passengers and bags.'],
+                            ['Get your quote', 'Vehicle, price and what it covers - before you commit.'],
+                            ['Check your documents', 'Make sure every passenger meets Bahrain entry requirements.'],
+                            ['Travel', 'Driver and vehicle details come with your confirmed booking.'],
+                        ].map(([t, d], i) => (
+                            <li key={t} className="rounded-2xl bg-white border border-slate-200 p-6">
+                                <span className="text-3xl font-black text-[#ce1126]/30" aria-hidden="true">0{i + 1}</span>
+                                <h3 className="mt-2 mb-2 text-[#0a1a3a]">{t}</h3>
+                                <p className="text-sm text-slate-600">{d}</p>
+                            </li>
                         ))}
+                    </ol>
+                </div>
+            </section>
+
+            {/* ================= FAQ ================= */}
+            <section aria-labelledby="faq" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-3xl mx-auto">
+                    <h2 id="faq" className="text-3xl md:text-4xl font-bold text-[#0a1a3a] mb-8">Dammam to Bahrain Questions</h2>
+                    <Accordion type="single" collapsible className="w-full rounded-2xl border border-slate-200 px-5">
+                        {faqs.map((f, i) => (
+                            <AccordionItem key={f.q} value={`faq-${i}`} className="last:border-0">
+                                <AccordionTrigger className="text-left text-base font-semibold text-[#0a1a3a] hover:no-underline">{f.q}</AccordionTrigger>
+                                <AccordionContent className="text-slate-600 leading-relaxed">{f.a}</AccordionContent>
+                            </AccordionItem>
+                        ))}
+                    </Accordion>
+                </div>
+            </section>
+
+            {/* ================= RELATED + REVERSE ================= */}
+            <section aria-labelledby="related" className="py-16 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-6">
+                    <Link href="/routes/bahrain-dammam/" className="group rounded-3xl bg-[#0a1a3a] text-white p-8 flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ce1126]">
+                        <span className="text-sm font-semibold text-[#ff8a95] mb-2">Travelling back from Bahrain?</span>
+                        <span className="text-2xl font-bold flex items-center gap-3">Bahrain → Dammam Private Transfer <Arrow /></span>
+                    </Link>
+                    <div>
+                        <h2 id="related" className="text-xl font-bold text-[#0a1a3a] mb-4">Related routes</h2>
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            {[
+                                ['Need pickup from Al Khobar instead?', '/routes/khobar-bahrain/'],
+                                ['DMM Airport → Bahrain Airport', '/routes/dammam-airport-to-bahrain-airport-taxi/'],
+                                ['Dammam → Kuwait', '/routes/dammam-kuwait/'],
+                                ['Dammam → Qatar', '/routes/dammam-doha/'],
+                            ].map(([l, h]) => (
+                                <li key={h}><Link href={h} className="group flex items-center justify-between gap-2 rounded-xl bg-white border border-slate-200 px-4 py-3.5 text-sm font-semibold text-[#0a1a3a] hover:border-[#0a1a3a]">{l} <Arrow /></Link></li>
+                            ))}
+                        </ul>
+                        <p className="text-sm text-slate-600 mt-4">
+                            Around Dammam: <Link href="/locations/dammam/" className={link}>Dammam transport</Link>, <Link href="/dammam-airport-taxi/" className={link}>Dammam Airport</Link>, <Link href="/locations/al-khobar/" className={link}>Al Khobar</Link>, <Link href="/services/private-driver/" className={link}>private driver</Link> and <Link href="/services/airport-transfers/" className={link}>airport transfers</Link>.
+                        </p>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            {/* Corporate */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 mb-8">
-                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-                    <h4 className="font-bold text-gray-900 mb-2">Corporate & Recurring Transfers: Dammam to Bahrain</h4>
-                    <p className="text-sm text-gray-500 mb-4">Independent VIP transfer pages for professionals travelling to or working with these companies. Not an official partnership with the companies listed.</p>
-                    <div className="flex flex-wrap gap-3">
-                        {corporateCompanies.map((company) => (
-                            <Link
-                                key={company.slug}
-                                href={`/routes/${company.slug}/`}
-                                className="bg-white px-4 py-2 rounded-lg border border-gray-200 text-sm hover:border-primary hover:text-primary transition-colors shadow-sm"
-                            >
-                                {company.name}
-                            </Link>
-                        ))}
+            {/* ================= FINAL CTA ================= */}
+            <section className="relative isolate overflow-hidden py-24 px-4 sm:px-6 lg:px-8 bg-[#0a1a3a]">
+                <svg className="absolute inset-0 -z-10 w-full h-full" viewBox="0 0 1440 500" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0 360 L 1440 250" stroke="#ffffff" strokeOpacity="0.15" strokeWidth="10" />
+                    <path d="M0 360 L 1440 250" stroke="#ce1126" strokeOpacity="0.5" strokeWidth="2" strokeDasharray="6 12" />
+                </svg>
+                <div className="max-w-3xl mx-auto text-center text-white">
+                    <Users className="w-10 h-10 text-[#ff8a95] mx-auto mb-5" aria-hidden="true" />
+                    <h2 className="text-3xl md:text-5xl font-extrabold mb-5">Ready to Travel from Dammam to Bahrain?</h2>
+                    <p className="text-lg text-white/75 mb-10">Send your pickup location, Bahrain destination, date, passengers, luggage and preferred vehicle. We&apos;ll provide the appropriate private transfer quote.</p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                        <Button asChild size="lg" className="h-auto py-4 px-7 rounded-xl font-bold bg-white text-[#0a1a3a] hover:bg-slate-100">
+                            <a href={QUOTE_HREF}>Get Dammam → Bahrain Quote</a>
+                        </Button>
+                        <Button asChild size="lg" variant="outline" className="h-auto py-4 px-7 rounded-xl font-bold bg-white/10 text-white border-white/40 hover:bg-white/20 hover:text-white">
+                            <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer"><WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Book via WhatsApp</a>
+                        </Button>
                     </div>
-                    <p className="text-sm text-gray-500 mt-4">
-                        Need recurring transfers for your team? See our <Link href="/services/corporate-travel/" className="text-primary font-semibold hover:underline">corporate travel service</Link>.
-                    </p>
-                </div>
-            </div>
-
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-                <RelatedLocations
-                    currentCity="Dammam"
-                    customLinks={nearby}
-                    labels={{
-                        title: 'Nearby Destinations from Dammam',
-                        subtitle: 'Private transfers across the Eastern Province',
-                        viewRoutes: 'View Details',
-                    }}
-                />
-            </div>
-
-            <div className="max-w-4xl mx-auto px-4 pb-4">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-2">Dammam to Bahrain Taxi FAQs</h2>
-            </div>
-            <MicroSemanticFAQ faqs={faqs} />
-
-            {/* Final CTA */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white text-center mt-16">
-                <div className="max-w-2xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-black mb-6">Book Your Dammam to Bahrain Transfer</h2>
-                    <p className="text-gray-400 mb-10 text-lg">Send your pickup location, travel date, passenger count and preferred vehicle to receive a quote.</p>
-                    <a href="https://wa.me/966575806733?text=Hello%2C%20I%20want%20to%20book%20a%20taxi%20from%20Dammam%20to%20Bahrain" target="_blank" rel="noopener noreferrer">
-                        <Button size="lg" className="bg-primary text-black hover:bg-white font-black text-lg px-10 py-7 h-auto rounded-2xl shadow-2xl transition-all transform hover:-translate-y-1"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> Get a Quote from 400 SAR</Button>
-                    </a>
                 </div>
             </section>
         </div>

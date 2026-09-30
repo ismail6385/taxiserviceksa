@@ -4,7 +4,7 @@ import AuthorCard from '@/components/AuthorCard';
 
 export const metadata: Metadata = {
     title: 'Dammam to Bahrain by Private Car (2026) | King Fahd Causeway Guide',
-    description: 'How to get from Dammam to Bahrain by private car. King Fahd Causeway crossing, drive time, prices (SAR 300–500), and what to know at the border.',
+    description: 'How to get from Dammam to Bahrain by private car. King Fahd Causeway crossing, drive time, how pricing works, and what to know at the border.',
     alternates: {
         canonical: 'https://taxiserviceksa.com/blog/dammam-to-bahrain-private-car/',
         languages: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     openGraph: {
         images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Dammam to Bahrain by Private Car — Causeway Guide 2026' }],
         title: 'Dammam to Bahrain by Private Car — Causeway Guide 2026',
-        description: 'Private car from Dammam to Bahrain (Manama) via King Fahd Causeway. 95 km, 1.5–2.5 hours, SAR 300–500. What happens at the border and how to book.',
+        description: 'Private car from Dammam to Bahrain (Manama) via King Fahd Causeway. Distance, driving time, what happens at the border and how to book.',
         url: 'https://taxiserviceksa.com/blog/dammam-to-bahrain-private-car/',
         siteName: 'Taxi Service KSA',
         type: 'article',
@@ -48,7 +48,7 @@ const faqJsonLd = {
             name: 'How far is Dammam from Bahrain by car?',
             acceptedAnswer: {
                 '@type': 'Answer',
-                text: 'Dammam city to Bahrain (Manama) is approximately 95 km by road, crossing the King Fahd Causeway. The drive itself takes 50–60 minutes. Total journey time including Causeway border formalities is typically 1.5–2.5 hours depending on traffic and immigration queues.',
+                text: 'Central Dammam to Manama is roughly 70–95 km by road depending on your exact pickup and destination, crossing the King Fahd Causeway. Driving takes roughly 1–1.5 hours; border processing is extra and varies with traffic, day and time.',
             },
         },
         {
@@ -56,7 +56,7 @@ const faqJsonLd = {
             name: 'How much does it cost to go from Dammam to Bahrain by private car?',
             acceptedAnswer: {
                 '@type': 'Answer',
-                text: 'A private car from Dammam to Bahrain (Manama) costs approximately SAR 300–500 depending on vehicle type and waiting time at the border. Toyota Camry: SAR 300–380. GMC Yukon XL: SAR 400–500. All prices are fixed — agreed before the journey starts. The price includes Causeway toll fees for the vehicle.',
+                text: 'A private car from Dammam to Bahrain is quoted per vehicle. The price depends on the exact pickup, Bahrain destination, vehicle, one-way or return and waiting time, and we confirm what it covers - including any causeway vehicle charges - before you book.',
             },
         },
         {
@@ -89,11 +89,10 @@ export default function DammamToBahrainPrivateCarPage() {
     ];
 
     const prices = [
-        { vehicle: 'Toyota Camry', pax: '1–3', price: 'SAR 300–380', note: 'Standard — business trip or couple' },
-        { vehicle: 'Genesis G80', pax: '1–3', price: 'SAR 380–450', note: 'Executive — corporate delegation' },
-        { vehicle: 'GMC Yukon XL', pax: '1–7', price: 'SAR 400–500', note: 'Best for families and groups' },
-        { vehicle: 'Cadillac Escalade', pax: '1–6', price: 'SAR 500–650', note: 'VIP and diplomatic transfers' },
-        { vehicle: 'Toyota Hiace (minibus)', pax: '1–11', price: 'SAR 500–700', note: 'Large groups, Aramco teams' },
+        { vehicle: 'Toyota Camry', pax: '1–3', note: 'Business trip or couple' },
+        { vehicle: 'Toyota Veloz', pax: '1–7', note: 'Families with moderate luggage' },
+        { vehicle: 'GMC Yukon XL', pax: '1–7', note: 'Executive travel or families wanting more room' },
+        { vehicle: 'Toyota Hiace', pax: '1–11', note: 'Groups and extra luggage' },
     ];
 
     return (
@@ -106,7 +105,7 @@ export default function DammamToBahrainPrivateCarPage() {
                 <header className="mb-8">
                     <p className="text-sm text-muted-foreground mb-2">Dammam &rsaquo; Cross-Border &rsaquo; Bahrain</p>
                     <h1 className="text-3xl font-bold leading-tight mb-4">
-                        Dammam to Bahrain by Private Car (2026): Causeway Guide, Prices &amp; What to Expect
+                        Dammam to Bahrain by Private Car (2026): Causeway Guide, Pricing &amp; What to Expect
                     </h1>
                     <p className="text-muted-foreground text-sm">Updated June 2026 &bull; 6 min read</p>
                 </header>
@@ -115,9 +114,9 @@ export default function DammamToBahrainPrivateCarPage() {
                     <p className="font-semibold text-sm uppercase tracking-wide mb-2">TL;DR — Key Facts</p>
                     <ul className="space-y-1 text-sm">
                         <li>📍 <strong>Route:</strong> Dammam → King Fahd Causeway → Bahrain (Manama)</li>
-                        <li>📏 <strong>Distance:</strong> ~95 km total (including 25 km bridge)</li>
-                        <li>⏱️ <strong>Drive time:</strong> 50–60 min driving + 20–60 min at border = 1.5–2.5 hrs total</li>
-                        <li>💰 <strong>Private car cost:</strong> SAR 300–500 depending on vehicle</li>
+                        <li>📏 <strong>Distance:</strong> roughly 70–95 km, central Dammam to Manama (including the 25 km causeway)</li>
+                        <li>⏱️ <strong>Drive time:</strong> roughly 1–1.5 hours of driving, plus border processing that varies</li>
+                        <li>💰 <strong>Private car cost:</strong> quoted per vehicle for your exact trip</li>
                         <li>❌ <strong>Uber/Careem:</strong> Not available for cross-border trips</li>
                         <li>✅ <strong>How to book:</strong> WhatsApp +966 57 580 6733 — 24 hours advance booking recommended</li>
                     </ul>
@@ -145,14 +144,13 @@ export default function DammamToBahrainPrivateCarPage() {
                 </section>
 
                 <section className="mb-10">
-                    <h2 className="text-xl font-bold mb-4">Private Car Prices — Dammam to Bahrain (2026)</h2>
+                    <h2 className="text-xl font-bold mb-4">Vehicles for Dammam to Bahrain</h2>
                     <div className="overflow-x-auto">
                         <table className="w-full text-sm border-collapse">
                             <thead>
                                 <tr className="bg-muted">
                                     <th className="border px-3 py-2 text-left">Vehicle</th>
                                     <th className="border px-3 py-2 text-left">Passengers</th>
-                                    <th className="border px-3 py-2 text-left">Price (SAR)</th>
                                     <th className="border px-3 py-2 text-left">Best for</th>
                                 </tr>
                             </thead>
@@ -161,25 +159,24 @@ export default function DammamToBahrainPrivateCarPage() {
                                     <tr key={i} className="even:bg-muted/30">
                                         <td className="border px-3 py-2 font-medium">{row.vehicle}</td>
                                         <td className="border px-3 py-2">{row.pax}</td>
-                                        <td className="border px-3 py-2">{row.price}</td>
                                         <td className="border px-3 py-2 text-muted-foreground text-xs">{row.note}</td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
                     </div>
-                    <p className="text-xs text-muted-foreground mt-2">Prices are fixed rates (June 2026). Toll fees for the vehicle are included. Waiting time beyond 60 minutes at the border may incur an additional charge.</p>
+                    <p className="text-xs text-muted-foreground mt-2">Prices are quoted per vehicle for your exact trip; the quote states what is included, such as causeway vehicle charges and waiting time. See the <a href="/routes/dammam-bahrain/" className="underline">Dammam to Bahrain transfer</a> to request one.</p>
                 </section>
 
                 <section className="mb-8">
                     <h2 className="text-xl font-bold mb-4">King Fahd Causeway Border Crossing — What to Know</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                         {[
-                            { title: 'Documents needed', desc: 'Valid passport (or GCC national ID). Saudi residents need Iqama. Check Bahrain visa requirements for your nationality — many get visa on arrival.' },
-                            { title: 'Toll fees', desc: 'The Causeway charges a toll per vehicle. This is included in our private transfer price. Individual passengers do not pay separate toll.' },
-                            { title: 'Border hours', desc: 'The King Fahd Causeway is open 24/7. Busiest times are Thursday afternoon, Friday morning, and public holidays. Expect longer queues during these periods.' },
-                            { title: 'Lanes', desc: 'Saudi nationals and GCC residents have dedicated express lanes. Foreign passport holders (tourists, expats on visit visa) use general lanes — longer queues.' },
-                            { title: 'What our driver does', desc: 'The driver parks at the checkpoint, accompanies you through the process, handles vehicle documents, and drives you out on the Bahrain side once immigration is cleared.' },
+                            { title: 'Documents needed', desc: 'Valid passport (or GCC national ID). Saudi residents need Iqama. Entry requirements vary by nationality and residency status - check current Bahrain requirements before travelling.' },
+                            { title: 'Causeway charges', desc: 'The causeway charges vehicles to cross. Your quote confirms whether these charges are included.' },
+                            { title: 'Busier times', desc: 'Border demand varies; weekends and public holidays can be busier. Allow extra time, especially before a flight.' },
+                            { title: 'Processing time', desc: 'Processing time varies with traffic, travel date, time of day and immigration procedures. Nobody can guarantee a crossing time.' },
+                            { title: 'What our driver does', desc: 'The driver can assist with the vehicle-side journey and direct passengers to the relevant procedures. Immigration and customs decisions remain with the authorities.' },
                             { title: 'Return trip', desc: 'If you need a return journey (Bahrain to Dammam), book in advance. We can arrange same-day or next-day return trips.' },
                         ].map((item, i) => (
                             <div key={i} className="border rounded-lg p-3">
@@ -193,7 +190,7 @@ export default function DammamToBahrainPrivateCarPage() {
                 <div className="bg-primary/5 border border-primary/20 rounded-lg p-5 mb-8">
                     <h3 className="font-semibold mb-2">Book Dammam to Bahrain Private Car</h3>
                     <p className="text-sm text-muted-foreground mb-3">
-                        Book at least 24 hours in advance for Bahrain Causeway transfers. GMC Yukon XL recommended for families. Driver experienced with the border crossing.
+                        Book at least 24 hours in advance for Bahrain Causeway transfers. Tell us your passenger and bag count so the vehicle fits.
                     </p>
                     <a
                         href="https://wa.me/966575806733?text=Hi%2C%20I%20need%20a%20private%20car%20from%20Dammam%20to%20Bahrain.%20Please%20share%20availability%20and%20pricing."
@@ -211,11 +208,11 @@ export default function DammamToBahrainPrivateCarPage() {
                         {[
                             {
                                 q: 'How far is Dammam from Bahrain by car?',
-                                a: 'Dammam city to Bahrain (Manama) is approximately 95 km by road, crossing the King Fahd Causeway. The drive itself takes 50–60 minutes. Total journey time including Causeway border formalities is typically 1.5–2.5 hours.',
+                                a: 'Central Dammam to Manama is roughly 70–95 km by road depending on your exact pickup and destination, crossing the King Fahd Causeway. Driving takes roughly 1–1.5 hours; border processing is extra and varies with traffic, day and time.',
                             },
                             {
                                 q: 'How much does it cost to go from Dammam to Bahrain by private car?',
-                                a: 'A private car from Dammam to Bahrain costs approximately SAR 300–500 depending on vehicle type. Toyota Camry: SAR 300–380. GMC Yukon XL: SAR 400–500. All prices are fixed — agreed before the journey. Causeway toll for the vehicle is included.',
+                                a: 'A private car from Dammam to Bahrain is quoted per vehicle. The price depends on the exact pickup, Bahrain destination, vehicle, one-way or return and waiting time, and we confirm what it covers - including any causeway vehicle charges - before you book.',
                             },
                             {
                                 q: 'Can I take Uber from Dammam to Bahrain?',
