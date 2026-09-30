@@ -44,7 +44,9 @@ export default function Breadcrumbs() {
         'tabuk': 'Tabuk',
         'alula': 'AlUla',
         'quba': 'Masjid Quba',
-        'madinah-makkah': 'Madinah to Makkah'
+        'madinah-makkah': 'Madinah to Makkah',
+        'jeddah-taif': 'Jeddah to Taif',
+        'taif-jeddah': 'Taif to Jeddah'
     };
 
     const breadcrumbs = pathSegments.map((segment, index) => {

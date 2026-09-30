@@ -19,7 +19,7 @@ const R = {
     jeddahMakkah: { from: 'Jeddah', to: 'Makkah', distance: '85-95 km', duration: '60-80 min', price: 'From 300 SAR', image: '/makkah-kaaba-night.webp', href: '/routes/jeddah-makkah/' },
     makkahMadinah: { from: 'Makkah', to: 'Madinah', distance: '450 km', duration: '4-5 hours', price: 'From 550 SAR', image: '/madinah-prophets-mosque.webp', href: '/routes/makkah-madinah/' },
     madinahJeddah: { from: 'Madinah', to: 'Jeddah', distance: '415-450 km', duration: '4-4.5 hours', price: 'Get quote', image: '/jeddah-corniche-sunset.webp', href: '/routes/madinah-jeddah/' },
-    jeddahTaif: { from: 'Jeddah', to: 'Taif', distance: '170 km', duration: '2-2.5 hours', price: 'Get quote', image: '/taif-rose-gardens.webp', href: '/routes/jeddah-taif/' },
+    jeddahTaif: { from: 'Jeddah', to: 'Taif', distance: '~175 km', duration: '2-2.5 hours', price: 'Get quote', image: '/taif-rose-gardens.webp', href: '/routes/jeddah-taif/' },
     jeddahAlula: { from: 'Jeddah', to: 'AlUla', distance: '700 km', duration: '7-8 hours', price: 'Get quote', image: '/alula-hegra-tombs.webp', href: '/routes/jeddah-alula/' },
     riyadhJeddah: { from: 'Riyadh', to: 'Jeddah', distance: '950 km', duration: '9-10 hours', price: 'Get quote', image: '/jeddah-city-night.webp', href: '/routes/riyadh-jeddah/' },
     makkahTaif: { from: 'Makkah', to: 'Taif', distance: '85-100 km', duration: '1.5-2 hours', price: 'Get quote', image: '/taif-mountains-view.webp', href: '/routes/makkah-taif/' },

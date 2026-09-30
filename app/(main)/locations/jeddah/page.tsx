@@ -22,6 +22,7 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 import JsonLdLocation from '@/components/JsonLdLocation';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { jeddahHotels } from '@/data/jeddahHotels';
+import { JEDDAH_TAIF } from '@/data/jeddahTaifRoute';
 import ApprovedDriversForLocation from '@/components/ApprovedDriversForLocation';
 
 
@@ -65,7 +66,7 @@ export default async function JeddahPage() {
     const distanceData = [
         { destination: 'Makkah (Haram)', distance: '90 km', time: '1h 15m', route: 'Haramain Expy' },
         { destination: 'Madinah', distance: '415 km', time: '4h - 4h 30m', route: 'Route 15' },
-        { destination: 'Taif', distance: '170 km', time: '2h', route: 'Al Hada Rd' },
+        { destination: 'Taif', distance: JEDDAH_TAIF.distanceShort, time: JEDDAH_TAIF.roadTimeShort, route: 'Al Hada Rd, conditions permitting' },
         { destination: 'Obhur (North)', distance: '35 km', time: '40 mins', route: 'Corniche Rd' }
     ];
 
@@ -108,7 +109,7 @@ export default async function JeddahPage() {
         },
         {
             question: "Can I book a transfer from Jeddah to Taif?",
-            answer: "Yes, the 170km drive to Taif via Al Hada Road takes around 2 hours. This route is popular for its cooler mountain climate, especially in summer."
+            answer: `Yes. Taif is about ${JEDDAH_TAIF.distance} away and the drive usually takes ${JEDDAH_TAIF.roadTime}, depending on your pickup, destination and mountain-road conditions. We drive to Taif city, Al Hada or Al Shafa.`
         }
     ];
 
@@ -352,7 +353,7 @@ export default async function JeddahPage() {
                         <ul className="space-y-3">
                             <li>
                                 <Link href="/routes/jeddah-taif/" className="text-gray-700 hover:text-primary transition-colors flex items-center justify-between group py-2">
-                                    <span className="font-semibold">Jeddah to Taif private transfer (170km, ~2h)</span>
+                                    <span className="font-semibold">Jeddah to Taif private transfer ({JEDDAH_TAIF.distanceShort}, {JEDDAH_TAIF.roadTimeShort})</span>
                                     <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
                                 </Link>
                             </li>
@@ -623,7 +624,7 @@ export default async function JeddahPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         {[
                             { href: '/routes/jeddah-makkah/', title: 'Makkah', desc: '90 km · ~1h 15m' },
-                            { href: '/routes/jeddah-taif/', title: 'Taif', desc: '170 km · ~2h' },
+                            { href: '/routes/jeddah-taif/', title: 'Taif', desc: `${JEDDAH_TAIF.distanceShort} · ${JEDDAH_TAIF.roadTimeShort}` },
                             { href: '/locations/rabigh/', title: 'Rabigh', desc: 'North coastal route' },
                             { href: '/locations/al-qunfudhah/', title: 'Al-Qunfudhah', desc: 'South coastal route' },
                         ].map((city) => (

@@ -17,6 +17,7 @@ import ReviewForm from '@/components/seo/ReviewForm';
 import QuestionForm from '@/components/seo/QuestionForm';
 import AuthorCard from '@/components/AuthorCard';
 import JsonLdFAQ from '@/components/JsonLdFAQ';
+import { JEDDAH_TAIF } from '@/data/jeddahTaifRoute';
 
 export const metadata: Metadata = {
     title: 'Private Intercity Taxi & Chauffeur Service in Saudi Arabia | Taxi Service KSA',
@@ -44,7 +45,7 @@ const popularRoutes = [
     { name: 'Makkah ↔ Madinah', distance: '~450 km', time: '~4.5 hours', desc: 'The main road between the two holy cities, with stops arranged along the way.', link: '/routes/makkah-madinah/' },
     { name: 'Jeddah ↔ Madinah', distance: '~415 km', time: '~4-4.5 hours', desc: 'Direct transfer for pilgrims and travelers heading to Madinah.', link: '/routes/jeddah-madinah/' },
     { name: 'Riyadh ↔ Dammam', distance: '~400 km', time: '~4 hours', desc: 'The main business corridor between the capital and the Eastern Province.', link: '/routes/riyadh-dammam/' },
-    { name: 'Jeddah ↔ Taif', distance: '~170 km', time: '~2 hours', desc: 'Mountain-route transfer to Taif\'s cooler climate.', link: '/routes/jeddah-taif/' },
+    { name: 'Jeddah ↔ Taif', distance: JEDDAH_TAIF.distanceShort, time: JEDDAH_TAIF.roadTimeShort, desc: 'Mountain-route transfer to Taif\'s cooler climate.', link: '/routes/jeddah-taif/' },
 ];
 
 const includedItems = [

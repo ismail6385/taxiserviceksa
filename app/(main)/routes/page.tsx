@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Navigation, ArrowRight, Clock, DollarSign, MapPin, Car, Building2, Globe, Plane } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { JEDDAH_TAIF } from '@/data/jeddahTaifRoute';
 
 export const metadata: Metadata = {
     title: 'All Routes | Taxi Service KSA - Fixed Price Intercity & Cross-Border Transfers',
@@ -76,10 +77,10 @@ const routes = [
     },
     {
         name: 'Jeddah → Taif',
-        distance: '170 km',
-        duration: '2.5-3 hours',
-        price: 'Fixed Rates',
-        description: 'Scenic mountain drive to the City of Roses. Enjoy the cool weather and nature of Taif.',
+        distance: JEDDAH_TAIF.distanceShort,
+        duration: JEDDAH_TAIF.roadTimeShort,
+        price: 'Quote-based',
+        description: 'Private mountain transfer from Jeddah to Taif city, Al Hada or Al Shafa.',
         image: '/hero-slide-3.webp',
         href: '/routes/jeddah-taif/',
         highlights: ['Mountain views', 'Cable car access', 'Cool climate'],
