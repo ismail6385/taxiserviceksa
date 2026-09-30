@@ -64,7 +64,7 @@ const FLEET: TabukVehicle[] = FLEET_META.flatMap(([name, cls, studio]) => {
 });
 
 const faqs = [
-    { q: 'How far is TUU Airport from Tabuk?', a: 'Prince Sultan bin Abdulaziz Airport (TUU) is Tabuk’s own airport, a short drive from the city’s hotels and districts. Our Tabuk Airport transfer guide carries the distance and timing details.' },
+    { q: 'How far is TUU Airport from Tabuk?', a: 'Prince Sultan bin Abdulaziz Airport (TUU) is Tabuk’s own airport, a short drive from the city’s hotels and districts. How long the drive takes depends on your address and the traffic; our Tabuk Airport transfer guide covers arrivals and departures.' },
     { q: 'Can I book a private transfer from Tabuk Airport?', a: 'Yes, subject to availability. Add your flight number and arrival time when you book; pickup instructions come with your confirmed booking.' },
     { q: 'Can I travel from Tabuk to NEOM?', a: `Yes, as a pre-booked road journey. NEOM is a large region rather than one address, so we need the exact accommodation, site or meeting point before confirming the route. ${NEOM_ACCESS}` },
     { q: 'Can I travel from Tabuk to AlUla?', a: 'Yes, subject to availability. It is a long road journey, so tell us your passengers and luggage and whether you need a return.' },
@@ -559,7 +559,7 @@ export default function TabukPage() {
                             </AccordionItem>
                         ))}
                     </Accordion>
-                    <p className="text-sm text-stone-500 mt-4">Airport figures and arrival details: <Link href="/tabuk-airport-taxi/" className={link}>Tabuk Airport transfer guide</Link>.</p>
+                    <p className="text-sm text-stone-500 mt-4">Arrivals and departures at TUU: <Link href="/tabuk-airport-taxi/" className={link}>Tabuk Airport transfer guide</Link>.</p>
                 </div>
             </section>
 

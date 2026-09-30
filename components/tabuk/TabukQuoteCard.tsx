@@ -18,9 +18,9 @@ const label = 'block text-xs font-bold uppercase tracking-wider text-stone-500 m
 const chip = 'shrink-0 rounded-full border border-stone-200 bg-stone-50 px-3 py-1.5 text-xs font-semibold text-stone-700 hover:border-[#e2a23b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e2a23b]';
 
 // Tabuk request form. Hands off to the existing /booking/ flow; return legs, flight direction and site details travel in the notes.
-export default function TabukQuoteCard({ vehicleOptions }: { vehicleOptions: string[] }) {
+export default function TabukQuoteCard({ vehicleOptions, initialFrom = '', title = 'Your Tabuk journey' }: { vehicleOptions: string[]; initialFrom?: string; title?: string }) {
     const router = useRouter();
-    const [from, setFrom] = useState('');
+    const [from, setFrom] = useState(initialFrom);
     const [to, setTo] = useState('');
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
@@ -102,7 +102,7 @@ export default function TabukQuoteCard({ vehicleOptions }: { vehicleOptions: str
 
     return (
         <form onSubmit={submit} noValidate aria-labelledby="tb-card-title" className="rounded-2xl bg-white p-5 sm:p-7 shadow-[0_30px_80px_-30px_rgba(36,26,18,0.7)] text-[#241a12]">
-            <h2 id="tb-card-title" className="route-quote-title mb-5">Your Tabuk journey</h2>
+            <h2 id="tb-card-title" className="route-quote-title mb-5">{title}</h2>
             <div className="space-y-4">
                 <div>
                     <label htmlFor="tb-from" className={label}>Pickup</label>
