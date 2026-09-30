@@ -1,617 +1,366 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
+import { ArrowRight, Route, Repeat, Clock, Check, Minus, Send, ClipboardCheck, Wallet, Car } from 'lucide-react';
+
 import { Button } from '@/components/ui/button';
-import {
-    Clock, CheckCircle2, ArrowRight, MapPin,
-    Car, Users, Shield, Star, Navigation, Crown
-} from 'lucide-react';
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from '@/components/ui/accordion';
-import JsonLdFAQ from '@/components/JsonLdFAQ';
-import AuthorCard from '@/components/AuthorCard';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
 import TopicCluster from '@/components/seo/TopicCluster';
+import TabukQuoteCard from '@/components/tabuk/TabukQuoteCard';
+import QuoteLink from '@/components/tabuk/QuoteLink';
+import { TABUK_ROUTES } from '@/data/tabukRoutes';
+import { vehicles } from '@/lib/supabase';
+
+const PAGE_URL = 'https://taxiserviceksa.com/services/taxi-in-tabuk/';
+const HUB = '/locations/tabuk/';
+const QUOTE_HREF = '#quote';
+const WHATSAPP_HREF = `https://wa.me/966575806733?text=${encodeURIComponent('Hello, I would like to book a private car in Tabuk. Pickup, destination, date, time, passengers and luggage: ')}`;
+const HOURLY_HREF = `/booking/?${new URLSearchParams({ from: 'Tabuk', trip: 'hourly', hours: '4' }).toString()}`;
 
 export const metadata: Metadata = {
-    title: 'Private Car Transfer, Taxi and Chauffeur Service in Tabuk | NEOM & AlUla Routes | Taxi Service KSA',
-    description: 'Best private taxi service in Tabuk 2026. Specialists in Tabuk to NEOM transfers, AlUla, Jeddah, and city rides. Fixed rates, luxury fleet, 24/7. Book via WhatsApp.',
-    keywords: [
-        'taxi in Tabuk',
-        'private car Tabuk',
-        'Tabuk to NEOM taxi',
-        'Tabuk taxi service',
-        'private driver Tabuk',
-        'Tabuk to AlUla taxi',
-        'car with driver Tabuk',
-        'Tabuk airport taxi',
-        'Tabuk to Jeddah private car',
-        'long distance taxi Tabuk',
-        'VIP transfer Tabuk',
-        'chauffeur Tabuk Saudi Arabia',
-    ],
+    title: 'Taxi in Tabuk | Book a Private Car With Driver',
+    description: 'Book a pre-booked private car with driver in Tabuk: one-way transfers, return trips and hourly hire. Send your journey, see the price, then confirm.',
     alternates: {
-        canonical: 'https://taxiserviceksa.com/services/taxi-in-tabuk/',
+        canonical: PAGE_URL,
         languages: {
-            'en': 'https://taxiserviceksa.com/services/taxi-in-tabuk/',
-            'ar': 'https://taxiserviceksa.com/ar/services/taxi-in-tabuk/',
-            'ur': 'https://taxiserviceksa.com/ur/services/taxi-in-tabuk/',
-            'x-default': 'https://taxiserviceksa.com/services/taxi-in-tabuk/',
+            en: PAGE_URL,
+            ar: 'https://taxiserviceksa.com/ar/services/taxi-in-tabuk/',
+            ur: 'https://taxiserviceksa.com/ur/services/taxi-in-tabuk/',
+            'x-default': PAGE_URL,
         },
     },
     openGraph: {
-        title: 'Private Car Transfer, Taxi and Chauffeur Service in Tabuk | NEOM & AlUla Routes | Taxi Service KSA',
-        description: 'Premium taxi and private car service in Tabuk. NEOM specialists, AlUla transfers, airport pickup. Fixed rates, luxury fleet, 24/7.',
-        url: 'https://taxiserviceksa.com/services/taxi-in-tabuk/',
+        title: 'Taxi in Tabuk: Book a Private Car With Driver',
+        description: 'A pre-booked car and driver in Tabuk for one journey, a return trip or by the hour.',
+        url: PAGE_URL,
+        siteName: 'Taxi Service KSA',
         type: 'website',
-        images: [{ url: 'https://taxiserviceksa.com/hero-slide-3.webp' }],
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Book a private car with driver in Tabuk' }],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Taxi in Tabuk: Book a Private Car With Driver',
+        description: 'A pre-booked car and driver in Tabuk for one journey, a return trip or by the hour.',
+        images: ['https://taxiserviceksa.com/og-image.jpg'],
     },
 };
 
+// Seats and bags come from the booking system's vehicle list - one source of truth.
+const FLEET_META: [string, string, string][] = [
+    ['Toyota Camry', 'Sedan', '/fleet/toyota-camry/'],
+    ['Genesis G80 VIP', 'Executive sedan', '/fleet/genesis-g80/'],
+    ['Cadillac Escalade', 'Large SUV', '/fleet/cadillac-escalade/'],
+    ['GMC Yukon XL / Denali', 'Large SUV', '/fleet/gmc-yukon-xl/'],
+    ['Hyundai Staria VIP', 'Van / MPV', '/fleet/hyundai-staria-vip/'],
+    ['Toyota Hiace', 'Group van', '/fleet/toyota-hiace/'],
+    ['Toyota Coaster', 'Minibus', '/fleet/toyota-coaster/'],
+];
+const FLEET = FLEET_META.flatMap(([name, cls, href]) => {
+    const v = vehicles.find((x) => x.name === name);
+    return v ? [{ name: v.name, cls, href, passengers: v.passengers, luggage: v.luggage }] : [];
+});
+
+const faqs = [
+    { q: 'How do I book a taxi in Tabuk?', a: 'Fill in the quote form on this page or message us on WhatsApp with your pickup, destination, date, time, passengers and luggage. We reply with the vehicle and price, and the booking is made once you confirm.' },
+    { q: 'How far ahead should I book?', a: 'As early as you can, especially for airport pickups and long journeys out of Tabuk. For a request at short notice, message us and we tell you what is available.' },
+    { q: 'Is this a street taxi I can hail in Tabuk?', a: 'No. This is a pre-booked private car with driver. We do not operate street-hail or shared taxis.' },
+    { q: 'Is Uber available in Tabuk?', a: 'We cannot speak for ride-app coverage on a given day - check the app when you need it. A pre-booked car is for when you want the vehicle, pickup time and price agreed in advance.' },
+    { q: 'Will I know the price before I travel?', a: 'Yes. You receive the price with the quote and confirm only if you are happy with it.' },
+    { q: 'How will I find my driver?', a: 'The pickup point and the driver and vehicle details are sent with your confirmed booking.' },
+    { q: 'Can I ask for an English- or Urdu-speaking driver?', a: 'Tell us the language you need when you request the quote and we confirm whether it is available for your date.' },
+    { q: 'Can I book for someone else?', a: 'Yes. Give us the passenger’s name and phone number so the driver can reach them at pickup.' },
+    { q: 'Can I keep the car for several hours?', a: 'You can request an hourly booking, where the vehicle stays with you between stops. Hourly availability in Tabuk is confirmed for your date.' },
+    { q: 'Can I arrange regular or repeated journeys?', a: 'Send us the schedule - days, times, pickup and drop-off - and we quote it as a recurring arrangement.' },
+];
+
+const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'Service',
+            '@id': `${PAGE_URL}#service`,
+            name: 'Pre-booked private car with driver in Tabuk',
+            url: PAGE_URL,
+            serviceType: 'Pre-booked private car with driver',
+            description: 'Pre-booked private car with driver in Tabuk for one-way transfers, return trips and hourly hire.',
+            provider: { '@type': 'Organization', '@id': 'https://taxiserviceksa.com/#organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com' },
+            areaServed: { '@type': 'City', name: 'Tabuk' },
+        },
+        {
+            '@type': 'FAQPage',
+            '@id': `${PAGE_URL}#faq`,
+            mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+        },
+    ],
+};
+
+const eyebrow = 'text-xs font-bold uppercase tracking-[0.22em]';
+const link = 'font-semibold text-[#9a4f1c] hover:underline';
+const qbtn = 'group inline-flex items-center gap-2 font-bold text-[#241a12] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e2a23b] rounded';
+const h2 = 'text-3xl md:text-4xl font-extrabold text-[#241a12]';
+
+function Arrow() {
+    return <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" />;
+}
+
 export default function TaxiInTabukPage() {
-
-    const useCases = [
-        {
-            icon: <Crown className="w-8 h-8 text-black" />,
-            title: 'NEOM Project Workers',
-            desc: 'Daily and weekly transfers for consultants, engineers, and executives heading to NEOM from Tabuk. 190 km — 2–2.5 hour drive. Pre-assigned driver, fixed monthly rate available.',
-            badge: 'Most Popular',
-        },
-        {
-            icon: <Star className="w-8 h-8 text-black" />,
-            title: 'AlUla Heritage Tourists',
-            desc: 'International tourists flying into Tabuk Airport (TUU) to visit AlUla, Hegra, and the Dedan archaeological site. English-speaking driver, 330 km — 3.5–4 hours.',
-            badge: 'Tourist Route',
-        },
-        {
-            icon: <MapPin className="w-8 h-8 text-black" />,
-            title: 'Airport Transfers (TUU)',
-            desc: 'Meet-and-greet at Prince Sultan Bin Abdulaziz Airport. Driver waiting at arrivals with name sign. Flight tracking included. City, NEOM, and AlUla destinations.',
-            badge: 'Airport',
-        },
-        {
-            icon: <Car className="w-8 h-8 text-black" />,
-            title: 'Tabuk City Rides',
-            desc: 'Business meetings, hotel transfers, shopping, hospital appointments across Tabuk city. Half-day and full-day hire available with waiting included between stops.',
-            badge: 'City',
-        },
-        {
-            icon: <Users className="w-8 h-8 text-black" />,
-            title: 'Family & Group Travel',
-            desc: 'Large families traveling Tabuk to Jeddah, Madinah, or Makkah by private car. GMC Yukon XL and Toyota Hiace for groups up to 11 with full luggage.',
-            badge: 'Groups',
-        },
-        {
-            icon: <Shield className="w-8 h-8 text-black" />,
-            title: 'Corporate & VIP',
-            desc: 'Diplomatic guests, government delegations, and senior executives visiting Tabuk region. Cadillac Escalade, fully discreet service, professional attire standard.',
-            badge: 'VIP',
-        },
-    ];
-
-    const routes = [
-        { from: 'Tabuk City', to: 'NEOM (Sharma)', dist: '190 km', time: '2–2.5 hrs', link: '/routes/tabuk-neom/' },
-        { from: 'Tabuk City', to: 'AlUla', dist: '330 km', time: '3.5–4 hrs', link: '/routes/tabuk-alula/' },
-        { from: 'Tabuk Airport (TUU)', to: 'Tabuk City Centre', dist: '14 km', time: '15–20 min', link: '/tabuk-airport-taxi/' },
-        { from: 'Tabuk City', to: 'Jeddah', dist: '1,100 km', time: '10–11 hrs', link: '/routes/tabuk-jeddah/' },
-        { from: 'Tabuk City', to: 'Madinah', dist: '680 km', time: '6.5–7 hrs', link: '/routes/tabuk-madinah/' },
-        { from: 'Tabuk City', to: 'Al Wajh', dist: '220 km', time: '2.5 hrs', link: '/routes/tabuk-al-wajh/' },
-        { from: 'Tabuk City', to: 'Haql', dist: '320 km', time: '3.5 hrs', link: '/routes/tabuk-haql/' },
-        { from: 'Tabuk City', to: 'Riyadh', dist: '1,450 km', time: '13–14 hrs', link: '/routes/tabuk-riyadh/' },
-    ];
-
-    const vehicles = [
-        { name: 'Toyota Camry', seats: 3, luggage: '2 bags', ideal: 'Solo business traveler, city rides', link: '/fleet/toyota-camry/' },
-        { name: 'Genesis G80', seats: 3, luggage: '2 bags', ideal: 'Executive visitor, VIP solo', link: '/fleet/genesis-g80/' },
-        { name: 'GMC Yukon XL', seats: 7, luggage: '5 bags', ideal: 'NEOM teams, families, groups', link: '/fleet/gmc-yukon/' },
-        { name: 'Hyundai Staria VIP', seats: 7, luggage: '4 bags', ideal: 'VIP family, delegations', link: '/fleet/hyundai-staria/' },
-        { name: 'Toyota Hiace', seats: 11, luggage: '16 bags', ideal: 'Large groups, tourist parties', link: '/fleet/toyota-hiace/' },
-        { name: 'Cadillac Escalade', seats: 6, luggage: '4 bags', ideal: 'Diplomatic, senior executive', link: '/fleet/cadillac-escalade/' },
-    ];
-
-    const features = [
-        'Fixed rates — no surge pricing ever',
-        'Ministry of Transport licensed drivers',
-        'English, Arabic, Urdu speaking',
-        'Long-distance highway specialists',
-        'Driver details shared before pickup',
-        'Rest stops included on long routes',
-        'Full A/C — desert heat ready',
-        '24/7 including early morning flights',
-        'WhatsApp booking — 30 min confirmation',
-        'Same driver for multi-day bookings',
-    ];
-
-    const faqs = [
-        {
-            question: 'What is the best taxi service in Tabuk?',
-            answer: 'Taxi Service KSA is one of the top-rated private car services in Tabuk, specialising in long-distance transfers to NEOM, AlUla, and across the Kingdom. Unlike ride-hailing apps with inconsistent Tabuk coverage, we provide pre-booked professional drivers with fixed rates, meet-and-greet at Tabuk Airport, and vehicles chosen for long desert highway drives.',
-        },
-        {
-            question: 'How long is the drive from Tabuk to NEOM?',
-            answer: 'The drive from Tabuk city to the NEOM Sharma area is approximately 190 km and takes 2–2.5 hours on the main highway. Our drivers know the route well, including the correct checkpoints and access roads for NEOM. A GMC Yukon XL or Cadillac Escalade is recommended for this journey for highway comfort and luggage capacity.',
-        },
-        {
-            question: 'Can I book a taxi from Tabuk to AlUla?',
-            answer: 'Yes. Tabuk to AlUla is approximately 330 km — a 3.5–4 hour drive through the northwest Saudi highlands. This route is popular with international tourists visiting the Hegra (Madain Salih) UNESCO heritage site and the AlUla old town. An English-speaking driver is available as standard. Book 24 hours in advance for this route.',
-        },
-        {
-            question: 'Is there a private car from Tabuk to Jeddah?',
-            answer: 'Yes. Tabuk to Jeddah is approximately 1,100 km — a 10–11 hour intercity transfer. This is a specialist long-distance route requiring an experienced highway driver and a vehicle in excellent condition. We deploy GMC Yukon XL or Toyota Hiace for this route. Scheduled rest stops at SASCO stations are included. Contact us 48 hours in advance for long-distance bookings.',
-        },
-        {
-            question: 'How much does a taxi from Tabuk cost?',
-            answer: 'Tabuk city rides (hotel to meeting, airport transfer within city) cost approximately SAR 50–120 depending on distance. Tabuk to NEOM costs SAR 400–700 depending on vehicle. Tabuk to AlUla costs SAR 600–1,000. All prices are fixed — agreed before the trip, no meter. Contact us via WhatsApp for an exact quote for your specific route and vehicle.',
-        },
-        {
-            question: 'Is Uber available in Tabuk?',
-            answer: 'Uber and Careem have limited and inconsistent coverage in Tabuk compared to Riyadh and Jeddah. App availability is particularly unreliable at Tabuk Airport, on long-distance routes to NEOM and AlUla, and during late-night hours. For guaranteed pickup — especially for airport arrivals and NEOM-bound transfers — a pre-booked private transfer is strongly recommended.',
-        },
-        {
-            question: 'Can I get a monthly driver contract in Tabuk?',
-            answer: 'Yes. For NEOM project workers and Tabuk-based expats requiring daily or weekly transport, a dedicated driver contract is available. A fixed monthly rate covers a pre-assigned driver for your regular routes — Tabuk to NEOM, hotel to site, airport runs. Contact us via WhatsApp to discuss your schedule and requirements.',
-        },
-        {
-            question: 'Do drivers speak English in Tabuk?',
-            answer: 'Yes. All Taxi Service KSA drivers in Tabuk speak conversational English. For international tourists visiting AlUla and NEOM project visitors, an English-fluent driver is confirmed as standard. Urdu-speaking drivers are also available on request for Pakistani and South Asian project workers in the Tabuk and NEOM region.',
-        },
-    ];
-
-    const serviceSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'Service',
-        name: 'Taxi in Tabuk — Private Car Service',
-        serviceType: 'Private Taxi & Chauffeur Tabuk',
-        provider: {
-            '@type': 'Organization',
-            name: 'Taxi Service KSA',
-            url: 'https://taxiserviceksa.com',
-            telephone: '+966575806733',
-        },
-        areaServed: [
-            { '@type': 'City', name: 'Tabuk' },
-            { '@type': 'Place', name: 'NEOM' },
-            { '@type': 'City', name: 'AlUla' },
-            { '@type': 'Country', name: 'Saudi Arabia' },
-        ],
-        description: 'Premium private taxi and chauffeur service in Tabuk, Saudi Arabia. Specialists in Tabuk to NEOM transfers, AlUla tourism routes, airport pickup, and intercity private car hire.',
-        availableLanguage: [
-            { '@type': 'Language', name: 'English' },
-            { '@type': 'Language', name: 'Arabic' },
-            { '@type': 'Language', name: 'Urdu' },
-        ],
-        hasOfferCatalog: {
-            '@type': 'OfferCatalog',
-            name: 'Tabuk Taxi Services',
-            itemListElement: [
-                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tabuk to NEOM Private Transfer' } },
-                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tabuk Airport Transfer (TUU)' } },
-                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tabuk to AlUla Private Car' } },
-                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tabuk City Rides — Hourly & Daily Hire' } },
-                { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Tabuk to Jeddah Intercity Transfer' } },
-            ],
-        },
-    };
-
-    const speakableSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'WebPage',
-        name: 'Taxi in Tabuk — Private Car Service Saudi Arabia',
-        speakable: {
-            '@type': 'SpeakableSpecification',
-            cssSelector: ['h1', '.tldr-summary', '.speakable-answer'],
-        },
-        url: 'https://taxiserviceksa.com/services/taxi-in-tabuk/',
-    };
-
     return (
-        <div className="bg-gray-50 min-h-screen">
-            <Script id="tabuk-taxi-schema" type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-            <Script id="tabuk-speakable" type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
-            <JsonLdFAQ faqs={faqs} />
+        <div className="tabuk-page bg-[#f3ebdd]">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-            {/* Hero */}
-            <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
-                    <div className="absolute inset-0 bg-[url('/hero-slide-3.webp')] bg-cover bg-center" />
-                </div>
-                <div className="max-w-7xl mx-auto relative z-10 text-center">
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-6">
-                        Tabuk · NEOM Gateway · Northwest Saudi Arabia
-                    </span>
-                    <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        Private Car Transfer, Taxi and Chauffeur Service in Tabuk<br />{' '}
-                        <span className="text-white/80">NEOM &amp; AlUla Routes</span>
-                    </h1>
-                    <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-4">
-                        The best private taxi service in Tabuk — NEOM transfers, AlUla tourism routes, airport pickup, and city rides. Professional drivers, luxury fleet, fixed rates 24/7.
-                    </p>
-
-                    {/* TL;DR AEO Block */}
-                    <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 max-w-3xl mx-auto text-left mb-10 tldr-summary">
-                        <p className="text-base font-bold text-white mb-3 flex items-center gap-2">
-                            <Car className="w-4 h-4 text-emerald-400" /> Tabuk Taxi — Quick Facts
-                        </p>
-                        <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-300 text-sm">
-                            <li><strong className="text-white">Airport:</strong> TUU — 14 km from city, 15–20 min</li>
-                            <li><strong className="text-white">NEOM:</strong> 190 km — 2–2.5 hrs from Tabuk</li>
-                            <li><strong className="text-white">AlUla:</strong> 330 km — 3.5–4 hrs from Tabuk</li>
-                            <li><strong className="text-white">Languages:</strong> English, Arabic, Urdu</li>
-                            <li><strong className="text-white">Pricing:</strong> Fixed rates — no surge ever</li>
-                            <li><strong className="text-white">Booking:</strong> WhatsApp +966 57 580 6733</li>
-                        </ul>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966575806733?text=Hello,%20I%20need%20a%20taxi%20in%20Tabuk" target="_blank" rel="noopener noreferrer">
-                            <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
-                                Book Tabuk Taxi
-                                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            </Button>
-                        </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
-                            <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl">
-                                Email for Quote
-                            </Button>
-                        </a>
-                    </div>
-                </div>
-            </section>
-
-            {/* Breadcrumb */}
-            <section className="bg-white border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-                    <nav className="flex items-center space-x-2 text-sm">
-                        <Link href="/" className="text-gray-500 hover:text-gray-900">Home</Link>
-                        <span className="text-gray-400">/</span>
-                        <Link href="/services/" className="text-gray-500 hover:text-gray-900">Services</Link>
-                        <span className="text-gray-400">/</span>
-                        <span className="text-gray-900 font-semibold">Taxi in Tabuk</span>
-                    </nav>
-                </div>
-            </section>
-
-            {/* Use Cases */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Who Uses Our Taxi Service in Tabuk</h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">From NEOM project teams to AlUla tourists — one professional driver for every Tabuk journey.</p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {useCases.map((c, i) => (
-                            <div key={i} className="relative bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-black hover:shadow-lg transition-all">
-                                <span className="absolute top-4 right-4 bg-black text-white text-xs font-bold px-2 py-1 rounded-full">
-                                    {c.badge}
-                                </span>
-                                <div className="mb-4">{c.icon}</div>
-                                <h3 className="text-lg font-bold text-gray-900 mb-2">{c.title}</h3>
-                                <p className="text-gray-600 text-sm leading-relaxed">{c.desc}</p>
-                            </div>
+            {/* ================= HERO ================= */}
+            <section className="relative isolate overflow-hidden bg-[#241a12]">
+                <svg className="absolute inset-0 -z-10 w-full h-full" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                    <g fill="none" stroke="#f0c987" strokeOpacity="0.1">
+                        {Array.from({ length: 9 }, (_, i) => (
+                            <ellipse key={i} cx="260" cy="560" rx={120 + i * 90} ry={70 + i * 52} transform="rotate(-10 260 560)" />
                         ))}
+                    </g>
+                </svg>
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20 grid grid-cols-1 lg:grid-cols-[1fr_0.9fr] gap-8 lg:gap-12 items-start">
+                    <div className="text-white lg:pt-10 animate-fade-in-up motion-reduce:animate-none motion-reduce:opacity-100">
+                        <p className={`${eyebrow} text-[#f0c987] mb-5`}>Pre-booked private car • Tabuk</p>
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight mb-5">Taxi in Tabuk: Book a Private Car With Driver</h1>
+                        <p className="text-base sm:text-lg text-white/80 leading-relaxed mb-8 max-w-xl">
+                            A car and driver booked in advance for one journey, a return trip or by the hour. Send the trip, see the price, then confirm.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-3 mb-6">
+                            <Button asChild size="lg" className="group h-auto py-4 px-7 rounded-xl font-bold text-base bg-[#e2a23b] text-[#241a12] hover:bg-[#ebb65c]">
+                                <a href={QUOTE_HREF}>Get My Price <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" /></a>
+                            </Button>
+                            <Button asChild size="lg" variant="outline" className="h-auto py-4 px-7 rounded-xl font-bold text-base bg-white/10 text-white border-white/40 hover:bg-white/20 hover:text-white">
+                                <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer"><WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Book on WhatsApp</a>
+                            </Button>
+                        </div>
+                        <p className="text-sm text-white/60">Planning a wider trip? See how Tabuk connects to NEOM, AlUla and the coast on the <Link href={HUB} className="font-semibold text-[#f0c987] hover:underline">Tabuk transport hub</Link>.</p>
+                    </div>
+                    <div id="quote" className="scroll-mt-32 min-w-0">
+                        <TabukQuoteCard vehicleOptions={FLEET.map((v) => v.name)} />
                     </div>
                 </div>
             </section>
 
-            {/* Routes */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Popular Tabuk Taxi Routes</h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">Click any route to see full details, pricing, and booking options.</p>
+            {/* ================= WAYS TO BOOK ================= */}
+            <section aria-labelledby="ways" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="ways" className={`${h2} mb-8`}>Three Ways to Book a Car in Tabuk</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <article className="rounded-2xl bg-white border border-[#241a12]/10 p-6 flex flex-col">
+                            <Route className="w-6 h-6 text-[#9a4f1c] mb-4" aria-hidden="true" />
+                            <h3 className="text-[#241a12] mb-2">One-way transfer</h3>
+                            <p className="text-sm text-stone-600 flex-1 mb-5">One pickup, one drop-off. For an airport run, a hotel change or a journey out of Tabuk.</p>
+                            <QuoteLink set={{ from: 'Tabuk', trip: 'one' }} className={qbtn}>Quote a transfer <Arrow /></QuoteLink>
+                        </article>
+                        <article className="rounded-2xl bg-white border border-[#241a12]/10 p-6 flex flex-col">
+                            <Repeat className="w-6 h-6 text-[#9a4f1c] mb-4" aria-hidden="true" />
+                            <h3 className="text-[#241a12] mb-2">Return trip</h3>
+                            <p className="text-sm text-stone-600 flex-1 mb-5">There and back, the same day or another day. Tell us when you need the return pickup so waiting is agreed up front.</p>
+                            <QuoteLink set={{ from: 'Tabuk', trip: 'return' }} className={qbtn}>Quote a return <Arrow /></QuoteLink>
+                        </article>
+                        <article className="rounded-2xl bg-[#241a12] text-white p-6 flex flex-col">
+                            <Clock className="w-6 h-6 text-[#e2a23b] mb-4" aria-hidden="true" />
+                            <h3 className="mb-2">By the hour</h3>
+                            <p className="text-sm text-white/70 flex-1 mb-5">The car stays with you between stops for an agreed number of hours. Availability in Tabuk is confirmed for your date.</p>
+                            <Link href={HOURLY_HREF} className="group inline-flex items-center gap-2 font-bold text-[#f0c987]">Request hourly hire <Arrow /></Link>
+                        </article>
                     </div>
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-left bg-white rounded-2xl border border-gray-200 overflow-hidden">
-                            <thead className="bg-black text-white">
-                                <tr>
-                                    <th className="px-6 py-4 font-bold">From</th>
-                                    <th className="px-6 py-4 font-bold">To</th>
-                                    <th className="px-6 py-4 font-bold">Distance</th>
-                                    <th className="px-6 py-4 font-bold">Drive Time</th>
-                                    <th className="px-6 py-4 font-bold">Details</th>
+                </div>
+            </section>
+
+            {/* ================= HOW IT WORKS ================= */}
+            <section aria-labelledby="how" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="how" className={`${h2} mb-8`}>How Booking Works</h2>
+                    <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        {[
+                            { i: Send, t: 'Send the journey', d: 'Pickup, destination, date, time, passengers and luggage - by the form or WhatsApp.' },
+                            { i: ClipboardCheck, t: 'We check it', d: 'We match a vehicle to your group and confirm it is available for your date.' },
+                            { i: Wallet, t: 'You see the price', d: 'The price comes with the quote. Nothing is booked until you confirm.' },
+                            { i: Car, t: 'Pickup details', d: 'The pickup point and the driver and vehicle details come with the confirmed booking.' },
+                        ].map((s, n) => (
+                            <li key={s.t} className="rounded-2xl bg-[#f3ebdd] p-6">
+                                <div className="flex items-center justify-between mb-4">
+                                    <s.i className="w-6 h-6 text-[#9a4f1c]" aria-hidden="true" />
+                                    <span className="text-xs font-bold tracking-widest text-stone-400">STEP {n + 1}</span>
+                                </div>
+                                <h3 className="text-[#241a12] mb-2">{s.t}</h3>
+                                <p className="text-sm text-stone-600">{s.d}</p>
+                            </li>
+                        ))}
+                    </ol>
+                    <p className="text-sm text-stone-600 mt-6 max-w-3xl">To avoid surprises, ask us to state in the quote anything that matters to you: waiting time, extra stops, a return leg or a child seat.</p>
+                </div>
+            </section>
+
+            {/* ================= PRE-BOOKED VS ON-DEMAND ================= */}
+            <section aria-labelledby="compare" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-4xl mx-auto">
+                    <h2 id="compare" className={`${h2} mb-4`}>Pre-Booked Car or On-Demand Ride?</h2>
+                    <p className="text-stone-600 mb-8">They suit different trips. We only offer the first one.</p>
+                    <div className="overflow-x-auto rounded-2xl border border-[#241a12]/10 bg-white">
+                        <table className="w-full text-left text-sm">
+                            <thead>
+                                <tr className="bg-[#241a12] text-white">
+                                    <th scope="col" className="px-4 py-3.5 font-bold"><span className="sr-only">Feature</span></th>
+                                    <th scope="col" className="px-4 py-3.5 font-bold">Pre-booked private car</th>
+                                    <th scope="col" className="px-4 py-3.5 font-bold">Street taxi or ride app</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-gray-100">
-                                {routes.map((r, i) => (
-                                    <tr key={i} className="hover:bg-gray-50 transition-colors">
-                                        <td className="px-6 py-4 font-bold text-gray-900">{r.from}</td>
-                                        <td className="px-6 py-4 text-gray-700">{r.to}</td>
-                                        <td className="px-6 py-4 text-gray-600">{r.dist}</td>
-                                        <td className="px-6 py-4 text-gray-600">{r.time}</td>
-                                        <td className="px-6 py-4">
-                                            <Link href={r.link} className="text-black font-bold text-sm hover:underline flex items-center gap-1 group">
-                                                View Route <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                                            </Link>
-                                        </td>
+                            <tbody className="divide-y divide-[#241a12]/10">
+                                {[
+                                    ['When you arrange it', 'In advance', 'When you need it'],
+                                    ['Price', 'Agreed before you travel', 'Meter or app fare'],
+                                    ['Vehicle', 'Chosen for your group and luggage', 'Whichever is nearby'],
+                                    ['Long journeys out of Tabuk', 'Planned with you', 'Depends on the driver'],
+                                    ['Best for', 'Airport runs, families, long distances, fixed schedules', 'Short, spontaneous hops'],
+                                ].map(([k, a, b]) => (
+                                    <tr key={k}>
+                                        <th scope="row" className="px-4 py-3.5 font-bold text-[#241a12] align-top">{k}</th>
+                                        <td className="px-4 py-3.5 text-stone-700 align-top"><Check className="inline w-4 h-4 mr-1.5 -mt-0.5 text-[#9a4f1c]" aria-hidden="true" />{a}</td>
+                                        <td className="px-4 py-3.5 text-stone-500 align-top"><Minus className="inline w-4 h-4 mr-1.5 -mt-0.5" aria-hidden="true" />{b}</td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
                     </div>
+                    <p className="text-sm text-stone-600 mt-4">More on the options in town: <Link href="/blog/is-there-uber-in-tabuk/" className={link}>Is there Uber in Tabuk?</Link> and <Link href="/blog/how-to-get-around-tabuk-as-a-tourist/" className={link}>getting around Tabuk</Link>.</p>
                 </div>
             </section>
 
-            {/* Fleet */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Choose Your Tabuk Taxi Vehicle</h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">For NEOM and AlUla long-distance routes, we recommend GMC Yukon XL or larger for comfort on 2–4 hour drives.</p>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {vehicles.map((v, i) => (
-                            <Link key={i} href={v.link} className="group">
-                                <div className="bg-gray-50 rounded-2xl p-6 border-2 border-gray-200 hover:border-black hover:shadow-xl transition-all h-full">
-                                    <Car className="w-10 h-10 text-black mb-4" />
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-black">{v.name}</h3>
-                                    <div className="space-y-1 mb-4 text-sm text-gray-600">
-                                        <div className="flex items-center gap-2">
-                                            <Users className="w-4 h-4 text-gray-400" />
-                                            <span>{v.seats} passengers</span>
-                                        </div>
-                                        <div className="flex items-center gap-2">
-                                            <CheckCircle2 className="w-4 h-4 text-gray-400" />
-                                            <span>{v.luggage}</span>
-                                        </div>
-                                    </div>
-                                    <p className="text-xs text-gray-500 border-t border-gray-200 pt-3">{v.ideal}</p>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                    <div className="text-center mt-8">
-                        <Link href="/fleet/">
-                            <Button variant="outline" className="border-2 border-black font-bold px-8 py-3">
-                                View Full Fleet <ArrowRight className="ml-2 w-4 h-4" />
-                            </Button>
-                        </Link>
-                    </div>
-                </div>
-            </section>
-
-            {/* Why Choose + Features */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div>
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                                Why We Are the Best Taxi in Tabuk
-                            </h2>
-                            <p className="text-gray-600 leading-relaxed mb-6 speakable-answer">
-                                Tabuk is the gateway to Saudi Arabia's most ambitious mega-projects — NEOM, The Line, Sindalah Island, and the Red Sea Project. Distances between sites are vast. Uber and Careem coverage is inconsistent. Standard taxis are not built for 2–4 hour desert highway drives.
-                            </p>
-                            <p className="text-gray-600 leading-relaxed mb-8">
-                                Our drivers are Tabuk-based long-distance specialists. They know the NEOM access checkpoints, the best SASCO rest stops between Tabuk and AlUla, and the fastest routes to Haql on the Red Sea coast. Every vehicle is highway-checked before departure.
-                            </p>
-                            <div className="grid grid-cols-3 gap-6 border-t pt-8">
-                                <div className="text-center">
-                                    <div className="text-3xl font-black text-black">4.9</div>
-                                    <div className="text-sm text-gray-500 mt-1">Star Rating</div>
-                                </div>
-                                <div className="text-center border-x border-gray-200">
-                                    <div className="text-3xl font-black text-black">24/7</div>
-                                    <div className="text-sm text-gray-500 mt-1">Availability</div>
-                                </div>
-                                <div className="text-center">
-                                    <div className="text-3xl font-black text-black">0</div>
-                                    <div className="text-sm text-gray-500 mt-1">Surge Fees</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {features.map((f, i) => (
-                                <div key={i} className="flex items-start gap-3 bg-white p-4 rounded-xl border border-gray-100">
-                                    <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                                    <span className="text-gray-700 text-sm font-medium">{f}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* How to Book */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+            {/* ================= VEHICLES ================= */}
+            <section aria-labelledby="vehicles" className="bg-white py-20 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How to Book a Taxi in Tabuk</h2>
+                    <h2 id="vehicles" className={`${h2} mb-4`}>Vehicles You Can Request</h2>
+                    <p className="text-stone-600 mb-8">Pick by seats and luggage. Availability is confirmed for your date.</p>
+                    <div className="overflow-x-auto rounded-2xl border border-[#241a12]/10">
+                        <table className="w-full text-left text-sm">
+                            <thead>
+                                <tr className="bg-[#f3ebdd] text-[#241a12]">
+                                    <th scope="col" className="px-4 py-3.5 font-bold">Vehicle</th>
+                                    <th scope="col" className="px-4 py-3.5 font-bold">Type</th>
+                                    <th scope="col" className="px-4 py-3.5 font-bold">Passengers</th>
+                                    <th scope="col" className="px-4 py-3.5 font-bold">Large bags</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-[#241a12]/10">
+                                {FLEET.map((v) => (
+                                    <tr key={v.name}>
+                                        <th scope="row" className="px-4 py-3.5"><Link href={v.href} className="font-bold text-[#241a12] hover:underline">{v.name.split(' /')[0]}</Link></th>
+                                        <td className="px-4 py-3.5 text-stone-600">{v.cls}</td>
+                                        <td className="px-4 py-3.5 text-stone-600">Up to {v.passengers}</td>
+                                        <td className="px-4 py-3.5 text-stone-600">About {v.luggage}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {[
-                            { step: '1', title: 'WhatsApp Us', desc: 'Send your pickup location, destination, date, time, and number of passengers. For NEOM and AlUla routes, booking 24 hours ahead is recommended.' },
-                            { step: '2', title: 'Receive Driver Details', desc: 'We send your driver\'s name, photo, vehicle plate, and pickup confirmation. You know exactly who is coming and in which vehicle.' },
-                            { step: '3', title: 'Driver at Your Door', desc: 'Driver arrives on time, assists with luggage, and takes you to your destination. Rest stops included on long routes.' },
-                        ].map((s, i) => (
-                            <div key={i} className="text-center">
-                                <div className="w-14 h-14 bg-black text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">{s.step}</div>
-                                <h3 className="text-lg font-bold text-gray-900 mb-2">{s.title}</h3>
-                                <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
-                            </div>
+                    <p className="text-sm text-stone-600 mt-4">Not sure which one? The <Link href={`${HUB}#vehicles`} className={link}>vehicle selector on the Tabuk hub</Link> narrows it down from your group and luggage.</p>
+                </div>
+            </section>
+
+            {/* ================= WHERE TO ================= */}
+            <section aria-labelledby="where" className="bg-[#241a12] text-white py-16 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-8 items-center">
+                    <div>
+                        <h2 id="where" className="text-3xl md:text-4xl font-extrabold mb-3">Know Where You&apos;re Going?</h2>
+                        <p className="text-white/70">Each journey has its own page with the details. For the full picture of the northwest, start at the <Link href={HUB} className="font-semibold text-[#f0c987] hover:underline">Tabuk transport hub</Link>.</p>
+                    </div>
+                    <ul className="flex flex-wrap gap-2">
+                        {TABUK_ROUTES.map((r) => (
+                            <li key={r.to}><Link href={r.href} className="inline-block rounded-full border border-white/20 px-4 py-2.5 text-sm font-semibold hover:border-[#e2a23b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e2a23b]">Tabuk → {r.to}</Link></li>
                         ))}
-                    </div>
-                    <div className="text-center mt-10">
-                        <Link href="https://wa.me/966575806733?text=Hello,%20I%20need%20a%20taxi%20in%20Tabuk" target="_blank" rel="noopener noreferrer">
-                            <Button size="lg" className="bg-black text-white hover:bg-gray-800 font-bold text-lg px-10 py-6 h-auto rounded-2xl">
-                                Book via WhatsApp <ArrowRight className="ml-2 w-5 h-5" />
-                            </Button>
-                        </Link>
-                    </div>
+                    </ul>
                 </div>
             </section>
 
-            {/* Internal Links */}
-            <section className="py-12 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <div className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm grid grid-cols-1 md:grid-cols-4 gap-8">
-                        <div>
-                            <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><MapPin className="w-4 h-4" /> Top Tabuk Routes</h4>
-                            <ul className="space-y-2 text-sm">
-                                <li><Link href="/routes/tabuk-neom/" className="text-gray-600 hover:text-black">Tabuk → NEOM</Link></li>
-                                <li><Link href="/routes/tabuk-alula/" className="text-gray-600 hover:text-black">Tabuk → AlUla</Link></li>
-                                <li><Link href="/routes/tabuk-jeddah/" className="text-gray-600 hover:text-black">Tabuk → Jeddah</Link></li>
-                                <li><Link href="/routes/tabuk-madinah/" className="text-gray-600 hover:text-black">Tabuk → Madinah</Link></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Car className="w-4 h-4" /> Fleet</h4>
-                            <ul className="space-y-2 text-sm">
-                                <li><Link href="/fleet/gmc-yukon/" className="text-gray-600 hover:text-black">GMC Yukon XL</Link></li>
-                                <li><Link href="/fleet/toyota-hiace/" className="text-gray-600 hover:text-black">Toyota Hiace (groups)</Link></li>
-                                <li><Link href="/fleet/cadillac-escalade/" className="text-gray-600 hover:text-black">Cadillac Escalade</Link></li>
-                                <li><Link href="/fleet/" className="text-black font-bold hover:underline">All Fleet →</Link></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Shield className="w-4 h-4" /> Related Services</h4>
-                            <ul className="space-y-2 text-sm">
-                                <li><Link href="/tabuk-airport-taxi/" className="text-gray-600 hover:text-black">Tabuk Airport Taxi (TUU)</Link></li>
-                                <li><Link href="/services/vip-chauffeur/" className="text-gray-600 hover:text-black">Chauffeur</Link></li>
-                                <li><Link href="/services/tourism-transport/" className="text-gray-600 hover:text-black">Tourist Transport</Link></li>
-                                <li><Link href="/services/private-driver/" className="text-gray-600 hover:text-black">Private Driver Hire</Link></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 className="text-base font-bold text-gray-900 mb-4 flex items-center gap-2"><Navigation className="w-4 h-4" /> Tabuk Locations</h4>
-                            <ul className="space-y-2 text-sm">
-                                <li><Link href="/locations/tabuk/" className="text-gray-600 hover:text-black">Tabuk City Transfer</Link></li>
-                                <li><Link href="/locations/neom/" className="text-gray-600 hover:text-black">NEOM Transport</Link></li>
-                                <li><Link href="/services/intercity/" className="text-gray-600 hover:text-black">Intercity Transfers KSA</Link></li>
-                                <li><Link href="/locations/" className="text-black font-bold hover:underline">All Locations →</Link></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Tabuk Guides Topic Cluster */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-7xl mx-auto">
-                    <TopicCluster
-                        mainTopic="Tabuk Travel Hub"
-                        clusters={[
-                            {
-                                category: "Key Routes",
-                                relevance: "Primary",
-                                items: [
-                                    { label: "Tabuk to NEOM", url: "/routes/tabuk-neom/" },
-                                    { label: "Tabuk to AlUla", url: "/routes/tabuk-alula/" },
-                                    { label: "Tabuk to Jeddah", url: "/routes/tabuk-jeddah/" }
-                                ]
-                            },
-                            {
-                                category: "Planning Essentials",
-                                relevance: "Secondary",
-                                items: [
-                                    { label: "Complete Tabuk Travel Guide", url: "/blog/complete-tabuk-travel-guide/" },
-                                    { label: "Travel Tips & Cost Checklist", url: "/blog/tabuk-travel-tips-checklist-cost/" },
-                                    { label: "Best Time to Visit (Weather)", url: "/blog/best-time-to-visit-tabuk-weather/" }
-                                ]
-                            },
-                            {
-                                category: "More Tabuk Guides",
-                                relevance: "Tertiary",
-                                items: [
-                                    { label: "Al Disah Valley", url: "/blog/al-disah-valley-tabuk-how-to-visit/" },
-                                    { label: "AlUla Visitor Guide", url: "/blog/alula-visitor-guide-from-tabuk/" },
-                                    { label: "Best Red Sea Beaches", url: "/blog/best-red-sea-beaches-near-tabuk/" },
-                                    { label: "Best Restaurants & Cafes", url: "/blog/best-restaurants-cafes-food-tabuk/" },
-                                    { label: "Visiting NEOM from Tabuk", url: "/blog/can-tourists-visit-neom-from-tabuk/" },
-                                    { label: "Car Rental at the Airport", url: "/blog/car-rental-tabuk-airport-worth-it/" },
-                                    { label: "Hegra (Madain Salih) Guide", url: "/blog/hegra-madain-salih-how-to-visit-from-tabuk/" },
-                                    { label: "Getting Around as a Tourist", url: "/blog/how-to-get-around-tabuk-as-a-tourist/" },
-                                    { label: "Airport to City Guide", url: "/blog/how-to-get-from-tabuk-airport-to-city/" },
-                                    { label: "Tabuk to AlUla Guide", url: "/blog/how-to-get-from-tabuk-to-alula/" },
-                                    { label: "Tabuk to NEOM Guide", url: "/blog/how-to-get-to-neom-from-tabuk/" },
-                                    { label: "Is There Uber in Tabuk?", url: "/blog/is-there-uber-in-tabuk/" },
-                                    { label: "Private Driver Price (NEOM)", url: "/blog/private-driver-tabuk-neom-price/" },
-                                    { label: "Shopping Guide (Malls & Markets)", url: "/blog/shopping-guide-malls-markets-tabuk/" },
-                                    { label: "Adventure, Hiking & Camping", url: "/blog/tabuk-adventure-activities-hiking-camping/" },
-                                    { label: "Airport (TUU) Arrivals Guide", url: "/blog/tabuk-airport-tuu-arrivals-guide/" },
-                                    { label: "Budget to Luxury Travel Guide", url: "/blog/tabuk-budget-luxury-family-solo-travel/" },
-                                    { label: "Tabuk Castle & Fort Guide", url: "/blog/tabuk-castle-fort-visitor-guide/" },
-                                    { label: "Railway Museum Guide", url: "/blog/tabuk-castle-railway-museum-guide/" },
-                                    { label: "Best Photo Spots", url: "/blog/tabuk-photography-instagram-spots/" },
-                                    { label: "Red Sea Beaches (Magna, Tayyib Ism)", url: "/blog/tabuk-red-sea-beaches-magna-tayyib-ism/" },
-                                    { label: "Tabuk to AlUla (Distance & Time)", url: "/blog/tabuk-to-alula-distance-drive-time/" },
-                                    { label: "Tabuk to Haql Guide", url: "/blog/tabuk-to-haql-transport-guide/" },
-                                    { label: "Tabuk to Jeddah Guide", url: "/blog/tabuk-to-jeddah-transport-guide/" },
-                                    { label: "Tabuk to Madinah Guide", url: "/blog/tabuk-to-madinah-private-car-guide/" },
-                                    { label: "Tabuk to NEOM (Distance & Time)", url: "/blog/tabuk-to-neom-distance-drive-time/" },
-                                    { label: "Tabuk to Riyadh Guide", url: "/blog/tabuk-to-riyadh-transport-guide/" },
-                                    { label: "Sharma Beach Guide", url: "/blog/tabuk-to-sharma-beach-how-to-get-there/" },
-                                    { label: "Travel Itinerary Planning", url: "/blog/tabuk-travel-itinerary-planning/" },
-                                    { label: "Top Places to Visit", url: "/blog/top-places-to-visit-tabuk-saudi-arabia/" },
-                                    { label: "Things to Do in Tabuk", url: "/blog/top-places-visit-things-do-tabuk/" }
-                                ]
-                            }
-                        ]}
-                    />
-                </div>
-            </section>
-
-            {/* FAQ */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-12">
-                        <span className="bg-black text-white font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block mb-4">FAQ</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Tabuk Taxi — All Questions Answered</h2>
-                        <p className="text-gray-600 max-w-2xl mx-auto">Everything you need to know about booking a taxi or private car in Tabuk.</p>
-                    </div>
-                    <Accordion type="single" collapsible className="space-y-4">
-                        {faqs.map((faq, index) => (
-                            <AccordionItem key={index} value={`item-${index}`} className="bg-gray-50 rounded-xl border border-gray-200 px-6 shadow-sm">
-                                <AccordionTrigger className="text-left hover:no-underline py-4">
-                                    <h3 className="text-base font-bold text-gray-900 pr-4">{faq.question}</h3>
-                                </AccordionTrigger>
-                                <AccordionContent className="pb-4">
-                                    <p className="text-gray-600 leading-relaxed pt-2 speakable-answer">{faq.answer}</p>
-                                </AccordionContent>
+            {/* ================= FAQ ================= */}
+            <section aria-labelledby="faq" className="py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-3xl mx-auto">
+                    <h2 id="faq" className={`${h2} mb-8`}>Booking a Taxi in Tabuk: Questions</h2>
+                    <Accordion type="single" collapsible className="w-full rounded-2xl border border-[#241a12]/10 bg-white px-5">
+                        {faqs.map((f, i) => (
+                            <AccordionItem key={f.q} value={`faq-${i}`} className="last:border-0">
+                                <AccordionTrigger className="text-left text-base font-semibold text-[#241a12] hover:no-underline">{f.q}</AccordionTrigger>
+                                <AccordionContent className="text-stone-600 leading-relaxed">{f.a}</AccordionContent>
                             </AccordionItem>
                         ))}
                     </Accordion>
                 </div>
             </section>
 
-            {/* Author */}
-            <div className="max-w-4xl mx-auto px-4 pb-12">
-                <AuthorCard authorName="Muhammad Ismail" showBio={true} className="border-2 border-gray-100" />
-            </div>
+            {/* ================= TABUK GUIDES ================= */}
+            <section aria-label="Tabuk guides" className="bg-white px-4 sm:px-6 lg:px-8 py-8">
+                <div className="max-w-6xl mx-auto">
+                    <TopicCluster
+                        mainTopic="Tabuk Guides"
+                        clusters={[
+                            {
+                                category: 'Getting there',
+                                relevance: 'Primary',
+                                items: [
+                                    { label: 'Airport (TUU) Arrivals Guide', url: '/blog/tabuk-airport-tuu-arrivals-guide/' },
+                                    { label: 'Airport to City Guide', url: '/blog/how-to-get-from-tabuk-airport-to-city/' },
+                                    { label: 'Getting Around as a Tourist', url: '/blog/how-to-get-around-tabuk-as-a-tourist/' },
+                                    { label: 'Is There Uber in Tabuk?', url: '/blog/is-there-uber-in-tabuk/' },
+                                    { label: 'Car Rental at the Airport', url: '/blog/car-rental-tabuk-airport-worth-it/' },
+                                ],
+                            },
+                            {
+                                category: 'Journeys from Tabuk',
+                                relevance: 'Secondary',
+                                items: [
+                                    { label: 'Tabuk to NEOM Guide', url: '/blog/how-to-get-to-neom-from-tabuk/' },
+                                    { label: 'Visiting NEOM from Tabuk', url: '/blog/can-tourists-visit-neom-from-tabuk/' },
+                                    { label: 'Tabuk to AlUla Guide', url: '/blog/how-to-get-from-tabuk-to-alula/' },
+                                    { label: 'Hegra (Madain Salih) Guide', url: '/blog/hegra-madain-salih-how-to-visit-from-tabuk/' },
+                                    { label: 'Tabuk to Haql Guide', url: '/blog/tabuk-to-haql-transport-guide/' },
+                                    { label: 'Tabuk to Madinah Guide', url: '/blog/tabuk-to-madinah-private-car-guide/' },
+                                    { label: 'Tabuk to Jeddah Guide', url: '/blog/tabuk-to-jeddah-transport-guide/' },
+                                    { label: 'Tabuk to Riyadh Guide', url: '/blog/tabuk-to-riyadh-transport-guide/' },
+                                    { label: 'Sharma Beach Guide', url: '/blog/tabuk-to-sharma-beach-how-to-get-there/' },
+                                ],
+                            },
+                            {
+                                category: 'In and around Tabuk',
+                                relevance: 'Tertiary',
+                                items: [
+                                    { label: 'Complete Tabuk Travel Guide', url: '/blog/complete-tabuk-travel-guide/' },
+                                    { label: 'Top Places to Visit', url: '/blog/top-places-to-visit-tabuk-saudi-arabia/' },
+                                    { label: 'Things to Do in Tabuk', url: '/blog/top-places-visit-things-do-tabuk/' },
+                                    { label: 'Tabuk Castle & Fort Guide', url: '/blog/tabuk-castle-fort-visitor-guide/' },
+                                    { label: 'Railway Museum Guide', url: '/blog/tabuk-castle-railway-museum-guide/' },
+                                    { label: 'Al Disah Valley', url: '/blog/al-disah-valley-tabuk-how-to-visit/' },
+                                    { label: 'Best Red Sea Beaches', url: '/blog/best-red-sea-beaches-near-tabuk/' },
+                                    { label: 'Red Sea Beaches (Magna, Tayyib Ism)', url: '/blog/tabuk-red-sea-beaches-magna-tayyib-ism/' },
+                                    { label: 'Adventure, Hiking & Camping', url: '/blog/tabuk-adventure-activities-hiking-camping/' },
+                                    { label: 'Best Photo Spots', url: '/blog/tabuk-photography-instagram-spots/' },
+                                    { label: 'Best Restaurants & Cafes', url: '/blog/best-restaurants-cafes-food-tabuk/' },
+                                    { label: 'Shopping Guide (Malls & Markets)', url: '/blog/shopping-guide-malls-markets-tabuk/' },
+                                    { label: 'Best Time to Visit (Weather)', url: '/blog/best-time-to-visit-tabuk-weather/' },
+                                    { label: 'Travel Itinerary Planning', url: '/blog/tabuk-travel-itinerary-planning/' },
+                                    { label: 'Travel Tips & Cost Checklist', url: '/blog/tabuk-travel-tips-checklist-cost/' },
+                                    { label: 'Budget to Luxury Travel Guide', url: '/blog/tabuk-budget-luxury-family-solo-travel/' },
+                                ],
+                            },
+                        ]}
+                    />
+                </div>
+            </section>
 
-            {/* CTA */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                        Book the Best Taxi in Tabuk
-                    </h2>
-                    <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                        NEOM transfers, AlUla trips, airport pickup, or city rides — one professional driver for every Tabuk journey. Fixed rates, luxury fleet, 24/7.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="https://wa.me/966575806733?text=Hello,%20I%20need%20a%20taxi%20in%20Tabuk" target="_blank" rel="noopener noreferrer">
-                            <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-6 h-auto min-w-[220px]">
-                                WhatsApp Booking
-                            </Button>
-                        </Link>
-                        <a href="mailto:info@taxiserviceksa.com">
-                            <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 font-bold text-lg px-10 py-6 h-auto min-w-[220px]">
-                                Email for Quote
-                            </Button>
-                        </a>
+            {/* ================= FINAL CTA ================= */}
+            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#241a12]">
+                <div className="max-w-3xl mx-auto text-center text-white">
+                    <h2 className="text-3xl md:text-5xl font-extrabold mb-5">Ready to Book Your Car in Tabuk?</h2>
+                    <p className="text-lg text-white/80 mb-10">Send the journey now. You get the vehicle and the price back before anything is confirmed.</p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                        <Button asChild size="lg" className="h-auto py-4 px-7 rounded-xl font-bold bg-[#e2a23b] text-[#241a12] hover:bg-[#ebb65c]">
+                            <a href={QUOTE_HREF}>Get My Price</a>
+                        </Button>
+                        <Button asChild size="lg" variant="outline" className="h-auto py-4 px-7 rounded-xl font-bold bg-white/10 text-white border-white/40 hover:bg-white/20 hover:text-white">
+                            <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer"><WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Book on WhatsApp</a>
+                        </Button>
                     </div>
-                    <p className="text-gray-500 text-sm mt-6">
-                        <Link href="/routes/tabuk-neom/" className="text-gray-400 hover:text-white underline">Tabuk → NEOM</Link>
-                        {' · '}
-                        <Link href="/routes/tabuk-alula/" className="text-gray-400 hover:text-white underline">Tabuk → AlUla</Link>
-                        {' · '}
-                        <Link href="/tabuk-airport-taxi/" className="text-gray-400 hover:text-white underline">Tabuk Airport (TUU)</Link>
-                        {' · '}
-                        <Link href="/services/airport-transfers/" className="text-gray-400 hover:text-white underline">All Saudi Airports</Link>
-                    </p>
+                    <p className="text-sm text-white/60 mt-8"><Link href="/tabuk-airport-taxi/" className="underline hover:text-white">Tabuk Airport (TUU)</Link> • <Link href={HUB} className="underline hover:text-white">Tabuk transport hub</Link> • <Link href="/services/private-driver/" className="underline hover:text-white">Private driver</Link></p>
                 </div>
             </section>
         </div>

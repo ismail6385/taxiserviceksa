@@ -570,7 +570,7 @@ export default function TabukPage() {
                     {[
                         { t: 'Northwest destinations', l: [['Tabuk Airport (TUU)', '/tabuk-airport-taxi/'], ['NEOM', '/locations/neom/'], ['AlUla', '/locations/alula/'], ['Haql', '/locations/haql/'], ['Al Wajh', '/locations/al-wajh/'], ['Duba', '/locations/duba/']] },
                         { t: 'Routes from Tabuk', l: TABUK_ROUTES.filter((r) => r.group !== 'airport').map((r) => [`Tabuk → ${r.to}`, r.href]) },
-                        { t: 'Services', l: [['Airport transfers', '/services/airport-transfers/'], ['Intercity transfers', '/services/intercity/'], ['Private driver', '/services/private-driver/'], ['Business chauffeur', '/services/business/'], ['Tourism transport', '/services/tourism-transport/'], ['VIP chauffeur', '/services/vip-chauffeur/']] },
+                        { t: 'Services', l: [['Book a car in Tabuk', '/services/taxi-in-tabuk/'], ['Airport transfers', '/services/airport-transfers/'], ['Intercity transfers', '/services/intercity/'], ['Private driver', '/services/private-driver/'], ['Business chauffeur', '/services/business/'], ['Tourism transport', '/services/tourism-transport/'], ['VIP chauffeur', '/services/vip-chauffeur/']] },
                     ].map((g) => (
                         <div key={g.t}>
                             <p className="text-sm font-bold uppercase tracking-wider text-stone-400 mb-3">{g.t}</p>
