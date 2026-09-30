@@ -14,6 +14,7 @@ export interface JourneyStop {
 const PALETTES = {
     emerald: { track: 'bg-white/[0.15]', fill: 'bg-amber-400', dot: 'bg-emerald-600 text-white', dotAccent: 'bg-amber-400 text-[#082119]', idle: 'bg-[#0f3328] text-emerald-100/50 ring-1 ring-white/[0.15]', text: 'text-emerald-50/[0.65]', car: 'bg-amber-400 text-[#082119]' },
     platinum: { track: 'bg-white/10', fill: 'bg-[#c9ced6]', dot: 'bg-[#c9ced6] text-[#0e1116]', dotAccent: 'bg-[#d8c7a3] text-[#0e1116]', idle: 'bg-[#0e1116] text-white/40 ring-1 ring-white/[0.15]', text: 'text-white/60', car: 'bg-[#d8c7a3] text-[#0e1116]' },
+    gulf: { track: 'bg-white/[0.15]', fill: 'bg-[#e9b872]', dot: 'bg-[#0f5e6e] text-white', dotAccent: 'bg-[#e9b872] text-[#06232b]', idle: 'bg-[#06232b] text-white/50 ring-1 ring-white/[0.15]', text: 'text-white/70', car: 'bg-[#e9b872] text-[#06232b]' },
 };
 
 export default function RouteJourney({ stops, vehicle = false, palette = 'emerald' }: { stops: JourneyStop[]; vehicle?: boolean; palette?: keyof typeof PALETTES }) {

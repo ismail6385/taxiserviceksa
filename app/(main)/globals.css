@@ -281,7 +281,8 @@
 .bahrain-page h3,
 .qatar-page h3,
 .riyadh-page h3,
-.vip-page h3 {
+.vip-page h3,
+.causeway-page h3 {
   font-size: 1.2rem !important;
   font-weight: 700 !important;
   line-height: 1.35 !important;
@@ -312,4 +313,26 @@
 .car-descend { animation: car-descend 11s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) {
   .car-descend { animation: none; top: 0; }
+}
+
+/* Causeway page: border segment whose length keeps changing - "time varies", not a stopwatch. */
+@keyframes var-time {
+  0%, 100% { width: 30%; }
+  35% { width: 62%; }
+  70% { width: 44%; }
+}
+.var-time { animation: var-time 6s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .var-time { animation: none; width: 45%; }
+}
+/* Causeway hero: a car crossing the bridge silhouette, Saudi side to Bahrain side. */
+@keyframes deck-drive {
+  0% { transform: translateX(0); opacity: 0; }
+  6% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { transform: translateX(1240px); opacity: 0; }
+}
+.deck-drive { animation: deck-drive 16s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .deck-drive { animation: none; transform: translateX(560px); }
 }
