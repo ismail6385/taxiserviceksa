@@ -1,4 +1,4 @@
-import { supabaseAdmin } from './supabase-admin';
+import { supabaseAdmin, hasSupabaseAdmin } from './supabase-admin';
 import { ONBOARDING_TOKEN_TTL_DAYS, firstVehicle, type OnboardingStatus } from './driver-constants';
 import {
     sendOnboardingSubmittedEmail,
@@ -438,6 +438,9 @@ const PUBLIC_DRIVER_COLUMNS = `
 `;
 
 export async function getApprovedDriversForLocation(locationSlug: string, limit = 6) {
+    // No service-role key during the Cloudflare build: prerender the location
+    // pages without the drivers section instead of failing the build.
+    if (!hasSupabaseAdmin) return [];
     const { data, error } = await supabaseAdmin
         .from('drivers')
         .select(PUBLIC_DRIVER_COLUMNS)
