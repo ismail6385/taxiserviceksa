@@ -1,50 +1,29 @@
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import BookingForm from '@/components/BookingForm';
+import BookingTitle from '@/components/BookingTitle';
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
-type Props = {
-    searchParams: { [key: string]: string | string[] | undefined };
+// Static metadata: /booking/ is prerendered so it can be served as a static
+// file. Query-string variants (?vehicle=, ?route=) all canonicalize here.
+export const metadata: Metadata = {
+    title: 'Private Car Transfer, Taxi and Chauffeur Service Booking | Taxi Service KSA',
+    description: 'Get a quote for your private transfer in Saudi Arabia. Professional chauffeur service for airport transfers, Umrah, and intercity travel. International quality standards.',
+    alternates: {
+        canonical: 'https://taxiserviceksa.com/booking/',
+    },
 };
 
-export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
-    const vehicle = searchParams.vehicle;
-    const vehicleName = typeof vehicle === 'string' ? vehicle : null;
-    const hasParams = Object.keys(searchParams || {}).length > 0;
-
-    return {
-        title: vehicleName
-            ? `Book ${vehicleName} Private Transfer | Chauffeur Service KSA`
-            : 'Private Car Transfer, Taxi and Chauffeur Service Booking | Taxi Service KSA',
-        description: vehicleName
-            ? `Secure your ${vehicleName} private transfer in Saudi Arabia. Premium chauffeur service, 2026 fleet, and international standards.`
-            : 'Get a quote for your private transfer in Saudi Arabia. Professional chauffeur service for airport transfers, Umrah, and intercity travel. International quality standards.',
-        alternates: {
-            canonical: 'https://taxiserviceksa.com/booking/',
-        },
-        robots: hasParams ? {
-            index: false,
-            follow: false,
-        } : undefined,
-    };
-}
-
-export default function BookingPage({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
-    const route = typeof searchParams.route === 'string' ? searchParams.route : null;
-
-    const getTitle = (routeSlug: string | null) => {
-        if (!routeSlug) return "Get a quote for your transfer";
-        const formatted = routeSlug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
-        return `Book Your Transfer from ${formatted.replace(' To ', ' to ')}`;
-    };
-
+export default function BookingPage() {
     return (
         <div className="bg-gray-50 min-h-screen pt-24 pb-24">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
                     <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block">Executive Service</span>
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">{getTitle(route)}</h1>
+                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-4 mb-6">
+                        <Suspense fallback="Get a quote for your transfer"><BookingTitle /></Suspense>
+                    </h1>
 
                     {/* Premium Service Disclaimer */}
                     <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4 mb-8 max-w-2xl mx-auto shadow-sm">

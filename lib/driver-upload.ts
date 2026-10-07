@@ -1,4 +1,3 @@
-import sharp from 'sharp';
 import { supabaseAdmin } from './supabase-admin';
 import { DRIVER_STORAGE_BUCKETS } from './driver-constants';
 
@@ -6,9 +5,9 @@ import { DRIVER_STORAGE_BUCKETS } from './driver-constants';
  * Server-only upload helpers for the driver onboarding system. Follows the
  * same bucket-per-purpose pattern as blogService.uploadImage() (hardcoded
  * bucket name, no env var, no provisioning code — buckets must exist in
- * Supabase already, see the setup instructions in the final report), but
- * adds server-side compression (sharp is already a build-time dependency
- * in this repo; there was no runtime upload-compression path before this).
+ * Supabase already, see the setup instructions in the final report).
+ * Photos are uploaded as-is: server-side sharp compression was removed when
+ * the site moved to Cloudflare Workers, which can't run sharp's native binary.
  */
 
 const MAX_UPLOAD_BYTES = 10 * 1024 * 1024; // 10MB raw upload cap
@@ -21,8 +20,7 @@ function randomFileName(ext: string): string {
     return `${crypto.randomUUID()}.${ext}`;
 }
 
-/** Compresses/resizes a photo (max 1600px on the long edge, WebP) and
- *  uploads it to a PUBLIC bucket. Returns the public URL. */
+/** Uploads a photo to a PUBLIC bucket. Returns the public URL. */
 export async function uploadDriverPhoto(
     file: File,
     bucket: typeof DRIVER_STORAGE_BUCKETS[keyof typeof DRIVER_STORAGE_BUCKETS],
@@ -36,15 +34,9 @@ export async function uploadDriverPhoto(
     }
 
     const buffer = Buffer.from(await file.arrayBuffer());
-    const optimized = await sharp(buffer)
-        .rotate()
-        .resize({ width: 1600, height: 1600, fit: 'inside', withoutEnlargement: true })
-        .webp({ quality: 78 })
-        .toBuffer();
-
-    const path = `${folder}/${randomFileName('webp')}`;
-    const { error } = await supabaseAdmin.storage.from(bucket).upload(path, optimized, {
-        contentType: 'image/webp',
+    const path = `${folder}/${randomFileName(file.type.split('/')[1])}`;
+    const { error } = await supabaseAdmin.storage.from(bucket).upload(path, buffer, {
+        contentType: file.type,
         upsert: true,
     });
     if (error) throw new UploadError(error.message);

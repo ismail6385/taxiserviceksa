@@ -18,7 +18,9 @@ const nextConfig = {
       { protocol: 'https', hostname: 'taxiserviceksa.com' },
       { protocol: 'https', hostname: '**.googleapis.com' },
     ],
-    formats: ['image/avif', 'image/webp'],
+    // WebP only: halves the Cloudflare Images transformations used per image
+    // (free plan allows 5,000 unique transformations a month)
+    formats: ['image/webp'],
   },
   trailingSlash: true,
   experimental: {

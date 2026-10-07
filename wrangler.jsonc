@@ -1,0 +1,31 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Cloudflare Workers deployment. Built with @opennextjs/cloudflare — see
+  // open-next.config.ts, custom-worker.ts and scripts/dedupe-rsc-manifests.mjs.
+  "name": "taxiserviceksa",
+  "main": "custom-worker.ts",
+  "compatibility_date": "2025-09-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "taxiserviceksa"
+    }
+  ],
+  // next/image optimization via Cloudflare Images (free plan: 5,000 unique
+  // transformations/month)
+  "images": {
+    "binding": "IMAGES"
+  },
+  // Same daily jobs as vercel.json / netlify/functions (times are UTC)
+  "triggers": {
+    "crons": ["0 6 * * *", "0 8 * * *"]
+  },
+  "observability": {
+    "enabled": true
+  }
+}
