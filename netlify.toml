@@ -6,3 +6,5 @@
 
 [build.environment]
   NODE_VERSION = "20"
+  # 1000+ pages: the default ~2GB Node heap runs out during next build
+  NODE_OPTIONS = "--max-old-space-size=6144"
