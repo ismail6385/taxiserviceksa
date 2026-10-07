@@ -4,12 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "opennextjs-cloudflare build && node scripts/cf-static-pages.mjs",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "build:cf": "next build && node scripts/dedupe-rsc-manifests.mjs",
-    "cf:build": "opennextjs-cloudflare build && node scripts/cf-static-pages.mjs",
     "cf:deploy": "opennextjs-cloudflare deploy"
   },
   "browserslist": [
