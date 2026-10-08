@@ -1,424 +1,579 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
+import { ArrowRight, Check, Info, Users, Briefcase, Plane, Globe2, ShieldCheck, FileText, MapPin, Clock } from 'lucide-react';
 
-import JsonLdLocation from '@/components/JsonLdLocation';
 import { Button } from '@/components/ui/button';
-import { MapPin, Clock, CheckCircle2, Car, ArrowRight, FileText, Plane, Building2 } from 'lucide-react';
-import Hero from '@/components/Hero';
-import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import RouteQuoteCard from '@/components/routes/RouteQuoteCard';
+import RouteJourney from '@/components/routes/RouteJourney';
+
+const PAGE_URL = 'https://taxiserviceksa.com/routes/riyadh-bahrain/';
+const QUOTE_HREF = '#quote';
+const PHONE = '+966575806733';
+const PRICE = 2000;
+const PRICE_TEXT = '2,000 SAR';
+const SUV = 'GMC Yukon XL / Denali'; // booking-system vehicle name (lib/supabase.ts)
+const RUH = 'King Khalid International Airport (RUH)';
+const BAH = 'Bahrain International Airport (BAH)';
+const CAUSEWAY_GUIDE = '/border-crossings/taxi-king-fahd-causeway-border-crossing/';
+const WHATSAPP_HREF = `https://wa.me/966575806733?text=${encodeURIComponent(`Hello, I want to check SUV availability for Riyadh to Bahrain (${PRICE_TEXT}). Pickup, Bahrain drop-off, date, passengers and luggage: `)}`;
+const book = (vehicle: string) => `/booking/?${new URLSearchParams({ from: 'Riyadh', to: 'Bahrain', vehicle }).toString()}`;
+
+const TITLE = `Riyadh to Bahrain Taxi | Private SUV Transfer from ${PRICE_TEXT}`;
+const DESCRIPTION = `Book a private Riyadh to Bahrain SUV transfer via the King Fahd Causeway from ${PRICE_TEXT}. Door-to-door service, professional drivers and cross-border assistance.`;
 
 export const metadata: Metadata = {
-    title: 'Riyadh to Bahrain Taxi | Private Transfer from 800 SAR',
-    description: 'Book a private Riyadh to Bahrain taxi via King Fahd Causeway. Door-to-door transfers, professional drivers, fixed fares from 800 SAR and 24/7 booking.',
-    keywords: ['Riyadh to Bahrain taxi', 'Riyadh to Bahrain taxi price', 'Riyadh to Bahrain private taxi', 'Riyadh to Bahrain transfer', 'Riyadh to Manama taxi', 'Riyadh Bahrain taxi'],
-    alternates: {
-        canonical: 'https://taxiserviceksa.com/routes/riyadh-bahrain/',
-    },
+    title: TITLE,
+    description: DESCRIPTION,
+    alternates: { canonical: PAGE_URL },
     openGraph: {
-        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private Riyadh to Bahrain taxi via King Fahd Causeway' }],
+        title: TITLE,
+        description: DESCRIPTION,
+        url: PAGE_URL,
         siteName: 'Taxi Service KSA',
-        title: 'Riyadh to Bahrain Taxi | Private Transfer from 800 SAR',
-        description: 'Private door-to-door taxi from Riyadh to Bahrain via the King Fahd Causeway, with fixed vehicle pricing and professional drivers.',
-        url: 'https://taxiserviceksa.com/routes/riyadh-bahrain/',
         type: 'website',
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Private SUV from Riyadh to Bahrain via the King Fahd Causeway' }],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: TITLE,
+        description: DESCRIPTION,
+        images: ['https://taxiserviceksa.com/og-image.jpg'],
     },
 };
 
-export default function RiyadhBahrainRoutePage() {
-    const images = ['/hero-slide-3.webp', '/hero-slide-2.webp', '/jeddah-airport.webp'];
+// Other vehicles run this route but have no confirmed fixed fare, so they are quoted per booking.
+const ON_REQUEST = [
+    { name: 'Toyota Camry (sedan)', seats: 'Up to 3–4 passengers, about 2 suitcases', booking: 'Toyota Camry' },
+    { name: 'Hyundai Staria VIP', seats: 'Up to 7 passengers, about 4 suitcases', booking: 'Hyundai Staria VIP' },
+    { name: 'Mercedes Sprinter', seats: 'Larger groups; luggage depends on seating', booking: 'Mercedes Sprinter' },
+];
 
-    const glance = [
-        ['Distance', 'Approx. 430-480 km'],
-        ['Driving Time', 'Around 4-5 hours'],
-        ['Route', 'Riyadh → Dammam/Khobar → King Fahd Causeway → Bahrain'],
-        ['Service', 'Private taxi / chauffeur transfer'],
-        ['Trip Options', 'One-way or return'],
-        ['Booking', '24/7'],
-    ];
+const faqs = [
+    { q: 'How much is a private SUV from Riyadh to Bahrain?', a: `A private SUV transfer from Riyadh to Bahrain is ${PRICE_TEXT} one way, subject to booking confirmation and the agreed trip details.` },
+    { q: 'How much is a taxi from Riyadh to Bahrain?', a: `Private Riyadh to Bahrain transfers vary by vehicle. The featured private SUV option is ${PRICE_TEXT} one way. A sedan, Hyundai Staria VIP or Mercedes Sprinter can be quoted on request.` },
+    { q: 'How far is Riyadh from Bahrain by road?', a: 'Approximately 430–480 km, depending on the exact pickup and drop-off locations.' },
+    { q: 'How long does Riyadh to Bahrain take by car?', a: 'Around 4–5 hours of driving, plus King Fahd Causeway and border processing, which varies with queues.' },
+    { q: 'Does the Riyadh to Bahrain taxi cross the King Fahd Causeway?', a: 'Yes. The road journey normally crosses into Bahrain over the King Fahd Causeway, subject to the applicable requirements.' },
+    { q: `Is the ${PRICE_TEXT} price per person?`, a: `No. ${PRICE_TEXT} is for the private SUV, not per passenger, as long as your group fits the vehicle's passenger and luggage capacity.` },
+    { q: 'Are Causeway tolls included?', a: `Yes. Fuel and the King Fahd Causeway toll are included in the ${PRICE_TEXT} SUV fare.` },
+    { q: 'Can I book a Riyadh to Bahrain airport transfer?', a: `Yes, subject to availability. Leave enough time for Causeway and border processing if you have a flight from ${BAH}.` },
+    { q: 'Can you pick me up from Riyadh Airport?', a: `Yes. Pickup at ${RUH} can be arranged; send your arrival flight when booking.` },
+    { q: 'Can you drop me at Bahrain Airport?', a: `Yes, subject to booking confirmation. Drop-off is at ${BAH}.` },
+    { q: 'Do I need a Bahrain visa?', a: 'It depends on your nationality, residency status and the current Bahrain entry requirements. Check your own eligibility before you travel.' },
+    { q: 'Can I travel with luggage?', a: 'Yes, within the SUV’s luggage capacity of about 4–5 large suitcases with a full load of passengers. Tell us your luggage when booking.' },
+    { q: 'Can I book a return trip?', a: 'Yes, subject to availability and confirmation. Tick the return option in the form or send your return date.' },
+    { q: 'Can families book the SUV?', a: 'Yes. The private SUV suits families and small groups of up to 6–7 passengers, within its passenger and luggage capacity.' },
+    { q: 'What happens if the King Fahd Causeway is busy?', a: 'Causeway and immigration queues are outside the driver’s control. Allow extra time at weekends, during holidays and at peak periods.' },
+];
 
-    const pricing = [
-        { vehicle: 'Toyota Camry', cap: '1-3/4 passengers, 2 luggage', price: '800', link: '/fleet/toyota-camry/' },
-        { vehicle: 'Hyundai Staria VIP', cap: 'Up to 7 passengers', price: '1,000', link: '/fleet/hyundai-staria-vip/' },
-        { vehicle: 'GMC Yukon XL', cap: 'Up to 7 passengers', price: '1,200', link: '/fleet/gmc-yukon-xl/' },
-        { vehicle: 'Mercedes Sprinter', cap: 'Up to 11 passengers', price: '1,800', link: '/fleet/mercedes-sprinter/' },
-    ];
+const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'TaxiService',
+            '@id': `${PAGE_URL}#service`,
+            name: 'Riyadh to Bahrain private SUV transfer',
+            url: PAGE_URL,
+            serviceType: 'Private cross-border transfer',
+            description: 'Private door-to-door SUV with driver from Riyadh to Bahrain via the King Fahd Causeway, with vehicle-side border assistance.',
+            provider: { '@id': 'https://taxiserviceksa.com/#organization' },
+            areaServed: [{ '@type': 'City', name: 'Riyadh' }, { '@type': 'Country', name: 'Bahrain' }],
+            offers: { '@type': 'Offer', name: 'Private SUV (GMC Yukon) - Riyadh to Bahrain, one way', price: PRICE, priceCurrency: 'SAR', url: PAGE_URL },
+        },
+        {
+            '@type': 'Organization',
+            '@id': 'https://taxiserviceksa.com/#organization',
+            name: 'Taxi Service KSA',
+            url: 'https://taxiserviceksa.com',
+            telephone: PHONE,
+            areaServed: ['Saudi Arabia', 'Bahrain'],
+        },
+        {
+            '@type': 'FAQPage',
+            '@id': `${PAGE_URL}#faq`,
+            mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+        },
+    ],
+};
 
-    const documents = ['Valid passport', 'Bahrain visa or entry permission where required', 'Valid Saudi residency documentation where applicable', 'Any required vehicle or travel authorization'];
+const eyebrow = 'text-xs font-bold uppercase tracking-[0.22em]';
+const link = 'font-semibold text-[#b8372c] underline-offset-2 hover:underline';
+const h2 = 'text-3xl md:text-4xl font-extrabold text-[#0c2433]';
+const card = 'rounded-2xl bg-white border border-[#0c2433]/10';
+const primary = 'group inline-flex items-center justify-center gap-2 rounded-xl bg-[#c8402f] px-6 py-3.5 font-bold text-white hover:bg-[#a83527] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c8402f] focus-visible:ring-offset-2';
 
-    const riyadhPickups = ['King Khalid International Airport', 'KAFD', 'Olaya', 'Diplomatic Quarter', 'Al Malaz', 'Riyadh hotels & business districts'];
-    const bahrainDropoffs = ['Manama', 'Bahrain International Airport', 'Seef', 'Juffair', 'Diplomatic Area', 'Riffa', 'Muharraq', 'Bahrain hotels'];
+function Arrow() {
+    return <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" />;
+}
 
-    const faqs = [
-        {
-            question: "How much is a taxi from Riyadh to Bahrain?",
-            shortAnswer: "From 800 SAR",
-            detailedAnswer: "Private transfers start from 800 SAR for a sedan, rising to 1,000-1,800 SAR for larger vehicles. The final price depends on the vehicle, passenger count, luggage and travel date.",
-            perspectives: []
-        },
-        {
-            question: "How far is Riyadh from Bahrain by road?",
-            shortAnswer: "Approx. 430-480 km",
-            detailedAnswer: "Current route estimates vary depending on the exact route and endpoints, with roughly 430-480 km commonly reported between Riyadh and Bahrain.",
-            perspectives: []
-        },
-        {
-            question: "How long does Riyadh to Bahrain take by car?",
-            shortAnswer: "Around 4-5 hours driving, plus border time",
-            detailedAnswer: "Driving time is usually around 4-5 hours. Border processing at the King Fahd Causeway adds further time and isn't controlled by the driver — it can vary significantly on weekends, holidays and busy travel periods. Plan for a full journey rather than a fixed arrival time.",
-            perspectives: []
-        },
-        {
-            question: "Do you cross the King Fahd Causeway?",
-            shortAnswer: "Yes",
-            detailedAnswer: "Yes, this route uses the King Fahd Causeway, the land link between Saudi Arabia and Bahrain. See our full King Fahd Causeway guide for the border process in detail.",
-            perspectives: []
-        },
-        {
-            question: "Can the same vehicle continue into Bahrain?",
-            shortAnswer: "Yes, subject to standard cross-border requirements",
-            detailedAnswer: "Yes, cross-border bookings are subject to the required vehicle documentation and current Causeway requirements, which we confirm when arranging your trip.",
-            perspectives: []
-        },
-        {
-            question: "Do I need a Bahrain visa?",
-            shortAnswer: "Depends on your nationality and status",
-            detailedAnswer: "That depends on your nationality, residency status and applicable Bahrain entry rules. Do not assume every passenger has the same visa requirements — check your eligibility before travelling.",
-            perspectives: []
-        },
-        {
-            question: "Are Causeway tolls included in the price?",
-            shortAnswer: "Yes",
-            detailedAnswer: "Yes, applicable bridge tolls are included in the quoted vehicle price.",
-            perspectives: []
-        },
-        {
-            question: "Is the price per passenger or per vehicle?",
-            shortAnswer: "Per vehicle",
-            detailedAnswer: "This is a private vehicle service, so the quoted price is for the vehicle and journey, not per seat.",
-            perspectives: []
-        },
-        {
-            question: "Can I book a return taxi?",
-            shortAnswer: "Yes",
-            detailedAnswer: "Yes, a return transfer from Bahrain to Riyadh can be requested. Provide your return date and preferred pickup time when booking.",
-            perspectives: []
-        },
-        {
-            question: "Can you pick me up from Riyadh airport?",
-            shortAnswer: "Yes",
-            detailedAnswer: "Yes, pickup can be arranged from King Khalid International Airport, your hotel, office or another agreed address in Riyadh.",
-            perspectives: []
-        },
-        {
-            question: "Can I travel with large luggage?",
-            shortAnswer: "Depends on the vehicle",
-            detailedAnswer: "Luggage capacity depends on the vehicle and passenger count. Tell us your luggage requirements when booking so we can recommend the right vehicle.",
-            perspectives: []
-        },
-        {
-            question: "Can families book a GMC Yukon?",
-            shortAnswer: "Yes",
-            detailedAnswer: "Yes, the GMC Yukon XL (up to 7 passengers) and Hyundai Staria VIP are both popular choices for families making this trip.",
-            perspectives: []
-        },
-        {
-            question: "Can I stop for food or prayer?",
-            shortAnswer: "Yes",
-            detailedAnswer: "Yes, reasonable rest stops can be arranged during the journey for food, refreshments and prayer.",
-            perspectives: []
-        },
-        {
-            question: "What happens if the border is busy?",
-            shortAnswer: "Your driver waits with you",
-            detailedAnswer: "Border processing time isn't controlled by the driver and can vary significantly on weekends, holidays and busy travel periods. Your driver waits with you throughout the process.",
-            perspectives: []
-        },
-        {
-            question: "Can you take me directly to Bahrain Airport?",
-            shortAnswer: "Yes",
-            detailedAnswer: "Yes, we can drop you directly at Bahrain International Airport instead of a city address — let us know when booking.",
-            perspectives: []
-        },
-    ];
-
+// Illustration (not a photo): the causeway running low across the Gulf towards the Bahrain shoreline.
+function CausewayScene({ className = '' }: { className?: string }) {
     return (
-        <div className="bg-gray-50 min-h-screen">
-            <JsonLdLocation
-                cityName="Riyadh to Bahrain"
-                description="Private taxi and car transfer from Riyadh to Bahrain via King Fahd Causeway. Door-to-door cross-border transportation with a professional driver."
-                services={[
-                    { name: 'Riyadh to Bahrain Taxi', description: 'Private one-way or return cross-border transfer via King Fahd Causeway.' },
-                    { name: 'Family & Group Vehicles', description: 'Vehicles selected based on passenger and luggage requirements.' },
-                    { name: 'Door-to-Door Pickup', description: 'Pickup from your Riyadh address, drop-off in Bahrain.' },
-                ]}
-                image="https://taxiserviceksa.com/hero-slide-1.webp"
-            />
+        <svg className={className} viewBox="0 0 1440 640" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+            <defs>
+                <linearGradient id="rb-sky" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stopColor="#0c2433" />
+                    <stop offset="0.6" stopColor="#1c4a63" />
+                    <stop offset="1" stopColor="#e39a6a" />
+                </linearGradient>
+            </defs>
+            <rect width="1440" height="640" fill="url(#rb-sky)" />
+            <circle cx="1180" cy="400" r="54" fill="#f6c99b" fillOpacity="0.4" />
+            {/* Sea */}
+            <rect x="0" y="500" width="1440" height="140" fill="#245c74" fillOpacity="0.75" />
+            {/* Causeway deck and piers */}
+            <path d="M0 520 C 400 506, 900 494, 1440 486" fill="none" stroke="#0c2433" strokeOpacity="0.7" strokeWidth="10" />
+            <g stroke="#0c2433" strokeOpacity="0.55" strokeWidth="4">
+                {Array.from({ length: 18 }, (_, i) => {
+                    const x = 40 + i * 80;
+                    const y = 520 - (x / 1440) * 34;
+                    return <line key={x} x1={x} y1={y} x2={x} y2={y + 34} />;
+                })}
+            </g>
+            {/* Border island tower */}
+            <g fill="#0c2433" fillOpacity="0.7">
+                <rect x="700" y="420" width="12" height="80" />
+                <path d="M686 420 h40 l-6 -22 h-28 Z" />
+            </g>
+            {/* Bahrain shoreline */}
+            <path d="M1260 486 C 1320 470, 1380 468, 1440 470 V 500 H 1260 Z" fill="#0c2433" fillOpacity="0.6" />
+            <path d="M0 512 C 400 498, 900 486, 1440 478" fill="none" stroke="#f6c99b" strokeWidth="2.5" strokeDasharray="14 10" strokeLinecap="round" />
+        </svg>
+    );
+}
 
-            <Hero
-                images={images}
-                h1Text="Riyadh to Bahrain Taxi"
-                title={
-                    <span className="bg-white/20 backdrop-blur-md border border-white/20 text-white font-semibold tracking-wider uppercase px-4 py-2 rounded-lg inline-block decoration-clone leading-snug">
-                        Private Transfer via King Fahd Causeway
-                    </span>
-                }
-                subtitle="Private door-to-door taxi from Riyadh to Bahrain via the King Fahd Causeway, with fixed vehicle pricing and professional drivers."
-                location="Approx. 430-480 km | From 800 SAR | 24/7 Booking"
-            >
-                <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-                    <a href="https://wa.me/966575806733?text=Hello%2C%20I%20want%20to%20book%20a%20taxi%20from%20Riyadh%20to%20Bahrain" target="_blank" rel="noopener noreferrer">
-                        <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            <WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> Get Your Riyadh to Bahrain Taxi Quote
-                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Button>
-                    </a>
-                    <Link href="/booking?pickup=Riyadh&dropoff=Bahrain">
-                        <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 font-bold text-lg px-10 py-7 rounded-2xl w-full sm:w-auto">
-                            Book Online
-                        </Button>
-                    </Link>
-                </div>
-            </Hero>
+export default function RiyadhBahrainRoutePage() {
+    return (
+        <div className="riyadh-bahrain-page bg-[#f4f6f7]">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-            {/* Intro */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <p className="text-lg text-gray-600 leading-relaxed mb-4">
-                        Traveling from Riyadh to Bahrain by road? Our private Riyadh to Bahrain taxi service provides direct door-to-door transportation across Saudi Arabia and the King Fahd Causeway into Bahrain. We collect you from your home, hotel, office or King Khalid International Airport and take you directly to your destination in Bahrain.
-                    </p>
-                    <p className="text-lg text-gray-600 leading-relaxed mb-4">
-                        The road journey is roughly 430-480 km depending on your exact pickup and drop-off points. Driving time is usually around four to five hours before allowing for border processing, traffic and rest stops. Because the journey crosses an international border, passengers must carry the required passport, visa and residency documents.
-                    </p>
-                    <p className="text-lg text-gray-600 leading-relaxed">
-                        Choose a private sedan, Hyundai Staria VIP, GMC Yukon XL or Mercedes Sprinter based on your group size and luggage. Fares start from 800 SAR, with fixed vehicle pricing available for popular vehicle categories.
-                    </p>
-                </div>
-            </section>
-
-            {/* Quick facts */}
-            <section className="pb-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-3xl mx-auto">
-                    <div className="overflow-hidden rounded-2xl border border-gray-100">
-                        <table className="w-full text-sm">
-                            <tbody className="divide-y divide-gray-100">
-                                {glance.map(([label, value]) => (
-                                    <tr key={label} className="odd:bg-gray-50">
-                                        <td className="py-3 px-4 font-semibold text-gray-800 w-1/3">{label}</td>
-                                        <td className="py-3 px-4 text-gray-600">{value}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+            {/* ================= HERO ================= */}
+            <section className="relative isolate overflow-hidden bg-[#0c2433]">
+                <CausewayScene className="absolute inset-0 -z-10 w-full h-full" />
+                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#0c2433] via-[#0c2433]/60 to-transparent" aria-hidden="true" />
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20 grid grid-cols-1 lg:grid-cols-[1fr_0.95fr] gap-8 lg:gap-12 items-start">
+                    <div className="text-white lg:pt-6 min-w-0">
+                        <p className={`${eyebrow} text-[#f6c99b] mb-4`}>Saudi Arabia → Bahrain • King Fahd Causeway</p>
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight mb-3">Riyadh to Bahrain Taxi</h1>
+                        <p className="text-xl sm:text-2xl font-bold text-white/90 mb-4">Private Riyadh to Bahrain SUV Transfer</p>
+                        <p className="text-base sm:text-lg text-white/75 leading-relaxed mb-7 max-w-xl">
+                            Travel from Riyadh to Bahrain in a private SUV with a professional driver, door-to-door pickup and drop-off, and assistance throughout the King Fahd Causeway journey.
+                        </p>
+                        <div className="inline-flex flex-col rounded-2xl bg-white text-[#0c2433] px-6 py-4 mb-7">
+                            <span className="text-sm font-bold text-[#c8402f]">SUV</span>
+                            <span className="text-4xl font-black leading-none mt-0.5">{PRICE_TEXT}</span>
+                            <span className="text-sm font-semibold mt-1.5 text-stone-600">Private One-Way Transfer</span>
+                        </div>
+                        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 mb-6">
+                            <Button asChild size="lg" className="group h-auto py-4 px-7 rounded-xl font-bold text-base bg-[#c8402f] text-white hover:bg-[#a83527]">
+                                <a href={QUOTE_HREF}>Book SUV — {PRICE_TEXT} <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true" /></a>
+                            </Button>
+                            <Button asChild size="lg" variant="outline" className="h-auto py-4 px-7 rounded-xl font-bold text-base bg-white/10 text-white border-white/40 hover:bg-white/20 hover:text-white">
+                                <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer"><WhatsAppIcon className="w-5 h-5 mr-2 fill-current" /> WhatsApp for Availability</a>
+                            </Button>
+                        </div>
+                        <ul className="grid grid-cols-2 sm:flex sm:flex-wrap gap-x-5 gap-y-2 text-sm text-white/80">
+                            {['Private Vehicle', 'Door-to-Door', 'King Fahd Causeway', 'Professional Driver'].map((x) => (
+                                <li key={x} className="flex items-center gap-1.5"><Check className="w-4 h-4 text-[#f6c99b] shrink-0" aria-hidden="true" />{x}</li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div id="quote" className="scroll-mt-32 min-w-0">
+                        <RouteQuoteCard
+                            title="Book your Riyadh → Bahrain SUV"
+                            cta={`Book SUV — ${PRICE_TEXT}`}
+                            fromPlaceholder="Home, hotel, office or airport in Riyadh"
+                            toPlaceholder="Hotel, address or airport in Bahrain"
+                            fromChips={['Riyadh city', RUH, 'KAFD', 'Olaya', 'Diplomatic Quarter']}
+                            toChips={['Manama', BAH, 'Seef', 'Juffair', 'Riffa', 'Muharraq']}
+                            showFlight="auto"
+                            returnNote="Return trip Bahrain to Riyadh also needed - date and time to confirm."
+                            vehicleOptions={[
+                                { value: SUV, label: `SUV (GMC Yukon) - ${PRICE_TEXT}` },
+                                ...ON_REQUEST.map((v) => ({ value: v.booking, label: `${v.name} - price on request` })),
+                            ]}
+                            buttonClass="bg-[#c8402f] hover:bg-[#a83527] focus-visible:ring-[#c8402f]"
+                        />
                     </div>
                 </div>
             </section>
 
-            {/* Pricing */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
+            {/* ================= INTRODUCTION ================= */}
+            <section aria-labelledby="intro" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.25fr_0.75fr] gap-10">
+                    <div className="space-y-5 text-stone-700 leading-relaxed text-[1.05rem]">
+                        <h2 id="intro" className={`${h2} mb-2`}>Riyadh to Bahrain Private SUV Transfer</h2>
+                        <p>
+                            Riyadh to Bahrain is an international road journey, and the last stretch of it runs over the sea. You cross the Eastern Province, reach the coast near Al Khobar, and drive onto the King Fahd Causeway, which carries you to the border post and on to Bahrain. We do the whole trip in one private SUV with one driver, from your door in Riyadh to your door in Bahrain.
+                        </p>
+                        <p>
+                            The road distance is approximately 430–480 km, depending on where you are collected and where you are going. Driving usually takes around 4–5 hours. Causeway and border processing, traffic and rest stops come on top of that, so we cannot promise an exact arrival time, and weekends and holidays are noticeably busier at the crossing.
+                        </p>
+                        <p>
+                            Pickup can be from your home, hotel or office, from business districts such as KAFD and Olaya, or from {RUH}. Drop-off is wherever you are staying or working in Bahrain: a hotel in Manama, Seef or Juffair, an address in Riffa or Muharraq, or {BAH}.
+                        </p>
+                        <p>
+                            The SUV is the vehicle we feature on this route because it suits the people who usually book it. Families get room for everyone and their bags. Business travellers get a quiet, private car between a meeting in Riyadh and one in Manama. Groups share one vehicle and one fare instead of arranging several cars. Airport passengers go straight from one terminal to the other, or from their home to their flight.
+                        </p>
+                        <p>
+                            Compared with shared or scheduled transport, a private SUV means you set the departure time, stop when you need to, and travel only with the people you know. Luggage travels with you, within the vehicle&apos;s capacity, without airline weight limits.
+                        </p>
+                        <p>
+                            Already in the Eastern Province? We also run <Link href="/routes/dammam-bahrain/" className={link}>Dammam to Bahrain</Link> and <Link href="/routes/khobar-bahrain/" className={link}>Al Khobar to Bahrain</Link> transfers. For the trip home, see <Link href="/routes/bahrain-riyadh/" className={link}>Bahrain to Riyadh</Link>.
+                        </p>
+                    </div>
+                    <aside className="lg:pt-16">
+                        <dl className="rounded-3xl bg-[#0c2433] text-white p-7 space-y-4 text-sm">
+                            {[
+                                ['Distance', 'Approx. 430–480 km'],
+                                ['Driving time', 'Around 4–5 hours'],
+                                ['Crossing', 'King Fahd Causeway'],
+                                ['Vehicle', 'Private SUV (GMC Yukon)'],
+                                ['Fare', `${PRICE_TEXT}, one way`],
+                            ].map(([k, v]) => (
+                                <div key={k} className="flex justify-between gap-4 border-b border-white/10 pb-3 last:border-0 last:pb-0">
+                                    <dt className="text-white/60">{k}</dt>
+                                    <dd className="font-semibold text-right">{v}</dd>
+                                </div>
+                            ))}
+                        </dl>
+                    </aside>
+                </div>
+            </section>
+
+            {/* ================= PRICE ================= */}
+            <section aria-labelledby="price" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="price" className={`${h2} mb-8`}>Riyadh to Bahrain Taxi Price</h2>
+                    <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-5">
+                        <article className="rounded-3xl bg-[#0c2433] text-white overflow-hidden grid grid-cols-1 sm:grid-cols-2">
+                            <div className="relative min-h-[220px]">
+                                <Image src="/fleet/gmc-yukon-xl-premium-chauffeur-saudi.webp" alt="GMC Yukon private taxi from Riyadh to Bahrain" fill sizes="(min-width: 1024px) 28vw, (min-width: 640px) 50vw, 100vw" className="object-cover" />
+                            </div>
+                            <div className="p-7 flex flex-col">
+                                <h3 className="text-white">Private SUV / GMC Yukon</h3>
+                                <p className="text-5xl font-black text-[#f6c99b] mt-2">{PRICE.toLocaleString('en-US')} <span className="text-lg font-semibold text-white/70">SAR</span></p>
+                                <p className="text-sm text-white/70 mt-1 mb-4">One-way private transfer · Up to 6–7 passengers</p>
+                                <p className="text-sm text-white/80 mb-4">Suitable for families, groups and passengers travelling with luggage.</p>
+                                <ul className="flex flex-wrap gap-2 mb-6 text-xs">
+                                    {['Professional Chauffeur', 'Private Vehicle', 'Door-to-Door Service', 'King Fahd Causeway Route'].map((x) => <li key={x} className="rounded-full bg-white/10 px-3 py-1.5">{x}</li>)}
+                                </ul>
+                                <Link href={book(SUV)} className="group mt-auto inline-flex items-center justify-center gap-2 rounded-xl bg-[#c8402f] px-6 py-3.5 font-bold text-white hover:bg-[#a83527] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">Book SUV — {PRICE_TEXT} <Arrow /></Link>
+                            </div>
+                        </article>
+                        <div className={`${card} p-7`}>
+                            <h3 className="text-[#0c2433] mb-1">Other vehicles</h3>
+                            <p className="text-sm text-stone-600 mb-5">Available on this route with the price confirmed when you book.</p>
+                            <ul className="space-y-3">
+                                {ON_REQUEST.map((v) => (
+                                    <li key={v.name} className="flex items-center justify-between gap-4 rounded-xl bg-[#f4f6f7] px-4 py-3">
+                                        <span>
+                                            <span className="block font-bold text-[#0c2433] text-sm">{v.name}</span>
+                                            <span className="block text-xs text-stone-600">{v.seats}</span>
+                                        </span>
+                                        <Link href={book(v.booking)} className="shrink-0 text-xs font-bold text-[#b8372c] hover:underline">Price on request</Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= INCLUDED ================= */}
+            <section aria-labelledby="included" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 items-start">
+                    <h2 id="included" className={h2}>What&apos;s Included in the Riyadh to Bahrain SUV Transfer?</h2>
+                    <div>
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+                            {['Private SUV for your group only', 'Professional driver', 'Door-to-door pickup in Riyadh', 'Door-to-door drop-off in Bahrain', 'Fuel', 'King Fahd Causeway toll', 'Vehicle-side border assistance', 'Help with luggage'].map((x) => (
+                                <li key={x} className="flex gap-2.5 rounded-xl bg-[#f4f6f7] px-4 py-3 text-sm text-[#0c2433]"><Check className="w-4 h-4 mt-0.5 text-[#c8402f] shrink-0" aria-hidden="true" />{x}</li>
+                            ))}
+                        </ul>
+                        <p className="text-sm text-stone-600"><span className="font-semibold text-[#0c2433]">Not included:</span> passenger visas or entry fees, meals and personal expenses, and detours or long waits not agreed when booking.</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= DISTANCE + ROUTE ================= */}
+            <section aria-labelledby="time" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <div>
+                        <Clock className="w-7 h-7 text-[#c8402f] mb-4" aria-hidden="true" />
+                        <h2 id="time" className={`${h2} mb-5`}>Riyadh to Bahrain Distance and Travel Time</h2>
+                        <p className="text-stone-700 leading-relaxed mb-4">Approximately 430–480 km by road. Driving is usually around 4–5 hours before allowing for King Fahd Causeway processing, border procedures, traffic and rest stops.</p>
+                        <p className="text-stone-700 leading-relaxed mb-10">The total journey can take longer during weekends, holidays and busy periods. We do not guarantee a fixed arrival time; if you have a flight or an appointment in Bahrain, tell us and we will set an earlier pickup.</p>
+
+                        <h2 id="route" className={`${h2} mb-5`}>Riyadh to Bahrain Driving Route</h2>
+                        <p className="text-stone-700 leading-relaxed mb-4">The road runs east from Riyadh across the Eastern Province towards Dammam and Al Khobar, then onto the King Fahd Causeway. After the border post on the causeway, you continue into Bahrain and on to Manama, Seef, Juffair, Bahrain International Airport or your final address.</p>
+                        <p className="text-stone-700 leading-relaxed">The exact route depends on your pickup and drop-off points and on road conditions on the day.</p>
+                    </div>
+                    <div className="rounded-3xl bg-[#081a25] text-white p-7 md:p-10">
+                        <RouteJourney
+                            vehicle
+                            palette="gulf"
+                            stops={[
+                                { title: 'Riyadh', text: 'Pickup at your home, hotel, office or King Khalid International Airport.' },
+                                { title: 'Dammam / Al Khobar', text: 'Across the Eastern Province to the Gulf coast. A good place for a rest stop.' },
+                                { title: 'King Fahd Causeway', text: 'Saudi exit, the crossing, and Bahrain entry at the border post on the causeway.', accent: true },
+                                { title: 'Bahrain', text: 'Into the island, towards Manama and the surrounding areas.' },
+                                { title: 'Your destination', text: 'Manama, Seef, Juffair, Bahrain International Airport or your address.' },
+                            ]}
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= CAUSEWAY ================= */}
+            <section aria-labelledby="causeway" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <ShieldCheck className="w-7 h-7 text-[#c8402f] mb-4" aria-hidden="true" />
+                    <h2 id="causeway" className={`${h2} mb-5`}>Riyadh to Bahrain via King Fahd Causeway</h2>
+                    <p className="text-stone-700 leading-relaxed max-w-3xl mb-10">The King Fahd Causeway connects Saudi Arabia and Bahrain and is the normal road crossing for this journey. Both countries&apos; border procedures take place on the causeway itself, so you clear Saudi exit and Bahrain entry before reaching the island.</p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                        {[
+                            ['Saudi side', 'Passengers go through Saudi exit and passport control. Saudi residents need a valid Iqama and exit/re-entry visa. The vehicle’s papers are checked.'],
+                            ['The crossing', 'The causeway runs over the sea between the two border areas. The toll is part of the fare.'],
+                            ['Bahrain side', 'Passengers go through Bahrain immigration with their passport and entry permission. The vehicle has its own entry and insurance checks.'],
+                        ].map(([t, d], i) => (
+                            <div key={t} className="rounded-2xl bg-[#f4f6f7] p-6">
+                                <p className={`${eyebrow} text-[#c8402f] mb-2`}>Step {i + 1}</p>
+                                <h3 className="text-[#0c2433] mb-2">{t}</h3>
+                                <p className="text-sm text-stone-600 leading-relaxed">{d}</p>
+                            </div>
+                        ))}
+                    </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                        <div className="rounded-2xl bg-[#0c2433] text-white p-7">
+                            <h3 className="mb-3">What the driver does, and what stays with you</h3>
+                            <p className="text-sm text-white/80 leading-relaxed">Our driver assists with the vehicle-side process and coordinates the journey. Passengers remain responsible for their own passport, visa and immigration requirements.</p>
+                        </div>
+                        <div className="rounded-2xl border-l-4 border-[#c8402f] bg-[#f4f6f7] p-7">
+                            <h3 className="text-[#0c2433] mb-3">Queues and busy times</h3>
+                            <p className="text-sm text-stone-700 leading-relaxed mb-4">Queues on the causeway vary, and weekends and public holidays can be much busier. Nobody can promise how long the crossing will take.</p>
+                            <Link href={CAUSEWAY_GUIDE} className="group inline-flex items-center gap-2 text-sm font-bold text-[#b8372c] hover:underline">Read the full King Fahd Causeway guide <Arrow /></Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= DOCUMENTS ================= */}
+            <section aria-labelledby="documents" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-10 items-start">
+                    <div>
+                        <FileText className="w-7 h-7 text-[#c8402f] mb-4" aria-hidden="true" />
+                        <h2 id="documents" className={`${h2} mb-4`}>Documents Needed for Riyadh to Bahrain Travel</h2>
+                        <p className="text-stone-700 leading-relaxed">Requirements vary with nationality and residency status. Check them for every passenger, including children.</p>
+                    </div>
+                    <div>
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+                            {[
+                                ['Valid passport', 'GCC citizens may be able to travel on their national ID.'],
+                                ['Bahrain entry permission', 'A visa or entry permit where your nationality requires one.'],
+                                ['Saudi residency (Iqama)', 'For Saudi residents, valid for the trip.'],
+                                ['Exit/re-entry visa', 'For Saudi residents planning to return.'],
+                                ['Other authorisation', 'Any further travel or vehicle documents the border asks for.'],
+                            ].map(([k, v]) => (
+                                <li key={k} className={`${card} flex gap-3 p-4`}>
+                                    <Check className="w-5 h-5 mt-0.5 text-[#c8402f] shrink-0" aria-hidden="true" />
+                                    <span><span className="font-bold text-[#0c2433]">{k}</span><span className="block text-sm text-stone-600">{v}</span></span>
+                                </li>
+                            ))}
+                        </ul>
+                        <p className="flex gap-3 text-sm text-stone-600"><Info className="w-4 h-4 mt-0.5 text-[#c8402f] shrink-0" aria-hidden="true" />Entry requirements can change, so passengers should confirm their individual eligibility before travelling.</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= VS FLIGHT ================= */}
+            <section aria-labelledby="vs" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl font-bold mb-3 text-center">Riyadh to Bahrain Taxi Price</h2>
-                    <p className="text-gray-400 text-center mb-10 max-w-2xl mx-auto">Starting fares from Riyadh. Final price depends on vehicle, passenger count, luggage, exact pickup/drop-off location and travel date.</p>
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-sm border-collapse bg-white/5 rounded-2xl overflow-hidden">
+                    <h2 id="vs" className={`${h2} mb-4`}>Riyadh to Bahrain Taxi vs Flight</h2>
+                    <p className="text-stone-700 leading-relaxed mb-8">The flight is shorter in the air. The SUV removes the airports, check-in and the taxi at the other end. Which is better depends on your group, your bags and where exactly you are going.</p>
+                    <div className="relative overflow-x-auto rounded-2xl border border-[#0c2433]/10">
+                        <table className="w-full min-w-[520px] text-left text-sm">
                             <thead>
-                                <tr className="bg-white/10 text-left">
-                                    <th className="py-3 px-4 font-bold">Vehicle</th>
-                                    <th className="py-3 px-4 font-bold">Capacity</th>
-                                    <th className="py-3 px-4 font-bold text-right">From</th>
+                                <tr className="bg-[#0c2433] text-white">
+                                    <th scope="col" className="px-4 py-3.5 font-bold"><span className="sr-only">Compare</span></th>
+                                    <th scope="col" className="px-4 py-3.5 font-bold">Private SUV</th>
+                                    <th scope="col" className="px-4 py-3.5 font-bold">Flight</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-white/10">
-                                {pricing.map((p) => (
-                                    <tr key={p.vehicle}>
-                                        <td className="py-3 px-4 font-semibold"><Link href={p.link} className="hover:underline">{p.vehicle}</Link></td>
-                                        <td className="py-3 px-4 text-gray-300">{p.cap}</td>
-                                        <td className="py-3 px-4 text-right font-bold text-primary">{p.price} SAR</td>
+                            <tbody className="divide-y divide-[#0c2433]/10">
+                                {[
+                                    ['Travel time', 'Longer, plus the causeway', 'Faster pure travel time'],
+                                    ['Door-to-door', 'Yes, direct to your destination', 'No - airport transfers needed'],
+                                    ['Check-in and security', 'None', 'Yes'],
+                                    ['Departure', 'Flexible', 'Fixed by the schedule'],
+                                    ['Luggage', 'Within the vehicle’s capacity', 'Airline baggage rules'],
+                                    ['Groups', 'One vehicle, one fare', 'One ticket per person'],
+                                    ['Privacy', 'Private vehicle', 'Shared cabin'],
+                                ].map(([k, a, b]) => (
+                                    <tr key={k}>
+                                        <th scope="row" className="px-4 py-3.5 font-bold text-[#0c2433]">{k}</th>
+                                        <td className="px-4 py-3.5 text-stone-700">{a}</td>
+                                        <td className="px-4 py-3.5 text-stone-600">{b}</td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
                     </div>
-                    <p className="text-gray-500 text-xs text-center mt-4">Causeway tolls and fuel are included in the quoted price. Prices are for the vehicle, not per passenger.</p>
                 </div>
             </section>
 
-            {/* Route breakdown */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-6">The Riyadh to Bahrain Route</h2>
-                    <p className="text-gray-600 leading-relaxed mb-6">
-                        The journey runs from Riyadh east across the Eastern Province, approaching Dammam/Al Khobar before crossing into Bahrain via the King Fahd Causeway.
-                    </p>
-                    <div className="flex flex-col gap-3">
-                        {[
-                            'Pickup in Riyadh (home, hotel, office or King Khalid Airport)',
-                            'Highway journey toward the Eastern Province',
-                            'Approach to Dammam / Al Khobar',
-                            'Saudi exit at the Causeway checkpoint',
-                            'King Fahd Causeway crossing (~25 km)',
-                            'Bahrain entry procedures',
-                            'Continue to Manama, Seef, Juffair, Bahrain Airport or your destination',
-                        ].map((step, i) => (
-                            <div key={step} className="flex items-center gap-4 bg-gray-50 rounded-xl p-4 border border-gray-100">
-                                <span className="w-7 h-7 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold text-xs shrink-0">{i + 1}</span>
-                                <span className="text-sm text-gray-700">{step}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Causeway */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Riyadh to Bahrain via King Fahd Causeway</h2>
-                    <p className="text-gray-600 leading-relaxed mb-4">
-                        The King Fahd Causeway is the ~25 km land link between Saudi Arabia and Bahrain. At the border, passengers may need to complete normal passport and immigration procedures, while the vehicle is subject to the applicable border and customs requirements.
-                    </p>
-                    <p className="text-gray-600 leading-relaxed mb-4">
-                        Border processing time isn't controlled by the driver and can vary significantly on weekends, holidays and busy travel periods — allow extra time if you have a fixed appointment or flight.
-                    </p>
-                    <Link href="/border-crossings/taxi-king-fahd-causeway-border-crossing/" className="text-primary font-semibold hover:underline inline-flex items-center gap-1">
-                        Read our full King Fahd Causeway guide <ArrowRight className="w-4 h-4" />
-                    </Link>
-                </div>
-            </section>
-
-            {/* Documents */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4 flex items-center gap-3"><FileText className="w-7 h-7 text-primary" /> Documents & Visa Responsibility</h2>
-                    <p className="text-gray-600 leading-relaxed mb-4">
-                        Our driver handles the vehicle-side requirements and guides you through the journey, while each passenger remains responsible for carrying the required passport, visa, residency documents and other entry documents.
-                    </p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {documents.map((d) => (
-                            <div key={d} className="flex items-start gap-2 bg-gray-50 p-3 rounded-xl border border-gray-100">
-                                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                                <span className="text-sm text-gray-700">{d}</span>
-                            </div>
-                        ))}
-                    </div>
-                    <p className="text-gray-500 text-sm mt-4">Entry requirements vary by nationality and residency status — confirm your eligibility before travelling.</p>
-                </div>
-            </section>
-
-            {/* Taxi vs flight */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-4xl mx-auto">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-4">Riyadh to Bahrain: Taxi vs Flight</h2>
-                    <p className="text-gray-600 leading-relaxed mb-4">
-                        Flying may be faster in pure travel time, especially for a solo passenger. A private car is mainly attractive for passengers who value door-to-door convenience, privacy, flexible departure times and group travel — no separate airport transfer, no airport check-in, and one vehicle for the whole group and luggage.
-                    </p>
-                    <p className="text-gray-600 leading-relaxed">
-                        If you're travelling with family, colleagues or heavy luggage, a private taxi can be more convenient overall, even if the road journey itself takes longer than a flight.
-                    </p>
-                </div>
-            </section>
-
-            {/* Pickup / dropoff */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-                <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div>
-                        <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2"><MapPin className="w-6 h-6 text-primary" /> Popular Riyadh Pickup Locations</h2>
-                        <div className="flex flex-wrap gap-2">
-                            {riyadhPickups.map((p) => (
-                                <span key={p} className="bg-gray-50 border border-gray-200 text-gray-700 text-sm font-medium px-3 py-1.5 rounded-lg">{p}</span>
+            {/* ================= AIRPORT + PLACES ================= */}
+            <section aria-labelledby="airport" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-5">
+                    <div className="rounded-3xl bg-[#0c2433] text-white p-8">
+                        <Plane className="w-7 h-7 text-[#f6c99b] mb-4" aria-hidden="true" />
+                        <h2 id="airport" className="text-2xl md:text-3xl font-extrabold mb-4">Riyadh to Bahrain Airport Transfer</h2>
+                        <ul className="space-y-2 text-sm text-white/85 mb-5">
+                            {[`${RUH} → ${BAH}`, `Riyadh city → ${BAH}`, 'Bahrain → Riyadh Airport, on the return route'].map((x) => (
+                                <li key={x} className="flex gap-2.5"><Check className="w-4 h-4 mt-0.5 text-[#f6c99b] shrink-0" aria-hidden="true" />{x}</li>
                             ))}
+                        </ul>
+                        <p className="text-white/75 text-sm leading-relaxed mb-6">If you are catching a flight, allow plenty of time for the causeway and border processing on top of the drive. Send us the departure time and we will suggest a pickup time with a margin.</p>
+                        <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                            <Link href={`/booking/?${new URLSearchParams({ from: RUH, to: BAH, vehicle: SUV }).toString()}`} className="group inline-flex items-center gap-2 rounded-xl bg-[#f6c99b] px-5 py-3 font-bold text-[#0c2433] hover:bg-[#f9d8b5] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">Book RUH → BAH <Arrow /></Link>
+                            <Link href="/riyadh-airport-taxi/" className="font-semibold text-[#f6c99b] hover:underline">Riyadh Airport transfers</Link>
                         </div>
                     </div>
-                    <div>
-                        <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2"><Building2 className="w-6 h-6 text-primary" /> Popular Bahrain Drop-off Locations</h2>
-                        <div className="flex flex-wrap gap-2">
-                            {bahrainDropoffs.map((p) => (
-                                <span key={p} className="bg-gray-50 border border-gray-200 text-gray-700 text-sm font-medium px-3 py-1.5 rounded-lg">{p}</span>
+                    <div className={`${card} p-8`}>
+                        <h3 className="text-[#0c2433] mb-3">Common pickups in Riyadh</h3>
+                        <ul className="flex flex-wrap gap-2 mb-7 text-sm">
+                            {['King Khalid International Airport', 'KAFD', 'Olaya', 'Diplomatic Quarter', 'Al Malaz', 'Riyadh hotels'].map((x) => (
+                                <li key={x} className="rounded-lg bg-[#f4f6f7] px-3 py-2 text-[#0c2433]">{x}</li>
                             ))}
-                        </div>
+                        </ul>
+                        <h3 className="text-[#0c2433] mb-3">Common drop-offs in Bahrain</h3>
+                        <ul className="flex flex-wrap gap-2 text-sm">
+                            {['Manama', 'Bahrain International Airport', 'Seef', 'Juffair', 'Diplomatic Area', 'Riffa', 'Muharraq', 'Bahrain hotels'].map((x) => (
+                                <li key={x} className="flex items-center gap-1.5 rounded-lg bg-[#f4f6f7] px-3 py-2 text-[#0c2433]"><MapPin className="w-3.5 h-3.5 text-[#c8402f]" aria-hidden="true" />{x}</li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
             </section>
 
-            {/* Who is this for */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-                <div className="max-w-5xl mx-auto">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">Who Is This Transfer For?</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* ================= WHO ================= */}
+            <section aria-labelledby="who" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="who" className={`${h2} mb-8`}>Who Is the Riyadh to Bahrain Private SUV Best For?</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                         {[
-                            { icon: Building2, title: 'Families', desc: 'Extra luggage space and flexible rest stops.' },
-                            { icon: Car, title: 'Business Travelers', desc: 'Direct, private transport without waiting for scheduled options.' },
-                            { icon: Plane, title: 'Airport Transfers', desc: 'Pickup from King Khalid Airport, drop-off at Bahrain Airport.' },
-                            { icon: MapPin, title: 'Group Travel', desc: 'One vehicle for the whole group instead of coordinating multiple cars.' },
-                        ].map((p) => (
-                            <div key={p.title} className="bg-white rounded-2xl p-6 border border-gray-100 text-center">
-                                <p.icon className="w-7 h-7 text-primary mx-auto mb-3" />
-                                <h3 className="font-bold text-gray-900 text-sm mb-1">{p.title}</h3>
-                                <p className="text-gray-500 text-xs">{p.desc}</p>
+                            { icon: Users, t: 'Families', d: 'Private space, room for luggage and flexible stops.' },
+                            { icon: Briefcase, t: 'Business travellers', d: <>Direct private transport between Riyadh and Bahrain. See <Link href="/services/business/" className={link}>business travel</Link>.</> },
+                            { icon: Plane, t: 'Airport travellers', d: 'Direct airport pickup and drop-off at either end.' },
+                            { icon: Users, t: 'Groups', d: 'One private SUV for the group rather than several vehicles.' },
+                            { icon: Globe2, t: 'GCC residents', d: 'Convenient road travel between Saudi Arabia and Bahrain.' },
+                        ].map(({ icon: Icon, t, d }) => (
+                            <div key={t} className="rounded-2xl bg-[#f4f6f7] p-6">
+                                <Icon className="w-6 h-6 text-[#c8402f] mb-3" aria-hidden="true" />
+                                <h3 className="text-[#0c2433] mb-2">{t}</h3>
+                                <p className="text-sm text-stone-600 leading-relaxed">{d}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* How to book */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+            {/* ================= VEHICLE ================= */}
+            <section aria-labelledby="vehicle" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                    <div className="relative aspect-[4/3] rounded-3xl overflow-hidden order-last lg:order-first">
+                        <Image src="/gmc-yukon.webp" alt="Riyadh to Bahrain private SUV transfer in a GMC Yukon" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
+                    </div>
+                    <div>
+                        <h2 id="vehicle" className={`${h2} mb-2`}>Riyadh to Bahrain SUV</h2>
+                        <p className="text-stone-600 mb-4">GMC Yukon XL or an equivalent premium SUV</p>
+                        <p className="text-4xl font-black text-[#c8402f] mb-2">{PRICE_TEXT}</p>
+                        <p className="text-sm text-stone-700 mb-6">Up to 6–7 passengers, depending on the vehicle&apos;s seating configuration. Around 4–5 large suitcases with a full load of passengers.</p>
+                        <ul className="grid grid-cols-2 gap-2 text-sm mb-7">
+                            {['Professional Chauffeur', 'Executive SUV', 'Spacious Interior', 'Climate Control', 'Private Transfer', 'Door-to-Door Service'].map((x) => (
+                                <li key={x} className={`${card} flex gap-2 px-3 py-2.5 text-[#0c2433]`}><Check className="w-4 h-4 mt-0.5 text-[#c8402f] shrink-0" aria-hidden="true" />{x}</li>
+                            ))}
+                        </ul>
+                        <Link href={book(SUV)} className={primary}>Book SUV — {PRICE_TEXT} <Arrow /></Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* ================= HOW TO BOOK ================= */}
+            <section aria-labelledby="book" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="book" className={`${h2} mb-8`}>How to Book a Riyadh to Bahrain SUV</h2>
+                    <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+                        {[
+                            ['Send your journey details', 'Pickup location, destination, date, passengers and luggage.'],
+                            ['Confirm SUV availability', 'We confirm the GMC/SUV for your selected date.'],
+                            [`Confirm the ${PRICE_TEXT} fare`, 'Confirm the one-way private SUV fare.'],
+                            ['Prepare your documents', 'Passport and Bahrain entry documents ready for every passenger.'],
+                            ['Meet your driver', 'Your private SUV arrives at the agreed pickup location.'],
+                        ].map(([t, d], i) => (
+                            <li key={t} className="rounded-2xl bg-[#f4f6f7] p-6">
+                                <span className="inline-flex w-9 h-9 items-center justify-center rounded-full bg-[#0c2433] text-white font-black text-sm mb-4" aria-hidden="true">{i + 1}</span>
+                                <h3 className="text-[#0c2433] mb-2">{t}</h3>
+                                <p className="text-sm text-stone-600 leading-relaxed">{d}</p>
+                            </li>
+                        ))}
+                    </ol>
+                    <div className="flex flex-col sm:flex-row gap-3">
+                        <a href={QUOTE_HREF} className={primary}>Book Riyadh to Bahrain SUV <Arrow /></a>
+                        <a href={WHATSAPP_HREF} target="_blank" rel="nofollow noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#0c2433]/20 px-6 py-3.5 font-bold text-[#0c2433] hover:border-[#c8402f]"><WhatsAppIcon className="w-4 h-4 fill-current" /> WhatsApp for Availability</a>
+                    </div>
+                    <p className="text-sm text-stone-600 mt-5">Taxi Service KSA · <a href={`tel:${PHONE}`} className={link}>+966 57 580 6733</a> (call or WhatsApp)</p>
+                </div>
+            </section>
+
+            {/* ================= FAQ ================= */}
+            <section aria-labelledby="faq" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-3xl mx-auto">
-                    <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">How to Book</h2>
-                    <div className="space-y-5">
-                        {[
-                            { step: '1', title: 'Send Your Journey Details', desc: 'Contact us via WhatsApp or the booking form with your pickup and destination.' },
-                            { step: '2', title: 'Choose Your Vehicle', desc: 'Pick a vehicle based on your passenger count and luggage.' },
-                            { step: '3', title: 'Confirm Your Quote', desc: "We'll confirm the fare and vehicle for your trip." },
-                            { step: '4', title: 'Prepare Your Documents', desc: 'Make sure your passport and Bahrain entry documents are ready.' },
-                            { step: '5', title: 'Meet Your Driver', desc: 'Your vehicle collects you from the agreed Riyadh location.' },
-                        ].map((s) => (
-                            <div key={s.step} className="flex gap-6 items-start bg-gray-50 rounded-2xl p-6 border border-gray-100">
-                                <span className="text-3xl font-black text-primary/40 shrink-0">{s.step}</span>
-                                <div>
-                                    <h4 className="font-bold text-gray-900 mb-1">{s.title}</h4>
-                                    <p className="text-gray-600 text-sm">{s.desc}</p>
-                                </div>
-                            </div>
+                    <h2 id="faq" className={`${h2} mb-8`}>Riyadh to Bahrain Taxi FAQs</h2>
+                    <Accordion type="single" collapsible className="w-full rounded-2xl border border-[#0c2433]/10 bg-white px-5">
+                        {faqs.map((f, i) => (
+                            <AccordionItem key={f.q} value={`faq-${i}`} className="last:border-0">
+                                <AccordionTrigger className="text-left text-base font-semibold text-[#0c2433] hover:no-underline">{f.q}</AccordionTrigger>
+                                <AccordionContent className="text-stone-600 leading-relaxed">{f.a}</AccordionContent>
+                            </AccordionItem>
                         ))}
-                    </div>
+                    </Accordion>
                 </div>
             </section>
 
-            <div className="max-w-4xl mx-auto px-4 pb-4 pt-8">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 text-center mb-2">Riyadh to Bahrain Taxi FAQs</h2>
-            </div>
-            <MicroSemanticFAQ faqs={faqs} />
-
-            {/* Related routes */}
-            <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50 border-t border-gray-100">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Related Saudi-Bahrain Routes</h3>
-                    <div className="flex flex-wrap gap-4 justify-center text-sm mb-8">
-                        <Link href="/routes/bahrain-riyadh/" className="text-primary font-semibold hover:underline">Bahrain to Riyadh Taxi</Link>
-                        <Link href="/routes/dammam-bahrain/" className="text-primary font-semibold hover:underline">Dammam to Bahrain Taxi</Link>
-                        <Link href="/routes/khobar-bahrain/" className="text-primary font-semibold hover:underline">Al Khobar to Bahrain Taxi</Link>
-                        <Link href="/routes/bahrain-dammam/" className="text-primary font-semibold hover:underline">Bahrain to Dammam Taxi</Link>
-                        <Link href="/border-crossings/taxi-king-fahd-causeway-border-crossing/" className="text-primary font-semibold hover:underline">King Fahd Causeway Taxi</Link>
+            {/* ================= RELATED ================= */}
+            <section aria-labelledby="related" className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    <div>
+                        <h2 id="related" className="text-2xl md:text-3xl font-extrabold text-[#0c2433] mb-5">Saudi Arabia – Bahrain Transfers</h2>
+                        <ul className="space-y-2 text-sm">
+                            {[
+                                ['Bahrain to Riyadh taxi', '/routes/bahrain-riyadh/', 'the same trip in reverse'],
+                                ['Dammam to Bahrain taxi', '/routes/dammam-bahrain/', 'if you start in Dammam'],
+                                ['Al Khobar to Bahrain taxi', '/routes/khobar-bahrain/', 'the shortest run to the causeway'],
+                                ['Bahrain to Dammam taxi', '/routes/bahrain-dammam/', 'back to the Eastern Province'],
+                                ['King Fahd Causeway taxi guide', CAUSEWAY_GUIDE, 'how the crossing works'],
+                            ].map(([l, h, d]) => (
+                                <li key={h}><Link href={h} className={link}>{l}</Link> <span className="text-stone-500">- {d}</span></li>
+                            ))}
+                        </ul>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-2">Related Riyadh Routes</h3>
-                    <div className="flex flex-wrap gap-4 justify-center text-sm">
-                        <Link href="/routes/riyadh-dammam/" className="text-primary font-semibold hover:underline">Riyadh to Dammam</Link>
-                        <Link href="/routes/riyadh-doha/" className="text-primary font-semibold hover:underline">Riyadh to Doha</Link>
-                        <Link href="/routes/riyadh-kuwait/" className="text-primary font-semibold hover:underline">Riyadh to Kuwait</Link>
-                        <Link href="/routes/riyadh-abu-dhabi/" className="text-primary font-semibold hover:underline">Riyadh to Abu Dhabi</Link>
-                        <Link href="/services/gcc-chauffeur-service/" className="text-primary font-semibold hover:underline">GCC Chauffeur Service</Link>
+                    <div>
+                        <h2 className="text-2xl md:text-3xl font-extrabold text-[#0c2433] mb-5">Other Routes from Riyadh</h2>
+                        <ul className="space-y-2 text-sm">
+                            {[
+                                ['Riyadh to Doha taxi', '/routes/riyadh-doha/'],
+                                ['Riyadh to Kuwait taxi', '/routes/riyadh-kuwait/'],
+                                ['Riyadh to Abu Dhabi transfer', '/routes/riyadh-abu-dhabi/'],
+                                ['Riyadh to Dammam taxi', '/routes/riyadh-dammam/'],
+                                ['GCC chauffeur service', '/services/gcc-chauffeur-service/'],
+                            ].map(([l, h]) => (
+                                <li key={h}><Link href={h} className={link}>{l}</Link></li>
+                            ))}
+                        </ul>
                     </div>
-                </div>
-            </section>
-
-            {/* Final CTA */}
-            <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black text-white text-center">
-                <div className="max-w-2xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-black mb-6">Get Your Riyadh to Bahrain Taxi Quote</h2>
-                    <p className="text-gray-400 mb-10 text-lg">Send your pickup location, travel date, passenger count and preferred vehicle to receive a quote.</p>
-                    <a href="https://wa.me/966575806733?text=Hello%2C%20I%20want%20to%20book%20a%20taxi%20from%20Riyadh%20to%20Bahrain" target="_blank" rel="noopener noreferrer">
-                        <Button size="lg" className="bg-primary text-black hover:bg-white font-black text-lg px-10 py-7 h-auto rounded-2xl shadow-2xl transition-all transform hover:-translate-y-1"><WhatsAppIcon className="w-4 h-4 mr-2 fill-current" /> Book on WhatsApp</Button>
-                    </a>
                 </div>
             </section>
         </div>
