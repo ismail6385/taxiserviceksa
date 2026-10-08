@@ -33,6 +33,7 @@ const EXCLUDED_SLUGS = new Set([
     'dammam-airport-to-kuwait',
     'khobar-to-dammam-airport',
     'kuwait-to-dammam-airport',
+    'riyadh-to-dammam-airport',
 ]);
 
 const ORIGIN_TOKENS = [
@@ -92,7 +93,7 @@ const ROUTE_SLUGS = [
     'makkah-kuwait', 'makkah-madinah', 'makkah-muscat', 'makkah-sharjah', 'makkah-taif',
     'muscat-dammam', 'muscat-jeddah', 'muscat-madinah', 'muscat-makkah', 'muscat-riyadh',
     'riyadh-abu-dhabi', 'riyadh-amman', 'riyadh-bahrain', 'riyadh-dammam', 'riyadh-doha', 'riyadh-dubai',
-    'riyadh-jeddah', 'riyadh-kuwait', 'riyadh-makkah', 'riyadh-muscat', 'riyadh-sharjah',
+    'riyadh-jeddah', 'riyadh-kuwait', 'riyadh-makkah', 'riyadh-muscat', 'riyadh-sharjah', 'riyadh-to-dammam-airport',
     'sharjah-dammam', 'sharjah-jeddah', 'sharjah-madinah', 'sharjah-makkah', 'sharjah-riyadh',
     'tabuk-abha', 'tabuk-abu-arish', 'tabuk-afif', 'tabuk-al-bad', 'tabuk-al-badai', 'tabuk-al-bahah',
     'tabuk-al-bukayriyah', 'tabuk-al-ghat', 'tabuk-al-jafr', 'tabuk-al-khafji', 'tabuk-al-kharj',
