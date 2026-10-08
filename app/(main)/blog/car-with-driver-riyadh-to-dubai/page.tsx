@@ -67,7 +67,7 @@ export default function CarWithDriverRiyadhToDubai() {
                         <Car className="w-6 h-6 text-emerald-700 shrink-0" />
                         <div>
                             <p className="text-xs font-bold text-emerald-800 uppercase tracking-wide">Private Car</p>
-                            <p className="font-bold text-gray-900">From 2,000 SAR</p>
+                            <p className="font-bold text-gray-900">From 3,500 SAR</p>
                         </div>
                     </div>
                 </div>
@@ -218,17 +218,17 @@ export default function CarWithDriverRiyadhToDubai() {
                                 <TableRow>
                                     <TableCell><Link href="/fleet/toyota-camry/" className="font-semibold text-emerald-700 hover:underline">Sedan (Camry/Sonata)</Link></TableCell>
                                     <TableCell>Up to 4 passengers, business travelers with light luggage</TableCell>
-                                    <TableCell className="font-bold">2,000 SAR</TableCell>
+                                    <TableCell className="font-bold">3,500 SAR</TableCell>
                                 </TableRow>
                                 <TableRow>
                                     <TableCell className="font-semibold">Toyota Fortuner</TableCell>
                                     <TableCell>Up to 6 passengers, small groups</TableCell>
-                                    <TableCell className="font-bold">2,800 SAR</TableCell>
+                                    <TableCell className="font-bold">3,800 SAR</TableCell>
                                 </TableRow>
                                 <TableRow className="bg-emerald-50">
                                     <TableCell><Link href="/fleet/gmc-yukon/" className="font-semibold text-emerald-700 hover:underline">GMC Yukon / Chevy Tahoe</Link></TableCell>
                                     <TableCell>Up to 7 passengers, families and groups with more luggage</TableCell>
-                                    <TableCell className="font-bold">3,500 SAR</TableCell>
+                                    <TableCell className="font-bold">4,500 SAR</TableCell>
                                 </TableRow>
                             </TableBody>
                         </Table>
@@ -251,7 +251,7 @@ export default function CarWithDriverRiyadhToDubai() {
                 <div className="mb-12">
                     <h2 className="text-2xl font-bold text-gray-900 mb-4">How Much Does a Riyadh to Dubai Car With Driver Cost?</h2>
                     <p className="text-gray-700 mb-4">
-                        Current rates for our Riyadh to Dubai transfer start from <strong>2,000 SAR</strong> for a sedan, up to <strong>3,500 SAR</strong> for a GMC Yukon/Chevy Tahoe. All prices are per vehicle — not per passenger — and include fuel, tolls and border crossing insurance.
+                        Current rates for our Riyadh to Dubai transfer are <strong>3,500 SAR</strong> for a sedan, <strong>3,800 SAR</strong> for a Toyota Fortuner and <strong>4,500 SAR</strong> for a GMC Yukon/Chevy Tahoe. All prices are per vehicle — not per passenger — and include fuel, tolls and border crossing insurance.
                     </p>
                     <p className="text-gray-700 mb-4">
                         Being per-vehicle can make a private transfer attractive for families, since the price doesn't multiply with each extra passenger within the vehicle's capacity. Final pricing can still vary with your exact pickup/drop-off points, travel date and whether you need a return trip — see the full <Link href="/routes/riyadh-dubai/" className="text-emerald-700 underline">Riyadh to Dubai taxi page</Link> for current rates, or request a quote directly.
@@ -330,7 +330,7 @@ export default function CarWithDriverRiyadhToDubai() {
                             { q: 'Does the same car continue from Riyadh to Dubai?', a: 'Yes, for our Riyadh to Dubai transfers the same vehicle and driver travel with you the whole way — there is no vehicle change at the border.' },
                             { q: 'Can families travel this way?', a: 'Yes. Families can book the GMC Yukon/Chevy Tahoe or Toyota Fortuner depending on passenger and luggage count.' },
                             { q: 'Is a private driver better than driving myself?', a: 'It depends on your priorities. A private driver lets you rest, work or spend time with your group instead of driving the full 10-12 hour route yourself.' },
-                            { q: 'How much does it cost?', a: 'Current rates start from 2,000 SAR for a sedan up to 3,500 SAR for a GMC Yukon/Chevy Tahoe, per vehicle, including fuel, tolls and border insurance. See the Riyadh to Dubai taxi page for current rates.' },
+                            { q: 'How much does it cost?', a: 'Current rates are 3,500 SAR for a sedan, 3,800 SAR for a Toyota Fortuner and 4,500 SAR for a GMC Yukon/Chevy Tahoe, per vehicle, including fuel, tolls and border insurance. See the Riyadh to Dubai taxi page for current rates.' },
                             { q: 'Is the fare per person or per vehicle?', a: 'Per vehicle. The quoted price covers the whole vehicle, not individual seats.' },
                             { q: 'Do I need a UAE visa?', a: 'UAE entry requirements depend on your nationality, residency and individual circumstances. Confirm your own eligibility before traveling.' },
                             { q: 'Can I book a return trip?', a: 'Yes, return transportation can be arranged — share your return date and pickup time when requesting a quote.' },

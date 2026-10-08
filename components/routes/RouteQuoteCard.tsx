@@ -38,10 +38,12 @@ export interface RouteQuoteCardProps {
     buttonClass?: string;
     /** Extra optional text fields; each non-empty value is added to the booking notes with its label. */
     extraFields?: { id: string; label: string; placeholder?: string }[];
+    /** Replaces the default vehicle list; values must match lib/supabase.ts names. */
+    vehicleOptions?: { value: string; label: string }[];
 }
 
 // Intercity route quote card; hands off to /booking/ with stop / return / extras as notes.
-export default function RouteQuoteCard({ title, cta, fromCity = '', toCity = '', fromPlaceholder = 'Hotel or location', toPlaceholder = 'Hotel, resort or location', fromChips = [], toChips = [], stop, returnNote, showFlight = false, extraFields = [], buttonClass = 'bg-emerald-800 hover:bg-emerald-900 focus-visible:ring-emerald-700' }: RouteQuoteCardProps) {
+export default function RouteQuoteCard({ title, cta, fromCity = '', toCity = '', fromPlaceholder = 'Hotel or location', toPlaceholder = 'Hotel, resort or location', fromChips = [], toChips = [], stop, returnNote, showFlight = false, extraFields = [], vehicleOptions = VEHICLES, buttonClass = 'bg-emerald-800 hover:bg-emerald-900 focus-visible:ring-emerald-700' }: RouteQuoteCardProps) {
     const router = useRouter();
     const [from, setFrom] = useState('');
     const [to, setTo] = useState('');
@@ -140,7 +142,7 @@ export default function RouteQuoteCard({ title, cta, fromCity = '', toCity = '',
                 <div>
                     <label htmlFor="rq-vehicle" className={label}>Vehicle</label>
                     <select id="rq-vehicle" className={field} value={vehicle} onChange={(e) => setVehicle(e.target.value)}>
-                        {VEHICLES.map((v) => <option key={v.label} value={v.value}>{v.label}</option>)}
+                        {vehicleOptions.map((v) => <option key={v.label} value={v.value}>{v.label}</option>)}
                     </select>
                 </div>
                 <div className="sm:col-span-2 flex flex-col sm:flex-row gap-3">

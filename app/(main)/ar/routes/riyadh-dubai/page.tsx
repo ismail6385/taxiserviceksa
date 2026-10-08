@@ -10,9 +10,9 @@ import WhatsAppIcon from '@/components/WhatsAppIcon';
 import RouteFleetSection from '@/components/RouteFleetSection';
 
 export const metadata: Metadata = {
-    title: 'تاكسي الرياض إلى دبي | نقل بجمس من ٣٬٥٠٠ ريال | Taxi Service KSA',
-    description: 'احجز تاكسي خاص من الرياض إلى دبي. جمس يوكن / شيفروليه تاهو بسعر يبدأ من ٣٥٠٠ ريال. خدمة من الباب إلى الباب، مع مساعدة كاملة عند الحدود. الحجز متاح عبر واتساب على مدار الساعة.',
-    keywords: ['تاكسي الرياض إلى دبي', 'نقل الرياض دبي', 'سعر الرياض دبي ٣٥٠٠ ريال', 'تاكسي عبور الحدود السعودية', 'نقل VIP الرياض دبي جمس'],
+    title: 'تاكسي الرياض إلى دبي | نقل خاص من ٣٬٥٠٠ ريال | Taxi Service KSA',
+    description: 'احجز تاكسي خاص من الرياض إلى دبي. سيدان ٣٬٥٠٠ ريال، فورتشنر ٣٬٨٠٠ ريال، جمس يوكن / تاهو ٤٬٥٠٠ ريال. خدمة من الباب إلى الباب، مع مساعدة كاملة عند الحدود. الحجز متاح عبر واتساب على مدار الساعة.',
+    keywords: ['تاكسي الرياض إلى دبي', 'نقل الرياض دبي', 'سعر تاكسي الرياض دبي', 'تاكسي عبور الحدود السعودية', 'نقل VIP الرياض دبي جمس'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/ar/routes/riyadh-dubai/',
         languages: {
@@ -22,10 +22,10 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'تاكسي الرياض إلى دبي | نقل بجمس ٣٬٥٠٠ ريال' }],
+        images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'تاكسي الرياض إلى دبي | نقل خاص من ٣٬٥٠٠ ريال' }],
         siteName: 'Taxi Service KSA',
-        title: 'تاكسي الرياض إلى دبي | نقل بجمس ٣٬٥٠٠ ريال',
-        description: 'احجز تاكسي خاص من الرياض إلى دبي. جمس يوكن / شيفروليه تاهو بسعر يبدأ من ٣٥٠٠ ريال. خدمة من الباب إلى الباب، مع مساعدة كاملة عند الحدود.',
+        title: 'تاكسي الرياض إلى دبي | نقل خاص من ٣٬٥٠٠ ريال',
+        description: 'احجز تاكسي خاص من الرياض إلى دبي. سيدان ٣٬٥٠٠ ريال، فورتشنر ٣٬٨٠٠ ريال، جمس يوكن / تاهو ٤٬٥٠٠ ريال. خدمة من الباب إلى الباب، مع مساعدة كاملة عند الحدود.',
         url: 'https://taxiserviceksa.com/ar/routes/riyadh-dubai/',
         locale: 'ar_SA',
         type: 'website',
@@ -47,7 +47,7 @@ export default function RiyadhDubaiRoutePageArabic() {
                 cityName="Riyadh to Dubai"
                 description="Professional private car service for Riyadh to Dubai. Reliable 24/7 door-to-door transfers with luxury vehicles and professional chauffeurs."
                 services={[
-                    { name: 'Riyadh to Dubai Taxi', description: 'Premium private GMC/Tahoe transfer from 3500 SAR.' },
+                    { name: 'Riyadh to Dubai Taxi', description: 'Private transfer: Sedan 3,500 SAR, Toyota Fortuner 3,800 SAR, GMC/Tahoe 4,500 SAR.' },
                     { name: 'Executive Chauffeur', description: 'Professional drivers for business and leisure travel.' },
                     { name: 'Family SUV Service', description: 'Spacious vehicles for groups up to 7 passengers.' },
                     { name: 'Border Crossing Assistance', description: 'Driver handles all border paperwork and vehicle insurance.' }
@@ -64,7 +64,7 @@ export default function RiyadhDubaiRoutePageArabic() {
                         نقل عبر حدود دول الخليج
                     </span>
                 }
-                subtitle="الرياض إلى دبي — سيارة دفع رباعي خاصة من ٣٬٥٠٠ ريال"
+                subtitle="الرياض إلى دبي — سيارة خاصة من ٣٬٥٠٠ ريال"
                 location="من الباب إلى الباب · شامل المساعدة عند الحدود"
             >
                 <div className="w-full max-w-xl mx-auto px-4 mt-6 flex flex-col items-center gap-4">
@@ -72,10 +72,10 @@ export default function RiyadhDubaiRoutePageArabic() {
                     {/* Price Badges */}
                     <div className="flex flex-wrap items-center gap-2 justify-center">
                         <div className="bg-emerald-500 text-white font-black px-5 py-2.5 rounded-full shadow-lg text-base sm:text-lg tracking-tight whitespace-nowrap">
-                            جمس — ٣٬٥٠٠ ريال
+                            جمس — ٤٬٥٠٠ ريال
                         </div>
                         <div className="bg-white/20 backdrop-blur-sm border border-white/30 text-white font-semibold px-4 py-2.5 rounded-full text-xs sm:text-sm whitespace-nowrap">
-                            سيدان من ٢٬٠٠٠ ريال
+                            سيدان — ٣٬٥٠٠ ريال
                         </div>
                     </div>
 
@@ -125,7 +125,7 @@ export default function RiyadhDubaiRoutePageArabic() {
                                     <h3 className="text-lg font-bold text-gray-900">سيدان</h3>
                                     <p className="text-xs text-gray-500">كامري / سوناتا · حتى ٤ ركاب</p>
                                 </div>
-                                <p className="text-3xl font-black text-gray-900 sm:mt-3">٢٬٠٠٠ <span className="text-sm font-semibold text-gray-500">ريال</span></p>
+                                <p className="text-3xl font-black text-gray-900 sm:mt-3">٣٬٥٠٠ <span className="text-sm font-semibold text-gray-500">ريال</span></p>
                             </div>
                             <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 rounded-xl text-sm transition-colors">
                                 <WhatsAppIcon className="w-4 h-4 fill-current" /> احجز سيدان
@@ -140,7 +140,7 @@ export default function RiyadhDubaiRoutePageArabic() {
                                     <h3 className="text-lg font-bold text-gray-900">تويوتا فورتشنر</h3>
                                     <p className="text-xs text-gray-500">سيارة دفع رباعي متوسطة · حتى ٦ ركاب</p>
                                 </div>
-                                <p className="text-3xl font-black text-gray-900 sm:mt-3">٢٬٨٠٠ <span className="text-sm font-semibold text-gray-500">ريال</span></p>
+                                <p className="text-3xl font-black text-gray-900 sm:mt-3">٣٬٨٠٠ <span className="text-sm font-semibold text-gray-500">ريال</span></p>
                             </div>
                             <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 rounded-xl text-sm transition-colors">
                                 <WhatsAppIcon className="w-4 h-4 fill-current" /> احجز فورتشنر
@@ -156,7 +156,7 @@ export default function RiyadhDubaiRoutePageArabic() {
                                     <h3 className="text-lg font-bold text-gray-900">جمس / تاهو</h3>
                                     <p className="text-xs text-gray-600">دفع رباعي كامل الحجم · حتى ٧ ركاب</p>
                                 </div>
-                                <p className="text-4xl font-black text-emerald-700 sm:mt-3">٣٬٥٠٠ <span className="text-sm font-semibold text-gray-500">ريال</span></p>
+                                <p className="text-4xl font-black text-emerald-700 sm:mt-3">٤٬٥٠٠ <span className="text-sm font-semibold text-gray-500">ريال</span></p>
                             </div>
                             <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-black py-3.5 rounded-xl text-sm transition-colors shadow-md">
                                 <WhatsAppIcon className="w-4 h-4 fill-current" /> احجز جمس الآن
@@ -265,7 +265,7 @@ export default function RiyadhDubaiRoutePageArabic() {
                     <div className="bg-white border border-gray-200 rounded-2xl p-5 flex flex-col sm:flex-row items-center gap-4 shadow-sm text-right">
                         <div className="flex-1">
                             <p className="font-bold text-gray-900 text-sm sm:text-base">أُعجبت؟ احجز التجربة نفسها.</p>
-                            <p className="text-xs sm:text-sm text-gray-500">جمس يوكن / شيفروليه تاهو · ٣٬٥٠٠ ريال · شامل كل شيء</p>
+                            <p className="text-xs sm:text-sm text-gray-500">جمس يوكن / شيفروليه تاهو · ٤٬٥٠٠ ريال · شامل كل شيء</p>
                         </div>
                         <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto shrink-0">
                             <button className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5c] text-white font-black px-6 py-3.5 rounded-xl text-sm transition-all active:scale-95 shadow-md whitespace-nowrap">
@@ -303,8 +303,8 @@ export default function RiyadhDubaiRoutePageArabic() {
                             },
                             {
                                 question: "ما سعر تاكسي الرياض إلى دبي؟",
-                                shortAnswer: "من ٢٬٠٠٠ ريال (سيدان) إلى ٣٬٥٠٠ ريال (جمس)",
-                                detailedAnswer: "سيدان من ٢٬٠٠٠ ريال، تويوتا فورتشنر ٢٬٨٠٠ ريال، جمس يوكن / شيفروليه تاهو ٣٬٥٠٠ ريال. جميع الأسعار لكل مركبة، وتشمل الوقود والرسوم وتأمين عبور الحدود.",
+                                shortAnswer: "من ٣٬٥٠٠ ريال (سيدان) إلى ٤٬٥٠٠ ريال (جمس)",
+                                detailedAnswer: "سيدان ٣٬٥٠٠ ريال، تويوتا فورتشنر ٣٬٨٠٠ ريال، جمس يوكن / شيفروليه تاهو ٤٬٥٠٠ ريال. جميع الأسعار لكل مركبة، وتشمل الوقود والرسوم وتأمين عبور الحدود.",
                                 perspectives: []
                             },
                             {
