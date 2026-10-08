@@ -290,7 +290,8 @@
 .duba-page h3,
 .uhud-page h3,
 .jeddah-taif-page h3,
-.riyadh-dubai-page h3 {
+.riyadh-dubai-page h3,
+.riyadh-doha-page h3 {
   font-size: 1.2rem !important;
   font-weight: 700 !important;
   line-height: 1.35 !important;
