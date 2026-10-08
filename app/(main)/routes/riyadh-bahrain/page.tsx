@@ -438,7 +438,7 @@ export default function RiyadhBahrainRoutePage() {
                         <p className="text-white/75 text-sm leading-relaxed mb-6">If you are catching a flight, allow plenty of time for the causeway and border processing on top of the drive. Send us the departure time and we will suggest a pickup time with a margin.</p>
                         <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
                             <Link href={`/booking/?${new URLSearchParams({ from: RUH, to: BAH, vehicle: SUV }).toString()}`} className="group inline-flex items-center gap-2 rounded-xl bg-[#f6c99b] px-5 py-3 font-bold text-[#0c2433] hover:bg-[#f9d8b5] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">Book RUH → BAH <Arrow /></Link>
-                            <Link href="/riyadh-airport-taxi/" className="font-semibold text-[#f6c99b] hover:underline">Riyadh Airport transfers</Link>
+                            <Link href="/riyadh-alternative-airports/" className="font-semibold text-[#f6c99b] hover:underline">Riyadh flight cancelled? Compare airports</Link>
                         </div>
                     </div>
                     <div className={`${card} p-8`}>

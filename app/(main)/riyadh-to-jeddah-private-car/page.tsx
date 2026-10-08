@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 const faqs = [
     {
         question: 'How much does a private car from Riyadh to Jeddah cost?',
-        answer: 'A private car from Riyadh to Jeddah costs approximately SAR 700–1,400 depending on the vehicle type. A Toyota Camry for 1–3 passengers starts from SAR 700. A GMC Yukon XL for families (up to 6) starts from SAR 1,100. Luxury Cadillac Escalade transfers start from SAR 1,400. All prices are fixed — WhatsApp us for an exact quote.',
+        answer: 'A private car from Riyadh to Jeddah is SAR 1,000 for a Toyota Camry, SAR 1,600 for a Hyundai Staria VIP and SAR 2,000 for a GMC Yukon XL, one way per vehicle. A Mercedes S-Class is SAR 3,500 and a Mercedes Sprinter SAR 4,000. Other vehicles are quoted on request.',
     },
     {
         question: 'How long does it take to drive from Riyadh to Jeddah?',
@@ -61,11 +61,11 @@ const faqs = [
 ];
 
 const vehicles = [
-    { name: 'Toyota Camry', passengers: '1–3', luggage: '2 large bags', price: 'From SAR 700', ideal: 'Solo traveler, business trip, couple' },
-    { name: 'GMC Yukon XL', passengers: '4–7', luggage: '5 large bags', price: 'From SAR 1,100', ideal: 'Families, groups' },
-    { name: 'Hyundai Staria VIP', passengers: '4–7', luggage: '4 large bags', price: 'From SAR 1,200', ideal: 'VIP families, comfort travel' },
-    { name: 'Cadillac Escalade', passengers: '4–7', luggage: '4 large bags', price: 'From SAR 1,400', ideal: 'Executive, luxury travel' },
-    { name: 'Toyota Hiace', passengers: '8–11', luggage: '10+ bags', price: 'From SAR 1,500', ideal: 'Large groups, corporate teams' },
+    { name: 'Toyota Camry', passengers: '1–3', luggage: '2 large bags', price: 'SAR 1,000', ideal: 'Solo traveler, business trip, couple' },
+    { name: 'GMC Yukon XL', passengers: '4–7', luggage: '5 large bags', price: 'SAR 2,000', ideal: 'Families, groups' },
+    { name: 'Hyundai Staria VIP', passengers: '4–7', luggage: '4 large bags', price: 'SAR 1,600', ideal: 'VIP families, comfort travel' },
+    { name: 'Cadillac Escalade', passengers: '4–7', luggage: '4 large bags', price: 'Price on request', ideal: 'Executive, luxury travel' },
+    { name: 'Toyota Hiace', passengers: '8–11', luggage: '10+ bags', price: 'Price on request', ideal: 'Large groups, corporate teams' },
 ];
 
 const serviceSchema = {
@@ -84,7 +84,7 @@ const serviceSchema = {
     offers: {
         '@type': 'Offer',
         priceCurrency: 'SAR',
-        price: '700',
+        price: '1000',
         availability: 'https://schema.org/InStock',
     },
 };

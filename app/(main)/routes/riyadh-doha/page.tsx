@@ -441,7 +441,7 @@ export default function RiyadhDohaRoutePage() {
                                 <li key={x} className="flex items-center gap-1.5 rounded-lg bg-white/[0.08] px-3 py-2"><MapPin className="w-3.5 h-3.5 text-[#f0cf9c]" aria-hidden="true" />{x}</li>
                             ))}
                         </ul>
-                        <Link href="/riyadh-airport-taxi/" className="font-semibold text-[#f0cf9c] hover:underline">Riyadh Airport transfers</Link>
+                        <span className="flex flex-wrap gap-x-5 gap-y-2"><Link href="/riyadh-airport-taxi/" className="font-semibold text-[#f0cf9c] hover:underline">Riyadh Airport transfers</Link><Link href="/riyadh-alternative-airports/" className="font-semibold text-[#f0cf9c] hover:underline">Riyadh flight cancelled? Compare airports</Link></span>
                     </div>
                 </div>
             </section>

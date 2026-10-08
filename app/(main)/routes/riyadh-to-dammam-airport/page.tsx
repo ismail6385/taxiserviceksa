@@ -197,7 +197,7 @@ export default function RiyadhToDammamAirportPage() {
                             The car is private: only your group travels in it. Choose the sedan if you are one or two people with normal luggage, or the SUV if you are a family, a group, or flying out with more bags than a sedan boot will take.
                         </p>
                         <p>
-                            Landing at Riyadh and flying on from Dammam? We can collect you at {RUH} and drive straight to DMM. Arriving at Dammam instead? The <Link href="/dammam-airport-taxi/" className={link}>Dammam Airport taxi</Link> page covers pickups there, and <Link href="/routes/dammam-riyadh/" className={link}>Dammam to Riyadh</Link> covers the drive back.
+                            Landing at Riyadh and flying on from Dammam? We can collect you at {RUH} and drive straight to DMM. Arriving at Dammam instead? The <Link href="/dammam-airport-taxi/" className={link}>Dammam Airport taxi</Link> page covers pickups there, and <Link href="/routes/dammam-riyadh/" className={link}>Dammam to Riyadh</Link> covers the drive back. If your flight from Riyadh was cancelled, <Link href="/riyadh-alternative-airports/" className={link}>compare every airport you can reach by car</Link>.
                         </p>
                     </div>
                     <aside className="lg:pt-16">

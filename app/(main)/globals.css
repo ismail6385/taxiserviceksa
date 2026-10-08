@@ -293,7 +293,9 @@
 .riyadh-dubai-page h3,
 .riyadh-doha-page h3,
 .riyadh-dmm-page h3,
-.riyadh-bahrain-page h3 {
+.riyadh-bahrain-page h3,
+.riyadh-jed-page h3,
+.alt-airports-page h3 {
   font-size: 1.2rem !important;
   font-weight: 700 !important;
   line-height: 1.35 !important;

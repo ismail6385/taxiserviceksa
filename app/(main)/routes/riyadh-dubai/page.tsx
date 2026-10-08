@@ -523,7 +523,7 @@ export default function RiyadhDubaiRoutePage() {
                         <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
                             <Link href={q({ to: DXB })} className="group inline-flex items-center gap-2 rounded-xl bg-[#e9c48a] px-5 py-3 font-bold text-[#0f2a33] hover:bg-[#f2d6a8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white">Quote Riyadh → DXB <Arrow /></Link>
                             <Link href="/riyadh-airport-taxi/" className="font-semibold text-[#e9c48a] hover:underline">Riyadh Airport transfers</Link>
-                            <Link href="/services/airport-transfers/" className="font-semibold text-[#e9c48a] hover:underline">All airport transfers</Link>
+                            <Link href="/riyadh-alternative-airports/" className="font-semibold text-[#e9c48a] hover:underline">Riyadh flight cancelled? Compare airports</Link>
                         </div>
                     </div>
                     <div>

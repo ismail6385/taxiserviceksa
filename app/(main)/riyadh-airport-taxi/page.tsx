@@ -265,6 +265,15 @@ export default function RiyadhAirportTaxiPage() {
                 </Link>
             </div>
 
+            {/* Disruption notice: flights from RUH cancelled or suspended (October 2026) */}
+            <div className="px-4 sm:px-6 lg:px-8 pt-8">
+                <Link href="/riyadh-alternative-airports/" className="group max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center gap-3 rounded-2xl border border-amber-300 bg-amber-50 p-5 hover:border-amber-400">
+                    <Plane className="w-6 h-6 text-amber-600 shrink-0" aria-hidden="true" />
+                    <span className="flex-1 text-sm text-gray-800"><strong>Flight from Riyadh cancelled or disrupted?</strong> We drive you to Dammam, Bahrain, Doha, Jeddah or Dubai airport instead. Compare distance, time, visa needs and fares.</span>
+                    <span className="inline-flex items-center gap-1 text-sm font-bold text-amber-700">Compare airports <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" /></span>
+                </Link>
+            </div>
+
             {/* Airport Info + Why Pre-Book */}
             <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
                 <div className="max-w-7xl mx-auto">
