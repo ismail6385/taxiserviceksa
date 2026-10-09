@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 const faqs = [
     {
         question: 'How much is a taxi from Riyadh to Dammam?',
-        answer: 'A private taxi from Riyadh to Dammam costs approximately SAR 400–800 depending on vehicle type. A Toyota Camry starts from SAR 400 for 1–3 passengers. A GMC Yukon XL for families starts from SAR 650. All prices are fixed — no meter, no surge. WhatsApp us for an exact quote for your travel date.',
+        answer: 'A private taxi from Riyadh to Dammam is SAR 1,000 for a sedan (Toyota Camry) and SAR 1,500 for an SUV (GMC Yukon), one way per vehicle. Al Khobar, Dhahran and Jubail are quoted on request. WhatsApp us with your date and pickup.',
     },
     {
         question: 'How long is the drive from Riyadh to Dammam?',
@@ -47,7 +47,7 @@ const faqs = [
     },
     {
         question: 'Can I get a taxi from Riyadh to Al Khobar?',
-        answer: 'Yes. We provide direct transfers from Riyadh to Al Khobar (approximately 420 km, 4–4.5 hours). Al Khobar is 20 km from Dammam city centre. The price is similar to Riyadh–Dammam. Many business travelers prefer Al Khobar for its Corniche hotels and proximity to the King Fahd Causeway to Bahrain.',
+        answer: 'Yes. We provide direct transfers from Riyadh to Al Khobar (approximately 420 km, 4–4.5 hours). Al Khobar is 20 km from Dammam city centre. Al Khobar is quoted on request. Many business travelers prefer Al Khobar for its Corniche hotels and proximity to the King Fahd Causeway to Bahrain.',
     },
     {
         question: 'Is there a train from Riyadh to Dammam?',
@@ -56,10 +56,10 @@ const faqs = [
 ];
 
 const routes = [
-    { to: 'Dammam City', dist: '400 km', time: '3.5–4.5 hrs', price: 'From SAR 400' },
-    { to: 'Al Khobar', dist: '420 km', time: '4–4.5 hrs', price: 'From SAR 420' },
-    { to: 'Dhahran', dist: '410 km', time: '4–4.5 hrs', price: 'From SAR 410' },
-    { to: 'Jubail Industrial City', dist: '490 km', time: '4.5–5 hrs', price: 'From SAR 500' },
+    { to: 'Dammam City', dist: '400 km', time: '3.5–4.5 hrs', price: 'SAR 1,000' },
+    { to: 'Al Khobar', dist: '420 km', time: '4–4.5 hrs', price: 'On request' },
+    { to: 'Dhahran', dist: '410 km', time: '4–4.5 hrs', price: 'On request' },
+    { to: 'Jubail Industrial City', dist: '490 km', time: '4.5–5 hrs', price: 'On request' },
 ];
 
 const serviceSchema = {
@@ -70,7 +70,7 @@ const serviceSchema = {
     provider: { '@type': 'Organization', name: 'Taxi Service KSA', url: 'https://taxiserviceksa.com', telephone: '+966575806733' },
     areaServed: { '@type': 'Country', name: 'Saudi Arabia' },
     description: 'Private intercity taxi from Riyadh to Dammam, Al Khobar, Dhahran, and Jubail. Fixed rates, door-to-door.',
-    offers: { '@type': 'Offer', priceCurrency: 'SAR', price: '400', availability: 'https://schema.org/InStock' },
+    offers: { '@type': 'Offer', priceCurrency: 'SAR', price: '1000', availability: 'https://schema.org/InStock' },
 };
 
 export default function RiyadhToDammamPage() {
@@ -112,7 +112,7 @@ export default function RiyadhToDammamPage() {
             {/* Quick Stats */}
             <section className="bg-white border-b py-5 px-4">
                 <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-8 text-center">
-                    {[{ label: 'Distance', value: '400 km' }, { label: 'Drive Time', value: '~4 hrs' }, { label: 'Starting Price', value: 'SAR 400' }, { label: 'Service', value: '24/7' }].map((stat) => (
+                    {[{ label: 'Distance', value: '400 km' }, { label: 'Drive Time', value: '~4 hrs' }, { label: 'Starting Price', value: 'SAR 1,000' }, { label: 'Service', value: '24/7' }].map((stat) => (
                         <div key={stat.label}>
                             <p className="text-2xl font-black text-blue-700">{stat.value}</p>
                             <p className="text-xs text-gray-500 uppercase tracking-wide font-semibold">{stat.label}</p>

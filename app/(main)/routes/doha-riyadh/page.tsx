@@ -10,12 +10,11 @@ import RelatedRoutes from '@/components/seo/RelatedRoutes';
 import MicroSemanticFAQ from '@/components/seo/MicroSemanticFAQ';
 import TravelConsensus from '@/components/seo/TravelConsensus';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
-import RouteFleetSection from '@/components/RouteFleetSection';
 
 
 export const metadata: Metadata = {
-    title: 'Doha to Riyadh Taxi | Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Doha to Riyadh. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    title: 'Doha to Riyadh Taxi | Private GMC Transfer – 3,000 SAR',
+    description: 'Private GMC SUV from Doha to Riyadh for 3,000 SAR one way. Door-to-door cross-border transfer via Abu Samra / Salwa, pickup in Doha or at Hamad International Airport.',
     keywords: ['Taxi Doha to Riyadh', 'Doha to Riyadh transfer', 'cross border taxi Saudi Arabia', 'VIP transport Doha Riyadh'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/doha-riyadh/',
@@ -24,7 +23,7 @@ export const metadata: Metadata = {
         images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Doha to Riyadh Taxi | Taxi Service KSA' }],
         siteName: 'Taxi Service KSA',
         title: 'Doha to Riyadh Taxi | Taxi Service KSA',
-        description: 'Request a premium quote from Doha to Riyadh. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Private GMC SUV from Doha to Riyadh for 3,000 SAR one way. Door-to-door cross-border transfer via Abu Samra / Salwa, pickup in Doha or at Hamad International Airport.',
         url: 'https://taxiserviceksa.com/routes/doha-riyadh/',
         type: 'website',
     },
@@ -68,7 +67,7 @@ export default function DohaRiyadhRoutePage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Doha&dropoff=Riyadh">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            WhatsApp Booking (1500 SAR)
+                            WhatsApp Booking (GMC 3,000 SAR)
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
@@ -127,7 +126,7 @@ export default function DohaRiyadhRoutePage() {
                                     <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center shrink-0 text-primary font-bold">2</div>
                                     <div>
                                         <h4 className="font-bold text-gray-900">Business-Traveller Friendly</h4>
-                                        <p className="text-sm text-gray-500">Wi-Fi-ready sedans and a quiet cabin for calls or work en route, popular with executives commuting for same-day meetings.</p>
+                                        <p className="text-sm text-gray-500">A quiet private GMC cabin for calls or work en route, popular with executives commuting for same-day meetings.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">
@@ -143,7 +142,6 @@ export default function DohaRiyadhRoutePage() {
                 </div>
             </section>
 
-            <RouteFleetSection />
 
             <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
                 <div className="max-w-7xl mx-auto">
@@ -177,6 +175,12 @@ export default function DohaRiyadhRoutePage() {
             <MicroSemanticFAQ
                 faqs={[
                     {
+                        question: "How much is a taxi from Doha to Riyadh?",
+                        shortAnswer: "GMC 3,000 SAR",
+                        detailedAnswer: "We run Doha to Riyadh with a private GMC Yukon / Denali at 3,000 SAR one way, for up to 6–7 passengers. Other vehicles may be available on request.",
+                        perspectives: []
+                    },
+                    {
                         question: "How long does a taxi take from Doha to Riyadh?",
                         shortAnswer: "Around 6 hours",
                         detailedAnswer: "The total driving time is around 6 hours for the 584 km route. Border crossing at Salwa typically adds 30 minutes to 2 hours depending on the season and time of day.",
@@ -191,7 +195,7 @@ export default function DohaRiyadhRoutePage() {
                     {
                         question: "Is the border vehicle insurance included in the price?",
                         shortAnswer: "Yes",
-                        detailedAnswer: "Yes, our quoted price of 1500 SAR includes the vehicle crossing insurance and toll fees.",
+                        detailedAnswer: "Yes. Vehicle crossing insurance and tolls are included in the 3,000 SAR GMC fare.",
                         perspectives: []
                     }
                 ]}

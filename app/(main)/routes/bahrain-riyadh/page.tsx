@@ -14,8 +14,8 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 
 
 export const metadata: Metadata = {
-    title: 'Bahrain to Riyadh Taxi | Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Bahrain to Riyadh. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    title: 'Bahrain to Riyadh Taxi | Private SUV Transfer – 2,000 SAR',
+    description: 'Private SUV from Bahrain to Riyadh for 2,000 SAR via the King Fahd Causeway, fuel and causeway toll included. Door-to-door, pickup in Bahrain or at Bahrain Airport.',
     keywords: ['Taxi Bahrain to Riyadh', 'Bahrain to Riyadh transfer', 'cross border taxi Saudi Arabia', 'VIP transport Bahrain Riyadh'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/bahrain-riyadh/',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Bahrain to Riyadh Taxi | Taxi Service KSA' }],
         siteName: 'Taxi Service KSA',
         title: 'Bahrain to Riyadh Taxi | Taxi Service KSA',
-        description: 'Request a premium quote from Bahrain to Riyadh. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Private SUV from Bahrain to Riyadh for 2,000 SAR via the King Fahd Causeway, fuel and causeway toll included. Door-to-door, pickup in Bahrain or at Bahrain Airport.',
         url: 'https://taxiserviceksa.com/routes/bahrain-riyadh/',
         type: 'website',
     },
@@ -68,7 +68,7 @@ export default function BahrainRiyadhRoutePage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Bahrain&dropoff=Riyadh">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            WhatsApp Booking (1200 SAR)
+                            WhatsApp Booking (SUV 2,000 SAR)
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
@@ -87,7 +87,7 @@ export default function BahrainRiyadhRoutePage() {
                                 A Comfortable Half-Day Drive to the Capital
                             </h2>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                                Bahrain to Riyadh covers roughly 490 km — across the King Fahd Causeway, then west along Highway 95 through the Eastern Province to the capital. It's a genuine half-day drive, comfortably doable in a single sitting with one rest stop.
+                                Bahrain to Riyadh covers roughly 430–480 km — across the King Fahd Causeway, then west along Highway 95 through the Eastern Province to the capital. It's a genuine half-day drive, comfortably doable in a single sitting with one rest stop.
                             </p>
                             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                                 This route is popular with business travellers heading to meetings in Riyadh, and with GCC residents visiting family in the capital who prefer door-to-door privacy over a connecting flight through Dammam.
@@ -104,7 +104,7 @@ export default function BahrainRiyadhRoutePage() {
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <Building2 className="w-6 h-6 text-primary" />
-                                    <span className="font-semibold text-gray-800">~490 km Total</span>
+                                    <span className="font-semibold text-gray-800">~430–480 km Total</span>
                                 </div>
                                 <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
                                     <CheckCircle2 className="w-6 h-6 text-primary" />
@@ -177,9 +177,15 @@ export default function BahrainRiyadhRoutePage() {
             <MicroSemanticFAQ
                 faqs={[
                     {
+                        question: "How much is a taxi from Bahrain to Riyadh?",
+                        shortAnswer: "SUV 2,000 SAR",
+                        detailedAnswer: "A private SUV (GMC Yukon) from Bahrain to Riyadh is 2,000 SAR one way, including fuel and the King Fahd Causeway toll. Other vehicles are quoted on request.",
+                        perspectives: []
+                    },
+                    {
                         question: "Is Bahrain to Riyadh doable in one day?",
                         shortAnswer: "Yes, easily",
-                        detailedAnswer: "Yes. At 5-5.5 hours of driving, it's a comfortable single-day journey with time to spare for a rest stop — no overnight stay is needed.",
+                        detailedAnswer: "Yes. At around 4–5 hours of driving plus the causeway, it's a comfortable single-day journey with time to spare for a rest stop — no overnight stay is needed.",
                         perspectives: []
                     },
                     {
@@ -191,7 +197,7 @@ export default function BahrainRiyadhRoutePage() {
                     {
                         question: "Can I book a large SUV for a family trip to Riyadh?",
                         shortAnswer: "Yes, GMC Yukon or similar",
-                        detailedAnswer: "Yes. For the 490 km journey, we recommend a GMC Yukon or similar SUV for families or groups of 4+ — more comfortable than a sedan over a multi-hour drive.",
+                        detailedAnswer: "Yes. For the 430–480 km journey, we recommend a GMC Yukon or similar SUV for families or groups of 4+ — more comfortable than a sedan over a multi-hour drive.",
                         perspectives: []
                     }
                 ]}

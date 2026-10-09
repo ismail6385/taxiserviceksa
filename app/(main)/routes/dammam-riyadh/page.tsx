@@ -201,6 +201,12 @@ export default function DammamRiyadhRoutePage() {
             <MicroSemanticFAQ
                 faqs={[
                     {
+                        question: "How much is a taxi from Dammam to Riyadh?",
+                        shortAnswer: "Sedan 1,000 SAR · SUV 1,500 SAR",
+                        detailedAnswer: "Sedan 1,000 SAR and SUV 1,500 SAR, one way per vehicle, from Dammam city or King Fahd International Airport (DMM) to your address in Riyadh.",
+                        perspectives: []
+                    },
+                    {
                         question: "How long is the drive from Dammam to Riyadh?",
                         shortAnswer: "3.5 - 4 Hours",
                         detailedAnswer: "The distance is approximately 400km. On the smooth highway, it takes about 3.5 to 4 hours in a private car.",

@@ -243,6 +243,30 @@ export default function RiyadhAlternativeAirportsPage() {
                 </div>
             </section>
 
+            {/* ================= INBOUND ================= */}
+            <section aria-labelledby="inbound" className="bg-[#111827] text-white py-16 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="inbound" className="text-3xl md:text-4xl font-extrabold mb-4">Landed Somewhere Else? We Drive You to Riyadh</h2>
+                    <p className="text-white/75 max-w-3xl mb-8">If your flight to Riyadh was diverted or rebooked to another airport, we can collect you there and drive you to your address in Riyadh. The fares are the same as the outbound trips.</p>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                        {[
+                            ['Dammam Airport → Riyadh', 'Sedan 1,000 · SUV 1,500 SAR', '/routes/dammam-riyadh/'],
+                            ['Bahrain → Riyadh', 'SUV 2,000 SAR', '/routes/bahrain-riyadh/'],
+                            ['Doha → Riyadh', 'GMC 3,000 SAR', '/routes/doha-riyadh/'],
+                            ['Dubai → Riyadh', 'From 3,500 SAR', '/routes/dubai-riyadh/'],
+                        ].map(([t, p, h]) => (
+                            <li key={h}>
+                                <Link href={h} className="group flex h-full flex-col rounded-2xl bg-white/[0.08] p-5 hover:bg-white/[0.14] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300">
+                                    <span className="font-bold">{t}</span>
+                                    <span className="text-sm text-amber-300 mt-1 mb-3">{p}</span>
+                                    <span className="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-white/80">View route <Arrow /></span>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </section>
+
             {/* ================= FAQ ================= */}
             <section aria-labelledby="faq" className="bg-white py-16 md:py-20 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-3xl mx-auto">
