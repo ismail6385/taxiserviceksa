@@ -54,7 +54,15 @@ const DESCRIPTION = 'Flights from Riyadh disrupted? Compare driving to Dammam, B
 export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
-    alternates: { canonical: PAGE_URL },
+    alternates: {
+        canonical: PAGE_URL,
+        languages: {
+            en: PAGE_URL,
+            ar: 'https://taxiserviceksa.com/ar/riyadh-alternative-airports/',
+            ur: 'https://taxiserviceksa.com/ur/riyadh-alternative-airports/',
+            'x-default': PAGE_URL,
+        },
+    },
     openGraph: {
         title: TITLE,
         description: DESCRIPTION,
@@ -123,7 +131,7 @@ export default function RiyadhAlternativeAirportsPage() {
             <section className="bg-[#111827] text-white">
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 grid grid-cols-1 lg:grid-cols-[1fr_0.95fr] gap-8 lg:gap-12 items-start">
                     <div className="min-w-0 lg:pt-4">
-                        <p className="inline-flex items-center gap-2 rounded-full bg-amber-400/15 text-amber-300 px-3 py-1.5 text-xs font-bold mb-5"><AlertTriangle className="w-3.5 h-3.5" aria-hidden="true" />Updated {UPDATED}</p>
+                        <div className="flex flex-wrap items-center gap-3 mb-5"><p className="inline-flex items-center gap-2 rounded-full bg-amber-400/15 text-amber-300 px-3 py-1.5 text-xs font-bold"><AlertTriangle className="w-3.5 h-3.5" aria-hidden="true" />Updated {UPDATED}</p><Link href="/ur/riyadh-alternative-airports/" hrefLang="ur" lang="ur" className="text-sm text-white/70 underline">اردو</Link><Link href="/ar/riyadh-alternative-airports/" hrefLang="ar" lang="ar" className="text-sm text-white/70 underline">العربية</Link></div>
                         <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.08] tracking-tight mb-5">Riyadh Flight Cancelled? Drive to Another Airport</h1>
                         <p className="text-base sm:text-lg text-white/80 leading-relaxed mb-7 max-w-xl">
                             Private car with driver from your door in Riyadh to Dammam, Bahrain, Doha, Jeddah or Dubai airport. Fixed fares, one vehicle for your whole group, and the pickup time set from your new flight.

@@ -9,6 +9,7 @@ export const CLUSTER = [
     { slug: 'riyadh-to-doha-by-road-guide', title: 'Riyadh to Doha by Road: Salwa Border, Time and Cost', short: 'Qatar via Salwa / Abu Samra' },
     { slug: 'riyadh-to-dubai-airport-by-car', title: 'Riyadh to Dubai Airport by Car: Planning Around Your Flight', short: 'Catching a flight from DXB' },
     { slug: 'riyadh-to-abu-dhabi-by-road-guide', title: 'Riyadh to Abu Dhabi by Road: Border, Route and Cost', short: 'Abu Dhabi and Zayed International' },
+    { slug: 'riyadh-flights-cancelled-india-pakistan', title: 'Riyadh Flight to India or Pakistan Cancelled? Your Options by Road', short: 'Flying home via Dammam, Jeddah or the Gulf' },
     { slug: 'saudi-to-uae-qatar-by-road-documents', title: 'Documents for Driving from Saudi Arabia to the UAE or Qatar', short: 'Passports, Iqama, exit/re-entry, visas' },
 ] as const;
 

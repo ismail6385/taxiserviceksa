@@ -66,6 +66,7 @@ export async function GET() {
         { route: '/blog/riyadh-to-dubai-airport-by-car', priority: 0.85 },
         { route: '/blog/riyadh-to-abu-dhabi-by-road-guide', priority: 0.85 },
         { route: '/blog/saudi-to-uae-qatar-by-road-documents', priority: 0.85 },
+        { route: '/blog/riyadh-flights-cancelled-india-pakistan', priority: 0.85 },
         // Madinah-AlUla cluster blog posts
         { route: '/blog/how-long-is-drive-from-madinah-to-alula', priority: 0.85 },
         { route: '/blog/how-to-get-from-madinah-to-alula', priority: 0.85 },

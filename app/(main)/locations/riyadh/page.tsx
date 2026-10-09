@@ -9,6 +9,7 @@ import Reveal from '@/components/alula/Reveal';
 import AlUlaReviews from '@/components/alula/AlUlaReviews';
 import RouteQuoteCard from '@/components/routes/RouteQuoteCard';
 import RiyadhNetwork from '@/components/riyadh/RiyadhNetwork';
+import RiyadhDisruptionBanner from '@/components/RiyadhDisruptionBanner';
 import RiyadhIntentJourneys from '@/components/riyadh/RiyadhIntentJourneys';
 import RiyadhVehicleFit, { type FleetItem } from '@/components/riyadh/RiyadhVehicleFit';
 import { vehicles } from '@/lib/supabase';
@@ -188,6 +189,8 @@ export default function RiyadhPage() {
                     </div>
                 </div>
             </section>
+
+            <RiyadhDisruptionBanner className="pt-8" />
 
             {/* ================= WHAT BRINGS YOU ================= */}
             <section aria-labelledby="brings" className="py-16 md:py-20 px-4 sm:px-6 lg:px-8">

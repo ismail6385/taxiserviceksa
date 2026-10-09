@@ -2,6 +2,7 @@
 
 import HomeHero from '@/components/HomeHero';
 import HomeTrustBar from '@/components/HomeTrustBar';
+import RiyadhDisruptionBanner from '@/components/RiyadhDisruptionBanner';
 import ServiceQuickLinks from '@/components/ServiceQuickLinks';
 import HomeSocialProof from '@/components/HomeSocialProof';
 import HomeExplore from '@/components/HomeExplore';
@@ -123,6 +124,9 @@ export default function HomeClient({ latestBlogs = [] }: HomeClientProps) {
 
             {/* Hero Section with Entity-Optimized H1 */}
             <HomeHero />
+
+            {/* Temporary: Riyadh flight disruption, October 2026 */}
+            <RiyadhDisruptionBanner className="pt-6" />
 
             {/* Trust Bar */}
             <HomeTrustBar />
