@@ -14,8 +14,8 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 
 
 export const metadata: Metadata = {
-    title: 'Abu Dhabi to Riyadh Taxi | Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Abu Dhabi to Riyadh. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    title: 'Abu Dhabi to Riyadh Taxi | Private Transfer from 3,500 SAR',
+    description: 'Private taxi from Abu Dhabi to Riyadh: Sedan 3,500 SAR, Toyota Fortuner 3,800 SAR, GMC Yukon/Tahoe 4,500 SAR, one way per vehicle. Door-to-door via the Al Batha / Al Ghuwaifat border.',
     keywords: ['Taxi Abu Dhabi to Riyadh', 'Abu Dhabi to Riyadh transfer', 'cross border taxi Saudi Arabia', 'VIP transport Abu Dhabi Riyadh'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/abu-dhabi-riyadh/',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Abu Dhabi to Riyadh Taxi | Taxi Service KSA' }],
         siteName: 'Taxi Service KSA',
         title: 'Abu Dhabi to Riyadh Taxi | Taxi Service KSA',
-        description: 'Request a premium quote from Abu Dhabi to Riyadh. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Private taxi from Abu Dhabi to Riyadh: Sedan 3,500 SAR, Toyota Fortuner 3,800 SAR, GMC Yukon/Tahoe 4,500 SAR, one way per vehicle. Door-to-door via the Al Batha / Al Ghuwaifat border.',
         url: 'https://taxiserviceksa.com/routes/abu-dhabi-riyadh/',
         type: 'website',
     },
@@ -68,7 +68,7 @@ export default function AbuDhabiRiyadhRoutePage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Abu Dhabi&dropoff=Riyadh">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            WhatsApp Booking (2300 SAR)
+                            WhatsApp Booking (from 3,500 SAR)
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
@@ -127,7 +127,7 @@ export default function AbuDhabiRiyadhRoutePage() {
                                     <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center shrink-0 text-primary font-bold">2</div>
                                     <div>
                                         <h4 className="font-bold text-gray-900">Business & Diplomatic Travel</h4>
-                                        <p className="text-sm text-gray-500">Wi-Fi-ready sedans and a quiet cabin for calls or work en route, regularly used by government and corporate travellers.</p>
+                                        <p className="text-sm text-gray-500">A quiet private cabin for calls or work en route, regularly used by government and corporate travellers.</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4">
@@ -177,6 +177,12 @@ export default function AbuDhabiRiyadhRoutePage() {
             <MicroSemanticFAQ
                 faqs={[
                     {
+                        question: "How much is a taxi from Abu Dhabi to Riyadh?",
+                        shortAnswer: "From 3,500 SAR",
+                        detailedAnswer: "Sedan 3,500 SAR, Toyota Fortuner 3,800 SAR, GMC Yukon/Tahoe 4,500 SAR, one way per vehicle.",
+                        perspectives: []
+                    },
+                    {
                         question: "How long does a taxi take from Abu Dhabi to Riyadh?",
                         shortAnswer: "Around 9 hours",
                         detailedAnswer: "The total driving time is around 9 hours for the 880 km route. Border crossing at Al Batha typically adds 30 minutes to 2 hours depending on the season and time of day.",
@@ -191,7 +197,7 @@ export default function AbuDhabiRiyadhRoutePage() {
                     {
                         question: "Is the border vehicle insurance included in the price?",
                         shortAnswer: "Yes",
-                        detailedAnswer: "Yes, our quoted price of 2300 SAR includes the vehicle crossing insurance and toll fees.",
+                        detailedAnswer: "Yes. Vehicle crossing insurance and tolls are included in the fare: Sedan 3,500 SAR, Toyota Fortuner 3,800 SAR, GMC Yukon/Tahoe 4,500 SAR.",
                         perspectives: []
                     }
                 ]}

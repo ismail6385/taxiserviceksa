@@ -14,8 +14,8 @@ import RouteFleetSection from '@/components/RouteFleetSection';
 
 
 export const metadata: Metadata = {
-    title: 'Riyadh to Abu Dhabi Taxi | Cross-Border Transfer | Taxi Service KSA',
-    description: 'Request a premium quote from Riyadh to Abu Dhabi. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
+    title: 'Riyadh to Abu Dhabi Taxi | Private Transfer from 3,500 SAR',
+    description: 'Private taxi from Riyadh to Abu Dhabi: Sedan 3,500 SAR, Toyota Fortuner 3,800 SAR, GMC Yukon/Tahoe 4,500 SAR, one way per vehicle. Door-to-door via the Al Batha / Al Ghuwaifat border.',
     keywords: ['Taxi Riyadh to Abu Dhabi', 'Riyadh to Abu Dhabi transfer', 'cross border taxi Saudi Arabia', 'VIP transport Riyadh Abu Dhabi'],
     alternates: {
         canonical: 'https://taxiserviceksa.com/routes/riyadh-abu-dhabi/',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         images: [{ url: 'https://taxiserviceksa.com/og-image.jpg', width: 1200, height: 630, alt: 'Riyadh to Abu Dhabi Taxi | Taxi Service KSA' }],
         siteName: 'Taxi Service KSA',
         title: 'Riyadh to Abu Dhabi Taxi | Taxi Service KSA',
-        description: 'Request a premium quote from Riyadh to Abu Dhabi. Reliable cross-border transfers, comfortable SUVs, and door-to-door service across the GCC.',
+        description: 'Private taxi from Riyadh to Abu Dhabi: Sedan 3,500 SAR, Toyota Fortuner 3,800 SAR, GMC Yukon/Tahoe 4,500 SAR, one way per vehicle. Door-to-door via the Al Batha / Al Ghuwaifat border.',
         url: 'https://taxiserviceksa.com/routes/riyadh-abu-dhabi/',
         type: 'website',
     },
@@ -68,7 +68,7 @@ export default function RiyadhAbuDhabiRoutePage() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
                     <Link href="/booking?pickup=Riyadh&dropoff=Abu Dhabi">
                         <Button size="lg" className="bg-white text-black hover:bg-gray-200 font-bold text-lg px-10 py-7 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group w-full sm:w-auto">
-                            WhatsApp Booking (2300 SAR)
+                            WhatsApp Booking (from 3,500 SAR)
                             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Button>
                     </Link>
@@ -177,6 +177,12 @@ export default function RiyadhAbuDhabiRoutePage() {
             <MicroSemanticFAQ
                 faqs={[
                     {
+                        question: "How much is a taxi from Riyadh to Abu Dhabi?",
+                        shortAnswer: "From 3,500 SAR",
+                        detailedAnswer: "Sedan 3,500 SAR, Toyota Fortuner 3,800 SAR, GMC Yukon/Tahoe 4,500 SAR, one way per vehicle.",
+                        perspectives: []
+                    },
+                    {
                         question: "How long does a taxi take from Riyadh to Abu Dhabi?",
                         shortAnswer: "9-11 hours",
                         detailedAnswer: "The total driving time is around 9-11 hours. Please note that border crossing times can vary between 30 minutes to 2 hours depending on the season, weekends, and time of day.",
@@ -191,7 +197,7 @@ export default function RiyadhAbuDhabiRoutePage() {
                     {
                         question: "Is the border vehicle insurance included in the price?",
                         shortAnswer: "Yes",
-                        detailedAnswer: "Yes, our quoted price of 2300 SAR includes the vehicle crossing insurance and toll fees.",
+                        detailedAnswer: "Yes. Vehicle crossing insurance and tolls are included in the fare: Sedan 3,500 SAR, Toyota Fortuner 3,800 SAR, GMC Yukon/Tahoe 4,500 SAR.",
                         perspectives: []
                     }
                 ]}

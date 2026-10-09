@@ -502,6 +502,8 @@ export default function RiyadhDohaRoutePage() {
                             ['Riyadh to Jeddah taxi', '/routes/riyadh-jeddah/'],
                             ['Riyadh Airport transfers', '/riyadh-airport-taxi/'],
                             ['GCC chauffeur service', '/services/gcc-chauffeur-service/'],
+                            ['Guide: Riyadh to Doha by road', '/blog/riyadh-to-doha-by-road-guide/'],
+                            ['Guide: documents for Saudi to Qatar by road', '/blog/saudi-to-uae-qatar-by-road-documents/'],
                         ].map(([l, h]) => (
                             <Link key={h} href={h} className="rounded-full border border-[#2a1019]/15 bg-white px-4 py-2.5 text-sm font-semibold text-[#2a1019] hover:border-[#7a2541] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7a2541]">{l}</Link>
                         ))}

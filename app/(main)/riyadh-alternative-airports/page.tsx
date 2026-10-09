@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import RouteQuoteCard from '@/components/routes/RouteQuoteCard';
+import { CLUSTER } from '@/components/blog/GccRoadCluster';
 
 const PAGE_URL = 'https://taxiserviceksa.com/riyadh-alternative-airports/';
 const QUOTE_HREF = '#quote';
@@ -260,6 +261,23 @@ export default function RiyadhAlternativeAirportsPage() {
                                     <span className="font-bold">{t}</span>
                                     <span className="text-sm text-amber-300 mt-1 mb-3">{p}</span>
                                     <span className="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-white/80">View route <Arrow /></span>
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </section>
+
+            {/* ================= GUIDES ================= */}
+            <section aria-labelledby="guides" className="py-16 px-4 sm:px-6 lg:px-8">
+                <div className="max-w-6xl mx-auto">
+                    <h2 id="guides" className={`${h2} mb-6`}>Road Travel Guides from Riyadh</h2>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                        {CLUSTER.map((p) => (
+                            <li key={p.slug}>
+                                <Link href={`/blog/${p.slug}/`} className="group block h-full rounded-2xl bg-white border border-[#111827]/10 p-5 hover:border-[#1d4ed8]">
+                                    <span className="block font-bold text-[#111827] group-hover:text-[#1d4ed8]">{p.title}</span>
+                                    <span className="block text-sm text-stone-500 mt-1">{p.short}</span>
                                 </Link>
                             </li>
                         ))}

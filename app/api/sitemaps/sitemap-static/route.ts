@@ -60,6 +60,12 @@ export async function GET() {
         { route: '/blog/how-much-is-taxi-from-dammam-to-al-khobar', priority: 0.85 },
         { route: '/blog/dammam-to-bahrain-private-car', priority: 0.85 },
         { route: '/blog/dammam-to-riyadh-transport-guide', priority: 0.85 },
+        // Riyadh flights-cancelled road travel cluster (October 2026)
+        { route: '/blog/riyadh-flights-cancelled-travel-by-road', priority: 0.85 },
+        { route: '/blog/riyadh-to-doha-by-road-guide', priority: 0.85 },
+        { route: '/blog/riyadh-to-dubai-airport-by-car', priority: 0.85 },
+        { route: '/blog/riyadh-to-abu-dhabi-by-road-guide', priority: 0.85 },
+        { route: '/blog/saudi-to-uae-qatar-by-road-documents', priority: 0.85 },
         // Madinah-AlUla cluster blog posts
         { route: '/blog/how-long-is-drive-from-madinah-to-alula', priority: 0.85 },
         { route: '/blog/how-to-get-from-madinah-to-alula', priority: 0.85 },

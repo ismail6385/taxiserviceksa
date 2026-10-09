@@ -657,6 +657,8 @@ export default function RiyadhDubaiRoutePage() {
                                 ['Riyadh to Dammam', '/routes/riyadh-dammam/'],
                                 ['Riyadh to Jeddah', '/routes/riyadh-jeddah/'],
                                 ['Riyadh to Makkah', '/routes/riyadh-makkah/'],
+                                ['Guide: Riyadh to Dubai Airport by car', '/blog/riyadh-to-dubai-airport-by-car/'],
+                                ['Guide: Riyadh flights cancelled, travel by road', '/blog/riyadh-flights-cancelled-travel-by-road/'],
                             ].map(([l, h]) => (
                                 <Link key={h} href={h} className="rounded-full border border-[#0f2a33]/15 px-4 py-2.5 text-sm font-semibold text-[#0f2a33] hover:border-[#0f6b78] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f6b78]">{l}</Link>
                             ))}
