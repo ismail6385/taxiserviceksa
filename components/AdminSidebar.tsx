@@ -31,6 +31,7 @@ import {
     Building2,
     Repeat,
     Receipt,
+    Wallet,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
@@ -48,6 +49,7 @@ const menuItems = [
     { name: 'Drivers',         href: '/admin/drivers',             icon: UserCog },
     { name: 'Driver Onboarding', href: '/admin/driver-management', icon: UserCog },
     { name: 'Reports',         href: '/admin/reports',             icon: BarChart2 },
+    { name: 'Commissions',     href: '/admin/commissions',         icon: Wallet },
     { name: 'Pricing',         href: '/admin/pricing',             icon: DollarSign },
     { name: 'WA Templates',    href: '/admin/whatsapp-templates',  icon: MessageSquare },
     { name: 'Notifications',   href: '/admin/notifications',       icon: Bell },
