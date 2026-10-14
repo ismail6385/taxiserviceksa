@@ -12,6 +12,7 @@ export interface ManualEmailBooking {
     id: string;
     customer_name: string;
     customer_email?: string | null;
+    customer_phone?: string | null;
     pickup_location: string;
     destination: string;
     pickup_date: string;
@@ -62,6 +63,13 @@ interface Content {
     whatsappText?: string;
 }
 
+function customerSection(b: ManualEmailBooking, title: string): Section {
+    const rows: Row[] = [['Name', b.customer_name?.trim() || '']];
+    if (b.customer_email) rows.push(['Email', b.customer_email]);
+    if (b.customer_phone) rows.push(['Phone', b.customer_phone]);
+    return { title, rows };
+}
+
 function tripSection(b: ManualEmailBooking, title: string, refLabel: string, ref: string): Section {
     const rows: Row[] = [
         [refLabel, ref],
@@ -96,7 +104,7 @@ function content(kind: ManualEmailKind, b: ManualEmailBooking): Content {
             heading: 'Your Quotation',
             intro: [`Dear ${name},`, `Thank you for contacting ${BRAND}. As requested, please find below our quotation for your private transfer from ${route}.`],
             highlight: { label: 'Total price', value: amount(curr, total), note: 'Fuel, tolls and parking included', tone: 'dark' },
-            sections: [tripSection(b, 'Trip details', 'Quotation ref', ref), { title: 'Price', rows: price }],
+            sections: [customerSection(b, 'Customer details'), tripSection(b, 'Trip details', 'Quotation ref', ref), { title: 'Price', rows: price }],
             outro: [
                 'This quotation is valid for 48 hours and is subject to vehicle availability on your date.',
                 `To confirm your booking, simply reply to this email or message us on WhatsApp at ${PHONE}. Once confirmed, we will share your driver's name and contact details before the pickup.`,
@@ -115,7 +123,7 @@ function content(kind: ManualEmailKind, b: ManualEmailBooking): Content {
             heading: 'Invoice',
             intro: [`Dear ${name},`, `Thank you for booking with ${BRAND}. Please find attached the invoice for your transfer from ${route}. A summary is given below for your reference.`],
             highlight: { label: deposit && b.payment_status !== 'paid' ? 'Balance due' : 'Invoice total', value: amount(curr, deposit && b.payment_status !== 'paid' ? balance : total), tone: 'dark' },
-            sections: [tripSection(b, 'Booking details', 'Invoice ref', ref), { title: 'Payment', rows: pay }],
+            sections: [customerSection(b, 'Billed to'), tripSection(b, 'Booking details', 'Invoice ref', ref), { title: 'Payment', rows: pay }],
             outro: [
                 'The PDF invoice is attached to this email. Please keep it for your records.',
                 `If you have any questions about this invoice, please reply to this email or contact us on WhatsApp at ${PHONE}.`,
@@ -136,7 +144,7 @@ function content(kind: ManualEmailKind, b: ManualEmailBooking): Content {
         subheading: 'Payment received with thanks',
         intro: [`Dear ${name},`, `Thank you for your payment. This email confirms that we have received ${amount(curr, received)}${partial ? ' as an advance' : ''} for your transfer from ${route}. Your official receipt is attached.`],
         highlight: { label: 'Amount received', value: amount(curr, received), note: partial ? `Balance remaining: ${amount(curr, balance)}` : 'Payment confirmed', tone: 'green' },
-        sections: [tripSection(b, 'Trip details', 'Receipt ref', ref), { title: 'Payment', rows: payRows }],
+        sections: [customerSection(b, 'Received from'), tripSection(b, 'Trip details', 'Receipt ref', ref), { title: 'Payment', rows: payRows }],
         outro: [
             'The PDF receipt is attached to this email. Please keep it for your records.',
             `If you need anything before or after your trip, simply reply to this email or message us on WhatsApp at ${PHONE}.`,
