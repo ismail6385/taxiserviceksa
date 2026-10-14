@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { TEAM_DRIVERS } from '@/lib/team-drivers';
+import { parseBookingPaste, CHATGPT_BOOKING_PROMPT, PASTE_PLACEHOLDER } from '@/lib/booking-paste';
 import { adminFetch } from '@/lib/admin-fetch';
 import { useRouter } from 'next/navigation';
 import {
@@ -291,6 +292,15 @@ export default function BookingsPage() {
         item_size_weight: '',
     });
     const [bookingFieldErrors, setBookingFieldErrors] = useState<Record<string, string>>({});
+    const [pasteText, setPasteText] = useState('');
+    const [pasteResult, setPasteResult] = useState<{ filled: string[]; unread: string[] } | null>(null);
+    const [promptCopied, setPromptCopied] = useState(false);
+
+    const fillFromPaste = () => {
+        const { updates, filled, unread } = parseBookingPaste(pasteText, approvedDrivers.map(d => d.full_name));
+        setNewBooking(prev => ({ ...prev, ...updates }));
+        setPasteResult({ filled, unread });
+    };
 
     const router = useRouter();
 
@@ -1455,39 +1465,39 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
             </div>
 
             {/* Stats Overview */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <div className="bg-white border border-gray-200 shadow-sm p-4 rounded-2xl flex items-center gap-4">
-                    <div className="bg-blue-100 p-3 rounded-xl"><Users className="w-5 h-5 text-blue-600" /></div>
-                    <div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-8">
+                <div className="bg-white border border-gray-200 shadow-sm p-3 md:p-4 rounded-2xl flex items-center gap-3 md:gap-4 min-w-0">
+                    <div className="bg-blue-100 p-2 md:p-3 rounded-xl shrink-0"><Users className="w-5 h-5 text-blue-600" /></div>
+                    <div className="min-w-0">
                         <p className="text-gray-500 text-[10px] font-bold uppercase tracking-wider">Total Bookings</p>
-                        <p className="text-2xl font-bold text-gray-900">{bookings.length}</p>
+                        <p className="text-lg md:text-2xl font-bold break-words text-gray-900">{bookings.length}</p>
                     </div>
                 </div>
-                <div className="bg-white border border-gray-200 shadow-sm p-4 rounded-2xl flex items-center gap-4">
-                    <div className="bg-emerald-100 p-3 rounded-xl"><TrendingUp className="w-5 h-5 text-emerald-600" /></div>
-                    <div>
+                <div className="bg-white border border-gray-200 shadow-sm p-3 md:p-4 rounded-2xl flex items-center gap-3 md:gap-4 min-w-0">
+                    <div className="bg-emerald-100 p-2 md:p-3 rounded-xl shrink-0"><TrendingUp className="w-5 h-5 text-emerald-600" /></div>
+                    <div className="min-w-0">
                         <p className="text-emerald-600 text-[10px] font-bold uppercase tracking-wider">Today's Revenue</p>
                         {Object.keys(todayRevenueByCurrency).length === 0 ? (
-                            <p className="text-2xl font-bold text-emerald-700">SAR 0</p>
+                            <p className="text-lg md:text-2xl font-bold break-words text-emerald-700">SAR 0</p>
                         ) : (
                             Object.entries(todayRevenueByCurrency).map(([curr, amount]) => (
-                                <p key={curr} className="text-2xl font-bold text-emerald-700">{curr} {amount.toLocaleString()}</p>
+                                <p key={curr} className="text-lg md:text-2xl font-bold break-words text-emerald-700">{curr} {amount.toLocaleString()}</p>
                             ))
                         )}
                     </div>
                 </div>
-                <div className="bg-white border border-gray-200 shadow-sm p-4 rounded-2xl flex items-center gap-4">
-                    <div className="bg-indigo-100 p-3 rounded-xl"><Activity className="w-5 h-5 text-indigo-600" /></div>
-                    <div>
+                <div className="bg-white border border-gray-200 shadow-sm p-3 md:p-4 rounded-2xl flex items-center gap-3 md:gap-4 min-w-0">
+                    <div className="bg-indigo-100 p-2 md:p-3 rounded-xl shrink-0"><Activity className="w-5 h-5 text-indigo-600" /></div>
+                    <div className="min-w-0">
                         <p className="text-indigo-600 text-[10px] font-bold uppercase tracking-wider">Active Jobs Today</p>
-                        <p className="text-2xl font-bold text-indigo-700">{todayActive}</p>
+                        <p className="text-lg md:text-2xl font-bold break-words text-indigo-700">{todayActive}</p>
                     </div>
                 </div>
-                <div className={`border p-4 rounded-2xl flex items-center gap-4 shadow-sm transition-all ${urgentCount > 0 ? 'bg-red-50 border-red-200 animate-pulse' : 'bg-white border-gray-200'}`}>
-                    <div className={`${urgentCount > 0 ? 'bg-red-200' : 'bg-gray-100'} p-3 rounded-xl`}><AlertTriangle className={`w-5 h-5 ${urgentCount > 0 ? 'text-red-700' : 'text-gray-400'}`} /></div>
-                    <div>
+                <div className={`border p-3 md:p-4 rounded-2xl flex items-center gap-3 md:gap-4 min-w-0 shadow-sm transition-all ${urgentCount > 0 ? 'bg-red-50 border-red-200 animate-pulse' : 'bg-white border-gray-200'}`}>
+                    <div className={`${urgentCount > 0 ? 'bg-red-200' : 'bg-gray-100'} p-2 md:p-3 rounded-xl shrink-0`}><AlertTriangle className={`w-5 h-5 ${urgentCount > 0 ? 'text-red-700' : 'text-gray-400'}`} /></div>
+                    <div className="min-w-0">
                         <p className={`${urgentCount > 0 ? 'text-red-700' : 'text-gray-500'} text-[10px] font-bold uppercase tracking-wider`}>Urgent/Pending</p>
-                        <p className={`text-2xl font-bold ${urgentCount > 0 ? 'text-red-700' : 'text-gray-900'}`}>{urgentCount}</p>
+                        <p className={`text-lg md:text-2xl font-bold break-words ${urgentCount > 0 ? 'text-red-700' : 'text-gray-900'}`}>{urgentCount}</p>
                     </div>
                 </div>
             </div>
@@ -2155,15 +2165,15 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                 }
             }}>
                 <SheetContent className="overflow-y-auto bg-white border-l border-gray-200 text-gray-900 w-full sm:max-w-xl">
-                    <div className="flex justify-between items-start mb-6">
-                        <SheetHeader className="text-left">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-6 pr-8 sm:pr-0">
+                        <SheetHeader className="text-left min-w-0">
                             <SheetTitle className="text-2xl font-bold text-gray-900">Booking Details</SheetTitle>
-                            <SheetDescription className="text-gray-500">
+                            <SheetDescription className="text-gray-500 break-all">
                                 ID: #{selectedBooking?.id.toUpperCase()}
                             </SheetDescription>
                         </SheetHeader>
                         {!isEditing ? (
-                            <div className="flex items-center gap-2">
+                            <div className="flex flex-wrap items-center gap-2 shrink-0">
                                 <Button variant="outline" size="sm" onClick={openReturnTripPrompt} className="bg-white text-blue-600 hover:bg-blue-50 border-blue-200">
                                     <ArrowUpDown className="w-4 h-4 mr-2" /> Return Trip
                                 </Button>
@@ -2172,7 +2182,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                 </Button>
                             </div>
                         ) : (
-                            <div className="flex items-center gap-2">
+                            <div className="flex flex-wrap items-center gap-2 shrink-0">
                                 <Button variant="ghost" size="sm" onClick={() => { setIsEditing(false); setEditedBooking(selectedBooking); setBookingFieldErrors({}); }} className="text-gray-500 hover:bg-gray-100">
                                     Cancel
                                 </Button>
@@ -2199,7 +2209,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                             {/* Status Section */}
                             <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
                                 <label className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-2 block">Current Status</label>
-                                <div className="flex items-center justify-between">
+                                <div className="flex flex-wrap items-center justify-between gap-2">
                                     <Badge className={`${getStatusColor(selectedBooking.status)} text-sm px-3 py-1`}>
                                         {selectedBooking.status.toUpperCase()}
                                     </Badge>
@@ -2373,7 +2383,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 <span className="text-sm text-gray-700">{selectedBooking.item_description || '—'}</span>
                                             )}
                                         </div>
-                                        <div className="grid grid-cols-2 gap-4">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                             <div>
                                                 <span className="block text-xs text-gray-500 mb-1">Number of Items</span>
                                                 {isEditing ? (
@@ -2470,7 +2480,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         </div>
                                     ) : null}
 
-                                    <div className="grid grid-cols-2 gap-4 pl-4">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pl-4">
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Distance (km)</span>
                                             {isEditing ? (
@@ -2489,7 +2499,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         </div>
                                     </div>
 
-                                    <div className="grid grid-cols-2 gap-4 pl-4 pt-4 border-t border-gray-200 mt-4">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pl-4 pt-4 border-t border-gray-200 mt-4">
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Date</span>
                                             {isEditing ? (
@@ -2745,7 +2755,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                             <div>
                                 <h3 className="text-lg font-semibold text-gray-900 mb-3">Vehicle & Requirements</h3>
                                 <div className="bg-gray-50 p-4 rounded-lg border border-gray-100 space-y-4">
-                                    <div className="grid grid-cols-2 gap-4">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Vehicle Type</span>
                                             {isEditing ? (
@@ -2888,7 +2898,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     </div>
 
                                     {(isEditing ? editedBooking : selectedBooking).booking_type !== 'delivery' && (
-                                    <div className="grid grid-cols-2 gap-4">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Passengers</span>
                                             {isEditing ? (
@@ -2923,7 +2933,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     </div>
                                     )}
 
-                                    <div className="grid grid-cols-2 gap-4">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Payment Status</span>
                                             {isEditing ? (
@@ -3021,7 +3031,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     </div>
 
                                     {/* Driver Details Row */}
-                                    <div className="grid grid-cols-2 gap-4">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Driver Phone</span>
                                             {isEditing ? (
@@ -3041,7 +3051,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                     </div>
 
                                     {/* Waiting Time Tracker */}
-                                    <div className="grid grid-cols-2 gap-4">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Driver Arrived</span>
                                             {isEditing ? (
@@ -3140,7 +3150,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         <DriverNotifyButton booking={selectedBooking} onSuccess={(id) => refreshSelectedBooking(id)} />
                                     )}
 
-                                    <div className="grid grid-cols-2 gap-4 border-t border-gray-200 pt-4">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-gray-200 pt-4">
                                         <div>
                                             <span className="block text-xs text-gray-500 mb-1">Actual Vehicle Sent</span>
                                             {isEditing ? (
@@ -3372,7 +3382,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                             Pickup and drop-off will be swapped automatically. Confirm whatever's different from the outbound trip below.
                         </DialogDescription>
                     </DialogHeader>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div className="space-y-1">
                             <label className="text-sm font-medium text-gray-700">Return Date</label>
                             <Input
@@ -3480,6 +3490,42 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                     </SheetHeader>
 
                     <div className="space-y-6">
+                        {/* Quick fill: paste the ChatGPT-formatted summary of a WhatsApp chat */}
+                        <div className="rounded-xl border border-emerald-200 bg-emerald-50/60 p-3 space-y-2">
+                            <div className="flex flex-wrap items-center justify-between gap-2">
+                                <label htmlFor="booking-paste" className="text-sm font-bold text-emerald-800">Quick fill from WhatsApp</label>
+                                <button
+                                    type="button"
+                                    onClick={() => { navigator.clipboard?.writeText(CHATGPT_BOOKING_PROMPT); setPromptCopied(true); setTimeout(() => setPromptCopied(false), 2000); }}
+                                    className="text-xs font-semibold text-emerald-700 hover:underline"
+                                >
+                                    {promptCopied ? 'Copied ✓ paste it in ChatGPT' : 'Copy ChatGPT prompt'}
+                                </button>
+                            </div>
+                            <textarea
+                                id="booking-paste"
+                                value={pasteText}
+                                onChange={(e) => { setPasteText(e.target.value); setPasteResult(null); }}
+                                rows={4}
+                                placeholder={PASTE_PLACEHOLDER}
+                                className="w-full rounded-lg border border-emerald-200 bg-white p-2 text-sm outline-none focus:border-emerald-500"
+                            />
+                            <div className="flex flex-wrap items-center gap-2">
+                                <Button type="button" size="sm" disabled={!pasteText.trim()} onClick={fillFromPaste} className="bg-emerald-600 hover:bg-emerald-700 text-white">Fill form</Button>
+                                {pasteText && <button type="button" onClick={() => { setPasteText(''); setPasteResult(null); }} className="text-xs text-gray-500 hover:underline">Clear</button>}
+                            </div>
+                            {pasteResult && (
+                                <div className="text-xs space-y-1">
+                                    <p className={pasteResult.filled.length ? 'text-emerald-800' : 'text-red-600'}>
+                                        {pasteResult.filled.length ? `Filled ${pasteResult.filled.length}: ${pasteResult.filled.join(', ')}. Check below, then Create.` : 'Nothing recognised. Use "Field: value" lines.'}
+                                    </p>
+                                    {pasteResult.unread.length > 0 && (
+                                        <p className="text-amber-700">Not understood (fill by hand): {pasteResult.unread.join(' · ')}</p>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+
                         {/* Booking Type */}
                         <div className="space-y-2">
                             <label className="text-sm font-medium text-gray-700">Booking Type</label>
@@ -3694,7 +3740,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                                 placeholder="e.g. Brown leather bag with a red ribbon"
                                             />
                                         </div>
-                                        <div className="grid grid-cols-2 gap-4">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                             <div className="space-y-1">
                                                 <label className="text-sm font-medium text-gray-700">Number of Items</label>
                                                 <CounterControl
@@ -3731,7 +3777,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                                         onChange={(stops) => setNewBooking({ ...newBooking, additional_stops: stops })}
                                     />
                                 </div>
-                                    <div className="grid grid-cols-2 gap-4">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <div className="space-y-1">
                                             <label className="text-sm font-medium text-gray-700">Distance (km)</label>
                                             <Input
@@ -3801,7 +3847,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                         {/* Vehicle Info */}
                         <div className="space-y-4">
                             <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">Vehicle & Pricing</h3>
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="space-y-1">
                                     <label className="text-sm font-medium text-gray-700">Vehicle Type</label>
                                     <Input
