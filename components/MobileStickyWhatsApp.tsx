@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { Phone, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { useHideNearFooter } from '@/hooks/useHideNearFooter';
 
@@ -17,6 +17,10 @@ export default function MobileStickyWhatsApp() {
     const nearFooter = useHideNearFooter();
     const pathname = usePathname() || '';
     const page = PAGE_QUOTE[pathname.endsWith('/') ? pathname : `${pathname}/`];
+
+    // The booking and quote pages are the form itself; a sticky WhatsApp bar
+    // there just covers the form's buttons on phones.
+    if (pathname.startsWith('/booking')) return null;
     const wrap = `fixed bottom-0 left-0 right-0 z-[90] bg-white/90 backdrop-blur-md border-t border-gray-100 p-4 shadow-[0_-10px_30px_rgba(0,0,0,0.05)] transition-opacity duration-300 ${nearFooter ? 'hidden opacity-0 pointer-events-none' : 'lg:hidden opacity-100'}`;
 
     if (page) {
@@ -52,13 +56,6 @@ export default function MobileStickyWhatsApp() {
                 >
                     <WhatsAppIcon className="w-5 h-5 fill-current" />
                     WhatsApp Booking
-                </a>
-                <a
-                    href="tel:+966575806733"
-                    className="w-14 h-14 bg-gray-900 text-white rounded-2xl flex items-center justify-center hover:bg-black transition-colors shadow-lg active:scale-95"
-                    aria-label="Call us"
-                >
-                    <Phone className="w-5 h-5" />
                 </a>
             </div>
         </div>
