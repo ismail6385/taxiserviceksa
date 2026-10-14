@@ -16,6 +16,8 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    // Mobile drawer: one section open at a time instead of every link listed.
+    const [mobileSection, setMobileSection] = useState<string | null>(null);
     const pathname = usePathname();
 
     useEffect(() => {
@@ -145,52 +147,42 @@ export default function Navbar() {
 
     return (
         <div className="fixed top-0 left-0 right-0 z-[100]">
-            {/* Top Info Bar - Refined */}
-            <div className={`bg-[#0a1442] text-white overflow-hidden transition-all duration-300 ${scrolled ? 'h-0 opacity-0' : 'h-10 opacity-100'}`}>
-                <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between text-[10px] font-black tracking-wide sm:tracking-widest uppercase gap-3">
-                    <div className="flex items-center gap-4 sm:gap-6 text-gray-400 min-w-0">
-                        <a href="mailto:info@taxiserviceksa.com" className="flex items-center gap-2 hover:text-primary transition-colors min-w-0">
-                            <Mail className="w-3.5 h-3.5 text-primary shrink-0" />
-                            <span className="hidden sm:inline">info@taxiserviceksa.com</span>
-                            <span className="sm:hidden truncate">Email Us</span>
+            {/* Top info bar: desktop only (on phones it just pushed the page down) */}
+            <div className={`hidden lg:block bg-[#0a1442] text-white overflow-hidden transition-all duration-300 ${scrolled ? 'h-0 opacity-0' : 'h-8 opacity-100'}`}>
+                <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between text-[11px] font-semibold tracking-wide text-gray-400 gap-3">
+                    <div className="flex items-center gap-6">
+                        <a href="mailto:info@taxiserviceksa.com" className="flex items-center gap-2 hover:text-white transition-colors">
+                            <Mail className="w-3.5 h-3.5 text-primary" /> info@taxiserviceksa.com
                         </a>
-                        <div className="hidden sm:flex items-center gap-2 cursor-default font-black">
-                            <Clock className="w-3.5 h-3.5 text-primary" />
-                            <span>Private Transfers 24/7</span>
-                        </div>
+                        <span className="flex items-center gap-2">
+                            <Clock className="w-3.5 h-3.5 text-primary" /> Private transfers, 24/7
+                        </span>
                     </div>
-                    <div className="flex items-center gap-4 sm:gap-6 shrink-0">
-                        <div className="hidden md:flex items-center gap-2 text-gray-400">
-                            <ShieldCheck className="w-3 h-3 text-emerald-500" />
-                            <span>Official Travel Partner</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-primary">
-                            <Globe className="w-3 h-3" />
-                            <span>EN / UR / AR</span>
-                        </div>
+                    <div className="flex items-center gap-1.5">
+                        <Globe className="w-3.5 h-3.5 text-primary" />
+                        <Link href="/" className="hover:text-white">English</Link>
+                        <span aria-hidden="true">·</span>
+                        <Link href="/ur/" className="hover:text-white">اردو</Link>
+                        <span aria-hidden="true">·</span>
+                        <Link href="/ar/" className="hover:text-white">العربية</Link>
                     </div>
                 </div>
             </div>
 
             {/* Main Header - Premium Styling */}
-            <header className={`py-4 transition-all duration-500 bg-[#0a1442] ${scrolled ? 'backdrop-blur-md shadow-[0_2px_15px_-3px_rgba(0,0,0,0.3)]' : 'border-b border-white/10'}`}>
+            <header className={`transition-all duration-500 bg-[#0a1442] ${scrolled ? 'backdrop-blur-md shadow-[0_2px_15px_-3px_rgba(0,0,0,0.3)]' : 'border-b border-white/10'}`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                    <div className="flex justify-between h-16 items-center gap-2 sm:gap-4">
+                    <div className="flex justify-between h-14 sm:h-16 items-center gap-2 sm:gap-4">
                         {/* Logo - Refined Branding */}
                         <Link href="/" className="flex items-center gap-2 sm:gap-3 group shrink-0">
-                            <div className="relative">
-                                <div className="bg-primary p-2 sm:p-2.5 rounded-xl shadow-lg shadow-primary/20 transition-transform duration-500 group-hover:scale-110">
-                                    <Car className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-                                </div>
-                                <div className="absolute -top-1 -right-1 bg-amber-400 p-0.5 rounded-full border-2 border-white animate-pulse">
-                                    <Sparkles className="w-2 h-2 text-white" />
-                                </div>
+                            <div className="bg-primary p-1.5 sm:p-2 rounded-xl shadow-lg shadow-primary/20">
+                                <Car className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                             </div>
                             <div className="flex flex-col">
-                                <span className="text-base sm:text-xl font-black tracking-tighter leading-none text-white uppercase whitespace-nowrap">
+                                <span className="text-[15px] sm:text-xl font-black tracking-tight leading-none text-white uppercase whitespace-nowrap">
                                     Taxi Service <span className="text-primary">KSA</span>
                                 </span>
-                                <span className="hidden sm:block text-[10px] font-bold text-gray-400 uppercase tracking-widest mt-1">Premium Chauffeur Service</span>
+                                <span className="hidden sm:block text-[10px] font-semibold text-gray-400 uppercase tracking-widest mt-1">Private Chauffeur Service</span>
                             </div>
                         </Link>
 
@@ -284,11 +276,11 @@ export default function Navbar() {
                                 className="bg-emerald-500 text-white font-black rounded-xl px-2.5 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm shadow-lg shadow-emerald-500/20 active:scale-95 transition-all flex items-center gap-1 sm:gap-1.5 whitespace-nowrap"
                             >
                                 <WhatsAppIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current shrink-0" />
-                                <span className="hidden sm:inline">Quick</span> Booking
+                                Book
                             </Link>
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
-                                className="p-2 sm:p-3 bg-white/10 rounded-xl text-white active:scale-95 transition-all shrink-0"
+                                className="h-10 w-10 sm:h-11 sm:w-11 flex items-center justify-center bg-white/10 rounded-xl text-white active:scale-95 transition-all shrink-0"
                                 aria-label={isOpen ? 'Close menu' : 'Open menu'}
                             >
                                 {isOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
@@ -303,89 +295,83 @@ export default function Navbar() {
 
             <aside className={`xl:hidden fixed top-0 right-0 w-[85%] max-w-sm h-full bg-white z-[110] shadow-2xl transition-transform duration-500 ease-in-out transform ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
                 <div className="flex flex-col h-full">
-                    <div className="p-8 border-b flex justify-between items-center bg-white">
+                    <div className="px-5 h-16 border-b flex justify-between items-center bg-white shrink-0">
                         <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
                             <div className="bg-primary p-1.5 rounded-lg">
                                 <Car className="w-5 h-5 text-white" />
                             </div>
-                            <span className="text-xl font-black tracking-tight uppercase">Taxi Service <span className="text-primary">KSA</span></span>
+                            <span className="text-lg font-black tracking-tight uppercase">Taxi Service <span className="text-primary">KSA</span></span>
                         </Link>
-                        <button onClick={() => setIsOpen(false)} className="p-2 bg-gray-50 rounded-lg active:scale-95 transition-all"><X className="w-5 h-5" /></button>
+                        <button onClick={() => setIsOpen(false)} aria-label="Close menu" className="h-10 w-10 flex items-center justify-center bg-gray-100 rounded-lg active:scale-95 transition-all"><X className="w-5 h-5" /></button>
                     </div>
 
-                    <div className="flex-1 overflow-y-auto py-10 px-8">
-                        <div className="space-y-10">
-                            {navLinks.map((link) => {
-                                const isLinkActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
+                    <nav className="flex-1 overflow-y-auto px-3 py-3" aria-label="Mobile">
+                        {navLinks.map((link) => {
+                            const isLinkActive = pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href));
+                            if (!link.children) {
                                 return (
-                                    <div key={link.name} className="space-y-6">
-                                        <div className="flex items-center justify-between">
-                                            <div className="text-[11px] font-black uppercase text-gray-400 tracking-[0.2em]">{link.name}</div>
-                                            {isLinkActive && <div className="w-1.5 h-1.5 rounded-full bg-primary" />}
-                                        </div>
-                                        <div className="grid grid-cols-1 gap-2">
-                                            {link.children ? (
-                                                <>
-                                                    {link.mega ? (
-                                                        link.children.map((section: any) => (
-                                                            <div key={section.category} className="space-y-2 mt-2">
-                                                                <div className="text-[10px] font-black text-gray-400 px-4 uppercase tracking-widest">{section.category}</div>
-                                                                {section.items.map((item: any) => {
-                                                                    const isItemActive = pathname === item.href;
-                                                                    return (
-                                                                        <Link
-                                                                            key={item.name}
-                                                                            href={item.href}
-                                                                            onClick={() => setIsOpen(false)}
-                                                                            className={`flex items-center gap-3 p-4 text-sm font-bold rounded-2xl transition-all ${isItemActive ? 'bg-primary/5 text-primary' : 'text-gray-600 active:bg-gray-50'}`}
-                                                                        >
-                                                                            <div className={`w-1.5 h-1.5 rounded-full ${isItemActive ? 'bg-primary' : 'bg-gray-200'}`} />
-                                                                            {item.name}
-                                                                        </Link>
-                                                                    );
-                                                                })}
-                                                            </div>
-                                                        ))
-                                                    ) : (
-                                                        link.children.map((child: any) => {
-                                                            const isChildActive = pathname === child.href;
-                                                            return (
-                                                                <Link
-                                                                    key={child.name}
-                                                                    href={child.href}
-                                                                    onClick={() => setIsOpen(false)}
-                                                                    className={`flex items-center gap-4 p-4 rounded-2xl font-bold transition-all ${isChildActive ? 'bg-primary/5 text-primary' : 'bg-gray-50 text-gray-900 active:bg-gray-100'}`}
-                                                                >
-                                                                    <div className={`w-2 h-2 rounded-full ${isChildActive ? 'bg-primary' : 'bg-gray-300'}`} />
-                                                                    {child.name}
-                                                                </Link>
-                                                            );
-                                                        })
-                                                    )}
-                                                </>
-                                            ) : (
-                                                <Link
-                                                    href={link.href}
-                                                    onClick={() => setIsOpen(false)}
-                                                    className={`flex items-center gap-4 p-5 rounded-2xl font-bold transition-all ${isLinkActive ? 'bg-primary text-white shadow-lg shadow-primary/20' : 'bg-gray-50 text-gray-900 active:bg-gray-100'}`}
-                                                >
-                                                    <link.icon className={`w-5 h-5 ${isLinkActive ? 'text-white' : 'text-primary'}`} />
-                                                    {link.name}
-                                                </Link>
-                                            )}
-                                        </div>
-                                    </div>
+                                    <Link
+                                        key={link.name}
+                                        href={link.href}
+                                        onClick={() => setIsOpen(false)}
+                                        className={`flex items-center gap-3 px-3 h-12 rounded-xl text-[15px] font-bold ${isLinkActive ? 'bg-primary/10 text-primary' : 'text-gray-900 active:bg-gray-50'}`}
+                                    >
+                                        <link.icon className="w-5 h-5 text-primary" /> {link.name}
+                                    </Link>
                                 );
-                            })}
+                            }
+                            const open = mobileSection === link.name;
+                            const items: any[] = link.mega ? link.children.flatMap((sec: any) => sec.items.map((it: any) => ({ ...it, category: sec.category }))) : link.children;
+                            return (
+                                <div key={link.name} className="border-b border-gray-100 last:border-0">
+                                    <button
+                                        type="button"
+                                        onClick={() => setMobileSection(open ? null : link.name)}
+                                        aria-expanded={open}
+                                        className={`w-full flex items-center gap-3 px-3 h-12 rounded-xl text-[15px] font-bold ${isLinkActive ? 'text-primary' : 'text-gray-900'}`}
+                                    >
+                                        <link.icon className="w-5 h-5 text-primary" />
+                                        <span className="flex-1 text-left">{link.name}</span>
+                                        <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform ${open ? 'rotate-180' : ''}`} />
+                                    </button>
+                                    {open && (
+                                        <div className="pb-2 pl-11 pr-2 space-y-0.5">
+                                            {items.map((item: any, i: number) => (
+                                                <div key={item.href + item.name}>
+                                                    {link.mega && (i === 0 || items[i - 1].category !== item.category) && (
+                                                        <p className="pt-2 pb-1 text-[10px] font-black uppercase tracking-widest text-gray-400">{item.category}</p>
+                                                    )}
+                                                    <Link
+                                                        href={item.href}
+                                                        onClick={() => setIsOpen(false)}
+                                                        className={`block py-2.5 text-sm font-semibold rounded-lg ${pathname === item.href ? 'text-primary' : 'text-gray-600 active:text-gray-900'}`}
+                                                    >
+                                                        {item.name}
+                                                    </Link>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            );
+                        })}
+                        <div className="mt-3 px-3 flex items-center gap-2 text-sm font-semibold text-gray-500">
+                            <Globe className="w-4 h-4 text-primary" />
+                            <Link href="/" onClick={() => setIsOpen(false)} className="py-2 hover:text-gray-900">English</Link>
+                            <span aria-hidden="true">·</span>
+                            <Link href="/ur/" onClick={() => setIsOpen(false)} className="py-2 hover:text-gray-900">اردو</Link>
+                            <span aria-hidden="true">·</span>
+                            <Link href="/ar/" onClick={() => setIsOpen(false)} className="py-2 hover:text-gray-900">العربية</Link>
                         </div>
-                    </div>
+                    </nav>
 
-                    <div className="p-8 bg-gray-50 border-t space-y-6">
-                        <Link href="https://wa.me/966575806733" onClick={() => setIsOpen(false)} className="block w-full">
-                            <div className="w-full bg-primary hover:bg-black text-white font-black h-16 rounded-2xl shadow-xl shadow-primary/20 flex items-center justify-center transition-all active:scale-95">
-                                Book via WhatsApp
-                            </div>
+                    <div className="p-4 bg-gray-50 border-t grid grid-cols-2 gap-2 shrink-0">
+                        <Link href="/booking/" onClick={() => setIsOpen(false)} className="h-12 rounded-xl bg-gray-900 text-white font-bold flex items-center justify-center active:scale-95 transition-all">
+                            Get a Quote
                         </Link>
+                        <a href="https://wa.me/966575806733" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)} className="h-12 rounded-xl bg-emerald-600 text-white font-bold flex items-center justify-center gap-2 active:scale-95 transition-all">
+                            <WhatsAppIcon className="w-4 h-4 fill-current" /> WhatsApp
+                        </a>
                     </div>
                 </div>
             </aside>

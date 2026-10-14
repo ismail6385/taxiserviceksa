@@ -61,7 +61,7 @@ export default function Breadcrumbs() {
     });
 
     return (
-        <nav className="flex mb-8 overflow-x-auto whitespace-nowrap pb-2 scrollbar-none" aria-label="Breadcrumb">
+        <nav className="flex overflow-x-auto whitespace-nowrap scrollbar-none" aria-label="Breadcrumb">
             <ol className="flex items-center space-x-2 text-xs sm:text-sm font-medium">
                 <li>
                     <Link href="/" className="flex items-center text-gray-400 hover:text-primary transition-colors">

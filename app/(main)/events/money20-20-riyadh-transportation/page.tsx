@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, CheckCircle2, ShieldCheck, ArrowRight, Car, Star, Calendar, Users, Briefcase, Building2, Plane } from 'lucide-react';
 import Hero from '@/components/Hero';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import JsonLdBreadcrumb from '@/components/JsonLdBreadcrumb';
 import {
     Accordion,
@@ -122,9 +121,6 @@ export default function Money2020TransportationPage() {
                 </div>
             </Hero>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-                <Breadcrumbs />
-            </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="bg-white border border-gray-100 rounded-2xl p-6 flex items-center gap-3 shadow-sm">

@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, CheckCircle2, ArrowRight, Car, Star, Calendar, Users, Briefcase, Crown, Building2 } from 'lucide-react';
 import Hero from '@/components/Hero';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import JsonLdBreadcrumb from '@/components/JsonLdBreadcrumb';
 import {
     Accordion,
@@ -94,9 +93,6 @@ export default function RiyadhEventTransportationHub() {
                 </div>
             </Hero>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-                <Breadcrumbs />
-            </div>
 
             {/* Intro */}
             <section className="py-16 px-4 sm:px-6 lg:px-8">

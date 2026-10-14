@@ -4,7 +4,6 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { MapPin, Clock, ArrowRight, Car, Star, Crown, Shield, Users, Briefcase } from 'lucide-react';
 import Hero from '@/components/Hero';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import JsonLdBreadcrumb from '@/components/JsonLdBreadcrumb';
 import {
     Accordion,
@@ -86,9 +85,6 @@ export default function VipEventChauffeurRiyadhPage() {
                 </div>
             </Hero>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-                <Breadcrumbs />
-            </div>
 
             <section className="py-16 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-4xl mx-auto text-center">
