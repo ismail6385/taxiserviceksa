@@ -11,11 +11,26 @@ import JsonLdService from '@/components/JsonLdService';
 import JsonLdLocalBusiness from '@/components/JsonLdLocalBusiness';
 import JsonLdOrganization from '@/components/JsonLdOrganization';
 import JsonLdWebSite from '@/components/JsonLdWebSite';
+import { BookingFlowHeader, BookingFlowFooter } from '@/components/BookingFlowChrome';
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   // Private driver trip sheets (/my-trips/...) get the same bare layout as admin.
   const isAdminRoute = pathname?.startsWith('/admin') || pathname?.startsWith('/my-trips');
+  // Booking flow: slim header/footer only, so nothing distracts from the form.
+  const isBookingFlow = !!pathname?.startsWith('/booking');
+
+  if (isBookingFlow) {
+    return (
+      <>
+        <JsonLdOrganization />
+        <JsonLdWebSite />
+        <BookingFlowHeader />
+        <main>{children}</main>
+        <BookingFlowFooter />
+      </>
+    );
+  }
 
   return (
     <>

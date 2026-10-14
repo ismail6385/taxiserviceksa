@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function BookingPage() {
     return (
-        <div className="bg-gray-50 min-h-screen pt-24 pb-24">
+        <div className="bg-gray-50 min-h-screen pt-8 sm:pt-12 pb-16">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
                     <span className="bg-primary text-white hover:text-black font-semibold tracking-wider uppercase text-sm px-4 py-1.5 rounded-full inline-block">Executive Service</span>
