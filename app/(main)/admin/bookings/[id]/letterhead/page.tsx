@@ -44,7 +44,7 @@ const QUOTE_TEXT: Record<DocLang, Record<string, string>> = {
         term1: 'Price includes fuel, toll fees, and basic wait times.',
         term2: 'Cancellation is free up to 24 hours before pickup.',
         term3: 'This quotation is valid for 7 days from the date of issue.',
-        authorizedSignature: 'Authorized Signature', director: 'Director', partner: 'Partner',
+        authorizedSignature: 'Authorized Signature', director: 'Director', partner: 'Founder',
         city: 'Jeddah, Saudi Arabia',
     },
     ar: {
@@ -65,7 +65,7 @@ const QUOTE_TEXT: Record<DocLang, Record<string, string>> = {
         term1: 'السعر يشمل الوقود ورسوم الطرق ووقت الانتظار الأساسي.',
         term2: 'إلغاء مجاني حتى 24 ساعة قبل موعد الانطلاق.',
         term3: 'هذا العرض صالح لمدة 7 أيام من تاريخ الإصدار.',
-        authorizedSignature: 'التوقيع المعتمد', director: 'المدير', partner: 'الشريك',
+        authorizedSignature: 'التوقيع المعتمد', director: 'المدير', partner: 'المؤسس',
         city: 'جدة، المملكة العربية السعودية',
     },
 };

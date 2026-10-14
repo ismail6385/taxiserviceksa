@@ -328,7 +328,7 @@ export default function HandoverPage() {
                                     <Image src="/ismail-signature.png" alt="Ismail" fill className="object-contain grayscale" />
                                 </div>
                             </div>
-                            <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Partner Approvals</p>
+                            <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">Authorized By</p>
                         </div>
                     </div>
                 </div>
