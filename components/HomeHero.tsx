@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { format } from 'date-fns';
+import { ksaToday } from '@/lib/ksa-time';
 import {
     Car, Clock, Palmtree, MapPin, Circle, CalendarDays, Plus, X,
     Users, Briefcase, ChevronDown, Search, Shield, Sparkles,
@@ -86,7 +87,7 @@ export default function HomeHero() {
         else setTripType('Day Trip');
     }, [activeTab]); // eslint-disable-line react-hooks/exhaustive-deps
 
-    const todayStr = format(new Date(), 'yyyy-MM-dd');
+    const todayStr = ksaToday(); // pickups are in Saudi Arabia
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();

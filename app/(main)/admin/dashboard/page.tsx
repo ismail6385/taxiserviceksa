@@ -15,6 +15,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { TEAM_DRIVERS } from '@/lib/team-drivers';
+import { ksaToday } from '@/lib/ksa-time';
 
 interface Booking {
     id: string;
@@ -138,8 +139,8 @@ export default function AdminDashboard() {
 
     // Pickup dates are Saudi dates, so "today" is today in Riyadh even when
     // the admin is checking from Pakistan or elsewhere.
-    const today       = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Riyadh' });
-    const tomorrowStr = new Date(Date.now() + 864e5).toLocaleDateString('en-CA', { timeZone: 'Asia/Riyadh' });
+    const today       = ksaToday();
+    const tomorrowStr = ksaToday(1);
     const dayLabel    = (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'short', timeZone: 'UTC' });
     const time12      = (t?: string) => {
         if (!t) return '—';

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { ksaToday } from '@/lib/ksa-time';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { sendMail } from '@/lib/mail-server';
 
@@ -12,9 +13,7 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-    const yesterdayStr = yesterday.toLocaleDateString('en-CA'); // YYYY-MM-DD
+    const yesterdayStr = ksaToday(-1); // YYYY-MM-DD, Saudi date
 
     // A trip "concluded yesterday" if its trip_end_date was yesterday
     // (multi-day package), or — when there's no trip_end_date — its

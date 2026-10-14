@@ -34,6 +34,7 @@ import { validateBookingForm, validateRoundTrip, DELIVERY_ITEM_TYPES } from '@/l
 
 import { countryCodes } from '@/data/countryCodes';
 import { format } from "date-fns";
+import { ksaToday } from '@/lib/ksa-time';
 import { Calendar as CalendarComponent } from "@/components/ui/calendar";
 import { BRAND } from '@/lib/brand-config';
 
@@ -654,7 +655,7 @@ export default function BookingFormContent({ prefilledData, className }: Booking
                                                 }
                                             }}
                                             disabled={(date) =>
-                                                date < new Date(new Date().setHours(0, 0, 0, 0))
+                                                format(date, 'yyyy-MM-dd') < ksaToday()
                                             }
                                             initialFocus
                                         />

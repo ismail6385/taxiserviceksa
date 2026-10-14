@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { ksaToday } from '@/lib/ksa-time';
 import { supabaseAdmin } from '@/lib/supabase-admin';
 import { sendMail } from '@/lib/mail-server';
 
@@ -29,9 +30,7 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    const tomorrowStr = tomorrow.toLocaleDateString('en-CA'); // YYYY-MM-DD
+    const tomorrowStr = ksaToday(1); // YYYY-MM-DD, Saudi date
 
     // Fetch confirmed bookings for tomorrow that haven't been reminded yet
     const { data: bookings, error } = await supabaseAdmin

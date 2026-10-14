@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
+import { ksaToday } from '@/lib/ksa-time';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight, Calendar, Clock, MapPin, Car, Users, ExternalLink } from 'lucide-react';
@@ -75,7 +76,7 @@ export default function AdminCalendarPage() {
     const prevMonthDays = new Date(year, month, 0).getDate();
 
     const monthName = currentDate.toLocaleString('default', { month: 'long', year: 'numeric' });
-    const today = new Date().toLocaleDateString('en-CA');
+    const today = ksaToday();
 
     const bookingsByDate: Record<string, Booking[]> = {};
     bookings.forEach(b => {

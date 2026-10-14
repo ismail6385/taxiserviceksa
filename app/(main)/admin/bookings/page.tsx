@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '@/lib/supabase';
 import { TEAM_DRIVERS } from '@/lib/team-drivers';
+import { ksaToday, ksaNowTime, shiftIsoDate } from '@/lib/ksa-time';
 import { parseBookingPaste, CHATGPT_BOOKING_PROMPT, PASTE_PLACEHOLDER } from '@/lib/booking-paste';
 import { adminFetch } from '@/lib/admin-fetch';
 import { useRouter } from 'next/navigation';
@@ -193,8 +194,7 @@ export default function BookingsPage() {
     
     // Quick Date filter helper
     const setQuickDate = (preset: 'today' | 'tomorrow' | 'week' | 'month' | 'all') => {
-        const today = new Date();
-        const todayStr = today.toLocaleDateString('en-CA');
+        const todayStr = ksaToday();
         
         switch (preset) {
             case 'today':
@@ -202,23 +202,16 @@ export default function BookingsPage() {
                 setEndDate(todayStr);
                 break;
             case 'tomorrow':
-                const tomorrow = new Date(today);
-                tomorrow.setDate(today.getDate() + 1);
-                const tomorrowStr = tomorrow.toLocaleDateString('en-CA');
-                setStartDate(tomorrowStr);
-                setEndDate(tomorrowStr);
+                setStartDate(ksaToday(1));
+                setEndDate(ksaToday(1));
                 break;
             case 'week':
                 setStartDate(todayStr);
-                const nextWeek = new Date(today);
-                nextWeek.setDate(today.getDate() + 7);
-                setEndDate(nextWeek.toLocaleDateString('en-CA'));
+                setEndDate(shiftIsoDate(todayStr, { days: 7 }));
                 break;
             case 'month':
                 setStartDate(todayStr);
-                const nextMonth = new Date(today);
-                nextMonth.setMonth(today.getMonth() + 1);
-                setEndDate(nextMonth.toLocaleDateString('en-CA'));
+                setEndDate(shiftIsoDate(todayStr, { months: 1 }));
                 break;
             case 'all':
                 setStartDate('');
@@ -256,7 +249,7 @@ export default function BookingsPage() {
         customer_phone: '',
         pickup_location: '',
         destination: '',
-        pickup_date: new Date().toISOString().split('T')[0],
+        pickup_date: ksaToday(),
         pickup_time: '12:00',
         trip_end_date: '',
         vehicle_type: 'Sedan',
@@ -844,7 +837,7 @@ export default function BookingsPage() {
                     customer_phone: '',
                     pickup_location: '',
                     destination: '',
-                    pickup_date: new Date().toISOString().split('T')[0],
+                    pickup_date: ksaToday(),
                     pickup_time: '12:00',
                     trip_end_date: '',
                     vehicle_type: 'Sedan',
@@ -937,7 +930,7 @@ export default function BookingsPage() {
 
         // Status Filter
         let matchesStatus = true;
-        const today = new Date().toLocaleDateString('en-CA');
+        const today = ksaToday();
         if (statusFilter === 'today') {
             matchesStatus = booking.pickup_date === today;
         } else if (statusFilter === 'upcoming') {
@@ -1393,7 +1386,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
         document.body.removeChild(link);
     };
 
-    const todayStr = new Date().toLocaleDateString('en-CA');
+    const todayStr = ksaToday();
     // Group by currency instead of summing everything as SAR — a KWD or AED
     // booking's total_price is not directly comparable to a SAR one.
     const todayRevenueByCurrency = bookings
@@ -1408,7 +1401,7 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
     
     const urgentCount = bookings.filter(b => {
         const isToday = b.pickup_date === todayStr;
-        const currentTime = new Date().getHours().toString().padStart(2, '0') + ":" + new Date().getMinutes().toString().padStart(2, '0');
+        const currentTime = ksaNowTime();
         const isOverdue = (b.pickup_date < todayStr || (isToday && b.pickup_time < currentTime)) && b.status === 'pending';
         return isOverdue || (isToday && b.status === 'pending');
     }).length;
@@ -1764,13 +1757,11 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                         ) : (
                             paginatedBookings.map((booking) => {
                                 const isSelected = selectedIds.includes(booking.id);
-                                const now = new Date();
-                                const todayStr = now.toLocaleDateString('en-CA');
-                                const currentTime = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
+                                const todayStr = ksaToday();
+                                const currentTime = ksaNowTime();
                                 
                                 const isToday = booking.pickup_date === todayStr;
-                                const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
-                                const isTomorrow = booking.pickup_date === tomorrow.toLocaleDateString('en-CA');
+                                const isTomorrow = booking.pickup_date === ksaToday(1);
                                 
                                 const isOverdue = (booking.pickup_date < todayStr || (isToday && booking.pickup_time < currentTime)) && 
                                                  booking.status === 'pending';
@@ -1988,13 +1979,11 @@ Please let us know if you would like to proceed with the booking. *Taxi Service 
                 ) : (
                     paginatedBookings.map((booking) => {
                         const isSelected = selectedIds.includes(booking.id);
-                        const now = new Date();
-                        const todayStr = now.toLocaleDateString('en-CA');
-                        const currentTime = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
+                        const todayStr = ksaToday();
+                        const currentTime = ksaNowTime();
 
                         const isToday = booking.pickup_date === todayStr;
-                        const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
-                        const isTomorrow = booking.pickup_date === tomorrow.toLocaleDateString('en-CA');
+                        const isTomorrow = booking.pickup_date === ksaToday(1);
 
                         const isOverdue = (booking.pickup_date < todayStr || (isToday && booking.pickup_time < currentTime)) &&
                             booking.status === 'pending';

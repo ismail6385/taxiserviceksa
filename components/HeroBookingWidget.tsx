@@ -1,6 +1,7 @@
 "use client";
 
 import { format } from 'date-fns';
+import { ksaToday } from '@/lib/ksa-time';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -31,7 +32,7 @@ export default function HeroBookingWidget({ title }: HeroBookingWidgetProps) {
         preferredTimeNote, setPreferredTimeNote, fieldErrors, setFieldErrors,
     } = flow;
 
-    const todayStr = format(new Date(), 'yyyy-MM-dd');
+    const todayStr = ksaToday(); // pickups are in Saudi Arabia
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();

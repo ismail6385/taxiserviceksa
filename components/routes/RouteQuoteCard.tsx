@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { format } from 'date-fns';
+import { ksaToday } from '@/lib/ksa-time';
 import { ArrowRight } from 'lucide-react';
 
 // Names must match the booking system's vehicle list (lib/supabase.ts).
@@ -69,7 +69,7 @@ export default function RouteQuoteCard({ title, cta, fromCity = '', toCity = '',
         return () => window.removeEventListener('routequote:set', onSet);
     }, []);
 
-    const today = format(new Date(), 'yyyy-MM-dd');
+    const today = ksaToday(); // pickups are in Saudi Arabia
 
     const submit = (e: React.FormEvent) => {
         e.preventDefault();
